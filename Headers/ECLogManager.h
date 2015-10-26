@@ -42,9 +42,12 @@
 - (void)saveChannelSettings;
 - (void)loadChannelSettings;
 - (void)loadSettings;
+- (unsigned long long)expectedSettingsVersionWithDefaultSettings:(id)arg1;
 - (id)defaultSettings;
 - (id)settingsFromBundle:(id)arg1;
 - (void)notifyDelegateOfStartup;
+- (void)processForcedChannels;
+- (void)finishStartup;
 - (void)shutdown;
 - (void)startup;
 - (id)init;

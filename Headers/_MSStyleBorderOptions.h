@@ -15,7 +15,7 @@
 @property(nonatomic) BOOL hasDashPattern; // @synthesize hasDashPattern=_hasDashPattern;
 @property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

@@ -1,17 +1,17 @@
 #import "MSPasteboardHelper.h"
 
-@class MSContentDrawView, NSArray;
+@class MSContentDrawView, MSLayerArray;
 
 @interface MSPasteboardReader : MSPasteboardHelper
 {
     BOOL _dropping;
     MSContentDrawView *_view;
-    NSArray *_originalSelectedLayers;
+    MSLayerArray *_originalSelectedLayers;
     struct CGPoint _dropPoint;
 }
 
 + (unsigned long long)importModeWithOptionKeyPressed:(BOOL)arg1;
-@property(retain, nonatomic) NSArray *originalSelectedLayers; // @synthesize originalSelectedLayers=_originalSelectedLayers;
+@property(retain, nonatomic) MSLayerArray *originalSelectedLayers; // @synthesize originalSelectedLayers=_originalSelectedLayers;
 @property(nonatomic) struct CGPoint dropPoint; // @synthesize dropPoint=_dropPoint;
 @property(nonatomic) BOOL dropping; // @synthesize dropping=_dropping;
 @property(retain, nonatomic) MSContentDrawView *view; // @synthesize view=_view;
@@ -26,6 +26,7 @@
 - (id)readEPS;
 - (id)textLayerFromString:(id)arg1;
 - (id)readStrings;
+- (struct CGRect)frameForImageWithSize:(struct CGSize)arg1 inGroup:(id)arg2;
 - (id)insertBitmapLayerWithImage:(id)arg1 intoGroup:(id)arg2 name:(id)arg3;
 - (id)readImage:(id)arg1 name:(id)arg2;
 - (id)readImage;

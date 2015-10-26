@@ -18,6 +18,7 @@
 - (void)dealloc;
 - (id)_init;
 - (id)windowNibName;
+- (void)closeSheet;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
 

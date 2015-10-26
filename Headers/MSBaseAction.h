@@ -3,23 +3,23 @@
 #import "MSPopToolbarItemActionObject.h"
 #import "NSMenuDelegate.h"
 
-@class MSActionValidation, MSActionsController, MSDocument, NSString;
+@class MSActionsController, MSDocument, NSString, NSToolbarItem;
 
 @interface MSBaseAction : NSResponder <NSMenuDelegate, MSPopToolbarItemActionObject>
 {
     MSDocument *_document;
     MSActionsController *_controller;
     id <MSBasicDelegate> _delegate;
-    MSActionValidation *_actionValidation;
+    NSToolbarItem *_toolbarItem;
 }
 
 + (id)actionForDocument:(id)arg1;
-@property(retain, nonatomic) MSActionValidation *actionValidation; // @synthesize actionValidation=_actionValidation;
+@property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSActionsController *controller; // @synthesize controller=_controller;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (id)validation;
+- (BOOL)isInNormalHandler;
 - (BOOL)isActive;
 - (BOOL)showInToolbar;
 - (id)image;

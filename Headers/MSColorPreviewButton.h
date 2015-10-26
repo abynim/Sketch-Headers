@@ -13,7 +13,6 @@
 @property(copy, nonatomic) NSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSStyleBasicFill *basicFill; // @synthesize basicFill=_basicFill;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)drawNoiseFillInRect:(struct CGRect)arg1;
 - (void)drawPatternFillInRect:(struct CGRect)arg1;
 - (void)drawGradientFillInRect:(struct CGRect)arg1;

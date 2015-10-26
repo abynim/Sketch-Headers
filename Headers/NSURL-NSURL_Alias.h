@@ -1,6 +1,6 @@
 #import "NSURL.h"
 
 @interface NSURL (NSURL_Alias)
-- (id)URLByResolvingSymlinksAndAliasesInPath;
+- (id)URLByResolvingSymlinksAndAliases;
 @end
 

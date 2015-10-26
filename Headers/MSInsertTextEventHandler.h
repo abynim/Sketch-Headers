@@ -17,8 +17,8 @@
 - (id)toolbarIdentifier;
 - (struct CGRect)rectForInsertingDirectly:(struct CGPoint)arg1;
 - (void)selectTextLayerAndEdit:(id)arg1;
-- (id)textLayerUnderMouse:(struct CGPoint)arg1;
-- (BOOL)tryToEditExistingTextLayer:(struct CGPoint)arg1;
+- (id)textLayerUnderMouse:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)tryToEditExistingTextLayer:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)groupForInserting;
 - (id)textLayerWithRect:(struct CGRect)arg1 type:(long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

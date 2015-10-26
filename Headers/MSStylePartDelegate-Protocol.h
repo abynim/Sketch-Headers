@@ -3,6 +3,5 @@
 @protocol MSStylePartDelegate <NSObject>
 - (BOOL)supportsAdvancedBorderSettings;
 - (BOOL)hasBitmapStylesEnabled;
-- (void)layerStyleDidChange;
 @end
 

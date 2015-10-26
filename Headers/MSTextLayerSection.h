@@ -57,6 +57,8 @@
 - (void)paragraphHeightAction:(id)arg1;
 - (void)lineHeightAction:(id)arg1;
 - (void)kerningAction:(id)arg1;
+- (void)putFocusOnTextView;
+- (void)colorInspectorWillClose:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)showColorPickerAction:(id)arg1;

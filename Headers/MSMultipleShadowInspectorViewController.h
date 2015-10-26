@@ -23,7 +23,7 @@
 - (void)loadViewControllers;
 - (BOOL)shouldHideAddStylePartButton;
 - (void)prepare;
-- (id)stylePartKeyPath;
+- (unsigned long long)stylePartType;
 
 @end
 

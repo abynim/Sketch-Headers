@@ -6,6 +6,9 @@
     SEL _bc_action;
 }
 
++ (id)lightShadow;
++ (id)darkShadow;
++ (void)drawFrameInRect:(struct CGRect)arg1 block:(CDUnknownBlockType)arg2;
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 - (void).cxx_destruct;
@@ -16,8 +19,6 @@
 - (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (struct CGRect)contentBounds;
 - (id)undoManager;
-- (id)lightShadow;
-- (id)darkShadow;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initInBounds:(struct CGRect)arg1;
 - (void)setAction:(SEL)arg1;

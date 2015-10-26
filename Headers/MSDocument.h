@@ -7,7 +7,7 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSSidebarViewController, MSSplitViewDelegate, MSToolbarConstructor, NSArray, NSDictionary, NSSplitView, NSString, NSTimer, NSView, NSWindow;
+@class MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSidebarViewController, MSSplitViewDelegate, MSToolbarConstructor, NSDictionary, NSSplitView, NSString, NSTimer, NSView, NSWindow;
 
 @interface MSDocument : NSDocument <NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
 {
@@ -27,7 +27,7 @@
     MSSidebarViewController *_sidebarController;
     MSIOSRefreshCollector *_refreshCollector;
     MSFontList *_fontList;
-    NSArray *_selectedLayers;
+    MSLayerArray *_selectedLayersA;
     NSDictionary *_collectedSharedObjects;
     NSTimer *_collectedSharedObjectsTimer;
     MSContentDrawViewController *_currentContentViewController;
@@ -43,7 +43,7 @@
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(retain, nonatomic) NSTimer *collectedSharedObjectsTimer; // @synthesize collectedSharedObjectsTimer=_collectedSharedObjectsTimer;
 @property(retain, nonatomic) NSDictionary *collectedSharedObjects; // @synthesize collectedSharedObjects=_collectedSharedObjects;
-@property(copy, nonatomic) NSArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
+@property(copy, nonatomic) MSLayerArray *selectedLayersA; // @synthesize selectedLayersA=_selectedLayersA;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(readonly, nonatomic) MSIOSRefreshCollector *refreshCollector; // @synthesize refreshCollector=_refreshCollector;
 @property(retain, nonatomic) MSSidebarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
@@ -82,7 +82,6 @@
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
 - (void)findLayer:(id)arg1;
-- (void)showCurrentArtboardPreview:(id)arg1;
 - (void)redoAction:(id)arg1;
 - (void)undoAction:(id)arg1;
 - (void)toggleLayersAndInspectorVisibility:(id)arg1;
@@ -142,11 +141,11 @@
 - (void)toggleLayerInteraction:(id)arg1;
 - (void)toggleLayerHighlight:(id)arg1;
 - (void)toggleSelection:(id)arg1;
-- (void)lockLayer:(id)arg1;
 - (void)toggleArtboardShadow:(id)arg1;
 - (void)togglePixelLines:(id)arg1;
 - (void)toggleAlignmentGuides:(id)arg1;
-- (void)validateMenuItemTitle:(id)arg1;
+- (void)validateMenuItemTitleAndState:(id)arg1;
+- (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)layerWouldOverlapExistingLayer:(id)arg1 inGroup:(id)arg2;
 - (void)offsetLayerIfNecessary:(id)arg1 forInsertingInGroup:(id)arg2;
@@ -164,7 +163,6 @@
 - (void)exportEnabledSliceLayers:(id)arg1;
 - (void)export:(id)arg1;
 - (id)selectedLayersOfClass:(Class)arg1;
-- (void)sendMessageToRootObject:(unsigned long long)arg1;
 - (void)returnToNormalHandler;
 - (void)currentHandlerChanged;
 @property(nonatomic) double zoomValue; // @dynamic zoomValue;
@@ -177,6 +175,7 @@
 - (void)loadInspectorPanel;
 - (void)windowWillEnterFullScreen:(id)arg1;
 - (void)awakeFromNib;
+- (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
 - (id)currentView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
@@ -191,6 +190,8 @@
 - (id)actionWithName:(id)arg1;
 - (id)actions;
 - (void)createActions;
+- (void)setSelectedLayers:(id)arg1;
+- (id)selectedLayers;
 - (id)init;
 - (id)exportFramer;
 - (void)hideMessage:(id)arg1;
@@ -214,6 +215,7 @@
 - (void)alertDocumentIsTooNew;
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
+- (id)imageFromPath:(id)arg1;
 - (id)addImageLayerFromPath:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 wasMigrated:(BOOL)arg3 error:(id *)arg4;
 - (BOOL)processValidationCode:(unsigned long long)arg1 wrapper:(id)arg2 missingFonts:(id)arg3;

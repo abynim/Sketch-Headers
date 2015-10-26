@@ -14,7 +14,6 @@
     BOOL _isDrawingPixelated;
     BOOL _shouldFlipShadows;
     BOOL _isDrawingMask;
-    BOOL _skipNextArtisticStroke;
     int _internalBlendMode;
     unsigned long long _disableDrawingFillsCounter;
     unsigned long long _disableClippingFillsCounter;
@@ -42,7 +41,6 @@
 @property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
 @property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
-@property(nonatomic) BOOL skipNextArtisticStroke; // @synthesize skipNextArtisticStroke=_skipNextArtisticStroke;
 @property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
 @property(nonatomic) BOOL shouldFlipShadows; // @synthesize shouldFlipShadows=_shouldFlipShadows;
 @property(nonatomic) double shadowScale; // @synthesize shadowScale=_shadowScale;
@@ -88,6 +86,7 @@
 - (void)concatTransform:(struct CGAffineTransform)arg1;
 - (void)dealloc;
 - (void)tearDown;
+- (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
 - (id)backingContext;
 - (void)setUp;
 @property(readonly, nonatomic) struct CGContext *contextRef; // @dynamic contextRef;

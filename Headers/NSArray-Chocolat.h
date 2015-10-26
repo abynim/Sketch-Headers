@@ -18,8 +18,8 @@
 - (id)copyDeep;
 - (BOOL)containsObjectOfClass:(Class)arg1;
 - (id)reversedArray;
+- (void)enumerateTailUsingBlock:(CDUnknownBlockType)arg1;
 - (id)tail;
-- (id)firstObject;
 - (id)filteredByObjectsOfClass:(Class)arg1;
 - (id)filterUsingBlockWithIndex:(CDUnknownBlockType)arg1;
 - (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;

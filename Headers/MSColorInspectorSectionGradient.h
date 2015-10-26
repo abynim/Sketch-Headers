@@ -3,7 +3,7 @@
 #import "MSGradientBarViewDelegate.h"
 #import "MSGradientEventHandlerDelegate.h"
 
-@class MSGradientBarView, MSGradientEventHandler, MSGradientFactory, NSButton, NSString;
+@class MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
 
 @interface MSColorInspectorSectionGradient : MSColorInspectorSection <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
@@ -12,18 +12,17 @@
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
     MSGradientEventHandler *_gradientHandler;
-    MSGradientFactory *_factory;
 }
 
-@property(retain, nonatomic) MSGradientFactory *factory; // @synthesize factory=_factory;
 @property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
 @property(retain, nonatomic) NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(retain, nonatomic) NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
 - (void).cxx_destruct;
+- (unsigned long long)assetType;
 - (void)dealloc;
 - (void)closeGradientHandler;
 - (void)popoverWillClose;
-- (id)gradients;
+- (id)linearGradients;
 - (id)rotateTransformForGradient:(id)arg1 angle:(double)arg2;
 - (void)rotateGradientsByAngle:(double)arg1;
 - (void)rotateRightAction:(id)arg1;
@@ -36,21 +35,20 @@
 - (void)gradientHandlerDidChangeCurrentPoint:(id)arg1;
 - (void)colorPickerChangedTo:(id)arg1;
 - (void)switchToGradientHandler;
-- (BOOL)pickerView:(id)arg1 acceptDrop:(id)arg2;
-- (BOOL)pickerViewSupportsDrop:(id)arg1;
-- (BOOL)pickerViewSupportsDrag:(id)arg1 fromIndex:(unsigned long long)arg2;
+- (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
+- (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
 - (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
-- (void)pickerView:(id)arg1 removePresetAtIndex:(unsigned long long)arg2;
 - (void)addPresetForPickerView:(id)arg1;
 - (void)drawContentForCellInPickerView:(id)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
 - (void)gradientBarAction:(id)arg1;
 - (long long)fillType;
 - (void)switchToGradientHandlerIfNecessary;
 - (void)validate;
-- (id)viewsWithColorPickerView:(id)arg1;
+- (id)assetPickerViewKeys;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
 - (void)gradientBarChanged:(id)arg1;
 - (void)awakeFromNib;
-- (id)init;
+- (id)initWithDelegate:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

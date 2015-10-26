@@ -1,10 +1,10 @@
 #import "NSObject.h"
 
-#import "NSNetServiceDelegate.h"
+#import "BCNetworkServiceDelegate.h"
 
-@class BCBonjourConnection, NSDictionary, NSNetService, NSString, NSUUID;
+@class BCBonjourConnection, BCNetworkService, NSDictionary, NSString, NSUUID;
 
-@interface BCBonjourProxy : NSObject <NSNetServiceDelegate>
+@interface BCBonjourProxy : NSObject <BCNetworkServiceDelegate>
 {
     CDUnknownBlockType _handler;
     NSUUID *_uuid;
@@ -15,7 +15,7 @@
     long long _state;
     long long _remoteState;
     BCBonjourConnection *_connection;
-    NSNetService *_service;
+    BCNetworkService *_service;
     NSDictionary *_extendedInfo;
 }
 
@@ -24,7 +24,7 @@
 + (id)keyPathsForValuesAffectingSystem;
 + (id)keyPathsForValuesAffectingConnected;
 @property(retain, nonatomic) NSDictionary *extendedInfo; // @synthesize extendedInfo=_extendedInfo;
-@property(retain, nonatomic) NSNetService *service; // @synthesize service=_service;
+@property(retain, nonatomic) BCNetworkService *service; // @synthesize service=_service;
 @property(retain, nonatomic) BCBonjourConnection *connection; // @synthesize connection=_connection;
 @property long long remoteState; // @synthesize remoteState=_remoteState;
 @property long long state; // @synthesize state=_state;
@@ -35,10 +35,7 @@
 @property(retain, nonatomic) NSUUID *uuid; // @synthesize uuid=_uuid;
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 - (void).cxx_destruct;
-- (void)netService:(id)arg1 didUpdateTXTRecordData:(id)arg2;
-- (void)netServiceDidResolveAddress:(id)arg1;
-- (void)netService:(id)arg1 didNotResolve:(id)arg2;
-- (void)updateInfo:(id)arg1;
+- (void)updateProxyWithSystemDictionary:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)sendMessage:(id)arg1;
 - (void)startConnecting;

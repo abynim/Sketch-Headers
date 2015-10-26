@@ -23,6 +23,7 @@
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (void)dealloc;
+- (BOOL)listView:(id)arg1 rowIsPartOfSymbol:(unsigned long long)arg2;
 - (void)deletePage:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)duplicatePage:(id)arg1;

@@ -13,6 +13,7 @@
 - (void)remove;
 - (id)parentLayer;
 - (id)initWithScale:(double)arg1 name:(id)arg2 format:(id)arg3;
+- (BOOL)isScalableExport;
 - (BOOL)isVectorExport;
 
 @end

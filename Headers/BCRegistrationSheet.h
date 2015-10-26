@@ -7,6 +7,7 @@
     NSTextField *licenseField;
 }
 
++ (void)showPopupForRegistrationResult:(long long)arg1;
 - (void).cxx_destruct;
 - (void)awakeFromNib;
 - (void)visitStore:(id)arg1;

@@ -10,10 +10,11 @@
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
 
++ (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
 - (id)rootForNameUniqueing;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1;
+- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveToEmptyLocation;
@@ -22,7 +23,7 @@
 - (id)parentRoot;
 - (id)parentArtboard;
 - (id)slice;
-- (struct CGRect)calculateDirtyRectForBounds;
+- (struct CGRect)calculateInfluenceRectForBounds;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
 - (BOOL)isLocked;
@@ -33,18 +34,22 @@
 - (BOOL)canBeContainedByGroup;
 - (BOOL)enableAutomaticScaling;
 - (BOOL)hasClickThrough;
-- (id)layersBelowPoint:(struct CGPoint)arg1 forceClickThrough:(BOOL)arg2 keepLockedLayers:(BOOL)arg3;
+- (id)layersBelowPoint:(struct CGPoint)arg1 forceClickThrough:(BOOL)arg2 keepLockedLayers:(BOOL)arg3 zoomValue:(double)arg4;
 - (void)setName:(id)arg1;
 - (id)defaultName;
-- (BOOL)hitTestInNameLabel:(struct CGPoint)arg1;
-- (BOOL)hitTest:(struct CGPoint)arg1;
+- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 force:(BOOL)arg2 zoomValue:(double)arg3;
+- (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)includeInLayersBelowPoint;
+- (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)defaultArtboardStyle;
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (void)invalidateLightweightCopy:(id)arg1;
 - (void)initEmptyObject;
+- (BOOL)canBeHidden;
 - (id)inspectorViewControllerNames;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (id)parentRootForAbsoluteRect;
+- (BOOL)canBePartOfSymbol;
 - (Class)rendererClass;
 
 // Remaining properties

@@ -34,7 +34,6 @@
 - (id)currentHandlerKey;
 - (id)currentHandler;
 - (void)drawInRect:(struct CGRect)arg1;
-- (void)dealloc;
 - (id)initWithDelegate:(id)arg1 undoManager:(id)arg2;
 
 @end

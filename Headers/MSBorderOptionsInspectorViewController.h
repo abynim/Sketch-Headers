@@ -21,7 +21,6 @@
 @property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (id)decorationForArrowType:(unsigned long long)arg1;
 - (void)fillDashPlaceholderFields;
 - (void)fillDashFields;
 - (void)dashPatternAction:(id)arg1;
@@ -31,8 +30,6 @@
 - (void)prepareDecorationButtons;
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;
-- (void)flipDecoration:(id)arg1;
-- (void)removeDecorationForLayer:(id)arg1 atPosition:(long long)arg2;
 - (void)reloadData;
 
 // Remaining properties

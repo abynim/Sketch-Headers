@@ -1,9 +1,10 @@
 #import "NSObject.h"
 
-@class MSContentDrawView, MSPage, NSArray;
+@class MSContentDrawView, MSLayerArray, MSPage, NSArray;
 
 @protocol MSBasicDelegate <NSObject>
 - (void)reloadLayerList;
+- (MSLayerArray *)selectedLayersA;
 - (NSArray *)selectedLayers;
 - (MSPage *)currentPage;
 - (MSContentDrawView *)currentView;

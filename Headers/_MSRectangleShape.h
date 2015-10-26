@@ -8,7 +8,7 @@
 
 @property(nonatomic) BOOL hasConvertedToNewRoundCorners; // @synthesize hasConvertedToNewRoundCorners=_hasConvertedToNewRoundCorners;
 @property(nonatomic) double fixedRadius; // @synthesize fixedRadius=_fixedRadius;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

@@ -5,7 +5,7 @@
 }
 
 + (id)groupForInserting:(id)arg1;
-+ (struct CGRect)rectForCenteringLayerInView:(id)arg1 delegate:(id)arg2;
++ (struct CGRect)rectForCenteringLayerWithSize:(struct CGSize)arg1 delegate:(id)arg2;
 
 @end
 

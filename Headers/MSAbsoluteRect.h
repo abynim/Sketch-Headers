@@ -24,7 +24,6 @@
 - (void)setY:(double)arg1;
 - (void)setX:(double)arg1;
 - (double)x;
-- (id)GKRect;
 - (BOOL)boundsContainsPoint:(struct CGPoint)arg1;
 - (id)bezierBoundsInAbsoluteCoordinates;
 - (struct CGRect)absoluteRect;

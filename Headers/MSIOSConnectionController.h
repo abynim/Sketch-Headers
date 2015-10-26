@@ -10,21 +10,21 @@
     NSMenu *_connectionMenu;
     MSDocument *_currentDocument;
     MSArtboardGroup *_currentArtboard;
+    unsigned long long _numberOfClientsKnownByUI;
 }
 
 + (BOOL)sketchPlayDebugEnabled;
 + (BOOL)sketchPlayEnabled;
+@property(nonatomic) unsigned long long numberOfClientsKnownByUI; // @synthesize numberOfClientsKnownByUI=_numberOfClientsKnownByUI;
 @property(retain, nonatomic) MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 @property(retain, nonatomic) MSDocument *currentDocument; // @synthesize currentDocument=_currentDocument;
 @property(retain, nonatomic) NSMenu *connectionMenu; // @synthesize connectionMenu=_connectionMenu;
 @property(retain, nonatomic) BCBonjourController *bonjourController; // @synthesize bonjourController=_bonjourController;
 - (void).cxx_destruct;
+- (BOOL)hasActiveConnections;
 - (void)handleCommandErrorWithReceiver:(id)arg1 message:(id)arg2;
 - (void)handleCommandShowingWithReceiver:(id)arg1 message:(id)arg2;
 - (void)handleCommandSystemWithReceiver:(id)arg1 message:(id)arg2;
-- (id)labelForConnectionButton;
-- (id)tooltipForConnectionButton;
-- (id)imageNameForConnectionButton;
 - (void)connectoToDefaultDeviceWithDocument:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)sendDebug:(id)arg1;
@@ -46,10 +46,18 @@
 - (void)pagesChangedNotification:(id)arg1;
 - (void)stopListeningForNotifications;
 - (void)listenForNotifications;
+- (void)connectToClientAtIndex:(unsigned long long)arg1;
+- (BOOL)isClientConnected:(unsigned long long)arg1;
+- (void)addClientWithIP:(id)arg1 port:(int)arg2;
+- (id)imageForClient:(unsigned long long)arg1;
+- (id)nameForClient:(unsigned long long)arg1;
+- (unsigned long long)numberOfClients;
 - (BOOL)hasMultipleClients;
 - (BOOL)hasClients;
 - (BOOL)gotConnections;
 - (void)setupBonjourController;
+- (void)didShowNewDevices;
+- (BOOL)showNewDevicesIndicatorInUI;
 - (void)dealloc;
 - (id)init;
 - (void)setSketchPlayUsed;

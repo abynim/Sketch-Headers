@@ -8,7 +8,7 @@
 
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

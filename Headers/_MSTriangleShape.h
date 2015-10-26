@@ -1,12 +1,12 @@
-#import "MSCustomShapeLayer.h"
+#import "MSShapePathLayer.h"
 
-@interface _MSTriangleShape : MSCustomShapeLayer
+@interface _MSTriangleShape : MSShapePathLayer
 {
     BOOL _isEquilateral;
 }
 
 @property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

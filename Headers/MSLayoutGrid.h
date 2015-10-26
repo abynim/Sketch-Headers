@@ -22,9 +22,9 @@
 - (void)drawRowInRect:(struct CGRect)arg1 zoom:(double)arg2;
 - (void)drawColumnInRect:(struct CGRect)arg1 zoom:(double)arg2;
 - (void)drawInRect:(struct CGRect)arg1 baseLine:(struct CGPoint)arg2 atZoom:(double)arg3;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 
 @end
 

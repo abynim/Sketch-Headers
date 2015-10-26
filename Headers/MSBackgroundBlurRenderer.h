@@ -15,10 +15,8 @@
 @property(nonatomic) __weak MSRenderingContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)blur;
-- (id)clampImage:(id)arg1;
 - (void)renderCanvasImageInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (struct CGRect)absoluteRectForLayer:(id)arg1 context:(id)arg2;
-- (id)canvasImageWithContext:(id)arg1;
 - (void)clearBackgroundBehindBlur;
 - (void)blurBackgroundWithContext:(id)arg1;
 

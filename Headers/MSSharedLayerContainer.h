@@ -5,6 +5,9 @@
 }
 
 - (id)layersToIterateOver;
+- (id)keyForPreservingTextLayer:(id)arg1;
+- (void)restoreTextOnInstance:(id)arg1 preservedText:(id)arg2;
+- (id)preservedTextForSyncingInstance:(id)arg1 withTemplate:(id)arg2;
 - (void)syncInstance:(id)arg1 withTemplateInstance:(id)arg2 referenceInstance:(id)arg3;
 - (id)fixedObjectIDsForTemplateInstance:(id)arg1;
 - (BOOL)canMakeSymbolForLayers:(id)arg1;

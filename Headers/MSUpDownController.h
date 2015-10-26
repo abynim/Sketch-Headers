@@ -8,12 +8,9 @@
     BOOL didChangeTextDuringEditing;
     NSTextField<MSUpDownProtocol> *_textField;
     MSIntegratedStepper *_stepper;
-    double _incrementValue;
-    double _forcedMinimum;
 }
 
-@property(nonatomic) double forcedMinimum; // @synthesize forcedMinimum=_forcedMinimum;
-@property(nonatomic) double incrementValue; // @synthesize incrementValue=_incrementValue;
++ (void)initialize;
 @property(retain, nonatomic) MSIntegratedStepper *stepper; // @synthesize stepper=_stepper;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *textField; // @synthesize textField=_textField;
 - (void).cxx_destruct;
@@ -27,6 +24,7 @@
 - (void)decrement;
 - (double)adjustValueForMaximum:(double)arg1;
 - (void)increment;
+- (double)incrementValue;
 - (void)keyUp;
 - (void)setFloatValueAndNotifyBindings:(double)arg1;
 - (void)cancelOperation:(id)arg1;
@@ -41,7 +39,7 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)makeStepper;
-- (id)initWithTextField:(id)arg1 incrementValue:(double)arg2 createStepper:(BOOL)arg3 minimumValue:(double)arg4;
+- (id)initWithTextField:(id)arg1 createStepper:(BOOL)arg2;
 
 @end
 

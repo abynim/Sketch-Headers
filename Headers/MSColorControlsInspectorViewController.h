@@ -4,5 +4,7 @@
 {
 }
 
+- (void)reset:(id)arg1;
+
 @end
 

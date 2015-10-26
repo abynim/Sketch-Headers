@@ -1,24 +1,33 @@
 #import "CHSheetController.h"
 
-@class MSDocument, NSTextField;
+@class NSDictionary, NSTextField, NSTimer;
 
 @interface MSResizeSheet : CHSheetController
 {
-    NSTextField *scalingField;
-    NSTextField *newWidthField;
-    NSTextField *newHeightField;
-    NSTextField *labelField;
     double _scale;
-    MSDocument *_doc;
+    NSTextField *_scalingField;
+    NSTextField *_widthField;
+    NSTextField *_heightField;
+    NSTextField *_labelField;
+    NSDictionary *_selectedObjectsBackup;
+    NSTimer *_refreshTimer;
+    struct CGRect _originalRect;
 }
 
-@property(retain, nonatomic) MSDocument *doc; // @synthesize doc=_doc;
+@property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
+@property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
+@property(retain, nonatomic) NSDictionary *selectedObjectsBackup; // @synthesize selectedObjectsBackup=_selectedObjectsBackup;
+@property(retain, nonatomic) NSTextField *labelField; // @synthesize labelField=_labelField;
+@property(retain, nonatomic) NSTextField *heightField; // @synthesize heightField=_heightField;
+@property(retain, nonatomic) NSTextField *widthField; // @synthesize widthField=_widthField;
+@property(retain, nonatomic) NSTextField *scalingField; // @synthesize scalingField=_scalingField;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 - (void).cxx_destruct;
-- (id)selectedLayers;
-- (struct CGPoint)midPointForScaling;
+- (id)doc;
+- (void)restoreCurrentPage;
+- (void)scaleSelectedObjects;
+- (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
-- (struct CGRect)oldRect;
 - (void)didChangeValues;
 - (void)willChangeValues;
 @property(nonatomic) double height; // @dynamic height;

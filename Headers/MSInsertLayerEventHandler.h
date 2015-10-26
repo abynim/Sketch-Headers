@@ -20,8 +20,8 @@
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)currentGroup;
 - (void)insertNewLayerInCurrentGroup:(id)arg1;
-- (id)insertAsNewLayer:(id)arg1;
-- (id)performActionWithRect:(id)arg1;
+- (id)insertAsNewLayer:(struct CGRect)arg1;
+- (id)performActionWithRect:(struct CGRect)arg1;
 - (void)drawRectPreview;
 - (id)imageName;
 - (void)handlerWillLoseFocus;

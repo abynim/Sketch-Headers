@@ -12,10 +12,12 @@
     id <BCPopoverDelegate> _delegate;
     BCPopoverWindow *_window;
     NSView *_attachedToView;
+    long long _layerDependency;
     unsigned long long _preferredEdge;
 }
 
 @property(nonatomic) unsigned long long preferredEdge; // @synthesize preferredEdge=_preferredEdge;
+@property(nonatomic) long long layerDependency; // @synthesize layerDependency=_layerDependency;
 @property(nonatomic) BOOL constrainToScreenSize; // @synthesize constrainToScreenSize=_constrainToScreenSize;
 @property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;
 @property(retain, nonatomic) BCPopoverWindow *window; // @synthesize window=_window;

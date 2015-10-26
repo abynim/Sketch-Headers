@@ -19,7 +19,6 @@
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (struct CGPoint)scrollOrigin;
 - (void)drawZoomTool;
 - (struct CGRect)scaledArtboardRect:(id)arg1;

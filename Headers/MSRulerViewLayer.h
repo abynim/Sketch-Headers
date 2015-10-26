@@ -5,7 +5,7 @@
 @interface MSRulerViewLayer : CALayer
 {
     BOOL _shouldDrawGuides;
-    long long _axis;
+    unsigned long long _axis;
     NSNumberFormatter *_formatter;
     NSColor *_snapColor;
     double _zoomValue;
@@ -23,7 +23,7 @@
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(retain, nonatomic) NSColor *snapColor; // @synthesize snapColor=_snapColor;
 @property(retain, nonatomic) NSNumberFormatter *formatter; // @synthesize formatter=_formatter;
-@property(nonatomic) long long axis; // @synthesize axis=_axis;
+@property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void).cxx_destruct;
 - (BOOL)isFlipped;
 - (long long)rulerHeight;

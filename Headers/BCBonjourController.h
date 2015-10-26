@@ -17,10 +17,11 @@
 @property(copy, nonatomic) CDUnknownBlockType handler; // @synthesize handler=_handler;
 @property(retain, nonatomic) NSArray *clients; // @synthesize clients=_clients;
 - (void).cxx_destruct;
-- (void)setAutoConnectForClient:(id)arg1 value:(BOOL)arg2;
+- (void)shouldAutoConnect:(BOOL)arg1 forClient:(id)arg2;
 - (BOOL)shouldAutoConnectClient:(id)arg1;
 - (unsigned long long)indexOfClientWithName:(id)arg1;
 - (void)removeClientForService:(id)arg1;
+- (void)addClientWithIP:(id)arg1 port:(int)arg2;
 - (id)addClientForService:(id)arg1;
 - (void)removeObjectFromClientsAtIndex:(unsigned long long)arg1;
 - (void)insertObject:(id)arg1 inClientsAtIndex:(unsigned long long)arg2;
@@ -28,6 +29,7 @@
 - (BOOL)hasConnections;
 @property(readonly, nonatomic) NSArray *availableClients;
 @property(readonly, nonatomic) NSArray *connectedClients;
+- (void)foundClientWithService:(id)arg1 forceAutoConnect:(BOOL)arg2;
 - (void)cleanup;
 - (id)initWithHandler:(CDUnknownBlockType)arg1;
 

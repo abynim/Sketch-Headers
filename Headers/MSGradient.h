@@ -1,6 +1,10 @@
 #import "_MSGradient.h"
 
-@interface MSGradient : _MSGradient
+#import "MSAsset.h"
+
+@class NSString;
+
+@interface MSGradient : _MSGradient <MSAsset>
 {
     BOOL _svgPositionIsAbsolute;
 }
@@ -26,7 +30,7 @@
 - (void)rotatePointsBy:(long long)arg1;
 - (void)invert;
 - (id)NSGradientWithColorSpace:(id)arg1;
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (void)invalidateLightweightCopy:(id)arg1;
 - (BOOL)canSmoothOpacity;
 - (id)gradientFromStops:(id)arg1 colorSpace:(id)arg2;
 - (BOOL)hasDefaultValues;
@@ -38,7 +42,9 @@
 - (id)linearCSSGradientStringWithMasterAlpha:(double)arg1;
 - (id)gradientStringWithMasterAlpha:(double)arg1;
 - (id)CSSAttributeStringWithMasterAlpha:(double)arg1;
+- (BOOL)hasAlphaStop;
 - (id)elipseTransformInRect:(struct CGRect)arg1;
+- (unsigned long long)assetType;
 - (id)NSGradientForContext:(id)arg1;
 - (void)setHasDonePreRenderingForContext:(id)arg1;
 - (BOOL)hasDonePreRenderingForContext:(id)arg1;
@@ -55,7 +61,10 @@
 - (id)angularGradientImageInRect:(struct CGRect)arg1 context:(id)arg2 shouldCache:(BOOL)arg3;
 
 // Remaining properties
-@property(nonatomic) BOOL shouldSmoothenOpacity;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

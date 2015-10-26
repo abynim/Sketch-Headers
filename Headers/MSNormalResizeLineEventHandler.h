@@ -1,17 +1,17 @@
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayerSnapper, MSNormalEventData, MSShapeGroup;
+@class MSNormalEventData, MSShapeGroup, MSSnapper;
 
 @interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler
 {
     MSShapeGroup *_lineShape;
     long long _pointIndex;
-    MSLayerSnapper *_layerSnapper;
+    MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
 }
 
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
-@property(retain, nonatomic) MSLayerSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
+@property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
 @property(nonatomic) long long pointIndex; // @synthesize pointIndex=_pointIndex;
 @property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
 - (void).cxx_destruct;

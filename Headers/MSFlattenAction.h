@@ -5,7 +5,6 @@
 }
 
 - (id)tooltip;
-- (void)flattenShape:(id)arg1;
 - (BOOL)shouldWarnAboutFlattening;
 - (void)flattenIgnoringWarning;
 - (void)doFlatten;

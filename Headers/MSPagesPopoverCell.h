@@ -19,7 +19,6 @@
 @property(nonatomic) __weak id <MSPagesPopoverCellDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak NSView *placeholderImageView; // @synthesize placeholderImageView=_placeholderImageView;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)pageNameEditAction:(id)arg1;
 - (void)setImage:(id)arg1;
 - (void)setIsSelected:(BOOL)arg1;

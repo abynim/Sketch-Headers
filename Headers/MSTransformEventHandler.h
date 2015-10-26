@@ -4,7 +4,6 @@
 
 @interface MSTransformEventHandler : MSPointsEventHandler
 {
-    MSShapeDictionary *shapeDictionary;
     MSLayerGroup *currentGroup;
     struct CGRect originalRect;
     unsigned long long directionLock;
@@ -12,15 +11,16 @@
     DKDistortionTransform *_transform;
     MSPointArray *_transformPoints;
     MSPointArray *_mouseDownPoints;
+    MSShapeDictionary *_shapeDictionary;
     NSMutableArray *_originalPoints;
 }
 
 @property(retain, nonatomic) NSMutableArray *originalPoints; // @synthesize originalPoints=_originalPoints;
+@property(retain, nonatomic) MSShapeDictionary *shapeDictionary; // @synthesize shapeDictionary=_shapeDictionary;
 @property(retain, nonatomic) MSPointArray *mouseDownPoints; // @synthesize mouseDownPoints=_mouseDownPoints;
 @property(retain, nonatomic) MSPointArray *transformPoints; // @synthesize transformPoints=_transformPoints;
 @property(retain, nonatomic) DKDistortionTransform *transform; // @synthesize transform=_transform;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)concatTransformsForDrawSnaps;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
 - (BOOL)shouldDrawLayerSelection;
@@ -33,7 +33,7 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
-- (id)bounds;
+- (struct CGRect)bounds;
 - (id)currentGroup;
 - (void)movePointsRelatedToCorner:(long long)arg1 newLocation:(struct CGPoint)arg2 previous:(struct CGPoint)arg3;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;

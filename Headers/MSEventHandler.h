@@ -13,14 +13,18 @@
     id <MSBasicDelegate> _delegate;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
+    struct CGPoint _viewCoordinateMouse;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
+@property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (double)nudgeDistanceForFlags:(unsigned long long)arg1;
+- (BOOL)canDuplicate;
 - (void)refreshRulers;
 - (void)redo;
 - (void)undo;
@@ -60,6 +64,7 @@
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (BOOL)shouldDrawLayerSelection;
+- (id)selectedLayersA;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
@@ -85,7 +90,6 @@
 - (void)cut:(id)arg1;
 - (void)readFromPasteboard:(id)arg1 importMode:(unsigned long long)arg2;
 - (void)writeLayers:(id)arg1 toPasteboard:(id)arg2;
-- (void)writeToPasteboard:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (id)menuForEvent:(id)arg1;
@@ -139,6 +143,9 @@
 - (id)view;
 - (id)nibName;
 - (id)initWithManager:(id)arg1;
+- (struct CGPoint)mouseCappedInViewCoordinatesWithMargin:(struct CGSize)arg1;
+- (void)drawMeasurementsLabelAtMouseForSize:(struct CGSize)arg1;
+- (void)refreshMeasurementsLabel;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

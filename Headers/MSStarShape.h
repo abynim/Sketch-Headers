@@ -6,7 +6,6 @@
 {
 }
 
-- (BOOL)shouldResetPointsOnResize;
 - (void)resetPoints;
 - (id)defaultName;
 - (struct CGRect)boundsForCursorPreview;

@@ -6,7 +6,7 @@
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSIOSConnectionController, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSURL;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSIOSConnectionController, MSPersistentAssetCollection, MSPluginCommand, MSPluginCommandSpecifier, MSPluginManager, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSURL;
 
 @interface AppController : NSObject <NSApplicationDelegate, BITHockeyManagerDelegate, BITCrashManagerDelegate, NSWindowDelegate, NSMenuDelegate>
 {
@@ -21,12 +21,23 @@
     NSString *_scriptPath;
     NSURL *_crashLogURL;
     NSMutableArray *_crashLog;
-    id _lastRunPlugin;
+    MSPluginCommandSpecifier *_lastRunPluginSpecifier;
+    MSPluginCommand *_lastRunPluginScriptCommand;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
+    BCLicenseManager *_licenseManager;
+    MSPersistentAssetCollection *_globalAssets;
+    MSPluginManager *_pluginManager;
+    ECLogManagerMacUISupport *_logSupport;
 }
 
++ (id)licenseManager;
+@property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
+@property(retain, nonatomic) MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
+@property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
+@property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
-@property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
+@property(retain, nonatomic) MSPluginCommand *lastRunPluginScriptCommand; // @synthesize lastRunPluginScriptCommand=_lastRunPluginScriptCommand;
+@property(retain, nonatomic) MSPluginCommandSpecifier *lastRunPluginSpecifier; // @synthesize lastRunPluginSpecifier=_lastRunPluginSpecifier;
 @property(retain, nonatomic) NSMutableArray *crashLog; // @synthesize crashLog=_crashLog;
 @property(retain, nonatomic) NSURL *crashLogURL; // @synthesize crashLogURL=_crashLogURL;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
@@ -48,9 +59,10 @@
 - (void)editPlugin:(id)arg1;
 - (void)runPlugin:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)buyInAppStore:(id)arg1;
+- (id)lastRunScript;
+- (void)setupLicenseManager;
+- (void)buy:(id)arg1;
 - (id)majorVersion;
-- (id)subTextForRegistration;
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
 - (void)feedback:(id)arg1;
@@ -71,7 +83,9 @@
 - (void)showReleaseNotesWindow:(id)arg1;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
+- (void)applicationWillTerminate:(id)arg1;
 - (void)applicationWillFinishLaunching:(id)arg1;
+- (void)licenseStateChanged;
 - (void)awakeFromNib;
 - (void)welcomeToSketch:(id)arg1;
 - (void)showMainApplicationWindow;
@@ -80,9 +94,13 @@
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
+- (id)runPluginScript:(id)arg1 name:(id)arg2;
 - (id)runPluginScript:(id)arg1;
 - (id)runPluginAtURL:(id)arg1;
+- (id)runPluginCommand:(id)arg1;
+- (id)pluginContext;
 - (id)evaluateScript:(id)arg1;
+- (void)buildPluginsMenu:(id)arg1;
 - (BOOL)isSparkleUsed;
 - (void)checkForUpdates:(id)arg1;
 - (void)startHockeyAppTracking;

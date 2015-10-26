@@ -19,7 +19,6 @@
 @property(copy, nonatomic) NSString *searchTerm; // @synthesize searchTerm=_searchTerm;
 @property(retain, nonatomic) MSSourceListView *listView; // @synthesize listView=_listView;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (BOOL)itemIsExpanded:(id)arg1;
 - (BOOL)shouldIncludeLayerAccordingToSearch:(id)arg1;
 - (BOOL)shouldIncludeLayerInPreliminarySweep:(id)arg1;

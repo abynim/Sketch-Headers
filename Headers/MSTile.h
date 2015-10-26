@@ -29,8 +29,8 @@
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
 @property(retain, nonatomic) MSContentTile *contentTile; // @synthesize contentTile=_contentTile;
 @property(retain, nonatomic) MSOverlayTile *overlayTile; // @synthesize overlayTile=_overlayTile;
-@property(nonatomic) __weak MSContentDrawView *parentView; // @synthesize parentView=_parentView;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
+@property(nonatomic) __weak MSContentDrawView *parentView; // @synthesize parentView=_parentView;
 @property(nonatomic) __weak id <MSTileDelegate> tileDelegate; // @synthesize tileDelegate=_tileDelegate;
 @property(retain, nonatomic) MSEventHandlerManager *handlerManager; // @synthesize handlerManager=_handlerManager;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;

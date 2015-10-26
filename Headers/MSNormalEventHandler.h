@@ -1,6 +1,6 @@
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, NSArray, NSMutableDictionary;
+@class MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, NSArray, NSMapTable, NSMutableDictionary;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler
 {
@@ -16,11 +16,13 @@
     id _duplicatedObjectID;
     NSMutableDictionary *_originalDraggedLocations;
     NSArray *_duplicatedLayers;
+    NSMapTable *_layerOrigins;
     struct CGSize _duplicateOffset;
     struct CGPoint _duplicateOrigin;
     struct CGPoint _lastMouseMoved;
 }
 
+@property(retain, nonatomic) NSMapTable *layerOrigins; // @synthesize layerOrigins=_layerOrigins;
 @property(retain, nonatomic) NSArray *duplicatedLayers; // @synthesize duplicatedLayers=_duplicatedLayers;
 @property(nonatomic) BOOL didDuplicateWhenMovingLayers; // @synthesize didDuplicateWhenMovingLayers=_didDuplicateWhenMovingLayers;
 @property(retain, nonatomic) NSMutableDictionary *originalDraggedLocations; // @synthesize originalDraggedLocations=_originalDraggedLocations;
@@ -69,7 +71,6 @@
 - (id)layerBelowPoint:(struct CGPoint)arg1 forceClickthrough:(BOOL)arg2;
 - (void)deselectAllLayers;
 - (id)allLayersWithForcedClickThrough:(BOOL)arg1;
-- (id)selectedLayers;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
@@ -97,7 +98,7 @@
 - (void)mouseExited;
 - (void)selectLayer:(id)arg1;
 - (void)mouseDraggedSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (id)rectForDragSelectionOrZoom:(struct CGPoint)arg1;
+- (struct CGRect)rectForDragSelectionOrZoom:(struct CGPoint)arg1;
 - (void)moveLayer:(id)arg1 from:(struct CGPoint)arg2 inAbsoluteCoodinatesBy:(struct CGPoint)arg3;
 - (void)mouseDraggedMoveLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;
@@ -111,7 +112,6 @@
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)toolbarIdentifier;
-- (void)dealloc;
 - (id)initWithManager:(id)arg1;
 
 @end

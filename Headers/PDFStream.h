@@ -15,6 +15,7 @@
 @property(nonatomic) int format; // @synthesize format=_format;
 @property(nonatomic) struct CGPDFStream *stream; // @synthesize stream=_stream;
 - (void).cxx_destruct;
+- (void)getDataAndFormat;
 - (id)initWithStream:(struct CGPDFStream *)arg1;
 
 @end

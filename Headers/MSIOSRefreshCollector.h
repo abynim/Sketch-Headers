@@ -17,7 +17,6 @@
 - (void).cxx_destruct;
 - (id)totalRectForArtboard:(id)arg1;
 - (void)timerFired:(id)arg1;
-- (id)dirtyRectsForArtboard:(id)arg1;
 - (void)collectRefreshRect:(struct CGRect)arg1 onArtboard:(id)arg2;
 - (void)collectRefreshRect:(struct CGRect)arg1 page:(id)arg2;
 - (BOOL)shouldCollectRefreshes;

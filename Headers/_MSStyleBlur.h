@@ -12,7 +12,7 @@
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

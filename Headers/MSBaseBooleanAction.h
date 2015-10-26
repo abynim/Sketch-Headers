@@ -5,7 +5,6 @@
 }
 
 - (id)tooltip;
-- (id)validation;
 - (BOOL)hasShapePartsSelected;
 - (BOOL)validate;
 

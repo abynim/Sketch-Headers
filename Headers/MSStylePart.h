@@ -13,6 +13,8 @@
 - (void)multiplyBy:(double)arg1;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
+- (id)topViewForColorInspector:(id)arg1;
+- (id)blendingViewForColorInspector:(id)arg1;
 
 @end
 

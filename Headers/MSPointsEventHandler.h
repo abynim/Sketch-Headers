@@ -43,7 +43,7 @@
 - (struct CGPoint)relMouse:(struct CGPoint)arg1;
 - (BOOL)shouldDrawLayerSelection;
 - (void)sendUpdate;
-- (id)bounds;
+- (struct CGRect)bounds;
 - (id)points;
 - (void)setLayer:(id)arg1;
 - (void)handlerWillLoseFocus;

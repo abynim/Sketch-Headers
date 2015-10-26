@@ -13,7 +13,7 @@
     MSRulerData *_rulerData;
     MSDocument *_document;
     MSContentDrawView *_contentView;
-    long long _axis;
+    unsigned long long _axis;
     double _temporaryRulerGuide;
     MSRulerViewLayer *_rulerViewLayer;
     struct CGPoint _mouseDownPoint;
@@ -21,7 +21,7 @@
 
 @property(retain, nonatomic) MSRulerViewLayer *rulerViewLayer; // @synthesize rulerViewLayer=_rulerViewLayer;
 @property(nonatomic) double temporaryRulerGuide; // @synthesize temporaryRulerGuide=_temporaryRulerGuide;
-@property(nonatomic) long long axis; // @synthesize axis=_axis;
+@property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
 @property(nonatomic) BOOL mouseDidDrag; // @synthesize mouseDidDrag=_mouseDidDrag;
 @property(nonatomic) __weak MSContentDrawView *contentView; // @synthesize contentView=_contentView;
@@ -50,7 +50,7 @@
 - (void)refreshGuideInDrawViewAtIndex:(unsigned long long)arg1;
 - (void)turnAlignmentGuidesBackOn;
 - (void)mouseUp:(id)arg1;
-- (id)rulerBasedRectForLayer:(id)arg1;
+- (struct CGRect)rulerBasedRectForLayer:(id)arg1;
 - (double)snapGuideToSelectedLayers:(double)arg1;
 - (double)guidePositionForMouse:(struct CGPoint)arg1;
 - (void)showAppropriateCursorForMouse:(struct CGPoint)arg1;

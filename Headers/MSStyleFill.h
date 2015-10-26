@@ -14,8 +14,10 @@
 - (void)setPatternImage:(id)arg1 collection:(id)arg2;
 - (id)defaultName;
 - (void)initEmptyObject;
+- (id)topViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
 - (void)setPatternImage:(id)arg1;
+- (void)updateColorCounter:(id)arg1;
 - (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
 
 @end

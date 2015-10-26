@@ -10,7 +10,7 @@
 @property(nonatomic) double start; // @synthesize start=_start;
 @property(nonatomic) double size; // @synthesize size=_size;
 @property(nonatomic) double compactness; // @synthesize compactness=_compactness;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

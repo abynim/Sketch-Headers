@@ -3,17 +3,21 @@
 #import "NSOutlineViewDataSource.h"
 #import "NSOutlineViewDelegate.h"
 
-@class MSEditArtboardPresetViewController, NSMutableArray, NSOutlineView, NSString;
+@class MSEditArtboardPresetViewController, NSArray, NSMutableArray, NSOutlineView, NSString;
 
 @interface MSInsertArtboardEventHandler : MSInsertLayerEventHandler <NSOutlineViewDataSource, NSOutlineViewDelegate>
 {
     NSOutlineView *_outlineView;
-    NSMutableArray *_presets;
+    NSArray *_systemPresets;
+    NSMutableArray *_userPresets;
     MSEditArtboardPresetViewController *_editor;
+    NSArray *_rootPresetArray;
 }
 
+@property(retain, nonatomic) NSArray *rootPresetArray; // @synthesize rootPresetArray=_rootPresetArray;
 @property(retain, nonatomic) MSEditArtboardPresetViewController *editor; // @synthesize editor=_editor;
-@property(retain, nonatomic) NSMutableArray *presets; // @synthesize presets=_presets;
+@property(retain, nonatomic) NSMutableArray *userPresets; // @synthesize userPresets=_userPresets;
+@property(retain, nonatomic) NSArray *systemPresets; // @synthesize systemPresets=_systemPresets;
 @property(retain, nonatomic) NSOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void).cxx_destruct;
 - (BOOL)shouldHideExportBar;
@@ -22,7 +26,7 @@
 - (struct CGRect)initialRectForNewArtboard:(struct CGSize)arg1 besidesExistingArtboard:(id)arg2;
 - (struct CGRect)newPositionForSecondArtboardWithSize:(struct CGSize)arg1;
 - (struct CGRect)newPositionForArtboardWithSize:(struct CGSize)arg1;
-- (id)rectOfSelectedLayers;
+- (struct CGRect)rectOfSelectedLayers;
 - (struct CGSize)sizeForPreset:(id)arg1;
 - (void)insertArtboardFromPreset:(id)arg1;
 - (void)focusCanvasOnAllArtboards;
@@ -47,13 +51,15 @@
 - (void)deletePresetItem:(id)arg1;
 - (void)deleteRowAction:(id)arg1;
 - (void)editRowAction:(id)arg1;
-- (id)performActionWithRect:(id)arg1;
-- (id)legacyPresetsPath;
-- (id)presetsPath;
+- (id)performActionWithRect:(struct CGRect)arg1;
+- (id)systemPresetsURL;
+- (id)userPresetsURL;
 - (BOOL)shouldAddInsertFromSelectionItem;
+- (BOOL)itemIsUserPreset:(id)arg1;
+- (id)menuForItem:(id)arg1;
+- (void)reloadRootPresetsArray;
 - (void)loadArtboardPresets;
 - (void)save;
-- (void)copyPresetsToLibraryIfNecessary;
 - (void)handlerWillLoseFocus;
 - (void)reloadData;
 - (unsigned long long)inspectorLocation;

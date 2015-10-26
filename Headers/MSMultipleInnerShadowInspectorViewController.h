@@ -7,7 +7,7 @@
 - (void)awakeFromNib;
 - (id)nibName;
 - (BOOL)shouldHideAddStylePartButton;
-- (id)stylePartKeyPath;
+- (unsigned long long)stylePartType;
 
 @end
 

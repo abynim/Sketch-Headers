@@ -16,7 +16,7 @@
 - (void).cxx_destruct;
 - (BOOL)performDragOperation:(id)arg1;
 - (double)startOffsetForStacking;
-- (id)destinationFramesForSubviewsForAxis:(id)arg1;
+- (id)destinationFramesForSubviewsForAxis:(unsigned long long)arg1;
 - (void)reorderSubviewsAnimated:(BOOL)arg1;
 - (id)draggingView;
 - (unsigned long long)numberOfReorderableSubviews;

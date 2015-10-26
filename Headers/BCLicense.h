@@ -1,31 +1,38 @@
 #import "NSObject.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface BCLicense : NSObject
 {
-    NSDictionary *payload;
-    NSDictionary *metadata;
+    NSString *_applicationID;
+    NSDictionary *_payload;
+    NSDictionary *_metadata;
+    NSString *_publicCertificate;
 }
 
-@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata;
-@property(retain, nonatomic) NSDictionary *payload; // @synthesize payload;
+@property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
+@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(retain, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;
+@property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
 - (void).cxx_destruct;
+- (void)log;
 - (id)status;
 - (id)licenseID;
-- (void)log;
 - (BOOL)purchaseIsExpiring;
+- (id)expiryDate;
 - (long long)remainingDays;
-- (long long)type;
+- (unsigned long long)type;
 - (BOOL)isValid;
 - (BOOL)isAppNameValid;
 - (BOOL)isExpired;
 - (BOOL)isDeviceValid;
 - (BOOL)isSignatureValid;
 - (id)payloadHash;
-- (BOOL)save;
-- (id)initWithServerResult:(id)arg1;
-- (id)init;
+- (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
+- (BOOL)isAboutToExpire;
+- (BOOL)shouldTryToRequestNewTrialLicense;
+- (id)initWithServerResult:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
+- (id)initWithURL:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
 
 @end
 

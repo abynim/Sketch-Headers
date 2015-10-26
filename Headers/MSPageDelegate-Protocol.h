@@ -5,7 +5,6 @@
 @protocol MSPageDelegate <NSObject>
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
-- (void)sendMessageToRootObject:(unsigned long long)arg1;
 - (void)didUpdateDetailsForPage:(MSPage *)arg1;
 - (void)willRemovePage:(MSPage *)arg1;
 - (void)didAddPage:(MSPage *)arg1;

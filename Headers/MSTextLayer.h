@@ -1,36 +1,41 @@
 #import "_MSTextLayer.h"
 
+#import "MSColorUser.h"
 #import "MSFirstLineTypesetterDelegate.h"
 #import "NSTextStorageDelegate.h"
 
 @class MSColor, NSBezierPath, NSDictionary, NSString, NSTextStorage;
 
-@interface MSTextLayer : _MSTextLayer <NSTextStorageDelegate, MSFirstLineTypesetterDelegate>
+@interface MSTextLayer : _MSTextLayer <MSColorUser, NSTextStorageDelegate, MSFirstLineTypesetterDelegate>
 {
     BOOL isEditingText;
     int ignoreDelegateNotificationsCounter;
     NSBezierPath *_cachedBezierRepresentation;
-    NSTextStorage *_storageBeforeDragging;
-    long long _heightBeforeResizing;
+    NSTextStorage *_storageBeforeResize;
     id <MSTextLayerEditingDelegate> _editingDelegate;
     NSBezierPath *_lightweightFirstUnderlyingShapePath;
     double _lightweightFontSize;
+    struct CGSize _sizeBeforeResize;
     struct CGRect _previousRectCache;
 }
 
-+ (Class)layerSnapperObjectClass;
++ (unsigned long long)traits;
++ (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
+@property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
 @property(nonatomic) double lightweightFontSize; // @synthesize lightweightFontSize=_lightweightFontSize;
 @property(retain, nonatomic) NSBezierPath *lightweightFirstUnderlyingShapePath; // @synthesize lightweightFirstUnderlyingShapePath=_lightweightFirstUnderlyingShapePath;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
-@property(nonatomic) long long heightBeforeResizing; // @synthesize heightBeforeResizing=_heightBeforeResizing;
-@property(copy, nonatomic) NSTextStorage *storageBeforeDragging; // @synthesize storageBeforeDragging=_storageBeforeDragging;
+@property(copy, nonatomic) NSTextStorage *storageBeforeResize; // @synthesize storageBeforeResize=_storageBeforeResize;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 @property(retain, nonatomic) NSBezierPath *cachedBezierRepresentation; // @synthesize cachedBezierRepresentation=_cachedBezierRepresentation;
 - (void).cxx_destruct;
+- (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (BOOL)constrainProportions;
 - (id)usedFonts;
-- (void)resizeToFitNewWidthComingFrom:(double)arg1;
-- (void)resizeTextToFitNewHeight:(long long)arg1;
+- (BOOL)treatAsShiftedForCorner:(long long)arg1 onlyForFlexible:(BOOL)arg2;
+- (void)calculateTextIsClippedAfterResizeFromCorner:(long long)arg1;
+- (void)resizeFontToFitFromRect:(struct CGRect)arg1;
+- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)replaceTextStorageTextBy:(id)arg1;
 - (void)makeLowercase:(id)arg1;
 - (void)makeUppercase:(id)arg1;
@@ -68,7 +73,7 @@
 - (float)kerning;
 - (struct CGRect)dirtyRectForBounds;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
-- (void)recordRelativeRect;
+- (void)layerWillResize;
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
 - (id)bezierPath;
@@ -77,29 +82,29 @@
 - (double)defaultLineHeight;
 - (id)font;
 - (void)changeFont:(id)arg1;
-- (id)handlerName;
 - (BOOL)shouldDrawSelection;
-- (unsigned long long)selectionCornerMask;
+- (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (id)textContainer;
 - (id)layoutManager;
 - (id)shapeToUseForTextOnPath;
 - (void)setIsEditingText:(BOOL)arg1;
 - (BOOL)isEditingText;
+- (void)changeListType:(id)arg1;
 - (void)prepareForUndo;
 - (void)setStorageContents:(id)arg1;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
+- (void)parentWillResizeLayerToRect:(struct CGRect)arg1;
 - (void)finishEditing;
-- (void)refreshForPropertyChanged:(id)arg1;
 - (void)textStorageDidProcessEditing:(id)arg1;
 - (double)baselineAdjustmentForTypesetter:(id)arg1;
+- (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (struct CGSize)textContainerSize;
 - (id)createTextContainer;
 - (id)createLayoutManager;
 - (void)setUpText;
-- (void)rectWidthDidChange:(id)arg1;
-- (void)layerSizeDidChangeFromCorner:(long long)arg1;
+- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)setContainerSize:(struct CGSize)arg1;
 - (void)adjustContainerWidthTo:(double)arg1;
 - (void)setupBehaviour:(BOOL)arg1;
@@ -112,16 +117,21 @@
 - (void)initEmptyObject;
 - (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 type:(long long)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)handlerName;
 - (id)CSSAttributes;
 - (void)drawPreviewInRect:(struct CGRect)arg1 honourSelected:(BOOL)arg2;
-- (id)commonColors;
+- (void)layerDidResizeFromInspector;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1;
+- (Class)layerSnapperObjectClass;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (id)supportedPasteboardTypesForStyleCopying;
 - (void)migratePropertiesFromV44OrEarlierWithCoder:(id)arg1;
+- (void)updateColorCounter:(id)arg1;
+- (void)trackColors:(id)arg1;
+- (void)setupWithLayerBuilderDictionary:(id)arg1;
 - (unsigned long long)shouldDraw;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;

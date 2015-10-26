@@ -14,6 +14,7 @@
     long long _verticalPadding;
     long long _boxedWidth;
     long long _boxedHeight;
+    long long _shouldFillHoles;
     NSImageView *_imageView;
     NSTextField *_subtextField;
     NSButton *_confirmButton;
@@ -22,6 +23,7 @@
 @property(nonatomic) __weak NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(nonatomic) __weak NSImageView *imageView; // @synthesize imageView=_imageView;
+@property(nonatomic) long long shouldFillHoles; // @synthesize shouldFillHoles=_shouldFillHoles;
 @property(nonatomic) long long boxedHeight; // @synthesize boxedHeight=_boxedHeight;
 @property(nonatomic) long long boxedWidth; // @synthesize boxedWidth=_boxedWidth;
 @property(nonatomic) long long verticalPadding; // @synthesize verticalPadding=_verticalPadding;

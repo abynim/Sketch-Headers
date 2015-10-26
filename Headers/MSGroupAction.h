@@ -6,7 +6,7 @@
 
 - (void)doPerformAction:(id)arg1;
 - (void)group:(id)arg1;
-- (id)validation;
+- (BOOL)validate;
 - (id)tooltip;
 
 @end

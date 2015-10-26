@@ -16,6 +16,7 @@
     NSArray *_cachedExportableLayers;
 }
 
++ (unsigned long long)traits;
 + (id)page;
 @property(nonatomic) BOOL skipCalculatingBlending; // @synthesize skipCalculatingBlending=_skipCalculatingBlending;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
@@ -29,7 +30,6 @@
 - (id)allAncestorsOfLayers:(id)arg1;
 - (id)currentVerticalRulerData;
 - (id)currentHorizontalRulerData;
-- (BOOL)parentOrSelfIsSymbol;
 - (void)moveLayersToArtboards;
 - (double)defaultZoomValue;
 - (void)scheduleCalculateHasBlendedLayer;
@@ -38,6 +38,8 @@
 - (id)ancestorsOfLayer:(id)arg1;
 - (void)skipLayerBlendingCalculationInBlock:(CDUnknownBlockType)arg1;
 - (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
+- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)rectSizeDidChange:(id)arg1;
 - (void)layerSelectionDidChange;
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 didAddObject:(id)arg2;
@@ -52,7 +54,6 @@
 - (id)ancestorTransforms;
 - (id)ancestors;
 - (id)parentPage;
-- (id)contentBoundsForLayer:(id)arg1;
 - (id)contentBounds;
 - (BOOL)resizeRoot:(BOOL)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
@@ -69,19 +70,21 @@
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (id)transform;
-- (void)sendMessageToRootObject:(unsigned long long)arg1;
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (void)invalidateLightweightCopy:(id)arg1;
+- (void)setZoomValue:(double)arg1;
+- (void)setScrollOrigin:(struct CGPoint)arg1;
 - (void)setName:(id)arg1;
-- (void)refreshForPropertyChanged:(id)arg1;
 - (BOOL)canBeContainedByDocument;
 - (void)dealloc;
 - (id)defaultName;
+- (id)selectedLayers;
 - (id)parentGroup;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
 - (BOOL)isExpandedInLayerList;
 - (BOOL)canBeHovered;
 - (id)displayName;
+- (BOOL)parentOrSelfIsSymbol;
 - (BOOL)transparencyLayerUseRectCondition;
 - (unsigned long long)shouldDraw;
 - (BOOL)shouldRenderInTransparencyLayer;

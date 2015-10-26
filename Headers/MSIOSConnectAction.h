@@ -1,24 +1,22 @@
 #import "MSBaseAction.h"
 
+#import "BCPopoverDelegate.h"
 #import "NSMenuDelegate.h"
-#import "NSPopoverDelegate.h"
 
-@class NSPopover, NSString;
+@class BCPopover, NSString;
 
-@interface MSIOSConnectAction : MSBaseAction <NSMenuDelegate, NSPopoverDelegate>
+@interface MSIOSConnectAction : MSBaseAction <NSMenuDelegate, BCPopoverDelegate>
 {
-    NSPopover *_popover;
+    BCPopover *_popover;
 }
 
-@property(retain, nonatomic) NSPopover *popover; // @synthesize popover=_popover;
+@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 - (void).cxx_destruct;
-- (void)dealloc;
+- (void)popoverWillClose:(id)arg1;
 - (void)popoverDidClose:(id)arg1;
-- (void)showPopoverToButton:(id)arg1 viewController:(id)arg2;
+- (void)showPopoverToView:(id)arg1 viewController:(id)arg2;
 - (void)closePopover;
-- (void)showNoClientsEverConnectedWindow:(id)arg1;
-- (void)showNoClientsWindow:(id)arg1;
-- (void)menuNeedsUpdate:(id)arg1;
+- (void)showClientsWindowRelativeToView:(id)arg1;
 - (id)menu;
 - (BOOL)showInToolbar;
 - (void)doPerformAction:(id)arg1;
@@ -30,6 +28,9 @@
 - (id)imageName;
 - (id)label;
 - (id)tooltip;
+- (void)clientsChangedNotification:(id)arg1;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

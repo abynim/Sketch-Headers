@@ -4,7 +4,6 @@
 {
 }
 
-- (id)validation;
 - (BOOL)validate;
 
 @end

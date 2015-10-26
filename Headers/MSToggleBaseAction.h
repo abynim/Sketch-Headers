@@ -4,11 +4,8 @@
 {
 }
 
-- (BOOL)validate;
-- (BOOL)dynamicTitle;
+- (BOOL)validateMenuItem:(id)arg1;
 - (id)root;
-- (id)label;
-- (id)gridName;
 - (void)setGrid:(id)arg1;
 - (id)grid;
 - (id)prepareNewGrid;

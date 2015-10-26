@@ -48,6 +48,8 @@
 - (void)markImageAsEdited;
 - (id)bitmapLayer;
 - (id)coordinateTransformMatrix;
+- (void)drawSizeLabel;
+- (void)drawBorderAroundBounds;
 - (void)drawInRect:(struct CGRect)arg1;
 - (BOOL)shouldDrawLayerSelection;
 - (id)selectionBezierForFlippingCoordinates;
@@ -58,7 +60,8 @@
 - (id)imageFromSelectedArea;
 - (void)duplicate:(id)arg1;
 - (void)paste:(id)arg1;
-- (struct CGRect)rectFromBitmapToLayerCoordinates:(struct CGRect)arg1;
+- (void)refreshOverlayRect:(struct CGRect)arg1;
+- (struct CGRect)rectFromBitmapToBoundsCoordinates:(struct CGRect)arg1;
 - (id)bitmapLayerFromSelectedArea;
 - (void)copy:(id)arg1;
 - (BOOL)rectHasBeenCropped:(struct CGRect)arg1 fromImage:(id)arg2;
@@ -79,6 +82,7 @@
 - (void)colorMagnifierAction:(id)arg1;
 - (void)colorizeAction:(id)arg1;
 - (void)makeNewBackupImage;
+- (struct CGRect)selectionRectInLayerCoordinates;
 - (void)cropAction:(id)arg1;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
 - (void)invertAction:(id)arg1;

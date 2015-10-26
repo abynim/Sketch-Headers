@@ -1,6 +1,6 @@
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayer, MSLayerSnapper, MSNormalEventData;
+@class MSLayer, MSNormalEventData, MSSnapper;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
@@ -10,33 +10,37 @@
     double originalProportions;
     long long _resizingCorner;
     MSLayer *_resizingLayer;
-    MSLayerSnapper *_layerSnapper;
+    MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
 }
 
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
-@property(retain, nonatomic) MSLayerSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
+@property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
 @property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
 @property(nonatomic) long long resizingCorner; // @synthesize resizingCorner=_resizingCorner;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (id)oppositeCorner;
+- (long long)oppositeCorner;
 - (void)handlerWillLoseFocus;
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
 - (unsigned long long)validSnapEdgesForResizingCorner;
-- (void)placeRectInOppositeCorner:(id)arg1;
+- (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
 - (BOOL)shouldConstrainProportionsForFlags:(unsigned long long)arg1;
-- (void)makeRect:(id)arg1 conformToProportions:(BOOL)arg2;
+- (struct CGRect)makeRect:(struct CGRect)arg1 conformToProportions:(BOOL)arg2;
 - (struct CGPoint)mouseAfterAccountingForRotation:(struct CGPoint)arg1;
-- (void)makeLayersIntegral:(id)arg1;
+- (void)makeLayerIntegral:(id)arg1;
+- (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
+- (struct CGRect)centerRect:(struct CGRect)arg1;
+- (struct CGRect)newRectForResizeWithMouse:(struct CGPoint)arg1 fromCenter:(BOOL)arg2 maySnap:(BOOL)arg3 constrainProportions:(BOOL)arg4;
 - (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)mouseDraggedEvent:(id)arg1;
+- (void)drawInRect:(struct CGRect)arg1;
 - (void)calculateOppositeRotatedPoint;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
-- (void)defineProportionsOnLayer;
-- (void)storeCurrentLayerFrame;
+- (void)prepareForResize;
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
 - (id)currentGroup;
 

@@ -4,7 +4,7 @@
 {
 }
 
-- (double)minimumValue;
+- (id)minimum;
 
 @end
 

@@ -8,7 +8,8 @@
 - (BOOL)isSelectable;
 - (void)doPerformAction:(id)arg1;
 - (void)edit:(id)arg1;
-- (id)validation;
+- (unsigned long long)editableLayerTraits;
+- (BOOL)validate;
 
 @end
 

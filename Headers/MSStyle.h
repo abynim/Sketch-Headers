@@ -4,20 +4,21 @@
 #import "MSStylePartDelegate.h"
 #import "NSCopying.h"
 
-@class MSArtisticStroke, MSStyleBorder, MSStyleFill, MSStyleShadow, NSString;
+@class MSStyleBorder, MSStyleFill, MSStyleShadow, NSString;
 
 @interface MSStyle : _MSStyle <MSStylePartDelegate, MSSharedObjectInstance, NSCopying>
 {
     BOOL _lightweightHasBitmapStylesEnabled;
-    MSArtisticStroke *_lightweightArtisticStroke;
 }
 
++ (id)keyPathForStylePartType:(unsigned long long)arg1;
 + (id)layerStyles;
-@property(retain, nonatomic) MSArtisticStroke *lightweightArtisticStroke; // @synthesize lightweightArtisticStroke=_lightweightArtisticStroke;
 @property(nonatomic) BOOL lightweightHasBitmapStylesEnabled; // @synthesize lightweightHasBitmapStylesEnabled=_lightweightHasBitmapStylesEnabled;
-- (void).cxx_destruct;
+- (id)stylePartsOfType:(unsigned long long)arg1;
 - (double)thickestOuterStroke;
 - (double)thickestInnerStroke;
+- (BOOL)hasDecorations;
+- (double)thickestStroke;
 - (BOOL)hasTextStyle;
 - (unsigned long long)type;
 - (id)parentStyle;
@@ -26,11 +27,9 @@
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (void)prepareObjectCopy:(id)arg1;
-- (id)outlineStrokePath:(id)arg1;
 - (BOOL)hasBitmapStylesEnabled;
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (void)invalidateLightweightCopy:(id)arg1;
 - (void)setTextStyle:(id)arg1;
-- (void)layerStyleDidChange;
 - (void)setNilValueForKey:(id)arg1;
 - (BOOL)hasBlending;
 - (id)firstEnabledShadow;
@@ -47,6 +46,8 @@
 @property(readonly, nonatomic) __weak MSStyleShadow *shadow;
 @property(retain, nonatomic) MSStyleFill *fill;
 @property(retain, nonatomic) MSStyleBorder *border;
+- (long long)determineMaskingMode;
+- (void)prepareAsMask;
 - (id)renderBitmapEffects:(id)arg1;
 - (unsigned long long)maxLevels;
 - (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2;

@@ -38,11 +38,13 @@
 - (void)exportSingleSlice:(id)arg1;
 - (void)shareAction:(id)arg1;
 - (void)createSliceAction:(id)arg1;
+- (id)document;
 - (void)addExportSize:(id)arg1;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)views;
 - (id)view;
 - (BOOL)hasEnabledStyle;
+- (id)exportButtonDisplayName;
 - (void)applyDisplayNameToExportButton;
 - (void)prepare;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

@@ -24,7 +24,7 @@
 @property(retain, nonatomic) MSModelObject *akLightweightCopy; // @synthesize akLightweightCopy=_akLightweightCopy;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)breakConnectionWith:(id)arg1;
 @property(copy, nonatomic) id objectID; // @synthesize objectID=_objectID;
@@ -35,7 +35,6 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
-- (void)sendMessageToRootObject:(unsigned long long)arg1;
 - (void)childDidChangeNotification:(id)arg1;
 - (void)notifyParentsOfPropertyChange:(id)arg1;
 - (id)undoManager;
@@ -46,7 +45,7 @@
 - (id)parentGroupRecursive;
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
-- (void)propertyDidChange:(id)arg1;
+- (void)objectDidChange;
 @property(nonatomic) __weak MSModelObject *akParentObject; // @synthesize akParentObject=_akParentObject;
 - (void)objectDidInit;
 - (void)fillInEmptyObjects;
@@ -75,7 +74,6 @@
 - (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 block:(CDUnknownBlockType)arg3;
 - (void)initObjectWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-@property(nonatomic) BOOL isDecoding;
 - (void)encodeObjectIDWithCoder:(id)arg1;
 - (void)didCatchException:(id)arg1 duringEncodeWithCoder:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
@@ -87,7 +85,7 @@
 - (id)copyIncludingObjectIDS;
 - (id)makeLightweightCopy;
 - (id)copyLightweight;
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (void)invalidateLightweightCopy:(id)arg1;
 - (void)setIsLightweightCopy:(BOOL)arg1;
 - (BOOL)isLightweightCopy;
 

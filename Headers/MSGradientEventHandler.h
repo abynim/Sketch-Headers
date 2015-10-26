@@ -14,6 +14,7 @@
 @property(nonatomic) __weak id <MSGradientEventHandlerDelegate> gradientDelegate; // @synthesize gradientDelegate=_gradientDelegate;
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
+- (BOOL)canDuplicate;
 - (id)layerFromSelectedLayers;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;

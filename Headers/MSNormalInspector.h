@@ -26,12 +26,13 @@
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void).cxx_destruct;
 - (BOOL)shouldHideExportBar;
-- (void)startRenamingSharedObject:(id)arg1;
+- (void)showBorderOptionsAction:(id)arg1;
+- (void)showFillOptionsAction:(id)arg1;
+- (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)returnToDefaultHandler;
 - (void)refreshLayers;
-- (BOOL)layersHaveArtisticStroke;
 - (void)dealloc;
 - (id)viewControllers;
 - (void)changeColor:(id)arg1;

@@ -4,6 +4,9 @@
 {
 }
 
++ (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
+- (void)resetToDefaultValues;
+- (BOOL)hasDefaultColorControlsValues;
 - (id)renderBitmapEffects:(id)arg1;
 
 @end

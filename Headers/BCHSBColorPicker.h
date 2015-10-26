@@ -26,7 +26,8 @@
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)colorListChanged:(id)arg1;
+- (void)setFrequentColors:(id)arg1;
+- (void)frequentColorPicked:(id)arg1;
 - (void)hexValueFieldChanged:(id)arg1;
 - (void)rgbComponentFieldsChanged:(id)arg1;
 - (void)hslComponentFieldsChanged:(id)arg1;

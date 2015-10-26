@@ -10,7 +10,6 @@
 - (void).cxx_destruct;
 - (void)makeOriginIntegral;
 - (id)frame;
-- (void)recordRelativeRect;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
 - (id)absoluteRect;
 - (BOOL)isLocked;

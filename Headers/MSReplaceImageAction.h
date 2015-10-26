@@ -5,7 +5,7 @@
 }
 
 - (id)openPanel;
-- (void)applyImage:(id)arg1 withName:(id)arg2 tolayer:(id)arg3;
+- (void)applyImage:(id)arg1 tolayer:(id)arg2;
 - (void)replaceImage:(id)arg1;
 - (BOOL)validate;
 

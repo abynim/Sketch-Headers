@@ -4,7 +4,6 @@
 {
 }
 
-- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
 - (void)setValue:(double)arg1 forGuideAtIndex:(unsigned long long)arg2;
 - (void)replaceGuideAtIndex:(unsigned long long)arg1 withGuide:(id)arg2;
 - (double)guideAtIndex:(unsigned long long)arg1;

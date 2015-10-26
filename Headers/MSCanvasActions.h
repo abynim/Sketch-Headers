@@ -4,6 +4,7 @@
 {
 }
 
+- (void)makeKeyWindow;
 - (void)centerSelectionInVisibleArea:(id)arg1;
 - (void)centerLayersInCanvas:(id)arg1;
 - (void)actualSize:(id)arg1;

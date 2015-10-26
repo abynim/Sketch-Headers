@@ -1,12 +1,11 @@
-#import "NSObject.h"
+#import "BCLineObject.h"
 
-@interface MSLine : NSObject
+@interface MSLine : BCLineObject
 {
     struct CGRect _area;
     BOOL _areaIsInitial;
-    long long _type;
-    double _position;
     unsigned long long _snapTag;
+    id _associatedObject;
 }
 
 + (id)linesForRect:(struct CGRect)arg1;
@@ -18,10 +17,9 @@
 + (id)horizontalLineWithPosition:(double)arg1 snapTag:(unsigned long long)arg2;
 + (id)verticalLineWithPosition:(double)arg1;
 + (id)horizontalLineWithPosition:(double)arg1;
+@property(nonatomic) __weak id associatedObject; // @synthesize associatedObject=_associatedObject;
 @property(readonly, nonatomic) unsigned long long snapTag; // @synthesize snapTag=_snapTag;
-@property(nonatomic) double position; // @synthesize position=_position;
-@property(nonatomic) long long type; // @synthesize type=_type;
-- (id)GKLine;
+- (void).cxx_destruct;
 - (id)description;
 - (struct CGRect)dirtyAbsoluteRectInFrame:(struct CGRect)arg1;
 - (BOOL)isEqual:(id)arg1;

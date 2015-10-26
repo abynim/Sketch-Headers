@@ -4,7 +4,7 @@
 {
 }
 
-- (id)validation;
+- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (id)imageName;
 - (void)makeGrid:(id)arg1;

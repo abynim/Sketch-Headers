@@ -4,7 +4,7 @@
 {
 }
 
-- (void)imageOriginaSize:(id)arg1;
+- (void)imageOriginalSize:(id)arg1;
 - (BOOL)validate;
 
 @end

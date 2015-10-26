@@ -18,7 +18,7 @@
 @property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

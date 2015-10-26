@@ -32,7 +32,6 @@
 - (id)cleanFilenameFor:(id)arg1;
 - (BOOL)viewShouldBeTraversed:(id)arg1;
 - (BOOL)viewHasSubviews:(id)arg1;
-- (BOOL)viewShouldBeIgnored:(id)arg1;
 - (BOOL)viewShouldBeExtracted:(id)arg1;
 - (id)viewsFromLayers:(id)arg1;
 - (id)subviewsForView:(id)arg1;

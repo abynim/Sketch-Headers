@@ -34,7 +34,7 @@
 - (void)prepareParentForDisplay;
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
 - (void)containerBackground:(id)arg1 dragDidReorderChildAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
-- (id)stylePartKeyPath;
+- (unsigned long long)stylePartType;
 - (void)deleteUnusedStylePartsAction:(id)arg1;
 - (unsigned long long)tagFromSender:(id)arg1;
 - (void)duplicateStylePartAction:(id)arg1;

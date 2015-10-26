@@ -13,6 +13,7 @@
 
 + (id)versionedURLWithBase:(id)arg1 extension:(id)arg2 version:(unsigned long long)arg3;
 + (id)globalDirectory;
++ (id)URLForArchiveWithName:(id)arg1 extension:(id)arg2 version:(long long)arg3;
 + (id)globalArchiveWithName:(id)arg1 extension:(id)arg2 version:(long long)arg3;
 @property(retain, nonatomic) NSString *alternateFolder; // @synthesize alternateFolder=_alternateFolder;
 @property(nonatomic) unsigned long long version; // @synthesize version=_version;

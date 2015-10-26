@@ -10,7 +10,7 @@
 - (double)positionForStop:(struct CGPoint)arg1;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)basePointAtIndex:(unsigned long long)arg1;
-- (id)bounds;
+- (struct CGRect)bounds;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (void)repairGradientIfNecessary;
 

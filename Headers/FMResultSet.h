@@ -45,6 +45,7 @@
 - (int)intForColumn:(id)arg1;
 - (int)columnIndexForName:(id)arg1;
 - (BOOL)hasAnotherRow;
+- (BOOL)nextWithError:(id *)arg1;
 - (BOOL)next;
 - (id)resultDictionary;
 - (id)resultDict;

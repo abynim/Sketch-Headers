@@ -3,7 +3,7 @@
 #import "MSArrayDelegate.h"
 #import "MSLayerContainment.h"
 
-@class MSPage, NSArray, NSString, NSUndoManager;
+@class MSImageCollection, MSPage, NSArray, NSString, NSUndoManager;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate>
 {
@@ -27,6 +27,7 @@
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
 - (id)imagesInUse;
+@property(readonly, nonatomic) MSImageCollection *images;
 - (void)ensureAllPatternsAreInImageCollection;
 - (void)removeDeletedSharedObjectsInstances;
 - (id)rootLayersIncludingSymbols:(BOOL)arg1;
@@ -54,13 +55,8 @@
 - (void)encodeWithCoder:(id)arg1;
 - (void)objectDidInit;
 - (id)defaultPagesArray;
-- (BOOL)containsLayerOfClass:(Class)arg1;
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 classFilter:(Class)arg2 block:(CDUnknownBlockType)arg3;
+- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (BOOL)hasLayerSatisfyingTest:(CDUnknownBlockType)arg1;
-- (id)firstLayerSatisfyingTest:(CDUnknownBlockType)arg1;
-- (void)appendToArray:(id)arg1 layersSatisfyingTest:(CDUnknownBlockType)arg2;
-- (id)layersSatisfyingTest:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
 - (BOOL)canContainLayer:(id)arg1;
@@ -69,22 +65,25 @@
 - (BOOL)containsNoOrOneLayers;
 - (BOOL)containsLayers;
 - (BOOL)containsMultipleLayers;
-- (BOOL)containsASingleLayer;
+- (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
+- (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
 - (id)usedFontNames;
 - (void)restoreBitmapLayers:(id)arg1 symbolBitmaps:(id)arg2 patternStyles:(id)arg3 fromCollection:(id)arg4;
-- (id)itemsNeedingRelinkingInLayers:(id)arg1 classFilter:(Class)arg2 block:(CDUnknownBlockType)arg3;
+- (id)itemsNeedingRelinkingInLayers:(id)arg1 trait:(unsigned long long)arg2 block:(CDUnknownBlockType)arg3;
 - (id)patternStylesNeedingRelinkingInLayers:(id)arg1;
 - (id)patternStylesNeedingRelinking;
 - (id)bitmapsNeedingRelinkingInLayers:(id)arg1;
 - (id)bitmapsNeedingRelinkingInSymbols;
-- (id)allPatternStyles;
 - (id)allBitmapLayers;
 - (void)relinkPastedLayers:(id)arg1 withPastedImages:(id)arg2;
 - (void)relinkImagesAndPatterns;
+- (void)trackColors:(id)arg1;
+- (id)colorFinderQueue;
+- (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

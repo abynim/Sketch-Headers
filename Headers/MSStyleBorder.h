@@ -14,7 +14,10 @@
 - (double)noiseIntensity;
 - (id)defaultName;
 - (void)initEmptyObject;
+- (id)topViewForColorInspector:(id)arg1;
+- (id)blendingViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
+- (void)updateColorCounter:(id)arg1;
 - (void)drawGradientBorder:(id)arg1 originalPath:(id)arg2 isArtistic:(BOOL)arg3 frame:(struct CGRect)arg4 context:(id)arg5;
 - (void)drawBorder:(id)arg1 advancedOptions:(id)arg2 context:(id)arg3;
 - (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;

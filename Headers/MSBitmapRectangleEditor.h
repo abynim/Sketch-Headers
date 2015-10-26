@@ -18,6 +18,7 @@
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 - (void).cxx_destruct;
 - (struct CGRect)rectFromDraggingPoints;
+- (struct CGSize)sizeForLabel;
 - (void)draw;
 - (void)resetDraggingPoints;
 - (void)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

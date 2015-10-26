@@ -86,6 +86,7 @@
 - (id)currentPage;
 - (id)currentView;
 - (id)selectedLayers;
+- (id)selectedLayersA;
 - (void)flagsChanged:(id)arg1;
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)currentHandlerKey;
@@ -154,14 +155,14 @@
 - (BOOL)acceptsTouchEvents;
 - (void)scrollCleanupTimer:(id)arg1;
 - (void)scrollWheel:(id)arg1;
-- (id)viewPortForZoomToFitRect:(id)arg1;
-- (void)zoomToFitRect:(id)arg1;
-- (id)totalRectForLayers:(id)arg1;
+- (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
+- (void)zoomToFitRect:(struct CGRect)arg1;
+- (struct CGRect)totalRectForLayers:(id)arg1;
 - (void)zoomToSelection;
 - (void)centerSelectionInVisibleArea;
 - (void)centerLayersInCanvas;
-- (void)centerRect:(id)arg1 animated:(BOOL)arg2;
-- (void)centerRect:(id)arg1;
+- (void)centerRect:(struct CGRect)arg1 animated:(BOOL)arg2;
+- (void)centerRect:(struct CGRect)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)doMouseDraggedEvent:(id)arg1;

@@ -1,22 +1,20 @@
 #import "MSTransformEventHandler.h"
 
-@class CIImage, GKRect;
-
 @interface MSImageTransformEventHandler : MSTransformEventHandler
 {
-    CIImage *originalImage;
-    GKRect *_originalBounds;
+    struct CGImage *_originalImage;
 }
 
-@property(retain, nonatomic) GKRect *originalBounds; // @synthesize originalBounds=_originalBounds;
-- (void).cxx_destruct;
-- (id)toolbarIdentifier;
 - (void)dealloc;
-- (id)NSImageFromImage:(id)arg1;
+- (void)handlerWillLoseFocus;
+- (id)toolbarIdentifier;
+- (id)perspectiveImage;
 - (void)transformShape;
+- (struct CGPoint)layerPointForCorner:(long long)arg1;
 - (struct CGRect)newLayerRect;
-- (id)perspectiveFilter;
-- (id)bounds;
+- (struct CGPoint)pointForCorner:(long long)arg1 rect:(struct CGRect)arg2;
+- (id)instructions;
+- (struct CGRect)bounds;
 - (void)handlerGotFocus;
 
 @end

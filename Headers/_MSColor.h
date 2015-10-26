@@ -12,7 +12,7 @@
 @property(readonly, nonatomic) double green; // @synthesize green=_green;
 @property(readonly, nonatomic) double blue; // @synthesize blue=_blue;
 @property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

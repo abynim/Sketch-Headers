@@ -13,7 +13,7 @@
 @property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;

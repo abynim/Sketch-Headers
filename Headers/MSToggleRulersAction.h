@@ -5,8 +5,8 @@
 }
 
 - (id)label;
+- (BOOL)validateMenuItem:(id)arg1;
 - (id)imageName;
-- (BOOL)dynamicTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)toggleRulers:(id)arg1;
 

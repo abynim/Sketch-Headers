@@ -9,7 +9,7 @@
 - (struct CGRect)rectForExportingEntirePage;
 - (void)createInitialSlice;
 - (void)showInspectorPanelIfNecessary;
-- (BOOL)hasArtboardsWitNoExportSlizes;
+- (BOOL)hasArtboardsWitNoExportSizes;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validate;
 - (void)export:(id)arg1;

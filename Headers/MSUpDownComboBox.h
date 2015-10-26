@@ -20,7 +20,8 @@
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
 - (void)keyUp:(id)arg1;
 - (double)incrementValue;
-- (double)minimumValue;
+- (id)maximum;
+- (id)minimum;
 - (void)awakeFromNib;
 
 // Remaining properties

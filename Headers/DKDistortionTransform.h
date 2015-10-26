@@ -1,19 +1,12 @@
 #import "NSObject.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
-
-@interface DKDistortionTransform : NSObject <NSCoding, NSCopying>
+@interface DKDistortionTransform : NSObject
 {
     struct CGPoint m_q[4];
     BOOL m_inverted;
 }
 
 + (id)transformWithInitialRect:(struct CGRect)arg1;
-- (id).cxx_construct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
 - (id)transformBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)transformBezierPath:(id)arg1;
 - (struct CGPoint)transformPoint:(struct CGPoint)arg1 fromRect:(struct CGRect)arg2;

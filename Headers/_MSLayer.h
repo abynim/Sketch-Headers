@@ -1,6 +1,6 @@
 #import "MSModelObject.h"
 
-@class MSExportOptions, MSRect, NSString;
+@class MSExportOptions, MSRect, NSDictionary, NSString;
 
 @interface _MSLayer : MSModelObject
 {
@@ -16,8 +16,10 @@
     NSString *_name;
     NSString *_originalObjectID;
     double _rotation;
+    NSDictionary *_userInfo;
 }
 
+@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
@@ -31,7 +33,7 @@
 @property(retain, nonatomic) MSRect *frame; // @synthesize frame=_frame;
 @property(retain, nonatomic) MSExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
@@ -40,6 +42,8 @@
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
+- (void)setPrimitiveUserInfo:(id)arg1;
+- (id)primitiveUserInfo;
 - (void)setPrimitiveShouldBreakMaskChain:(BOOL)arg1;
 - (BOOL)primitiveShouldBreakMaskChain;
 - (void)setPrimitiveRotation:(double)arg1;

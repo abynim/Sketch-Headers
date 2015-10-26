@@ -32,7 +32,6 @@
 - (void)removeAllObjects;
 - (void)removeObjectsInArray:(id)arg1;
 - (void)removeObjectsAtIndexes:(id)arg1;
-- (void)debugUndoInsertObject:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)removeObjectAtIndex:(unsigned long long)arg1;
 - (void)removeObject:(id)arg1;
 - (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2;
@@ -53,7 +52,7 @@
 - (void)setArray:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (BOOL)isEqualForSync:(id)arg1;
+- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

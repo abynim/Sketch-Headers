@@ -1,6 +1,10 @@
 #import "_MSColor.h"
 
-@interface MSColor : _MSColor
+#import "MSAsset.h"
+
+@class NSString;
+
+@interface MSColor : _MSColor <MSAsset>
 {
 }
 
@@ -29,16 +33,21 @@
 @property(readonly, nonatomic) double saturation;
 @property(readonly, nonatomic) double hue;
 - (id)HSBColor;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)NSColorWithColorSpace:(id)arg1;
 - (id)replacementObjectForCoder:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
-- (id)RGBADictionary;
 - (id)treeAsDictionary;
+- (id)RGBADictionary;
+- (unsigned long long)assetType;
 - (id)NSColorForContext:(id)arg1;
 - (id)svgRepresentation;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

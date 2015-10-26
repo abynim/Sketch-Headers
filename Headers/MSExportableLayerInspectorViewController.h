@@ -63,6 +63,8 @@
 @property(retain, nonatomic) NSView *currentStyleSliceTopView; // @synthesize currentStyleSliceTopView=_currentStyleSliceTopView;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void).cxx_destruct;
+- (void)colorMagnifierAction:(id)arg1;
+- (BOOL)canHandleColorMagnifierAction;
 - (BOOL)shouldHideExportBar;
 - (void)refreshAction:(id)arg1;
 - (id)document;
@@ -84,6 +86,7 @@
 - (void)dealloc;
 - (void)sliceLayerDidChange:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)changeBackgroundColorTo:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)viewControllerWillDisappear;
 - (void)popoverWillClose:(id)arg1;
