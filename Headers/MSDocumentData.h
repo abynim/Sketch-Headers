@@ -27,6 +27,7 @@
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
 - (id)imagesInUse;
+- (void)purgeUnusedImagesFromImageCollection;
 @property(readonly, nonatomic) MSImageCollection *images;
 - (void)ensureAllPatternsAreInImageCollection;
 - (void)removeDeletedSharedObjectsInstances;
@@ -52,7 +53,6 @@
 @property(readonly, nonatomic) __weak NSArray *allPages;
 - (void)dealloc;
 - (id)documentData;
-- (void)encodeWithCoder:(id)arg1;
 - (void)objectDidInit;
 - (id)defaultPagesArray;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
