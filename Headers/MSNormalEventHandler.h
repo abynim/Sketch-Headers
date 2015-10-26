@@ -16,13 +16,17 @@
     id _duplicatedObjectID;
     NSMutableDictionary *_originalDraggedLocations;
     NSArray *_duplicatedLayers;
-    NSMapTable *_layerOrigins;
+    NSMapTable *_originalSelectedOriginsInAbsoluteCoordinates;
+    double _shiftAlignLongestDistance;
+    unsigned long long _shiftAlignLongestAxis;
     struct CGSize _duplicateOffset;
     struct CGPoint _duplicateOrigin;
     struct CGPoint _lastMouseMoved;
 }
 
-@property(retain, nonatomic) NSMapTable *layerOrigins; // @synthesize layerOrigins=_layerOrigins;
+@property(nonatomic) unsigned long long shiftAlignLongestAxis; // @synthesize shiftAlignLongestAxis=_shiftAlignLongestAxis;
+@property(nonatomic) double shiftAlignLongestDistance; // @synthesize shiftAlignLongestDistance=_shiftAlignLongestDistance;
+@property(retain, nonatomic) NSMapTable *originalSelectedOriginsInAbsoluteCoordinates; // @synthesize originalSelectedOriginsInAbsoluteCoordinates=_originalSelectedOriginsInAbsoluteCoordinates;
 @property(retain, nonatomic) NSArray *duplicatedLayers; // @synthesize duplicatedLayers=_duplicatedLayers;
 @property(nonatomic) BOOL didDuplicateWhenMovingLayers; // @synthesize didDuplicateWhenMovingLayers=_didDuplicateWhenMovingLayers;
 @property(retain, nonatomic) NSMutableDictionary *originalDraggedLocations; // @synthesize originalDraggedLocations=_originalDraggedLocations;
@@ -38,6 +42,7 @@
 @property(retain, nonatomic) MSLayer *hoveringLayer; // @synthesize hoveringLayer=_hoveringLayer;
 @property(retain, nonatomic) MSLayerPositionDrawing *positionDrawing; // @synthesize positionDrawing=_positionDrawing;
 - (void).cxx_destruct;
+- (void)zoomValueWillChangeTo:(double)arg1;
 - (BOOL)shouldHideExportBar;
 - (void)currentPageDidChange;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
@@ -52,9 +57,9 @@
 - (void)deleteNormalLayers:(id)arg1;
 - (void)deleteArtboards:(id)arg1;
 - (id)document;
-- (void)deleteLayers:(id)arg1;
 - (void)delete:(id)arg1;
 - (id)menuForEvent:(id)arg1;
+- (void)rightMouseDown:(id)arg1;
 - (id)menu;
 - (void)selectAll:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
@@ -66,9 +71,10 @@
 - (void)drawDragSelection;
 - (struct CGRect)rectForDrawingDragSelectOrZoom;
 - (void)drawMultipleSelection;
+- (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)drawLayerHover;
 - (void)drawLayerSelection;
-- (id)layerBelowPoint:(struct CGPoint)arg1 forceClickthrough:(BOOL)arg2;
+- (id)layerBelowPoint:(struct CGPoint)arg1;
 - (void)deselectAllLayers;
 - (id)allLayersWithForcedClickThrough:(BOOL)arg1;
 - (void)duplicate:(id)arg1;
@@ -87,7 +93,6 @@
 - (void)keyDownMoveLayers:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)escapeKeyPressed;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (void)setHoveringLayerAndRefresh:(id)arg1;
 - (BOOL)isMouseHoveringMultipleSelectedLayerCorner:(struct CGPoint)arg1;
 - (BOOL)isMouseHoveringLayer:(id)arg1 corner:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (BOOL)isMouseHoveringLayerCorner:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -108,7 +113,11 @@
 - (void)mouseDownMoveLayers:(struct CGPoint)arg1 clickCount:(long long)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDownDoubleClick:(struct CGPoint)arg1 onLayer:(id)arg2;
 - (void)mouseDownSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 resizingCorner:(long long *)arg4 manager:(id)arg5;
+- (void)enterLineResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
+- (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
+- (void)enterResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)toolbarIdentifier;

@@ -2,7 +2,7 @@
 
 #import "NSCopying.h"
 
-@class NSArray, NSBezierPath, NSMutableArray;
+@class NSArray, NSBezierPath, NSMutableArray, NSNumber;
 
 @interface FBBezierContour : NSObject <NSCopying>
 {
@@ -11,6 +11,7 @@
     NSBezierPath *_bezPathCache;
     struct CGRect _bounds;
     struct CGRect _boundingRect;
+    NSNumber *_cachedDirection;
     int _inside;
 }
 
@@ -18,6 +19,8 @@
 @property(nonatomic) int inside; // @synthesize inside=_inside;
 @property(readonly, nonatomic) NSArray *edges; // @synthesize edges=_edges;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
+- (void)debugDrawColor:(id)arg1 scale:(double)arg2;
 - (id)debugPathForWindingRuleContainmentAtEdge:(id)arg1 parameter:(double)arg2 point:(struct CGPoint)arg3 withTransform:(struct CGAffineTransform)arg4 andSizeTransform:(struct CGAffineTransform)arg5;
 - (id)debugPathForWindingRuleContainmentWithTransform:(struct CGAffineTransform)arg1 andSizeTransform:(struct CGAffineTransform)arg2;
 - (id)debugPathForJointsWithTransform:(struct CGAffineTransform)arg1 andSizeTransform:(struct CGAffineTransform)arg2;
@@ -46,10 +49,13 @@
 - (BOOL)isInflectionPointOnEdge:(id)arg1 atParameter:(double)arg2;
 - (BOOL)markSelfCrossingsOnEdge:(id)arg1 startParameter:(double)arg2 stopParameter:(double)arg3 isEntry:(BOOL)arg4 withBlock:(CDUnknownBlockType)arg5;
 - (void)markSelfCrossingsAsEntryOrExit;
+- (void)sortCoincidentCrossings;
+- (id)allCrossingsWithGroupedCoincidentPairs;
 - (BOOL)isCrossing:(id)arg1 betweenStartEdge:(id)arg2 parameter:(double)arg3 andCrossing:(id)arg4;
 - (BOOL)crossesOwnContour:(id)arg1;
 - (id)contourMadeClockwiseIfNecessary;
-- (int)direction;
+@property(readonly, nonatomic) int direction;
+@property(retain, nonatomic) NSNumber *cachedDirection;
 - (id)reversedContour;
 @property(readonly, nonatomic) BOOL isClosed;
 - (void)close;
@@ -59,12 +65,12 @@
 - (BOOL)markCrossingsOnEdge:(id)arg1 startParameter:(double)arg2 stopParameter:(double)arg3 otherContours:(id)arg4 isEntry:(BOOL)arg5;
 - (void)markCrossingsAsEntryOrExitWithContour:(id)arg1 markInside:(BOOL)arg2;
 - (void)startingEdge:(id *)arg1 parameter:(double *)arg2 point:(struct CGPoint *)arg3 skipHorizontals:(BOOL)arg4 skipInflectionPoints:(BOOL)arg5;
-- (struct CGPoint)testPointForContainment;
+- (id)testRayForContainment:(struct CGRect)arg1;
 - (id)startEdgeSkipHorizontals:(BOOL)arg1 skipInflectionPoints:(BOOL)arg2;
 - (id)startEdge;
-- (void)intersectionsWithRay:(id)arg1 withBlock:(CDUnknownBlockType)arg2 callDepth:(unsigned long long)arg3;
-- (unsigned long long)numberOfIntersectionsWithRay:(id)arg1 callDepth:(unsigned long long)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 callDepth:(unsigned long long)arg2;
+- (void)intersectionsWithRay:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)numberOfIntersectionsWithRay:(id)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) struct CGPoint firstPoint;
 @property(readonly, nonatomic) struct CGRect boundingRect;

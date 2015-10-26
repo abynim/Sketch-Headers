@@ -1,6 +1,6 @@
 #import "NSObject.h"
 
-@class BITCrashManager, NSError, NSString;
+@class BITCrashManager, BITHockeyAttachment, NSError, NSString;
 
 @protocol BITCrashManagerDelegate <NSObject>
 
@@ -10,6 +10,7 @@
 - (void)crashManagerWillSendCrashReport:(BITCrashManager *)arg1;
 - (void)crashManagerWillCancelSendingCrashReport:(BITCrashManager *)arg1;
 - (void)crashManagerWillShowSubmitCrashReportAlert:(BITCrashManager *)arg1;
+- (BITHockeyAttachment *)attachmentForCrashManager:(BITCrashManager *)arg1;
 - (NSString *)applicationLogForCrashManager:(BITCrashManager *)arg1;
 - (void)showMainApplicationWindowForCrashManager:(BITCrashManager *)arg1;
 @end

@@ -2,7 +2,7 @@
 
 @interface NSObject (ModelParentSupport)
 - (void)breakConnectionWith:(id)arg1;
-- (void)setAkParentObject:(id)arg1;
-- (id)akParentObject;
+- (void)setParentObject:(id)arg1;
+- (id)parentObject;
 @end
 

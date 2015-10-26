@@ -15,6 +15,7 @@
 - (void)logAtLevel:(int)arg1 withFormat:(id)arg2 args:(struct __va_list_tag [1])arg3;
 - (void)dealloc;
 - (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

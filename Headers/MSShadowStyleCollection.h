@@ -4,6 +4,7 @@
 {
 }
 
++ (Class)immutableClass;
 - (id)stylePartForInserting;
 
 @end

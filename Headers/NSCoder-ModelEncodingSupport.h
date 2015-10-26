@@ -2,6 +2,7 @@
 
 @interface NSCoder (ModelEncodingSupport)
 - (id)decodeImageDataForKey:(id)arg1;
+- (struct CGSize)decodeSizeFromString:(id)arg1;
 - (struct CGPoint)decodePointFromStringForKey:(id)arg1;
 - (struct CGRect)decodeRectFromStringForKey:(id)arg1;
 - (double)decodeDoubleFromObjectForKey:(id)arg1;
@@ -12,6 +13,7 @@
 - (int)decodeIntFromObjectForKey:(id)arg1;
 - (BOOL)decodeBoolFromObjectForKey:(id)arg1;
 - (void)encodeImageData:(id)arg1 forKey:(id)arg2;
+- (void)encodeSizeAsString:(struct CGSize)arg1 forKey:(id)arg2;
 - (void)encodePointAsString:(struct CGPoint)arg1 forKey:(id)arg2;
 - (void)encodeRectAsString:(struct CGRect)arg1 forKey:(id)arg2;
 - (void)encodeDoubleAsObject:(double)arg1 forKey:(id)arg2;

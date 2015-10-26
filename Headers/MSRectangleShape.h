@@ -25,6 +25,7 @@
 @property(copy, nonatomic) NSString *cornerRadiusString;
 - (id)rectangleNumberFormatter;
 @property(nonatomic) double cornerRadiusFloat;
+@property(nonatomic) double normalizedExponentialCornerRadius;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
 
 @end

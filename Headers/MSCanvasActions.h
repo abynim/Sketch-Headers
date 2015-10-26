@@ -16,7 +16,7 @@
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (void)pasteHere:(id)arg1;
-- (void)pasteInPlace:(id)arg1;
+- (void)pasteOverSelection:(id)arg1;
 - (void)paste:(id)arg1;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;

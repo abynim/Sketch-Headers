@@ -13,20 +13,18 @@
     MSRulerData *_verticalRulerData;
 }
 
-@property(copy, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
+@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
-@property(copy, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
+@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-@property(copy, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
+@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -34,16 +32,17 @@
 - (id)primitiveVerticalRulerData;
 - (void)setPrimitiveLayout:(id)arg1;
 - (id)primitiveLayout;
-- (void)setPrimitiveIncludeBackgroundColorInExport:(BOOL)arg1;
-- (BOOL)primitiveIncludeBackgroundColorInExport;
 - (void)setPrimitiveHorizontalRulerData:(id)arg1;
 - (id)primitiveHorizontalRulerData;
-- (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
-- (BOOL)primitiveHasBackgroundColor;
 - (void)setPrimitiveGrid:(id)arg1;
 - (id)primitiveGrid;
 - (void)setPrimitiveBackgroundColor:(id)arg1;
 - (id)primitiveBackgroundColor;
+- (void)setPrimitiveIncludeBackgroundColorInExport:(BOOL)arg1;
+- (BOOL)primitiveIncludeBackgroundColorInExport;
+- (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
+- (BOOL)primitiveHasBackgroundColor;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

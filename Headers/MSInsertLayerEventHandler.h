@@ -15,6 +15,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) MSLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
 - (void).cxx_destruct;
+- (BOOL)allowsSwitchToInsertAction;
 - (void)flagsChanged:(id)arg1;
 - (void)dealloc;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;

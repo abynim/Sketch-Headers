@@ -26,7 +26,9 @@
 @property(nonatomic) __weak FBEdgeCrossing *counterpart; // @synthesize counterpart=_counterpart;
 @property(nonatomic) __weak FBBezierCurve *edge; // @synthesize edge=_edge;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
+- (BOOL)isCoincidentWith:(id)arg1;
 @property(readonly, nonatomic, getter=isAtEnd) BOOL atEnd;
 @property(readonly, nonatomic, getter=isAtStart) BOOL atStart;
 @property(readonly, nonatomic) __weak FBBezierCurve *rightCurve;

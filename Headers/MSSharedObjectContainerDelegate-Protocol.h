@@ -1,8 +1,8 @@
 #import "NSObject.h"
 
-@class NSArray;
+@class MSSharedObjectContainer, NSArray;
 
 @protocol MSSharedObjectContainerDelegate <NSObject>
-- (NSArray *)rootLayersIncludingSymbols:(BOOL)arg1;
+- (NSArray *)rootLayersForShareadObjectContainer:(MSSharedObjectContainer *)arg1 includingSymbols:(BOOL)arg2;
 @end
 

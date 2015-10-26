@@ -23,6 +23,9 @@
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (BOOL)scrollEventShouldExitHandler:(id)arg1;
+- (BOOL)allowsSwitchToInsertAction;
+- (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (void)refreshRulers;
@@ -55,7 +58,7 @@
 - (double)zoomValue;
 - (struct CGPoint)mouseInScreenCoordinates;
 - (struct CGPoint)convertPointFromScreenCoordinates:(struct CGPoint)arg1 inGroup:(id)arg2;
-- (struct CGPoint)mouseInScreenCoordinatesInGroup:(id)arg1;
+- (id)dragDropHintForDropOnPoint:(struct CGPoint)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
@@ -66,6 +69,7 @@
 - (BOOL)shouldDrawLayerSelection;
 - (id)selectedLayersA;
 - (id)selectedLayers;
+- (struct CGRect)selectedRect;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (id)defaultCursor;
@@ -83,12 +87,16 @@
 - (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 fromDrag:(BOOL)arg3;
 - (id)duplicateSelectedLayersInGroup:(id)arg1 fromDrag:(BOOL)arg2;
 - (id)duplicateSelectedLayers:(BOOL)arg1;
+- (struct CGPoint)currentMousePointInCanvasCoordinates;
 - (void)pasteHere:(id)arg1;
-- (void)pasteInPlace:(id)arg1;
+- (void)pasteOverSelection:(id)arg1;
 - (void)paste:(id)arg1;
+- (id)layersToCopy;
 - (void)copy:(id)arg1;
 - (void)cut:(id)arg1;
-- (void)readFromPasteboard:(id)arg1 importMode:(unsigned long long)arg2;
+- (id)pastingViewPort;
+- (void)readFromPasteboard:(id)arg1;
+- (id)currentPage;
 - (void)writeLayers:(id)arg1 toPasteboard:(id)arg2;
 - (void)flagsChanged:(id)arg1;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
@@ -96,7 +104,6 @@
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)returnToDefaultHandlerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)returnToDefaultHandler;
-- (void)layerListSelectionDidChange:(id)arg1;
 - (void)didUndoNotification:(id)arg1;
 - (void)undoNotification:(id)arg1;
 - (void)disableUndoNameRegistration;
@@ -108,6 +115,7 @@
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;
+- (id)handlerName;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
@@ -118,11 +126,11 @@
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)rightMouseDown:(id)arg1;
 - (BOOL)mouseMovedEvent:(id)arg1;
 - (BOOL)mouseUpEvent:(id)arg1;

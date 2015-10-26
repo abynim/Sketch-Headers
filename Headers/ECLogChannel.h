@@ -6,7 +6,7 @@
 {
     BOOL _enabled;
     BOOL _setup;
-    int _context;
+    unsigned long long _context;
     NSNumber *_level;
     NSString *_name;
     NSMutableSet *_handlers;
@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSNumber *level; // @synthesize level=_level;
 @property(nonatomic) BOOL setup; // @synthesize setup=_setup;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) int context; // @synthesize context=_context;
+@property(nonatomic) unsigned long long context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)selectHandlerWithIndex:(unsigned long long)arg1;
 - (BOOL)tickHandlerWithIndex:(unsigned long long)arg1;
@@ -26,7 +26,7 @@
 - (BOOL)tickFlagWithIndex:(unsigned long long)arg1;
 - (id)stringFromContext:(CDStruct_5b5d1a5d *)arg1;
 - (id)fileFromContext:(CDStruct_5b5d1a5d *)arg1;
-- (BOOL)showContext:(int)arg1;
+- (BOOL)showContext:(unsigned long long)arg1;
 - (long long)caseInsensitiveCompare:(id)arg1;
 - (BOOL)isHandlerEnabled:(id)arg1;
 - (void)disableHandler:(id)arg1;
@@ -34,6 +34,7 @@
 - (void)disable;
 - (void)enable;
 - (id)initWithName:(id)arg1;
+- (id)init;
 
 @end
 

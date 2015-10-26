@@ -8,8 +8,6 @@
 {
 }
 
-+ (void)load;
-+ (id)sharedInstance;
 - (void)revealApplicationSupport:(id)arg1;
 - (void)assertNow:(id)arg1;
 - (void)crashNow:(id)arg1;

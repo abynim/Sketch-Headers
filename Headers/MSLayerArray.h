@@ -1,10 +1,11 @@
 #import "NSObject.h"
 
 #import "MSLayerContainment.h"
+#import "NSFastEnumeration.h"
 
 @class NSArray;
 
-@interface MSLayerArray : NSObject <MSLayerContainment>
+@interface MSLayerArray : NSObject <MSLayerContainment, NSFastEnumeration>
 {
     NSArray *_layers;
 }
@@ -17,6 +18,7 @@
 - (id)description;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
+- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (unsigned long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (id)lastLayer;
@@ -30,11 +32,13 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (id)map:(CDUnknownBlockType)arg1;
 - (id)commonArtboard;
 - (id)layersSuitableForInsertingIntoGroup:(id)arg1;
 - (id)layerToInsertAfter;
 - (id)effectiveArtboard;
 - (id)effectivePage;
+- (id)uniqueParents;
 - (id)effectiveParent;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLayers:(id)arg1;

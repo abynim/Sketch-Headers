@@ -41,7 +41,7 @@
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
 - (void)prepareForResize;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (id)currentGroup;
 
 @end

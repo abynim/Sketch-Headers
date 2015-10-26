@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (struct CGRect)imageDrawRect;
 - (void)drawRect:(struct CGRect)arg1;
+- (BOOL)isFlipped;
 - (void)sizeToFit;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (id)imageDataInFormat:(id)arg1 colorSpace:(id)arg2;
@@ -28,7 +29,9 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)setExportableLayer:(id)arg1 previewCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)setup;
 - (void)awakeFromNib;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

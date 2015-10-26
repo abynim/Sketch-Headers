@@ -23,7 +23,7 @@
 - (unsigned long long)stylePartType;
 - (void)popoverWillClose:(id)arg1;
 - (BOOL)shouldShowAdvancedOptionsButton;
-- (void)viewControllerWillDisappear;
+- (void)viewWillDisappear;
 - (BOOL)shouldHideAddStylePartButton;
 - (void)prepare;
 - (void)showAdvancedOptionsAction:(id)arg1;

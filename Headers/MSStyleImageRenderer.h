@@ -13,8 +13,8 @@
 @property(retain, nonatomic) MSBitmapLayer *bitmapLayer; // @synthesize bitmapLayer=_bitmapLayer;
 - (void).cxx_destruct;
 - (void)drawNineSliceImage;
+- (BOOL)canDrawNineSliceContent;
 - (void)drawImage;
-- (void)drawImageFills;
 - (void)doDrawImage;
 - (void)render;
 

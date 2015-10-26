@@ -1,23 +1,20 @@
 #import "NSObject.h"
 
-#import "NSCopying.h"
-
 @class MSImageCollection, NSData, NSImage;
 
-@interface MSImageData : NSObject <NSCopying>
+@interface MSImageData : NSObject
 {
-    NSImage *_image;
     NSData *_data;
     NSData *_sha1;
+    NSImage *_image;
     MSImageCollection *_collection;
 }
 
-@property(retain, nonatomic) MSImageCollection *collection; // @synthesize collection=_collection;
+@property(nonatomic) __weak MSImageCollection *collection; // @synthesize collection=_collection;
+@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSData *sha1; // @synthesize sha1=_sha1;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)imageInfo;

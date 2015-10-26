@@ -22,7 +22,9 @@
 - (void)stepWithEvent:(id)arg1;
 - (void)repeatStepEvent:(id)arg1;
 - (id)timerWithInterval:(double)arg1 repeats:(BOOL)arg2;
+- (BOOL)acceptsFirstMouse:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end
 

@@ -1,6 +1,6 @@
-#import "MSBaseAction.h"
+#import "MSBaseInsertAction.h"
 
-@interface MSInsertTextLayerAction : MSBaseAction
+@interface MSInsertTextLayerAction : MSBaseInsertAction
 {
 }
 

@@ -10,11 +10,13 @@
 
 - (void)enableUndoCoalescing;
 - (void)disableUndoCoalescing;
+- (BOOL)shouldCoalesceFoldAction:(id)arg1 withNewAction:(id)arg2;
 - (BOOL)shouldCoalesceOldAction:(id)arg1 withNewAction:(id)arg2;
 - (void)redo;
 - (void)undo;
 - (id)redoActionName;
 - (id)undoActionName;
+- (void)didPerformFoldableAction;
 - (void)setActionName:(id)arg1 sender:(id)arg2;
 - (void)setAdvancedActionName:(id)arg1;
 - (void)endUndoGrouping;

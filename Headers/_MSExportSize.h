@@ -1,8 +1,8 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
 @class NSString;
 
-@interface _MSExportSize : MSModelObject
+@interface _MSExportSize : MSModelBase
 {
     NSString *_format;
     NSString *_name;
@@ -16,11 +16,9 @@
 @property(retain, nonatomic) NSString *format; // @synthesize format=_format;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -32,6 +30,7 @@
 - (id)primitiveName;
 - (void)setPrimitiveFormat:(id)arg1;
 - (id)primitiveFormat;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

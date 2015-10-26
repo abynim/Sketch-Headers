@@ -9,6 +9,7 @@
 - (BOOL)isValidIndex:(unsigned long long)arg1;
 - (id)dictionaryBySplittingArrayUsingKey:(id)arg1;
 - (id)arrayByAddingObjects:(id)arg1;
+- (id)arrayByRemovingObjects:(id)arg1;
 - (id)arrayByRemovingObject:(id)arg1;
 - (id)sortedArrayUsingKey:(id)arg1;
 - (id)sortedArray;

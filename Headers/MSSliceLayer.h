@@ -24,8 +24,11 @@
 - (void)prepareObjectCopy:(id)arg1;
 - (void)initEmptyObject;
 - (BOOL)canBeHidden;
-- (void)drawPreviewInRect:(struct CGRect)arg1 honourSelected:(BOOL)arg2;
 - (id)inspectorViewControllerNames;
+- (unsigned long long)filterType;
+- (id)badgeNameLookup;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (BOOL)canBePartOfSymbol;
 
 // Remaining properties

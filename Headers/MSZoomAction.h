@@ -5,7 +5,6 @@
 }
 
 - (id)zoomValueString;
-- (BOOL)validateToolbarItem:(id)arg1;
 - (void)zoomValueDidChange;
 - (void)zoomModeToggle:(id)arg1;
 - (id)zoomViewAtSize:(unsigned long long)arg1;

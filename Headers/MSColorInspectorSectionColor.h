@@ -10,6 +10,7 @@
 @property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
 - (void).cxx_destruct;
 - (unsigned long long)assetType;
+- (void)removeAssetAtIndex:(unsigned long long)arg1 forPickerView:(id)arg2;
 - (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
 - (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;

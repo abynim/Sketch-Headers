@@ -12,7 +12,6 @@
 }
 
 + (void)renderPage:(id)arg1 atZoom:(double)arg2 inRect:(struct CGRect)arg3 handlerManager:(id)arg4 view:(id)arg5;
-+ (void)skipRenderingSelections:(BOOL)arg1;
 @property(retain, nonatomic) MSContentDrawView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MSEventHandlerManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
@@ -35,6 +34,7 @@
 - (void)doDrawGridForRootLayer:(id)arg1;
 - (void)drawGridForRootLayer:(id)arg1;
 - (void)draw;
+- (void)drawDebugCoordinates;
 
 @end
 

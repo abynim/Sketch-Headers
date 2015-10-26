@@ -1,0 +1,60 @@
+#import "NSTableCellView.h"
+
+@class BCCollapsableImageView, NSButton, NSDictionary, NSLayoutConstraint, NSPopUpButton;
+
+@interface BCTableCellView : NSTableCellView
+{
+    BOOL _fakeSelection;
+    BOOL _isPreviewImageDirty;
+    BOOL _currentSelectedState;
+    id <BCTableCellViewDelegate> _delegate;
+    unsigned long long _displayState;
+    NSButton *_badgeButton;
+    NSPopUpButton *_popupBadgeButton;
+    BCCollapsableImageView *_previewView;
+    NSDictionary *_previewImages;
+    BCCollapsableImageView *_secondaryPreviewView;
+    NSLayoutConstraint *_badgeTrailingSpaceConstraint;
+}
+
+@property(nonatomic) BOOL currentSelectedState; // @synthesize currentSelectedState=_currentSelectedState;
+@property(nonatomic) __weak NSLayoutConstraint *badgeTrailingSpaceConstraint; // @synthesize badgeTrailingSpaceConstraint=_badgeTrailingSpaceConstraint;
+@property(nonatomic) __weak BCCollapsableImageView *secondaryPreviewView; // @synthesize secondaryPreviewView=_secondaryPreviewView;
+@property(nonatomic) BOOL isPreviewImageDirty; // @synthesize isPreviewImageDirty=_isPreviewImageDirty;
+@property(retain, nonatomic) NSDictionary *previewImages; // @synthesize previewImages=_previewImages;
+@property(nonatomic) __weak BCCollapsableImageView *previewView; // @synthesize previewView=_previewView;
+@property(nonatomic) __weak NSPopUpButton *popupBadgeButton; // @synthesize popupBadgeButton=_popupBadgeButton;
+@property(nonatomic) __weak NSButton *badgeButton; // @synthesize badgeButton=_badgeButton;
+@property(nonatomic) unsigned long long displayState; // @synthesize displayState=_displayState;
+@property(nonatomic) __weak id <BCTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) BOOL fakeSelection; // @synthesize fakeSelection=_fakeSelection;
+- (void).cxx_destruct;
+- (void)drawDragImageInRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) double widthForDragImage;
+- (void)setBackgroundStyle:(long long)arg1;
+- (void)updateTextColour;
+- (void)renameNode;
+@property(readonly, nonatomic) BOOL isTextFieldEditing;
+- (void)updateSecondaryPreview;
+- (void)updatePreview;
+- (void)drawRect:(struct CGRect)arg1;
+- (void)drawTextFieldBorder;
+- (void)handleBadgePressed:(id)arg1;
+- (void)updateBadge;
+- (void)updateBadgeImages;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (BOOL)isEventCurrent:(id)arg1;
+- (void)setObjectValue:(id)arg1;
+- (void)stopObserving;
+- (void)startObserving;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)refreshPreviewImages;
+- (void)internalRefreshPreviewImages;
+@property(readonly, nonatomic) id <BCOutlineViewNode> node;
+- (void)prepareForReuse;
+@property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;
+- (void)dealloc;
+
+@end
+

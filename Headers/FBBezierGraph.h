@@ -12,6 +12,7 @@
 + (id)bezierGraphWithBezierPath:(id)arg1;
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
 - (void)debugFindCurvesThatShouldIntersectWith:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)debuggingInsertIntersectionsWithBezierGraph:(id)arg1;
@@ -47,12 +48,14 @@
 - (void)insertSelfCrossings;
 - (void)insertContourSelfCrossings;
 - (BOOL)isIntersection:(id)arg1 atJoinOfEdge:(id)arg2 andEdge:(id)arg3;
+- (void)sortCoincidentCrossings;
 - (void)removeDuplicateCrossings;
 - (void)removeCrossingsInOverlaps;
 - (void)cleanupCrossingsWithBezierGraph:(id)arg1;
-- (void)insertCrossingsWithBezierGraph:(id)arg1;
+- (unsigned long long)insertCrossingsWithBezierGraph:(id)arg1;
 - (id)bezierPathWithClass:(Class)arg1;
 - (id)bezierPath;
+- (id)noneWithBezierGraph:(id)arg1;
 - (id)xorWithBezierGraph:(id)arg1;
 - (void)markSelfCrossingsAsEntryOrExit;
 - (void)markCrossingsAsEntryOrExitWithBezierGraph:(id)arg1 markInside:(BOOL)arg2;

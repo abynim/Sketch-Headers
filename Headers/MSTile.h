@@ -1,6 +1,6 @@
 #import "MSBaseRenderTile.h"
 
-@class MSContentDrawView, MSContentTile, MSEventHandlerManager, MSOverlayTile, MSPage, NSArray, NSColorSpace, NSThread;
+@class MSContentDrawView, MSContentTile, MSEventHandlerManager, MSOverlayTile, MSPage, MSTileRenderer, NSArray, NSThread;
 
 @interface MSTile : MSBaseRenderTile
 {
@@ -8,30 +8,32 @@
     BOOL _disableSubpixelAntialiasing;
     BOOL _drawDottedDirtyRect;
     BOOL _shouldHideOverlayControls;
+    BOOL _drawingIsCancelled;
+    BOOL _didDrawAtLeastOnce;
     double _zoomValue;
     MSEventHandlerManager *_handlerManager;
-    id <MSTileDelegate> _tileDelegate;
     MSContentDrawView *_parentView;
     MSOverlayTile *_overlayTile;
     MSContentTile *_contentTile;
     NSThread *_thread;
     MSPage *_pageForContent;
     MSPage *_pageForOverlay;
-    NSColorSpace *_colorSpaceForContent;
     NSArray *_artboardFrames;
+    MSTileRenderer *_tileRenderer;
     struct CGPoint _distanceFromScrollOrigin;
 }
 
+@property(retain, nonatomic) MSTileRenderer *tileRenderer; // @synthesize tileRenderer=_tileRenderer;
 @property(retain, nonatomic) NSArray *artboardFrames; // @synthesize artboardFrames=_artboardFrames;
-@property(retain, nonatomic) NSColorSpace *colorSpaceForContent; // @synthesize colorSpaceForContent=_colorSpaceForContent;
 @property(retain, nonatomic) MSPage *pageForOverlay; // @synthesize pageForOverlay=_pageForOverlay;
 @property(retain, nonatomic) MSPage *pageForContent; // @synthesize pageForContent=_pageForContent;
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
 @property(retain, nonatomic) MSContentTile *contentTile; // @synthesize contentTile=_contentTile;
 @property(retain, nonatomic) MSOverlayTile *overlayTile; // @synthesize overlayTile=_overlayTile;
+@property(nonatomic) BOOL didDrawAtLeastOnce; // @synthesize didDrawAtLeastOnce=_didDrawAtLeastOnce;
+@property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSContentDrawView *parentView; // @synthesize parentView=_parentView;
-@property(nonatomic) __weak id <MSTileDelegate> tileDelegate; // @synthesize tileDelegate=_tileDelegate;
 @property(retain, nonatomic) MSEventHandlerManager *handlerManager; // @synthesize handlerManager=_handlerManager;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
 @property(nonatomic) BOOL disableSubpixelAntialiasing; // @synthesize disableSubpixelAntialiasing=_disableSubpixelAntialiasing;
@@ -44,6 +46,8 @@
 - (struct CGRect)rectForContentTile;
 - (double)scaleForContentTile;
 - (void)pixelGridDidChange;
+- (struct CGPoint)scrollOriginAdjustedForPixelZoom;
+- (void)cancelDrawing;
 - (void)drawPage:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawArtboardBackgroundsInContext:(struct CGContext *)arg1;
 - (void)drawContentInContext:(struct CGContext *)arg1;
@@ -55,6 +59,7 @@
 - (void)refreshContentRect:(struct CGRect)arg1 page:(id)arg2;
 - (BOOL)shouldDrawPixelated;
 - (void)enableDebugFramesInner:(BOOL)arg1 outer:(BOOL)arg2;
+- (void)removeFromSuperlayer;
 - (id)init;
 
 @end

@@ -3,19 +3,22 @@
 #import "MSBasicDelegate.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSPageDelegate.h"
+#import "MSSidebarControllerDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSidebarViewController, MSSplitViewDelegate, MSToolbarConstructor, NSDictionary, NSSplitView, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSharedObjectInstanceCollection, MSSplitViewDelegate, MSToolbarConstructor, NSMutableSet, NSSplitView, NSString, NSTimer, NSView, NSWindow;
 
-@interface MSDocument : NSDocument <NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
+@interface MSDocument : NSDocument <MSSidebarControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
 {
     BOOL _hasOpenedImageFile;
     BOOL _nextReadFromURLIsReload;
+    BOOL _isSyncingSharedObjects;
+    BOOL _temporarilyDisableSelectionHiding;
     NSSplitView *_splitView;
     NSWindow *_documentWindow;
-    NSWindow *_messageWindow;
+    NSView *_messageView;
     MSSplitViewDelegate *_splitViewController;
     NSView *_inspectorPlaceholderView;
     NSView *_canvasPlaceholderView;
@@ -24,13 +27,15 @@
     MSDocumentData *_documentData;
     MSEventHandlerManager *_eventHandlerManager;
     MSInspectorController *_inspectorController;
-    MSSidebarViewController *_sidebarController;
     MSIOSRefreshCollector *_refreshCollector;
     MSFontList *_fontList;
     MSLayerArray *_selectedLayersA;
-    NSDictionary *_collectedSharedObjects;
+    MSSharedObjectInstanceCollection *_collectedSharedObjects;
     NSTimer *_collectedSharedObjectsTimer;
     MSContentDrawViewController *_currentContentViewController;
+    BCSideBarViewController *_sidebarController;
+    NSMutableSet *_layersWithHiddenSelectionHandles;
+    NSTimer *_resetHiddenSelectionHandlesTimer;
 }
 
 + (id)currentDocument;
@@ -38,15 +43,19 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+@property(retain, nonatomic) NSTimer *resetHiddenSelectionHandlesTimer; // @synthesize resetHiddenSelectionHandlesTimer=_resetHiddenSelectionHandlesTimer;
+@property(retain, nonatomic) NSMutableSet *layersWithHiddenSelectionHandles; // @synthesize layersWithHiddenSelectionHandles=_layersWithHiddenSelectionHandles;
+@property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
+@property(nonatomic) BOOL isSyncingSharedObjects; // @synthesize isSyncingSharedObjects=_isSyncingSharedObjects;
+@property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(retain, nonatomic) NSTimer *collectedSharedObjectsTimer; // @synthesize collectedSharedObjectsTimer=_collectedSharedObjectsTimer;
-@property(retain, nonatomic) NSDictionary *collectedSharedObjects; // @synthesize collectedSharedObjects=_collectedSharedObjects;
+@property(retain, nonatomic) MSSharedObjectInstanceCollection *collectedSharedObjects; // @synthesize collectedSharedObjects=_collectedSharedObjects;
 @property(copy, nonatomic) MSLayerArray *selectedLayersA; // @synthesize selectedLayersA=_selectedLayersA;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(readonly, nonatomic) MSIOSRefreshCollector *refreshCollector; // @synthesize refreshCollector=_refreshCollector;
-@property(retain, nonatomic) MSSidebarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
@@ -55,10 +64,26 @@
 @property(retain, nonatomic) NSView *canvasPlaceholderView; // @synthesize canvasPlaceholderView=_canvasPlaceholderView;
 @property(retain, nonatomic) NSView *inspectorPlaceholderView; // @synthesize inspectorPlaceholderView=_inspectorPlaceholderView;
 @property(nonatomic) __weak MSSplitViewDelegate *splitViewController; // @synthesize splitViewController=_splitViewController;
-@property(retain, nonatomic) NSWindow *messageWindow; // @synthesize messageWindow=_messageWindow;
+@property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
 - (void).cxx_destruct;
+- (void)resetHiddenSelectionHandlesTimerAction:(id)arg1;
+- (void)documentData:(id)arg1 immediatelyShowSelectionForLayer:(id)arg2;
+- (void)documentData:(id)arg1 temporarilyHideSelectionForLayer:(id)arg2;
+- (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
+- (BOOL)shouldDrawSelectionForLayer:(id)arg1;
+- (void)onAddPage:(id)arg1;
+- (void)flagsChangedNotification:(id)arg1;
+- (id)extensionForExportingLayer:(id)arg1;
+- (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
+- (id)sidebarController:(id)arg1 exportLayers:(id)arg2;
+- (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
+- (void)sidebarController:(id)arg1 validateRemovalOfPage:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
+- (void)sidebarControllerSelectionDidChange:(id)arg1;
+- (void)sidebarControllerDidUpdate:(id)arg1;
+- (void)refreshSidebarWithMask:(unsigned long long)arg1;
+- (void)updateSliceCount;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
 - (void)logBuggyBezierPaths;
@@ -73,7 +98,6 @@
 - (void)didUpdateDetailsForArtboard:(id)arg1;
 - (void)didUpdateDetailsForPage:(id)arg1;
 - (void)currentArtboardDidChange;
-- (void)collapseGroupsInLayerList:(id)arg1;
 - (void)sliceDidChangeVisibility:(id)arg1;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)debugStressTestRendering:(id)arg1;
@@ -114,10 +138,10 @@
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)toggleHandlerKey:(id)arg1;
 - (void)reloadInspector;
-- (void)reloadLayerList;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (id)rootDelegate;
+- (void)deleteArtboards2:(id)arg1;
 - (void)deleteArtboards:(id)arg1;
 - (void)closePath:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
@@ -133,10 +157,13 @@
 - (id)closestVisibleIdentifierInToolbarForIdentifier:(id)arg1;
 - (void)reversePath:(id)arg1;
 - (void)flagsChanged:(id)arg1;
+- (id)publisherFileName;
+- (void)toggleLocalSharing:(id)arg1;
 - (void)windowDidResize:(id)arg1;
 - (id)currentHandlerKey;
 - (id)currentHandler;
-- (void)enableInteractionFrom:(id)arg1;
+- (void)updateFilterSettings;
+- (void)onFilterChanged:(id)arg1;
 - (void)toggleSliceInteraction:(id)arg1;
 - (void)toggleLayerInteraction:(id)arg1;
 - (void)toggleLayerHighlight:(id)arg1;
@@ -145,6 +172,7 @@
 - (void)togglePixelLines:(id)arg1;
 - (void)toggleAlignmentGuides:(id)arg1;
 - (void)validateMenuItemTitleAndState:(id)arg1;
+- (BOOL)shouldEnableLocalSharing;
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)layerWouldOverlapExistingLayer:(id)arg1 inGroup:(id)arg2;
@@ -160,7 +188,6 @@
 - (void)exportPDFBook:(id)arg1;
 - (void)exportSliceLayers:(id)arg1;
 - (id)allExportableLayers;
-- (void)exportEnabledSliceLayers:(id)arg1;
 - (void)export:(id)arg1;
 - (id)selectedLayersOfClass:(Class)arg1;
 - (void)returnToNormalHandler;
@@ -172,7 +199,10 @@
 - (BOOL)shouldCreateToolbar;
 - (void)windowControllerDidLoadNib:(id)arg1;
 - (void)loadLayerListPanel;
+- (void)unbindLayerSliceInteraction;
+- (void)bindLayerSliceInteraction;
 - (void)loadInspectorPanel;
+- (void)windowDidExitFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;
 - (void)awakeFromNib;
 - (void)updateCountDownButton;
@@ -180,6 +210,8 @@
 - (id)currentView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)windowWillClose:(id)arg1;
+- (void)applicationDidChangeFocusWindow;
+- (void)windowDidResignKey:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidEndSheet:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
@@ -196,6 +228,7 @@
 - (id)exportFramer;
 - (void)hideMessage:(id)arg1;
 - (void)hideMessage;
+- (id)shadowViewForContentView:(id)arg1 cornerRadius:(double)arg2;
 - (void)displayMessage:(id)arg1 timeout:(double)arg2;
 - (void)displayMessage:(id)arg1;
 - (void)showMessage:(id)arg1;
@@ -228,6 +261,7 @@
 - (BOOL)readPDFFromURL:(id)arg1;
 - (BOOL)readSVGFromURL:(id)arg1;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
+- (void)reportFileSizeAtURL:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 

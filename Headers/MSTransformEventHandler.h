@@ -40,7 +40,7 @@
 - (void)replacePointAtIndexWithUndo:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (void)replacePointAtCorner:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtCorner:(long long)arg1;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (id)points;
 - (void)handlerWillLoseFocus;
 - (id)snapsForShape;

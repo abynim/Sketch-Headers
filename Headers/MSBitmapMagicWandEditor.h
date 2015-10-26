@@ -21,6 +21,8 @@
 - (void).cxx_destruct;
 - (BOOL)isValidRect:(struct CGRect)arg1;
 - (void)drawOvals;
+@property(readonly, nonatomic) struct CGRect dragCirclePageBounds;
+@property(readonly, nonatomic) struct CGRect dragCircleBounds;
 - (void)drawMask;
 - (void)draw;
 - (void)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

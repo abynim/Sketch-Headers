@@ -16,9 +16,9 @@
 - (void).cxx_destruct;
 - (void)clearLayerCaches:(id)arg1;
 - (id)savePanelWithDefaultFilename:(id)arg1 options:(id)arg2;
-- (id)pathForSavingIndividualSlice:(id)arg1 options:(id)arg2;
+- (void)showSavePanelToExportIndividualSlice:(id)arg1 options:(id)arg2;
 - (id)openPanelWithOptions:(id)arg1;
-- (id)directoryPathForSavingMultipleImagesWithOptions:(id)arg1;
+- (void)showSaveToFolderPanelToExportSlices:(id)arg1 options:(id)arg2;
 - (void)displayNoSlicesWarning;
 - (BOOL)warnForPossiblyOverwritingFilesWithSlices:(id)arg1 toFolder:(id)arg2;
 - (void)saveSlices:(id)arg1 toFolder:(id)arg2;

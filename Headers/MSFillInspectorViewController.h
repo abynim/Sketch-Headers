@@ -1,20 +1,18 @@
 #import "MSStylePartInspectorViewController.h"
 
-@class MSColorPreviewButton, NSTextField;
+@class MSColorPreviewButton, NSTextField<MSUpDownProtocol>;
 
 @interface MSFillInspectorViewController : MSStylePartInspectorViewController
 {
-    MSColorPreviewButton *colorButton;
-    NSTextField *opacityFieldColor;
-    NSTextField *opacityFieldGradientOrPattern;
+    MSColorPreviewButton *_colorButton;
+    NSTextField<MSUpDownProtocol> *_opacityField;
 }
 
+@property(retain, nonatomic) NSTextField<MSUpDownProtocol> *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSColorPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)opacityFieldAction:(id)arg1;
-- (id)correctOpacityField;
-- (void)showCorrectOpacityField;
-- (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)prepare;
 
 @end

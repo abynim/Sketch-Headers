@@ -21,7 +21,7 @@
 - (void)beginTransaction:(BOOL)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)inDatabase:(CDUnknownBlockType)arg1;
 - (id)database;
-- (void)close;
+- (BOOL)close;
 - (void)dealloc;
 - (id)init;
 - (id)initWithPath:(id)arg1;

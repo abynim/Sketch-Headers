@@ -6,7 +6,7 @@
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSIOSConnectionController, MSPersistentAssetCollection, MSPluginCommand, MSPluginCommandSpecifier, MSPluginManager, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSURL;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSIOSConnectionController, MSLocalWebServer, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginCommandSpecifier, MSPluginManager, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSURL;
 
 @interface AppController : NSObject <NSApplicationDelegate, BITHockeyManagerDelegate, BITCrashManagerDelegate, NSWindowDelegate, NSMenuDelegate>
 {
@@ -19,6 +19,8 @@
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSTimer *_updateTimer;
+    MSPasteboardManager *_pasteboardManager;
+    MSLocalWebServer *_localServer;
     MSReleaseNotesWindowController *_releaseNotesWindowController;
     NSString *_scriptPath;
     NSURL *_crashLogURL;
@@ -44,6 +46,8 @@
 @property(retain, nonatomic) NSURL *crashLogURL; // @synthesize crashLogURL=_crashLogURL;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(retain, nonatomic) MSReleaseNotesWindowController *releaseNotesWindowController; // @synthesize releaseNotesWindowController=_releaseNotesWindowController;
+@property(retain, nonatomic) MSLocalWebServer *localServer; // @synthesize localServer=_localServer;
+@property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
@@ -56,7 +60,7 @@
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (void)refreshCurrentDocument;
 - (void)visitDocumentation:(id)arg1;
-- (void)openPluginsFolder:(id)arg1;
+- (void)openPluginPreferences:(id)arg1;
 - (void)runLastScriptAction:(id)arg1;
 - (void)runCustomScriptAction:(id)arg1;
 - (void)revealPlugin:(id)arg1;
@@ -70,6 +74,7 @@
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
 - (void)feedback:(id)arg1;
+- (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)openPreferencesWindow:(id)arg1;
 - (void)documentWillClose:(id)arg1;
 - (void)revealPluginsFolderInFinder:(id)arg1;
@@ -101,15 +106,14 @@
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
 - (id)runPluginScript:(id)arg1;
 - (id)runPluginAtURL:(id)arg1;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
+- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
 - (id)runPluginCommand:(id)arg1;
 - (id)pluginContext;
 - (id)evaluateScript:(id)arg1;
 - (void)buildPluginsMenu:(id)arg1;
 - (BOOL)isSparkleUsed;
 - (void)checkForUpdates:(id)arg1;
-- (id)applicationLogForCrashManager:(id)arg1;
-- (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
-- (void)startHockeyAppTracking;
 - (void)stopCheckingForUpdates;
 - (void)checkForUpdatesAndCrashes;
 

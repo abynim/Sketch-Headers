@@ -6,6 +6,7 @@
 {
     BOOL _legacyPlugin;
     BOOL _enabled;
+    BOOL _disableCocoaScriptPreprocessor;
     NSURL *_url;
     NSDictionary *_commands;
     NSString *_version;
@@ -23,6 +24,7 @@
 
 + (id)commandsFromArray:(id)arg1 sketchPluginURL:(id)arg2 pluginBundle:(id)arg3;
 + (id)pluginBundleWithURL:(id)arg1;
+@property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic, getter=isLegacyPlugin) BOOL legacyPlugin; // @synthesize legacyPlugin=_legacyPlugin;
 @property(readonly, copy, nonatomic) NSString *compatibleVersion; // @synthesize compatibleVersion=_compatibleVersion;

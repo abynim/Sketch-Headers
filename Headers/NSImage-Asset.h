@@ -5,6 +5,7 @@
 @class NSString;
 
 @interface NSImage (Asset) <MSAsset>
+- (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 
 // Remaining properties

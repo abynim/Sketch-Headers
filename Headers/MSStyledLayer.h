@@ -7,14 +7,13 @@
 }
 
 + (unsigned long long)traits;
-+ (id)pasteboardForCopyPasteStyle;
 + (void)pasteExportOptions:(id)arg1 onLayers:(id)arg2;
 + (void)pasteTextStyle:(id)arg1 onLayers:(id)arg2;
 + (void)pasteStyleDict:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboard:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
++ (id)supportedPasteboardTypesForStyleCopying;
 @property(nonatomic) BOOL lightweightHasBitmapStylesEnabled; // @synthesize lightweightHasBitmapStylesEnabled=_lightweightHasBitmapStylesEnabled;
-- (id)shasOfImagesUsedInLayer;
 - (void)setStyle:(id)arg1;
 - (id)usedStyle;
 - (id)layersSharingStyle:(id)arg1;
@@ -31,7 +30,9 @@
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
-- (id)supportedPasteboardTypesForStyleCopying;
+- (id)copiedStyleAttributesForLayer:(id)arg1;
+- (void)writeStyleToPasteboard:(id)arg1;
+- (void)copyStyleToPasteboard:(id)arg1;
 - (id)copyStyleToPasteboard;
 - (id)sharedObjectOfType:(unsigned long long)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;

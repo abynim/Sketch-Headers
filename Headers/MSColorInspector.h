@@ -52,6 +52,7 @@
 - (void)refreshAction:(id)arg1;
 - (void)colorChangedTo:(id)arg1;
 - (void)colorPickerAction:(id)arg1;
+- (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)popoverWillClose;
 - (void)setMaximumAvailableHeight:(long long)arg1;

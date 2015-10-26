@@ -4,6 +4,7 @@
 
 @interface MSResizeSheet : CHSheetController
 {
+    BOOL _hasDoneFirstScale;
     double _scale;
     NSTextField *_scalingField;
     NSTextField *_widthField;
@@ -14,6 +15,7 @@
     struct CGRect _originalRect;
 }
 
+@property(nonatomic) BOOL hasDoneFirstScale; // @synthesize hasDoneFirstScale=_hasDoneFirstScale;
 @property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
 @property(retain, nonatomic) NSDictionary *selectedObjectsBackup; // @synthesize selectedObjectsBackup=_selectedObjectsBackup;

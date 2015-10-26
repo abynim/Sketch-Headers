@@ -1,8 +1,8 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
 @class MSArray, MSPointArray;
 
-@interface _MSGradient : MSModelObject
+@interface _MSGradient : MSModelBase
 {
     BOOL _shouldSmoothenOpacity;
     double _elipseLength;
@@ -22,11 +22,9 @@
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -44,6 +42,7 @@
 - (struct CGPoint)primitiveFrom;
 - (void)setPrimitiveElipseLength:(double)arg1;
 - (double)primitiveElipseLength;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

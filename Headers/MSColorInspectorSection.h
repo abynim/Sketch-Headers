@@ -24,7 +24,7 @@
 @property(nonatomic) __weak id <MSColorInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)moveAssetAtIndex:(unsigned long long)arg1 beforeObjectAtIndex:(unsigned long long)arg2 ForPickerView:(id)arg3;
-- (unsigned long long)indexOfAsset:(id)arg1 forPickerView:(id)arg2;
+- (id)indexesOfAsset:(id)arg1 forPickerView:(id)arg2;
 - (void)removeAssetAtIndex:(unsigned long long)arg1 forPickerView:(id)arg2;
 - (id)assetAtIndex:(unsigned long long)arg1 forPickerView:(id)arg2;
 - (void)insertAsset:(id)arg1 atIndex:(unsigned long long)arg2 forPickerView:(id)arg3;
@@ -55,6 +55,8 @@
 - (id)assetCollectionForPresetPicker:(id)arg1;
 - (void)assetHeaderViewDidClick:(id)arg1;
 - (id)wrapPickerInScrollView:(id)arg1;
+- (void)undoNotification:(id)arg1;
+- (BOOL)hasPresetPickers;
 - (id)initWithDelegate:(id)arg1;
 
 // Remaining properties

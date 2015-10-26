@@ -59,6 +59,7 @@
 - (void)refreshAction:(id)arg1;
 - (id)inspectorsWithProperContent;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
+- (id)sharedObjectsSection;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (struct CGRect)boundsForParentOf:(id)arg1;

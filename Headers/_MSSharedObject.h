@@ -1,24 +1,20 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
-@class MSArray, NSString;
+@class MSModelObject, NSString;
 
-@interface _MSSharedObject : MSModelObject
+@interface _MSSharedObject : MSModelBase
 {
-    MSArray *_instances;
     NSString *_name;
     MSModelObject *_value;
 }
 
 @property(retain, nonatomic) MSModelObject *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) MSArray *instances; // @synthesize instances=_instances;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -26,8 +22,7 @@
 - (id)primitiveValue;
 - (void)setPrimitiveName:(id)arg1;
 - (id)primitiveName;
-- (void)setPrimitiveInstances:(id)arg1;
-- (id)primitiveInstances;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

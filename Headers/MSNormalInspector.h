@@ -28,12 +28,11 @@
 - (BOOL)shouldHideExportBar;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
-- (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)sharedObjectsSection;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)returnToDefaultHandler;
 - (void)refreshLayers;
-- (void)dealloc;
 - (id)viewControllers;
 - (void)changeColor:(id)arg1;
 - (void)layerPositionPossiblyChanged;

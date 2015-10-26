@@ -1,30 +1,21 @@
-#import "MSBaseAction.h"
+#import "MSPopoverAction.h"
 
-#import "BCPopoverDelegate.h"
 #import "NSMenuDelegate.h"
 
 @class BCPopover, NSString;
 
-@interface MSIOSConnectAction : MSBaseAction <NSMenuDelegate, BCPopoverDelegate>
+@interface MSIOSConnectAction : MSPopoverAction <NSMenuDelegate>
 {
     BCPopover *_popover;
 }
 
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 - (void).cxx_destruct;
-- (void)popoverWillClose:(id)arg1;
-- (void)popoverDidClose:(id)arg1;
-- (void)showPopoverToView:(id)arg1 viewController:(id)arg2;
-- (void)closePopover;
-- (void)showClientsWindowRelativeToView:(id)arg1;
-- (id)menu;
-- (BOOL)showInToolbar;
-- (void)doPerformAction:(id)arg1;
+- (id)popoverViewController;
 - (void)iOSConnectAction:(id)arg1;
 - (id)connectionController;
 - (BOOL)validate;
 - (BOOL)validateToolbarItem:(id)arg1;
-- (BOOL)hasSubMenu;
 - (id)imageName;
 - (id)label;
 - (id)tooltip;

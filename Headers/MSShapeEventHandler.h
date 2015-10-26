@@ -117,6 +117,8 @@
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)selectAll:(id)arg1;
 - (void)delete:(id)arg1;
+- (id)layersToCopy;
+- (id)defaultCursor;
 - (void)showCursorWithFlags:(unsigned long long)arg1;
 - (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)refreshWireIfNecessary;
@@ -128,7 +130,7 @@
 - (void)refreshDragRect;
 - (void)determineSelectedPointsByDrag;
 - (BOOL)canAddNewPointOnMouseDownWithFlags:(unsigned long long)arg1;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (BOOL)mouseDownEvent:(id)arg1;
 - (void)selectPointAndUpdate:(long long)arg1 curve:(long long)arg2;

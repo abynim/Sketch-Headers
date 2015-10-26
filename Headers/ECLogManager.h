@@ -4,10 +4,11 @@
 
 @interface ECLogManager : NSObject
 {
-    int _defaultContextFlags;
+    BOOL _showMenu;
     NSMutableDictionary *_channels;
     NSMutableDictionary *_handlers;
     NSMutableArray *_defaultHandlers;
+    unsigned long long _defaultContextFlags;
     NSMutableDictionary *_settings;
     id <ECLogManagerDelegate> _delegate;
     NSArray *_handlersSorted;
@@ -15,9 +16,10 @@
 
 + (id)sharedInstance;
 @property(retain, nonatomic) NSArray *handlersSorted; // @synthesize handlersSorted=_handlersSorted;
+@property(nonatomic) BOOL showMenu; // @synthesize showMenu=_showMenu;
 @property(nonatomic) __weak id <ECLogManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableDictionary *settings; // @synthesize settings=_settings;
-@property(nonatomic) int defaultContextFlags; // @synthesize defaultContextFlags=_defaultContextFlags;
+@property(nonatomic) unsigned long long defaultContextFlags; // @synthesize defaultContextFlags=_defaultContextFlags;
 @property(retain, nonatomic) NSMutableArray *defaultHandlers; // @synthesize defaultHandlers=_defaultHandlers;
 @property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
 @property(retain, nonatomic) NSMutableDictionary *channels; // @synthesize channels=_channels;
@@ -29,7 +31,7 @@
 - (id)handlerNameForIndex:(unsigned long long)arg1;
 - (id)handlerForIndex:(unsigned long long)arg1;
 - (unsigned long long)contextFlagCount;
-- (int)contextFlagValueForIndex:(unsigned long long)arg1;
+- (unsigned long long)contextFlagValueForIndex:(unsigned long long)arg1;
 - (id)contextFlagNameForIndex:(unsigned long long)arg1;
 - (id)channelsSortedByName;
 - (void)resetAllSettings;

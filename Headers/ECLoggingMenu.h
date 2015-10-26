@@ -4,9 +4,10 @@
 
 @interface ECLoggingMenu : ECDebugMenu
 {
-    ECLogManager *mLogManager;
+    ECLogManager *_logManager;
 }
 
+@property(nonatomic) __weak ECLogManager *logManager; // @synthesize logManager=_logManager;
 - (void).cxx_destruct;
 - (void)revealSettings;
 - (void)revealLogFiles;

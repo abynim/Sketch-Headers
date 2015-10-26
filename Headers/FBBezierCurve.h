@@ -20,6 +20,8 @@
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) __weak FBBezierContour *contour; // @synthesize contour=_contour;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
+- (void)debugDrawColor:(id)arg1 controlPointColor:(id)arg2 scale:(double)arg3;
 - (void)sortCrossings;
 - (BOOL)isNext:(id)arg1;
 - (BOOL)crossesEdge:(id)arg1 atIntersectRange:(id)arg2;
@@ -43,6 +45,7 @@
 @property(readonly, nonatomic) FBBezierCurve *previous;
 @property(readonly, nonatomic) FBBezierCurve *next;
 - (void)removeCrossingsInOverlap;
+- (void)reorderCoincidentCrossingA:(id)arg1 crossingB:(id)arg2;
 - (void)removeAllCrossings;
 - (void)removeCrossing:(id)arg1;
 - (void)addCrossing:(id)arg1;
@@ -50,6 +53,7 @@
 - (id)clone;
 @property(readonly, nonatomic) NSMutableArray *crossings_;
 - (id)bezierPath;
+- (struct CGPoint)tangentAtParameter:(double)arg1;
 - (struct CGPoint)tangentFromLeftOffset:(double)arg1;
 - (struct CGPoint)tangentFromRightOffset:(double)arg1;
 - (struct CGPoint)pointFromLeftOffset:(double)arg1;

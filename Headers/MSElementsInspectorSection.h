@@ -52,6 +52,7 @@
 - (unsigned long long)selectedMenuIndexForType:(unsigned long long)arg1;
 - (void)updateMenuSelectionToIndex:(unsigned long long)arg1;
 - (void)prepareForDisplay;
+- (void)reloadData;
 - (void)awakeFromNib;
 
 // Remaining properties

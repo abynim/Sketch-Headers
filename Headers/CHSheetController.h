@@ -11,6 +11,7 @@
 + (id)runForWindow:(id)arg1;
 + (id)runWithObject:(id)arg1;
 + (id)run;
++ (void)initialize;
 @property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void).cxx_destruct;

@@ -1,6 +1,7 @@
 #import "NSString.h"
 
 @interface NSString (CHStringExtensions)
++ (id)stringRepresentationForSeconds:(unsigned long long)arg1;
 - (id)nameWithPrefix:(id)arg1 number:(long long)arg2;
 - (id)uniqueStringComparedToStrings:(id)arg1;
 - (id)splitByBaseAndNumber;

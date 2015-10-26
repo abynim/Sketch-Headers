@@ -7,7 +7,6 @@
 - (id)parentGroup;
 - (void)prepareToBecomeSharedObjectValue:(struct MSModelObject *)arg1;
 - (unsigned long long)type;
-- (void)removeInvalidInstanceIDs:(id)arg1;
 - (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;
 - (id)container;
 - (struct MSModelObject *)newUnregisteredInstance;

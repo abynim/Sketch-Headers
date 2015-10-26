@@ -13,7 +13,6 @@
     NSToolbarItem *_toolbarItem;
 }
 
-+ (id)actionForDocument:(id)arg1;
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSActionsController *controller; // @synthesize controller=_controller;

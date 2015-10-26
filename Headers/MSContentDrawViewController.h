@@ -2,7 +2,7 @@
 
 #import "MSBaseViewDelegate.h"
 
-@class MSContentDrawView, MSDocument, MSRulerView, NSString, NSView;
+@class MSContentDrawView, MSDocument, MSRulerView, NSLayoutConstraint, NSString, NSView;
 
 @interface MSContentDrawViewController : CHViewController <MSBaseViewDelegate>
 {
@@ -11,8 +11,12 @@
     MSRulerView *_verticalRuler;
     NSView *_rulerCornerView;
     MSDocument *_document;
+    NSLayoutConstraint *_rulerWidthConstraint;
+    NSLayoutConstraint *_rulerHeightConstraint;
 }
 
+@property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
+@property(nonatomic) __weak NSLayoutConstraint *rulerWidthConstraint; // @synthesize rulerWidthConstraint=_rulerWidthConstraint;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
 @property(retain, nonatomic) MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
@@ -25,6 +29,7 @@
 - (void)currentArtboardDidChange;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (void)frameDidChange:(id)arg1;
 - (void)awakeFromNib;
 
 // Remaining properties

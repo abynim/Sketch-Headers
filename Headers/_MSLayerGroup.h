@@ -14,11 +14,9 @@
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -28,6 +26,7 @@
 - (id)primitiveLayers;
 - (void)setPrimitiveHasClickThrough:(BOOL)arg1;
 - (BOOL)primitiveHasClickThrough;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

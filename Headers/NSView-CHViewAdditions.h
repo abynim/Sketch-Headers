@@ -1,6 +1,9 @@
 #import "NSView.h"
 
+@class NSArray;
+
 @interface NSView (CHViewAdditions)
+@property(readonly, nonatomic) NSArray *allSubviews;
 - (void)beginDragFromEvent:(id)arg1 image:(id)arg2 writersBlock:(CDUnknownBlockType)arg3;
 - (void)beginDragFromEvent:(id)arg1 image:(id)arg2 type:(id)arg3 data:(id)arg4;
 - (id)enclosingSplitView;

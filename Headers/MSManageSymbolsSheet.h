@@ -33,6 +33,7 @@
 - (void)deleteSymbol:(id)arg1;
 - (id)sharedObjectForTableView:(id)arg1 atIndex:(long long)arg2;
 - (void)tableView:(id)arg1 willDisplayCell:(id)arg2 forTableColumn:(id)arg3 row:(long long)arg4;
+- (void)reloadTableAfterRename:(id)arg1;
 - (void)tableView:(id)arg1 setObjectValue:(id)arg2 forTableColumn:(id)arg3 row:(long long)arg4;
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;

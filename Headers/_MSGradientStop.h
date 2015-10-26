@@ -1,29 +1,28 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
 @class MSColor;
 
-@interface _MSGradientStop : MSModelObject
+@interface _MSGradientStop : MSModelBase
 {
-    MSColor *_color;
     double _position;
+    MSColor *_color;
 }
 
+@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 @property(nonatomic) double position; // @synthesize position=_position;
-@property(copy, nonatomic) MSColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
-- (void)setPrimitivePosition:(double)arg1;
-- (double)primitivePosition;
 - (void)setPrimitiveColor:(id)arg1;
 - (id)primitiveColor;
+- (void)setPrimitivePosition:(double)arg1;
+- (double)primitivePosition;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

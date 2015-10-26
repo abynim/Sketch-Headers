@@ -18,6 +18,7 @@
 - (id)temporaryFolder;
 - (id)exportableLayers;
 - (id)checkForErrors;
+- (id)exportAllowingUI:(BOOL)arg1;
 - (id)export;
 - (id)disableShadowsForParentsOfView:(id)arg1;
 - (id)calculateExportRequestForLayer:(id)arg1;

@@ -16,7 +16,6 @@
 - (id)middleIntersection;
 - (void)addCrossings;
 - (BOOL)isCrossingUsingNonZeroWindingRule;
-- (BOOL)isCrossingWithCallDepth:(unsigned long long)arg1;
 - (BOOL)isCrossing;
 - (BOOL)isCrossingWithTangentsOnly;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2;

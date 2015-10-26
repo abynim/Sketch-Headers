@@ -1,5 +1,6 @@
 #import "_MSLayer.h"
 
+#import "BCOutlineViewNode.h"
 #import "MSLayerContainment.h"
 #import "MSLayerManipulation.h"
 #import "MSLayerTraits.h"
@@ -7,9 +8,9 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, NSAffineTransform, NSString;
+@class MSAbsoluteRect, NSAffineTransform, NSDictionary, NSMenu, NSString;
 
-@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     BOOL _isHovering;
@@ -20,24 +21,24 @@
     MSAbsoluteRect *_absoluteRect;
     id _undoRefreshTimer;
     struct CGRect _lightweightDrawableFrame;
-    struct CGRect _frameAtMouseDown;
     struct CGRect _lightweightAbsoluteRect;
-    struct CGRect _cachedDirtyRectForBounds;
+    struct CGRect _cachedInfluenceRectForBounds;
 }
 
-+ (id)shasOfImagesUsedInLayers:(id)arg1;
-+ (void)hideSelectionDisabledInBlock:(CDUnknownBlockType)arg1;
 + (void)makeLayerNamesUnique:(id)arg1;
 + (id)layersSeparatedByGroups:(id)arg1;
++ (id)keyPathsForValuesAffectingUserVisibleRotation;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)keyPathsForValuesAffectingBadgeMap;
++ (id)keyPathsForValuesAffectingPreviewImages;
++ (id)keyPathsForValuesAffectingHasHighlight;
 + (unsigned long long)traits;
-@property(nonatomic) struct CGRect cachedDirtyRectForBounds; // @synthesize cachedDirtyRectForBounds=_cachedDirtyRectForBounds;
+@property(nonatomic) struct CGRect cachedInfluenceRectForBounds; // @synthesize cachedInfluenceRectForBounds=_cachedInfluenceRectForBounds;
 @property(retain, nonatomic) id undoRefreshTimer; // @synthesize undoRefreshTimer=_undoRefreshTimer;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) struct CGRect lightweightAbsoluteRect; // @synthesize lightweightAbsoluteRect=_lightweightAbsoluteRect;
-@property(nonatomic) struct CGRect frameAtMouseDown; // @synthesize frameAtMouseDown=_frameAtMouseDown;
 @property(nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(retain, nonatomic) NSAffineTransform *lightweightTransform; // @synthesize lightweightTransform=_lightweightTransform;
 @property(nonatomic) struct CGRect lightweightDrawableFrame; // @synthesize lightweightDrawableFrame=_lightweightDrawableFrame;
@@ -46,7 +47,6 @@
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (id)shasOfImagesUsedInLayer;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
 - (void)groupDidRemoveThisLayer:(id)arg1;
 - (void)groupDidAddThisLayer:(id)arg1;
@@ -54,7 +54,7 @@
 - (BOOL)isFrameEqualForSync:(id)arg1;
 - (BOOL)isLayerExportable;
 - (void)assignWithOriginalLinkedStyleIfNecessary;
-- (id)layerWithId:(id)arg1;
+- (id)layerWithID:(id)arg1;
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
 - (void)setMid:(struct CGPoint)arg1;
@@ -63,7 +63,6 @@
 @property(nonatomic) struct CGRect frameInArtboard;
 - (void)setFrameInArtboard:(struct CGRect)arg1 insertingIntoGroup:(id)arg2;
 - (BOOL)calculateHasBlendedLayer;
-- (BOOL)shouldBeSelectedInLayerList;
 - (BOOL)canBeSelectedOnCanvas;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (void)setNilValueForKey:(id)arg1;
@@ -85,6 +84,7 @@
 - (struct CGPoint)convertPointToParentRoot:(struct CGPoint)arg1;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
 - (id)allLayersWithForcedClickThrough:(BOOL)arg1;
+- (BOOL)isOpenForFindingAllLayers:(BOOL)arg1;
 - (id)children;
 - (id)ancestors;
 - (id)parentArtboard;
@@ -106,11 +106,9 @@
 - (void)setAbsolutePosition:(struct CGPoint)arg1;
 - (struct CGPoint)absolutePosition;
 - (BOOL)closePath;
+- (void)hideSelectionTemporarily;
 - (id)bezierPathWithTransforms;
 - (id)bezierPath;
-- (struct CGRect)absoluteInfluenceRect;
-- (struct CGRect)influenceRectForBounds;
-- (struct CGRect)influenceRectForFrame;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (struct CGRect)translateInfluenceRectFromBoundsToFrame:(struct CGRect)arg1;
@@ -119,7 +117,14 @@
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)layerDidChange;
+- (struct CGRect)absoluteInfluenceRect;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascade;
+- (double)influenceRectPaddingThatCascadesToContainedLayers;
+- (struct BCEdgePaddings)influenceRectEdgePaddingsThatCascadeToContainedLayers;
+- (struct CGRect)influenceRectForFrameFromBoundsInfluenceRect:(struct CGRect)arg1;
+- (struct CGRect)influenceRectForFrame;
+- (struct CGRect)influenceRectForBounds;
 - (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
 - (id)cachedImage;
 - (void)clearCachedImage;
@@ -133,17 +138,17 @@
 - (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)isTooSmallForHitTesting:(double)arg1;
 - (long long)selectedCorner:(struct CGPoint)arg1 zoom:(double)arg2;
+- (void)setLayerListExpandedType:(long long)arg1;
+@property(readonly, nonatomic) BOOL isExpanded;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (BOOL)containsSelectedItem;
-- (void)flattenIfNecessary;
+- (BOOL)flattenIfNecessary;
 - (void)layerFinishedResize;
 - (void)layerWillResize;
 - (struct CGRect)boundsRect;
-- (void)setName:(id)arg1;
-- (void)enableSelectionDelayedAndRelease;
-- (void)hideSelectionTemporarily;
-- (void)showSelectionImmediately;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(retain, nonatomic) NSString *name;
 - (id)valueForUndefinedKey:(id)arg1;
 @property(nonatomic) double proportions;
 @property(nonatomic) BOOL constrainProportions;
@@ -168,18 +173,16 @@
 - (void)initEmptyObject;
 - (id)handlerName;
 - (BOOL)canBeHidden;
+- (BOOL)canFlatten;
 - (id)CSSStringFromFloat:(double)arg1;
 - (id)CSSAttributes;
 - (id)CSSRotation;
 - (id)CSSAttributeString;
-- (BOOL)isExpandedInLayerList;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 honourSelected:(BOOL)arg2;
 - (BOOL)canSmartRotate;
 - (BOOL)shouldFlattenAfterRotate;
 - (void)toggleClosePath;
 - (void)layerDidResizeFromInspector;
+@property(nonatomic) double userVisibleRotation;
 - (id)inspectorViewControllers;
 - (id)inspectorViewControllerNames;
 - (BOOL)canBeHovered;
@@ -192,6 +195,9 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (BOOL)canSplitPaths;
+- (id)previewFillColor:(BOOL)arg1;
+- (id)previewBorderColor:(BOOL)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (id)snapItemForDrawing;
 - (id)snapLines;
 - (Class)layerSnapperObjectClass;
@@ -200,6 +206,27 @@
 - (BOOL)booleanOperationCanBeReset;
 - (id)duplicate;
 - (struct CGRect)absoluteDirtyRect;
+@property(readonly, nonatomic) BOOL shouldCachePreview;
+@property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
+- (id)badgeMapWithBaseName:(id)arg1;
+- (void)addBadgeImageNamed:(id)arg1 toMap:(id)arg2 withKey:(id)arg3;
+- (id)badgeNameLookup;
+- (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)isMasked;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL selectedInLayerList;
+@property(readonly, nonatomic) BOOL expandableInLayerList;
+@property(readonly, nonatomic) unsigned long long selectedBadgeMenuItem;
+@property(readonly, nonatomic) NSMenu *badgeMenu;
+@property(readonly, nonatomic) NSDictionary *previewImages;
+- (id)previewImageWithSelectedState:(BOOL)arg1;
+@property(readonly, nonatomic) NSDictionary *badgeMap;
+@property(readonly, nonatomic) BOOL hasHighlight;
+@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) unsigned long long filterType;
+@property(readonly, nonatomic) unsigned long long displayType;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -217,6 +244,7 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)closestClippingLayer;
+- (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
 - (id)parentRootForAbsoluteRect;

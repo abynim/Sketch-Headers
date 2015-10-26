@@ -43,7 +43,7 @@
 - (id)handleLinesColor;
 - (void)drawHandleLines;
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)repairGradientIfNecessary;
 - (struct CGRect)paddingRectAroundPoints;
 - (void)colorMagnifierAction:(id)arg1;

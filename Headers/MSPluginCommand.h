@@ -37,7 +37,7 @@
 - (void).cxx_destruct;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2;
-- (id)pluginBundleIdentifierForMetadta;
+- (id)pluginBundleIdentifierForMetadata;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3 forPluginIdentifier:(id)arg4;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)metadata;

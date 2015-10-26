@@ -23,9 +23,10 @@
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(nonatomic) BOOL shouldSkipCalculatingLayerBlending; // @synthesize shouldSkipCalculatingLayerBlending=_shouldSkipCalculatingLayerBlending;
 @property(nonatomic) BOOL hasBlendedLayer; // @synthesize hasBlendedLayer=_hasBlendedLayer;
-@property(retain, nonatomic) MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
+@property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 @property(nonatomic) __weak id <MSPageDelegate> pageDelegate; // @synthesize pageDelegate=_pageDelegate;
 - (void).cxx_destruct;
+- (BOOL)shouldDrawSelection;
 - (BOOL)hasClickThrough;
 - (id)allAncestorsOfLayers:(id)arg1;
 - (id)currentVerticalRulerData;
@@ -54,7 +55,7 @@
 - (id)ancestorTransforms;
 - (id)ancestors;
 - (id)parentPage;
-- (id)contentBounds;
+@property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)resizeRoot:(BOOL)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
@@ -81,9 +82,16 @@
 - (id)parentGroup;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
-- (BOOL)isExpandedInLayerList;
 - (BOOL)canBeHovered;
 - (id)displayName;
+- (id)webExporterRepresentationOnPage:(id)arg1;
+- (id)cloneForDocument:(id)arg1;
+- (BOOL)isExportableViaDragAndDrop;
+- (id)badgeMap;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)previewImages;
+- (void)duplicate:(id)arg1;
+- (unsigned long long)displayType;
 - (BOOL)parentOrSelfIsSymbol;
 - (BOOL)transparencyLayerUseRectCondition;
 - (unsigned long long)shouldDraw;

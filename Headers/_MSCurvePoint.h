@@ -1,6 +1,6 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
-@interface _MSCurvePoint : MSModelObject
+@interface _MSCurvePoint : MSModelBase
 {
     BOOL _hasCurveFrom;
     BOOL _hasCurveTo;
@@ -19,11 +19,9 @@
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)fillInEmptyObjects;
 - (BOOL)hasDefaultValues;
 - (void)initEmptyObject;
@@ -41,6 +39,7 @@
 - (struct CGPoint)primitiveCurveFrom;
 - (void)setPrimitiveCornerRadius:(double)arg1;
 - (double)primitiveCornerRadius;
+- (id)immutableModelObject;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

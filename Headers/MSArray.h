@@ -1,15 +1,16 @@
-#import "MSModelObject.h"
+#import "MSModelBase.h"
 
 #import "NSFastEnumeration.h"
 
 @class NSArray, NSMutableArray;
 
-@interface MSArray : MSModelObject <NSFastEnumeration>
+@interface MSArray : MSModelBase <NSFastEnumeration>
 {
     NSMutableArray *array;
     id <MSArrayDelegate> _delegate;
 }
 
++ (Class)immutableClass;
 + (id)dataArrayWithArray:(id)arg1;
 + (id)dataArray;
 + (id)array;
@@ -51,17 +52,17 @@
 - (id)firstObject;
 - (void)setArray:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
 - (void)initEmptyObject;
+- (id)immutableModelObject;
 - (id)initWithArray:(id)arg1 lightweight:(BOOL)arg2;
 - (id)initWithArray:(id)arg1;
 - (id)treeAsDictionary;
+- (void)addImageOwnersToSet:(id)arg1;
 
 @end
 

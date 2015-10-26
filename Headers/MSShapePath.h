@@ -14,6 +14,7 @@
 - (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
 - (BOOL)simplifyPathOnce;
 - (void)simplifyPath;
+- (void)invalidateLightweightCopy:(id)arg1;
 - (unsigned long long)numberOfPoints;
 - (id)lastPoint;
 - (id)firstPoint;

@@ -44,6 +44,7 @@
 - (id)CSSAttributeStringWithMasterAlpha:(double)arg1;
 - (BOOL)hasAlphaStop;
 - (id)elipseTransformInRect:(struct CGRect)arg1;
+- (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 - (id)NSGradientForContext:(id)arg1;
 - (void)setHasDonePreRenderingForContext:(id)arg1;

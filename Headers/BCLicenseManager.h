@@ -22,7 +22,7 @@
 - (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
-- (void)checkForDeploymentKeyWithPath:(id)arg1;
+- (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)requestTrialLicenseWithHandler:(CDUnknownBlockType)arg1;
 - (void)fallbackToTrial:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)processLicenseRefreshResult:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -30,7 +30,7 @@
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (long long)numberOfDaysLeftInTrialMode;
-- (unsigned long long)currentLicenseType;
+- (long long)currentLicenseType;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3;

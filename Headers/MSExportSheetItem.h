@@ -21,7 +21,7 @@
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) MSSliceDragView *previewView; // @synthesize previewView=_previewView;
 - (void).cxx_destruct;
-- (void)checkBoxAction:(id)arg1;
+@property(nonatomic) BOOL isExportable;
 - (id)subTitle;
 - (void)loadUI;
 - (void)awakeFromNib;

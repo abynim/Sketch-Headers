@@ -19,6 +19,7 @@
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)canDuplicate;
 - (void)dealloc;
 - (id)undoManager;
@@ -35,10 +36,16 @@
 - (struct CGRect)windowFrameForTextView;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)viewDidScroll:(id)arg1;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
 - (void)textStorageDidProcessEditing:(id)arg1;
+- (void)dispatchTryPutFirstFocusBack;
+- (void)tryPutFirstFocusBack;
+- (void)windowDidResignKey:(id)arg1;
 - (void)adjustForegroundColor;
+- (id)insertionPointColor;
+- (double)averageLuminanceOfImage:(struct CGImage *)arg1;
+- (struct CGImage *)newTextLayerImageFromWindowBackingStore;
 - (void)beginEditing;
 - (double)baselineAdjustmentForTypesetter:(id)arg1;
 - (struct CGRect)frameForTextViewOnCanvasBasedOnBaseFrame:(struct CGRect)arg1;
@@ -46,6 +53,7 @@
 - (void)makeTextWindow;
 - (void)makeTextView;
 - (void)addTextView;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)handlerGotFocus;
 
 // Remaining properties

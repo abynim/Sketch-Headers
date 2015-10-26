@@ -31,7 +31,6 @@
 - (void)drawPatternFill;
 - (void)drawGradientFill;
 - (void)drawColorFill;
-- (long long)graphicsSettings;
 - (void)render;
 
 @end

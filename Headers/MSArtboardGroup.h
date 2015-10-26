@@ -13,17 +13,21 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniqueing;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveToEmptyLocation;
+- (void)setRect:(struct CGRect)arg1;
 - (void)removeFromParent;
 - (BOOL)resizeRoot:(BOOL)arg1;
 - (id)parentRoot;
 - (id)parentArtboard;
 - (id)slice;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (BOOL)hasGuides;
+- (struct CGRect)influenceRectForBounds;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
 - (BOOL)isLocked;
@@ -46,9 +50,15 @@
 - (void)initEmptyObject;
 - (BOOL)canBeHidden;
 - (id)inspectorViewControllerNames;
+- (id)badgeMap;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)previewImages;
+- (unsigned long long)displayType;
 - (id)parentForInsertingLayers;
 - (id)displayName;
+- (id)webExporterRepresentationOnPage:(id)arg1;
 - (id)parentRootForAbsoluteRect;
+- (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
 - (BOOL)canBePartOfSymbol;
 - (Class)rendererClass;
 

@@ -22,6 +22,8 @@
 - (id)secondPhaseSubtitleForValue:(long long)arg1 maximum:(long long)arg2;
 - (id)firstPhaseSubtitle;
 - (void)finishImporting;
+- (id)unwrappedLayer:(id)arg1;
+- (id)importAsLayer;
 - (void)importIntoGroup:(id)arg1 name:(id)arg2 images:(id)arg3 progress:(CDUnknownBlockType)arg4;
 - (id)name;
 - (unsigned long long)prepareToImportFromData:(id)arg1;

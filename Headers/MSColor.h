@@ -23,6 +23,7 @@
 + (id)colorWithRGBADictionary:(id)arg1;
 + (id)colorFromSVGColor:(id)arg1;
 + (id)colorWithSVGString:(id)arg1;
+- (id)colorWithAlpha:(double)arg1;
 - (BOOL)isBlack;
 - (BOOL)isWhite;
 - (BOOL)fuzzyIsEqual:(id)arg1;
@@ -41,7 +42,9 @@
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)treeAsDictionary;
 - (id)RGBADictionary;
+- (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
+- (id)scaledColor:(double)arg1;
 - (id)NSColorForContext:(id)arg1;
 - (id)svgRepresentation;
 

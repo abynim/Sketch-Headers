@@ -18,8 +18,10 @@
     NSView *_ipFieldBorderView;
     MSIOSConnectionController *_connectionController;
     NSTableView *_tableView;
+    NSString *_subnetAddress;
 }
 
+@property(retain, nonatomic) NSString *subnetAddress; // @synthesize subnetAddress=_subnetAddress;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
 @property(retain, nonatomic) NSView *ipFieldBorderView; // @synthesize ipFieldBorderView=_ipFieldBorderView;
@@ -31,14 +33,15 @@
 - (void).cxx_destruct;
 - (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
 - (BOOL)control:(id)arg1 textShouldBeginEditing:(id)arg2;
+- (void)prefillIP;
 - (void)selectionChanged:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)openMirrorWebsite:(id)arg1;
-- (BOOL)isValidIP:(id)arg1;
 - (void)connectToIP:(id)arg1;
 - (void)clientsChangedNotification:(id)arg1;
+- (void)calculateSubnet;
 - (void)awakeFromNib;
 - (void)dealloc;
 - (id)initWithConnectionController:(id)arg1;

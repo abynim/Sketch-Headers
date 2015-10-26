@@ -1,52 +1,51 @@
 #import "NSObject.h"
 
 #import "NSCoding.h"
+#import "NSCopying.h"
 
-@class MSDocumentData, NSCache;
+@class MSModelObjectCache;
 
-@interface MSModelObject : NSObject <NSCoding>
+@interface MSModelObject : NSObject <NSCopying, NSCoding>
 {
-    int _cacheLock;
-    unsigned char _flags;
-    MSModelObject *_akParentObject;
+    MSModelObjectCache *_cache;
     id _objectID;
-    MSDocumentData *_documentData;
-    MSModelObject *_akLightweightCopy;
-    NSCache *_cache;
 }
 
-+ (void)performWithoutUpdateEvents:(CDUnknownBlockType)arg1;
 + (void)clearInstanceCount;
 + (void)printInstanceCount:(id)arg1;
-@property(nonatomic) unsigned char flags; // @synthesize flags=_flags;
-@property(nonatomic) int cacheLock; // @synthesize cacheLock=_cacheLock;
-@property(retain, nonatomic) NSCache *cache; // @synthesize cache=_cache;
-@property(retain, nonatomic) MSModelObject *akLightweightCopy; // @synthesize akLightweightCopy=_akLightweightCopy;
-@property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
++ (void)addImageOwnersInCollection:(id)arg1 toSet:(id)arg2;
++ (id)imageOwnersInCollection:(id)arg1;
++ (id)imageHashesInCollection:(id)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL hasCache;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)copyIncludingObjectIDS;
+@property(readonly, nonatomic) BOOL isLightweightCopy;
+- (void)invalidateLightweightCopy:(id)arg1;
+@property(readonly, nonatomic) MSModelObject *lightweightCopy;
+- (id)migrationsInList:(SEL *)arg1;
+- (SEL *)migrationListForClass:(Class)arg1;
+- (SEL *)allocateMigrationListForClass:(Class)arg1;
+- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesUsingMigrationWithCoder:(id)arg1;
+- (void)performMigrationsWithCoder:(id)arg1;
+- (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 block:(CDUnknownBlockType)arg3;
+- (void)initObjectWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeObjectIDWithCoder:(id)arg1;
+- (void)didCatchException:(id)arg1 duringEncodeWithCoder:(id)arg2;
+- (void)encodeWithCoder:(id)arg1;
+- (void)encodePropertiesWithCoder:(id)arg1;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)breakConnectionWith:(id)arg1;
+- (id)primitiveObjectID;
+- (void)setPrimitiveObjectID:(id)arg1;
 @property(copy, nonatomic) id objectID; // @synthesize objectID=_objectID;
-- (id)rootModelObject;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (BOOL)hasObjectID;
-- (void)generateObjectID;
+- (id)generateObjectID;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
-- (void)childDidChangeNotification:(id)arg1;
-- (void)notifyParentsOfPropertyChange:(id)arg1;
-- (id)undoManager;
-- (void)setUndoActionSenderAndName:(id)arg1;
-- (void)setUndoActionName:(id)arg1;
-- (BOOL)isUndoing;
-- (void)registerUndoNamed:(id)arg1 action:(CDUnknownBlockType)arg2;
-- (id)parentGroupRecursive;
-- (id)parentGroup;
-- (void)setAsParentOnChildren;
-- (void)objectDidChange;
-@property(nonatomic) __weak MSModelObject *akParentObject; // @synthesize akParentObject=_akParentObject;
 - (void)objectDidInit;
 - (void)fillInEmptyObjects;
 - (void)initEmptyObject;
@@ -65,29 +64,9 @@
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)recordDeallocation;
 - (void)recordAllocation;
-- (id)migrationsInList:(SEL *)arg1;
-- (SEL *)migrationListForClass:(Class)arg1;
-- (SEL *)allocateMigrationListForClass:(Class)arg1;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)decodePropertiesUsingMigrationWithCoder:(id)arg1;
-- (void)performMigrationsWithCoder:(id)arg1;
-- (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 block:(CDUnknownBlockType)arg3;
-- (void)initObjectWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeObjectIDWithCoder:(id)arg1;
-- (void)didCatchException:(id)arg1 duringEncodeWithCoder:(id)arg2;
-- (void)encodeWithCoder:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
-- (void)prepareObjectCopy:(id)arg1;
-- (id)copyEmpty;
-- (void)prepareCopy:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)copyIncludingObjectIDS;
-- (id)makeLightweightCopy;
-- (id)copyLightweight;
-- (void)invalidateLightweightCopy:(id)arg1;
-- (void)setIsLightweightCopy:(BOOL)arg1;
-- (BOOL)isLightweightCopy;
+- (void)addImageOwnersToSet:(id)arg1;
+- (id)imageOwners;
+- (id)imageHashes;
 
 @end
 

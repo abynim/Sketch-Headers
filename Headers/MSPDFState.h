@@ -2,7 +2,7 @@
 
 #import "NSCopying.h"
 
-@class MSPDFTextState, NSAffineTransform, NSArray, NSBezierPath, NSColor, NSColorSpace, NSMutableArray, PDFFunction, PDFPattern;
+@class MSPDFScanner, MSPDFTextState, NSAffineTransform, NSArray, NSBezierPath, NSColor, NSColorSpace, NSMutableArray, PDFFunction, PDFPattern;
 
 @interface MSPDFState : NSObject <NSCopying>
 {
@@ -32,6 +32,7 @@
     NSBezierPath *_path;
     MSPDFTextState *_text;
     NSBezierPath *_transformedPath;
+    MSPDFScanner *_scanner;
     NSAffineTransform *_transform;
     NSAffineTransform *_flippedTransform;
     struct CGPoint _currentPoint;
@@ -39,6 +40,7 @@
 
 @property(retain, nonatomic) NSAffineTransform *flippedTransform; // @synthesize flippedTransform=_flippedTransform;
 @property(retain, nonatomic) NSAffineTransform *transform; // @synthesize transform=_transform;
+@property(nonatomic) __weak MSPDFScanner *scanner; // @synthesize scanner=_scanner;
 @property(retain, nonatomic) NSBezierPath *transformedPath; // @synthesize transformedPath=_transformedPath;
 @property(retain, nonatomic) MSPDFTextState *text; // @synthesize text=_text;
 @property(nonatomic) int renderingIntent; // @synthesize renderingIntent=_renderingIntent;
@@ -83,7 +85,7 @@
 - (id)lastLayer;
 - (id)layerWithEnclosingGroup:(BOOL)arg1;
 - (void)addLayer:(id)arg1;
-- (id)init;
+- (id)initWithScanner:(id)arg1;
 
 @end
 

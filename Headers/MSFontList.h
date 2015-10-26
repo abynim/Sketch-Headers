@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)prepareForDealloc;
 - (void)stopCachingFonts;
+- (void)dispatchStartCachingFonts;
 - (void)startCachingFonts;
 - (void)clearFilter;
 - (void)filter:(id)arg1;

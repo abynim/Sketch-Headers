@@ -8,11 +8,14 @@
     NSCursor *shapeCursor;
     MSShapePathLayer *_prototypeLayer;
     NSArray *_snapLines;
+    struct CGRect _initialPrototypeRect;
 }
 
+@property(nonatomic) struct CGRect initialPrototypeRect; // @synthesize initialPrototypeRect=_initialPrototypeRect;
 @property(retain, nonatomic) NSArray *snapLines; // @synthesize snapLines=_snapLines;
 @property(retain, nonatomic) MSShapePathLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
 - (void).cxx_destruct;
+- (BOOL)allowsSwitchToInsertAction;
 - (void)flagsChanged:(id)arg1;
 - (void)dealloc;
 - (void)drawRectPreview;
@@ -28,9 +31,10 @@
 - (struct CGPoint)snapMouseAndShowSnapLines:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)selectAppropriateToolbarItem;
+- (id)defaultCursor;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

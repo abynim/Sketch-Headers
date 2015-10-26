@@ -13,8 +13,9 @@
 @property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
 @property(retain, nonatomic) MSLayer *untilLayer; // @synthesize untilLayer=_untilLayer;
 - (void).cxx_destruct;
+- (BOOL)canDrawBackgroundBlur;
 - (BOOL)rendererShouldSkipDrawingLayer:(id)arg1;
-- (BOOL)shouldDrawLayer:(id)arg1;
+- (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
 
 @end
 

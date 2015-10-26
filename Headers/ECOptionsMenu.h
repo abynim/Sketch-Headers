@@ -12,7 +12,6 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)optionSelected:(id)arg1;
 - (void)buildMenuWithOptions:(id)arg1;
-- (void)buildMenu;
 - (void)setupAsRootMenu;
 - (void)dealloc;
 - (void)awakeFromNib;

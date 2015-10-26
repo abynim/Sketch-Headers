@@ -6,14 +6,13 @@
 #import "MSSectionProtocol.h"
 #import "MSSliceLayerWatcher.h"
 
-@class BCPopover, MSColorPreviewButton, MSFlippedView, MSInspectorStackView, MSOldStyleSliceViewDataSource, NSArray, NSButton, NSButtonCell, NSMatrix, NSMutableArray, NSString, NSTableView, NSTextField, NSTimer, NSView;
+@class BCPopover, MSColorPreviewButton, MSFlippedView, MSInspectorStackView, MSOldStyleSliceViewDataSource, NSArray, NSButton, NSButtonCell, NSMatrix, NSMutableArray, NSMutableSet, NSString, NSTableView, NSTimer, NSView;
 
 @interface MSExportableLayerInspectorViewController : CHViewController <MSSectionProtocol, MSInspectorChildController, MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate>
 {
     MSInspectorStackView *_stackView;
     NSView *_currentStyleSliceTopView;
     NSView *_oldStyleSliceTopView;
-    NSView *_addMoreSizesView;
     NSView *_standardPropertiesView;
     NSView *_artboardBackgroundView;
     NSView *_sliceBackgroundView;
@@ -27,24 +26,22 @@
     MSColorPreviewButton *_sliceBackgroundColorButton;
     NSView *_topFillerView;
     NSView *_bottomLabelView;
-    NSTextField *_formatLabel;
     NSArray *_layers;
     MSOldStyleSliceViewDataSource *_oldStyleDataSource;
-    NSArray *_sizeViewControllers;
     BCPopover *_popover;
     NSTimer *_refreshTimer;
     NSMutableArray *_sliceViews;
+    NSMutableSet *_sliceViewPool;
     MSFlippedView *_sliceViewContainerView;
 }
 
 @property(retain, nonatomic) MSFlippedView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
+@property(retain, nonatomic) NSMutableSet *sliceViewPool; // @synthesize sliceViewPool=_sliceViewPool;
 @property(retain, nonatomic) NSMutableArray *sliceViews; // @synthesize sliceViews=_sliceViews;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSArray *sizeViewControllers; // @synthesize sizeViewControllers=_sizeViewControllers;
 @property(retain, nonatomic) MSOldStyleSliceViewDataSource *oldStyleDataSource; // @synthesize oldStyleDataSource=_oldStyleDataSource;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-@property(retain, nonatomic) NSTextField *formatLabel; // @synthesize formatLabel=_formatLabel;
 @property(retain, nonatomic) NSView *bottomLabelView; // @synthesize bottomLabelView=_bottomLabelView;
 @property(retain, nonatomic) NSView *topFillerView; // @synthesize topFillerView=_topFillerView;
 @property(retain, nonatomic) MSColorPreviewButton *sliceBackgroundColorButton; // @synthesize sliceBackgroundColorButton=_sliceBackgroundColorButton;
@@ -58,7 +55,6 @@
 @property(retain, nonatomic) NSView *sliceBackgroundView; // @synthesize sliceBackgroundView=_sliceBackgroundView;
 @property(retain, nonatomic) NSView *artboardBackgroundView; // @synthesize artboardBackgroundView=_artboardBackgroundView;
 @property(retain, nonatomic) NSView *standardPropertiesView; // @synthesize standardPropertiesView=_standardPropertiesView;
-@property(retain, nonatomic) NSView *addMoreSizesView; // @synthesize addMoreSizesView=_addMoreSizesView;
 @property(retain, nonatomic) NSView *oldStyleSliceTopView; // @synthesize oldStyleSliceTopView=_oldStyleSliceTopView;
 @property(retain, nonatomic) NSView *currentStyleSliceTopView; // @synthesize currentStyleSliceTopView=_currentStyleSliceTopView;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
@@ -69,7 +65,6 @@
 - (void)refreshAction:(id)arg1;
 - (id)document;
 - (void)exportSingleSlice:(id)arg1;
-- (void)addExportSizeAction:(id)arg1;
 - (unsigned long long)selectedExportOptions:(id)arg1;
 - (void)oldStyleIncludedRadioAction:(id)arg1;
 - (BOOL)hasOldStyleSlices;
@@ -79,6 +74,8 @@
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (void)sizeSliceView;
 - (void)reloadSlicesFromArray:(id)arg1;
+- (id)sliceViewWithRect:(struct CGRect)arg1;
+- (void)removeAllSliceViews;
 - (void)loadSliceViews;
 - (void)refreshTimerFired:(id)arg1;
 - (void)scheduleSliceViewReload;
@@ -88,16 +85,15 @@
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)changeBackgroundColorTo:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
-- (void)viewControllerWillDisappear;
+- (void)viewWillDisappear;
 - (void)popoverWillClose:(id)arg1;
 - (void)validateArtboardBackgroundButtons;
 - (void)backgroundColorAction:(id)arg1;
 - (void)prepareArtboardsForFill;
 - (void)layerPositionPossiblyChanged;
 - (void)artboardBackgroundCheckAction:(id)arg1;
-- (void)groupContentsOnlyAction:(id)arg1;
 - (void)exportableSizeDidChange:(id)arg1;
-- (void)awakeFromNib;
+- (void)groupContentsOnlyAction:(id)arg1;
 - (id)init;
 
 // Remaining properties

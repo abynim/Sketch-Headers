@@ -1,6 +1,6 @@
 #import "NSView.h"
 
-@class MSAssetCollection;
+@class MSAssetCollection, NSIndexSet;
 
 @interface MSAssetPickerView : NSView
 {
@@ -9,7 +9,7 @@
     double _tileMargin;
     double _edgeMargin;
     unsigned long long _hoveringIndex;
-    unsigned long long _currentIndex;
+    NSIndexSet *_currentIndexes;
     MSAssetCollection *_assetCollection;
     unsigned long long _assetType;
     struct CGSize _tileSize;
@@ -17,7 +17,7 @@
 
 @property(nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
 @property(retain, nonatomic) MSAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
-@property(nonatomic) unsigned long long currentIndex; // @synthesize currentIndex=_currentIndex;
+@property(copy, nonatomic) NSIndexSet *currentIndexes; // @synthesize currentIndexes=_currentIndexes;
 @property(nonatomic) unsigned long long hoveringIndex; // @synthesize hoveringIndex=_hoveringIndex;
 @property(nonatomic) double edgeMargin; // @synthesize edgeMargin=_edgeMargin;
 @property(nonatomic) double tileMargin; // @synthesize tileMargin=_tileMargin;

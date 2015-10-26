@@ -2,10 +2,11 @@
 
 #import "NSToolbarDelegate.h"
 
-@class MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
+@class MSPluginManager, MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
 
 @interface MSPreferencesController : NSWindowController <NSToolbarDelegate>
 {
+    MSPluginManager *_pluginManager;
     NSArray *_toolbarItemIdentifiers;
     NSDictionary *_preferencePaneClasses;
     NSCache *_preferencePanes;
@@ -16,9 +17,10 @@
 + (id)sharedController;
 @property(nonatomic) __weak NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;
-@property(copy, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
+@property(retain, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
 @property(copy, nonatomic) NSDictionary *preferencePaneClasses; // @synthesize preferencePaneClasses=_preferencePaneClasses;
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
+@property(retain, nonatomic) MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
 - (void).cxx_destruct;
 - (BOOL)validateToolbarItem:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;

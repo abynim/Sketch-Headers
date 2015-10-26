@@ -10,6 +10,7 @@
 
 @property(nonatomic) __weak MSLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+@property(nonatomic) struct CGPoint rulerOrigin;
 - (void)setNilValueForKey:(id)arg1;
 @property(nonatomic) double rulerY;
 @property(nonatomic) double rulerX;

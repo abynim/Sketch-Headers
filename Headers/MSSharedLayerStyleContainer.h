@@ -14,7 +14,7 @@
 - (void)removeSharedStyle:(id)arg1;
 - (id)mergeSharedStyleWithName:(id)arg1 sharedStyleID:(id)arg2 instance:(id)arg3;
 - (id)addSharedStyleWithName:(id)arg1 firstInstance:(id)arg2;
-- (void)enumeratePotentialInstancesInLayer:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (unsigned long long)validStyleType;
 - (Class)sharedObjectClass;
 

@@ -71,7 +71,7 @@
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
 - (void)closeExistingPopoverOrShowNewOneWithContentClass:(Class)arg1 sender:(id)arg2 viewCreatorBlock:(CDUnknownBlockType)arg3;
-- (void)viewControllerWillDisappear;
+- (void)viewWillDisappear;
 - (void)dealloc;
 - (double)defaultLineHeight;
 - (double)lineHeight;

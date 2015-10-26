@@ -2,10 +2,11 @@
 
 #import "MSArrayDelegate.h"
 #import "MSLayerContainment.h"
+#import "MSSharedObjectContainerDelegate.h"
 
 @class MSImageCollection, MSPage, NSArray, NSString, NSUndoManager;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSSharedObjectContainerDelegate>
 {
     NSUndoManager *_undoManager;
     id <MSDocumentDataDelegate> _delegate;
@@ -22,20 +23,24 @@
 @property(nonatomic) __weak NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
 - (void)performUndoAction:(CDUnknownBlockType)arg1;
+- (void)immediatelyShowSelectionForLayer:(id)arg1;
+- (void)temporarilyHideSelectionForLayer:(id)arg1;
+- (void)purgeUnusedImages;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
-- (id)imagesInUse;
-- (void)purgeUnusedImagesFromImageCollection;
 @property(readonly, nonatomic) MSImageCollection *images;
-- (void)ensureAllPatternsAreInImageCollection;
-- (void)removeDeletedSharedObjectsInstances;
-- (id)rootLayersIncludingSymbols:(BOOL)arg1;
-- (id)sharedObjectContainer:(unsigned long long)arg1;
+- (id)rootLayersForShareadObjectContainer:(id)arg1 includingSymbols:(BOOL)arg2;
+- (id)sharedObjectContainerOfType:(unsigned long long)arg1;
+- (void)enumerateSharedObjectContainers:(CDUnknownBlockType)arg1;
+- (BOOL)syncSharedObjects:(id)arg1;
+- (id)layerWithID:(id)arg1;
 - (id)layersSharingStyle:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)deselectAllLayers;
+- (void)changeSelectionTo:(id)arg1;
+- (void)closeParentGroupsIfRequired:(id)arg1;
 - (id)selectedLayers;
 - (id)pagesArray;
 - (BOOL)documentIsEmpty;
@@ -55,6 +60,8 @@
 - (id)documentData;
 - (void)objectDidInit;
 - (id)defaultPagesArray;
+- (id)imageHashes;
+- (void)addImageOwnersToSet:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -72,15 +79,6 @@
 - (BOOL)canBeContainedByGroup;
 - (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
 - (id)usedFontNames;
-- (void)restoreBitmapLayers:(id)arg1 symbolBitmaps:(id)arg2 patternStyles:(id)arg3 fromCollection:(id)arg4;
-- (id)itemsNeedingRelinkingInLayers:(id)arg1 trait:(unsigned long long)arg2 block:(CDUnknownBlockType)arg3;
-- (id)patternStylesNeedingRelinkingInLayers:(id)arg1;
-- (id)patternStylesNeedingRelinking;
-- (id)bitmapsNeedingRelinkingInLayers:(id)arg1;
-- (id)bitmapsNeedingRelinkingInSymbols;
-- (id)allBitmapLayers;
-- (void)relinkPastedLayers:(id)arg1 withPastedImages:(id)arg2;
-- (void)relinkImagesAndPatterns;
 - (void)trackColors:(id)arg1;
 - (id)colorFinderQueue;
 - (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;

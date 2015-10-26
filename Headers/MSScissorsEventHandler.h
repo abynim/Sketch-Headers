@@ -27,7 +27,7 @@
 - (void)cut;
 - (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;

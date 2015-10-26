@@ -29,6 +29,7 @@
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
 - (struct CGRect)makeRectConform:(struct CGRect)arg1 toProportions:(BOOL)arg2;
 - (unsigned long long)validSnapEdgesForResizingCorner;
+- (struct CGRect)snapRect:(struct CGRect)arg1;
 - (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDraggedEvent:(id)arg1;
 - (void)refresh;
@@ -39,7 +40,7 @@
 - (void)pushTransformsDown:(id)arg1;
 - (void)flattenRotatedShapes;
 - (void)drawInRect:(struct CGRect)arg1;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 
 @end
 

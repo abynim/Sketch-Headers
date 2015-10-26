@@ -6,6 +6,13 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct BCEdgePaddings {
+    double _field1;
+    double _field2;
+    double _field3;
+    double _field4;
+};
+
 struct BCPixel {
     unsigned char r;
     unsigned char g;
@@ -66,7 +73,6 @@ struct FSRef {
 
 struct MSModelObject {
     Class _field1;
-    int _field2;
 };
 
 struct MSPresetIteratorStruct {
@@ -95,8 +101,8 @@ struct _CHTransformStruct {
 };
 
 struct _NSRange {
-    unsigned long long location;
-    unsigned long long length;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct __sFILE {
@@ -134,6 +140,19 @@ struct __va_list_tag {
     void *_field4;
 };
 
+struct addrinfo {
+    int _field1;
+    int _field2;
+    int _field3;
+    int _field4;
+    unsigned int _field5;
+    char *_field6;
+    struct sockaddr *_field7;
+    struct addrinfo *_field8;
+};
+
+struct sockaddr;
+
 #pragma mark Typedef'd Structures
 
 typedef struct {
@@ -153,7 +172,8 @@ typedef struct {
     char hasHorizontalPadding;
     char hasVerticalPadding;
     char skipFillingHoles;
-} CDStruct_a2c30f81;
+    char shouldRenameLayers;
+} CDStruct_24ee45cf;
 
 typedef struct {
     unsigned long long _field1;
@@ -189,4 +209,12 @@ typedef struct {
     double _field3;
     double _field4;
 } CDStruct_d2b197d1;
+
+typedef struct {
+    long long _field1;
+    void *_field2;
+    CDUnknownFunctionPointerType _field3;
+    CDUnknownFunctionPointerType _field4;
+    CDUnknownFunctionPointerType _field5;
+} CDStruct_e097db04;
 

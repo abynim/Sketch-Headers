@@ -27,7 +27,7 @@
 @property(retain, nonatomic) BCNetworkService *service; // @synthesize service=_service;
 @property(retain, nonatomic) BCBonjourConnection *connection; // @synthesize connection=_connection;
 @property long long remoteState; // @synthesize remoteState=_remoteState;
-@property long long state; // @synthesize state=_state;
+@property(nonatomic) long long state; // @synthesize state=_state;
 @property(retain, nonatomic) NSString *idiom; // @synthesize idiom=_idiom;
 @property(retain, nonatomic) NSString *systemVersion; // @synthesize systemVersion=_systemVersion;
 @property(retain, nonatomic) NSString *systemName; // @synthesize systemName=_systemName;
@@ -38,8 +38,10 @@
 - (void)updateProxyWithSystemDictionary:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (void)sendMessage:(id)arg1;
+- (void)_startConnecting;
 - (void)startConnecting;
 - (int)openSocket;
+@property(readonly, nonatomic) unsigned long long deviceMemory;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) double scale;
 @property(readonly, nonatomic) NSString *remoteStateString;

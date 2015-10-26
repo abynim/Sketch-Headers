@@ -37,7 +37,7 @@
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (BOOL)point:(struct CGPoint)arg1 isNearPoint:(struct CGPoint)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (long long)indexForMouse:(struct CGPoint)arg1;
 - (BOOL)allowsEmptySelection;
 - (struct CGPoint)relMouse:(struct CGPoint)arg1;

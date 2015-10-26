@@ -9,7 +9,7 @@
 - (id)tooltip;
 - (id)label;
 - (id)recipeName;
-- (void)doPerformAction:(id)arg1;
+- (id)prototypeLayer;
 - (void)roundedRectangleShape:(id)arg1;
 
 @end

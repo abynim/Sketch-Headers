@@ -36,8 +36,10 @@
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)fitScrollViewToParent;
 - (void)popoverWillClose:(id)arg1;
+- (void)updateColorInActiveInspector;
 - (void)checkBoxAction:(id)arg1;
 - (void)moveInspectorToFitColorPopoverIfNecessary:(id)arg1;
+- (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)awakeFromNib;

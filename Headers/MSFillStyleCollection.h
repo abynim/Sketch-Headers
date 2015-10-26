@@ -4,6 +4,7 @@
 {
 }
 
++ (Class)immutableClass;
 - (id)gradientFillForInserting;
 - (id)colorFillForInserting;
 - (id)stylePartForInserting;

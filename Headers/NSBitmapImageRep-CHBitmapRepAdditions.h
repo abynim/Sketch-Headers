@@ -5,7 +5,9 @@
 - (id)bitSafeBitmapImageRep;
 - (id)bitmapImageRepByFlippingVerticalFlags:(unsigned long long)arg1;
 - (id)bitmapImageRepByCroppingToRect:(struct CGRect)arg1;
+- (struct CGRect)bitSafeFastRectForTrimming:(char *)arg1;
 - (struct CGRect)bitSafeFastRectForTrimming;
+- (struct CGRect)rectForTrimming:(char *)arg1;
 - (struct CGRect)rectForTrimming;
 - (id)PNGRepresentationWithInterlaced:(BOOL)arg1;
 - (id)JPGRepresentationWithCompression:(double)arg1 progressive:(BOOL)arg2;

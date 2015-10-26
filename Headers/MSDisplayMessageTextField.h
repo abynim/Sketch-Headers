@@ -5,6 +5,7 @@
 }
 
 + (Class)cellClass;
+- (BOOL)allowsVibrancy;
 
 @end
 

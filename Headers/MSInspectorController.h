@@ -33,6 +33,8 @@
 - (id)firstTextFieldInView:(id)arg1;
 - (void)focusOnFirstTextField;
 - (void)reload;
+- (id)sharedObjectsSection;
+- (void)reloadSharedObjectsSection;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
@@ -44,6 +46,7 @@
 - (BOOL)layersAreExportable:(id)arg1;
 - (id)currentControllerForReturningToNormalHandler;
 - (void)validateAlignmentButtons;
+- (void)connectAlignmentButtons;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidResize;
 - (void)dealloc;

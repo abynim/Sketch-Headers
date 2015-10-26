@@ -1,11 +1,11 @@
 #import "PDFScanner.h"
 
-@class MSImageCollection, MSLayerGroup, MSPDFState, NSMutableArray;
+@class MSLayerGroup, MSPDFState, NSMutableArray, NSString;
 
 @interface MSPDFScanner : PDFScanner
 {
     MSLayerGroup *_rootLayer;
-    MSImageCollection *_images;
+    NSString *_substituteFontName;
     unsigned long long _nextID;
     NSMutableArray *_stack;
     MSPDFState *_state;
@@ -14,7 +14,7 @@
 @property(retain, nonatomic) MSPDFState *state; // @synthesize state=_state;
 @property(retain, nonatomic) NSMutableArray *stack; // @synthesize stack=_stack;
 @property(nonatomic) unsigned long long nextID; // @synthesize nextID=_nextID;
-@property(retain, nonatomic) MSImageCollection *images; // @synthesize images=_images;
+@property(retain, nonatomic) NSString *substituteFontName; // @synthesize substituteFontName=_substituteFontName;
 @property(retain, nonatomic) MSLayerGroup *rootLayer; // @synthesize rootLayer=_rootLayer;
 - (void).cxx_destruct;
 - (void)endText;

@@ -18,10 +18,12 @@
     MSBitmapMagicWandEditor *_magicWandEditor;
     BCPopover *_popover;
     NSBitmapImageRep *_backupImageRep;
+    NSBitmapImageRep *_cachedFirstBitmapImageRep;
     NSCursor *_currentCursor;
 }
 
 @property(retain, nonatomic) NSCursor *currentCursor; // @synthesize currentCursor=_currentCursor;
+@property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSBitmapMagicWandEditor *magicWandEditor; // @synthesize magicWandEditor=_magicWandEditor;
@@ -59,6 +61,7 @@
 - (void)fillSelectionWithColor:(id)arg1;
 - (id)imageFromSelectedArea;
 - (void)duplicate:(id)arg1;
+- (BOOL)canDuplicate;
 - (void)paste:(id)arg1;
 - (void)refreshOverlayRect:(struct CGRect)arg1;
 - (struct CGRect)rectFromBitmapToBoundsCoordinates:(struct CGRect)arg1;
@@ -72,7 +75,7 @@
 - (void)selectLayerBelowPoint:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(int)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)flagsChanged:(id)arg1;
 - (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)finishEditing:(id)arg1;
@@ -82,6 +85,7 @@
 - (void)colorMagnifierAction:(id)arg1;
 - (void)colorizeAction:(id)arg1;
 - (void)makeNewBackupImage;
+- (struct CGRect)selectedRect;
 - (struct CGRect)selectionRectInLayerCoordinates;
 - (void)cropAction:(id)arg1;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
@@ -90,6 +94,7 @@
 - (void)rectSelectionAction:(id)arg1;
 - (void)pickerViewChanged:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
+- (void)selectionDidChangeTo:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (id)toolbarIdentifier;
 - (void)validateButtons;
