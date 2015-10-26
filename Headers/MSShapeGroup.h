@@ -1,0 +1,111 @@
+#import "_MSShapeGroup.h"
+
+@class NSBezierPath;
+
+@interface MSShapeGroup : _MSShapeGroup
+{
+    int ignoreInvalidChildCounter;
+    BOOL _textRenderedOnPath;
+    BOOL _isEditingChild;
+    NSBezierPath *_lightweightBezierPathWithTransformsForMasking;
+    NSBezierPath *_lightweightBezierInBounds;
+}
+
++ (id)groupBoundsForLayers:(id)arg1;
++ (BOOL)groupBoundsShouldBeIntegral;
++ (id)shapeWithBezierPath:(id)arg1;
+@property(retain, nonatomic) NSBezierPath *lightweightBezierInBounds; // @synthesize lightweightBezierInBounds=_lightweightBezierInBounds;
+@property(retain, nonatomic) NSBezierPath *lightweightBezierPathWithTransformsForMasking; // @synthesize lightweightBezierPathWithTransformsForMasking=_lightweightBezierPathWithTransformsForMasking;
+@property(nonatomic) BOOL isEditingChild; // @synthesize isEditingChild=_isEditingChild;
+@property(nonatomic) BOOL textRenderedOnPath; // @synthesize textRenderedOnPath=_textRenderedOnPath;
+- (void).cxx_destruct;
+- (id)allLayersWithForcedClickThrough:(BOOL)arg1;
+- (BOOL)shouldStripShadowsAndInnerShadow;
+- (void)layerDidResizeFromRect:(struct CGRect)arg1;
+- (BOOL)canRotate;
+- (void)adjustStyleToFitSubPaths;
+- (BOOL)shouldBeSelectedInLayerList;
+- (id)allCurvePoints;
+- (void)debugWritePaths:(long long)arg1;
+- (BOOL)isVerticalLine;
+- (BOOL)isHorizontalLine;
+- (void)makeLinePixelAligned;
+- (BOOL)isLine;
+- (BOOL)hasLines;
+- (void)layerStyleDidChange;
+- (void)layerSizeDidChangeFromCorner:(long long)arg1;
+- (void)invalidateCache;
+- (void)handleLightweightObjectChangeForKey:(id)arg1 sender:(id)arg2;
+- (BOOL)isPartOfClippingMask;
+- (struct CGRect)calculateDirtyRectForBounds;
+- (void)moveTransformsToChildren;
+- (void)reversePath;
+- (void)flatten;
+- (void)flattenIfNecessary;
+- (void)simplify;
+- (void)setIsOpen:(BOOL)arg1;
+@property(nonatomic) BOOL isClosed;
+- (void)setEdited:(BOOL)arg1;
+- (void)setHasClippingMask:(BOOL)arg1;
+- (void)addSlice:(id)arg1;
+- (BOOL)canContainLayer:(id)arg1;
+- (void)ignoreInvalidChildDuringBlock:(CDUnknownBlockType)arg1;
+- (struct CGRect)safeFrameForBezierPath:(id)arg1;
+- (void)setBezierPath:(id)arg1;
+- (id)decoratedBezierPathInBounds;
+- (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
+- (id)bezierPathInRect:(struct CGRect)arg1;
+- (id)bezierPathInBounds;
+- (id)_bezierPathInSize:(struct CGSize)arg1;
+- (void)applyPropertiesToBezier:(id)arg1;
+- (id)bezierPath;
+- (id)bezierPathWithTransforms;
+- (void)prepareObjectCopy:(id)arg1;
+- (BOOL)includeChildrenInCalculatingStyleSize;
+- (BOOL)hitTestAsLine:(struct CGPoint)arg1;
+- (BOOL)hitTest:(struct CGPoint)arg1;
+- (id)handlerName;
+- (BOOL)handleDoubleClick;
+- (id)defaultName;
+- (Class)classToUseForNameCounter;
+- (BOOL)resizeRoot:(BOOL)arg1;
+- (long long)selectedCorner:(struct CGPoint)arg1 zoom:(double)arg2;
+- (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
+- (void)initEmptyObject;
+- (id)CSSAttributes;
+- (id)CSSAttributeString;
+- (id)bezierLinePreviewInRect:(struct CGRect)arg1;
+- (void)drawLinePreviewInRect:(struct CGRect)arg1 honourSelected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 honourSelected:(BOOL)arg2;
+- (id)commonColors;
+- (BOOL)isStraightTriangle;
+- (BOOL)shouldFlattenAfterRotate;
+- (void)toggleClosePath;
+- (id)lastPoint;
+- (id)firstPoint;
+- (struct CGPoint)rulerBase;
+@property(nonatomic) double length; // @dynamic length;
+@property(nonatomic) double y2; // @dynamic y2;
+@property(nonatomic) double x2; // @dynamic x2;
+@property(nonatomic) double y1; // @dynamic y1;
+@property(nonatomic) double x1; // @dynamic x1;
+- (void)setP2:(struct CGPoint)arg1;
+- (void)setP1:(struct CGPoint)arg1;
+- (struct CGPoint)p2;
+- (struct CGPoint)p1;
+- (id)inspectorViewControllers;
+- (void)drawHoverWithZoom:(double)arg1;
+- (BOOL)supportsInnerOuterBorders;
+- (void)changeInnerOuterBordersIfHasOpenPaths;
+- (BOOL)booleanOperationCanBeReset;
+- (BOOL)isUnGroupable;
+- (unsigned long long)shouldDraw;
+- (Class)rendererClass;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
+- (id)elementNameWithAttributes:(id)arg1 path:(id *)arg2 pathAttributes:(id *)arg3 elementAttributes:(id *)arg4 exportAsPath:(char *)arg5 exporter:(id)arg6;
+- (id)addMaskWithElement:(id)arg1 parentElement:(id)arg2 attributes:(id)arg3 exporter:(id)arg4;
+- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
+- (id)svgStyle;
+
+@end
+
