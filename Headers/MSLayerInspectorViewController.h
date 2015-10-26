@@ -75,6 +75,7 @@
 - (double)absoluteXForLayers;
 - (void)setValue:(double)arg1 forFields:(id)arg2;
 - (void)refreshBindingsOnShape:(id)arg1;
+- (void)clearPositionAndSizeFields;
 - (void)layerPositionPossiblyChanged;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)init;

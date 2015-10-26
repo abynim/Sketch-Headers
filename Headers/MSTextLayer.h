@@ -71,7 +71,8 @@
 - (id)paragraphStyle;
 - (void)setKerning:(float)arg1;
 - (float)kerning;
-- (struct CGRect)dirtyRectForBounds;
+- (double)totalHeightOfFont:(id)arg1;
+- (struct CGRect)influenceRectForBounds;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)layerWillResize;
 - (id)bezierPathFromGlyphsInBounds;

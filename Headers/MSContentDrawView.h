@@ -111,8 +111,10 @@
 - (void)actualSizeWithoutAnimating;
 - (void)actualSize;
 - (double)currentZoomValueAccountingForAnimation;
+- (double)zoomValueAfterZoomOutUnCapped;
 - (double)zoomValueAfterZoomOut;
 - (void)zoomOut;
+- (double)zoomValueAfterZoomInUnCapped;
 - (double)zoomValueAfterZoomIn;
 - (void)setZoomValueCenteredInCanvas:(double)arg1;
 - (void)refreshOverlays;

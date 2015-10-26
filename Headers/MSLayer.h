@@ -31,7 +31,7 @@
 + (id)layersSeparatedByGroups:(id)arg1;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
-+ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3;
++ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
 + (unsigned long long)traits;
 @property(nonatomic) struct CGRect cachedDirtyRectForBounds; // @synthesize cachedDirtyRectForBounds=_cachedDirtyRectForBounds;
 @property(retain, nonatomic) id undoRefreshTimer; // @synthesize undoRefreshTimer=_undoRefreshTimer;

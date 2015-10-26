@@ -2,11 +2,12 @@
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
+#import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
 @class BCPopover, MSColorPreviewButton, MSLineHeightTextFieldCell, NSButton, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
 
-@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate>
+@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
     NSView *_basicView;
     NSView *_symbolExclusionView;
@@ -22,6 +23,7 @@
     BCPopover *_popover;
 }
 
++ (void)initialize;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
@@ -35,6 +37,8 @@
 @property(retain, nonatomic) NSView *symbolExclusionView; // @synthesize symbolExclusionView=_symbolExclusionView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
+- (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
+- (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (id)views;

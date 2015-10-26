@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (BOOL)archiveRootObject:(id)arg1 error:(id *)arg2;
 - (id)unarchiveRootObjectVersion:(long long *)arg1 error:(id *)arg2;
+- (BOOL)exists;
 - (id)URLNeedingMigration;
 - (id)existingURLFoundAtBaseURL:(id *)arg1;
 - (id)existingURL;

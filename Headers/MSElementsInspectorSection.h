@@ -11,7 +11,6 @@
     NSButton *_textStyleToggle;
     NSPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;
-    MSSharedObject *_sharedObjectoToRenameAfterNextReload;
     NSImage *_initialImage;
     MSSharedObject *_renamingObject;
     CDUnknownBlockType _renameBlock;
@@ -20,7 +19,6 @@
 @property(copy, nonatomic) CDUnknownBlockType renameBlock; // @synthesize renameBlock=_renameBlock;
 @property(retain, nonatomic) MSSharedObject *renamingObject; // @synthesize renamingObject=_renamingObject;
 @property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
-@property(retain, nonatomic) MSSharedObject *sharedObjectoToRenameAfterNextReload; // @synthesize sharedObjectoToRenameAfterNextReload=_sharedObjectoToRenameAfterNextReload;
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
 @property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 @property(retain, nonatomic) NSButton *textStyleToggle; // @synthesize textStyleToggle=_textStyleToggle;

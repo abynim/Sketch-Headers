@@ -16,6 +16,8 @@
     NSMenu *printMenu;
     NSMenuItem *debugMenuItem;
     MSIOSConnectionController *_connectionController;
+    NSMenuItem *_insertSymbolMenuItem;
+    NSMenuItem *_insertSharedTextStyleMenuItem;
     NSTimer *_updateTimer;
     MSReleaseNotesWindowController *_releaseNotesWindowController;
     NSString *_scriptPath;
@@ -43,6 +45,8 @@
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(retain, nonatomic) MSReleaseNotesWindowController *releaseNotesWindowController; // @synthesize releaseNotesWindowController=_releaseNotesWindowController;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
+@property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
+@property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
 - (id)crashLogText;
@@ -103,6 +107,8 @@
 - (void)buildPluginsMenu:(id)arg1;
 - (BOOL)isSparkleUsed;
 - (void)checkForUpdates:(id)arg1;
+- (id)applicationLogForCrashManager:(id)arg1;
+- (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
 - (void)startHockeyAppTracking;
 - (void)stopCheckingForUpdates;
 - (void)checkForUpdatesAndCrashes;
