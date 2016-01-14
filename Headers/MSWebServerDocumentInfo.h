@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, MSWebExporter, NSURL;
+@class MSDocumentData, MSImmutableDocumentData, MSWebExporter, NSURL;
 
 @interface MSWebServerDocumentInfo : NSObject
 {
     MSDocumentData *_document;
     NSURL *_localURL;
+    MSImmutableDocumentData *_previousImmutableDocumentData;
     NSURL *_publicURL;
     MSWebExporter *_exporter;
 }
 
 @property(retain, nonatomic) MSWebExporter *exporter; // @synthesize exporter=_exporter;
 @property(retain, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
+@property(retain, nonatomic) MSImmutableDocumentData *previousImmutableDocumentData; // @synthesize previousImmutableDocumentData=_previousImmutableDocumentData;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(nonatomic) __weak MSDocumentData *document; // @synthesize document=_document;
 - (void).cxx_destruct;

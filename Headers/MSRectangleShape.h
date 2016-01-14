@@ -6,9 +6,11 @@
 
 #import "_MSRectangleShape.h"
 
-@class NSString;
+#import "MSRectangleShape.h"
 
-@interface MSRectangleShape : _MSRectangleShape
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSRectangleShape : _MSRectangleShape <MSRectangleShape>
 {
 }
 
@@ -21,7 +23,6 @@
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;
 - (void)resetPoints;
-- (id)defaultName;
 - (id)bezierPathForCursorPreview;
 - (void)didChangeValues;
 - (void)willChangeValues;
@@ -32,7 +33,38 @@
 - (id)rectangleNumberFormatter;
 @property(nonatomic) double cornerRadiusFloat;
 @property(nonatomic) double normalizedExponentialCornerRadius;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) long long booleanOperation;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL edited;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) double fixedRadius;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasConvertedToNewRoundCorners;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) id <MSShapePath> pathGeneric;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

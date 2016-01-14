@@ -6,7 +6,11 @@
 
 #import "_MSTextStyle.h"
 
-@interface MSTextStyle : _MSTextStyle
+#import "MSTextStyle.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSTextStyle : _MSTextStyle <MSTextStyle>
 {
 }
 
@@ -14,6 +18,14 @@
 - (void)syncOwningTextLayerWithThisStyle;
 - (void)setAttributes:(id)arg1;
 - (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, copy, nonatomic) NSDictionary *attributes;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

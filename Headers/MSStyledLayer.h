@@ -6,20 +6,21 @@
 
 #import "_MSStyledLayer.h"
 
-@interface MSStyledLayer : _MSStyledLayer
+#import "MSStyledLayer.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSStyledLayer : _MSStyledLayer <MSStyledLayer>
 {
     BOOL ignoreStyleDidChangeNotifications;
-    BOOL _lightweightHasBitmapStylesEnabled;
 }
 
-+ (unsigned long long)traits;
 + (void)pasteExportOptions:(id)arg1 onLayers:(id)arg2;
 + (void)pasteTextStyle:(id)arg1 onLayers:(id)arg2;
 + (void)pasteStyleDict:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboard:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
-@property(nonatomic) BOOL lightweightHasBitmapStylesEnabled; // @synthesize lightweightHasBitmapStylesEnabled=_lightweightHasBitmapStylesEnabled;
 - (void)setStyle:(id)arg1;
 - (id)usedStyle;
 - (id)layersSharingStyle:(id)arg1;
@@ -28,25 +29,46 @@
 - (BOOL)calculateHasBlendedLayer;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
-- (struct CGRect)translateInfluenceRectFromBoundsToFrame:(struct CGRect)arg1;
-- (void)prepareObjectCopy:(id)arg1;
+- (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (BOOL)isSharedObject;
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
+- (id)sharedObjectOfType:(unsigned long long)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (void)copyStyleToPasteboard:(id)arg1;
 - (id)copyStyleToPasteboard;
-- (id)sharedObjectOfType:(unsigned long long)arg1;
 - (id)CSSAttributes;
-- (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
-- (void)trackColors:(id)arg1;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
-- (unsigned long long)shouldDraw;
-- (BOOL)shouldRenderInTransparencyLayer;
-- (id)renderBitmapEffects:(id)arg1;
-- (void)addGradientsToDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric; // @dynamic styleGeneric;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

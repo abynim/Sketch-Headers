@@ -77,8 +77,9 @@ struct FSRef {
     unsigned char _field1[80];
 };
 
-struct MSModelObject {
+struct MSModelBase {
     Class _field1;
+    id _field2;
 };
 
 struct MSPresetIteratorStruct {
@@ -97,6 +98,10 @@ struct NSBezierElement {
     unsigned long long _field1;
     struct CGPoint _field2;
     struct CGPoint _field3[2];
+};
+
+struct NSObject {
+    Class _field1;
 };
 
 struct _CHTransformStruct {

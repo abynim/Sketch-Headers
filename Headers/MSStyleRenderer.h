@@ -6,19 +6,19 @@
 
 #import "MSBaseRenderer.h"
 
-@class MSRenderingContext, MSStyle, NSBezierPath;
+@class MSImmutableStyle, MSRenderingContext, NSBezierPath;
 
 @interface MSStyleRenderer : MSBaseRenderer
 {
     NSBezierPath *_path;
-    MSStyle *_style;
+    MSImmutableStyle *_style;
     MSRenderingContext *_context;
     struct CGRect _rect;
 }
 
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) __weak MSRenderingContext *context; // @synthesize context=_context;
-@property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
+@property(retain, nonatomic) MSImmutableStyle *style; // @synthesize style=_style;
 @property(retain, nonatomic) NSBezierPath *path; // @synthesize path=_path;
 - (void).cxx_destruct;
 - (void)drawBorders;

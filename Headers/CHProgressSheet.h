@@ -23,7 +23,6 @@
 @property(nonatomic) long long maximum; // @synthesize maximum=_maximum;
 - (void).cxx_destruct;
 - (void)setIndeterminate:(BOOL)arg1;
-- (void)cancel:(id)arg1;
 - (void)setShowsCancelButton:(BOOL)arg1;
 - (void)setSubtitle:(id)arg1;
 - (void)setTitle:(id)arg1;

@@ -10,6 +10,7 @@
 {
 }
 
++ (Class)immutableClass;
 - (id)stylePartForInserting;
 - (id)addNewStylePart;
 - (void)moveStylePartFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;

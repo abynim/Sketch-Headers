@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSDictionary, NSObject<OS_dispatch_queue>, NSString;
+@class NSDate, NSDictionary, NSString;
 
 @interface BCLicense : NSObject
 {
@@ -15,7 +15,6 @@
     NSDictionary *_metadata;
     NSString *_publicCertificate;
     long long _signatureStatus;
-    NSObject<OS_dispatch_queue> *_validationQueue;
     double _referenceTime;
     NSDate *_referenceDate;
     NSDate *_networkDate;
@@ -24,7 +23,6 @@
 @property(retain, nonatomic) NSDate *networkDate; // @synthesize networkDate=_networkDate;
 @property(retain, nonatomic) NSDate *referenceDate; // @synthesize referenceDate=_referenceDate;
 @property(nonatomic) double referenceTime; // @synthesize referenceTime=_referenceTime;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *validationQueue; // @synthesize validationQueue=_validationQueue;
 @property(nonatomic) long long signatureStatus; // @synthesize signatureStatus=_signatureStatus;
 @property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;

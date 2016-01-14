@@ -11,7 +11,7 @@
 }
 
 + (id)pdfFromArtboard:(id)arg1;
-+ (void)exportPages:(id)arg1;
++ (void)exportPages:(id)arg1 defaultFilename:(id)arg2;
 
 @end
 

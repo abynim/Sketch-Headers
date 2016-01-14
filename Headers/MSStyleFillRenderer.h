@@ -6,13 +6,13 @@
 
 #import "MSBaseRenderer.h"
 
-@class MSRenderingContext, MSStyleFill, NSBezierPath;
+@class MSImmutableStyleFill, MSRenderingContext, NSBezierPath;
 
 @interface MSStyleFillRenderer : MSBaseRenderer
 {
     BOOL _hasInnerStroke;
     MSRenderingContext *_context;
-    MSStyleFill *_fill;
+    MSImmutableStyleFill *_fill;
     NSBezierPath *_path;
     long long _fillIndex;
     double _zoomValue;
@@ -25,7 +25,7 @@
 @property(nonatomic) BOOL hasInnerStroke; // @synthesize hasInnerStroke=_hasInnerStroke;
 @property(nonatomic) long long fillIndex; // @synthesize fillIndex=_fillIndex;
 @property(retain, nonatomic) NSBezierPath *path; // @synthesize path=_path;
-@property(retain, nonatomic) MSStyleFill *fill; // @synthesize fill=_fill;
+@property(retain, nonatomic) MSImmutableStyleFill *fill; // @synthesize fill=_fill;
 @property(nonatomic) __weak MSRenderingContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (void)drawPatternStretch;

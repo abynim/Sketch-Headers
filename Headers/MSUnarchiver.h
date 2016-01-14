@@ -6,20 +6,26 @@
 
 #import "NSKeyedUnarchiver.h"
 
+@class NSDictionary;
+
 @interface MSUnarchiver : NSKeyedUnarchiver
 {
     long long _version;
     SEL _propertyDecoder;
+    NSDictionary *_legacyImages;
 }
 
-+ (id)unarchiveObjectFromURL:(id)arg1 actualVersion:(long long *)arg2;
-+ (id)unarchiveObjectWithData:(id)arg1 actualVersion:(long long *)arg2;
-+ (id)unarchiveObjectWithData:(id)arg1 asVersion:(long long)arg2;
++ (id)unarchiveObjectFromURL:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
++ (id)unarchiveObjectWithData:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
++ (id)unarchiveObjectWithData:(id)arg1 asVersion:(long long)arg2 error:(id *)arg3;
 + (id)unarchiveObjectWithData:(id)arg1;
++ (id)unarchiveObjectWithData:(id)arg1 error:(id *)arg2;
 + (void)defineReplacementClasses;
 + (void)initialize;
+@property(retain, nonatomic) NSDictionary *legacyImages; // @synthesize legacyImages=_legacyImages;
 @property(readonly, nonatomic) SEL propertyDecoder; // @synthesize propertyDecoder=_propertyDecoder;
 @property(readonly, nonatomic) long long version; // @synthesize version=_version;
+- (void).cxx_destruct;
 - (void)setDecodingVersion:(long long)arg1;
 
 @end

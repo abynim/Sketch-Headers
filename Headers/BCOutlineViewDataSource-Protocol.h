@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class BCOutlineViewDataController, NSArray;
 
 @protocol BCOutlineViewDataSource <NSObject>
-- (NSArray *)childrenOfNode:(id)arg1;
+- (NSArray *)dataController:(BCOutlineViewDataController *)arg1 childrenOfNode:(id)arg2;
 @end
 

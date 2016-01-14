@@ -6,24 +6,33 @@
 
 #import "NSObject.h"
 
-@class MSContentDrawView, NSMutableDictionary;
+#import "MSTileDelegate.h"
 
-@interface MSTilePlacer : NSObject
+@class MSMasterLayer, NSMutableDictionary, NSString;
+
+@interface MSTilePlacer : NSObject <MSTileDelegate>
 {
-    MSContentDrawView *_contentView;
+    id <MSTilePlacerDelegate> _delegate;
+    MSMasterLayer *_masterLayer;
     NSMutableDictionary *_tiles;
+    struct CGPoint _scrollOrigin;
+    struct CGRect _viewBounds;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *tiles; // @synthesize tiles=_tiles;
-@property(nonatomic) __weak MSContentDrawView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) __weak MSMasterLayer *masterLayer; // @synthesize masterLayer=_masterLayer;
+@property(nonatomic) struct CGRect viewBounds; // @synthesize viewBounds=_viewBounds;
+@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
+@property(nonatomic) __weak id <MSTilePlacerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)tile:(id)arg1 renderOverlayForPage:(id)arg2 atZoom:(double)arg3 inRect:(struct CGRect)arg4;
 - (void)dealloc;
 - (id)allTileIDs;
 - (id)allTiles;
 - (id)idForTile:(id)arg1;
 - (void)setPositionForTile:(id)arg1 withID:(id)arg2;
 - (BOOL)layer:(id)arg1 shouldInheritContentsScale:(double)arg2 fromWindow:(id)arg3;
-- (id)tilesWithIDs:(id)arg1;
+- (id)makeNewTilesWithIDs:(id)arg1;
 - (void)addTiles:(id)arg1 shouldRedraw:(BOOL)arg2;
 - (void)addMissingTilesFrom:(id)arg1;
 - (void)unregisterTilesWithIDs:(id)arg1;
@@ -31,11 +40,18 @@
 - (void)removeTilesWithIDs:(id)arg1;
 - (void)removeTilesNotIncludedIn:(id)arg1;
 - (struct CGPoint)originForFirstTile;
-- (id)requiredTileIdentifiersWithExtraMargin:(BOOL)arg1;
+- (id)identifiersOfVisibleTilesIncludingMargin:(BOOL)arg1;
 - (void)repositionExistingTiles;
 - (void)tile;
 - (void)moveTiles;
+- (id)initWithMasterLayer:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

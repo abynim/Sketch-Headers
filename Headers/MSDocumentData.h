@@ -7,13 +7,15 @@
 #import "_MSDocumentData.h"
 
 #import "MSArrayDelegate.h"
+#import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 #import "MSSharedObjectContainerDelegate.h"
 
-@class MSImageCollection, MSPage, NSArray, NSString, NSUndoManager;
+@class MSImageCollection, MSPage, NSArray, NSObject<NSCopying><NSCoding>, NSString, NSUndoManager;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSSharedObjectContainerDelegate>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSDocumentData, MSSharedObjectContainerDelegate>
 {
+    BOOL _autoExpandGroupsInLayerList;
     NSUndoManager *_undoManager;
     id <MSDocumentDataDelegate> _delegate;
     long long _savedVersion;
@@ -21,7 +23,8 @@
     NSString *_savedBy;
 }
 
-+ (id)documentDataFromData:(id)arg1 version:(long long)arg2 error:(id *)arg3;
++ (void)initialize;
+@property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(retain, nonatomic) NSString *savedBy; // @synthesize savedBy=_savedBy;
 @property(retain, nonatomic) NSString *savedVariant; // @synthesize savedVariant=_savedVariant;
 @property(nonatomic) long long savedVersion; // @synthesize savedVersion=_savedVersion;
@@ -31,7 +34,6 @@
 - (void)performUndoAction:(CDUnknownBlockType)arg1;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
-- (void)purgeUnusedImages;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (void)setEnableSliceInteraction:(BOOL)arg1;
@@ -50,7 +52,7 @@
 - (id)selectedLayers;
 - (id)pagesArray;
 - (BOOL)documentIsEmpty;
-- (void)sharedObjectDidChange:(struct MSModelObject *)arg1;
+- (void)sharedObjectDidChange:(struct MSModelBase *)arg1;
 - (id)standardNameForLayer:(id)arg1;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
@@ -63,11 +65,10 @@
 - (void)setCurrentPageIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) __weak NSArray *allPages;
 - (void)dealloc;
+- (void)objectDidChange;
 - (id)documentData;
 - (void)objectDidInit;
 - (id)defaultPagesArray;
-- (id)imageHashes;
-- (void)addImageOwnersToSet:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -83,18 +84,22 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
-- (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
 - (id)usedFontNames;
-- (void)trackColors:(id)arg1;
-- (id)colorFinderQueue;
-- (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
+@property(readonly, copy, nonatomic) NSString *cloudShareID;
+@property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL enableLayerInteraction;
+@property(readonly, nonatomic) BOOL enableSliceInteraction;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
+@property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
+@property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
 @property(readonly) Class superclass;
 
 @end

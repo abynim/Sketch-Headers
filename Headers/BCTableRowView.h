@@ -6,18 +6,18 @@
 
 #import "NSTableRowView.h"
 
-@class NSColor, NSObject<BCOutlineViewDelegate>, NSObject<BCOutlineViewNode>, NSTableView;
+@class NSColor, NSObject<BCOutlineViewNode>, NSObject<BCTableRowViewDelegate>, NSTableView;
 
 @interface BCTableRowView : NSTableRowView
 {
     NSTableView *_parent;
     NSObject<BCOutlineViewNode> *_node;
-    NSObject<BCOutlineViewDelegate> *_delegate;
+    NSObject<BCTableRowViewDelegate> *_delegate;
     unsigned long long _expansionState;
 }
 
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
-@property(retain, nonatomic) NSObject<BCOutlineViewDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
 @property(nonatomic) __weak NSTableView *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;

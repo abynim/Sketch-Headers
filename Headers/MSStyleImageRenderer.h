@@ -6,19 +6,19 @@
 
 #import "MSStyleRenderer.h"
 
-@class MSBitmapLayer;
+@class MSImmutableBitmapLayer;
 
 @interface MSStyleImageRenderer : MSStyleRenderer
 {
     BOOL _imageHasAlpha;
     BOOL _fillReplacesImage;
-    MSBitmapLayer *_bitmapLayer;
+    MSImmutableBitmapLayer *_bitmapLayer;
 }
 
 + (void)drawBitmapLayer:(id)arg1 context:(id)arg2 inRect:(struct CGRect)arg3;
 @property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
 @property(nonatomic) BOOL imageHasAlpha; // @synthesize imageHasAlpha=_imageHasAlpha;
-@property(retain, nonatomic) MSBitmapLayer *bitmapLayer; // @synthesize bitmapLayer=_bitmapLayer;
+@property(retain, nonatomic) MSImmutableBitmapLayer *bitmapLayer; // @synthesize bitmapLayer=_bitmapLayer;
 - (void).cxx_destruct;
 - (void)drawNineSliceImage;
 - (BOOL)canDrawNineSliceContent;

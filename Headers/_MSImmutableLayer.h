@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelBase.h"
 
-@class MSImmutableExportOptions, MSImmutableRect, NSDictionary, NSString;
+@class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelBase
 {
@@ -17,7 +17,7 @@
     long long _layerListExpandedType;
     NSString *_name;
     BOOL _nameIsFixed;
-    NSString *_originalObjectID;
+    struct NSObject *_originalObjectID;
     double _rotation;
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
@@ -25,12 +25,13 @@
     MSImmutableRect *_frame;
 }
 
-@property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
-@property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
++ (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableRect<MSRect> *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSImmutableExportOptions<MSExportOptions> *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
-@property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;
@@ -39,12 +40,17 @@
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)frameGeneric;
+- (id)exportOptionsGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

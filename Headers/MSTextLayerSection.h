@@ -11,7 +11,7 @@
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSLineHeightTextFieldCell, NSButton, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
+@class BCPopover, MSColorPreviewButton, MSLineHeightTextFieldCell, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
@@ -19,7 +19,7 @@
     NSView *_symbolExclusionView;
     NSButton *_fontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
-    NSTextField *_fontSizeField;
+    NSComboBox *_fontSizeField;
     MSColorPreviewButton *_colorPickerButton;
     NSTextField *_kerningField;
     NSTextField *_lineHeightField;
@@ -37,7 +37,7 @@
 @property(retain, nonatomic) NSTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
 @property(retain, nonatomic) NSTextField *kerningField; // @synthesize kerningField=_kerningField;
 @property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
-@property(retain, nonatomic) NSTextField *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
+@property(retain, nonatomic) NSComboBox *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *symbolExclusionView; // @synthesize symbolExclusionView=_symbolExclusionView;

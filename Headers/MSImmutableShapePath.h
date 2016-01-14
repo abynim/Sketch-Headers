@@ -6,9 +6,27 @@
 
 #import "_MSImmutableShapePath.h"
 
-@interface MSImmutableShapePath : _MSImmutableShapePath
+#import "MSShapePath.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableShapePath : _MSImmutableShapePath <MSShapePath>
 {
 }
+
+@property(readonly, nonatomic) unsigned long long numberOfPoints;
+@property(readonly, nonatomic) BOOL isRectangle;
+@property(readonly, nonatomic) BOOL isPolygon;
+- (id)bezierPathInRect:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isClosed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) id <MSArray> pointsGeneric; // @dynamic pointsGeneric;
+@property(readonly) Class superclass;
 
 @end
 

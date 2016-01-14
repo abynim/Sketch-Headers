@@ -6,9 +6,26 @@
 
 #import "_MSImmutableExportOptions.h"
 
-@interface MSImmutableExportOptions : _MSImmutableExportOptions
+#import "MSExportOptions.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableExportOptions : _MSImmutableExportOptions <MSExportOptions>
 {
 }
+
+- (void)migratePropertiesFromV72OrEarlierWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSArray> exportFormatsGeneric; // @dynamic exportFormatsGeneric;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <MSArray> includedLayerIdsGeneric; // @dynamic includedLayerIdsGeneric;
+@property(readonly, nonatomic) unsigned long long layerOptions;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) BOOL shouldTrim;
+@property(readonly) Class superclass;
 
 @end
 

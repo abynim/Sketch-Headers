@@ -42,6 +42,7 @@
 }
 
 + (id)licenseManager;
++ (id)rvContext;
 @property(retain, nonatomic) BCMASEmailWindowController *masEmailController; // @synthesize masEmailController=_masEmailController;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
@@ -80,7 +81,6 @@
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)checkMASMigration;
 - (void)buy:(id)arg1;
-- (id)majorVersion;
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
 - (void)feedback:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "MSImmutableLayer.h"
 
-@class MSImmutableShapePath;
+@class MSImmutableShapePath, MSImmutableShapePath<MSShapePath>;
 
 @interface _MSImmutableShapePathLayer : MSImmutableLayer
 {
@@ -15,16 +15,21 @@
     MSImmutableShapePath *_path;
 }
 
-@property(retain, nonatomic) MSImmutableShapePath *path; // @synthesize path=_path;
++ (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableShapePath<MSShapePath> *path; // @synthesize path=_path;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)pathGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

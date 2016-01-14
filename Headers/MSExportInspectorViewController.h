@@ -17,20 +17,20 @@
     NSView *_separatorView;
     NSView *_separatorView2;
     NSView *_bigExportLabel;
-    NSButton *_addExportSizeButton;
+    NSButton *_addExportFormatButton;
     NSButton *_shareButton;
     NSButton *_exportButton;
     NSButton *_knifeButton;
-    NSArray *_sizeViewControllers;
+    NSArray *_formatViewControllers;
     MSShareButtonHandler *_shareButtonHandler;
 }
 
 @property(retain, nonatomic) MSShareButtonHandler *shareButtonHandler; // @synthesize shareButtonHandler=_shareButtonHandler;
-@property(copy, nonatomic) NSArray *sizeViewControllers; // @synthesize sizeViewControllers=_sizeViewControllers;
+@property(copy, nonatomic) NSArray *formatViewControllers; // @synthesize formatViewControllers=_formatViewControllers;
 @property(retain, nonatomic) NSButton *knifeButton; // @synthesize knifeButton=_knifeButton;
 @property(retain, nonatomic) NSButton *exportButton; // @synthesize exportButton=_exportButton;
 @property(retain, nonatomic) NSButton *shareButton; // @synthesize shareButton=_shareButton;
-@property(retain, nonatomic) NSButton *addExportSizeButton; // @synthesize addExportSizeButton=_addExportSizeButton;
+@property(retain, nonatomic) NSButton *addExportFormatButton; // @synthesize addExportFormatButton=_addExportFormatButton;
 @property(retain, nonatomic) NSView *bigExportLabel; // @synthesize bigExportLabel=_bigExportLabel;
 @property(retain, nonatomic) NSView *separatorView2; // @synthesize separatorView2=_separatorView2;
 @property(retain, nonatomic) NSView *separatorView; // @synthesize separatorView=_separatorView;
@@ -41,11 +41,13 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)prepareForDisplay;
+- (id)firstResponderIgnoringFieldEditor;
+- (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)exportSingleSlice:(id)arg1;
 - (void)shareAction:(id)arg1;
 - (void)createSliceAction:(id)arg1;
 - (id)document;
-- (void)addExportSize:(id)arg1;
+- (void)addExportFormat:(id)arg1;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)views;
 - (id)view;

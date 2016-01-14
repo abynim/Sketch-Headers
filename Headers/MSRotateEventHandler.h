@@ -35,6 +35,7 @@
 - (void)mouseDraggedRotateLayer:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDraggedMoveLayer:(id)arg1 mouse:(struct CGPoint)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)mouseDraggedEvent:(id)arg1;
 - (BOOL)calculateIsDraggingInsideLayer:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)isDraggingCenterPoint:(struct CGPoint)arg1;

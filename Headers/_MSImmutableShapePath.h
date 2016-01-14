@@ -14,15 +14,20 @@
     MSImmutableArray *_points;
 }
 
++ (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableArray *points; // @synthesize points=_points;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)pointsGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

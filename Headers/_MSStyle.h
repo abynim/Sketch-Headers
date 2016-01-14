@@ -26,6 +26,7 @@
     MSTextStyle *_textStyle;
 }
 
++ (Class)immutableClass;
 @property(retain, nonatomic) MSTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) MSStyleReflection *reflection; // @synthesize reflection=_reflection;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
@@ -42,12 +43,12 @@
 @property(retain, nonatomic) MSBorderStyleCollection *borders; // @synthesize borders=_borders;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveTextStyle:(id)arg1;
 - (id)primitiveTextStyle;
 - (void)setPrimitiveReflection:(id)arg1;
@@ -76,7 +77,17 @@
 - (unsigned long long)primitiveEndDecorationType;
 - (void)setPrimitiveBorders:(id)arg1;
 - (id)primitiveBorders;
-- (id)immutableModelObject;
+- (id)textStyleGeneric;
+- (id)reflectionGeneric;
+- (id)contextSettingsGeneric;
+- (id)colorControlsGeneric;
+- (id)borderOptionsGeneric;
+- (id)blurGeneric;
+- (id)shadowsGeneric;
+- (id)innerShadowsGeneric;
+- (id)fillsGeneric;
+- (id)bordersGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

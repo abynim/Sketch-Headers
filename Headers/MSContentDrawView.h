@@ -7,10 +7,11 @@
 #import "MSBaseView.h"
 
 #import "MSBasicDelegate.h"
+#import "MSTilePlacerDelegate.h"
 
-@class MSDocument, MSMasterLayer, MSRulerView, MSTilePlacer, MSViewPort, NSEvent, NSString, NSTimer;
+@class MSCacheManager, MSDocument, MSImmutablePage, MSMasterLayer, MSRulerView, MSViewPort, NSEvent, NSString, NSTimer;
 
-@interface MSContentDrawView : MSBaseView <MSBasicDelegate>
+@interface MSContentDrawView : MSBaseView <MSBasicDelegate, MSTilePlacerDelegate>
 {
     NSEvent *lastEvent;
     BOOL handToolIsActive;
@@ -31,18 +32,20 @@
     MSRulerView *_verticalRuler;
     MSDocument *_document;
     MSMasterLayer *_masterLayer;
-    MSTilePlacer *_layerTiler;
     long long _animatingZoomCounter;
     double _zoomValueAfterAnimating;
+    MSImmutablePage *_previouslyRenderedPage;
     NSTimer *_refreshTimer;
     double _refreshDelay;
     NSTimer *_scrollCleanupTimer;
     MSViewPort *_viewPortBeforeZoomOut;
+    MSCacheManager *_cacheManager;
     struct CGPoint _lastActualZoomScrollOrigin;
     struct CGRect _dirtyContentRect;
     struct CGRect _dirtyOverlayRect;
 }
 
+@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
 @property(nonatomic) BOOL isInTouchEvent; // @synthesize isInTouchEvent=_isInTouchEvent;
 @property(retain, nonatomic) MSViewPort *viewPortBeforeZoomOut; // @synthesize viewPortBeforeZoomOut=_viewPortBeforeZoomOut;
@@ -51,12 +54,12 @@
 @property(nonatomic) struct CGRect dirtyOverlayRect; // @synthesize dirtyOverlayRect=_dirtyOverlayRect;
 @property(nonatomic) struct CGRect dirtyContentRect; // @synthesize dirtyContentRect=_dirtyContentRect;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
+@property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
 @property(nonatomic) BOOL lastActualZoomScrollOriginSaved; // @synthesize lastActualZoomScrollOriginSaved=_lastActualZoomScrollOriginSaved;
 @property(nonatomic) struct CGPoint lastActualZoomScrollOrigin; // @synthesize lastActualZoomScrollOrigin=_lastActualZoomScrollOrigin;
 @property(nonatomic) double zoomValueAfterAnimating; // @synthesize zoomValueAfterAnimating=_zoomValueAfterAnimating;
 @property(nonatomic) long long animatingZoomCounter; // @synthesize animatingZoomCounter=_animatingZoomCounter;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
-@property(retain, nonatomic) MSTilePlacer *layerTiler; // @synthesize layerTiler=_layerTiler;
 @property(retain, nonatomic) MSMasterLayer *masterLayer; // @synthesize masterLayer=_masterLayer;
 @property(nonatomic) BOOL zoomToolIsActive; // @synthesize zoomToolIsActive=_zoomToolIsActive;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
@@ -67,7 +70,6 @@
 - (BOOL)acceptsTouchEvents;
 - (void)layerPositionPossiblyChanged;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
-- (void)refresh;
 - (void)windowDidResize:(id)arg1;
 - (void)viewWillStartLiveResize;
 - (void)setCurrentPage:(id)arg1;
@@ -83,7 +85,6 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
-- (void)refreshViewsWithMaskImmediately:(unsigned long long)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (id)defaultHandler;
 - (id)undoManager;
@@ -151,7 +152,7 @@
 - (struct CGPoint)mouseInView;
 - (void)exitHandlerForMagnifyEventIfNecessary:(id)arg1;
 - (void)magnifyWithEvent:(id)arg1;
-- (void)reloadAllTiles;
+- (void)reloadAllTilesWithOptions:(unsigned long long)arg1;
 - (void)prepare;
 - (void)displayPropertiesDidChange;
 - (struct CGPoint)scrollOriginAfterMagnify;
@@ -183,6 +184,9 @@
 - (void)beginRefreshCoalescing;
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
+- (void)tilePlacer:(id)arg1 renderOverlayForPage:(id)arg2 atZoom:(double)arg3 inRect:(struct CGRect)arg4;
+- (void)tilePlacer:(id)arg1 prepareNewTile:(id)arg2;
+- (void)tilePlacer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (id)grid;
 - (void)placeOriginInTopLeft;
 - (void)centerDocumentAndPlaceScrollOriginInTopLeft;
@@ -190,13 +194,13 @@
 - (void)pageDidChange:(id)arg1;
 - (void)refreshTiles;
 - (void)scheduleRefreshTiles;
-- (void)baseRefreshOfTypeImmediately:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (void)collectDirtyRect:(struct CGRect)arg1 ofType:(unsigned long long)arg2;
 - (void)baseRefreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (void)setZoomValue:(double)arg1;
 - (void)setScrollOrigin:(struct CGPoint)arg1 moveTiles:(BOOL)arg2;
 - (void)prepareTile:(id)arg1;
-- (id)newMasterTile;
+- (void)tile;
+- (void)makeNewMasterLayer;
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
 - (void)screenDidChange:(id)arg1;
@@ -208,6 +212,7 @@
 - (void)handToolMouseDown:(id)arg1;
 - (void)endHandToolMode;
 - (void)beginHandToolMode;
+- (void)zoomToolShouldRefresh:(id)arg1;
 - (void)drawZoomTool;
 - (BOOL)shouldZoomIntoRect;
 - (void)zoomToolMouseUp:(id)arg1;

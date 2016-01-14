@@ -6,12 +6,14 @@
 
 #import "_MSAssetCollection.h"
 
-@interface MSAssetCollection : _MSAssetCollection
+#import "MSAssetCollection.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSAssetCollection : _MSAssetCollection <MSAssetCollection>
 {
 }
 
-- (id)convertToInternalFormat:(id)arg1;
-- (id)convertFromInternalFormat:(id)arg1 type:(unsigned long long)arg2;
 - (unsigned long long)indexOfObjectByComparingPointers:(id)arg1 inArray:(id)arg2;
 - (BOOL)moveAssetAtIndex:(unsigned long long)arg1 beforeObjectAtIndex:(unsigned long long)arg2 ofType:(unsigned long long)arg3;
 - (id)indexesOfAsset:(id)arg1;
@@ -20,7 +22,17 @@
 - (id)assetAtIndex:(unsigned long long)arg1 ofType:(unsigned long long)arg2;
 - (void)addAsset:(id)arg1;
 - (unsigned long long)numberOfAssetsOfType:(unsigned long long)arg1;
-- (id)imageHashes;
+
+// Remaining properties
+@property(readonly, nonatomic) id <MSArray> colorsGeneric; // @dynamic colorsGeneric;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSArray> gradientsGeneric; // @dynamic gradientsGeneric;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric; // @dynamic imageCollectionGeneric;
+@property(readonly, nonatomic) id <MSArray> imagesGeneric; // @dynamic imagesGeneric;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

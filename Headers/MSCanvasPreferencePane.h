@@ -6,21 +6,15 @@
 
 #import "MSPreferencePane.h"
 
-@class NSButton;
-
 @interface MSCanvasPreferencePane : MSPreferencePane
 {
-    NSButton *_scaleDownForRetinaButton;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(retain, nonatomic) NSButton *scaleDownForRetinaButton; // @synthesize scaleDownForRetinaButton=_scaleDownForRetinaButton;
-- (void).cxx_destruct;
+- (void)toggleSubpixelAntialiasingAction:(id)arg1;
 - (void)adjustColorsAction:(id)arg1;
-- (void)scaleDownForRetinaAction:(id)arg1;
-- (void)awakeFromNib;
 
 @end
 

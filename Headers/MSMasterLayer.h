@@ -6,11 +6,12 @@
 
 #import "CALayer.h"
 
-@class NSSet;
+@class MSTilePlacer, NSSet;
 
 @interface MSMasterLayer : CALayer
 {
     CDUnknownBlockType removalCompletion;
+    MSTilePlacer *_tilePlacer;
     double _originalZoomLevel;
     NSSet *_tilesToObserve;
     unsigned long long _finishedTileCount;
@@ -20,6 +21,7 @@
 @property(nonatomic) unsigned long long finishedTileCount; // @synthesize finishedTileCount=_finishedTileCount;
 @property(retain, nonatomic) NSSet *tilesToObserve; // @synthesize tilesToObserve=_tilesToObserve;
 @property(nonatomic) double originalZoomLevel; // @synthesize originalZoomLevel=_originalZoomLevel;
+@property(retain, nonatomic) MSTilePlacer *tilePlacer; // @synthesize tilePlacer=_tilePlacer;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)stopRemovalObserving;

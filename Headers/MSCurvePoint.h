@@ -6,10 +6,12 @@
 
 #import "_MSCurvePoint.h"
 
-#import "NSCoding.h"
+#import "MSCurvePoint.h"
 #import "NSCopying.h"
 
-@interface MSCurvePoint : _MSCurvePoint <NSCoding, NSCopying>
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSCurvePoint : _MSCurvePoint <NSCopying, MSCurvePoint>
 {
 }
 
@@ -22,12 +24,27 @@
 - (void)moveCurveFromTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
 - (void)moveCurveToTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
 - (void)inferCurveMode;
+- (BOOL)isEffectivelyStraight;
 - (BOOL)isRounded;
 - (void)changeCurveModeTo:(long long)arg1;
 - (Class)currentBehaviour;
 - (id)initWithPoint:(struct CGPoint)arg1 curveTo:(struct CGPoint)arg2 curveFrom:(struct CGPoint)arg3;
 - (void)setCornerRadius:(double)arg1;
 - (id)initWithPoint:(struct CGPoint)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) double cornerRadius;
+@property(readonly, nonatomic) struct CGPoint curveFrom;
+@property(readonly, nonatomic) long long curveMode;
+@property(readonly, nonatomic) struct CGPoint curveTo;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasCurveFrom;
+@property(readonly, nonatomic) BOOL hasCurveTo;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint point;
+@property(readonly) Class superclass;
 
 @end
 

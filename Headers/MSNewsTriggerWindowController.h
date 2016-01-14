@@ -6,9 +6,13 @@
 
 #import "NSWindowController.h"
 
+#import "WebFrameLoadDelegate.h"
+#import "WebPolicyDelegate.h"
+#import "WebResourceLoadDelegate.h"
+
 @class NSButton, NSString, NSURL, WebView;
 
-@interface MSNewsTriggerWindowController : NSWindowController
+@interface MSNewsTriggerWindowController : NSWindowController <WebFrameLoadDelegate, WebPolicyDelegate, WebResourceLoadDelegate>
 {
     BOOL _finishedLoadingData;
     NSURL *_url;
@@ -31,6 +35,12 @@
 - (void)windowDidLoad;
 - (void)dealloc;
 - (id)initWithURL:(id)arg1 newsID:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

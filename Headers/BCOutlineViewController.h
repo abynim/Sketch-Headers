@@ -7,14 +7,15 @@
 #import "NSViewController.h"
 
 #import "BCTableCellViewDelegate.h"
+#import "BCTableRowViewDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSOutlineViewDataSource.h"
 #import "NSOutlineViewDelegate.h"
 #import "NSTextFieldDelegate.h"
 
-@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCTableCellView, NSArray, NSEvent, NSString, NSTextField;
+@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
 
-@interface BCOutlineViewController : NSViewController <NSMenuDelegate, BCTableCellViewDelegate, NSTextFieldDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate>
+@interface BCOutlineViewController : NSViewController <NSMenuDelegate, NSTextFieldDelegate, BCTableCellViewDelegate, BCTableRowViewDelegate, NSOutlineViewDataSource, NSOutlineViewDelegate>
 {
     BOOL _selectionStateUpdating;
     BOOL _expansionStateUpdating;
@@ -26,10 +27,12 @@
     NSArray *_contextMenuSelection;
     id _currentlyHoveredNode;
     NSTextField *_menuDisabledTextField;
+    NSMutableSet *_referencedNodes;
     unsigned long long _refreshMask;
 }
 
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
+@property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
 @property(retain, nonatomic) NSTextField *menuDisabledTextField; // @synthesize menuDisabledTextField=_menuDisabledTextField;
 @property(retain, nonatomic) id currentlyHoveredNode; // @synthesize currentlyHoveredNode=_currentlyHoveredNode;
 @property(retain, nonatomic) NSArray *contextMenuSelection; // @synthesize contextMenuSelection=_contextMenuSelection;
@@ -41,6 +44,10 @@
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void).cxx_destruct;
+- (unsigned long long)tableRowView:(id)arg1 displayTypeOfRowAtIndex:(long long)arg2;
+- (long long)indexOfTableRowView:(id)arg1;
+- (BOOL)isNodeExpandedInTableRowView:(id)arg1;
+- (BOOL)isNodeSelectedInTableRowView:(id)arg1;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
@@ -64,11 +71,6 @@
 - (void)tableCellViewMouseEntered:(id)arg1;
 - (void)tableCellViewHandleBadgePressed:(id)arg1;
 - (BOOL)isTableCellViewNodeSelected:(id)arg1;
-- (void)handlePasteAction:(id)arg1;
-- (void)handleCopyAction:(id)arg1;
-- (void)handleCutAction:(id)arg1;
-- (BOOL)doCopy;
-- (void)handleDeleteAction:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)viewAtCurrentMousePoint;
@@ -99,7 +101,6 @@
 - (void)updateSelectionAndExpansion;
 - (void)modifyExpansionInBlock:(CDUnknownBlockType)arg1;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
-- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
 - (id)outlineView:(id)arg1 objectValueForTableColumn:(id)arg2 byItem:(id)arg3;
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
@@ -110,7 +111,7 @@
 @property(readonly, nonatomic) BOOL hasSourceListStyle;
 @property(readonly, nonatomic) double preferredHeight;
 - (void)awakeFromNib;
-- (id)initWithDataSource:(id)arg1 delegate:(id)arg2;
+- (id)initWithDataController:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

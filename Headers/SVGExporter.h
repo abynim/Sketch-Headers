@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSExportRequest, NSAffineTransform, NSMutableDictionary, NSString, NSXMLDocument, NSXMLElement;
+@class MSExportRequest, NSAffineTransform, NSMutableArray, NSMutableDictionary, NSString, NSXMLDocument, NSXMLElement;
 
 @interface SVGExporter : NSObject
 {
     BOOL _exportDetailed;
-    MSExportRequest *_slice;
+    MSExportRequest *_exportRequest;
     NSString *_mask;
     NSXMLDocument *_doc;
     NSXMLElement *_defs;
@@ -19,10 +19,12 @@
     NSAffineTransform *_initialMove;
     NSMutableDictionary *_gradients;
     unsigned long long _nextUniqueID;
+    NSMutableArray *_parentGroupStack;
     struct CGSize _documentSize;
     struct CGRect _sliceRect;
 }
 
+@property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) unsigned long long nextUniqueID; // @synthesize nextUniqueID=_nextUniqueID;
 @property(retain, nonatomic) NSMutableDictionary *gradients; // @synthesize gradients=_gradients;
 @property(retain, nonatomic) NSAffineTransform *initialMove; // @synthesize initialMove=_initialMove;
@@ -33,10 +35,14 @@
 @property(nonatomic) BOOL exportDetailed; // @synthesize exportDetailed=_exportDetailed;
 @property(retain, nonatomic) NSString *mask; // @synthesize mask=_mask;
 @property(nonatomic) struct CGSize documentSize; // @synthesize documentSize=_documentSize;
-@property(retain, nonatomic) MSExportRequest *slice; // @synthesize slice=_slice;
+@property(retain, nonatomic) MSExportRequest *exportRequest; // @synthesize exportRequest=_exportRequest;
 - (void).cxx_destruct;
 - (id)groupElementWithAffineTransform:(id)arg1;
 - (id)groupElementWithTranslateX:(int)arg1 Y:(int)arg2;
+- (id)popParentGroup;
+- (void)pushParentGroup:(id)arg1;
+- (id)parentGroupForLayer:(id)arg1;
+- (id)ancestorGroupsForLayer:(id)arg1;
 - (id)radialGradientAttributes:(id)arg1;
 - (id)linearGradientAttributes:(id)arg1;
 - (id)stopsForGradient:(id)arg1;
@@ -52,7 +58,7 @@
 - (id)data;
 - (id)description;
 - (void)exportPage:(id)arg1;
-- (id)initWithName:(id)arg1 slice:(id)arg2 detailed:(BOOL)arg3;
+- (id)initWithName:(id)arg1 exportRequest:(id)arg2 detailed:(BOOL)arg3;
 
 @end
 

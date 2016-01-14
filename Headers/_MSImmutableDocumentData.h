@@ -6,35 +6,46 @@
 
 #import "MSImmutableModelBase.h"
 
-@class MSImmutableArray, MSImmutableAssetCollection, MSImmutableSharedLayerContainer, MSImmutableSharedLayerStyleContainer, MSImmutableSharedLayerTextStyleContainer;
+@class MSImmutableArray, MSImmutableAssetCollection, MSImmutableAssetCollection<MSAssetCollection>, MSImmutableSharedStyleContainer, MSImmutableSharedStyleContainer<MSSharedStyleContainer>, MSImmutableSharedTextStyleContainer, MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer>, MSImmutableSymbolContainer, MSImmutableSymbolContainer<MSSymbolContainer>, NSString;
 
 @interface _MSImmutableDocumentData : MSImmutableModelBase
 {
+    NSString *_cloudShareID;
     unsigned long long _currentPageIndex;
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
     MSImmutableArray *_pages;
     MSImmutableAssetCollection *_assets;
-    MSImmutableSharedLayerStyleContainer *_layerStyles;
-    MSImmutableSharedLayerContainer *_layerSymbols;
-    MSImmutableSharedLayerTextStyleContainer *_layerTextStyles;
+    MSImmutableSharedStyleContainer *_layerStyles;
+    MSImmutableSymbolContainer *_layerSymbols;
+    MSImmutableSharedTextStyleContainer *_layerTextStyles;
 }
 
-@property(retain, nonatomic) MSImmutableSharedLayerTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
-@property(retain, nonatomic) MSImmutableSharedLayerContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
-@property(retain, nonatomic) MSImmutableSharedLayerStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
-@property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;
++ (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer> *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
+@property(retain, nonatomic) MSImmutableSymbolContainer<MSSymbolContainer> *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
+@property(retain, nonatomic) MSImmutableSharedStyleContainer<MSSharedStyleContainer> *layerStyles; // @synthesize layerStyles=_layerStyles;
+@property(retain, nonatomic) MSImmutableAssetCollection<MSAssetCollection> *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) MSImmutableArray *pages; // @synthesize pages=_pages;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(copy, nonatomic) NSString *cloudShareID; // @synthesize cloudShareID=_cloudShareID;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)layerTextStylesGeneric;
+- (id)layerSymbolsGeneric;
+- (id)layerStylesGeneric;
+- (id)assetsGeneric;
+- (id)pagesGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

@@ -6,9 +6,13 @@
 
 #import "NSObject.h"
 
+#import "WebFrameLoadDelegate.h"
+#import "WebResourceLoadDelegate.h"
+#import "WebUIDelegate.h"
+
 @class NSMutableArray, NSString, WebView;
 
-@interface MSAnalytics : NSObject
+@interface MSAnalytics : NSObject <WebFrameLoadDelegate, WebResourceLoadDelegate, WebUIDelegate>
 {
     WebView *_webView;
     NSString *_siteId;
@@ -35,6 +39,12 @@
 - (void)setup;
 - (void)configureWithSiteId:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

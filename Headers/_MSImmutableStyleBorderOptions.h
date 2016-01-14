@@ -15,16 +15,20 @@
     unsigned long long _lineJoinStyle;
 }
 
++ (Class)mutableClass;
 @property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
 @property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
 @property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

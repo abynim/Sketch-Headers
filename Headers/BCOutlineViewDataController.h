@@ -10,19 +10,29 @@
 
 @interface BCOutlineViewDataController : NSObject
 {
-    NSObject<BCOutlineViewDataSource> *_dataSource;
-    NSObject<BCOutlineViewDelegate> *_delegate;
     BCFilterInfo *_filter;
     id _cachedNode;
     NSArray *_cachedNodesChildren;
+    NSObject<BCOutlineViewDelegate> *_delegate;
+    NSObject<BCOutlineViewDataSource> *_dataSource;
 }
 
+@property(readonly, nonatomic) NSObject<BCOutlineViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) NSObject<BCOutlineViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *cachedNodesChildren; // @synthesize cachedNodesChildren=_cachedNodesChildren;
 @property(retain, nonatomic) id cachedNode; // @synthesize cachedNode=_cachedNode;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
-@property(readonly, nonatomic) NSObject<BCOutlineViewDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSObject<BCOutlineViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
+- (void)hoverNodeDidChangeTo:(id)arg1;
+- (id)menuItemsForSelectedObjects:(id)arg1;
+@property(readonly, nonatomic) BOOL canProvideContextMenuItems;
+@property(readonly, nonatomic) NSArray *dragTypes;
+- (void)updateNode:(id)arg1 expandedState:(unsigned long long)arg2;
+- (BOOL)isNodeExpandable:(id)arg1;
+- (BOOL)isNodeExpanded:(id)arg1;
+- (BOOL)isNodeSelected:(id)arg1;
+- (void)changeSelectionTo:(id)arg1;
 - (BOOL)handleDragWithPasteboard:(id)arg1 forProposedItem:(id)arg2 proposedChildIndex:(long long)arg3 copying:(BOOL)arg4 validationOnly:(BOOL)arg5;
 - (void)removeNodes:(id)arg1;
 - (BOOL)writeNodes:(id)arg1 toPasteboard:(id)arg2;

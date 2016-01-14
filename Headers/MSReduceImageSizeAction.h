@@ -10,6 +10,7 @@
 {
 }
 
+- (void)reduceSizeOfSelectedLayers;
 - (void)reduceImageSize:(id)arg1;
 - (BOOL)validate;
 

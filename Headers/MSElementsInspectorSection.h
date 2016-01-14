@@ -34,8 +34,8 @@
 - (void)dealloc;
 - (id)document;
 - (void)applySharedObject:(id)arg1 toLayer:(id)arg2;
-- (struct MSModelObject *)firstSharedObjectFromLayers:(unsigned long long)arg1;
-- (struct MSModelObject *)sharedObjectOfType:(unsigned long long)arg1 fromLayer:(id)arg2;
+- (struct MSModelBase *)firstSharedObjectFromLayers:(unsigned long long)arg1;
+- (struct MSModelBase *)sharedObjectOfType:(unsigned long long)arg1 fromLayer:(id)arg2;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 - (BOOL)hasGroupLayers;
 - (BOOL)hasTextLayers;

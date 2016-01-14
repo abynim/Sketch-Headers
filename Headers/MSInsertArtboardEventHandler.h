@@ -9,11 +9,12 @@
 #import "NSOutlineViewDataSource.h"
 #import "NSOutlineViewDelegate.h"
 
-@class MSEditArtboardPresetViewController, NSArray, NSMutableArray, NSOutlineView, NSString;
+@class MSEditArtboardPresetViewController, NSArray, NSButton, NSMutableArray, NSOutlineView, NSString;
 
 @interface MSInsertArtboardEventHandler : MSInsertLayerEventHandler <NSOutlineViewDataSource, NSOutlineViewDelegate>
 {
     NSOutlineView *_outlineView;
+    NSButton *_addPresetButton;
     NSArray *_systemPresets;
     NSMutableArray *_userPresets;
     MSEditArtboardPresetViewController *_editor;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) MSEditArtboardPresetViewController *editor; // @synthesize editor=_editor;
 @property(retain, nonatomic) NSMutableArray *userPresets; // @synthesize userPresets=_userPresets;
 @property(retain, nonatomic) NSArray *systemPresets; // @synthesize systemPresets=_systemPresets;
+@property(nonatomic) __weak NSButton *addPresetButton; // @synthesize addPresetButton=_addPresetButton;
 @property(retain, nonatomic) NSOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void).cxx_destruct;
 - (BOOL)shouldHideExportBar;

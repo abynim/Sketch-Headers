@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, NSHashTable, NSString, NSURL;
+@class MSDocumentData, NSMapTable, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface MSWebExporter : NSObject
 {
@@ -14,11 +14,13 @@
     NSURL *_destinationURL;
     unsigned long long _exportMode;
     NSString *_name;
-    NSHashTable *_previouslyExported;
+    NSMapTable *_previouslyExported;
+    NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
 + (void)exportDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 exportMode:(unsigned long long)arg4 completionBlock:(CDUnknownBlockType)arg5;
-@property(retain, nonatomic) NSHashTable *previouslyExported; // @synthesize previouslyExported=_previouslyExported;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
+@property(retain, nonatomic) NSMapTable *previouslyExported; // @synthesize previouslyExported=_previouslyExported;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) unsigned long long exportMode; // @synthesize exportMode=_exportMode;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;

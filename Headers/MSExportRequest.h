@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSColor, MSPage, NSSet, NSString;
+@class MSImmutableColor, MSImmutablePage, NSSet, NSString;
 
 @interface MSExportRequest : NSObject
 {
@@ -18,9 +18,9 @@
     NSString *_name;
     unsigned long long _options;
     NSSet *_includedLayerIDs;
-    MSColor *_backgroundColor;
     double _scale;
-    MSPage *_page;
+    MSImmutableColor *_backgroundColor;
+    MSImmutablePage *_immutablePage;
     NSString *_format;
     double _compression;
     id _rootLayerID;
@@ -29,6 +29,12 @@
 
 + (id)requestWithRect:(struct CGRect)arg1 scale:(double)arg2;
 + (id)requestWithName:(id)arg1 rect:(struct CGRect)arg2;
++ (id)exportRequestFromExportFormat:(id)arg1 layer:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
++ (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
++ (id)exportRequestsFromExportableLayer:(id)arg1 inRect:(struct CGRect)arg2 useIDForName:(BOOL)arg3;
++ (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 useIDForName:(BOOL)arg3;
++ (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
++ (id)exportRequestsFromExportableLayer:(id)arg1;
 @property(copy, nonatomic) id rootLayerID; // @synthesize rootLayerID=_rootLayerID;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL compact; // @synthesize compact=_compact;
@@ -36,10 +42,10 @@
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
-@property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+@property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
+@property(copy, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(copy, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(copy, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -47,6 +53,8 @@
 - (void).cxx_destruct;
 - (BOOL)layerIsIncluded:(id)arg1;
 - (id)init;
+- (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
+- (void)configureForLayer:(id)arg1;
 
 @end
 

@@ -11,6 +11,7 @@
 - (id)uniqueTemporaryURLWithBase:(id)arg1 extension:(id)arg2 subfolder:(id)arg3;
 - (id)uniqueTemporaryURLWithExtension:(id)arg1 subfolder:(id)arg2;
 - (id)uniqueTemporaryURLWithExtension:(id)arg1;
+- (BOOL)URLIsFolder:(id)arg1;
 - (BOOL)fileIsFolder:(id)arg1;
 - (id)shallowSubpathURLsOfDirectoryAtURL:(id)arg1;
 - (id)shallowSubpathsOfDirectoryAtURL:(id)arg1;

@@ -7,9 +7,9 @@
 #import "NSString.h"
 
 @interface NSString (CHStringExtensions)
++ (id)stringWithPrefix:(id)arg1 number:(long long)arg2;
 + (id)stringRepresentationForSeconds:(unsigned long long)arg1;
-- (id)nameWithPrefix:(id)arg1 number:(long long)arg2;
-- (id)uniqueStringComparedToStrings:(id)arg1;
+- (id)uniqueStringComparedToStrings:(id)arg1 includeCopySuffix:(BOOL)arg2;
 - (id)splitByBaseAndNumber;
 - (BOOL)containsSubstring:(id)arg1;
 - (id)trimmedString;

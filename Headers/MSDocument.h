@@ -14,7 +14,7 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCSideBarViewController, MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSharedObjectInstanceCollection, MSSplitViewDelegate, MSToolbarConstructor, NSMutableSet, NSSplitView, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSharedObjectInstanceCollection, MSSplitViewDelegate, MSToolbarConstructor, NSArray, NSDictionary, NSMutableSet, NSSplitView, NSString, NSTimer, NSView, NSWindow;
 
 @interface MSDocument : NSDocument <MSSidebarControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
 {
@@ -23,6 +23,7 @@
     BOOL _nextReadFromURLIsReload;
     BOOL _isSyncingSharedObjects;
     BOOL _temporarilyDisableSelectionHiding;
+    NSArray *_exportableLayerSelection;
     NSSplitView *_splitView;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -76,6 +77,7 @@
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDictionary *UIMetadata;
 - (void)resetHiddenSelectionHandlesTimerAction:(id)arg1;
 - (void)documentData:(id)arg1 immediatelyShowSelectionForLayer:(id)arg2;
 - (void)documentData:(id)arg1 temporarilyHideSelectionForLayer:(id)arg2;
@@ -149,7 +151,6 @@
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (id)rootDelegate;
-- (void)deleteArtboards2:(id)arg1;
 - (void)deleteArtboards:(id)arg1;
 - (void)closePath:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
@@ -195,6 +196,7 @@
 - (id)currentPage;
 - (void)exportPDFBook:(id)arg1;
 - (void)exportSliceLayers:(id)arg1;
+@property(retain, nonatomic) NSArray *exportableLayerSelection; // @synthesize exportableLayerSelection=_exportableLayerSelection;
 - (id)allExportableLayers;
 - (void)export:(id)arg1;
 - (id)selectedLayersOfClass:(Class)arg1;
@@ -218,7 +220,6 @@
 - (id)currentView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)windowWillClose:(id)arg1;
-- (void)applicationDidChangeFocusWindow;
 - (void)windowDidResignKey:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidEndSheet:(id)arg1;
@@ -244,10 +245,9 @@
 - (void)stopAccessingFolderToken:(id)arg1;
 - (id)startAccessingFolder:(id)arg1 tokenName:(id)arg2;
 - (id)dataForRequest:(id)arg1 ofType:(id)arg2;
-- (void)saveSlice:(id)arg1 toFile:(id)arg2;
-- (id)sliceForArtboardOrSlice:(id)arg1;
+- (void)saveExportRequest:(id)arg1 toFile:(id)arg2;
+- (id)exportRequestForArtboardOrSlice:(id)arg1;
 - (void)saveArtboardOrSlice:(id)arg1 toFile:(id)arg2;
-- (id)sliceForRect:(id)arg1;
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
 - (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (void)warnAboutOldVersion;

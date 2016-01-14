@@ -6,7 +6,11 @@
 
 #import "_MSShapePath.h"
 
-@interface MSShapePath : _MSShapePath
+#import "MSShapePath.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSShapePath : _MSShapePath <MSShapePath>
 {
 }
 
@@ -20,7 +24,7 @@
 - (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
 - (BOOL)simplifyPathOnce;
 - (void)simplifyPath;
-- (unsigned long long)numberOfPoints;
+@property(readonly, nonatomic) unsigned long long numberOfPoints;
 - (id)lastPoint;
 - (id)firstPoint;
 - (id)pointAtIndex:(long long)arg1;
@@ -29,10 +33,18 @@
 - (void)insertPoint:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addPoints:(id)arg1;
 - (void)addPoint:(id)arg1;
-- (void)setIsClosed:(BOOL)arg1;
 - (id)layer;
 - (id)initWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)initWithPoints:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isClosed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) id <MSArray> pointsGeneric; // @dynamic pointsGeneric;
+@property(readonly) Class superclass;
 
 @end
 

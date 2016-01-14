@@ -6,7 +6,11 @@
 
 #import "MSStylePartCollection.h"
 
-@interface MSFillStyleCollection : MSStylePartCollection
+#import "MSFillStyleCollection.h"
+
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSFillStyleCollection : MSStylePartCollection <MSFillStyleCollection>
 {
 }
 
@@ -14,6 +18,14 @@
 - (id)gradientFillForInserting;
 - (id)colorFillForInserting;
 - (id)stylePartForInserting;
+
+// Remaining properties
+@property(readonly, copy, nonatomic) NSArray *array;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

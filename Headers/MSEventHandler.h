@@ -90,9 +90,9 @@
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (void)focusOnMainWindow;
-- (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 fromDrag:(BOOL)arg3;
-- (id)duplicateSelectedLayersInGroup:(id)arg1 fromDrag:(BOOL)arg2;
-- (id)duplicateSelectedLayers:(BOOL)arg1;
+- (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 offset:(struct CGSize)arg3;
+- (id)duplicateSelectedLayersInGroup:(id)arg1 withOffset:(struct CGSize)arg2;
+- (id)duplicateSelectedLayersWithOffset:(struct CGSize)arg1;
 - (struct CGPoint)currentMousePointInCanvasCoordinates;
 - (void)pasteHere:(id)arg1;
 - (void)pasteOverSelection:(id)arg1;
@@ -157,7 +157,8 @@
 - (id)view;
 - (id)nibName;
 - (id)initWithManager:(id)arg1;
-- (struct CGPoint)mouseCappedInViewCoordinatesWithMargin:(struct CGSize)arg1;
+- (void)drawMeasurementsLabelAtMouseForString:(id)arg1;
+- (void)drawMeasurementsLabelAtMouseForRotation:(long long)arg1;
 - (void)drawMeasurementsLabelAtMouseForSize:(struct CGSize)arg1;
 - (void)refreshMeasurementsLabel;
 

@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class MSLayerGroup, MSSharedLayer;
+@class MSLayerGroup, MSSymbol;
 
 @interface MSSymbolResult : NSObject
 {
     MSLayerGroup *_layer;
-    MSSharedLayer *_symbol;
+    MSSymbol *_symbol;
 }
 
-@property(retain, nonatomic) MSSharedLayer *symbol; // @synthesize symbol=_symbol;
+@property(retain, nonatomic) MSSymbol *symbol; // @synthesize symbol=_symbol;
 @property(retain, nonatomic) MSLayerGroup *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
 

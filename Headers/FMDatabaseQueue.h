@@ -32,6 +32,7 @@
 - (id)init;
 - (id)initWithPath:(id)arg1;
 - (id)initWithPath:(id)arg1 flags:(int)arg2;
+- (id)initWithPath:(id)arg1 flags:(int)arg2 vfs:(id)arg3;
 
 @end
 

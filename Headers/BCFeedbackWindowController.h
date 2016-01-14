@@ -22,6 +22,7 @@
 
 + (id)postURL;
 + (void)showFeedback;
++ (void)checkInternetConnection;
 @property(nonatomic) long long currentSection; // @synthesize currentSection=_currentSection;
 @property(retain, nonatomic) NSButton *sendButton; // @synthesize sendButton=_sendButton;
 @property(retain, nonatomic) NSPopUpButton *feedbackType; // @synthesize feedbackType=_feedbackType;
@@ -35,7 +36,6 @@
 - (void)windowWillClose:(id)arg1;
 - (void)connection:(id)arg1 didFailWithError:(id)arg2;
 - (void)displayAlertMessage:(id)arg1 withInformativeText:(id)arg2 andAlertStyle:(unsigned long long)arg3;
-- (void)alertDidEnd:(id)arg1 returnCode:(int)arg2 contextInfo:(void *)arg3;
 - (void)connectionDidFinishLoading:(id)arg1;
 - (void)closeFeedback;
 - (void)postFeedback:(id)arg1;

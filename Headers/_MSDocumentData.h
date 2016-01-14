@@ -6,36 +6,39 @@
 
 #import "MSModelBase.h"
 
-@class MSArray, MSAssetCollection, MSSharedLayerContainer, MSSharedLayerStyleContainer, MSSharedLayerTextStyleContainer;
+@class MSArray, MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSString;
 
 @interface _MSDocumentData : MSModelBase
 {
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
+    NSString *_cloudShareID;
     unsigned long long _currentPageIndex;
     MSArray *_pages;
     MSAssetCollection *_assets;
-    MSSharedLayerStyleContainer *_layerStyles;
-    MSSharedLayerContainer *_layerSymbols;
-    MSSharedLayerTextStyleContainer *_layerTextStyles;
+    MSSharedStyleContainer *_layerStyles;
+    MSSymbolContainer *_layerSymbols;
+    MSSharedTextStyleContainer *_layerTextStyles;
 }
 
-@property(retain, nonatomic) MSSharedLayerTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
-@property(retain, nonatomic) MSSharedLayerContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
-@property(retain, nonatomic) MSSharedLayerStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
++ (Class)immutableClass;
+@property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
+@property(retain, nonatomic) MSSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
+@property(retain, nonatomic) MSSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
 @property(retain, nonatomic) MSArray *pages; // @synthesize pages=_pages;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(copy, nonatomic) NSString *cloudShareID; // @synthesize cloudShareID=_cloudShareID;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveLayerTextStyles:(id)arg1;
 - (id)primitiveLayerTextStyles;
 - (void)setPrimitiveLayerSymbols:(id)arg1;
@@ -52,7 +55,14 @@
 - (BOOL)primitiveEnableLayerInteraction;
 - (void)setPrimitiveCurrentPageIndex:(unsigned long long)arg1;
 - (unsigned long long)primitiveCurrentPageIndex;
-- (id)immutableModelObject;
+- (void)setPrimitiveCloudShareID:(id)arg1;
+- (id)primitiveCloudShareID;
+- (id)layerTextStylesGeneric;
+- (id)layerSymbolsGeneric;
+- (id)layerStylesGeneric;
+- (id)assetsGeneric;
+- (id)pagesGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

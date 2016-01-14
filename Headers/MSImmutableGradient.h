@@ -6,11 +6,52 @@
 
 #import "_MSImmutableGradient.h"
 
-@interface MSImmutableGradient : _MSImmutableGradient
+#import "MSGradient.h"
+
+@class MSPointArray, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableGradient : _MSImmutableGradient <MSGradient>
 {
 }
 
++ (id)gradientFromStops:(id)arg1 colorSpace:(id)arg2;
+@property(readonly, nonatomic) BOOL hasOpacity;
+- (id)NSGradientWithColorSpace:(id)arg1;
+- (double)conditionedElipseLength;
+- (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
+- (id)stopGenericAtIndex:(unsigned long long)arg1;
+- (id)stopAtIndex:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
+- (id)defaultStopsArray;
+- (id)ellipseTransformInRect:(struct CGRect)arg1;
+- (id)NSGradientForContext:(id)arg1;
+- (void)setHasDonePreRenderingForContext:(id)arg1;
+- (BOOL)hasDonePreRenderingForContext:(id)arg1;
+- (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2;
+- (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
+- (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
+- (void)_drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3 gradient:(id)arg4;
+- (void)preRenderGradient:(id)arg1 inRect:(struct CGRect)arg2 context:(id)arg3;
+- (void)drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3;
+- (id)interpolatedStartAndStopColorForStops:(id)arg1 colorSpace:(id)arg2;
+- (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 stops:(id)arg2 colorSpace:(id)arg3;
+- (id)sortedStops;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 shouldCache:(BOOL)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) double elipseLength;
+@property(readonly, nonatomic) struct CGPoint from;
+@property(readonly, nonatomic) long long gradientType;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) MSPointArray *points;
+@property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
+@property(readonly, nonatomic) id <MSArray> stopsGeneric; // @dynamic stopsGeneric;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) struct CGPoint to;
 
 @end
 

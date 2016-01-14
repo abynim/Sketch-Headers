@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSPage, MSRenderingContext;
+@class MSImmutablePage, MSRenderingContext;
 
 @interface MSTileRenderer : NSObject
 {
@@ -14,8 +14,9 @@
     BOOL _disableSubpixelAntialiasing;
     BOOL _drawDottedDirtyRect;
     BOOL _cancelled;
-    MSPage *_page;
+    MSImmutablePage *_immutablePage;
     double _backingScale;
+    id <MSRenderingContextCacheProvider> _cacheProvider;
     double _zoomValue;
     MSRenderingContext *_context;
     struct CGRect _tileRect;
@@ -25,13 +26,14 @@
 @property(retain) MSRenderingContext *context; // @synthesize context=_context;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+@property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
 @property(nonatomic) BOOL disableSubpixelAntialiasing; // @synthesize disableSubpixelAntialiasing=_disableSubpixelAntialiasing;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
 @property(nonatomic) struct CGRect tileRect; // @synthesize tileRect=_tileRect;
-@property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+@property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
 - (void).cxx_destruct;
 - (void)prepareContext:(struct CGContext *)arg1;
 - (id)contextWithCGContext:(struct CGContext *)arg1 colorSpace:(id)arg2;

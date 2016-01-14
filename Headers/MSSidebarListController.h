@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, NSArray;
+@class MSDocumentData;
 
 @interface MSSidebarListController : NSObject
 {
@@ -17,18 +17,18 @@
 @property(readonly, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(nonatomic) __weak id <MSSidebarControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)exportNodes:(id)arg1;
-- (BOOL)copyNodes:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (id)dataController:(id)arg1 exportNodes:(id)arg2;
+- (BOOL)dataController:(id)arg1 copyNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)copyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
-- (BOOL)moveNodes:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (BOOL)dataController:(id)arg1 moveNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)moveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
-- (BOOL)canCopyNodes:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (BOOL)dataController:(id)arg1 canCopyNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)canCopyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
-- (BOOL)canMoveNodes:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (BOOL)dataController:(id)arg1 canMoveNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)canMoveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
-@property(readonly, nonatomic) NSArray *dragTypes;
-- (id)readNodesFromPasteboard:(id)arg1;
-- (BOOL)writeNodes:(id)arg1 toPasteboard:(id)arg2;
+- (id)dragTypesForDataController:(id)arg1;
+- (id)dataController:(id)arg1 readNodesFromPasteboard:(id)arg2;
+- (BOOL)dataController:(id)arg1 writeNodes:(id)arg2 toPasteboard:(id)arg3;
 - (id)layerForNode:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (id)initWithDelegate:(id)arg1;

@@ -6,23 +6,22 @@
 
 #import "NSObject.h"
 
-@class MSContentDrawView, MSEventHandlerManager, MSPage;
+@class MSEventHandlerManager, MSPage;
 
 @interface MSOverlayRenderer : NSObject
 {
+    BOOL _canDrawSlicesOutline;
     MSPage *_page;
     double _zoomValue;
     MSEventHandlerManager *_eventManager;
-    MSContentDrawView *_contentView;
     struct CGRect _rect;
 }
 
-+ (void)renderPage:(id)arg1 atZoom:(double)arg2 inRect:(struct CGRect)arg3 handlerManager:(id)arg4 view:(id)arg5;
-@property(retain, nonatomic) MSContentDrawView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MSEventHandlerManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+@property(nonatomic) BOOL canDrawSlicesOutline; // @synthesize canDrawSlicesOutline=_canDrawSlicesOutline;
 - (void).cxx_destruct;
 - (struct CGPoint)scrollOrigin;
 - (void)drawZoomTool;
@@ -41,6 +40,7 @@
 - (void)drawGridForRootLayer:(id)arg1;
 - (void)draw;
 - (void)drawDebugCoordinates;
+- (void)renderPage:(id)arg1 atZoom:(double)arg2 inRect:(struct CGRect)arg3 handlerManager:(id)arg4;
 
 @end
 

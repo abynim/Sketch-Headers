@@ -33,7 +33,7 @@
     NSRecursiveLock *_lock;
     NSURLConnection *_connection;
     long long _totalBytesRead;
-    id _backgroundTaskIdentifier;
+    CDUnknownBlockType _backgroundTaskCleanup;
     CDUnknownBlockType _uploadProgress;
     CDUnknownBlockType _downloadProgress;
     CDUnknownBlockType _authenticationChallenge;
@@ -50,7 +50,7 @@
 @property(copy, nonatomic) CDUnknownBlockType authenticationChallenge; // @synthesize authenticationChallenge=_authenticationChallenge;
 @property(copy, nonatomic) CDUnknownBlockType downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(copy, nonatomic) CDUnknownBlockType uploadProgress; // @synthesize uploadProgress=_uploadProgress;
-@property(nonatomic) id backgroundTaskIdentifier; // @synthesize backgroundTaskIdentifier=_backgroundTaskIdentifier;
+@property(copy, nonatomic) CDUnknownBlockType backgroundTaskCleanup; // @synthesize backgroundTaskCleanup=_backgroundTaskCleanup;
 @property(nonatomic) long long totalBytesRead; // @synthesize totalBytesRead=_totalBytesRead;
 @property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
@@ -104,8 +104,8 @@
 @property(retain, nonatomic) NSOutputStream *outputStream; // @synthesize outputStream=_outputStream;
 @property(retain, nonatomic) NSInputStream *inputStream;
 - (void)dealloc;
-- (id)initWithRequest:(id)arg1;
 - (id)init;
+- (id)initWithRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

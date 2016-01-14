@@ -8,23 +8,20 @@
 
 #import "NSSplitViewDelegate.h"
 
-@class BCFilterInfo, BCOutlineViewController, BCPageListViewController, NSButton, NSPopUpButton, NSSearchField, NSSplitView, NSString, NSTextField, NSView;
+@class BCFilterInfo, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSPopUpButton, NSSearchField, NSSplitView, NSString, NSTextField, NSView;
 
 @interface BCSideBarViewController : NSViewController <NSSplitViewDelegate>
 {
     BOOL _userUpdatedPageHeight;
     unsigned long long _sliceCount;
     BCFilterInfo *_filter;
-    id <BCOutlineViewDataSource> _pageListDataSource;
-    id <BCOutlineViewDelegate> _pageListDelegate;
+    BCOutlineViewDataController *_pageListDataController;
     NSView *_pageCreationView;
     BCPageListViewController *_pageListViewController;
     NSView *_pageListContainer;
     long long _pageCount;
     NSTextField *_currentPageLabel;
     NSPopUpButton *_pagePopup;
-    id <BCOutlineViewDataSource> _layerListDataSource;
-    id <BCOutlineViewDelegate> _layerListDelegate;
     NSView *_layerListContainer;
     BCOutlineViewController *_layerListViewController;
     NSSearchField *_filterStringTextField;
@@ -40,16 +37,13 @@
 @property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
 @property(retain, nonatomic) BCOutlineViewController *layerListViewController; // @synthesize layerListViewController=_layerListViewController;
 @property(retain, nonatomic) NSView *layerListContainer; // @synthesize layerListContainer=_layerListContainer;
-@property(retain, nonatomic) id <BCOutlineViewDelegate> layerListDelegate; // @synthesize layerListDelegate=_layerListDelegate;
-@property(retain, nonatomic) id <BCOutlineViewDataSource> layerListDataSource; // @synthesize layerListDataSource=_layerListDataSource;
 @property(nonatomic) __weak NSPopUpButton *pagePopup; // @synthesize pagePopup=_pagePopup;
 @property(nonatomic) __weak NSTextField *currentPageLabel; // @synthesize currentPageLabel=_currentPageLabel;
 @property(nonatomic) long long pageCount; // @synthesize pageCount=_pageCount;
 @property(retain, nonatomic) NSView *pageListContainer; // @synthesize pageListContainer=_pageListContainer;
 @property(retain, nonatomic) BCPageListViewController *pageListViewController; // @synthesize pageListViewController=_pageListViewController;
 @property(retain, nonatomic) NSView *pageCreationView; // @synthesize pageCreationView=_pageCreationView;
-@property(retain, nonatomic) id <BCOutlineViewDelegate> pageListDelegate; // @synthesize pageListDelegate=_pageListDelegate;
-@property(retain, nonatomic) id <BCOutlineViewDataSource> pageListDataSource; // @synthesize pageListDataSource=_pageListDataSource;
+@property(retain, nonatomic) BCOutlineViewDataController *pageListDataController; // @synthesize pageListDataController=_pageListDataController;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 @property(nonatomic) unsigned long long sliceCount; // @synthesize sliceCount=_sliceCount;
 - (void).cxx_destruct;

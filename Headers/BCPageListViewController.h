@@ -10,7 +10,5 @@
 {
 }
 
-- (void)handleDeleteAction:(id)arg1;
-
 @end
 
