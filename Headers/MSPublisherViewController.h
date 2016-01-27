@@ -43,7 +43,7 @@
 @property(retain, nonatomic) NSView *explanatoryView; // @synthesize explanatoryView=_explanatoryView;
 @property(retain, nonatomic) MSWebPublisher *onlinePublisher; // @synthesize onlinePublisher=_onlinePublisher;
 @property(retain, nonatomic) MSLocalWebServer *localServer; // @synthesize localServer=_localServer;
-@property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
+@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak id <MSPublisherViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)onlineURLForDocument;

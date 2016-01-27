@@ -25,6 +25,7 @@
 - (void).cxx_destruct;
 - (id)temporaryFolder;
 - (id)rootLayers;
+- (id)checkForErrors;
 - (id)exportAllowingUI:(BOOL)arg1;
 - (id)export;
 - (id)initWithDocument:(id)arg1 withName:(id)arg2 scale:(double)arg3;

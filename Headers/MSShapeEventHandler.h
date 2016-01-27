@@ -39,6 +39,7 @@
     struct CGRect dirtyRect;
     BOOL _isMakingRectSelection;
     BOOL _hideEditingPoints;
+    BOOL _isDragging;
     id _horizontalSnap;
     id _verticalSnap;
     MSSelectionPath *_candidateSelection;
@@ -47,6 +48,7 @@
     MSSelectionPathCollection *_snappedPaths;
 }
 
+@property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(nonatomic) BOOL hideEditingPoints; // @synthesize hideEditingPoints=_hideEditingPoints;
 @property(retain, nonatomic) MSSelectionPathCollection *snappedPaths; // @synthesize snappedPaths=_snappedPaths;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;

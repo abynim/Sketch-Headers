@@ -9,8 +9,7 @@
 @interface AFNetworkReachabilityManager : NSObject
 {
     long long _networkReachabilityStatus;
-    struct __SCNetworkReachability *_networkReachability;
-    unsigned long long _networkReachabilityAssociation;
+    id _networkReachability;
     CDUnknownBlockType _networkReachabilityStatusBlock;
 }
 
@@ -19,8 +18,7 @@
 + (id)managerForDomain:(id)arg1;
 + (id)sharedManager;
 @property(copy, nonatomic) CDUnknownBlockType networkReachabilityStatusBlock; // @synthesize networkReachabilityStatusBlock=_networkReachabilityStatusBlock;
-@property(nonatomic) unsigned long long networkReachabilityAssociation; // @synthesize networkReachabilityAssociation=_networkReachabilityAssociation;
-@property(nonatomic) struct __SCNetworkReachability *networkReachability; // @synthesize networkReachability=_networkReachability;
+@property(retain, nonatomic) id networkReachability; // @synthesize networkReachability=_networkReachability;
 @property(nonatomic) long long networkReachabilityStatus; // @synthesize networkReachabilityStatus=_networkReachabilityStatus;
 - (void).cxx_destruct;
 - (void)setReachabilityStatusChangeBlock:(CDUnknownBlockType)arg1;
@@ -31,8 +29,8 @@
 @property(readonly, nonatomic, getter=isReachableViaWWAN) BOOL reachableViaWWAN;
 @property(readonly, nonatomic, getter=isReachable) BOOL reachable;
 - (void)dealloc;
-- (id)initWithReachability:(struct __SCNetworkReachability *)arg1;
 - (id)init;
+- (id)initWithReachability:(struct __SCNetworkReachability *)arg1;
 
 @end
 

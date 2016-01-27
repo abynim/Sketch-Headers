@@ -34,10 +34,10 @@
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
 @property(nonatomic) unsigned long long selectedTabIndex;
+- (void)updateWindowFrame;
 - (void)switchToPaneWithIdentifier:(id)arg1;
 - (void)switchPanes:(id)arg1;
 - (void)adjustColorsAction:(id)arg1;
-- (void)scaleDownForRetinaAction:(id)arg1;
 - (void)awakeFromNib;
 
 // Remaining properties

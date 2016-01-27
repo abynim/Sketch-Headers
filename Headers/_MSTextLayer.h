@@ -18,6 +18,7 @@
     long long _textBehaviour;
 }
 
++ (Class)immutableClass;
 @property(nonatomic) BOOL usesNewLineSpacingBehaviour; // @synthesize usesNewLineSpacingBehaviour=_usesNewLineSpacingBehaviour;
 @property(nonatomic) long long textBehaviour; // @synthesize textBehaviour=_textBehaviour;
 @property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
@@ -26,12 +27,12 @@
 @property(nonatomic) BOOL automaticallyDrawOnUnderlyingPath; // @synthesize automaticallyDrawOnUnderlyingPath=_automaticallyDrawOnUnderlyingPath;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveUsesNewLineSpacingBehaviour:(BOOL)arg1;
 - (BOOL)primitiveUsesNewLineSpacingBehaviour;
 - (void)setPrimitiveTextBehaviour:(long long)arg1;
@@ -44,7 +45,7 @@
 - (BOOL)primitiveDontSynchroniseWithSymbol;
 - (void)setPrimitiveAutomaticallyDrawOnUnderlyingPath:(BOOL)arg1;
 - (BOOL)primitiveAutomaticallyDrawOnUnderlyingPath;
-- (id)immutableModelObject;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

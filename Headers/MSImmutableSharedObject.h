@@ -6,9 +6,24 @@
 
 #import "_MSImmutableSharedObject.h"
 
-@interface MSImmutableSharedObject : _MSImmutableSharedObject
+#import "MSSharedObject.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableSharedObject : _MSImmutableSharedObject <MSSharedObject>
 {
 }
+
+- (id)defaultName;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) id <MSModelObject> valueGeneric; // @dynamic valueGeneric;
 
 @end
 

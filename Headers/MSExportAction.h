@@ -15,7 +15,7 @@
 - (struct CGRect)rectForExportingEntirePage;
 - (void)createInitialSlice;
 - (void)showInspectorPanelIfNecessary;
-- (BOOL)hasArtboardsWitNoExportSizes;
+- (BOOL)hasArtboardsWitNoExportFormats;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validate;
 - (void)export:(id)arg1;

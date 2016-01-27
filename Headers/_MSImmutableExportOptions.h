@@ -10,23 +10,29 @@
 
 @interface _MSImmutableExportOptions : MSImmutableModelBase
 {
+    MSImmutableArray *_exportFormats;
     MSImmutableArray *_includedLayerIds;
     unsigned long long _layerOptions;
     BOOL _shouldTrim;
-    MSImmutableArray *_sizes;
 }
 
-@property(retain, nonatomic) MSImmutableArray *sizes; // @synthesize sizes=_sizes;
++ (Class)mutableClass;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
 @property(retain, nonatomic) MSImmutableArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
+@property(retain, nonatomic) MSImmutableArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)includedLayerIdsGeneric;
+- (id)exportFormatsGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

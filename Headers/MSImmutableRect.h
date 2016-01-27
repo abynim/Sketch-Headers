@@ -6,9 +6,31 @@
 
 #import "_MSImmutableRect.h"
 
-@interface MSImmutableRect : _MSImmutableRect
+#import "MSRect.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableRect : _MSImmutableRect <MSRect>
 {
 }
+
+- (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGSize size;
+@property(readonly, nonatomic) struct CGRect rect;
+- (id)initWithRect:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) BOOL constrainProportions;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) double height;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) double width;
+@property(readonly, nonatomic) double x;
+@property(readonly, nonatomic) double y;
 
 @end
 

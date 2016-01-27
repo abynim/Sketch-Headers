@@ -7,6 +7,7 @@
 #import "NSTextStorage.h"
 
 @interface NSTextStorage (ImmutableObjectSupport)
+- (id)copyTextStorage;
 - (id)immutableModelObject;
 @end
 

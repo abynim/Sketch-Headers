@@ -19,6 +19,7 @@
     MSRulerData *_verticalRulerData;
 }
 
++ (Class)immutableClass;
 @property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
@@ -28,12 +29,12 @@
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveVerticalRulerData:(id)arg1;
 - (id)primitiveVerticalRulerData;
 - (void)setPrimitiveLayout:(id)arg1;
@@ -48,7 +49,12 @@
 - (BOOL)primitiveIncludeBackgroundColorInExport;
 - (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
 - (BOOL)primitiveHasBackgroundColor;
-- (id)immutableModelObject;
+- (id)verticalRulerDataGeneric;
+- (id)layoutGeneric;
+- (id)horizontalRulerDataGeneric;
+- (id)gridGeneric;
+- (id)backgroundColorGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

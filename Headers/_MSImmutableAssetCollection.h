@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelBase.h"
 
-@class MSImmutableArray, MSImmutableImageCollection;
+@class MSImmutableArray, MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>;
 
 @interface _MSImmutableAssetCollection : MSImmutableModelBase
 {
@@ -16,17 +16,25 @@
     MSImmutableImageCollection *_imageCollection;
 }
 
-@property(retain, nonatomic) MSImmutableImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
++ (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableImageCollection<MSImageCollection> *imageCollection; // @synthesize imageCollection=_imageCollection;
 @property(retain, nonatomic) MSImmutableArray *images; // @synthesize images=_images;
 @property(retain, nonatomic) MSImmutableArray *gradients; // @synthesize gradients=_gradients;
 @property(retain, nonatomic) MSImmutableArray *colors; // @synthesize colors=_colors;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)imageCollectionGeneric;
+- (id)imagesGeneric;
+- (id)gradientsGeneric;
+- (id)colorsGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

@@ -78,6 +78,7 @@
 - (void)mouseMoved:(id)arg1;
 - (BOOL)eventInView:(id)arg1;
 - (BOOL)acceptsFirstResponder;
+- (void)removeAllGuides:(id)arg1;
 - (void)removeGuide:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;

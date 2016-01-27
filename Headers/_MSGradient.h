@@ -19,6 +19,7 @@
     struct CGPoint _to;
 }
 
++ (Class)immutableClass;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(retain, nonatomic) MSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
@@ -28,12 +29,12 @@
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveTo:(struct CGPoint)arg1;
 - (struct CGPoint)primitiveTo;
 - (void)setPrimitiveStops:(id)arg1;
@@ -48,7 +49,8 @@
 - (struct CGPoint)primitiveFrom;
 - (void)setPrimitiveElipseLength:(double)arg1;
 - (double)primitiveElipseLength;
-- (id)immutableModelObject;
+- (id)stopsGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

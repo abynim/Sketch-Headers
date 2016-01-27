@@ -6,7 +6,11 @@
 
 #import "_MSRect.h"
 
-@interface MSRect : _MSRect
+#import "MSRect.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSRect : _MSRect <MSRect>
 {
     double proportions;
     BOOL temporarilyConstrainProportions;
@@ -29,11 +33,10 @@
 - (void)setTemporarilyConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)log;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (void)decodePropertiesWithCoder:(id)arg1;
 - (id)scaleBy:(double)arg1;
 @property(nonatomic) double midY;
 @property(nonatomic) double midX;
@@ -67,6 +70,17 @@
 - (void)subtractX:(double)arg1;
 - (void)addY:(double)arg1;
 - (void)addX:(double)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) BOOL constrainProportions;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) double height;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) double width;
+@property(readonly, nonatomic) double x;
+@property(readonly, nonatomic) double y;
 
 @end
 

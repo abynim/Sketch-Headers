@@ -9,7 +9,7 @@
 #import "MSSectionProtocol.h"
 #import "NSMenuDelegate.h"
 
-@class MSElementsInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
+@class MSElementsInspectorSection, NSArray, NSButton, NSNumberFormatter, NSOperationQueue, NSString, NSTextField, NSView;
 
 @interface MSLayerInspectorViewController : CHViewController <MSSectionProtocol, NSMenuDelegate>
 {
@@ -30,12 +30,16 @@
     NSTextField *_artboardWidthField;
     NSTextField *_artboardHeightField;
     NSButton *_lockProportionsButton;
-    MSElementsInspectorSection *_sharedStyleController;
+    MSElementsInspectorSection *_sharedObjectsController;
+    NSArray *_layerInspectorControllers;
     NSNumberFormatter *_numberFormatter;
+    NSOperationQueue *_throttlingQueue;
 }
 
+@property(retain, nonatomic) NSOperationQueue *throttlingQueue; // @synthesize throttlingQueue=_throttlingQueue;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
-@property(retain, nonatomic) MSElementsInspectorSection *sharedStyleController; // @synthesize sharedStyleController=_sharedStyleController;
+@property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
+@property(retain, nonatomic) MSElementsInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
 @property(nonatomic) BOOL shouldShowBlendingProperties; // @synthesize shouldShowBlendingProperties=_shouldShowBlendingProperties;
 @property(nonatomic) BOOL shouldShowLayerSpecificProperties; // @synthesize shouldShowLayerSpecificProperties=_shouldShowLayerSpecificProperties;
 @property(nonatomic) BOOL shouldShowSharedStyles; // @synthesize shouldShowSharedStyles=_shouldShowSharedStyles;
@@ -82,6 +86,7 @@
 - (double)absoluteYForLayers;
 - (double)absoluteXForLayers;
 - (void)setValue:(double)arg1 forFields:(id)arg2;
+- (void)scheduleThrottledBlock:(CDUnknownBlockType)arg1;
 - (void)refreshBindingsOnShape:(id)arg1;
 - (void)clearPositionAndSizeFields;
 - (void)layerPositionPossiblyChanged;

@@ -6,9 +6,27 @@
 
 #import "_MSImmutableStyleColorControls.h"
 
-@interface MSImmutableStyleColorControls : _MSImmutableStyleColorControls
+#import "MSStyleColorControls.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableStyleColorControls : _MSImmutableStyleColorControls <MSStyleColorControls>
 {
 }
+
+- (id)renderBitmapEffects:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) double brightness;
+@property(readonly, nonatomic) double contrast;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) double hue;
+@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double saturation;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,34 +6,28 @@
 
 #import "_MSTextLayer.h"
 
-#import "MSColorUser.h"
 #import "MSFirstLineTypesetterDelegate.h"
+#import "MSTextLayer.h"
 #import "NSTextStorageDelegate.h"
 
-@class MSColor, NSBezierPath, NSDictionary, NSString, NSTextStorage;
+@class MSColor, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
 
-@interface MSTextLayer : _MSTextLayer <MSColorUser, NSTextStorageDelegate, MSFirstLineTypesetterDelegate>
+@interface MSTextLayer : _MSTextLayer <NSTextStorageDelegate, MSFirstLineTypesetterDelegate, MSTextLayer>
 {
-    BOOL isEditingText;
     int ignoreDelegateNotificationsCounter;
-    NSBezierPath *_cachedBezierRepresentation;
+    BOOL _isEditingText;
     NSTextStorage *_storageBeforeResize;
     id <MSTextLayerEditingDelegate> _editingDelegate;
-    NSBezierPath *_lightweightFirstUnderlyingShapePath;
-    double _lightweightFontSize;
     struct CGSize _sizeBeforeResize;
     struct CGRect _previousRectCache;
 }
 
-+ (unsigned long long)traits;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 @property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
-@property(nonatomic) double lightweightFontSize; // @synthesize lightweightFontSize=_lightweightFontSize;
-@property(retain, nonatomic) NSBezierPath *lightweightFirstUnderlyingShapePath; // @synthesize lightweightFirstUnderlyingShapePath=_lightweightFirstUnderlyingShapePath;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
+@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(copy, nonatomic) NSTextStorage *storageBeforeResize; // @synthesize storageBeforeResize=_storageBeforeResize;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
-@property(retain, nonatomic) NSBezierPath *cachedBezierRepresentation; // @synthesize cachedBezierRepresentation=_cachedBezierRepresentation;
 - (void).cxx_destruct;
 - (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (BOOL)constrainProportions;
@@ -61,7 +55,6 @@
 - (void)prepareObjectCopy:(id)arg1;
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
-- (BOOL)shouldUseCachedBezierRepresentation;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
 - (void)setNilValueForKey:(id)arg1;
 @property(copy, nonatomic) MSColor *textColor;
@@ -77,25 +70,21 @@
 - (id)paragraphStyle;
 - (void)setKerning:(float)arg1;
 - (float)kerning;
-- (double)totalHeightOfFont:(id)arg1;
-- (struct CGRect)influenceRectForBounds;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)layerWillResize;
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
-- (id)bezierPath;
+@property(readonly, nonatomic) NSBezierPath *bezierPath;
 - (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
-- (double)defaultLineHeight;
-- (id)font;
+@property(readonly, nonatomic) double defaultLineHeight;
+@property(readonly, nonatomic) NSFont *font;
 - (void)changeFont:(id)arg1;
 - (BOOL)shouldDrawSelection;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
-- (id)textContainer;
-- (id)layoutManager;
+@property(readonly, nonatomic) NSTextContainer *textContainer;
+@property(readonly, nonatomic) NSLayoutManager *layoutManager;
 - (id)shapeToUseForTextOnPath;
-- (void)setIsEditingText:(BOOL)arg1;
-- (BOOL)isEditingText;
 - (void)changeListType:(id)arg1;
 - (void)prepareForUndo;
 - (void)setStorageContents:(id)arg1;
@@ -116,12 +105,11 @@
 - (void)adjustContainerWidthTo:(double)arg1;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
-- (id)defaultName;
 - (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
-- (void)initObjectWithCoder:(id)arg1;
 - (void)objectDidInit;
-- (void)initEmptyObject;
+- (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)performInitEmptyObject;
 - (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 type:(long long)arg3;
 - (id)initWithAttributedString:(id)arg1 maxWidth:(double)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -134,27 +122,43 @@
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
-- (void)migratePropertiesFromV44OrEarlierWithCoder:(id)arg1;
-- (void)updateColorCounter:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
-- (void)trackColors:(id)arg1;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
-- (unsigned long long)shouldDraw;
-- (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (id)elementForSpan:(id)arg1 origin:(struct CGPoint)arg2 exporter:(id)arg3 text:(id)arg4;
-- (id)spanInfoForRun:(struct _NSRange)arg1 charAttributes:(id)arg2 text:(id)arg3;
-- (void)addSVGAttributes:(id)arg1 forCharacterAttributes:(id)arg2 forExporter:(id)arg3 origin:(struct CGPoint *)arg4;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (id)svgStyle;
 
 // Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
+@property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL heightIsClipped;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) NSTextStorage *storage;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) long long textBehaviour;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
+@property(readonly, nonatomic) BOOL usesNewLineSpacingBehaviour;
 
 @end
 

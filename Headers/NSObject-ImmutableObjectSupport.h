@@ -7,6 +7,9 @@
 #import "NSObject.h"
 
 @interface NSObject (ImmutableObjectSupport)
++ (Class)immutableClass;
++ (Class)mutableClass;
+- (id)newMutableCounterpart;
 - (id)immutableModelObject;
 @end
 

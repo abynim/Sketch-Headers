@@ -53,7 +53,6 @@
 - (id)nibName;
 - (struct CGPoint)centerPointForZooming;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)markImageAsEdited;
 - (id)bitmapLayer;
 - (id)coordinateTransformMatrix;
 - (void)drawSizeLabel;

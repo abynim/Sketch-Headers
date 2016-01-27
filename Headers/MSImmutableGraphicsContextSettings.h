@@ -6,9 +6,25 @@
 
 #import "_MSImmutableGraphicsContextSettings.h"
 
-@interface MSImmutableGraphicsContextSettings : _MSImmutableGraphicsContextSettings
+#import "MSGraphicsContextSettings.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableGraphicsContextSettings : _MSImmutableGraphicsContextSettings <MSGraphicsContextSettings>
 {
 }
+
+- (int)CGBlendMode;
+- (BOOL)shouldChangeGraphicsContext;
+
+// Remaining properties
+@property(readonly, nonatomic) long long blendMode;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double opacity;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,7 +6,11 @@
 
 #import "_MSSharedObjectContainer.h"
 
-@interface MSSharedObjectContainer : _MSSharedObjectContainer
+#import "MSSharedObjectContainer.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSSharedObjectContainer : _MSSharedObjectContainer <MSSharedObjectContainer>
 {
     id <MSSharedObjectContainerDelegate> _delegate;
 }
@@ -18,32 +22,40 @@
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)sharedObjectsInLayers:(id)arg1;
 - (id)sharedObjectsInLayer:(id)arg1;
-- (void)syncInstance:(struct MSModelObject *)arg1 withTemplateInstance:(struct MSModelObject *)arg2;
-- (void)synchroniseInstancesOfSharedObject:(id)arg1 withInstance:(struct MSModelObject *)arg2;
-- (void)updateValueOfSharedObject:(id)arg1 byCopyingInstance:(struct MSModelObject *)arg2;
-- (BOOL)updateInstancesOfSharedObject:(id)arg1 withValue:(struct MSModelObject *)arg2;
-- (BOOL)syncSharedObjectWithInstance:(struct MSModelObject *)arg1;
+- (void)syncInstance:(struct MSModelBase *)arg1 withTemplateInstance:(struct MSModelBase *)arg2;
+- (void)synchroniseInstancesOfSharedObject:(id)arg1 withInstance:(struct MSModelBase *)arg2;
+- (void)updateValueOfSharedObject:(id)arg1 byCopyingInstance:(struct MSModelBase *)arg2;
+- (BOOL)updateInstancesOfSharedObject:(id)arg1 withValue:(struct MSModelBase *)arg2;
+- (BOOL)syncSharedObjectWithInstance:(struct MSModelBase *)arg1;
 - (id)layersToIterateOver;
-- (void)unregisterInstance:(struct MSModelObject *)arg1;
-- (void)registerInstance:(struct MSModelObject *)arg1 withSharedObject:(id)arg2;
+- (void)unregisterInstance:(struct MSModelBase *)arg1;
+- (void)registerInstance:(struct MSModelBase *)arg1 withSharedObject:(id)arg2;
 - (unsigned long long)numberOfSharedObjects;
 - (long long)indexOfSharedObject:(id)arg1;
 - (id)sharedObjectAtIndex:(unsigned long long)arg1;
-- (id)sharedObjectWithID:(id)arg1;
-- (id)sharedObjectForInstance:(struct MSModelObject *)arg1;
-- (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
+- (id)sharedObjectWithID:(struct NSObject *)arg1;
+- (id)sharedObjectForInstance:(struct MSModelBase *)arg1;
+- (BOOL)isSharedObjectForInstance:(struct MSModelBase *)arg1;
 - (id)instancesOf:(id)arg1 inContainer:(id)arg2;
 - (void)linkInstances:(id)arg1 fromSharedObject:(id)arg2;
 - (void)unlinkInstances:(id)arg1 toSharedObject:(id)arg2;
-- (id)relinkSharedObjectInstance:(struct MSModelObject *)arg1;
+- (id)relinkSharedObjectInstance:(struct MSModelBase *)arg1;
 - (void)relinkSharedObjectsInArray:(id)arg1;
 - (void)mergeSharedObjects:(id)arg1;
-- (id)mergeSharedObjectWithName:(id)arg1 sharedObjectID:(id)arg2 instance:(struct MSModelObject *)arg3;
+- (id)mergeSharedObjectWithName:(id)arg1 sharedObjectID:(struct NSObject *)arg2 instance:(struct MSModelBase *)arg3;
 - (void)registerUndoForUnlinkingInstances:(id)arg1 fromSharedObject:(id)arg2;
 - (void)registerUndoForLinkingInstances:(id)arg1 toSharedObject:(id)arg2;
 - (void)removeSharedObject:(id)arg1;
-- (id)addSharedObjectWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
+- (id)addSharedObjectWithName:(id)arg1 firstInstance:(struct MSModelBase *)arg2;
 - (Class)sharedObjectClass;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) id <MSArray> objectsGeneric; // @dynamic objectsGeneric;
+@property(readonly) Class superclass;
 
 @end
 

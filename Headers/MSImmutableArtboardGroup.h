@@ -6,9 +6,68 @@
 
 #import "_MSImmutableArtboardGroup.h"
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup
+#import "MSArtboardGroup.h"
+#import "MSImmutableRootLayer.h"
+
+@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer>
 {
+    struct CGSize _unscaledNameSize;
 }
+
++ (unsigned long long)traits;
++ (id)defaultName;
+@property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
+@property(readonly, nonatomic) struct CGRect contentBounds;
+@property(readonly, nonatomic) struct CGPoint rulerBase;
+- (struct CGRect)calculateInfluenceRectForBounds;
+- (void)objectDidInit;
+- (id)webExporterRepresentationOnPage:(id)arg1;
+- (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
+- (Class)rendererClass;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) id <MSColor> backgroundColorGeneric; // @dynamic backgroundColorGeneric;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, copy, nonatomic) MSImmutableSimpleGrid *grid;
+@property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric; // @dynamic gridGeneric;
+@property(readonly, nonatomic) BOOL hasBackgroundColor;
+@property(readonly, nonatomic) BOOL hasClickThrough;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
+@property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
+@property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
+@property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
+@property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
+@property(readonly, nonatomic) id <MSRulerData> verticalRulerDataGeneric; // @dynamic verticalRulerDataGeneric;
 
 @end
 

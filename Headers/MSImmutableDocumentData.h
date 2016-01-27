@@ -6,9 +6,56 @@
 
 #import "_MSImmutableDocumentData.h"
 
-@interface MSImmutableDocumentData : _MSImmutableDocumentData
+#import "MSDocumentData.h"
+#import "MSLayerContainment.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
 }
+
++ (id)documentDataFromData:(id)arg1 version:(long long)arg2 error:(id *)arg3;
+- (void)decodePropertiesWithCoder:(id)arg1;
+- (id)defaultPagesArray;
+- (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
+- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
+- (void)enumerateLayers:(CDUnknownBlockType)arg1;
+- (id)lastLayer;
+- (id)firstLayer;
+- (BOOL)canContainLayer:(id)arg1;
+- (unsigned long long)indexOfLayer:(id)arg1;
+- (id)layerAtIndex:(unsigned long long)arg1;
+- (BOOL)containsNoOrOneLayers;
+- (BOOL)containsLayers;
+- (BOOL)containsMultipleLayers;
+- (BOOL)containsOneLayer;
+- (unsigned long long)containedLayersCount;
+- (id)containedLayers;
+- (BOOL)canBeContainedByDocument;
+- (BOOL)canBeContainedByGroup;
+- (id)usedFontNames;
+- (void)trackColors:(id)arg1;
+- (id)colorFinderQueue;
+- (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
+@property(readonly, copy, nonatomic) NSString *cloudShareID;
+@property(readonly, nonatomic) unsigned long long currentPageIndex;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL enableLayerInteraction;
+@property(readonly, nonatomic) BOOL enableSliceInteraction;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
+@property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
+@property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
+@property(readonly) Class superclass;
 
 @end
 

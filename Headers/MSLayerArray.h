@@ -45,7 +45,7 @@
 - (id)effectiveArtboard;
 - (id)effectivePage;
 - (id)uniqueParents;
-- (id)effectiveParent;
+- (id)parentOfFirstLayer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLayers:(id)arg1;
 - (void)removeUnusedStylePartsOfType:(unsigned long long)arg1;

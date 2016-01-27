@@ -6,12 +6,24 @@
 
 #import "MSStylePartCollection.h"
 
-@interface MSShadowStyleCollection : MSStylePartCollection
+#import "MSShadowStyleCollection.h"
+
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSShadowStyleCollection : MSStylePartCollection <MSShadowStyleCollection>
 {
 }
 
 + (Class)immutableClass;
 - (id)stylePartForInserting;
+
+// Remaining properties
+@property(readonly, copy, nonatomic) NSArray *array;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

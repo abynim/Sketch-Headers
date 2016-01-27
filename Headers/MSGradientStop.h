@@ -6,7 +6,11 @@
 
 #import "_MSGradientStop.h"
 
-@interface MSGradientStop : _MSGradientStop
+#import "MSGradientStop.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSGradientStop : _MSGradientStop <MSGradientStop>
 {
 }
 
@@ -14,6 +18,15 @@
 - (double)cappedBounds:(double)arg1;
 - (void)setPosition:(double)arg1;
 - (id)initWithPosition:(double)arg1 color:(id)arg2;
+
+// Remaining properties
+@property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double position;
+@property(readonly) Class superclass;
 
 @end
 

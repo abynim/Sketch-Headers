@@ -57,10 +57,12 @@
 - (BOOL)executeUpdateWithFormat:(id)arg1;
 - (BOOL)executeUpdate:(id)arg1 withVAList:(struct __va_list_tag [1])arg2;
 - (BOOL)executeUpdate:(id)arg1 withParameterDictionary:(id)arg2;
+- (BOOL)executeUpdate:(id)arg1 values:(id)arg2 error:(id *)arg3;
 - (BOOL)executeUpdate:(id)arg1 withArgumentsInArray:(id)arg2;
 - (BOOL)executeUpdate:(id)arg1;
 - (BOOL)executeUpdate:(id)arg1 error:(id *)arg2 withArgumentsInArray:(id)arg3 orDictionary:(id)arg4 orVAList:(struct __va_list_tag [1])arg5;
 - (id)executeQuery:(id)arg1 withVAList:(struct __va_list_tag [1])arg2;
+- (id)executeQuery:(id)arg1 values:(id)arg2 error:(id *)arg3;
 - (id)executeQuery:(id)arg1 withArgumentsInArray:(id)arg2;
 - (id)executeQueryWithFormat:(id)arg1;
 - (id)executeQuery:(id)arg1;
@@ -97,6 +99,7 @@
 - (double)maxBusyRetryTimeInterval;
 - (void)setMaxBusyRetryTimeInterval:(double)arg1;
 - (BOOL)close;
+- (BOOL)openWithFlags:(int)arg1 vfs:(id)arg2;
 - (BOOL)openWithFlags:(int)arg1;
 - (BOOL)open;
 - (const char *)sqlitePath;

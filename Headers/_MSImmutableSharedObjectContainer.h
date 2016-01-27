@@ -13,14 +13,19 @@
     MSImmutableArray *_objects;
 }
 
++ (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableArray *objects; // @synthesize objects=_objects;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)objectsGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

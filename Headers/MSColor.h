@@ -7,10 +7,11 @@
 #import "_MSColor.h"
 
 #import "MSAsset.h"
+#import "MSColor.h"
 
-@class NSString;
+@class NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSColor : _MSColor <MSAsset>
+@interface MSColor : _MSColor <MSAsset, MSColor>
 {
 }
 
@@ -45,17 +46,22 @@
 - (id)replacementObjectForCoder:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)initWithImmutableObject:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)treeAsDictionary;
+- (id)scaledColor:(double)arg1;
 - (id)RGBADictionary;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
-- (id)scaledColor:(double)arg1;
-- (id)NSColorForContext:(id)arg1;
 - (id)svgRepresentation;
 
 // Remaining properties
+@property(readonly, nonatomic) double alpha;
+@property(readonly, nonatomic) double blue;
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) double green;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
 
 @end

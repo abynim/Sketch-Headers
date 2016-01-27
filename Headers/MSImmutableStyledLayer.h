@@ -6,13 +6,53 @@
 
 #import "_MSImmutableStyledLayer.h"
 
-@interface MSImmutableStyledLayer : _MSImmutableStyledLayer
+#import "MSStyledLayer.h"
+
+@class MSImmutableStyle, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSStyledLayer>
 {
-    BOOL _hasBitmapStylesEnabled;
 }
 
-@property(nonatomic) BOOL hasBitmapStylesEnabled; // @synthesize hasBitmapStylesEnabled=_hasBitmapStylesEnabled;
-- (id)initWithMutableModelObject:(id)arg1;
++ (unsigned long long)traits;
+- (BOOL)calculateHasBlendedLayer;
+@property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
+@property(readonly, nonatomic) MSImmutableStyle *usedStyle;
+- (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
+- (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
+- (void)trackColors:(id)arg1;
+- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldRenderInTransparencyLayer;
+- (id)renderBitmapEffects:(id)arg1;
+- (void)addGradientsToDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric; // @dynamic styleGeneric;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

@@ -17,6 +17,7 @@
     struct CGPoint _point;
 }
 
++ (Class)mutableClass;
 @property(nonatomic) struct CGPoint point; // @synthesize point=_point;
 @property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
 @property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
@@ -24,12 +25,15 @@
 @property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

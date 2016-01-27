@@ -6,20 +6,23 @@
 
 #import "_MSImageCollection.h"
 
-@interface MSImageCollection : _MSImageCollection
+#import "MSImageCollection.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImageCollection : _MSImageCollection <MSImageCollection>
 {
 }
 
-- (id)description;
-- (id)imageWithSHA1:(id)arg1;
-- (void)purgeImagesNotMatchingSHAs:(id)arg1;
-- (id)rawImageDataIndexedBySHAs:(id)arg1;
-- (void)addImageToIndexIfMissing:(id)arg1;
-- (void)addRawImageDataIndexedBySHA:(id)arg1;
-- (void)addImageToIndex:(id)arg1;
-- (id)addNSImage:(id)arg1 convertColourspace:(BOOL)arg2;
-- (unsigned long long)uniqueImageCount;
 - (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSDictionary *images;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 
