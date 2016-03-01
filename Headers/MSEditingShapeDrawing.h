@@ -11,6 +11,7 @@
 @interface MSEditingShapeDrawing : NSObject
 {
     BOOL _shouldSkipDrawingSelection;
+    BOOL _isDragging;
     MSShapePathLayer *_shape;
     MSSelectionPathCollection *_selectedPoints;
     MSSelectionPath *_hoveringPoint;
@@ -21,6 +22,7 @@
     struct CGRect _dirtyRect;
 }
 
+@property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(retain, nonatomic) MSSelectionPathCollection *snappedPaths; // @synthesize snappedPaths=_snappedPaths;
 @property(nonatomic) BOOL shouldSkipDrawingSelection; // @synthesize shouldSkipDrawingSelection=_shouldSkipDrawingSelection;
 @property(nonatomic) long long hoveringBeforeIndex; // @synthesize hoveringBeforeIndex=_hoveringBeforeIndex;
@@ -33,6 +35,7 @@
 - (void).cxx_destruct;
 - (void)drawLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 inFrame:(struct CGRect)arg3;
 - (void)drawOutlinePointAtSelectionPath:(id)arg1 isSelected:(BOOL)arg2 selectionCount:(long long)arg3 transformStruct:(struct _CHTransformStruct)arg4;
+- (BOOL)shouldDrawNodeIfSelected:(BOOL)arg1 isSnappedTo:(BOOL)arg2;
 - (void)drawOutlinePoints;
 - (void)drawBetweenPoints;
 - (void)draw;

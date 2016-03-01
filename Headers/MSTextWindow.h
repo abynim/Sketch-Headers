@@ -21,10 +21,10 @@
 @property(retain, nonatomic) MSContentDrawView *drawView; // @synthesize drawView=_drawView;
 - (void).cxx_destruct;
 - (BOOL)canBecomeKeyWindow;
-- (void)addTextView:(id)arg1;
-- (void)setFrame:(struct CGRect)arg1 display:(BOOL)arg2 animate:(BOOL)arg3;
+- (void)addTextView:(id)arg1 toView:(id)arg2;
 - (void)moveToRect:(struct CGRect)arg1 drawViewRect:(struct CGRect)arg2 behaviour:(long long)arg3;
-- (id)initWithRect:(struct CGRect)arg1 drawViewRect:(struct CGRect)arg2;
+- (void)mouseDown:(id)arg1;
+- (id)initWithRect:(struct CGRect)arg1;
 
 @end
 

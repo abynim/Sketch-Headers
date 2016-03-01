@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
-#import "MSBaseViewDelegate.h"
+#import "MSContentDrawViewDelegate.h"
 
 @class MSContentDrawView, MSDocument, MSRulerView, NSLayoutConstraint, NSString, NSView;
 
-@interface MSContentDrawViewController : CHViewController <MSBaseViewDelegate>
+@interface MSContentDrawViewController : NSViewController <MSContentDrawViewDelegate>
 {
     MSContentDrawView *_contentDrawView;
     MSRulerView *_horizontalRuler;

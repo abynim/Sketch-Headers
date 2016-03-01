@@ -12,14 +12,18 @@
     double _thickness;
 }
 
++ (Class)mutableClass;
 @property(nonatomic) double thickness; // @synthesize thickness=_thickness;
 @property(nonatomic) long long position; // @synthesize position=_position;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

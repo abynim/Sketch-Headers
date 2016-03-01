@@ -6,24 +6,25 @@
 
 #import "MSModelBase.h"
 
-#import "NSFastEnumeration.h"
+#import "MSArray.h"
 
-@class NSArray, NSMutableArray;
+@class NSArray, NSMutableArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSArray : MSModelBase <NSFastEnumeration>
+@interface MSArray : MSModelBase <MSArray>
 {
     NSMutableArray *array;
     id <MSArrayDelegate> _delegate;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
 + (id)dataArrayWithArray:(id)arg1;
 + (id)dataArray;
 + (id)array;
 @property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, copy, nonatomic) NSArray *array; // @synthesize array;
+@property(copy, nonatomic) NSArray *array; // @synthesize array;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
@@ -56,19 +57,23 @@
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (id)lastObject;
 - (id)firstObject;
-- (void)setArray:(id)arg1;
 - (void)setAsParentOnChildren;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)fillInEmptyObjects;
-- (void)initEmptyObject;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
+- (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)performInitEmptyObject;
 - (id)immutableModelObject;
-- (id)initWithArray:(id)arg1 lightweight:(BOOL)arg2;
 - (id)initWithArray:(id)arg1;
 - (id)treeAsDictionary;
-- (void)addImageOwnersToSet:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

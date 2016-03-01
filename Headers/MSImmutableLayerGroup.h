@@ -6,15 +6,76 @@
 
 #import "_MSImmutableLayerGroup.h"
 
-@interface MSImmutableLayerGroup : _MSImmutableLayerGroup
+#import "MSLayerGroup.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSLayerGroup>
 {
-    BOOL _containsSelectedItem;
-    BOOL _isOpen;
 }
 
-@property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
-@property(nonatomic) BOOL containsSelectedItem; // @synthesize containsSelectedItem=_containsSelectedItem;
-- (id)initWithMutableModelObject:(id)arg1;
++ (unsigned long long)traits;
++ (id)defaultName;
+- (id)layerWithID:(id)arg1;
+- (id)children;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
+- (struct CGRect)calculateOverlayInfluenceRectForBounds;
+- (struct CGRect)calculateInfluenceRectForBounds;
+- (BOOL)includeChildrenInCalculatingStyleSize;
+- (BOOL)calculateHasBlendedLayer;
+- (BOOL)differsFromLayer:(id)arg1;
+- (id)sublayersForTreeDiff;
+- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
+- (void)enumerateLayers:(CDUnknownBlockType)arg1;
+- (unsigned long long)indexOfLayer:(id)arg1;
+- (id)layerAtIndex:(unsigned long long)arg1;
+- (id)lastLayer;
+- (id)firstLayer;
+- (BOOL)containsMultipleLayers;
+- (BOOL)containsOneLayer;
+- (BOOL)containsLayers;
+- (BOOL)containsNoOrOneLayers;
+- (BOOL)canContainLayer:(id)arg1;
+- (unsigned long long)containedLayersCount;
+- (id)containedLayers;
+- (Class)rendererClass;
+- (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
+- (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
+- (id)svgStyle;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasClickThrough;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) id <MSArray> layersGeneric; // @dynamic layersGeneric;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

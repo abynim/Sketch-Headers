@@ -15,18 +15,15 @@
     double _y;
 }
 
-@property(nonatomic) double y; // @synthesize y=_y;
-@property(nonatomic) double x; // @synthesize x=_x;
-@property(nonatomic) double width; // @synthesize width=_width;
-@property(nonatomic) double height; // @synthesize height=_height;
-@property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveY:(double)arg1;
 - (double)primitiveY;
 - (void)setPrimitiveX:(double)arg1;
@@ -37,7 +34,12 @@
 - (double)primitiveHeight;
 - (void)setPrimitiveConstrainProportions:(BOOL)arg1;
 - (BOOL)primitiveConstrainProportions;
-- (id)immutableModelObject;
+@property(nonatomic) double y; // @synthesize y=_y;
+@property(nonatomic) double x; // @synthesize x=_x;
+@property(nonatomic) double width; // @synthesize width=_width;
+@property(nonatomic) double height; // @synthesize height=_height;
+@property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

@@ -21,6 +21,7 @@
     double _totalWidth;
 }
 
++ (Class)mutableClass;
 @property(nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
 @property(nonatomic) double rowHeightMultiplication; // @synthesize rowHeightMultiplication=_rowHeightMultiplication;
 @property(nonatomic) double numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
@@ -32,12 +33,15 @@
 @property(nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
 @property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
 @property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

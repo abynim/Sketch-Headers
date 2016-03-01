@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
@@ -12,9 +12,9 @@
 #import "MSSectionProtocol.h"
 #import "MSSliceLayerWatcher.h"
 
-@class BCPopover, MSColorPreviewButton, MSFlippedView, MSInspectorStackView, MSOldStyleSliceViewDataSource, NSArray, NSButton, NSButtonCell, NSMatrix, NSMutableArray, NSMutableSet, NSString, NSTableView, NSTimer, NSView;
+@class BCPopover, CHFlippedView, MSColorPreviewButton, MSInspectorStackView, MSOldStyleSliceViewDataSource, NSArray, NSButton, NSButtonCell, NSMatrix, NSMutableArray, NSMutableSet, NSString, NSTableView, NSTimer, NSView;
 
-@interface MSExportableLayerInspectorViewController : CHViewController <MSSectionProtocol, MSInspectorChildController, MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate>
+@interface MSExportableLayerInspectorViewController : NSViewController <MSSectionProtocol, MSInspectorChildController, MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate>
 {
     MSInspectorStackView *_stackView;
     NSView *_currentStyleSliceTopView;
@@ -38,10 +38,10 @@
     NSTimer *_refreshTimer;
     NSMutableArray *_sliceViews;
     NSMutableSet *_sliceViewPool;
-    MSFlippedView *_sliceViewContainerView;
+    CHFlippedView *_sliceViewContainerView;
 }
 
-@property(retain, nonatomic) MSFlippedView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
+@property(retain, nonatomic) CHFlippedView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
 @property(retain, nonatomic) NSMutableSet *sliceViewPool; // @synthesize sliceViewPool=_sliceViewPool;
 @property(retain, nonatomic) NSMutableArray *sliceViews; // @synthesize sliceViews=_sliceViews;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;

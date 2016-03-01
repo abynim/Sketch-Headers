@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "NSMenuDelegate.h"
 
 @class MSSharedObject, NSArray, NSButton, NSImage, NSPopUpButton, NSString, NSTextField;
 
-@interface MSElementsInspectorSection : CHViewController <NSMenuDelegate>
+@interface MSElementsInspectorSection : NSViewController <NSMenuDelegate>
 {
     NSArray *_layers;
     NSButton *_layerStyleToggle;
@@ -34,8 +34,8 @@
 - (void)dealloc;
 - (id)document;
 - (void)applySharedObject:(id)arg1 toLayer:(id)arg2;
-- (struct MSModelObject *)firstSharedObjectFromLayers:(unsigned long long)arg1;
-- (struct MSModelObject *)sharedObjectOfType:(unsigned long long)arg1 fromLayer:(id)arg2;
+- (struct MSModelBase *)firstSharedObjectFromLayers:(unsigned long long)arg1;
+- (struct MSModelBase *)sharedObjectOfType:(unsigned long long)arg1 fromLayer:(id)arg2;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 - (BOOL)hasGroupLayers;
 - (BOOL)hasTextLayers;

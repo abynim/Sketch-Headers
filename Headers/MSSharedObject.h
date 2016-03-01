@@ -6,24 +6,37 @@
 
 #import "_MSSharedObject.h"
 
-@interface MSSharedObject : _MSSharedObject
+#import "MSSharedObject.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSSharedObject : _MSSharedObject <MSSharedObject>
 {
 }
 
 - (id)parentGroup;
-- (void)prepareToBecomeSharedObjectValue:(struct MSModelObject *)arg1;
+- (void)prepareToBecomeSharedObjectValue:(struct MSModelBase *)arg1;
 - (unsigned long long)type;
-- (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;
+- (BOOL)isOutOfSyncWithInstance:(struct MSModelBase *)arg1;
 - (id)container;
-- (struct MSModelObject *)newUnregisteredInstance;
-- (struct MSModelObject *)newInstance;
-- (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
-- (void)unregisterInstance:(struct MSModelObject *)arg1;
-- (void)registerInstance:(struct MSModelObject *)arg1;
+- (struct MSModelBase *)newUnregisteredInstance;
+- (struct MSModelBase *)newInstance;
+- (BOOL)isSharedObjectForInstance:(struct MSModelBase *)arg1;
+- (void)unregisterInstance:(struct MSModelBase *)arg1;
+- (void)registerInstance:(struct MSModelBase *)arg1;
 - (id)defaultName;
 - (void)objectDidInit;
-- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
-- (id)initWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
+- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelBase *)arg3;
+- (id)initWithName:(id)arg1 firstInstance:(struct MSModelBase *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) id <MSModelObject> valueGeneric; // @dynamic valueGeneric;
 
 @end
 

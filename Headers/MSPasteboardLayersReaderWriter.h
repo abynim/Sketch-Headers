@@ -16,7 +16,6 @@
 }
 
 - (id)usedSharedObjectsInDocument:(id)arg1 layers:(id)arg2;
-- (id)imagesUsedInLayers:(id)arg1 fromImageCollection:(id)arg2;
 - (id)dataForPasteboardData:(id)arg1;
 - (void)writeData:(id)arg1 toPasteboard:(id)arg2;
 - (BOOL)canWriteDataToPasteboard:(id)arg1;

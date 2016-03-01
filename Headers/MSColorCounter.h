@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSColor, NSString;
+@class MSColor, MSImmutableColor, NSString;
 
 @interface MSColorCounter : NSObject
 {
+    MSImmutableColor *_immutableColor;
     MSColor *_color;
     unsigned long long _fillCount;
     unsigned long long _borderCount;
@@ -23,6 +24,7 @@
 @property(nonatomic) unsigned long long borderCount; // @synthesize borderCount=_borderCount;
 @property(nonatomic) unsigned long long fillCount; // @synthesize fillCount=_fillCount;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableColor *immutableColor; // @synthesize immutableColor=_immutableColor;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) unsigned long long totalCount;

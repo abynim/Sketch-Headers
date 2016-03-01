@@ -6,18 +6,19 @@
 
 #import "MSImmutableModelBase.h"
 
-#import "NSFastEnumeration.h"
+#import "MSArray.h"
 
-@class NSArray;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableArray : MSImmutableModelBase <NSFastEnumeration>
+@interface MSImmutableArray : MSImmutableModelBase <MSArray>
 {
     NSArray *array;
 }
 
++ (Class)mutableClass;
 @property(readonly, copy, nonatomic) NSArray *array; // @synthesize array;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
@@ -37,7 +38,17 @@
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
+- (void)performInitEmptyObject;
+- (void)performInitWithMutableModelObject:(id)arg1;
+- (id)initWithArray:(id)arg1;
+- (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

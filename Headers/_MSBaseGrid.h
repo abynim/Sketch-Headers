@@ -11,17 +11,19 @@
     BOOL _isEnabled;
 }
 
-@property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveIsEnabled:(BOOL)arg1;
 - (BOOL)primitiveIsEnabled;
-- (id)immutableModelObject;
+@property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

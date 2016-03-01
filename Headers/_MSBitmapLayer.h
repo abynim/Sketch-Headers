@@ -6,30 +6,27 @@
 
 #import "MSStyledLayer.h"
 
-@class MSImageProxy;
+@class MSImageData;
 
 @interface _MSBitmapLayer : MSStyledLayer
 {
     BOOL _fillReplacesImage;
-    MSImageProxy *_image;
+    MSImageData *_image;
     struct CGSize _nineSliceScale;
     struct CGRect _clippingMask;
     struct CGRect _nineSliceCenterRect;
 }
 
-@property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
-@property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
-@property(retain, nonatomic) MSImageProxy *image; // @synthesize image=_image;
-@property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
-@property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveNineSliceScale:(struct CGSize)arg1;
 - (struct CGSize)primitiveNineSliceScale;
 - (void)setPrimitiveNineSliceCenterRect:(struct CGRect)arg1;
@@ -40,7 +37,12 @@
 - (BOOL)primitiveFillReplacesImage;
 - (void)setPrimitiveClippingMask:(struct CGRect)arg1;
 - (struct CGRect)primitiveClippingMask;
-- (id)immutableModelObject;
+@property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
+@property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
+@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
+@property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
+@property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

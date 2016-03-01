@@ -11,17 +11,19 @@
     BOOL _isEquilateral;
 }
 
-@property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveIsEquilateral:(BOOL)arg1;
 - (BOOL)primitiveIsEquilateral;
-- (id)immutableModelObject;
+@property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

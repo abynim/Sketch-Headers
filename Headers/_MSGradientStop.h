@@ -14,21 +14,24 @@
     MSColor *_color;
 }
 
-@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
-@property(nonatomic) double position; // @synthesize position=_position;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveColor:(id)arg1;
 - (id)primitiveColor;
 - (void)setPrimitivePosition:(double)arg1;
 - (double)primitivePosition;
-- (id)immutableModelObject;
+@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
+- (id)colorGeneric;
+@property(nonatomic) double position; // @synthesize position=_position;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

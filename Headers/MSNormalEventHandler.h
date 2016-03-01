@@ -82,7 +82,7 @@
 - (void)drawLayerSelection;
 - (id)layerBelowPoint:(struct CGPoint)arg1;
 - (void)deselectAllLayers;
-- (id)allLayersWithForcedClickThrough:(BOOL)arg1;
+- (id)allLayersWithClickThroughBehavior:(long long)arg1;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
@@ -100,6 +100,7 @@
 - (void)escapeKeyPressed;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (BOOL)isMouseHoveringMultipleSelectedLayerCorner:(struct CGPoint)arg1;
+- (long long)multipleSelectedLayerCornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)isMouseHoveringLayer:(id)arg1 corner:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (BOOL)isMouseHoveringLayerCorner:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;

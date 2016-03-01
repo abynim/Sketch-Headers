@@ -36,7 +36,6 @@
 - (void).cxx_destruct;
 - (void)endUndo;
 - (void)beginUndo;
-- (void)dealloc;
 - (long long)rulerHeight;
 - (long long)rulerLength;
 - (double)zoomValue;
@@ -78,6 +77,7 @@
 - (void)mouseMoved:(id)arg1;
 - (BOOL)eventInView:(id)arg1;
 - (BOOL)acceptsFirstResponder;
+- (void)removeAllGuides:(id)arg1;
 - (void)removeGuide:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
@@ -87,7 +87,7 @@
 - (Class)rulerViewLayerClass;
 - (id)makeRulerViewLayer;
 - (void)calculateContentsScale;
-- (void)windowDidChangeScreen:(id)arg1;
+- (void)viewDidChangeBackingProperties;
 - (void)awakeFromNib;
 
 @end

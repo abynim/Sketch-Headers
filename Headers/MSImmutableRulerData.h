@@ -6,9 +6,22 @@
 
 #import "_MSImmutableRulerData.h"
 
-@interface MSImmutableRulerData : _MSImmutableRulerData
+#import "MSRulerData.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableRulerData : _MSImmutableRulerData <MSRulerData>
 {
 }
 
+
+// Remaining properties
+@property(readonly, nonatomic) long long base;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy, nonatomic) id <MSArray> guidesGeneric; // @dynamic guidesGeneric;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 @end
 

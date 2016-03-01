@@ -6,7 +6,7 @@
 
 #import "MSImmutableStylePart.h"
 
-@class MSImmutableColor, MSImmutableGraphicsContextSettings;
+@class MSImmutableColor, MSImmutableColor<MSColor>, MSImmutableGraphicsContextSettings, MSImmutableGraphicsContextSettings<MSGraphicsContextSettings>;
 
 @interface _MSImmutableStyleShadow : MSImmutableStylePart
 {
@@ -19,20 +19,26 @@
     MSImmutableGraphicsContextSettings *_contextSettings;
 }
 
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
++ (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableGraphicsContextSettings<MSGraphicsContextSettings> *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
 @property(nonatomic) double spread; // @synthesize spread=_spread;
 @property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
 @property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
 @property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (void).cxx_destruct;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)contextSettingsGeneric;
+- (id)colorGeneric;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

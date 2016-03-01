@@ -6,9 +6,23 @@
 
 #import "_MSImmutableTextStyle.h"
 
-@interface MSImmutableTextStyle : _MSImmutableTextStyle
+#import "MSTextStyle.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableTextStyle : _MSImmutableTextStyle <MSTextStyle>
 {
 }
+
+- (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, copy, nonatomic) NSDictionary *attributes;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

@@ -31,6 +31,7 @@
 - (void)applyEffectsToLayer:(id)arg1;
 - (void)applyScaling:(double)arg1 recursivelyToStyleOfLayer:(id)arg2 parentStyle:(id)arg3;
 - (void)applyTransform:(id)arg1 toLayer:(id)arg2;
+- (void)resizeLayer:(id)arg1 withoutContraintsToRect:(struct CGRect)arg2;
 - (void)adjustSizeForChildrenOfLayer:(id)arg1 parentLayer:(id)arg2;
 - (id)adjustOwnLayer:(id)arg1 parentLayer:(id)arg2;
 - (id)enclosingLayerForLayer:(id)arg1 parentLayer:(id)arg2;

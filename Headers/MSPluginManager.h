@@ -11,6 +11,7 @@
 @interface MSPluginManager : NSObject
 {
     NSDictionary *_plugins;
+    BOOL _monitorForChanges;
     NSURL *_pluginsFolderURL;
     NSURL *_metadataURL;
     char *_useLegacyPlugins;
@@ -20,6 +21,7 @@
 
 + (id)pluginsURL;
 + (void)initialisePlugins;
+@property(readonly, nonatomic) BOOL monitorForChanges; // @synthesize monitorForChanges=_monitorForChanges;
 @property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) char *useLegacyPlugins; // @synthesize useLegacyPlugins=_useLegacyPlugins;
@@ -39,6 +41,7 @@
 - (id)pluginsFromFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3;
 - (id)legacyPluginMenuDescriptionWithRelativePath:(id)arg1 commandIdentifier:(id)arg2;
 - (id)relativePathByDeletingCommonPathComponentsWithFileURL:(id)arg1 fromURL:(id)arg2;
+- (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
 - (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2;
 
 @end

@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @interface NSObject (Chocolat)
+- (id)coderSafeVersion_bc;
 - (id)mutableCopyDeep;
 @end
 

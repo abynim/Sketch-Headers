@@ -13,18 +13,21 @@
     MSArray *_objects;
 }
 
-@property(retain, nonatomic) MSArray *objects; // @synthesize objects=_objects;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveObjects:(id)arg1;
 - (id)primitiveObjects;
-- (id)immutableModelObject;
+@property(retain, nonatomic) MSArray *objects; // @synthesize objects=_objects;
+- (id)objectsGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

@@ -12,20 +12,22 @@
     double _strength;
 }
 
-@property(nonatomic) double strength; // @synthesize strength=_strength;
-@property(nonatomic) double distance; // @synthesize distance=_distance;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveStrength:(double)arg1;
 - (double)primitiveStrength;
 - (void)setPrimitiveDistance:(double)arg1;
 - (double)primitiveDistance;
-- (id)immutableModelObject;
+@property(nonatomic) double strength; // @synthesize strength=_strength;
+@property(nonatomic) double distance; // @synthesize distance=_distance;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

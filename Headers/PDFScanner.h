@@ -174,11 +174,13 @@
 - (void)registerOperatorlineTo;
 - (void)operatormoveToWithInfo:(id)arg1;
 - (void)registerOperatormoveTo;
+- (void)appendString:(id)arg1;
+- (void)processForm:(id)arg1;
+- (void)setFontName:(id)arg1 size:(double)arg2;
 - (void)glyphBounds;
 - (void)declareGlyph;
 - (void)endText;
 - (void)offset:(double)arg1;
-- (void)appendString:(id)arg1;
 - (void)appendText:(id)arg1;
 - (void)nextLineWithOffset:(struct CGPoint)arg1;
 - (void)setTextMatrix:(id)arg1;
@@ -199,7 +201,6 @@
 - (void)restoreGraphicState;
 - (void)saveGraphicState;
 - (void)processImage:(id)arg1 info:(id)arg2;
-- (void)processForm:(id)arg1;
 - (void)processXObject:(id)arg1;
 - (void)defineMarkedPoint;
 - (void)endPath;
@@ -210,9 +211,7 @@
 - (void)setTextLeading:(double)arg1;
 - (void)setTextWordSpacing:(double)arg1;
 - (void)setTextCharacterSpacing:(double)arg1;
-- (void)setFontName:(id)arg1 size:(double)arg2;
 - (void)setFontName:(id)arg1 size:(double)arg2 info:(id)arg3;
-- (id)fontResourceNamed:(id)arg1;
 - (void)beginText;
 - (void)setOverprintMode:(long long)arg1;
 - (void)setStrokeAlphaConstant:(double)arg1;
@@ -255,6 +254,8 @@
 - (id)popRGBColor;
 - (id)popTransform;
 - (struct CGPoint)popPoint;
+- (struct CGRect)popRectangle;
+- (id)fontResourceNamed:(id)arg1;
 - (struct CGImage *)newImageFromStream:(id)arg1 details:(id *)arg2;
 - (void)interpretObjectStream:(id)arg1;
 - (void)interpretImageStream:(id)arg1;

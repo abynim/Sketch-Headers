@@ -16,6 +16,7 @@
 - (void)popoverDidShow:(NSNotification *)arg1;
 - (void)popoverWillShow:(NSNotification *)arg1;
 - (NSWindow *)detachableWindowForPopover:(NSPopover *)arg1;
+- (void)popoverDidDetach:(NSPopover *)arg1;
 - (BOOL)popoverShouldDetach:(NSPopover *)arg1;
 - (BOOL)popoverShouldClose:(NSPopover *)arg1;
 @end

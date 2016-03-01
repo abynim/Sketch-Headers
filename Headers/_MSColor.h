@@ -14,17 +14,15 @@
     double _red;
 }
 
-@property(readonly, nonatomic) double red; // @synthesize red=_red;
-@property(readonly, nonatomic) double green; // @synthesize green=_green;
-@property(readonly, nonatomic) double blue; // @synthesize blue=_blue;
-@property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveRed:(double)arg1;
 - (double)primitiveRed;
 - (void)setPrimitiveGreen:(double)arg1;
@@ -34,10 +32,14 @@
 - (void)setPrimitiveAlpha:(double)arg1;
 - (double)primitiveAlpha;
 - (void)setRed:(double)arg1;
+@property(readonly, nonatomic) double red; // @synthesize red=_red;
 - (void)setGreen:(double)arg1;
+@property(readonly, nonatomic) double green; // @synthesize green=_green;
 - (void)setBlue:(double)arg1;
+@property(readonly, nonatomic) double blue; // @synthesize blue=_blue;
 - (void)setAlpha:(double)arg1;
-- (id)immutableModelObject;
+@property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

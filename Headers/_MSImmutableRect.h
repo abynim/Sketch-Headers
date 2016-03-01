@@ -15,17 +15,21 @@
     double _y;
 }
 
++ (Class)mutableClass;
 @property(nonatomic) double y; // @synthesize y=_y;
 @property(nonatomic) double x; // @synthesize x=_x;
 @property(nonatomic) double width; // @synthesize width=_width;
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
+- (void)performInitEmptyObject;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

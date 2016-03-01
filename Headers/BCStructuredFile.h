@@ -15,9 +15,7 @@
     FMDatabaseQueue *_db;
 }
 
-+ (id)newFileWithURL:(id)arg1;
-+ (id)fileWithURL:(id)arg1 mode:(unsigned long long)arg2;
-+ (id)fileWithURL:(id)arg1;
++ (id)errorWithCode:(unsigned long long)arg1;
 @property(retain, nonatomic) FMDatabaseQueue *db; // @synthesize db=_db;
 @property(retain, nonatomic) NSMutableDictionary *cachedMetadata; // @synthesize cachedMetadata=_cachedMetadata;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
@@ -34,7 +32,8 @@
 - (id)metadata;
 - (BOOL)openWithMode:(unsigned long long)arg1 error:(id *)arg2;
 - (BOOL)create:(id *)arg1;
-- (id)initWithURL:(id)arg1;
+- (id)initWithURL:(id)arg1 mode:(unsigned long long)arg2 error:(id *)arg3;
+- (id)init;
 
 @end
 

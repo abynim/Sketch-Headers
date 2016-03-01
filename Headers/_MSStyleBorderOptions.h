@@ -15,24 +15,26 @@
     unsigned long long _lineJoinStyle;
 }
 
-@property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
-@property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
-@property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveLineJoinStyle:(unsigned long long)arg1;
 - (unsigned long long)primitiveLineJoinStyle;
 - (void)setPrimitiveLineCapStyle:(unsigned long long)arg1;
 - (unsigned long long)primitiveLineCapStyle;
 - (void)setPrimitiveDashPattern:(id)arg1;
 - (id)primitiveDashPattern;
-- (id)immutableModelObject;
+@property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
+@property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
+@property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

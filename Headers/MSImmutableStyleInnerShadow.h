@@ -6,9 +6,28 @@
 
 #import "_MSImmutableStyleInnerShadow.h"
 
-@interface MSImmutableStyleInnerShadow : _MSImmutableStyleInnerShadow
+#import "MSStyleInnerShadow.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableStyleInnerShadow : _MSImmutableStyleInnerShadow <MSStyleInnerShadow>
 {
 }
 
+
+// Remaining properties
+@property(readonly, nonatomic) double blurRadius;
+@property(readonly, nonatomic) id <MSColor> colorGeneric;
+@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasShadow;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double offsetX;
+@property(readonly, nonatomic) double offsetY;
+@property(readonly, nonatomic) double spread;
+@property(readonly) Class superclass;
 @end
 

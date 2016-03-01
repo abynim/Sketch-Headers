@@ -90,6 +90,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)lastLayer;
 - (id)layerWithEnclosingGroup:(BOOL)arg1;
+- (BOOL)optimiseClipLayerInGroup:(id)arg1;
 - (void)addLayer:(id)arg1;
 - (id)initWithScanner:(id)arg1;
 

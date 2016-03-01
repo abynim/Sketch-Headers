@@ -17,20 +17,15 @@
     struct CGPoint _point;
 }
 
-@property(nonatomic) struct CGPoint point; // @synthesize point=_point;
-@property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
-@property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
-@property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
-@property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
-@property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitivePoint:(struct CGPoint)arg1;
 - (struct CGPoint)primitivePoint;
 - (void)setPrimitiveHasCurveTo:(BOOL)arg1;
@@ -45,7 +40,14 @@
 - (struct CGPoint)primitiveCurveFrom;
 - (void)setPrimitiveCornerRadius:(double)arg1;
 - (double)primitiveCornerRadius;
-- (id)immutableModelObject;
+@property(nonatomic) struct CGPoint point; // @synthesize point=_point;
+@property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
+@property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
+@property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
+@property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
+@property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

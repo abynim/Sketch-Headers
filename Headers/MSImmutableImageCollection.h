@@ -6,9 +6,27 @@
 
 #import "_MSImmutableImageCollection.h"
 
-@interface MSImmutableImageCollection : _MSImmutableImageCollection
+#import "MSImageCollection.h"
+
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableImageCollection : _MSImmutableImageCollection <MSImageCollection>
 {
 }
+
+- (void)decodePropertiesWithCoder:(id)arg1;
+- (id)imageWithSHA1:(id)arg1;
+- (id)treeAsDictionary;
+- (void)migratePropertiesFromV75OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSDictionary *images;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

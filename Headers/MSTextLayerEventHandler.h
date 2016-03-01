@@ -8,21 +8,26 @@
 
 #import "MSFirstLineTypesetterDelegate.h"
 #import "MSTextLayerEditingDelegate.h"
+#import "NSLayoutManagerDelegate.h"
 #import "NSTextStorageDelegate.h"
 #import "NSTextViewDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSString, NSTimer;
+@class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSNumber, NSString, NSTextStorage, NSTimer;
 
-@interface MSTextLayerEventHandler : MSEventHandler <NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSFirstLineTypesetterDelegate>
+@interface MSTextLayerEventHandler : MSEventHandler <NSLayoutManagerDelegate, NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSFirstLineTypesetterDelegate>
 {
     MSTextLayerTextView *_textView;
     MSTextWindow *_textViewWindow;
     MSTextLayer *_textLayer;
+    NSTextStorage *_textStorage;
     NSTimer *_updateInsertionPointColorTimer;
+    NSNumber *_firstBaselineOffsetBeforeEditing;
 }
 
+@property(retain, nonatomic) NSNumber *firstBaselineOffsetBeforeEditing; // @synthesize firstBaselineOffsetBeforeEditing=_firstBaselineOffsetBeforeEditing;
 @property(retain, nonatomic) NSTimer *updateInsertionPointColorTimer; // @synthesize updateInsertionPointColorTimer=_updateInsertionPointColorTimer;
+@property(retain, nonatomic) NSTextStorage *textStorage; // @synthesize textStorage=_textStorage;
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
@@ -41,14 +46,15 @@
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
 - (void)selectAll:(id)arg1;
 - (struct CGRect)windowFrameForDrawView;
-- (struct CGRect)windowFrameForTextView;
+- (void)scrollWheel:(id)arg1;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)viewDidScroll:(id)arg1;
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
-- (void)textStorageDidProcessEditing:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)scheduleUpdateInsertionPointColorTimer;
+- (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
+- (id)firstBaselineOffset;
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;

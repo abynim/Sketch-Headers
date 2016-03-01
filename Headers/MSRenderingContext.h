@@ -6,21 +6,22 @@
 
 #import "NSObject.h"
 
-@class MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class MSBackgroundBlurRenderer, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
     BOOL _isDrawingReflection;
-    BOOL _includeArtboardBackground;
-    BOOL _disableSubpixelAliasing;
-    BOOL _isExporting;
-    BOOL _contextIsVectorBacked;
-    BOOL _isDrawingPixelated;
-    BOOL _shouldFlipShadows;
-    BOOL _isDrawingMask;
-    BOOL _cancelled;
     BOOL _isDrawingBackgroundForBlur;
+    BOOL _isBitmapBacked;
+    BOOL _isExporting;
+    BOOL _isDrawingPixelated;
+    BOOL _isDrawingMask;
+    BOOL _includeArtboardBackground;
+    BOOL _contextIsVectorBacked;
+    BOOL _shouldFlipShadows;
+    BOOL _cancelled;
     int _internalBlendMode;
+    MSBackgroundBlurRenderer *_backgroundBlurRenderer;
     unsigned long long _disableDrawingFillsCounter;
     unsigned long long _disableClippingFillsCounter;
     double _zoomLevel;
@@ -31,6 +32,9 @@
     double _shadowScale;
     double _backingScale;
     double _backingScaleForShadows;
+    double _parentLayerOpacity;
+    MSImmutableLayer *_untilLayer;
+    id <MSRenderingContextCacheProvider> _cacheProvider;
     MSStylePathRenderer *_stylePathRenderer;
     MSStyleImageRenderer *_styleImageRenderer;
     MSStyleTextRenderer *_styleTextRenderer;
@@ -38,13 +42,15 @@
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
+    NSMutableArray *_parentGroupStack;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
+    struct CGAffineTransform _initialTransform;
     struct CGAffineTransform _rotateFlipTransform;
     struct CGAffineTransform _totalTransform;
 }
 
-+ (unsigned long long)defaultCGContextCreateFlags;
+@property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
 @property(nonatomic) double alphaValue; // @synthesize alphaValue=_alphaValue;
@@ -55,9 +61,11 @@
 @property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
 @property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
-@property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
+@property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
+@property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
+@property(retain, nonatomic) MSImmutableLayer *untilLayer; // @synthesize untilLayer=_untilLayer;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
-@property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
+@property(nonatomic) double parentLayerOpacity; // @synthesize parentLayerOpacity=_parentLayerOpacity;
 @property(nonatomic) BOOL shouldFlipShadows; // @synthesize shouldFlipShadows=_shouldFlipShadows;
 @property(nonatomic) double backingScaleForShadows; // @synthesize backingScaleForShadows=_backingScaleForShadows;
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
@@ -65,17 +73,19 @@
 @property(retain, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
-@property(nonatomic) BOOL isDrawingPixelated; // @synthesize isDrawingPixelated=_isDrawingPixelated;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(nonatomic) BOOL isExporting; // @synthesize isExporting=_isExporting;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
-@property(nonatomic) BOOL disableSubpixelAliasing; // @synthesize disableSubpixelAliasing=_disableSubpixelAliasing;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
+@property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
+@property(nonatomic) BOOL isDrawingPixelated; // @synthesize isDrawingPixelated=_isDrawingPixelated;
+@property(nonatomic) BOOL isExporting; // @synthesize isExporting=_isExporting;
+@property(nonatomic) BOOL isBitmapBacked; // @synthesize isBitmapBacked=_isBitmapBacked;
+@property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
 @property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
 - (void).cxx_destruct;
 - (BOOL)shouldDisableSubpixelQuantization;
@@ -88,7 +98,6 @@
 - (void)applyLayerTransform:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)applySettings:(id)arg1 withOptions:(long long)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)prepareLayerDrawing:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)disableSubpixelAntialiasingFlags;
 - (int)setBlendMode:(int)arg1;
 - (double)setAlpha:(double)arg1;
 - (double)multiplyAlphaBy:(double)arg1;
@@ -106,17 +115,28 @@
 - (void)transparencyLayerInBlock:(CDUnknownBlockType)arg1;
 - (void)transparencyLayerInRect:(struct CGRect)arg1 mayOptimise:(BOOL)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)cancel;
+- (id)popParentGroup;
+- (void)pushParentGroup:(id)arg1;
+- (id)parentGroupForLayer:(id)arg1;
 - (void)popGraphicsState;
 - (void)pushGraphicsState;
 - (struct CGAffineTransform)accumulatedRotateFlipTransform;
 - (struct CGAffineTransform)accumulatedTransform;
 - (void)concatTransform:(struct CGAffineTransform)arg1;
+- (void)setCachedValue:(id)arg1 forModelObject:(id)arg2 key:(id)arg3 zoomIndependent:(BOOL)arg4;
+- (id)cachedValueForModelObject:(id)arg1 key:(id)arg2 zoomIndependent:(BOOL)arg3 orCreateWithBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (void)tearDown;
 - (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
 - (id)backingContext;
 - (void)setUp;
+- (void)renderInBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) MSBackgroundBlurRenderer *backgroundBlurRenderer; // @synthesize backgroundBlurRenderer=_backgroundBlurRenderer;
+- (id)bitmapBackedSubContextWithContextRef:(struct CGContext *)arg1 size:(struct CGSize)arg2;
+- (id)blurSubContextWithContextRef:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
+- (id)subContextWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
 - (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4;
+- (id)init;
 
 @end
 

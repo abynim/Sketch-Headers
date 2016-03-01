@@ -6,33 +6,36 @@
 
 #import "MSStyledLayer.h"
 
-@class MSArray, NSString;
+@class MSArray, NSObject<NSCopying><NSCoding>;
 
 @interface _MSLayerGroup : MSStyledLayer
 {
     BOOL _hasClickThrough;
     MSArray *_layers;
-    NSString *_sharedObjectID;
+    struct NSObject *_sharedObjectID;
 }
 
-@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
-@property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
-@property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
-- (void)setPrimitiveSharedObjectID:(id)arg1;
-- (id)primitiveSharedObjectID;
+- (void)performInitEmptyObject;
+- (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
+- (struct NSObject *)primitiveSharedObjectID;
 - (void)setPrimitiveLayers:(id)arg1;
 - (id)primitiveLayers;
 - (void)setPrimitiveHasClickThrough:(BOOL)arg1;
 - (BOOL)primitiveHasClickThrough;
-- (id)immutableModelObject;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
+@property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
+- (id)layersGeneric;
+@property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
+- (void)cleanupAfterTesting;
 - (BOOL)archiveRootObject:(id)arg1 error:(id *)arg2;
 - (id)unarchiveRootObjectVersion:(long long *)arg1 error:(id *)arg2;
 - (BOOL)exists;

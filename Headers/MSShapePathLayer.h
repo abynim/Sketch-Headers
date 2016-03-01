@@ -6,22 +6,20 @@
 
 #import "_MSShapePathLayer.h"
 
-#import "NSCoding.h"
+#import "MSShapePathLayer.h"
 
-@class NSBezierPath;
+@class NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSShapePathLayer : _MSShapePathLayer <NSCoding>
+@interface MSShapePathLayer : _MSShapePathLayer <MSShapePathLayer>
 {
     BOOL _isEditing;
 }
 
-+ (unsigned long long)traits;
-+ (id)shapeWithPath:(id)arg1;
++ (id)shapeWithBezierPath:(id)arg1;
 + (id)shapeWithShapePath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
-- (BOOL)isLayerExportable;
 - (BOOL)canBeContainedByGroup;
 - (BOOL)isLine;
 - (BOOL)calculateHasBlendedLayer;
@@ -30,15 +28,9 @@
 - (void)setStartDecorationType:(unsigned long long)arg1;
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
-- (void)setRotation:(double)arg1;
-- (void)removeFromParent;
-- (void)invalidateCache;
-- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isPartOfClippingMask;
 - (void)hideSelectionTemporarily;
 @property(nonatomic) BOOL isClosed;
-- (void)layerDidChange;
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)isNearlyEmpty;
 - (struct CGPoint)relativePoint:(struct CGPoint)arg1;
@@ -62,8 +54,7 @@
 - (void)removePathsAndReset;
 - (void)applyPropertiesToBezier:(id)arg1;
 - (void)closeLastPath:(BOOL)arg1;
-- (id)defaultName;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (id)usedStyle;
 - (id)handlerName;
 - (BOOL)canBeHidden;
@@ -73,7 +64,7 @@
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
 - (id)bezierPathForHover;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (BOOL)shouldCachePreview;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -82,16 +73,42 @@
 - (void)addMenuItemNamed:(id)arg1 to:(id)arg2 withImage:(id)arg3 tag:(long long)arg4;
 - (void)onBooleanOperation:(id)arg1;
 - (unsigned long long)selectedBadgeMenuItem;
-- (id)badgeMap;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)booleanOperationCanBeReset;
 - (BOOL)supportsInnerOuterBorders;
 - (id)embedInShapeGroup;
 - (BOOL)canBePartOfSymbol;
-- (struct CGRect)relativeRectWithExporter:(id)arg1;
-- (id)addPolygonContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (id)addShapeContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) long long booleanOperation;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL edited;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) id <MSShapePath> pathGeneric; // @dynamic pathGeneric;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

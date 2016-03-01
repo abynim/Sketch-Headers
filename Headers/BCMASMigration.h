@@ -38,7 +38,7 @@
 - (id)backendURL;
 - (void)performBackendCall;
 - (void)showCorruptMASLicenseWarning;
-- (void)checkForMigration;
+- (void)checkForMigrationWithContext:(id)arg1;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 
 @end

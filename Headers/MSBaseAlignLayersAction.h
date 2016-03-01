@@ -14,6 +14,7 @@
 {
 }
 
+- (void)performAction:(id)arg1;
 - (BOOL)altButtonCanShowAltImage:(id)arg1;
 - (BOOL)selectionContainsNoArtboards;
 - (BOOL)selectionContainsOnlyArtboards;

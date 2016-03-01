@@ -7,31 +7,27 @@
 #import "_MSLayer.h"
 
 #import "BCOutlineViewNode.h"
+#import "MSLayer.h"
 #import "MSLayerContainment.h"
 #import "MSLayerManipulation.h"
-#import "MSLayerTraits.h"
 #import "MSRectDelegate.h"
-#import "NSCoding.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, NSAffineTransform, NSDictionary, NSMenu, NSString;
+@class MSAbsoluteRect, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     BOOL _isHovering;
-    BOOL _isAlreadyCaching;
     BOOL _isSelected;
-    NSAffineTransform *_lightweightTransform;
-    unsigned long long _traits;
     MSAbsoluteRect *_absoluteRect;
-    struct CGRect _lightweightDrawableFrame;
-    struct CGRect _lightweightAbsoluteRect;
-    struct CGRect _cachedInfluenceRectForBounds;
+    unsigned long long _traits;
 }
 
-+ (void)makeLayerNamesUnique:(id)arg1;
++ (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
 + (id)layersSeparatedByGroups:(id)arg1;
++ (id)defaultName;
++ (unsigned long long)traits;
 + (id)keyPathsForValuesAffectingUserVisibleRotation;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
@@ -40,24 +36,17 @@
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)keyPathsForValuesAffectingNodeName;
 + (id)keyPathsForValuesAffectingHasHighlight;
-+ (unsigned long long)traits;
-@property(nonatomic) struct CGRect cachedInfluenceRectForBounds; // @synthesize cachedInfluenceRectForBounds=_cachedInfluenceRectForBounds;
-@property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
-@property(nonatomic) struct CGRect lightweightAbsoluteRect; // @synthesize lightweightAbsoluteRect=_lightweightAbsoluteRect;
 @property(nonatomic) unsigned long long traits; // @synthesize traits=_traits;
-@property(retain, nonatomic) NSAffineTransform *lightweightTransform; // @synthesize lightweightTransform=_lightweightTransform;
-@property(nonatomic) struct CGRect lightweightDrawableFrame; // @synthesize lightweightDrawableFrame=_lightweightDrawableFrame;
+@property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
-@property(nonatomic) BOOL isAlreadyCaching; // @synthesize isAlreadyCaching=_isAlreadyCaching;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
-- (void)decodePropertiesWithCoder:(id)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
 - (void)groupDidRemoveThisLayer:(id)arg1;
 - (void)groupDidAddThisLayer:(id)arg1;
 - (BOOL)canRotate;
 - (BOOL)isFrameEqualForSync:(id)arg1;
-- (BOOL)isLayerExportable;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)layerWithID:(id)arg1;
 - (void)setHeightRespectingProportions:(double)arg1;
@@ -67,20 +56,15 @@
 @property(nonatomic) struct CGRect rect;
 @property(nonatomic) struct CGRect frameInArtboard;
 - (void)setFrameInArtboard:(struct CGRect)arg1 insertingIntoGroup:(id)arg2;
-- (BOOL)calculateHasBlendedLayer;
 - (BOOL)canBeSelectedOnCanvas;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (void)setNilValueForKey:(id)arg1;
 - (BOOL)canBeTransformed;
 - (void)setRotation:(double)arg1;
-- (void)setIsFlippedVertical:(BOOL)arg1;
-- (void)setIsFlippedHorizontal:(BOOL)arg1;
 - (void)multiplyBy:(double)arg1;
-- (void)clearInfluenceCache;
 - (void)concatAncestorTransforms;
-- (id)ancestorTransforms;
 - (id)transform;
-- (struct CGAffineTransform)CGTransformForFrame;
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
 @property(nonatomic) struct _CHTransformStruct transformStruct;
 - (struct CGRect)convertRectToAbsoluteCoordinates:(struct CGRect)arg1;
@@ -88,9 +72,10 @@
 - (struct CGPoint)convertPointFromParentRoot:(struct CGPoint)arg1;
 - (struct CGPoint)convertPointToParentRoot:(struct CGPoint)arg1;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
-- (id)allLayersWithForcedClickThrough:(BOOL)arg1;
-- (BOOL)isOpenForFindingAllLayers:(BOOL)arg1;
+- (id)allLayersWithClickThroughBehavior:(long long)arg1;
+- (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
 - (id)children;
+- (id)ancestorTransforms;
 - (id)ancestors;
 - (id)parentArtboard;
 - (id)parentRoot;
@@ -98,10 +83,7 @@
 - (BOOL)isOpen;
 - (BOOL)handleDoubleClick;
 - (void)removeFromParent;
-- (void)invalidateLightweightCopy:(id)arg1;
 - (BOOL)isUndoingModelObjectChange;
-- (void)refreshForPropertyChanged;
-- (void)objectDidChange;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)calculateProportions;
@@ -116,29 +98,28 @@
 - (id)bezierPath;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
-- (struct CGRect)translateInfluenceRectFromBoundsToFrame:(struct CGRect)arg1;
-- (BOOL)hasTransforms;
+- (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
+@property(readonly, nonatomic) BOOL hasTransforms;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)layerDidChange;
 - (struct CGRect)absoluteInfluenceRect;
-- (struct CGRect)calculateInfluenceRectForBounds;
-- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascade;
-- (double)influenceRectPaddingThatCascadesToContainedLayers;
-- (struct BCEdgePaddings)influenceRectEdgePaddingsThatCascadeToContainedLayers;
-- (struct CGRect)influenceRectForFrameFromBoundsInfluenceRect:(struct CGRect)arg1;
-- (struct CGRect)influenceRectForFrame;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForBounds;
+- (struct CGRect)overlayInfluenceRectForFrame;
+- (struct CGRect)influenceRectForFrame;
 - (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
 - (id)cachedImage;
-- (void)clearCachedImage;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (void)setIgnoreNextClickThrough:(BOOL)arg1;
 - (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)parentWillResizeLayerToRect:(struct CGRect)arg1;
-- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 force:(BOOL)arg2 zoomValue:(double)arg3;
+- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
 - (BOOL)includeInLayersBelowPoint;
 - (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)isTooSmallForHitTesting:(double)arg1;
@@ -148,6 +129,7 @@
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (BOOL)containsSelectedItem;
+- (void)moveWithGuideOffset:(struct CGSize)arg1;
 - (BOOL)flattenIfNecessary;
 - (void)layerFinishedResize;
 - (void)layerWillResize;
@@ -162,20 +144,18 @@
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasActiveBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
-- (void)prepareObjectCopy:(id)arg1;
 - (Class)classToUseForNameCounter;
 - (id)layersSharingStyle:(id)arg1;
-- (id)rootForNameUniqueing;
+- (id)rootForNameUniquing;
 - (id)namesOfAllLayersInContainer:(id)arg1;
-- (void)makeNameUnique;
-- (id)defaultName;
+- (void)makeNameUniqueWithOptions:(long long)arg1;
 - (id)objectIDsForSelfAncestorsAndChildren;
 - (BOOL)isLine;
 - (BOOL)isSharedObject;
 - (id)usedStyle;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (id)handlerName;
 - (BOOL)canBeHidden;
 - (BOOL)canFlatten;
@@ -198,7 +178,9 @@
 - (BOOL)canSplitPaths;
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (id)snapItemForDrawing;
 - (id)snapLines;
 - (Class)layerSnapperObjectClass;
@@ -209,9 +191,7 @@
 - (struct CGRect)absoluteDirtyRect;
 @property(readonly, nonatomic) BOOL shouldCachePreview;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
-- (id)badgeMapWithBaseName:(id)arg1;
-- (void)addBadgeImageNamed:(id)arg1 toMap:(id)arg2 withKey:(id)arg3;
-- (id)badgeNameLookup;
+- (id)cloneDictionaryReplacingImages:(id)arg1;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isMasked;
@@ -271,28 +251,27 @@
 - (id)CSSRotationString;
 - (id)CSSAttributeString;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
-- (unsigned long long)shouldDraw;
-- (BOOL)transparencyLayerUseRectCondition;
-- (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
-- (id)renderBitmapEffects:(id)arg1;
-- (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (struct CGRect)relativeRectWithExporter:(id)arg1;
-- (struct CGPoint)layerOffsetWithExporter:(id)arg1;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
-- (id)svgStyle;
-- (void)addGradientsToDocument:(id)arg1;
-- (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (BOOL)shouldIncludeLayerInSlice:(id)arg1;
-- (BOOL)intersectsSlice:(id)arg1;
+- (void)configureBackgroundOfRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric; // @dynamic exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric; // @dynamic frameGeneric;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

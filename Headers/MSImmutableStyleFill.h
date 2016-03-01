@@ -6,24 +6,38 @@
 
 #import "_MSImmutableStyleFill.h"
 
-#import "MSImageOwner.h"
+#import "MSStyleFill.h"
 
-@class NSString;
+@class MSImageData, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableStyleFill : _MSImmutableStyleFill <MSImageOwner>
+@interface MSImmutableStyleFill : _MSImmutableStyleFill <MSStyleFill>
 {
-    double _parentLayerCachedOpacity;
 }
 
-@property(nonatomic) double parentLayerCachedOpacity; // @synthesize parentLayerCachedOpacity=_parentLayerCachedOpacity;
++ (id)defaultName;
+@property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSImage;
-- (void)initObjectWithCoder:(id)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (void)performInitWithCoder:(id)arg1;
+- (void)updateColorCounter:(id)arg1;
+- (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
+- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
 
 // Remaining properties
+@property(readonly, nonatomic) id <MSColor> colorGeneric;
+@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) unsigned long long fillType;
+@property(readonly, nonatomic) id <MSGradient> gradientGeneric;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) MSImageData *image;
+@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, nonatomic) long long noiseIndex;
+@property(readonly, nonatomic) double noiseIntensity;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) long long patternFillType;
+@property(readonly, nonatomic) double patternTileScale;
 @property(readonly) Class superclass;
 
 @end

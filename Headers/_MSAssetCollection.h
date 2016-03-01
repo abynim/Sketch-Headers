@@ -16,18 +16,16 @@
     MSImageCollection *_imageCollection;
 }
 
-@property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
-@property(retain, nonatomic) MSArray *images; // @synthesize images=_images;
-@property(retain, nonatomic) MSArray *gradients; // @synthesize gradients=_gradients;
-@property(retain, nonatomic) MSArray *colors; // @synthesize colors=_colors;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveImageCollection:(id)arg1;
 - (id)primitiveImageCollection;
 - (void)setPrimitiveImages:(id)arg1;
@@ -36,7 +34,15 @@
 - (id)primitiveGradients;
 - (void)setPrimitiveColors:(id)arg1;
 - (id)primitiveColors;
-- (id)immutableModelObject;
+@property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
+- (id)imageCollectionGeneric;
+@property(retain, nonatomic) MSArray *images; // @synthesize images=_images;
+- (id)imagesGeneric;
+@property(retain, nonatomic) MSArray *gradients; // @synthesize gradients=_gradients;
+- (id)gradientsGeneric;
+@property(retain, nonatomic) MSArray *colors; // @synthesize colors=_colors;
+- (id)colorsGeneric;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

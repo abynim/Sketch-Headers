@@ -39,7 +39,7 @@
 @property(nonatomic) BOOL hasVerticalPadding; // @synthesize hasVerticalPadding=_hasVerticalPadding;
 @property(nonatomic) BOOL hasHorizontalPadding; // @synthesize hasHorizontalPadding=_hasHorizontalPadding;
 @property(nonatomic) BOOL isBoxed; // @synthesize isBoxed=_isBoxed;
-@property(retain, nonatomic) MSDocument *doc; // @synthesize doc=_doc;
+@property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
 - (struct CGSize)defaultBoxSize;
 - (unsigned long long)layerCount;

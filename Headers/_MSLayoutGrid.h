@@ -21,24 +21,15 @@
     double _totalWidth;
 }
 
-@property(nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
-@property(nonatomic) double rowHeightMultiplication; // @synthesize rowHeightMultiplication=_rowHeightMultiplication;
-@property(nonatomic) double numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
-@property(nonatomic) double horizontalOffset; // @synthesize horizontalOffset=_horizontalOffset;
-@property(nonatomic) BOOL guttersOutside; // @synthesize guttersOutside=_guttersOutside;
-@property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
-@property(nonatomic) double gutterHeight; // @synthesize gutterHeight=_gutterHeight;
-@property(nonatomic) BOOL drawVertical; // @synthesize drawVertical=_drawVertical;
-@property(nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
-@property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
-@property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
++ (BOOL)allowsFaulting;
++ (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)setAsParentOnChildren;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)fillInEmptyObjects;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
-- (void)initEmptyObject;
+- (void)performInitEmptyObject;
 - (void)setPrimitiveTotalWidth:(double)arg1;
 - (double)primitiveTotalWidth;
 - (void)setPrimitiveRowHeightMultiplication:(double)arg1;
@@ -61,7 +52,18 @@
 - (BOOL)primitiveDrawHorizontal;
 - (void)setPrimitiveColumnWidth:(double)arg1;
 - (double)primitiveColumnWidth;
-- (id)immutableModelObject;
+@property(nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
+@property(nonatomic) double rowHeightMultiplication; // @synthesize rowHeightMultiplication=_rowHeightMultiplication;
+@property(nonatomic) double numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+@property(nonatomic) double horizontalOffset; // @synthesize horizontalOffset=_horizontalOffset;
+@property(nonatomic) BOOL guttersOutside; // @synthesize guttersOutside=_guttersOutside;
+@property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
+@property(nonatomic) double gutterHeight; // @synthesize gutterHeight=_gutterHeight;
+@property(nonatomic) BOOL drawVertical; // @synthesize drawVertical=_drawVertical;
+@property(nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
+@property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
+@property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 

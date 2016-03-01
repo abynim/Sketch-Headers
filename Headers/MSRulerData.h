@@ -6,7 +6,11 @@
 
 #import "_MSRulerData.h"
 
-@interface MSRulerData : _MSRulerData
+#import "MSRulerData.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSRulerData : _MSRulerData <MSRulerData>
 {
 }
 
@@ -14,11 +18,21 @@
 - (void)replaceGuideAtIndex:(unsigned long long)arg1 withGuide:(id)arg2;
 - (double)guideAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfGuides;
+- (void)removeAllGuides;
 - (void)removeGuide:(id)arg1;
 - (void)removeGuideAtIndex:(unsigned long long)arg1;
 - (void)addGuide:(id)arg1;
 - (void)addGuideWithValue:(double)arg1;
 - (void)addGuide;
+
+// Remaining properties
+@property(readonly, nonatomic) long long base;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, copy, nonatomic) id <MSArray> guidesGeneric; // @dynamic guidesGeneric;
+@property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly) Class superclass;
 
 @end
 

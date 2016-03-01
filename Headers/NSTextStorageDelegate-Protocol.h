@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSNotification;
+@class NSTextStorage;
 
 @protocol NSTextStorageDelegate <NSObject>
 
 @optional
-- (void)textStorageDidProcessEditing:(NSNotification *)arg1;
-- (void)textStorageWillProcessEditing:(NSNotification *)arg1;
+- (void)textStorage:(NSTextStorage *)arg1 didProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
+- (void)textStorage:(NSTextStorage *)arg1 willProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 @end
 

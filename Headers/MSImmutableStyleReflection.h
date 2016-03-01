@@ -6,9 +6,27 @@
 
 #import "_MSImmutableStyleReflection.h"
 
-@interface MSImmutableStyleReflection : _MSImmutableStyleReflection
+#import "MSStyleReflection.h"
+
+@class NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSImmutableStyleReflection : _MSImmutableStyleReflection <MSStyleReflection>
 {
 }
+
+- (id)invertTransformForRect:(double)arg1;
+- (void)drawReflectionForRect:(struct CGRect)arg1 flipPoint:(double)arg2 context:(id)arg3 drawingCommand:(CDUnknownBlockType)arg4;
+- (void)drawReflectionForRect:(struct CGRect)arg1 context:(id)arg2 drawingCommand:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) double distance;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isEnabled;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) double strength;
+@property(readonly) Class superclass;
 
 @end
 
