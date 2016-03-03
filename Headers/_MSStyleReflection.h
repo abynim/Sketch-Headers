@@ -12,9 +12,8 @@
     double _strength;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double strength; // @synthesize strength=_strength;
-@property(nonatomic) double distance; // @synthesize distance=_distance;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
@@ -26,6 +25,8 @@
 - (double)primitiveStrength;
 - (void)setPrimitiveDistance:(double)arg1;
 - (double)primitiveDistance;
+@property(nonatomic) double strength; // @synthesize strength=_strength;
+@property(nonatomic) double distance; // @synthesize distance=_distance;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -56,9 +56,8 @@
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
-- (void)setNilValueForKey:(id)arg1;
 @property(copy, nonatomic) MSColor *textColor;
-@property(nonatomic) double lineSpacing;
+@property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
 @property(nonatomic) double characterSpacing;
 @property(retain, nonatomic) NSString *fontPostscriptName;
@@ -96,6 +95,7 @@
 - (double)baselineAdjustmentForTypesetter:(id)arg1;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
+@property(readonly, nonatomic) double firstBaselineOffset;
 - (struct CGSize)textContainerSize;
 - (id)createTextContainer;
 - (id)createLayoutManager;
@@ -105,6 +105,7 @@
 - (void)adjustContainerWidthTo:(double)arg1;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
+- (void)setLineSpacingBehaviour:(long long)arg1;
 - (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
 - (void)objectDidInit;
@@ -114,10 +115,17 @@
 - (id)initWithAttributedString:(id)arg1 maxWidth:(double)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)handlerName;
+- (void)setLineSpacing:(double)arg1;
+- (double)lineSpacing;
 - (void)layerDidResizeFromInspector;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (void)copyStylePropertiesToShape:(id)arg1;
+- (id)rawCopyOfStyle:(id)arg1;
+- (void)copyTextPropertiesToShape:(id)arg1;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (Class)layerSnapperObjectClass;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
@@ -135,6 +143,7 @@
 @property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol;
 @property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) struct CGRect glyphBounds;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL heightIsClipped;
@@ -142,9 +151,11 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) long long lineSpacingBehaviour;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
@@ -158,7 +169,6 @@
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) long long textBehaviour;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
-@property(readonly, nonatomic) BOOL usesNewLineSpacingBehaviour;
 
 @end
 

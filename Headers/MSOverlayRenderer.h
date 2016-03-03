@@ -11,6 +11,7 @@
 @interface MSOverlayRenderer : NSObject
 {
     BOOL _canDrawSlicesOutline;
+    BOOL _shouldDrawArtboardTitles;
     MSPage *_page;
     double _zoomValue;
     MSEventHandlerManager *_eventManager;
@@ -21,6 +22,7 @@
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+@property(nonatomic) BOOL shouldDrawArtboardTitles; // @synthesize shouldDrawArtboardTitles=_shouldDrawArtboardTitles;
 @property(nonatomic) BOOL canDrawSlicesOutline; // @synthesize canDrawSlicesOutline=_canDrawSlicesOutline;
 - (void).cxx_destruct;
 - (struct CGPoint)scrollOrigin;
@@ -41,6 +43,7 @@
 - (void)draw;
 - (void)drawDebugCoordinates;
 - (void)renderPage:(id)arg1 atZoom:(double)arg2 inRect:(struct CGRect)arg3 handlerManager:(id)arg4;
+- (id)init;
 
 @end
 

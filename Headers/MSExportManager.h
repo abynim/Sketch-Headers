@@ -20,7 +20,6 @@
 @property(nonatomic) BOOL honorSaveForWebPreference; // @synthesize honorSaveForWebPreference=_honorSaveForWebPreference;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;
-- (void)clearLayerCaches:(id)arg1;
 - (id)savePanelWithDefaultFilename:(id)arg1 options:(id)arg2;
 - (void)showSavePanelToExportIndividualSlice:(id)arg1 options:(id)arg2;
 - (id)openPanelWithOptions:(id)arg1;

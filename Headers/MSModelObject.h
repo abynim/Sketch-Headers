@@ -9,19 +9,21 @@
 #import "MSModelObject.h"
 #import "NSCopying.h"
 
-@class MSModelObjectCache, NSObject<NSCopying><NSCoding>, NSString;
+@class MSModelObjectCache, MSModelObjectCacheGeneration, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSModelObject : NSObject <NSCopying, MSModelObject>
 {
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObjectCache *_cache;
     struct NSObject *_objectID;
 }
 
 + (id)defaultName;
++ (id)sharedModelCache;
 + (void)clearInstanceCount;
 + (void)printInstanceCount:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL hasCache;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)copyIncludingObjectIDS;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;

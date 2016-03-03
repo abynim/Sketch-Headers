@@ -21,6 +21,7 @@
 }
 
 + (unsigned long long)traits;
++ (void)enumerateExportableLayersWithPage:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)page;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
@@ -50,7 +51,6 @@
 - (id)parentRoot;
 - (id)currentRoot;
 - (id)ancestorTransforms;
-- (id)ancestors;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
@@ -60,13 +60,14 @@
 - (void)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 - (void)tryToMoveLayerToArtboard:(id)arg1;
 - (id)exportableLayers;
+@property(readonly, nonatomic) unsigned long long exportableLayersCount;
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (id)transform;
-- (void)invalidateCachedImmutableModelObjects;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 - (void)setZoomValue:(double)arg1;
 - (void)setScrollOrigin:(struct CGPoint)arg1;
 - (void)setName:(id)arg1;
@@ -101,6 +102,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

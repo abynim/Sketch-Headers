@@ -17,9 +17,9 @@
     struct CGRect _bounds;
 }
 
-+ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2 allowSubpixelAntialiasing:(BOOL)arg3;
-@property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
++ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
+@property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;

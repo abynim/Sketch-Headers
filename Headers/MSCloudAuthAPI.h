@@ -10,13 +10,14 @@
 {
 }
 
+- (void)resetAccountWithToken:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)recoverAccountWithEmail:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)resendVerificationTokeWithAuth:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)verifyAccountWithToken:(id)arg1 auth:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)registerWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)loginWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)pingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)urlWithAction:(id)arg1;
-- (id)init;
 
 @end
 

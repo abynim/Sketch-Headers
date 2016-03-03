@@ -9,10 +9,11 @@
 @class NSBezierPath, NSFont, NSLayoutManager, NSSet, NSTextContainer;
 
 @protocol MSTextLayer <_MSTextLayer>
+@property(readonly, nonatomic) double firstBaselineOffset;
 @property(readonly, nonatomic) unsigned long long textAlignment;
 @property(readonly, nonatomic) NSTextContainer *textContainer;
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
-@property(readonly, nonatomic) double lineSpacing;
+@property(readonly, nonatomic) double lineHeight;
 @property(readonly, nonatomic) double defaultLineHeight;
 @property(readonly, nonatomic) BOOL isEditingText;
 @property(readonly, nonatomic) NSFont *font;

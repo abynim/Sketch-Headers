@@ -15,7 +15,9 @@
 }
 
 + (unsigned long long)traits;
-+ (id)bitmapLayerFromImage:(id)arg1;
++ (unsigned long long)scalingFactorForFilename:(id)arg1;
++ (struct CGSize)bestUnroundedLayerSizeForImportedImage:(id)arg1;
++ (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
 - (id)NSImage;
@@ -28,7 +30,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
 - (id)inspectorViewControllerNames;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
@@ -47,6 +49,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

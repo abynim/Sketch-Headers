@@ -31,7 +31,6 @@
 - (id)colourForItem:(SEL)arg1;
 - (void)drawSelectionInRect:(struct CGRect)arg1;
 - (void)drawDraggingDestinationFeedbackInRect:(struct CGRect)arg1;
-- (BOOL)isSelected;
 - (void)drawHighlight;
 - (void)drawBackgroundInRect:(struct CGRect)arg1;
 - (void)fillBackgroundInRect:(struct CGRect)arg1;

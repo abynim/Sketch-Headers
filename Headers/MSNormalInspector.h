@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSInspectorChildController.h"
 #import "MSStylePartInspectorDelegate.h"
 
 @class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSReflectionInspectorViewController, NSArray, NSString;
 
-@interface MSNormalInspector : CHViewController <MSStylePartInspectorDelegate, MSInspectorChildController>
+@interface MSNormalInspector : NSViewController <MSStylePartInspectorDelegate, MSInspectorChildController>
 {
     MSLayerInspectorViewController *layerViewController;
     MSMultipleShadowInspectorViewController *shadowViewController;

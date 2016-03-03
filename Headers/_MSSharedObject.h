@@ -14,9 +14,8 @@
     MSModelObject *_value;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSModelObject *value; // @synthesize value=_value;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -29,7 +28,9 @@
 - (id)primitiveValue;
 - (void)setPrimitiveName:(id)arg1;
 - (id)primitiveName;
+@property(retain, nonatomic) MSModelObject *value; // @synthesize value=_value;
 - (id)valueGeneric;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

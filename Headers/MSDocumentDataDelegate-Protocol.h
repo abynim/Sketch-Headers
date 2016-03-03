@@ -12,6 +12,7 @@
 - (void)layerTreeLayoutDidChange;
 - (void)didAddPage:(MSPage *)arg1;
 - (void)willRemovePage:(MSPage *)arg1;
+- (void)documentDidChange:(MSDocumentData *)arg1;
 - (void)documentData:(MSDocumentData *)arg1 immediatelyShowSelectionForLayer:(MSLayer *)arg2;
 - (void)documentData:(MSDocumentData *)arg1 temporarilyHideSelectionForLayer:(MSLayer *)arg2;
 - (void)documentData:(MSDocumentData *)arg1 syncSharedObject:(id <MSSharedObjectInstance>)arg2;

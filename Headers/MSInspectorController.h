@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
-@class CHViewController<MSInspectorChildController>, MSDocument, MSExportInspectorViewController, MSExportableLayerInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, NSView;
+@class MSDocument, MSExportInspectorViewController, MSExportableLayerInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, NSView, NSViewController<MSInspectorChildController>;
 
-@interface MSInspectorController : CHViewController
+@interface MSInspectorController : NSViewController
 {
     NSView *_placeholderView;
     NSView *_alignmentView;
-    CHViewController<MSInspectorChildController> *_currentController;
+    NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSNormalInspector *_normalInspector;
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-@property(retain, nonatomic) CHViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
+@property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(retain, nonatomic) NSView *placeholderView; // @synthesize placeholderView=_placeholderView;
 - (void).cxx_destruct;

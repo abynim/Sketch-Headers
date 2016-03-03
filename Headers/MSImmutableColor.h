@@ -18,11 +18,14 @@
 + (id)colorWithNSColor:(id)arg1;
 + (id)whiteColor;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
+- (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
+- (id)stringValueWithAlpha:(BOOL)arg1;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (id)hexValue;
 - (BOOL)isBlack;
 - (BOOL)isWhite;
 - (id)NSColorWithColorSpace:(id)arg1;
+- (id)treeAsDictionary;
 - (id)NSColorForContext:(id)arg1;
 - (id)svgRepresentation;
 

@@ -20,6 +20,7 @@
 + (id)defaultName;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 - (void).cxx_destruct;
+- (id)exportableLayers;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;
 @property(readonly, nonatomic) __weak NSArray *artboards;
 @property(readonly, nonatomic) struct CGPoint rulerBase;
@@ -35,6 +36,7 @@
 - (BOOL)shouldIncludeLayerInExportRequest:(id)arg1 withAncestorGroups:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (struct CGPoint)layerOffsetWithExporter:(id)arg1;
+- (id)svgStyle;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -54,6 +56,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

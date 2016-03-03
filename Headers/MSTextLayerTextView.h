@@ -6,21 +6,24 @@
 
 #import "NSTextView.h"
 
-@class NSDictionary, NSTimer;
+@class MSHangingGlyphView, NSDictionary, NSTimer;
 
 @interface MSTextLayerTextView : NSTextView
 {
+    MSHangingGlyphView *_hangingGlyphView;
     NSTimer *_hideSelectionTimer;
     NSDictionary *_selectedTextAttributesBackup;
 }
 
 @property(copy, nonatomic) NSDictionary *selectedTextAttributesBackup; // @synthesize selectedTextAttributesBackup=_selectedTextAttributesBackup;
 @property(retain, nonatomic) NSTimer *hideSelectionTimer; // @synthesize hideSelectionTimer=_hideSelectionTimer;
+@property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
 - (struct CGRect)rectForSelectedRange;
 - (void)dealloc;
 - (void)didChangeSelection:(id)arg1;
 - (void)didChangeText;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
 - (void)selectSimilar:(id)arg1;
 - (void)hideSelectionTimerFired:(id)arg1;
 - (id)makeHideSelectionTimer;

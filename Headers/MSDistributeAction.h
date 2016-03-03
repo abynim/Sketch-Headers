@@ -10,7 +10,6 @@
 {
 }
 
-- (void)clearCachesIfNecessary:(id)arg1;
 - (void)distributeLayers:(id)arg1 withSpace:(double)arg2 forAxis:(unsigned long long)arg3;
 - (double)calculateRequiredSpaceBetweenLayers:(id)arg1 forAxis:(unsigned long long)arg2;
 - (id)layersSortedForAxis:(unsigned long long)arg1;

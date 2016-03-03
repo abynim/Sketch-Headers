@@ -8,5 +8,6 @@
 
 @interface NSViewController (Chocolat)
 - (void)ensureLoaded;
+- (id)rootViewController;
 @end
 

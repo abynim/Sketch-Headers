@@ -8,24 +8,24 @@
 
 #import "MSTileDelegate.h"
 
-@class MSMasterLayer, NSMutableDictionary, NSString;
+@class MSTiledLayer, NSMutableDictionary, NSString;
 
 @interface MSTilePlacer : NSObject <MSTileDelegate>
 {
     id <MSTilePlacerDelegate> _delegate;
-    MSMasterLayer *_masterLayer;
+    MSTiledLayer *_tiledLayer;
     NSMutableDictionary *_tiles;
     struct CGPoint _scrollOrigin;
     struct CGRect _viewBounds;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *tiles; // @synthesize tiles=_tiles;
-@property(nonatomic) __weak MSMasterLayer *masterLayer; // @synthesize masterLayer=_masterLayer;
+@property(nonatomic) __weak MSTiledLayer *tiledLayer; // @synthesize tiledLayer=_tiledLayer;
 @property(nonatomic) struct CGRect viewBounds; // @synthesize viewBounds=_viewBounds;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) __weak id <MSTilePlacerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)tile:(id)arg1 renderOverlayForPage:(id)arg2 atZoom:(double)arg3 inRect:(struct CGRect)arg4;
+- (void)tile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)dealloc;
 - (id)allTileIDs;
 - (id)allTiles;
@@ -42,9 +42,10 @@
 - (struct CGPoint)originForFirstTile;
 - (id)identifiersOfVisibleTilesIncludingMargin:(BOOL)arg1;
 - (void)repositionExistingTiles;
-- (void)tile;
+- (void)tileRemovingOffscreenTiles:(BOOL)arg1;
+- (void)cancelAllDrawing;
 - (void)moveTiles;
-- (id)initWithMasterLayer:(id)arg1;
+- (id)initWithTiledLayer:(id)arg1;
 - (id)init;
 
 // Remaining properties

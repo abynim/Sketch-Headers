@@ -11,7 +11,7 @@
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSLineHeightTextFieldCell, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
+@class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
@@ -22,8 +22,7 @@
     NSComboBox *_fontSizeField;
     MSColorPreviewButton *_colorPickerButton;
     NSTextField *_kerningField;
-    NSTextField *_lineHeightField;
-    MSLineHeightTextFieldCell *_lineHeightCell;
+    MSUpDownTextField *_lineHeightField;
     NSTextField *_paragraphHeightField;
     NSSegmentedControl *_alignmentButton;
     BCPopover *_popover;
@@ -33,8 +32,7 @@
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
-@property(retain, nonatomic) MSLineHeightTextFieldCell *lineHeightCell; // @synthesize lineHeightCell=_lineHeightCell;
-@property(retain, nonatomic) NSTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
+@property(retain, nonatomic) MSUpDownTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
 @property(retain, nonatomic) NSTextField *kerningField; // @synthesize kerningField=_kerningField;
 @property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(retain, nonatomic) NSComboBox *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
@@ -65,7 +63,9 @@
 - (void)alignmentButtonAction:(id)arg1;
 - (id)currentView;
 - (void)paragraphHeightAction:(id)arg1;
+- (double)valueForUpDownTextField:(id)arg1;
 - (void)lineHeightAction:(id)arg1;
+- (void)maintainTextLayerBaselinesInBlock:(CDUnknownBlockType)arg1;
 - (void)kerningAction:(id)arg1;
 - (void)putFocusOnTextView;
 - (void)colorInspectorWillClose:(id)arg1;

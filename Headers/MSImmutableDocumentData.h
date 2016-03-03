@@ -9,15 +9,25 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
+    NSDictionary *_metadata;
 }
 
-+ (id)documentDataFromData:(id)arg1 version:(long long)arg2 error:(id *)arg3;
++ (id)documentDataFromData:(id)arg1 metadata:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+- (void).cxx_destruct;
+- (id)layerWithID:(id)arg1;
+- (BOOL)wasSavedByTestVersion;
+- (BOOL)wasSavedByOldVersion;
+- (id)usedFontNames;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (id)defaultPagesArray;
+- (void)prepareCopy:(id)arg1;
+- (void)performInitEmptyObject;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
@@ -36,7 +46,6 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
-- (id)usedFontNames;
 - (void)trackColors:(id)arg1;
 - (id)colorFinderQueue;
 - (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -44,6 +53,8 @@
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
 @property(readonly, copy, nonatomic) NSString *cloudShareID;
+@property(readonly, nonatomic) NSString *cloudShareURL;
+@property(readonly, nonatomic) NSString *cloudUserID;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

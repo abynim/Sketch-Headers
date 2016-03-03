@@ -17,14 +17,8 @@
     struct CGPoint _point;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) struct CGPoint point; // @synthesize point=_point;
-@property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
-@property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
-@property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
-@property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
-@property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
@@ -46,6 +40,13 @@
 - (struct CGPoint)primitiveCurveFrom;
 - (void)setPrimitiveCornerRadius:(double)arg1;
 - (double)primitiveCornerRadius;
+@property(nonatomic) struct CGPoint point; // @synthesize point=_point;
+@property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
+@property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
+@property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
+@property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
+@property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
+@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

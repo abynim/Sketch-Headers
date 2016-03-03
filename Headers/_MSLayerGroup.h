@@ -15,10 +15,8 @@
     struct NSObject *_sharedObjectID;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
-@property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
-@property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -33,7 +31,10 @@
 - (id)primitiveLayers;
 - (void)setPrimitiveHasClickThrough:(BOOL)arg1;
 - (BOOL)primitiveHasClickThrough;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
+@property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
 - (id)layersGeneric;
+@property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

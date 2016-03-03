@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
+- (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveWithGuideOffset:(struct CGSize)arg1;
@@ -82,6 +83,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) id <MSArray> layersGeneric;

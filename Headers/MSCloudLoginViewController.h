@@ -25,12 +25,28 @@
     NSButton *_registerNewsLetterButton;
     NSTextField *_tokenTextField;
     NSButton *_verifyButton;
+    NSView *_recoverView;
+    NSTextField *_recoverEmailTextField;
+    NSButton *_recoverButton;
+    NSView *_resetView;
+    NSTextField *_resetTokenTextField;
+    NSTextField *_resetPasswordTextField;
+    NSTextField *_resetConformPasswordTextField;
+    NSButton *_resetButton;
     MSCloudAuthAPI *_cloudAPI;
     NSDictionary *_userData;
 }
 
 @property(retain, nonatomic) NSDictionary *userData; // @synthesize userData=_userData;
 @property(retain, nonatomic) MSCloudAuthAPI *cloudAPI; // @synthesize cloudAPI=_cloudAPI;
+@property(nonatomic) __weak NSButton *resetButton; // @synthesize resetButton=_resetButton;
+@property(nonatomic) __weak NSTextField *resetConformPasswordTextField; // @synthesize resetConformPasswordTextField=_resetConformPasswordTextField;
+@property(nonatomic) __weak NSTextField *resetPasswordTextField; // @synthesize resetPasswordTextField=_resetPasswordTextField;
+@property(nonatomic) __weak NSTextField *resetTokenTextField; // @synthesize resetTokenTextField=_resetTokenTextField;
+@property(nonatomic) __weak NSView *resetView; // @synthesize resetView=_resetView;
+@property(nonatomic) __weak NSButton *recoverButton; // @synthesize recoverButton=_recoverButton;
+@property(nonatomic) __weak NSTextField *recoverEmailTextField; // @synthesize recoverEmailTextField=_recoverEmailTextField;
+@property(nonatomic) __weak NSView *recoverView; // @synthesize recoverView=_recoverView;
 @property(nonatomic) __weak NSButton *verifyButton; // @synthesize verifyButton=_verifyButton;
 @property(nonatomic) __weak NSTextField *tokenTextField; // @synthesize tokenTextField=_tokenTextField;
 @property(nonatomic) __weak NSButton *registerNewsLetterButton; // @synthesize registerNewsLetterButton=_registerNewsLetterButton;
@@ -48,6 +64,11 @@
 @property(nonatomic) __weak MSCloudPreferencePane *preferencePane; // @synthesize preferencePane=_preferencePane;
 - (void).cxx_destruct;
 - (void)userDidLogin;
+- (void)showResetView;
+- (void)resetAccount:(id)arg1;
+- (void)recoverAccount:(id)arg1;
+- (void)cancelRecovery:(id)arg1;
+- (void)showRecoverView:(id)arg1;
 - (void)resendVerificationToken:(id)arg1;
 - (void)verifyAccount:(id)arg1;
 - (void)cancelVerification:(id)arg1;
@@ -61,6 +82,7 @@
 - (void)showLoginView;
 - (void)showView:(id)arg1;
 - (void)textDidChange:(id)arg1;
+- (BOOL)isValidResetToken:(id)arg1;
 - (BOOL)isValidToken:(id)arg1;
 - (BOOL)isValidPassword:(id)arg1;
 - (void)dealloc;

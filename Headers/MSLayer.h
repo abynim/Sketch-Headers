@@ -19,7 +19,6 @@
 {
     long long skipDrawingSelectionCounter;
     BOOL _isHovering;
-    BOOL _isAlreadyCaching;
     BOOL _isSelected;
     MSAbsoluteRect *_absoluteRect;
     unsigned long long _traits;
@@ -40,7 +39,6 @@
 @property(nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
-@property(nonatomic) BOOL isAlreadyCaching; // @synthesize isAlreadyCaching=_isAlreadyCaching;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
@@ -48,7 +46,7 @@
 - (void)groupDidAddThisLayer:(id)arg1;
 - (BOOL)canRotate;
 - (BOOL)isFrameEqualForSync:(id)arg1;
-- (BOOL)isLayerExportable;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)layerWithID:(id)arg1;
 - (void)setHeightRespectingProportions:(double)arg1;
@@ -63,11 +61,8 @@
 - (void)setNilValueForKey:(id)arg1;
 - (BOOL)canBeTransformed;
 - (void)setRotation:(double)arg1;
-- (void)setIsFlippedVertical:(BOOL)arg1;
-- (void)setIsFlippedHorizontal:(BOOL)arg1;
 - (void)multiplyBy:(double)arg1;
 - (void)concatAncestorTransforms;
-- (id)ancestorTransforms;
 - (id)transform;
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
@@ -80,6 +75,7 @@
 - (id)allLayersWithClickThroughBehavior:(long long)arg1;
 - (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
 - (id)children;
+- (id)ancestorTransforms;
 - (id)ancestors;
 - (id)parentArtboard;
 - (id)parentRoot;
@@ -111,11 +107,13 @@
 - (struct CGRect)absoluteInfluenceRect;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForBounds;
+- (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;
 - (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
 - (id)cachedImage;
-- (void)clearCachedImage;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (void)setIgnoreNextClickThrough:(BOOL)arg1;
 - (BOOL)useProportionalResizingFromCorner:(long long)arg1;
@@ -146,7 +144,6 @@
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasActiveBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
-- (void)prepareObjectCopy:(id)arg1;
 - (Class)classToUseForNameCounter;
 - (id)layersSharingStyle:(id)arg1;
 - (id)rootForNameUniquing;
@@ -181,7 +178,9 @@
 - (BOOL)canSplitPaths;
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (id)snapItemForDrawing;
 - (id)snapLines;
 - (Class)layerSnapperObjectClass;
@@ -252,6 +251,7 @@
 - (id)CSSRotationString;
 - (id)CSSAttributeString;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (void)configureBackgroundOfRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

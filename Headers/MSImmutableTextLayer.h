@@ -28,7 +28,9 @@
 @property(retain, nonatomic) NSLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) double lineSpacing;
+@property(readonly, nonatomic) double firstBaselineOffset;
+@property(readonly, nonatomic) double lineHeight;
+- (double)lineSpacing;
 @property(readonly, nonatomic) double defaultLineHeight;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
@@ -49,6 +51,8 @@
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)updateColorCounter:(id)arg1;
+- (void)migratePropertiesFromV77OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV76OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithCoder:(id)arg1;
 - (void)trackColors:(id)arg1;
 - (BOOL)shouldSkipDrawing;
@@ -70,6 +74,7 @@
 @property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol;
 @property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) struct CGRect glyphBounds;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL heightIsClipped;
@@ -77,9 +82,11 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) long long lineSpacingBehaviour;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
@@ -93,7 +100,6 @@
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) long long textBehaviour;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
-@property(readonly, nonatomic) BOOL usesNewLineSpacingBehaviour;
 
 @end
 

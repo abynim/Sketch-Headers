@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;

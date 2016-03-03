@@ -13,8 +13,8 @@
     NSDictionary *_attributes;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(copy, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -25,6 +25,7 @@
 - (void)performInitEmptyObject;
 - (void)setPrimitiveAttributes:(id)arg1;
 - (id)primitiveAttributes;
+@property(copy, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

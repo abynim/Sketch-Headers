@@ -19,6 +19,7 @@
 + (id)resizeTopLeftToBottomRightCursor;
 + (id)resizeVerCursor;
 + (id)resizeHorCursor;
++ (id)pencilCursor;
 + (id)penCloseCursor;
 + (id)penAddCursor;
 + (id)penCursor;

@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class MSPage, MSTile;
+@class MSTile;
 
 @protocol MSTileDelegate <NSObject>
-- (void)tile:(MSTile *)arg1 renderOverlayForPage:(MSPage *)arg2 atZoom:(double)arg3 inRect:(struct CGRect)arg4;
+- (void)tile:(MSTile *)arg1 renderOverlayInRect:(struct CGRect)arg2;
 @end
 

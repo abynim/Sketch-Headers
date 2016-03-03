@@ -16,6 +16,7 @@
     id <MSArrayDelegate> _delegate;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
 + (id)dataArrayWithArray:(id)arg1;
 + (id)dataArray;

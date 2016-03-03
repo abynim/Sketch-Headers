@@ -13,12 +13,14 @@
 @interface MSModelBase : MSModelObject <MSModelBase>
 {
     id _cachedImmutableModelObject;
+    BOOL _isFault;
     MSModelBase *_parentObject;
     MSDocumentData *_documentData;
 }
 
-+ (void)performWithoutUpdateEvents:(CDUnknownBlockType)arg1;
 + (Class)immutableClass;
++ (BOOL)allowsFaulting;
+@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (id)undoManager;
@@ -33,16 +35,20 @@
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
-- (void)invalidateCachedImmutableModelObjects;
+- (void)invalidateModelCacheGeneration;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
 - (id)copyIncludingObjectIDS;
 - (void)prepareCopy:(id)arg1;
+- (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)prepareObjectCopy:(id)arg1;
 - (id)copyEmpty;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)fireFaultIfNecessary;
+- (void)fireFault;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)init;
-- (void)performPostChangeTasksAndGenerateUpdates:(BOOL)arg1;
+- (void)performPostChangeTasksForProperty:(id)arg1;
 - (void)objectDidChange;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;

@@ -15,10 +15,8 @@
     MSShapePath *_path;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
-@property(nonatomic) BOOL edited; // @synthesize edited=_edited;
-@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -33,7 +31,10 @@
 - (BOOL)primitiveEdited;
 - (void)setPrimitiveBooleanOperation:(long long)arg1;
 - (long long)primitiveBooleanOperation;
+@property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
 - (id)pathGeneric;
+@property(nonatomic) BOOL edited; // @synthesize edited=_edited;
+@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

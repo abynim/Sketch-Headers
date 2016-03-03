@@ -11,7 +11,6 @@
 @interface MSTileRenderer : NSObject
 {
     BOOL _shouldDrawPixelated;
-    BOOL _disableSubpixelAntialiasing;
     BOOL _drawDottedDirtyRect;
     BOOL _cancelled;
     MSImmutablePage *_immutablePage;
@@ -29,7 +28,6 @@
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
-@property(nonatomic) BOOL disableSubpixelAntialiasing; // @synthesize disableSubpixelAntialiasing=_disableSubpixelAntialiasing;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
 @property(nonatomic) struct CGRect tileRect; // @synthesize tileRect=_tileRect;

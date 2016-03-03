@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSMutableDictionary *indexedImages; // @synthesize indexedImages=_indexedImages;
 @property(nonatomic) BOOL archiveObjectIDs; // @synthesize archiveObjectIDs=_archiveObjectIDs;
 - (void).cxx_destruct;
+- (void)encodeObject:(id)arg1 forKey:(id)arg2;
 
 @end
 

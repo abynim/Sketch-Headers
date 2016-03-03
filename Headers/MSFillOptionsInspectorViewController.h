@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "BCPopoverContentController.h"
 
 @class NSArray, NSString;
 
-@interface MSFillOptionsInspectorViewController : CHViewController <BCPopoverContentController>
+@interface MSFillOptionsInspectorViewController : NSViewController <BCPopoverContentController>
 {
     NSArray *_layers;
 }

@@ -22,7 +22,6 @@
 - (void).cxx_destruct;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;
-- (BOOL)isLayerExportable;
 - (void)objectDidChange;
 - (BOOL)canBeSelectedOnCanvas;
 - (BOOL)canBeTransformed;
@@ -33,7 +32,7 @@
 - (unsigned long long)filterType;
 - (id)badgeNameLookup;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (BOOL)canBePartOfSymbol;
 
 // Remaining properties
@@ -51,6 +50,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

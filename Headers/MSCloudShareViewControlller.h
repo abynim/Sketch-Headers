@@ -47,7 +47,8 @@
 - (void)logout:(id)arg1;
 - (void)deleteShareWithID:(id)arg1;
 - (void)showView:(id)arg1;
-- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)dealloc;
 - (id)initWithPreferencePane:(id)arg1;
 
 @end

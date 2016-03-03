@@ -126,7 +126,6 @@
 - (void)checkForUpdates:(id)arg1;
 - (id)applicationLogForCrashManager:(id)arg1;
 - (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
-- (void)stopCheckingForUpdates;
 - (void)checkForUpdatesAndCrashes;
 
 // Remaining properties

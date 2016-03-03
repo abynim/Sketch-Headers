@@ -16,12 +16,16 @@
 
 + (unsigned long long)traits;
 + (id)defaultName;
+- (id)layerWithID:(id)arg1;
 - (id)children;
+- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
+- (struct CGRect)calculateOverlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (BOOL)calculateHasBlendedLayer;
 - (BOOL)differsFromLayer:(id)arg1;
-- (id)sublayersForPageDiff;
+- (id)sublayersForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -39,6 +43,7 @@
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
+- (id)svgStyle;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -54,6 +59,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

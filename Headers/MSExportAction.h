@@ -13,7 +13,8 @@
 - (id)slices;
 - (id)baseNameForSlice;
 - (struct CGRect)rectForExportingEntirePage;
-- (void)createInitialSlice;
+- (void)determineRectForInitialSliceWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)createInitialSliceWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)showInspectorPanelIfNecessary;
 - (BOOL)hasArtboardsWitNoExportFormats;
 - (void)doPerformAction:(id)arg1;

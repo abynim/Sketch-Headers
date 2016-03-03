@@ -16,11 +16,8 @@
     unsigned long long _layerOptions;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
-@property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
-@property(retain, nonatomic) MSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
-@property(retain, nonatomic) MSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -37,7 +34,11 @@
 - (id)primitiveIncludedLayerIds;
 - (void)setPrimitiveExportFormats:(id)arg1;
 - (id)primitiveExportFormats;
+@property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
+@property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
+@property(retain, nonatomic) MSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (id)includedLayerIdsGeneric;
+@property(retain, nonatomic) MSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (id)exportFormatsGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

@@ -23,9 +23,12 @@
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (void)objectDidInit;
+- (void)performInitWithCoder:(id)arg1;
 - (id)webExporterRepresentationOnPage:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
+- (void)configureBackgroundOfRequest:(id)arg1;
+- (id)svgStyle;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -48,6 +51,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

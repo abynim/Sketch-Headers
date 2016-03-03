@@ -15,14 +15,14 @@
     SVGElement *_root;
     NSString *_source;
     NSMutableDictionary *_references;
-    NSMutableDictionary *_styles;
+    NSDictionary *_styles;
     NSURL *_url;
     unsigned long long _drawableElementCount;
 }
 
 @property(nonatomic) unsigned long long drawableElementCount; // @synthesize drawableElementCount=_drawableElementCount;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-@property(retain, nonatomic) NSMutableDictionary *styles; // @synthesize styles=_styles;
+@property(retain, nonatomic) NSDictionary *styles; // @synthesize styles=_styles;
 @property(retain, nonatomic) NSMutableDictionary *references; // @synthesize references=_references;
 @property(retain, nonatomic) NSString *source; // @synthesize source=_source;
 @property(retain, nonatomic) SVGElement *root; // @synthesize root=_root;
@@ -30,7 +30,7 @@
 @property(nonatomic) Class defaultElementClass; // @synthesize defaultElementClass=_defaultElementClass;
 - (void).cxx_destruct;
 - (id)styleAttributesForElement:(id)arg1 defaults:(id)arg2;
-- (void)registerStyles:(id)arg1 forKeys:(id)arg2;
+- (void)registerStylesheet:(id)arg1;
 - (void)addedDrawableElement:(id)arg1;
 - (id)relativeURLForLink:(id)arg1;
 - (void)processReferences:(id)arg1 withElement:(id)arg2;

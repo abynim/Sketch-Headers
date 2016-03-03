@@ -6,7 +6,7 @@
 
 #import "NSControlTextEditingDelegate.h"
 
-@class NSCell, NSEvent, NSIndexSet, NSNotification, NSString, NSTableColumn, NSTableRowView, NSTableView, NSView;
+@class NSArray, NSCell, NSEvent, NSIndexSet, NSNotification, NSString, NSTableColumn, NSTableRowView, NSTableView, NSView;
 
 @protocol NSTableViewDelegate <NSControlTextEditingDelegate>
 
@@ -15,6 +15,7 @@
 - (void)tableViewColumnDidResize:(NSNotification *)arg1;
 - (void)tableViewColumnDidMove:(NSNotification *)arg1;
 - (void)tableViewSelectionDidChange:(NSNotification *)arg1;
+- (NSArray *)tableView:(NSTableView *)arg1 rowActionsForRow:(long long)arg2 edge:(long long)arg3;
 - (BOOL)tableView:(NSTableView *)arg1 shouldReorderColumn:(long long)arg2 toColumn:(long long)arg3;
 - (double)tableView:(NSTableView *)arg1 sizeToFitWidthOfColumn:(long long)arg2;
 - (BOOL)tableView:(NSTableView *)arg1 isGroupRow:(long long)arg2;

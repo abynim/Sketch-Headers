@@ -15,10 +15,8 @@
     unsigned long long _lineJoinStyle;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
-@property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
-@property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -33,6 +31,9 @@
 - (unsigned long long)primitiveLineCapStyle;
 - (void)setPrimitiveDashPattern:(id)arg1;
 - (id)primitiveDashPattern;
+@property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
+@property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
+@property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

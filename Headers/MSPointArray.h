@@ -19,6 +19,7 @@
 
 + (id)pointArray;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)description;
 - (BOOL)pointAtIndex:(unsigned long long)arg1 isEqualToPoint:(struct CGPoint)arg2;

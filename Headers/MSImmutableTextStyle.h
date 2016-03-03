@@ -14,6 +14,7 @@
 {
 }
 
+- (id)treeAsDictionary;
 
 // Remaining properties
 @property(readonly, copy, nonatomic) NSDictionary *attributes;
@@ -22,5 +23,6 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
+
 @end
 

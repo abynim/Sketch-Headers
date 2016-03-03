@@ -20,6 +20,7 @@
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
 - (BOOL)calculateHasBlendedLayer;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (struct CGRect)relativeRectWithExporter:(id)arg1;

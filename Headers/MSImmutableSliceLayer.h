@@ -16,6 +16,8 @@
 
 + (id)defaultName;
 + (unsigned long long)traits;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+- (void)configureBackgroundOfRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

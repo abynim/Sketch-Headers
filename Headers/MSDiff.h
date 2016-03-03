@@ -10,15 +10,17 @@
 
 @interface MSDiff : NSObject
 {
-    MSSubtreeRoot *_firstPageRoot;
-    MSSubtreeRoot *_secondPageRoot;
+    MSSubtreeRoot *_firstLayerRoot;
+    MSSubtreeRoot *_secondLayerRoot;
 }
 
-@property(retain, nonatomic) MSSubtreeRoot *secondPageRoot; // @synthesize secondPageRoot=_secondPageRoot;
-@property(retain, nonatomic) MSSubtreeRoot *firstPageRoot; // @synthesize firstPageRoot=_firstPageRoot;
+@property(retain, nonatomic) MSSubtreeRoot *secondLayerRoot; // @synthesize secondLayerRoot=_secondLayerRoot;
+@property(retain, nonatomic) MSSubtreeRoot *firstLayerRoot; // @synthesize firstLayerRoot=_firstLayerRoot;
 - (void).cxx_destruct;
+- (struct CGRect)overlayDirtyDiffRect;
+- (struct CGRect)contentDirtyDiffRect;
 - (id)init;
-- (id)initWithFirstPageRoot:(id)arg1 secondPageRoot:(id)arg2;
+- (id)initWithFirstLayerRoot:(id)arg1 secondLayerRoot:(id)arg2;
 
 @end
 

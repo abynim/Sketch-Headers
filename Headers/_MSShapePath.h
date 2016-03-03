@@ -14,9 +14,8 @@
     MSArray *_points;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSArray *points; // @synthesize points=_points;
-@property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -29,7 +28,9 @@
 - (id)primitivePoints;
 - (void)setPrimitiveIsClosed:(BOOL)arg1;
 - (BOOL)primitiveIsClosed;
+@property(retain, nonatomic) MSArray *points; // @synthesize points=_points;
 - (id)pointsGeneric;
+@property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -17,7 +17,6 @@
     BOOL _isDrawingPixelated;
     BOOL _isDrawingMask;
     BOOL _includeArtboardBackground;
-    BOOL _disableSubpixelAliasing;
     BOOL _contextIsVectorBacked;
     BOOL _shouldFlipShadows;
     BOOL _cancelled;
@@ -51,7 +50,6 @@
     struct CGAffineTransform _totalTransform;
 }
 
-+ (unsigned long long)defaultCGContextCreateFlags;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
@@ -82,7 +80,6 @@
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
-@property(nonatomic) BOOL disableSubpixelAliasing; // @synthesize disableSubpixelAliasing=_disableSubpixelAliasing;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
 @property(nonatomic) BOOL isDrawingPixelated; // @synthesize isDrawingPixelated=_isDrawingPixelated;
@@ -101,7 +98,6 @@
 - (void)applyLayerTransform:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)applySettings:(id)arg1 withOptions:(long long)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)prepareLayerDrawing:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)disableSubpixelAntialiasingFlags;
 - (int)setBlendMode:(int)arg1;
 - (double)setAlpha:(double)arg1;
 - (double)multiplyAlphaBy:(double)arg1;
@@ -127,6 +123,8 @@
 - (struct CGAffineTransform)accumulatedRotateFlipTransform;
 - (struct CGAffineTransform)accumulatedTransform;
 - (void)concatTransform:(struct CGAffineTransform)arg1;
+- (void)setCachedValue:(id)arg1 forModelObject:(id)arg2 key:(id)arg3 zoomIndependent:(BOOL)arg4;
+- (id)cachedValueForModelObject:(id)arg1 key:(id)arg2 zoomIndependent:(BOOL)arg3 orCreateWithBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (void)tearDown;
 - (id)CIContextWithSoftwareRenderer:(BOOL)arg1;

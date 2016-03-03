@@ -6,10 +6,15 @@
 
 #import "NSView.h"
 
+@class NSColor;
+
 @interface CHTransparentView : NSView
 {
+    NSColor *_backgroundColor;
 }
 
+@property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (BOOL)isOpaque;
 - (id)initWithFrame:(struct CGRect)arg1;

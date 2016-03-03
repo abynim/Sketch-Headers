@@ -24,17 +24,19 @@
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 @property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
+@property(readonly, nonatomic) MSImmutableStyleFill *firstEnabledFill;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
+- (void)clearTextStyle;
 - (id)renderBitmapEffects:(id)arg1;
 - (unsigned long long)maxLevels;
-- (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 ownerTraits:(unsigned long long)arg3;
 - (id)filtersForBlur:(id)arg1 exporter:(id)arg2;
 - (id)filtersForShadow:(id)arg1 exporter:(id)arg2 isInner:(BOOL)arg3 index:(unsigned long long)arg4;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2 level:(unsigned long long)arg3 defaultNone:(BOOL)arg4;
+- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2 level:(unsigned long long)arg3 ownerTraits:(unsigned long long)arg4;
 - (id)itemFromCollection:(id)arg1 atLevel:(unsigned long long)arg2;
 
 // Remaining properties

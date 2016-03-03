@@ -11,7 +11,6 @@
 @interface MSTile : MSBaseRenderTile
 {
     BOOL _drawPixelated;
-    BOOL _disableSubpixelAntialiasing;
     BOOL _drawDottedDirtyRect;
     BOOL _shouldHideOverlayControls;
     BOOL _drawingIsCancelled;
@@ -41,7 +40,6 @@
 @property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
-@property(nonatomic) BOOL disableSubpixelAntialiasing; // @synthesize disableSubpixelAntialiasing=_disableSubpixelAntialiasing;
 @property(nonatomic) BOOL drawPixelated; // @synthesize drawPixelated=_drawPixelated;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;

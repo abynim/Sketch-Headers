@@ -17,19 +17,26 @@
     BOOL _hasBlendedLayer;
     unsigned long long _traits;
     struct CGRect _influenceRectForBounds;
+    struct CGRect _overlayInfluenceRectForBounds;
 }
 
 + (unsigned long long)traits;
 + (id)defaultName;
+@property(readonly, nonatomic) struct CGRect overlayInfluenceRectForBounds; // @synthesize overlayInfluenceRectForBounds=_overlayInfluenceRectForBounds;
 @property(readonly, nonatomic) struct CGRect influenceRectForBounds; // @synthesize influenceRectForBounds=_influenceRectForBounds;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(readonly, nonatomic) BOOL hasBlendedLayer; // @synthesize hasBlendedLayer=_hasBlendedLayer;
+- (id)layerWithID:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) struct CGRect drawableFrame;
+- (struct CGRect)overlayInfluenceRectForFrame;
+- (struct CGRect)transformInfluenceRectToParent:(struct CGRect)arg1;
 - (struct CGRect)influenceRectForFrame;
+- (struct CGRect)calculateOverlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (void)decodePropertiesWithCoder:(id)arg1;
+- (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForTransforms;
@@ -46,6 +53,7 @@
 @property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
 @property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)objectDidInit;
 - (id)lastLayer;
 - (id)firstLayer;
@@ -64,11 +72,12 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (BOOL)differsFromLayer:(id)arg1;
-@property(readonly, nonatomic) NSArray *sublayersForPageDiff;
+@property(readonly, nonatomic) NSArray *sublayersForTreeDiff;
 - (BOOL)shouldSkipDrawing;
 - (BOOL)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;
+- (void)configureBackgroundOfRequest:(id)arg1;
 - (id)renderBitmapEffects:(id)arg1;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;

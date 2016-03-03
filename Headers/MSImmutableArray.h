@@ -42,6 +42,7 @@
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithArray:(id)arg1;
+- (id)treeAsDictionary;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

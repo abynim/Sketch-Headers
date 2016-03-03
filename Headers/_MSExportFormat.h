@@ -16,11 +16,8 @@
     long long _visibleScaleType;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) long long visibleScaleType; // @synthesize visibleScaleType=_visibleScaleType;
-@property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -37,6 +34,10 @@
 - (id)primitiveName;
 - (void)setPrimitiveFileFormat:(id)arg1;
 - (id)primitiveFileFormat;
+@property(nonatomic) long long visibleScaleType; // @synthesize visibleScaleType=_visibleScaleType;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

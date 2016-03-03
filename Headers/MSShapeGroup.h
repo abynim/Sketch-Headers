@@ -33,10 +33,6 @@
 - (void)makeLinePixelAligned;
 - (BOOL)isLine;
 - (BOOL)hasLines;
-- (void)layerStyleDidChange;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
-- (void)invalidateCache;
-- (void)invalidateCachedImmutableModelObjects;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 - (void)moveTransformsToChildren;
 - (void)reversePath;
@@ -105,7 +101,7 @@
 - (id)splitPathsIntoShapes;
 - (id)bezierLinePreviewInRect:(struct CGRect)arg1;
 - (void)drawLinePreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPathPreview;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPath;
 - (id)fillFromBorder:(id)arg1;
@@ -113,7 +109,8 @@
 - (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
 - (id)outlinePathForSubPath:(id)arg1 withBorder:(id)arg2;
 - (id)outlineShapeWithBorder:(id)arg1;
-- (id)shapesFromOutlineBorders;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (BOOL)booleanOperationCanBeReset;
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
@@ -138,6 +135,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

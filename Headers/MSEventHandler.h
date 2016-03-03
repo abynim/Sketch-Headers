@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSInspectorChildController.h"
 #import "NSDraggingDestination.h"
 
 @class MSDuplicateOffsetTracker, MSEventHandlerManager, NSString;
 
-@interface MSEventHandler : CHViewController <NSDraggingDestination, MSInspectorChildController>
+@interface MSEventHandler : NSViewController <NSDraggingDestination, MSInspectorChildController>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;

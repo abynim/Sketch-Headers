@@ -13,7 +13,6 @@
     BOOL _shouldTrim;
     BOOL _saveForWeb;
     BOOL _progressive;
-    BOOL _compact;
     BOOL _includeArtboardBackground;
     NSString *_name;
     unsigned long long _options;
@@ -23,6 +22,7 @@
     MSImmutablePage *_immutablePage;
     NSString *_format;
     double _compression;
+    unsigned long long _exporterOptions;
     id _rootLayerID;
     struct CGRect _rect;
 }
@@ -37,7 +37,7 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1;
 @property(copy, nonatomic) id rootLayerID; // @synthesize rootLayerID=_rootLayerID;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
-@property(nonatomic) BOOL compact; // @synthesize compact=_compact;
+@property(nonatomic) unsigned long long exporterOptions; // @synthesize exporterOptions=_exporterOptions;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;

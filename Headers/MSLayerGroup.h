@@ -10,7 +10,7 @@
 #import "MSLayerGroup.h"
 #import "MSSharedObjectInstance.h"
 
-@class NSDictionary, NSMutableArray, NSObject<NSCopying><NSCoding>, NSString;
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSLayerGroup : _MSLayerGroup <MSArrayDelegate, MSSharedObjectInstance, MSLayerGroup>
 {
@@ -22,7 +22,6 @@
     BOOL _lightweightContainsSelectedItem;
     long long _hasLayerWithMaskMode;
     long long _preCalculatedHasSelectedLayer;
-    NSMutableArray *_relativeChildFrames;
 }
 
 + (unsigned long long)traits;
@@ -32,7 +31,6 @@
 + (id)symbolIDsFromLayers:(id)arg1;
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
 + (id)groupFromLayers:(id)arg1;
-@property(retain, nonatomic) NSMutableArray *relativeChildFrames; // @synthesize relativeChildFrames=_relativeChildFrames;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 @property(nonatomic) BOOL lightweightContainsSelectedItem; // @synthesize lightweightContainsSelectedItem=_lightweightContainsSelectedItem;
 @property(nonatomic) BOOL ignoreNextSymbolSyncChange; // @synthesize ignoreNextSymbolSyncChange=_ignoreNextSymbolSyncChange;
@@ -40,7 +38,6 @@
 @property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
 @property(nonatomic) long long hasLayerWithMaskMode; // @synthesize hasLayerWithMaskMode=_hasLayerWithMaskMode;
 @property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
-- (void).cxx_destruct;
 - (id)candidatesForMasking;
 - (unsigned long long)type;
 - (void)addSlice:(id)arg1;
@@ -52,7 +49,7 @@
 - (void)dataArray:(id)arg1 didAddObject:(id)arg2;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
-- (void)resizeChildLayer:(id)arg1 atIndex:(unsigned long long)arg2 oldParentSize:(struct CGSize)arg3 widthChanged:(BOOL)arg4 heightChanged:(BOOL)arg5;
+- (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (BOOL)hitTestCornerOfSelectedLayer:(id)arg1 mouse:(struct CGPoint)arg2 zoomValue:(double)arg3;
 - (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
@@ -97,7 +94,7 @@
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1;
 - (void)prepareAsMaskContainer;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (id)addLayerOfType:(id)arg1;
 - (BOOL)expandableInLayerList;
@@ -153,6 +150,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

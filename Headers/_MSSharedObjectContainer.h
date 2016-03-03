@@ -13,8 +13,8 @@
     MSArray *_objects;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSArray *objects; // @synthesize objects=_objects;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -25,6 +25,7 @@
 - (void)performInitEmptyObject;
 - (void)setPrimitiveObjects:(id)arg1;
 - (id)primitiveObjects;
+@property(retain, nonatomic) MSArray *objects; // @synthesize objects=_objects;
 - (id)objectsGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

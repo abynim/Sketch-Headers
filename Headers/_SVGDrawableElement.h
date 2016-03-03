@@ -6,7 +6,7 @@
 
 #import "SVGElement.h"
 
-@class NSAffineTransform, SVGClipPath, SVGFill, SVGFont, SVGMask, SVGStroke;
+@class NSAffineTransform, NSString, SVGClipPath, SVGFill, SVGFont, SVGMask, SVGStroke;
 
 @interface _SVGDrawableElement : SVGElement
 {
@@ -17,6 +17,7 @@
     SVGFont *_font;
     SVGMask *_mask;
     SVGStroke *_stroke;
+    NSString *_blendMode;
     double _opacity;
     NSAffineTransform *_transform;
     struct CGRect _rect;
@@ -30,6 +31,7 @@
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) BOOL hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) BOOL clips; // @synthesize clips=_clips;
+@property(retain, nonatomic) NSString *blendMode; // @synthesize blendMode=_blendMode;
 @property(retain, nonatomic) SVGStroke *stroke; // @synthesize stroke=_stroke;
 @property(retain, nonatomic) SVGMask *mask; // @synthesize mask=_mask;
 @property(retain, nonatomic) SVGFont *font; // @synthesize font=_font;

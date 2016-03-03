@@ -24,7 +24,6 @@
 @property(nonatomic) __weak MSActionsController *controller; // @synthesize controller=_controller;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (BOOL)isInNormalHandler;
 - (BOOL)isActive;
 - (BOOL)showInToolbar;
 - (id)image;
@@ -49,9 +48,11 @@
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (id)contentDrawView;
 - (id)currentPage;
+- (void)switchToNormalHandler;
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)toggleHandlerKey:(id)arg1;
 - (id)currentHandler;
+- (BOOL)isInNormalHandler;
 - (id)currentHandlerKey;
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;

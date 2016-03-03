@@ -6,28 +6,29 @@
 
 #import "NSObject.h"
 
-@class BCStructuredFile, NSArray, NSDictionary, NSURL;
+@class BCStructuredFile, NSDictionary, NSURL;
 
 @interface MSDocumentFile : NSObject
 {
     NSDictionary *_UIMetadata;
-    NSArray *_usedFontNames;
     NSDictionary *_metadata;
     BCStructuredFile *_file;
     NSURL *_documentURL;
 }
 
++ (id)metadataForNewFile;
++ (void)addCreationInfomationToMetadata:(id)arg1;
 @property(retain, nonatomic) NSURL *documentURL; // @synthesize documentURL=_documentURL;
 @property(retain, nonatomic) BCStructuredFile *file; // @synthesize file=_file;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
-@property(retain, nonatomic) NSArray *usedFontNames; // @synthesize usedFontNames=_usedFontNames;
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (void).cxx_destruct;
 - (void)repair;
-- (BOOL)writeImmutableDocumentData:(id)arg1 error:(id *)arg2;
+- (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
 - (long long)version;
 - (id)data;
-- (id)readDataWithError:(id *)arg1;
+- (id)readDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
+- (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
 - (id)validate;
 - (id)missingFonts;
 - (void)dealloc;

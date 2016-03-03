@@ -17,8 +17,10 @@
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(retain, nonatomic) NSDictionary *errorCodesByErrorString; // @synthesize errorCodesByErrorString=_errorCodesByErrorString;
 - (void).cxx_destruct;
+- (void)setUserID:(id)arg1;
 - (void)setAuthToken:(id)arg1;
 - (void)setEmailAddress:(id)arg1;
+- (id)userID;
 - (id)emailAddress;
 - (BOOL)isLoggedIn;
 - (id)authToken;

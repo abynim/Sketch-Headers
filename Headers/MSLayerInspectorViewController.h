@@ -4,19 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSSectionProtocol.h"
 #import "NSMenuDelegate.h"
 
-@class MSElementsInspectorSection, NSArray, NSButton, NSNumberFormatter, NSOperationQueue, NSString, NSTextField, NSView;
+@class MSElementsInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
 
-@interface MSLayerInspectorViewController : CHViewController <MSSectionProtocol, NSMenuDelegate>
+@interface MSLayerInspectorViewController : NSViewController <MSSectionProtocol, NSMenuDelegate>
 {
     BOOL _shouldShowPositions;
     BOOL _shouldShowSharedStyles;
     BOOL _shouldShowLayerSpecificProperties;
     BOOL _shouldShowBlendingProperties;
+    BOOL _needsUpdatePositionAndSizeFields;
     NSArray *_layers;
     NSView *_positionView;
     NSView *_lineView;
@@ -33,10 +34,9 @@
     MSElementsInspectorSection *_sharedObjectsController;
     NSArray *_layerInspectorControllers;
     NSNumberFormatter *_numberFormatter;
-    NSOperationQueue *_throttlingQueue;
 }
 
-@property(retain, nonatomic) NSOperationQueue *throttlingQueue; // @synthesize throttlingQueue=_throttlingQueue;
+@property(readonly, nonatomic) BOOL needsUpdatePositionAndSizeFields; // @synthesize needsUpdatePositionAndSizeFields=_needsUpdatePositionAndSizeFields;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
 @property(retain, nonatomic) MSElementsInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
@@ -86,9 +86,10 @@
 - (double)absoluteYForLayers;
 - (double)absoluteXForLayers;
 - (void)setValue:(double)arg1 forFields:(id)arg2;
-- (void)scheduleThrottledBlock:(CDUnknownBlockType)arg1;
 - (void)refreshBindingsOnShape:(id)arg1;
 - (void)clearPositionAndSizeFields;
+- (void)setNeedsUpdatePositionAndSizeFields;
+- (void)updatePositionAndSizeFields;
 - (void)layerPositionPossiblyChanged;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)init;

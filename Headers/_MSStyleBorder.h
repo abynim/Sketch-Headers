@@ -12,9 +12,8 @@
     double _thickness;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double thickness; // @synthesize thickness=_thickness;
-@property(nonatomic) long long position; // @synthesize position=_position;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
@@ -26,6 +25,8 @@
 - (double)primitiveThickness;
 - (void)setPrimitivePosition:(long long)arg1;
 - (long long)primitivePosition;
+@property(nonatomic) double thickness; // @synthesize thickness=_thickness;
+@property(nonatomic) long long position; // @synthesize position=_position;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

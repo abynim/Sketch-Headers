@@ -122,6 +122,7 @@
 - (void)toggleInspectorVisibility:(id)arg1;
 - (BOOL)isInPresentationMode;
 - (void)toggleLayerListVisibility:(id)arg1;
+- (BOOL)isLayerListVisible;
 - (void)renameLayer:(id)arg1;
 - (void)windowDidExitVersionBrowser:(id)arg1;
 - (void)windowDidEnterVersionBrowser:(id)arg1;
@@ -161,6 +162,7 @@
 - (void)syncSharedObjects:(id)arg1;
 - (void)documentData:(id)arg1 syncSharedObject:(id)arg2;
 - (void)documentData:(id)arg1 didChangeToPage:(id)arg2;
+- (void)documentDidChange:(id)arg1;
 - (BOOL)inspectorIsMain;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (id)closestVisibleIdentifierInToolbarForIdentifier:(id)arg1;
@@ -253,13 +255,14 @@
 - (void)warnAboutOldVersion;
 - (BOOL)askToOpenDocumentRepairingMetadata;
 - (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1;
+- (void)alertDocumentCorruptionWasDetected;
 - (void)alertDocumentIsWrongSize;
 - (void)alertDocumentIsTooNew;
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
 - (id)imageFromPath:(id)arg1;
 - (id)addImageLayerFromPath:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
-- (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 wasMigrated:(BOOL)arg3 error:(id *)arg4;
+- (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 wasMigrated:(BOOL)arg3 corruptionDetected:(char *)arg4 error:(id *)arg5;
 - (BOOL)processValidationCode:(unsigned long long)arg1 wrapper:(id)arg2 missingFonts:(id)arg3;
 - (id)migrateWithXPCFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)validateWithXPCAtURL:(id)arg1 wrapper:(id)arg2;

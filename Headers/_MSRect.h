@@ -15,12 +15,8 @@
     double _y;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double y; // @synthesize y=_y;
-@property(nonatomic) double x; // @synthesize x=_x;
-@property(nonatomic) double width; // @synthesize width=_width;
-@property(nonatomic) double height; // @synthesize height=_height;
-@property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
@@ -38,6 +34,11 @@
 - (double)primitiveHeight;
 - (void)setPrimitiveConstrainProportions:(BOOL)arg1;
 - (BOOL)primitiveConstrainProportions;
+@property(nonatomic) double y; // @synthesize y=_y;
+@property(nonatomic) double x; // @synthesize x=_x;
+@property(nonatomic) double width; // @synthesize width=_width;
+@property(nonatomic) double height; // @synthesize height=_height;
+@property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

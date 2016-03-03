@@ -20,7 +20,6 @@
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
-- (BOOL)isLayerExportable;
 - (BOOL)canBeContainedByGroup;
 - (BOOL)isLine;
 - (BOOL)calculateHasBlendedLayer;
@@ -29,11 +28,6 @@
 - (void)setStartDecorationType:(unsigned long long)arg1;
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
-- (void)setRotation:(double)arg1;
-- (void)removeFromParent;
-- (void)invalidateCache;
-- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isPartOfClippingMask;
 - (void)hideSelectionTemporarily;
 @property(nonatomic) BOOL isClosed;
@@ -70,7 +64,7 @@
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
 - (id)bezierPathForHover;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (BOOL)shouldCachePreview;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -100,6 +94,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;

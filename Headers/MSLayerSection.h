@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSSectionProtocol.h"
 
 @class NSArray, NSString;
 
-@interface MSLayerSection : CHViewController <MSSectionProtocol>
+@interface MSLayerSection : NSViewController <MSSectionProtocol>
 {
     NSArray *_layers;
 }

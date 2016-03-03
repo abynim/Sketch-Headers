@@ -19,14 +19,8 @@
     MSRulerData *_verticalRulerData;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-@property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
-@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
 - (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
@@ -49,11 +43,18 @@
 - (BOOL)primitiveIncludeBackgroundColorInExport;
 - (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
 - (BOOL)primitiveHasBackgroundColor;
+@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 - (id)verticalRulerDataGeneric;
+@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
 - (id)layoutGeneric;
+@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 - (id)horizontalRulerDataGeneric;
+@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 - (id)gridGeneric;
+@property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (id)backgroundColorGeneric;
+@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
+@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

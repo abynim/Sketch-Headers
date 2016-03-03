@@ -7,6 +7,6 @@
 #import "NSFont.h"
 
 @interface NSFont (SVG)
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
+- (void)addSVGAttributes:(id)arg1 withExportOptions:(unsigned long long)arg2;
 @end
 
