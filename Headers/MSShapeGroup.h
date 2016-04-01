@@ -12,7 +12,6 @@
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
-    BOOL _isEditingChild;
 }
 
 + (unsigned long long)traits;
@@ -20,8 +19,8 @@
 + (BOOL)groupBoundsShouldBeIntegral;
 + (id)shapeWithPath:(id)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
++ (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingPreviewImages;
-@property(nonatomic) BOOL isEditingChild; // @synthesize isEditingChild=_isEditingChild;
 - (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
@@ -33,10 +32,6 @@
 - (void)makeLinePixelAligned;
 - (BOOL)isLine;
 - (BOOL)hasLines;
-- (void)layerStyleDidChange;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
-- (void)invalidateCache;
-- (void)invalidateCachedImmutableModelObjects;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 - (void)moveTransformsToChildren;
 - (void)reversePath;
@@ -64,18 +59,18 @@
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)handleDoubleClick;
 - (id)defaultName;
 - (Class)classToUseForNameCounter;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (long long)selectedCorner:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)performInitEmptyObject;
-- (id)handlerName;
 - (BOOL)canFlatten;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
 - (BOOL)shouldFlattenAfterRotate;
+- (id)handlerName;
+- (BOOL)handleDoubleClick;
 - (void)toggleClosePath;
 - (id)lastPoint;
 - (id)firstPoint;
@@ -91,7 +86,6 @@
 - (struct CGPoint)p1;
 - (id)inspectorViewControllers;
 - (void)drawHoverWithZoom:(double)arg1;
-- (BOOL)shouldCachePreview;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -105,19 +99,23 @@
 - (id)splitPathsIntoShapes;
 - (id)bezierLinePreviewInRect:(struct CGRect)arg1;
 - (void)drawLinePreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPathPreview;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPath;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 - (id)fillFromBorder:(id)arg1;
 - (double)lineWidthForOutliningWithBorder:(id)arg1;
 - (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
 - (id)outlinePathForSubPath:(id)arg1 withBorder:(id)arg2;
 - (id)outlineShapeWithBorder:(id)arg1;
-- (id)shapesFromOutlineBorders;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (BOOL)booleanOperationCanBeReset;
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
+- (void)applyOverrides:(id)arg1;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
@@ -134,10 +132,9 @@
 @property(readonly, nonatomic) BOOL hasClippingMask;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
@@ -146,7 +143,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;

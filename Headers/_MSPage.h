@@ -10,6 +10,7 @@
 
 @interface _MSPage : MSLayerGroup
 {
+    BOOL _includeInCloudUpload;
     double _zoomValue;
     MSSimpleGrid *_grid;
     MSRulerData *_horizontalRulerData;
@@ -18,17 +19,11 @@
     struct CGPoint _scrollOrigin;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -45,10 +40,19 @@
 - (double)primitiveZoomValue;
 - (void)setPrimitiveScrollOrigin:(struct CGPoint)arg1;
 - (struct CGPoint)primitiveScrollOrigin;
+- (void)setPrimitiveIncludeInCloudUpload:(BOOL)arg1;
+- (BOOL)primitiveIncludeInCloudUpload;
+@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 - (id)verticalRulerDataGeneric;
+@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
 - (id)layoutGeneric;
+@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 - (id)horizontalRulerDataGeneric;
+@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 - (id)gridGeneric;
+@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
+@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

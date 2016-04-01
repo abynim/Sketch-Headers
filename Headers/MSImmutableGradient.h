@@ -25,19 +25,17 @@
 - (id)defaultStopsArray;
 - (id)ellipseTransformInRect:(struct CGRect)arg1;
 - (id)NSGradientForContext:(id)arg1;
-- (void)setHasDonePreRenderingForContext:(id)arg1;
-- (BOOL)hasDonePreRenderingForContext:(id)arg1;
 - (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
 - (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
 - (void)_drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3 gradient:(id)arg4;
 - (void)preRenderGradient:(id)arg1 inRect:(struct CGRect)arg2 context:(id)arg3;
 - (void)drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 shouldCache:(BOOL)arg3;
 - (id)interpolatedStartAndStopColorForStops:(id)arg1 colorSpace:(id)arg2;
 - (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 stops:(id)arg2 colorSpace:(id)arg3;
 - (id)sortedStops;
 - (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2;
-- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 shouldCache:(BOOL)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -14,13 +14,6 @@
 {
 }
 
-- (id)ignoredTextLayersFromInstance:(id)arg1;
-- (id)newInstanceReplacingLayer:(id)arg1;
-- (void)prepareToBecomeSharedObjectValue:(struct MSModelBase *)arg1;
-- (unsigned long long)type;
-- (id)newUnregisteredInstance;
-- (id)newInstance;
-- (id)masterInstance;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -30,6 +23,5 @@
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) id <MSModelObject> valueGeneric;
-
 @end
 

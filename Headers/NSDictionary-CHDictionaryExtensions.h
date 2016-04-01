@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (CHDictionaryExtensions)
+- (id)dictionaryByAddingOrRemovingObject:(id)arg1 forKey:(id)arg2;
 - (id)mutableCopyDeep;
 @end
 

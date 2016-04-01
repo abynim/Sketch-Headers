@@ -17,16 +17,11 @@
     struct CGRect _nineSliceCenterRect;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
-@property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
-@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
-@property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
-@property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -41,6 +36,11 @@
 - (BOOL)primitiveFillReplacesImage;
 - (void)setPrimitiveClippingMask:(struct CGRect)arg1;
 - (struct CGRect)primitiveClippingMask;
+@property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
+@property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
+@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
+@property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
+@property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

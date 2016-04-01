@@ -19,18 +19,11 @@
     MSGraphicsContextSettings *_contextSettings;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
-@property(nonatomic) double spread; // @synthesize spread=_spread;
-@property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
-@property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
-@property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
-@property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -49,8 +42,15 @@
 - (BOOL)primitiveHasShadow;
 - (void)setPrimitiveBlurRadius:(double)arg1;
 - (double)primitiveBlurRadius;
+@property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 - (id)contextSettingsGeneric;
+@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 - (id)colorGeneric;
+@property(nonatomic) double spread; // @synthesize spread=_spread;
+@property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
+@property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
+@property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
+@property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric;
 @property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric;
 @property(readonly, nonatomic) id <MSColor> backgroundColorGeneric;
+@property(readonly, nonatomic) BOOL includeInCloudUpload;
 @property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
 @property(readonly, nonatomic) BOOL hasBackgroundColor;
 @end

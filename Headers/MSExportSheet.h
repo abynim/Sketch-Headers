@@ -35,7 +35,7 @@
 - (void)updateExportSheetItems:(BOOL)arg1;
 @property(readonly, nonatomic) long long slicesCheckBoxState;
 - (void)validateIncludeAllSlicesCheckBox;
-- (void)findOverlappingSlices;
+- (void)findConflictingNamesInSlices:(id)arg1;
 - (void)awakeFromNib;
 
 @end

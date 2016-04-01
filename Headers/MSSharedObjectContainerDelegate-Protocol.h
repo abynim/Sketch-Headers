@@ -9,6 +9,6 @@
 @class MSSharedObjectContainer, NSArray;
 
 @protocol MSSharedObjectContainerDelegate <NSObject>
-- (NSArray *)rootLayersForShareadObjectContainer:(MSSharedObjectContainer *)arg1 includingSymbols:(BOOL)arg2;
+- (NSArray *)rootLayersForSharedObjectContainer:(MSSharedObjectContainer *)arg1;
 @end
 

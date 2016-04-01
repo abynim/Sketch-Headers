@@ -10,11 +10,11 @@
 {
 }
 
++ (id)createSymbolInstanceWithName:(id)arg1 rect:(struct CGRect)arg2 symbolID:(id)arg3;
++ (id)createSymbolMasterWitName:(id)arg1 size:(struct CGSize)arg2 onPage:(id)arg3;
++ (void)moveLayers:(id)arg1 toArtboard:(id)arg2;
++ (id)createSymbolFromLayers:(id)arg1 withName:(id)arg2 onSymbolsPage:(BOOL)arg3;
 + (BOOL)canCreateSymbolFromLayers:(id)arg1;
-+ (void)moveSlicesOutOfGroup:(id)arg1;
-+ (id)groupForCreatingSymbolsFromLayers:(id)arg1;
-+ (BOOL)unHideLayersIfNecessary:(id)arg1;
-+ (id)createSymbolFromLayers:(id)arg1 suggestedName:(id)arg2;
 
 @end
 

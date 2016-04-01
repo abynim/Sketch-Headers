@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSPage, MSTile, MSTilePlacer;
+@class MSTilePlacer;
 
 @protocol MSTilePlacerDelegate <NSObject>
-- (void)tilePlacer:(MSTilePlacer *)arg1 prepareNewTile:(MSTile *)arg2;
-- (void)tilePlacer:(MSTilePlacer *)arg1 renderOverlayForPage:(MSPage *)arg2 atZoom:(double)arg3 inRect:(struct CGRect)arg4;
+- (void)tilePlacer:(MSTilePlacer *)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tilePlacer:(MSTilePlacer *)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 @end
 

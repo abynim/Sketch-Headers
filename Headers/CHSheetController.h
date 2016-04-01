@@ -4,15 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindowController.h"
+#import "CHWindowController.h"
 
-@interface CHSheetController : NSWindowController
+@interface CHSheetController : CHWindowController
 {
     id _object;
 }
 
-+ (id)runForWindow:(id)arg1 withObject:(id)arg2;
-+ (id)runForWindow:(id)arg1;
 + (id)runWithObject:(id)arg1;
 + (id)run;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
@@ -23,6 +21,7 @@
 - (void)closeSheet;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
+- (id)run;
 
 @end
 

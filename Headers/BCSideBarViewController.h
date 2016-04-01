@@ -68,6 +68,8 @@
 - (void)updatePopupWithBlock:(CDUnknownBlockType)arg1;
 - (void)refreshPageLabel;
 @property(readonly, nonatomic) id <BCOutlineViewNode> currentPage;
+- (void)viewDidAppear;
+@property(nonatomic) double currentPageHeight;
 - (void)awakeFromNib;
 - (void)embedView:(id)arg1 inView:(id)arg2;
 - (void)dealloc;

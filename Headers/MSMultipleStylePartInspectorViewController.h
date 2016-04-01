@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSReorderingContainerDelegate.h"
 
 @class MSReorderingContainerView, NSArray, NSButton, NSString, NSTextField, NSView;
 
-@interface MSMultipleStylePartInspectorViewController : CHViewController <MSReorderingContainerDelegate>
+@interface MSMultipleStylePartInspectorViewController : NSViewController <MSReorderingContainerDelegate>
 {
     NSArray *_layers;
     NSArray *_stylePartViewControllers;

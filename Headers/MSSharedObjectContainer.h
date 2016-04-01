@@ -17,11 +17,11 @@
 
 @property(retain, nonatomic) id <MSSharedObjectContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)updateIDOfSharedObject:(id)arg1 andRenameTo:(id)arg2;
 - (id)objectsSortedByName;
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)sharedObjectsInLayers:(id)arg1;
 - (id)sharedObjectsInLayer:(id)arg1;
+- (BOOL)resetSharedObjectInstance:(struct MSModelBase *)arg1;
 - (void)syncInstance:(struct MSModelBase *)arg1 withTemplateInstance:(struct MSModelBase *)arg2;
 - (void)synchroniseInstancesOfSharedObject:(id)arg1 withInstance:(struct MSModelBase *)arg2;
 - (void)updateValueOfSharedObject:(id)arg1 byCopyingInstance:(struct MSModelBase *)arg2;
@@ -39,9 +39,6 @@
 - (id)instancesOf:(id)arg1 inContainer:(id)arg2;
 - (void)linkInstances:(id)arg1 fromSharedObject:(id)arg2;
 - (void)unlinkInstances:(id)arg1 toSharedObject:(id)arg2;
-- (id)relinkSharedObjectInstance:(struct MSModelBase *)arg1;
-- (void)relinkSharedObjectsInArray:(id)arg1;
-- (void)mergeSharedObjects:(id)arg1;
 - (id)mergeSharedObjectWithName:(id)arg1 sharedObjectID:(struct NSObject *)arg2 instance:(struct MSModelBase *)arg3;
 - (void)registerUndoForUnlinkingInstances:(id)arg1 fromSharedObject:(id)arg2;
 - (void)registerUndoForLinkingInstances:(id)arg1 toSharedObject:(id)arg2;

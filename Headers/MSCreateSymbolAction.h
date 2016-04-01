@@ -4,22 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseAction.h"
+#import "MSDocumentAction.h"
 
-@interface MSCreateSymbolAction : MSBaseAction
+@interface MSCreateSymbolAction : MSDocumentAction
 {
 }
 
-- (void)refreshUI;
-- (void)isolateSymbolAction:(id)arg1;
-- (BOOL)willIsolate;
-- (void)toggleCreateSymbolOrIsolate:(id)arg1;
-- (id)layerSymbols;
-- (id)toolbarLabel;
+- (BOOL)dynamicTitle;
+- (id)label;
+- (BOOL)wouldInsertInstance;
 - (id)imageName;
+- (void)createSymbolFromLayers:(id)arg1;
+- (void)doCreateSymbolsFromArtboardsAndInsertInstances:(id)arg1;
+- (void)createSymbolsFromArtboards:(id)arg1;
 - (void)doPerformAction:(id)arg1;
+- (BOOL)canCreateSymbolsFromArtboards:(id)arg1;
 - (BOOL)validate;
-- (BOOL)validateMenuItem:(id)arg1;
 - (void)createSymbolAction:(id)arg1;
 
 @end

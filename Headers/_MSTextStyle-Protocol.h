@@ -9,6 +9,6 @@
 @class NSDictionary;
 
 @protocol _MSTextStyle <MSModelBase>
-@property(readonly, copy, nonatomic) NSDictionary *attributes;
+@property(readonly, copy, nonatomic) NSDictionary *encodedAttributes;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBackgroundBlurRenderer, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -17,7 +17,6 @@
     BOOL _isDrawingPixelated;
     BOOL _isDrawingMask;
     BOOL _includeArtboardBackground;
-    BOOL _disableSubpixelAliasing;
     BOOL _contextIsVectorBacked;
     BOOL _shouldFlipShadows;
     BOOL _cancelled;
@@ -34,6 +33,7 @@
     double _backingScale;
     double _backingScaleForShadows;
     double _parentLayerOpacity;
+    MSImmutableDocumentData *_document;
     MSImmutableLayer *_untilLayer;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     MSStylePathRenderer *_stylePathRenderer;
@@ -44,6 +44,8 @@
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
+    NSMutableArray *_artboardStack;
+    long long _drawSymbolInstanceInBlock;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
     struct CGAffineTransform _initialTransform;
@@ -51,7 +53,8 @@
     struct CGAffineTransform _totalTransform;
 }
 
-+ (unsigned long long)defaultCGContextCreateFlags;
+@property(nonatomic) long long drawSymbolInstanceInBlock; // @synthesize drawSymbolInstanceInBlock=_drawSymbolInstanceInBlock;
+@property(retain, nonatomic) NSMutableArray *artboardStack; // @synthesize artboardStack=_artboardStack;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
@@ -66,6 +69,7 @@
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
 @property(retain, nonatomic) MSImmutableLayer *untilLayer; // @synthesize untilLayer=_untilLayer;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) double parentLayerOpacity; // @synthesize parentLayerOpacity=_parentLayerOpacity;
 @property(nonatomic) BOOL shouldFlipShadows; // @synthesize shouldFlipShadows=_shouldFlipShadows;
@@ -82,7 +86,6 @@
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
-@property(nonatomic) BOOL disableSubpixelAliasing; // @synthesize disableSubpixelAliasing=_disableSubpixelAliasing;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
 @property(nonatomic) BOOL isDrawingPixelated; // @synthesize isDrawingPixelated=_isDrawingPixelated;
@@ -91,9 +94,14 @@
 @property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
 @property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
 - (void).cxx_destruct;
+- (BOOL)isDrawingSymbolInstance;
+- (void)didDrawArtboard:(id)arg1;
+- (void)willDrawArtboard:(id)arg1;
+- (BOOL)canDrawSymbolInstanceWithoutRiskingRecursion:(id)arg1;
 - (BOOL)shouldDisableSubpixelQuantization;
 - (BOOL)layerIntersectsDirtyRect:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
+- (void)drawSymbolInstanceInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldClipFills;
 - (void)doNotClipFillsInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawFills;
@@ -101,7 +109,6 @@
 - (void)applyLayerTransform:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)applySettings:(id)arg1 withOptions:(long long)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)prepareLayerDrawing:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)disableSubpixelAntialiasingFlags;
 - (int)setBlendMode:(int)arg1;
 - (double)setAlpha:(double)arg1;
 - (double)multiplyAlphaBy:(double)arg1;
@@ -127,6 +134,8 @@
 - (struct CGAffineTransform)accumulatedRotateFlipTransform;
 - (struct CGAffineTransform)accumulatedTransform;
 - (void)concatTransform:(struct CGAffineTransform)arg1;
+- (void)setCachedValue:(id)arg1 forModelObject:(id)arg2 key:(id)arg3 zoomIndependent:(BOOL)arg4;
+- (id)cachedValueForModelObject:(id)arg1 key:(id)arg2 zoomIndependent:(BOOL)arg3 orCreateWithBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (void)tearDown;
 - (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
@@ -137,7 +146,7 @@
 - (id)bitmapBackedSubContextWithContextRef:(struct CGContext *)arg1 size:(struct CGSize)arg2;
 - (id)blurSubContextWithContextRef:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
 - (id)subContextWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
-- (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4;
+- (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4 document:(id)arg5;
 - (id)init;
 
 @end

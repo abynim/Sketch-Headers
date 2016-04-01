@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "MSAssetPickerHeaderViewDelegate.h"
 #import "MSPresetPickerViewDelegate.h"
 
 @class MSAssetPickerView, NSArray, NSScrollView, NSString;
 
-@interface MSColorInspectorSection : CHViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate>
+@interface MSColorInspectorSection : NSViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate>
 {
     id <MSColorInspectorSectionDelegate> _delegate;
     NSArray *_styleParts;

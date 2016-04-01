@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelBase.h"
 
-@class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelBase
 {
@@ -17,7 +17,7 @@
     long long _layerListExpandedType;
     NSString *_name;
     BOOL _nameIsFixed;
-    struct NSObject *_originalObjectID;
+    NSString *_originalObjectID;
     double _rotation;
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
@@ -31,7 +31,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
+@property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;

@@ -15,7 +15,9 @@
 + (double)startingPositionForTextLayer:(id)arg1 onShape:(id)arg2;
 + (void)drawTextLayerInsideTransform:(id)arg1 context:(id)arg2;
 + (void)drawTextLayer:(id)arg1 onUnderlyingPath:(id)arg2 context:(id)arg3;
-+ (void)doDrawLayer:(id)arg1 context:(id)arg2;
++ (void)drawTextLayerAsText:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
++ (void)drawTextLayerWithMissingFonts:(id)arg1 context:(id)arg2;
++ (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end
 

@@ -17,16 +17,11 @@
     double _patternTileScale;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double patternTileScale; // @synthesize patternTileScale=_patternTileScale;
-@property(nonatomic) long long patternFillType; // @synthesize patternFillType=_patternFillType;
-@property(nonatomic) double noiseIntensity; // @synthesize noiseIntensity=_noiseIntensity;
-@property(nonatomic) long long noiseIndex; // @synthesize noiseIndex=_noiseIndex;
-@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -41,6 +36,11 @@
 - (long long)primitiveNoiseIndex;
 - (void)setPrimitiveImage:(id)arg1;
 - (id)primitiveImage;
+@property(nonatomic) double patternTileScale; // @synthesize patternTileScale=_patternTileScale;
+@property(nonatomic) long long patternFillType; // @synthesize patternFillType=_patternFillType;
+@property(nonatomic) double noiseIntensity; // @synthesize noiseIntensity=_noiseIntensity;
+@property(nonatomic) long long noiseIndex; // @synthesize noiseIndex=_noiseIndex;
+@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

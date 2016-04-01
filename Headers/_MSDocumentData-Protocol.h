@@ -17,6 +17,8 @@
 @property(readonly, nonatomic) BOOL enableSliceInteraction;
 @property(readonly, nonatomic) BOOL enableLayerInteraction;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
+@property(readonly, nonatomic) NSString *cloudUserID;
+@property(readonly, nonatomic) NSString *cloudShareURL;
 @property(readonly, copy, nonatomic) NSString *cloudShareID;
 @end
 

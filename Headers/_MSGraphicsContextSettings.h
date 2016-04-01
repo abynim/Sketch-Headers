@@ -12,12 +12,10 @@
     double _opacity;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
-@property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -26,6 +24,8 @@
 - (double)primitiveOpacity;
 - (void)setPrimitiveBlendMode:(long long)arg1;
 - (long long)primitiveBlendMode;
+@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
+@property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

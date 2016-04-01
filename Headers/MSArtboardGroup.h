@@ -7,12 +7,13 @@
 #import "_MSArtboardGroup.h"
 
 #import "MSArtboardGroup.h"
+#import "MSCloudExportable.h"
 #import "MSLayerWithBackgroundColour.h"
 #import "MSRootLayer.h"
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSRootLayer, MSLayerWithBackgroundColour, MSArtboardGroup>
+@interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSRootLayer, MSLayerWithBackgroundColour, MSArtboardGroup>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -20,9 +21,13 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (id)convertToSymbol;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
+- (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
+- (BOOL)isExpanded;
+- (void)setRectAndLeaveChildrenInPosition:(struct CGRect)arg1;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveWithGuideOffset:(struct CGSize)arg1;
@@ -47,20 +52,26 @@
 - (void)setName:(id)arg1;
 - (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
 - (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (void)setIsVisible:(BOOL)arg1;
 - (BOOL)includeInLayersBelowPoint;
 - (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)defaultArtboardStyle;
 - (void)objectDidChange;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
-- (id)inspectorViewControllerNames;
+- (long long)includeForCloudExportState;
+- (void)setIsMarkedForCloudExport:(BOOL)arg1;
+- (id)childAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfChildren;
+- (BOOL)hasChildren;
+- (BOOL)hasSliceIcon;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (id)previewImages;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 - (unsigned long long)displayType;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (id)parentRootForAbsoluteRect;
-- (BOOL)canBePartOfSymbol;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -78,10 +89,10 @@
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL includeInCloudUpload;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) id <MSArray> layersGeneric;
@@ -91,7 +102,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

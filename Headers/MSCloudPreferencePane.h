@@ -31,6 +31,7 @@
 - (void)showLoginView;
 - (void)showViewController:(id)arg1;
 - (void)loadCorrectViewController;
+- (void)dealloc;
 - (void)viewDidLoad;
 
 @end

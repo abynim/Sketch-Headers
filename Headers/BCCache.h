@@ -12,7 +12,7 @@
 {
     NSObject<OS_dispatch_queue> *queue;
     NSMapTable *cachedObjectsByOwner;
-    NSRecursiveLock *recursiveLocks[10];
+    NSRecursiveLock *recursiveLocks[11];
 }
 
 - (void).cxx_destruct;

@@ -15,7 +15,7 @@
 }
 
 @property(readonly, nonatomic) BOOL hasDashPattern;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy, nonatomic) NSArray *dashPattern;

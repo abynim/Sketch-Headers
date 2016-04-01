@@ -14,14 +14,10 @@
     double _saturation;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double saturation; // @synthesize saturation=_saturation;
-@property(nonatomic) double hue; // @synthesize hue=_hue;
-@property(nonatomic) double contrast; // @synthesize contrast=_contrast;
-@property(nonatomic) double brightness; // @synthesize brightness=_brightness;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -34,6 +30,10 @@
 - (double)primitiveContrast;
 - (void)setPrimitiveBrightness:(double)arg1;
 - (double)primitiveBrightness;
+@property(nonatomic) double saturation; // @synthesize saturation=_saturation;
+@property(nonatomic) double hue; // @synthesize hue=_hue;
+@property(nonatomic) double contrast; // @synthesize contrast=_contrast;
+@property(nonatomic) double brightness; // @synthesize brightness=_brightness;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

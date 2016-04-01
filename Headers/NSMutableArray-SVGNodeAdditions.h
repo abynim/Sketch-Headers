@@ -8,6 +8,7 @@
 
 @interface NSMutableArray (SVGNodeAdditions)
 + (id)illegalIdentifierChars;
+- (void)removeAttributeWithName:(id)arg1;
 - (void)addAttributeWithName:(id)arg1 percentageFractionalValue:(double)arg2;
 - (void)addAttributeWithName:(id)arg1 percentageValue:(double)arg2;
 - (void)addAttributeWithName:(id)arg1 numberValue:(double)arg2;

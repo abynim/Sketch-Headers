@@ -16,6 +16,7 @@
 
 @property(readonly, nonatomic) unsigned long long numberOfPoints;
 @property(readonly, nonatomic) BOOL isRectangle;
+@property(readonly, nonatomic) BOOL isPolyline;
 @property(readonly, nonatomic) BOOL isPolygon;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 

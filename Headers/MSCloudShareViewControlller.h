@@ -31,6 +31,9 @@
 @property(retain, nonatomic) MSCloudShareAPI *cloudAPI; // @synthesize cloudAPI=_cloudAPI;
 @property(nonatomic) __weak MSCloudPreferencePane *preferencePane; // @synthesize preferencePane=_preferencePane;
 - (void).cxx_destruct;
+- (void)userDidLogout:(id)arg1;
+- (void)passwordDidChange;
+- (void)showChangePasswordSheet:(id)arg1;
 - (void)reloadData:(id)arg1;
 - (void)deleteShareWithIDWithConfirmation:(id)arg1;
 - (void)deleteSelectedShareWithConfirmation;
@@ -47,7 +50,8 @@
 - (void)logout:(id)arg1;
 - (void)deleteShareWithID:(id)arg1;
 - (void)showView:(id)arg1;
-- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)dealloc;
 - (id)initWithPreferencePane:(id)arg1;
 
 @end

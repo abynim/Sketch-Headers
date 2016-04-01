@@ -10,8 +10,7 @@
 {
 }
 
-- (void)uploadExportedFilesAtURL:(id)arg1 files:(id)arg2 accessKey:(id)arg3 secret:(id)arg4 sessionToken:(id)arg5 progressHandler:(CDUnknownBlockType)arg6 completionHandler:(CDUnknownBlockType)arg7;
-- (void)uploadDocument:(id)arg1 name:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)uploadDocument:(id)arg1 name:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)deleteShareWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchUserSharesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)urlWithAction:(id)arg1;

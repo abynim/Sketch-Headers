@@ -6,15 +6,13 @@
 
 #import "NSObject.h"
 
-#import "BITCrashManagerDelegate.h"
-#import "BITHockeyManagerDelegate.h"
 #import "NSApplicationDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, BCMASEmailWindowController, ECLogManagerMacUISupport, MSIOSConnectionController, MSLocalWebServer, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginCommandSpecifier, MSPluginManager, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSMutableArray, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, NSURL;
+@class BCLicenseManager, BCMASEmailWindowController, ECLogManagerMacUISupport, MSCrashLogManager, MSIOSConnectionController, MSLocalWebServer, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, MSReleaseNotesWindowController, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer;
 
-@interface AppController : NSObject <NSApplicationDelegate, BITHockeyManagerDelegate, BITCrashManagerDelegate, NSWindowDelegate, NSMenuDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate>
 {
     id shapesMenu;
     NSMenuItem *pluginsMenuItem;
@@ -27,34 +25,30 @@
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
     MSLocalWebServer *_localServer;
+    MSCrashLogManager *_crashLogManager;
+    MSPluginManagerWithActions *_pluginManager;
     MSReleaseNotesWindowController *_releaseNotesWindowController;
     NSString *_scriptPath;
-    NSURL *_crashLogURL;
-    NSMutableArray *_crashLog;
-    MSPluginCommandSpecifier *_lastRunPluginSpecifier;
-    MSPluginCommand *_lastRunPluginScriptCommand;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     BCLicenseManager *_licenseManager;
     MSPersistentAssetCollection *_globalAssets;
-    MSPluginManager *_pluginManager;
     ECLogManagerMacUISupport *_logSupport;
+    id _lastRunPlugin;
     BCMASEmailWindowController *_masEmailController;
 }
 
 + (id)licenseManager;
 + (id)rvContext;
 @property(retain, nonatomic) BCMASEmailWindowController *masEmailController; // @synthesize masEmailController=_masEmailController;
+@property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
-@property(retain, nonatomic) MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
-@property(retain, nonatomic) MSPluginCommand *lastRunPluginScriptCommand; // @synthesize lastRunPluginScriptCommand=_lastRunPluginScriptCommand;
-@property(retain, nonatomic) MSPluginCommandSpecifier *lastRunPluginSpecifier; // @synthesize lastRunPluginSpecifier=_lastRunPluginSpecifier;
-@property(retain, nonatomic) NSMutableArray *crashLog; // @synthesize crashLog=_crashLog;
-@property(retain, nonatomic) NSURL *crashLogURL; // @synthesize crashLogURL=_crashLogURL;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(retain, nonatomic) MSReleaseNotesWindowController *releaseNotesWindowController; // @synthesize releaseNotesWindowController=_releaseNotesWindowController;
+@property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
+@property(retain, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(retain, nonatomic) MSLocalWebServer *localServer; // @synthesize localServer=_localServer;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
@@ -62,24 +56,21 @@
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
-- (id)crashLogText;
-- (void)addToCrashLog:(id)arg1;
 - (void)waitForResourceMigrationToFinish;
 - (void)migrateResources:(id)arg1;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshCurrentDocument;
 - (void)visitDocumentation:(id)arg1;
-- (void)openPluginPreferences:(id)arg1;
-- (void)runLastScriptAction:(id)arg1;
-- (void)runCustomScriptAction:(id)arg1;
-- (void)revealPlugin:(id)arg1;
-- (void)editPlugin:(id)arg1;
-- (void)runPlugin:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
-- (id)lastRunScript;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)checkMASMigration;
+- (void)refreshDocumentOverlayAfterDefaultsChange;
+- (void)toggleLayerHighlight:(id)arg1;
+- (void)toggleSelection:(id)arg1;
+- (void)togglePixelLines:(id)arg1;
+- (void)toggleAlignmentGuides:(id)arg1;
+- (void)toggleArtboardShadow:(id)arg1;
 - (void)buy:(id)arg1;
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
@@ -87,7 +78,7 @@
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)openPreferencesWindow:(id)arg1;
 - (void)documentWillClose:(id)arg1;
-- (void)revealPluginsFolderInFinder:(id)arg1;
+- (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
 - (id)templateLibraryPath;
 - (void)updateTemplateMenu:(id)arg1;
@@ -113,21 +104,31 @@
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
+- (void)scriptingMenuAction:(id)arg1;
+- (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
 - (id)runPluginScript:(id)arg1;
 - (id)runPluginAtURL:(id)arg1;
 - (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
 - (id)runPluginCommand:(id)arg1;
-- (id)pluginContext;
+- (id)targetDocumentForPluginCommand;
+- (id)pluginContextForDocument:(id)arg1;
 - (id)evaluateScript:(id)arg1;
 - (void)buildPluginsMenu:(id)arg1;
+- (void)revealPlugins:(id)arg1;
+- (void)editPlugins:(id)arg1;
+- (void)openPluginPreferences:(id)arg1;
+- (void)runLastScriptAction:(id)arg1;
+- (void)runCustomScriptAction:(id)arg1;
+- (void)revealPlugin:(id)arg1;
+- (void)runPlugin:(id)arg1;
+- (id)lastRun;
+- (void)rememberLastRun:(id)arg1;
 - (BOOL)isSparkleUsed;
 - (void)checkForUpdates:(id)arg1;
-- (id)applicationLogForCrashManager:(id)arg1;
 - (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
-- (void)stopCheckingForUpdates;
-- (void)checkForUpdatesAndCrashes;
+- (void)checkForUpdates;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

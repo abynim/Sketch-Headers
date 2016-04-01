@@ -6,25 +6,29 @@
 
 #import "MSImmutableStyledLayer.h"
 
-@class NSTextStorage;
+@class MSAttributedString, MSImageData;
 
 @interface _MSImmutableTextLayer : MSImmutableStyledLayer
 {
+    MSAttributedString *_attributedString;
     BOOL _automaticallyDrawOnUnderlyingPath;
     BOOL _dontSynchroniseWithSymbol;
+    struct CGRect _glyphBounds;
     BOOL _heightIsClipped;
-    NSTextStorage *_storage;
+    long long _lineSpacingBehaviour;
+    MSImageData *_preview;
     long long _textBehaviour;
-    BOOL _usesNewLineSpacingBehaviour;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) BOOL usesNewLineSpacingBehaviour; // @synthesize usesNewLineSpacingBehaviour=_usesNewLineSpacingBehaviour;
 @property(nonatomic) long long textBehaviour; // @synthesize textBehaviour=_textBehaviour;
-@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
+@property(retain, nonatomic) MSImageData *preview; // @synthesize preview=_preview;
+@property(nonatomic) long long lineSpacingBehaviour; // @synthesize lineSpacingBehaviour=_lineSpacingBehaviour;
 @property(nonatomic) BOOL heightIsClipped; // @synthesize heightIsClipped=_heightIsClipped;
+@property(nonatomic) struct CGRect glyphBounds; // @synthesize glyphBounds=_glyphBounds;
 @property(nonatomic) BOOL dontSynchroniseWithSymbol; // @synthesize dontSynchroniseWithSymbol=_dontSynchroniseWithSymbol;
 @property(nonatomic) BOOL automaticallyDrawOnUnderlyingPath; // @synthesize automaticallyDrawOnUnderlyingPath=_automaticallyDrawOnUnderlyingPath;
+@property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void).cxx_destruct;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

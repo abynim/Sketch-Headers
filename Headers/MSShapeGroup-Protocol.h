@@ -10,7 +10,6 @@
 
 @protocol MSShapeGroup <_MSShapeGroup>
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
-@property(readonly, nonatomic) BOOL isEditingChild;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;

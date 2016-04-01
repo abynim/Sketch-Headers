@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHViewController.h"
+#import "NSViewController.h"
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
@@ -14,7 +14,7 @@
 
 @class BCPopover, MSColorPreviewButton, NSArray, NSArrayController, NSString, NSView;
 
-@interface MSStylePartInspectorViewController : CHViewController <NSPopoverDelegate, MSSectionProtocol, NSWindowDelegate, BCPopoverDelegate, MSColorInspectorDelegate>
+@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSSectionProtocol, NSWindowDelegate, BCPopoverDelegate, MSColorInspectorDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;

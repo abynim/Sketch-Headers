@@ -12,6 +12,7 @@
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
+    BOOL _includeInCloudUpload;
     MSColor *_backgroundColor;
     MSSimpleGrid *_grid;
     MSRulerData *_horizontalRulerData;
@@ -19,18 +20,11 @@
     MSRulerData *_verticalRulerData;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-@property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
-@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -45,15 +39,25 @@
 - (id)primitiveGrid;
 - (void)setPrimitiveBackgroundColor:(id)arg1;
 - (id)primitiveBackgroundColor;
+- (void)setPrimitiveIncludeInCloudUpload:(BOOL)arg1;
+- (BOOL)primitiveIncludeInCloudUpload;
 - (void)setPrimitiveIncludeBackgroundColorInExport:(BOOL)arg1;
 - (BOOL)primitiveIncludeBackgroundColorInExport;
 - (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
 - (BOOL)primitiveHasBackgroundColor;
+@property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 - (id)verticalRulerDataGeneric;
+@property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
 - (id)layoutGeneric;
+@property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 - (id)horizontalRulerDataGeneric;
+@property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 - (id)gridGeneric;
+@property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (id)backgroundColorGeneric;
+@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
+@property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
+@property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

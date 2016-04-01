@@ -21,7 +21,14 @@
 - (void)updateColorCounter:(id)arg1;
 - (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
+- (id)addNoisePatternLink:(id)arg1;
+- (id)addPatternLink:(id)arg1;
+- (id)addStretchedPattern:(id)arg1 exporter:(id)arg2;
+- (id)addFilledPattern:(id)arg1 exporter:(id)arg2;
+- (id)addTiledPattern:(id)arg1 scale:(double)arg2 exporter:(id)arg3;
+- (void)addUseWrapperToPattern:(id)arg1 withImageWrapper:(id)arg2 scaleX:(double)arg3 scaleY:(double)arg4;
+- (id)addImageDefinition:(id)arg1 exporter:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric;

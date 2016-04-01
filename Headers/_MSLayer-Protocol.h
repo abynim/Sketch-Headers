@@ -6,7 +6,7 @@
 
 #import "MSModelBase.h"
 
-@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class NSDictionary, NSString;
 
 @protocol _MSLayer <MSModelBase>
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
@@ -14,7 +14,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) long long layerListExpandedType;

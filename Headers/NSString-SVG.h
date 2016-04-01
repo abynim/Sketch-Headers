@@ -7,7 +7,10 @@
 #import "NSString.h"
 
 @interface NSString (SVG)
-- (id)cssStyleAttributes;
++ (id)svgStringWithPercentageFractionalValue:(double)arg1;
++ (id)svgStringWithPercentageValue:(double)arg1;
++ (id)svgStringWithNumberValue:(double)arg1;
++ (id)svgStringWithPixelValue:(double)arg1;
 - (id)svgURL;
 @end
 

@@ -16,16 +16,24 @@
 
 + (unsigned long long)traits;
 + (id)defaultName;
+- (BOOL)canSkipAdvancedClipForStrokes;
 @property(readonly, nonatomic) BOOL hasNineSliceEnabled;
 - (id)NSImage;
 - (void)performInitWithCoder:(id)arg1;
+- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (void)migratePropertiesFromV75OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV61OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV59OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
+- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (void)addPathDefinitionToDocument:(id)arg1;
+- (id)imageElementWithAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addImageElementAttributes:(id)arg1 exporter:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
+- (BOOL)requiresPathDefinition:(id)arg1;
+- (id)svgStyle:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -39,10 +47,9 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) MSImageData *image;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
@@ -52,7 +59,7 @@
 @property(readonly, nonatomic) struct CGSize nineSliceScale;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

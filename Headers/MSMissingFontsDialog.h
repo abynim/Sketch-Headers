@@ -8,7 +8,7 @@
 
 #import "NSTableViewDataSource.h"
 
-@class NSArray, NSString, NSTableView, NSWindow;
+@class NSArray, NSButton, NSString, NSTableView, NSTextField, NSWindow;
 
 @interface MSMissingFontsDialog : NSWindowController <NSTableViewDataSource>
 {
@@ -16,8 +16,14 @@
     NSTableView *tableView;
     BOOL openDocumentAnyway;
     NSArray *_missingFonts;
+    NSTextField *_descriptionText;
+    NSButton *_cancelButton;
+    NSButton *_openButton;
 }
 
+@property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
+@property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) NSTextField *descriptionText; // @synthesize descriptionText=_descriptionText;
 @property(copy, nonatomic) NSArray *missingFonts; // @synthesize missingFonts=_missingFonts;
 - (void).cxx_destruct;
 - (void)dealloc;
@@ -25,7 +31,7 @@
 - (void)openAnyway:(id)arg1;
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
-- (BOOL)runPanelWithMissingFonts:(id)arg1;
+- (BOOL)runPanelWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

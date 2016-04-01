@@ -6,14 +6,16 @@
 
 #import "MSStyledLayer.h"
 
-@class NSTextStorage;
+@class MSAttributedString, MSImageData;
 
 @protocol _MSTextLayer <MSStyledLayer>
-@property(readonly, nonatomic) BOOL usesNewLineSpacingBehaviour;
 @property(readonly, nonatomic) long long textBehaviour;
-@property(readonly, nonatomic) NSTextStorage *storage;
+@property(readonly, nonatomic) MSImageData *preview;
+@property(readonly, nonatomic) long long lineSpacingBehaviour;
 @property(readonly, nonatomic) BOOL heightIsClipped;
+@property(readonly, nonatomic) struct CGRect glyphBounds;
 @property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol;
 @property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
+@property(readonly, nonatomic) MSAttributedString *attributedString;
 @end
 

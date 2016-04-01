@@ -14,9 +14,11 @@
     NSCursor *shapeCursor;
     MSShapePathLayer *_prototypeLayer;
     NSArray *_snapLines;
+    NSArray *_snapRects;
     struct CGRect _initialPrototypeRect;
 }
 
+@property(retain, nonatomic) NSArray *snapRects; // @synthesize snapRects=_snapRects;
 @property(nonatomic) struct CGRect initialPrototypeRect; // @synthesize initialPrototypeRect=_initialPrototypeRect;
 @property(retain, nonatomic) NSArray *snapLines; // @synthesize snapLines=_snapLines;
 @property(retain, nonatomic) MSShapePathLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
@@ -33,6 +35,8 @@
 - (id)performActionWithRect:(struct CGRect)arg1;
 - (id)imageName;
 - (void)handlerWillLoseFocus;
+- (void)addSnapRectsForImmutableGroup:(id)arg1 withAncestors:(id)arg2 toArray:(id)arg3;
+- (void)cacheSnapPointsInBackground;
 - (struct CGPoint)snapMouseToEdges:(struct CGPoint)arg1 guides:(id *)arg2;
 - (struct CGPoint)snapMouseAndShowSnapLines:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseAction.h"
+#import "MSDocumentAction.h"
 
-@interface MSRoundToPixelAction : MSBaseAction
+@interface MSRoundToPixelAction : MSDocumentAction
 {
 }
 
@@ -23,6 +23,10 @@
 - (unsigned long long)roundingModeForLayer:(id)arg1;
 - (unsigned long long)roundModeForShapeHandler;
 - (unsigned long long)roundingMode;
+- (id)imageName;
+- (id)tooltip;
+- (id)label;
+- (id)recipeName;
 - (BOOL)validate;
 - (void)roundToPixel:(id)arg1;
 

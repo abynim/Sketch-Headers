@@ -11,19 +11,19 @@
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSLineHeightTextFieldCell, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
+@class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
     NSView *_basicView;
-    NSView *_symbolExclusionView;
+    NSView *_missingFontsView;
     NSButton *_fontFamilyButton;
+    NSButton *_missingFontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
     NSComboBox *_fontSizeField;
     MSColorPreviewButton *_colorPickerButton;
     NSTextField *_kerningField;
-    NSTextField *_lineHeightField;
-    MSLineHeightTextFieldCell *_lineHeightCell;
+    MSUpDownTextField *_lineHeightField;
     NSTextField *_paragraphHeightField;
     NSSegmentedControl *_alignmentButton;
     BCPopover *_popover;
@@ -33,23 +33,23 @@
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
-@property(retain, nonatomic) MSLineHeightTextFieldCell *lineHeightCell; // @synthesize lineHeightCell=_lineHeightCell;
-@property(retain, nonatomic) NSTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
+@property(retain, nonatomic) MSUpDownTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
 @property(retain, nonatomic) NSTextField *kerningField; // @synthesize kerningField=_kerningField;
 @property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(retain, nonatomic) NSComboBox *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
+@property(retain, nonatomic) NSButton *missingFontFamilyButton; // @synthesize missingFontFamilyButton=_missingFontFamilyButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
-@property(retain, nonatomic) NSView *symbolExclusionView; // @synthesize symbolExclusionView=_symbolExclusionView;
+@property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
+- (BOOL)hasMissingFonts;
 - (id)views;
 - (id)textStorages;
-- (BOOL)textLayerContainedInSymbol;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;
@@ -65,7 +65,9 @@
 - (void)alignmentButtonAction:(id)arg1;
 - (id)currentView;
 - (void)paragraphHeightAction:(id)arg1;
+- (double)valueForUpDownTextField:(id)arg1;
 - (void)lineHeightAction:(id)arg1;
+- (void)maintainTextLayerBaselinesInBlock:(CDUnknownBlockType)arg1;
 - (void)kerningAction:(id)arg1;
 - (void)putFocusOnTextView;
 - (void)colorInspectorWillClose:(id)arg1;
@@ -83,6 +85,7 @@
 - (double)lineHeight;
 - (void)reloadLineHeightField;
 - (void)reloadData;
+- (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;
 - (void)awakeFromNib;
 

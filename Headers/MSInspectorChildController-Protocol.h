@@ -6,7 +6,10 @@
 
 #import "NSObject.h"
 
+@class NSArray;
+
 @protocol MSInspectorChildController <NSObject>
+- (void)selectionDidChangeTo:(NSArray *)arg1;
 - (BOOL)shouldHideExportBar;
 - (void)prepareForDisplay;
 @end

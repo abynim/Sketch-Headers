@@ -11,40 +11,38 @@
 #import "MSLayerContainment.h"
 #import "MSSharedObjectContainerDelegate.h"
 
-@class MSImageCollection, MSPage, NSArray, NSObject<NSCopying><NSCoding>, NSString, NSUndoManager;
+@class MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString, NSUndoManager;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSDocumentData, MSSharedObjectContainerDelegate>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSUndoManager *_undoManager;
     id <MSDocumentDataDelegate> _delegate;
-    long long _savedVersion;
-    NSString *_savedVariant;
-    NSString *_savedBy;
+    NSDictionary *_metadata;
 }
 
 + (void)initialize;
+@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
-@property(retain, nonatomic) NSString *savedBy; // @synthesize savedBy=_savedBy;
-@property(retain, nonatomic) NSString *savedVariant; // @synthesize savedVariant=_savedVariant;
-@property(nonatomic) long long savedVersion; // @synthesize savedVersion=_savedVersion;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
 - (void)performUndoAction:(CDUnknownBlockType)arg1;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
-- (BOOL)wasSavedByTestVersion;
-- (BOOL)wasSavedByOldVersion;
+- (void)replaceExistingCreationMetadata;
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
 @property(readonly, nonatomic) MSImageCollection *images;
-- (id)rootLayersForShareadObjectContainer:(id)arg1 includingSymbols:(BOOL)arg2;
+- (id)rootLayersForSharedObjectContainer:(id)arg1;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 - (void)enumerateSharedObjectContainers:(CDUnknownBlockType)arg1;
-- (BOOL)syncSharedObjects:(id)arg1;
+- (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
+- (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
+- (id)symbolWithID:(id)arg1;
+- (id)allSymbols;
+- (id)allArtboards;
 - (id)layerWithID:(id)arg1;
-- (id)layersSharingStyle:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)deselectAllLayers;
 - (void)changeSelectionTo:(id)arg1;
@@ -58,6 +56,7 @@
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 didAddObject:(id)arg2;
 - (id)nameForNewPage;
+- (id)symbolsPageOrCreateIfNecessary;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
 - (void)removePage:(id)arg1;
@@ -67,8 +66,12 @@
 - (void)dealloc;
 - (void)objectDidChange;
 - (id)documentData;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)objectDidInit;
+- (void)performInitEmptyObject;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -84,11 +87,12 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
-- (id)usedFontNames;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
 @property(readonly, copy, nonatomic) NSString *cloudShareID;
+@property(readonly, nonatomic) NSString *cloudShareURL;
+@property(readonly, nonatomic) NSString *cloudUserID;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

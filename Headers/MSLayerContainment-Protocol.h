@@ -7,7 +7,7 @@
 @class MSLayer, NSArray;
 
 @protocol MSLayerContainment
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(void (^)(id, unsigned long long, char *))arg2;
+- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(void (^)(id, char *))arg2;
 - (void)enumerateLayers:(void (^)(id))arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;

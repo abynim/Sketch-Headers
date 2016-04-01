@@ -10,7 +10,7 @@
 + (id)bitmapImageRepWithSize:(struct CGSize)arg1 flags:(unsigned long long)arg2 colorSpace:(id)arg3 drawingBlock:(CDUnknownBlockType)arg4;
 - (BOOL)hasTransparentPixels;
 - (id)bitSafeBitmapImageRep;
-- (id)bitmapImageRepByFlippingVerticalFlags:(unsigned long long)arg1;
+- (id)bitmapImageRepByFlippingVertical;
 - (id)bitmapImageRepByCroppingToRect:(struct CGRect)arg1;
 - (struct CGRect)bitSafeFastRectForTrimming:(char *)arg1;
 - (struct CGRect)bitSafeFastRectForTrimming;

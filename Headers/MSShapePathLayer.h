@@ -19,21 +19,16 @@
 + (id)shapeWithShapePath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void)flatten;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
-- (BOOL)isLayerExportable;
 - (BOOL)canBeContainedByGroup;
 - (BOOL)isLine;
 - (BOOL)calculateHasBlendedLayer;
-- (void)prepareObjectCopy:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndDecorationType:(unsigned long long)arg1;
 - (void)setStartDecorationType:(unsigned long long)arg1;
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
-- (void)setRotation:(double)arg1;
-- (void)removeFromParent;
-- (void)invalidateCache;
-- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isPartOfClippingMask;
 - (void)hideSelectionTemporarily;
 @property(nonatomic) BOOL isClosed;
@@ -42,10 +37,8 @@
 - (struct CGPoint)relativePoint:(struct CGPoint)arg1;
 - (struct CGPoint)absolutePoint:(struct CGPoint)arg1;
 - (void)simplify;
-- (void)setFrameInArtboard:(struct CGRect)arg1 insertingIntoGroup:(id)arg2;
 - (struct CGPoint)pointCenteredAfterPointIndex:(long long)arg1;
 @property(retain, nonatomic) NSBezierPath *bezierPath;
-- (BOOL)handleDoubleClick;
 - (id)bezierPathWithTransforms;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 - (void)transformPointsToNewRect:(struct CGRect)arg1;
@@ -54,7 +47,6 @@
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)adjustFrameAfterEdit;
 - (void)reversePath;
-- (BOOL)shouldDrawSelection;
 - (BOOL)editable;
 - (void)resetPoints;
 - (void)removePathsAndReset;
@@ -62,16 +54,17 @@
 - (void)closeLastPath:(BOOL)arg1;
 - (void)performInitEmptyObject;
 - (id)usedStyle;
-- (id)handlerName;
 - (BOOL)canBeHidden;
+- (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
+- (id)handlerName;
+- (BOOL)handleDoubleClick;
 - (void)toggleClosePath;
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
 - (id)bezierPathForHover;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (BOOL)shouldCachePreview;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;
@@ -83,7 +76,6 @@
 - (BOOL)booleanOperationCanBeReset;
 - (BOOL)supportsInnerOuterBorders;
 - (id)embedInShapeGroup;
-- (BOOL)canBePartOfSymbol;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -96,10 +88,9 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
@@ -107,7 +98,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric; // @dynamic pathGeneric;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;

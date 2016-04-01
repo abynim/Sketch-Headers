@@ -10,6 +10,7 @@
 
 @interface _MSImmutablePage : MSImmutableLayerGroup
 {
+    BOOL _includeInCloudUpload;
     struct CGPoint _scrollOrigin;
     double _zoomValue;
     MSImmutableSimpleGrid *_grid;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) MSImmutableSimpleGrid<MSSimpleGrid> *grid; // @synthesize grid=_grid;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
+@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void).cxx_destruct;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

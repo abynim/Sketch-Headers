@@ -19,18 +19,11 @@
     struct CGPoint _to;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) struct CGPoint to; // @synthesize to=_to;
-@property(retain, nonatomic) MSArray *stops; // @synthesize stops=_stops;
-@property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
-@property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
-@property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
-@property(nonatomic) struct CGPoint from; // @synthesize from=_from;
-@property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -49,7 +42,14 @@
 - (struct CGPoint)primitiveFrom;
 - (void)setPrimitiveElipseLength:(double)arg1;
 - (double)primitiveElipseLength;
+@property(nonatomic) struct CGPoint to; // @synthesize to=_to;
+@property(retain, nonatomic) MSArray *stops; // @synthesize stops=_stops;
 - (id)stopsGeneric;
+@property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
+@property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
+@property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
+@property(nonatomic) struct CGPoint from; // @synthesize from=_from;
+@property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

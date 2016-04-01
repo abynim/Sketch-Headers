@@ -6,6 +6,9 @@
 
 #import "_MSDocumentData.h"
 
+@class NSDictionary;
+
 @protocol MSDocumentData <_MSDocumentData>
+@property(readonly, nonatomic) NSDictionary *metadata;
 @end
 

@@ -18,7 +18,6 @@
 + (void)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 fromHexValue:(id)arg4;
 + (id)hexValueForRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
 + (id)exportingColorSpace;
-+ (id)screenColorSpace;
 + (id)colorWithNSColor:(id)arg1;
 + (id)safeNSColor:(id)arg1;
 + (id)availableRGBColorSpaces;
@@ -26,7 +25,6 @@
 + (id)blackColor;
 + (id)whiteColor;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
-+ (void)setForcedColorSpace:(id)arg1;
 + (id)colorWithRGBADictionary:(id)arg1;
 + (id)colorFromSVGColor:(id)arg1;
 + (id)colorWithSVGString:(id)arg1;
@@ -34,8 +32,6 @@
 - (BOOL)isBlack;
 - (BOOL)isWhite;
 - (BOOL)fuzzyIsEqual:(id)arg1;
-- (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
-- (id)stringValueWithAlpha:(BOOL)arg1;
 - (id)hexValue;
 @property(readonly, nonatomic) double brightness;
 @property(readonly, nonatomic) double saturation;

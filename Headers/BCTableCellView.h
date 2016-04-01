@@ -57,6 +57,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)refreshPreviewImages;
 - (void)internalRefreshPreviewImages;
+- (id)addSliceIconToImage:(id)arg1;
 @property(readonly, nonatomic) id <BCOutlineViewNode> node;
 - (void)prepareForReuse;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;

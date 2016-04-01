@@ -14,6 +14,7 @@
 {
 }
 
+- (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, nonatomic) double blurRadius;
@@ -29,5 +30,6 @@
 @property(readonly, nonatomic) double offsetY;
 @property(readonly, nonatomic) double spread;
 @property(readonly) Class superclass;
+
 @end
 

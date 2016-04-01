@@ -12,12 +12,10 @@
     double _radius;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) double radius; // @synthesize radius=_radius;
-@property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -26,6 +24,8 @@
 - (double)primitiveRadius;
 - (void)setPrimitiveNumberOfPoints:(long long)arg1;
 - (long long)primitiveNumberOfPoints;
+@property(nonatomic) double radius; // @synthesize radius=_radius;
+@property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

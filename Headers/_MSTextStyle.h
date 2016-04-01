@@ -10,21 +10,21 @@
 
 @interface _MSTextStyle : MSModelBase
 {
-    NSDictionary *_attributes;
+    NSDictionary *_encodedAttributes;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(copy, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveAttributes:(id)arg1;
-- (id)primitiveAttributes;
+- (void)setPrimitiveEncodedAttributes:(id)arg1;
+- (id)primitiveEncodedAttributes;
+@property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

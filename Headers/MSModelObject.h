@@ -7,28 +7,27 @@
 #import "NSObject.h"
 
 #import "MSModelObject.h"
-#import "NSCopying.h"
 
-@class MSModelObjectCache, NSObject<NSCopying><NSCoding>, NSString;
+@class MSModelObjectCache, MSModelObjectCacheGeneration, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSModelObject : NSObject <NSCopying, MSModelObject>
+@interface MSModelObject : NSObject <MSModelObject>
 {
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObjectCache *_cache;
     struct NSObject *_objectID;
 }
 
++ (id)generateObjectID;
 + (id)defaultName;
++ (id)sharedModelCache;
 + (void)clearInstanceCount;
 + (void)printInstanceCount:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL hasCache;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)copyIncludingObjectIDS;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
+- (BOOL)propertiesAreEqual:(id)arg1;
 - (id)primitiveObjectID;
 - (void)setPrimitiveObjectID:(id)arg1;
 @property(copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID; // @synthesize objectID=_objectID;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
 - (BOOL)hasObjectID;
 - (id)generateObjectID;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

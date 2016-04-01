@@ -6,37 +6,39 @@
 
 #import "NSObject.h"
 
-@class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSMutableString, NSString, NSTimer;
+@class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableString, NSString;
 
 @interface MSPluginCommand : NSObject
 {
     MSPluginCommandSpecifier *_commandSpecifier;
+    BOOL _errorInScript;
     BOOL _skipNextLog;
     NSString *_identifier;
     MSPluginScript *_script;
     NSString *_name;
-    NSString *_handler;
+    NSDictionary *_handlers;
     NSString *_shortcut;
     MSPluginBundle *_pluginBundle;
     ECASLClient *_logger;
     NSMutableString *_log;
     COScript *_session;
-    NSTimer *_sessionTimer;
-    double _lastTimerInterval;
+    id _api;
+    NSString *_executingScript;
 }
 
 + (id)rawShortcutStringForPluginAtURL:(id)arg1;
 + (id)legacyCommandFromScriptAtURL:(id)arg1;
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
+@property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
-@property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
-@property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
+@property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
+@property(retain, nonatomic) id api; // @synthesize api=_api;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableString *log; // @synthesize log=_log;
 @property(retain, nonatomic) ECASLClient *logger; // @synthesize logger=_logger;
 @property(nonatomic) __weak MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(readonly, nonatomic) NSString *shortcut; // @synthesize shortcut=_shortcut;
-@property(readonly, copy, nonatomic) NSString *handler; // @synthesize handler=_handler;
+@property(readonly, copy, nonatomic) NSDictionary *handlers; // @synthesize handlers=_handlers;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSPluginScript *script; // @synthesize script=_script;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -50,13 +52,26 @@
 - (id)menuItemWithAction:(SEL)arg1;
 - (unsigned long long)shortcutModifiers;
 - (id)shortcutKey;
+- (void)testDeprecationLogging;
 @property(readonly, nonatomic) MSPluginCommandSpecifier *commandSpecifier;
 - (void)error:(id)arg1;
 - (void)print:(id)arg1;
 - (void)coscript:(id)arg1 hadError:(id)arg2 onLineNumber:(long long)arg3 atSourceURL:(id)arg4;
-- (void)purgeCompletedSession;
-- (id)run:(id)arg1;
-- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handler:(id)arg4 shortcut:(id)arg5;
+- (id)executeScript:(id)arg1;
+- (id)executeScriptAtURL:(id)arg1;
+- (BOOL)tearDownIfFinished;
+- (id)runHandlerWithKey:(id)arg1 context:(id)arg2 manager:(id)arg3;
+- (id)run:(id)arg1 manager:(id)arg2;
+- (void)runHandler:(id)arg1 context:(id)arg2;
+- (id)fullContextFromContext:(id)arg1 url:(id)arg2;
+- (void)tearDownSession;
+- (void)setUpSessionWithContext:(id)arg1;
+- (void)newSessionForURL:(id)arg1;
+- (void)loadAPISupport;
+- (void)stopCapturingDeprecatedChannel:(id)arg1;
+- (id)startCapturingDeprecatedChannel;
+- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5;
+- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 runHandler:(id)arg4;
 
 @end
 

@@ -11,6 +11,8 @@
 @interface _MSImmutableDocumentData : MSImmutableModelBase
 {
     NSString *_cloudShareID;
+    NSString *_cloudShareURL;
+    NSString *_cloudUserID;
     unsigned long long _currentPageIndex;
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
@@ -30,6 +32,8 @@
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(retain, nonatomic) NSString *cloudUserID; // @synthesize cloudUserID=_cloudUserID;
+@property(retain, nonatomic) NSString *cloudShareURL; // @synthesize cloudShareURL=_cloudShareURL;
 @property(copy, nonatomic) NSString *cloudShareID; // @synthesize cloudShareID=_cloudShareID;
 - (void).cxx_destruct;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;

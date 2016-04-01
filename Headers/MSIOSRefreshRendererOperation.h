@@ -6,16 +6,18 @@
 
 #import "NSOperation.h"
 
-@class MSImmutableArtboardGroup, MSImmutablePage;
+@class MSImmutableArtboardGroup, MSImmutableDocumentData, MSImmutablePage;
 
 @interface MSIOSRefreshRendererOperation : NSOperation
 {
     MSImmutableArtboardGroup *_artboardCopy;
     MSImmutablePage *_pageCopy;
+    MSImmutableDocumentData *_documentCopy;
     struct CGRect _rect;
 }
 
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
+@property(retain, nonatomic) MSImmutableDocumentData *documentCopy; // @synthesize documentCopy=_documentCopy;
 @property(retain, nonatomic) MSImmutablePage *pageCopy; // @synthesize pageCopy=_pageCopy;
 @property(retain, nonatomic) MSImmutableArtboardGroup *artboardCopy; // @synthesize artboardCopy=_artboardCopy;
 - (void).cxx_destruct;

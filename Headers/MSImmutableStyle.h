@@ -8,13 +8,17 @@
 
 #import "MSStyle.h"
 
-@class MSImmutableStyleBorder, MSImmutableStyleFill, MSImmutableStyleShadow, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableStyleBorder, MSImmutableStyleFill, MSImmutableStyleInnerShadow, MSImmutableStyleShadow, NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableStyle : _MSImmutableStyle <MSStyle>
 {
 }
 
-@property(readonly, nonatomic) double thickestOuterStroke;
+@property(readonly, nonatomic) NSArray *enabledInnerShadows;
+@property(readonly, nonatomic) NSArray *enabledShadows;
+@property(readonly, nonatomic) NSArray *enabledBorders;
+@property(readonly, nonatomic) NSArray *enabledFills;
+@property(readonly, nonatomic) double outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasBlending;
 @property(readonly, nonatomic) id <MSStyleFill> fillGeneric;
@@ -22,20 +26,30 @@
 @property(readonly, nonatomic) id <MSStyleBorder> borderGeneric;
 @property(readonly, nonatomic) MSImmutableStyleBorder *border;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
+@property(readonly, nonatomic) BOOL hasEnabledInnerShadow;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
+@property(readonly, nonatomic) MSImmutableStyleBorder *firstEnabledBorder;
 @property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
+@property(readonly, nonatomic) MSImmutableStyleFill *firstEnabledFill;
+@property(readonly, nonatomic) MSImmutableStyleInnerShadow *firstEnabledInnerShadow;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
+- (void)clearTextStyle;
 - (id)renderBitmapEffects:(id)arg1;
-- (unsigned long long)maxLevels;
-- (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2;
-- (id)filtersForBlur:(id)arg1 exporter:(id)arg2;
-- (id)filtersForShadow:(id)arg1 exporter:(id)arg2 isInner:(BOOL)arg3 index:(unsigned long long)arg4;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2 level:(unsigned long long)arg3 defaultNone:(BOOL)arg4;
-- (id)itemFromCollection:(id)arg1 atLevel:(unsigned long long)arg2;
+- (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 position:(unsigned long long)arg3;
+- (void)addBlurFilter:(id)arg1 exporter:(id)arg2;
+- (void)addShadowFilters:(id)arg1 includeSource:(BOOL)arg2 attributes:(id)arg3 exporter:(id)arg4;
+- (id)borderAtElementPosition:(long long)arg1 exporter:(id)arg2;
+- (id)fillAtElementPosition:(long long)arg1 exporter:(id)arg2;
+- (unsigned long long)internalNumberOfElements;
+- (BOOL)canCombineLastFillWithFirstBorder;
+@property(readonly, nonatomic) BOOL requiresPathDefinition;
+- (BOOL)hasNonCenteredBorder;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2 elementPosition:(unsigned long long)arg3;
+- (unsigned long long)numberOfElementsWithExporter:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSStyleBlur> blurGeneric; // @dynamic blurGeneric;

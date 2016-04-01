@@ -9,15 +9,35 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
+    NSDictionary *_metadata;
+    NSDictionary *_symbolsIndexedByID;
 }
 
-+ (id)documentDataFromData:(id)arg1 version:(long long)arg2 error:(id *)arg3;
++ (id)documentDataFromData:(id)arg1 metadata:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+@property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
+@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+- (void).cxx_destruct;
+- (id)layerWithID:(id)arg1;
+- (BOOL)wasSavedByTestVersion;
+- (BOOL)wasSavedByOldVersion;
+- (id)usedFontNames;
 - (void)decodePropertiesWithCoder:(id)arg1;
+- (id)symbolWithID:(id)arg1;
+- (void)objectDidInit;
 - (id)defaultPagesArray;
+- (void)performInitEmptyObject;
+- (void)performInitWithMutableModelObject:(id)arg1;
+- (id)newPageForMigratedSymbols:(id)arg1;
+- (void)arrangeMigratedSymbolsInGrid:(id)arg1;
+- (void)stripRedundantOverridesFromInstances:(id)arg1 ofSymbol:(id)arg2;
+- (void)stripRedundantOverridesFromInstancesOfSymbols:(id)arg1;
+- (id)migratedSymbolFromSymbol:(id)arg1 group:(id)arg2;
+- (id)migratedSymbolsFromOldSymbols:(id)arg1;
+- (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
@@ -36,7 +56,6 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
-- (id)usedFontNames;
 - (void)trackColors:(id)arg1;
 - (id)colorFinderQueue;
 - (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
@@ -44,6 +63,8 @@
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
 @property(readonly, copy, nonatomic) NSString *cloudShareID;
+@property(readonly, nonatomic) NSString *cloudShareURL;
+@property(readonly, nonatomic) NSString *cloudUserID;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

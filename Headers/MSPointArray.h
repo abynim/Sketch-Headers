@@ -36,6 +36,7 @@
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (void)insertPoint:(struct CGPoint)arg1 atIndex:(unsigned long long)arg2;
 - (void)addPoint:(struct CGPoint)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)init;
 - (id)treeAsDictionary;
 

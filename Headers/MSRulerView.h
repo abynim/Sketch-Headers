@@ -36,7 +36,6 @@
 - (void).cxx_destruct;
 - (void)endUndo;
 - (void)beginUndo;
-- (void)dealloc;
 - (long long)rulerHeight;
 - (long long)rulerLength;
 - (double)zoomValue;
@@ -88,7 +87,7 @@
 - (Class)rulerViewLayerClass;
 - (id)makeRulerViewLayer;
 - (void)calculateContentsScale;
-- (void)windowDidChangeScreen:(id)arg1;
+- (void)viewDidChangeBackingProperties;
 - (void)awakeFromNib;
 
 @end

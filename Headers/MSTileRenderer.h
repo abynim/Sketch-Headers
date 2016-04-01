@@ -6,15 +6,15 @@
 
 #import "NSObject.h"
 
-@class MSImmutablePage, MSRenderingContext;
+@class MSImmutableDocumentData, MSImmutablePage, MSRenderingContext;
 
 @interface MSTileRenderer : NSObject
 {
     BOOL _shouldDrawPixelated;
-    BOOL _disableSubpixelAntialiasing;
     BOOL _drawDottedDirtyRect;
     BOOL _cancelled;
     MSImmutablePage *_immutablePage;
+    MSImmutableDocumentData *_document;
     double _backingScale;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     double _zoomValue;
@@ -29,10 +29,10 @@
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
-@property(nonatomic) BOOL disableSubpixelAntialiasing; // @synthesize disableSubpixelAntialiasing=_disableSubpixelAntialiasing;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
 @property(nonatomic) struct CGRect tileRect; // @synthesize tileRect=_tileRect;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
 - (void).cxx_destruct;
 - (void)prepareContext:(struct CGContext *)arg1;

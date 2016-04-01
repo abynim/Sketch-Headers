@@ -54,6 +54,7 @@
 - (void)setY:(double)arg1;
 - (void)setX:(double)arg1;
 - (void)setHeight:(double)arg1;
+- (void)setPrimitiveHeight:(double)arg1;
 - (id)delegate;
 - (void)setWidth:(double)arg1;
 - (BOOL)shouldConstrainProportions;

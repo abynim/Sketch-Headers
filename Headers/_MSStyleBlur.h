@@ -14,14 +14,10 @@
     struct CGPoint _center;
 }
 
++ (BOOL)allowsFaulting;
 + (Class)immutableClass;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(nonatomic) double radius; // @synthesize radius=_radius;
-@property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
-@property(nonatomic) struct CGPoint center; // @synthesize center=_center;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -34,6 +30,10 @@
 - (double)primitiveMotionAngle;
 - (void)setPrimitiveCenter:(struct CGPoint)arg1;
 - (struct CGPoint)primitiveCenter;
+@property(nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(nonatomic) double radius; // @synthesize radius=_radius;
+@property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
+@property(nonatomic) struct CGPoint center; // @synthesize center=_center;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

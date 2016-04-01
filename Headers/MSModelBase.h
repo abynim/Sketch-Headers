@@ -7,18 +7,21 @@
 #import "MSModelObject.h"
 
 #import "MSModelBase.h"
+#import "NSCopying.h"
 
 @class MSDocumentData, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSModelBase : MSModelObject <MSModelBase>
+@interface MSModelBase : MSModelObject <NSCopying, MSModelBase>
 {
     id _cachedImmutableModelObject;
+    BOOL _isFault;
     MSModelBase *_parentObject;
     MSDocumentData *_documentData;
 }
 
-+ (void)performWithoutUpdateEvents:(CDUnknownBlockType)arg1;
 + (Class)immutableClass;
++ (BOOL)allowsFaulting;
+@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (id)undoManager;
@@ -26,26 +29,26 @@
 - (void)setUndoActionName:(id)arg1;
 - (BOOL)isUndoing;
 - (void)registerUndoNamed:(id)arg1 action:(CDUnknownBlockType)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
 - (void)breakConnectionWith:(id)arg1;
 @property(nonatomic) __weak MSModelBase *parentObject; // @synthesize parentObject=_parentObject;
 - (id)parentGroupRecursive;
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
-- (void)invalidateCachedImmutableModelObjects;
+- (void)invalidateModelCacheGeneration;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
-- (id)copyIncludingObjectIDS;
-- (void)prepareCopy:(id)arg1;
-- (void)prepareObjectCopy:(id)arg1;
-- (id)copyEmpty;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)fireFaultIfNecessary;
+- (void)fireFault;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)init;
-- (void)performPostChangeTasksAndGenerateUpdates:(BOOL)arg1;
+- (void)performPostChangeTasksForProperty:(id)arg1;
 - (void)objectDidChange;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
+- (id)copyWithOptions:(unsigned long long)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

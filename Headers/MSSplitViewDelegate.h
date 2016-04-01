@@ -36,6 +36,8 @@
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (BOOL)dividerIndexBelongsToInspectorView:(long long)arg1;
 - (struct CGRect)splitView:(id)arg1 effectiveRect:(struct CGRect)arg2 forDrawnRect:(struct CGRect)arg3 ofDividerAtIndex:(long long)arg4;
+- (void)splitViewDidResizeSubviews:(id)arg1;
+@property(nonatomic) long long layerListWidth;
 - (void)awakeFromNib;
 
 // Remaining properties
