@@ -55,6 +55,7 @@
 @property(readonly, copy, nonatomic) NSArray *pluginSortDescriptors;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)viewDocumentation:(id)arg1;
+- (void)editCode:(id)arg1;
 - (void)revealInFinder:(id)arg1;
 - (void)toggleItemsEnabled:(id)arg1;
 - (void)toggleSelectedItemsEnabled;

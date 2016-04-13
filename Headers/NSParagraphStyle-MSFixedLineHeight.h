@@ -7,6 +7,6 @@
 #import "NSParagraphStyle.h"
 
 @interface NSParagraphStyle (MSFixedLineHeight)
-@property(readonly, nonatomic) double fixedLineHeight_MS;
+@property(readonly, nonatomic) double fixedLineHeight_ms;
 @end
 

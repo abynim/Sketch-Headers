@@ -23,18 +23,18 @@
 + (id)supportedPasteboardTypesForStyleCopying;
 - (void)setStyle:(id)arg1;
 - (id)usedStyle;
-- (id)layersSharingStyle:(id)arg1;
 - (BOOL)hasActiveBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
 - (BOOL)calculateHasBlendedLayer;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
+- (void)setStyleByPreservingSharedObjectReference:(id)arg1;
+- (id)sharedObject;
 - (BOOL)isSharedObject;
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
-- (id)sharedObjectOfType:(unsigned long long)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (void)copyStyleToPasteboard:(id)arg1;
@@ -51,8 +51,6 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -63,7 +61,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

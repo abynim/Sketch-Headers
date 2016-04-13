@@ -12,11 +12,13 @@
 {
     BOOL _honorSaveForWebPreference;
     NSColorSpace *_colorSpace;
+    CDUnknownBlockType _sliceCompletionBlock;
 }
 
 + (id)dataForRequest:(id)arg1 colorSpace:(id)arg2 honorSaveForWeb:(BOOL)arg3;
 + (id)dataForRequest:(id)arg1 colorSpace:(id)arg2;
 + (id)dataForRequest:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType sliceCompletionBlock; // @synthesize sliceCompletionBlock=_sliceCompletionBlock;
 @property(nonatomic) BOOL honorSaveForWebPreference; // @synthesize honorSaveForWebPreference=_honorSaveForWebPreference;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;

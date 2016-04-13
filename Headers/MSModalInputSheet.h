@@ -30,6 +30,7 @@
 - (void)cancel:(id)arg1;
 - (void)ok:(id)arg1;
 - (id)runPanelWithNibName:(id)arg1 ofType:(long long)arg2 initialString:(id)arg3 label:(id)arg4;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

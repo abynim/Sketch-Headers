@@ -12,14 +12,19 @@
 
 @interface MSImmutableTextStyle : _MSImmutableTextStyle <MSTextStyle>
 {
+    NSDictionary *_decodedAttributes;
 }
 
+@property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
+- (void).cxx_destruct;
+- (void)migratePropertiesFromV81OrEarlierWithCoder:(id)arg1;
+@property(readonly, copy, nonatomic) NSDictionary *attributes;
 - (id)treeAsDictionary;
 
 // Remaining properties
-@property(readonly, copy, nonatomic) NSDictionary *attributes;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, copy, nonatomic) NSDictionary *encodedAttributes;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;

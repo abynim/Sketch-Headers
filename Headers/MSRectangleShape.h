@@ -23,7 +23,6 @@
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;
 - (void)resetPoints;
-- (id)bezierPathForCursorPreview;
 - (void)didChangeValues;
 - (void)willChangeValues;
 - (double)floatFromNumbers:(id)arg1 atIndex:(unsigned long long)arg2;
@@ -33,6 +32,7 @@
 - (id)rectangleNumberFormatter;
 @property(nonatomic) double cornerRadiusFloat;
 @property(nonatomic) double normalizedExponentialCornerRadius;
+- (id)bezierPathForCursorPreview;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -47,8 +47,6 @@
 @property(readonly, nonatomic) BOOL hasConvertedToNewRoundCorners;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -59,7 +57,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;

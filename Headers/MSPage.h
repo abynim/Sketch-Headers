@@ -6,12 +6,13 @@
 
 #import "_MSPage.h"
 
+#import "MSCloudExportable.h"
 #import "MSPage.h"
 #import "MSRootLayer.h"
 
 @class MSArtboardGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSPage : _MSPage <MSRootLayer, MSPage>
+@interface MSPage : _MSPage <MSCloudExportable, MSRootLayer, MSPage>
 {
     long long ignoreLayerSelectionDidChangeNotificationsCounter;
     id <MSPageDelegate> _pageDelegate;
@@ -28,7 +29,8 @@
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 @property(nonatomic) __weak id <MSPageDelegate> pageDelegate; // @synthesize pageDelegate=_pageDelegate;
 - (void).cxx_destruct;
-- (BOOL)shouldDrawSelection;
+- (id)symbols;
+- (struct CGPoint)originForNewArtboard;
 @property(readonly, nonatomic) BOOL hasClickThrough;
 - (id)allAncestorsOfLayers:(id)arg1;
 - (id)currentVerticalRulerData;
@@ -75,7 +77,6 @@
 - (void)dealloc;
 - (id)selectedLayers;
 - (id)parentGroup;
-- (BOOL)canBeHovered;
 - (id)displayName;
 - (id)cloneForDocument:(id)arg1;
 - (BOOL)isExportableViaDragAndDrop;
@@ -83,7 +84,15 @@
 - (id)previewImages;
 - (void)duplicate:(id)arg1;
 - (unsigned long long)displayType;
-- (BOOL)parentOrSelfIsSymbol;
+- (void)setIsMarkedForCloudExport:(BOOL)arg1;
+- (long long)includeForCloudExportState;
+- (id)childAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfChildren;
+- (BOOL)hasChildren;
+- (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
+- (void)adjustRulerDataToTopLeftInViewBounds;
+- (BOOL)shouldDrawSelection;
+- (BOOL)canBeHovered;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -98,8 +107,7 @@
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL includeInCloudUpload;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -113,7 +121,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) struct CGPoint scrollOrigin;

@@ -15,7 +15,6 @@
 }
 
 + (id)defaultName;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -28,8 +27,6 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -41,7 +38,7 @@
 @property(readonly, nonatomic) long long numberOfPoints;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric;
 @property(readonly, nonatomic) double radius;
 @property(readonly, nonatomic) struct CGRect rect;

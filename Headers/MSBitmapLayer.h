@@ -20,18 +20,21 @@
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
++ (Class)overrideViewControllerClass;
 - (id)NSImage;
 - (BOOL)hasNineSliceEnabled;
 - (void)reduceImageSize;
 - (struct CGSize)minimumSize;
 - (id)handlerName;
-- (void)prepareObjectCopy:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
-- (id)inspectorViewControllerNames;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
+- (void)applyOverrides:(id)arg1;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)inspectorViewControllerNames;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -45,8 +48,6 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) MSImageData *image;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -59,7 +60,7 @@
 @property(readonly, nonatomic) struct CGSize nineSliceScale;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

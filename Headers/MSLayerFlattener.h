@@ -10,12 +10,12 @@
 {
 }
 
-- (id)exportRequestFromLayers:(id)arg1 immutablePage:(id)arg2;
-- (struct CGRect)trimRectFromLayers:(id)arg1 immutablePage:(id)arg2;
+- (id)exportRequestFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
+- (struct CGRect)trimRectFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
 - (struct CGRect)rectFromLayers:(id)arg1;
 - (id)bitmapFromRect:(struct CGRect)arg1 fromLayers:(id)arg2 withImage:(id)arg3;
-- (struct CGRect)trimmedRectFromLayers:(id)arg1 immutablePage:(id)arg2;
-- (id)imageFromLayers:(id)arg1 immutablePage:(id)arg2;
+- (struct CGRect)trimmedRectFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
+- (id)imageFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
 - (void)flattenLayers:(id)arg1;
 
 @end

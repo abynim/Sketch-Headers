@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseAction.h"
+#import "MSDocumentAction.h"
 
 #import "MSAltButtonTarget.h"
 
 @class NSString;
 
-@interface MSBaseAlignLayersAction : MSBaseAction <MSAltButtonTarget>
+@interface MSBaseAlignLayersAction : MSDocumentAction <MSAltButtonTarget>
 {
 }
 
-- (void)performAction:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 - (BOOL)altButtonCanShowAltImage:(id)arg1;
 - (BOOL)selectionContainsNoArtboards;
 - (BOOL)selectionContainsOnlyArtboards;

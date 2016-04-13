@@ -24,7 +24,6 @@
 - (id)layerFromSelectedLayers;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
-- (void)refresh;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
 - (id)insertPointCursor;
 - (id)selectPointCursor;

@@ -12,7 +12,6 @@
 
 @interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup>
 {
-    BOOL _isEditingChild;
     NSBezierPath *_bezierPathWithTransformsForMasking;
 }
 
@@ -25,7 +24,6 @@
 + (id)closedArrowDecoration;
 + (id)pathForDecorationType:(unsigned long long)arg1;
 + (void)cacheDecorations;
-@property(nonatomic) BOOL isEditingChild; // @synthesize isEditingChild=_isEditingChild;
 @property(retain, nonatomic) NSBezierPath *bezierPathWithTransformsForMasking; // @synthesize bezierPathWithTransformsForMasking=_bezierPathWithTransformsForMasking;
 - (void).cxx_destruct;
 - (id)bezierPathForEndDecorationOnPath:(id)arg1;
@@ -39,22 +37,28 @@
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (BOOL)canSkipAdvancedClipForStrokes;
 - (id)defaultName;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;
-- (void)performInitWithMutableModelObject:(id)arg1;
+- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (BOOL)differsFromLayer:(id)arg1;
-- (id)sublayersForPageDiff;
+- (id)sublayersForTreeDiff;
 - (void)migratePropertiesFromV51OrEarlierWithCoder:(id)arg1;
-- (BOOL)shouldSkipDrawing;
 - (Class)rendererClass;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (id)elementNameWithAttributes:(id)arg1 path:(id *)arg2 pathAttributes:(id *)arg3 elementAttributes:(id *)arg4 exportAsPath:(char *)arg5 exporter:(id)arg6;
-- (id)addMaskWithElement:(id)arg1 parentElement:(id)arg2 attributes:(id)arg3 exporter:(id)arg4;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
+- (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
+- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2;
+- (void)addPathDefinitionToDocument:(id)arg1;
+- (id)svgPathAttribute:(id)arg1;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (id)svgStyle;
+- (BOOL)requiresPathDefinition:(id)arg1;
+- (id)svgStyle:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -68,8 +72,6 @@
 @property(readonly, nonatomic) BOOL hasClippingMask;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -81,7 +83,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;

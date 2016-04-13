@@ -43,7 +43,7 @@
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
 - (void)storeCurrentLayerFrame;
-- (void)pushTransformsDown:(id)arg1;
+- (void)flattenSubpathsIfNecessary:(id)arg1;
 - (void)flattenRotatedShapes;
 - (void)drawInRect:(struct CGRect)arg1;
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

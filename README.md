@@ -2,8 +2,8 @@
 ##### Headers from [Sketch app](http://www.sketchapp.com) exported using [class-dump](http://stevenygard.com/projects/class-dump/).
 
 ```
-Latest Version: 3.6
-Release Date: March 1, 2016
+Latest Version: 3.7
+Release Date: April 13, 2016
 ```
 
 See previous [commits](https://github.com/abynim/Sketch-Headers/commits/master) for past versions.

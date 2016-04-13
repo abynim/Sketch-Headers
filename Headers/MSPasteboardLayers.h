@@ -13,9 +13,10 @@
 @interface MSPasteboardLayers : NSObject <MSLayerTraits>
 {
     MSLayerArray *_layers;
-    NSDictionary *_indexedImages;
     NSDictionary *_sharedObjects;
+    NSDictionary *_symbols;
     unsigned long long _parentTraits;
+    NSDictionary *_idToNameMapping;
     struct CGPoint _suggestedPosition;
 }
 
@@ -25,10 +26,11 @@
 + (id)pasteboardLayersWithLayers:(id)arg1;
 + (id)pasteboardLayersWithForeignLayers:(id)arg1;
 + (unsigned long long)traits;
+@property(retain, nonatomic) NSDictionary *idToNameMapping; // @synthesize idToNameMapping=_idToNameMapping;
 @property(nonatomic) unsigned long long parentTraits; // @synthesize parentTraits=_parentTraits;
 @property(nonatomic) struct CGPoint suggestedPosition; // @synthesize suggestedPosition=_suggestedPosition;
+@property(retain, nonatomic) NSDictionary *symbols; // @synthesize symbols=_symbols;
 @property(retain, nonatomic) NSDictionary *sharedObjects; // @synthesize sharedObjects=_sharedObjects;
-@property(retain, nonatomic) NSDictionary *indexedImages; // @synthesize indexedImages=_indexedImages;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (struct CGRect)suggestedRect;

@@ -9,12 +9,11 @@
 #import "NSMenuDelegate.h"
 #import "NSTextDelegate.h"
 
-@class MSLayerGroup, MSSelectionPath, MSSelectionPathCollection, MSShapePathLayer, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSHandlePath, MSHandlePathCollection, MSLayerGroup, MSShapePathLayer, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
 
 @interface MSShapeEventHandler : MSEventHandler <NSTextDelegate, NSMenuDelegate>
 {
-    MSSelectionPathCollection *selectionPaths;
-    MSSelectionPathCollection *dragRectSelection;
+    MSHandlePathCollection *dragRectSelection;
     long long hoveringPoint;
     long long hoveringPointInPoint;
     long long hoveringBeforePointIndex;
@@ -37,24 +36,25 @@
     NSTextField *curvePointYField;
     NSSlider *cornerRadiusSlider;
     struct CGRect dirtyRect;
+    MSHandlePathCollection *_selectedHandles;
     BOOL _isMakingRectSelection;
     BOOL _hideEditingPoints;
     BOOL _isDragging;
     id _horizontalSnap;
     id _verticalSnap;
-    MSSelectionPath *_candidateSelection;
     MSLayerGroup *_currentGroup;
     MSShapePathLayer *_shape;
-    MSSelectionPathCollection *_snappedPaths;
+    MSHandlePathCollection *_snappedHandles;
+    MSHandlePath *_handleToDrag;
 }
 
+@property(readonly, nonatomic) MSHandlePath *handleToDrag; // @synthesize handleToDrag=_handleToDrag;
 @property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(nonatomic) BOOL hideEditingPoints; // @synthesize hideEditingPoints=_hideEditingPoints;
-@property(retain, nonatomic) MSSelectionPathCollection *snappedPaths; // @synthesize snappedPaths=_snappedPaths;
+@property(retain, nonatomic) MSHandlePathCollection *snappedHandles; // @synthesize snappedHandles=_snappedHandles;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
 @property(nonatomic) __weak MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
-@property(retain, nonatomic) MSSelectionPath *candidateSelection; // @synthesize candidateSelection=_candidateSelection;
 @property(retain, nonatomic) id verticalSnap; // @synthesize verticalSnap=_verticalSnap;
 @property(retain, nonatomic) id horizontalSnap; // @synthesize horizontalSnap=_horizontalSnap;
 - (void).cxx_destruct;
@@ -76,7 +76,12 @@
 - (void)roundingPopUpAction:(id)arg1;
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
 - (void)validateCornerRadiusButton;
-- (id)selectionPaths;
+- (void)toggleSelectionOfHandle:(id)arg1;
+- (void)deselectAllHandles;
+- (void)deselectHandle:(id)arg1;
+- (void)selectHandles:(id)arg1 extendSelection:(BOOL)arg2;
+- (void)selectHandle:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *selectedHandles;
 @property(readonly, nonatomic) __weak NSArray *selectedCurvePoints; // @dynamic selectedCurvePoints;
 - (void)awakeFromNib;
 - (void)setPoint:(struct CGPoint)arg1 forSelectionPath:(id)arg2;
@@ -130,7 +135,6 @@
 - (void)showCursorWithFlags:(unsigned long long)arg1;
 - (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)refreshWireIfNecessary;
-- (void)clearSelectionPathsAndRefresh;
 - (BOOL)didClickOutsideBounds:(struct CGPoint)arg1;
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -141,13 +145,13 @@
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (BOOL)mouseDownEvent:(id)arg1;
-- (void)selectPointAndUpdate:(long long)arg1 curve:(long long)arg2;
-- (BOOL)selectingPointShouldClosePath:(long long)arg1;
+- (void)mouseDownOnHandle:(id)arg1 modifierFlags:(unsigned long long)arg2;
+- (BOOL)mouseDownOnHandleShouldClosePath:(id)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)fitCurvePoint:(id)arg1 bySplittingCurvePath:(id)arg2 surroundingPoints:(id)arg3;
 - (id)pointsAroundIndex:(long long)arg1;
-- (void)insertPoint:(struct CGPoint)arg1 beforeIndex:(long long)arg2;
+- (id)insertPointForMouseDown:(struct CGPoint)arg1 atIndex:(long long)arg2 modifierFlags:(unsigned long long)arg3;
 - (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;
-- (void)addPointForMouse:(struct CGPoint)arg1;
+- (id)addPointForMouseDown:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)changeFromStraightToMirrored:(id)arg1 index:(long long)arg2;
 - (void)expandHandlesForSelectionPath:(id)arg1;
 - (void)expandHandlesForSelectedPoint;

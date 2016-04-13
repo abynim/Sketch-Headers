@@ -39,7 +39,6 @@
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)refresh;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (BOOL)point:(struct CGPoint)arg1 isNearPoint:(struct CGPoint)arg2;

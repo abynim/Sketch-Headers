@@ -45,7 +45,7 @@
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
 - (struct CGPoint)centerPointForZooming;
-- (void)editLayer:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)visitArtboardForInstance:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
 - (void)insertBacktab:(id)arg1;
@@ -99,6 +99,7 @@
 - (void)paste:(id)arg1;
 - (id)layersToCopy;
 - (void)copy:(id)arg1;
+- (void)doCut:(id)arg1;
 - (void)cut:(id)arg1;
 - (id)pastingViewPort;
 - (void)readFromPasteboard:(id)arg1;
@@ -108,7 +109,6 @@
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (id)menuForEvent:(id)arg1;
 - (void)returnToDefaultHandlerByClickingOutside;
-- (void)returnToDefaultHandlerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)returnToDefaultHandler;
 - (void)didUndoNotification:(id)arg1;
 - (void)undoNotification:(id)arg1;
@@ -124,6 +124,7 @@
 - (id)handlerName;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)absoluteDrawInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1;
@@ -146,9 +147,11 @@
 - (struct CGPoint)convertAbsolutePointFromEvent:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 @property(nonatomic) struct CGPoint scrollOrigin; // @dynamic scrollOrigin;
+- (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
+- (id)document;
 - (id)drawView;
 - (void)prepareForDisplay;
 - (void)dealloc;

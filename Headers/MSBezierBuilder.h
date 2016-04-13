@@ -17,7 +17,6 @@
 
 + (id)bezierPathFromPoint:(id)arg1 toPoint:(id)arg2 inRect:(struct CGRect)arg3;
 + (id)bezierPathWithPoints:(id)arg1 inRect:(struct CGRect)arg2 shouldClose:(BOOL)arg3;
-+ (void)setCornerRadiusScale:(double)arg1;
 @property(nonatomic) BOOL pathShouldClose; // @synthesize pathShouldClose=_pathShouldClose;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;

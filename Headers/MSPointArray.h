@@ -19,7 +19,6 @@
 
 + (id)pointArray;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (id)description;
 - (BOOL)pointAtIndex:(unsigned long long)arg1 isEqualToPoint:(struct CGPoint)arg2;
@@ -37,6 +36,7 @@
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (void)insertPoint:(struct CGPoint)arg1 atIndex:(unsigned long long)arg2;
 - (void)addPoint:(struct CGPoint)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)init;
 - (id)treeAsDictionary;
 

@@ -25,7 +25,6 @@
 - (id)defaultStopsArray;
 - (id)ellipseTransformInRect:(struct CGRect)arg1;
 - (id)NSGradientForContext:(id)arg1;
-- (void)setHasDonePreRenderingForContext:(id)arg1;
 - (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
 - (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2;

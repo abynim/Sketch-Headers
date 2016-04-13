@@ -8,7 +8,7 @@
 
 #import "BCPopoverContentController.h"
 
-@class MSCloudShareAPI, MSCloudShareUploadController, MSDocument, MSLocalWebServer, NSButton, NSProgressIndicator, NSSegmentedControl, NSString, NSTextField, NSView;
+@class MSCloudShareAPI, MSCloudShareUploadController, MSDocument, MSLocalWebServer, MSPublisherCloudRootElement, NSButton, NSMapTable, NSMutableDictionary, NSOutlineView, NSProgressIndicator, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSPublisherViewController : NSViewController <BCPopoverContentController>
 {
@@ -35,9 +35,17 @@
     NSView *_onlineUploadHeaderView;
     MSCloudShareAPI *_shareAPI;
     MSCloudShareUploadController *_currentUploadController;
+    NSOutlineView *_artboardOutlineView;
+    NSMutableDictionary *_checkBoxes;
+    NSMapTable *_checkBoxArtboardMapping;
+    MSPublisherCloudRootElement *_rootItem;
 }
 
 + (BOOL)isOnlinePublishEnabled;
+@property(retain, nonatomic) MSPublisherCloudRootElement *rootItem; // @synthesize rootItem=_rootItem;
+@property(retain, nonatomic) NSMapTable *checkBoxArtboardMapping; // @synthesize checkBoxArtboardMapping=_checkBoxArtboardMapping;
+@property(retain, nonatomic) NSMutableDictionary *checkBoxes; // @synthesize checkBoxes=_checkBoxes;
+@property(nonatomic) __weak NSOutlineView *artboardOutlineView; // @synthesize artboardOutlineView=_artboardOutlineView;
 @property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
 @property(retain, nonatomic) MSCloudShareAPI *shareAPI; // @synthesize shareAPI=_shareAPI;
 @property(nonatomic) __weak NSView *onlineUploadHeaderView; // @synthesize onlineUploadHeaderView=_onlineUploadHeaderView;
@@ -62,6 +70,14 @@
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak id <MSPublisherViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
+- (void)outlineViewItemDidCollapse:(id)arg1;
+- (void)outlineViewItemDidExpand:(id)arg1;
+- (void)selectLayer:(id)arg1;
+- (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
+- (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
+- (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
+- (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (void)segmentedControlChanged:(id)arg1;
 - (id)onlineURLForDocument;
 - (id)localURLForDocument;
@@ -89,6 +105,7 @@
 - (void)hideExplanatoryViewAction:(id)arg1;
 - (void)adjustUI;
 - (void)viewWillAppear;
+- (void)dealloc;
 - (void)awakeFromNib;
 
 // Remaining properties

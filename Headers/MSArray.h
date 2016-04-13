@@ -29,8 +29,6 @@
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
 - (void)breakConnectionWithAllObjects;
-- (void)dealloc;
-- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (void)enumerate:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
@@ -58,7 +56,7 @@
 - (id)lastObject;
 - (id)firstObject;
 - (void)setAsParentOnChildren;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
+- (BOOL)propertiesAreEqual:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
@@ -66,6 +64,8 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)immutableModelObject;
+- (id)copyWithOptions:(unsigned long long)arg1;
+- (void)dealloc;
 - (id)initWithArray:(id)arg1;
 - (id)treeAsDictionary;
 

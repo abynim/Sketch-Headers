@@ -21,11 +21,11 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
+- (void)setPatternImage:(id)arg1;
+- (id)CSSAttributeString;
 - (id)topViewForColorInspector:(id)arg1;
 - (id)parentStyle;
 @property(nonatomic) double interfaceOpacity;
-- (void)setPatternImage:(id)arg1;
-- (id)CSSAttributeString;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric;

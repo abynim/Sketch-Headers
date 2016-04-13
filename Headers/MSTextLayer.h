@@ -10,7 +10,7 @@
 #import "MSTextLayer.h"
 #import "NSTextStorageDelegate.h"
 
-@class MSColor, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
+@class MSAttributedString, MSColor, MSImageData, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSNumber, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
 
 @interface MSTextLayer : _MSTextLayer <NSTextStorageDelegate, MSFirstLineTypesetterDelegate, MSTextLayer>
 {
@@ -18,20 +18,26 @@
     BOOL _isEditingText;
     NSTextStorage *_storageBeforeResize;
     id <MSTextLayerEditingDelegate> _editingDelegate;
+    NSTextStorage *_storage;
     struct CGSize _sizeBeforeResize;
     struct CGRect _previousRectCache;
 }
 
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
++ (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (Class)overrideViewControllerClass;
 @property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
+@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(copy, nonatomic) NSTextStorage *storageBeforeResize; // @synthesize storageBeforeResize=_storageBeforeResize;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
+- (BOOL)canResize;
+- (BOOL)canScale;
+- (BOOL)canBeTransformed;
 - (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (BOOL)constrainProportions;
-- (id)usedFonts;
 - (BOOL)treatAsShiftedForCorner:(long long)arg1 onlyForFlexible:(BOOL)arg2;
 - (void)calculateTextIsClippedAfterResizeFromCorner:(long long)arg1;
 - (void)resizeFontToFitFromRect:(struct CGRect)arg1;
@@ -48,18 +54,16 @@
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
 - (void)setStringValueWithoutUndo:(id)arg1;
-- (BOOL)isFrameEqualForSync:(id)arg1;
 - (BOOL)textStorageIsEqual:(id)arg1;
-- (void)syncTextStorageTo:(id)arg1;
 - (void)copyTextStorageTo:(id)arg1;
-- (void)prepareObjectCopy:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
 @property(copy, nonatomic) MSColor *textColor;
 @property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
-@property(nonatomic) double characterSpacing;
+@property(retain, nonatomic) NSNumber *characterSpacing;
 @property(retain, nonatomic) NSString *fontPostscriptName;
 - (void)setFont:(id)arg1;
 @property(nonatomic) double fontSize;
@@ -79,7 +83,6 @@
 @property(readonly, nonatomic) double defaultLineHeight;
 @property(readonly, nonatomic) NSFont *font;
 - (void)changeFont:(id)arg1;
-- (BOOL)shouldDrawSelection;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 @property(readonly, nonatomic) NSTextContainer *textContainer;
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
@@ -93,8 +96,10 @@
 - (void)finishEditing;
 - (void)textStorageDidProcessEditing:(id)arg1;
 - (double)baselineAdjustmentForTypesetter:(id)arg1;
+- (BOOL)handleDoubleClick;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
+- (id)sharedObject;
 @property(readonly, nonatomic) double firstBaselineOffset;
 - (struct CGSize)textContainerSize;
 - (id)createTextContainer;
@@ -108,18 +113,12 @@
 - (void)setLineSpacingBehaviour:(long long)arg1;
 - (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
-- (void)objectDidInit;
+- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 type:(long long)arg3;
 - (id)initWithAttributedString:(id)arg1 maxWidth:(double)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)handlerName;
-- (void)setLineSpacing:(double)arg1;
-- (double)lineSpacing;
-- (void)layerDidResizeFromInspector;
-- (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (void)copyStylePropertiesToShape:(id)arg1;
 - (id)rawCopyOfStyle:(id)arg1;
@@ -127,15 +126,30 @@
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (Class)layerSnapperObjectClass;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
+- (void)reapplyPreviousAttributesFromString:(id)arg1;
+- (void)applyOverrides:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)PDFPreview;
+- (BOOL)shouldStorePDFPreviews;
+- (long long)cornerRectType;
+- (void)setLineSpacing:(double)arg1;
+- (double)lineSpacing;
+- (BOOL)shouldDrawSelection;
+- (id)handlerName;
+- (void)layerDidResizeFromInspector;
+- (id)inspectorViewControllerNames;
+- (void)drawHoverWithZoom:(double)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) MSAttributedString *attributedString;
 @property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
@@ -147,8 +161,6 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL heightIsClipped;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -160,11 +172,11 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
+@property(readonly, nonatomic) MSImageData *preview;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) NSTextStorage *storage;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) long long textBehaviour;

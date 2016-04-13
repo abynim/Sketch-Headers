@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindowController.h"
+#import "CHWindowController.h"
 
 #import "WebFrameLoadDelegate.h"
 #import "WebPolicyDelegate.h"
@@ -12,7 +12,7 @@
 
 @class NSButton, NSString, NSURL, WebView;
 
-@interface MSNewsTriggerWindowController : NSWindowController <WebFrameLoadDelegate, WebPolicyDelegate, WebResourceLoadDelegate>
+@interface MSNewsTriggerWindowController : CHWindowController <WebFrameLoadDelegate, WebPolicyDelegate, WebResourceLoadDelegate>
 {
     BOOL _finishedLoadingData;
     NSURL *_url;

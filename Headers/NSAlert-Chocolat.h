@@ -7,6 +7,9 @@
 #import "NSAlert.h"
 
 @interface NSAlert (Chocolat)
++ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 format:(id)arg2 withSuppressionButton:(BOOL)arg3 completionBlock:(CDUnknownBlockType)arg4;
++ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 withSuppressionButton:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (long long)runModalWithMessage:(id)arg1 info:(id)arg2 buttons:(id)arg3;
 + (long long)runModalWithMessage:(id)arg1 info:(id)arg2;
 @end

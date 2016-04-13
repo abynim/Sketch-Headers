@@ -20,7 +20,6 @@
 + (id)keyPathForStylePartType:(unsigned long long)arg1;
 + (id)layerStyles;
 - (id)stylePartsOfType:(unsigned long long)arg1;
-@property(readonly, nonatomic) double thickestOuterStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (double)thickestStroke;
@@ -31,7 +30,7 @@
 @property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
-- (void)prepareObjectCopy:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 - (void)objectDidChange;
 - (void)setTextStyle:(id)arg1;

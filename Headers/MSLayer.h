@@ -13,7 +13,7 @@
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
+@class MSAbsoluteRect, NSDictionary, NSImage, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
 {
@@ -22,13 +22,13 @@
     BOOL _isSelected;
     MSAbsoluteRect *_absoluteRect;
     unsigned long long _traits;
+    struct CGRect _frameInArtboard;
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
 + (id)layersSeparatedByGroups:(id)arg1;
 + (id)defaultName;
 + (unsigned long long)traits;
-+ (id)keyPathsForValuesAffectingUserVisibleRotation;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
@@ -36,16 +36,22 @@
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)keyPathsForValuesAffectingNodeName;
 + (id)keyPathsForValuesAffectingHasHighlight;
++ (Class)overrideViewControllerClass;
++ (id)keyPathsForValuesAffectingUserVisibleRotation;
 @property(nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
+@property(nonatomic) struct CGRect frameInArtboard; // @synthesize frameInArtboard=_frameInArtboard;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
+- (id)allSymbolInstancesInChildren;
+- (BOOL)canInsertIntoGroup:(id)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
 - (void)groupDidRemoveThisLayer:(id)arg1;
 - (void)groupDidAddThisLayer:(id)arg1;
+- (BOOL)canResize;
+- (BOOL)canScale;
 - (BOOL)canRotate;
-- (BOOL)isFrameEqualForSync:(id)arg1;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)layerWithID:(id)arg1;
@@ -54,8 +60,6 @@
 - (void)setMid:(struct CGPoint)arg1;
 @property(nonatomic) struct CGPoint origin;
 @property(nonatomic) struct CGRect rect;
-@property(nonatomic) struct CGRect frameInArtboard;
-- (void)setFrameInArtboard:(struct CGRect)arg1 insertingIntoGroup:(id)arg2;
 - (BOOL)canBeSelectedOnCanvas;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (void)setNilValueForKey:(id)arg1;
@@ -77,11 +81,11 @@
 - (id)children;
 - (id)ancestorTransforms;
 - (id)ancestors;
+- (id)parentSymbol;
 - (id)parentArtboard;
 - (id)parentRoot;
 - (id)parentPage;
 - (BOOL)isOpen;
-- (BOOL)handleDoubleClick;
 - (void)removeFromParent;
 - (BOOL)isUndoingModelObjectChange;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
@@ -103,10 +107,7 @@
 - (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (void)layerDidChange;
 - (struct CGRect)absoluteInfluenceRect;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForBounds;
 - (struct CGRect)overlayInfluenceRectForFrame;
@@ -140,7 +141,6 @@
 @property(nonatomic) double proportions;
 @property(nonatomic) BOOL constrainProportions;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
-- (BOOL)shouldDrawSelection;
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasActiveBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
@@ -156,26 +156,14 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
-- (id)handlerName;
-- (BOOL)canBeHidden;
-- (BOOL)canFlatten;
-- (BOOL)canSmartRotate;
-- (BOOL)shouldFlattenAfterRotate;
-- (void)toggleClosePath;
-- (void)layerDidResizeFromInspector;
-@property(nonatomic) double userVisibleRotation;
-- (id)inspectorViewControllers;
-- (id)inspectorViewControllerNames;
-- (BOOL)canBeHovered;
-- (id)bezierPathForHover;
-- (id)colorForHover;
-- (void)drawHoverWithZoom:(double)arg1;
-- (void)writeBitmapImageToFile:(id)arg1;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (BOOL)canSplitPaths;
+@property(readonly, nonatomic) NSImage *unselectedPreviewImage;
+@property(readonly, nonatomic) NSImage *selectedPreviewImage;
+- (id)previewImageWithSelectedState:(BOOL)arg1;
 - (id)previewFillColor:(BOOL)arg1;
 - (id)previewBorderColor:(BOOL)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
@@ -189,12 +177,13 @@
 - (BOOL)booleanOperationCanBeReset;
 - (id)duplicate;
 - (struct CGRect)absoluteDirtyRect;
-@property(readonly, nonatomic) BOOL shouldCachePreview;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 - (id)cloneDictionaryReplacingImages:(id)arg1;
+- (void)addMastersForInstancesToDocument:(id)arg1;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isMasked;
+@property(readonly, nonatomic) BOOL hasSliceIcon;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL selectedInLayerList;
@@ -203,7 +192,6 @@
 @property(readonly, nonatomic) unsigned long long selectedBadgeMenuItem;
 @property(readonly, nonatomic) NSMenu *badgeMenu;
 @property(readonly, nonatomic) NSDictionary *previewImages;
-- (id)previewImageWithSelectedState:(BOOL)arg1;
 @property(readonly, nonatomic) NSDictionary *badgeMap;
 @property(readonly, nonatomic) BOOL hasHighlight;
 @property(readonly, nonatomic) BOOL isActive;
@@ -229,15 +217,8 @@
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
+- (void)applyOverrides:(id)arg1;
 - (id)parentRootForAbsoluteRect;
-- (id)sharedObjectOfType:(unsigned long long)arg1;
-- (id)closestSymbolInstance;
-- (BOOL)isInstanceOfSameSymbolAs:(id)arg1;
-- (BOOL)isSymbol;
-- (BOOL)containsSymbols;
-- (BOOL)parentOrSelfIsSymbol;
-- (BOOL)canBePartOfSymbol;
-- (BOOL)canBeUsedAsSymbolDirectly;
 - (void)removeAllLayers;
 - (void)removeLayerAtIndex:(unsigned long long)arg1;
 - (void)removeLayer:(id)arg1;
@@ -252,6 +233,24 @@
 - (id)CSSAttributeString;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
+- (BOOL)canBeHidden;
+- (long long)cornerRectType;
+- (BOOL)canFlatten;
+- (BOOL)shouldDrawSelection;
+- (BOOL)canSmartRotate;
+- (BOOL)shouldFlattenAfterRotate;
+- (id)handlerName;
+- (BOOL)handleDoubleClick;
+- (void)toggleClosePath;
+- (void)layerDidResizeFromInspector;
+@property(nonatomic) double userVisibleRotation;
+- (id)inspectorViewControllers;
+- (id)inspectorViewControllerNames;
+- (BOOL)canBeHovered;
+- (id)bezierPathForHover;
+- (id)colorForHover;
+- (void)drawHoverWithZoom:(double)arg1;
+- (void)writeBitmapImageToFile:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -267,7 +266,7 @@
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

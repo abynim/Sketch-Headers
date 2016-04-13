@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBackgroundBlurRenderer, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -33,6 +33,7 @@
     double _backingScale;
     double _backingScaleForShadows;
     double _parentLayerOpacity;
+    MSImmutableDocumentData *_document;
     MSImmutableLayer *_untilLayer;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     MSStylePathRenderer *_stylePathRenderer;
@@ -43,6 +44,8 @@
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
+    NSMutableArray *_artboardStack;
+    long long _drawSymbolInstanceInBlock;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
     struct CGAffineTransform _initialTransform;
@@ -50,6 +53,8 @@
     struct CGAffineTransform _totalTransform;
 }
 
+@property(nonatomic) long long drawSymbolInstanceInBlock; // @synthesize drawSymbolInstanceInBlock=_drawSymbolInstanceInBlock;
+@property(retain, nonatomic) NSMutableArray *artboardStack; // @synthesize artboardStack=_artboardStack;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
@@ -64,6 +69,7 @@
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
 @property(retain, nonatomic) MSImmutableLayer *untilLayer; // @synthesize untilLayer=_untilLayer;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) double parentLayerOpacity; // @synthesize parentLayerOpacity=_parentLayerOpacity;
 @property(nonatomic) BOOL shouldFlipShadows; // @synthesize shouldFlipShadows=_shouldFlipShadows;
@@ -88,9 +94,14 @@
 @property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
 @property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
 - (void).cxx_destruct;
+- (BOOL)isDrawingSymbolInstance;
+- (void)didDrawArtboard:(id)arg1;
+- (void)willDrawArtboard:(id)arg1;
+- (BOOL)canDrawSymbolInstanceWithoutRiskingRecursion:(id)arg1;
 - (BOOL)shouldDisableSubpixelQuantization;
 - (BOOL)layerIntersectsDirtyRect:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
+- (void)drawSymbolInstanceInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldClipFills;
 - (void)doNotClipFillsInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawFills;
@@ -135,7 +146,7 @@
 - (id)bitmapBackedSubContextWithContextRef:(struct CGContext *)arg1 size:(struct CGSize)arg2;
 - (id)blurSubContextWithContextRef:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
 - (id)subContextWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
-- (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4;
+- (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4 document:(id)arg5;
 - (id)init;
 
 @end

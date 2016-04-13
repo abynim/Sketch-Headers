@@ -21,14 +21,16 @@
 @property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 @property(readonly, nonatomic) struct CGPoint rulerBase;
-- (struct CGRect)calculateInfluenceRectForBounds;
+- (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithCoder:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1;
+- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
 - (void)configureBackgroundOfRequest:(id)arg1;
-- (id)svgStyle;
+- (id)svgStyle:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -47,8 +49,7 @@
 @property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+@property(readonly, nonatomic) BOOL includeInCloudUpload;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -62,7 +63,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;

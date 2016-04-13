@@ -7,8 +7,14 @@
 #import "NSXMLElement.h"
 
 @interface NSXMLElement (SVG)
+- (void)addAttributeWithName:(id)arg1 percentageFractionalValue:(double)arg2;
+- (void)addAttributeWithName:(id)arg1 percentageValue:(double)arg2;
+- (void)addAttributeWithName:(id)arg1 numberValue:(double)arg2;
+- (void)addAttributeWithName:(id)arg1 pixelValue:(double)arg2;
+- (void)addAttributeWithName:(id)arg1 stringValue:(id)arg2;
 - (id)cssClassNamesWithBase:(id)arg1;
 - (id)urlLink;
+- (id)localLink;
 - (id)simplifyAttributesIgnoringElements:(id)arg1 attributes:(id)arg2;
 - (void)removeAttributesMatchingParentIgnoringAttributes:(id)arg1;
 - (id)attributesWithStyleMergedDefaults:(id)arg1;

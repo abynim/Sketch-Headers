@@ -27,7 +27,7 @@
 - (void)tilePlacer:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tilePlacer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(id)arg1 didChangeToState:(unsigned long long)arg2;
-- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2;
+- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
 - (void)refreshOverlayForPage:(id)arg1;
 - (void)refreshOverlayRect:(struct CGRect)arg1 forPage:(id)arg2;
 - (void)tile;

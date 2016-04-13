@@ -34,12 +34,15 @@
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
 @property(readonly, nonatomic) MSImageCollection *images;
-- (id)rootLayersForShareadObjectContainer:(id)arg1 includingSymbols:(BOOL)arg2;
+- (id)rootLayersForSharedObjectContainer:(id)arg1;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 - (void)enumerateSharedObjectContainers:(CDUnknownBlockType)arg1;
-- (BOOL)syncSharedObjects:(id)arg1;
+- (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
+- (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
+- (id)symbolWithID:(id)arg1;
+- (id)allSymbols;
+- (id)allArtboards;
 - (id)layerWithID:(id)arg1;
-- (id)layersSharingStyle:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)deselectAllLayers;
 - (void)changeSelectionTo:(id)arg1;
@@ -53,6 +56,7 @@
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 didAddObject:(id)arg2;
 - (id)nameForNewPage;
+- (id)symbolsPageOrCreateIfNecessary;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
 - (void)removePage:(id)arg1;
@@ -62,7 +66,7 @@
 - (void)dealloc;
 - (void)objectDidChange;
 - (id)documentData;
-- (void)prepareCopy:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;

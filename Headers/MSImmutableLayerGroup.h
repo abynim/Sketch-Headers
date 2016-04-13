@@ -20,8 +20,9 @@
 - (id)children;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;
 - (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
-- (struct CGRect)calculateOverlayInfluenceRectForBounds;
+- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (BOOL)calculateHasBlendedLayer;
 - (BOOL)differsFromLayer:(id)arg1;
@@ -39,11 +40,12 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
+- (id)svgStyle:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3 action:(unsigned long long *)arg4;
-- (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
-- (id)svgStyle;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (BOOL)requiresPathDefinition:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -55,8 +57,6 @@
 @property(readonly, nonatomic) BOOL hasClickThrough;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -68,7 +68,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;

@@ -198,14 +198,11 @@ typedef struct {
     unsigned long long numberOfColumns;
     long long horizontalPadding;
     long long verticalPadding;
-    long long boxedHeight;
-    long long boxedWidth;
-    char isBoxed;
     char hasHorizontalPadding;
     char hasVerticalPadding;
     char skipFillingHoles;
     char shouldRenameLayers;
-} CDStruct_24ee45cf;
+} CDStruct_0addd29a;
 
 typedef struct {
     unsigned long long _field1;

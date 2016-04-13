@@ -6,7 +6,7 @@
 
 #import "NSTableCellView.h"
 
-@class MSCloudShareViewControlller, NSButton, NSDictionary, NSTextField;
+@class MSCloudShareViewControlller, NSButton, NSDictionary, NSTextField, NSTimer;
 
 @interface MSCloudUploadTableCellView : NSTableCellView
 {
@@ -17,8 +17,10 @@
     NSTextField *_timeTextField;
     NSButton *_deleteButton;
     NSButton *_openShareButton;
+    NSTimer *_timer;
 }
 
+@property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(nonatomic) __weak NSButton *openShareButton; // @synthesize openShareButton=_openShareButton;
 @property(nonatomic) __weak NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
@@ -30,6 +32,9 @@
 - (void)deleteShare:(id)arg1;
 - (void)setViewSelected:(BOOL)arg1;
 - (void)openURL:(id)arg1;
+- (void)dealloc;
+- (void)scheduleTimerIfNeeded:(double)arg1;
+- (void)updateTimeField;
 - (void)loadView;
 
 @end

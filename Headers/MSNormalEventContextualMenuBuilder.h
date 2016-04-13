@@ -16,12 +16,12 @@
     NSMenu *_multipleSelectionMenu;
     NSMenu *_noSelectionMenu;
     NSMenu *_imageLayerMenu;
-    NSMenu *_symbolLayerMenu;
+    NSMenu *_symbolInstanceMenu;
     NSMenu *_artboardAndSlicesMenu;
 }
 
 @property(retain, nonatomic) NSMenu *artboardAndSlicesMenu; // @synthesize artboardAndSlicesMenu=_artboardAndSlicesMenu;
-@property(retain, nonatomic) NSMenu *symbolLayerMenu; // @synthesize symbolLayerMenu=_symbolLayerMenu;
+@property(retain, nonatomic) NSMenu *symbolInstanceMenu; // @synthesize symbolInstanceMenu=_symbolInstanceMenu;
 @property(retain, nonatomic) NSMenu *imageLayerMenu; // @synthesize imageLayerMenu=_imageLayerMenu;
 @property(retain, nonatomic) NSMenu *noSelectionMenu; // @synthesize noSelectionMenu=_noSelectionMenu;
 @property(retain, nonatomic) NSMenu *multipleSelectionMenu; // @synthesize multipleSelectionMenu=_multipleSelectionMenu;
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSMenu *textLayerMenu; // @synthesize textLayerMenu=_textLayerMenu;
 @property(retain, nonatomic) NSMenu *standardLayerMenu; // @synthesize standardLayerMenu=_standardLayerMenu;
 - (void).cxx_destruct;
-- (id)symbolOnlyItems;
+- (id)symbolInstanceOnlyItems;
 - (id)groupOnlyItems;
 - (id)imageOnlyItems;
 - (id)textOnlyItems;

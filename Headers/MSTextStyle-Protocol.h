@@ -6,6 +6,9 @@
 
 #import "_MSTextStyle.h"
 
+@class NSDictionary;
+
 @protocol MSTextStyle <_MSTextStyle>
+@property(readonly, copy, nonatomic) NSDictionary *attributes;
 @end
 

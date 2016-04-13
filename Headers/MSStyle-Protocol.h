@@ -10,7 +10,6 @@
 @property(readonly, nonatomic) id <MSStyleBorder> borderGeneric;
 @property(readonly, nonatomic) id <MSStyleFill> fillGeneric;
 @property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
-@property(readonly, nonatomic) double thickestOuterStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasBlending;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;

@@ -14,12 +14,14 @@
     struct CGPoint oppositePoint;
     struct CGPoint oppositeRotatedPoint;
     double originalProportions;
+    BOOL _layerRectWasIntegral;
     long long _resizingCorner;
     MSLayer *_resizingLayer;
     MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
 }
 
+@property(nonatomic) BOOL layerRectWasIntegral; // @synthesize layerRectWasIntegral=_layerRectWasIntegral;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
 @property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;

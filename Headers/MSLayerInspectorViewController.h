@@ -9,7 +9,7 @@
 #import "MSSectionProtocol.h"
 #import "NSMenuDelegate.h"
 
-@class MSElementsInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
+@class MSSharedStylesInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
 
 @interface MSLayerInspectorViewController : NSViewController <MSSectionProtocol, NSMenuDelegate>
 {
@@ -21,17 +21,12 @@
     NSArray *_layers;
     NSView *_positionView;
     NSView *_lineView;
-    NSView *_artboardView;
     NSTextField *_xTextField;
     NSTextField *_yTextField;
-    NSTextField *_artboardXField;
-    NSTextField *_artboardYField;
     NSTextField *_widthTextField;
     NSTextField *_heightTextField;
-    NSTextField *_artboardWidthField;
-    NSTextField *_artboardHeightField;
     NSButton *_lockProportionsButton;
-    MSElementsInspectorSection *_sharedObjectsController;
+    MSSharedStylesInspectorSection *_sharedObjectsController;
     NSArray *_layerInspectorControllers;
     NSNumberFormatter *_numberFormatter;
 }
@@ -39,21 +34,16 @@
 @property(readonly, nonatomic) BOOL needsUpdatePositionAndSizeFields; // @synthesize needsUpdatePositionAndSizeFields=_needsUpdatePositionAndSizeFields;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
-@property(retain, nonatomic) MSElementsInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
+@property(retain, nonatomic) MSSharedStylesInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
 @property(nonatomic) BOOL shouldShowBlendingProperties; // @synthesize shouldShowBlendingProperties=_shouldShowBlendingProperties;
 @property(nonatomic) BOOL shouldShowLayerSpecificProperties; // @synthesize shouldShowLayerSpecificProperties=_shouldShowLayerSpecificProperties;
 @property(nonatomic) BOOL shouldShowSharedStyles; // @synthesize shouldShowSharedStyles=_shouldShowSharedStyles;
 @property(nonatomic) BOOL shouldShowPositions; // @synthesize shouldShowPositions=_shouldShowPositions;
 @property(nonatomic) __weak NSButton *lockProportionsButton; // @synthesize lockProportionsButton=_lockProportionsButton;
-@property(nonatomic) __weak NSTextField *artboardHeightField; // @synthesize artboardHeightField=_artboardHeightField;
-@property(nonatomic) __weak NSTextField *artboardWidthField; // @synthesize artboardWidthField=_artboardWidthField;
 @property(nonatomic) __weak NSTextField *heightTextField; // @synthesize heightTextField=_heightTextField;
 @property(nonatomic) __weak NSTextField *widthTextField; // @synthesize widthTextField=_widthTextField;
-@property(nonatomic) __weak NSTextField *artboardYField; // @synthesize artboardYField=_artboardYField;
-@property(nonatomic) __weak NSTextField *artboardXField; // @synthesize artboardXField=_artboardXField;
 @property(nonatomic) __weak NSTextField *yTextField; // @synthesize yTextField=_yTextField;
 @property(nonatomic) __weak NSTextField *xTextField; // @synthesize xTextField=_xTextField;
-@property(retain, nonatomic) NSView *artboardView; // @synthesize artboardView=_artboardView;
 @property(retain, nonatomic) NSView *lineView; // @synthesize lineView=_lineView;
 @property(retain, nonatomic) NSView *positionView; // @synthesize positionView=_positionView;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -62,8 +52,6 @@
 - (BOOL)canHandleColorMagnifierAction;
 - (BOOL)hasLineShapeLayer;
 - (BOOL)layerIsGroup;
-- (BOOL)layerIsArtboardOrSlice;
-- (BOOL)hasMixedSelection;
 - (id)views;
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)document;
@@ -71,6 +59,7 @@
 - (id)inspectorsWithProperContent;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
 - (id)sharedObjectsSection;
+- (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (struct CGRect)boundsForParentOf:(id)arg1;
@@ -85,7 +74,7 @@
 - (double)rulerOriginYForLayer:(id)arg1;
 - (double)absoluteYForLayers;
 - (double)absoluteXForLayers;
-- (void)setValue:(double)arg1 forFields:(id)arg2;
+- (void)setValue:(double)arg1 forField:(id)arg2;
 - (void)refreshBindingsOnShape:(id)arg1;
 - (void)clearPositionAndSizeFields;
 - (void)setNeedsUpdatePositionAndSizeFields;

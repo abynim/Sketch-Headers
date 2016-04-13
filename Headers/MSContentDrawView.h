@@ -6,12 +6,12 @@
 
 #import "NSView.h"
 
-#import "MSBasicDelegate.h"
+#import "MSEventHandlerManagerDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
 @class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSRulerView, MSTiledLayerPile, MSViewPort, NSEvent, NSString, NSTimer;
 
-@interface MSContentDrawView : NSView <MSBasicDelegate, MSTiledLayerPileHostView>
+@interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView>
 {
     NSEvent *lastEvent;
     BOOL handToolIsActive;
@@ -162,6 +162,7 @@
 - (void)setZoomValueCenteredInCanvas:(double)arg1;
 - (void)scaleTilesBy:(double)arg1;
 - (void)scaleTilesBy:(double)arg1 withScalingCenterInViewCoordinates:(struct CGPoint)arg2;
+- (void)zoomToActualSizeAnimated:(BOOL)arg1;
 - (void)zoomToSelection;
 - (void)zoomToFitRect:(struct CGRect)arg1;
 - (void)animateToZoom:(double)arg1 scalingCenteredOnAbsoluteCoordinates:(struct CGPoint)arg2;
@@ -172,8 +173,6 @@
 - (void)animateScrollOriginToPoint:(struct CGPoint)arg1;
 - (struct CGPoint)viewCenterInAbsoluteCoordinatesForViewPort:(id)arg1;
 - (struct CGPoint)centerForScalingInAbsoluteCoordinates;
-- (void)actualSizeWithoutAnimating;
-- (void)actualSize;
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (void)animateToViewPort:(id)arg1;
 - (id)viewPortAfterScalingToZoom:(double)arg1 selectionCentered:(BOOL)arg2;

@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSImmutablePage, NSArray, NSColorSpace;
+@class MSImmutableDocumentData, MSImmutablePage, NSArray, NSColorSpace;
 
 @interface MSTileRefresh : NSObject
 {
     MSImmutablePage *_page;
+    MSImmutableDocumentData *_document;
     NSColorSpace *_colorSpace;
     NSArray *_artboardFrames;
     struct CGRect _contentRect;
@@ -18,6 +19,7 @@
 
 @property(retain, nonatomic) NSArray *artboardFrames; // @synthesize artboardFrames=_artboardFrames;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
 @property(nonatomic) struct CGRect contentRect; // @synthesize contentRect=_contentRect;
 - (void).cxx_destruct;

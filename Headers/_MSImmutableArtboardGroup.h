@@ -12,6 +12,7 @@
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
+    BOOL _includeInCloudUpload;
     MSImmutableColor *_backgroundColor;
     MSImmutableSimpleGrid *_grid;
     MSImmutableRulerData *_horizontalRulerData;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) MSImmutableRulerData<MSRulerData> *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSImmutableSimpleGrid<MSSimpleGrid> *grid; // @synthesize grid=_grid;
 @property(retain, nonatomic) MSImmutableColor<MSColor> *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;

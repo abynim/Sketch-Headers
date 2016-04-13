@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSURL;
+@class NSArray, NSDictionary, NSMutableDictionary, NSTimer, NSURL;
 
 @interface MSPluginManager : NSObject
 {
@@ -17,10 +17,16 @@
     char *_useLegacyPlugins;
     NSDictionary *_metadata;
     NSArray *_folderMonitors;
+    NSMutableDictionary *_runningCommands;
+    NSTimer *_sessionTimer;
+    double _lastTimerInterval;
 }
 
 + (id)pluginsURL;
 + (void)initialisePlugins;
+@property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
+@property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
+@property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
 @property(readonly, nonatomic) BOOL monitorForChanges; // @synthesize monitorForChanges=_monitorForChanges;
 @property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -35,12 +41,17 @@
 - (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2 includeLegacyPlugins:(BOOL)arg3;
 - (void)addCommands:(id)arg1 toMenu:(id)arg2 fromDescription:(id)arg3 selector:(SEL)arg4;
 - (void)sortMenu:(id)arg1 recursively:(BOOL)arg2;
+- (void)editBundle:(id)arg1;
+- (void)cleanupFinishedCommands;
+- (void)trackLongRunningCommand:(id)arg1;
+- (id)stopTrackingLongRunningCommandWithSpecifier:(id)arg1;
 - (id)commandWithSpecifier:(id)arg1;
 @property(copy, nonatomic) NSDictionary *plugins;
 - (void)reloadPlugins;
 - (id)pluginsFromFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3;
 - (id)legacyPluginMenuDescriptionWithRelativePath:(id)arg1 commandIdentifier:(id)arg2;
 - (id)relativePathByDeletingCommonPathComponentsWithFileURL:(id)arg1 fromURL:(id)arg2;
+- (void)dealloc;
 - (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
 - (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2;
 

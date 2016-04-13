@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+#import "MSActionObserver.h"
 #import "WebFrameLoadDelegate.h"
 #import "WebResourceLoadDelegate.h"
 #import "WebUIDelegate.h"
 
 @class NSMutableArray, NSString, WebView;
 
-@interface MSAnalytics : NSObject <WebFrameLoadDelegate, WebResourceLoadDelegate, WebUIDelegate>
+@interface MSAnalytics : NSObject <MSActionObserver, WebFrameLoadDelegate, WebResourceLoadDelegate, WebUIDelegate>
 {
     WebView *_webView;
     NSString *_siteId;
@@ -24,6 +25,8 @@
 + (id)sharedInstance;
 @property(nonatomic) BOOL debug; // @synthesize debug=_debug;
 - (void).cxx_destruct;
+- (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
+- (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 - (BOOL)currentApplicationIsActive;
 - (void)trackEvent:(id)arg1 withInterval:(long long)arg2 checkInterval:(long long)arg3 conditional:(CDUnknownBlockType)arg4;
 - (void)trackEvent:(id)arg1 withValue:(id)arg2;

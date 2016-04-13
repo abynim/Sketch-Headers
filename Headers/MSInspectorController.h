@@ -6,7 +6,7 @@
 
 #import "NSViewController.h"
 
-@class MSDocument, MSExportInspectorViewController, MSExportableLayerInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, NSView, NSViewController<MSInspectorChildController>;
+@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSView, NSViewController<MSInspectorChildController>;
 
 @interface MSInspectorController : NSViewController
 {
@@ -16,14 +16,16 @@
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSNormalInspector *_normalInspector;
-    MSExportableLayerInspectorViewController *_exportableInspector;
+    MSSliceInspectorViewController *_slicesInspector;
+    MSArtboardInspectorViewController *_artboardInspector;
     MSExportInspectorViewController *_bottomExporter;
     unsigned long long _oldInspectorLocation;
 }
 
 @property(nonatomic) unsigned long long oldInspectorLocation; // @synthesize oldInspectorLocation=_oldInspectorLocation;
 @property(retain, nonatomic) MSExportInspectorViewController *bottomExporter; // @synthesize bottomExporter=_bottomExporter;
-@property(retain, nonatomic) MSExportableLayerInspectorViewController *exportableInspector; // @synthesize exportableInspector=_exportableInspector;
+@property(retain, nonatomic) MSArtboardInspectorViewController *artboardInspector; // @synthesize artboardInspector=_artboardInspector;
+@property(retain, nonatomic) MSSliceInspectorViewController *slicesInspector; // @synthesize slicesInspector=_slicesInspector;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
@@ -41,6 +43,7 @@
 - (void)reload;
 - (id)sharedObjectsSection;
 - (void)reloadSharedObjectsSection;
+- (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
@@ -50,10 +53,10 @@
 - (void)currentHandlerChanged;
 - (void)layerPositionPossiblyChanged;
 - (BOOL)layersAreExportable:(id)arg1;
-- (id)currentControllerForReturningToNormalHandler;
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
 - (void)selectionDidChangeTo:(id)arg1;
+- (id)controllerForCurrentSelection:(id)arg1;
 - (void)viewDidResize;
 - (void)dealloc;
 - (void)undoNotification:(id)arg1;

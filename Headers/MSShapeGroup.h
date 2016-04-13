@@ -12,7 +12,6 @@
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
-    BOOL _isEditingChild;
 }
 
 + (unsigned long long)traits;
@@ -21,7 +20,7 @@
 + (id)shapeWithPath:(id)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
 + (id)keyPathsForValuesAffectingPreviewImages;
-@property(nonatomic) BOOL isEditingChild; // @synthesize isEditingChild=_isEditingChild;
++ (Class)overrideViewControllerClass;
 - (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
@@ -60,34 +59,12 @@
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)handleDoubleClick;
 - (id)defaultName;
 - (Class)classToUseForNameCounter;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (long long)selectedCorner:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)performInitEmptyObject;
-- (id)handlerName;
-- (BOOL)canFlatten;
-- (BOOL)canSmartRotate;
-- (BOOL)isStraightTriangle;
-- (BOOL)shouldFlattenAfterRotate;
-- (void)toggleClosePath;
-- (id)lastPoint;
-- (id)firstPoint;
-- (struct CGPoint)rulerBase;
-@property(nonatomic) double length; // @dynamic length;
-@property(nonatomic) double y2; // @dynamic y2;
-@property(nonatomic) double x2; // @dynamic x2;
-@property(nonatomic) double y1; // @dynamic y1;
-@property(nonatomic) double x1; // @dynamic x1;
-- (void)setP2:(struct CGPoint)arg1;
-- (void)setP1:(struct CGPoint)arg1;
-- (struct CGPoint)p2;
-- (struct CGPoint)p1;
-- (id)inspectorViewControllers;
-- (void)drawHoverWithZoom:(double)arg1;
-- (BOOL)shouldCachePreview;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -104,6 +81,8 @@
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPathPreview;
 @property(readonly, nonatomic) NSBezierPath *cachedBezierPath;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 - (id)fillFromBorder:(id)arg1;
 - (double)lineWidthForOutliningWithBorder:(id)arg1;
 - (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
@@ -115,9 +94,31 @@
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
+- (void)applyOverrides:(id)arg1;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
+- (BOOL)canFlatten;
+- (BOOL)canSmartRotate;
+- (BOOL)isStraightTriangle;
+- (BOOL)shouldFlattenAfterRotate;
+- (id)handlerName;
+- (BOOL)handleDoubleClick;
+- (void)toggleClosePath;
+- (id)lastPoint;
+- (id)firstPoint;
+- (struct CGPoint)rulerBase;
+@property(nonatomic) double length; // @dynamic length;
+@property(nonatomic) double y2; // @dynamic y2;
+@property(nonatomic) double x2; // @dynamic x2;
+@property(nonatomic) double y1; // @dynamic y1;
+@property(nonatomic) double x1; // @dynamic x1;
+- (void)setP2:(struct CGPoint)arg1;
+- (void)setP1:(struct CGPoint)arg1;
+- (struct CGPoint)p2;
+- (struct CGPoint)p1;
+- (id)inspectorViewControllers;
+- (void)drawHoverWithZoom:(double)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -131,8 +132,6 @@
 @property(readonly, nonatomic) BOOL hasClippingMask;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -144,7 +143,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;

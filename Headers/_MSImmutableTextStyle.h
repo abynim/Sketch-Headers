@@ -10,11 +10,11 @@
 
 @interface _MSImmutableTextStyle : MSImmutableModelBase
 {
-    NSDictionary *_attributes;
+    NSDictionary *_encodedAttributes;
 }
 
 + (Class)mutableClass;
-@property(copy, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
+@property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (void).cxx_destruct;
 - (BOOL)attributesEqualAttributesForObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

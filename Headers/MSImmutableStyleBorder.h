@@ -18,7 +18,10 @@
 - (void)updateColorCounter:(id)arg1;
 - (void)drawGradientBorder:(id)arg1 originalPath:(id)arg2 isArtistic:(BOOL)arg3 frame:(struct CGRect)arg4 context:(id)arg5;
 - (void)drawBorder:(id)arg1 advancedOptions:(id)arg2 context:(id)arg3;
-- (void)addSVGAttributes:(id)arg1 forExporter:(id)arg2;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addOuterMaskToAttributes:(id)arg1 withExporter:(id)arg2;
+- (void)addInnerMaskToAttributes:(id)arg1 withExporter:(id)arg2;
+- (id)addMaskElementToAttributes:(id)arg1 withExporter:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric;

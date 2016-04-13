@@ -6,37 +6,37 @@
 
 #import "NSObject.h"
 
-@class MSSelectionPath, MSSelectionPathCollection, MSShapePathLayer;
+@class MSHandlePath, MSHandlePathCollection, MSShapePathLayer;
 
 @interface MSEditingShapeDrawing : NSObject
 {
     BOOL _shouldSkipDrawingSelection;
     BOOL _isDragging;
     MSShapePathLayer *_shape;
-    MSSelectionPathCollection *_selectedPoints;
-    MSSelectionPath *_hoveringPoint;
+    MSHandlePathCollection *_selectedPoints;
+    MSHandlePath *_hoveringPoint;
     double _zoomValue;
     long long _hoveringBeforeIndex;
-    MSSelectionPathCollection *_snappedPaths;
+    MSHandlePathCollection *_snappedHandles;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
 }
 
 @property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
-@property(retain, nonatomic) MSSelectionPathCollection *snappedPaths; // @synthesize snappedPaths=_snappedPaths;
+@property(retain, nonatomic) MSHandlePathCollection *snappedHandles; // @synthesize snappedHandles=_snappedHandles;
 @property(nonatomic) BOOL shouldSkipDrawingSelection; // @synthesize shouldSkipDrawingSelection=_shouldSkipDrawingSelection;
 @property(nonatomic) long long hoveringBeforeIndex; // @synthesize hoveringBeforeIndex=_hoveringBeforeIndex;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
-@property(retain, nonatomic) MSSelectionPath *hoveringPoint; // @synthesize hoveringPoint=_hoveringPoint;
-@property(retain, nonatomic) MSSelectionPathCollection *selectedPoints; // @synthesize selectedPoints=_selectedPoints;
+@property(retain, nonatomic) MSHandlePath *hoveringPoint; // @synthesize hoveringPoint=_hoveringPoint;
+@property(retain, nonatomic) MSHandlePathCollection *selectedPoints; // @synthesize selectedPoints=_selectedPoints;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;
 - (void)drawLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 inFrame:(struct CGRect)arg3;
-- (void)drawOutlinePointAtSelectionPath:(id)arg1 isSelected:(BOOL)arg2 selectionCount:(long long)arg3 transformStruct:(struct _CHTransformStruct)arg4;
-- (BOOL)shouldDrawNodeIfSelected:(BOOL)arg1 isSnappedTo:(BOOL)arg2;
-- (void)drawOutlinePoints;
+- (void)drawHandlesForPointAtIndex:(unsigned long long)arg1 selected:(BOOL)arg2 excludeControlPoints:(BOOL)arg3 transformStruct:(struct _CHTransformStruct)arg4;
+- (BOOL)shouldDrawHandleIfSelected:(BOOL)arg1 isSnappedTo:(BOOL)arg2;
+- (void)drawHandles;
 - (void)drawBetweenPoints;
 - (void)draw;
 - (id)init;

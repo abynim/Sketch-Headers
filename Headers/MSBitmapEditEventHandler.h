@@ -68,7 +68,6 @@
 - (void)duplicate:(id)arg1;
 - (BOOL)canDuplicate;
 - (void)paste:(id)arg1;
-- (void)refreshOverlayRect:(struct CGRect)arg1;
 - (struct CGRect)rectFromBitmapToBoundsCoordinates:(struct CGRect)arg1;
 - (id)bitmapLayerFromSelectedArea;
 - (void)copy:(id)arg1;

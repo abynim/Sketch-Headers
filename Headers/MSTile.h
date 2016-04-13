@@ -6,7 +6,7 @@
 
 #import "MSBaseRenderTile.h"
 
-@class MSContentTile, MSImmutablePage, MSOverlayTile, MSPage, MSTileRenderer, NSArray, NSThread;
+@class MSContentTile, MSImmutableDocumentData, MSImmutablePage, MSOverlayTile, MSPage, MSTileRenderer, NSArray, NSThread;
 
 @interface MSTile : MSBaseRenderTile
 {
@@ -21,6 +21,7 @@
     MSContentTile *_contentTile;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     NSThread *_thread;
+    MSImmutableDocumentData *_document;
     MSImmutablePage *_pageForContent;
     MSPage *_pageForOverlay;
     NSArray *_artboardFrames;
@@ -32,6 +33,7 @@
 @property(retain, nonatomic) NSArray *artboardFrames; // @synthesize artboardFrames=_artboardFrames;
 @property(retain, nonatomic) MSPage *pageForOverlay; // @synthesize pageForOverlay=_pageForOverlay;
 @property(retain, nonatomic) MSImmutablePage *pageForContent; // @synthesize pageForContent=_pageForContent;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
@@ -60,7 +62,7 @@
 - (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
 - (void)refreshOverlayRect:(struct CGRect)arg1 page:(id)arg2;
 - (void)scheduleContentRefresh:(id)arg1;
-- (void)refreshContentRect:(struct CGRect)arg1 page:(id)arg2;
+- (void)refreshContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3;
 - (BOOL)shouldDrawPixelated;
 - (void)enableDebugFramesInner:(BOOL)arg1 outer:(BOOL)arg2;
 - (void)removeFromSuperlayer;

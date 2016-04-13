@@ -16,6 +16,7 @@
 
 - (double)cropRadius;
 - (id)renderBitmapEffects:(id)arg1;
+- (void)addFilterWithExporter:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGPoint center;

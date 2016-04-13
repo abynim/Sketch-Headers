@@ -6,7 +6,7 @@
 
 #import "MSModelBase.h"
 
-@class MSExportOptions, MSRect, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSExportOptions, MSRect, NSDictionary, NSString;
 
 @interface _MSLayer : MSModelBase
 {
@@ -18,7 +18,7 @@
     BOOL _shouldBreakMaskChain;
     long long _layerListExpandedType;
     NSString *_name;
-    struct NSObject *_originalObjectID;
+    NSString *_originalObjectID;
     double _rotation;
     NSDictionary *_userInfo;
     MSExportOptions *_exportOptions;
@@ -28,9 +28,8 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -45,8 +44,8 @@
 - (BOOL)primitiveShouldBreakMaskChain;
 - (void)setPrimitiveRotation:(double)arg1;
 - (double)primitiveRotation;
-- (void)setPrimitiveOriginalObjectID:(struct NSObject *)arg1;
-- (struct NSObject *)primitiveOriginalObjectID;
+- (void)setPrimitiveOriginalObjectID:(id)arg1;
+- (id)primitiveOriginalObjectID;
 - (void)setPrimitiveNameIsFixed:(BOOL)arg1;
 - (BOOL)primitiveNameIsFixed;
 - (void)setPrimitiveName:(id)arg1;
@@ -68,7 +67,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
+@property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;

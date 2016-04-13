@@ -6,13 +6,14 @@
 
 #import "NSKeyedUnarchiver.h"
 
-@class NSDictionary;
+@class NSArray, NSDictionary;
 
 @interface MSUnarchiver : NSKeyedUnarchiver
 {
     BOOL _corruptionDetected;
     long long _version;
     SEL _propertyDecoder;
+    NSArray *_actualSymbolIDs;
     NSDictionary *_legacyImages;
 }
 
@@ -24,6 +25,7 @@
 + (void)defineReplacementClasses;
 + (void)initialize;
 @property(retain, nonatomic) NSDictionary *legacyImages; // @synthesize legacyImages=_legacyImages;
+@property(retain, nonatomic) NSArray *actualSymbolIDs; // @synthesize actualSymbolIDs=_actualSymbolIDs;
 @property(nonatomic) BOOL corruptionDetected; // @synthesize corruptionDetected=_corruptionDetected;
 @property(readonly, nonatomic) SEL propertyDecoder; // @synthesize propertyDecoder=_propertyDecoder;
 @property(readonly, nonatomic) long long version; // @synthesize version=_version;

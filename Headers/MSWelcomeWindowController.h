@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindowController.h"
+#import "CHWindowController.h"
 
 #import "NSTextFieldDelegate.h"
 #import "NSWindowDelegate.h"
 
 @class NSButton, NSString, NSTextField, NSView;
 
-@interface MSWelcomeWindowController : NSWindowController <NSWindowDelegate, NSTextFieldDelegate>
+@interface MSWelcomeWindowController : CHWindowController <NSWindowDelegate, NSTextFieldDelegate>
 {
     NSButton *_confirmButton;
     NSButton *_closeButton;
@@ -36,7 +36,7 @@
 - (void)followUsOnTwitter:(id)arg1;
 - (void)contactSupport:(id)arg1;
 - (void)readManual:(id)arg1;
-- (void)openIntroDocument:(id)arg1;
+- (void)visitLearnPage:(id)arg1;
 - (void)playMovie:(id)arg1;
 - (void)showWhatsNew:(id)arg1;
 - (BOOL)signUpFieldsContainsValidEmail;

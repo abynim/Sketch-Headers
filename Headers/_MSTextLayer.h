@@ -6,15 +6,16 @@
 
 #import "MSStyledLayer.h"
 
-@class NSTextStorage;
+@class MSAttributedString, MSImageData;
 
 @interface _MSTextLayer : MSStyledLayer
 {
     BOOL _automaticallyDrawOnUnderlyingPath;
     BOOL _dontSynchroniseWithSymbol;
     BOOL _heightIsClipped;
+    MSAttributedString *_attributedString;
     long long _lineSpacingBehaviour;
-    NSTextStorage *_storage;
+    MSImageData *_preview;
     long long _textBehaviour;
     struct CGRect _glyphBounds;
 }
@@ -22,17 +23,16 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (void)syncPropertiesMatchingReference:(id)arg1 withObject:(id)arg2;
-- (void)copyPropertiesToObjectCopy:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 - (void)setPrimitiveTextBehaviour:(long long)arg1;
 - (long long)primitiveTextBehaviour;
-- (void)setPrimitiveStorage:(id)arg1;
-- (id)primitiveStorage;
+- (void)setPrimitivePreview:(id)arg1;
+- (id)primitivePreview;
 - (void)setPrimitiveLineSpacingBehaviour:(long long)arg1;
 - (long long)primitiveLineSpacingBehaviour;
 - (void)setPrimitiveHeightIsClipped:(BOOL)arg1;
@@ -43,13 +43,16 @@
 - (BOOL)primitiveDontSynchroniseWithSymbol;
 - (void)setPrimitiveAutomaticallyDrawOnUnderlyingPath:(BOOL)arg1;
 - (BOOL)primitiveAutomaticallyDrawOnUnderlyingPath;
+- (void)setPrimitiveAttributedString:(id)arg1;
+- (id)primitiveAttributedString;
 @property(nonatomic) long long textBehaviour; // @synthesize textBehaviour=_textBehaviour;
-@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
+@property(retain, nonatomic) MSImageData *preview; // @synthesize preview=_preview;
 @property(nonatomic) long long lineSpacingBehaviour; // @synthesize lineSpacingBehaviour=_lineSpacingBehaviour;
 @property(nonatomic) BOOL heightIsClipped; // @synthesize heightIsClipped=_heightIsClipped;
 @property(nonatomic) struct CGRect glyphBounds; // @synthesize glyphBounds=_glyphBounds;
 @property(nonatomic) BOOL dontSynchroniseWithSymbol; // @synthesize dontSynchroniseWithSymbol=_dontSynchroniseWithSymbol;
 @property(nonatomic) BOOL automaticallyDrawOnUnderlyingPath; // @synthesize automaticallyDrawOnUnderlyingPath=_automaticallyDrawOnUnderlyingPath;
+@property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

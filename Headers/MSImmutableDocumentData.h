@@ -14,9 +14,11 @@
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
     NSDictionary *_metadata;
+    NSDictionary *_symbolsIndexedByID;
 }
 
 + (id)documentDataFromData:(id)arg1 metadata:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+@property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (id)layerWithID:(id)arg1;
@@ -24,10 +26,18 @@
 - (BOOL)wasSavedByOldVersion;
 - (id)usedFontNames;
 - (void)decodePropertiesWithCoder:(id)arg1;
+- (id)symbolWithID:(id)arg1;
+- (void)objectDidInit;
 - (id)defaultPagesArray;
-- (void)prepareCopy:(id)arg1;
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)newPageForMigratedSymbols:(id)arg1;
+- (void)arrangeMigratedSymbolsInGrid:(id)arg1;
+- (void)stripRedundantOverridesFromInstances:(id)arg1 ofSymbol:(id)arg2;
+- (void)stripRedundantOverridesFromInstancesOfSymbols:(id)arg1;
+- (id)migratedSymbolFromSymbol:(id)arg1 group:(id)arg2;
+- (id)migratedSymbolsFromOldSymbols:(id)arg1;
+- (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;

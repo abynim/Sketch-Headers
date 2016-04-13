@@ -4,13 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseAction.h"
+#import "MSDocumentAction.h"
 
-@interface MSExportAction : MSBaseAction
+@interface MSExportAction : MSDocumentAction
 {
 }
 
-- (id)slices;
 - (id)baseNameForSlice;
 - (struct CGRect)rectForExportingEntirePage;
 - (void)determineRectForInitialSliceWithCompletionHandler:(CDUnknownBlockType)arg1;

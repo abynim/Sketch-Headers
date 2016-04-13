@@ -10,6 +10,7 @@
 
 @interface MSWebExporter : NSObject
 {
+    BOOL _selectiveExport;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
@@ -18,6 +19,8 @@
 }
 
 + (void)exportDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
++ (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+@property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(retain, nonatomic) NSMapTable *previouslyExported; // @synthesize previouslyExported=_previouslyExported;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseAction.h"
+#import "MSDocumentAction.h"
 
 #import "NSMenuDelegate.h"
 
 @class NSString;
 
-@interface MSInsertSharedObjectAction : MSBaseAction <NSMenuDelegate>
+@interface MSInsertSharedObjectAction : MSDocumentAction <NSMenuDelegate>
 {
 }
 
+- (BOOL)shouldShowOrganiseSheetMenuItem;
 - (BOOL)hasSubMenu;
 - (id)noSharedObjectsView;
 - (void)showSharedObjectsSheet:(id)arg1;

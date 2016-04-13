@@ -24,6 +24,7 @@
 - (BOOL)shouldSkipDrawing;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (id)renderBitmapEffects:(id)arg1;
+- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addGradientsToDocument:(id)arg1;
 
 // Remaining properties
@@ -35,8 +36,6 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -47,7 +46,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *originalObjectID;
+@property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

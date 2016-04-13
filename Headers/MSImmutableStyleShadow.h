@@ -15,18 +15,25 @@
 {
 }
 
++ (double)zoomValueForRenderingFromContextShadowZoomValue:(double)arg1;
 - (void)updateColorCounter:(id)arg1;
-- (id)shadowForContext:(id)arg1;
+- (void)applyShadowWithXOffset:(double)arg1 context:(id)arg2;
+- (void)applyShadowToContext:(id)arg1;
 - (double)lineWidthForStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (double)growAmountforStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (void)drawShadowFillAndStrokeForPath:(id)arg1 strokeType:(long long)arg2 lineWidth:(double)arg3;
 - (void)drawShadowStrokeForPath:(id)arg1 strokeType:(long long)arg2 lineWidth:(double)arg3;
 - (void)drawShadowFillForPath:(id)arg1 spread:(double)arg2;
-- (id)shadowWithXOffset:(double)arg1 context:(id)arg2;
 - (struct CGRect)boundingBoxForRect:(struct CGRect)arg1;
 - (void)drawInnerShadowForPath:(id)arg1 context:(id)arg2;
 - (void)drawShadowForRect:(struct CGRect)arg1 context:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (void)drawShadowForPath:(id)arg1 type:(unsigned long long)arg2 strokeType:(long long)arg3 fillShouldClip:(BOOL)arg4 lineWidth:(double)arg5 context:(id)arg6;
+- (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
+- (id)addColorMatrix:(id)arg1 color:(id)arg2 output:(id)arg3 filter:(id)arg4;
+- (id)addOffsetTo:(id)arg1 dx:(double)arg2 dy:(double)arg3 output:(id)arg4 filter:(id)arg5;
+- (id)addCompositeMask:(id)arg1 mask:(id)arg2 output:(id)arg3 filter:(id)arg4;
+- (id)addBlurWithRadius:(double)arg1 input:(id)arg2 output:(id)arg3 filter:(id)arg4;
+- (id)addSpread:(double)arg1 withInput:(id)arg2 output:(id)arg3 filter:(id)arg4;
 
 // Remaining properties
 @property(readonly, nonatomic) double blurRadius;

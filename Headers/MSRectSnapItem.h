@@ -6,14 +6,19 @@
 
 #import "MSSnapItem.h"
 
+@class NSArray;
+
 @interface MSRectSnapItem : MSSnapItem
 {
     BOOL _constrainProportions;
+    NSArray *_layersForSnapping;
     struct CGRect _storedRect;
 }
 
 + (id)snapperObjectWithRect:(struct CGRect)arg1 layer:(id)arg2;
 @property(nonatomic) struct CGRect storedRect; // @synthesize storedRect=_storedRect;
+@property(retain, nonatomic) NSArray *layersForSnapping; // @synthesize layersForSnapping=_layersForSnapping;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL shouldConstrainProportions;
 - (void)setRect:(struct CGRect)arg1;
 - (struct CGRect)rect;
@@ -28,6 +33,8 @@
 - (id)snapLines;
 - (id)snapItemForDrawing;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
+- (id)otherLayersForSnapping;
+- (id)otherLayersForSizeSnapping;
 
 @end
 

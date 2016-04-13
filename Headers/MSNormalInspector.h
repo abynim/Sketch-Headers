@@ -38,7 +38,6 @@
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)returnToDefaultHandler;
-- (void)refreshLayers;
 - (id)viewControllers;
 - (void)changeColor:(id)arg1;
 - (void)layerPositionPossiblyChanged;

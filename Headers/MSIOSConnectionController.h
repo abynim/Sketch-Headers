@@ -49,7 +49,7 @@
 - (void)sendListOfPagesAndSlicesForDocument:(id)arg1;
 - (unsigned long long)pixelLimitForDevice:(id)arg1;
 - (id)sliceSizeMetadataFromRect:(struct CGRect)arg1 slice:(id)arg2;
-- (void)sendSlice:(id)arg1 page:(id)arg2 artboard:(id)arg3;
+- (void)sendSlice:(id)arg1 page:(id)arg2 artboard:(id)arg3 document:(id)arg4;
 - (id)dictionaryForArtboard:(id)arg1 page:(id)arg2 sequenceNumber:(id)arg3 scale:(id)arg4 boardSizeString:(id)arg5;
 - (id)incrementSequenceNumberForArtboard:(id)arg1;
 - (void)clientsChangedNotification:(id)arg1;

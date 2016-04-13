@@ -16,8 +16,9 @@
 @interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
     NSView *_basicView;
-    NSView *_symbolExclusionView;
+    NSView *_missingFontsView;
     NSButton *_fontFamilyButton;
+    NSButton *_missingFontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
     NSComboBox *_fontSizeField;
     MSColorPreviewButton *_colorPickerButton;
@@ -37,17 +38,18 @@
 @property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(retain, nonatomic) NSComboBox *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
+@property(retain, nonatomic) NSButton *missingFontFamilyButton; // @synthesize missingFontFamilyButton=_missingFontFamilyButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
-@property(retain, nonatomic) NSView *symbolExclusionView; // @synthesize symbolExclusionView=_symbolExclusionView;
+@property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
+- (BOOL)hasMissingFonts;
 - (id)views;
 - (id)textStorages;
-- (BOOL)textLayerContainedInSymbol;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;
@@ -83,6 +85,7 @@
 - (double)lineHeight;
 - (void)reloadLineHeightField;
 - (void)reloadData;
+- (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;
 - (void)awakeFromNib;
 

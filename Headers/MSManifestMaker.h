@@ -10,11 +10,13 @@
 
 @interface MSManifestMaker : NSObject
 {
+    BOOL _selectiveExport;
     MSImmutableDocumentData *_doc;
     CDUnknownBlockType _imageProviderBlock;
 }
 
-+ (id)manifestForDocument:(id)arg1 withName:(id)arg2 imageProviderBlock:(CDUnknownBlockType)arg3;
++ (id)manifestForDocument:(id)arg1 withName:(id)arg2 selectiveExport:(BOOL)arg3 imageProviderBlock:(CDUnknownBlockType)arg4;
+@property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) CDUnknownBlockType imageProviderBlock; // @synthesize imageProviderBlock=_imageProviderBlock;
 @property(retain, nonatomic) MSImmutableDocumentData *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
