@@ -10,7 +10,6 @@
 
 @interface MSUpDownController : NSResponder
 {
-    BOOL hasOpenedUndoGroup;
     BOOL didChangeTextDuringEditing;
     NSTextField<MSUpDownProtocol> *_textField;
     MSIntegratedStepper *_stepper;
@@ -24,7 +23,6 @@
 - (BOOL)isEnabled;
 - (BOOL)hasValidFirstResponder;
 - (double)floatValue;
-- (id)advancedUndoManager;
 - (double)incrementValueAccountingForModifierFlags;
 - (double)adjustValueForMinimum:(double)arg1;
 - (void)decrement;

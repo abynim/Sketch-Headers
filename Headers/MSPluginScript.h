@@ -19,6 +19,8 @@
 @property(readonly, copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(readonly, copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (void)reload;
+- (BOOL)loadWithError:(id *)arg1;
 - (id)initWithString:(id)arg1 filename:(id)arg2;
 - (id)initWithURL:(id)arg1 error:(id *)arg2;
 

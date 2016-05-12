@@ -58,7 +58,7 @@
 - (void)handlerWillLoseFocus;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)handlerGotFocus;
-- (void)didUndoNotification:(id)arg1;
+- (void)didMoveThroughHistory:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 

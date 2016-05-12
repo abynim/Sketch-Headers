@@ -18,6 +18,7 @@
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (BOOL)differsFromLayer:(id)arg1;
+- (void)migratePropertiesFromV84OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
 

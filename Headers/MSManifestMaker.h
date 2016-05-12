@@ -11,18 +11,24 @@
 @interface MSManifestMaker : NSObject
 {
     BOOL _selectiveExport;
+    BOOL _usePageIfMissingArtboard;
     MSImmutableDocumentData *_doc;
     CDUnknownBlockType _imageProviderBlock;
 }
 
-+ (id)manifestForDocument:(id)arg1 withName:(id)arg2 selectiveExport:(BOOL)arg3 imageProviderBlock:(CDUnknownBlockType)arg4;
++ (BOOL)isArtboardEqual:(id)arg1 toArtboard:(id)arg2;
++ (BOOL)isPageEqual:(id)arg1 toPage:(id)arg2;
++ (BOOL)wouldManifestChangeBetweenOldDoc:(id)arg1 andNewDoc:(id)arg2;
++ (id)manifestForDocument:(id)arg1 withName:(id)arg2 selectiveExport:(BOOL)arg3 usePageIfMissingArtboard:(BOOL)arg4 imageProviderBlock:(CDUnknownBlockType)arg5;
+@property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) CDUnknownBlockType imageProviderBlock; // @synthesize imageProviderBlock=_imageProviderBlock;
 @property(retain, nonatomic) MSImmutableDocumentData *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
-- (id)metadataAndExportForRootLayer:(id)arg1 onPage:(id)arg2;
+- (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3 scale:(double)arg4;
+- (id)metadataAndExportForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
-- (id)metadataAndExportForPage:(id)arg1;
+- (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (id)metadataAndExportForPages:(id)arg1;
 - (id)manifestWithName:(id)arg1;
 

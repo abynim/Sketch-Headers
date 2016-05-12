@@ -9,6 +9,7 @@
 @class MSActionController, NSString;
 
 @protocol MSActionObserver <NSObject>
+- (void)actionController:(MSActionController *)arg1 didInstantActionWithID:(NSString *)arg2 context:(id)arg3;
 - (void)actionController:(MSActionController *)arg1 didFinishActionWithID:(NSString *)arg2 context:(id)arg3;
 - (void)actionController:(MSActionController *)arg1 willBeginActionWithID:(NSString *)arg2 context:(id)arg3;
 @end

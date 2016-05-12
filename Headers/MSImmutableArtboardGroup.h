@@ -20,11 +20,11 @@
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
 @property(readonly, nonatomic) struct CGRect contentBounds;
-@property(readonly, nonatomic) struct CGPoint rulerBase;
+- (struct CGPoint)rulerBase;
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithCoder:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2;
+- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
@@ -50,6 +50,7 @@
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
 @property(readonly, nonatomic) BOOL includeInCloudUpload;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

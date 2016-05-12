@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class MSArray, MSImageCollection;
 
-@interface _MSAssetCollection : MSModelBase
+@interface _MSAssetCollection : MSModelObject
 {
+    MSArray *_images;
     MSArray *_colors;
     MSArray *_gradients;
-    MSArray *_images;
     MSImageCollection *_imageCollection;
 }
 
@@ -27,20 +27,20 @@
 - (void)performInitEmptyObject;
 - (void)setPrimitiveImageCollection:(id)arg1;
 - (id)primitiveImageCollection;
-- (void)setPrimitiveImages:(id)arg1;
-- (id)primitiveImages;
 - (void)setPrimitiveGradients:(id)arg1;
 - (id)primitiveGradients;
 - (void)setPrimitiveColors:(id)arg1;
 - (id)primitiveColors;
+- (void)setPrimitiveImages:(id)arg1;
+- (id)primitiveImages;
 @property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
 - (id)imageCollectionGeneric;
-@property(retain, nonatomic) MSArray *images; // @synthesize images=_images;
-- (id)imagesGeneric;
 @property(retain, nonatomic) MSArray *gradients; // @synthesize gradients=_gradients;
 - (id)gradientsGeneric;
 @property(retain, nonatomic) MSArray *colors; // @synthesize colors=_colors;
 - (id)colorsGeneric;
+@property(retain, nonatomic) MSArray *images; // @synthesize images=_images;
+- (id)imagesGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

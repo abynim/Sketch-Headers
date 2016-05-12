@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutablePage, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -21,12 +21,14 @@
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
-- (id)layerWithID:(id)arg1;
+- (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (id)usedFontNames;
 - (void)decodePropertiesWithCoder:(id)arg1;
+@property(readonly, nonatomic) MSImmutablePage *currentPage;
 - (id)symbolWithID:(id)arg1;
+- (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
 - (id)defaultPagesArray;
 - (void)performInitEmptyObject;
@@ -77,6 +79,7 @@
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
 @property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

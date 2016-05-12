@@ -16,7 +16,6 @@
 @property(readonly, nonatomic) NSTextStorage *storage;
 @property(readonly, nonatomic) double lineHeight;
 @property(readonly, nonatomic) double defaultLineHeight;
-@property(readonly, nonatomic) BOOL isEditingText;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
 - (double)startingPositionOnPath:(NSBezierPath *)arg1;

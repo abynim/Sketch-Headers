@@ -26,7 +26,7 @@
 @property(nonatomic) __weak NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(nonatomic) __weak NSTextField *timeTextField; // @synthesize timeTextField=_timeTextField;
 @property(nonatomic) __weak NSTextField *nameTextField; // @synthesize nameTextField=_nameTextField;
-@property(nonatomic) __weak MSCloudShareViewControlller *viewController; // @synthesize viewController=_viewController;
+@property(retain, nonatomic) MSCloudShareViewControlller *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) NSDictionary *uploadData; // @synthesize uploadData=_uploadData;
 - (void).cxx_destruct;
 - (void)deleteShare:(id)arg1;

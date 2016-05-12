@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class CIContext, MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -22,6 +22,7 @@
     BOOL _cancelled;
     int _internalBlendMode;
     MSBackgroundBlurRenderer *_backgroundBlurRenderer;
+    CIContext *_ciContext;
     unsigned long long _disableDrawingFillsCounter;
     unsigned long long _disableClippingFillsCounter;
     double _zoomLevel;
@@ -138,6 +139,7 @@
 - (id)cachedValueForModelObject:(id)arg1 key:(id)arg2 zoomIndependent:(BOOL)arg3 orCreateWithBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (void)tearDown;
+@property(readonly, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
 - (id)backingContext;
 - (void)setUp;

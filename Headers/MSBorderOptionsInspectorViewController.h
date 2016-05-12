@@ -6,11 +6,9 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-#import "BCPopoverContentController.h"
+@class NSArray, NSPopUpButton, NSSegmentedControl, NSTextField;
 
-@class NSArray, NSPopUpButton, NSSegmentedControl, NSString, NSTextField;
-
-@interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController <BCPopoverContentController>
+@interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
     NSPopUpButton *startDecorationButton;
     NSPopUpButton *endDecorationButton;
@@ -37,12 +35,6 @@
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;
 - (void)reloadData;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

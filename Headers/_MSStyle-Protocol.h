@@ -4,24 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class NSString;
 
-@protocol _MSStyle <MSModelBase>
+@protocol _MSStyle <MSModelObject>
 @property(readonly, nonatomic) id <MSTextStyle> textStyleGeneric;
+@property(readonly, nonatomic) id <MSArray> shadowsGeneric;
 @property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric;
+@property(readonly, nonatomic) id <MSArray> innerShadowsGeneric;
+@property(readonly, nonatomic) id <MSArray> fillsGeneric;
 @property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
 @property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric;
+@property(readonly, nonatomic) id <MSArray> bordersGeneric;
 @property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric;
 @property(readonly, nonatomic) id <MSStyleBlur> blurGeneric;
 @property(readonly, nonatomic) unsigned long long startDecorationType;
 @property(readonly, nonatomic) NSString *sharedObjectID;
-@property(readonly, nonatomic) id <MSShadowStyleCollection> shadowsGeneric;
 @property(readonly, nonatomic) long long miterLimit;
-@property(readonly, nonatomic) id <MSInnerShadowStyleCollection> innerShadowsGeneric;
-@property(readonly, nonatomic) id <MSFillStyleCollection> fillsGeneric;
 @property(readonly, nonatomic) unsigned long long endDecorationType;
-@property(readonly, nonatomic) id <MSBorderStyleCollection> bordersGeneric;
 @end
 

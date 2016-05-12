@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 #import "MSArray.h"
 
 @class NSArray, NSMutableArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSArray : MSModelBase <MSArray>
+@interface MSArray : MSModelObject <MSArray>
 {
     NSMutableArray *array;
     id <MSArrayDelegate> _delegate;
@@ -24,8 +24,9 @@
 @property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *array; // @synthesize array;
 - (void).cxx_destruct;
+- (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 @property(readonly, copy) NSString *description;
-- (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;
+- (id)filter:(CDUnknownBlockType)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
 - (void)breakConnectionWithAllObjects;
@@ -45,11 +46,10 @@
 - (void)replaceContentsWithArray:(id)arg1;
 - (void)addObjectsFromArray:(id)arg1;
 - (void)addObject:(id)arg1;
-- (id)firstObjectSatisfyingTest:(CDUnknownBlockType)arg1;
+- (id)firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (BOOL)containsObject:(id)arg1;
 - (unsigned long long)indexOfObject:(id)arg1;
 - (BOOL)isValidIndex:(unsigned long long)arg1;
-- (unsigned long long)length;
 - (unsigned long long)count;
 - (id)objectAtIndexOrNil:(unsigned long long)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
@@ -67,6 +67,7 @@
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (void)dealloc;
 - (id)initWithArray:(id)arg1;
+- (unsigned long long)length;
 - (id)treeAsDictionary;
 
 // Remaining properties

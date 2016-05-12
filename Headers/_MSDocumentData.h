@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
-@class MSArray, MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSString;
+@class MSArray, MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSDictionary, NSString;
 
-@interface _MSDocumentData : MSModelBase
+@interface _MSDocumentData : MSModelObject
 {
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
@@ -16,11 +16,12 @@
     NSString *_cloudShareURL;
     NSString *_cloudUserID;
     unsigned long long _currentPageIndex;
-    MSArray *_pages;
+    NSDictionary *_userInfo;
     MSAssetCollection *_assets;
     MSSharedStyleContainer *_layerStyles;
     MSSymbolContainer *_layerSymbols;
     MSSharedTextStyleContainer *_layerTextStyles;
+    MSArray *_pages;
 }
 
 + (BOOL)allowsFaulting;
@@ -32,6 +33,8 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+- (void)setPrimitivePages:(id)arg1;
+- (id)primitivePages;
 - (void)setPrimitiveLayerTextStyles:(id)arg1;
 - (id)primitiveLayerTextStyles;
 - (void)setPrimitiveLayerSymbols:(id)arg1;
@@ -40,8 +43,8 @@
 - (id)primitiveLayerStyles;
 - (void)setPrimitiveAssets:(id)arg1;
 - (id)primitiveAssets;
-- (void)setPrimitivePages:(id)arg1;
-- (id)primitivePages;
+- (void)setPrimitiveUserInfo:(id)arg1;
+- (id)primitiveUserInfo;
 - (void)setPrimitiveEnableSliceInteraction:(BOOL)arg1;
 - (BOOL)primitiveEnableSliceInteraction;
 - (void)setPrimitiveEnableLayerInteraction:(BOOL)arg1;
@@ -54,6 +57,8 @@
 - (id)primitiveCloudShareURL;
 - (void)setPrimitiveCloudShareID:(id)arg1;
 - (id)primitiveCloudShareID;
+@property(retain, nonatomic) MSArray *pages; // @synthesize pages=_pages;
+- (id)pagesGeneric;
 @property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 - (id)layerTextStylesGeneric;
 @property(retain, nonatomic) MSSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
@@ -62,8 +67,7 @@
 - (id)layerStylesGeneric;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
 - (id)assetsGeneric;
-@property(retain, nonatomic) MSArray *pages; // @synthesize pages=_pages;
-- (id)pagesGeneric;
+@property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;

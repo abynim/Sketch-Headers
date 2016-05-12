@@ -30,7 +30,6 @@
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (long long)oppositeCorner;
-- (void)handlerWillLoseFocus;
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
 - (struct CGRect)makeRectConform:(struct CGRect)arg1 toProportions:(BOOL)arg2;

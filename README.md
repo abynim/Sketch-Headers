@@ -2,7 +2,7 @@
 ##### Headers from [Sketch app](http://www.sketchapp.com) exported using [class-dump](http://stevenygard.com/projects/class-dump/).
 
 ```
-Latest Beta Version: 3.7
+Latest Beta Version: 3.8
 ```
 
 [Download Sketch Beta](https://rink.hockeyapp.net/apps/0172d48cceec171249a8d850fb16276b)

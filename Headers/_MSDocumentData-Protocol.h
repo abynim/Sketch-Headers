@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
-@class NSString;
+@class NSDictionary, NSString;
 
-@protocol _MSDocumentData <MSModelBase>
+@protocol _MSDocumentData <MSModelObject>
+@property(readonly, nonatomic) id <MSArray> pagesGeneric;
 @property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric;
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric;
 @property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric;
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric;
-@property(readonly, nonatomic) id <MSArray> pagesGeneric;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) BOOL enableSliceInteraction;
 @property(readonly, nonatomic) BOOL enableLayerInteraction;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;

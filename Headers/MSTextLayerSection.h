@@ -54,7 +54,7 @@
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
-- (void)popoverWillClose:(id)arg1;
+- (void)dismissViewController:(id)arg1;
 - (void)reloadFontWeightPopUp;
 - (id)colorSpaceForFirstColor;
 - (id)firstColor;

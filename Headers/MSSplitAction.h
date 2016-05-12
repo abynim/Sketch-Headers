@@ -12,6 +12,7 @@
 
 - (id)imageName;
 - (BOOL)validate;
+- (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)split:(id)arg1;
 

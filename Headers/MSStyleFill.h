@@ -14,6 +14,7 @@
 {
 }
 
++ (id)defaultStylePartForStyle:(id)arg1;
 + (id)defaultFillColor;
 + (id)keyPathsForValuesAffectingInterfaceOpacity;
 - (id)NSImage;
@@ -22,9 +23,9 @@
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
 - (id)topViewForColorInspector:(id)arg1;
+- (void)setPatternImage:(id)arg1;
 - (id)parentStyle;
 @property(nonatomic) double interfaceOpacity;
-- (void)setPatternImage:(id)arg1;
 - (id)CSSAttributeString;
 
 // Remaining properties

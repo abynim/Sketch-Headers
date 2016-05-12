@@ -9,7 +9,7 @@
 #import "MSInspectorChildController.h"
 #import "NSDraggingDestination.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSString;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSString, NSViewController<MSInspectorChildController>;
 
 @interface MSEventHandler : NSViewController <NSDraggingDestination, MSInspectorChildController>
 {
@@ -29,19 +29,23 @@
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (id)views;
+- (BOOL)shouldHideExportBar;
+- (void)prepareForDisplay;
 - (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)allowsSwitchToInsertAction;
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (void)refreshRulers;
-- (void)redo;
-- (void)undo;
-- (BOOL)shouldHideExportBar;
 - (BOOL)inspectorShouldShowBlendingProperties;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (BOOL)inspectorShouldShowPositions;
 - (BOOL)inspectorShouldShowSharedStyles;
+@property(readonly, nonatomic) NSViewController<MSInspectorChildController> *inspectorViewController;
+- (unsigned long long)inspectorLocation;
+- (id)view;
+- (id)nibName;
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
 - (struct CGPoint)centerPointForZooming;
@@ -51,7 +55,6 @@
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (BOOL)handlesHandToolItself;
-- (void)willPerformUndo;
 - (struct CGRect)rulerGuidesRectAroundMouse:(struct CGPoint)arg1;
 - (id)horizontalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (id)verticalRulerGuidesForGridAlign:(struct CGPoint)arg1;
@@ -110,13 +113,8 @@
 - (id)menuForEvent:(id)arg1;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)returnToDefaultHandler;
-- (void)didUndoNotification:(id)arg1;
-- (void)undoNotification:(id)arg1;
-- (void)disableUndoNameRegistration;
-- (void)enableUndoNameRegistration;
-- (void)endUndo;
-- (void)beginUndo;
-- (id)undoManager;
+- (void)didMoveThroughHistory:(id)arg1;
+- (void)willMoveThroughHistory:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
@@ -126,7 +124,7 @@
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
-- (void)absoluteDrawInRect:(struct CGRect)arg1;
+- (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1;
 - (void)viewDidScroll:(id)arg1;
 - (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -150,15 +148,10 @@
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
-- (void)refreshViewsWithMask:(unsigned long long)arg1;
+- (void)refreshOverlayOfViews;
 - (id)document;
 - (id)drawView;
-- (void)prepareForDisplay;
 - (void)dealloc;
-- (unsigned long long)inspectorLocation;
-- (id)views;
-- (id)view;
-- (id)nibName;
 - (id)initWithManager:(id)arg1;
 - (void)drawMeasurementsLabelAtMouseForString:(id)arg1;
 - (void)drawMeasurementsLabelAtMouseForRotation:(long long)arg1;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseRenderTile.h"
+#import "CALayer.h"
 
-@class MSContentTile, MSImmutableDocumentData, MSImmutablePage, MSOverlayTile, MSPage, MSTileRenderer, NSArray, NSThread;
+@class MSImmutableDocumentData, MSImmutablePage, MSPage, MSTileRenderer, NSArray, NSThread;
 
-@interface MSTile : MSBaseRenderTile
+@interface MSTile : CALayer
 {
     BOOL _drawPixelated;
     BOOL _drawDottedDirtyRect;
@@ -17,8 +17,8 @@
     BOOL _completedFirstRenderOrWasCancelled;
     id <MSTileDelegate> _tileDelegate;
     double _zoomValue;
-    MSOverlayTile *_overlayTile;
-    MSContentTile *_contentTile;
+    CALayer *_overlayLayer;
+    CALayer *_contentLayer;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     NSThread *_thread;
     MSImmutableDocumentData *_document;
@@ -26,6 +26,7 @@
     MSPage *_pageForOverlay;
     NSArray *_artboardFrames;
     MSTileRenderer *_tileRenderer;
+    struct CGPoint _scrollOrigin;
     struct CGPoint _distanceFromScrollOrigin;
 }
 
@@ -37,20 +38,21 @@
 @property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
 @property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
-@property(retain, nonatomic) MSContentTile *contentTile; // @synthesize contentTile=_contentTile;
-@property(retain, nonatomic) MSOverlayTile *overlayTile; // @synthesize overlayTile=_overlayTile;
+@property(retain, nonatomic) CALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
+@property(retain, nonatomic) CALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
 @property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
 @property(nonatomic) BOOL drawPixelated; // @synthesize drawPixelated=_drawPixelated;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;
+@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) __weak id <MSTileDelegate> tileDelegate; // @synthesize tileDelegate=_tileDelegate;
 - (void).cxx_destruct;
 - (id)description;
 - (void)moveToPosition:(struct CGPoint)arg1;
-- (struct CGRect)rectForContentTile;
-- (double)scaleForContentTile;
+- (struct CGRect)rectForContentLayer;
+- (double)scaleForContentLayer;
 - (void)pixelGridDidChange;
 - (struct CGPoint)scrollOriginAdjustedForPixelZoom;
 - (void)cancelDrawing;
@@ -60,11 +62,13 @@
 - (void)drawOverlayInContext:(struct CGContext *)arg1;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
-- (void)refreshOverlayRect:(struct CGRect)arg1 page:(id)arg2;
+- (void)refreshOverlayInViewRect:(struct CGRect)arg1 page:(id)arg2;
 - (void)scheduleContentRefresh:(id)arg1;
 - (void)refreshContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3;
 - (BOOL)shouldDrawPixelated;
 - (void)enableDebugFramesInner:(BOOL)arg1 outer:(BOOL)arg2;
+- (BOOL)layer:(id)arg1 shouldInheritContentsScale:(double)arg2 fromWindow:(id)arg3;
+- (void)prepareLayer:(id)arg1;
 - (void)removeFromSuperlayer;
 - (id)init;
 

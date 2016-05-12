@@ -24,7 +24,6 @@
 - (void)drawCheckerboardPatternInRect:(struct CGRect)arg1;
 - (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (struct CGRect)contentBounds;
-- (id)undoManager;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initInBounds:(struct CGRect)arg1;
 - (void)setAction:(SEL)arg1;

@@ -16,7 +16,7 @@
 
 + (id)defaultName;
 - (void)updateColorCounter:(id)arg1;
-- (void)drawGradientBorder:(id)arg1 originalPath:(id)arg2 isArtistic:(BOOL)arg3 frame:(struct CGRect)arg4 context:(id)arg5;
+- (void)drawGradientBorder:(id)arg1 advancedOptions:(id)arg2 originalPath:(id)arg3 isArtistic:(BOOL)arg4 frame:(struct CGRect)arg5 context:(id)arg6;
 - (void)drawBorder:(id)arg1 advancedOptions:(id)arg2 context:(id)arg3;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (void)addOuterMaskToAttributes:(id)arg1 withExporter:(id)arg2;

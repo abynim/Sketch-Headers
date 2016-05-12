@@ -32,9 +32,11 @@
 - (void)logout;
 - (id)hmacsha1:(id)arg1 key:(id)arg2;
 - (id)signingForRequest:(id)arg1 authToken:(id)arg2;
+- (id)signToken;
 - (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 parameters:(id)arg3 authToken:(id)arg4;
 - (void)processAPIRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (long long)errorCodeFromErrorMessage:(id)arg1;
+- (long long)currentPlatform;
 - (id)init;
 
 @end

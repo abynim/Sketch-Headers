@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSMutableDictionary *cachedMetadata; // @synthesize cachedMetadata=_cachedMetadata;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
+- (BOOL)checkDatabaseIsOpen:(id *)arg1;
 - (BOOL)readMetaData:(id *)arg1;
 - (BOOL)databaseIsValid;
 - (BOOL)setupTables:(id *)arg1;

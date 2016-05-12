@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)alignLayersCenter:(id)arg1;
 

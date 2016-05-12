@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
-@protocol _MSStylePart <MSModelBase>
+@protocol _MSStylePart <MSModelObject>
 @property(readonly, nonatomic) BOOL isEnabled;
 @end
 

@@ -11,6 +11,7 @@
 }
 
 - (id)svgAttributesDescription;
+- (BOOL)containsDrawables;
 
 @end
 

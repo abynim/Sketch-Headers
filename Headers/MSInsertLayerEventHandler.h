@@ -23,7 +23,6 @@
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)flagsChanged:(id)arg1;
-- (void)dealloc;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)currentGroup;
 - (void)insertNewLayerInCurrentGroup:(id)arg1;

@@ -29,7 +29,6 @@
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (long long)oppositeCorner;
-- (void)handlerWillLoseFocus;
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
 - (unsigned long long)validSnapEdgesForResizingCorner;

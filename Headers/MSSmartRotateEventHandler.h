@@ -25,9 +25,9 @@
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (void)dealloc;
-- (void)willUndo:(id)arg1;
-- (void)unregisterUndoObserver;
-- (void)registerUndoObserver;
+- (void)willMoveThroughHistory:(id)arg1;
+- (void)unregisterObservers;
+- (void)registerObservers;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;
 - (void)drawControlPoints;
 - (void)drawInRect:(struct CGRect)arg1;

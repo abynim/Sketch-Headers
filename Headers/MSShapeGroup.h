@@ -12,6 +12,7 @@
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
+    NSBezierPath *_previewBezierPath;
 }
 
 + (unsigned long long)traits;
@@ -21,7 +22,8 @@
 + (id)shapeWithBezierPath:(id)arg1;
 + (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingPreviewImages;
-- (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
+@property(retain, nonatomic) NSBezierPath *previewBezierPath; // @synthesize previewBezierPath=_previewBezierPath;
+- (void).cxx_destruct;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1;
 - (BOOL)canRotate;
@@ -41,7 +43,6 @@
 - (void)setIsOpen:(BOOL)arg1;
 @property(nonatomic) BOOL isClosed;
 - (void)setEdited:(BOOL)arg1;
-- (void)addSlice:(id)arg1;
 - (BOOL)canContainLayer:(id)arg1;
 - (struct CGRect)safeFrameForBezierPath:(id)arg1;
 @property(retain, nonatomic) NSBezierPath *bezierPath;
@@ -54,15 +55,14 @@
 - (void)applyPropertiesToBezier:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
 - (BOOL)hitTestPoint:(struct CGPoint)arg1 inBezier:(id)arg2 zoomValue:(double)arg3;
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)defaultName;
 - (Class)classToUseForNameCounter;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
-- (long long)selectedCorner:(struct CGPoint)arg1 zoom:(double)arg2;
+- (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)canFlatten;
@@ -97,13 +97,9 @@
 - (BOOL)canSplitPaths;
 - (id)splitPathIntoShape:(id)arg1;
 - (id)splitPathsIntoShapes;
-- (id)bezierLinePreviewInRect:(struct CGRect)arg1;
-- (void)drawLinePreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
-@property(readonly, nonatomic) NSBezierPath *cachedBezierPathPreview;
-@property(readonly, nonatomic) NSBezierPath *cachedBezierPath;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (id)fillFromBorder:(id)arg1;
 - (double)lineWidthForOutliningWithBorder:(id)arg1;
 - (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
@@ -132,6 +128,7 @@
 @property(readonly, nonatomic) BOOL hasClippingMask;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

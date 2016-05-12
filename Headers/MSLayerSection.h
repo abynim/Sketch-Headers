@@ -6,11 +6,11 @@
 
 #import "NSViewController.h"
 
-#import "MSSectionProtocol.h"
+#import "MSInspectorSection.h"
 
 @class NSArray, NSString;
 
-@interface MSLayerSection : NSViewController <MSSectionProtocol>
+@interface MSLayerSection : NSViewController <MSInspectorSection>
 {
     NSArray *_layers;
 }

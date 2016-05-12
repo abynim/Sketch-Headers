@@ -7,12 +7,12 @@
 #import "NSViewController.h"
 
 #import "MSInspectorChildController.h"
-#import "MSSectionProtocol.h"
+#import "MSInspectorSection.h"
 #import "MSSliceLayerWatcher.h"
 
 @class MSFlippedView, MSInspectorStackView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
 
-@interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSSectionProtocol, MSInspectorChildController>
+@interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSInspectorSection, MSInspectorChildController>
 {
     MSInspectorStackView *_stackView;
     NSArray *_layers;

@@ -44,8 +44,7 @@
 - (void)transformPointsToNewRect:(struct CGRect)arg1;
 - (struct CGRect)newRectForAdjustingFrameAfterEditIntegral:(BOOL)arg1;
 - (void)adjustFrameAfterEditIntegral:(BOOL)arg1;
-- (void)markLayerDirtyOfType:(unsigned long long)arg1;
-- (void)adjustFrameAfterEdit;
+- (void)refreshOverlay;
 - (void)reversePath;
 - (BOOL)editable;
 - (void)resetPoints;
@@ -57,6 +56,7 @@
 - (BOOL)canBeHidden;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
+- (id)embedInShapeGroup;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
 - (void)toggleClosePath;
@@ -64,7 +64,7 @@
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
 - (id)bezierPathForHover;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;
@@ -75,7 +75,6 @@
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)booleanOperationCanBeReset;
 - (BOOL)supportsInnerOuterBorders;
-- (id)embedInShapeGroup;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -88,6 +87,7 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

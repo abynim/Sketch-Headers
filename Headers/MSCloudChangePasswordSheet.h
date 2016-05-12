@@ -10,6 +10,9 @@
 
 @interface MSCloudChangePasswordSheet : CHSheetController
 {
+    BOOL _showingCurrentPasswordIsInvalid;
+    BOOL _showingNewPasswordIsInvalid;
+    BOOL _showingNewPasswordDoesntMatch;
     NSTextField *_currentPasswordTextField;
     NSTextField *_passwordTextField;
     NSTextField *_passwordConfirmTextField;
@@ -18,6 +21,9 @@
     NSTextField *_errorTextField;
 }
 
+@property(nonatomic) BOOL showingNewPasswordDoesntMatch; // @synthesize showingNewPasswordDoesntMatch=_showingNewPasswordDoesntMatch;
+@property(nonatomic) BOOL showingNewPasswordIsInvalid; // @synthesize showingNewPasswordIsInvalid=_showingNewPasswordIsInvalid;
+@property(nonatomic) BOOL showingCurrentPasswordIsInvalid; // @synthesize showingCurrentPasswordIsInvalid=_showingCurrentPasswordIsInvalid;
 @property(nonatomic) __weak NSTextField *errorTextField; // @synthesize errorTextField=_errorTextField;
 @property(retain, nonatomic) MSCloudAuthAPI *cloudAuthAPI; // @synthesize cloudAuthAPI=_cloudAuthAPI;
 @property(nonatomic) __weak NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
@@ -28,7 +34,11 @@
 - (void)confirm:(id)arg1;
 - (void)enableFields:(BOOL)arg1;
 - (void)dealloc;
+- (void)validateInputs:(id)arg1;
 - (void)textDidChange:(id)arg1;
+- (BOOL)newPasswordsMatches;
+- (BOOL)newPasswordIsValid;
+- (BOOL)currentPasswordIsValid;
 - (void)windowDidLoad;
 
 @end

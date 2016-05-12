@@ -25,6 +25,7 @@
 + (id)sharedInstance;
 @property(nonatomic) BOOL debug; // @synthesize debug=_debug;
 - (void).cxx_destruct;
+- (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 - (BOOL)currentApplicationIsActive;

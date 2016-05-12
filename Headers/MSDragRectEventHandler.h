@@ -23,7 +23,7 @@
 - (id)layerSnapper;
 - (void)prepareGraphicsContext;
 - (void)drawRectPreview;
-- (void)absoluteDrawInRect:(struct CGRect)arg1;
+- (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1;
 - (id)currentGroup;
 - (BOOL)handlesHandToolItself;

@@ -15,6 +15,7 @@
 {
 }
 
+- (void)dataController:(id)arg1 refreshPreviewsOnNodes:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)removePageWithValidation:(id)arg1;
 - (void)dataController:(id)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;

@@ -15,21 +15,19 @@
 }
 
 + (id)gradientFromStops:(id)arg1 colorSpace:(id)arg2;
+- (id)ellipseTransformInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSGradientWithColorSpace:(id)arg1;
-- (double)conditionedElipseLength;
+- (double)conditionedEllipseLength;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (id)stopGenericAtIndex:(unsigned long long)arg1;
 - (id)stopAtIndex:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
 - (id)defaultStopsArray;
-- (id)ellipseTransformInRect:(struct CGRect)arg1;
 - (id)NSGradientForContext:(id)arg1;
 - (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2;
-- (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
-- (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2;
-- (void)_drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3 gradient:(id)arg4;
-- (void)preRenderGradient:(id)arg1 inRect:(struct CGRect)arg2 context:(id)arg3;
+- (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2 context:(id)arg3;
+- (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2 context:(id)arg3;
 - (void)drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3;
 - (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 shouldCache:(BOOL)arg3;
 - (id)interpolatedStartAndStopColorForStops:(id)arg1 colorSpace:(id)arg2;

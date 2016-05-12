@@ -29,16 +29,19 @@
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 @property(nonatomic) __weak id <MSPageDelegate> pageDelegate; // @synthesize pageDelegate=_pageDelegate;
 - (void).cxx_destruct;
+@property(nonatomic) double zoomValue;
+@property(nonatomic) struct CGPoint scrollOrigin;
 - (id)symbols;
 - (struct CGPoint)originForNewArtboard;
 @property(readonly, nonatomic) BOOL hasClickThrough;
+- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)allAncestorsOfLayers:(id)arg1;
 - (id)currentVerticalRulerData;
 - (id)currentHorizontalRulerData;
 - (void)moveLayersToArtboards;
 - (BOOL)canContainLayer:(id)arg1;
-- (id)ancestorsOfLayer:(id)arg1 inContainer:(id)arg2;
-- (id)ancestorsOfLayer:(id)arg1;
+- (id)ancestorsAndSelfOfLayer:(id)arg1 inContainer:(id)arg2;
+- (id)ancestorsAndSelfOfLayer:(id)arg1;
 - (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
 - (void)rectSizeDidChange:(id)arg1;
 - (void)layerSelectionDidChange;
@@ -52,7 +55,7 @@
 - (id)currentGrid;
 - (id)parentRoot;
 - (id)currentRoot;
-- (id)ancestorTransforms;
+- (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
@@ -66,12 +69,10 @@
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
-- (void)refreshViewsWithMask:(unsigned long long)arg1;
-- (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
+- (void)refreshOverlayOfViews;
+- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (id)transform;
-- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
-- (void)setZoomValue:(double)arg1;
-- (void)setScrollOrigin:(struct CGPoint)arg1;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)setName:(id)arg1;
 - (BOOL)canBeContainedByDocument;
 - (void)dealloc;
@@ -108,6 +109,7 @@
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeInCloudUpload;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -124,7 +126,6 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) struct CGPoint scrollOrigin;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;
@@ -132,7 +133,6 @@
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> verticalRulerDataGeneric; // @dynamic verticalRulerDataGeneric;
-@property(readonly, nonatomic) double zoomValue;
 
 @end
 

@@ -22,15 +22,15 @@
 - (void).cxx_destruct;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;
-- (void)objectDidChange;
-- (BOOL)canBeSelectedOnCanvas;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
 - (unsigned long long)filterType;
-- (id)badgeNameLookup;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (void)handleBadgeClickWithAltState:(BOOL)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -43,6 +43,7 @@
 @property(nonatomic) BOOL hasBackgroundColor;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

@@ -15,19 +15,19 @@
 }
 
 - (id)parentGroup;
-- (void)prepareToBecomeSharedObjectValue:(struct MSModelBase *)arg1;
+- (void)prepareToBecomeSharedObjectValue:(struct MSModelObject *)arg1;
 - (unsigned long long)type;
-- (BOOL)isOutOfSyncWithInstance:(struct MSModelBase *)arg1;
+- (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;
 - (id)container;
-- (struct MSModelBase *)newUnregisteredInstance;
-- (struct MSModelBase *)newInstance;
-- (BOOL)isSharedObjectForInstance:(struct MSModelBase *)arg1;
-- (void)unregisterInstance:(struct MSModelBase *)arg1;
-- (void)registerInstance:(struct MSModelBase *)arg1;
+- (struct MSModelObject *)newUnregisteredInstance;
+- (struct MSModelObject *)newInstance;
+- (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
+- (void)unregisterInstance:(struct MSModelObject *)arg1;
+- (void)registerInstance:(struct MSModelObject *)arg1;
 - (id)defaultName;
 - (void)objectDidInit;
-- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelBase *)arg3;
-- (id)initWithName:(id)arg1 firstInstance:(struct MSModelBase *)arg2;
+- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
+- (id)initWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -36,7 +36,7 @@
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSModelObject> valueGeneric; // @dynamic valueGeneric;
+@property(readonly, nonatomic) id <MSModelObjectCommon> valueGeneric; // @dynamic valueGeneric;
 
 @end
 

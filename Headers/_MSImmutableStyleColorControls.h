@@ -19,7 +19,8 @@
 @property(nonatomic) double hue; // @synthesize hue=_hue;
 @property(nonatomic) double contrast; // @synthesize contrast=_contrast;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

@@ -4,58 +4,52 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MSModelObjectCommon.h"
 
 #import "MSModelObject.h"
+#import "NSCopying.h"
 
-@class MSModelObjectCache, MSModelObjectCacheGeneration, NSObject<NSCopying><NSCoding>, NSString;
+@class MSDocumentData, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSModelObject : NSObject <MSModelObject>
+@interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
-    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
-    MSModelObjectCache *_cache;
-    struct NSObject *_objectID;
+    id _cachedImmutableModelObject;
+    BOOL _isFault;
+    MSModelObject *_parentObject;
+    MSDocumentData *_documentData;
 }
 
-+ (id)generateObjectID;
-+ (id)defaultName;
-+ (id)sharedModelCache;
-+ (void)clearInstanceCount;
-+ (void)printInstanceCount:(id)arg1;
++ (Class)immutableClass;
++ (BOOL)allowsFaulting;
+@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
+@property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
-- (BOOL)propertiesAreEqual:(id)arg1;
-- (id)primitiveObjectID;
-- (void)setPrimitiveObjectID:(id)arg1;
-@property(copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID; // @synthesize objectID=_objectID;
-- (BOOL)hasObjectID;
-- (id)generateObjectID;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)setNilValueForKey:(id)arg1;
-- (id)defaultName;
-- (void)objectDidInit;
-- (void)initializeUnsetObjectPropertiesWithDefaults;
-- (void)performInitEmptyObject;
-- (id)initWithNoSetup;
-- (id)init;
-- (void)clearCachedValueForKey:(id)arg1;
-- (void)clearCache;
-- (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
-- (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
-- (id)cachedValueForKey:(id)arg1;
-@property(readonly, copy) NSString *description;
-- (id)treeAsDictionary;
-- (id)simpleTreeStructure;
-- (id)treeStructure;
-- (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
-- (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
-- (void)recordDeallocation;
-- (void)recordAllocation;
+- (void)breakConnectionWith:(id)arg1;
+@property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
+- (id)parentGroupRecursive;
+- (id)parentGroup;
+- (void)setAsParentOnChildren;
+- (id)rootModelObject;
+- (void)invalidateModelCacheGeneration;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
+@property(readonly, nonatomic) id immutableModelObject;
+- (void)fireFaultIfNecessary;
+- (void)fireFault;
+- (id)initWithImmutableModelObject:(id)arg1;
+- (id)initWithBlock:(CDUnknownBlockType)arg1;
+@property(retain, nonatomic) id cachedImmutableModelObject;
+- (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
+- (id)copyWithOptions:(unsigned long long)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)metadataForKey:(id)arg1;
+- (void)storeMetadata:(id)arg1 forKey:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
 
 @end

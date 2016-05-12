@@ -25,6 +25,7 @@
 + (unsigned long long)parentTraitsForLayers:(id)arg1;
 + (id)pasteboardLayersWithLayers:(id)arg1;
 + (id)pasteboardLayersWithForeignLayers:(id)arg1;
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 @property(retain, nonatomic) NSDictionary *idToNameMapping; // @synthesize idToNameMapping=_idToNameMapping;
 @property(nonatomic) unsigned long long parentTraits; // @synthesize parentTraits=_parentTraits;

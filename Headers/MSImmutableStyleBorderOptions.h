@@ -14,6 +14,8 @@
 {
 }
 
+@property(readonly, nonatomic) int CGLineCap;
+@property(readonly, nonatomic) int CGLineJoin;
 @property(readonly, nonatomic) BOOL hasDashPattern;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 

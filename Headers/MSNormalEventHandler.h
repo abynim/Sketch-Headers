@@ -75,9 +75,10 @@
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)drawLayerHover;
 - (void)drawLayerSelection;
-- (id)layerBelowPoint:(struct CGPoint)arg1;
+- (unsigned long long)hitTestingOptions;
+- (id)layerAtPoint:(struct CGPoint)arg1;
 - (void)deselectAllLayers;
-- (id)allLayersWithClickThroughBehavior:(long long)arg1;
+- (id)selectableLayersWithOptions:(unsigned long long)arg1;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
@@ -100,13 +101,13 @@
 - (BOOL)isMouseHoveringLayerCorner:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)resetClickThroughs;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseExited;
 - (void)selectLayer:(id)arg1;
 - (void)mouseDraggedSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGRect)rectForDragSelectionOrZoom:(struct CGPoint)arg1;
 - (void)moveLayer:(id)arg1 from:(struct CGPoint)arg2 inAbsoluteCoodinatesBy:(struct CGPoint)arg3;
+- (BOOL)shouldSnapForFlags:(unsigned long long)arg1;
 - (void)mouseDraggedMoveLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;
 - (void)refreshPositionDrawingIfApplicable:(unsigned long long)arg1;
@@ -115,7 +116,7 @@
 - (void)mouseDownMoveLayers:(struct CGPoint)arg1 clickCount:(long long)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDownDoubleClick:(struct CGPoint)arg1 onLayer:(id)arg2;
 - (void)mouseDownSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 resizingCorner:(long long *)arg4 manager:(id)arg5;
+- (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 handle:(long long *)arg4 manager:(id)arg5;
 - (void)enterLineResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
 - (void)enterResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
