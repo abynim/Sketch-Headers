@@ -38,7 +38,7 @@
 - (id)parentArtboard;
 - (id)slice;
 - (BOOL)hasGuides;
-- (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
+- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 @property(nonatomic) struct CGPoint rulerBase;
 @property(readonly, nonatomic) BOOL isLocked;
 - (void)setIsLocked:(BOOL)arg1;
@@ -48,16 +48,20 @@
 - (BOOL)canBeContainedByGroup;
 - (BOOL)enableAutomaticScaling;
 @property(readonly, nonatomic) BOOL hasClickThrough;
-- (id)layersBelowPoint:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 keepLockedLayers:(BOOL)arg3 zoomValue:(double)arg4;
 - (void)setName:(id)arg1;
-- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
 - (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (void)setIsVisible:(BOOL)arg1;
-- (BOOL)includeInLayersBelowPoint;
-- (BOOL)hitTest:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
+- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
-- (void)objectDidChange;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
+- (BOOL)canBeHidden;
+- (long long)includeForCloudExportState;
+- (void)setIsMarkedForCloudExport:(BOOL)arg1;
+- (id)childAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfChildren;
+- (BOOL)hasChildren;
 - (BOOL)hasSliceIcon;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)unselectedPreviewImage;
@@ -66,12 +70,6 @@
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (id)parentRootForAbsoluteRect;
-- (BOOL)canBeHidden;
-- (long long)includeForCloudExportState;
-- (void)setIsMarkedForCloudExport:(BOOL)arg1;
-- (id)childAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfChildren;
-- (BOOL)hasChildren;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -90,6 +88,7 @@
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
 @property(readonly, nonatomic) BOOL includeInCloudUpload;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

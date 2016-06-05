@@ -9,8 +9,8 @@
 @class MSArtboardGroup, MSPage;
 
 @protocol MSPageDelegate <NSObject>
-- (void)refreshViewsWithMask:(unsigned long long)arg1;
-- (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
+- (void)refreshOverlayOfViews;
+- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (void)didUpdateDetailsForPage:(MSPage *)arg1;
 - (void)willRemovePage:(MSPage *)arg1;
 - (void)didAddPage:(MSPage *)arg1;
@@ -20,6 +20,5 @@
 - (void)determineCurrentArtboard;
 - (void)layerSelectionDidChange;
 - (void)currentArtboardDidChange;
-- (void)collectRefreshRect:(struct CGRect)arg1 page:(MSPage *)arg2;
 @end
 

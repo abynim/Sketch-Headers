@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class MSArray;
 
-@interface _MSExportOptions : MSModelBase
+@interface _MSExportOptions : MSModelObject
 {
     BOOL _shouldTrim;
-    MSArray *_exportFormats;
     MSArray *_includedLayerIds;
     unsigned long long _layerOptions;
+    MSArray *_exportFormats;
 }
 
 + (BOOL)allowsFaulting;
@@ -25,20 +25,20 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+- (void)setPrimitiveExportFormats:(id)arg1;
+- (id)primitiveExportFormats;
 - (void)setPrimitiveShouldTrim:(BOOL)arg1;
 - (BOOL)primitiveShouldTrim;
 - (void)setPrimitiveLayerOptions:(unsigned long long)arg1;
 - (unsigned long long)primitiveLayerOptions;
 - (void)setPrimitiveIncludedLayerIds:(id)arg1;
 - (id)primitiveIncludedLayerIds;
-- (void)setPrimitiveExportFormats:(id)arg1;
-- (id)primitiveExportFormats;
+@property(retain, nonatomic) MSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
+- (id)exportFormatsGeneric;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
 @property(retain, nonatomic) MSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (id)includedLayerIdsGeneric;
-@property(retain, nonatomic) MSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
-- (id)exportFormatsGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

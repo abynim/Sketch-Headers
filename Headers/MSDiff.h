@@ -17,6 +17,7 @@
 @property(retain, nonatomic) MSSubtreeRoot *secondLayerRoot; // @synthesize secondLayerRoot=_secondLayerRoot;
 @property(retain, nonatomic) MSSubtreeRoot *firstLayerRoot; // @synthesize firstLayerRoot=_firstLayerRoot;
 - (void).cxx_destruct;
+- (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
 - (struct CGRect)contentDirtyDiffRect;
 - (id)init;

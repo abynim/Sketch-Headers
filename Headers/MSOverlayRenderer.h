@@ -6,27 +6,25 @@
 
 #import "NSObject.h"
 
-@class MSEventHandlerManager, MSPage;
+@class MSEventHandlerManager, MSPage, MSZoomTool;
 
 @interface MSOverlayRenderer : NSObject
 {
     BOOL _canDrawSlicesOutline;
     BOOL _shouldDrawArtboardTitles;
     MSPage *_page;
-    double _zoomValue;
+    MSZoomTool *_zoomTool;
     MSEventHandlerManager *_eventManager;
     struct CGRect _rect;
 }
 
 @property(retain, nonatomic) MSEventHandlerManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+@property(retain, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
 @property(nonatomic) BOOL shouldDrawArtboardTitles; // @synthesize shouldDrawArtboardTitles=_shouldDrawArtboardTitles;
 @property(nonatomic) BOOL canDrawSlicesOutline; // @synthesize canDrawSlicesOutline=_canDrawSlicesOutline;
 - (void).cxx_destruct;
-- (struct CGPoint)scrollOrigin;
-- (void)drawZoomTool;
 - (struct CGRect)scaledArtboardRect:(id)arg1;
 - (void)drawArtboardTitles;
 - (id)artboardsVisibleInTileRect;
@@ -42,7 +40,7 @@
 - (void)drawGridForRootLayer:(id)arg1;
 - (void)draw;
 - (void)drawDebugCoordinates;
-- (void)renderPage:(id)arg1 atZoom:(double)arg2 inRect:(struct CGRect)arg3 handlerManager:(id)arg4;
+- (void)renderPage:(id)arg1 inRect:(struct CGRect)arg2 withZoomTool:(id)arg3 handlerManager:(id)arg4;
 - (id)init;
 
 @end

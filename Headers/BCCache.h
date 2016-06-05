@@ -6,13 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMapTable, NSObject<OS_dispatch_queue>, NSRecursiveLock;
+@class BCReadWriteLock, NSMapTable;
 
 @interface BCCache : NSObject
 {
-    NSObject<OS_dispatch_queue> *queue;
     NSMapTable *cachedObjectsByOwner;
-    NSRecursiveLock *recursiveLocks[11];
+    BCReadWriteLock *locker;
 }
 
 - (void).cxx_destruct;

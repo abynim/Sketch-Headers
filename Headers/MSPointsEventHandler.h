@@ -19,9 +19,6 @@
 @property(nonatomic) long long selectedPoint; // @synthesize selectedPoint=_selectedPoint;
 - (void).cxx_destruct;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
-- (void)markLayerDirtyOfType:(unsigned long long)arg1;
-- (void)_restoreForRedo:(id)arg1;
-- (void)prepareForUndo;
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1 toLines:(id)arg2;
 - (id)snapsForPoints:(id)arg1;
 - (id)snapsForShape;

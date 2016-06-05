@@ -43,10 +43,15 @@
 @property(readonly, nonatomic) MSPluginScript *script; // @synthesize script=_script;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)setValue:(id)arg1 forKey:(id)arg2 onDocument:(id)arg3;
+- (id)valueForKey:(id)arg1 onDocument:(id)arg2;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2;
 - (id)pluginBundleIdentifierForMetadata;
+- (void)setValue:(id)arg1 forKey:(id)arg2 onObject:(id)arg3 forPluginIdentifier:(id)arg4;
+- (void)setValue:(id)arg1 forKey:(id)arg2 onDocument:(id)arg3 forPluginIdentifier:(id)arg4;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3 forPluginIdentifier:(id)arg4;
+- (id)valueForKey:(id)arg1 onDocument:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)metadata;
 - (id)menuItemWithAction:(SEL)arg1;

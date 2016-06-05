@@ -8,11 +8,10 @@
 
 @interface MSToolbar : NSToolbar
 {
-    BOOL shouldChange;
 }
 
+- (BOOL)_allowsSizeMode:(unsigned long long)arg1;
 - (void)setSizeMode:(unsigned long long)arg1;
-- (void)finishedSetUp;
 
 @end
 

@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class MSPointArray;
 
-@protocol _MSGradient <MSModelBase>
-@property(readonly, nonatomic) struct CGPoint to;
+@protocol _MSGradient <MSModelObject>
 @property(readonly, nonatomic) id <MSArray> stopsGeneric;
+@property(readonly, nonatomic) struct CGPoint to;
 @property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
 @property(readonly, nonatomic) MSPointArray *points;
 @property(readonly, nonatomic) long long gradientType;

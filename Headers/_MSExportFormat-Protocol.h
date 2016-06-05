@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class NSString;
 
-@protocol _MSExportFormat <MSModelBase>
+@protocol _MSExportFormat <MSModelObject>
 @property(readonly, nonatomic) long long visibleScaleType;
 @property(readonly, nonatomic) double scale;
 @property(readonly, nonatomic) NSString *name;

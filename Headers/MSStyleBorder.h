@@ -20,9 +20,9 @@
 - (long long)patternFillType;
 - (double)noiseIntensity;
 - (void)performInitEmptyObject;
-- (id)CSSAttributeString;
 - (id)topViewForColorInspector:(id)arg1;
 - (id)blendingViewForColorInspector:(id)arg1;
+- (id)CSSAttributeString;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric;

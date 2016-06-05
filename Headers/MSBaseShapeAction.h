@@ -11,6 +11,7 @@
 }
 
 + (id)insertShapeLayer:(id)arg1 identifier:(id)arg2 document:(id)arg3;
+- (id)historyMomentTitle;
 - (id)label;
 - (id)exitToNormalEventHandler;
 - (id)insertShape;

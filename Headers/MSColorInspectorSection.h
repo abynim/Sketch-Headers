@@ -61,7 +61,7 @@
 - (id)assetCollectionForPresetPicker:(id)arg1;
 - (void)assetHeaderViewDidClick:(id)arg1;
 - (id)wrapPickerInScrollView:(id)arg1;
-- (void)undoNotification:(id)arg1;
+- (void)didMoveThroughHistory:(id)arg1;
 - (BOOL)hasPresetPickers;
 - (id)initWithDelegate:(id)arg1;
 

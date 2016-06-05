@@ -21,7 +21,7 @@
 - (void)drawInRect:(struct CGRect)arg1;
 - (struct CGPoint)alignMouseToGrid:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (id)layersBelowPoint:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (id)layerAtPoint:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handlerGotFocus;
 

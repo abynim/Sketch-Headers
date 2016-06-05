@@ -9,7 +9,7 @@
 #import "NSMenuDelegate.h"
 #import "NSTextDelegate.h"
 
-@class MSHandlePath, MSHandlePathCollection, MSLayerGroup, MSShapePathLayer, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSEditShapeInspectorViewController, MSHandlePath, MSHandlePathCollection, MSLayerGroup, MSShapePathLayer, NSArray, NSString;
 
 @interface MSShapeEventHandler : MSEventHandler <NSTextDelegate, NSMenuDelegate>
 {
@@ -27,19 +27,12 @@
     struct CGPoint lastMouseMoved;
     struct CGPoint selectionStartPoint;
     struct CGPoint selectionEndPoint;
-    NSTextField *cornerRadiusField;
-    NSPopUpButton *roundingPopUpButton;
-    NSView *curveModeBackgroundView;
-    NSButton *makeRectSelectionButton;
-    NSButton *closePathButton;
-    NSTextField *curvePointXField;
-    NSTextField *curvePointYField;
-    NSSlider *cornerRadiusSlider;
     struct CGRect dirtyRect;
     MSHandlePathCollection *_selectedHandles;
     BOOL _isMakingRectSelection;
     BOOL _hideEditingPoints;
     BOOL _isDragging;
+    MSEditShapeInspectorViewController *_inspectorViewController;
     id _horizontalSnap;
     id _verticalSnap;
     MSLayerGroup *_currentGroup;
@@ -59,23 +52,13 @@
 @property(retain, nonatomic) id horizontalSnap; // @synthesize horizontalSnap=_horizontalSnap;
 - (void).cxx_destruct;
 - (BOOL)shouldHideExportBar;
-- (void)finishEditingAction:(id)arg1;
-- (void)closePathAction:(id)arg1;
 - (BOOL)inspectorShouldShowBlendingProperties;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (BOOL)inspectorShouldShowSharedStyles;
 - (BOOL)inspectorShouldShowPositions;
+@property(readonly, nonatomic) MSEditShapeInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (unsigned long long)inspectorLocation;
-- (id)nibName;
-- (void)dealloc;
-- (id)titleForRoundingPopUp;
-- (void)adjustRoundingPopUpTitle;
-- (void)menuNeedsUpdate:(id)arg1;
-- (void)refreshAction:(id)arg1;
-- (void)cornerRadiusAction:(id)arg1;
-- (void)roundingPopUpAction:(id)arg1;
-- (void)vectorModeSegmentedButtonAction:(id)arg1;
-- (void)validateCornerRadiusButton;
+- (void)postSelectionChangeNotifications;
 - (void)toggleSelectionOfHandle:(id)arg1;
 - (void)deselectAllHandles;
 - (void)deselectHandle:(id)arg1;
@@ -83,11 +66,9 @@
 - (void)selectHandle:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *selectedHandles;
 @property(readonly, nonatomic) __weak NSArray *selectedCurvePoints; // @dynamic selectedCurvePoints;
-- (void)awakeFromNib;
-- (void)setPoint:(struct CGPoint)arg1 forSelectionPath:(id)arg2;
-- (void)adjustSelectedPointOnAxis:(unsigned long long)arg1;
-- (void)curvePointYAction:(id)arg1;
-- (void)curvePointXAction:(id)arg1;
+- (struct CGPoint)convertPointToRootCoordinates:(struct CGPoint)arg1;
+- (void)adjustHandlesToValue:(double)arg1 onAxis:(unsigned long long)arg2;
+- (void)setLocation:(struct CGPoint)arg1 ofHandle:(id)arg2;
 - (void)distributePointsOnPaths:(id)arg1 alongAxis:(unsigned long long)arg2;
 - (id)selectedPathsSortedByAxis:(unsigned long long)arg1;
 - (void)distributeVectorPointsToAxis:(unsigned long long)arg1;
@@ -95,19 +76,16 @@
 - (struct CGRect)rectOfSelectedPoints;
 - (void)alignVectorPointsToKey:(id)arg1;
 - (void)duplicate:(id)arg1;
-- (struct CGPoint)pointValueForSelectionPath:(id)arg1;
+- (struct CGPoint)locationOfHandle:(id)arg1;
 - (struct CGPoint)pointFromRootCoordinatesToRelativeToBounds:(struct CGPoint)arg1;
-- (struct CGPoint)pointInRootCoordinates:(struct CGPoint)arg1;
-- (void)selectPointValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
-- (void)adjustCurrentCurveXYValue;
-- (void)reloadViewData;
+- (void)updateInspector;
 - (struct CGPoint)_roundPoint:(struct CGPoint)arg1;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1;
 - (BOOL)shouldDrawLayerSelection;
 - (void)changeColor:(id)arg1;
 - (struct CGPoint)relativePoint:(struct CGPoint)arg1;
-- (void)markShapeDirtyOfType:(unsigned long long)arg1;
 - (struct CGRect)dirtyFrame;
+- (void)setOverlayNeedsDisplay;
 - (void)adjustFrame;
 - (id)bezierPathAroundPoint:(id)arg1 andPoint:(id)arg2 xTol:(double)arg3 yTol:(double)arg4;
 - (BOOL)point:(struct CGPoint)arg1 isBetweenPoint:(id)arg2 andPoint:(id)arg3;
@@ -121,10 +99,10 @@
 - (void)drawWire;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
-- (void)didUndoNotification:(id)arg1;
+- (void)didMoveThroughHistory:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (long long)curveModeForPressedKey:(long long)arg1;
-- (void)changeSelectedCurvePointsTo:(long long)arg1;
+- (void)changeToCurveMode:(long long)arg1;
 - (void)nudgeSelectedPointsForKey:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)deleteSelectedPoints;
 - (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
@@ -164,6 +142,7 @@
 - (void)handlerGotFocus;
 - (void)gradientHandlerWillLoseFocus:(id)arg1;
 - (void)gradientHandlerDidFocus:(id)arg1;
+- (void)dealloc;
 - (id)initWithManager:(id)arg1;
 - (struct CGPoint)snapPointIfEnabled:(struct CGPoint)arg1;
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1;

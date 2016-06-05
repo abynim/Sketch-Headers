@@ -14,6 +14,7 @@
 - (BOOL)isValidToken:(id)arg1;
 - (BOOL)isValidPassword:(id)arg1;
 - (void)processUserData:(id)arg1;
+- (void)deleteAccountWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)changeCurrentPassword:(id)arg1 toPassword:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)resetAccountWithToken:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)recoverAccountWithEmail:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

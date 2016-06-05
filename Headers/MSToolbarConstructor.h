@@ -27,7 +27,6 @@
 - (id)allActions;
 - (id)standardToolbarIdentifiers;
 - (void)constructToolbarForWindow:(id)arg1;
-- (void)toolbarSizeDidChange:(id)arg1;
 - (id)toolbar;
 - (id)initWithDocument:(id)arg1;
 

@@ -32,8 +32,6 @@
 - (void)setStyleByPreservingSharedObjectReference:(id)arg1;
 - (id)sharedObject;
 - (BOOL)isSharedObject;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
@@ -51,6 +49,7 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSModelBase, NSObject<NSCopying><NSCoding>, NSString;
+@class NSObject<NSCopying><NSCoding>;
 
 @protocol MSSharedObjectInstance <NSObject>
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-- (void)invalidateImmutableObjectsDueToChangeInObject:(MSModelBase *)arg1 property:(NSString *)arg2;
 - (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
 - (unsigned long long)type;
 @end

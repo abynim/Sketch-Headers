@@ -11,8 +11,6 @@
 @interface _MSImmutablePage : MSImmutableLayerGroup
 {
     BOOL _includeInCloudUpload;
-    struct CGPoint _scrollOrigin;
-    double _zoomValue;
     MSImmutableSimpleGrid *_grid;
     MSImmutableRulerData *_horizontalRulerData;
     MSImmutableLayoutGrid *_layout;
@@ -24,11 +22,10 @@
 @property(retain, nonatomic) MSImmutableLayoutGrid<MSLayoutGrid> *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSImmutableRulerData<MSRulerData> *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSImmutableSimpleGrid<MSSimpleGrid> *grid; // @synthesize grid=_grid;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

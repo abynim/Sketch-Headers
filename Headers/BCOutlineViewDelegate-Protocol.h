@@ -9,6 +9,7 @@
 @class BCOutlineViewDataController, NSArray, NSPasteboard;
 
 @protocol BCOutlineViewDelegate <NSObject>
+- (void)dataController:(BCOutlineViewDataController *)arg1 refreshPreviewsOnNodes:(NSArray *)arg2;
 - (void)dataController:(BCOutlineViewDataController *)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 copyNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 moveNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;

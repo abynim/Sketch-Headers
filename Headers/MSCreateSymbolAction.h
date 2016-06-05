@@ -11,6 +11,7 @@
 }
 
 - (BOOL)dynamicTitle;
+- (id)historyMomentTitle;
 - (id)label;
 - (BOOL)wouldInsertInstance;
 - (id)imageName;

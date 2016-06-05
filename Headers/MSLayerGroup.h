@@ -16,7 +16,6 @@
     long long ignoreChildrenRefreshCalls;
     BOOL _enableAutomaticScaling;
     BOOL _isOpen;
-    BOOL _ignoreNextClickThrough;
     BOOL _lightweightContainsSelectedItem;
     long long _hasLayerWithMaskMode;
     long long _preCalculatedHasSelectedLayer;
@@ -30,34 +29,27 @@
 + (id)groupFromLayers:(id)arg1;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 @property(nonatomic) BOOL lightweightContainsSelectedItem; // @synthesize lightweightContainsSelectedItem=_lightweightContainsSelectedItem;
-@property(nonatomic) BOOL ignoreNextClickThrough; // @synthesize ignoreNextClickThrough=_ignoreNextClickThrough;
 @property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
 @property(nonatomic) long long hasLayerWithMaskMode; // @synthesize hasLayerWithMaskMode=_hasLayerWithMaskMode;
 @property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
 - (id)candidatesForMasking;
-- (void)addSlice:(id)arg1;
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)children;
 - (id)layerWithID:(id)arg1;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 didAddObject:(id)arg2;
-- (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
+- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (BOOL)hitTestCornerOfSelectedLayer:(id)arg1 mouse:(struct CGPoint)arg2 zoomValue:(double)arg3;
-- (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 zoomValue:(double)arg3;
-- (id)layersBelowPoint:(struct CGPoint)arg1 clickThroughBehavior:(long long)arg2 keepLockedLayers:(BOOL)arg3 zoomValue:(double)arg4;
-- (BOOL)includeInLayersBelowPoint;
-- (id)allLayersWithClickThroughBehavior:(long long)arg1;
-- (BOOL)isOpenForFindingAllLayersWithClickThroughBehavior:(long long)arg1;
-- (BOOL)clickThroughAllowedForBehavior:(long long)arg1;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
 - (void)setIsHovering:(BOOL)arg1;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
+- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
+- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (void)deselectAllLayers;
 - (void)selectLayers:(id)arg1;
 - (BOOL)containsSelectedItem;
@@ -68,7 +60,7 @@
 - (BOOL)isExpanded;
 - (void)deselectLayerAndParent;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-- (void)markLayerDirtyOfType:(unsigned long long)arg1;
+- (void)refreshOverlay;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)setLayers:(id)arg1;
 - (void)setIsLocked:(BOOL)arg1;
@@ -80,9 +72,11 @@
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
-- (void)prepareAsMaskContainer;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (id)addLayerOfType:(id)arg1;
+- (BOOL)handleDoubleClick;
+- (id)inspectorViewControllerNames;
+- (void)drawHoverWithZoom:(double)arg1;
+- (void)prepareAsMaskContainer;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)expandableInLayerList;
@@ -113,9 +107,6 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
-- (BOOL)handleDoubleClick;
-- (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -127,6 +118,7 @@
 @property(readonly, nonatomic) BOOL hasClickThrough;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

@@ -35,7 +35,6 @@
 - (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)canDuplicate;
 - (void)dealloc;
-- (id)undoManager;
 - (BOOL)shouldDrawLayerSelection;
 - (id)toolbarIdentifier;
 - (void)doTextModification:(CDUnknownBlockType)arg1;

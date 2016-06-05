@@ -8,6 +8,9 @@
 
 @interface NSString (NSString_Color)
 + (id)staticColorDictionary;
+- (id)colorFromHSL;
+- (id)colorFromHexColor;
+- (id)colorFromRGB;
 - (id)colorValue;
 @end
 

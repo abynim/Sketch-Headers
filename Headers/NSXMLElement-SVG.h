@@ -23,6 +23,7 @@
 - (double)doubleValueFromPercentageAttributeWithName:(id)arg1 orDefault:(double)arg2;
 - (double)doubleValueFromPercentageAttributeWithName:(id)arg1 alternate:(id)arg2;
 - (double)doubleValueFromPercentageAttributeWithName:(id)arg1;
+- (struct CGRect)rectValueWithXScale:(double)arg1 yScale:(double)arg2;
 - (struct CGRect)rectValue;
 - (struct CGRect)rectValueFromAttributeWithName:(id)arg1;
 - (long long)intValueFromAttributeWithName:(id)arg1;

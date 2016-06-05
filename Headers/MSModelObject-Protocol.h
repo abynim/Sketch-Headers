@@ -4,11 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MSModelObjectCommon.h"
 
-@class NSObject<NSCopying><NSCoding>;
-
-@protocol MSModelObject <NSObject>
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@protocol MSModelObject <MSModelObjectCommon>
 @end
 

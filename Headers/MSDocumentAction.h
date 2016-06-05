@@ -20,8 +20,9 @@
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (id)contextForActionObservers;
-- (id)undoManager;
-- (void)refreshViewsWithMask:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSString *historyMomentTitle;
+- (void)doPerformAction:(id)arg1;
+- (void)refreshOverlayOfViews;
 - (id)contentDrawView;
 - (id)currentPage;
 - (void)switchToNormalHandler;

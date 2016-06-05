@@ -17,7 +17,7 @@
 }
 
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
-@property(retain, nonatomic) NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
 @property(nonatomic) __weak NSTableView *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;

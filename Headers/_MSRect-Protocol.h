@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
-@protocol _MSRect <MSModelBase>
+@protocol _MSRect <MSModelObject>
 @property(readonly, nonatomic) double y;
 @property(readonly, nonatomic) double x;
 @property(readonly, nonatomic) double width;

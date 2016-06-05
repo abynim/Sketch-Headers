@@ -12,6 +12,7 @@
 
 - (BOOL)validate;
 - (id)imageName;
+- (id)historyMomentTitle;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)convertToOutlines:(id)arg1;

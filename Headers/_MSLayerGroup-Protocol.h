@@ -9,8 +9,8 @@
 @class NSObject<NSCopying><NSCoding>;
 
 @protocol _MSLayerGroup <MSStyledLayer>
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL hasClickThrough;
 @end
 

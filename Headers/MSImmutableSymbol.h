@@ -24,7 +24,7 @@
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSModelObject> valueGeneric;
+@property(readonly, nonatomic) id <MSModelObjectCommon> valueGeneric;
 
 @end
 

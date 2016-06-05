@@ -6,29 +6,33 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSMutableDictionary, NSString, NSURL, SVGElement;
+@class NSDictionary, NSMutableDictionary, NSString, NSURL, SVGRootElement;
 
 @interface SVGImporter : NSObject
 {
     Class _defaultElementClass;
     NSDictionary *_elementClasses;
-    SVGElement *_root;
+    SVGRootElement *_root;
     NSString *_source;
     NSMutableDictionary *_references;
     NSDictionary *_styles;
     NSURL *_url;
     unsigned long long _drawableElementCount;
+    NSString *_svgNamespacePrefix;
 }
 
+@property(copy, nonatomic) NSString *svgNamespacePrefix; // @synthesize svgNamespacePrefix=_svgNamespacePrefix;
 @property(nonatomic) unsigned long long drawableElementCount; // @synthesize drawableElementCount=_drawableElementCount;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSDictionary *styles; // @synthesize styles=_styles;
 @property(retain, nonatomic) NSMutableDictionary *references; // @synthesize references=_references;
 @property(retain, nonatomic) NSString *source; // @synthesize source=_source;
-@property(retain, nonatomic) SVGElement *root; // @synthesize root=_root;
+@property(retain, nonatomic) SVGRootElement *root; // @synthesize root=_root;
 @property(retain, nonatomic) NSDictionary *elementClasses; // @synthesize elementClasses=_elementClasses;
 @property(nonatomic) Class defaultElementClass; // @synthesize defaultElementClass=_defaultElementClass;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) double documentHeight;
+@property(readonly, nonatomic) double documentWidth;
 - (id)styleAttributesForElement:(id)arg1 defaults:(id)arg2;
 - (void)registerStylesheet:(id)arg1;
 - (void)addedDrawableElement:(id)arg1;

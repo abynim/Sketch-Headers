@@ -4,25 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@class MSImmutableArray;
+@class MSImmutableArray, MSImmutableArray<MSArray>;
 
-@interface _MSImmutableExportOptions : MSImmutableModelBase
+@interface _MSImmutableExportOptions : MSImmutableModelObject
 {
-    MSImmutableArray *_exportFormats;
     MSImmutableArray *_includedLayerIds;
     unsigned long long _layerOptions;
     BOOL _shouldTrim;
+    MSImmutableArray *_exportFormats;
 }
 
 + (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableArray<MSArray> *exportFormats; // @synthesize exportFormats=_exportFormats;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
 @property(retain, nonatomic) MSImmutableArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
-@property(retain, nonatomic) MSImmutableArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -30,8 +31,8 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)includedLayerIdsGeneric;
 - (id)exportFormatsGeneric;
+- (id)includedLayerIdsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

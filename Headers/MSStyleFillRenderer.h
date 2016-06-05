@@ -6,25 +6,27 @@
 
 #import "MSBaseRenderer.h"
 
-@class MSImmutableStyleFill, MSRenderingContext, NSBezierPath;
+@class MSImmutableStyleFill, MSPath, MSRenderingContext;
 
 @interface MSStyleFillRenderer : MSBaseRenderer
 {
     BOOL _hasInnerStroke;
     MSRenderingContext *_context;
     MSImmutableStyleFill *_fill;
-    NSBezierPath *_path;
+    MSPath *_path;
     long long _fillIndex;
     double _zoomValue;
+    unsigned long long _windingRule;
     struct CGRect _rect;
 }
 
-+ (void)drawFill:(id)arg1 forPath:(id)arg2 atIndex:(long long)arg3 inRect:(struct CGRect)arg4 hasInnerStroke:(BOOL)arg5 context:(id)arg6;
++ (void)drawFill:(id)arg1 forPath:(id)arg2 windingRule:(unsigned long long)arg3 atIndex:(long long)arg4 inRect:(struct CGRect)arg5 hasInnerStroke:(BOOL)arg6 context:(id)arg7;
+@property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) BOOL hasInnerStroke; // @synthesize hasInnerStroke=_hasInnerStroke;
 @property(nonatomic) long long fillIndex; // @synthesize fillIndex=_fillIndex;
-@property(retain, nonatomic) NSBezierPath *path; // @synthesize path=_path;
+@property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(retain, nonatomic) MSImmutableStyleFill *fill; // @synthesize fill=_fill;
 @property(nonatomic) __weak MSRenderingContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
@@ -39,6 +41,7 @@
 - (void)drawPatternImage;
 - (void)drawGradientFill;
 - (void)drawColorFill;
+- (void)clipInBlock:(CDUnknownBlockType)arg1;
 - (void)render;
 
 @end

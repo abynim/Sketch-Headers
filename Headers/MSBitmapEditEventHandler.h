@@ -49,6 +49,7 @@
 - (id)magicWandCursorAdd;
 - (id)magicWandCursor;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
+- (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
 - (id)nibName;
 - (struct CGPoint)centerPointForZooming;
@@ -85,7 +86,7 @@
 - (void)finishEditing:(id)arg1;
 - (void)vectorizeAction:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
-- (void)popoverWillClose:(id)arg1;
+- (void)dismissViewController:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)colorizeAction:(id)arg1;
 - (void)makeNewBackupImage;

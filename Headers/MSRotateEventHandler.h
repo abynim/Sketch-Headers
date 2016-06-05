@@ -23,7 +23,6 @@
 @property(nonatomic) struct CGPoint rotationCenter; // @synthesize rotationCenter=_rotationCenter;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
-- (void)willPerformUndo;
 - (id)firstLayer;
 - (id)layers;
 - (struct CGPoint)rotationCenterInAbsoluteCoordinates;

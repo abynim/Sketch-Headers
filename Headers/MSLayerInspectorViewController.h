@@ -6,12 +6,12 @@
 
 #import "NSViewController.h"
 
-#import "MSSectionProtocol.h"
+#import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
 @class MSSharedStylesInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
 
-@interface MSLayerInspectorViewController : NSViewController <MSSectionProtocol, NSMenuDelegate>
+@interface MSLayerInspectorViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
     BOOL _shouldShowPositions;
     BOOL _shouldShowSharedStyles;

@@ -6,13 +6,12 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverContentController.h"
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
 
 @class MSFontList, NSString, NSTableView;
 
-@interface MSFontFamilyPickerViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource, BCPopoverContentController>
+@interface MSFontFamilyPickerViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 {
     CDUnknownBlockType _completionBlock;
     MSFontList *_fontList;

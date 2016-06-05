@@ -19,8 +19,8 @@
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)performInitEmptyObject;
-- (id)CSSAttributeString;
 - (id)blendingViewForColorInspector:(id)arg1;
+- (id)CSSAttributeString;
 
 // Remaining properties
 @property(readonly, nonatomic) double blurRadius;

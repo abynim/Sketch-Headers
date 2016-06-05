@@ -12,7 +12,7 @@
 
 - (BOOL)hasSubMenu;
 - (id)tooltip;
-- (id)children;
+- (id)submenuActionIDs;
 - (void)menuNeedsUpdate:(id)arg1;
 
 @end

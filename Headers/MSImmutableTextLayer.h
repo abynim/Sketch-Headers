@@ -22,14 +22,18 @@
     unsigned long long _textAlignment;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(nonatomic) unsigned long long textAlignment; // @synthesize textAlignment=_textAlignment;
 @property(retain, nonatomic) NSTextContainer *textContainer; // @synthesize textContainer=_textContainer;
 @property(retain, nonatomic) NSLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
-@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
+@property BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
+- (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
 @property(readonly, nonatomic) double lineHeight;
 - (id)stringValue;
@@ -51,6 +55,7 @@
 - (double)totalHeightOfFont:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (void)setupText;
+- (void)performInitWithCoder:(id)arg1;
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
@@ -88,6 +93,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL heightIsClipped;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

@@ -39,6 +39,7 @@
 - (id)expiryDate;
 - (long long)remainingDays;
 - (long long)type;
+- (id)deviceID;
 - (id)email;
 - (BOOL)isValid;
 - (BOOL)isAppNameValid;

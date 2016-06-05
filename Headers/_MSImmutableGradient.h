@@ -4,31 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSPointArray;
+@class MSImmutableArray, MSImmutableArray<MSArray>, MSPointArray;
 
-@interface _MSImmutableGradient : MSImmutableModelBase
+@interface _MSImmutableGradient : MSImmutableModelObject
 {
     double _elipseLength;
     struct CGPoint _from;
     long long _gradientType;
     MSPointArray *_points;
     BOOL _shouldSmoothenOpacity;
-    MSImmutableArray *_stops;
     struct CGPoint _to;
+    MSImmutableArray *_stops;
 }
 
 + (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableArray<MSArray> *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
-@property(retain, nonatomic) MSImmutableArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
 @property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

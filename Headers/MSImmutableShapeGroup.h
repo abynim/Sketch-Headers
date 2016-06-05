@@ -43,9 +43,10 @@
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;
+- (void)refreshPreviewImages;
+- (BOOL)previewImagesRequireRefresh;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (BOOL)differsFromLayer:(id)arg1;
-- (id)sublayersForTreeDiff;
 - (void)migratePropertiesFromV51OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -72,6 +73,7 @@
 @property(readonly, nonatomic) BOOL hasClippingMask;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

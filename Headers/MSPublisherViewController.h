@@ -6,19 +6,13 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverContentController.h"
+@class MSCloudShareAPI, MSCloudShareUploadController, MSDocument, MSPublisherCloudRootElement, NSButton, NSMapTable, NSMutableDictionary, NSOutlineView, NSProgressIndicator, NSTextField, NSView;
 
-@class MSCloudShareAPI, MSCloudShareUploadController, MSDocument, MSLocalWebServer, MSPublisherCloudRootElement, NSButton, NSMapTable, NSMutableDictionary, NSOutlineView, NSProgressIndicator, NSSegmentedControl, NSString, NSTextField, NSView;
-
-@interface MSPublisherViewController : NSViewController <BCPopoverContentController>
+@interface MSPublisherViewController : NSViewController
 {
     id <MSPublisherViewControllerDelegate> _delegate;
     MSDocument *_document;
-    MSLocalWebServer *_localServer;
     NSView *_explanatoryView;
-    NSButton *_localServerToggleButton;
-    NSButton *_shareLocalButton;
-    NSButton *_shareLocalExportOldButton;
     NSView *_uploadProgressContainerView;
     NSButton *_uploadButton;
     NSProgressIndicator *_progressView;
@@ -26,13 +20,8 @@
     NSTextField *_remainingTimeField;
     double _uploadStartTime;
     double _lastUpdateTime;
-    NSView *_shareView;
     NSView *_uploadView;
-    NSView *_notLoggedInView;
     NSView *_contentView;
-    NSSegmentedControl *_segmentedControl;
-    NSView *_localShareHeaderView;
-    NSView *_onlineUploadHeaderView;
     MSCloudShareAPI *_shareAPI;
     MSCloudShareUploadController *_currentUploadController;
     NSOutlineView *_artboardOutlineView;
@@ -41,20 +30,14 @@
     MSPublisherCloudRootElement *_rootItem;
 }
 
-+ (BOOL)isOnlinePublishEnabled;
 @property(retain, nonatomic) MSPublisherCloudRootElement *rootItem; // @synthesize rootItem=_rootItem;
 @property(retain, nonatomic) NSMapTable *checkBoxArtboardMapping; // @synthesize checkBoxArtboardMapping=_checkBoxArtboardMapping;
 @property(retain, nonatomic) NSMutableDictionary *checkBoxes; // @synthesize checkBoxes=_checkBoxes;
 @property(nonatomic) __weak NSOutlineView *artboardOutlineView; // @synthesize artboardOutlineView=_artboardOutlineView;
 @property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
 @property(retain, nonatomic) MSCloudShareAPI *shareAPI; // @synthesize shareAPI=_shareAPI;
-@property(nonatomic) __weak NSView *onlineUploadHeaderView; // @synthesize onlineUploadHeaderView=_onlineUploadHeaderView;
-@property(nonatomic) __weak NSView *localShareHeaderView; // @synthesize localShareHeaderView=_localShareHeaderView;
-@property(nonatomic) __weak NSSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
 @property(nonatomic) __weak NSView *contentView; // @synthesize contentView=_contentView;
-@property(nonatomic) __weak NSView *notLoggedInView; // @synthesize notLoggedInView=_notLoggedInView;
 @property(nonatomic) __weak NSView *uploadView; // @synthesize uploadView=_uploadView;
-@property(nonatomic) __weak NSView *shareView; // @synthesize shareView=_shareView;
 @property(nonatomic) double lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
 @property(nonatomic) double uploadStartTime; // @synthesize uploadStartTime=_uploadStartTime;
 @property(retain, nonatomic) NSTextField *remainingTimeField; // @synthesize remainingTimeField=_remainingTimeField;
@@ -62,11 +45,7 @@
 @property(retain, nonatomic) NSProgressIndicator *progressView; // @synthesize progressView=_progressView;
 @property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
 @property(retain, nonatomic) NSView *uploadProgressContainerView; // @synthesize uploadProgressContainerView=_uploadProgressContainerView;
-@property(retain, nonatomic) NSButton *shareLocalExportOldButton; // @synthesize shareLocalExportOldButton=_shareLocalExportOldButton;
-@property(retain, nonatomic) NSButton *shareLocalButton; // @synthesize shareLocalButton=_shareLocalButton;
-@property(retain, nonatomic) NSButton *localServerToggleButton; // @synthesize localServerToggleButton=_localServerToggleButton;
 @property(retain, nonatomic) NSView *explanatoryView; // @synthesize explanatoryView=_explanatoryView;
-@property(retain, nonatomic) MSLocalWebServer *localServer; // @synthesize localServer=_localServer;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak id <MSPublisherViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
@@ -80,7 +59,6 @@
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (void)segmentedControlChanged:(id)arg1;
 - (id)onlineURLForDocument;
-- (id)localURLForDocument;
 - (void)warnUploadFailed:(id)arg1;
 - (void)uploadDidCancelWithError:(id)arg1;
 - (void)uploadDidFailWithError:(id)arg1;
@@ -90,29 +68,17 @@
 - (void)shareAction:(id)arg1;
 - (void)cancelUploadAction:(id)arg1;
 - (void)uploadOnlineAction:(id)arg1;
-- (void)unpublish;
-- (void)publish;
-- (void)toggleLocalServerAction:(id)arg1;
 - (void)openCloudPrefs:(id)arg1;
 - (void)hideUploadUI;
 - (void)showUploadUI;
 - (void)adjustUploadButtonTitle;
-- (void)adjustShareButtons;
-- (void)adjustToggleButtonState;
 - (void)reloadContentViews;
 - (void)showContentViews:(id)arg1;
 - (void)showContentView:(id)arg1;
-- (void)hideExplanatoryViewAction:(id)arg1;
 - (void)adjustUI;
 - (void)viewWillAppear;
 - (void)dealloc;
 - (void)awakeFromNib;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

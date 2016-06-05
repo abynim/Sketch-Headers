@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (id)applicationLogForCrashManager:(id)arg1;
 - (BOOL)setup;
+- (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 @property(readonly, nonatomic) NSString *text;

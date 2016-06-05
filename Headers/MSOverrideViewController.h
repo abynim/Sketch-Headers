@@ -6,11 +6,11 @@
 
 #import "NSViewController.h"
 
-#import "MSSectionProtocol.h"
+#import "MSInspectorSection.h"
 
 @class MSLayer, NSArray, NSSet, NSString;
 
-@interface MSOverrideViewController : NSViewController <MSSectionProtocol>
+@interface MSOverrideViewController : NSViewController <MSInspectorSection>
 {
     NSArray *_instances;
     MSLayer *_layerInsideSymbol;

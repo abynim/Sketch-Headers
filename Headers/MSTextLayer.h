@@ -23,9 +23,10 @@
     struct CGRect _previousRectCache;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
++ (Class)overrideViewControllerClass;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-+ (Class)overrideViewControllerClass;
 @property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
 @property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
@@ -53,7 +54,6 @@
 - (void)addAttribute:(id)arg1 value:(id)arg2 forRange:(struct _NSRange)arg3;
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
-- (void)setStringValueWithoutUndo:(id)arg1;
 - (BOOL)textStorageIsEqual:(id)arg1;
 - (void)copyTextStorageTo:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
@@ -73,7 +73,7 @@
 - (id)paragraphStyle;
 - (void)setKerning:(float)arg1;
 - (float)kerning;
-- (void)markLayerDirtyOfType:(unsigned long long)arg1;
+- (void)refreshOverlay;
 - (void)layerWillResize;
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
@@ -88,7 +88,6 @@
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
 - (id)shapeToUseForTextOnPath;
 - (void)changeListType:(id)arg1;
-- (void)prepareForUndo;
 - (void)setStorageContents:(id)arg1;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
@@ -113,13 +112,22 @@
 - (void)setLineSpacingBehaviour:(long long)arg1;
 - (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
-- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 type:(long long)arg3;
 - (id)initWithAttributedString:(id)arg1 maxWidth:(double)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
+- (id)PDFPreview;
+- (BOOL)shouldStorePDFPreviews;
+- (long long)cornerRectType;
+- (BOOL)shouldDrawSelection;
+- (void)setLineSpacing:(double)arg1;
+- (double)lineSpacing;
+- (id)handlerName;
+- (void)layerDidResizeFromInspector;
+- (id)inspectorViewControllerNames;
+- (void)drawHoverWithZoom:(double)arg1;
 - (void)copyStylePropertiesToShape:(id)arg1;
 - (id)rawCopyOfStyle:(id)arg1;
 - (void)copyTextPropertiesToShape:(id)arg1;
@@ -136,16 +144,6 @@
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
-- (id)PDFPreview;
-- (BOOL)shouldStorePDFPreviews;
-- (long long)cornerRectType;
-- (void)setLineSpacing:(double)arg1;
-- (double)lineSpacing;
-- (BOOL)shouldDrawSelection;
-- (id)handlerName;
-- (void)layerDidResizeFromInspector;
-- (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -161,6 +159,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL heightIsClipped;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

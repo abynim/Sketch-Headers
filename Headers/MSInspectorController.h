@@ -33,10 +33,11 @@
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(retain, nonatomic) NSView *placeholderView; // @synthesize placeholderView=_placeholderView;
 - (void).cxx_destruct;
+- (id)inspectorController;
+- (void)recursivelyDismissAllPresentedViewControllersOfViewController:(id)arg1;
+- (void)viewWillDisappear;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
-- (void)exportSingleSlice:(id)arg1;
-- (id)rootViewController;
 - (id)handlerManager;
 - (id)firstTextFieldInView:(id)arg1;
 - (void)focusOnFirstTextField;
@@ -59,7 +60,7 @@
 - (id)controllerForCurrentSelection:(id)arg1;
 - (void)viewDidResize;
 - (void)dealloc;
-- (void)undoNotification:(id)arg1;
+- (void)movedThroughHistory:(id)arg1;
 - (void)shapeSelectionDidChange:(id)arg1;
 - (void)awakeFromNib;
 - (id)init;

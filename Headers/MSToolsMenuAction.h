@@ -10,7 +10,7 @@
 {
 }
 
-- (id)children;
+- (id)submenuActionIDs;
 
 @end
 

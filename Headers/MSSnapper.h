@@ -28,7 +28,7 @@
 - (void)snapItem:(id)arg1 snap:(CDStruct_7ddbbeae)arg2 resize:(BOOL)arg3 rulersVisible:(BOOL)arg4 edges:(unsigned long long)arg5;
 - (id)snapLayerKeys:(id)arg1 rulersVisible:(BOOL)arg2;
 - (id)snapItemDuringResize:(id)arg1 rulersVisible:(BOOL)arg2 edges:(unsigned long long)arg3;
-- (id)snapItemDuringDrag:(id)arg1 rulersVisible:(BOOL)arg2;
+- (id)snapItemDuringDrag:(id)arg1 allowSnaps:(CDStruct_7ddbbeae)arg2 rulersVisible:(BOOL)arg3;
 - (void)snapItemSize:(id)arg1 onAxis:(unsigned long long)arg2 snap:(CDStruct_7ddbbeae)arg3 edges:(long long)arg4;
 - (void)collectSnapsForItem:(id)arg1 withLayer:(id)arg2 onAxis:(unsigned long long)arg3 snap:(CDStruct_7ddbbeae)arg4;
 - (CDStruct_7ddbbeae)snapLayerSize:(id)arg1 snap:(CDStruct_7ddbbeae)arg2 edges:(long long)arg3;
