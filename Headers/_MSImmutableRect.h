@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@interface _MSImmutableRect : MSImmutableModelBase
+@interface _MSImmutableRect : MSImmutableModelObject
 {
     BOOL _constrainProportions;
     double _height;
@@ -21,7 +21,8 @@
 @property(nonatomic) double width; // @synthesize width=_width;
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

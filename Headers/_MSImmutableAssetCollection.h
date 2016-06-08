@@ -4,25 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>;
+@class MSImmutableArray, MSImmutableArray<MSArray>, MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>;
 
-@interface _MSImmutableAssetCollection : MSImmutableModelBase
+@interface _MSImmutableAssetCollection : MSImmutableModelObject
 {
+    MSImmutableArray *_images;
     MSImmutableArray *_colors;
     MSImmutableArray *_gradients;
-    MSImmutableArray *_images;
     MSImmutableImageCollection *_imageCollection;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableImageCollection<MSImageCollection> *imageCollection; // @synthesize imageCollection=_imageCollection;
+@property(retain, nonatomic) MSImmutableArray<MSArray> *gradients; // @synthesize gradients=_gradients;
+@property(retain, nonatomic) MSImmutableArray<MSArray> *colors; // @synthesize colors=_colors;
 @property(retain, nonatomic) MSImmutableArray *images; // @synthesize images=_images;
-@property(retain, nonatomic) MSImmutableArray *gradients; // @synthesize gradients=_gradients;
-@property(retain, nonatomic) MSImmutableArray *colors; // @synthesize colors=_colors;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -31,9 +32,9 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (id)imageCollectionGeneric;
-- (id)imagesGeneric;
 - (id)gradientsGeneric;
 - (id)colorsGeneric;
+- (id)imagesGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class MSExportOptions, MSRect, NSDictionary, NSString;
 
-@interface _MSLayer : MSModelBase
+@interface _MSLayer : MSModelObject
 {
     BOOL _isFlippedHorizontal;
     BOOL _isFlippedVertical;

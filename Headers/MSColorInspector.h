@@ -6,13 +6,12 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverContentController.h"
 #import "MSColorInspectorSectionDelegate.h"
 #import "MSModeModePickerDelegate.h"
 
 @class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocumentData, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, NSArray, NSString, NSView;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverContentController>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
@@ -60,7 +59,7 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (void)popoverWillClose;
+- (void)viewWillDisappear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;

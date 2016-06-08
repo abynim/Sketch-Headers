@@ -11,12 +11,11 @@
 #import "MSLayerContainment.h"
 #import "MSSharedObjectContainerDelegate.h"
 
-@class MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString, NSUndoManager;
+@class MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSDocumentData, MSSharedObjectContainerDelegate>
 {
     BOOL _autoExpandGroupsInLayerList;
-    NSUndoManager *_undoManager;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
 }
@@ -25,9 +24,7 @@
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (void).cxx_destruct;
-- (void)performUndoAction:(CDUnknownBlockType)arg1;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
 - (void)replaceExistingCreationMetadata;
@@ -50,7 +47,7 @@
 - (id)selectedLayers;
 - (id)pagesArray;
 - (BOOL)documentIsEmpty;
-- (void)sharedObjectDidChange:(struct MSModelBase *)arg1;
+- (void)sharedObjectDidChange:(struct MSModelObject *)arg1;
 - (id)standardNameForLayer:(id)arg1;
 - (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
 - (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
@@ -59,19 +56,18 @@
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
-- (void)removePage:(id)arg1;
+- (void)removePage:(id)arg1 detachInstances:(BOOL)arg2;
 @property(retain, nonatomic) MSPage *currentPage;
 - (void)setCurrentPageIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) __weak NSArray *allPages;
 - (void)dealloc;
-- (void)objectDidChange;
 - (id)documentData;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
-- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -87,6 +83,8 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
+- (id)metadataForKey:(id)arg1 object:(id)arg2;
+- (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
@@ -105,6 +103,7 @@
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
 @property(readonly) Class superclass;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

@@ -13,7 +13,6 @@
 @interface MSRect : _MSRect <MSRect>
 {
     double proportions;
-    BOOL temporarilyConstrainProportions;
     long long proportionsTempDisabled;
     double _right;
     double _bottom;
@@ -30,7 +29,6 @@
 - (void)setProportions:(double)arg1;
 - (double)proportions;
 - (void)setConstrainProportions:(BOOL)arg1;
-- (void)setTemporarilyConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
 @property(readonly, copy) NSString *description;

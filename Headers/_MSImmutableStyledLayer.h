@@ -16,7 +16,8 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableStyle<MSStyle> *style; // @synthesize style=_style;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

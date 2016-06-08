@@ -15,7 +15,8 @@
 + (Class)mutableClass;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

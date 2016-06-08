@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
 @class MSImmutableColor, MSImmutableColor<MSColor>;
 
-@interface _MSImmutableGradientStop : MSImmutableModelBase
+@interface _MSImmutableGradientStop : MSImmutableModelObject
 {
     double _position;
     MSImmutableColor *_color;
@@ -18,7 +18,8 @@
 @property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
 @property(nonatomic) double position; // @synthesize position=_position;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

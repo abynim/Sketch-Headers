@@ -31,6 +31,8 @@
 @property(retain, nonatomic) MSCloudShareAPI *cloudAPI; // @synthesize cloudAPI=_cloudAPI;
 @property(nonatomic) __weak MSCloudPreferencePane *preferencePane; // @synthesize preferencePane=_preferencePane;
 - (void).cxx_destruct;
+- (void)deleteAccount:(id)arg1;
+- (long long)showDeleteAccountConfirmationDialog;
 - (void)userDidLogout:(id)arg1;
 - (void)passwordDidChange;
 - (void)showChangePasswordSheet:(id)arg1;

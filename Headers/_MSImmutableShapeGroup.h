@@ -17,7 +17,8 @@
 @property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

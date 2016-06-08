@@ -15,10 +15,13 @@
 }
 
 + (unsigned long long)traits;
+- (unsigned long long)windingRule;
 - (BOOL)calculateHasBlendedLayer;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
 - (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
+- (id)previewFillColor:(BOOL)arg1;
+- (id)previewBorderColor:(BOOL)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
 - (BOOL)shouldSkipDrawing;
@@ -36,6 +39,7 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

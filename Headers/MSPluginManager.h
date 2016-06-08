@@ -12,7 +12,7 @@
 {
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
-    NSURL *_pluginsFolderURL;
+    NSArray *_pluginsFolderURLs;
     NSURL *_metadataURL;
     char *_useLegacyPlugins;
     NSDictionary *_metadata;
@@ -22,7 +22,9 @@
     double _lastTimerInterval;
 }
 
-+ (id)pluginsURL;
++ (id)pluginsURLs;
++ (id)defaultPluginURL;
++ (id)mainPluginsFolderURL;
 + (void)initialisePlugins;
 @property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
 @property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
@@ -32,7 +34,7 @@
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) char *useLegacyPlugins; // @synthesize useLegacyPlugins=_useLegacyPlugins;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(readonly, copy, nonatomic) NSURL *pluginsFolderURL; // @synthesize pluginsFolderURL=_pluginsFolderURL;
+@property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
 - (BOOL)disablePlugin:(id)arg1;
 - (BOOL)enablePlugin:(id)arg1;
@@ -51,9 +53,11 @@
 - (id)pluginsFromFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3;
 - (id)legacyPluginMenuDescriptionWithRelativePath:(id)arg1 commandIdentifier:(id)arg2;
 - (id)relativePathByDeletingCommonPathComponentsWithFileURL:(id)arg1 fromURL:(id)arg2;
+@property(readonly, copy, nonatomic) NSURL *mainPluginsFolderURL;
 - (void)dealloc;
-- (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
-- (id)initWithPluginsFolderURL:(id)arg1 metadataURL:(id)arg2;
+- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
+- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2;
+- (id)init;
 
 @end
 

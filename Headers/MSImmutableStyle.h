@@ -54,19 +54,19 @@
 // Remaining properties
 @property(readonly, nonatomic) id <MSStyleBlur> blurGeneric; // @dynamic blurGeneric;
 @property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric; // @dynamic borderOptionsGeneric;
-@property(readonly, nonatomic) id <MSBorderStyleCollection> bordersGeneric; // @dynamic bordersGeneric;
+@property(readonly, nonatomic) id <MSArray> bordersGeneric; // @dynamic bordersGeneric;
 @property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric; // @dynamic colorControlsGeneric;
 @property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) unsigned long long endDecorationType;
-@property(readonly, nonatomic) id <MSFillStyleCollection> fillsGeneric; // @dynamic fillsGeneric;
+@property(readonly, nonatomic) id <MSArray> fillsGeneric; // @dynamic fillsGeneric;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSInnerShadowStyleCollection> innerShadowsGeneric; // @dynamic innerShadowsGeneric;
+@property(readonly, nonatomic) id <MSArray> innerShadowsGeneric; // @dynamic innerShadowsGeneric;
 @property(readonly, nonatomic) long long miterLimit;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric; // @dynamic reflectionGeneric;
-@property(readonly, nonatomic) id <MSShadowStyleCollection> shadowsGeneric; // @dynamic shadowsGeneric;
+@property(readonly, nonatomic) id <MSArray> shadowsGeneric; // @dynamic shadowsGeneric;
 @property(readonly, nonatomic) NSString *sharedObjectID;
 @property(readonly, nonatomic) unsigned long long startDecorationType;
 @property(readonly) Class superclass;

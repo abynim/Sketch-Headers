@@ -24,7 +24,6 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)awakeFromNib;
-- (id)advancedUndoManager;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

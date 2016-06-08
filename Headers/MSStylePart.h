@@ -15,7 +15,7 @@
 {
 }
 
-- (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (id)defaultStylePartForStyle:(id)arg1;
 - (id)parentLayer;
 - (id)parentStyle;
 - (void)multiplyBy:(double)arg1;

@@ -11,12 +11,10 @@
 @interface _MSPage : MSLayerGroup
 {
     BOOL _includeInCloudUpload;
-    double _zoomValue;
     MSSimpleGrid *_grid;
     MSRulerData *_horizontalRulerData;
     MSLayoutGrid *_layout;
     MSRulerData *_verticalRulerData;
-    struct CGPoint _scrollOrigin;
 }
 
 + (BOOL)allowsFaulting;
@@ -36,10 +34,6 @@
 - (id)primitiveHorizontalRulerData;
 - (void)setPrimitiveGrid:(id)arg1;
 - (id)primitiveGrid;
-- (void)setPrimitiveZoomValue:(double)arg1;
-- (double)primitiveZoomValue;
-- (void)setPrimitiveScrollOrigin:(struct CGPoint)arg1;
-- (struct CGPoint)primitiveScrollOrigin;
 - (void)setPrimitiveIncludeInCloudUpload:(BOOL)arg1;
 - (BOOL)primitiveIncludeInCloudUpload;
 @property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
@@ -50,8 +44,6 @@
 - (id)horizontalRulerDataGeneric;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 - (id)gridGeneric;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

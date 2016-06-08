@@ -10,18 +10,20 @@
 
 @interface MSDocumentFile : NSObject
 {
+    NSURL *_fileURL;
+    unsigned long long _documentFileState;
     NSDictionary *_UIMetadata;
     NSDictionary *_metadata;
     BCStructuredFile *_file;
-    NSURL *_documentURL;
 }
 
 + (id)metadataForNewFile;
 + (void)addCreationInfomationToMetadata:(id)arg1;
-@property(retain, nonatomic) NSURL *documentURL; // @synthesize documentURL=_documentURL;
 @property(retain, nonatomic) BCStructuredFile *file; // @synthesize file=_file;
-@property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(readonly, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
+@property(readonly, nonatomic) unsigned long long documentFileState; // @synthesize documentFileState=_documentFileState;
+@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 - (void).cxx_destruct;
 - (void)repair;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
@@ -31,8 +33,9 @@
 - (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
 - (id)validate;
 - (id)missingFonts;
+- (BOOL)open:(id *)arg1;
 - (void)dealloc;
-- (id)initWithURL:(id)arg1;
+- (id)initWithFileURL:(id)arg1;
 - (id)init;
 
 @end

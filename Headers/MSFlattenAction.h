@@ -12,6 +12,7 @@
 
 - (id)tooltip;
 - (BOOL)shouldWarnAboutFlattening;
+- (id)historyMomentTitle;
 - (void)flattenIgnoringWarning;
 - (void)doFlatten;
 - (void)doPerformAction:(id)arg1;

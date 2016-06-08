@@ -7,6 +7,7 @@
 #import "NSSet.h"
 
 @interface NSSet (NSSet_SmallBlocks)
+- (BOOL)containsObjectPassingTest:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (void)each:(CDUnknownBlockType)arg1;
 @end

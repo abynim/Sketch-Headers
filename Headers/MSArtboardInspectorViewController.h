@@ -37,7 +37,7 @@
 - (void)changeBackgroundColorTo:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)viewWillDisappear;
-- (void)popoverWillClose:(id)arg1;
+- (void)dismissViewController:(id)arg1;
 - (void)validateArtboardBackgroundButtons;
 - (void)backgroundColorAction:(id)arg1;
 - (void)prepareArtboardsForFill;

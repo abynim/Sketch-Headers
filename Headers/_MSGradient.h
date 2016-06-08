@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 
 @class MSArray, MSPointArray;
 
-@interface _MSGradient : MSModelBase
+@interface _MSGradient : MSModelObject
 {
     BOOL _shouldSmoothenOpacity;
     double _elipseLength;
@@ -28,10 +28,10 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveTo:(struct CGPoint)arg1;
-- (struct CGPoint)primitiveTo;
 - (void)setPrimitiveStops:(id)arg1;
 - (id)primitiveStops;
+- (void)setPrimitiveTo:(struct CGPoint)arg1;
+- (struct CGPoint)primitiveTo;
 - (void)setPrimitiveShouldSmoothenOpacity:(BOOL)arg1;
 - (BOOL)primitiveShouldSmoothenOpacity;
 - (void)setPrimitivePoints:(id)arg1;
@@ -42,9 +42,9 @@
 - (struct CGPoint)primitiveFrom;
 - (void)setPrimitiveElipseLength:(double)arg1;
 - (double)primitiveElipseLength;
-@property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(retain, nonatomic) MSArray *stops; // @synthesize stops=_stops;
 - (id)stopsGeneric;
+@property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
 @property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;

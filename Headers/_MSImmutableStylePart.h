@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@interface _MSImmutableStylePart : MSImmutableModelBase
+@interface _MSImmutableStylePart : MSImmutableModelObject
 {
     BOOL _isEnabled;
 }
 
 + (Class)mutableClass;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

@@ -14,6 +14,7 @@
 {
 }
 
++ (id)defaultStylePartForStyle:(id)arg1;
 + (id)defaultFillColor;
 + (id)keyPathsForValuesAffectingInterfaceOpacity;
 - (id)NSImage;
@@ -21,11 +22,11 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
-- (void)setPatternImage:(id)arg1;
-- (id)CSSAttributeString;
 - (id)topViewForColorInspector:(id)arg1;
+- (void)setPatternImage:(id)arg1;
 - (id)parentStyle;
 @property(nonatomic) double interfaceOpacity;
+- (id)CSSAttributeString;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric;

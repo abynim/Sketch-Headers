@@ -8,6 +8,7 @@
 
 @interface NSImage (Chocolat)
 + (id)PDFImageWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 drawingHandler:(CDUnknownBlockType)arg3;
+- (id)imageWithPadding:(unsigned long long)arg1;
 - (BOOL)isVectorImage;
 - (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 fraction:(double)arg3 respectFlipped:(BOOL)arg4 colorSpace:(id)arg5;
 - (id)bitSafeBitmapImageRep;

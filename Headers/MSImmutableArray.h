@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
 #import "MSArray.h"
 
 @class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableArray : MSImmutableModelBase <MSArray>
+@interface MSImmutableArray : MSImmutableModelObject <MSArray>
 {
     NSArray *array;
 }
@@ -19,13 +19,13 @@
 @property(readonly, copy, nonatomic) NSArray *array; // @synthesize array;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
-- (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;
+- (id)filter:(CDUnknownBlockType)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (BOOL)hasDefaultValues;
 - (id)map:(CDUnknownBlockType)arg1;
 - (void)enumerate:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (id)firstObjectSatisfyingTest:(CDUnknownBlockType)arg1;
+- (id)firstObjectPassingTest:(CDUnknownBlockType)arg1;
 - (BOOL)containsObject:(id)arg1;
 - (unsigned long long)indexOfObject:(id)arg1;
 - (BOOL)isValidIndex:(unsigned long long)arg1;

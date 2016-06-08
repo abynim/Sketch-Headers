@@ -4,18 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelBase.h"
+#import "MSModelObject.h"
 #import "NSFastEnumeration.h"
 
 @class NSArray;
 
-@protocol MSArray <MSModelBase, NSFastEnumeration>
+@protocol MSArray <MSModelObject, NSFastEnumeration>
 @property(readonly, copy, nonatomic) NSArray *array;
 - (NSArray *)map:(id (^)(id))arg1;
 - (void)enumerate:(void (^)(id))arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
-- (NSArray *)filteredArrayUsingBlock:(BOOL (^)(id))arg1;
-- (id)firstObjectSatisfyingTest:(BOOL (^)(id))arg1;
+- (NSArray *)filter:(BOOL (^)(id))arg1;
+- (id)firstObjectPassingTest:(BOOL (^)(id))arg1;
 - (BOOL)containsObject:(id)arg1;
 - (unsigned long long)indexOfObject:(id)arg1;
 - (BOOL)isValidIndex:(unsigned long long)arg1;

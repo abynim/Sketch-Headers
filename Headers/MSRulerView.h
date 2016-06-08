@@ -10,7 +10,6 @@
 
 @interface MSRulerView : NSView
 {
-    BOOL didOpenUndoGroup;
     unsigned long long dragIndex;
     double baseOffset;
     double previousBase;
@@ -34,8 +33,6 @@
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSRulerData *rulerData; // @synthesize rulerData=_rulerData;
 - (void).cxx_destruct;
-- (void)endUndo;
-- (void)beginUndo;
 - (long long)rulerHeight;
 - (long long)rulerLength;
 - (double)zoomValue;
@@ -79,6 +76,8 @@
 - (BOOL)acceptsFirstResponder;
 - (void)removeAllGuides:(id)arg1;
 - (void)removeGuide:(id)arg1;
+- (void)addAction:(id)arg1 toMenu:(id)arg2;
+- (id)titleForRemoveAllGuidesMenuItem;
 - (id)menuForEvent:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)guides;

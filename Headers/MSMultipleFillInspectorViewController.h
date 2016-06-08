@@ -27,7 +27,7 @@
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (unsigned long long)stylePartType;
-- (void)popoverWillClose:(id)arg1;
+- (void)dismissViewController:(id)arg1;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)viewWillDisappear;
 - (BOOL)shouldHideAddStylePartButton;

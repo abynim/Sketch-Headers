@@ -34,12 +34,12 @@
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolMaster;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (long long)cornerRectType;
+- (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)applyOverrides:(id)arg1;
-- (long long)cornerRectType;
-- (id)inspectorViewControllerNames;
 
 @end
 

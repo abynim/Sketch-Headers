@@ -11,8 +11,8 @@
 @interface _MSLayerGroup : MSStyledLayer
 {
     BOOL _hasClickThrough;
-    MSArray *_layers;
     struct NSObject *_sharedObjectID;
+    MSArray *_layers;
 }
 
 + (BOOL)allowsFaulting;
@@ -24,15 +24,15 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
-- (struct NSObject *)primitiveSharedObjectID;
 - (void)setPrimitiveLayers:(id)arg1;
 - (id)primitiveLayers;
+- (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
+- (struct NSObject *)primitiveSharedObjectID;
 - (void)setPrimitiveHasClickThrough:(BOOL)arg1;
 - (BOOL)primitiveHasClickThrough;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(retain, nonatomic) MSArray *layers; // @synthesize layers=_layers;
 - (id)layersGeneric;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

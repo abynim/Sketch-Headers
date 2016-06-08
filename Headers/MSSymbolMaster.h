@@ -12,7 +12,7 @@
 }
 
 - (BOOL)shouldResizeToFitAfterDrag;
-- (void)invalidateImmutableObjectsDueToChangeInObject:(id)arg1 property:(id)arg2;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
 - (unsigned long long)traits;
 - (id)rootForNameUniquing;
@@ -31,7 +31,6 @@
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 cache:(id)arg3;
 - (BOOL)hasSliceIcon;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

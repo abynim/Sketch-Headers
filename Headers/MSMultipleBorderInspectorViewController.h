@@ -34,7 +34,7 @@
 - (BOOL)shouldHideAddStylePartButton;
 - (void)setLayers:(id)arg1;
 - (void)styleDidEnableOrDisable;
-- (void)popoverWillClose:(id)arg1;
+- (void)dismissViewController:(id)arg1;
 - (void)showAdvancedOptionsAction:(id)arg1;
 - (void)prepare;
 - (unsigned long long)stylePartType;

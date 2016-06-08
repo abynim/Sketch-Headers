@@ -22,7 +22,7 @@
 - (void)setRect:(struct CGRect)arg1;
 - (struct CGRect)rect;
 - (struct CGRect)boundsRect;
-- (void)concatAncestorTransforms;
+- (void)concatAncestorsAndSelfTransforms;
 - (double)rotation;
 - (BOOL)shouldConstrainProportions;
 - (id)otherLayersForSnapping;

@@ -13,7 +13,7 @@
     BOOL _hasMultipleTouches;
     BOOL _didMouseDown;
     MSLayer *_resizingLayer;
-    long long _resizingCorner;
+    long long _resizingHandle;
     long long _dragMode;
     NSArray *_backupSelection;
     MSSnapperData *_snapperData;
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
 @property(copy, nonatomic) NSArray *backupSelection; // @synthesize backupSelection=_backupSelection;
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
-@property(nonatomic) long long resizingCorner; // @synthesize resizingCorner=_resizingCorner;
+@property(nonatomic) long long resizingHandle; // @synthesize resizingHandle=_resizingHandle;
 @property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
 @property(nonatomic) struct CGPoint originalScrollOrigin; // @synthesize originalScrollOrigin=_originalScrollOrigin;
 @property(nonatomic) struct CGPoint midPoint; // @synthesize midPoint=_midPoint;

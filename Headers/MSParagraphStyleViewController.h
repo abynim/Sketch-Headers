@@ -6,11 +6,9 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverContentController.h"
+@class MSTextLayerSection, NSArray, NSPopUpButton, NSSegmentedControl;
 
-@class MSTextLayerSection, NSArray, NSPopUpButton, NSSegmentedControl, NSString;
-
-@interface MSParagraphStyleViewController : NSViewController <BCPopoverContentController>
+@interface MSParagraphStyleViewController : NSViewController
 {
     MSTextLayerSection *_textSection;
     NSArray *_layers;
@@ -33,12 +31,6 @@
 - (void)prepareDecorationButton;
 - (void)awakeFromNib;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
 @class MSImmutableArray;
 
-@interface _MSImmutableRulerData : MSImmutableModelBase
+@interface _MSImmutableRulerData : MSImmutableModelObject
 {
     long long _base;
     MSImmutableArray *_guides;
@@ -18,7 +18,8 @@
 @property(copy, nonatomic) MSImmutableArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

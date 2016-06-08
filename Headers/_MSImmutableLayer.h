@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
 @class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSString;
 
-@interface _MSImmutableLayer : MSImmutableModelBase
+@interface _MSImmutableLayer : MSImmutableModelObject
 {
     BOOL _isFlippedHorizontal;
     BOOL _isFlippedVertical;
@@ -40,7 +40,8 @@
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

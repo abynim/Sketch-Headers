@@ -6,31 +6,35 @@
 
 #import "NSObject.h"
 
+#import "NSViewControllerPresentationAnimator.h"
 #import "NSWindowDelegate.h"
 
-@class BCPopoverWindow, NSString, NSView, NSViewController<BCPopoverContentController>;
+@class BCPopoverWindow, NSString, NSView, NSViewController;
 
-@interface BCPopover : NSObject <NSWindowDelegate>
+@interface BCPopover : NSObject <NSWindowDelegate, NSViewControllerPresentationAnimator>
 {
     BOOL dontSendNextPopoverWindowSizeNotification;
-    NSViewController<BCPopoverContentController> *_contentViewController;
+    NSViewController *_contentViewController;
     id <BCPopoverDelegate> _delegate;
     BCPopoverWindow *_window;
-    NSView *_attachedToView;
     long long _screenEdgeBehaviour;
     long long _layerDependency;
+    NSView *_attachedToView;
     unsigned long long _preferredEdge;
 }
 
 @property(nonatomic) unsigned long long preferredEdge; // @synthesize preferredEdge=_preferredEdge;
+@property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;
 @property(nonatomic) long long layerDependency; // @synthesize layerDependency=_layerDependency;
 @property(nonatomic) long long screenEdgeBehaviour; // @synthesize screenEdgeBehaviour=_screenEdgeBehaviour;
-@property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;
 @property(retain, nonatomic) BCPopoverWindow *window; // @synthesize window=_window;
 @property(nonatomic) __weak id <BCPopoverDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSViewController<BCPopoverContentController> *contentViewController; // @synthesize contentViewController=_contentViewController;
+@property(retain, nonatomic) NSViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
+- (void)animateDismissalOfViewController:(id)arg1 fromViewController:(id)arg2;
+- (void)animatePresentationOfViewController:(id)arg1 fromViewController:(id)arg2;
 - (void)dealloc;
+- (void)closeIgnoringViewControllerPresentations;
 - (void)close;
 - (void)windowWillClose:(id)arg1;
 - (struct CGRect)windowRectForViewSize:(struct CGSize)arg1 above:(struct CGRect)arg2 pointingTo:(struct CGPoint)arg3 edge:(unsigned long long)arg4;

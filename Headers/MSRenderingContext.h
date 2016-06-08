@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class CIContext, MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -40,6 +40,7 @@
     MSStyleImageRenderer *_styleImageRenderer;
     MSStyleTextRenderer *_styleTextRenderer;
     MSStyleFillRenderer *_styleFillRenderer;
+    CIContext *_ciContext;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
@@ -62,6 +63,7 @@
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
+@property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 @property(retain, nonatomic) MSStyleFillRenderer *styleFillRenderer; // @synthesize styleFillRenderer=_styleFillRenderer;
 @property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;

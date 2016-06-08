@@ -4,21 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@class MSModelObject, NSString;
+@class NSString;
 
-@interface _MSImmutableSharedObject : MSImmutableModelBase
+@interface _MSImmutableSharedObject : MSImmutableModelObject
 {
     NSString *_name;
-    MSModelObject *_value;
+    MSImmutableModelObject *_value;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSModelObject *value; // @synthesize value=_value;
+@property(retain, nonatomic) MSImmutableModelObject *value; // @synthesize value=_value;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

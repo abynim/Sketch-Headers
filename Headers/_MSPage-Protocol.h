@@ -11,8 +11,6 @@
 @property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric;
 @property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric;
-@property(readonly, nonatomic) double zoomValue;
-@property(readonly, nonatomic) struct CGPoint scrollOrigin;
 @property(readonly, nonatomic) BOOL includeInCloudUpload;
 @end
 

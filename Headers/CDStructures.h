@@ -96,7 +96,7 @@ struct FSRef {
     unsigned char _field1[80];
 };
 
-struct MSModelBase {
+struct MSModelObject {
     Class _field1;
     id _field2;
     id _field3;

@@ -12,7 +12,7 @@
 
 - (id)menu;
 - (id)tooltip;
-- (id)children;
+- (id)submenuActionIDs;
 
 @end
 

@@ -11,6 +11,7 @@
 @protocol MSLayer <_MSLayer>
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
@@ -19,7 +20,6 @@
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;
 - (struct CGRect)influenceRectForBounds;
-- (id)layerWithID:(id)arg1;
 - (NSAffineTransform *)transformForRect:(struct CGRect)arg1;
 @end
 

@@ -22,9 +22,9 @@
 - (id)description;
 @property(nonatomic) struct CGRect rect;
 - (struct CGRect)boundsRect;
-- (void)concatAncestorTransforms;
+- (void)concatAncestorsAndSelfTransforms;
 - (struct CGAffineTransform)preDrawingTransform;
-- (void)refreshOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
+- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (double)rotation;
 - (BOOL)shouldConstrainProportions;
 - (BOOL)supportsResizingForSnapping;

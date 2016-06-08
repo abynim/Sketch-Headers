@@ -38,7 +38,7 @@
 - (void)prepareContext:(struct CGContext *)arg1;
 - (id)contextWithCGContext:(struct CGContext *)arg1 colorSpace:(id)arg2;
 - (void)cancel;
-- (void)renderInContext:(struct CGContext *)arg1 colorSpace:(id)arg2;
+- (void)renderInContext:(struct CGContext *)arg1 colorSpace:(id)arg2 zoomValue:(double)arg3;
 - (id)init;
 
 @end

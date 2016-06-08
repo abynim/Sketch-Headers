@@ -70,6 +70,7 @@
 - (void)save;
 - (void)handlerWillLoseFocus;
 - (void)reloadData;
+- (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
 - (id)nibName;
 - (void)awakeFromNib;

@@ -20,16 +20,16 @@
 + (id)defaultName;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 - (void).cxx_destruct;
-- (id)exportableLayers;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)symbols;
 @property(readonly, nonatomic) __weak NSArray *artboards;
-- (struct CGRect)contentBounds;
-@property(readonly, nonatomic) struct CGPoint rulerBase;
+@property(readonly, nonatomic) struct CGRect contentBounds;
+- (struct CGPoint)rulerBase;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2;
+- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)differsFromLayer:(id)arg1;
+- (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawing;
@@ -55,6 +55,7 @@
 @property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
 @property(readonly, nonatomic) BOOL includeInCloudUpload;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -71,7 +72,6 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) struct CGPoint scrollOrigin;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;
@@ -79,7 +79,6 @@
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
 @property(readonly, nonatomic) id <MSRulerData> verticalRulerDataGeneric; // @dynamic verticalRulerDataGeneric;
-@property(readonly, nonatomic) double zoomValue;
 
 @end
 

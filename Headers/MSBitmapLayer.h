@@ -15,12 +15,12 @@
 }
 
 + (unsigned long long)traits;
++ (Class)overrideViewControllerClass;
 + (unsigned long long)scalingFactorForFilename:(id)arg1;
-+ (struct CGSize)bestUnroundedLayerSizeForImportedImage:(id)arg1;
++ (struct CGSize)bestSizeAccountingForPixelDensityOfImage:(id)arg1;
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
-+ (Class)overrideViewControllerClass;
 - (id)NSImage;
 - (BOOL)hasNineSliceEnabled;
 - (void)reduceImageSize;
@@ -30,11 +30,11 @@
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
+- (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (void)applyOverrides:(id)arg1;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
-- (id)inspectorViewControllerNames;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -48,6 +48,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) MSImageData *image;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;

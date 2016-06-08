@@ -13,7 +13,7 @@
 - (id)imageName;
 - (id)label;
 - (id)tooltip;
-- (id)children;
+- (id)submenuActionIDs;
 
 @end
 

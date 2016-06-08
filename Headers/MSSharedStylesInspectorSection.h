@@ -30,7 +30,7 @@
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)document;
-- (struct MSModelBase *)firstSharedObject;
+- (struct MSModelObject *)firstSharedObject;
 - (id)sharedObjectContainer;
 - (BOOL)hasTextLayers;
 - (BOOL)hasOnlyTextLayers;

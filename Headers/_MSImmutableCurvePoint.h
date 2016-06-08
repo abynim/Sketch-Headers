@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelBase.h"
+#import "MSImmutableModelObject.h"
 
-@interface _MSImmutableCurvePoint : MSImmutableModelBase
+@interface _MSImmutableCurvePoint : MSImmutableModelObject
 {
     double _cornerRadius;
     struct CGPoint _curveFrom;
@@ -25,7 +25,8 @@
 @property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (BOOL)attributesEqualAttributesForObject:(id)arg1;
+- (id)keyPathsDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;

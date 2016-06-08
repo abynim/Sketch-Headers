@@ -8,20 +8,25 @@
 
 #import "MSActionObserver.h"
 
-@class NSArray, NSString;
+@class NSDictionary, NSString;
 
 @interface MSPluginManagerWithActions : MSPluginManager <MSActionObserver>
 {
-    NSArray *_commandsWithActionHandlers;
+    BOOL _wilcardsEnabled;
+    NSDictionary *_commandsWithActionHandlers;
 }
 
-@property(retain, nonatomic) NSArray *commandsWithActionHandlers; // @synthesize commandsWithActionHandlers=_commandsWithActionHandlers;
+@property(nonatomic) BOOL wilcardsEnabled; // @synthesize wilcardsEnabled=_wilcardsEnabled;
+@property(retain, nonatomic) NSDictionary *commandsWithActionHandlers; // @synthesize commandsWithActionHandlers=_commandsWithActionHandlers;
 - (void).cxx_destruct;
+- (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 - (void)sendToInterestedCommandsActionWithID:(id)arg1 context:(id)arg2;
+- (id)contextForActionWithID:(id)arg1 context:(id)arg2;
 - (void)registerCommandsWithActionHandlers;
 - (void)setPlugins:(id)arg1;
+- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

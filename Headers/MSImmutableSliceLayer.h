@@ -17,6 +17,9 @@
 + (id)defaultName;
 + (unsigned long long)traits;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+- (void)refreshPreviewImages;
+- (BOOL)previewImagesRequireRefresh;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 bezier:(id)arg3;
 - (void)configureBackgroundOfRequest:(id)arg1;
 
 // Remaining properties
@@ -30,6 +33,7 @@
 @property(readonly, nonatomic) BOOL hasBackgroundColor;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLocked;

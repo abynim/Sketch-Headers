@@ -33,7 +33,7 @@
 - (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3;
 - (void)uploadExportedFiles:(id)arg1 shareData:(id)arg2;
 - (void)reportProgress:(double)arg1;
-- (void)createS3ManagerWithCredentials:(id)arg1;
+- (void)createS3ManagerWithCredentials:(id)arg1 bucket:(id)arg2 region:(id)arg3;
 - (void)uploadFilesAfterManifestUploadWithResult:(id)arg1;
 - (BOOL)shouldAttemptReuploadAfterError:(id)arg1;
 - (id)loadManifest;

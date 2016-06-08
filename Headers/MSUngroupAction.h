@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)ungroup:(id)arg1;
 - (BOOL)validate;

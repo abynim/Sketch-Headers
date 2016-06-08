@@ -19,6 +19,8 @@
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
+- (void)deliberateScrollRowToVisible:(long long)arg1;
+- (void)scrollRowToVisible:(long long)arg1;
 - (id)dragImageForRowsWithIndexes:(id)arg1 tableColumns:(id)arg2 event:(id)arg3 offset:(struct CGPoint *)arg4;
 - (id)menuForEvent:(id)arg1;
 - (id)makeViewWithIdentifier:(id)arg1 owner:(id)arg2;

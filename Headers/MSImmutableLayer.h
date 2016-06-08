@@ -15,19 +15,21 @@
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
 {
     BOOL _hasBlendedLayer;
+    BOOL _isSelected;
     unsigned long long _traits;
     struct CGRect _influenceRectForBounds;
     struct CGRect _influenceRectForFrame;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) struct CGRect influenceRectForBounds; // @synthesize influenceRectForBounds=_influenceRectForBounds;
+@property(readonly, nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(readonly, nonatomic) BOOL hasBlendedLayer; // @synthesize hasBlendedLayer=_hasBlendedLayer;
 - (BOOL)canSkipAdvancedClipForStrokes;
-- (id)layerWithID:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)overlayInfluenceRectForFrame;
@@ -37,8 +39,10 @@
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (struct CGRect)rectByTransformingRect:(struct CGRect)arg1 andPaddingWithAncestors:(id)arg2;
+- (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
+- (id)bezierBoundsInAbsoluteCoordinatesWithAncestors:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForTransforms;
 @property(readonly, nonatomic) NSAffineTransform *transform;
@@ -55,7 +59,16 @@
 - (BOOL)hasBitmapStylesEnabled;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+- (id)keyPathsDifferingFromObject:(id)arg1;
 - (void)objectDidInit;
+- (void)performInitWithMutableModelObject:(id)arg1;
+- (void)cachePreviewWithBezier:(id)arg1;
+- (id)previewImageWithBezier:(id)arg1 selected:(BOOL)arg2;
+- (id)previewFillColor:(BOOL)arg1;
+- (id)previewBorderColor:(BOOL)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 bezier:(id)arg3;
+- (void)refreshPreviewImages;
+- (BOOL)previewImagesRequireRefresh;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -74,6 +87,7 @@
 - (id)containedLayers;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (id)possibleOverridesInDocument:(id)arg1;
+- (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (BOOL)differsFromLayer:(id)arg1;
 @property(readonly, nonatomic) NSArray *sublayersForTreeDiff;
 - (BOOL)shouldSkipDrawing;
