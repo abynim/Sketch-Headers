@@ -10,8 +10,8 @@
 {
 }
 
-- (id)svgAttributesDescription;
 - (BOOL)containsDrawables;
+- (id)svgAttributesDescription;
 
 @end
 

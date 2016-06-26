@@ -10,8 +10,11 @@
 {
 }
 
-- (void)reduceSizeOfSelectedLayers;
+- (void)setImageData:(id)arg1 forLayers:(id)arg2;
+- (void)reduceSizeOfImageLayers:(id)arg1 selectionBased:(BOOL)arg2;
 - (void)reduceImageSize:(id)arg1;
+- (BOOL)dynamicTitle;
+- (id)label;
 - (BOOL)validate;
 
 @end

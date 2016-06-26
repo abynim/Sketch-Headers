@@ -14,6 +14,6 @@
 - (void)insertLayers:(NSArray *)arg1 afterLayer:(id)arg2;
 - (void)insertLayers:(NSArray *)arg1 beforeLayer:(id)arg2;
 - (void)addLayers:(NSArray *)arg1;
-- (void)replaceLayersWithLayers:(NSArray *)arg1;
+- (void)replaceAllLayersWithLayers:(NSArray *)arg1;
 @end
 

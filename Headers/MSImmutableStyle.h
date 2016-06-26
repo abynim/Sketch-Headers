@@ -44,9 +44,9 @@
 - (void)addShadowFilters:(id)arg1 includeSource:(BOOL)arg2 attributes:(id)arg3 exporter:(id)arg4;
 - (id)borderAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (id)fillAtElementPosition:(long long)arg1 exporter:(id)arg2;
-- (unsigned long long)internalNumberOfElements;
+- (unsigned long long)internalNumberOfElements:(id)arg1;
 - (BOOL)canCombineLastFillWithFirstBorder;
-@property(readonly, nonatomic) BOOL requiresPathDefinition;
+- (BOOL)requiresPathDefinition:(id)arg1;
 - (BOOL)hasNonCenteredBorder;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2 elementPosition:(unsigned long long)arg3;
 - (unsigned long long)numberOfElementsWithExporter:(id)arg1;
@@ -54,19 +54,19 @@
 // Remaining properties
 @property(readonly, nonatomic) id <MSStyleBlur> blurGeneric; // @dynamic blurGeneric;
 @property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric; // @dynamic borderOptionsGeneric;
-@property(readonly, nonatomic) id <MSArray> bordersGeneric; // @dynamic bordersGeneric;
+@property(readonly, nonatomic) NSArray *borders;
 @property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric; // @dynamic colorControlsGeneric;
 @property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) unsigned long long endDecorationType;
-@property(readonly, nonatomic) id <MSArray> fillsGeneric; // @dynamic fillsGeneric;
+@property(readonly, nonatomic) NSArray *fills;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSArray> innerShadowsGeneric; // @dynamic innerShadowsGeneric;
+@property(readonly, nonatomic) NSArray *innerShadows;
 @property(readonly, nonatomic) long long miterLimit;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric; // @dynamic reflectionGeneric;
-@property(readonly, nonatomic) id <MSArray> shadowsGeneric; // @dynamic shadowsGeneric;
+@property(readonly, nonatomic) NSArray *shadows;
 @property(readonly, nonatomic) NSString *sharedObjectID;
 @property(readonly, nonatomic) unsigned long long startDecorationType;
 @property(readonly) Class superclass;

@@ -23,7 +23,6 @@
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (BOOL)canBeContainedByGroup;
 - (BOOL)isLine;
-- (BOOL)calculateHasBlendedLayer;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndDecorationType:(unsigned long long)arg1;
 - (void)setStartDecorationType:(unsigned long long)arg1;
@@ -41,10 +40,12 @@
 @property(retain, nonatomic) NSBezierPath *bezierPath;
 - (id)bezierPathWithTransforms;
 - (id)bezierPathInRect:(struct CGRect)arg1;
-- (void)transformPointsToNewRect:(struct CGRect)arg1;
-- (struct CGRect)newRectForAdjustingFrameAfterEditIntegral:(BOOL)arg1;
+- (id)pathInRect:(struct CGRect)arg1;
+- (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
+- (struct CGRect)boundsOfPathIntegral:(BOOL)arg1;
 - (void)adjustFrameAfterEditIntegral:(BOOL)arg1;
 - (void)refreshOverlay;
+- (void)applyAffineTransformToPath:(struct CGAffineTransform)arg1;
 - (void)reversePath;
 - (BOOL)editable;
 - (void)resetPoints;
@@ -56,7 +57,6 @@
 - (BOOL)canBeHidden;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
-- (id)embedInShapeGroup;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
 - (void)toggleClosePath;
@@ -64,7 +64,9 @@
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
 - (id)bezierPathForHover;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
+- (BOOL)isMasked;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;
@@ -101,6 +103,7 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric; // @dynamic pathGeneric;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

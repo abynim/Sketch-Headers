@@ -10,7 +10,6 @@
 
 @interface _MSStyleShadow : MSStylePart
 {
-    BOOL _hasShadow;
     double _blurRadius;
     double _offsetX;
     double _offsetY;
@@ -22,6 +21,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
@@ -38,8 +38,6 @@
 - (double)primitiveOffsetY;
 - (void)setPrimitiveOffsetX:(double)arg1;
 - (double)primitiveOffsetX;
-- (void)setPrimitiveHasShadow:(BOOL)arg1;
-- (BOOL)primitiveHasShadow;
 - (void)setPrimitiveBlurRadius:(double)arg1;
 - (double)primitiveBlurRadius;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
@@ -49,7 +47,6 @@
 @property(nonatomic) double spread; // @synthesize spread=_spread;
 @property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
 @property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
-@property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

@@ -26,7 +26,6 @@
 @property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)reloadInspectorStack:(id)arg1;
 - (id)views;
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;

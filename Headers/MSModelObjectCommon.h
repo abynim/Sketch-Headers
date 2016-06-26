@@ -19,17 +19,19 @@
 
 + (id)generateObjectID;
 + (id)defaultName;
-+ (id)sharedModelCache;
 + (void)clearInstanceCount;
 + (void)printInstanceCount:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
+@property(readonly, nonatomic) BOOL hasModelObjectCacheGeneration;
+@property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (id)primitiveObjectID;
 - (void)setPrimitiveObjectID:(id)arg1;
 @property(copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID; // @synthesize objectID=_objectID;
 - (BOOL)hasObjectID;
 - (id)generateObjectID;
+- (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
+- (void)enumerateDescendants:(CDUnknownBlockType)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
@@ -40,11 +42,6 @@
 - (id)initWithNoSetup;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;
-- (void)clearCachedValueForKey:(id)arg1;
-- (void)clearCache;
-- (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
-- (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
-- (id)cachedValueForKey:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)treeAsDictionary;
 - (id)simpleTreeStructure;

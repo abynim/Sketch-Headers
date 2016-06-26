@@ -10,8 +10,10 @@
 {
 }
 
-+ (id)unboundedLayersTrailingLayer:(id)arg1;
-+ (id)layersTrailingLayer:(id)arg1;
++ (double)spaceBetweenRect:(struct CGRect)arg1 andPreviousRect:(struct CGRect)arg2 inDirection:(long long)arg3;
++ (id)unboundedLayersTrailingLayer:(id)arg1 inDirection:(long long)arg2;
++ (id)sortLayers:(id)arg1 inDirection:(long long)arg2;
++ (id)layersTrailingLayer:(id)arg1 inDirection:(long long)arg2;
 + (void)changeFrameForLayer:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 
 @end

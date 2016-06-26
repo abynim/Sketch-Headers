@@ -8,7 +8,7 @@
 
 #import "MSShapePath.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSShapePath : _MSShapePath <MSShapePath>
 {
@@ -16,11 +16,13 @@
 
 + (id)pathWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)pathWithPoints:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (BOOL)isPolygon;
 - (BOOL)isRectangle;
 - (BOOL)isLine;
 - (void)multiplyBy:(double)arg1;
 - (id)bezierPathInRect:(struct CGRect)arg1;
+- (id)pathInRect:(struct CGRect)arg1;
 - (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
 - (BOOL)simplifyPathOnce;
 - (void)simplifyPath;
@@ -30,20 +32,16 @@
 - (id)pointAtIndex:(long long)arg1;
 - (void)removeAllPoints;
 - (void)removeLastPoint;
-- (void)insertPoint:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)addPoints:(id)arg1;
-- (void)addPoint:(id)arg1;
 - (id)layer;
 - (id)initWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)initWithPoints:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isClosed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> pointsGeneric; // @dynamic pointsGeneric;
+@property(readonly, nonatomic) NSArray *points;
 @property(readonly) Class superclass;
 
 @end

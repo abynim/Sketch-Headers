@@ -6,17 +6,18 @@
 
 #import "MSModelObject.h"
 
-@class MSArray;
+@class NSArray;
 
 @interface _MSRulerData : MSModelObject
 {
     long long _base;
-    MSArray *_guides;
+    NSArray *_guides;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
@@ -27,8 +28,7 @@
 - (id)primitiveGuides;
 - (void)setPrimitiveBase:(long long)arg1;
 - (long long)primitiveBase;
-@property(copy, nonatomic) MSArray *guides; // @synthesize guides=_guides;
-- (id)guidesGeneric;
+@property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

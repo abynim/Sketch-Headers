@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)artboardFrames:(id)arg1 visibleInTileRect:(struct CGRect)arg2 zoomValue:(double)arg3;
-+ (void)drawArtboardOutlines:(id)arg1 inRect:(struct CGRect)arg2 zoomValue:(double)arg3;
++ (void)drawArtboardOutlines:(id)arg1 inRect:(struct CGRect)arg2 zoomValue:(double)arg3 context:(struct CGContext *)arg4 colorSpace:(struct CGColorSpace *)arg5;
 
 @end
 

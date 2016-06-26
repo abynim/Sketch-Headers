@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CIContext, MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSMutableArray;
+@class CIContext, MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -23,16 +23,15 @@
     int _internalBlendMode;
     MSBackgroundBlurRenderer *_backgroundBlurRenderer;
     CIContext *_ciContext;
+    struct CGContext *_contextRef;
     unsigned long long _disableDrawingFillsCounter;
     unsigned long long _disableClippingFillsCounter;
     double _zoomLevel;
     NSColorSpace *_colorSpace;
-    struct CGContext *_contextRef;
     NSColor *_backgroundColor;
     id _rootObject;
     double _shadowScale;
     double _backingScale;
-    double _backingScaleForShadows;
     double _parentLayerOpacity;
     MSImmutableDocumentData *_document;
     MSImmutableLayer *_untilLayer;
@@ -41,6 +40,7 @@
     MSStyleImageRenderer *_styleImageRenderer;
     MSStyleTextRenderer *_styleTextRenderer;
     MSStyleFillRenderer *_styleFillRenderer;
+    NSGraphicsContext *_graphicsContext;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
@@ -63,6 +63,7 @@
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
+@property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
 @property(retain, nonatomic) MSStyleFillRenderer *styleFillRenderer; // @synthesize styleFillRenderer=_styleFillRenderer;
 @property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
@@ -74,14 +75,12 @@
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) double parentLayerOpacity; // @synthesize parentLayerOpacity=_parentLayerOpacity;
 @property(nonatomic) BOOL shouldFlipShadows; // @synthesize shouldFlipShadows=_shouldFlipShadows;
-@property(nonatomic) double backingScaleForShadows; // @synthesize backingScaleForShadows=_backingScaleForShadows;
 @property(nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
 @property(nonatomic) double shadowScale; // @synthesize shadowScale=_shadowScale;
 @property(retain, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;
-@property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
@@ -94,6 +93,8 @@
 @property(nonatomic) BOOL isBitmapBacked; // @synthesize isBitmapBacked=_isBitmapBacked;
 @property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
 @property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
+@property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
+@property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (void).cxx_destruct;
 - (BOOL)isDrawingSymbolInstance;
 - (void)didDrawArtboard:(id)arg1;
@@ -139,9 +140,8 @@
 - (id)cachedValueForModelObject:(id)arg1 key:(id)arg2 zoomIndependent:(BOOL)arg3 orCreateWithBlock:(CDUnknownBlockType)arg4;
 - (void)dealloc;
 - (void)tearDown;
-@property(readonly, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
+- (BOOL)hasGraphicsContext;
 - (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
-- (id)backingContext;
 - (void)setUp;
 - (void)renderInBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) MSBackgroundBlurRenderer *backgroundBlurRenderer; // @synthesize backgroundBlurRenderer=_backgroundBlurRenderer;

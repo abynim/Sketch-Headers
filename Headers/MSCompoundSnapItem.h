@@ -17,7 +17,7 @@
 
 @property(nonatomic) struct CGRect unionRect; // @synthesize unionRect=_unionRect;
 @property(retain, nonatomic) NSArray *relativeRects; // @synthesize relativeRects=_relativeRects;
-@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (void)setRect:(struct CGRect)arg1;
 - (struct CGRect)rect;

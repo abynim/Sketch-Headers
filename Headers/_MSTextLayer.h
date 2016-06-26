@@ -10,19 +10,20 @@
 
 @interface _MSTextLayer : MSStyledLayer
 {
+    MSAttributedString *_attributedString;
     BOOL _automaticallyDrawOnUnderlyingPath;
     BOOL _dontSynchroniseWithSymbol;
+    struct CGRect _glyphBounds;
     BOOL _heightIsClipped;
-    MSAttributedString *_attributedString;
     long long _lineSpacingBehaviour;
     MSImageData *_preview;
     long long _textBehaviour;
-    struct CGRect _glyphBounds;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

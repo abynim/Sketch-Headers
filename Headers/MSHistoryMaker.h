@@ -12,11 +12,13 @@
 {
     BOOL _historyIsCoalescing;
     BOOL _isMovingThroughHistory;
+    BOOL _isMakingHistory;
     MSDocument *_document;
     MSHistory *_history;
     NSString *_historyMomentTitle;
 }
 
+@property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
 @property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
 @property(nonatomic) BOOL historyIsCoalescing; // @synthesize historyIsCoalescing=_historyIsCoalescing;
 @property(retain, nonatomic) NSString *historyMomentTitle; // @synthesize historyMomentTitle=_historyMomentTitle;
@@ -25,7 +27,10 @@
 - (void).cxx_destruct;
 - (void)moveThroughHistoryBackInTime:(BOOL)arg1;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
+- (void)makeHistoryIfNecessaryUsingTransientMoment:(BOOL)arg1;
+- (void)makeTransientMomentInHistoryIfNecessary;
 - (void)makeHistoryIfNecessary;
+- (void)commitTransientMomentIfNecessary;
 - (void)coalesceHistoryInBlock:(CDUnknownBlockType)arg1;
 - (void)finishCoalescingHistory;
 - (void)startCoalescingHistory;

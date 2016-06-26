@@ -20,10 +20,12 @@
 + (unsigned long long)traits;
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
-- (BOOL)calculateHasBlendedLayer;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)bezierPathInRect:(struct CGRect)arg1;
+- (id)pathInRect:(struct CGRect)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (void)refreshPreviewImagesWithCache:(id)arg1;
+- (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
 - (struct CGRect)relativeRectWithExporter:(id)arg1;
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2;
 
@@ -51,6 +53,7 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric; // @dynamic pathGeneric;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

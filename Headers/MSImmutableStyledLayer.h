@@ -16,10 +16,10 @@
 
 + (unsigned long long)traits;
 - (unsigned long long)windingRule;
-- (BOOL)calculateHasBlendedLayer;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
-- (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
+- (id)previewFillColor:(BOOL)arg1;
+- (id)previewBorderColor:(BOOL)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
 - (BOOL)shouldSkipDrawing;
@@ -50,6 +50,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric; // @dynamic styleGeneric;

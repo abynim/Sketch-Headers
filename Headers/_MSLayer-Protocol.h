@@ -14,6 +14,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSString *name;

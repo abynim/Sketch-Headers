@@ -22,8 +22,10 @@
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
 - (id)NSImage;
-- (BOOL)hasNineSliceEnabled;
+@property(readonly, nonatomic) BOOL canReduceImageSize;
+@property(readonly, nonatomic) struct CGSize targetSizeForReduction;
 - (void)reduceImageSize;
+- (BOOL)hasNineSliceEnabled;
 - (struct CGSize)minimumSize;
 - (id)handlerName;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
@@ -63,6 +65,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;

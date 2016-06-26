@@ -31,7 +31,7 @@
 - (id)handleLinesColor;
 - (void)drawHandleLines;
 - (void)drawInRect:(struct CGRect)arg1;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

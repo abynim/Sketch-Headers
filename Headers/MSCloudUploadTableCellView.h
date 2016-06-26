@@ -6,31 +6,37 @@
 
 #import "NSTableCellView.h"
 
-@class MSCloudShareViewControlller, NSButton, NSDictionary, NSTextField, NSTimer;
+@class MSCloudUserShare, NSButton, NSProgressIndicator, NSTextField, NSTimer;
 
 @interface MSCloudUploadTableCellView : NSTableCellView
 {
+    BOOL _animating;
     BOOL _isSelected;
-    NSDictionary *_uploadData;
-    MSCloudShareViewControlller *_viewController;
+    MSCloudUserShare *_share;
+    id <MSCloudUploadTableCellViewDelegate> _delegate;
     NSTextField *_nameTextField;
     NSTextField *_timeTextField;
     NSButton *_deleteButton;
     NSButton *_openShareButton;
+    NSProgressIndicator *_deleteProgressIndicator;
     NSTimer *_timer;
 }
 
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
+@property(retain, nonatomic) NSProgressIndicator *deleteProgressIndicator; // @synthesize deleteProgressIndicator=_deleteProgressIndicator;
 @property(nonatomic) __weak NSButton *openShareButton; // @synthesize openShareButton=_openShareButton;
 @property(nonatomic) __weak NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(nonatomic) __weak NSTextField *timeTextField; // @synthesize timeTextField=_timeTextField;
 @property(nonatomic) __weak NSTextField *nameTextField; // @synthesize nameTextField=_nameTextField;
-@property(retain, nonatomic) MSCloudShareViewControlller *viewController; // @synthesize viewController=_viewController;
-@property(retain, nonatomic) NSDictionary *uploadData; // @synthesize uploadData=_uploadData;
+@property(nonatomic) __weak id <MSCloudUploadTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=_animating;
+@property(retain, nonatomic) MSCloudUserShare *share; // @synthesize share=_share;
 - (void).cxx_destruct;
+- (void)openShare:(id)arg1;
 - (void)deleteShare:(id)arg1;
 - (void)setViewSelected:(BOOL)arg1;
+- (void)updateControls;
 - (void)openURL:(id)arg1;
 - (void)dealloc;
 - (void)scheduleTimerIfNeeded:(double)arg1;

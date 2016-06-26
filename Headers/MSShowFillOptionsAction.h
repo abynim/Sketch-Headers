@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (void)showFillOptions:(id)arg1;
 
 @end

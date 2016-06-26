@@ -11,15 +11,21 @@
 #import "NSTableViewDelegate.h"
 #import "SMKMirrorConnectionsControllerDelegate.h"
 
-@class NSButton, NSString, NSTableView, SMKMirrorConnectionsController;
+@class MSColorInspectorSeparatorView, NSButton, NSLayoutConstraint, NSString, NSTableView, SMKMirrorConnectionsController;
 
 @interface MSMirrorViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, SMKMirrorConnectionsControllerDelegate, NSSharingServicePickerDelegate>
 {
     NSTableView *_tableView;
     NSButton *_visitLocalWebsiteButton;
     SMKMirrorConnectionsController *_connectionController;
+    NSLayoutConstraint *_webButtonHeightConstraint;
+    MSColorInspectorSeparatorView *_bottomSeparator;
+    MSColorInspectorSeparatorView *_topSeparator;
 }
 
+@property(retain, nonatomic) MSColorInspectorSeparatorView *topSeparator; // @synthesize topSeparator=_topSeparator;
+@property(retain, nonatomic) MSColorInspectorSeparatorView *bottomSeparator; // @synthesize bottomSeparator=_bottomSeparator;
+@property(retain, nonatomic) NSLayoutConstraint *webButtonHeightConstraint; // @synthesize webButtonHeightConstraint=_webButtonHeightConstraint;
 @property(retain, nonatomic) SMKMirrorConnectionsController *connectionController; // @synthesize connectionController=_connectionController;
 @property(retain, nonatomic) NSButton *visitLocalWebsiteButton; // @synthesize visitLocalWebsiteButton=_visitLocalWebsiteButton;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
@@ -35,6 +41,7 @@
 - (void)reloadWebURL;
 - (void)openLocalWebsite:(id)arg1;
 - (void)viewWillAppear;
+- (void)updateViewConstraints;
 - (void)awakeFromNib;
 
 // Remaining properties

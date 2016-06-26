@@ -12,12 +12,15 @@
 
 + (id)defaultName;
 + (unsigned long long)traits;
+- (struct BCEdgePaddings)masterInfluenceEdgePadding;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (id)overrideForInstanceAtIndex:(unsigned long long)arg1 ancestorIDs:(id)arg2;
 - (id)overridesFromGroupForMigration:(id)arg1;
+- (void)calculateMasterInfluencePaddingsBetweenRect:(struct CGRect)arg1 andInfluenceRect:(struct CGRect)arg2;
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (BOOL)differsFromLayer:(id)arg1;
+- (void)migratePropertiesFromV86OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;

@@ -9,5 +9,6 @@
 @interface NSViewController (Chocolat)
 - (void)ensureLoaded;
 - (id)rootViewController;
+- (id)targetViewControllerForAction:(SEL)arg1 sender:(id)arg2;
 @end
 

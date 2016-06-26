@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>, MSPointArray;
+@class MSPointArray, NSArray;
 
 @interface _MSImmutableGradient : MSImmutableModelObject
 {
@@ -16,11 +16,11 @@
     MSPointArray *_points;
     BOOL _shouldSmoothenOpacity;
     struct CGPoint _to;
-    MSImmutableArray *_stops;
+    NSArray *_stops;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *stops; // @synthesize stops=_stops;
+@property(retain, nonatomic) NSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
 @property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
@@ -28,7 +28,7 @@
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -37,7 +37,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)stopsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

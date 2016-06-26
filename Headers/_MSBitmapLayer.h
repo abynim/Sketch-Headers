@@ -10,16 +10,17 @@
 
 @interface _MSBitmapLayer : MSStyledLayer
 {
+    struct CGRect _clippingMask;
     BOOL _fillReplacesImage;
     MSImageData *_image;
-    struct CGSize _nineSliceScale;
-    struct CGRect _clippingMask;
     struct CGRect _nineSliceCenterRect;
+    struct CGSize _nineSliceScale;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

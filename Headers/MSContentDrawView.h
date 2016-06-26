@@ -29,14 +29,14 @@
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     MSDocument *_document;
+    MSCacheManager *_cacheManager;
     MSZoomTool *_zoomTool;
     MSImmutablePage *_previouslyRenderedPage;
     MSTiledLayerPile *_tiledLayerPile;
-    MSCacheManager *_cacheManager;
     MSViewPort *_viewPortBeforeZoomOut;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
-    struct CGRect _contentRectNeedingRedraw;
+    struct CGRect _scrollOriginRelativeContentRedrawRect;
     struct CGRect _overlayRectNeedingRedraw;
 }
 
@@ -50,12 +50,12 @@
 @property(nonatomic) struct CGPoint mostRecentFullScaleScrollOrigin; // @synthesize mostRecentFullScaleScrollOrigin=_mostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
 @property(retain, nonatomic) MSViewPort *viewPortBeforeZoomOut; // @synthesize viewPortBeforeZoomOut=_viewPortBeforeZoomOut;
-@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(nonatomic) struct CGRect overlayRectNeedingRedraw; // @synthesize overlayRectNeedingRedraw=_overlayRectNeedingRedraw;
-@property(nonatomic) struct CGRect contentRectNeedingRedraw; // @synthesize contentRectNeedingRedraw=_contentRectNeedingRedraw;
+@property(nonatomic) struct CGRect scrollOriginRelativeContentRedrawRect; // @synthesize scrollOriginRelativeContentRedrawRect=_scrollOriginRelativeContentRedrawRect;
 @property(retain, nonatomic) MSTiledLayerPile *tiledLayerPile; // @synthesize tiledLayerPile=_tiledLayerPile;
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
+@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
@@ -131,6 +131,7 @@
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (struct CGRect)transformRectToViewCoords:(struct CGRect)arg1;
+- (void)redrawTileContentIfOpportune;
 - (void)redrawTiles;
 - (void)scheduleRedraw;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1;
@@ -139,6 +140,7 @@
 - (struct CGPoint)mouseInView;
 - (void)exitHandlerForMagnifyEventIfNecessary:(id)arg1;
 - (void)reloadAllTiles;
+- (void)redrawAllTiles;
 - (void)beginReplacingTiledLayers;
 - (void)removeAllTiledLayers;
 - (void)animationDidFinishAtViewPort:(id)arg1;
@@ -165,8 +167,10 @@
 - (id)viewPortAfterScalingToZoom:(double)arg1 centeredOnAbsoluteCoordinates:(struct CGPoint)arg2;
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
+- (void)tiledLayerPileDidRefreshTileContent:(id)arg1;
 - (void)tiledLayerPile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tiledLayerPile:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
+- (void)scrollTilesBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;
 - (void)tile;
 - (id)grid;
@@ -180,7 +184,6 @@
 - (void)prepare;
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
-- (void)reloadAfterBackingChange;
 - (void)viewDidChangeBackingProperties;
 - (BOOL)canDrawConcurrently;
 - (long long)tag;

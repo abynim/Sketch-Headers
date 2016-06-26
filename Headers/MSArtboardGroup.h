@@ -11,7 +11,7 @@
 #import "MSLayerWithBackgroundColour.h"
 #import "MSRootLayer.h"
 
-@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSRootLayer, MSLayerWithBackgroundColour, MSArtboardGroup>
 {
@@ -48,7 +48,6 @@
 - (BOOL)canBeContainedByGroup;
 - (BOOL)enableAutomaticScaling;
 @property(readonly, nonatomic) BOOL hasClickThrough;
-- (void)setName:(id)arg1;
 - (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (void)setIsVisible:(BOOL)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
@@ -64,6 +63,7 @@
 - (BOOL)hasChildren;
 - (BOOL)hasSliceIcon;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)contextualMenuPreviewImage;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (unsigned long long)displayType;
@@ -94,7 +94,7 @@
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
 @property(readonly, copy, nonatomic) NSString *name;
@@ -103,6 +103,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;

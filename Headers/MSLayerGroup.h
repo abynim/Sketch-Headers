@@ -6,14 +6,12 @@
 
 #import "_MSLayerGroup.h"
 
-#import "MSArrayDelegate.h"
 #import "MSLayerGroup.h"
 
-@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSLayerGroup : _MSLayerGroup <MSArrayDelegate, MSLayerGroup>
+@interface MSLayerGroup : _MSLayerGroup <MSLayerGroup>
 {
-    long long ignoreChildrenRefreshCalls;
     BOOL _enableAutomaticScaling;
     BOOL _isOpen;
     BOOL _lightweightContainsSelectedItem;
@@ -24,7 +22,6 @@
 + (unsigned long long)traits;
 + (BOOL)groupBoundsShouldBeIntegral;
 + (struct CGRect)groupBoundsForLayers:(id)arg1;
-+ (void)setIgnoreLayerListDelegateCalls:(BOOL)arg1;
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
 + (id)groupFromLayers:(id)arg1;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
@@ -36,11 +33,10 @@
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)children;
 - (id)layerWithID:(id)arg1;
-- (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
-- (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
-- (void)dataArray:(id)arg1 didAddObject:(id)arg2;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (unsigned long long)_constraintForLayer:(id)arg1 inOldSize:(struct CGSize)arg2;
+- (unsigned long long)constraintForLayer:(id)arg1 inOldSize:(struct CGSize)arg2;
 - (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
+- (void)resizeChildrenFromOldSize:(struct CGSize)arg1;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)multiplyBy:(double)arg1;
@@ -62,7 +58,6 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (void)refreshOverlay;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
-- (void)setLayers:(id)arg1;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
@@ -72,7 +67,6 @@
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
-- (id)addLayerOfType:(id)arg1;
 - (BOOL)handleDoubleClick;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1;
@@ -85,14 +79,9 @@
 - (id)moveLayersToParent;
 - (id)ungroup;
 - (void)setUpNewGroup;
-- (void)removeAllLayers;
-- (void)removeLayerAtIndex:(unsigned long long)arg1;
-- (void)removeLayer:(id)arg1;
 - (void)insertLayers:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)insertLayers:(id)arg1 afterLayer:(id)arg2;
 - (void)insertLayers:(id)arg1 beforeLayer:(id)arg2;
-- (void)replaceLayersWithLayers:(id)arg1;
-- (void)addLayers:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -125,13 +114,14 @@
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric; // @dynamic layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

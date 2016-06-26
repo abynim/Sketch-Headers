@@ -24,7 +24,6 @@
     NSString *_format;
     double _compression;
     unsigned long long _exporterOptions;
-    id _rootLayerID;
     struct CGRect _rect;
 }
 
@@ -36,7 +35,6 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 useIDForName:(BOOL)arg3;
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
-@property(copy, nonatomic) id rootLayerID; // @synthesize rootLayerID=_rootLayerID;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) unsigned long long exporterOptions; // @synthesize exporterOptions=_exporterOptions;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;

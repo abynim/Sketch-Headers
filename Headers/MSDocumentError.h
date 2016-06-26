@@ -11,6 +11,7 @@
 }
 
 + (id)errorWithCode:(unsigned long long)arg1;
+- (id)localizedFailureReason;
 
 @end
 

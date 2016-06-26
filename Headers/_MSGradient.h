@@ -6,25 +6,36 @@
 
 #import "MSModelObject.h"
 
-@class MSArray, MSPointArray;
+@class MSPointArray, NSArray, NSMutableArray;
 
 @interface _MSGradient : MSModelObject
 {
-    BOOL _shouldSmoothenOpacity;
     double _elipseLength;
+    struct CGPoint _from;
     long long _gradientType;
     MSPointArray *_points;
-    MSArray *_stops;
-    struct CGPoint _from;
+    BOOL _shouldSmoothenOpacity;
     struct CGPoint _to;
+    NSMutableArray *_stops;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllGradientStopsWithGradientStops:(id)arg1;
+- (void)moveGradientStopIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllGradientStops;
+- (void)removeGradientStopsAtIndexes:(id)arg1;
+- (void)removeGradientStopAtIndex:(unsigned long long)arg1;
+- (void)removeGradientStop:(id)arg1;
+- (void)insertGradientStop:(id)arg1 afterGradientStop:(id)arg2;
+- (void)insertGradientStop:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addGradientStops:(id)arg1;
+- (void)addGradientStop:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -42,8 +53,8 @@
 - (struct CGPoint)primitiveFrom;
 - (void)setPrimitiveElipseLength:(double)arg1;
 - (double)primitiveElipseLength;
-@property(retain, nonatomic) MSArray *stops; // @synthesize stops=_stops;
-- (id)stopsGeneric;
+- (void)setStops:(id)arg1;
+@property(readonly, nonatomic) NSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
 @property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;

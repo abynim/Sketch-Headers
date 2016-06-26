@@ -23,8 +23,8 @@
 @property(readonly, nonatomic) MSImmutableLayer *secondLayer; // @synthesize secondLayer=_secondLayer;
 @property(readonly, nonatomic) MSImmutableLayer *firstLayer; // @synthesize firstLayer=_firstLayer;
 - (void).cxx_destruct;
-- (BOOL)noChangedPropertyExhibitsTrait:(unsigned long long)arg1;
-- (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1;
+- (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
+- (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
 - (struct CGRect)contentDirtyDiffRect;

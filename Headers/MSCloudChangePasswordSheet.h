@@ -13,6 +13,7 @@
     BOOL _showingCurrentPasswordIsInvalid;
     BOOL _showingNewPasswordIsInvalid;
     BOOL _showingNewPasswordDoesntMatch;
+    id <MSCloudChangePasswordSheetDelegate> _delegate;
     NSTextField *_currentPasswordTextField;
     NSTextField *_passwordTextField;
     NSTextField *_passwordConfirmTextField;
@@ -30,6 +31,7 @@
 @property(nonatomic) __weak NSTextField *passwordConfirmTextField; // @synthesize passwordConfirmTextField=_passwordConfirmTextField;
 @property(nonatomic) __weak NSTextField *passwordTextField; // @synthesize passwordTextField=_passwordTextField;
 @property(nonatomic) __weak NSTextField *currentPasswordTextField; // @synthesize currentPasswordTextField=_currentPasswordTextField;
+@property(nonatomic) __weak id <MSCloudChangePasswordSheetDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)confirm:(id)arg1;
 - (void)enableFields:(BOOL)arg1;
@@ -37,8 +39,6 @@
 - (void)validateInputs:(id)arg1;
 - (void)textDidChange:(id)arg1;
 - (BOOL)newPasswordsMatches;
-- (BOOL)newPasswordIsValid;
-- (BOOL)currentPasswordIsValid;
 - (void)windowDidLoad;
 
 @end

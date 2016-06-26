@@ -15,7 +15,7 @@
 + (Class)mutableClass;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

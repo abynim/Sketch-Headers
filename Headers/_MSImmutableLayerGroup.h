@@ -6,21 +6,21 @@
 
 #import "MSImmutableStyledLayer.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>, NSObject<NSCopying><NSCoding>;
+@class NSArray, NSObject<NSCopying><NSCoding>;
 
 @interface _MSImmutableLayerGroup : MSImmutableStyledLayer
 {
     BOOL _hasClickThrough;
     struct NSObject *_sharedObjectID;
-    MSImmutableArray *_layers;
+    NSArray *_layers;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *layers; // @synthesize layers=_layers;
+@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -29,7 +29,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)layersGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

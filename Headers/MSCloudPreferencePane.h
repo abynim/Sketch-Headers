@@ -6,33 +6,43 @@
 
 #import "MSPreferencePane.h"
 
-@class MSCloudAuthAPI, MSCloudLoginViewController, MSCloudShareViewControlller, NSViewController;
+@class MSCloudAuthAPI, MSCloudPreferenceViewController, MSCloudShareAPI, NSArray, NSDictionary, NSStoryboard;
 
 @interface MSCloudPreferencePane : MSPreferencePane
 {
-    MSCloudLoginViewController *_loginViewController;
-    MSCloudShareViewControlller *_shareViewController;
-    MSCloudAuthAPI *_cloudAPI;
-    NSViewController *_currentViewController;
+    MSCloudAuthAPI *_cloudAuthAPI;
+    MSCloudShareAPI *_cloudShareAPI;
+    NSDictionary *_userData;
+    NSArray *_userShares;
+    NSStoryboard *_cloudStoryboard;
+    MSCloudPreferenceViewController *_currentViewController;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(nonatomic) __weak NSViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
-@property(retain, nonatomic) MSCloudAuthAPI *cloudAPI; // @synthesize cloudAPI=_cloudAPI;
-@property(retain, nonatomic) MSCloudShareViewControlller *shareViewController; // @synthesize shareViewController=_shareViewController;
-@property(retain, nonatomic) MSCloudLoginViewController *loginViewController; // @synthesize loginViewController=_loginViewController;
+@property(nonatomic) __weak MSCloudPreferenceViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
+@property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
+@property(retain, nonatomic) NSArray *userShares; // @synthesize userShares=_userShares;
+@property(retain, nonatomic) NSDictionary *userData; // @synthesize userData=_userData;
 - (void).cxx_destruct;
-- (void)userStateChanged;
+- (void)verifyEmailChangeWithToken:(id)arg1 newEmail:(id)arg2;
+- (void)cloudURLDidOpenNotification:(id)arg1;
+- (void)applicationDidOpenURL:(id)arg1;
+- (void)userLoggedOutNotification:(id)arg1;
 - (void)fixFirstResponder;
 - (void)contentViewChanged;
-- (void)userDidLogin;
+- (void)updateWindowFrame;
+- (void)showAccountVerificationView;
+- (void)showShareView;
 - (void)showLoginView;
 - (void)showViewController:(id)arg1;
-- (void)loadCorrectViewController;
+- (void)showRootViewController;
+@property(readonly, nonatomic) MSCloudAuthAPI *cloudAuthAPI; // @synthesize cloudAuthAPI=_cloudAuthAPI;
+@property(readonly, nonatomic) MSCloudShareAPI *cloudShareAPI; // @synthesize cloudShareAPI=_cloudShareAPI;
 - (void)dealloc;
 - (void)viewDidLoad;
+- (void)loadView;
 
 @end
 

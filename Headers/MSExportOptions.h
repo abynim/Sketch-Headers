@@ -8,7 +8,7 @@
 
 #import "MSExportOptions.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSExportOptions : _MSExportOptions <MSExportOptions>
 {
@@ -20,9 +20,9 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSArray> exportFormatsGeneric; // @dynamic exportFormatsGeneric;
+@property(readonly, nonatomic) NSArray *exportFormats;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSArray> includedLayerIdsGeneric; // @dynamic includedLayerIdsGeneric;
+@property(readonly, nonatomic) NSArray *includedLayerIds;
 @property(readonly, nonatomic) unsigned long long layerOptions;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) BOOL shouldTrim;

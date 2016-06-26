@@ -9,19 +9,20 @@
 #import "MSBasicDelegate.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSEventHandlerManagerDelegate.h"
-#import "MSPageDelegate.h"
 #import "MSSidebarControllerDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
 
-@interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
+@interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate>
 {
     BOOL _hasOpenedImageFile;
     BOOL _nextReadFromURLIsReload;
+    BOOL _layerListRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
+    BOOL _cacheFlushInProgress;
     NSArray *_exportableLayerSelection;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -32,14 +33,17 @@
     MSActionController *_actionsController;
     MSDocumentData *_documentData;
     MSEventHandlerManager *_eventHandlerManager;
+    MSCacheManager *_cacheManager;
     MSHistoryMaker *_historyMaker;
     MSInspectorController *_inspectorController;
     MSFontList *_fontList;
     MSLayerArray *_selectedLayersA;
     MSContentDrawViewController *_currentContentViewController;
+    MSImmutableDocumentData *_documentDataUsedForLayerList;
     BCSideBarViewController *_sidebarController;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
+    double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonWindowController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
@@ -53,10 +57,14 @@
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
+@property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
+@property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
 @property(retain, nonatomic) NSTimer *resetHiddenSelectionHandlesTimer; // @synthesize resetHiddenSelectionHandlesTimer=_resetHiddenSelectionHandlesTimer;
 @property(retain, nonatomic) NSMutableSet *layersWithHiddenSelectionHandles; // @synthesize layersWithHiddenSelectionHandles=_layersWithHiddenSelectionHandles;
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
+@property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
+@property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
@@ -64,6 +72,7 @@
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSHistoryMaker *historyMaker; // @synthesize historyMaker=_historyMaker;
+@property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
@@ -97,6 +106,8 @@
 - (void)sidebarController:(id)arg1 validateRemovalOfPage:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarControllerSelectionDidChange:(id)arg1;
 - (void)sidebarControllerDidUpdate:(id)arg1;
+- (void)refreshLayerListIfNecessary;
+- (void)scheduleLayerListRefresh;
 - (void)showPagesList;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)updateSliceCount;
@@ -106,18 +117,11 @@
 - (void)determineCurrentArtboard;
 - (void)layerSelectionDidChange;
 - (void)layerTreeLayoutDidChange;
-- (void)willRemovePage:(id)arg1;
-- (void)didAddPage:(id)arg1;
-- (void)didAddArtboard:(id)arg1 toPage:(id)arg2;
-- (void)willRemoveArtboard:(id)arg1 fromPage:(id)arg2;
-- (void)didUpdateDetailsForArtboard:(id)arg1;
-- (void)didUpdateDetailsForPage:(id)arg1;
 - (void)currentArtboardDidChange;
 - (void)sliceDidChangeVisibility:(id)arg1;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)debugStressTestRendering:(id)arg1;
 - (void)layerPositionPossiblyChanged;
-- (void)startBackgroundCaching;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
 - (void)findLayer:(id)arg1;
@@ -151,6 +155,7 @@
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)toggleHandlerKey:(id)arg1;
 - (void)reloadInspector;
+- (void)redrawView;
 - (void)reloadView;
 - (void)refreshOverlayOfViews;
 - (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
@@ -165,11 +170,14 @@
 - (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
 - (void)redoAction:(id)arg1;
 - (void)undoAction:(id)arg1;
+- (void)moveThroughHistoryBackInTime:(BOOL)arg1;
 - (void)documentDidChange:(id)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
 - (void)changeToImmutableDocumentData:(id)arg1 pageChanged:(BOOL)arg2;
 - (void)setupHistory;
+- (void)commitHistoryIfNecessary:(id)arg1;
+- (void)flushCachesIfNecessary;
 - (id)currentVerticalRulerData;
 - (id)currentHorizontalRulerData;
 - (void)zoomValueDidChange;
@@ -201,6 +209,7 @@
 - (void)addLayer:(id)arg1 changeName:(BOOL)arg2;
 - (void)addLayer:(id)arg1;
 - (id)findCurrentArtboardGroup;
+- (void)setCurrentArtboard:(id)arg1;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)coalescedSelectionDidChangeNotification:(id)arg1;
@@ -267,7 +276,8 @@
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
 - (id)bitmapLayerWithImageAtURL:(id)arg1;
-- (id)addBitmapLayerWithImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
+- (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
+- (void)migrateUIMetadataWithDocumentData:(id)arg1;
 - (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 wasMigrated:(BOOL)arg3 corruptionDetected:(char *)arg4 error:(id *)arg5;
 - (BOOL)processValidationCode:(unsigned long long)arg1 wrapper:(id)arg2 missingFonts:(id)arg3 error:(id *)arg4;
 - (id)migrateWithXPCFromURL:(id)arg1 error:(id *)arg2;

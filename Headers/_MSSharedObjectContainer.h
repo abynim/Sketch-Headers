@@ -6,26 +6,37 @@
 
 #import "MSModelObject.h"
 
-@class MSArray;
+@class NSArray, NSMutableArray;
 
 @interface _MSSharedObjectContainer : MSModelObject
 {
-    MSArray *_objects;
+    NSMutableArray *_objects;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllSharedObjectsWithSharedObjects:(id)arg1;
+- (void)moveSharedObjectIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllSharedObjects;
+- (void)removeSharedObjectsAtIndexes:(id)arg1;
+- (void)removeSharedObjectAtIndex:(unsigned long long)arg1;
+- (void)removeSharedObject:(id)arg1;
+- (void)insertSharedObject:(id)arg1 afterSharedObject:(id)arg2;
+- (void)insertSharedObject:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addSharedObjects:(id)arg1;
+- (void)addSharedObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 - (void)setPrimitiveObjects:(id)arg1;
 - (id)primitiveObjects;
-@property(retain, nonatomic) MSArray *objects; // @synthesize objects=_objects;
-- (id)objectsGeneric;
+- (void)setObjects:(id)arg1;
+@property(readonly, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

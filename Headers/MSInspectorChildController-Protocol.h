@@ -10,7 +10,6 @@
 
 @protocol MSInspectorChildController <MSInspectorSection>
 - (void)selectionDidChangeTo:(NSArray *)arg1;
-- (BOOL)shouldHideExportBar;
 - (void)prepareForDisplay;
 @end
 

@@ -6,19 +6,19 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>;
+@class NSArray;
 
 @interface _MSImmutableShapePath : MSImmutableModelObject
 {
     BOOL _isClosed;
-    MSImmutableArray *_points;
+    NSArray *_points;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *points; // @synthesize points=_points;
+@property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -27,7 +27,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)pointsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

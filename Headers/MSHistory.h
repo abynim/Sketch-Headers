@@ -22,11 +22,13 @@
 @property(readonly, nonatomic) unsigned long long numberOfMoments;
 @property(readonly, nonatomic) BOOL canProgressToNextMoment;
 - (BOOL)progressToNextMoment;
+- (void)commitCurrentMoment;
 @property(readonly, nonatomic) BOOL canRevertToPreviousMoment;
 - (BOOL)revertToPreviousMoment;
 @property(readonly, nonatomic) MSMoment *nextMoment;
 @property(readonly, nonatomic) MSMoment *previousMoment;
 @property(readonly, nonatomic) MSMoment *currentMoment;
+- (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2 adaptability:(unsigned long long)arg3;
 - (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2;
 - (void)removeFutureMoments;
 - (BOOL)pagesListChangedFromMoment:(id)arg1 toMoment:(id)arg2;

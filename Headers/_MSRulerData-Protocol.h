@@ -6,8 +6,10 @@
 
 #import "MSModelObject.h"
 
+@class NSArray;
+
 @protocol _MSRulerData <MSModelObject>
-@property(readonly, copy, nonatomic) id <MSArray> guidesGeneric;
+@property(readonly, copy, nonatomic) NSArray *guides;
 @property(readonly, nonatomic) long long base;
 @end
 

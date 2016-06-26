@@ -21,6 +21,7 @@
     NSArray *_layers;
     NSView *_positionView;
     NSView *_lineView;
+    NSView *_resizingView;
     NSTextField *_xTextField;
     NSTextField *_yTextField;
     NSTextField *_widthTextField;
@@ -44,6 +45,7 @@
 @property(nonatomic) __weak NSTextField *widthTextField; // @synthesize widthTextField=_widthTextField;
 @property(nonatomic) __weak NSTextField *yTextField; // @synthesize yTextField=_yTextField;
 @property(nonatomic) __weak NSTextField *xTextField; // @synthesize xTextField=_xTextField;
+@property(retain, nonatomic) NSView *resizingView; // @synthesize resizingView=_resizingView;
 @property(retain, nonatomic) NSView *lineView; // @synthesize lineView=_lineView;
 @property(retain, nonatomic) NSView *positionView; // @synthesize positionView=_positionView;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -62,6 +64,7 @@
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
+- (void)rotateAction:(id)arg1;
 - (struct CGRect)boundsForParentOf:(id)arg1;
 - (long long)anchorFromString:(id)arg1 axis:(unsigned long long)arg2;
 - (void)setLayerSizeFromString:(id)arg1 onAxis:(unsigned long long)arg2;

@@ -23,7 +23,6 @@
     struct CGRect _previousRectCache;
 }
 
-+ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (Class)overrideViewControllerClass;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
@@ -37,11 +36,9 @@
 - (BOOL)canResize;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
-- (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (BOOL)constrainProportions;
-- (BOOL)treatAsShiftedForCorner:(long long)arg1 onlyForFlexible:(BOOL)arg2;
-- (void)calculateTextIsClippedAfterResizeFromCorner:(long long)arg1;
-- (void)resizeFontToFitFromRect:(struct CGRect)arg1;
+- (void)checkTextBehaviourAndClippingAfterResizeFromCorner:(long long)arg1 mayClip:(BOOL)arg2;
+- (void)parentDidResizeLayerToRect:(struct CGRect)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)replaceTextPreservingAttributeRanges:(id)arg1;
 - (void)makeLowercase:(id)arg1;
@@ -78,6 +75,7 @@
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
+- (struct CGPoint)drawingPointForText;
 - (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
 @property(readonly, nonatomic) double defaultLineHeight;
@@ -87,15 +85,15 @@
 @property(readonly, nonatomic) NSTextContainer *textContainer;
 @property(readonly, nonatomic) NSLayoutManager *layoutManager;
 - (id)shapeToUseForTextOnPath;
+- (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
 - (void)setStorageContents:(id)arg1;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
-- (void)parentWillResizeLayerToRect:(struct CGRect)arg1;
 - (void)finishEditing;
 - (void)textStorageDidProcessEditing:(id)arg1;
 - (double)baselineAdjustmentForTypesetter:(id)arg1;
-- (BOOL)handleDoubleClick;
+- (void)replaceMissingFontsIfNecessary;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;
@@ -105,10 +103,10 @@
 - (id)createLayoutManager;
 - (void)setUpText;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)setContainerSize:(struct CGSize)arg1;
 - (void)adjustContainerWidthTo:(double)arg1;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
+- (void)setTextBehaviour:(long long)arg1 mayAdjustFrame:(BOOL)arg2;
 - (void)setLineSpacingBehaviour:(long long)arg1;
 - (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
@@ -143,6 +141,7 @@
 - (void)applyOverrides:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
+- (long long)layoutDirection;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
@@ -174,6 +173,7 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) MSImageData *preview;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;

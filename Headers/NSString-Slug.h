@@ -7,6 +7,7 @@
 #import "NSString.h"
 
 @interface NSString (Slug)
+- (id)uniqueSlugUsingEarlierSlugs:(id)arg1 atIndex:(long long)arg2;
 - (id)uniqueSlugUsingEarlierSlugs:(id)arg1;
 @property(readonly) NSString *slug;
 @end

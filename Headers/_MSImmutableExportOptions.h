@@ -6,23 +6,23 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>;
+@class NSArray;
 
 @interface _MSImmutableExportOptions : MSImmutableModelObject
 {
-    MSImmutableArray *_includedLayerIds;
+    NSArray *_includedLayerIds;
     unsigned long long _layerOptions;
     BOOL _shouldTrim;
-    MSImmutableArray *_exportFormats;
+    NSArray *_exportFormats;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *exportFormats; // @synthesize exportFormats=_exportFormats;
+@property(retain, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
-@property(retain, nonatomic) MSImmutableArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
+@property(retain, nonatomic) NSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -31,8 +31,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)exportFormatsGeneric;
-- (id)includedLayerIdsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

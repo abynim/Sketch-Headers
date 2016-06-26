@@ -29,7 +29,7 @@
 - (double)alignDegreesTo45Angles:(double)arg1;
 - (void)drawInRect:(struct CGRect)arg1;
 - (long long)degreesForPoint:(struct CGPoint)arg1;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDraggedRotateLayer:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDraggedMoveLayer:(id)arg1 mouse:(struct CGPoint)arg2;

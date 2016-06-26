@@ -6,10 +6,10 @@
 
 #import "MSModelObject.h"
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @protocol _MSDocumentData <MSModelObject>
-@property(readonly, nonatomic) id <MSArray> pagesGeneric;
+@property(readonly, nonatomic) NSArray *pages;
 @property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric;
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric;
 @property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric;

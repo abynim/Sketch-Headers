@@ -10,14 +10,15 @@
 
 @interface _MSShapePathLayer : MSLayer
 {
-    BOOL _edited;
     long long _booleanOperation;
+    BOOL _edited;
     MSShapePath *_path;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

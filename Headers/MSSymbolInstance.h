@@ -10,16 +10,14 @@
 {
 }
 
-- (BOOL)canResize;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;
-- (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
-- (void)setRect:(struct CGRect)arg1;
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
 - (void)updateOverrideIDSWithMapping:(id)arg1;
-- (void)symbolMasterDidChange:(id)arg1 withInfluence:(struct CGRect)arg2;
+- (void)symbolMasterDidChange:(id)arg1 withInfluencePaddings:(struct BCEdgePaddings)arg2;
 - (void)resizeInstanceToFitSymbol:(id)arg1;
+- (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachByReplacingWithGroup;
 - (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1;
@@ -33,8 +31,7 @@
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolMaster;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (long long)cornerRectType;
+@property(nonatomic) struct BCEdgePaddings symbolMasterEdgePaddings; // @dynamic symbolMasterEdgePaddings;
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

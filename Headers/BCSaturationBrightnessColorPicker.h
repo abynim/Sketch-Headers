@@ -9,11 +9,13 @@
 @interface BCSaturationBrightnessColorPicker : BCColorPickerBaseView
 {
     struct CGPoint _originalPoint;
+    BOOL _handlingHistoryCoalescing;
     double _hue;
     double _saturation;
     double _brightness;
 }
 
+@property(nonatomic) BOOL handlingHistoryCoalescing; // @synthesize handlingHistoryCoalescing=_handlingHistoryCoalescing;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) double saturation; // @synthesize saturation=_saturation;
 @property(nonatomic) double hue; // @synthesize hue=_hue;

@@ -6,7 +6,7 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayer, MSNormalEventData, MSSnapper;
+@class MSLayer, MSNormalEventData, MSSnapper, NSDictionary;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
@@ -19,8 +19,10 @@
     MSLayer *_resizingLayer;
     MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
+    NSDictionary *_layerFramesBeforeResize;
 }
 
+@property(retain, nonatomic) NSDictionary *layerFramesBeforeResize; // @synthesize layerFramesBeforeResize=_layerFramesBeforeResize;
 @property(nonatomic) BOOL layerRectWasIntegral; // @synthesize layerRectWasIntegral=_layerRectWasIntegral;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;

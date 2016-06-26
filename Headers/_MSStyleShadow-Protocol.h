@@ -12,7 +12,6 @@
 @property(readonly, nonatomic) double spread;
 @property(readonly, nonatomic) double offsetY;
 @property(readonly, nonatomic) double offsetX;
-@property(readonly, nonatomic) BOOL hasShadow;
 @property(readonly, nonatomic) double blurRadius;
 @end
 

@@ -78,6 +78,7 @@
 - (void)fontSizeAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
+- (void)commitHistory;
 - (void)closeExistingPopoverOrShowNewOneWithContentClass:(Class)arg1 sender:(id)arg2 viewCreatorBlock:(CDUnknownBlockType)arg3;
 - (void)viewWillDisappear;
 - (void)dealloc;

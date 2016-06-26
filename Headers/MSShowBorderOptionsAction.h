@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (void)showBorderOptions:(id)arg1;
 
 @end

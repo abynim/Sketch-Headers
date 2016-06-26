@@ -24,16 +24,12 @@
 - (void)setStyle:(id)arg1;
 - (id)usedStyle;
 - (BOOL)hasActiveBackgroundBlur;
-- (BOOL)hasBitmapStylesEnabled;
-- (BOOL)calculateHasBlendedLayer;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (void)setStyleByPreservingSharedObjectReference:(id)arg1;
 - (id)sharedObject;
 - (BOOL)isSharedObject;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
@@ -64,6 +60,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric; // @dynamic styleGeneric;

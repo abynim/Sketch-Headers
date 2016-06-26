@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BCPopover;
+@class BCPopover, NSNotification;
 
 @protocol BCPopoverDelegate <NSObject>
 
@@ -16,5 +16,6 @@
 - (void)popoverWindowDidMove:(BCPopover *)arg1;
 - (void)popoverWindowSizeDidChange:(BCPopover *)arg1;
 - (void)popoverWillClose:(BCPopover *)arg1;
+- (void)popoverWillShow:(NSNotification *)arg1;
 @end
 

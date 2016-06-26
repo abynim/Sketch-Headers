@@ -6,16 +6,17 @@
 
 #import "_MSDocumentData.h"
 
-#import "MSArrayDelegate.h"
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 #import "MSSharedObjectContainerDelegate.h"
 
-@class MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class BCCache, MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSArrayDelegate, MSDocumentData, MSSharedObjectContainerDelegate>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData, MSSharedObjectContainerDelegate>
 {
+    long long ignoreLayerSelectionDidChangeNotificationsCounter;
     BOOL _autoExpandGroupsInLayerList;
+    BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
 }
@@ -24,7 +25,11 @@
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
+- (void)determineCurrentArtboard;
+- (void)refreshOverlayOfViews;
+- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
 - (void)replaceExistingCreationMetadata;
@@ -39,27 +44,24 @@
 - (id)symbolWithID:(id)arg1;
 - (id)allSymbols;
 - (id)allArtboards;
+- (id)layerWithIDLookupTable;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)deselectAllLayers;
+- (void)layerSelectionDidChange;
+- (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
 - (void)changeSelectionTo:(id)arg1;
 - (void)closeParentGroupsIfRequired:(id)arg1;
 - (id)selectedLayers;
-- (id)pagesArray;
 - (BOOL)documentIsEmpty;
 - (void)sharedObjectDidChange:(struct MSModelObject *)arg1;
-- (id)standardNameForLayer:(id)arg1;
-- (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
-- (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
-- (void)dataArray:(id)arg1 didAddObject:(id)arg2;
 - (id)nameForNewPage;
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
-- (void)removePage:(id)arg1;
+- (void)removePage:(id)arg1 detachInstances:(BOOL)arg2;
 @property(retain, nonatomic) MSPage *currentPage;
 - (void)setCurrentPageIndex:(unsigned long long)arg1;
-@property(readonly, nonatomic) __weak NSArray *allPages;
 - (void)dealloc;
 - (id)documentData;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
@@ -101,7 +103,7 @@
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
 @property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
+@property(readonly, nonatomic) NSArray *pages;
 @property(readonly) Class superclass;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 

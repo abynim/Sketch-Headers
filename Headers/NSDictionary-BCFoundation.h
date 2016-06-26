@@ -7,6 +7,7 @@
 #import "NSDictionary.h"
 
 @interface NSDictionary (BCFoundation)
+- (id)dictionaryByAddingDictionary:(id)arg1;
 - (id)dictionaryByAddingOrRemovingObject:(id)arg1 forKey:(id)arg2;
 - (id)mutableCopyDeep;
 - (id)urlForKey_bc:(id)arg1;

@@ -8,11 +8,12 @@
 
 #import "NSApplicationDelegate.h"
 #import "NSMenuDelegate.h"
+#import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
 @class BCLicenseManager, BCMASEmailWindowController, ECLogManagerMacUISupport, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorConnectionsController;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
     id shapesMenu;
     NSMenuItem *pluginsMenuItem;
@@ -82,11 +83,16 @@
 - (void)openTemplateFile:(id)arg1;
 - (void)checkImageTemplates;
 - (void)checkDefaults;
+- (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
+- (void)registerURLScheme;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
 - (void)showReleaseNotesWindow:(id)arg1;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
+- (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;
+- (void)userNotificationCenter:(id)arg1 didDeliverNotification:(id)arg2;
+- (BOOL)userNotificationCenter:(id)arg1 shouldPresentNotification:(id)arg2;
 - (void)applicationWillTerminate:(id)arg1;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)licenseStateChanged;

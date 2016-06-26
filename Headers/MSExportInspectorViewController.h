@@ -40,7 +40,6 @@
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)prepareForDisplay;
 - (id)firstResponderIgnoringFieldEditor;
 - (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)exportSingleSlice:(id)arg1;

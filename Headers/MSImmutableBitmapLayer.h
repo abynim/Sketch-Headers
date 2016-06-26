@@ -25,6 +25,7 @@
 - (void)migratePropertiesFromV61OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV59OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
+- (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -62,6 +63,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;

@@ -14,12 +14,13 @@
     BOOL _isFlippedVertical;
     BOOL _isLocked;
     BOOL _isVisible;
-    BOOL _nameIsFixed;
-    BOOL _shouldBreakMaskChain;
     long long _layerListExpandedType;
     NSString *_name;
+    BOOL _nameIsFixed;
     NSString *_originalObjectID;
+    unsigned long long _resizingType;
     double _rotation;
+    BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
     MSExportOptions *_exportOptions;
     MSRect *_frame;
@@ -28,6 +29,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
@@ -44,6 +46,8 @@
 - (BOOL)primitiveShouldBreakMaskChain;
 - (void)setPrimitiveRotation:(double)arg1;
 - (double)primitiveRotation;
+- (void)setPrimitiveResizingType:(unsigned long long)arg1;
+- (unsigned long long)primitiveResizingType;
 - (void)setPrimitiveOriginalObjectID:(id)arg1;
 - (id)primitiveOriginalObjectID;
 - (void)setPrimitiveNameIsFixed:(BOOL)arg1;
@@ -67,6 +71,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
+@property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

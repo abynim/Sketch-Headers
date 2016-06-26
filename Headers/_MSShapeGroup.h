@@ -8,13 +8,14 @@
 
 @interface _MSShapeGroup : MSLayerGroup
 {
-    BOOL _hasClippingMask;
     long long _clippingMaskMode;
+    BOOL _hasClippingMask;
     unsigned long long _windingRule;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

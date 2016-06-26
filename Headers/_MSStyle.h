@@ -6,7 +6,7 @@
 
 #import "MSModelObject.h"
 
-@class MSArray, MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSStyleReflection, MSTextStyle, NSString;
+@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSStyleReflection, MSTextStyle, NSArray, NSMutableArray, NSString;
 
 @interface _MSStyle : MSModelObject
 {
@@ -16,22 +16,63 @@
     unsigned long long _startDecorationType;
     MSStyleBlur *_blur;
     MSStyleBorderOptions *_borderOptions;
-    MSArray *_borders;
+    NSMutableArray *_borders;
     MSStyleColorControls *_colorControls;
     MSGraphicsContextSettings *_contextSettings;
-    MSArray *_fills;
-    MSArray *_innerShadows;
+    NSMutableArray *_fills;
+    NSMutableArray *_innerShadows;
     MSStyleReflection *_reflection;
-    MSArray *_shadows;
+    NSMutableArray *_shadows;
     MSTextStyle *_textStyle;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllStyleShadowsWithStyleShadows:(id)arg1;
+- (void)moveStyleShadowIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllStyleShadows;
+- (void)removeStyleShadowsAtIndexes:(id)arg1;
+- (void)removeStyleShadowAtIndex:(unsigned long long)arg1;
+- (void)removeStyleShadow:(id)arg1;
+- (void)insertStyleShadow:(id)arg1 afterStyleShadow:(id)arg2;
+- (void)insertStyleShadow:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addStyleShadows:(id)arg1;
+- (void)addStyleShadow:(id)arg1;
+- (void)replaceAllStyleInnerShadowsWithStyleInnerShadows:(id)arg1;
+- (void)moveStyleInnerShadowIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllStyleInnerShadows;
+- (void)removeStyleInnerShadowsAtIndexes:(id)arg1;
+- (void)removeStyleInnerShadowAtIndex:(unsigned long long)arg1;
+- (void)removeStyleInnerShadow:(id)arg1;
+- (void)insertStyleInnerShadow:(id)arg1 afterStyleInnerShadow:(id)arg2;
+- (void)insertStyleInnerShadow:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addStyleInnerShadows:(id)arg1;
+- (void)addStyleInnerShadow:(id)arg1;
+- (void)replaceAllStyleFillsWithStyleFills:(id)arg1;
+- (void)moveStyleFillIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllStyleFills;
+- (void)removeStyleFillsAtIndexes:(id)arg1;
+- (void)removeStyleFillAtIndex:(unsigned long long)arg1;
+- (void)removeStyleFill:(id)arg1;
+- (void)insertStyleFill:(id)arg1 afterStyleFill:(id)arg2;
+- (void)insertStyleFill:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addStyleFills:(id)arg1;
+- (void)addStyleFill:(id)arg1;
+- (void)replaceAllStyleBordersWithStyleBorders:(id)arg1;
+- (void)moveStyleBorderIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllStyleBorders;
+- (void)removeStyleBordersAtIndexes:(id)arg1;
+- (void)removeStyleBorderAtIndex:(unsigned long long)arg1;
+- (void)removeStyleBorder:(id)arg1;
+- (void)insertStyleBorder:(id)arg1 afterStyleBorder:(id)arg2;
+- (void)insertStyleBorder:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addStyleBorders:(id)arg1;
+- (void)addStyleBorder:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -65,20 +106,20 @@
 - (unsigned long long)primitiveEndDecorationType;
 @property(retain, nonatomic) MSTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 - (id)textStyleGeneric;
-@property(retain, nonatomic) MSArray *shadows; // @synthesize shadows=_shadows;
-- (id)shadowsGeneric;
+- (void)setShadows:(id)arg1;
+@property(readonly, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
 @property(retain, nonatomic) MSStyleReflection *reflection; // @synthesize reflection=_reflection;
 - (id)reflectionGeneric;
-@property(retain, nonatomic) MSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
-- (id)innerShadowsGeneric;
-@property(retain, nonatomic) MSArray *fills; // @synthesize fills=_fills;
-- (id)fillsGeneric;
+- (void)setInnerShadows:(id)arg1;
+@property(readonly, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
+- (void)setFills:(id)arg1;
+@property(readonly, nonatomic) NSArray *fills; // @synthesize fills=_fills;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 - (id)contextSettingsGeneric;
 @property(retain, nonatomic) MSStyleColorControls *colorControls; // @synthesize colorControls=_colorControls;
 - (id)colorControlsGeneric;
-@property(retain, nonatomic) MSArray *borders; // @synthesize borders=_borders;
-- (id)bordersGeneric;
+- (void)setBorders:(id)arg1;
+@property(readonly, nonatomic) NSArray *borders; // @synthesize borders=_borders;
 @property(retain, nonatomic) MSStyleBorderOptions *borderOptions; // @synthesize borderOptions=_borderOptions;
 - (id)borderOptionsGeneric;
 @property(retain, nonatomic) MSStyleBlur *blur; // @synthesize blur=_blur;

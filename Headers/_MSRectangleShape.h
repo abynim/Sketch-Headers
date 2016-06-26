@@ -8,12 +8,13 @@
 
 @interface _MSRectangleShape : MSCustomShapeLayer
 {
-    BOOL _hasConvertedToNewRoundCorners;
     double _fixedRadius;
+    BOOL _hasConvertedToNewRoundCorners;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

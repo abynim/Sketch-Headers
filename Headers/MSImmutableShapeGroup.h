@@ -8,7 +8,7 @@
 
 #import "MSShapeGroup.h"
 
-@class NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSPath, NSArray, NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup>
 {
@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
 - (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
 @property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 - (id)_bezierPathInSize:(struct CGSize)arg1;
 - (void)applyPropertiesToBezier:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
@@ -43,9 +44,9 @@
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;
-- (id)refreshPreviewBezierPath;
+- (void)refreshPreviewImagesWithCache:(id)arg1;
+- (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
-- (BOOL)differsFromLayer:(id)arg1;
 - (void)migratePropertiesFromV51OrEarlierWithCoder:(id)arg1;
 - (Class)rendererClass;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -79,13 +80,14 @@
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

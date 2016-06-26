@@ -15,6 +15,7 @@
 {
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (Class)mutableClass;
 - (id)migrationsInList:(SEL *)arg1;
 - (SEL *)migrationListForClass:(Class)arg1;
@@ -28,7 +29,7 @@
 - (void)encodeObjectIDWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;

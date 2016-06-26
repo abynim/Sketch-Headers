@@ -21,7 +21,7 @@
 @property(nonatomic) double width; // @synthesize width=_width;
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

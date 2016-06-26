@@ -6,10 +6,11 @@
 
 #import "_MSShapePath.h"
 
-@class NSBezierPath;
+@class MSPath, NSBezierPath;
 
 @protocol MSShapePath <_MSShapePath>
 @property(readonly, nonatomic) unsigned long long numberOfPoints;
 - (NSBezierPath *)bezierPathInRect:(struct CGRect)arg1;
+- (MSPath *)pathInRect:(struct CGRect)arg1;
 @end
 

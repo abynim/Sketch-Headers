@@ -6,17 +6,17 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>;
+@class NSArray;
 
 @interface _MSImmutableSharedObjectContainer : MSImmutableModelObject
 {
-    MSImmutableArray *_objects;
+    NSArray *_objects;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *objects; // @synthesize objects=_objects;
+@property(retain, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -25,7 +25,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)objectsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

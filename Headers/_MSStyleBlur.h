@@ -8,14 +8,15 @@
 
 @interface _MSStyleBlur : MSStylePart
 {
+    struct CGPoint _center;
     double _motionAngle;
     double _radius;
     unsigned long long _type;
-    struct CGPoint _center;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

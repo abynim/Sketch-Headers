@@ -38,7 +38,6 @@
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
-- (BOOL)shouldHideExportBar;
 - (void)prepareForDisplay;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)titleForRoundingPopUp;

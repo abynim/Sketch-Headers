@@ -6,19 +6,19 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray;
+@class NSArray;
 
 @interface _MSImmutableRulerData : MSImmutableModelObject
 {
     long long _base;
-    MSImmutableArray *_guides;
+    NSArray *_guides;
 }
 
 + (Class)mutableClass;
-@property(copy, nonatomic) MSImmutableArray *guides; // @synthesize guides=_guides;
+@property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -27,7 +27,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)guidesGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

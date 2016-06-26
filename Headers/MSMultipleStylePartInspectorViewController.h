@@ -37,7 +37,6 @@
 - (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
 - (BOOL)hasEnabledStyle;
 - (void)dealloc;
-- (void)prepareParentForDisplay;
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
 - (void)containerBackground:(id)arg1 dragDidReorderChildAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (unsigned long long)stylePartType;

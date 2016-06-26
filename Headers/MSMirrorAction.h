@@ -22,6 +22,7 @@
 - (id)mirrorController;
 - (id)popoverViewController;
 - (id)imageName;
+- (void)showMirrorPopover:(id)arg1;
 
 @end
 

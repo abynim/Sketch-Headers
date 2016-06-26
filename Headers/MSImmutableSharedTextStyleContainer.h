@@ -8,7 +8,7 @@
 
 #import "MSSharedTextStyleContainer.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableSharedTextStyleContainer : _MSImmutableSharedTextStyleContainer <MSSharedTextStyleContainer>
 {
@@ -20,7 +20,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> objectsGeneric;
+@property(readonly, nonatomic) NSArray *objects;
 @property(readonly) Class superclass;
 @end
 

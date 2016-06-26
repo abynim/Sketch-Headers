@@ -28,8 +28,8 @@
 - (id)uniqueArtboardIDsOfSelectedLayers;
 - (void)reloadMenu;
 - (void)awakeFromNib;
-- (id)overrideIDsSortedInLayerListOrder:(id)arg1;
-- (id)overrideViewsWithOverrides:(id)arg1 ancestorIDs:(id)arg2;
+- (id)overrideIDsSortedInLayerListOrder:(id)arg1 lookup:(id)arg2;
+- (id)overrideViewsWithOverrides:(id)arg1 ancestorIDs:(id)arg2 lookup:(id)arg3;
 - (void)makeOverrideViewControllers;
 - (id)views;
 - (void)setLayers:(id)arg1;

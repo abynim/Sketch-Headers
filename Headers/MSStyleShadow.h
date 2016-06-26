@@ -28,7 +28,6 @@
 @property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL hasShadow;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isEnabled;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;

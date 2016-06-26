@@ -6,49 +6,16 @@
 
 #import "MSImmutableModelObject.h"
 
-#import "MSArray.h"
+@class NSArray;
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableArray : MSImmutableModelObject <MSArray>
+@interface MSImmutableArray : MSImmutableModelObject
 {
-    NSArray *array;
+    NSArray *_array;
 }
 
-+ (Class)mutableClass;
-@property(readonly, copy, nonatomic) NSArray *array; // @synthesize array;
 - (void).cxx_destruct;
-@property(readonly, copy) NSString *description;
-- (id)filter:(CDUnknownBlockType)arg1;
-- (id)objectAtIndexedSubscript:(unsigned long long)arg1;
-- (BOOL)hasDefaultValues;
-- (id)map:(CDUnknownBlockType)arg1;
-- (void)enumerate:(CDUnknownBlockType)arg1;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (id)firstObjectPassingTest:(CDUnknownBlockType)arg1;
-- (BOOL)containsObject:(id)arg1;
-- (unsigned long long)indexOfObject:(id)arg1;
-- (BOOL)isValidIndex:(unsigned long long)arg1;
-- (unsigned long long)count;
-- (id)objectAtIndexOrNil:(unsigned long long)arg1;
-- (id)objectAtIndex:(unsigned long long)arg1;
-- (id)lastObject;
-- (id)firstObject;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)initializeUnsetObjectPropertiesWithDefaults;
-- (void)performInitEmptyObject;
-- (void)performInitWithMutableModelObject:(id)arg1;
-- (id)initWithArray:(id)arg1;
-- (id)treeAsDictionary;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

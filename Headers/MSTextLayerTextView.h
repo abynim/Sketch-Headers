@@ -28,6 +28,7 @@
 - (void)hideSelectionTimerFired:(id)arg1;
 - (id)makeHideSelectionTimer;
 - (void)paste:(id)arg1;
+- (id)readablePasteboardTypes;
 - (BOOL)readSelectionFromPasteboard:(id)arg1;
 - (void)hideSelectionTemporarily;
 - (void)mouseDown:(id)arg1;

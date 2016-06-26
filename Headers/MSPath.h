@@ -12,28 +12,36 @@
     long long _signedElementCount;
 }
 
++ (id)pathWithEllipseInRect:(struct CGRect)arg1;
 + (id)pathWithRect:(struct CGRect)arg1;
 + (id)pathWithSubPaths:(id)arg1;
 @property(nonatomic) long long signedElementCount; // @synthesize signedElementCount=_signedElementCount;
 @property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
+- (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) struct CGRect controlPointBounds;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect safeBounds;
 - (id)init;
+- (id)initWithEllipseInRect:(struct CGRect)arg1;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithBezierPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithCGPath:(struct CGPath *)arg1;
+- (id)booleanExclusiveOrWith:(id)arg1;
+- (id)booleanSubtractWith:(id)arg1;
+- (id)booleanIntersectWith:(id)arg1;
+- (id)booleanUnionWith:(id)arg1;
+- (id)booleanOp:(long long)arg1 withPath:(id)arg2;
 - (id)debugQuickLookObject;
 - (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
 - (id)pathByGrowingBy:(double)arg1;
-- (id)insetPathBy:(double)arg1;
+- (id)insetPathBy:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;
 - (void)addClipForWindingRule:(unsigned long long)arg1 context:(struct CGContext *)arg2;
-- (void)clipContext:(struct CGContext *)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)clipContext:(struct CGContext *)arg1 windingRule:(unsigned long long)arg2 inBlock:(CDUnknownBlockType)arg3;
 
 @end
 

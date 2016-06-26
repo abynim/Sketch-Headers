@@ -15,5 +15,9 @@
 - (BOOL)itemIsHeader:(id)arg1;
 - (void)drawBackgroundInClipRect:(struct CGRect)arg1;
 
+// Remaining properties
+@property(nonatomic) __weak id <MSArtboardPresetOutlineViewDataSource> dataSource; // @dynamic dataSource;
+@property(nonatomic) __weak id <MSArtboardPresetOutlineViewDelegate> delegate; // @dynamic delegate;
+
 @end
 

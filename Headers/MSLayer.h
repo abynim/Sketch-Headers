@@ -13,7 +13,7 @@
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, NSDictionary, NSImage, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
+@class MSAbsoluteRect, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
 {
@@ -45,9 +45,6 @@
 - (void).cxx_destruct;
 - (id)allSymbolInstancesInChildren;
 - (BOOL)canInsertIntoGroup:(id)arg1;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1;
-- (void)groupDidRemoveThisLayer:(id)arg1;
-- (void)groupDidAddThisLayer:(id)arg1;
 - (BOOL)canResize;
 - (BOOL)canScale;
 - (BOOL)canRotate;
@@ -56,7 +53,7 @@
 - (id)layerWithID:(id)arg1;
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
-- (void)setMid:(struct CGPoint)arg1;
+@property(nonatomic) struct CGPoint center;
 @property(nonatomic) struct CGPoint origin;
 @property(nonatomic) struct CGRect rect;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
@@ -69,10 +66,8 @@
 - (id)transformForRect:(struct CGRect)arg1;
 @property(nonatomic) struct _CHTransformStruct transformStruct;
 - (struct CGRect)convertRectToAbsoluteCoordinates:(struct CGRect)arg1;
-- (struct CGPoint)convertPointToLayerCoordinates:(struct CGPoint)arg1;
-- (struct CGPoint)convertPointFromParentRoot:(struct CGPoint)arg1;
-- (struct CGPoint)convertPointToParentRoot:(struct CGPoint)arg1;
-- (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (id)children;
 - (id)ancestorsAndSelfTransforms;
 - (id)ancestorsAndSelf;
@@ -95,7 +90,6 @@
 - (void)hideSelectionTemporarily;
 - (id)bezierPathWithTransforms;
 - (id)bezierPath;
-- (void)refreshOverlayOfViews;
 - (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasTransforms;
@@ -107,17 +101,15 @@
 - (struct CGRect)influenceRectForBounds;
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;
-- (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
-- (id)cachedImage;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
-- (BOOL)useProportionalResizingFromCorner:(long long)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
-- (void)parentWillResizeLayerToRect:(struct CGRect)arg1;
+- (void)parentDidResizeLayerToRect:(struct CGRect)arg1;
 - (BOOL)hasSelectionHandleAtPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
@@ -131,7 +123,6 @@
 - (BOOL)flattenIfNecessary;
 - (void)layerFinishedResize;
 - (void)layerWillResize;
-- (struct CGRect)boundsRect;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (void)setName:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -140,11 +131,10 @@
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasActiveBackgroundBlur;
-- (BOOL)hasBitmapStylesEnabled;
-- (Class)classToUseForNameCounter;
 - (id)layersSharingStyle:(id)arg1;
 - (id)rootForNameUniquing;
 - (id)namesOfAllLayersInContainer:(id)arg1;
+- (void)makeNameUniqueInRoot:(id)arg1 withOptions:(long long)arg2;
 - (void)makeNameUniqueWithOptions:(long long)arg1;
 - (id)objectIDsForSelfAncestorsAndChildren;
 - (BOOL)isLine;
@@ -159,7 +149,6 @@
 - (BOOL)canFlatten;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
-- (struct CGRect)absoluteDirtyRect;
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
@@ -179,12 +168,10 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (BOOL)canSplitPaths;
-@property(readonly, nonatomic) NSImage *unselectedPreviewImage;
-@property(readonly, nonatomic) NSImage *selectedPreviewImage;
-- (id)previewImageWithSelectedState:(BOOL)arg1;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (id)contextualMenuPreviewImage;
+- (id)cachedOrEmptyImageWithName:(id)arg1;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (id)snapItemForDrawing;
@@ -205,6 +192,7 @@
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL selectedInLayerList;
 @property(readonly, nonatomic) BOOL expandableInLayerList;
+- (BOOL)validateNodeName:(id *)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSString *nodeName;
 @property(readonly, nonatomic) unsigned long long selectedBadgeMenuItem;
 @property(readonly, nonatomic) NSMenu *badgeMenu;
@@ -230,6 +218,7 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)closestClippingLayer;
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
@@ -243,11 +232,12 @@
 - (void)insertLayers:(id)arg1 afterLayer:(id)arg2;
 - (void)insertLayers:(id)arg1 beforeLayer:(id)arg2;
 - (void)addLayers:(id)arg1;
-- (void)replaceLayersWithLayers:(id)arg1;
+- (void)replaceAllLayersWithLayers:(id)arg1;
 - (id)CSSStringFromFloat:(double)arg1;
 - (id)CSSAttributes;
 - (id)CSSRotationString;
 - (id)CSSAttributeString;
+- (long long)layoutDirection;
 - (void)setupWithLayerBuilderDictionary:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
 
@@ -266,6 +256,7 @@
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) NSString *originalObjectID;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

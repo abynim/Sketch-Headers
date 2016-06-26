@@ -24,7 +24,7 @@
 @property(nonatomic) long long noiseIndex; // @synthesize noiseIndex=_noiseIndex;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

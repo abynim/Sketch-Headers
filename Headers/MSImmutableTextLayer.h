@@ -31,7 +31,7 @@
 @property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
@@ -51,6 +51,10 @@
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
 - (id)createLayoutManager;
 - (id)createTextContainer;
+- (BOOL)shouldUseFixedWidthContainer;
+- (BOOL)shouldUseWiderTextContainer;
+- (struct CGSize)_textContainerSize;
+- (struct CGPoint)drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBounds;
@@ -108,6 +112,7 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) MSImageData *preview;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric;

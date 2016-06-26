@@ -13,7 +13,7 @@
 
 + (Class)mutableClass;
 @property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

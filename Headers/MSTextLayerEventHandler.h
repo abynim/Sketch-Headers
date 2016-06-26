@@ -42,7 +42,10 @@
 - (void)makeUppercase:(id)arg1;
 - (void)removeTextView;
 - (void)handlerWillLoseFocus;
+- (void)commitPendingEdits;
+- (BOOL)handlesHistoryCoalescing;
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
+- (void)textStorage:(id)arg1 didProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 - (void)selectAll:(id)arg1;
 - (struct CGRect)windowFrameForDrawView;
 - (void)scrollWheel:(id)arg1;
@@ -69,7 +72,9 @@
 - (void)makeTextView;
 - (void)addTextView;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)reloadFollowingBackgroundChangesToDocument;
 - (void)handlerGotFocus;
+- (void)setupTextLayer;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

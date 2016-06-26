@@ -6,10 +6,15 @@
 
 #import "NSObject.h"
 
+@class NSNumberFormatter;
+
 @interface MSSnapDrawInstruction : NSObject
 {
+    NSNumberFormatter *_numberFormatter;
 }
 
+@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
+- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (struct CGRect)rect;
 - (void)drawWithZoom:(double)arg1 context:(id)arg2;

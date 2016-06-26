@@ -28,7 +28,7 @@
 - (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
+- (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)mouseDownEvent:(id)arg1;
 - (BOOL)pathShouldClose;
 - (void)removeRedundantPoints:(id)arg1;

@@ -16,10 +16,12 @@
     MSPath *_path;
     long long _fillIndex;
     double _zoomValue;
+    unsigned long long _windingRule;
     struct CGRect _rect;
 }
 
-+ (void)drawFill:(id)arg1 forPath:(id)arg2 atIndex:(long long)arg3 inRect:(struct CGRect)arg4 hasInnerStroke:(BOOL)arg5 context:(id)arg6;
++ (void)drawFill:(id)arg1 forPath:(id)arg2 windingRule:(unsigned long long)arg3 atIndex:(long long)arg4 inRect:(struct CGRect)arg5 hasInnerStroke:(BOOL)arg6 context:(id)arg7;
+@property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) BOOL hasInnerStroke; // @synthesize hasInnerStroke=_hasInnerStroke;
@@ -30,6 +32,7 @@
 - (void).cxx_destruct;
 - (void)drawImage:(struct CGImage *)arg1 inRect:(struct CGRect)arg2;
 - (void)drawPatternStretch;
+- (void)drawPatternFit;
 - (void)drawPatternFill;
 - (void)prepareAlphaForContext:(struct CGContext *)arg1;
 - (void)drawCGImageTile:(struct CGImage *)arg1;

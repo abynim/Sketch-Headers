@@ -6,22 +6,33 @@
 
 #import "MSModelObject.h"
 
-@class MSArray;
+@class NSArray, NSMutableArray;
 
 @interface _MSExportOptions : MSModelObject
 {
-    BOOL _shouldTrim;
-    MSArray *_includedLayerIds;
+    NSArray *_includedLayerIds;
     unsigned long long _layerOptions;
-    MSArray *_exportFormats;
+    BOOL _shouldTrim;
+    NSMutableArray *_exportFormats;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllExportFormatsWithExportFormats:(id)arg1;
+- (void)moveExportFormatIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllExportFormats;
+- (void)removeExportFormatsAtIndexes:(id)arg1;
+- (void)removeExportFormatAtIndex:(unsigned long long)arg1;
+- (void)removeExportFormat:(id)arg1;
+- (void)insertExportFormat:(id)arg1 afterExportFormat:(id)arg2;
+- (void)insertExportFormat:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addExportFormats:(id)arg1;
+- (void)addExportFormat:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -33,12 +44,11 @@
 - (unsigned long long)primitiveLayerOptions;
 - (void)setPrimitiveIncludedLayerIds:(id)arg1;
 - (id)primitiveIncludedLayerIds;
-@property(retain, nonatomic) MSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
-- (id)exportFormatsGeneric;
+- (void)setExportFormats:(id)arg1;
+@property(readonly, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
-@property(retain, nonatomic) MSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
-- (id)includedLayerIdsGeneric;
+@property(retain, nonatomic) NSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

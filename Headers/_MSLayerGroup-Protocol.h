@@ -6,10 +6,10 @@
 
 #import "MSStyledLayer.h"
 
-@class NSObject<NSCopying><NSCoding>;
+@class NSArray, NSObject<NSCopying><NSCoding>;
 
 @protocol _MSLayerGroup <MSStyledLayer>
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL hasClickThrough;
 @end

@@ -6,29 +6,35 @@
 
 #import "NSObject.h"
 
-@class MSExportRequest, NSColorSpace;
+#import "MSRenderingContextCacheProvider.h"
 
-@interface MSExporter : NSObject
+@class BCCache, MSExportRequest, NSColorSpace, NSString;
+
+@interface MSExporter : NSObject <MSRenderingContextCacheProvider>
 {
     BOOL _isPrinting;
     BOOL _allowSubpixelAntialiasing;
     MSExportRequest *_request;
     NSColorSpace *_colorSpace;
+    BCCache *_cache;
     struct CGRect _bounds;
 }
 
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
+@property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
-- (void)drawRect:(struct CGRect)arg1;
-- (void)drawSliceBackgroundIfNecessary;
+- (id)cacheForZoomLevel:(double)arg1;
+@property(readonly, nonatomic) BCCache *zoomIndependentCache;
+- (void)drawRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
+- (void)drawSliceBackgroundIfNecessary:(struct CGContext *)arg1;
 - (id)bitmapImageRep;
 - (id)basicBitmapImageRep;
-- (void)draw;
+- (void)draw:(struct CGContext *)arg1;
 - (id)TIFFData;
 - (id)PNGData;
 - (id)JPGData;
@@ -37,6 +43,12 @@
 - (id)data;
 - (struct CGRect)boundsForVectorRender;
 - (id)PDFData;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

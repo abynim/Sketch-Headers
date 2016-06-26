@@ -11,7 +11,6 @@
 @interface _MSImmutableStyleShadow : MSImmutableStylePart
 {
     double _blurRadius;
-    BOOL _hasShadow;
     double _offsetX;
     double _offsetY;
     double _spread;
@@ -25,10 +24,9 @@
 @property(nonatomic) double spread; // @synthesize spread=_spread;
 @property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
 @property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
-@property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

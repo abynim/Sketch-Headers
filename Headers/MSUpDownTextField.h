@@ -25,7 +25,7 @@
 @property(nonatomic) double ownMinimum; // @synthesize ownMinimum=_ownMinimum;
 @property(nonatomic) BOOL hasMaximum; // @synthesize hasMaximum=_hasMaximum;
 @property(nonatomic) BOOL hasMinimum; // @synthesize hasMinimum=_hasMinimum;
-@property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
+@property(readonly, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;
 - (void)textDidEndEditing:(id)arg1;

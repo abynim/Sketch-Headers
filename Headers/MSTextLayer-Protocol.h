@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) double defaultLineHeight;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
+- (struct CGPoint)drawingPointForText;
 - (double)startingPositionOnPath:(NSBezierPath *)arg1;
 @end
 

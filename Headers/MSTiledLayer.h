@@ -6,26 +6,39 @@
 
 #import "CALayer.h"
 
-@class MSTilePlacer, NSSet;
+#import "MSTilePlacerDelegate.h"
 
-@interface MSTiledLayer : CALayer
+@class MSTilePlacer, MSTileUpdateOperation, NSColorSpace, NSOperationQueue, NSSet, NSString;
+
+@interface MSTiledLayer : CALayer <MSTilePlacerDelegate>
 {
+    BOOL _isRendering;
+    BOOL _shouldHideOverlayControls;
     double _zoomLevel;
     id <MSTiledLayerDelegate> _tiledLayerDelegate;
     unsigned long long _state;
     double _renderingZoomLevel;
-    MSTilePlacer *_tilePlacer;
+    NSColorSpace *_colorSpace;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
+    MSTilePlacer *_tilePlacer;
     NSSet *_renderingTiles;
     CDUnknownBlockType _tileRenderingCompletion;
+    NSOperationQueue *_renderingQueue;
+    MSTileUpdateOperation *_layerUpdateOperation;
     struct CGPoint _scrollOrigin;
+    struct CGRect _viewBounds;
 }
 
-+ (id)tiledLayerAtZoomLevel:(double)arg1 scrollOrigin:(struct CGPoint)arg2;
+@property(retain, nonatomic) MSTileUpdateOperation *layerUpdateOperation; // @synthesize layerUpdateOperation=_layerUpdateOperation;
+@property(retain, nonatomic) NSOperationQueue *renderingQueue; // @synthesize renderingQueue=_renderingQueue;
 @property(copy, nonatomic) CDUnknownBlockType tileRenderingCompletion; // @synthesize tileRenderingCompletion=_tileRenderingCompletion;
 @property(retain, nonatomic) NSSet *renderingTiles; // @synthesize renderingTiles=_renderingTiles;
-@property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
 @property(retain, nonatomic) MSTilePlacer *tilePlacer; // @synthesize tilePlacer=_tilePlacer;
+@property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
+@property(nonatomic) BOOL isRendering; // @synthesize isRendering=_isRendering;
+@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) struct CGRect viewBounds; // @synthesize viewBounds=_viewBounds;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double renderingZoomLevel; // @synthesize renderingZoomLevel=_renderingZoomLevel;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
@@ -43,12 +56,32 @@
 - (BOOL)makeCurrentIfPossible;
 - (void)concatTransform:(struct CATransform3D)arg1;
 - (BOOL)isRenderable;
+- (BOOL)isRenderableOrNew;
 - (void)scrollBy:(struct CGPoint)arg1;
 - (void)zoomBy:(double)arg1 centeredOnViewPoint:(struct CGPoint)arg2;
 - (void)zoomBy:(double)arg1;
 - (struct CGPoint)midPoint;
+- (void)tilePlacer:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
+- (void)tilePlacer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
+- (void)removeOffscreenTiles;
+- (void)adaptToPixelGridChange;
+@property(readonly, nonatomic) struct CGRect tiledRect;
+@property(readonly, nonatomic) unsigned long long tileCount;
+- (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
+- (void)refreshOverlayForPage:(id)arg1;
+- (void)refreshOverlayWithBlock:(CDUnknownBlockType)arg1;
+- (void)refreshContentForPage:(id)arg1 document:(id)arg2;
+- (void)tileUpdateOperationDidComplete:(id)arg1;
+- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
 - (id)actionForKey:(id)arg1;
 - (void)dealloc;
+- (id)initWithZoomLevel:(double)arg1 scrollOrigin:(struct CGPoint)arg2 viewBounds:(struct CGRect)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

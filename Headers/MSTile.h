@@ -6,71 +6,77 @@
 
 #import "CALayer.h"
 
-@class MSImmutableDocumentData, MSImmutablePage, MSPage, MSTileRenderer, NSArray, NSThread;
+#import "MSTileRenderOperationDelegate.h"
 
-@interface MSTile : CALayer
+@class MSPage, MSTileRenderOperation, MSTileRenderer, NSColorSpace, NSString;
+
+@interface MSTile : CALayer <MSTileRenderOperationDelegate>
 {
-    BOOL _drawPixelated;
     BOOL _drawDottedDirtyRect;
     BOOL _shouldHideOverlayControls;
     BOOL _drawingIsCancelled;
     BOOL _completedFirstRenderOrWasCancelled;
     id <MSTileDelegate> _tileDelegate;
+    NSColorSpace *_colorSpace;
     double _zoomValue;
+    struct CGContext *_contentCGContext;
+    id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     CALayer *_overlayLayer;
     CALayer *_contentLayer;
-    id <MSRenderingContextCacheProvider> _renderingCacheProvider;
-    NSThread *_thread;
-    MSImmutableDocumentData *_document;
-    MSImmutablePage *_pageForContent;
+    CALayer *_backgroundLayer;
     MSPage *_pageForOverlay;
-    NSArray *_artboardFrames;
     MSTileRenderer *_tileRenderer;
+    MSTileRenderOperation *_currentRenderOperation;
     struct CGPoint _scrollOrigin;
     struct CGPoint _distanceFromScrollOrigin;
 }
 
+@property(retain, nonatomic) MSTileRenderOperation *currentRenderOperation; // @synthesize currentRenderOperation=_currentRenderOperation;
 @property(retain, nonatomic) MSTileRenderer *tileRenderer; // @synthesize tileRenderer=_tileRenderer;
-@property(retain, nonatomic) NSArray *artboardFrames; // @synthesize artboardFrames=_artboardFrames;
 @property(retain, nonatomic) MSPage *pageForOverlay; // @synthesize pageForOverlay=_pageForOverlay;
-@property(retain, nonatomic) MSImmutablePage *pageForContent; // @synthesize pageForContent=_pageForContent;
-@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-@property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
-@property(retain, nonatomic) NSThread *thread; // @synthesize thread=_thread;
-@property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(retain, nonatomic) CALayer *backgroundLayer; // @synthesize backgroundLayer=_backgroundLayer;
 @property(retain, nonatomic) CALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
 @property(retain, nonatomic) CALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
+@property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
+@property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(nonatomic) struct CGContext *contentCGContext; // @synthesize contentCGContext=_contentCGContext;
 @property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
-@property(nonatomic) BOOL drawPixelated; // @synthesize drawPixelated=_drawPixelated;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
+@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) __weak id <MSTileDelegate> tileDelegate; // @synthesize tileDelegate=_tileDelegate;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (void)moveToPosition:(struct CGPoint)arg1;
+- (void)pixelGridDidChange;
+- (BOOL)shouldDrawPixelated;
 - (struct CGRect)rectForContentLayer;
 - (double)scaleForContentLayer;
-- (void)pixelGridDidChange;
-- (struct CGPoint)scrollOriginAdjustedForPixelZoom;
-- (void)cancelDrawing;
-- (void)drawImmutablePage:(id)arg1 inContext:(struct CGContext *)arg2;
-- (void)drawArtboardBackgroundsInContext:(struct CGContext *)arg1;
-- (void)drawContentInContext:(struct CGContext *)arg1;
 - (void)drawOverlayInContext:(struct CGContext *)arg1;
 - (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
-- (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 page:(id)arg2;
-- (void)scheduleContentRefresh:(id)arg1;
-- (void)refreshContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3;
-- (BOOL)shouldDrawPixelated;
+- (void)cancelDrawing;
+- (void)tileRenderOperationDidFinishRendering:(id)arg1;
+- (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
+- (id)renderOperationForContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3;
 - (void)enableDebugFramesInner:(BOOL)arg1 outer:(BOOL)arg2;
-- (BOOL)layer:(id)arg1 shouldInheritContentsScale:(double)arg2 fromWindow:(id)arg3;
 - (void)prepareLayer:(id)arg1;
+- (void)makeNewOverlayLayer;
+- (void)makeNewContentLayer;
+- (void)makeNewBackgroundLayer;
+- (void)makeNewCGContext;
 - (void)removeFromSuperlayer;
+- (void)dealloc;
 - (id)init;
+- (id)initWithColorSpace:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

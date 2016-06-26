@@ -6,26 +6,27 @@
 
 #import "NSObject.h"
 
-@class MSLayer, NSArray;
+@class MSLayer, NSArray, NSNumberFormatter;
 
 @interface MSLayerPositionDrawing : NSObject
 {
-    BOOL _isEnabled;
+    BOOL _enabled;
     id <MSBasicDelegate> _delegate;
-    MSLayer *_hoverLayer;
+    MSLayer *_targetLayer;
     double _zoomValue;
+    NSNumberFormatter *_numberFormatter;
     NSArray *_hoverGuides;
 }
 
 @property(retain, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
-@property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
+@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
+@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) __weak MSLayer *hoverLayer; // @synthesize hoverLayer=_hoverLayer;
+@property(nonatomic) __weak MSLayer *targetLayer; // @synthesize targetLayer=_targetLayer;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)isMeasuringDistance;
 - (void)findHoverGuides:(struct CGPoint)arg1;
-- (void)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)clear;
 - (void)drawDistanceToEnclosingFrame:(struct CGRect)arg1 zoom:(double)arg2;
 - (struct CGRect)verticalRectBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;

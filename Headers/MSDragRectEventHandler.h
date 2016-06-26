@@ -28,7 +28,7 @@
 - (id)currentGroup;
 - (BOOL)handlesHandToolItself;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (void)refresh;
 - (struct CGRect)rectForInserting;
 - (id)performActionWithRect:(struct CGRect)arg1;

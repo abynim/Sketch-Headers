@@ -6,7 +6,7 @@
 
 #import "_SVGElement.h"
 
-@class NSXMLElement, SVGImporter;
+@class NSString, NSXMLElement, SVGImporter;
 
 @interface SVGElement : _SVGElement
 {
@@ -18,6 +18,14 @@
 @property(retain, nonatomic) SVGImporter *importer; // @synthesize importer=_importer;
 @property(retain, nonatomic) NSXMLElement *xml; // @synthesize xml=_xml;
 - (void).cxx_destruct;
+- (id)makeLayerWithParentLayer:(id)arg1 progress:(CDUnknownBlockType)arg2;
+- (id)adjustOwnLayer:(id)arg1 parentLayer:(id)arg2;
+- (void)nameLayer:(id)arg1;
+@property(readonly, nonatomic) NSString *effectiveLayerName;
+- (void)adjustSizeForChildrenOfLayer:(id)arg1;
+- (void)makeChildLayersWithParentLayer:(id)arg1 progress:(CDUnknownBlockType)arg2;
+- (id)makeOwnLayerWithParentLayer:(id)arg1;
+- (BOOL)isDescendantOf:(id)arg1;
 - (id)styleAttributesForElement:(id)arg1 defaults:(id)arg2;
 - (id)relativeURLForLink:(id)arg1;
 - (void)resolvedValue:(id)arg1 forProperty:(id)arg2;
@@ -37,13 +45,6 @@
 - (void)processIdentifier:(id)arg1;
 - (void)processSelf:(id)arg1;
 - (id)initWithImporter:(id)arg1 xml:(id)arg2;
-- (id)makeLayerWithParentLayer:(id)arg1 progress:(CDUnknownBlockType)arg2;
-- (id)adjustOwnLayer:(id)arg1 parentLayer:(id)arg2;
-- (void)nameLayer:(id)arg1;
-- (id)effectiveLayerName;
-- (void)adjustSizeForChildrenOfLayer:(id)arg1 parentLayer:(id)arg2;
-- (void)makeChildLayersWithParentLayer:(id)arg1 progress:(CDUnknownBlockType)arg2;
-- (id)makeOwnLayerWithParentLayer:(id)arg1;
 
 @end
 

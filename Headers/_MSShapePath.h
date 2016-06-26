@@ -6,20 +6,31 @@
 
 #import "MSModelObject.h"
 
-@class MSArray;
+@class NSArray, NSMutableArray;
 
 @interface _MSShapePath : MSModelObject
 {
     BOOL _isClosed;
-    MSArray *_points;
+    NSMutableArray *_points;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllCurvePointsWithCurvePoints:(id)arg1;
+- (void)moveCurvePointIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllCurvePoints;
+- (void)removeCurvePointsAtIndexes:(id)arg1;
+- (void)removeCurvePointAtIndex:(unsigned long long)arg1;
+- (void)removeCurvePoint:(id)arg1;
+- (void)insertCurvePoint:(id)arg1 afterCurvePoint:(id)arg2;
+- (void)insertCurvePoint:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addCurvePoints:(id)arg1;
+- (void)addCurvePoint:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -27,8 +38,8 @@
 - (id)primitivePoints;
 - (void)setPrimitiveIsClosed:(BOOL)arg1;
 - (BOOL)primitiveIsClosed;
-@property(retain, nonatomic) MSArray *points; // @synthesize points=_points;
-- (id)pointsGeneric;
+- (void)setPoints:(id)arg1;
+@property(readonly, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

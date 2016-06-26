@@ -6,7 +6,6 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
 #import "MSInspectorSection.h"
 #import "NSPopoverDelegate.h"
@@ -14,7 +13,7 @@
 
 @class BCPopover, MSColorPreviewButton, NSArray, NSArrayController, NSString, NSView;
 
-@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, BCPopoverDelegate, MSColorInspectorDelegate>
+@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;
@@ -32,23 +31,17 @@
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
-- (void)popoverWindowDidMove:(id)arg1;
-- (void)popoverWindowSizeDidChange:(id)arg1;
-- (void)popoverWillClose:(id)arg1;
-- (void)reloadInspectorStack:(id)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
 - (BOOL)hasEnabledStyle;
 - (void)prepare;
-- (void)dealloc;
 - (void)colorInspectorDidChange:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
-- (void)fitScrollViewToParent;
 - (void)updateColorInActiveInspector;
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
-- (void)moveInspectorToFitColorPopoverIfNecessary:(id)arg1;
 - (void)previewCellAction:(id)arg1;
+- (void)dealloc;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;
 - (id)init;

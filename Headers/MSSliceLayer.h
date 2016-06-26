@@ -17,6 +17,7 @@
 }
 
 + (unsigned long long)traits;
++ (id)keyPathsForValuesAffectingPreviewImages;
 + (id)sliceLayerFromLayer:(id)arg1;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
@@ -30,7 +31,8 @@
 - (BOOL)canBeHidden;
 - (unsigned long long)filterType;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
+- (id)unselectedPreviewImage;
+- (id)selectedPreviewImage;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -56,6 +58,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

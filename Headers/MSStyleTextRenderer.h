@@ -15,7 +15,7 @@
 - (struct CGPoint)originForDrawingLayoutManager:(id)arg1;
 - (struct CGRect)boundingRectForDrawingTextInOriginalRect;
 - (void)drawLayoutManager:(id)arg1 style:(id)arg2 aPoint:(struct CGPoint)arg3;
-- (void)renderWithLayoutManager:(id)arg1 atPoint:(struct CGPoint)arg2;
+- (void)renderWithLayoutManager:(id)arg1 atPoint:(struct CGPoint)arg2 context:(id)arg3;
 
 @end
 

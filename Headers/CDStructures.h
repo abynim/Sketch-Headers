@@ -87,6 +87,12 @@ struct FBBezierCurveLocation {
     double _field2;
 };
 
+struct FBBezierPathElement {
+    int _field1;
+    struct CGPoint _field2;
+    struct CGPoint _field3[2];
+};
+
 struct FBRange {
     double minimum;
     double maximum;
@@ -119,6 +125,13 @@ struct NSBezierElement {
     unsigned long long _field1;
     struct CGPoint _field2;
     struct CGPoint _field3[2];
+};
+
+struct NSEdgeInsets {
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct NSObject {

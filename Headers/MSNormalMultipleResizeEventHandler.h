@@ -6,21 +6,22 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSNormalEventData, MSSnapper, NSArray;
+@class MSNormalEventData, MSSnapper, NSArray, NSDictionary;
 
 @interface MSNormalMultipleResizeEventHandler : MSNormalBaseEventHandler
 {
     struct CGPoint midPoint;
     struct CGPoint oppositePoint;
-    NSArray *originalLayerRects;
     NSArray *_layers;
     long long _resizingCorner;
     MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
     double _originalProportions;
+    NSDictionary *_layerFramesBeforeResize;
     struct CGRect _originalRect;
 }
 
+@property(retain, nonatomic) NSDictionary *layerFramesBeforeResize; // @synthesize layerFramesBeforeResize=_layerFramesBeforeResize;
 @property(nonatomic) double originalProportions; // @synthesize originalProportions=_originalProportions;
 @property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;

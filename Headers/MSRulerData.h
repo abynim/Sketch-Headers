@@ -8,7 +8,7 @@
 
 #import "MSRulerData.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSRulerData : _MSRulerData <MSRulerData>
 {
@@ -29,7 +29,7 @@
 @property(readonly, nonatomic) long long base;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) id <MSArray> guidesGeneric; // @dynamic guidesGeneric;
+@property(readonly, copy, nonatomic) NSArray *guides;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly) Class superclass;
