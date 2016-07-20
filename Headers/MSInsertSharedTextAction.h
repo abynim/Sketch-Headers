@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSInsertSharedObjectAction.h"
+#import "MSSharedObjectAction.h"
 
 #import "NSMenuDelegate.h"
 
 @class NSString;
 
-@interface MSInsertSharedTextAction : MSInsertSharedObjectAction <NSMenuDelegate>
+@interface MSInsertSharedTextAction : MSSharedObjectAction <NSMenuDelegate>
 {
 }
 
@@ -20,6 +20,7 @@
 - (id)unsortedSharedObjects;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)menuItemForMenu:(id)arg1 name:(id)arg2 sharedObject:(id)arg3;
+- (void)updateMenu:(id)arg1;
 - (void)insertSharedObjectInstance:(id)arg1;
 - (void)showSharedObjectsSheet:(id)arg1;
 

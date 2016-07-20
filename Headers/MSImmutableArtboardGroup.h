@@ -9,13 +9,14 @@
 #import "MSArtboardGroup.h"
 #import "MSImmutableRootLayer.h"
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer>
 {
     struct CGSize _unscaledNameSize;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
@@ -24,7 +25,8 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithCoder:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
+- (BOOL)exporterRequiresContentClipping;
+- (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
@@ -57,7 +59,7 @@
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
 @property(readonly, copy, nonatomic) NSString *name;
@@ -66,6 +68,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

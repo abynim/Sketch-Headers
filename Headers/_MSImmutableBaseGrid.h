@@ -13,7 +13,7 @@
 
 + (Class)mutableClass;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>, MSImmutableAssetCollection, MSImmutableAssetCollection<MSAssetCollection>, MSImmutableSharedStyleContainer, MSImmutableSharedStyleContainer<MSSharedStyleContainer>, MSImmutableSharedTextStyleContainer, MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer>, MSImmutableSymbolContainer, MSImmutableSymbolContainer<MSSymbolContainer>, NSDictionary, NSString;
+@class MSImmutableAssetCollection, MSImmutableAssetCollection<MSAssetCollection>, MSImmutableSharedStyleContainer, MSImmutableSharedStyleContainer<MSSharedStyleContainer>, MSImmutableSharedTextStyleContainer, MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer>, MSImmutableSymbolContainer, MSImmutableSymbolContainer<MSSymbolContainer>, NSArray, NSDictionary, NSString;
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
@@ -21,11 +21,11 @@
     MSImmutableSharedStyleContainer *_layerStyles;
     MSImmutableSymbolContainer *_layerSymbols;
     MSImmutableSharedTextStyleContainer *_layerTextStyles;
-    MSImmutableArray *_pages;
+    NSArray *_pages;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *pages; // @synthesize pages=_pages;
+@property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer> *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 @property(retain, nonatomic) MSImmutableSymbolContainer<MSSymbolContainer> *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
 @property(retain, nonatomic) MSImmutableSharedStyleContainer<MSSharedStyleContainer> *layerStyles; // @synthesize layerStyles=_layerStyles;
@@ -38,7 +38,7 @@
 @property(retain, nonatomic) NSString *cloudShareURL; // @synthesize cloudShareURL=_cloudShareURL;
 @property(copy, nonatomic) NSString *cloudShareID; // @synthesize cloudShareID=_cloudShareID;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -47,7 +47,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)pagesGeneric;
 - (id)layerTextStylesGeneric;
 - (id)layerSymbolsGeneric;
 - (id)layerStylesGeneric;

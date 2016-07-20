@@ -24,8 +24,6 @@
 - (void)setStyle:(id)arg1;
 - (id)usedStyle;
 - (BOOL)hasActiveBackgroundBlur;
-- (BOOL)hasBitmapStylesEnabled;
-- (BOOL)calculateHasBlendedLayer;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
@@ -38,7 +36,7 @@
 - (void)copyStyleToPasteboard:(id)arg1;
 - (id)copyStyleToPasteboard;
 - (id)CSSAttributes;
-- (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -62,6 +60,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly, nonatomic) id <MSStyle> styleGeneric; // @dynamic styleGeneric;

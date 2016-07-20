@@ -28,7 +28,6 @@
 - (void).cxx_destruct;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
-- (BOOL)shouldHideExportBar;
 - (id)document;
 - (id)nibName;
 - (id)views;
@@ -42,7 +41,6 @@
 - (void)backgroundColorAction:(id)arg1;
 - (void)prepareArtboardsForFill;
 - (void)artboardBackgroundCheckAction:(id)arg1;
-- (void)exportableSizeDidChange:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

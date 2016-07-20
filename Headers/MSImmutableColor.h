@@ -24,8 +24,11 @@
 - (id)hexValue;
 - (BOOL)isBlack;
 - (BOOL)isWhite;
+- (struct CGColor *)newCGColorWithColorSpace:(struct CGColorSpace *)arg1;
 - (id)NSColorWithColorSpace:(id)arg1;
 - (id)treeAsDictionary;
+- (void)applyStrokeColorToContext:(id)arg1;
+- (void)applyFillColorToContext:(id)arg1;
 - (id)NSColorForContext:(id)arg1;
 - (id)svgRepresentation;
 

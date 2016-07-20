@@ -6,12 +6,13 @@
 
 #import "NSViewController.h"
 
+#import "BCPopoverDelegate.h"
 #import "MSColorInspectorSectionDelegate.h"
 #import "MSModeModePickerDelegate.h"
 
-@class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocumentData, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, NSArray, NSString, NSView;
+@class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocumentData, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
@@ -29,8 +30,10 @@
     MSEventHandlerManager *_eventHandler;
     MSDocumentData *_documentData;
     MSPersistentAssetCollection *_globalAssets;
+    MSStackView *_stackView;
 }
 
+@property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandler; // @synthesize eventHandler=_eventHandler;
@@ -48,6 +51,10 @@
 @property(nonatomic) __weak id <MSColorInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
+- (void)popoverWindowDidMove:(id)arg1;
+- (void)popoverWindowSizeDidChange:(id)arg1;
+- (void)popoverWillClose:(id)arg1;
+- (void)popoverWillShow:(id)arg1;
 - (void)dealloc;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)pickerViewChanged:(id)arg1;
@@ -60,25 +67,24 @@
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)viewWillDisappear;
+- (void)viewWillAppear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;
 - (long long)initialColorTypePickerMode;
-- (void)fixFirstResponder;
 - (id)viewsByAddingSeparatorsToViews:(id)arg1;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
 - (void)findFrequentColors;
 - (void)prepareForDisplay;
 - (void)setInitialColor:(id)arg1;
-- (void)applyBackgroundArrowColor;
-- (void)awakeFromNib;
-- (id)nibName;
 - (id)currentModePicker;
 - (void)inspectorSectionDidUpdate:(id)arg1;
 - (id)documentAssets;
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
+- (void)applyBackgroundArrowColor;
+- (void)viewDidLoad;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;
 
 // Remaining properties

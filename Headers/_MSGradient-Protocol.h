@@ -6,10 +6,10 @@
 
 #import "MSModelObject.h"
 
-@class MSPointArray;
+@class MSPointArray, NSArray;
 
 @protocol _MSGradient <MSModelObject>
-@property(readonly, nonatomic) id <MSArray> stopsGeneric;
+@property(readonly, nonatomic) NSArray *stops;
 @property(readonly, nonatomic) struct CGPoint to;
 @property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
 @property(readonly, nonatomic) MSPointArray *points;

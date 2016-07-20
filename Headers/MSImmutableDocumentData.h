@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class MSImmutablePage, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutablePage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -77,7 +77,7 @@
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
 @property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> pagesGeneric; // @dynamic pagesGeneric;
+@property(readonly, nonatomic) NSArray *pages;
 @property(readonly) Class superclass;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 

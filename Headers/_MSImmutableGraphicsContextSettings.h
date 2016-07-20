@@ -15,7 +15,7 @@
 + (Class)mutableClass;
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

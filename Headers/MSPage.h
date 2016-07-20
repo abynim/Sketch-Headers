@@ -14,8 +14,6 @@
 
 @interface MSPage : _MSPage <MSCloudExportable, MSRootLayer, MSPage>
 {
-    long long ignoreLayerSelectionDidChangeNotificationsCounter;
-    id <MSPageDelegate> _pageDelegate;
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedArtboards;
     NSArray *_cachedExportableLayers;
@@ -27,7 +25,6 @@
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
-@property(nonatomic) __weak id <MSPageDelegate> pageDelegate; // @synthesize pageDelegate=_pageDelegate;
 - (void).cxx_destruct;
 - (void)setIsLocked:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isLocked;
@@ -46,11 +43,7 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (id)ancestorsAndSelfOfLayer:(id)arg1 inContainer:(id)arg2;
 - (id)ancestorsAndSelfOfLayer:(id)arg1;
-- (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
 - (void)rectSizeDidChange:(id)arg1;
-- (void)layerSelectionDidChange;
-- (void)dataArray:(id)arg1 willRemoveObject:(id)arg2;
-- (void)dataArray:(id)arg1 didAddObject:(id)arg2;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 @property(readonly, nonatomic) __weak NSArray *artboards;
 - (void)setCurrentLayout:(id)arg1;
@@ -73,11 +66,9 @@
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
-- (void)refreshOverlayOfViews;
 - (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)setName:(id)arg1;
 - (BOOL)canBeContainedByDocument;
 - (void)dealloc;
 - (id)selectedLayers;
@@ -118,7 +109,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
 @property(readonly, copy, nonatomic) NSString *name;
@@ -127,6 +118,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

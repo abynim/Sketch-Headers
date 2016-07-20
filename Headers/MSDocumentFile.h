@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (void)repair;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
+- (BOOL)saveMetadataWithError:(id *)arg1;
 - (long long)version;
 - (id)data;
 - (id)readDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;

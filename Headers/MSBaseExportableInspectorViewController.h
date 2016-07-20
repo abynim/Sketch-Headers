@@ -7,12 +7,11 @@
 #import "NSViewController.h"
 
 #import "MSInspectorChildController.h"
-#import "MSInspectorSection.h"
 #import "MSSliceLayerWatcher.h"
 
 @class MSFlippedView, MSInspectorStackView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
 
-@interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSInspectorSection, MSInspectorChildController>
+@interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSInspectorChildController>
 {
     MSInspectorStackView *_stackView;
     NSArray *_layers;
@@ -41,7 +40,6 @@
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (void)layerPositionPossiblyChanged;
 - (id)previewContainerView;
-- (BOOL)shouldHideExportBar;
 - (id)views;
 - (void)sliceLayerDidChange:(id)arg1;
 - (void)prepareForDisplay;

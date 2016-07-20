@@ -8,7 +8,7 @@
 
 #import "MSShapeGroup.h"
 
-@class NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSPath, NSArray, NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
@@ -22,7 +22,7 @@
 + (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingPreviewImages;
 - (BOOL)shouldStripShadowsAndInnerShadow;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1;
+- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)canRotate;
 - (void)adjustStyleToFitSubPaths;
 - (void)debugWritePaths:(long long)arg1;
@@ -48,6 +48,7 @@
 - (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 - (id)_bezierPathInSize:(struct CGSize)arg1;
 - (void)applyPropertiesToBezier:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
@@ -57,10 +58,9 @@
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)defaultName;
-- (Class)classToUseForNameCounter;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
-- (void)dataArray:(id)arg1 didRemoveObject:(id)arg2;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)canFlatten;
 - (BOOL)canSmartRotate;
@@ -131,13 +131,14 @@
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, copy, nonatomic) NSString *name;
 @property(readonly, nonatomic) BOOL nameIsFixed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

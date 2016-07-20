@@ -15,7 +15,7 @@
 + (Class)mutableClass;
 @property(nonatomic) double thickness; // @synthesize thickness=_thickness;
 @property(nonatomic) long long position; // @synthesize position=_position;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

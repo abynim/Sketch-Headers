@@ -6,7 +6,9 @@
 
 #import "MSModelObject.h"
 
+@class NSArray;
+
 @protocol _MSSharedObjectContainer <MSModelObject>
-@property(readonly, nonatomic) id <MSArray> objectsGeneric;
+@property(readonly, nonatomic) NSArray *objects;
 @end
 

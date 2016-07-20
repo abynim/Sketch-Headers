@@ -18,6 +18,7 @@
     NSString *_name;
     BOOL _nameIsFixed;
     NSString *_originalObjectID;
+    unsigned long long _resizingType;
     double _rotation;
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
@@ -31,6 +32,7 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
+@property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -40,7 +42,7 @@
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

@@ -6,8 +6,10 @@
 
 #import "MSModelObject.h"
 
+@class NSArray;
+
 @protocol _MSShapePath <MSModelObject>
-@property(readonly, nonatomic) id <MSArray> pointsGeneric;
+@property(readonly, nonatomic) NSArray *points;
 @property(readonly, nonatomic) BOOL isClosed;
 @end
 

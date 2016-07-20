@@ -8,17 +8,18 @@
 
 @interface _MSCurvePoint : MSModelObject
 {
+    double _cornerRadius;
+    struct CGPoint _curveFrom;
+    long long _curveMode;
+    struct CGPoint _curveTo;
     BOOL _hasCurveFrom;
     BOOL _hasCurveTo;
-    double _cornerRadius;
-    long long _curveMode;
-    struct CGPoint _curveFrom;
-    struct CGPoint _curveTo;
     struct CGPoint _point;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

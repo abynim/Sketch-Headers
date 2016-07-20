@@ -10,17 +10,21 @@
 
 @interface MSWebExporter : NSObject
 {
+    BOOL _includeBackground;
     BOOL _selectiveExport;
+    BOOL _includeDocument;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
-+ (void)exportDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
-+ (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
-@property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
++ (void)exportDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
++ (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
+@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
+@property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
+@property(nonatomic) BOOL includeBackground; // @synthesize includeBackground=_includeBackground;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
@@ -31,7 +35,7 @@
 - (id)metadataForDocument:(id)arg1;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
 - (void)exportWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
+- (id)initWithDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 localURL:(id)arg4;
 
 @end
 

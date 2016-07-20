@@ -16,15 +16,19 @@
 }
 
 + (id)bezierPathFromPoint:(id)arg1 toPoint:(id)arg2 inRect:(struct CGRect)arg3;
++ (id)pathWithPoints:(id)arg1 inRect:(struct CGRect)arg2 shouldClose:(BOOL)arg3;
 + (id)bezierPathWithPoints:(id)arg1 inRect:(struct CGRect)arg2 shouldClose:(BOOL)arg3;
 @property(nonatomic) BOOL pathShouldClose; // @synthesize pathShouldClose=_pathShouldClose;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (void).cxx_destruct;
-- (void)extendPath:(id)arg1 toPoint:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
-- (void)appendCurveFromPoint:(id)arg1 toPoint:(id)arg2 toBezierPath:(id)arg3;
+- (void)extendPath:(id)arg1 orCGPath:(struct CGPath *)arg2 toPoint:(struct CGPoint)arg3 controlPoint1:(struct CGPoint)arg4 controlPoint2:(struct CGPoint)arg5;
+- (void)appendCurveFromPoint:(id)arg1 toPoint:(id)arg2 toBezierPath:(id)arg3 orCGPath:(struct CGPath *)arg4;
 - (id)bezierPathFromCurvePoint:(id)arg1 toPoint:(id)arg2;
+- (void)buildBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (id)_bezierPath;
+- (id)_path;
+- (id)path;
 - (id)bezierPath;
 - (BOOL)isStraightLine;
 

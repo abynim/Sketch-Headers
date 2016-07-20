@@ -4,26 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSInsertSharedObjectAction.h"
+#import "MSSharedSymbolAction.h"
 
-@class NSImage;
-
-@interface MSInsertSymbolAction : MSInsertSharedObjectAction
+@interface MSInsertSymbolAction : MSSharedSymbolAction
 {
-    NSImage *_initialImage;
 }
 
-@property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
-- (void).cxx_destruct;
-- (BOOL)shouldShowOrganiseSheetMenuItem;
-- (id)sharedObjectName;
-- (id)imageName;
-- (id)unsortedSharedObjects;
-- (void)menuWillOpen:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
-- (id)menuItemForMenu:(id)arg1 name:(id)arg2 sharedObject:(id)arg3;
-- (void)insertSharedObjectInstance:(id)arg1;
-- (id)initWithDocument:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 
 @end
 

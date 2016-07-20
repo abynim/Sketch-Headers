@@ -18,6 +18,7 @@
 + (id)pointWithPoint:(struct CGPoint)arg1 curveTo:(struct CGPoint)arg2 curveFrom:(struct CGPoint)arg3;
 + (id)pointWithPoint:(struct CGPoint)arg1;
 + (id)point;
+@property(readonly, copy) NSString *description;
 - (void)prepareForRemoval;
 - (void)multiplyBy:(double)arg1;
 - (void)movePointTo:(struct CGPoint)arg1;
@@ -38,7 +39,6 @@
 @property(readonly, nonatomic) long long curveMode;
 @property(readonly, nonatomic) struct CGPoint curveTo;
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL hasCurveFrom;
 @property(readonly, nonatomic) BOOL hasCurveTo;
 @property(readonly) unsigned long long hash;

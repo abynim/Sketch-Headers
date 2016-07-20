@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableString, NSString;
+@class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
 
 @interface MSPluginCommand : NSObject
 {
@@ -22,6 +22,7 @@
     ECASLClient *_logger;
     NSMutableString *_log;
     COScript *_session;
+    NSMutableDictionary *_context;
     id _api;
     NSString *_executingScript;
 }
@@ -33,6 +34,7 @@
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
 @property(retain, nonatomic) id api; // @synthesize api=_api;
+@property(retain, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableString *log; // @synthesize log=_log;
 @property(retain, nonatomic) ECASLClient *logger; // @synthesize logger=_logger;
@@ -75,6 +77,7 @@
 - (void)loadAPISupport;
 - (void)stopCapturingDeprecatedChannel:(id)arg1;
 - (id)startCapturingDeprecatedChannel;
+- (void)dealloc;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 runHandler:(id)arg4;
 

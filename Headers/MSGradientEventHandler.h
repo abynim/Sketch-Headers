@@ -36,7 +36,7 @@
 - (id)selectedStop;
 - (void)centerStopBetween;
 - (void)setSelectedStopToPercentage:(long long)arg1;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)setSelectedPoint:(long long)arg1;
 - (BOOL)hasSelectedPoint;

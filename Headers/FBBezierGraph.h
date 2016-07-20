@@ -12,10 +12,13 @@
 {
     NSMutableArray *_contours;
     struct CGRect _bounds;
+    struct CGPath *_CGPath;
 }
 
 + (id)bezierGraph;
 + (id)bezierGraphWithBezierPath:(id)arg1;
++ (id)bezierGraphWithCGPath:(struct CGPath *)arg1;
+@property(nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
@@ -74,8 +77,11 @@
 - (void)unionNonintersectingPartsIntoGraph:(id)arg1 withGraph:(id)arg2;
 - (id)unionWithBezierGraph:(id)arg1;
 - (id)convertToEvenOddWindingRule;
+- (void)dealloc;
 - (id)init;
+- (id)initWithBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (id)initWithBezierPath:(id)arg1;
+- (id)initWithCGPath:(struct CGPath *)arg1;
 
 @end
 

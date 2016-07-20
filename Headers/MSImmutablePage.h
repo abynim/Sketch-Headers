@@ -20,15 +20,14 @@
 + (id)defaultName;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 - (void).cxx_destruct;
-- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)symbols;
 @property(readonly, nonatomic) __weak NSArray *artboards;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
-- (BOOL)differsFromLayer:(id)arg1;
+- (BOOL)exporterRequiresContentClipping;
+- (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
@@ -62,7 +61,7 @@
 @property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) id <MSArray> layersGeneric;
+@property(readonly, nonatomic) NSArray *layers;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
 @property(readonly, copy, nonatomic) NSString *name;
@@ -71,6 +70,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;

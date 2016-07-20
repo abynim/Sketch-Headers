@@ -8,6 +8,7 @@
 
 @interface NSArray (BCFoundation)
 + (id)arrayByMergingArrays:(id)arg1;
+- (unsigned long long)indexOfSubArray:(id)arg1;
 - (id)rotateTwoDimensionalArray;
 - (id)uniqueObjects;
 - (id)subArrayToIndex:(unsigned long long)arg1;

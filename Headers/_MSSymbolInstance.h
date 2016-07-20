@@ -11,15 +11,19 @@
 @interface _MSSymbolInstance : MSStyledLayer
 {
     double _horizontalSpacing;
+    double _masterInfluenceEdgeMaxXPadding;
+    double _masterInfluenceEdgeMaxYPadding;
+    double _masterInfluenceEdgeMinXPadding;
+    double _masterInfluenceEdgeMinYPadding;
     NSDictionary *_overrides;
     NSString *_symbolID;
     double _verticalSpacing;
-    struct CGRect _masterInfluenceBounds;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
@@ -32,14 +36,23 @@
 - (id)primitiveSymbolID;
 - (void)setPrimitiveOverrides:(id)arg1;
 - (id)primitiveOverrides;
-- (void)setPrimitiveMasterInfluenceBounds:(struct CGRect)arg1;
-- (struct CGRect)primitiveMasterInfluenceBounds;
+- (void)setPrimitiveMasterInfluenceEdgeMinYPadding:(double)arg1;
+- (double)primitiveMasterInfluenceEdgeMinYPadding;
+- (void)setPrimitiveMasterInfluenceEdgeMinXPadding:(double)arg1;
+- (double)primitiveMasterInfluenceEdgeMinXPadding;
+- (void)setPrimitiveMasterInfluenceEdgeMaxYPadding:(double)arg1;
+- (double)primitiveMasterInfluenceEdgeMaxYPadding;
+- (void)setPrimitiveMasterInfluenceEdgeMaxXPadding:(double)arg1;
+- (double)primitiveMasterInfluenceEdgeMaxXPadding;
 - (void)setPrimitiveHorizontalSpacing:(double)arg1;
 - (double)primitiveHorizontalSpacing;
 @property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(retain, nonatomic) NSDictionary *overrides; // @synthesize overrides=_overrides;
-@property(nonatomic) struct CGRect masterInfluenceBounds; // @synthesize masterInfluenceBounds=_masterInfluenceBounds;
+@property(nonatomic) double masterInfluenceEdgeMinYPadding; // @synthesize masterInfluenceEdgeMinYPadding=_masterInfluenceEdgeMinYPadding;
+@property(nonatomic) double masterInfluenceEdgeMinXPadding; // @synthesize masterInfluenceEdgeMinXPadding=_masterInfluenceEdgeMinXPadding;
+@property(nonatomic) double masterInfluenceEdgeMaxYPadding; // @synthesize masterInfluenceEdgeMaxYPadding=_masterInfluenceEdgeMaxYPadding;
+@property(nonatomic) double masterInfluenceEdgeMaxXPadding; // @synthesize masterInfluenceEdgeMaxXPadding=_masterInfluenceEdgeMaxXPadding;
 @property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

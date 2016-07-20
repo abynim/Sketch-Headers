@@ -18,7 +18,6 @@
     double _bottom;
 }
 
-+ (void)shouldNotifyRulerObservers:(BOOL)arg1;
 + (id)rectWithUnionOfRects:(id)arg1;
 + (id)rectWithRect:(struct CGRect)arg1;
 + (id)rectWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
@@ -61,14 +60,6 @@
 - (void)objectDidInit;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
-- (void)subtractHeight:(double)arg1;
-- (void)addHeight:(double)arg1;
-- (void)subtractWidth:(double)arg1;
-- (void)addWidth:(double)arg1;
-- (void)subtractY:(double)arg1;
-- (void)subtractX:(double)arg1;
-- (void)addY:(double)arg1;
-- (void)addX:(double)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL constrainProportions;

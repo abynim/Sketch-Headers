@@ -10,6 +10,7 @@
 
 @interface MSCloudShareUploadController : MSCloudShareAPI
 {
+    BOOL _includeDocument;
     BOOL _uploadFailed;
     MSDocumentData *_documentData;
     NSString *_name;
@@ -26,20 +27,21 @@
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
+@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (void)cancel;
-- (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3;
+- (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3 progressTracker:(id)arg4;
 - (void)uploadExportedFiles:(id)arg1 shareData:(id)arg2;
-- (void)reportProgress:(double)arg1;
+- (void)reportProgress:(id)arg1 stepSize:(double)arg2;
 - (void)createS3ManagerWithCredentials:(id)arg1 bucket:(id)arg2 region:(id)arg3;
 - (void)uploadFilesAfterManifestUploadWithResult:(id)arg1;
 - (BOOL)shouldAttemptReuploadAfterError:(id)arg1;
 - (id)loadManifest;
 - (void)uploadManifest;
 - (void)uploadDocument;
-- (id)initWithDocument:(id)arg1 name:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)initWithDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 progressHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 
 @end
 

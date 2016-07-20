@@ -8,16 +8,17 @@
 
 #import "MSGradient.h"
 
-@class MSPointArray, NSObject<NSCopying><NSCoding>, NSString;
+@class MSPointArray, NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableGradient : _MSImmutableGradient <MSGradient>
 {
 }
 
 + (id)gradientFromStops:(id)arg1 colorSpace:(id)arg2;
-- (id)ellipseTransformInRect:(struct CGRect)arg1;
+- (struct CGAffineTransform)ellipseTransformInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSGradientWithColorSpace:(id)arg1;
+- (struct CGGradient *)newCGGradientForColorSpace:(struct CGColorSpace *)arg1;
 - (double)conditionedEllipseLength;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (id)stopGenericAtIndex:(unsigned long long)arg1;
@@ -26,10 +27,10 @@
 - (id)defaultStopsArray;
 - (id)NSGradientForContext:(id)arg1;
 - (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2;
-- (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(id)arg2 context:(id)arg3;
-- (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(id)arg2 context:(id)arg3;
+- (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(struct CGGradient *)arg2 context:(id)arg3;
+- (void)drawLinearFillInRect:(struct CGRect)arg1 gradient:(struct CGGradient *)arg2 context:(id)arg3;
 - (void)drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3;
-- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 shouldCache:(BOOL)arg3;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 cache:(id)arg3;
 - (id)interpolatedStartAndStopColorForStops:(id)arg1 colorSpace:(id)arg2;
 - (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 stops:(id)arg2 colorSpace:(id)arg3;
 - (id)sortedStops;
@@ -45,7 +46,7 @@
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) MSPointArray *points;
 @property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
-@property(readonly, nonatomic) id <MSArray> stopsGeneric; // @dynamic stopsGeneric;
+@property(readonly, nonatomic) NSArray *stops;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) struct CGPoint to;
 

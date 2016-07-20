@@ -16,7 +16,7 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) NSDictionary *images; // @synthesize images=_images;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

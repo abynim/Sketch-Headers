@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

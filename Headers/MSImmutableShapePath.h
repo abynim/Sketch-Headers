@@ -8,7 +8,7 @@
 
 #import "MSShapePath.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableShapePath : _MSImmutableShapePath <MSShapePath>
 {
@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) BOOL isPolyline;
 @property(readonly, nonatomic) BOOL isPolygon;
 - (id)bezierPathInRect:(struct CGRect)arg1;
+- (id)pathInRect:(struct CGRect)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -26,7 +27,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isClosed;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> pointsGeneric; // @dynamic pointsGeneric;
+@property(readonly, nonatomic) NSArray *points;
 @property(readonly) Class superclass;
 
 @end

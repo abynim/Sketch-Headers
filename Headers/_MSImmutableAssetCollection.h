@@ -6,23 +6,23 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableArray, MSImmutableArray<MSArray>, MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>;
+@class MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>, NSArray;
 
 @interface _MSImmutableAssetCollection : MSImmutableModelObject
 {
-    MSImmutableArray *_images;
-    MSImmutableArray *_colors;
-    MSImmutableArray *_gradients;
+    NSArray *_images;
+    NSArray *_colors;
+    NSArray *_gradients;
     MSImmutableImageCollection *_imageCollection;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableImageCollection<MSImageCollection> *imageCollection; // @synthesize imageCollection=_imageCollection;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *gradients; // @synthesize gradients=_gradients;
-@property(retain, nonatomic) MSImmutableArray<MSArray> *colors; // @synthesize colors=_colors;
-@property(retain, nonatomic) MSImmutableArray *images; // @synthesize images=_images;
+@property(retain, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
+@property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
+@property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
@@ -32,9 +32,6 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (id)imageCollectionGeneric;
-- (id)gradientsGeneric;
-- (id)colorsGeneric;
-- (id)imagesGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

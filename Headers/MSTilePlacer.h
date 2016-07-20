@@ -31,7 +31,6 @@
 - (id)allTiles;
 - (id)idForTile:(id)arg1;
 - (void)setPositionForTile:(id)arg1 withID:(id)arg2;
-- (BOOL)layer:(id)arg1 shouldInheritContentsScale:(double)arg2 fromWindow:(id)arg3;
 - (id)makeNewTilesWithIDs:(id)arg1;
 - (void)addTiles:(id)arg1 shouldRedraw:(BOOL)arg2;
 - (void)addMissingTilesFrom:(id)arg1;

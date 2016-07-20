@@ -14,6 +14,7 @@
 {
 }
 
+- (id)initWithPosition:(double)arg1 color:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;
@@ -23,5 +24,6 @@
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double position;
 @property(readonly) Class superclass;
+
 @end
 

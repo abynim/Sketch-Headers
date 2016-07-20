@@ -10,8 +10,8 @@
 {
 }
 
-- (void)processPath:(id)arg1;
 - (id)makeOwnLayerWithParentLayer:(id)arg1;
+- (void)processPath:(id)arg1;
 
 @end
 

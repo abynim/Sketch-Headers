@@ -17,6 +17,7 @@
 }
 
 + (unsigned long long)traits;
++ (id)keyPathsForValuesAffectingPreviewImages;
 + (id)sliceLayerFromLayer:(id)arg1;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
@@ -57,6 +58,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

@@ -9,6 +9,9 @@
 @class MSTiledLayer;
 
 @protocol MSTiledLayerDelegate <NSObject>
+- (void)tiledLayerDidRefreshTileContent:(MSTiledLayer *)arg1;
+- (void)tiledLayer:(MSTiledLayer *)arg1 renderOverlayInRect:(struct CGRect)arg2;
+- (void)tiledLayer:(MSTiledLayer *)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(MSTiledLayer *)arg1 didChangeToState:(unsigned long long)arg2;
 @end
 

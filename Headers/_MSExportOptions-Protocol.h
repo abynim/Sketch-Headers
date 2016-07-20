@@ -6,10 +6,12 @@
 
 #import "MSModelObject.h"
 
+@class NSArray;
+
 @protocol _MSExportOptions <MSModelObject>
-@property(readonly, nonatomic) id <MSArray> exportFormatsGeneric;
+@property(readonly, nonatomic) NSArray *exportFormats;
 @property(readonly, nonatomic) BOOL shouldTrim;
 @property(readonly, nonatomic) unsigned long long layerOptions;
-@property(readonly, nonatomic) id <MSArray> includedLayerIdsGeneric;
+@property(readonly, nonatomic) NSArray *includedLayerIds;
 @end
 

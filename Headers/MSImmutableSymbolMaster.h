@@ -12,6 +12,7 @@
 
 - (unsigned long long)traits;
 - (BOOL)influenceRectClipsToBounds;
+- (id)masterWithOverrides:(id)arg1 size:(struct CGSize)arg2;
 - (id)masterWithOverrides:(id)arg1;
 - (id)svgStyle:(id)arg1;
 - (void)addTransformAttributes:(id)arg1 exporter:(id)arg2;

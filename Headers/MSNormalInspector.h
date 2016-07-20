@@ -9,7 +9,7 @@
 #import "MSInspectorChildController.h"
 #import "MSStylePartInspectorDelegate.h"
 
-@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSReflectionInspectorViewController, NSArray, NSString;
+@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSReflectionInspectorViewController, NSArray, NSScrollView, NSString;
 
 @interface MSNormalInspector : NSViewController <MSStylePartInspectorDelegate, MSInspectorChildController>
 {
@@ -25,12 +25,15 @@
     MSInspectorStackView *_stackView;
     NSArray *_layers;
     MSEventHandler *_eventHandler;
+    NSScrollView *_scrollView;
 }
 
+@property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MSEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void).cxx_destruct;
+- (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (id)views;
 - (BOOL)shouldHideExportBar;
 - (void)showBorderOptionsAction:(id)arg1;
@@ -43,6 +46,7 @@
 - (void)changeColor:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (void)prepareViewControllers;
+- (void)reloadInspectorStack:(id)arg1;
 - (void)prepareForDisplay;
 - (void)selectionDidChangeTo:(id)arg1;
 - (id)init;

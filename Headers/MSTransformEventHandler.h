@@ -37,7 +37,7 @@
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (struct CGRect)bounds;
 - (id)currentGroup;

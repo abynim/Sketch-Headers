@@ -6,29 +6,28 @@
 
 #import "MSPopoverAction.h"
 
-#import "MSPublisherViewControllerDelegate.h"
+#import "MSCloudViewControllerDelegate.h"
 
-@class MSPublisherViewController, NSImage, NSString;
+@class MSCloudViewController, NSImage, NSString;
 
-@interface MSCloudAction : MSPopoverAction <MSPublisherViewControllerDelegate>
+@interface MSCloudAction : MSPopoverAction <MSCloudViewControllerDelegate>
 {
-    MSPublisherViewController *_viewController;
-    NSImage *_onImage;
-    NSImage *_offImage;
+    MSCloudViewController *_viewController;
+    NSImage *_toolbarImage;
 }
 
-@property(retain, nonatomic) NSImage *offImage; // @synthesize offImage=_offImage;
-@property(retain, nonatomic) NSImage *onImage; // @synthesize onImage=_onImage;
-@property(retain, nonatomic) MSPublisherViewController *viewController; // @synthesize viewController=_viewController;
+@property(retain, nonatomic) NSImage *toolbarImage; // @synthesize toolbarImage=_toolbarImage;
+@property(retain, nonatomic) MSCloudViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
-- (BOOL)showInToolbar;
 - (id)label;
 - (id)image;
+- (id)tooltip;
 - (void)updateToolbarItemButton;
-- (void)publishViewController:(id)arg1 localServerIsPublished:(BOOL)arg2;
+- (void)cloudViewController:(id)arg1 localServerIsPublished:(BOOL)arg2;
 - (id)progressImagesWithSuffix:(id)arg1;
 - (void)ensureProgressImagesLoaded;
-- (void)publishViewController:(id)arg1 didProgressUpdateTo:(double)arg2;
+- (void)cloudViewControllerDidCancel:(id)arg1;
+- (void)cloudViewController:(id)arg1 didProgressUpdateTo:(double)arg2;
 - (id)popoverViewController;
 - (id)initWithDocument:(id)arg1;
 

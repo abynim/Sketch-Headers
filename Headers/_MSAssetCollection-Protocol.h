@@ -6,10 +6,12 @@
 
 #import "MSModelObject.h"
 
+@class NSArray;
+
 @protocol _MSAssetCollection <MSModelObject>
 @property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric;
-@property(readonly, nonatomic) id <MSArray> gradientsGeneric;
-@property(readonly, nonatomic) id <MSArray> colorsGeneric;
-@property(readonly, nonatomic) id <MSArray> imagesGeneric;
+@property(readonly, nonatomic) NSArray *gradients;
+@property(readonly, nonatomic) NSArray *colors;
+@property(readonly, nonatomic) NSArray *images;
 @end
 

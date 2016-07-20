@@ -58,6 +58,7 @@
 - (BOOL)inspectorShouldShowPositions;
 @property(readonly, nonatomic) MSEditShapeInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (unsigned long long)inspectorLocation;
+@property(readonly, nonatomic) NSArray *selectedCurvePoints; // @dynamic selectedCurvePoints;
 - (void)postSelectionChangeNotifications;
 - (void)toggleSelectionOfHandle:(id)arg1;
 - (void)deselectAllHandles;
@@ -65,7 +66,6 @@
 - (void)selectHandles:(id)arg1 extendSelection:(BOOL)arg2;
 - (void)selectHandle:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *selectedHandles;
-@property(readonly, nonatomic) __weak NSArray *selectedCurvePoints; // @dynamic selectedCurvePoints;
 - (struct CGPoint)convertPointToRootCoordinates:(struct CGPoint)arg1;
 - (void)adjustHandlesToValue:(double)arg1 onAxis:(unsigned long long)arg2;
 - (void)setLocation:(struct CGPoint)arg1 ofHandle:(id)arg2;
@@ -105,7 +105,7 @@
 - (void)changeToCurveMode:(long long)arg1;
 - (void)nudgeSelectedPointsForKey:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)deleteSelectedPoints;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)delete:(id)arg1;
 - (id)layersToCopy;
@@ -121,7 +121,7 @@
 - (void)determineSelectedPointsByDrag;
 - (BOOL)canAddNewPointOnMouseDownWithFlags:(unsigned long long)arg1;
 - (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
+- (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)mouseDownEvent:(id)arg1;
 - (void)mouseDownOnHandle:(id)arg1 modifierFlags:(unsigned long long)arg2;
 - (BOOL)mouseDownOnHandleShouldClosePath:(id)arg1 modifierFlags:(unsigned long long)arg2;

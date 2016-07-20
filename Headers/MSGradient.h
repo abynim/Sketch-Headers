@@ -9,7 +9,7 @@
 #import "MSAsset.h"
 #import "MSGradient.h"
 
-@class MSPointArray, NSObject<NSCopying><NSCoding>, NSString;
+@class MSPointArray, NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSGradient : _MSGradient <MSAsset, MSGradient>
 {
@@ -21,8 +21,6 @@
 - (void)setGradientType:(long long)arg1;
 - (double)convertPointToPosition:(struct CGPoint)arg1;
 - (void)_removeStopAtIndex:(unsigned long long)arg1;
-- (void)_insertStop:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)_addStop:(id)arg1;
 - (void)removeStopAtIndex:(unsigned long long)arg1;
 - (unsigned long long)addStopAtLength:(double)arg1;
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
@@ -62,7 +60,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
-@property(readonly, nonatomic) id <MSArray> stopsGeneric; // @dynamic stopsGeneric;
+@property(readonly, nonatomic) NSArray *stops;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) struct CGPoint to;
 

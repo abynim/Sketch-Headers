@@ -17,6 +17,5 @@
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
-@property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 @end
 

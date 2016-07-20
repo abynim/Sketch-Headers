@@ -6,30 +6,41 @@
 
 #import "MSModelObject.h"
 
-@class MSArray, MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSDictionary, NSString;
+@class MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray, NSString;
 
 @interface _MSDocumentData : MSModelObject
 {
-    BOOL _enableLayerInteraction;
-    BOOL _enableSliceInteraction;
     NSString *_cloudShareID;
     NSString *_cloudShareURL;
     NSString *_cloudUserID;
     unsigned long long _currentPageIndex;
+    BOOL _enableLayerInteraction;
+    BOOL _enableSliceInteraction;
     NSDictionary *_userInfo;
     MSAssetCollection *_assets;
     MSSharedStyleContainer *_layerStyles;
     MSSymbolContainer *_layerSymbols;
     MSSharedTextStyleContainer *_layerTextStyles;
-    MSArray *_pages;
+    NSMutableArray *_pages;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllPagesWithPages:(id)arg1;
+- (void)movePageIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllPages;
+- (void)removePagesAtIndexes:(id)arg1;
+- (void)removePageAtIndex:(unsigned long long)arg1;
+- (void)removePage:(id)arg1;
+- (void)insertPage:(id)arg1 afterPage:(id)arg2;
+- (void)insertPage:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addPages:(id)arg1;
+- (void)addPage:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -57,8 +68,8 @@
 - (id)primitiveCloudShareURL;
 - (void)setPrimitiveCloudShareID:(id)arg1;
 - (id)primitiveCloudShareID;
-@property(retain, nonatomic) MSArray *pages; // @synthesize pages=_pages;
-- (id)pagesGeneric;
+- (void)setPages:(id)arg1;
+@property(readonly, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 - (id)layerTextStylesGeneric;
 @property(retain, nonatomic) MSSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;

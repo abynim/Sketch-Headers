@@ -44,6 +44,7 @@
 - (id)moveForwardBackwardItems;
 - (id)pickLayerItems;
 - (id)cutCopyPasteItems;
+- (id)replaceWithSymbolItems;
 - (id)menuWithItemGroups:(id)arg1;
 - (id)standardMenuItemGroups;
 - (void)constructMenus;

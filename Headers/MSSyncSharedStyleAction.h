@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validate;
+- (id)textLayersSharingSelectedStyles;
 - (void)doPerformAction:(id)arg1;
 - (void)syncSharedStyle:(id)arg1;
 

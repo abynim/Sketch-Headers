@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (void)drawImage:(struct CGImage *)arg1 inRect:(struct CGRect)arg2;
 - (void)drawPatternStretch;
+- (void)drawPatternFit;
 - (void)drawPatternFill;
 - (void)prepareAlphaForContext:(struct CGContext *)arg1;
 - (void)drawCGImageTile:(struct CGImage *)arg1;

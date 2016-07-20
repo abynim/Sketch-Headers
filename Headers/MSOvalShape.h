@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) id <MSShapePath> pathGeneric;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

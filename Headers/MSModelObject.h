@@ -37,8 +37,14 @@
 - (void)fireFault;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (void)clearCachedValueForKey:(id)arg1;
+- (void)clearCache;
+- (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
+- (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
+- (id)cachedValueForKey:(id)arg1;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

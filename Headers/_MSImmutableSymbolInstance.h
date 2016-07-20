@@ -11,7 +11,10 @@
 @interface _MSImmutableSymbolInstance : MSImmutableStyledLayer
 {
     double _horizontalSpacing;
-    struct CGRect _masterInfluenceBounds;
+    double _masterInfluenceEdgeMaxXPadding;
+    double _masterInfluenceEdgeMaxYPadding;
+    double _masterInfluenceEdgeMinXPadding;
+    double _masterInfluenceEdgeMinYPadding;
     NSDictionary *_overrides;
     NSString *_symbolID;
     double _verticalSpacing;
@@ -21,10 +24,13 @@
 @property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(retain, nonatomic) NSDictionary *overrides; // @synthesize overrides=_overrides;
-@property(nonatomic) struct CGRect masterInfluenceBounds; // @synthesize masterInfluenceBounds=_masterInfluenceBounds;
+@property(nonatomic) double masterInfluenceEdgeMinYPadding; // @synthesize masterInfluenceEdgeMinYPadding=_masterInfluenceEdgeMinYPadding;
+@property(nonatomic) double masterInfluenceEdgeMinXPadding; // @synthesize masterInfluenceEdgeMinXPadding=_masterInfluenceEdgeMinXPadding;
+@property(nonatomic) double masterInfluenceEdgeMaxYPadding; // @synthesize masterInfluenceEdgeMaxYPadding=_masterInfluenceEdgeMaxYPadding;
+@property(nonatomic) double masterInfluenceEdgeMaxXPadding; // @synthesize masterInfluenceEdgeMaxXPadding=_masterInfluenceEdgeMaxXPadding;
 @property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void).cxx_destruct;
-- (id)keyPathsDifferingFromObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;

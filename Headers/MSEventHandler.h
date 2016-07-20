@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import "NSResponder.h"
 
-#import "MSInspectorChildController.h"
 #import "NSDraggingDestination.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSString, NSViewController<MSInspectorChildController>;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSEvent, NSString, NSViewController<MSInspectorChildController>;
 
-@interface MSEventHandler : NSViewController <NSDraggingDestination, MSInspectorChildController>
+@interface MSEventHandler : NSResponder <NSDraggingDestination>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;
@@ -19,33 +18,31 @@
     id <MSBasicDelegate> _delegate;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
+    NSEvent *_locationEvent;
     struct CGPoint _viewCoordinateMouse;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
+@property(readonly, nonatomic) NSEvent *locationEvent; // @synthesize locationEvent=_locationEvent;
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
-- (id)views;
-- (BOOL)shouldHideExportBar;
-- (void)prepareForDisplay;
 - (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)allowsSwitchToInsertAction;
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (void)refreshRulers;
+- (BOOL)shouldHideExportBar;
 - (BOOL)inspectorShouldShowBlendingProperties;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (BOOL)inspectorShouldShowPositions;
 - (BOOL)inspectorShouldShowSharedStyles;
 @property(readonly, nonatomic) NSViewController<MSInspectorChildController> *inspectorViewController;
 - (unsigned long long)inspectorLocation;
-- (id)view;
-- (id)nibName;
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
 - (struct CGPoint)centerPointForZooming;
@@ -89,6 +86,9 @@
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
 - (id)lastEvent;
+@property(readonly, nonatomic) BOOL locationIsValid;
+- (struct CGPoint)locationInLayer:(id)arg1;
+- (struct CGPoint)locationInView:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
@@ -113,15 +113,18 @@
 - (id)menuForEvent:(id)arg1;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)returnToDefaultHandler;
+- (void)reloadFollowingBackgroundChangesToDocument;
+- (void)commitPendingEdits;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
+@property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;
 - (id)handlerName;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (void)keyDown:(unsigned short)arg1 flags:(unsigned long long)arg2;
+- (void)keyDown:(id)arg1;
 - (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
@@ -143,7 +146,6 @@
 - (BOOL)mouseDownEvent:(id)arg1;
 - (struct CGPoint)convertAbsolutePointFromMouseLocationInWindow:(struct CGPoint)arg1;
 - (struct CGPoint)convertAbsolutePointFromEvent:(id)arg1;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 @property(nonatomic) struct CGPoint scrollOrigin; // @dynamic scrollOrigin;
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;

@@ -6,17 +6,17 @@
 
 #import "MSModelObject.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @protocol _MSStyle <MSModelObject>
 @property(readonly, nonatomic) id <MSTextStyle> textStyleGeneric;
-@property(readonly, nonatomic) id <MSArray> shadowsGeneric;
+@property(readonly, nonatomic) NSArray *shadows;
 @property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric;
-@property(readonly, nonatomic) id <MSArray> innerShadowsGeneric;
-@property(readonly, nonatomic) id <MSArray> fillsGeneric;
+@property(readonly, nonatomic) NSArray *innerShadows;
+@property(readonly, nonatomic) NSArray *fills;
 @property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
 @property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric;
-@property(readonly, nonatomic) id <MSArray> bordersGeneric;
+@property(readonly, nonatomic) NSArray *borders;
 @property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric;
 @property(readonly, nonatomic) id <MSStyleBlur> blurGeneric;
 @property(readonly, nonatomic) unsigned long long startDecorationType;

@@ -17,8 +17,8 @@
 + (id)defaultName;
 + (unsigned long long)traits;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-- (void)refreshPreviewImages;
-- (BOOL)previewImagesRequireRefresh;
+- (void)refreshPreviewImagesWithCache:(id)arg1;
+- (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 bezier:(id)arg3;
 - (void)configureBackgroundOfRequest:(id)arg1;
 
@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) NSString *originalObjectID;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;

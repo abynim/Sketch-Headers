@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (CHStringPathExtensions)
+- (BOOL)hasExtension:(id)arg1;
 - (id)withExtension:(id)arg1;
 @end
 

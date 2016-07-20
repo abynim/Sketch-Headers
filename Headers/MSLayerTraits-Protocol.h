@@ -6,10 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
-
 @protocol MSLayerTraits <NSObject>
-+ (unsigned long long)traitsForPropertyName:(NSString *)arg1;
 + (unsigned long long)traits;
 - (unsigned long long)traits;
 @end

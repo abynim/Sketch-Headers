@@ -9,9 +9,11 @@
 @class MSDocumentData, MSLayer, MSModelObject, MSPage, NSString;
 
 @protocol MSDocumentDataDelegate <NSObject>
+- (void)determineCurrentArtboard;
+- (void)layerSelectionDidChange;
+- (void)refreshOverlayOfViews;
+- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 - (void)layerTreeLayoutDidChange;
-- (void)didAddPage:(MSPage *)arg1;
-- (void)willRemovePage:(MSPage *)arg1;
 - (id)documentData:(MSDocumentData *)arg1 metadataForKey:(NSString *)arg2 object:(MSModelObject *)arg3;
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;
 - (void)documentDidChange:(MSDocumentData *)arg1;

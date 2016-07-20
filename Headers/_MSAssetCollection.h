@@ -6,22 +6,43 @@
 
 #import "MSModelObject.h"
 
-@class MSArray, MSImageCollection;
+@class MSImageCollection, NSArray, NSMutableArray;
 
 @interface _MSAssetCollection : MSModelObject
 {
-    MSArray *_images;
-    MSArray *_colors;
-    MSArray *_gradients;
+    NSArray *_images;
+    NSMutableArray *_colors;
+    NSMutableArray *_gradients;
     MSImageCollection *_imageCollection;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)replaceAllGradientsWithGradients:(id)arg1;
+- (void)moveGradientIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllGradients;
+- (void)removeGradientsAtIndexes:(id)arg1;
+- (void)removeGradientAtIndex:(unsigned long long)arg1;
+- (void)removeGradient:(id)arg1;
+- (void)insertGradient:(id)arg1 afterGradient:(id)arg2;
+- (void)insertGradient:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addGradients:(id)arg1;
+- (void)addGradient:(id)arg1;
+- (void)replaceAllColorsWithColors:(id)arg1;
+- (void)moveColorIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllColors;
+- (void)removeColorsAtIndexes:(id)arg1;
+- (void)removeColorAtIndex:(unsigned long long)arg1;
+- (void)removeColor:(id)arg1;
+- (void)insertColor:(id)arg1 afterColor:(id)arg2;
+- (void)insertColor:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addColors:(id)arg1;
+- (void)addColor:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -35,12 +56,11 @@
 - (id)primitiveImages;
 @property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
 - (id)imageCollectionGeneric;
-@property(retain, nonatomic) MSArray *gradients; // @synthesize gradients=_gradients;
-- (id)gradientsGeneric;
-@property(retain, nonatomic) MSArray *colors; // @synthesize colors=_colors;
-- (id)colorsGeneric;
-@property(retain, nonatomic) MSArray *images; // @synthesize images=_images;
-- (id)imagesGeneric;
+- (void)setGradients:(id)arg1;
+@property(readonly, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
+- (void)setColors:(id)arg1;
+@property(readonly, nonatomic) NSArray *colors; // @synthesize colors=_colors;
+@property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

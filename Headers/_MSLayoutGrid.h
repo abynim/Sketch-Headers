@@ -8,13 +8,13 @@
 
 @interface _MSLayoutGrid : MSBaseGrid
 {
+    double _columnWidth;
     BOOL _drawHorizontal;
     BOOL _drawHorizontalLines;
     BOOL _drawVertical;
-    BOOL _guttersOutside;
-    double _columnWidth;
     double _gutterHeight;
     double _gutterWidth;
+    BOOL _guttersOutside;
     double _horizontalOffset;
     double _numberOfColumns;
     double _rowHeightMultiplication;
@@ -23,6 +23,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;

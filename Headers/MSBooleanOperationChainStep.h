@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSBezierPath;
+@class MSPath;
 
 @interface MSBooleanOperationChainStep : NSObject
 {
-    NSBezierPath *_bezierPath;
+    MSPath *_path;
     long long _operation;
 }
 
 + (id)booleanOperationChainStepWithPath:(id)arg1 operation:(long long)arg2;
 @property(nonatomic) long long operation; // @synthesize operation=_operation;
-@property(retain, nonatomic) NSBezierPath *bezierPath; // @synthesize bezierPath=_bezierPath;
+@property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 - (void).cxx_destruct;
 
 @end

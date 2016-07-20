@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BCReadWriteLock, NSMapTable;
+@class BCReadWriteLock, NSMapTable, NSSet;
 
 @interface BCCache : NSObject
 {
@@ -17,11 +17,13 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long count;
 - (void)removeAllCachedObjects;
+- (void)removeCachedObjectsExceptForOwners:(id)arg1;
 - (void)removeCachedObjectsForOwner:(id)arg1;
 - (void)removeCachedObjectForOwner:(id)arg1 andKey:(id)arg2;
 - (id)cachedObjectForOwner:(id)arg1 andKey:(id)arg2 orCreateWithBlock:(CDUnknownBlockType)arg3;
 - (void)setCachedObject:(id)arg1 forOwner:(id)arg2 andKey:(id)arg3;
 - (id)cachedObjectForOwner:(id)arg1 andKey:(id)arg2;
+@property(readonly, nonatomic) NSSet *allOwners;
 - (id)init;
 
 @end

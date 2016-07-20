@@ -8,7 +8,7 @@
 
 #import "MSSharedObjectContainer.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableSharedObjectContainer : _MSImmutableSharedObjectContainer <MSSharedObjectContainer>
 {
@@ -20,7 +20,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSArray> objectsGeneric; // @dynamic objectsGeneric;
+@property(readonly, nonatomic) NSArray *objects;
 @property(readonly) Class superclass;
 @end
 
