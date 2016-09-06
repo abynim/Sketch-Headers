@@ -6,7 +6,7 @@
 
 #import "NSFileManager.h"
 
-@interface NSFileManager (CHFileManagerExtensions)
+@interface NSFileManager (Chocolat)
 - (id)uniqueURL:(id)arg1;
 - (BOOL)isFolderAtURL:(id)arg1;
 - (BOOL)isFolderAtPath:(id)arg1;

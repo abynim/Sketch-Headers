@@ -24,10 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveColor:(id)arg1;
-- (id)primitiveColor;
-- (void)setPrimitivePosition:(double)arg1;
-- (double)primitivePosition;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 - (id)colorGeneric;
 @property(nonatomic) double position; // @synthesize position=_position;

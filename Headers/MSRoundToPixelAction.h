@@ -10,7 +10,7 @@
 {
 }
 
-- (void)roundCurvePoints:(id)arg1 path:(id)arg2;
+- (void)roundCurvePointsAtIndexPaths:(id)arg1 ofShapes:(id)arg2;
 - (void)roundCurvePointsInPath:(id)arg1;
 - (void)roundLayerPoints:(id)arg1;
 - (void)doRoundLayerFrame:(id)arg1;

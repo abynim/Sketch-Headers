@@ -23,14 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveType:(unsigned long long)arg1;
-- (unsigned long long)primitiveType;
-- (void)setPrimitiveRadius:(double)arg1;
-- (double)primitiveRadius;
-- (void)setPrimitiveMotionAngle:(double)arg1;
-- (double)primitiveMotionAngle;
-- (void)setPrimitiveCenter:(struct CGPoint)arg1;
-- (struct CGPoint)primitiveCenter;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;

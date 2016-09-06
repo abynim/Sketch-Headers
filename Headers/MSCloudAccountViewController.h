@@ -24,6 +24,7 @@
     NSLayoutConstraint *_passwordChangeButtonTopToEmailConstraint;
     NSProgressIndicator *_progressIndicator;
     NSButton *_resendButton;
+    NSTextField *_pendingLabel;
     NSButton *_doneButton;
     NSTextField *_emailNoteLabel;
     NSButton *_changePasswordButton;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) NSButton *changePasswordButton; // @synthesize changePasswordButton=_changePasswordButton;
 @property(retain, nonatomic) NSTextField *emailNoteLabel; // @synthesize emailNoteLabel=_emailNoteLabel;
 @property(retain, nonatomic) NSButton *doneButton; // @synthesize doneButton=_doneButton;
+@property(retain, nonatomic) NSTextField *pendingLabel; // @synthesize pendingLabel=_pendingLabel;
 @property(retain, nonatomic) NSButton *resendButton; // @synthesize resendButton=_resendButton;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSLayoutConstraint *passwordChangeButtonTopToEmailConstraint; // @synthesize passwordChangeButtonTopToEmailConstraint=_passwordChangeButtonTopToEmailConstraint;
@@ -64,6 +66,7 @@
 - (void)userDidLogoutNotification:(id)arg1;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)popToRootViewController:(id)arg1;
+- (void)viewDidLayout;
 - (void)refreshAccountInformation;
 - (void)resendEmailVerification:(id)arg1;
 - (void)saveAndDismiss:(id)arg1;

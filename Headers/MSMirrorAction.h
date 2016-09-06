@@ -21,8 +21,11 @@
 - (BOOL)showInToolbar;
 - (id)mirrorController;
 - (id)popoverViewController;
+- (void)connectionControllerDidChangeConnectionsNotification:(id)arg1;
 - (id)imageName;
 - (void)showMirrorPopover:(id)arg1;
+- (void)dealloc;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

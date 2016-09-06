@@ -40,6 +40,7 @@
 
 + (id)licenseManager;
 + (id)rvContext;
++ (id)sharedInstance;
 @property(retain, nonatomic) BCMASEmailWindowController *masEmailController; // @synthesize masEmailController=_masEmailController;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
@@ -64,8 +65,10 @@
 - (void)refreshCurrentDocument;
 - (void)visitDocumentation:(id)arg1;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
+- (void)updatelicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
-- (void)checkMASMigration;
+- (void)checkMASMigrationWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
+- (void)startLicenseManager;
 - (void)buy:(id)arg1;
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
@@ -106,7 +109,6 @@
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
-- (id)runPluginScript:(id)arg1;
 - (id)runPluginAtURL:(id)arg1;
 - (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;

@@ -10,7 +10,7 @@
 #import "MSStyle.h"
 #import "NSCopying.h"
 
-@class MSStyleBorder, MSStyleFill, MSStyleShadow, NSArray, NSObject<NSCopying><NSCoding>, NSString;
+@class MSStyleBorder, MSStyleFill, MSStyleShadow, MSTextStyle, NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSStyle : _MSStyle <MSSharedObjectInstance, NSCopying, MSStyle>
 {
@@ -31,6 +31,8 @@
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)setTextStyle:(id)arg1;
+@property(retain, nonatomic) MSTextStyle *primitiveTextStyle;
+@property(retain, nonatomic) NSString *primitiveSharedObjectID;
 - (void)setNilValueForKey:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBlending;
 @property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;

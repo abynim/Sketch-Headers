@@ -24,16 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveY:(double)arg1;
-- (double)primitiveY;
-- (void)setPrimitiveX:(double)arg1;
-- (double)primitiveX;
-- (void)setPrimitiveWidth:(double)arg1;
-- (double)primitiveWidth;
-- (void)setPrimitiveHeight:(double)arg1;
-- (double)primitiveHeight;
-- (void)setPrimitiveConstrainProportions:(BOOL)arg1;
-- (BOOL)primitiveConstrainProportions;
 @property(nonatomic) double y; // @synthesize y=_y;
 @property(nonatomic) double x; // @synthesize x=_x;
 @property(nonatomic) double width; // @synthesize width=_width;

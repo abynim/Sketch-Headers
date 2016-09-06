@@ -14,8 +14,10 @@
     NSArray *_layers;
     NSSegmentedControl *_decorationButton;
     NSPopUpButton *_listPopUpButton;
+    NSPopUpButton *_transformPopUpButton;
 }
 
+@property(retain, nonatomic) NSPopUpButton *transformPopUpButton; // @synthesize transformPopUpButton=_transformPopUpButton;
 @property(retain, nonatomic) NSPopUpButton *listPopUpButton; // @synthesize listPopUpButton=_listPopUpButton;
 @property(retain, nonatomic) NSSegmentedControl *decorationButton; // @synthesize decorationButton=_decorationButton;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -23,12 +25,16 @@
 - (void).cxx_destruct;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
+- (void)transformPopUpAction:(id)arg1;
+- (void)prepareTransformPopUpButton;
 - (long long)indexForBulletListName:(id)arg1;
 - (id)markerForBulletListIndex:(long long)arg1;
 - (void)listPopUpAction:(id)arg1;
 - (void)decorationButtonAction:(id)arg1;
 - (void)prepareBulletListPopUpButton;
 - (void)prepareDecorationButton;
+- (void)validateUI;
+- (void)dealloc;
 - (void)awakeFromNib;
 - (id)init;
 

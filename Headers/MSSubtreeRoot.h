@@ -6,16 +6,16 @@
 
 #import "NSObject.h"
 
-@class MSImmutableLayer, NSArray;
+@class MSImmutableModelObject, NSArray;
 
 @interface MSSubtreeRoot : NSObject
 {
-    MSImmutableLayer *_layer;
-    NSArray *_ancestorsOfLayer;
+    MSImmutableModelObject *_object;
+    NSArray *_ancestorsOfObject;
 }
 
-@property(retain, nonatomic) NSArray *ancestorsOfLayer; // @synthesize ancestorsOfLayer=_ancestorsOfLayer;
-@property(retain, nonatomic) MSImmutableLayer *layer; // @synthesize layer=_layer;
+@property(retain, nonatomic) NSArray *ancestorsOfObject; // @synthesize ancestorsOfObject=_ancestorsOfObject;
+@property(retain, nonatomic) MSImmutableModelObject *object; // @synthesize object=_object;
 - (void).cxx_destruct;
 
 @end

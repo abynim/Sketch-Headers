@@ -26,11 +26,12 @@
 - (struct CGPoint)rulerBase;
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
-- (id)webExporterRepresentationOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
+- (BOOL)exporterRequiresContentClipping;
+- (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
-- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;
 - (id)svgStyle:(id)arg1;

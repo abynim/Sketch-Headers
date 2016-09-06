@@ -26,7 +26,7 @@
 - (BOOL)isFlipped;
 - (void)sizeToFit;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
-- (id)imageDataInFormat:(id)arg1 colorSpace:(id)arg2;
+- (id)imageDataInFormat:(id)arg1;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (unsigned long long)writingOptionsForType:(id)arg1 pasteboard:(id)arg2;
 - (id)writableTypesForPasteboard:(id)arg1;

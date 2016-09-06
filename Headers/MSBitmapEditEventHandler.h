@@ -46,7 +46,7 @@
 - (id)coordinateTransformMatrix;
 - (void)drawSizeLabel;
 - (void)drawBorderAroundBounds;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)shouldDrawLayerSelection;
 - (id)selectionBezierForFlippingCoordinates;
 - (struct CGRect)imageBounds;
@@ -64,9 +64,10 @@
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)flagsChanged:(id)arg1;
-- (void)vectorizeAction:(id)arg1;
+- (BOOL)rectIsCropOfImage:(struct CGRect)arg1 fromImage:(id)arg2;
+- (void)cropLayerFrame;
 - (id)imageFromSelectedArea;
 - (id)bitmapLayerFromSelectedArea;
 - (void)cropAction:(id)arg1;

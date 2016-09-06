@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveHasConvertedToNewRoundCorners:(BOOL)arg1;
-- (BOOL)primitiveHasConvertedToNewRoundCorners;
-- (void)setPrimitiveFixedRadius:(double)arg1;
-- (double)primitiveFixedRadius;
 @property(nonatomic) BOOL hasConvertedToNewRoundCorners; // @synthesize hasConvertedToNewRoundCorners=_hasConvertedToNewRoundCorners;
 @property(nonatomic) double fixedRadius; // @synthesize fixedRadius=_fixedRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;

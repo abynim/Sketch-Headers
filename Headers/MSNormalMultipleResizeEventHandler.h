@@ -18,9 +18,11 @@
     MSNormalEventData *_eventData;
     double _originalProportions;
     NSDictionary *_layerFramesBeforeResize;
+    NSDictionary *_absoluteLayerFramesBeforeResize;
     struct CGRect _originalRect;
 }
 
+@property(retain, nonatomic) NSDictionary *absoluteLayerFramesBeforeResize; // @synthesize absoluteLayerFramesBeforeResize=_absoluteLayerFramesBeforeResize;
 @property(retain, nonatomic) NSDictionary *layerFramesBeforeResize; // @synthesize layerFramesBeforeResize=_layerFramesBeforeResize;
 @property(nonatomic) double originalProportions; // @synthesize originalProportions=_originalProportions;
 @property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
@@ -31,12 +33,12 @@
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (long long)oppositeCorner;
-- (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
 - (struct CGRect)makeRectConform:(struct CGRect)arg1 toProportions:(BOOL)arg2;
 - (unsigned long long)validSnapEdgesForResizingCorner;
 - (struct CGRect)snapRect:(struct CGRect)arg1;
-- (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDraggedEvent:(id)arg1;
 - (void)refresh;
 - (void)calculateOppositePoint;
@@ -45,8 +47,8 @@
 - (void)storeCurrentLayerFrame;
 - (void)flattenSubpathsIfNecessary:(id)arg1;
 - (void)flattenRotatedShapes;
-- (void)drawInRect:(struct CGRect)arg1;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 
 @end
 

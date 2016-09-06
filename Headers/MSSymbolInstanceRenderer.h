@@ -10,7 +10,7 @@
 {
 }
 
-+ (void)drawErrorPatternInRect:(struct CGRect)arg1;
++ (void)drawErrorPatternInRect:(struct CGRect)arg1 context:(id)arg2;
 + (id)modifiedArtboard:(id)arg1 instance:(id)arg2 gridIndex:(unsigned long long)arg3;
 + (id)modifiedSymbolForInstance:(id)arg1 artboard:(id)arg2 gridIndex:(unsigned long long)arg3 inContext:(id)arg4;
 + (void)renderArtboard:(id)arg1 forInstance:(id)arg2 inContext:(id)arg3;

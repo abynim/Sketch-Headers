@@ -30,7 +30,7 @@
 - (struct CGRect)rectForDrawingPreview;
 - (struct CGRect)rectForInserting;
 - (void)refresh;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)initWithManager:(id)arg1;

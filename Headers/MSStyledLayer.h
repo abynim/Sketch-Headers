@@ -22,7 +22,7 @@
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
 - (void)setStyle:(id)arg1;
-- (id)usedStyle;
+- (id)styledLayer;
 - (BOOL)hasActiveBackgroundBlur;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
@@ -36,7 +36,7 @@
 - (void)copyStyleToPasteboard:(id)arg1;
 - (id)copyStyleToPasteboard;
 - (id)CSSAttributes;
-- (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

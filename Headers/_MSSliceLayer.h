@@ -24,10 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveBackgroundColor:(id)arg1;
-- (id)primitiveBackgroundColor;
-- (void)setPrimitiveHasBackgroundColor:(BOOL)arg1;
-- (BOOL)primitiveHasBackgroundColor;
 @property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (id)backgroundColorGeneric;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;

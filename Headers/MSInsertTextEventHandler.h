@@ -29,7 +29,7 @@
 - (id)groupForInserting;
 - (id)textLayerWithRect:(struct CGRect)arg1 type:(long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)refresh;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

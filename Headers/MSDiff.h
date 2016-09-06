@@ -10,18 +10,18 @@
 
 @interface MSDiff : NSObject
 {
-    MSSubtreeRoot *_firstLayerRoot;
-    MSSubtreeRoot *_secondLayerRoot;
+    MSSubtreeRoot *_firstObjectRoot;
+    MSSubtreeRoot *_secondObjectRoot;
 }
 
-@property(retain, nonatomic) MSSubtreeRoot *secondLayerRoot; // @synthesize secondLayerRoot=_secondLayerRoot;
-@property(retain, nonatomic) MSSubtreeRoot *firstLayerRoot; // @synthesize firstLayerRoot=_firstLayerRoot;
+@property(retain, nonatomic) MSSubtreeRoot *secondObjectRoot; // @synthesize secondObjectRoot=_secondObjectRoot;
+@property(retain, nonatomic) MSSubtreeRoot *firstObjectRoot; // @synthesize firstObjectRoot=_firstObjectRoot;
 - (void).cxx_destruct;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
 - (struct CGRect)contentDirtyDiffRect;
 - (id)init;
-- (id)initWithFirstLayerRoot:(id)arg1 secondLayerRoot:(id)arg2;
+- (id)initWithFirstObjectRoot:(id)arg1 secondObjectRoot:(id)arg2;
 
 @end
 

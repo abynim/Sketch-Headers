@@ -40,6 +40,7 @@
 - (BOOL)canSmoothOpacity;
 - (BOOL)hasDefaultValues;
 - (id)defaultStopsArray;
+- (id)initWithNSGradient:(id)arg1;
 - (id)initBlankGradient;
 - (BOOL)hasAlphaStop;
 - (BOOL)isAssetEqual:(id)arg1;

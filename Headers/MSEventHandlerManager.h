@@ -35,7 +35,7 @@
 @property(readonly, nonatomic) MSEventHandler *defaultHandler;
 - (id)handlerForKey:(id)arg1;
 - (id)currentHandlerKey;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (id)initWithDelegate:(id)arg1;
 
 @end

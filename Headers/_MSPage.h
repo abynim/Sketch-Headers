@@ -27,16 +27,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveVerticalRulerData:(id)arg1;
-- (id)primitiveVerticalRulerData;
-- (void)setPrimitiveLayout:(id)arg1;
-- (id)primitiveLayout;
-- (void)setPrimitiveHorizontalRulerData:(id)arg1;
-- (id)primitiveHorizontalRulerData;
-- (void)setPrimitiveGrid:(id)arg1;
-- (id)primitiveGrid;
-- (void)setPrimitiveIncludeInCloudUpload:(BOOL)arg1;
-- (BOOL)primitiveIncludeInCloudUpload;
 @property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 - (id)verticalRulerDataGeneric;
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;

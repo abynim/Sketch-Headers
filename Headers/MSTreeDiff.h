@@ -6,34 +6,34 @@
 
 #import "NSObject.h"
 
-@class MSImmutableLayer, NSMutableArray;
+@class MSImmutableModelObject, NSMutableArray;
 
 @interface MSTreeDiff : NSObject
 {
-    MSImmutableLayer *_firstLayer;
-    MSImmutableLayer *_secondLayer;
+    MSImmutableModelObject *_firstObject;
+    MSImmutableModelObject *_secondObject;
     NSMutableArray *_mutableDiffs;
-    NSMutableArray *_firstLayerAncestorStack;
-    NSMutableArray *_secondLayerAncestorStack;
+    NSMutableArray *_firstObjectAncestorStack;
+    NSMutableArray *_secondObjectAncestorStack;
 }
 
-@property(retain, nonatomic) NSMutableArray *secondLayerAncestorStack; // @synthesize secondLayerAncestorStack=_secondLayerAncestorStack;
-@property(retain, nonatomic) NSMutableArray *firstLayerAncestorStack; // @synthesize firstLayerAncestorStack=_firstLayerAncestorStack;
+@property(retain, nonatomic) NSMutableArray *secondObjectAncestorStack; // @synthesize secondObjectAncestorStack=_secondObjectAncestorStack;
+@property(retain, nonatomic) NSMutableArray *firstObjectAncestorStack; // @synthesize firstObjectAncestorStack=_firstObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *mutableDiffs; // @synthesize mutableDiffs=_mutableDiffs;
-@property(readonly, nonatomic) MSImmutableLayer *secondLayer; // @synthesize secondLayer=_secondLayer;
-@property(readonly, nonatomic) MSImmutableLayer *firstLayer; // @synthesize firstLayer=_firstLayer;
+@property(readonly, nonatomic) MSImmutableModelObject *secondObject; // @synthesize secondObject=_secondObject;
+@property(readonly, nonatomic) MSImmutableModelObject *firstObject; // @synthesize firstObject=_firstObject;
 - (void).cxx_destruct;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
 - (struct CGRect)contentDirtyDiffRect;
-- (void)addDiffPairForFirstLayer:(id)arg1 secondLayer:(id)arg2;
-- (void)diffLayer:(id)arg1 withLayer:(id)arg2;
-- (void)diffLayers:(id)arg1 withLayers:(id)arg2;
+- (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
+- (void)diffObject:(id)arg1 withObject:(id)arg2;
+- (void)diffObjects:(id)arg1 withObjects:(id)arg2;
 - (id)diffs;
 - (id)init;
-- (id)initWithFirstLayer:(id)arg1 secondLayer:(id)arg2;
+- (id)initWithFirstObject:(id)arg1 secondObject:(id)arg2;
 
 @end
 

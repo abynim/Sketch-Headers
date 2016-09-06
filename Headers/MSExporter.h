@@ -15,19 +15,20 @@
     BOOL _isPrinting;
     BOOL _allowSubpixelAntialiasing;
     MSExportRequest *_request;
-    NSColorSpace *_colorSpace;
     BCCache *_cache;
+    NSColorSpace *_colorSpace;
     struct CGRect _bounds;
 }
 
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
+@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
-@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
+- (BOOL)exportToFileURL:(id)arg1;
 - (id)cacheForZoomLevel:(double)arg1;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (void)drawRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;

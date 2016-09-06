@@ -68,6 +68,7 @@
 - (void)removeUserPreset:(id)arg1;
 - (void)addUserPreset:(id)arg1;
 - (void)loadArtboardPresets;
+- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

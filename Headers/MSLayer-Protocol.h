@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
+- (BOOL)isSelected;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;

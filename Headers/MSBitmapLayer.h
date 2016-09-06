@@ -36,7 +36,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (void)applyOverrides:(id)arg1;
-- (void)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

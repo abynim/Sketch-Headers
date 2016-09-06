@@ -23,8 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveImages:(id)arg1;
-- (id)primitiveImages;
 @property(retain, nonatomic) NSDictionary *images; // @synthesize images=_images;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

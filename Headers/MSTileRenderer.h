@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, MSImmutablePage, MSRenderingContext;
+@class MSCGContextPool, MSImmutableDocumentData, MSImmutablePage, MSRenderingContext;
 
 @interface MSTileRenderer : NSObject
 {
@@ -17,6 +17,7 @@
     MSImmutableDocumentData *_document;
     double _backingScale;
     id <MSRenderingContextCacheProvider> _cacheProvider;
+    MSCGContextPool *_contextPool;
     double _zoomValue;
     MSRenderingContext *_context;
     struct CGRect _tileRect;
@@ -26,6 +27,7 @@
 @property(retain) MSRenderingContext *context; // @synthesize context=_context;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;

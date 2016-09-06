@@ -6,37 +6,36 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSDragLayerGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject<NSCopying><NSCoding>;
+#import "MSGestureRecognizerDelegate.h"
 
-@interface MSNormalEventHandler : MSNormalBaseEventHandler
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
     BOOL _nextModifierKeyChangeShouldRefreshView;
     MSLayerPositionDrawing *_positionDrawing;
     MSLayer *_highlightedLayer;
-    unsigned long long _modifierFlags;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSNormalEventData *_eventData;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
     struct NSObject *_duplicatedObjectID;
-    MSDragLayerGestureRecognizer *_dragGestureRecognizer;
-    double _shiftAlignLongestDistance;
-    unsigned long long _shiftAlignLongestAxis;
+    MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
+    MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     struct CGSize _duplicateOffset;
 }
 
-@property(nonatomic) unsigned long long shiftAlignLongestAxis; // @synthesize shiftAlignLongestAxis=_shiftAlignLongestAxis;
-@property(nonatomic) double shiftAlignLongestDistance; // @synthesize shiftAlignLongestDistance=_shiftAlignLongestDistance;
-@property(readonly, nonatomic) MSDragLayerGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
+@property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
+@property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
 @property(nonatomic) struct CGSize duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(nonatomic) BOOL nextModifierKeyChangeShouldRefreshView; // @synthesize nextModifierKeyChangeShouldRefreshView=_nextModifierKeyChangeShouldRefreshView;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(retain, nonatomic) MSLayer *highlightedLayer; // @synthesize highlightedLayer=_highlightedLayer;
 - (void).cxx_destruct;
+- (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
 @property(readonly, nonatomic) MSLayerPositionDrawing *positionDrawing; // @synthesize positionDrawing=_positionDrawing;
 - (void)currentPageDidChange;
@@ -53,6 +52,7 @@
 - (void)rightMouseDown:(id)arg1;
 - (id)menu;
 - (void)selectAll:(id)arg1;
+- (void)dragToSelect:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)moveLayer:(id)arg1 toOffset:(struct CGPoint)arg2 fromPointInAbsoluteCoordinates:(struct CGPoint)arg3;
 - (void)endDuplicateDragging:(BOOL)arg1;
@@ -60,13 +60,12 @@
 - (void)moveDraggedLayersToOffset:(struct CGPoint)arg1;
 - (void)layerDragged:(id)arg1;
 - (void)flagsChanged:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1;
-- (void)drawSubPathsForGroup:(id)arg1;
-- (void)drawDragSelection;
-- (struct CGRect)rectForDrawingDragSelectOrZoom;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawPathsInShapeGroup:(id)arg1;
+- (void)drawSelectedShapePathLayers;
 - (void)drawMultipleSelection;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
-- (void)drawLayerHighlight;
+- (void)drawLayerHighlight:(id)arg1;
 - (void)drawLayerSelection;
 - (unsigned long long)hitTestingOptions;
 - (id)layerAtPoint:(struct CGPoint)arg1;
@@ -93,25 +92,20 @@
 - (void)moveToNextArtboard;
 - (void)moveToPreviousArtboard;
 - (void)keyDown:(id)arg1;
-- (void)handleMouseMoveOrFlagChange;
+- (void)trackMouse:(id)arg1;
 - (BOOL)validateLayerForHighlighting:(id)arg1;
 - (BOOL)isMouseHoveringMultipleSelectedLayerCorner;
 - (long long)multipleSelectedLayerCornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)isMouseHoveringLayer:(id)arg1 corner:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (BOOL)isMouseHoveringLayerCorner;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;
-- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseExited;
 - (void)selectLayer:(id)arg1;
-- (void)mouseDraggedSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (struct CGRect)rectForDragSelectionOrZoom:(struct CGPoint)arg1;
-- (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;
 - (void)refreshPositionDrawingIfApplicable:(unsigned long long)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDownMoveLayers:(struct CGPoint)arg1 clickCount:(long long)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDownDoubleClick:(struct CGPoint)arg1 onLayer:(id)arg2;
-- (void)mouseDownSelectLayers:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 handle:(long long *)arg4 manager:(id)arg5;
 - (void)enterLineResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
@@ -121,6 +115,12 @@
 - (void)handlerGotFocus;
 - (id)toolbarIdentifier;
 - (id)initWithManager:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

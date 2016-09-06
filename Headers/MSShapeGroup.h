@@ -14,7 +14,6 @@
 {
 }
 
-+ (unsigned long long)traits;
 + (struct CGRect)groupBoundsForLayers:(id)arg1;
 + (BOOL)groupBoundsShouldBeIntegral;
 + (id)shapeWithPath:(id)arg1;
@@ -35,7 +34,6 @@
 - (void)moveTransformsToChildren;
 - (void)reversePath;
 - (void)flatten;
-- (BOOL)flattenIfNecessary;
 - (void)simplify;
 - (void)setIsOpen:(BOOL)arg1;
 @property(nonatomic) BOOL isClosed;
@@ -51,6 +49,7 @@
 @property(readonly, nonatomic) MSPath *pathInBounds;
 - (id)_bezierPathInSize:(struct CGSize)arg1;
 - (void)applyPropertiesToBezier:(id)arg1;
+- (id)pathWithTransformsUsingCache:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (BOOL)hitTestPoint:(struct CGPoint)arg1 inBezier:(id)arg2 zoomValue:(double)arg3;
@@ -63,6 +62,7 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)canFlatten;
+- (BOOL)canProbablyFlatten;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
 - (BOOL)shouldFlattenAfterRotate;
@@ -82,7 +82,7 @@
 - (struct CGPoint)p2;
 - (struct CGPoint)p1;
 - (id)inspectorViewControllers;
-- (void)drawHoverWithZoom:(double)arg1;
+- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;

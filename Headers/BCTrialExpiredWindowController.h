@@ -18,6 +18,7 @@
 + (void)show;
 - (void).cxx_destruct;
 - (void)registerLicense:(id)arg1;
+- (void)openRecoveryPage:(id)arg1;
 - (void)visitStore:(id)arg1;
 - (void)didCloseAllDocuments:(id)arg1;
 - (void)quit:(id)arg1;

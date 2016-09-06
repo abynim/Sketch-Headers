@@ -11,7 +11,6 @@
 @interface MSCloudUploadTableCellView : NSTableCellView
 {
     BOOL _animating;
-    BOOL _isSelected;
     MSCloudUserShare *_share;
     id <MSCloudUploadTableCellViewDelegate> _delegate;
     NSTextField *_nameTextField;
@@ -23,7 +22,6 @@
 }
 
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
-@property(nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(retain, nonatomic) NSProgressIndicator *deleteProgressIndicator; // @synthesize deleteProgressIndicator=_deleteProgressIndicator;
 @property(nonatomic) __weak NSButton *openShareButton; // @synthesize openShareButton=_openShareButton;
 @property(nonatomic) __weak NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
@@ -35,7 +33,7 @@
 - (void).cxx_destruct;
 - (void)openShare:(id)arg1;
 - (void)deleteShare:(id)arg1;
-- (void)setViewSelected:(BOOL)arg1;
+- (void)setBackgroundStyle:(long long)arg1;
 - (void)updateControls;
 - (void)openURL:(id)arg1;
 - (void)dealloc;

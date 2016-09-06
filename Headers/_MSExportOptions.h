@@ -36,14 +36,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveExportFormats:(id)arg1;
-- (id)primitiveExportFormats;
-- (void)setPrimitiveShouldTrim:(BOOL)arg1;
-- (BOOL)primitiveShouldTrim;
-- (void)setPrimitiveLayerOptions:(unsigned long long)arg1;
-- (unsigned long long)primitiveLayerOptions;
-- (void)setPrimitiveIncludedLayerIds:(id)arg1;
-- (id)primitiveIncludedLayerIds;
 - (void)setExportFormats:(id)arg1;
 @property(readonly, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;

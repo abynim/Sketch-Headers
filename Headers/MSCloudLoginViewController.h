@@ -12,16 +12,18 @@
 {
     NSTextField *_emailTextField;
     NSTextField *_passwordTextField;
+    NSTextField *_titleLabel;
     NSButton *_loginButton;
     NSButton *_registerButton;
     NSProgressIndicator *_loginProgressIndicator;
 }
 
-@property(nonatomic) __weak NSProgressIndicator *loginProgressIndicator; // @synthesize loginProgressIndicator=_loginProgressIndicator;
-@property(nonatomic) __weak NSButton *registerButton; // @synthesize registerButton=_registerButton;
-@property(nonatomic) __weak NSButton *loginButton; // @synthesize loginButton=_loginButton;
-@property(nonatomic) __weak NSTextField *passwordTextField; // @synthesize passwordTextField=_passwordTextField;
-@property(nonatomic) __weak NSTextField *emailTextField; // @synthesize emailTextField=_emailTextField;
+@property(retain, nonatomic) NSProgressIndicator *loginProgressIndicator; // @synthesize loginProgressIndicator=_loginProgressIndicator;
+@property(retain, nonatomic) NSButton *registerButton; // @synthesize registerButton=_registerButton;
+@property(retain, nonatomic) NSButton *loginButton; // @synthesize loginButton=_loginButton;
+@property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(retain, nonatomic) NSTextField *passwordTextField; // @synthesize passwordTextField=_passwordTextField;
+@property(retain, nonatomic) NSTextField *emailTextField; // @synthesize emailTextField=_emailTextField;
 - (void).cxx_destruct;
 - (void)userDidLogout;
 - (void)userDidLogin;

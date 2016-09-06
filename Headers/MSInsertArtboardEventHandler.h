@@ -6,13 +6,15 @@
 
 #import "MSInsertLayerEventHandler.h"
 
-@class MSInsertArtboardInspectorViewController;
+@class MSInsertArtboardInspectorViewController, NSMutableArray;
 
 @interface MSInsertArtboardEventHandler : MSInsertLayerEventHandler
 {
     MSInsertArtboardInspectorViewController *_inspectorViewController;
+    NSMutableArray *_insertedArtboards;
 }
 
+@property(readonly, nonatomic) NSMutableArray *insertedArtboards; // @synthesize insertedArtboards=_insertedArtboards;
 - (void).cxx_destruct;
 - (BOOL)shouldHideExportBar;
 - (BOOL)shouldAddInsertFromSelectionItem;
@@ -28,6 +30,7 @@
 - (void)insertArtboardsFromPresetCollection:(id)arg1;
 - (void)insertArtboardFromPreset:(id)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1;
+- (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)title;
 - (void)dealloc;

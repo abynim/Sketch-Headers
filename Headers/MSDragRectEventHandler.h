@@ -24,7 +24,7 @@
 - (void)prepareGraphicsContext;
 - (void)drawRectPreview;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (id)currentGroup;
 - (BOOL)handlesHandToolItself;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
@@ -33,11 +33,8 @@
 - (struct CGRect)rectForInserting;
 - (id)performActionWithRect:(struct CGRect)arg1;
 - (struct CGPoint)alignMouseToGrid:(struct CGPoint)arg1;
-- (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;

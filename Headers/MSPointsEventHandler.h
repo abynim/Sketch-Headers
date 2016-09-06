@@ -30,7 +30,7 @@
 - (id)handleLinesPath;
 - (id)handleLinesColor;
 - (void)drawHandleLines;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)keyDown:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;

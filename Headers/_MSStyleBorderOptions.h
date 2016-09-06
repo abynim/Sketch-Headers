@@ -25,12 +25,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveLineJoinStyle:(unsigned long long)arg1;
-- (unsigned long long)primitiveLineJoinStyle;
-- (void)setPrimitiveLineCapStyle:(unsigned long long)arg1;
-- (unsigned long long)primitiveLineCapStyle;
-- (void)setPrimitiveDashPattern:(id)arg1;
-- (id)primitiveDashPattern;
 @property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
 @property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
 @property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;

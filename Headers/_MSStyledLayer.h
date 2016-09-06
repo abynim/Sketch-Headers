@@ -23,8 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveStyle:(id)arg1;
-- (id)primitiveStyle;
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
 - (id)styleGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;

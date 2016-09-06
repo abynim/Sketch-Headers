@@ -22,7 +22,7 @@
 - (id)previewBorderColor:(BOOL)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
-- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (id)renderBitmapEffects:(id)arg1;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;

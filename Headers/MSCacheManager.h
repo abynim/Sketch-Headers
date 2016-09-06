@@ -12,7 +12,6 @@
 
 @interface MSCacheManager : NSObject <MSRenderingContextCacheProvider>
 {
-    BCCache *_modelCache;
     BCCache *_renderingCache;
     BCCache *_zoomIndependentCache;
     double _zoomLevelForSharedCache;
@@ -21,8 +20,8 @@
 @property(nonatomic) double zoomLevelForSharedCache; // @synthesize zoomLevelForSharedCache=_zoomLevelForSharedCache;
 @property(retain, nonatomic) BCCache *zoomIndependentCache; // @synthesize zoomIndependentCache=_zoomIndependentCache;
 @property(retain, nonatomic) BCCache *renderingCache; // @synthesize renderingCache=_renderingCache;
-@property(retain, nonatomic) BCCache *modelCache; // @synthesize modelCache=_modelCache;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BCCache *modelCache;
 - (void)clearAllCaches;
 - (void)clearCachesExceptForOwners:(id)arg1;
 - (id)cacheForZoomLevel:(double)arg1;

@@ -12,6 +12,7 @@
 
 + (void)resetZoomValue;
 + (void)setZoomValue:(double)arg1;
++ (double)zoomValue;
 + (void)drawWithTransformStruct:(struct _CHTransformStruct)arg1 aroundPoint:(struct CGPoint)arg2 usingBlock:(CDUnknownBlockType)arg3;
 + (void)drawShadowForHover:(BOOL)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)gradient;
@@ -19,7 +20,7 @@
 + (void)drawBezier:(id)arg1;
 + (void)drawRectAtPoint:(struct CGPoint)arg1 ofType:(long long)arg2;
 + (void)drawGradientHandleAtPoint:(struct CGPoint)arg1 color:(id)arg2 selected:(BOOL)arg3;
-+ (void)drawVectorHandle:(unsigned long long)arg1 atPoint:(struct CGPoint)arg2 state:(unsigned long long)arg3;
++ (void)drawVectorHandle:(unsigned long long)arg1 state:(unsigned long long)arg2 atProposedPoint:(struct CGPoint *)arg3 inView:(id)arg4;
 + (void)drawAtPoint:(struct CGPoint)arg1 ofType:(long long)arg2 state:(unsigned long long)arg3;
 + (double)dotSizeForType:(long long)arg1;
 + (void)load;

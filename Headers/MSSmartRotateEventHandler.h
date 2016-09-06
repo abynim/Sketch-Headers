@@ -30,7 +30,7 @@
 - (void)registerObservers;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;
 - (void)drawControlPoints;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)tryToSnapPoint:(struct CGPoint)arg1 toMid:(struct CGPoint)arg2;
 - (void)rotateCopies;

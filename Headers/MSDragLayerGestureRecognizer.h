@@ -4,40 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MSDragToMoveOrCopyGestureRecognizer.h"
 
-@class NSArray;
-
-@interface MSDragLayerGestureRecognizer : NSObject
+@interface MSDragLayerGestureRecognizer : MSDragToMoveOrCopyGestureRecognizer
 {
-    id _target;
-    SEL _action;
-    long long _state;
-    unsigned long long _modifierFlags;
-    NSArray *_originalDraggedItems;
-    NSArray *_originalDragPositions;
-    NSArray *_copiedItems;
-    struct CGPoint _location;
 }
 
-@property(copy, nonatomic) NSArray *copiedItems; // @synthesize copiedItems=_copiedItems;
-@property(copy, nonatomic) NSArray *originalDragPositions; // @synthesize originalDragPositions=_originalDragPositions;
-@property(copy, nonatomic) NSArray *originalDraggedItems; // @synthesize originalDraggedItems=_originalDraggedItems;
-@property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
-@property(readonly, nonatomic) struct CGPoint location; // @synthesize location=_location;
-@property(readonly, nonatomic) long long state; // @synthesize state=_state;
-@property SEL action; // @synthesize action=_action;
-@property __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
-- (void)flagsChanged:(id)arg1;
-- (void)mouseDragged:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
-- (void)mouseUp:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
-- (void)reset;
-@property(readonly, nonatomic) BOOL shouldSnap;
-@property(readonly, nonatomic) BOOL shouldCopyDraggedItems;
-- (void)setState:(long long)arg1;
-- (id)init;
-- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
+- (BOOL)shouldSnap;
 
 @end
 

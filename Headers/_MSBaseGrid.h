@@ -20,8 +20,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveIsEnabled:(BOOL)arg1;
-- (BOOL)primitiveIsEnabled;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

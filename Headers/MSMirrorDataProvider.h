@@ -36,7 +36,8 @@
 - (void)currentDocumentNameDidChange;
 - (void)currentDocumentDidChange;
 - (void)currentArtboardDidChange;
-- (void)renderImageForArtboardIdentifier:(id)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 handler:(CDUnknownBlockType)arg4;
+- (id)imageData:(id)arg1 dataByInsertingBackgroundColor:(id)arg2;
+- (void)renderImageForArtboardIdentifier:(id)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 context:(id)arg4 handler:(CDUnknownBlockType)arg5;
 @property(readonly) NSDictionary *manifestContent;
 @property(readonly) NSString *currentArtboardIdentifier;
 - (id)init;

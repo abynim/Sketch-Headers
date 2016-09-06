@@ -17,7 +17,9 @@
 @property(readonly, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(nonatomic) __weak id <MSSidebarControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)dataController:(id)arg1 exportNodes:(id)arg2;
+- (id)dataController:(id)arg1 exportNodes:(id)arg2 toFolder:(id)arg3;
+- (id)uniqueExportURLForLayer:(id)arg1 inFolder:(id)arg2 comparingTo:(id)arg3;
+- (id)extensionForExportingLayer:(id)arg1;
 - (BOOL)dataController:(id)arg1 copyNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)copyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
 - (BOOL)dataController:(id)arg1 moveNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;

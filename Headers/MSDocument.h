@@ -6,6 +6,7 @@
 
 #import "NSDocument.h"
 
+#import "BCSideBarViewControllerDelegate.h"
 #import "MSBasicDelegate.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSEventHandlerManagerDelegate.h"
@@ -16,13 +17,14 @@
 
 @class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
 
-@interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate>
+@interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate>
 {
     BOOL _hasOpenedImageFile;
     BOOL _nextReadFromURLIsReload;
     BOOL _layerListRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
     BOOL _cacheFlushInProgress;
+    BOOL _hasScheduledDocumentDidChange;
     NSArray *_exportableLayerSelection;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -54,6 +56,7 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+@property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
@@ -83,6 +86,9 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+@property(nonatomic) double pageListHeight;
+- (void)resetCloudShare;
+@property(readonly, nonatomic) NSString *publisherFileName;
 - (void)copySVG:(id)arg1;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
@@ -99,23 +105,23 @@
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)onAddPage:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
-- (id)extensionForExportingLayer:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
-- (id)sidebarController:(id)arg1 exportLayers:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
 - (void)sidebarController:(id)arg1 validateRemovalOfPage:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
-- (void)sidebarControllerSelectionDidChange:(id)arg1;
+- (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)refreshLayerListIfNecessary;
 - (void)scheduleLayerListRefresh;
 - (void)showPagesList;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)updateSliceCount;
+- (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
 - (void)logBuggyBezierPaths;
 - (void)determineCurrentArtboard;
 - (void)layerSelectionDidChange;
+- (void)pageTreeLayoutDidChange;
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
 - (void)sliceDidChangeVisibility:(id)arg1;
@@ -190,7 +196,6 @@
 - (BOOL)isSeparatorIdentifier:(id)arg1;
 - (void)reversePath:(id)arg1;
 - (void)flagsChanged:(id)arg1;
-- (id)publisherFileName;
 - (void)windowDidResize:(id)arg1;
 - (id)currentHandlerKey;
 - (id)currentHandler;
@@ -214,6 +219,8 @@
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)coalescedSelectionDidChangeNotification:(id)arg1;
 - (id)findSelectedLayers;
+- (void)saveDocumentAs:(id)arg1;
+- (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;
 - (void)exportPDFBook:(id)arg1;
 - (void)exportSliceLayers:(id)arg1;

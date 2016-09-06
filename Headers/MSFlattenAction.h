@@ -10,11 +10,9 @@
 {
 }
 
-- (id)tooltip;
-- (BOOL)shouldWarnAboutFlattening;
 - (id)historyMomentTitle;
-- (void)flattenIgnoringWarning;
-- (void)doFlatten;
+- (id)tooltip;
+- (BOOL)canFlattenSelection;
 - (void)doPerformAction:(id)arg1;
 - (void)flatten:(id)arg1;
 - (BOOL)validate;

@@ -59,7 +59,6 @@
 - (void)internalRefreshPreviewImages;
 - (id)addSliceIconToImage:(id)arg1;
 @property(readonly, nonatomic) id <BCOutlineViewNode> node;
-- (void)prepareForReuse;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;
 - (void)dealloc;
 

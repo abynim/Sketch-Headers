@@ -16,13 +16,17 @@
     NSImage *_toolbarImage;
 }
 
++ (BOOL)cloudEnabled;
 @property(retain, nonatomic) NSImage *toolbarImage; // @synthesize toolbarImage=_toolbarImage;
 @property(retain, nonatomic) MSCloudViewController *viewController; // @synthesize viewController=_viewController;
 - (void).cxx_destruct;
 - (id)label;
 - (id)image;
 - (id)tooltip;
+- (BOOL)showInToolbar;
+- (BOOL)validate;
 - (void)updateToolbarItemButton;
+- (void)cloudViewControllerWantsPresentation:(id)arg1;
 - (void)cloudViewController:(id)arg1 localServerIsPublished:(BOOL)arg2;
 - (id)progressImagesWithSuffix:(id)arg1;
 - (void)ensureProgressImagesLoaded;

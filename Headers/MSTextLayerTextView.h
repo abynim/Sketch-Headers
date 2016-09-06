@@ -34,6 +34,7 @@
 - (void)mouseDown:(id)arg1;
 - (BOOL)hitTestFromEvent:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
+- (void)viewWillMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 
 @end

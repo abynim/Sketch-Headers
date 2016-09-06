@@ -20,8 +20,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveIsEquilateral:(BOOL)arg1;
-- (BOOL)primitiveIsEquilateral;
 @property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

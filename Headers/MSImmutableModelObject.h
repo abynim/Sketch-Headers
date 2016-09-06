@@ -9,7 +9,7 @@
 #import "MSModelObject.h"
 #import "NSCoding.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableModelObject : MSModelObjectCommon <NSCoding, MSModelObject>
 {
@@ -35,6 +35,9 @@
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
 - (id)newMutableCounterpart;
+- (BOOL)shouldDiffSubObjectsForDifferingObject:(id)arg1;
+- (BOOL)differsFromObject:(id)arg1;
+@property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -19,7 +19,6 @@
     long long _preCalculatedHasSelectedLayer;
 }
 
-+ (unsigned long long)traits;
 + (BOOL)groupBoundsShouldBeIntegral;
 + (struct CGRect)groupBoundsForLayers:(id)arg1;
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
@@ -33,7 +32,8 @@
 - (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)children;
 - (id)layerWithID:(id)arg1;
-- (unsigned long long)_constraintForLayer:(id)arg1 inOldSize:(struct CGSize)arg2;
+- (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
+- (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (unsigned long long)constraintForLayer:(id)arg1 inOldSize:(struct CGSize)arg2;
 - (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
 - (void)resizeChildrenFromOldSize:(struct CGSize)arg1;
@@ -69,11 +69,12 @@
 - (void)performInitEmptyObject;
 - (BOOL)handleDoubleClick;
 - (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1;
+- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)prepareAsMaskContainer;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)expandableInLayerList;
+- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)translateChildrenFrameToLayers:(id)arg1;
 - (void)moveTransformsToChildren:(id)arg1;
 - (id)moveLayersToParent;

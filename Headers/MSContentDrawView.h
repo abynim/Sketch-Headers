@@ -63,6 +63,10 @@
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSContentDrawViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
+- (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
+- (struct CGPoint)convertPointFromPage:(struct CGPoint)arg1;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (void)layerPositionPossiblyChanged;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)windowDidResize:(id)arg1;

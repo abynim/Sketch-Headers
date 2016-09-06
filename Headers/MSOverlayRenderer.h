@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSEventHandlerManager, MSPage, MSZoomTool;
+@class BCCache, MSEventHandlerManager, MSPage, MSZoomTool;
 
 @interface MSOverlayRenderer : NSObject
 {
@@ -15,9 +15,11 @@
     MSPage *_page;
     MSZoomTool *_zoomTool;
     MSEventHandlerManager *_eventManager;
+    BCCache *_cache;
     struct CGRect _rect;
 }
 
+@property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) MSEventHandlerManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(retain, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
@@ -31,7 +33,7 @@
 - (void)drawArtboardShadowForRect:(struct CGRect)arg1 image:(id)arg2;
 - (void)drawArtboardOutline;
 - (void)drawSliceOutline:(id)arg1;
-- (void)drawSlicesOutlineForGroup:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)drawSlicesOutlineForGroup:(id)arg1 inRect:(struct CGRect)arg2 zoom:(double)arg3;
 - (void)drawSlicesOutline;
 - (BOOL)shouldDrawSlicesOutline;
 - (void)drawPixelLines;
@@ -40,7 +42,7 @@
 - (void)drawGridForRootLayer:(id)arg1;
 - (void)draw;
 - (void)drawDebugCoordinates;
-- (void)renderPage:(id)arg1 inRect:(struct CGRect)arg2 withZoomTool:(id)arg3 handlerManager:(id)arg4;
+- (void)renderPage:(id)arg1 inRect:(struct CGRect)arg2 withZoomTool:(id)arg3 handlerManager:(id)arg4 cache:(id)arg5;
 - (id)init;
 
 @end

@@ -31,7 +31,7 @@
 - (void)drawRectPreview;
 - (id)imageName;
 - (void)handlerWillLoseFocus;
-- (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

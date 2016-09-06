@@ -13,6 +13,7 @@
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;
+- (void)resetSizeToMaster;
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
 - (void)updateOverrideIDSWithMapping:(id)arg1;
 - (void)symbolMasterDidChange:(id)arg1 withInfluencePaddings:(struct BCEdgePaddings)arg2;

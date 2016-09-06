@@ -32,13 +32,14 @@
 @property(retain, nonatomic) NSTextField *widthField; // @synthesize widthField=_widthField;
 @property(retain, nonatomic) NSTextField *scalingField; // @synthesize scalingField=_scalingField;
 @property(nonatomic) BOOL hasDoneFirstScale; // @synthesize hasDoneFirstScale=_hasDoneFirstScale;
-@property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
-@property(retain, nonatomic) NSDictionary *selectedObjectsBackup; // @synthesize selectedObjectsBackup=_selectedObjectsBackup;
+@property(readonly, nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
+@property(readonly, nonatomic) NSDictionary *selectedObjectsBackup; // @synthesize selectedObjectsBackup=_selectedObjectsBackup;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 - (void).cxx_destruct;
 - (id)doc;
 - (void)restoreCurrentPage;
+- (void)saveBackupOfSelection;
 - (void)scaleSelectedObjects;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
@@ -53,7 +54,6 @@
 - (void)setNilValueForKey:(id)arg1;
 @property(nonatomic) double width; // @dynamic width;
 - (void)windowDidLoad;
-- (void)awakeFromNib;
 - (id)initWithWindow:(id)arg1;
 
 @end

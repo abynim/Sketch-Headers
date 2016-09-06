@@ -18,6 +18,8 @@
 + (id)validFormats;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 @property(readonly, copy) NSString *description;
+@property(readonly) NSString *fileName;
+@property(readonly) NSString *baseFileName;
 - (id)defaultName;
 - (void)remove;
 - (id)parentLayer;

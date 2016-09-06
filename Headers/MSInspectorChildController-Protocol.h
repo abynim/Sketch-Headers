@@ -11,5 +11,8 @@
 @protocol MSInspectorChildController <MSInspectorSection>
 - (void)selectionDidChangeTo:(NSArray *)arg1;
 - (void)prepareForDisplay;
+
+@optional
+- (void)layerPositionPossiblyChanged;
 @end
 

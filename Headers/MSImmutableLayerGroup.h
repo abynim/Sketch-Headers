@@ -17,15 +17,17 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
+- (BOOL)containsSelectedItem;
 - (id)children;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
+- (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
 - (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-- (id)sublayersForTreeDiff;
+- (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;

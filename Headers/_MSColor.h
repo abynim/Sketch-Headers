@@ -23,14 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveRed:(double)arg1;
-- (double)primitiveRed;
-- (void)setPrimitiveGreen:(double)arg1;
-- (double)primitiveGreen;
-- (void)setPrimitiveBlue:(double)arg1;
-- (double)primitiveBlue;
-- (void)setPrimitiveAlpha:(double)arg1;
-- (double)primitiveAlpha;
 - (void)setRed:(double)arg1;
 @property(readonly, nonatomic) double red; // @synthesize red=_red;
 - (void)setGreen:(double)arg1;

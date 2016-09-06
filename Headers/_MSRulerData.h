@@ -24,10 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveGuides:(id)arg1;
-- (id)primitiveGuides;
-- (void)setPrimitiveBase:(long long)arg1;
-- (long long)primitiveBase;
 @property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void)performInitWithImmutableModelObject:(id)arg1;

@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class MSFirstLineHeightTypesetter;
+@class NSLayoutManager;
 
 @protocol MSFirstLineTypesetterDelegate <NSObject>
-- (double)baselineAdjustmentForTypesetter:(MSFirstLineHeightTypesetter *)arg1;
+- (double)baselineAdjustmentForLayoutManager:(NSLayoutManager *)arg1;
 @end
 

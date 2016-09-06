@@ -23,8 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveEncodedAttributes:(id)arg1;
-- (id)primitiveEncodedAttributes;
 @property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

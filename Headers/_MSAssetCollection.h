@@ -46,14 +46,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveImageCollection:(id)arg1;
-- (id)primitiveImageCollection;
-- (void)setPrimitiveGradients:(id)arg1;
-- (id)primitiveGradients;
-- (void)setPrimitiveColors:(id)arg1;
-- (id)primitiveColors;
-- (void)setPrimitiveImages:(id)arg1;
-- (id)primitiveImages;
 @property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
 - (id)imageCollectionGeneric;
 - (void)setGradients:(id)arg1;

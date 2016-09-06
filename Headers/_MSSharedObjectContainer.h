@@ -33,8 +33,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveObjects:(id)arg1;
-- (id)primitiveObjects;
 - (void)setObjects:(id)arg1;
 @property(readonly, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 - (void)performInitWithImmutableModelObject:(id)arg1;

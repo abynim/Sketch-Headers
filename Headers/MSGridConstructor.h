@@ -11,17 +11,17 @@
 @interface MSGridConstructor : NSObject
 {
     NSArray *_layers;
-    CDStruct_0addd29a _options;
+    CDStruct_ec0e0888 _options;
 }
 
-@property(nonatomic) CDStruct_0addd29a options; // @synthesize options=_options;
+@property(nonatomic) CDStruct_ec0e0888 options; // @synthesize options=_options;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)duplicateLayers:(id)arg1;
 - (id)makeAllLayers;
 - (double)largestHeightInLayers:(id)arg1;
 - (struct CGSize)sizeForLayer:(id)arg1;
-- (void)makeGridWithLayers:(id)arg1 options:(CDStruct_0addd29a)arg2;
+- (void)makeGridWithLayers:(id)arg1 options:(CDStruct_ec0e0888)arg2;
 
 @end
 

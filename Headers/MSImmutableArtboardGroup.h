@@ -25,6 +25,7 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithCoder:(id)arg1;
+- (BOOL)exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;

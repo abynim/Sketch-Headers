@@ -8,14 +8,11 @@
 
 @interface MSMarginTextFieldCell : NSTextFieldCell
 {
-    struct NSEdgeInsets _edgeInsets;
+    struct NSEdgeInsets _insets;
 }
 
-@property(nonatomic) struct NSEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
-- (void)selectWithFrame:(struct CGRect)arg1 inView:(id)arg2 editor:(id)arg3 delegate:(id)arg4 start:(long long)arg5 length:(long long)arg6;
-- (void)editWithFrame:(struct CGRect)arg1 inView:(id)arg2 editor:(id)arg3 delegate:(id)arg4 event:(id)arg5;
-- (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)appliedEdgeInsetsToRect:(struct CGRect)arg1;
+@property(nonatomic) struct NSEdgeInsets insets; // @synthesize insets=_insets;
+- (struct CGRect)drawingRectForBounds:(struct CGRect)arg1;
 
 @end
 

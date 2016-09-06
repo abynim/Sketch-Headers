@@ -239,6 +239,7 @@
 - (double)currentLeading;
 - (struct CGPoint)currentPoint;
 - (id)currentFont;
+- (id)gradientForPattern:(id)arg1;
 - (id)tryToPopObject;
 - (id)popObject;
 - (id)popArray;
