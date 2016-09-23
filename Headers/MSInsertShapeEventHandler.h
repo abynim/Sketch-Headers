@@ -26,7 +26,7 @@
 - (BOOL)allowsSwitchToInsertAction;
 - (void)flagsChanged:(id)arg1;
 - (void)drawRectPreview;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)insertShapeAsNewLayer:(struct CGRect)arg1;
 - (id)insertShapeAsSubPathOfShape:(id)arg1 inRect:(struct CGRect)arg2;

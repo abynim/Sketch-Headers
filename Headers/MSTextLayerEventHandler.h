@@ -32,14 +32,17 @@
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)canDuplicate;
 - (void)dealloc;
 - (BOOL)shouldDrawLayerSelection;
 - (id)toolbarIdentifier;
 - (void)doTextModification:(CDUnknownBlockType)arg1;
+- (void)removeTextTransform:(id)arg1;
 - (void)makeLowercase:(id)arg1;
 - (void)makeUppercase:(id)arg1;
+- (void)applyTextTransform:(id)arg1;
 - (void)removeTextView;
 - (void)handlerWillLoseFocus;
 - (void)commitPendingEdits;
@@ -51,7 +54,7 @@
 - (void)scrollWheel:(id)arg1;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)viewDidScroll:(id)arg1;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)scheduleUpdateInsertionPointColorTimer;
@@ -65,7 +68,8 @@
 - (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 - (struct CGImage *)newTextLayerImageFromWindowBackingStore;
 - (void)beginEditing;
-- (double)baselineAdjustmentForTypesetter:(id)arg1;
+- (void)updateTextViewStyling;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (struct CGRect)frameForTextViewOnCanvasBasedOnBaseFrame:(struct CGRect)arg1;
 - (struct CGRect)frameForTextView;
 - (void)makeTextWindow;

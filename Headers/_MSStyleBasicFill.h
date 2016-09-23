@@ -26,14 +26,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveGradient:(id)arg1;
-- (id)primitiveGradient;
-- (void)setPrimitiveContextSettings:(id)arg1;
-- (id)primitiveContextSettings;
-- (void)setPrimitiveColor:(id)arg1;
-- (id)primitiveColor;
-- (void)setPrimitiveFillType:(unsigned long long)arg1;
-- (unsigned long long)primitiveFillType;
 @property(retain, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
 - (id)gradientGeneric;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;

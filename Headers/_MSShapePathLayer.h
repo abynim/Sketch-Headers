@@ -25,12 +25,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitivePath:(id)arg1;
-- (id)primitivePath;
-- (void)setPrimitiveEdited:(BOOL)arg1;
-- (BOOL)primitiveEdited;
-- (void)setPrimitiveBooleanOperation:(long long)arg1;
-- (long long)primitiveBooleanOperation;
 @property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
 - (id)pathGeneric;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;

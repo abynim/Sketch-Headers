@@ -13,6 +13,7 @@
 - (id)addItemWithTitle:(id)arg1 font:(id)arg2 target:(id)arg3 action:(SEL)arg4;
 - (id)addSmallItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 - (id)addSmallItalicItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
+- (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 imageNamed:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 submenu:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 representedObject:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;

@@ -10,7 +10,7 @@
 #import "MSColorInspectorSectionDelegate.h"
 #import "MSModeModePickerDelegate.h"
 
-@class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocumentData, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
+@class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate>
 {
@@ -28,14 +28,14 @@
     MSColorInspectorSectionPattern *_patternSection;
     MSColorInspectorSectionNoise *_noiseSection;
     MSEventHandlerManager *_eventHandler;
-    MSDocumentData *_documentData;
+    MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSStackView *_stackView;
 }
 
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
-@property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(retain, nonatomic) MSColorInspectorSectionNoise *noiseSection; // @synthesize noiseSection=_noiseSection;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;

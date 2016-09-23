@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveThickness:(double)arg1;
-- (double)primitiveThickness;
-- (void)setPrimitivePosition:(long long)arg1;
-- (long long)primitivePosition;
 @property(nonatomic) double thickness; // @synthesize thickness=_thickness;
 @property(nonatomic) long long position; // @synthesize position=_position;
 - (void)performInitWithImmutableModelObject:(id)arg1;

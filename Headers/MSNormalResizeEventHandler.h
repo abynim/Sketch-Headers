@@ -31,7 +31,7 @@
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (long long)oppositeCorner;
-- (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
 - (unsigned long long)validSnapEdgesForResizingCorner;
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
@@ -42,15 +42,15 @@
 - (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (struct CGRect)centerRect:(struct CGRect)arg1;
 - (struct CGRect)newRectForResizeWithMouse:(struct CGPoint)arg1 fromCenter:(BOOL)arg2 maySnap:(BOOL)arg3 constrainProportions:(BOOL)arg4;
-- (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDraggedEvent:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)calculateOppositeRotatedPoint;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
 - (void)prepareForResize;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (id)currentGroup;
 
 @end

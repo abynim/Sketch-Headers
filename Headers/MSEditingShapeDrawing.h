@@ -6,40 +6,36 @@
 
 #import "NSObject.h"
 
-@class MSHandlePath, MSHandlePathCollection, MSShapePathLayer;
+@class MSContentDrawView, NSArray, NSIndexPath;
 
 @interface MSEditingShapeDrawing : NSObject
 {
-    BOOL _shouldSkipDrawingSelection;
-    BOOL _isDragging;
-    MSShapePathLayer *_shape;
-    MSHandlePathCollection *_selectedPoints;
-    MSHandlePath *_hoveringPoint;
-    double _zoomValue;
-    long long _hoveringBeforeIndex;
-    MSHandlePathCollection *_snappedHandles;
-    struct CGPoint _scrollOrigin;
-    struct CGRect _dirtyRect;
+    NSArray *_shapePathLayers;
+    MSContentDrawView *_view;
+    id <MSEditingShapeDrawingDelegate> _delegate;
+    NSIndexPath *_insertionIndexPath;
+    NSArray *_indexPathsForSelectedHandles;
+    NSIndexPath *_indexPathForHoveringHandle;
+    NSArray *_indexPathsForSnappedToHandles;
+    struct CGPoint _insertionPoint;
 }
 
-@property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
-@property(retain, nonatomic) MSHandlePathCollection *snappedHandles; // @synthesize snappedHandles=_snappedHandles;
-@property(nonatomic) BOOL shouldSkipDrawingSelection; // @synthesize shouldSkipDrawingSelection=_shouldSkipDrawingSelection;
-@property(nonatomic) long long hoveringBeforeIndex; // @synthesize hoveringBeforeIndex=_hoveringBeforeIndex;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
-@property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
-@property(retain, nonatomic) MSHandlePath *hoveringPoint; // @synthesize hoveringPoint=_hoveringPoint;
-@property(retain, nonatomic) MSHandlePathCollection *selectedPoints; // @synthesize selectedPoints=_selectedPoints;
-@property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
+@property(copy, nonatomic) NSArray *indexPathsForSnappedToHandles; // @synthesize indexPathsForSnappedToHandles=_indexPathsForSnappedToHandles;
+@property(copy, nonatomic) NSIndexPath *indexPathForHoveringHandle; // @synthesize indexPathForHoveringHandle=_indexPathForHoveringHandle;
+@property(copy, nonatomic) NSArray *indexPathsForSelectedHandles; // @synthesize indexPathsForSelectedHandles=_indexPathsForSelectedHandles;
+@property(nonatomic) struct CGPoint insertionPoint; // @synthesize insertionPoint=_insertionPoint;
+@property(copy, nonatomic) NSIndexPath *insertionIndexPath; // @synthesize insertionIndexPath=_insertionIndexPath;
+@property(nonatomic) __weak id <MSEditingShapeDrawingDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) MSContentDrawView *view; // @synthesize view=_view;
+@property(copy, nonatomic) NSArray *shapePathLayers; // @synthesize shapePathLayers=_shapePathLayers;
 - (void).cxx_destruct;
-- (void)drawLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 inFrame:(struct CGRect)arg3;
-- (void)drawHandlesForPointAtIndex:(unsigned long long)arg1 selected:(BOOL)arg2 excludeControlPoints:(BOOL)arg3 transformStruct:(struct _CHTransformStruct)arg4;
-- (BOOL)shouldDrawHandleIfSelected:(BOOL)arg1 isSnappedTo:(BOOL)arg2;
+- (struct CGPoint)convertPointToView:(struct CGPoint)arg1 fromPathCoordinatesOfShape:(id)arg2;
+- (void)drawLineFromHandleAtPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
+- (void)drawAdjustmentHandle:(id)arg1 atLocation:(struct CGPoint)arg2 andLineFromPoint:(struct CGPoint)arg3;
+- (void)drawPointAtIndexPath:(id)arg1 pointOrAdjustmentHandleSelected:(BOOL)arg2;
 - (void)drawHandles;
-- (void)drawBetweenPoints;
+- (void)drawHighlightedSegment;
 - (void)draw;
-- (id)init;
 
 @end
 

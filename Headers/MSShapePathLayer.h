@@ -15,6 +15,7 @@
     BOOL _isEditing;
 }
 
++ (void)performBatchEdits:(CDUnknownBlockType)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
 + (id)shapeWithShapePath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)keyPathsForValuesAffectingPreviewImages;
@@ -26,6 +27,9 @@
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndDecorationType:(unsigned long long)arg1;
 - (void)setStartDecorationType:(unsigned long long)arg1;
+- (id)bezierPathAroundPoint:(id)arg1 andPoint:(id)arg2 xTol:(double)arg3 yTol:(double)arg4;
+- (BOOL)point:(struct CGPoint)arg1 isBetweenPoint:(id)arg2 andPoint:(id)arg3 tolerance:(struct CGSize)arg4;
+- (unsigned long long)indexOfSegmentAtPoint:(struct CGPoint)arg1 tolerance:(struct CGSize)arg2;
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)isPartOfClippingMask;
@@ -33,10 +37,11 @@
 @property(nonatomic) BOOL isClosed;
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)isNearlyEmpty;
-- (struct CGPoint)relativePoint:(struct CGPoint)arg1;
-- (struct CGPoint)absolutePoint:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointToPathCoordinates:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointFromPathCoordinates:(struct CGPoint)arg1;
+- (void)didEdit;
 - (void)simplify;
-- (struct CGPoint)pointCenteredAfterPointIndex:(long long)arg1;
+- (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
 @property(retain, nonatomic) NSBezierPath *bezierPath;
 - (id)bezierPathWithTransforms;
 - (id)bezierPathInRect:(struct CGRect)arg1;
@@ -53,7 +58,7 @@
 - (void)applyPropertiesToBezier:(id)arg1;
 - (void)closeLastPath:(BOOL)arg1;
 - (void)performInitEmptyObject;
-- (id)usedStyle;
+- (id)styledLayer;
 - (BOOL)canBeHidden;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
@@ -71,7 +76,6 @@
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;
 - (id)badgeMenu;
-- (void)addMenuItemNamed:(id)arg1 to:(id)arg2 withImage:(id)arg3 tag:(long long)arg4;
 - (void)onBooleanOperation:(id)arg1;
 - (unsigned long long)selectedBadgeMenuItem;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;

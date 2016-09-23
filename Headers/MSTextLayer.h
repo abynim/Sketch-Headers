@@ -10,15 +10,17 @@
 #import "MSTextLayer.h"
 #import "NSTextStorageDelegate.h"
 
-@class MSAttributedString, MSColor, MSImageData, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSNumber, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
+@class MSAttributedString, MSColor, MSImageData, NSArray, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSNumber, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
 
 @interface MSTextLayer : _MSTextLayer <NSTextStorageDelegate, MSFirstLineTypesetterDelegate, MSTextLayer>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
     NSTextStorage *_storageBeforeResize;
-    id <MSTextLayerEditingDelegate> _editingDelegate;
     NSTextStorage *_storage;
+    NSNumber *_defaultLineHeightValue;
+    NSArray *_baselineOffsetsValue;
+    id <MSTextLayerEditingDelegate> _editingDelegate;
     struct CGSize _sizeBeforeResize;
     struct CGRect _previousRectCache;
 }
@@ -27,8 +29,10 @@
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
-@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
+@property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
+@property(retain, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
+@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(copy, nonatomic) NSTextStorage *storageBeforeResize; // @synthesize storageBeforeResize=_storageBeforeResize;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
@@ -41,6 +45,7 @@
 - (void)parentDidResizeLayerToRect:(struct CGRect)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)replaceTextPreservingAttributeRanges:(id)arg1;
+- (void)setTextTransform:(unsigned long long)arg1 range:(struct _NSRange)arg2;
 - (void)makeLowercase:(id)arg1;
 - (void)makeUppercase:(id)arg1;
 - (void)multiplyBy:(double)arg1;
@@ -77,7 +82,8 @@
 - (struct CGPoint)drawingPointForText;
 - (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
-@property(readonly, nonatomic) double defaultLineHeight;
+- (double)defaultLineHeight:(id)arg1;
+- (double)defaultLineHeight;
 @property(readonly, nonatomic) NSFont *font;
 - (void)changeFont:(id)arg1;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
@@ -91,11 +97,12 @@
 - (void)adjustFrameToFit;
 - (void)finishEditing;
 - (void)textStorageDidProcessEditing:(id)arg1;
-- (double)baselineAdjustmentForTypesetter:(id)arg1;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;
+@property(readonly, copy, nonatomic) NSArray *baselineOffsets;
 @property(readonly, nonatomic) double firstBaselineOffset;
 - (struct CGSize)textContainerSize;
 - (id)createTextContainer;
@@ -120,12 +127,10 @@
 - (BOOL)shouldStorePDFPreviews;
 - (long long)cornerRectType;
 - (BOOL)shouldDrawSelection;
-- (void)setLineSpacing:(double)arg1;
-- (double)lineSpacing;
 - (id)handlerName;
 - (void)layerDidResizeFromInspector;
 - (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1;
+- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)copyStylePropertiesToShape:(id)arg1;
 - (id)rawCopyOfStyle:(id)arg1;
 - (void)copyTextPropertiesToShape:(id)arg1;

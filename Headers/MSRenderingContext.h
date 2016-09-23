@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CIContext, MSBackgroundBlurRenderer, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
+@class CIContext, MSBackgroundBlurRenderer, MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -36,6 +36,7 @@
     MSImmutableDocumentData *_document;
     MSImmutableLayer *_untilLayer;
     id <MSRenderingContextCacheProvider> _cacheProvider;
+    MSCGContextPool *_contextPool;
     MSStylePathRenderer *_stylePathRenderer;
     MSStyleImageRenderer *_styleImageRenderer;
     MSStyleTextRenderer *_styleTextRenderer;
@@ -68,6 +69,7 @@
 @property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
 @property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
+@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
 @property(retain, nonatomic) MSImmutableLayer *untilLayer; // @synthesize untilLayer=_untilLayer;

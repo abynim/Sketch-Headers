@@ -28,18 +28,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveContextSettings:(id)arg1;
-- (id)primitiveContextSettings;
-- (void)setPrimitiveColor:(id)arg1;
-- (id)primitiveColor;
-- (void)setPrimitiveSpread:(double)arg1;
-- (double)primitiveSpread;
-- (void)setPrimitiveOffsetY:(double)arg1;
-- (double)primitiveOffsetY;
-- (void)setPrimitiveOffsetX:(double)arg1;
-- (double)primitiveOffsetX;
-- (void)setPrimitiveBlurRadius:(double)arg1;
-- (double)primitiveBlurRadius;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 - (id)contextSettingsGeneric;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;

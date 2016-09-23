@@ -19,6 +19,8 @@
     long long _reachabilityListenerCount;
 }
 
++ (id)platformStringSuffix;
++ (long long)currentPlatform;
 @property(nonatomic) long long reachabilityListenerCount; // @synthesize reachabilityListenerCount=_reachabilityListenerCount;
 @property(readonly, nonatomic) struct __SCNetworkReachability *reachabilityRef; // @synthesize reachabilityRef=_reachabilityRef;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
@@ -44,8 +46,6 @@
 - (id)signToken;
 - (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 parameters:(id)arg3 authToken:(id)arg4;
 - (void)processAPIRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (long long)errorCodeFromErrorMessage:(id)arg1;
-- (long long)currentPlatform;
 - (id)URLWithEndpoint:(id)arg1;
 @property(readonly) NSURL *baseURL;
 - (void)dealloc;

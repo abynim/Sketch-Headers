@@ -18,15 +18,15 @@
     NSTextField *_passwordTextField;
     NSTextField *_passwordConfirmTextField;
     NSButton *_confirmButton;
-    MSCloudAuthAPI *_cloudAuthAPI;
     NSTextField *_errorTextField;
+    MSCloudAuthAPI *_cloudAuthAPI;
 }
 
 @property(nonatomic) BOOL showingNewPasswordDoesntMatch; // @synthesize showingNewPasswordDoesntMatch=_showingNewPasswordDoesntMatch;
 @property(nonatomic) BOOL showingNewPasswordIsInvalid; // @synthesize showingNewPasswordIsInvalid=_showingNewPasswordIsInvalid;
 @property(nonatomic) BOOL showingCurrentPasswordIsInvalid; // @synthesize showingCurrentPasswordIsInvalid=_showingCurrentPasswordIsInvalid;
-@property(nonatomic) __weak NSTextField *errorTextField; // @synthesize errorTextField=_errorTextField;
 @property(retain, nonatomic) MSCloudAuthAPI *cloudAuthAPI; // @synthesize cloudAuthAPI=_cloudAuthAPI;
+@property(nonatomic) __weak NSTextField *errorTextField; // @synthesize errorTextField=_errorTextField;
 @property(nonatomic) __weak NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak NSTextField *passwordConfirmTextField; // @synthesize passwordConfirmTextField=_passwordConfirmTextField;
 @property(nonatomic) __weak NSTextField *passwordTextField; // @synthesize passwordTextField=_passwordTextField;
@@ -36,8 +36,8 @@
 - (void)confirm:(id)arg1;
 - (void)enableFields:(BOOL)arg1;
 - (void)dealloc;
-- (void)validateInputs:(id)arg1;
-- (void)textDidChange:(id)arg1;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
 - (BOOL)newPasswordsMatches;
 - (void)windowDidLoad;
 

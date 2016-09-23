@@ -42,7 +42,6 @@
 - (void)colorizeAction:(id)arg1;
 - (void)finishEditing:(id)arg1;
 - (void)cropAction:(id)arg1;
-- (void)vectorizeAction:(id)arg1;
 - (void)invertAction:(id)arg1;
 - (void)magicWandAction:(id)arg1;
 - (void)rectSelectionAction:(id)arg1;

@@ -24,10 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveSymbolID:(id)arg1;
-- (id)primitiveSymbolID;
-- (void)setPrimitiveIncludeBackgroundColorInInstance:(BOOL)arg1;
-- (BOOL)primitiveIncludeBackgroundColorInInstance;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
 - (void)performInitWithImmutableModelObject:(id)arg1;

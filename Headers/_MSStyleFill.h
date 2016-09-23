@@ -27,16 +27,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitivePatternTileScale:(double)arg1;
-- (double)primitivePatternTileScale;
-- (void)setPrimitivePatternFillType:(long long)arg1;
-- (long long)primitivePatternFillType;
-- (void)setPrimitiveNoiseIntensity:(double)arg1;
-- (double)primitiveNoiseIntensity;
-- (void)setPrimitiveNoiseIndex:(long long)arg1;
-- (long long)primitiveNoiseIndex;
-- (void)setPrimitiveImage:(id)arg1;
-- (id)primitiveImage;
 @property(nonatomic) double patternTileScale; // @synthesize patternTileScale=_patternTileScale;
 @property(nonatomic) long long patternFillType; // @synthesize patternFillType=_patternFillType;
 @property(nonatomic) double noiseIntensity; // @synthesize noiseIntensity=_noiseIntensity;

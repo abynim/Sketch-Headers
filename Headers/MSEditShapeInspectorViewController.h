@@ -8,12 +8,12 @@
 
 #import "MSInspectorChildController.h"
 
-@class MSShapeEventHandler, MSShapePathLayer, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSShapeEventHandler, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
-    MSShapePathLayer *_shape;
-    NSArray *_inspectedHandles;
+    NSArray *_shapePathLayers;
+    NSArray *_indexPathsForInspectedHandles;
     MSShapeEventHandler *_shapeEventHandler;
     NSTextField *_cornerRadiusField;
     NSPopUpButton *_roundingPopUpButton;
@@ -34,11 +34,12 @@
 @property(retain, nonatomic) NSPopUpButton *roundingPopUpButton; // @synthesize roundingPopUpButton=_roundingPopUpButton;
 @property(retain, nonatomic) NSTextField *cornerRadiusField; // @synthesize cornerRadiusField=_cornerRadiusField;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
-@property(retain, nonatomic) NSArray *inspectedHandles; // @synthesize inspectedHandles=_inspectedHandles;
-@property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
+@property(copy, nonatomic) NSArray *indexPathsForInspectedHandles; // @synthesize indexPathsForInspectedHandles=_indexPathsForInspectedHandles;
+@property(copy, nonatomic) NSArray *shapePathLayers; // @synthesize shapePathLayers=_shapePathLayers;
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
+- (void)forceSelection:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)titleForRoundingPopUp;
 - (void)refreshRoundingPopUpTitle;
@@ -48,13 +49,15 @@
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
 - (void)curvePointYAction:(id)arg1;
 - (void)curvePointXAction:(id)arg1;
-- (void)selectPointValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
+- (void)updateCoordinateValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
 - (void)refreshXYFields;
 - (void)finishEditingAction:(id)arg1;
+- (BOOL)shapePathLayersAreClosedAndCanEdit:(char *)arg1;
 - (void)closePathAction:(id)arg1;
+- (void)refreshClosePathButton;
 - (id)views;
 - (void)refresh;
-- (id)curvePointForHandle:(id)arg1;
+- (id)curvePointForHandleAtIndexPath:(id)arg1;
 @property(readonly, nonatomic) NSArray *inspectedCurvePoints;
 - (void)dealloc;
 - (void)viewDidLoad;

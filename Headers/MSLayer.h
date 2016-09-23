@@ -13,7 +13,7 @@
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
+@class MSAbsoluteRect, MSStyledLayer, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
 {
@@ -21,7 +21,6 @@
     BOOL _isSelected;
     BOOL _isHovering;
     MSAbsoluteRect *_absoluteRect;
-    unsigned long long _traits;
     struct CGRect _frameInArtboard;
 }
 
@@ -38,7 +37,6 @@
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)keyPathsForValuesAffectingNodeName;
 + (id)keyPathsForValuesAffectingHasHighlight;
-@property(nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) struct CGRect frameInArtboard; // @synthesize frameInArtboard=_frameInArtboard;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
@@ -65,6 +63,8 @@
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
 @property(nonatomic) struct _CHTransformStruct transformStruct;
+- (struct CGPoint)convertPointFromRuler:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointToRuler:(struct CGPoint)arg1;
 - (struct CGRect)convertRectToAbsoluteCoordinates:(struct CGRect)arg1;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
@@ -84,8 +84,7 @@
 - (BOOL)isRectIntegral;
 - (void)makeRectIntegral;
 - (void)makeOriginIntegral;
-- (void)setAbsolutePosition:(struct CGPoint)arg1;
-- (struct CGPoint)absolutePosition;
+@property(nonatomic) struct CGPoint absolutePosition;
 - (BOOL)closePath;
 - (void)hideSelectionTemporarily;
 - (id)bezierPathWithTransforms;
@@ -112,6 +111,7 @@
 - (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
+- (BOOL)limitsSelectionToBounds;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isExpanded;
@@ -120,7 +120,6 @@
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (BOOL)containsSelectedItem;
 - (void)moveWithGuideOffset:(struct CGSize)arg1;
-- (BOOL)flattenIfNecessary;
 - (void)layerFinishedResize;
 - (void)layerWillResize;
 @property(readonly, nonatomic) struct CGRect bounds;
@@ -138,15 +137,15 @@
 - (void)makeNameUniqueWithOptions:(long long)arg1;
 - (id)objectIDsForSelfAncestorsAndChildren;
 - (BOOL)isLine;
+- (unsigned long long)traits;
 - (BOOL)isSharedObject;
-- (id)usedStyle;
+@property(readonly, nonatomic) MSStyledLayer *styledLayer;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
 - (long long)cornerRectType;
-- (BOOL)canFlatten;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (id)duplicate;
@@ -161,7 +160,7 @@
 - (BOOL)canBeHovered;
 - (id)bezierPathForHover;
 - (id)colorForHover;
-- (void)drawHoverWithZoom:(double)arg1;
+- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)writeBitmapImageToFile:(id)arg1;
 - (id)parentForInsertingLayers;
 - (id)displayName;

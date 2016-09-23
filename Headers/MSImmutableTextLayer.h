@@ -11,56 +11,54 @@
 #import "MSTextLayer.h"
 #import "NSLayoutManagerDelegate.h"
 
-@class MSAttributedString, MSImageData, NSDictionary, NSFont, NSLayoutManager, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
+@class MSAttributedString, MSImageData, NSArray, NSDictionary, NSFont, NSNumber, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSTextLayer, MSFirstLineTypesetterDelegate>
 {
+    long long _calculateBaselineOffsetsToken;
+    long long _calculateDefaultLineHeightValueToken;
+    long long _calculateInfluenceRectForBoundsToken;
+    struct CGRect _calculatedInfluenceRectForBounds;
     BOOL _isEditingText;
-    NSTextStorage *_storage;
-    NSLayoutManager *_layoutManager;
-    NSTextContainer *_textContainer;
-    unsigned long long _textAlignment;
+    NSNumber *_defaultLineHeightValue;
+    NSArray *_baselineOffsetsValue;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(nonatomic) unsigned long long textAlignment; // @synthesize textAlignment=_textAlignment;
-@property(retain, nonatomic) NSTextContainer *textContainer; // @synthesize textContainer=_textContainer;
-@property(retain, nonatomic) NSLayoutManager *layoutManager; // @synthesize layoutManager=_layoutManager;
-@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
-@property BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
+@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
+@property(readonly, copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
+@property(readonly, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
+@property(readonly, copy, nonatomic) NSArray *baselineOffsets;
 @property(readonly, nonatomic) double lineHeight;
 - (id)stringValue;
-- (double)lineSpacing;
-@property(readonly, nonatomic) double defaultLineHeight;
+- (double)defaultLineHeight:(id)arg1;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
+@property(readonly, nonatomic) unsigned long long textAlignment;
 - (id)usedFontNames;
-- (double)baselineAdjustmentForTypesetter:(id)arg1;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (double)startingPositionOnPath:(id)arg1;
-- (id)bezierPathWithParentGroup:(id)arg1;
-- (id)bezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1;
-- (id)firstUnderlyingShapePathWithParentGroup:(id)arg1;
+- (id)bezierPathWithParentGroup:(id)arg1 layoutManager:(id)arg2;
+- (id)bezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;
+- (id)firstUnderlyingShapePathWithParentGroup:(id)arg1 usingCache:(id)arg2;
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
 - (id)createLayoutManager;
 - (id)createTextContainer;
 - (BOOL)shouldUseFixedWidthContainer;
 - (BOOL)shouldUseWiderTextContainer;
-- (struct CGSize)_textContainerSize;
 - (struct CGPoint)drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBounds;
-- (void)setupText;
 - (void)performInitWithCoder:(id)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (void)updateColorCounter:(id)arg1;
@@ -69,16 +67,17 @@
 - (void)migratePropertiesFromV76OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithCoder:(id)arg1;
 - (void)trackColors:(id)arg1;
-- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;
+- (id)textStoragePoolInCache:(id)arg1;
 - (void)addDefaultFillAttributes:(id)arg1 exporter:(id)arg2;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addPathDefinitionToDocument:(id)arg1;
-- (void)addContentToTextElement:(id)arg1 exporter:(id)arg2;
-- (struct CGPoint)originForCharacterAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addContentToTextElement:(id)arg1 exporter:(id)arg2 textStorage:(id)arg3;
+- (struct CGPoint)originForCharacterAttributes:(id)arg1 exporter:(id)arg2 layoutManager:(id)arg3;
 - (id)elementForSpan:(id)arg1 origin:(struct CGPoint)arg2 exporter:(id)arg3 text:(id)arg4;
-- (id)spanInfoForRun:(struct _NSRange)arg1 charAttributes:(id)arg2 text:(id)arg3;
+- (id)spanInfoForRun:(struct _NSRange)arg1 charAttributes:(id)arg2 text:(id)arg3 layoutManager:(id)arg4;
 - (void)addSVGAttributes:(id)arg1 forCharacterAttributes:(id)arg2 exporter:(id)arg3;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;

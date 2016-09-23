@@ -22,7 +22,7 @@
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
 - (void)setStyle:(id)arg1;
-- (id)usedStyle;
+- (id)styledLayer;
 - (BOOL)hasActiveBackgroundBlur;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;

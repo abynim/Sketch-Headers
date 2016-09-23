@@ -13,6 +13,7 @@
 @interface BCObjectPool : NSObject <NSDiscardableContent>
 {
     NSHashTable *_pool;
+    unsigned long long _maximumPoolCount;
     CDUnknownBlockType _creatorBlock;
 }
 
@@ -22,6 +23,7 @@
 - (void)discardContentIfPossible;
 - (void)endContentAccess;
 - (BOOL)beginContentAccess;
+@property unsigned long long maximumPoolCount;
 - (void)recycleObject:(id)arg1;
 - (id)vendObject;
 - (id)initWithObjectCreatorBlock:(CDUnknownBlockType)arg1;

@@ -16,7 +16,6 @@
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
 
-+ (unsigned long long)traits;
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)sliceLayerFromLayer:(id)arg1;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;

@@ -10,9 +10,6 @@
 {
 }
 
-- (struct CGRect)absoluteRectForLayer:(id)arg1 context:(id)arg2;
-- (void)drawBackground:(struct CGImage *)arg1 withBlur:(id)arg2 origin:(struct CGPoint)arg3 context:(id)arg4;
-- (struct CGImage *)backgroundBehindLayer:(id)arg1 context:(id)arg2;
 - (void)blurBackgroundBehindShape:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
 
 @end

@@ -31,7 +31,7 @@
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
-- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;
 - (id)svgStyle:(id)arg1;

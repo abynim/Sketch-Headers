@@ -23,7 +23,6 @@
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
 - (id)topViewForColorInspector:(id)arg1;
-- (void)setPatternImage:(id)arg1;
 - (id)parentStyle;
 @property(nonatomic) double interfaceOpacity;
 - (id)CSSAttributeString;

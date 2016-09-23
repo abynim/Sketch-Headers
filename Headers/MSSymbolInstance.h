@@ -8,8 +8,10 @@
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
+    unsigned long long _masterRefreshCounter;
 }
 
+@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;

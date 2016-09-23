@@ -6,17 +6,17 @@
 
 #import "_MSShapeGroup.h"
 
-@class MSPath, NSBezierPath;
+@class BCCache, MSPath, NSBezierPath;
 
 @protocol MSShapeGroup <_MSShapeGroup>
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
-@property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
 @property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
 @property(readonly, nonatomic) MSPath *pathInBounds;
 - (void)applyPropertiesToBezier:(NSBezierPath *)arg1;
+- (MSPath *)pathWithTransformsUsingCache:(BCCache *)arg1;
 - (NSBezierPath *)bezierPathOfSubPath:(id <MSShapePathLayer>)arg1 inRect:(struct CGRect)arg2;
 - (NSBezierPath *)bezierPathInRect:(struct CGRect)arg1;
 @end

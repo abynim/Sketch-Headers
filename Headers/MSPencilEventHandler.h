@@ -22,13 +22,12 @@
 - (id)defaultCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (BOOL)shouldDrawLayerSelection;
-- (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)addCurvePoint:(id)arg1;
 - (void)addPoint:(struct CGPoint)arg1;
-- (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
+- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)mouseDownEvent:(id)arg1;
 - (BOOL)pathShouldClose;
 - (void)removeRedundantPoints:(id)arg1;

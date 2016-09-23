@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveRadius:(double)arg1;
-- (double)primitiveRadius;
-- (void)setPrimitiveNumberOfPoints:(long long)arg1;
-- (long long)primitiveNumberOfPoints;
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
 - (void)performInitWithImmutableModelObject:(id)arg1;

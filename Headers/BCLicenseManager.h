@@ -25,8 +25,13 @@
 @property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
 @property(retain, nonatomic) BCLicense *license; // @synthesize license=_license;
 - (void).cxx_destruct;
+- (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
+- (id)apiURL;
 - (id)currentVersion;
 - (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (void)performUnregisterCall:(id)arg1;
+- (void)unregister;
+- (void)unregisterWithPrompt;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
 - (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;

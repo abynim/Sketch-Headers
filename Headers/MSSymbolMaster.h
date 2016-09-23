@@ -11,10 +11,10 @@
     BOOL _isInvalidatingSymbolInstances;
 }
 
+- (BOOL)limitsSelectionToBounds;
 - (BOOL)shouldResizeToFitAfterDrag;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
-- (unsigned long long)traits;
 - (id)rootForNameUniquing;
 - (id)convertToSymbol;
 - (id)ancestorIDsForLayerNamed:(id)arg1 skip:(id)arg2;
@@ -27,6 +27,7 @@
 - (void)applyOverrides:(id)arg1;
 - (BOOL)hasInstances;
 - (id)allInstances;
+- (struct BCEdgePaddings)influenceRectPaddingForInstances;
 - (id)newSymbolInstance;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;

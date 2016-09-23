@@ -20,8 +20,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveNumberOfPoints:(long long)arg1;
-- (long long)primitiveNumberOfPoints;
 @property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

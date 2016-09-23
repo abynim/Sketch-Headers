@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveStrength:(double)arg1;
-- (double)primitiveStrength;
-- (void)setPrimitiveDistance:(double)arg1;
-- (double)primitiveDistance;
 @property(nonatomic) double strength; // @synthesize strength=_strength;
 @property(nonatomic) double distance; // @synthesize distance=_distance;
 - (void)performInitWithImmutableModelObject:(id)arg1;

@@ -12,17 +12,15 @@
 {
     long long sourceDragIndex;
     id <MSReorderingContainerDelegate> _delegate;
-    long long _direction;
     NSArray *_subViewDestinationFrames;
 }
 
 @property(retain, nonatomic) NSArray *subViewDestinationFrames; // @synthesize subViewDestinationFrames=_subViewDestinationFrames;
-@property(nonatomic) long long direction; // @synthesize direction=_direction;
 @property(nonatomic) __weak id <MSReorderingContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)performDragOperation:(id)arg1;
 - (double)startOffsetForStacking;
-- (id)destinationFramesForSubviewsForAxis:(unsigned long long)arg1;
+- (id)destinationFramesForSubviews;
 - (void)reorderSubviewsAnimated:(BOOL)arg1;
 - (id)draggingView;
 - (unsigned long long)numberOfReorderableSubviews;

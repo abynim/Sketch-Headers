@@ -19,13 +19,13 @@
     NSArray *_cachedExportableLayers;
 }
 
-+ (unsigned long long)traits;
 + (void)enumerateExportableLayersWithPage:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)page;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *primitiveName;
 - (void)setIsLocked:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isLocked;
 - (void)setIsVisible:(BOOL)arg1;
@@ -35,6 +35,7 @@
 - (id)symbols;
 - (struct CGPoint)originForNewArtboard;
 @property(readonly, nonatomic) BOOL hasClickThrough;
+- (BOOL)limitsSelectionToBounds;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)allAncestorsOfLayers:(id)arg1;
 - (id)currentVerticalRulerData;

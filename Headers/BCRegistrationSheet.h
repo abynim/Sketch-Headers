@@ -16,6 +16,7 @@
 + (void)showPopupForRegistrationResult:(long long)arg1;
 - (void).cxx_destruct;
 - (void)awakeFromNib;
+- (void)openRecoveryPage:(id)arg1;
 - (void)visitStore:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)registerAction:(id)arg1;

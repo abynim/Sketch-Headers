@@ -8,22 +8,27 @@
 
 #import "NSDraggingDestination.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSEvent, NSString, NSViewController<MSInspectorChildController>;
+@class MSDragGestureRecognizer, MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSViewController<MSInspectorChildController>;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;
+    NSMutableArray *_gestureRecognizers;
+    MSDragGestureRecognizer *_activeGestureRecognizer;
+    BOOL _mouseIsDown;
     MSEventHandlerManager *_manager;
     id <MSBasicDelegate> _delegate;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
-    NSEvent *_locationEvent;
+    MSMouseTracker *_mouseTracker;
     struct CGPoint _viewCoordinateMouse;
+    struct CGRect _selectionRect;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
-@property(readonly, nonatomic) NSEvent *locationEvent; // @synthesize locationEvent=_locationEvent;
+@property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
+@property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
@@ -59,11 +64,10 @@
 - (void)currentPageDidChange;
 - (void)layerRulerOriginChanged;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)layerListSelectionDidChange:(id)arg1;
 - (void)zoomValueDidChange;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (double)zoomValue;
-- (struct CGPoint)mouseInScreenCoordinates;
-- (struct CGPoint)convertPointFromScreenCoordinates:(struct CGPoint)arg1 inGroup:(id)arg2;
 - (id)dragDropHintForDropOnPoint:(struct CGPoint)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
@@ -86,9 +90,6 @@
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
 - (id)lastEvent;
-@property(readonly, nonatomic) BOOL locationIsValid;
-- (struct CGPoint)locationInLayer:(id)arg1;
-- (struct CGPoint)locationInView:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
@@ -109,7 +110,6 @@
 - (id)currentPage;
 - (void)writeLayers:(id)arg1 toPasteboard:(id)arg2;
 - (void)flagsChanged:(id)arg1;
-- (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (id)menuForEvent:(id)arg1;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)returnToDefaultHandler;
@@ -119,6 +119,7 @@
 - (void)willMoveThroughHistory:(id)arg1;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
+- (void)drawDragSelection;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;
@@ -128,13 +129,11 @@
 - (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)addGestureRecognizer:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *gestureRecognizers;
 - (void)viewDidScroll:(id)arg1;
-- (BOOL)mouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (BOOL)mouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -144,12 +143,9 @@
 - (BOOL)mouseUpEvent:(id)arg1;
 - (BOOL)mouseDraggedEvent:(id)arg1;
 - (BOOL)mouseDownEvent:(id)arg1;
-- (struct CGPoint)convertAbsolutePointFromMouseLocationInWindow:(struct CGPoint)arg1;
-- (struct CGPoint)convertAbsolutePointFromEvent:(id)arg1;
 @property(nonatomic) struct CGPoint scrollOrigin; // @dynamic scrollOrigin;
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (void)refreshOverlayOfViews;
 - (id)document;
 - (id)drawView;

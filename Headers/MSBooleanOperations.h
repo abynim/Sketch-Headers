@@ -10,16 +10,16 @@
 {
 }
 
-+ (void)finishFinalShape:(id)arg1;
++ (void)convertLineToOutline:(id)arg1;
 + (void)convertLinesToOutlinesInShape:(id)arg1;
 + (void)resetSubPathsBooleanOperationsTo:(long long)arg1 onLayers:(id)arg2;
-+ (void)fixTransformForSelectedLayers:(id)arg1;
-+ (BOOL)layersContainShapePaths:(id)arg1;
-+ (void)transformLineToOutline:(id)arg1;
 + (void)applyBooleanOperation:(long long)arg1 toShape:(id)arg2;
 + (void)applyNameToChildren:(id)arg1;
 + (void)mergeShapes:(id)arg1 withShape:(id)arg2 usingBooleanOp:(long long)arg3;
++ (void)finishFinalShape:(id)arg1;
++ (void)prepareLayers:(id)arg1;
 + (void)doBooleanOperation:(long long)arg1 onLayers:(id)arg2;
++ (BOOL)layersContainShapePaths:(id)arg1;
 + (void)booleanOperation:(long long)arg1 onLayers:(id)arg2;
 + (id)historyMomentTitleForOperation:(long long)arg1 onLayers:(id)arg2;
 

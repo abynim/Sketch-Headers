@@ -22,12 +22,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveWindingRule:(unsigned long long)arg1;
-- (unsigned long long)primitiveWindingRule;
-- (void)setPrimitiveHasClippingMask:(BOOL)arg1;
-- (BOOL)primitiveHasClippingMask;
-- (void)setPrimitiveClippingMaskMode:(long long)arg1;
-- (long long)primitiveClippingMaskMode;
 @property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;

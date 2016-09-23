@@ -38,7 +38,10 @@
 - (void)removeTilesWithIDsFromSuperLayer:(id)arg1;
 - (void)removeTilesWithIDs:(id)arg1;
 - (void)removeTilesNotIncludedIn:(id)arg1;
+- (double)normaliseOriginValue:(double)arg1;
 - (struct CGPoint)originForFirstTile;
+- (BOOL)shouldDrawPixelated;
+- (double)tileSize;
 - (id)identifiersOfVisibleTilesIncludingMargin:(BOOL)arg1;
 - (void)repositionExistingTiles;
 - (void)tileRemovingOffscreenTiles:(BOOL)arg1;

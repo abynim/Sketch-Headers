@@ -35,12 +35,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveLayers:(id)arg1;
-- (id)primitiveLayers;
-- (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
-- (struct NSObject *)primitiveSharedObjectID;
-- (void)setPrimitiveHasClickThrough:(BOOL)arg1;
-- (BOOL)primitiveHasClickThrough;
 - (void)setLayers:(id)arg1;
 @property(readonly, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;

@@ -27,16 +27,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveNineSliceScale:(struct CGSize)arg1;
-- (struct CGSize)primitiveNineSliceScale;
-- (void)setPrimitiveNineSliceCenterRect:(struct CGRect)arg1;
-- (struct CGRect)primitiveNineSliceCenterRect;
-- (void)setPrimitiveImage:(id)arg1;
-- (id)primitiveImage;
-- (void)setPrimitiveFillReplacesImage:(BOOL)arg1;
-- (BOOL)primitiveFillReplacesImage;
-- (void)setPrimitiveClippingMask:(struct CGRect)arg1;
-- (struct CGRect)primitiveClippingMask;
 @property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
 @property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;

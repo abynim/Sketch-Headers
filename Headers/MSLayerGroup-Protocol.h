@@ -7,6 +7,7 @@
 #import "_MSLayerGroup.h"
 
 @protocol MSLayerGroup <_MSLayerGroup>
+- (BOOL)containsSelectedItem;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 @end
 

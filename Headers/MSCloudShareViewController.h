@@ -59,6 +59,7 @@
 - (void)userDidClickDeleteButtonInUploadCell:(id)arg1;
 - (void)userDidClickOpenButtonInUploadCell:(id)arg1;
 - (void)showMenu:(id)arg1;
+- (void)tableViewSelectionDidChange:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (BOOL)tableView:(id)arg1 writeRowsWithIndexes:(id)arg2 toPasteboard:(id)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;

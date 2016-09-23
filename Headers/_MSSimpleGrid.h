@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveThickGridTimes:(long long)arg1;
-- (long long)primitiveThickGridTimes;
-- (void)setPrimitiveGridSize:(long long)arg1;
-- (long long)primitiveGridSize;
 @property(nonatomic) long long thickGridTimes; // @synthesize thickGridTimes=_thickGridTimes;
 @property(nonatomic) long long gridSize; // @synthesize gridSize=_gridSize;
 - (void)performInitWithImmutableModelObject:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSOperation.h"
 
-@class CALayer, MSImmutableDocumentData, MSImmutablePage, MSTileRenderer, NSArray;
+@class CALayer, MSCGContextPool, MSImmutableDocumentData, MSImmutablePage, MSTileRenderer, NSArray;
 
 @interface MSTileRenderOperation : NSOperation
 {
@@ -14,21 +14,20 @@
     BOOL _drawDottedDirtyRect;
     id <MSTileRenderOperationDelegate> _delegate;
     CALayer *_contentLayer;
-    CALayer *_backgroundLayer;
-    struct CGContext *_contentCGContext;
     struct CGImage *_image;
-    CDUnknownBlockType _imageReleaseBlock;
     double _zoomValue;
     MSImmutablePage *_pageForContent;
     MSImmutableDocumentData *_document;
     NSArray *_artboardFrames;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
+    MSCGContextPool *_contextPool;
     MSTileRenderer *_tileRenderer;
     struct CGPoint _distanceFromScrollOrigin;
     struct CGRect _contentRectNeedingRedraw;
 }
 
 @property(retain, nonatomic) MSTileRenderer *tileRenderer; // @synthesize tileRenderer=_tileRenderer;
+@property(readonly, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
 @property(retain, nonatomic) NSArray *artboardFrames; // @synthesize artboardFrames=_artboardFrames;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
@@ -38,21 +37,18 @@
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
 @property(nonatomic) struct CGRect contentRectNeedingRedraw; // @synthesize contentRectNeedingRedraw=_contentRectNeedingRedraw;
-@property(copy, nonatomic) CDUnknownBlockType imageReleaseBlock; // @synthesize imageReleaseBlock=_imageReleaseBlock;
 @property(readonly, nonatomic) struct CGImage *image; // @synthesize image=_image;
-@property(nonatomic) struct CGContext *contentCGContext; // @synthesize contentCGContext=_contentCGContext;
-@property(retain, nonatomic) CALayer *backgroundLayer; // @synthesize backgroundLayer=_backgroundLayer;
 @property(retain, nonatomic) CALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
 @property(nonatomic) __weak id <MSTileRenderOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)drawArtboardBackgroundsInContext:(struct CGContext *)arg1;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
+- (void)renderBackgroundInContext:(struct CGContext *)arg1;
 - (void)drawContentInContext:(struct CGContext *)arg1;
-- (struct CGPoint)scrollOriginAdjustedForPixelZoom;
 - (void)drawPage:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)main;
 - (void)cancelDrawing;
 - (void)dealloc;
+- (id)initWithContextPool:(id)arg1;
+- (id)init;
 
 @end
 

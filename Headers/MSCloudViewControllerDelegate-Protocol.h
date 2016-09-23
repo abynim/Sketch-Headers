@@ -9,6 +9,7 @@
 @class MSCloudViewController;
 
 @protocol MSCloudViewControllerDelegate <NSObject>
+- (void)cloudViewControllerWantsPresentation:(MSCloudViewController *)arg1;
 - (void)cloudViewController:(MSCloudViewController *)arg1 localServerIsPublished:(BOOL)arg2;
 - (void)cloudViewControllerDidCancel:(MSCloudViewController *)arg1;
 - (void)cloudViewController:(MSCloudViewController *)arg1 didProgressUpdateTo:(double)arg2;

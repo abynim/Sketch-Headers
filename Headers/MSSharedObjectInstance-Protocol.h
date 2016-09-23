@@ -10,7 +10,6 @@
 
 @protocol MSSharedObjectInstance <NSObject>
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-- (void)setPrimitiveSharedObjectID:(struct NSObject *)arg1;
 - (unsigned long long)type;
 @end
 

@@ -17,6 +17,7 @@
     NSDictionary *_symbolsIndexedByID;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)documentDataFromData:(id)arg1 metadata:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -43,6 +44,7 @@
 - (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
+- (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;

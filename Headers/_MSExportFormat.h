@@ -26,14 +26,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveVisibleScaleType:(long long)arg1;
-- (long long)primitiveVisibleScaleType;
-- (void)setPrimitiveScale:(double)arg1;
-- (double)primitiveScale;
-- (void)setPrimitiveName:(id)arg1;
-- (id)primitiveName;
-- (void)setPrimitiveFileFormat:(id)arg1;
-- (id)primitiveFileFormat;
 @property(nonatomic) long long visibleScaleType; // @synthesize visibleScaleType=_visibleScaleType;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;

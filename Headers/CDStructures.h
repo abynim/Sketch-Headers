@@ -106,16 +106,11 @@ struct MSModelObject {
     Class _field1;
     id _field2;
     id _field3;
-    char _field4;
+    id _field4;
+    char _field5;
 };
 
 struct MSPresetIteratorStruct {
-    long long _field1;
-    long long _field2;
-    long long _field3;
-};
-
-struct MSShapeClickInfo {
     long long _field1;
     long long _field2;
     long long _field3;
@@ -201,12 +196,6 @@ struct sockaddr;
 #pragma mark Typedef'd Structures
 
 typedef struct {
-    unsigned char _field1;
-    unsigned char _field2;
-    unsigned char _field3;
-} CDStruct_f4b747e6;
-
-typedef struct {
     unsigned long long numberOfRows;
     unsigned long long numberOfColumns;
     long long horizontalPadding;
@@ -214,8 +203,7 @@ typedef struct {
     char hasHorizontalPadding;
     char hasVerticalPadding;
     char skipFillingHoles;
-    char shouldRenameLayers;
-} CDStruct_0addd29a;
+} CDStruct_ec0e0888;
 
 typedef struct {
     unsigned long long _field1;
@@ -232,11 +220,6 @@ typedef struct {
 } CDStruct_5b5d1a5d;
 
 typedef struct {
-    char _field1;
-    char _field2;
-} CDStruct_7ddbbeae;
-
-typedef struct {
     double _field1;
     double _field2;
     double _field3;
@@ -244,13 +227,6 @@ typedef struct {
     double _field5;
     double _field6;
 } CDStruct_8727d297;
-
-typedef struct {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-} CDStruct_d2b197d1;
 
 typedef struct {
     long long _field1;

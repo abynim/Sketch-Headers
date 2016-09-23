@@ -34,10 +34,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitivePoints:(id)arg1;
-- (id)primitivePoints;
-- (void)setPrimitiveIsClosed:(BOOL)arg1;
-- (BOOL)primitiveIsClosed;
 - (void)setPoints:(id)arg1;
 @property(readonly, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;

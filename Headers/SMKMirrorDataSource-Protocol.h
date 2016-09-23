@@ -11,6 +11,6 @@
 @protocol SMKMirrorDataSource <NSObject>
 @property(readonly) NSDictionary *manifestContent;
 @property(readonly) NSString *currentArtboardIdentifier;
-- (void)renderImageForArtboardIdentifier:(NSString *)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 handler:(void (^)(NSData *))arg4;
+- (void)renderImageForArtboardIdentifier:(NSString *)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 context:(id)arg4 handler:(void (^)(NSData *))arg5;
 @end
 

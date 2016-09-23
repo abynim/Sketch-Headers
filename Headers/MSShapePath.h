@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) unsigned long long numberOfPoints;
 - (id)lastPoint;
 - (id)firstPoint;
+- (id)pointsAroundIndex:(unsigned long long)arg1;
 - (id)pointAtIndex:(long long)arg1;
 - (void)removeAllPoints;
 - (void)removeLastPoint;

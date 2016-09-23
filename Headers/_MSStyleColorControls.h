@@ -23,14 +23,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveSaturation:(double)arg1;
-- (double)primitiveSaturation;
-- (void)setPrimitiveHue:(double)arg1;
-- (double)primitiveHue;
-- (void)setPrimitiveContrast:(double)arg1;
-- (double)primitiveContrast;
-- (void)setPrimitiveBrightness:(double)arg1;
-- (double)primitiveBrightness;
 @property(nonatomic) double saturation; // @synthesize saturation=_saturation;
 @property(nonatomic) double hue; // @synthesize hue=_hue;
 @property(nonatomic) double contrast; // @synthesize contrast=_contrast;

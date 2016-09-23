@@ -24,10 +24,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveValue:(id)arg1;
-- (id)primitiveValue;
-- (void)setPrimitiveName:(id)arg1;
-- (id)primitiveName;
 @property(retain, nonatomic) MSModelObjectCommon *value; // @synthesize value=_value;
 - (id)valueGeneric;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

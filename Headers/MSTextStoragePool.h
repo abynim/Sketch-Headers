@@ -12,11 +12,11 @@
 
 @interface MSTextStoragePool : BCObjectPool <MSFirstLineTypesetterDelegate>
 {
-    double _baselineAdjustmentForTypesetter;
+    double _baselineAdjustmentForLayoutManager;
 }
 
-@property(nonatomic) double baselineAdjustmentForTypesetter; // @synthesize baselineAdjustmentForTypesetter=_baselineAdjustmentForTypesetter;
-- (double)baselineAdjustmentForTypesetter:(id)arg1;
+@property(nonatomic) double baselineAdjustmentForLayoutManager; // @synthesize baselineAdjustmentForLayoutManager=_baselineAdjustmentForLayoutManager;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)recycleTextStorage:(id)arg1;
 - (id)vendTextStorage;
 - (id)initWithTextLayer:(id)arg1;

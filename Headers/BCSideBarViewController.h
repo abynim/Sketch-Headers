@@ -8,11 +8,12 @@
 
 #import "NSSplitViewDelegate.h"
 
-@class BCFilterInfo, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSPopUpButton, NSSearchField, NSSplitView, NSString, NSTextField, NSView;
+@class BCFilterInfo, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSObject<BCSideBarViewControllerDelegate>, NSPopUpButton, NSSearchField, NSSplitView, NSString, NSTextField, NSView;
 
 @interface BCSideBarViewController : NSViewController <NSSplitViewDelegate>
 {
     BOOL _userUpdatedPageHeight;
+    NSObject<BCSideBarViewControllerDelegate> *_delegate;
     unsigned long long _sliceCount;
     BCFilterInfo *_filter;
     BCOutlineViewDataController *_pageListDataController;
@@ -46,6 +47,7 @@
 @property(retain, nonatomic) BCOutlineViewDataController *pageListDataController; // @synthesize pageListDataController=_pageListDataController;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 @property(nonatomic) unsigned long long sliceCount; // @synthesize sliceCount=_sliceCount;
+@property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (void)splitViewDidResizeSubviews:(id)arg1;

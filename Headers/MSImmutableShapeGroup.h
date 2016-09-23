@@ -12,7 +12,6 @@
 
 @interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup>
 {
-    NSBezierPath *_bezierPathWithTransformsForMasking;
 }
 
 + (id)bezierPathForEndDecorationOnPath:(id)arg1 decorationType:(unsigned long long)arg2;
@@ -24,23 +23,23 @@
 + (id)closedArrowDecoration;
 + (id)pathForDecorationType:(unsigned long long)arg1;
 + (void)cacheDecorations;
-@property(retain, nonatomic) NSBezierPath *bezierPathWithTransformsForMasking; // @synthesize bezierPathWithTransformsForMasking=_bezierPathWithTransformsForMasking;
-- (void).cxx_destruct;
 - (id)bezierPathForEndDecorationOnPath:(id)arg1;
 - (id)bezierPathForStartDecorationOnPath:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
 - (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
+- (id)bezierPathInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
-@property(readonly, nonatomic) MSPath *pathInBounds;
 - (id)_bezierPathInSize:(struct CGSize)arg1;
+- (id)_pathInSize:(struct CGSize)arg1;
+- (id)pathInBoundsWithCache:(id)arg1;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 - (void)applyPropertiesToBezier:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
-@property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
+- (id)pathWithTransformsUsingCache:(id)arg1;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (id)defaultName;
-- (id)bezierPathInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;

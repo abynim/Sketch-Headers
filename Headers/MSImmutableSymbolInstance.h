@@ -8,6 +8,7 @@
 
 @interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance
 {
+    unsigned long long _masterRefreshCounter;
 }
 
 + (id)defaultName;
@@ -17,6 +18,8 @@
 - (id)overrideForInstanceAtIndex:(unsigned long long)arg1 ancestorIDs:(id)arg2;
 - (id)overridesFromGroupForMigration:(id)arg1;
 - (void)calculateMasterInfluencePaddingsBetweenRect:(struct CGRect)arg1 andInfluenceRect:(struct CGRect)arg2;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (BOOL)differsFromLayer:(id)arg1;

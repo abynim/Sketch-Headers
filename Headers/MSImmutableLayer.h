@@ -10,7 +10,7 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableStyle, NSAffineTransform, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
 {
@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) struct CGRect influenceRectForBounds; // @synthesize influenceRectForBounds=_influenceRectForBounds;
 @property(readonly, nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
+- (BOOL)containsSelectedItem;
 - (BOOL)canSkipAdvancedClipForStrokes;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
@@ -83,12 +84,10 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
 - (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
 - (id)possibleOverridesInDocument:(id)arg1;
-- (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
-- (BOOL)differsFromLayer:(id)arg1;
-@property(readonly, nonatomic) NSArray *sublayersForTreeDiff;
-- (BOOL)shouldSkipDrawing;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (Class)rendererClass;

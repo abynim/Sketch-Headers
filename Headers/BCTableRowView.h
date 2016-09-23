@@ -41,7 +41,6 @@
 @property(readonly, nonatomic) BOOL isOdd;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)prepareForReuse;
 
 @end
 

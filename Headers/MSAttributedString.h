@@ -14,6 +14,7 @@
 @interface MSAttributedString : NSObject <NSCoding, NSCopying>
 {
     NSAttributedString *_attributedString;
+    NSAttributedString *_transformedAttributedString;
     NSAttributedString *_encodedAttributedString;
 }
 
@@ -23,8 +24,10 @@
 + (id)decodeAttributesInDictionary:(id)arg1;
 + (id)encodeAttributesInDictionary:(id)arg1;
 @property(retain, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
+@property(retain, nonatomic) NSAttributedString *transformedAttributedString; // @synthesize transformedAttributedString=_transformedAttributedString;
 @property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void).cxx_destruct;
+- (BOOL)propertiesAreEqual:(id)arg1;
 - (id)debugDescription;
 - (id)immutableModelObject;
 @property(readonly, nonatomic) BOOL areRequiredFontsAvailable;

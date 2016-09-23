@@ -27,7 +27,7 @@
 - (id)layers;
 - (struct CGPoint)rotationCenterInAbsoluteCoordinates;
 - (double)alignDegreesTo45Angles:(double)arg1;
-- (void)drawInRect:(struct CGRect)arg1;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (long long)degreesForPoint:(struct CGPoint)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

@@ -13,8 +13,8 @@
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
     MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
-    MSModelObjectCache *_cache;
     struct NSObject *_objectID;
+    MSModelObjectCache *_cache;
 }
 
 + (id)generateObjectID;
@@ -26,7 +26,6 @@
 @property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (id)primitiveObjectID;
-- (void)setPrimitiveObjectID:(id)arg1;
 @property(copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID; // @synthesize objectID=_objectID;
 - (BOOL)hasObjectID;
 - (id)generateObjectID;

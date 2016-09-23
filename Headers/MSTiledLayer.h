@@ -8,7 +8,7 @@
 
 #import "MSTilePlacerDelegate.h"
 
-@class MSTilePlacer, MSTileUpdateOperation, NSColorSpace, NSOperationQueue, NSSet, NSString;
+@class MSCGContextPool, MSTilePlacer, MSTileUpdateOperation, NSColorSpace, NSOperationQueue, NSSet, NSString;
 
 @interface MSTiledLayer : CALayer <MSTilePlacerDelegate>
 {
@@ -19,6 +19,7 @@
     unsigned long long _state;
     double _renderingZoomLevel;
     NSColorSpace *_colorSpace;
+    MSCGContextPool *_contextPool;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     MSTilePlacer *_tilePlacer;
     NSSet *_renderingTiles;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) NSSet *renderingTiles; // @synthesize renderingTiles=_renderingTiles;
 @property(retain, nonatomic) MSTilePlacer *tilePlacer; // @synthesize tilePlacer=_tilePlacer;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL isRendering; // @synthesize isRendering=_isRendering;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
@@ -52,6 +54,7 @@
 - (void)transitionFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
 - (void)replace;
 - (void)prepare;
+- (BOOL)shouldDrawPixelated;
 - (void)clear;
 - (BOOL)makeCurrentIfPossible;
 - (void)concatTransform:(struct CATransform3D)arg1;
@@ -74,6 +77,7 @@
 - (void)tileUpdateOperationDidComplete:(id)arg1;
 - (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
 - (id)actionForKey:(id)arg1;
+- (void)setupContextPool;
 - (void)dealloc;
 - (id)initWithZoomLevel:(double)arg1 scrollOrigin:(struct CGPoint)arg2 viewBounds:(struct CGRect)arg3;
 

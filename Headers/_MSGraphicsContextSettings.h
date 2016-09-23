@@ -21,10 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setPrimitiveOpacity:(double)arg1;
-- (double)primitiveOpacity;
-- (void)setPrimitiveBlendMode:(long long)arg1;
-- (long long)primitiveBlendMode;
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;

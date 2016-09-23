@@ -10,7 +10,7 @@
 {
 }
 
-- (unsigned long long)traits;
++ (unsigned long long)traits;
 - (BOOL)influenceRectClipsToBounds;
 - (id)masterWithOverrides:(id)arg1 size:(struct CGSize)arg2;
 - (id)masterWithOverrides:(id)arg1;
