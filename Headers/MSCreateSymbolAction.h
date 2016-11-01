@@ -13,7 +13,6 @@
 - (BOOL)dynamicTitle;
 - (id)historyMomentTitle;
 - (id)label;
-- (BOOL)wouldInsertInstance;
 - (id)imageName;
 - (void)createSymbolFromLayers:(id)arg1;
 - (void)doCreateSymbolsFromArtboardsAndInsertInstances:(id)arg1;

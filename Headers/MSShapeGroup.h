@@ -17,8 +17,10 @@
 + (struct CGRect)groupBoundsForLayers:(id)arg1;
 + (BOOL)groupBoundsShouldBeIntegral;
 + (id)shapeWithPath:(id)arg1;
++ (id)shapeWithRect:(struct CGRect)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
 + (Class)overrideViewControllerClass;
++ (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingPreviewImages;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
@@ -107,7 +109,7 @@
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
@@ -129,6 +131,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

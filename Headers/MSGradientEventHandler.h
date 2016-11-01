@@ -6,9 +6,11 @@
 
 #import "MSPointsEventHandler.h"
 
-@class MSStyleBasicFill, NSCursor;
+#import "MSGradientPointArrayDelegate.h"
 
-@interface MSGradientEventHandler : MSPointsEventHandler
+@class MSStyleBasicFill, NSCursor, NSString;
+
+@interface MSGradientEventHandler : MSPointsEventHandler <MSGradientPointArrayDelegate>
 {
     NSCursor *selectPointCursor;
     NSCursor *insertPointCursor;
@@ -53,6 +55,7 @@
 - (struct CGRect)paddingRectAroundPoints;
 - (void)colorMagnifierAction:(id)arg1;
 - (id)gradient;
+- (void)gradientPointArray:(id)arg1 replacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
 - (id)points;
 - (void)drawDotAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
 - (void)handlerWillLoseFocus;
@@ -61,6 +64,12 @@
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

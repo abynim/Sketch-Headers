@@ -15,10 +15,12 @@
 }
 
 + (id)defaultNameForScale:(double)arg1;
+- (BOOL)isVectorExport;
 - (id)defaultName;
 - (void)migratePropertiesFromV72OrEarlierWithCoder:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) double absoluteSize;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSString *fileFormat;

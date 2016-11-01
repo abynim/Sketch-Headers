@@ -6,108 +6,26 @@
 
 #import "NSViewController.h"
 
-#import "NSSharingServicePickerDelegate.h"
+#import "MSCloudViewControllerDelegate.h"
 
-@class MSCloudAuthAPI, MSCloudShareAPI, MSCloudShareUploadController, MSDocument, MSPublisherCloudRootElement, NSButton, NSMapTable, NSMutableDictionary, NSOutlineView, NSProgressIndicator, NSString, NSTextField, NSView;
+@class MSCloudController, NSString;
 
-@interface MSCloudViewController : NSViewController <NSSharingServicePickerDelegate>
+@interface MSCloudViewController : NSViewController <MSCloudViewControllerDelegate>
 {
-    BOOL _uploading;
+    BOOL _isTransitioning;
     id <MSCloudViewControllerDelegate> _delegate;
-    MSDocument *_document;
-    double _uploadStartTime;
-    double _lastUpdateTime;
-    MSCloudShareAPI *_shareAPI;
-    MSCloudAuthAPI *_authAPI;
-    MSCloudShareUploadController *_currentUploadController;
-    NSView *_uploadView;
-    NSView *_contentView;
-    NSView *_urlView;
-    NSButton *_shareOnlineButton;
-    NSButton *_urlButton;
-    NSButton *_uploadDocumentCheckbox;
-    NSButton *_uploadUpdateButton;
-    NSButton *_uploadNewButton;
-    NSTextField *_generatingURLLabel;
-    NSTextField *_uploadTitleLabel;
-    NSTextField *_explanatoryTitleLabel;
-    NSOutlineView *_artboardOutlineView;
-    NSView *_explanatoryView;
-    NSView *_uploadProgressContainerView;
-    NSProgressIndicator *_progressView;
-    NSTextField *_remainingTimeField;
-    NSMutableDictionary *_checkBoxes;
-    NSMapTable *_checkBoxArtboardMapping;
-    MSPublisherCloudRootElement *_rootItem;
+    MSCloudController *_cloudController;
 }
 
-@property(retain, nonatomic) MSPublisherCloudRootElement *rootItem; // @synthesize rootItem=_rootItem;
-@property(retain, nonatomic) NSMapTable *checkBoxArtboardMapping; // @synthesize checkBoxArtboardMapping=_checkBoxArtboardMapping;
-@property(retain, nonatomic) NSMutableDictionary *checkBoxes; // @synthesize checkBoxes=_checkBoxes;
-@property(retain, nonatomic) NSTextField *remainingTimeField; // @synthesize remainingTimeField=_remainingTimeField;
-@property(retain, nonatomic) NSProgressIndicator *progressView; // @synthesize progressView=_progressView;
-@property(retain, nonatomic) NSView *uploadProgressContainerView; // @synthesize uploadProgressContainerView=_uploadProgressContainerView;
-@property(retain, nonatomic) NSView *explanatoryView; // @synthesize explanatoryView=_explanatoryView;
-@property(retain, nonatomic) NSOutlineView *artboardOutlineView; // @synthesize artboardOutlineView=_artboardOutlineView;
-@property(retain, nonatomic) NSTextField *explanatoryTitleLabel; // @synthesize explanatoryTitleLabel=_explanatoryTitleLabel;
-@property(retain, nonatomic) NSTextField *uploadTitleLabel; // @synthesize uploadTitleLabel=_uploadTitleLabel;
-@property(retain, nonatomic) NSTextField *generatingURLLabel; // @synthesize generatingURLLabel=_generatingURLLabel;
-@property(retain, nonatomic) NSButton *uploadNewButton; // @synthesize uploadNewButton=_uploadNewButton;
-@property(retain, nonatomic) NSButton *uploadUpdateButton; // @synthesize uploadUpdateButton=_uploadUpdateButton;
-@property(retain, nonatomic) NSButton *uploadDocumentCheckbox; // @synthesize uploadDocumentCheckbox=_uploadDocumentCheckbox;
-@property(retain, nonatomic) NSButton *urlButton; // @synthesize urlButton=_urlButton;
-@property(retain, nonatomic) NSButton *shareOnlineButton; // @synthesize shareOnlineButton=_shareOnlineButton;
-@property(retain, nonatomic) NSView *urlView; // @synthesize urlView=_urlView;
-@property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
-@property(retain, nonatomic) NSView *uploadView; // @synthesize uploadView=_uploadView;
-@property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
-@property(retain, nonatomic) MSCloudAuthAPI *authAPI; // @synthesize authAPI=_authAPI;
-@property(retain, nonatomic) MSCloudShareAPI *shareAPI; // @synthesize shareAPI=_shareAPI;
-@property(nonatomic) BOOL uploading; // @synthesize uploading=_uploading;
-@property(nonatomic) double lastUpdateTime; // @synthesize lastUpdateTime=_lastUpdateTime;
-@property(nonatomic) double uploadStartTime; // @synthesize uploadStartTime=_uploadStartTime;
-@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(nonatomic) BOOL isTransitioning; // @synthesize isTransitioning=_isTransitioning;
+@property(retain, nonatomic) MSCloudController *cloudController; // @synthesize cloudController=_cloudController;
 @property(nonatomic) __weak id <MSCloudViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)openLearnMore:(id)arg1;
-- (id)cleanURL:(id)arg1;
-- (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
-- (void)outlineViewItemDidCollapse:(id)arg1;
-- (void)outlineViewItemDidExpand:(id)arg1;
-- (void)selectLayer:(id)arg1;
-- (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
-- (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
-- (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
-- (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
-- (void)uploadStopped;
-- (void)segmentedControlChanged:(id)arg1;
-- (id)onlineURLForDocument;
-- (void)warnUploadFailed:(id)arg1;
-- (void)uploadDidCancelWithError:(id)arg1;
-- (void)uploadDidFailWithError:(id)arg1;
-- (void)shareIsProcessed:(id)arg1 url:(id)arg2;
-- (void)checkShareProcessStatus:(id)arg1 url:(id)arg2 delay:(double)arg3;
-- (void)uploadDidFinishWithData:(id)arg1;
-- (void)uploadDidProgressTo:(double)arg1;
-- (void)willStartUploading;
-- (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
-- (void)showDocumentInBrowser:(id)arg1;
-- (void)shareAction:(id)arg1;
-- (void)cancelUploadAction:(id)arg1;
-- (void)uploadShare;
-- (void)uploadExistingShare:(id)arg1;
-- (void)uploadNewShare:(id)arg1;
-- (void)uploadNewShareWithWarning:(id)arg1;
-- (void)openCloudPrefs:(id)arg1;
-- (void)layoutUploadButtonsWithUpdate:(BOOL)arg1;
-- (void)updateUploadButtons;
-- (void)updateURLView;
-- (BOOL)shouldShowURLView;
-- (void)reloadContentViews;
-- (void)showContentViews:(id)arg1;
-- (void)showContentView:(id)arg1;
-- (void)updateUI;
-- (void)viewWillAppear;
+- (void)cloudViewControllerNeedsResizing:(id)arg1;
+- (void)viewDidTransition;
+- (void)viewWillTransition;
+- (void)parentViewControllerDidTransitionNotification:(id)arg1;
+- (void)parentViewControllerWillTransitionNotification:(id)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 

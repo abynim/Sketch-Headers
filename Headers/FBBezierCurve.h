@@ -77,6 +77,7 @@
 - (double)length;
 - (double)refineParameter:(double)arg1 forPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtParameter:(double)arg1 leftBezierCurve:(id *)arg2 rightBezierCurve:(id *)arg3;
+- (id)curveWithTransform:(struct CGAffineTransform)arg1;
 - (id)reversedCurve;
 - (void)splitSubcurvesWithRange:(struct FBRange)arg1 left:(id *)arg2 middle:(id *)arg3 right:(id *)arg4;
 - (id)subcurveWithRange:(struct FBRange)arg1;

@@ -10,6 +10,7 @@
 
 @interface _MSExportFormat : MSModelObject
 {
+    double _absoluteSize;
     NSString *_fileFormat;
     NSString *_name;
     double _scale;
@@ -30,6 +31,7 @@
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
+@property(nonatomic) double absoluteSize; // @synthesize absoluteSize=_absoluteSize;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

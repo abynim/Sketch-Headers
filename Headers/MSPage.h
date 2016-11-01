@@ -67,7 +67,7 @@
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)canBeContainedByDocument;
@@ -109,6 +109,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;
 @property(copy, nonatomic) MSLayoutGrid *layout;

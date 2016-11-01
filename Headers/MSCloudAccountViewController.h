@@ -63,10 +63,12 @@
 - (BOOL)validateName:(inout id *)arg1 error:(out id *)arg2;
 - (BOOL)validateEmail:(inout id *)arg1 error:(out id *)arg2;
 - (void)controlTextDidChange:(id)arg1;
+- (void)userDidChangeNotification:(id)arg1;
 - (void)userDidLogoutNotification:(id)arg1;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)popToRootViewController:(id)arg1;
 - (void)viewDidLayout;
+- (void)updateUserData;
 - (void)refreshAccountInformation;
 - (void)resendEmailVerification:(id)arg1;
 - (void)saveAndDismiss:(id)arg1;

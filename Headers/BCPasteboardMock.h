@@ -19,6 +19,8 @@
 @property(retain, nonatomic) NSMutableDictionary *storage; // @synthesize storage=_storage;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(readonly) long long changeCount;
+- (BOOL)writeObjects:(id)arg1;
 - (id)types;
 - (id)availableTypeFromArray:(id)arg1;
 - (id)propertyListForType:(id)arg1;

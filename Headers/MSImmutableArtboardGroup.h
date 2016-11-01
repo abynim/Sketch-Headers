@@ -8,10 +8,11 @@
 
 #import "MSArtboardGroup.h"
 #import "MSImmutableRootLayer.h"
+#import "MSLayerWithBackgroundColour.h"
 
 @class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer, MSLayerWithBackgroundColour>
 {
     struct CGSize _unscaledNameSize;
 }
@@ -20,6 +21,7 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
+- (id)immutableBackgroundColor;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
 - (BOOL)influenceRectClipsToBounds;
@@ -27,10 +29,9 @@
 - (void)performInitWithCoder:(id)arg1;
 - (BOOL)exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
-- (Class)rendererClass;
 - (void)configureBackgroundOfRequest:(id)arg1;
 - (id)svgStyle:(id)arg1;
 
@@ -57,6 +58,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

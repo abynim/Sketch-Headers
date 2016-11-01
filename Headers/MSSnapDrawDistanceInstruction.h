@@ -18,6 +18,7 @@
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 - (void)drawWithZoom:(double)arg1 context:(id)arg2;
 - (struct CGRect)rect;
 

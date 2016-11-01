@@ -44,6 +44,7 @@
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void).cxx_destruct;
+- (id)tableCellViewDestinationWindow:(id)arg1;
 - (unsigned long long)tableRowView:(id)arg1 displayTypeOfRowAtIndex:(long long)arg2;
 - (long long)indexOfTableRowView:(id)arg1;
 - (BOOL)isNodeExpandedInTableRowView:(id)arg1;

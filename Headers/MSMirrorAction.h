@@ -6,23 +6,23 @@
 
 #import "MSPopoverAction.h"
 
-@class MSMirrorViewController;
+@class NSStoryboard, NSString;
 
 @interface MSMirrorAction : MSPopoverAction
 {
-    MSMirrorViewController *_viewController;
+    NSStoryboard *_storyboard;
 }
 
-@property(retain, nonatomic) MSMirrorViewController *viewController; // @synthesize viewController=_viewController;
+@property(retain, nonatomic) NSStoryboard *storyboard; // @synthesize storyboard=_storyboard;
 - (void).cxx_destruct;
 - (id)tooltip;
 - (id)label;
-- (BOOL)validateToolbarItem:(id)arg1;
 - (BOOL)showInToolbar;
-- (id)mirrorController;
 - (id)popoverViewController;
+- (BOOL)validateToolbarItem:(id)arg1;
+@property(readonly, nonatomic) NSString *imageName;
+- (id)mirrorController;
 - (void)connectionControllerDidChangeConnectionsNotification:(id)arg1;
-- (id)imageName;
 - (void)showMirrorPopover:(id)arg1;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;

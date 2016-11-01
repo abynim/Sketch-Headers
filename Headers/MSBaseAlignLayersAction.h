@@ -14,13 +14,13 @@
 {
 }
 
-- (void)doPerformAction:(id)arg1;
+- (void)performAction:(id)arg1;
 - (BOOL)altButtonCanShowAltImage:(id)arg1;
-- (BOOL)selectionContainsNoArtboards;
-- (BOOL)selectionContainsOnlyArtboards;
 - (BOOL)validate;
 - (void)alignVectorPointsToKey:(id)arg1;
 - (BOOL)canAlignToArtboardInstead;
+- (void)applyOrigins:(id)arg1 toLayers:(id)arg2 page:(id)arg3 axis:(unsigned long long)arg4 pixelFit:(BOOL)arg5;
+- (void)applyNewOriginsToSelectionAfterConfirmation:(id)arg1 axis:(unsigned long long)arg2 origins:(id)arg3;
 - (void)alignToKey:(id)arg1;
 
 // Remaining properties

@@ -39,10 +39,10 @@
     MSHistoryMaker *_historyMaker;
     MSInspectorController *_inspectorController;
     MSFontList *_fontList;
+    BCSideBarViewController *_sidebarController;
     MSLayerArray *_selectedLayersA;
     MSContentDrawViewController *_currentContentViewController;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
-    BCSideBarViewController *_sidebarController;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
     double _mostRecentCacheFlushingTime;
@@ -52,6 +52,7 @@
 }
 
 + (id)currentDocument;
++ (id)windowForSheet;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
@@ -65,13 +66,13 @@
 @property(retain, nonatomic) NSTimer *resetHiddenSelectionHandlesTimer; // @synthesize resetHiddenSelectionHandlesTimer=_resetHiddenSelectionHandlesTimer;
 @property(retain, nonatomic) NSMutableSet *layersWithHiddenSelectionHandles; // @synthesize layersWithHiddenSelectionHandles=_layersWithHiddenSelectionHandles;
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
-@property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(copy, nonatomic) MSLayerArray *selectedLayersA; // @synthesize selectedLayersA=_selectedLayersA;
+@property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSHistoryMaker *historyMaker; // @synthesize historyMaker=_historyMaker;
@@ -103,7 +104,6 @@
 - (void)documentData:(id)arg1 temporarilyHideSelectionForLayer:(id)arg2;
 - (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
-- (void)onAddPage:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
@@ -133,7 +133,7 @@
 - (void)findLayer:(id)arg1;
 - (void)toggleLayersAndInspectorVisibility:(id)arg1;
 - (void)toggleInspectorVisibility:(id)arg1;
-- (BOOL)isInPresentationMode;
+- (BOOL)isInspectorVisible;
 - (void)toggleLayerListVisibility:(id)arg1;
 - (BOOL)isLayerListVisible;
 - (void)renameLayer:(id)arg1;
@@ -164,7 +164,7 @@
 - (void)redrawView;
 - (void)reloadView;
 - (void)refreshOverlayOfViews;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (id)rootDelegate;
 - (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
@@ -252,6 +252,7 @@
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidEndSheet:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
+- (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (id)window;
 - (void)dealloc;
 - (void)close;
@@ -260,8 +261,6 @@
 - (void)setSelectedLayers:(id)arg1;
 - (id)selectedLayers;
 - (id)init;
-- (id)exportFramerWithOptions:(id)arg1;
-- (id)exportFramer;
 - (void)hideMessage:(id)arg1;
 - (void)hideMessage;
 - (id)shadowViewForContentView:(id)arg1 cornerRadius:(double)arg2;
@@ -272,6 +271,7 @@
 - (id)startAccessingFolder:(id)arg1 tokenName:(id)arg2;
 - (id)dataForRequest:(id)arg1 ofType:(id)arg2;
 - (void)saveExportRequest:(id)arg1 toFile:(id)arg2;
+- (id)exportRequestWithName:(id)arg1 rect:(struct CGRect)arg2;
 - (id)exportRequestForArtboardOrSlice:(id)arg1;
 - (void)saveArtboardOrSlice:(id)arg1 toFile:(id)arg2;
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;

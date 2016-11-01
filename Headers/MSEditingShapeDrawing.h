@@ -13,7 +13,7 @@
     NSArray *_shapePathLayers;
     MSContentDrawView *_view;
     id <MSEditingShapeDrawingDelegate> _delegate;
-    NSIndexPath *_highlightedSegmentIndexPath;
+    NSIndexPath *_insertionIndexPath;
     NSArray *_indexPathsForSelectedHandles;
     NSIndexPath *_indexPathForHoveringHandle;
     NSArray *_indexPathsForSnappedToHandles;
@@ -24,7 +24,7 @@
 @property(copy, nonatomic) NSIndexPath *indexPathForHoveringHandle; // @synthesize indexPathForHoveringHandle=_indexPathForHoveringHandle;
 @property(copy, nonatomic) NSArray *indexPathsForSelectedHandles; // @synthesize indexPathsForSelectedHandles=_indexPathsForSelectedHandles;
 @property(nonatomic) struct CGPoint insertionPoint; // @synthesize insertionPoint=_insertionPoint;
-@property(copy, nonatomic) NSIndexPath *highlightedSegmentIndexPath; // @synthesize highlightedSegmentIndexPath=_highlightedSegmentIndexPath;
+@property(copy, nonatomic) NSIndexPath *insertionIndexPath; // @synthesize insertionIndexPath=_insertionIndexPath;
 @property(nonatomic) __weak id <MSEditingShapeDrawingDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSContentDrawView *view; // @synthesize view=_view;
 @property(copy, nonatomic) NSArray *shapePathLayers; // @synthesize shapePathLayers=_shapePathLayers;

@@ -35,7 +35,6 @@
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
-- (BOOL)scrollEventShouldExitHandler:(id)arg1;
 - (BOOL)allowsSwitchToInsertAction;
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
@@ -96,17 +95,20 @@
 - (void)focusOnMainWindow;
 - (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 offset:(struct CGSize)arg3;
 - (id)duplicateSelectedLayersInGroup:(id)arg1 withOffset:(struct CGSize)arg2;
+- (id)layersSeparatedByGroups:(id)arg1;
 - (id)duplicateSelectedLayersWithOffset:(struct CGSize)arg1;
 - (struct CGPoint)currentMousePointInCanvasCoordinates;
 - (void)pasteHere:(id)arg1;
 - (void)pasteOverSelection:(id)arg1;
+- (void)pasteWithOptions:(unsigned long long)arg1;
+- (void)pasteWithStyle:(id)arg1;
 - (void)paste:(id)arg1;
 - (id)layersToCopy;
 - (void)copy:(id)arg1;
 - (void)doCut:(id)arg1;
 - (void)cut:(id)arg1;
 - (id)pastingViewPort;
-- (void)readFromPasteboard:(id)arg1;
+- (void)readFromPasteboard:(id)arg1 options:(unsigned long long)arg2;
 - (id)currentPage;
 - (void)writeLayers:(id)arg1 toPasteboard:(id)arg2;
 - (void)flagsChanged:(id)arg1;
@@ -117,6 +119,7 @@
 - (void)commitPendingEdits;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
 - (void)drawDragSelection;

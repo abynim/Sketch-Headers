@@ -8,10 +8,10 @@
 
 @interface MSGradientPointArray : MSPointArray
 {
-    id _delegate;
+    id <MSGradientPointArrayDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSGradientPointArrayDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)replacePointAtIndex:(unsigned long long)arg1 withPoint:(struct CGPoint)arg2;
 

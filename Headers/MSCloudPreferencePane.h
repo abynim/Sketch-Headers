@@ -6,13 +6,12 @@
 
 #import "MSPreferencePane.h"
 
-@class MSCloudAuthAPI, MSCloudPreferenceViewController, MSCloudShareAPI, NSArray, NSDictionary, NSStoryboard;
+@class MSCloudAuthAPI, MSCloudPreferenceViewController, MSCloudShareAPI, NSArray, NSStoryboard;
 
 @interface MSCloudPreferencePane : MSPreferencePane
 {
     MSCloudAuthAPI *_cloudAuthAPI;
     MSCloudShareAPI *_cloudShareAPI;
-    NSDictionary *_userData;
     NSArray *_userShares;
     NSStoryboard *_cloudStoryboard;
     MSCloudPreferenceViewController *_currentViewController;
@@ -24,7 +23,6 @@
 @property(nonatomic) __weak MSCloudPreferenceViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
 @property(retain, nonatomic) NSArray *userShares; // @synthesize userShares=_userShares;
-@property(retain, nonatomic) NSDictionary *userData; // @synthesize userData=_userData;
 - (void).cxx_destruct;
 - (void)verifyEmailChangeWithToken:(id)arg1 newEmail:(id)arg2;
 - (void)cloudURLDidOpenNotification:(id)arg1;

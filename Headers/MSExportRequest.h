@@ -27,8 +27,11 @@
     struct CGRect _rect;
 }
 
-+ (id)requestWithRect:(struct CGRect)arg1 scale:(double)arg2;
-+ (id)requestWithName:(id)arg1 rect:(struct CGRect)arg2;
++ (id)exportRequestFromLayerAncestry:(id)arg1 exportFormat:(id)arg2 inRect:(struct CGRect)arg3;
++ (id)exportRequestsFromLayerAncestry:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3;
++ (id)exportRequestsFromLayerAncestry:(id)arg1 exportFormats:(id)arg2;
++ (id)exportRequestsFromLayerAncestry:(id)arg1 inRect:(struct CGRect)arg2;
++ (id)exportRequestsFromLayerAncestry:(id)arg1;
 + (id)exportRequestFromExportFormat:(id)arg1 layer:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 inRect:(struct CGRect)arg2 useIDForName:(BOOL)arg3;
@@ -52,8 +55,11 @@
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (void).cxx_destruct;
 - (id)init;
-- (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
+- (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
+- (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)configureForLayer:(id)arg1;
+- (void)setNameFromID:(struct NSObject *)arg1 exportFormat:(id)arg2;
+- (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end
 

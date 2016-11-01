@@ -11,7 +11,6 @@
 }
 
 + (void)runLicenseDialog;
-+ (void)run;
 
 @end
 

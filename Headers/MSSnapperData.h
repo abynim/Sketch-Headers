@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSMutableDictionary *sizeItems; // @synthesize sizeItems=_sizeItems;
 - (void).cxx_destruct;
 - (void)enumerateInstructions:(CDUnknownBlockType)arg1;
-- (void)refreshWithDelegate:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
 - (id)linesForAxis:(unsigned long long)arg1;
 - (void)removeAllDistanceInstructionsForAxis:(unsigned long long)arg1;
 - (void)addDistanceInstruction:(id)arg1;

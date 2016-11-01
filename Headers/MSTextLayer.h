@@ -8,36 +8,30 @@
 
 #import "MSFirstLineTypesetterDelegate.h"
 #import "MSTextLayer.h"
-#import "NSTextStorageDelegate.h"
 
-@class MSAttributedString, MSColor, MSImageData, NSArray, NSBezierPath, NSDictionary, NSFont, NSLayoutManager, NSNumber, NSObject<NSCopying><NSCoding>, NSString, NSTextContainer, NSTextStorage;
+@class MSAttributedString, MSColor, MSImageData, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSFont, NSNumber, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSTextLayer : _MSTextLayer <NSTextStorageDelegate, MSFirstLineTypesetterDelegate, MSTextLayer>
+@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSTextLayer>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
-    NSTextStorage *_storageBeforeResize;
-    NSTextStorage *_storage;
     NSNumber *_defaultLineHeightValue;
     NSArray *_baselineOffsetsValue;
     id <MSTextLayerEditingDelegate> _editingDelegate;
-    struct CGSize _sizeBeforeResize;
     struct CGRect _previousRectCache;
 }
 
 + (Class)overrideViewControllerClass;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
++ (BOOL)canSetTextAlignmentForLayers:(id)arg1;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-@property(nonatomic) struct CGSize sizeBeforeResize; // @synthesize sizeBeforeResize=_sizeBeforeResize;
++ (id)createTextStorageForLayer:(id)arg1;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
 @property(retain, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
-@property(retain, nonatomic) NSTextStorage *storage; // @synthesize storage=_storage;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
-@property(copy, nonatomic) NSTextStorage *storageBeforeResize; // @synthesize storageBeforeResize=_storageBeforeResize;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
-- (BOOL)canResize;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;
@@ -56,8 +50,9 @@
 - (void)addAttribute:(id)arg1 value:(id)arg2 forRange:(struct _NSRange)arg3;
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
-- (BOOL)textStorageIsEqual:(id)arg1;
-- (void)copyTextStorageTo:(id)arg1;
+- (void)updateAttributedStringInBlock:(CDUnknownBlockType)arg1;
+- (void)setAttributedString:(id)arg1;
+@property(copy, nonatomic) NSAttributedString *attributedStringValue;
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
@@ -75,7 +70,6 @@
 - (void)setKerning:(float)arg1;
 - (float)kerning;
 - (void)refreshOverlay;
-- (void)layerWillResize;
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
@@ -83,20 +77,15 @@
 - (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
-- (double)defaultLineHeight;
 @property(readonly, nonatomic) NSFont *font;
 - (void)changeFont:(id)arg1;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
-@property(readonly, nonatomic) NSTextContainer *textContainer;
-@property(readonly, nonatomic) NSLayoutManager *layoutManager;
 - (id)shapeToUseForTextOnPath;
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
-- (void)setStorageContents:(id)arg1;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
 - (void)finishEditing;
-- (void)textStorageDidProcessEditing:(id)arg1;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
@@ -107,14 +96,9 @@
 - (struct CGSize)textContainerSize;
 - (id)createTextContainer;
 - (id)createLayoutManager;
-- (void)setUpText;
-- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)adjustContainerWidthTo:(double)arg1;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
 - (void)setTextBehaviour:(long long)arg1 mayAdjustFrame:(BOOL)arg2;
-- (void)setLineSpacingBehaviour:(long long)arg1;
-- (void)sanityCheckText;
 - (void)setStyle:(id)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitWithImmutableModelObject:(id)arg1;
@@ -143,7 +127,8 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (id)createTextStorage;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
 - (long long)layoutDirection;
@@ -168,6 +153,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) long long lineSpacingBehaviour;

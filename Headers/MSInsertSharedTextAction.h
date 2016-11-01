@@ -18,6 +18,7 @@
 - (id)sharedObjectName;
 - (id)imageName;
 - (id)unsortedSharedObjects;
+- (BOOL)validate;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)menuItemForMenu:(id)arg1 name:(id)arg2 sharedObject:(id)arg3;
 - (void)updateMenu:(id)arg1;

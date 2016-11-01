@@ -29,13 +29,12 @@
 @property(readonly, nonatomic) BOOL hasEnabledInnerShadow;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 @property(readonly, nonatomic) MSImmutableStyleBorder *firstEnabledBorder;
-@property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
 @property(readonly, nonatomic) MSImmutableStyleFill *firstEnabledFill;
 @property(readonly, nonatomic) MSImmutableStyleInnerShadow *firstEnabledInnerShadow;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
-@property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
+@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
 @property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 - (void)clearTextStyle;
 - (id)renderBitmapEffects:(id)arg1;

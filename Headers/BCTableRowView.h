@@ -6,7 +6,7 @@
 
 #import "NSTableRowView.h"
 
-@class NSColor, NSObject<BCOutlineViewNode>, NSObject<BCTableRowViewDelegate>, NSTableView;
+@class NSObject<BCOutlineViewNode>, NSObject<BCTableRowViewDelegate>, NSTableView;
 
 @interface BCTableRowView : NSTableRowView
 {
@@ -16,19 +16,13 @@
     unsigned long long _expansionState;
 }
 
++ (void)initialize;
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
 @property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
 @property(nonatomic) __weak NSTableView *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
 - (void)drawDisclosureTriangle;
-@property(readonly, nonatomic) NSColor *borderColour;
-@property(readonly, nonatomic) NSColor *highlightColour;
-@property(readonly, nonatomic) NSColor *selectionBackgroundColour;
-@property(readonly, nonatomic) NSColor *selectionForegroundColour;
-@property(readonly, nonatomic) NSColor *alternateRowBackgroundColour;
-@property(readonly, nonatomic) NSColor *rowBackgroundColour;
-- (id)colourForItem:(SEL)arg1;
 - (void)drawSelectionInRect:(struct CGRect)arg1;
 - (void)drawDraggingDestinationFeedbackInRect:(struct CGRect)arg1;
 - (void)drawHighlight;

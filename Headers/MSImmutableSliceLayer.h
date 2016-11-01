@@ -6,16 +6,18 @@
 
 #import "_MSImmutableSliceLayer.h"
 
+#import "MSLayerWithBackgroundColour.h"
 #import "MSSliceLayer.h"
 
 @class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSSliceLayer>
+@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSSliceLayer, MSLayerWithBackgroundColour>
 {
 }
 
 + (id)defaultName;
 + (unsigned long long)traits;
+- (id)immutableBackgroundColor;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)refreshPreviewImagesWithCache:(id)arg1;
 - (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
@@ -37,6 +39,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, copy, nonatomic) NSString *name;

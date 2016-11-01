@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (BCFoundation)
+- (id)URLByAppendingNameWithSeparators:(id)arg1 defaultName:(id)arg2;
 - (id)URLByStrippingInvisiblePeriod_bc;
 @end
 

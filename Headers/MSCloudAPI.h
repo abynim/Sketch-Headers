@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, NSURL, NSURLCredential, NSURLProtectionSpace, NSURLSession;
+@class MSCloudUser, NSDictionary, NSString, NSURL, NSURLCredential, NSURLProtectionSpace, NSURLSession;
 
 @interface MSCloudAPI : NSObject
 {
     BOOL _isReachable;
     NSURLCredential *_credential;
+    MSCloudUser *_user;
     NSURLProtectionSpace *_protectionSpace;
     NSDictionary *_errorCodesByErrorString;
     NSURLSession *_urlSession;
@@ -19,13 +20,15 @@
     long long _reachabilityListenerCount;
 }
 
-+ (id)platformStringSuffix;
++ (id)stringSuffixForPlatform:(long long)arg1;
++ (void)setCurrentPlatform:(long long)arg1;
 + (long long)currentPlatform;
 @property(nonatomic) long long reachabilityListenerCount; // @synthesize reachabilityListenerCount=_reachabilityListenerCount;
 @property(readonly, nonatomic) struct __SCNetworkReachability *reachabilityRef; // @synthesize reachabilityRef=_reachabilityRef;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(retain, nonatomic) NSDictionary *errorCodesByErrorString; // @synthesize errorCodesByErrorString=_errorCodesByErrorString;
 @property(retain, nonatomic) NSURLProtectionSpace *protectionSpace; // @synthesize protectionSpace=_protectionSpace;
+@property(retain, nonatomic) MSCloudUser *user; // @synthesize user=_user;
 @property(readonly, nonatomic) BOOL isReachable; // @synthesize isReachable=_isReachable;
 - (void).cxx_destruct;
 - (void)endReachabilityNotifications;
@@ -34,18 +37,23 @@
 - (id)authValueForKey:(id)arg1;
 - (void)saveAuthValue:(id)arg1 forKey:(id)arg2;
 - (id)alertForError:(id)arg1;
-@property(nonatomic) BOOL isUserVerified;
 @property(readonly, nonatomic) NSString *authToken;
 @property(readonly, nonatomic) NSString *userID;
 @property(retain, nonatomic) NSURLCredential *credential; // @synthesize credential=_credential;
 - (void)credentialDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) BOOL isLoggedIn;
 - (void)logout;
+- (void)userDidChangeNotification:(id)arg1;
+- (void)persistUser;
+- (void)restoreUser;
+- (id)migratedUserFromDefaults;
+- (id)userFromDefaults;
 - (id)hmacsha1:(id)arg1 key:(id)arg2;
 - (id)signingForRequest:(id)arg1 authToken:(id)arg2;
 - (id)signToken;
 - (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 parameters:(id)arg3 authToken:(id)arg4;
 - (void)processAPIRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)platformDidChangeNotification:(id)arg1;
 - (id)URLWithEndpoint:(id)arg1;
 @property(readonly) NSURL *baseURL;
 - (void)dealloc;

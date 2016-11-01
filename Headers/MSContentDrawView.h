@@ -9,7 +9,7 @@
 #import "MSEventHandlerManagerDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
 
 @interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView>
 {
@@ -20,6 +20,7 @@
     BOOL didMouseDown;
     BOOL hasDraggedOutsideInitialPadding;
     struct CGPoint mouseDownPoint;
+    id _eventMonitor;
     BOOL _shouldHideOverlayControls;
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _ignoreScheduledRedrawRequests;
@@ -29,6 +30,7 @@
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     MSDocument *_document;
+    NSNumberFormatter *_measurementLabelNumberFormatter;
     MSCacheManager *_cacheManager;
     MSZoomTool *_zoomTool;
     MSImmutablePage *_previouslyRenderedPage;
@@ -56,6 +58,7 @@
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
+@property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
@@ -69,11 +72,9 @@
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (void)layerPositionPossiblyChanged;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
+- (void)returnToDefaultHandlerIfNeededForResize;
 - (void)windowDidResize:(id)arg1;
 - (void)viewWillStartLiveResize;
-- (void)setCurrentPage:(id)arg1;
-- (void)scrollPageDown:(id)arg1;
-- (void)scrollPageUp:(id)arg1;
 - (void)smartMagnifyWithEvent:(id)arg1;
 - (void)currentHandlerChanged;
 - (void)setFrame:(struct CGRect)arg1;
@@ -84,7 +85,7 @@
 - (id)currentPage;
 - (id)currentView;
 - (id)selectedLayersA;
-- (void)flagsChanged:(id)arg1;
+- (void)handleFlagsChangedEvent:(id)arg1;
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)currentHandlerKey;
 - (void)toggleHandlerKey:(id)arg1;
@@ -121,7 +122,6 @@
 - (void)scrollWheelScroll:(id)arg1;
 - (void)scrollWheel:(id)arg1;
 - (void)magnifyWithEvent:(id)arg1;
-- (struct CGRect)totalRectForLayers:(id)arg1;
 - (void)centerSelectionInVisibleArea;
 - (void)centerLayersInCanvas;
 - (void)centerRect:(struct CGRect)arg1 animated:(BOOL)arg2;
@@ -139,10 +139,9 @@
 - (void)redrawTiles;
 - (void)scheduleRedraw;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)refreshOverlayOfViews;
 - (struct CGPoint)mouseInView;
-- (void)exitHandlerForMagnifyEventIfNecessary:(id)arg1;
 - (void)reloadAllTiles;
 - (void)redrawAllTiles;
 - (void)beginReplacingTiledLayers;
@@ -193,6 +192,7 @@
 - (long long)tag;
 - (BOOL)isFlipped;
 - (void)removeFromSuperview;
+- (void)viewDidMoveToWindow;
 - (void)dealloc;
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;

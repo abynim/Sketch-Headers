@@ -12,6 +12,7 @@
 {
     BOOL _rulersVisible;
     double _snapThreshold;
+    unsigned long long _allowedAxes;
     id <MSBasicDelegate> _rulerProvider;
     MSPointSnapperWorkings *_xWorkings;
     MSPointSnapperWorkings *_yWorkings;
@@ -21,12 +22,13 @@
 @property(readonly, nonatomic) MSPointSnapperWorkings *xWorkings; // @synthesize xWorkings=_xWorkings;
 @property(retain, nonatomic) id <MSBasicDelegate> rulerProvider; // @synthesize rulerProvider=_rulerProvider;
 @property(nonatomic) BOOL rulersVisible; // @synthesize rulersVisible=_rulersVisible;
+@property(nonatomic) unsigned long long allowedAxes; // @synthesize allowedAxes=_allowedAxes;
 @property(nonatomic) double snapThreshold; // @synthesize snapThreshold=_snapThreshold;
 - (void).cxx_destruct;
 - (void)trySnapToHandleAtIndexPath:(id)arg1 location:(struct CGPoint)arg2 shape:(id)arg3 layer:(id)arg4 selection:(id)arg5;
-- (void)trySnapToPoint:(struct CGPoint)arg1 handleIndexPath:(id)arg2;
 - (void)trySnapToMidpointOfLayer:(id)arg1 geometryLayer:(id)arg2;
 - (id)snapPoint:(struct CGPoint)arg1 inLayer:(id)arg2 toShapePathLayers:(id)arg3 indexPathsForSelectedHandles:(id)arg4;
+- (id)init;
 
 @end
 

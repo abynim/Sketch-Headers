@@ -21,24 +21,23 @@
     BOOL _isSelected;
     BOOL _isHovering;
     MSAbsoluteRect *_absoluteRect;
-    struct CGRect _frameInArtboard;
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
-+ (id)layersSeparatedByGroups:(id)arg1;
 + (id)defaultName;
 + (unsigned long long)traits;
 + (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingUserVisibleRotation;
++ (BOOL)hasNonIntegralOrigin:(id)arg1;
++ (id)calculateLayerOrigins:(id)arg1 toKey:(id)arg2;
++ (struct CGRect)alignmentRectForLayers:(id)arg1 isCentred:(BOOL)arg2;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
-+ (struct CGRect)alignmentRectForLayers:(id)arg1;
-+ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (void)alignLayersToParentArtboard:(id)arg1 toKey:(id)arg2 pixelFit:(BOOL)arg3;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)keyPathsForValuesAffectingNodeName;
 + (id)keyPathsForValuesAffectingHasHighlight;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
-@property(nonatomic) struct CGRect frameInArtboard; // @synthesize frameInArtboard=_frameInArtboard;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
 - (id)allSymbolInstancesInChildren;
@@ -47,7 +46,6 @@
 - (BOOL)canScale;
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-- (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)layerWithID:(id)arg1;
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
@@ -86,10 +84,9 @@
 - (void)makeOriginIntegral;
 @property(nonatomic) struct CGPoint absolutePosition;
 - (BOOL)closePath;
-- (void)hideSelectionTemporarily;
 - (id)bezierPathWithTransforms;
 - (id)bezierPath;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasTransforms;
 - (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
@@ -119,8 +116,8 @@
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (BOOL)containsSelectedItem;
-- (void)moveWithGuideOffset:(struct CGSize)arg1;
-- (void)layerFinishedResize;
+- (void)moveBySuggestedOffset:(struct CGSize)arg1;
+- (void)layerDidResize;
 - (void)layerWillResize;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (void)setName:(id)arg1;
@@ -129,16 +126,13 @@
 @property(nonatomic) BOOL constrainProportions;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (struct CGRect)frameForTransforms;
-- (BOOL)hasActiveBackgroundBlur;
-- (id)layersSharingStyle:(id)arg1;
+- (BOOL)hasEnabledBackgroundBlur;
 - (id)rootForNameUniquing;
 - (id)namesOfAllLayersInContainer:(id)arg1;
 - (void)makeNameUniqueInRoot:(id)arg1 withOptions:(long long)arg2;
 - (void)makeNameUniqueWithOptions:(long long)arg1;
-- (id)objectIDsForSelfAncestorsAndChildren;
 - (BOOL)isLine;
 - (unsigned long long)traits;
-- (BOOL)isSharedObject;
 @property(readonly, nonatomic) MSStyledLayer *styledLayer;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
@@ -148,6 +142,7 @@
 - (long long)cornerRectType;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
+- (id)objectIDsForSelfAncestorsAndChildren;
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
@@ -171,6 +166,7 @@
 - (id)cachedOrEmptyImageWithName:(id)arg1;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (void)applyOrigin:(id)arg1 onAxis:(unsigned long long)arg2 pixelFit:(BOOL)arg3;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (id)snapItemForDrawing;
@@ -222,7 +218,7 @@
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 - (id)parentRootForAbsoluteRect;
 - (void)removeAllLayers;
 - (void)removeLayerAtIndex:(unsigned long long)arg1;
@@ -232,7 +228,6 @@
 - (void)insertLayers:(id)arg1 beforeLayer:(id)arg2;
 - (void)addLayers:(id)arg1;
 - (void)replaceAllLayersWithLayers:(id)arg1;
-- (id)CSSStringFromFloat:(double)arg1;
 - (id)CSSAttributes;
 - (id)CSSRotationString;
 - (id)CSSAttributeString;

@@ -8,12 +8,11 @@
 
 #import "MSInspectorChildController.h"
 
-@class MSShapeEventHandler, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSShapeChangeContext, MSShapeEventHandler, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
-    NSArray *_shapePathLayers;
-    NSArray *_indexPathsForInspectedHandles;
+    MSShapeChangeContext *_shapeContext;
     MSShapeEventHandler *_shapeEventHandler;
     NSTextField *_cornerRadiusField;
     NSPopUpButton *_roundingPopUpButton;
@@ -34,8 +33,7 @@
 @property(retain, nonatomic) NSPopUpButton *roundingPopUpButton; // @synthesize roundingPopUpButton=_roundingPopUpButton;
 @property(retain, nonatomic) NSTextField *cornerRadiusField; // @synthesize cornerRadiusField=_cornerRadiusField;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
-@property(copy, nonatomic) NSArray *indexPathsForInspectedHandles; // @synthesize indexPathsForInspectedHandles=_indexPathsForInspectedHandles;
-@property(copy, nonatomic) NSArray *shapePathLayers; // @synthesize shapePathLayers=_shapePathLayers;
+@property(copy, nonatomic) MSShapeChangeContext *shapeContext; // @synthesize shapeContext=_shapeContext;
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
@@ -47,6 +45,7 @@
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
+- (void)moveHandlesToLocation:(double)arg1 onAxis:(unsigned long long)arg2;
 - (void)curvePointYAction:(id)arg1;
 - (void)curvePointXAction:(id)arg1;
 - (void)updateCoordinateValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
@@ -57,8 +56,6 @@
 - (void)refreshClosePathButton;
 - (id)views;
 - (void)refresh;
-- (id)curvePointForHandleAtIndexPath:(id)arg1;
-@property(readonly, nonatomic) NSArray *inspectedCurvePoints;
 - (void)dealloc;
 - (void)viewDidLoad;
 

@@ -54,7 +54,7 @@
 - (BOOL)hasClippingMask;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
+@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
 - (BOOL)hasBitmapStylesEnabled;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -85,12 +85,11 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
-- (id)possibleOverridesInDocument:(id)arg1;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
 - (void)configureBackgroundOfRequest:(id)arg1;
 - (id)renderBitmapEffects:(id)arg1;
 - (void)addDefaultFillAttributes:(id)arg1 exporter:(id)arg2;

@@ -23,6 +23,7 @@
 - (void)drawNineSliceImage;
 - (BOOL)canDrawNineSliceContent;
 - (void)drawImage;
+- (id)imageForLayer;
 - (void)drawImageAndFills;
 - (void)render;
 

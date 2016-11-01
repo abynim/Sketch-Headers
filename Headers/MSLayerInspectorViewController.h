@@ -17,7 +17,6 @@
     BOOL _shouldShowSharedStyles;
     BOOL _shouldShowLayerSpecificProperties;
     BOOL _shouldShowBlendingProperties;
-    BOOL _needsUpdatePositionAndSizeFields;
     BOOL _hasScheduledLayerPositionPossiblyChanged;
     NSArray *_layers;
     NSView *_positionView;
@@ -34,7 +33,6 @@
 }
 
 @property(nonatomic) BOOL hasScheduledLayerPositionPossiblyChanged; // @synthesize hasScheduledLayerPositionPossiblyChanged=_hasScheduledLayerPositionPossiblyChanged;
-@property(readonly, nonatomic) BOOL needsUpdatePositionAndSizeFields; // @synthesize needsUpdatePositionAndSizeFields=_needsUpdatePositionAndSizeFields;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
 @property(retain, nonatomic) MSSharedStylesInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
@@ -82,7 +80,6 @@
 - (void)setValue:(double)arg1 forField:(id)arg2;
 - (void)refreshBindingsOnShape:(id)arg1;
 - (void)clearPositionAndSizeFields;
-- (void)setNeedsUpdatePositionAndSizeFields;
 - (void)updatePositionAndSizeFields;
 - (void)_layerPositionPossiblyChanged;
 - (void)layerPositionPossiblyChanged;

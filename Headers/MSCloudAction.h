@@ -6,40 +6,37 @@
 
 #import "MSPopoverAction.h"
 
-#import "MSCloudViewControllerDelegate.h"
+@class MSCloudController;
 
-@class MSCloudViewController, NSImage, NSString;
-
-@interface MSCloudAction : MSPopoverAction <MSCloudViewControllerDelegate>
+@interface MSCloudAction : MSPopoverAction
 {
-    MSCloudViewController *_viewController;
-    NSImage *_toolbarImage;
+    MSCloudController *_cloudController;
 }
 
++ (void)loginUsingAccessToken:(id)arg1;
++ (void)openCloudUploadURL:(id)arg1;
++ (Class)popoverClass;
 + (BOOL)cloudEnabled;
-@property(retain, nonatomic) NSImage *toolbarImage; // @synthesize toolbarImage=_toolbarImage;
-@property(retain, nonatomic) MSCloudViewController *viewController; // @synthesize viewController=_viewController;
+@property(readonly, nonatomic) MSCloudController *cloudController; // @synthesize cloudController=_cloudController;
 - (void).cxx_destruct;
+- (BOOL)validate;
+- (BOOL)validateToolbarItem:(id)arg1;
+- (void)setToolbarImage:(id)arg1;
+- (void)setCloudPlatform:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (id)progressImagesWithSuffix:(id)arg1;
+- (void)setProgressImageAt:(double)arg1;
+- (void)setRegularImage;
+- (void)uploadingDidChange:(BOOL)arg1;
+- (void)cloudUploadDidFailNotification:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)label;
 - (id)image;
 - (id)tooltip;
 - (BOOL)showInToolbar;
-- (BOOL)validate;
-- (void)updateToolbarItemButton;
-- (void)cloudViewControllerWantsPresentation:(id)arg1;
-- (void)cloudViewController:(id)arg1 localServerIsPublished:(BOOL)arg2;
-- (id)progressImagesWithSuffix:(id)arg1;
-- (void)ensureProgressImagesLoaded;
-- (void)cloudViewControllerDidCancel:(id)arg1;
-- (void)cloudViewController:(id)arg1 didProgressUpdateTo:(double)arg2;
 - (id)popoverViewController;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

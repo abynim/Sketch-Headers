@@ -14,6 +14,7 @@
 - (double)calculateRequiredSpaceBetweenLayers:(id)arg1 forAxis:(unsigned long long)arg2;
 - (id)layersSortedForAxis:(unsigned long long)arg1;
 - (void)distributeAlongAxis:(unsigned long long)arg1;
+- (void)performAction:(id)arg1;
 - (BOOL)validate;
 
 @end

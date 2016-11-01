@@ -10,6 +10,8 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
+- (unsigned long long)textAlignment;
 - (BOOL)validate;
 
 @end

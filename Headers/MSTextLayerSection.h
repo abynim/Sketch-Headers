@@ -49,7 +49,6 @@
 - (BOOL)canHandleColorMagnifierAction;
 - (BOOL)hasMissingFonts;
 - (id)views;
-- (id)textStorages;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;

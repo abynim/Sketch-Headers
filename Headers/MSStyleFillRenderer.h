@@ -6,7 +6,7 @@
 
 #import "MSBaseRenderer.h"
 
-@class MSImmutableStyleFill, MSPath, MSRenderingContext;
+@class MSImmutableStyleFill, MSModelObjectCacheGeneration, MSPath, MSRenderingContext;
 
 @interface MSStyleFillRenderer : MSBaseRenderer
 {
@@ -17,10 +17,12 @@
     long long _fillIndex;
     double _zoomValue;
     unsigned long long _windingRule;
+    MSModelObjectCacheGeneration *_cacheKey;
     struct CGRect _rect;
 }
 
-+ (void)drawFill:(id)arg1 forPath:(id)arg2 windingRule:(unsigned long long)arg3 atIndex:(long long)arg4 inRect:(struct CGRect)arg5 hasInnerStroke:(BOOL)arg6 context:(id)arg7;
++ (void)drawFill:(id)arg1 forPath:(id)arg2 windingRule:(unsigned long long)arg3 atIndex:(long long)arg4 inRect:(struct CGRect)arg5 hasInnerStroke:(BOOL)arg6 context:(id)arg7 angularGradientCacheKey:(id)arg8;
+@property(retain, nonatomic) MSModelObjectCacheGeneration *cacheKey; // @synthesize cacheKey=_cacheKey;
 @property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;

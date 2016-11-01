@@ -17,6 +17,7 @@
 + (id)snapperObjectWithLayers:(id)arg1;
 @property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 - (id)snapItemForDrawing;
 - (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 - (id)description;

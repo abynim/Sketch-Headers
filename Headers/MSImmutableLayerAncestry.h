@@ -12,15 +12,17 @@
 {
     MSImmutableLayer *_layer;
     MSImmutableDocumentData *_document;
+    MSImmutablePage *_page;
     NSArray *_ancestors;
 }
 
++ (id)ancestryWithMSLayer:(id)arg1;
 @property(retain, nonatomic) NSArray *ancestors; // @synthesize ancestors=_ancestors;
+@property(readonly, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) MSImmutableLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSImmutableLayerGroup *parentGroup;
-@property(readonly, nonatomic) MSImmutablePage *page;
 @property(readonly, nonatomic) NSArray *ancestorsAndSelf;
 - (BOOL)ancestorsForLayerInGroup:(id)arg1 array:(id)arg2;
 - (id)findAncestors;

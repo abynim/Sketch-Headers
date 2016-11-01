@@ -19,6 +19,7 @@
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(retain, nonatomic) MSSnapItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 - (struct CGRect)rect;
 - (void)drawWithZoom:(double)arg1 context:(id)arg2;
 

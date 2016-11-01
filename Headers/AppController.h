@@ -11,7 +11,7 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, BCMASEmailWindowController, ECLogManagerMacUISupport, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorConnectionsController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorConnectionsController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
@@ -23,6 +23,7 @@
     MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
+    NSMenuItem *_cloudEnvironmentMenuItem;
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorConnectionsController *_mirrorController;
@@ -35,13 +36,10 @@
     MSPersistentAssetCollection *_globalAssets;
     ECLogManagerMacUISupport *_logSupport;
     id _lastRunPlugin;
-    BCMASEmailWindowController *_masEmailController;
 }
 
 + (id)licenseManager;
-+ (id)rvContext;
 + (id)sharedInstance;
-@property(retain, nonatomic) BCMASEmailWindowController *masEmailController; // @synthesize masEmailController=_masEmailController;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
@@ -54,6 +52,7 @@
 @property(retain, nonatomic) SMKMirrorConnectionsController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
+@property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
@@ -67,7 +66,6 @@
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
 - (void)updatelicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
-- (void)checkMASMigrationWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
 - (void)buy:(id)arg1;
 - (void)showSupportPage:(id)arg1;
@@ -86,10 +84,7 @@
 - (void)openTemplateFile:(id)arg1;
 - (void)checkImageTemplates;
 - (void)checkDefaults;
-- (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
-- (void)registerURLScheme;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
-- (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
 - (void)showReleaseNotesWindow:(id)arg1;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
@@ -97,15 +92,23 @@
 - (void)userNotificationCenter:(id)arg1 didDeliverNotification:(id)arg2;
 - (BOOL)userNotificationCenter:(id)arg1 shouldPresentNotification:(id)arg2;
 - (void)applicationWillTerminate:(id)arg1;
+- (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
+- (BOOL)applicationOpenUntitledFile:(id)arg1;
+- (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
 - (void)applicationWillFinishLaunching:(id)arg1;
-- (void)licenseStateChanged;
 - (void)awakeFromNib;
+- (void)newDocumentFromTemplate:(id)arg1;
 - (void)welcomeToSketch:(id)arg1;
+- (BOOL)canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (BOOL)isAppStoreVersion;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
+- (void)openCloudUploadURL:(id)arg1;
+- (void)openCloudURL:(id)arg1;
+- (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
+- (void)registerURLScheme;
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;

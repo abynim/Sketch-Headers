@@ -16,7 +16,7 @@
 - (void)drawInnerShadow:(id)arg1;
 - (id)bezierPathWithOuterPathOfSize:(double)arg1;
 - (struct CGPath *)mutableCGPathCopy;
-- (struct CGPath *)CGPath;
+- (struct CGPath *)createCGPath_bc;
 - (id)outlinePath;
 - (void)applyPropertiesToContext:(struct CGContext *)arg1;
 - (void)clipInBlock:(CDUnknownBlockType)arg1;

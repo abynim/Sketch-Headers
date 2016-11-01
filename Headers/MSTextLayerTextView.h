@@ -20,13 +20,12 @@
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
 - (struct CGRect)rectForSelectedRange;
-- (void)dealloc;
-- (void)didChangeSelection:(id)arg1;
-- (void)didChangeText;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
 - (void)selectSimilar:(id)arg1;
 - (void)hideSelectionTimerFired:(id)arg1;
 - (id)makeHideSelectionTimer;
+- (void)pasteWithOptions:(unsigned long long)arg1;
+- (void)pasteWithStyle:(id)arg1;
 - (void)paste:(id)arg1;
 - (id)readablePasteboardTypes;
 - (BOOL)readSelectionFromPasteboard:(id)arg1;

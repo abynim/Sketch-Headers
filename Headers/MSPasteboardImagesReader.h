@@ -14,7 +14,7 @@
 {
 }
 
-- (id)pasteboardDataFromPasteboard:(id)arg1 sender:(id)arg2;
+- (id)pasteboardDataFromPasteboard:(id)arg1 options:(unsigned long long)arg2 sender:(id)arg3;
 - (id)supportedPasteboardTypes;
 
 // Remaining properties

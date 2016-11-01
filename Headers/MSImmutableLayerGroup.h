@@ -18,6 +18,7 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 - (BOOL)containsSelectedItem;
+- (id)layerWithID:(struct NSObject *)arg1;
 - (id)children;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
@@ -42,7 +43,6 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
-- (Class)rendererClass;
 - (id)svgStyle:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -63,6 +63,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

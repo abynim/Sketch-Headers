@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSColor;
+@class MSImmutableColor;
 
 @protocol MSLayerWithBackgroundColour <NSObject>
 @property(nonatomic) BOOL hasBackgroundColor;
-- (MSColor *)backgroundColor;
+- (MSImmutableColor *)immutableBackgroundColor;
 @end
 

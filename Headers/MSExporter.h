@@ -15,16 +15,18 @@
     BOOL _isPrinting;
     BOOL _allowSubpixelAntialiasing;
     MSExportRequest *_request;
-    BCCache *_cache;
     NSColorSpace *_colorSpace;
+    BCCache *_cache;
     struct CGRect _bounds;
 }
 
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
-@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
++ (void)registerExporterClass:(Class)arg1 forFormat:(id)arg2;
++ (void)initialize;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
+@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
@@ -33,17 +35,13 @@
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (void)drawRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (void)drawSliceBackgroundIfNecessary:(struct CGContext *)arg1;
+- (id)previewImage;
 - (id)bitmapImageRep;
 - (id)basicBitmapImageRep;
 - (void)draw:(struct CGContext *)arg1;
-- (id)TIFFData;
-- (id)PNGData;
-- (id)JPGData;
-- (id)EPSData;
 - (id)image;
 - (id)data;
 - (struct CGRect)boundsForVectorRender;
-- (id)PDFData;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

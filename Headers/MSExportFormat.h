@@ -14,7 +14,6 @@
 {
 }
 
-+ (id)migrateExportFormatsWithName:(id)arg1 currentResolution:(long long)arg2 includeRetinaVersion:(BOOL)arg3;
 + (id)validFormats;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 @property(readonly, copy) NSString *description;
@@ -25,9 +24,9 @@
 - (id)parentLayer;
 - (id)initWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 - (BOOL)isScalableExport;
-- (BOOL)isVectorExport;
 
 // Remaining properties
+@property(readonly, nonatomic) double absoluteSize;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) NSString *fileFormat;
 @property(readonly) unsigned long long hash;

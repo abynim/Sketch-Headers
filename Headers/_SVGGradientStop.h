@@ -6,11 +6,11 @@
 
 #import "SVGElement.h"
 
-@class SVGColor;
+@class MSImmutableColor;
 
 @interface _SVGGradientStop : SVGElement
 {
-    SVGColor *_color;
+    MSImmutableColor *_color;
     double _position;
 }
 
@@ -18,7 +18,7 @@
 + (id)relationshipNames;
 + (id)propertyNames;
 @property(nonatomic) double position; // @synthesize position=_position;
-@property(retain, nonatomic) SVGColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 
 @end

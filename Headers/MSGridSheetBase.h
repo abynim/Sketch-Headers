@@ -26,6 +26,7 @@
 - (void)dealloc;
 - (void)confirm:(id)arg1;
 - (void)cancelAction:(id)arg1;
+- (void)turnOffForcedDrawing;
 - (void)gridChanged:(id)arg1;
 - (void)refreshCanvas:(id)arg1;
 - (void)refreshView;
@@ -34,7 +35,7 @@
 - (void)applyTemplateObjectToLayer:(id)arg1;
 - (void)applyObject:(id)arg1 toLayer:(id)arg2;
 - (id)defaultObject;
-- (id)cacheObjectForRootLayer:(id)arg1;
+- (id)baseObjectForRootLayer:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

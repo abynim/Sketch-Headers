@@ -16,6 +16,8 @@
 + (id)overlapRun;
 @property(readonly, nonatomic) NSArray *overlaps; // @synthesize overlaps=_overlaps;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
+- (void)edgeOverlapsWithBlock:(CDUnknownBlockType)arg1;
 - (id)description;
 @property(readonly, nonatomic) FBBezierContour *contour2;
 @property(readonly, nonatomic) FBBezierContour *contour1;

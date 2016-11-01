@@ -38,7 +38,6 @@
 @property(readonly, nonatomic) BOOL isRendering;
 - (void)refreshContentForPage:(id)arg1 document:(id)arg2;
 - (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
-- (void)refreshOverlayForPage:(id)arg1;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
 - (void)redraw;
 - (void)tile;
@@ -51,6 +50,7 @@
 - (void)removeObsoleteTiledLayers;
 @property(readonly, nonatomic) NSArray *supercededTiledLayers;
 - (id)currentTiledLayer;
+- (void)addNewTiledLayer:(id)arg1;
 - (id)prepareNewTiledLayerWithZoomValue:(double)arg1 scrollOrigin:(struct CGPoint)arg2;
 - (void)dealloc;
 - (id)init;

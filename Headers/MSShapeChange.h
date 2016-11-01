@@ -12,7 +12,7 @@
 }
 
 + (id)customActionWithBlock:(CDUnknownBlockType)arg1;
-+ (id)deleteWithFlags:(long long)arg1;
++ (id)deleteHandle;
 + (id)distributeAlongAxis:(unsigned long long)arg1;
 + (id)alignToKey:(id)arg1;
 + (void)guessControlPointsForPointAtIndex:(unsigned long long)arg1 shape:(id)arg2;

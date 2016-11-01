@@ -11,8 +11,8 @@
 }
 
 - (void)checkUploadStatusForShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (id)uploadDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 progressHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)deleteShareWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchUserShareWithID:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchUserSharesWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)baseURL;
 

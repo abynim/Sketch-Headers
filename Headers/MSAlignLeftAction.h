@@ -10,7 +10,7 @@
 {
 }
 
-- (void)doPerformAction:(id)arg1;
+- (unsigned long long)textAlignment;
 - (void)alignLeft:(id)arg1;
 
 @end

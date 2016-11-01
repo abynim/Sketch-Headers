@@ -6,12 +6,12 @@
 
 #import "NSTableCellView.h"
 
-@class MSCloudUserShare, NSButton, NSProgressIndicator, NSTextField, NSTimer;
+@class MSCloudShare, NSButton, NSProgressIndicator, NSTextField, NSTimer;
 
 @interface MSCloudUploadTableCellView : NSTableCellView
 {
     BOOL _animating;
-    MSCloudUserShare *_share;
+    MSCloudShare *_share;
     id <MSCloudUploadTableCellViewDelegate> _delegate;
     NSTextField *_nameTextField;
     NSTextField *_timeTextField;
@@ -29,7 +29,7 @@
 @property(nonatomic) __weak NSTextField *nameTextField; // @synthesize nameTextField=_nameTextField;
 @property(nonatomic) __weak id <MSCloudUploadTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, getter=isAnimating) BOOL animating; // @synthesize animating=_animating;
-@property(retain, nonatomic) MSCloudUserShare *share; // @synthesize share=_share;
+@property(retain, nonatomic) MSCloudShare *share; // @synthesize share=_share;
 - (void).cxx_destruct;
 - (void)openShare:(id)arg1;
 - (void)deleteShare:(id)arg1;

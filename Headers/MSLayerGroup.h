@@ -29,7 +29,6 @@
 @property(nonatomic) long long hasLayerWithMaskMode; // @synthesize hasLayerWithMaskMode=_hasLayerWithMaskMode;
 @property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
 - (id)candidatesForMasking;
-- (void)assignWithOriginalLinkedStyleIfNecessary;
 - (id)children;
 - (id)layerWithID:(id)arg1;
 - (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
@@ -38,7 +37,6 @@
 - (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
 - (void)resizeChildrenFromOldSize:(struct CGSize)arg1;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
-- (void)setConstrainProportions:(BOOL)arg1;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
@@ -50,7 +48,7 @@
 - (void)selectLayers:(id)arg1;
 - (BOOL)containsSelectedItem;
 - (BOOL)shouldResizeToFitAfterDrag;
-- (void)layerFinishedResize;
+- (void)layerDidResize;
 - (void)layerWillResize;
 - (void)setIsSelected:(BOOL)arg1;
 - (BOOL)isExpanded;
@@ -63,7 +61,6 @@
 - (void)setStyle:(id)arg1;
 - (id)bezierPath;
 - (id)defaultStyle;
-- (BOOL)isSharedObject;
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
@@ -113,6 +110,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

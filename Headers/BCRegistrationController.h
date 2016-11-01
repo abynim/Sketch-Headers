@@ -8,10 +8,8 @@
 
 @interface BCRegistrationController : NSObject
 {
-    unsigned long long _checkCount;
 }
 
-@property(nonatomic) unsigned long long checkCount; // @synthesize checkCount=_checkCount;
 - (void)unregisterSketch:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)purchaseAction:(id)arg1;

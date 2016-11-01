@@ -24,7 +24,6 @@
 - (void)dataController:(id)arg1 hoverNodeDidChangeTo:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)dataController:(id)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;
-- (void)dataController:(id)arg1 removeNodes:(id)arg2;
 - (void)dataController:(id)arg1 updateNode:(id)arg2 expandedState:(unsigned long long)arg3;
 - (long long)mapExpandedStateToLayerListStatus:(unsigned long long)arg1;
 - (BOOL)dataController:(id)arg1 isNodeExpandable:(id)arg2;

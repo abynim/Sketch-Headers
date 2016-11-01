@@ -45,9 +45,8 @@
 - (void)objectDidInit;
 - (void)refreshPreviewImagesWithCache:(id)arg1;
 - (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)migratePropertiesFromV51OrEarlierWithCoder:(id)arg1;
-- (Class)rendererClass;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
@@ -77,6 +76,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

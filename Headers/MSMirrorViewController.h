@@ -11,27 +11,31 @@
 #import "NSTableViewDelegate.h"
 #import "SMKMirrorConnectionsControllerDelegate.h"
 
-@class MSColorInspectorSeparatorView, NSButton, NSLayoutConstraint, NSString, NSTableView, SMKMirrorConnectionsController;
+@class NSButton, NSLayoutConstraint, NSString, NSTableView, NSTextField, SMKMirrorConnectionsController;
 
 @interface MSMirrorViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, SMKMirrorConnectionsControllerDelegate, NSSharingServicePickerDelegate>
 {
+    SMKMirrorConnectionsController *_connectionController;
     NSTableView *_tableView;
     NSButton *_visitLocalWebsiteButton;
-    SMKMirrorConnectionsController *_connectionController;
+    NSLayoutConstraint *_emptyLabelBottomConstraint;
+    NSTextField *_emptyLabel;
     NSLayoutConstraint *_webButtonHeightConstraint;
-    MSColorInspectorSeparatorView *_bottomSeparator;
-    MSColorInspectorSeparatorView *_topSeparator;
+    NSLayoutConstraint *_tableViewHeightConstraint;
 }
 
-@property(retain, nonatomic) MSColorInspectorSeparatorView *topSeparator; // @synthesize topSeparator=_topSeparator;
-@property(retain, nonatomic) MSColorInspectorSeparatorView *bottomSeparator; // @synthesize bottomSeparator=_bottomSeparator;
++ (id)storyboardIdentifier;
+@property(retain, nonatomic) NSLayoutConstraint *tableViewHeightConstraint; // @synthesize tableViewHeightConstraint=_tableViewHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *webButtonHeightConstraint; // @synthesize webButtonHeightConstraint=_webButtonHeightConstraint;
-@property(retain, nonatomic) SMKMirrorConnectionsController *connectionController; // @synthesize connectionController=_connectionController;
+@property(retain, nonatomic) NSTextField *emptyLabel; // @synthesize emptyLabel=_emptyLabel;
+@property(retain, nonatomic) NSLayoutConstraint *emptyLabelBottomConstraint; // @synthesize emptyLabelBottomConstraint=_emptyLabelBottomConstraint;
 @property(retain, nonatomic) NSButton *visitLocalWebsiteButton; // @synthesize visitLocalWebsiteButton=_visitLocalWebsiteButton;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) SMKMirrorConnectionsController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
 - (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
 - (void)openMirrorWebsite:(id)arg1;
+- (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
@@ -41,8 +45,9 @@
 - (void)reloadWebURL;
 - (void)openLocalWebsite:(id)arg1;
 - (void)viewWillAppear;
+- (struct CGSize)preferredContentSize;
 - (void)updateViewConstraints;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

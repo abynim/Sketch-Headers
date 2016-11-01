@@ -23,13 +23,12 @@
 + (id)supportedPasteboardTypesForStyleCopying;
 - (void)setStyle:(id)arg1;
 - (id)styledLayer;
-- (BOOL)hasActiveBackgroundBlur;
+- (BOOL)hasEnabledBackgroundBlur;
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
-- (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (void)setStyleByPreservingSharedObjectReference:(id)arg1;
 - (id)sharedObject;
-- (BOOL)isSharedObject;
+- (BOOL)hasSharedStyle;
 - (void)changeColor:(id)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
@@ -52,6 +51,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, copy, nonatomic) NSString *name;

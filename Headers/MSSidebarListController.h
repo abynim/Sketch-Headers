@@ -18,6 +18,7 @@
 @property(nonatomic) __weak id <MSSidebarControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)dataController:(id)arg1 exportNodes:(id)arg2 toFolder:(id)arg3;
+- (id)buildExportRequestsForLayers:(id)arg1 inFolder:(id)arg2;
 - (id)uniqueExportURLForLayer:(id)arg1 inFolder:(id)arg2 comparingTo:(id)arg3;
 - (id)extensionForExportingLayer:(id)arg1;
 - (BOOL)dataController:(id)arg1 copyNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
@@ -31,6 +32,7 @@
 - (id)dragTypesForDataController:(id)arg1;
 - (id)dataController:(id)arg1 readNodesFromPasteboard:(id)arg2;
 - (BOOL)dataController:(id)arg1 writeNodes:(id)arg2 toPasteboard:(id)arg3;
+- (void)dispatchExportOfLayers:(id)arg1 toPasteboard:(id)arg2;
 - (id)layerForNode:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (id)initWithDelegate:(id)arg1;

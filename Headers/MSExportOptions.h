@@ -14,7 +14,6 @@
 {
 }
 
-- (id)firstFormat;
 - (id)addExportFormat;
 
 // Remaining properties

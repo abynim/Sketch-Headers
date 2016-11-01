@@ -22,6 +22,14 @@
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
+- (id)bezierGraphByTrimmingSelfCrossingContours;
+- (id)bezierGraphByMergingLinearRunsInContours;
+- (id)contoursWithoutCrossings;
+- (BOOL)contourHasCrossings:(id)arg1;
+- (id)contourFromCurves:(id)arg1;
+- (id)nextCrossingFromCrossing:(id)arg1 curves:(id *)arg2;
+- (id)curveFromCrossing:(id)arg1 to:(id)arg2;
+- (id)bezierGraphWithTransform:(struct CGAffineTransform)arg1;
 - (id)description;
 - (void)debugFindCurvesThatShouldIntersectWith:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)debuggingInsertIntersectionsWithBezierGraph:(id)arg1;
@@ -76,6 +84,7 @@
 - (void)unionEquivalentNonintersectingContours:(id)arg1 withContours:(id)arg2 results:(id)arg3;
 - (void)unionNonintersectingPartsIntoGraph:(id)arg1 withGraph:(id)arg2;
 - (id)unionWithBezierGraph:(id)arg1;
+- (id)performOperationWithGraph:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)convertToEvenOddWindingRule;
 - (void)dealloc;
 - (id)init;

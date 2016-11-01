@@ -20,6 +20,7 @@
 + (id)sliceLayerFromLayer:(id)arg1;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
@@ -49,6 +50,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, copy, nonatomic) NSString *name;

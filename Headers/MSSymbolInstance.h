@@ -8,8 +8,11 @@
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
+    unsigned long long _masterRefreshCounter;
 }
 
++ (Class)overrideViewControllerClass;
+@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;
@@ -37,7 +40,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 
 @end
 

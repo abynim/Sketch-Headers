@@ -6,13 +6,12 @@
 
 #import "MSModelObject.h"
 
-@class MSPointArray, NSArray;
+@class NSArray;
 
 @protocol _MSGradient <MSModelObject>
 @property(readonly, nonatomic) NSArray *stops;
 @property(readonly, nonatomic) struct CGPoint to;
 @property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
-@property(readonly, nonatomic) MSPointArray *points;
 @property(readonly, nonatomic) long long gradientType;
 @property(readonly, nonatomic) struct CGPoint from;
 @property(readonly, nonatomic) double elipseLength;

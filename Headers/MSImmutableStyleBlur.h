@@ -16,6 +16,7 @@
 
 - (double)cropRadius;
 - (id)renderBitmapEffects:(id)arg1;
+- (BOOL)shouldUseCoreImageForEffect;
 - (void)addFilterWithExporter:(id)arg1;
 
 // Remaining properties

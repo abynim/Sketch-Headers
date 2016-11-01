@@ -11,7 +11,7 @@
 #import "MSTextLayer.h"
 #import "NSLayoutManagerDelegate.h"
 
-@class MSAttributedString, MSImageData, NSArray, NSDictionary, NSFont, NSNumber, NSObject<NSCopying><NSCoding>, NSString;
+@class MSAttributedString, MSImageData, NSArray, NSAttributedString, NSDictionary, NSFont, NSNumber, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSTextLayer, MSFirstLineTypesetterDelegate>
 {
@@ -37,7 +37,8 @@
 @property(readonly, nonatomic) double firstBaselineOffset;
 @property(readonly, copy, nonatomic) NSArray *baselineOffsets;
 @property(readonly, nonatomic) double lineHeight;
-- (id)stringValue;
+@property(readonly, copy, nonatomic) NSString *stringValue;
+@property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
 - (double)defaultLineHeight:(id)arg1;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
@@ -52,15 +53,13 @@
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
 - (id)createLayoutManager;
 - (id)createTextContainer;
-- (BOOL)shouldUseFixedWidthContainer;
-- (BOOL)shouldUseWiderTextContainer;
 - (struct CGPoint)drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (void)performInitWithCoder:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)updateColorCounter:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV77OrEarlierWithCoder:(id)arg1;
@@ -69,7 +68,6 @@
 - (void)trackColors:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
 - (id)textStoragePoolInCache:(id)arg1;
 - (void)addDefaultFillAttributes:(id)arg1 exporter:(id)arg2;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -101,6 +99,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) long long lineSpacingBehaviour;

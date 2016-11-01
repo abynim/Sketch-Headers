@@ -28,6 +28,7 @@
 - (id)fileMetadataForRoot:(id)arg1 onPage:(id)arg2 id:(id)arg3 exportScale:(double)arg4 manifestScale:(double)arg5;
 - (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3 scale:(double)arg4;
 - (id)metadataAndExportForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
+- (BOOL)shouldExportLayerGroup:(id)arg1;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (id)metadataAndExportForPages:(id)arg1;

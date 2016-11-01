@@ -25,7 +25,7 @@
 - (unsigned long long)type;
 - (id)parentStyle;
 - (id)parentLayer;
-@property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
+@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
@@ -35,9 +35,7 @@
 @property(retain, nonatomic) NSString *primitiveSharedObjectID;
 - (void)setNilValueForKey:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBlending;
-@property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
 - (id)firstEnabledShadow;
-- (id)enabledStyleParts:(id)arg1;
 - (id)enabledInnerShadows;
 - (id)enabledShadows;
 - (id)enabledBorders;

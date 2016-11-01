@@ -15,6 +15,7 @@
 
 + (id)contourOverlap;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
 - (BOOL)isBetweenContour:(id)arg1 andContour:(id)arg2;
 @property(readonly, nonatomic) FBBezierContour *contour2;

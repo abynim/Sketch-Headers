@@ -14,6 +14,5 @@
 - (MSContentDrawView *)currentView;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)refreshOverlayOfViews;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
 @end
 

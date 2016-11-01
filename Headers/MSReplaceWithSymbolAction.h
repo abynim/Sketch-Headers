@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)showInToolbar;
 - (void)replaceLayer:(id)arg1 withSymbol:(id)arg2;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

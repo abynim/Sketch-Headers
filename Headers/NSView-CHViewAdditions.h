@@ -9,6 +9,7 @@
 @class NSArray;
 
 @interface NSView (CHViewAdditions)
+- (id)containingAncestorViewOfClass:(Class)arg1;
 @property(readonly, nonatomic) NSArray *allSubviews;
 - (void)beginDragFromEvent:(id)arg1 image:(id)arg2 writersBlock:(CDUnknownBlockType)arg3;
 - (void)beginDragFromEvent:(id)arg1 image:(id)arg2 type:(id)arg3 data:(id)arg4;

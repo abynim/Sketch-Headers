@@ -14,6 +14,7 @@
 {
 }
 
+- (id)firstFormat;
 - (void)migratePropertiesFromV72OrEarlierWithCoder:(id)arg1;
 
 // Remaining properties

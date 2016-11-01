@@ -70,6 +70,7 @@
 - (void)setResizeCursor;
 - (double)otherAxisForPoint:(struct CGPoint)arg1;
 - (double)relevantAxisForPoint:(struct CGPoint)arg1;
+- (void)refreshGuide:(double)arg1;
 - (void)refreshTemporaryRulerGuide;
 - (void)mouseMoved:(id)arg1;
 - (BOOL)eventInView:(id)arg1;

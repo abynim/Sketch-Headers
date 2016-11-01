@@ -30,6 +30,7 @@
 @property(retain, nonatomic) NSMenu *standardLayerMenu; // @synthesize standardLayerMenu=_standardLayerMenu;
 - (void).cxx_destruct;
 - (id)symbolInstanceOnlyItems;
+- (id)symbolItems;
 - (id)groupOnlyItems;
 - (id)imageOnlyItems;
 - (id)textOnlyItems;
