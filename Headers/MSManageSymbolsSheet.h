@@ -9,10 +9,11 @@
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
 
-@class NSImage, NSMutableDictionary, NSString, NSTabView, NSTableView;
+@class NSImage, NSMutableDictionary, NSSegmentedControl, NSString, NSTabView, NSTableView;
 
 @interface MSManageSymbolsSheet : CHSheetController <NSTableViewDataSource, NSTableViewDelegate>
 {
+    NSSegmentedControl *_tabSegmentControl;
     NSTableView *_layerStylesTableView;
     NSTableView *_textStylesTableView;
     NSTabView *_tabView;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSTabView *tabView; // @synthesize tabView=_tabView;
 @property(retain, nonatomic) NSTableView *textStylesTableView; // @synthesize textStylesTableView=_textStylesTableView;
 @property(retain, nonatomic) NSTableView *layerStylesTableView; // @synthesize layerStylesTableView=_layerStylesTableView;
+@property(retain, nonatomic) NSSegmentedControl *tabSegmentControl; // @synthesize tabSegmentControl=_tabSegmentControl;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)doc;

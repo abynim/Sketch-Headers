@@ -6,13 +6,15 @@
 
 #import "_MSTextLayer.h"
 
-@class NSArray, NSBezierPath, NSFont, NSLayoutManager;
+@class NSArray, NSAttributedString, NSBezierPath, NSFont, NSLayoutManager, NSString;
 
 @protocol MSTextLayer <_MSTextLayer>
 @property(readonly, copy, nonatomic) NSArray *baselineOffsets;
 @property(readonly, nonatomic) double firstBaselineOffset;
 @property(readonly, nonatomic) unsigned long long textAlignment;
 @property(readonly, nonatomic) double lineHeight;
+@property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
+@property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
 - (struct CGSize)textContainerSize;

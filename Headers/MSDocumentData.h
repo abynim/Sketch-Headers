@@ -29,7 +29,7 @@
 - (void).cxx_destruct;
 - (void)determineCurrentArtboard;
 - (void)refreshOverlayOfViews;
-- (void)refreshOverlayInAbsoluteRect:(struct CGRect)arg1;
+- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
 - (void)replaceExistingCreationMetadata;

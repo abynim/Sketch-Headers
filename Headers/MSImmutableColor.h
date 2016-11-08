@@ -14,10 +14,20 @@
 {
 }
 
++ (id)hexValueForRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
++ (void)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 fromHexValue:(id)arg4;
 + (id)availableRGBColorSpaces;
 + (id)colorWithNSColor:(id)arg1;
++ (id)blackColor;
 + (id)whiteColor;
++ (id)colorWithIntegerRed:(long long)arg1 green:(long long)arg2 blue:(long long)arg3;
++ (id)colorWithIntegerRed:(long long)arg1 green:(long long)arg2 blue:(long long)arg3 alpha:(long long)arg4;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
++ (id)colorWithSVGString:(id)arg1;
++ (id)namedColor:(id)arg1;
++ (id)staticColorDictionary;
+@property(readonly, copy) NSString *debugDescription;
+- (id)colorWithAlphaComponent:(double)arg1;
 - (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
 - (id)stringValueWithAlpha:(BOOL)arg1;
 - (BOOL)fuzzyIsEqual:(id)arg1;
@@ -26,19 +36,20 @@
 - (BOOL)isWhite;
 - (struct CGColor *)newCGColorWithColorSpace:(struct CGColorSpace *)arg1;
 - (id)NSColorWithColorSpace:(id)arg1;
+@property(readonly) unsigned long long hash;
+- (BOOL)isEqual:(id)arg1;
+- (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)treeAsDictionary;
+- (id)svgRepresentation;
 - (void)applyStrokeColorToContext:(id)arg1;
 - (void)applyFillColorToContext:(id)arg1;
 - (id)NSColorForContext:(id)arg1;
-- (id)svgRepresentation;
 
 // Remaining properties
 @property(readonly, nonatomic) double alpha;
 @property(readonly, nonatomic) double blue;
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) double green;
-@property(readonly) unsigned long long hash;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;

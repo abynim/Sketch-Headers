@@ -33,7 +33,6 @@
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
 - (id)svgStyle:(id)arg1;
 - (BOOL)shouldIncludeInSVGExport:(id)arg1;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
@@ -59,6 +58,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

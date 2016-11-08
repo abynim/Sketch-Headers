@@ -10,6 +10,7 @@
 {
 }
 
++ (void)initialize;
 - (id)dividerColor;
 
 @end

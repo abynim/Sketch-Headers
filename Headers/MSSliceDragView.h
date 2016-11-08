@@ -9,16 +9,18 @@
 #import "NSDraggingSource.h"
 #import "NSPasteboardWriting.h"
 
-@class MSLayer, NSImage, NSString;
+@class MSExportRequest, MSImmutableLayerAncestry, NSImage, NSString;
 
 @interface MSSliceDragView : NSView <NSDraggingSource, NSPasteboardWriting>
 {
     NSImage *_previewImage;
-    MSLayer *_exportableLayer;
+    MSImmutableLayerAncestry *_ancestry;
+    MSExportRequest *_cachedExportRequest;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) MSLayer *exportableLayer; // @synthesize exportableLayer=_exportableLayer;
+@property(retain, nonatomic) MSExportRequest *cachedExportRequest; // @synthesize cachedExportRequest=_cachedExportRequest;
+@property(retain, nonatomic) MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 - (void).cxx_destruct;
 - (struct CGRect)imageDrawRect;
@@ -35,6 +37,7 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)setExportableLayer:(id)arg1 previewCompletionBlock:(CDUnknownBlockType)arg2;
+- (id)exportingColorSpace;
 - (void)setup;
 - (void)awakeFromNib;
 - (id)initWithFrame:(struct CGRect)arg1;

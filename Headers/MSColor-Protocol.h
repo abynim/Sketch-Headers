@@ -7,7 +7,5 @@
 #import "_MSColor.h"
 
 @protocol MSColor <_MSColor>
-- (BOOL)isBlack;
-- (BOOL)isWhite;
 @end
 

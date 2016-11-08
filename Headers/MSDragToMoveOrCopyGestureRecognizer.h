@@ -27,7 +27,7 @@
 @property(readonly, nonatomic) unsigned long long alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
 @property(nonatomic) unsigned long long alignMask; // @synthesize alignMask=_alignMask;
 - (void).cxx_destruct;
-@property(readonly, nonatomic, getter=isAligning) BOOL aligning;
+- (BOOL)isAligning;
 - (void)reset;
 @property(readonly, nonatomic) BOOL shouldSnap;
 @property(readonly, nonatomic) BOOL shouldCopyDraggedItems;

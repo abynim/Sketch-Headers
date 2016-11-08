@@ -10,13 +10,12 @@
 {
 }
 
-+ (void)drawLayer:(id)arg1 onPath:(id)arg2 atLength:(long long)arg3 context:(id)arg4 layoutManager:(id)arg5;
-+ (double)startingPositionForTextLayer:(id)arg1 onShape:(id)arg2;
-+ (void)drawTextLayerInsideTransform:(id)arg1 context:(id)arg2;
-+ (void)drawTextLayer:(id)arg1 onUnderlyingPath:(id)arg2 context:(id)arg3;
-+ (void)drawTextLayerAsText:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
-+ (void)drawTextLayerWithMissingFonts:(id)arg1 context:(id)arg2;
-+ (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)drawTextLayer:(id)arg1 onUnderlyingPath:(id)arg2 context:(id)arg3;
+- (void)drawBorderForLayoutManager:(id)arg1 style:(id)arg2 atPoint:(struct CGPoint)arg3 context:(id)arg4;
+- (void)drawLayoutManager:(id)arg1 style:(id)arg2 aPoint:(struct CGPoint)arg3 context:(id)arg4;
+- (void)drawTextLayerAsPath:(id)arg1 withTextStorage:(id)arg2 inBounds:(struct CGRect)arg3 context:(id)arg4;
+- (void)drawTextLayerInsideBoundsTransform:(id)arg1 context:(id)arg2;
+- (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end
 

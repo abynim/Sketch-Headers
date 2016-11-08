@@ -18,6 +18,7 @@
 + (void)performBatchEdits:(CDUnknownBlockType)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
 + (id)shapeWithShapePath:(id)arg1 inRect:(struct CGRect)arg2;
++ (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)flatten;
@@ -33,7 +34,6 @@
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)isPartOfClippingMask;
-- (void)hideSelectionTemporarily;
 @property(nonatomic) BOOL isClosed;
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)isNearlyEmpty;
@@ -99,6 +99,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, copy, nonatomic) NSString *name;

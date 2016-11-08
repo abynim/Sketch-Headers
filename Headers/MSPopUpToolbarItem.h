@@ -6,17 +6,12 @@
 
 #import "NSToolbarItem.h"
 
-@class NSImage, NSMenu;
+@class NSMenu;
 
 @interface MSPopUpToolbarItem : NSToolbarItem
 {
-    NSImage *_smallImage;
-    NSImage *_normalImage;
 }
 
-@property(retain, nonatomic) NSImage *normalImage; // @synthesize normalImage=_normalImage;
-@property(retain, nonatomic) NSImage *smallImage; // @synthesize smallImage=_smallImage;
-- (void).cxx_destruct;
 - (void)validate;
 - (id)toolTip;
 - (void)setToolTip:(id)arg1;

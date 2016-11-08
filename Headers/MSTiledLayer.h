@@ -71,7 +71,6 @@
 @property(readonly, nonatomic) struct CGRect tiledRect;
 @property(readonly, nonatomic) unsigned long long tileCount;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
-- (void)refreshOverlayForPage:(id)arg1;
 - (void)refreshOverlayWithBlock:(CDUnknownBlockType)arg1;
 - (void)refreshContentForPage:(id)arg1 document:(id)arg2;
 - (void)tileUpdateOperationDidComplete:(id)arg1;

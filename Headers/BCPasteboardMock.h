@@ -19,6 +19,9 @@
 @property(retain, nonatomic) NSMutableDictionary *storage; // @synthesize storage=_storage;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)clearContents;
+@property(readonly) long long changeCount;
+- (BOOL)writeObjects:(id)arg1;
 - (id)types;
 - (id)availableTypeFromArray:(id)arg1;
 - (id)propertyListForType:(id)arg1;
@@ -27,7 +30,9 @@
 - (BOOL)setString:(id)arg1 forType:(id)arg2;
 - (id)dataForType:(id)arg1;
 - (void)setData:(id)arg1 forType:(id)arg2;
+- (void)addTypes:(id)arg1 owner:(id)arg2;
 - (void)declareTypes:(id)arg1 owner:(id)arg2;
+- (void)addDataForTypes:(id)arg1 fromOwner:(id)arg2;
 - (id)init;
 
 @end

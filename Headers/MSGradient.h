@@ -9,7 +9,7 @@
 #import "MSAsset.h"
 #import "MSGradient.h"
 
-@class MSPointArray, NSArray, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSGradient : _MSGradient <MSAsset, MSGradient>
 {
@@ -30,9 +30,7 @@
 - (id)stopAtIndex:(unsigned long long)arg1;
 - (void)setPoint:(struct CGPoint)arg1 atIndex:(unsigned long long)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
-- (void)gradientPointArray:(id)arg1 replacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
 - (double)conditionedEllipseLength;
-@property(readonly, nonatomic) MSPointArray *points;
 - (void)rotatePointsBy:(long long)arg1;
 - (void)invert;
 - (id)NSGradientWithColorSpace:(id)arg1;

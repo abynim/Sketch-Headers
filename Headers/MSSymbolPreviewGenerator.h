@@ -10,7 +10,6 @@
 {
 }
 
-+ (id)imageFromArtboard:(id)arg1 inDocument:(id)arg2 ofSize:(struct CGSize)arg3;
 + (void)generateImageForSymbol:(id)arg1 imageSize:(struct CGSize)arg2 completionBlock:(CDUnknownBlockType)arg3;
 
 @end

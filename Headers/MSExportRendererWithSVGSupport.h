@@ -10,6 +10,7 @@
 {
 }
 
+- (id)previewImage;
 - (id)data;
 
 @end

@@ -6,13 +6,13 @@
 
 #import "SVGElement.h"
 
-@class NSArray, NSSet, SVGColor, SVGGradient;
+@class MSImmutableColor, NSArray, NSSet, SVGGradient;
 
 @interface _SVGStroke : SVGElement
 {
     SVGGradient *_gradient;
     NSSet *_usedBy;
-    SVGColor *_color;
+    MSImmutableColor *_color;
     NSArray *_dashes;
     double _width;
 }
@@ -22,7 +22,7 @@
 + (id)propertyNames;
 @property(nonatomic) double width; // @synthesize width=_width;
 @property(retain, nonatomic) NSArray *dashes; // @synthesize dashes=_dashes;
-@property(retain, nonatomic) SVGColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;
 - (void).cxx_destruct;

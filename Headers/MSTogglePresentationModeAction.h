@@ -6,24 +6,27 @@
 
 #import "MSDocumentAction.h"
 
-@class NSWindow;
-
 @interface MSTogglePresentationModeAction : MSDocumentAction
 {
-    NSWindow *_fullScreenWindow;
+    BOOL _didHideLayerList;
+    BOOL _didHideInspector;
+    BOOL _didHideRulers;
+    BOOL _didEnterPresentationMode;
 }
 
-@property(retain, nonatomic) NSWindow *fullScreenWindow; // @synthesize fullScreenWindow=_fullScreenWindow;
-- (void).cxx_destruct;
-- (void)dealloc;
-- (void)removeObserver;
-- (id)fullScreenOptions;
-- (id)fullScreenView;
-- (void)fullScreenWindowDidResignMain:(id)arg1;
-- (struct CGRect)rectOfCanvasOnScreen;
-- (void)enterFullScreen;
-- (void)exitFullScreen;
+@property(nonatomic) BOOL didEnterPresentationMode; // @synthesize didEnterPresentationMode=_didEnterPresentationMode;
+@property(nonatomic) BOOL didHideRulers; // @synthesize didHideRulers=_didHideRulers;
+@property(nonatomic) BOOL didHideInspector; // @synthesize didHideInspector=_didHideInspector;
+@property(nonatomic) BOOL didHideLayerList; // @synthesize didHideLayerList=_didHideLayerList;
+- (void)leavePresentationMode;
+- (void)windowDidExitFullScreen:(id)arg1;
+- (void)documentWillClose;
+- (unsigned long long)fullscreenPresentationOptions:(unsigned long long)arg1;
+- (void)hideUIForPresentationMode;
 - (void)togglePresentationMode:(id)arg1;
+- (BOOL)isFullscreen;
+- (BOOL)validateMenuItem:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

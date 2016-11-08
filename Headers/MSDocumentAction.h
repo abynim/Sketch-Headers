@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
-- (void)doPerformAction:(id)arg1;
+- (void)performAction:(id)arg1;
 - (void)refreshOverlayOfViews;
 - (id)contentDrawView;
 - (id)currentPage;

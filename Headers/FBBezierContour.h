@@ -27,6 +27,8 @@
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (void)debugDrawColor:(id)arg1 scale:(double)arg2;
+- (id)contourByMergingLinearRuns;
+- (id)firstNonPoint;
 - (id)debugPathForWindingRuleContainmentAtEdge:(id)arg1 parameter:(double)arg2 point:(struct CGPoint)arg3 withTransform:(struct CGAffineTransform)arg4 andSizeTransform:(struct CGAffineTransform)arg5;
 - (id)debugPathForWindingRuleContainmentWithTransform:(struct CGAffineTransform)arg1 andSizeTransform:(struct CGAffineTransform)arg2;
 - (id)debugPathForJointsWithTransform:(struct CGAffineTransform)arg1 andSizeTransform:(struct CGAffineTransform)arg2;
@@ -62,6 +64,7 @@
 - (id)contourMadeClockwiseIfNecessary;
 @property(readonly, nonatomic) int direction;
 @property(retain, nonatomic) NSNumber *cachedDirection;
+- (id)contourWithTransform:(struct CGAffineTransform)arg1;
 - (id)reversedContour;
 @property(readonly, nonatomic) BOOL isClosed;
 - (void)close;

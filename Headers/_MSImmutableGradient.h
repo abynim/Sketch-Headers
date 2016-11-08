@@ -6,14 +6,13 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSPointArray, NSArray;
+@class NSArray;
 
 @interface _MSImmutableGradient : MSImmutableModelObject
 {
     double _elipseLength;
     struct CGPoint _from;
     long long _gradientType;
-    MSPointArray *_points;
     BOOL _shouldSmoothenOpacity;
     struct CGPoint _to;
     NSArray *_stops;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) NSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
-@property(retain, nonatomic) MSPointArray *points; // @synthesize points=_points;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;

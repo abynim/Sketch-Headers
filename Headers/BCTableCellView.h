@@ -6,13 +6,13 @@
 
 #import "NSTableCellView.h"
 
-@class BCCollapsableImageView, NSButton, NSDictionary, NSLayoutConstraint, NSPopUpButton;
+@class BCCollapsableImageView, NSButton, NSDictionary, NSLayoutConstraint, NSPopUpButton, NSWindow;
 
 @interface BCTableCellView : NSTableCellView
 {
     BOOL _fakeSelection;
-    BOOL _isPreviewImageDirty;
     BOOL _currentSelectedState;
+    BOOL _isDrawingFocused;
     id <BCTableCellViewDelegate> _delegate;
     unsigned long long _displayState;
     NSButton *_badgeButton;
@@ -23,10 +23,10 @@
     NSLayoutConstraint *_badgeTrailingSpaceConstraint;
 }
 
+@property(nonatomic) BOOL isDrawingFocused; // @synthesize isDrawingFocused=_isDrawingFocused;
 @property(nonatomic) BOOL currentSelectedState; // @synthesize currentSelectedState=_currentSelectedState;
 @property(nonatomic) __weak NSLayoutConstraint *badgeTrailingSpaceConstraint; // @synthesize badgeTrailingSpaceConstraint=_badgeTrailingSpaceConstraint;
 @property(nonatomic) __weak BCCollapsableImageView *secondaryPreviewView; // @synthesize secondaryPreviewView=_secondaryPreviewView;
-@property(nonatomic) BOOL isPreviewImageDirty; // @synthesize isPreviewImageDirty=_isPreviewImageDirty;
 @property(retain, nonatomic) NSDictionary *previewImages; // @synthesize previewImages=_previewImages;
 @property(nonatomic) __weak BCCollapsableImageView *previewView; // @synthesize previewView=_previewView;
 @property(nonatomic) __weak NSPopUpButton *popupBadgeButton; // @synthesize popupBadgeButton=_popupBadgeButton;
@@ -35,14 +35,15 @@
 @property(nonatomic) __weak id <BCTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL fakeSelection; // @synthesize fakeSelection=_fakeSelection;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSWindow *destinationWindow;
 - (void)drawDragImageInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) double widthForDragImage;
+- (void)refreshPreviewImages;
 - (void)setBackgroundStyle:(long long)arg1;
 - (void)updateTextColour;
 - (void)renameNode;
 @property(readonly, nonatomic) BOOL isTextFieldEditing;
-- (void)updateSecondaryPreview;
-- (void)updatePreview;
+- (void)updatePreviews;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawTextFieldBorder;
 - (void)handleBadgePressed:(id)arg1;
@@ -55,8 +56,6 @@
 - (void)stopObserving;
 - (void)startObserving;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)refreshPreviewImages;
-- (void)internalRefreshPreviewImages;
 - (id)addSliceIconToImage:(id)arg1;
 @property(readonly, nonatomic) id <BCOutlineViewNode> node;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;

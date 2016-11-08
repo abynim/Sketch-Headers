@@ -49,7 +49,6 @@
 - (void)deleteNormalLayers:(id)arg1;
 - (void)delete:(id)arg1;
 - (id)menuForEvent:(id)arg1;
-- (void)rightMouseDown:(id)arg1;
 - (id)menu;
 - (void)selectAll:(id)arg1;
 - (void)dragToSelect:(id)arg1;

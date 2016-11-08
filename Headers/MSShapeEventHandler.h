@@ -20,7 +20,7 @@
     BOOL _hideNonEssentialHandles;
     BOOL _isDragging;
     MSEditShapeInspectorViewController *_inspectorViewController;
-    MSShapeEditingBehavior *_behavior;
+    MSShapeEditingBehavior *_editingBehavior;
     MSLayerGroup *_parentGroupForInserting;
     NSArray *_shapePathLayers;
     NSIndexPath *_pointInsertionIndexPath;
@@ -37,14 +37,14 @@
 @property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(readonly, nonatomic) BOOL hideNonEssentialHandles; // @synthesize hideNonEssentialHandles=_hideNonEssentialHandles;
-@property(copy, nonatomic) MSPointSnappingResult *snaps; // @synthesize snaps=_snaps;
+@property(readonly, copy, nonatomic) MSPointSnappingResult *snaps; // @synthesize snaps=_snaps;
 @property(readonly, nonatomic) NSIndexPath *hoveringHandle; // @synthesize hoveringHandle=_hoveringHandle;
 @property(readonly, nonatomic) struct CGPoint insertionPoint; // @synthesize insertionPoint=_insertionPoint;
 @property(readonly, nonatomic) NSIndexPath *pointInsertionIndexPath; // @synthesize pointInsertionIndexPath=_pointInsertionIndexPath;
 @property(copy, nonatomic) NSArray *shapePathLayers; // @synthesize shapePathLayers=_shapePathLayers;
 @property(retain, nonatomic) MSLayerGroup *parentGroupForInserting; // @synthesize parentGroupForInserting=_parentGroupForInserting;
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
-@property(readonly, nonatomic) MSShapeEditingBehavior *behavior; // @synthesize behavior=_behavior;
+@property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 - (void).cxx_destruct;
 - (BOOL)shapeDrawing:(id)arg1 shouldDrawHandlesForPointAtIndexPath:(id)arg2;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
@@ -58,7 +58,6 @@
 - (void)updateInspector;
 - (id)toolbarIdentifier;
 - (void)enumerateCurvePointsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)setLocation:(struct CGPoint)arg1 ofHandleAtIndexPath:(id)arg2;
 - (void)adjustHandlesToValue:(double)arg1 onAxis:(unsigned long long)arg2;
 - (void)distributeVectorPointsToAxis:(unsigned long long)arg1;
 - (void)alignVectorPointsToKey:(id)arg1;
@@ -68,7 +67,6 @@
 - (BOOL)hideHandlesForPointAtIndexPath:(id)arg1;
 - (void)setHideNonEssentialHandles:(BOOL)arg1;
 - (id)indexPathsForHandlesInRect:(struct CGRect)arg1;
-- (struct CGPoint)locationOfHandleAtIndexPath:(id)arg1;
 - (id)indexPathOfSegmentAtPoint:(struct CGPoint)arg1;
 - (id)indexPathOfHandleAtPoint:(struct CGPoint)arg1;
 - (BOOL)shouldDrawLayerSelection;
@@ -82,6 +80,7 @@
 - (void)delete:(id)arg1;
 - (long long)curveModeForPressedKey:(long long)arg1;
 - (void)changeToCurveMode:(long long)arg1;
+- (void)setSnaps:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
@@ -92,14 +91,15 @@
 - (void)selectHandleAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)setInsertionPoint:(struct CGPoint)arg1 indexPath:(id)arg2;
 @property(readonly, nonatomic) MSShapeChangeContext *changeContext;
-@property(readonly, nonatomic) NSArray *selectedCurvePoints;
+- (void)paste:(id)arg1;
+- (id)selectedCurvePoints;
 - (void)postSelectionChangeNotifications;
 - (void)toggleSelectionOfHandleAtIndexPath:(id)arg1;
 - (void)deselectAllHandles;
 - (void)didChangeSelection;
 - (void)deselectHandleAtIndexPath:(id)arg1;
-- (void)selectHandlesAtIndexPaths:(id)arg1 extendSelection:(BOOL)arg2;
-- (void)selectHandleAtIndexPath:(id)arg1;
+- (void)selectHandlesAtIndexPaths:(id)arg1;
+- (void)selectHandleAtIndexPath:(id)arg1 extendSelection:(BOOL)arg2;
 @property(readonly, copy, nonatomic) NSArray *indexPathsForSelectedHandles;
 - (void)duplicate:(id)arg1;
 - (id)layersToCopy;

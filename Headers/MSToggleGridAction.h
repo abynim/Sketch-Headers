@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (id)label;
 - (id)imageName;
 - (void)setGrid:(id)arg1;

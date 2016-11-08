@@ -11,7 +11,7 @@
 }
 
 + (id)sortArtboardsInDefaultOrder:(id)arg1;
-+ (id)sortArtboads:(id)arg1 inOrder:(unsigned long long)arg2;
++ (id)sortArtboards:(id)arg1 inOrder:(unsigned long long)arg2;
 
 @end
 

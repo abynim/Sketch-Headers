@@ -15,7 +15,7 @@
     id <MSSharedObjectContainerDelegate> _delegate;
 }
 
-@property(retain, nonatomic) id <MSSharedObjectContainerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSSharedObjectContainerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)objectsSortedByName;
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
@@ -37,8 +37,6 @@
 - (id)sharedObjectForInstance:(struct MSModelObject *)arg1;
 - (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
 - (id)instancesOf:(id)arg1 inContainer:(id)arg2;
-- (void)linkInstances:(id)arg1 fromSharedObject:(id)arg2;
-- (void)unlinkInstances:(id)arg1 toSharedObject:(id)arg2;
 - (id)mergeSharedObjectWithName:(id)arg1 sharedObjectID:(struct NSObject *)arg2 instance:(struct MSModelObject *)arg3;
 - (void)removeSharedObject:(id)arg1;
 - (id)addSharedObjectWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;

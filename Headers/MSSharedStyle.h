@@ -14,7 +14,6 @@
 {
 }
 
-- (unsigned long long)type;
 - (id)newInstance;
 @property(readonly, nonatomic) MSStyle *style;
 

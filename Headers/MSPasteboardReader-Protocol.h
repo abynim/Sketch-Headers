@@ -9,7 +9,7 @@
 @class MSPasteboardLayers, NSArray, NSPasteboard;
 
 @protocol MSPasteboardReader <NSObject>
-- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 sender:(id <NSDraggingInfo>)arg2;
+- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 options:(unsigned long long)arg2 sender:(id <NSDraggingInfo>)arg3;
 - (NSArray *)supportedPasteboardTypes;
 @end
 

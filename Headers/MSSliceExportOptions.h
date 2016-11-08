@@ -12,9 +12,11 @@
 {
     NSView *_optionsViewJPG;
     NSView *_optionsViewSaveForWeb;
+    NSView *_optionsViewWebP;
 }
 
-+ (id)exportOptions;
++ (id)exportOptionsForRequests:(id)arg1;
+@property(retain, nonatomic) NSView *optionsViewWebP; // @synthesize optionsViewWebP=_optionsViewWebP;
 @property(retain, nonatomic) NSView *optionsViewSaveForWeb; // @synthesize optionsViewSaveForWeb=_optionsViewSaveForWeb;
 @property(retain, nonatomic) NSView *optionsViewJPG; // @synthesize optionsViewJPG=_optionsViewJPG;
 - (void).cxx_destruct;

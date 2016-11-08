@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) double parameter1; // @synthesize parameter1=_parameter1;
 @property(readonly, nonatomic) FBBezierCurve *curve1; // @synthesize curve1=_curve1;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
 - (void)enumerateAliasesWithBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateAliasesOfCurve:(id)arg1 atParameter:(double)arg2 withBlock:(CDUnknownBlockType)arg3;

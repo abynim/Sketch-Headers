@@ -13,11 +13,9 @@
     NSBundle *_bundle;
     NSArray *_noiseImages;
     NSBitmapImageRep *_errorPattern;
-    unsigned long long _status;
 }
 
 + (id)sharedInstance;
-@property(nonatomic) unsigned long long status; // @synthesize status=_status;
 @property(copy, nonatomic) NSBitmapImageRep *errorPattern; // @synthesize errorPattern=_errorPattern;
 @property(copy, nonatomic) NSArray *noiseImages; // @synthesize noiseImages=_noiseImages;
 @property(retain, nonatomic) NSBundle *bundle; // @synthesize bundle=_bundle;

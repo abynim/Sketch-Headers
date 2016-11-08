@@ -9,13 +9,12 @@
 @protocol MSStyle <_MSStyle>
 @property(readonly, nonatomic) id <MSStyleBorder> borderGeneric;
 @property(readonly, nonatomic) id <MSStyleFill> fillGeneric;
-@property(readonly, nonatomic) id <MSStyleShadow> firstEnabledShadowGeneric;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasBlending;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
-@property(readonly, nonatomic) BOOL hasActiveBackgroundBlur;
+@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
 @end
 

@@ -22,6 +22,8 @@
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
+- (id)pagesAndArtboardsMetadata;
+- (id)allSymbols;
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;

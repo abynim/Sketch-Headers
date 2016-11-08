@@ -14,6 +14,7 @@
 {
 }
 
+- (id)sharedStyles;
 - (void)registerInstance:(id)arg1 withSharedStyle:(id)arg2;
 - (unsigned long long)numberOfSharedStyles;
 - (long long)indexOfSharedStyle:(id)arg1;

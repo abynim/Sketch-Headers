@@ -9,7 +9,7 @@
 #import "NSCoding.h"
 #import "NSCopying.h"
 
-@class NSAttributedString, NSSet;
+@class NSAttributedString, NSSet, NSString;
 
 @interface MSAttributedString : NSObject <NSCoding, NSCopying>
 {
@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) BOOL areRequiredFontsAvailable;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
+@property(readonly, nonatomic) NSString *string;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;

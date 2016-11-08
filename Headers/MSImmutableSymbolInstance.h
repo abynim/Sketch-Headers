@@ -13,6 +13,8 @@
 
 + (id)defaultName;
 + (unsigned long long)traits;
+- (void)enumerateOverrides:(id)arg1 inIndex:(unsigned long long)arg2 ancestors:(id)arg3 block:(CDUnknownBlockType)arg4;
+- (void)enumerateOverridesInBlock:(CDUnknownBlockType)arg1;
 - (struct BCEdgePaddings)masterInfluenceEdgePadding;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (id)overrideForInstanceAtIndex:(unsigned long long)arg1 ancestorIDs:(id)arg2;
@@ -21,11 +23,11 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 forSymbolID:(id)arg2 actualOverrides:(id)arg3 skipping:(id)arg4;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (BOOL)differsFromLayer:(id)arg1;
 - (void)migratePropertiesFromV86OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithCoder:(id)arg1;
-- (Class)rendererClass;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
 
 @end

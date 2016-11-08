@@ -10,15 +10,15 @@
 
 @protocol MSLayer <_MSLayer>
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
-- (BOOL)isSelected;
-- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)overlayInfluenceRectForFrame;
+- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForFrame;
 - (struct CGRect)influenceRectForBounds;
 - (NSAffineTransform *)transformForRect:(struct CGRect)arg1;

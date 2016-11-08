@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) FBBezierCurve *edge1; // @synthesize edge1=_edge1;
 @property(readonly, nonatomic) FBBezierIntersectRange *range; // @synthesize range=_range;
 - (void).cxx_destruct;
+- (id)debugQuickLookObject;
 - (id)description;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2 startExtends:(BOOL)arg3 endExtends:(BOOL)arg4;
 - (id)middleIntersection;

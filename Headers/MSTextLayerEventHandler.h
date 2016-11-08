@@ -32,8 +32,9 @@
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (BOOL)shouldExitOnContentViewResize;
 - (BOOL)validateMenuItem:(id)arg1;
-- (BOOL)scrollEventShouldExitHandler:(id)arg1;
+- (void)magnifyWithEvent:(id)arg1;
 - (BOOL)canDuplicate;
 - (void)dealloc;
 - (BOOL)shouldDrawLayerSelection;
@@ -56,10 +57,11 @@
 - (void)viewDidScroll:(id)arg1;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
-- (void)textViewDidChangeSelection:(id)arg1;
 - (void)scheduleUpdateInsertionPointColorTimer;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
 - (id)firstBaselineOffset;
+- (void)textViewDidChangeSelection:(id)arg1;
+- (void)textDidChange:(id)arg1;
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;

@@ -10,12 +10,8 @@
 {
 }
 
-- (void)moveButtonOutOfView:(id)arg1;
-- (struct CGRect)contentRectForFrameRect:(struct CGRect)arg1;
-- (void)resizeContentView;
-- (void)windowDidResize:(id)arg1;
-- (void)dealloc;
-- (void)awakeFromNib;
+- (BOOL)canBecomeKeyWindow;
+- (BOOL)canBecomeMainWindow;
 
 @end
 

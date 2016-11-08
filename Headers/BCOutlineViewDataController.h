@@ -35,7 +35,6 @@
 - (BOOL)isNodeSelected:(id)arg1;
 - (void)changeSelectionTo:(id)arg1;
 - (BOOL)handleDragWithPasteboard:(id)arg1 forProposedItem:(id)arg2 proposedChildIndex:(long long)arg3 copying:(BOOL)arg4 validationOnly:(BOOL)arg5;
-- (void)removeNodes:(id)arg1;
 - (BOOL)writeNodes:(id)arg1 toPasteboard:(id)arg2;
 - (id)namesOfPromisedFilesDroppedAtDestination:(id)arg1 forDraggedItems:(id)arg2;
 - (BOOL)shouldExpandNode:(id)arg1;

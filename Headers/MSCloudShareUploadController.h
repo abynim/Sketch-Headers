@@ -12,24 +12,26 @@
 {
     BOOL _includeDocument;
     BOOL _uploadFailed;
+    NSString *_password;
     MSDocumentData *_documentData;
-    NSString *_name;
     CDUnknownBlockType _progressHandler;
     CDUnknownBlockType _completionHandler;
     NSURL *_localURL;
     AFAmazonS3Manager *_s3Manager;
     NSError *_uploadError;
+    NSString *_name;
 }
 
 @property(nonatomic) BOOL uploadFailed; // @synthesize uploadFailed=_uploadFailed;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
 @property(retain, nonatomic) AFAmazonS3Manager *s3Manager; // @synthesize s3Manager=_s3Manager;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
-@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
-@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
+@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3 progressTracker:(id)arg4;
@@ -41,7 +43,7 @@
 - (id)loadManifest;
 - (void)uploadManifest;
 - (void)uploadDocument;
-- (id)initWithDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 progressHandler:(CDUnknownBlockType)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (id)initWithDocument:(id)arg1 name:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 
 @end
 

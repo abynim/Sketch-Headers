@@ -6,19 +6,19 @@
 
 #import "SVGElement.h"
 
-@class NSSet, SVGColor, SVGGradient;
+@class MSImmutableColor, NSSet, SVGGradient;
 
 @interface _SVGFill : SVGElement
 {
     SVGGradient *_gradient;
     NSSet *_usedBy;
-    SVGColor *_color;
+    MSImmutableColor *_color;
 }
 
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
-@property(retain, nonatomic) SVGColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;
 - (void).cxx_destruct;

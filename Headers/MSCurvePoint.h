@@ -24,10 +24,11 @@
 - (void)movePointTo:(struct CGPoint)arg1;
 - (void)moveCurveFromTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
 - (void)moveCurveToTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
+- (struct CGPoint)locationOfPoint:(unsigned long long)arg1;
 - (void)inferCurveMode;
 - (BOOL)isEffectivelyStraight;
 - (BOOL)isRounded;
-- (void)changeCurveModeTo:(long long)arg1;
+- (void)changeCurveModeTo:(long long)arg1 usingPoint:(unsigned long long)arg2;
 - (Class)currentBehaviour;
 - (id)initWithPoint:(struct CGPoint)arg1 curveTo:(struct CGPoint)arg2 curveFrom:(struct CGPoint)arg3;
 - (void)setCornerRadius:(double)arg1;

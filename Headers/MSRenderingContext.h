@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CIContext, MSBackgroundBlurRenderer, MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, MSStyleTextRenderer, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
+@class CIContext, MSBackgroundBlurRenderer, MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, NSColor, NSColorSpace, NSDictionary, NSGraphicsContext, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -39,7 +39,6 @@
     MSCGContextPool *_contextPool;
     MSStylePathRenderer *_stylePathRenderer;
     MSStyleImageRenderer *_styleImageRenderer;
-    MSStyleTextRenderer *_styleTextRenderer;
     MSStyleFillRenderer *_styleFillRenderer;
     NSGraphicsContext *_graphicsContext;
     struct CGContext *_savedContextRef;
@@ -48,6 +47,7 @@
     NSMutableArray *_parentGroupStack;
     NSMutableArray *_artboardStack;
     long long _drawSymbolInstanceInBlock;
+    NSDictionary *_renderers;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
     struct CGAffineTransform _initialTransform;
@@ -55,6 +55,7 @@
     struct CGAffineTransform _totalTransform;
 }
 
+@property(retain, nonatomic) NSDictionary *renderers; // @synthesize renderers=_renderers;
 @property(nonatomic) long long drawSymbolInstanceInBlock; // @synthesize drawSymbolInstanceInBlock=_drawSymbolInstanceInBlock;
 @property(retain, nonatomic) NSMutableArray *artboardStack; // @synthesize artboardStack=_artboardStack;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
@@ -66,7 +67,6 @@
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
 @property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
 @property(retain, nonatomic) MSStyleFillRenderer *styleFillRenderer; // @synthesize styleFillRenderer=_styleFillRenderer;
-@property(retain, nonatomic) MSStyleTextRenderer *styleTextRenderer; // @synthesize styleTextRenderer=_styleTextRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
 @property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
@@ -99,9 +99,10 @@
 @property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (void).cxx_destruct;
 - (BOOL)isDrawingSymbolInstance;
-- (void)didDrawArtboard:(id)arg1;
-- (void)willDrawArtboard:(id)arg1;
-- (BOOL)canDrawSymbolInstanceWithoutRiskingRecursion:(id)arg1;
+- (BOOL)shouldSkipDrawingShadow:(id)arg1;
+- (void)didDrawSymbolMaster:(id)arg1;
+- (void)willDrawSymbolMaster:(id)arg1;
+- (BOOL)canDrawSymbolMasterWithoutRiskingRecursion:(id)arg1;
 - (BOOL)shouldDisableSubpixelQuantization;
 - (BOOL)layerIntersectsDirtyRect:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
@@ -150,6 +151,8 @@
 - (id)bitmapBackedSubContextWithContextRef:(struct CGContext *)arg1 size:(struct CGSize)arg2;
 - (id)blurSubContextWithContextRef:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
 - (id)subContextWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
+- (id)rendererForClass:(Class)arg1;
+- (id)rendererForLayer:(id)arg1;
 - (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4 document:(id)arg5;
 - (id)init;
 

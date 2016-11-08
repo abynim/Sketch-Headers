@@ -25,7 +25,6 @@
 - (void).cxx_destruct;
 - (void)drawBorders;
 - (void)drawFills;
-- (BOOL)shouldSkipDrawingShadow:(id)arg1;
 - (BOOL)shouldAdvancedClipToAvoidOuterStrokeStrokeBleed;
 - (BOOL)shouldAdvancedClipToAvoidInnerStrokeBleed;
 - (id)clipPathForOuterStroke;

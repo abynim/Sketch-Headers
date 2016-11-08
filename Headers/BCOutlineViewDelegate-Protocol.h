@@ -19,7 +19,6 @@
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 writeNodes:(NSArray *)arg2 toPasteboard:(NSPasteboard *)arg3;
 - (NSArray *)dragTypesForDataController:(BCOutlineViewDataController *)arg1;
 - (NSArray *)dataController:(BCOutlineViewDataController *)arg1 exportNodes:(NSArray *)arg2 toFolder:(NSURL *)arg3;
-- (void)dataController:(BCOutlineViewDataController *)arg1 removeNodes:(NSArray *)arg2;
 - (void)dataController:(BCOutlineViewDataController *)arg1 updateNode:(id)arg2 expandedState:(unsigned long long)arg3;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeExpandable:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeExpanded:(id)arg2;

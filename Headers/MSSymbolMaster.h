@@ -11,20 +11,23 @@
     BOOL _isInvalidatingSymbolInstances;
 }
 
++ (void)copyPropertiesFrom:(id)arg1 to:(id)arg2;
++ (id)convertSymbolToArtboard:(id)arg1;
++ (id)convertArtboardToSymbol:(id)arg1;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)shouldResizeToFitAfterDrag;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;
-- (id)convertToSymbol;
 - (id)ancestorIDsForLayerNamed:(id)arg1 skip:(id)arg2;
 - (id)ancestorIDsForLayerNamed:(id)arg1;
 - (BOOL)isSafeToDelete;
 - (void)multiplyBy:(double)arg1;
+- (id)ungroup;
 - (void)removeFromParentAndDetachAllInstances;
 - (void)detachAllInstances;
 - (BOOL)ensureSymbolIDUniqueInDocument:(id)arg1;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 - (BOOL)hasInstances;
 - (id)allInstances;
 - (struct BCEdgePaddings)influenceRectPaddingForInstances;

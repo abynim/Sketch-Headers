@@ -20,13 +20,12 @@
 @property(readonly, nonatomic) BOOL hasNineSliceEnabled;
 - (id)NSImage;
 - (void)performInitWithCoder:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 skipping:(id)arg2;
+- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)migratePropertiesFromV75OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV61OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV59OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (Class)rendererClass;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addPathDefinitionToDocument:(id)arg1;
@@ -53,6 +52,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, copy, nonatomic) NSString *name;

@@ -6,40 +6,30 @@
 
 #import "MSPreferencePane.h"
 
-@class MSCloudAuthAPI, MSCloudPreferenceViewController, MSCloudShareAPI, NSArray, NSDictionary, NSStoryboard;
+@class MSCloudAuthAPI, MSCloudPreferencesViewController, NSStoryboard;
 
 @interface MSCloudPreferencePane : MSPreferencePane
 {
-    MSCloudAuthAPI *_cloudAuthAPI;
-    MSCloudShareAPI *_cloudShareAPI;
-    NSDictionary *_userData;
-    NSArray *_userShares;
+    MSCloudAuthAPI *_authAPI;
     NSStoryboard *_cloudStoryboard;
-    MSCloudPreferenceViewController *_currentViewController;
+    MSCloudPreferencesViewController *_currentViewController;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(nonatomic) __weak MSCloudPreferenceViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
+@property(retain, nonatomic) MSCloudPreferencesViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
-@property(retain, nonatomic) NSArray *userShares; // @synthesize userShares=_userShares;
-@property(retain, nonatomic) NSDictionary *userData; // @synthesize userData=_userData;
 - (void).cxx_destruct;
-- (void)verifyEmailChangeWithToken:(id)arg1 newEmail:(id)arg2;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)applicationDidOpenURL:(id)arg1;
-- (void)userLoggedOutNotification:(id)arg1;
+- (void)userDidChangeNotification:(id)arg1;
+@property(readonly, nonatomic) MSCloudAuthAPI *authAPI; // @synthesize authAPI=_authAPI;
 - (void)fixFirstResponder;
-- (void)contentViewChanged;
 - (void)updateWindowFrame;
-- (void)showAccountVerificationView;
-- (void)showShareView;
-- (void)showLoginView;
-- (void)showViewController:(id)arg1;
 - (void)showRootViewController;
-@property(readonly, nonatomic) MSCloudAuthAPI *cloudAuthAPI; // @synthesize cloudAuthAPI=_cloudAuthAPI;
-@property(readonly, nonatomic) MSCloudShareAPI *cloudShareAPI; // @synthesize cloudShareAPI=_cloudShareAPI;
+- (void)showAccountViewController;
+- (void)showIntroViewController;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (void)loadView;

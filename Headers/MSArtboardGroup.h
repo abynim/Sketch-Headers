@@ -8,12 +8,11 @@
 
 #import "MSArtboardGroup.h"
 #import "MSCloudExportable.h"
-#import "MSLayerWithBackgroundColour.h"
 #import "MSRootLayer.h"
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSRootLayer, MSLayerWithBackgroundColour, MSArtboardGroup>
+@interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSRootLayer, MSArtboardGroup>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -21,7 +20,6 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
-- (id)convertToSymbol;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
@@ -30,7 +28,7 @@
 - (void)setRectAndLeaveChildrenInPosition:(struct CGRect)arg1;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
-- (void)moveWithGuideOffset:(struct CGSize)arg1;
+- (void)moveBySuggestedOffset:(struct CGSize)arg1;
 - (void)setRect:(struct CGRect)arg1;
 - (void)removeFromParent;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
@@ -81,7 +79,7 @@
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(copy, nonatomic) MSSimpleGrid *grid;
 @property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric; // @dynamic gridGeneric;
-@property(nonatomic) BOOL hasBackgroundColor;
+@property(readonly, nonatomic) BOOL hasBackgroundColor;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
@@ -92,6 +90,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;

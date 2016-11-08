@@ -10,13 +10,12 @@
 {
 }
 
-+ (struct CGRect)simpleSafeRectForSlice:(id)arg1;
-+ (struct CGRect)safeRectForSlice:(id)arg1;
-+ (id)basicSliceFromLayer:(id)arg1;
-+ (struct CGRect)_trimmedRectForSlice:(id)arg1;
-+ (struct CGRect)rect:(struct CGRect)arg1 forLayer:(id)arg2;
-+ (struct CGRect)trimmedRectForSlice:(id)arg1;
-+ (void)trimSlice:(id)arg1 toFitLayers:(id)arg2;
++ (struct CGRect)simpleSafeRectFromLayerAncestry:(id)arg1;
++ (struct CGRect)safeRectForLayerAncestry:(id)arg1;
++ (id)exportRequestFromLayerAncestry:(id)arg1;
++ (struct CGRect)_trimmedRectFromLayerAncestry:(id)arg1;
++ (struct CGRect)trimmedRectForLayerAncestry:(id)arg1;
++ (void)trimSlice:(id)arg1;
 
 @end
 

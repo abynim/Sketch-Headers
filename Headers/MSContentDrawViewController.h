@@ -35,7 +35,6 @@
 - (void)currentArtboardDidChange;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
-- (void)frameDidChange:(id)arg1;
 - (void)awakeFromNib;
 
 // Remaining properties

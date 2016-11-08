@@ -6,13 +6,18 @@
 
 #import "CHWindowController.h"
 
+@class NSWindow;
+
 @interface CHSheetController : CHWindowController
 {
     id _object;
+    NSWindow *_parentWindow;
 }
 
-+ (id)runWithObject:(id)arg1;
-+ (id)run;
++ (id)findSuitableWindowForSheet;
++ (id)runForWindow:(id)arg1 withObject:(id)arg2;
++ (id)runForWindow:(id)arg1;
+@property(nonatomic) __weak NSWindow *parentWindow; // @synthesize parentWindow=_parentWindow;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void).cxx_destruct;
 - (void)dealloc;
