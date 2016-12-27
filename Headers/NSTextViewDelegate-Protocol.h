@@ -15,6 +15,10 @@
 - (void)textView:(NSTextView *)arg1 doubleClickedOnCell:(id <NSTextAttachmentCell>)arg2 inRect:(struct CGRect)arg3;
 - (void)textView:(NSTextView *)arg1 clickedOnCell:(id <NSTextAttachmentCell>)arg2 inRect:(struct CGRect)arg3;
 - (BOOL)textView:(NSTextView *)arg1 clickedOnLink:(id)arg2;
+- (BOOL)textView:(NSTextView *)arg1 shouldSelectCandidateAtIndex:(unsigned long long)arg2;
+- (NSArray *)textView:(NSTextView *)arg1 candidates:(NSArray *)arg2 forSelectedRange:(struct _NSRange)arg3;
+- (NSArray *)textView:(NSTextView *)arg1 candidatesForSelectedRange:(struct _NSRange)arg2;
+- (NSArray *)textView:(NSTextView *)arg1 shouldUpdateTouchBarItemIdentifiers:(NSArray *)arg2;
 - (NSUndoManager *)undoManagerForTextView:(NSTextView *)arg1;
 - (NSSharingServicePicker *)textView:(NSTextView *)arg1 willShowSharingServicePicker:(NSSharingServicePicker *)arg2 forItems:(NSArray *)arg3;
 - (NSURL *)textView:(NSTextView *)arg1 URLForContentsOfTextAttachment:(NSTextAttachment *)arg2 atIndex:(unsigned long long)arg3;

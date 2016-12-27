@@ -10,6 +10,7 @@
 {
 }
 
+- (id)touchBarImage;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)booleanUnion:(id)arg1;

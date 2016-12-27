@@ -20,6 +20,7 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (id)immutableBackgroundColor;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;

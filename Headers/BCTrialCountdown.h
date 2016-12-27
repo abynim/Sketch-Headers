@@ -11,10 +11,7 @@
 }
 
 + (id)trialPopUpWithNumberOfDays:(long long)arg1;
-+ (void)hideCountdownInWindow:(id)arg1;
 + (void)showCountDownWithNumberOfDays:(long long)arg1 inWindow:(id)arg2;
-+ (id)superViewFromWindow:(id)arg1;
-+ (void)setCountDownButton:(id)arg1 inWindow:(id)arg2;
 + (id)countDownButtonInWindow:(id)arg1;
 
 @end

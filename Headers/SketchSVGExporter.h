@@ -12,7 +12,7 @@
 {
     NSString *_mask;
     NSString *_currentShapeDef;
-    unsigned long long _exporterOptions;
+    unsigned long long _hints;
     MSImmutableDocumentData *_document;
     MSSVGFilter *_currentFilterGroup;
     MSImmutableSymbolInstance *_currentSymbolInstance;
@@ -38,13 +38,13 @@
 @property(retain, nonatomic) MSImmutableSymbolInstance *currentSymbolInstance; // @synthesize currentSymbolInstance=_currentSymbolInstance;
 @property(retain, nonatomic) MSSVGFilter *currentFilterGroup; // @synthesize currentFilterGroup=_currentFilterGroup;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-@property(readonly, nonatomic) unsigned long long exporterOptions; // @synthesize exporterOptions=_exporterOptions;
+@property(readonly, nonatomic) unsigned long long hints; // @synthesize hints=_hints;
 @property(retain, nonatomic) NSString *currentShapeDef; // @synthesize currentShapeDef=_currentShapeDef;
 @property(retain, nonatomic) NSString *mask; // @synthesize mask=_mask;
 @property(readonly, nonatomic) struct CGRect exportBounds; // @synthesize exportBounds=_exportBounds;
 - (void).cxx_destruct;
 - (BOOL)layerIsIncluded:(id)arg1;
-- (BOOL)isDrawingSymbolInstance;
+- (BOOL)isDrawingSymbol;
 - (void)drawSymbolInstance:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)performWithParent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)popParent;
@@ -67,7 +67,8 @@
 - (struct CGPoint)normalizePoint:(struct CGPoint)arg1;
 - (id)description;
 - (id)exportLayers:(id)arg1;
-- (id)initWithName:(id)arg1 exportRequest:(id)arg2 options:(unsigned long long)arg3;
+- (id)initWithName:(id)arg1 exportRequest:(id)arg2;
+- (id)initWithImmutableDocument:(id)arg1;
 - (id)init;
 - (void)setupCommonElements:(id)arg1;
 

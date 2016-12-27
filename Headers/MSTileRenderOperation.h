@@ -6,9 +6,11 @@
 
 #import "NSOperation.h"
 
-@class CALayer, MSCGContextPool, MSImmutableDocumentData, MSImmutablePage, MSTileRenderer, NSArray;
+#import "CALayerDelegate.h"
 
-@interface MSTileRenderOperation : NSOperation
+@class CALayer, MSCGContextPool, MSImmutableDocumentData, MSImmutablePage, MSTileRenderer, NSArray, NSString;
+
+@interface MSTileRenderOperation : NSOperation <CALayerDelegate>
 {
     BOOL _shouldDrawPixelated;
     BOOL _drawDottedDirtyRect;
@@ -49,6 +51,12 @@
 - (void)dealloc;
 - (id)initWithContextPool:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

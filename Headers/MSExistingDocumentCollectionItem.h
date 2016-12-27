@@ -15,9 +15,9 @@
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
-- (void)renderPreviewImageForDocumentFile:(id)arg1 maxPixelSize:(double)arg2 handler:(CDUnknownBlockType)arg3;
-- (BOOL)cachedPreviewImage:(out id *)arg1 forDocumentFile:(id)arg2 error:(id *)arg3;
-- (id)cachedPreviewImageURLForDocumentFile:(id)arg1 createDirectoriesIfNeeded:(BOOL)arg2 error:(id *)arg3;
+- (void)exportPreviewImageForDocumentFileURL:(id)arg1 maxPixelSize:(double)arg2 handler:(CDUnknownBlockType)arg3;
+- (BOOL)cachedPreviewImage:(out id *)arg1 forDocumentFileURL:(id)arg2 error:(id *)arg3;
+- (id)cachedPreviewImageURLForDocumentFileURL:(id)arg1 createDirectoriesIfNeeded:(BOOL)arg2 error:(id *)arg3;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 handler:(CDUnknownBlockType)arg2;
 - (BOOL)providesPreviewImage;
 - (id)title;

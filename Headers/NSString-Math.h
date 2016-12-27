@@ -7,11 +7,14 @@
 #import "NSString.h"
 
 @interface NSString (Math)
++ (id)nativeDecimalSeparator;
++ (id)numberFormatter;
 - (id)mathSet;
 - (BOOL)containsMathSymbols;
 - (id)stringByCalculatingMath;
 - (double)floatValueUsingMath;
 - (double)floatValueByUsingNumberFormatter;
+- (id)stringBySanitizingForNumberFormatter:(id)arg1;
 - (id)stringByCalculatingPercentagesInContextOfSize:(struct CGRect)arg1 onAxis:(unsigned long long)arg2;
 - (double)floatValueInContextOfSize:(struct CGRect)arg1 onAxis:(unsigned long long)arg2;
 @end

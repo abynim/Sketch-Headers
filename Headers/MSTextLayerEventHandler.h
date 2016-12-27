@@ -13,7 +13,7 @@
 #import "NSTextViewDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSNumber, NSString, NSTextStorage, NSTimer;
+@class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSMenuItem, NSNumber, NSString, NSTextStorage, NSTimer;
 
 @interface MSTextLayerEventHandler : MSEventHandler <NSLayoutManagerDelegate, NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSFirstLineTypesetterDelegate>
 {
@@ -23,8 +23,12 @@
     NSTextStorage *_textStorage;
     NSTimer *_updateInsertionPointColorTimer;
     NSNumber *_firstBaselineOffsetBeforeEditing;
+    NSMenuItem *_undoItem;
+    NSMenuItem *_redoItem;
 }
 
+@property(retain, nonatomic) NSMenuItem *redoItem; // @synthesize redoItem=_redoItem;
+@property(retain, nonatomic) NSMenuItem *undoItem; // @synthesize undoItem=_undoItem;
 @property(retain, nonatomic) NSNumber *firstBaselineOffsetBeforeEditing; // @synthesize firstBaselineOffsetBeforeEditing=_firstBaselineOffsetBeforeEditing;
 @property(retain, nonatomic) NSTimer *updateInsertionPointColorTimer; // @synthesize updateInsertionPointColorTimer=_updateInsertionPointColorTimer;
 @property(retain, nonatomic) NSTextStorage *textStorage; // @synthesize textStorage=_textStorage;
@@ -49,7 +53,6 @@
 - (void)commitPendingEdits;
 - (BOOL)handlesHistoryCoalescing;
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
-- (void)textStorage:(id)arg1 didProcessEditing:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4;
 - (void)selectAll:(id)arg1;
 - (struct CGRect)windowFrameForDrawView;
 - (void)scrollWheel:(id)arg1;
@@ -62,6 +65,7 @@
 - (id)firstBaselineOffset;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textDidChange:(id)arg1;
+- (id)windowWillReturnUndoManager:(id)arg1;
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;

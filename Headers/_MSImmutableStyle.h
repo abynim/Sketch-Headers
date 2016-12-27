@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableGraphicsContextSettings, MSImmutableGraphicsContextSettings<MSGraphicsContextSettings>, MSImmutableStyleBlur, MSImmutableStyleBlur<MSStyleBlur>, MSImmutableStyleBorderOptions, MSImmutableStyleBorderOptions<MSStyleBorderOptions>, MSImmutableStyleColorControls, MSImmutableStyleColorControls<MSStyleColorControls>, MSImmutableStyleReflection, MSImmutableStyleReflection<MSStyleReflection>, MSImmutableTextStyle, MSImmutableTextStyle<MSTextStyle>, NSArray, NSString;
+@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableStyleReflection, MSImmutableTextStyle, NSArray, NSString;
 
 @interface _MSImmutableStyle : MSImmutableModelObject
 {
@@ -27,16 +27,16 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableTextStyle<MSTextStyle> *textStyle; // @synthesize textStyle=_textStyle;
+@property(retain, nonatomic) MSImmutableTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
-@property(retain, nonatomic) MSImmutableStyleReflection<MSStyleReflection> *reflection; // @synthesize reflection=_reflection;
+@property(retain, nonatomic) MSImmutableStyleReflection *reflection; // @synthesize reflection=_reflection;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
 @property(retain, nonatomic) NSArray *fills; // @synthesize fills=_fills;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings<MSGraphicsContextSettings> *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableStyleColorControls<MSStyleColorControls> *colorControls; // @synthesize colorControls=_colorControls;
+@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(retain, nonatomic) MSImmutableStyleColorControls *colorControls; // @synthesize colorControls=_colorControls;
 @property(retain, nonatomic) NSArray *borders; // @synthesize borders=_borders;
-@property(retain, nonatomic) MSImmutableStyleBorderOptions<MSStyleBorderOptions> *borderOptions; // @synthesize borderOptions=_borderOptions;
-@property(retain, nonatomic) MSImmutableStyleBlur<MSStyleBlur> *blur; // @synthesize blur=_blur;
+@property(retain, nonatomic) MSImmutableStyleBorderOptions *borderOptions; // @synthesize borderOptions=_borderOptions;
+@property(retain, nonatomic) MSImmutableStyleBlur *blur; // @synthesize blur=_blur;
 @property(nonatomic) unsigned long long startDecorationType; // @synthesize startDecorationType=_startDecorationType;
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;

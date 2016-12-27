@@ -29,6 +29,8 @@
 @property(retain, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;
 @property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
 - (void).cxx_destruct;
+- (BOOL)updatesHaveExpired;
+- (id)updateExpirationDate;
 @property(readonly, nonatomic) NSDate *currentDate;
 - (void)validateDate;
 @property(readonly, nonatomic) double systemStartupTime;

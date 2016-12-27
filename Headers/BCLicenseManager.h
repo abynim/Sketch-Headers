@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class BCLicense, NSString, NSURL, NSURLSession;
+@class BCLicense, NSDate, NSString, NSURL, NSURLSession;
 
 @interface BCLicenseManager : NSObject
 {
@@ -16,8 +16,10 @@
     NSString *_publicCertificate;
     NSURL *_licenseURL;
     NSURLSession *_urlSession;
+    NSDate *_applicationBuildDate;
 }
 
+@property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(retain, nonatomic) NSURL *licenseURL; // @synthesize licenseURL=_licenseURL;
@@ -27,6 +29,8 @@
 - (void).cxx_destruct;
 - (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
 - (id)apiURL;
+- (id)websiteAvailableVersionsURL;
+- (id)websiteRenewalURL;
 - (id)currentVersion;
 - (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)performUnregisterCall:(id)arg1;
@@ -42,11 +46,16 @@
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (long long)numberOfDaysLeftInTrialMode;
+- (BOOL)canRenewLicense;
+- (BOOL)canInstallUpdates;
+- (id)updateExpirationDate;
 - (id)registeredEmailAddress;
 - (long long)currentLicenseType;
+- (BOOL)licenseVersionIsSupported:(id)arg1;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3;
+- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;
 
 @end
 

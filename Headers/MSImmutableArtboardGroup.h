@@ -8,11 +8,10 @@
 
 #import "MSArtboardGroup.h"
 #import "MSImmutableRootLayer.h"
-#import "MSLayerWithBackgroundColour.h"
 
 @class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer, MSLayerWithBackgroundColour>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSArtboardGroup, MSImmutableRootLayer>
 {
     struct CGSize _unscaledNameSize;
 }
@@ -33,6 +32,7 @@
 - (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
+- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)svgStyle:(id)arg1;
 
 // Remaining properties

@@ -6,7 +6,11 @@
 
 #import "CABasicAnimation.h"
 
-@interface MSBlockAnimation : CABasicAnimation
+#import "CAAnimationDelegate.h"
+
+@class NSString;
+
+@interface MSBlockAnimation : CABasicAnimation <CAAnimationDelegate>
 {
     BOOL executed;
     CDUnknownBlockType block;
@@ -15,6 +19,12 @@
 - (void).cxx_destruct;
 - (void)animationDidStop:(id)arg1 finished:(BOOL)arg2;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

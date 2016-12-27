@@ -6,23 +6,24 @@
 
 #import "NSViewController.h"
 
-@class NSArray, NSButton, NSComboBox, NSPopUpButton, NSView;
+@class MSExportFormatNamingTextField, NSArray, NSButton, NSPopUpButton, NSTextField, NSView;
 
 @interface MSExportFormatViewController : NSViewController
 {
+    double _designedFormatPopUpButtonWidth;
     NSPopUpButton *_formatPopup;
     NSButton *_removeSizeButton;
     NSView *_sizeView;
-    NSView *_scaleView;
+    MSExportFormatNamingTextField *_suffixTextField;
     NSArray *_exportFormats;
-    NSComboBox *_scaleField;
+    NSTextField *_scaleField;
 }
 
 + (id)scaleDisplayStringForValue:(double)arg1 suffix:(unsigned short)arg2;
 + (void)initialize;
-@property(retain, nonatomic) NSComboBox *scaleField; // @synthesize scaleField=_scaleField;
+@property(retain, nonatomic) NSTextField *scaleField; // @synthesize scaleField=_scaleField;
 @property(retain, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
-@property(retain, nonatomic) NSView *scaleView; // @synthesize scaleView=_scaleView;
+@property(retain, nonatomic) MSExportFormatNamingTextField *suffixTextField; // @synthesize suffixTextField=_suffixTextField;
 @property(retain, nonatomic) NSView *sizeView; // @synthesize sizeView=_sizeView;
 @property(retain, nonatomic) NSButton *removeSizeButton; // @synthesize removeSizeButton=_removeSizeButton;
 @property(retain, nonatomic) NSPopUpButton *formatPopup; // @synthesize formatPopup=_formatPopup;
@@ -37,6 +38,7 @@
 - (id)firstExportFormat;
 - (BOOL)exportFormatCanBeScaled;
 - (void)prepare;
+- (void)viewDidLoad;
 
 @end
 

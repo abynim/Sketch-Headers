@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)useImageForTouchBarItem;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)group:(id)arg1;

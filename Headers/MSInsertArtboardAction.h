@@ -11,6 +11,7 @@
 }
 
 - (unsigned short)shortcutCharacter;
+- (id)touchBarImage;
 - (id)imageName;
 - (void)doPerformAction:(id)arg1;
 - (void)insertArtboard:(id)arg1;

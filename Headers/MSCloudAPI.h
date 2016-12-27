@@ -39,6 +39,7 @@
 - (id)alertForError:(id)arg1;
 @property(readonly, nonatomic) NSString *authToken;
 @property(readonly, nonatomic) NSString *userID;
+- (void)clearCredentials;
 @property(retain, nonatomic) NSURLCredential *credential; // @synthesize credential=_credential;
 - (void)credentialDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) BOOL isLoggedIn;

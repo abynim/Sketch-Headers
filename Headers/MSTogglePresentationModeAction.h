@@ -18,6 +18,7 @@
 @property(nonatomic) BOOL didHideRulers; // @synthesize didHideRulers=_didHideRulers;
 @property(nonatomic) BOOL didHideInspector; // @synthesize didHideInspector=_didHideInspector;
 @property(nonatomic) BOOL didHideLayerList; // @synthesize didHideLayerList=_didHideLayerList;
+- (void)dealloc;
 - (void)leavePresentationMode;
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)documentWillClose;

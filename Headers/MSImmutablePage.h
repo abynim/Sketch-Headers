@@ -33,6 +33,7 @@
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
+- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)svgStyle:(id)arg1;
 - (BOOL)shouldIncludeInSVGExport:(id)arg1;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;

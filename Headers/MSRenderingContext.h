@@ -40,13 +40,12 @@
     MSStylePathRenderer *_stylePathRenderer;
     MSStyleImageRenderer *_styleImageRenderer;
     MSStyleFillRenderer *_styleFillRenderer;
-    NSGraphicsContext *_graphicsContext;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
-    NSMutableArray *_artboardStack;
-    long long _drawSymbolInstanceInBlock;
+    NSMutableArray *_symbolMasterStack;
+    NSGraphicsContext *_graphicsContext;
     NSDictionary *_renderers;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
@@ -56,8 +55,8 @@
 }
 
 @property(retain, nonatomic) NSDictionary *renderers; // @synthesize renderers=_renderers;
-@property(nonatomic) long long drawSymbolInstanceInBlock; // @synthesize drawSymbolInstanceInBlock=_drawSymbolInstanceInBlock;
-@property(retain, nonatomic) NSMutableArray *artboardStack; // @synthesize artboardStack=_artboardStack;
+@property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
+@property(retain, nonatomic) NSMutableArray *symbolMasterStack; // @synthesize symbolMasterStack=_symbolMasterStack;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
@@ -65,7 +64,6 @@
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
-@property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
 @property(retain, nonatomic) MSStyleFillRenderer *styleFillRenderer; // @synthesize styleFillRenderer=_styleFillRenderer;
 @property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
 @property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
@@ -98,15 +96,15 @@
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (void).cxx_destruct;
-- (BOOL)isDrawingSymbolInstance;
+- (void)applyStrokeColor:(id)arg1;
+- (void)applyFillColor:(id)arg1;
 - (BOOL)shouldSkipDrawingShadow:(id)arg1;
-- (void)didDrawSymbolMaster:(id)arg1;
-- (void)willDrawSymbolMaster:(id)arg1;
+- (BOOL)isDrawingSymbol;
+- (void)drawSymbolMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (BOOL)canDrawSymbolMasterWithoutRiskingRecursion:(id)arg1;
 - (BOOL)shouldDisableSubpixelQuantization;
 - (BOOL)layerIntersectsDirtyRect:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
-- (void)drawSymbolInstanceInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldClipFills;
 - (void)doNotClipFillsInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawFills;

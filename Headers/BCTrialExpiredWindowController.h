@@ -13,9 +13,11 @@
     NSView *registrationView;
     NSTextField *registrationField;
     NSTextField *mainTextField;
+    long long _registrationResult;
 }
 
 + (void)show;
+@property(nonatomic) long long registrationResult; // @synthesize registrationResult=_registrationResult;
 - (void).cxx_destruct;
 - (void)registerLicense:(id)arg1;
 - (void)openRecoveryPage:(id)arg1;

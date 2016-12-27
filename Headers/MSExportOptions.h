@@ -6,14 +6,18 @@
 
 #import "_MSExportOptions.h"
 
+#import "MSExportFormatContainer.h"
 #import "MSExportOptions.h"
 
 @class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSExportOptions : _MSExportOptions <MSExportOptions>
+@interface MSExportOptions : _MSExportOptions <MSExportOptions, MSExportFormatContainer>
 {
 }
 
++ (id)nextMostAppropriateExportFormatToAdd:(id)arg1;
+- (id)containingLayer;
+- (id)firstFormat;
 - (id)addExportFormat;
 
 // Remaining properties

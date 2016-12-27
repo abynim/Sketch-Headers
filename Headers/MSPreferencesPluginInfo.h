@@ -11,14 +11,14 @@
 @interface MSPreferencesPluginInfo : NSObject
 {
     BOOL _enabled;
-    NSString *_name;
     MSPluginBundle *_pluginBundle;
+    NSString *_name;
 }
 
 + (id)pluginInfoWithName:(id)arg1;
 + (id)pluginInfoWithPluginBundle:(id)arg1;
-@property(retain, nonatomic) MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, copy, nonatomic) NSString *pluginDescription;

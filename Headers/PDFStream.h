@@ -12,13 +12,13 @@
 {
     int _format;
     struct CGPDFStream *_stream;
-    NSData *_data;
     NSDictionary *_dictionary;
+    NSData *_data;
 }
 
-@property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(nonatomic) int format; // @synthesize format=_format;
+@property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(nonatomic) struct CGPDFStream *stream; // @synthesize stream=_stream;
 - (void).cxx_destruct;
 - (id)description;

@@ -33,6 +33,7 @@
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (void)openPopoverAtIndex:(unsigned long long)arg1;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
 - (BOOL)hasEnabledStyle;

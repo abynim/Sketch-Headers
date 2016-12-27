@@ -42,8 +42,10 @@
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)cut:(id)arg1;
 - (BOOL)layerCanBeSelected:(id)arg1;
+- (unsigned long long)numberOfSelectableLayers:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
+- (void)tabInDirection:(BOOL)arg1;
 - (id)layerSnapper;
 - (void)changeColor:(id)arg1;
 - (void)deleteNormalLayers:(id)arg1;

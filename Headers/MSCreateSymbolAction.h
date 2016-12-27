@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)useImageForTouchBarItem;
 - (BOOL)dynamicTitle;
 - (id)historyMomentTitle;
 - (id)label;

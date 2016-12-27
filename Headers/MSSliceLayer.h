@@ -28,9 +28,7 @@
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;
 - (void)performInitEmptyObject;
-- (BOOL)canBeHidden;
 - (unsigned long long)filterType;
-- (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 

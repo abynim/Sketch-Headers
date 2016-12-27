@@ -13,8 +13,8 @@
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
-    NSURL *_metadataURL;
     char *_useLegacyPlugins;
+    NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSArray *_folderMonitors;
     NSMutableDictionary *_runningCommands;
@@ -32,8 +32,8 @@
 @property(readonly, nonatomic) BOOL monitorForChanges; // @synthesize monitorForChanges=_monitorForChanges;
 @property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
-@property(nonatomic) char *useLegacyPlugins; // @synthesize useLegacyPlugins=_useLegacyPlugins;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
+@property(nonatomic) char *useLegacyPlugins; // @synthesize useLegacyPlugins=_useLegacyPlugins;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
 - (BOOL)disablePlugin:(id)arg1;

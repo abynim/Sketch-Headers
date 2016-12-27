@@ -10,6 +10,7 @@
 {
 }
 
+- (id)touchBarImage;
 - (id)groupForInserting;
 - (void)doPerformAction:(id)arg1;
 - (void)insertImage:(id)arg1;

@@ -15,6 +15,13 @@
 }
 
 + (id)defaultFillColor;
++ (void)drawNoiseFill:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
++ (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawGradientFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawColorFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawBasicFill:(id)arg1 color:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;
++ (id)previewImageOfSize:(struct CGSize)arg1 forBasicFill:(id)arg2 color:(id)arg3 enabled:(BOOL)arg4 clippingAsBorder:(BOOL)arg5 borderWidth:(double)arg6;
++ (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1;
 - (void)performInitEmptyObject;
 
 // Remaining properties

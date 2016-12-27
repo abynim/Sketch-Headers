@@ -45,9 +45,9 @@
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
-- (void)moveHandlesToLocation:(double)arg1 onAxis:(unsigned long long)arg2;
-- (void)curvePointYAction:(id)arg1;
-- (void)curvePointXAction:(id)arg1;
+- (void)takeHandleLocationOnAxis:(unsigned long long)arg1 fromTextField:(id)arg2;
+- (void)changeYPosition:(id)arg1;
+- (void)changeXPosition:(id)arg1;
 - (void)updateCoordinateValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
 - (void)refreshXYFields;
 - (void)finishEditingAction:(id)arg1;

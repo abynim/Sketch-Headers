@@ -29,6 +29,7 @@
 - (id)styleAttributesForElement:(id)arg1 defaults:(id)arg2;
 - (id)relativeURLForLink:(id)arg1;
 - (void)resolvedValue:(id)arg1 forProperty:(id)arg2;
+- (id)clippingParent;
 - (id)drawableParent;
 - (BOOL)containsDrawables;
 - (id)name;

@@ -16,11 +16,14 @@
 - (void).cxx_destruct;
 - (BOOL)export:(id)arg1 layer:(id)arg2;
 - (id)exportRequestsForLayer:(id)arg1 inRect:(struct CGRect)arg2 exportFormats:(id)arg3;
-- (BOOL)exportLayers:(id)arg1 exportFormats:(id)arg2;
-- (BOOL)exportPage:(id)arg1 exportFormats:(id)arg2;
+- (BOOL)exportLayers:(id)arg1;
+- (BOOL)exportPage:(id)arg1;
+- (id)formatsToExport;
+- (id)suffixForScale:(double)arg1;
 - (struct CGRect)rectToExportForPage:(id)arg1;
 - (BOOL)outputFileWithName:(id)arg1 URL:(id *)arg2 existing:(id *)arg3;
 - (id)initWithDelegate:(id)arg1;
+- (id)init;
 
 @end
 

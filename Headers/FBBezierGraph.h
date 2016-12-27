@@ -22,6 +22,8 @@
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
+- (id)contoursContainingOtherContours:(id)arg1;
+- (id)bezierGraphBySplittingSelfCrossingContours:(id)arg1;
 - (id)bezierGraphByTrimmingSelfCrossingContours;
 - (id)bezierGraphByMergingLinearRunsInContours;
 - (id)contoursWithoutCrossings;
@@ -40,6 +42,7 @@
 - (void)debuggingInsertCrossingsForUnionWithBezierGraph:(id)arg1;
 - (id)nonselfIntersectingContours;
 - (id)nonintersectingContours;
+- (id)disjointContours;
 - (void)addContour:(id)arg1;
 - (void)removeOverlaps;
 - (void)removeCrossings;
@@ -61,6 +64,7 @@
 - (id)closestCrossingToPoint:(struct CGPoint)arg1;
 - (id)closestLocationToPoint:(struct CGPoint)arg1;
 - (int)contourInsides:(id)arg1;
+- (struct FBContourWindingRuleResult)containmentResultForContour:(id)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (void)insertSelfCrossings;
 - (void)insertContourSelfCrossings;

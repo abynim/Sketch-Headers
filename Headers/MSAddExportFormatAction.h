@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validate;
+- (void)addExportFormatToLayer:(id)arg1;
 - (id)label;
 - (BOOL)dynamicTitle;
 - (void)doPerformAction:(id)arg1;

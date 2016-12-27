@@ -36,6 +36,8 @@
 - (void)dealloc;
 - (void)closeIgnoringViewControllerPresentations;
 - (void)close;
+- (id)windowWillReturnUndoManager:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 - (void)windowWillClose:(id)arg1;
 - (struct CGRect)windowRectForViewSize:(struct CGSize)arg1 above:(struct CGRect)arg2 pointingTo:(struct CGPoint)arg3 edge:(unsigned long long)arg4;
 - (struct CGPoint)pointAtEdge:(unsigned long long)arg1 ofRect:(struct CGRect)arg2;

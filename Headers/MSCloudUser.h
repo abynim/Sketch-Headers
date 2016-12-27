@@ -31,6 +31,7 @@
 @property(readonly, copy, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (id)debugDescription;
 - (void)parseDictionary:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *dictionary;
 - (id)verifiedUser;

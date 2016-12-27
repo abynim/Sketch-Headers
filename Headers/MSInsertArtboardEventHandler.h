@@ -16,6 +16,7 @@
 
 @property(readonly, nonatomic) NSMutableArray *insertedArtboards; // @synthesize insertedArtboards=_insertedArtboards;
 - (void).cxx_destruct;
+- (BOOL)shouldApplyDefaultStyle;
 - (BOOL)shouldHideExportBar;
 - (BOOL)shouldAddInsertFromSelectionItem;
 - (void)updateInspector;

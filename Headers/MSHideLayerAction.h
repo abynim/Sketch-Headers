@@ -11,6 +11,7 @@
 }
 
 - (BOOL)dynamicTitle;
+- (void)doPerformAction:(id)arg1;
 - (void)hideLayer:(id)arg1;
 - (id)label;
 - (BOOL)validate;

@@ -17,6 +17,7 @@
 - (id)svgAttributesDescription;
 - (id)name;
 - (void)processSelf:(id)arg1;
+- (BOOL)containsDrawables;
 - (double)doubleValueFromXML:(id)arg1 attributeWithName:(id)arg2 orParent:(id)arg3;
 
 @end

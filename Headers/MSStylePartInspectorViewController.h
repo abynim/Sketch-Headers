@@ -19,6 +19,7 @@
     NSArray *_styleParts;
     NSArrayController *_arrayController;
     id <MSStylePartInspectorDelegate> _delegate;
+    unsigned long long _index;
     MSColorPreviewButton *_colorPickerButton;
     BCPopover *_popover;
 }
@@ -27,6 +28,7 @@
 + (id)stylePartViewController;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
+@property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) __weak id <MSStylePartInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;

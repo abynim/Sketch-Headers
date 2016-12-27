@@ -6,7 +6,7 @@
 
 #import "MSImmutableLayer.h"
 
-@class MSImmutableShapePath, MSImmutableShapePath<MSShapePath>;
+@class MSImmutableShapePath;
 
 @interface _MSImmutableShapePathLayer : MSImmutableLayer
 {
@@ -16,7 +16,7 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableShapePath<MSShapePath> *path; // @synthesize path=_path;
+@property(retain, nonatomic) MSImmutableShapePath *path; // @synthesize path=_path;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;

@@ -23,8 +23,8 @@
 - (void)resizeInstanceToFitSymbol:(id)arg1;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachByReplacingWithGroup;
-- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 visitedSymbols:(id)arg2;
-- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1;
+- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 visitedSymbols:(id)arg2 symbolInstancesBySymbolID:(id)arg3;
+- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 symbolInstancesBySymbolID:(id)arg2;
 - (void)enumerateOverrides:(id)arg1 inIndex:(unsigned long long)arg2 ancestors:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (void)enumerateOverridesInBlock:(CDUnknownBlockType)arg1;
 - (id)overrideForInstanceAtIndex:(unsigned long long)arg1 ancestorIDs:(id)arg2;

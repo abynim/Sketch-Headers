@@ -11,6 +11,7 @@
 @protocol _MSAssetCollection <MSModelObject>
 @property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric;
 @property(readonly, nonatomic) NSArray *gradients;
+@property(readonly, nonatomic) NSArray *exportPresets;
 @property(readonly, nonatomic) NSArray *colors;
 @property(readonly, nonatomic) NSArray *images;
 @end

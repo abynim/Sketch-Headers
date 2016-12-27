@@ -6,19 +6,17 @@
 
 #import "MSEventHandler.h"
 
-#import "MSEditingShapeDrawingDelegate.h"
-#import "MSGestureRecognizerDelegate.h"
+#import "MSSelectVectorHandleGestureRecognizerDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSTextDelegate.h"
 
-@class MSDragHandleGestureRecognizer, MSDragToSelectGestureRecognizer, MSEditShapeInspectorViewController, MSLayerGroup, MSPointSnappingResult, MSShapeChangeContext, MSShapeEditingBehavior, NSArray, NSBezierPath, NSIndexPath, NSMutableArray, NSString;
+@class MSDragHandleGestureRecognizer, MSDragToSelectGestureRecognizer, MSEditShapeInspectorViewController, MSLayerGroup, MSPointSnappingResult, MSSelectVectorHandleGestureRecognizer, MSShapeChangeContext, MSShapeEditingBehavior, NSArray, NSBezierPath, NSIndexPath, NSMutableArray, NSString;
 
-@interface MSShapeEventHandler : MSEventHandler <MSGestureRecognizerDelegate, MSEditingShapeDrawingDelegate, NSTextDelegate, NSMenuDelegate>
+@interface MSShapeEventHandler : MSEventHandler <MSSelectVectorHandleGestureRecognizerDelegate, NSTextDelegate, NSMenuDelegate>
 {
     NSMutableArray *_selectedHandles;
+    MSShapeChangeContext *_changeContext;
     BOOL _isMakingRectSelection;
-    BOOL _hideNonEssentialHandles;
-    BOOL _isDragging;
     MSEditShapeInspectorViewController *_inspectorViewController;
     MSShapeEditingBehavior *_editingBehavior;
     MSLayerGroup *_parentGroupForInserting;
@@ -26,17 +24,21 @@
     NSIndexPath *_pointInsertionIndexPath;
     NSIndexPath *_hoveringHandle;
     MSPointSnappingResult *_snaps;
-    MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
+    MSDragToSelectGestureRecognizer *_dragToSelectGestureRecognizer;
+    MSSelectVectorHandleGestureRecognizer *_clickToSelectGestureRecognizer;
     MSDragHandleGestureRecognizer *_dragHandleGestureRecognizer;
+    NSIndexPath *_activeHandle;
+    unsigned long long _activeHandleBehavior;
     NSBezierPath *_wireBezierPath;
     struct CGPoint _insertionPoint;
 }
 
 @property(retain, nonatomic) NSBezierPath *wireBezierPath; // @synthesize wireBezierPath=_wireBezierPath;
+@property(nonatomic) unsigned long long activeHandleBehavior; // @synthesize activeHandleBehavior=_activeHandleBehavior;
+@property(copy, nonatomic) NSIndexPath *activeHandle; // @synthesize activeHandle=_activeHandle;
 @property(readonly, nonatomic) MSDragHandleGestureRecognizer *dragHandleGestureRecognizer; // @synthesize dragHandleGestureRecognizer=_dragHandleGestureRecognizer;
-@property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
-@property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
-@property(readonly, nonatomic) BOOL hideNonEssentialHandles; // @synthesize hideNonEssentialHandles=_hideNonEssentialHandles;
+@property(readonly, nonatomic) MSSelectVectorHandleGestureRecognizer *clickToSelectGestureRecognizer; // @synthesize clickToSelectGestureRecognizer=_clickToSelectGestureRecognizer;
+@property(readonly, nonatomic) MSDragToSelectGestureRecognizer *dragToSelectGestureRecognizer; // @synthesize dragToSelectGestureRecognizer=_dragToSelectGestureRecognizer;
 @property(readonly, copy, nonatomic) MSPointSnappingResult *snaps; // @synthesize snaps=_snaps;
 @property(readonly, nonatomic) NSIndexPath *hoveringHandle; // @synthesize hoveringHandle=_hoveringHandle;
 @property(readonly, nonatomic) struct CGPoint insertionPoint; // @synthesize insertionPoint=_insertionPoint;
@@ -46,7 +48,10 @@
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
 @property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 - (void).cxx_destruct;
-- (BOOL)shapeDrawing:(id)arg1 shouldDrawHandlesForPointAtIndexPath:(id)arg2;
+- (void)rectSelectionTouchBarAction:(id)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
+- (BOOL)gestureRecognizerShouldDelaySelectionUntilMouseUp:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)shouldHideExportBar;
 - (BOOL)inspectorShouldShowBlendingProperties;
@@ -64,11 +69,15 @@
 - (void)changeColor:(id)arg1;
 - (struct CGRect)dirtyFrameForShape:(id)arg1;
 - (void)setOverlayNeedsDisplay;
-- (BOOL)hideHandlesForPointAtIndexPath:(id)arg1;
-- (void)setHideNonEssentialHandles:(BOOL)arg1;
 - (id)indexPathsForHandlesInRect:(struct CGRect)arg1;
 - (id)indexPathOfSegmentAtPoint:(struct CGPoint)arg1;
 - (id)indexPathOfHandleAtPoint:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointToView:(struct CGPoint)arg1 fromPathCoordinatesOfShape:(id)arg2;
+- (void)drawLineFromHandleAtPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
+- (void)drawAdjustmentHandle:(id)arg1 atLocation:(struct CGPoint)arg2 andLineFromPoint:(struct CGPoint)arg3;
+- (void)drawCurvePointAtIndexPath:(id)arg1 pointOrAdjustmentHandleSelected:(BOOL)arg2;
+- (void)drawHandles;
+- (void)drawHighlightedSegment;
 - (BOOL)shouldDrawLayerSelection;
 - (void)drawSnaps;
 - (void)drawWire;
@@ -80,6 +89,7 @@
 - (void)delete:(id)arg1;
 - (long long)curveModeForPressedKey:(long long)arg1;
 - (void)changeToCurveMode:(long long)arg1;
+- (long long)currentCurveMode;
 - (void)setSnaps:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
@@ -88,12 +98,10 @@
 - (void)insertTab:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)dragToSelect:(id)arg1;
-- (void)selectHandleAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)setInsertionPoint:(struct CGPoint)arg1 indexPath:(id)arg2;
+- (void)invaliateChangeContext;
 @property(readonly, nonatomic) MSShapeChangeContext *changeContext;
 - (void)paste:(id)arg1;
-- (id)selectedCurvePoints;
-- (void)postSelectionChangeNotifications;
 - (void)toggleSelectionOfHandleAtIndexPath:(id)arg1;
 - (void)deselectAllHandles;
 - (void)didChangeSelection;
@@ -108,19 +116,18 @@
 - (void)handleSingleClick:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)mouseUpEvent:(id)arg1;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)preGestureRecognitionMouseDown:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)mouseDownEvent:(id)arg1;
-- (void)mouseDownOnHandleAtIndexPath:(id)arg1 modifierFlags:(unsigned long long)arg2;
+- (void)selectHandle:(id)arg1;
 - (struct CGPoint)determineLocationAndSnappingOfDrag:(id)arg1;
 - (void)dragHandle:(id)arg1;
 - (void)insertNewShapeForEditingAtPoint:(struct CGPoint)arg1;
+- (struct CGPoint)locationForAddingPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2 sourceIndexPath:(id *)arg3;
 - (void)insertPointAtIndexPath:(id)arg1 location:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
-- (struct CGPoint)alignPoint:(struct CGPoint)arg1 withLastPointOfShape:(id)arg2;
 - (id)addPointForMouseDown:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)trackMouse:(id)arg1;
 - (void)toggleCurveModeOfPointAtIndexPath:(id)arg1 modifierFlags:(unsigned long long)arg2;
-- (id)curvePointForHandleAtIndexPath:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)findSelectedShapePaths:(BOOL)arg1;
 - (void)layerListSelectionDidChange:(id)arg1;

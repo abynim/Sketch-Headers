@@ -14,7 +14,6 @@
 {
     BOOL _observingPlugins;
     NSArrayController *_pluginsArrayController;
-    NSArray *_filteredPlugins;
     NSPredicate *_pluginFilterPredicate;
     NSImage *_zeroPluginsImage;
     NSString *_zeroPluginsTitle;
@@ -25,6 +24,7 @@
     NSControl *_contextMenuControl;
     NSMenu *_contextMenu;
     MSPluginManager *_pluginManager;
+    NSArray *_filteredPlugins;
     NSTableCellView *_pluginCellView;
     NSLayoutConstraint *_pluginCellViewWidthConstraint;
     NSCache *_rowHeightCache;
@@ -37,6 +37,7 @@
 @property(retain, nonatomic) NSCache *rowHeightCache; // @synthesize rowHeightCache=_rowHeightCache;
 @property(retain, nonatomic) NSLayoutConstraint *pluginCellViewWidthConstraint; // @synthesize pluginCellViewWidthConstraint=_pluginCellViewWidthConstraint;
 @property(retain, nonatomic) NSTableCellView *pluginCellView; // @synthesize pluginCellView=_pluginCellView;
+@property(copy, nonatomic) NSArray *filteredPlugins; // @synthesize filteredPlugins=_filteredPlugins;
 @property(nonatomic) __weak MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(nonatomic) __weak NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(nonatomic) __weak NSControl *contextMenuControl; // @synthesize contextMenuControl=_contextMenuControl;
@@ -47,7 +48,6 @@
 @property(copy, nonatomic) NSString *zeroPluginsTitle; // @synthesize zeroPluginsTitle=_zeroPluginsTitle;
 @property(retain, nonatomic) NSImage *zeroPluginsImage; // @synthesize zeroPluginsImage=_zeroPluginsImage;
 @property(copy, nonatomic) NSPredicate *pluginFilterPredicate; // @synthesize pluginFilterPredicate=_pluginFilterPredicate;
-@property(copy, nonatomic) NSArray *filteredPlugins; // @synthesize filteredPlugins=_filteredPlugins;
 @property(retain, nonatomic) NSArrayController *pluginsArrayController; // @synthesize pluginsArrayController=_pluginsArrayController;
 - (void).cxx_destruct;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;

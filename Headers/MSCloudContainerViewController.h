@@ -27,6 +27,9 @@
 - (void)setCloudController:(id)arg1;
 - (void)dealloc;
 - (struct CGSize)preferredContentSize;
+- (void)updateShare;
+- (void)applicationDidBecomeActiveNotification:(id)arg1;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
 
 // Remaining properties

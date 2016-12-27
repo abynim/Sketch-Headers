@@ -9,7 +9,7 @@
 #import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
-@class MSSharedStylesInspectorSection, NSArray, NSButton, NSNumberFormatter, NSString, NSTextField, NSView;
+@class MSSharedStylesInspectorSection, NSArray, NSButton, NSNumberFormatter, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSLayerInspectorViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
@@ -27,6 +27,8 @@
     NSTextField *_widthTextField;
     NSTextField *_heightTextField;
     NSButton *_lockProportionsButton;
+    NSSegmentedControl *_flipSegmentedControl;
+    NSSegmentedControl *_lineFlipSegmentedControl;
     MSSharedStylesInspectorSection *_sharedObjectsController;
     NSArray *_layerInspectorControllers;
     NSNumberFormatter *_numberFormatter;
@@ -40,6 +42,8 @@
 @property(nonatomic) BOOL shouldShowLayerSpecificProperties; // @synthesize shouldShowLayerSpecificProperties=_shouldShowLayerSpecificProperties;
 @property(nonatomic) BOOL shouldShowSharedStyles; // @synthesize shouldShowSharedStyles=_shouldShowSharedStyles;
 @property(nonatomic) BOOL shouldShowPositions; // @synthesize shouldShowPositions=_shouldShowPositions;
+@property(nonatomic) __weak NSSegmentedControl *lineFlipSegmentedControl; // @synthesize lineFlipSegmentedControl=_lineFlipSegmentedControl;
+@property(nonatomic) __weak NSSegmentedControl *flipSegmentedControl; // @synthesize flipSegmentedControl=_flipSegmentedControl;
 @property(nonatomic) __weak NSButton *lockProportionsButton; // @synthesize lockProportionsButton=_lockProportionsButton;
 @property(nonatomic) __weak NSTextField *heightTextField; // @synthesize heightTextField=_heightTextField;
 @property(nonatomic) __weak NSTextField *widthTextField; // @synthesize widthTextField=_widthTextField;
@@ -72,6 +76,8 @@
 - (void)setWidthAction:(id)arg1;
 - (void)setYAction:(id)arg1;
 - (void)setXAction:(id)arg1;
+- (BOOL)areAllLayersFlippedVertically;
+- (BOOL)areAllLayersFlippedHorizontally;
 - (double)layerSizeOnAxis:(unsigned long long)arg1;
 - (double)rulerOriginXForLayer:(id)arg1;
 - (double)rulerOriginYForLayer:(id)arg1;
@@ -79,11 +85,14 @@
 - (double)absoluteXForLayers;
 - (void)setValue:(double)arg1 forField:(id)arg2;
 - (void)refreshBindingsOnShape:(id)arg1;
+- (void)clearFlipSegmentedControl:(id)arg1;
 - (void)clearPositionAndSizeFields;
+- (void)updateFlipSegmentedControl:(id)arg1;
 - (void)updatePositionAndSizeFields;
 - (void)_layerPositionPossiblyChanged;
 - (void)layerPositionPossiblyChanged;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
+- (void)viewDidLoad;
 - (id)init;
 
 // Remaining properties

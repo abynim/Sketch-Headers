@@ -21,7 +21,7 @@
 - (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
 - (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
+- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
 - (id)pickerView:(id)arg1 tooltipForPresetButtonAtIndex:(unsigned long long)arg2;
 - (void)colorPickerChangedTo:(id)arg1;
 - (BOOL)hasAdvancedSettingsNib;

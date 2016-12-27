@@ -7,34 +7,51 @@
 #import "NSResponder.h"
 
 #import "NSDraggingDestination.h"
+#import "NSTouchBarDelegate.h"
 
-@class MSDragGestureRecognizer, MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSViewController<MSInspectorChildController>;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSTouchBar, NSViewController<MSInspectorChildController>;
 
-@interface MSEventHandler : NSResponder <NSDraggingDestination>
+@interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;
     NSMutableArray *_gestureRecognizers;
-    MSDragGestureRecognizer *_activeGestureRecognizer;
     BOOL _mouseIsDown;
     MSEventHandlerManager *_manager;
     id <MSBasicDelegate> _delegate;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
+    NSTouchBar *_noSelectionTouchBar;
+    NSTouchBar *_selectionTouchBar;
     MSMouseTracker *_mouseTracker;
+    NSArray *_activeGestureRecognizers;
     struct CGPoint _viewCoordinateMouse;
     struct CGRect _selectionRect;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
+@property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
 @property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
+@property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
+@property(retain, nonatomic) NSTouchBar *noSelectionTouchBar; // @synthesize noSelectionTouchBar=_noSelectionTouchBar;
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (void)touchBarTextColorAction:(id)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (void)openInnerShadowAction:(id)arg1;
+- (void)openShadowAction:(id)arg1;
+- (void)openBorderAction:(id)arg1;
+- (void)openFillAction:(id)arg1;
+- (void)refreshTouchBarItemWithIdentifier:(id)arg1;
+- (id)touchBarWithIdentifiers:(id)arg1;
+- (id)selectionTouchBarIdentifiers;
+- (id)noSelectionTouchbarIdentifiers;
+- (id)makeTouchBar;
 - (BOOL)allowsSwitchToInsertAction;
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
@@ -76,7 +93,6 @@
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (BOOL)shouldDrawLayerSelection;
-- (id)selectedLayersA;
 - (id)selectedLayers;
 - (struct CGRect)selectedRect;
 - (void)changeColor:(id)arg1;

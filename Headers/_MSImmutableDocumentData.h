@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableAssetCollection, MSImmutableAssetCollection<MSAssetCollection>, MSImmutableSharedStyleContainer, MSImmutableSharedStyleContainer<MSSharedStyleContainer>, MSImmutableSharedTextStyleContainer, MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer>, MSImmutableSymbolContainer, MSImmutableSymbolContainer<MSSymbolContainer>, NSArray, NSDictionary, NSString;
+@class MSImmutableAssetCollection, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSymbolContainer, NSArray, NSDictionary, NSString;
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
@@ -26,10 +26,10 @@
 
 + (Class)mutableClass;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
-@property(retain, nonatomic) MSImmutableSharedTextStyleContainer<MSSharedTextStyleContainer> *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
-@property(retain, nonatomic) MSImmutableSymbolContainer<MSSymbolContainer> *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
-@property(retain, nonatomic) MSImmutableSharedStyleContainer<MSSharedStyleContainer> *layerStyles; // @synthesize layerStyles=_layerStyles;
-@property(retain, nonatomic) MSImmutableAssetCollection<MSAssetCollection> *assets; // @synthesize assets=_assets;
+@property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
+@property(retain, nonatomic) MSImmutableSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
+@property(retain, nonatomic) MSImmutableSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
+@property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;

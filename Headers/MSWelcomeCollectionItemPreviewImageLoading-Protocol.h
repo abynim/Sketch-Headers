@@ -11,6 +11,6 @@
 
 @optional
 @property(readonly, nonatomic) NSURL *URL;
-- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 handler:(void (^)(NSImage *, BOOL))arg2;
+- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 handler:(void (^)(NSImage *))arg2;
 @end
 

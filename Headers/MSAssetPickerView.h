@@ -6,9 +6,13 @@
 
 #import "NSView.h"
 
-@class MSAssetCollection, NSIndexSet;
+#import "NSScrubberDataSource.h"
+#import "NSScrubberDelegate.h"
+#import "NSTouchBarDelegate.h"
 
-@interface MSAssetPickerView : NSView
+@class MSAssetCollection, NSIndexSet, NSString;
+
+@interface MSAssetPickerView : NSView <NSScrubberDataSource, NSScrubberDelegate, NSTouchBarDelegate>
 {
     long long sourceDragIndex;
     id <MSPresetPickerViewDelegate> _delegate;
@@ -30,10 +34,14 @@
 @property(nonatomic) struct CGSize tileSize; // @synthesize tileSize=_tileSize;
 @property(nonatomic) __weak id <MSPresetPickerViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)scrubber:(id)arg1 didSelectItemAtIndex:(long long)arg2;
+- (id)scrubber:(id)arg1 viewForItemAtIndex:(long long)arg2;
+- (long long)numberOfItemsForScrubber:(id)arg1;
+- (id)scrubber;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (BOOL)delegateInsertPresetFromPasteboardData:(id)arg1 atIndex:(unsigned long long)arg2;
 - (BOOL)delegateDidDragPresetToIndex:(unsigned long long)arg1;
 - (BOOL)delegateSupportsDrop;
-- (BOOL)delegateDrawFullContentInRect:(struct CGRect)arg1 index:(unsigned long long)arg2;
 - (BOOL)delegateShowMenuForIndex:(unsigned long long)arg1;
 - (void)delegateDrawContentInRect:(struct CGRect)arg1 tag:(unsigned long long)arg2;
 - (id)delegateTooltipForIndex:(unsigned long long)arg1;
@@ -59,7 +67,6 @@
 - (void)pickPresetForButton:(id)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (BOOL)shouldShowMenuForButton:(id)arg1;
-- (BOOL)drawFullContentForButton:(id)arg1 inRect:(struct CGRect)arg2;
 - (void)drawContentForButton:(id)arg1 inRect:(struct CGRect)arg2;
 - (BOOL)isInStackView;
 - (void)stackIfPossible;
@@ -69,6 +76,12 @@
 - (void)reloadData;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

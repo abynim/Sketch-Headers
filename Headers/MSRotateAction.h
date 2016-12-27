@@ -10,6 +10,9 @@
 {
 }
 
+- (void)rotationBarAction:(id)arg1;
+- (void)refreshTouchBarItem:(id)arg1;
+- (id)touchBarItem;
 - (void)rotate90CC:(id)arg1;
 - (void)rotate90C:(id)arg1;
 - (BOOL)validate;

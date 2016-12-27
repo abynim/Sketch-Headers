@@ -6,18 +6,22 @@
 
 #import "SVGElement.h"
 
-@class MSImmutableColor, NSSet, SVGGradient;
+@class MSImmutableColor, NSSet, NSString, SVGGradient;
 
 @interface _SVGFill : SVGElement
 {
     SVGGradient *_gradient;
     NSSet *_usedBy;
     MSImmutableColor *_color;
+    double _opacity;
+    NSString *_windingrule;
 }
 
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+@property(retain, nonatomic) NSString *windingrule; // @synthesize windingrule=_windingrule;
+@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;

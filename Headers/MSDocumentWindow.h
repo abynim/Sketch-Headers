@@ -6,15 +6,18 @@
 
 #import "NSWindow.h"
 
-@class NSEvent;
+@class NSButton, NSEvent;
 
 @interface MSDocumentWindow : NSWindow
 {
+    NSButton *_titleBarBadge;
     NSEvent *_lastForwardedKeyEvent;
 }
 
 @property(nonatomic) __weak NSEvent *lastForwardedKeyEvent; // @synthesize lastForwardedKeyEvent=_lastForwardedKeyEvent;
+@property(retain, nonatomic) NSButton *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 - (void).cxx_destruct;
+- (id)touchBar;
 - (BOOL)closePopovers;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)mouseDown:(id)arg1;

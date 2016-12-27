@@ -13,6 +13,7 @@
     MSVersionedArchive *_archive;
 }
 
++ (id)defaultExportPresets;
 + (Class)immutableClass;
 + (id)assetCollectionWithName:(id)arg1;
 + (id)assetCollectionByMigratingPresetsFromSources:(id)arg1;
@@ -20,6 +21,7 @@
 + (id)defaultMigrationSources;
 @property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
 - (void).cxx_destruct;
+- (void)applyDefaultExportPresetsIfNeeded;
 - (id)resourceNeedingMigration;
 - (void)cleanupAfterTesting;
 - (void)save;

@@ -8,10 +8,14 @@
 
 #import "MSAssetPickerHeaderViewDelegate.h"
 #import "MSPresetPickerViewDelegate.h"
+#import "NSScrubberDataSource.h"
+#import "NSScrubberDelegate.h"
+#import "NSScrubberFlowLayoutDelegate.h"
+#import "NSTouchBarDelegate.h"
 
-@class MSAssetPickerView, NSArray, NSScrollView, NSString;
+@class MSAssetPickerView, NSArray, NSMapTable, NSScrollView, NSString;
 
-@interface MSColorInspectorSection : NSViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate>
+@interface MSColorInspectorSection : NSViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate, NSTouchBarDelegate, NSScrubberDataSource, NSScrubberDelegate, NSScrubberFlowLayoutDelegate>
 {
     id <MSColorInspectorSectionDelegate> _delegate;
     NSArray *_styleParts;
@@ -19,9 +23,11 @@
     MSAssetPickerView *_documentPresetPicker;
     NSScrollView *_globalPresetPickerScrollView;
     NSScrollView *_documentPresetPickerScrollView;
+    NSMapTable *_scrubberToAssets;
 }
 
 + (void)initialize;
+@property(retain, nonatomic) NSMapTable *scrubberToAssets; // @synthesize scrubberToAssets=_scrubberToAssets;
 @property(retain, nonatomic) NSScrollView *documentPresetPickerScrollView; // @synthesize documentPresetPickerScrollView=_documentPresetPickerScrollView;
 @property(retain, nonatomic) NSScrollView *globalPresetPickerScrollView; // @synthesize globalPresetPickerScrollView=_globalPresetPickerScrollView;
 @property(retain, nonatomic) MSAssetPickerView *documentPresetPicker; // @synthesize documentPresetPicker=_documentPresetPicker;
@@ -37,6 +43,20 @@
 - (void)addAsset:(id)arg1 forPickerView:(id)arg2;
 - (unsigned long long)numberOfAssetsForPickerView:(id)arg1;
 - (unsigned long long)assetType;
+- (void)scrubber:(id)arg1 didSelectItemAtIndex:(long long)arg2;
+- (struct CGSize)scrubber:(id)arg1 layout:(id)arg2 sizeForItemAtIndex:(long long)arg3;
+- (struct CGSize)fittingAssetScrubberLabelItemSizeForTitle:(id)arg1;
+- (id)scrubberItemViewForAssetAtIndex:(unsigned long long)arg1 amongAssets:(id)arg2 isLastItemInScrubber:(BOOL)arg3;
+- (id)colorAssetCollectionLabelWithTitle:(id)arg1;
+- (id)scrubberItemViewWrapping:(id)arg1;
+- (id)scrubber:(id)arg1 viewForItemAtIndex:(long long)arg2;
+- (id)assetScrubberLabelItemTitleOfKind:(long long)arg1;
+- (unsigned long long)firstGlobalAssetScrubberIndexAfterDocumentAssets:(id)arg1;
+- (long long)assetScrubberItemKindAtIndex:(long long)arg1;
+- (long long)numberOfItemsForScrubber:(id)arg1;
+- (id)touchBarCompatibleAssetsForPickerView:(id)arg1;
+- (id)makeTouchBarItemForIdentifier:(id)arg1;
+- (id)touchBarIdentifiers;
 - (BOOL)shouldShowAddPresetButton:(id)arg1;
 - (id)assetPickerViewKeys;
 - (id)assetPickerViews;
@@ -49,7 +69,7 @@
 - (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
 - (void)pickerView:(id)arg1 removePresetAtIndex:(unsigned long long)arg2;
 - (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
+- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
 - (unsigned long long)numberOfPresetsInPickerView:(id)arg1;
 - (void)colorPickerChangedTo:(id)arg1;
 - (void)popoverWillClose;

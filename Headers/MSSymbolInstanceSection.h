@@ -6,7 +6,7 @@
 
 #import "MSLayerSection.h"
 
-@class NSArray, NSImage, NSPopUpButton, NSView;
+@class MSSymbolsMenuBuilder, NSArray, NSImage, NSPopUpButton, NSView;
 
 @interface MSSymbolInstanceSection : MSLayerSection
 {
@@ -14,8 +14,10 @@
     NSView *_overridesHeaderView;
     NSImage *_initialImage;
     NSArray *_overrideViewControllers;
+    MSSymbolsMenuBuilder *_menuBuilder;
 }
 
+@property(retain, nonatomic) MSSymbolsMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSArray *overrideViewControllers; // @synthesize overrideViewControllers=_overrideViewControllers;
 @property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
 @property(retain, nonatomic) NSView *overridesHeaderView; // @synthesize overridesHeaderView=_overridesHeaderView;
@@ -26,6 +28,7 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)applySharedObjectToSelection:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;
+- (id)mastersForSelectedLayers;
 - (void)reloadMenu;
 - (void)awakeFromNib;
 - (id)overrideIDsSortedInLayerListOrder:(id)arg1 lookup:(id)arg2;
@@ -33,6 +36,7 @@
 - (void)makeOverrideViewControllers;
 - (id)views;
 - (void)setLayers:(id)arg1;
+- (id)initWithLayer:(id)arg1;
 
 @end
 

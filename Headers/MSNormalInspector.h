@@ -48,6 +48,7 @@
 - (void)prepareViewControllers;
 - (void)reloadInspectorStack:(id)arg1;
 - (void)prepareForDisplay;
+- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (void)selectionDidChangeTo:(id)arg1;
 - (id)init;
 

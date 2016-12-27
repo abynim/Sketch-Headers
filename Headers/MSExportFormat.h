@@ -14,14 +14,18 @@
 {
 }
 
++ (id)exportableFilenameForLayerName:(id)arg1 exportFormat:(id)arg2;
++ (id)exportableFilenameBodyForLayerName:(id)arg1 exportFormat:(id)arg2;
 + (id)validFormats;
++ (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3 absoluteSize:(double)arg4 namingScheme:(long long)arg5;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 @property(readonly, copy) NSString *description;
-@property(readonly) NSString *fileName;
 @property(readonly) NSString *baseFileName;
 - (id)defaultName;
 - (void)remove;
+- (id)container;
 - (id)parentLayer;
+- (id)initWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3 absoluteSize:(double)arg4 namingScheme:(long long)arg5;
 - (id)initWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 - (BOOL)isScalableExport;
 
@@ -31,6 +35,7 @@
 @property(readonly, nonatomic) NSString *fileFormat;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) long long namingScheme;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double scale;
 @property(readonly) Class superclass;

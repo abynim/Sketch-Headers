@@ -13,7 +13,6 @@
     MSCloudController *_cloudController;
 }
 
-+ (void)loginUsingAccessToken:(id)arg1;
 + (void)openCloudUploadURL:(id)arg1;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;

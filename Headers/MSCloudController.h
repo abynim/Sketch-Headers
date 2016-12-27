@@ -19,6 +19,11 @@
     MSCloudShareUploadController *_currentUploadController;
 }
 
++ (void)openRemoteEndpoint:(id)arg1 parameters:(id)arg2;
++ (void)openRemoteSignUp;
++ (void)openRemoteSignIn;
++ (void)openRemoteFileOverview;
++ (void)openRemoteAccountSettings;
 + (void)showPreferences;
 + (id)baseURL;
 @property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
@@ -31,19 +36,17 @@
 - (void).cxx_destruct;
 - (void)presentDocumentDidProcessNotification;
 - (void)checkShareProcessStatusAfterDelay:(double)arg1;
-- (void)updateShareWithHandler:(CDUnknownBlockType)arg1;
 - (void)cancelUpload;
 - (void)startUpload;
-- (void)resetCloudShare;
-- (void)openRemoteFileOverview;
-- (void)updateUserAccount;
 @property(readonly, nonatomic) BOOL uploadIncludesDocumentData;
 @property(readonly, nonatomic, getter=isUploading) BOOL uploading;
+- (void)updateShareWithHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL uploadedByCurrentUser;
 @property(readonly, nonatomic) BOOL uploaded;
+- (void)resetCloudShare;
 @property(readonly, nonatomic) BOOL canUpload;
-- (void)userDidDeleteShareNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
+- (void)updateUserAccount;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 

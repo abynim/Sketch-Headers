@@ -44,7 +44,8 @@
 - (id)symbolWithID:(id)arg1;
 - (id)allSymbols;
 - (id)allArtboards;
-- (id)layerWithIDLookupTable;
+- (id)symbolInstancesBySymbolID;
+- (id)layersByObjectID;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)deselectAllLayers;
@@ -59,7 +60,7 @@
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
-- (void)removePage:(id)arg1 detachInstances:(BOOL)arg2;
+- (void)removePages:(id)arg1 detachInstances:(BOOL)arg2;
 @property(retain, nonatomic) MSPage *currentPage;
 - (void)setCurrentPageIndex:(unsigned long long)arg1;
 - (void)dealloc;

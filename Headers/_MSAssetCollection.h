@@ -12,6 +12,7 @@
 {
     NSArray *_images;
     NSMutableArray *_colors;
+    NSMutableArray *_exportPresets;
     NSMutableArray *_gradients;
     MSImageCollection *_imageCollection;
 }
@@ -33,6 +34,16 @@
 - (void)insertGradient:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addGradients:(id)arg1;
 - (void)addGradient:(id)arg1;
+- (void)replaceAllExportPresetsWithExportPresets:(id)arg1;
+- (void)moveExportPresetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllExportPresets;
+- (void)removeExportPresetsAtIndexes:(id)arg1;
+- (void)removeExportPresetAtIndex:(unsigned long long)arg1;
+- (void)removeExportPreset:(id)arg1;
+- (void)insertExportPreset:(id)arg1 afterExportPreset:(id)arg2;
+- (void)insertExportPreset:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addExportPresets:(id)arg1;
+- (void)addExportPreset:(id)arg1;
 - (void)replaceAllColorsWithColors:(id)arg1;
 - (void)moveColorIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllColors;
@@ -50,6 +61,8 @@
 - (id)imageCollectionGeneric;
 - (void)setGradients:(id)arg1;
 @property(readonly, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
+- (void)setExportPresets:(id)arg1;
+@property(readonly, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
 - (void)setColors:(id)arg1;
 @property(readonly, nonatomic) NSArray *colors; // @synthesize colors=_colors;
 @property(retain, nonatomic) NSArray *images; // @synthesize images=_images;

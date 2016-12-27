@@ -7,18 +7,22 @@
 #import "MSAction.h"
 
 #import "NSMenuDelegate.h"
+#import "NSTouchBarDelegate.h"
 
-@class MSDocument, NSString;
+@class MSDocument, NSString, NSTouchBarItem;
 
-@interface MSDocumentAction : MSAction <NSMenuDelegate>
+@interface MSDocumentAction : MSAction <NSMenuDelegate, NSTouchBarDelegate>
 {
     MSDocument *_document;
     id <MSBasicDelegate> _delegate;
+    NSTouchBarItem *_cachedTouchedBarItem;
 }
 
+@property(retain, nonatomic) NSTouchBarItem *cachedTouchedBarItem; // @synthesize cachedTouchedBarItem=_cachedTouchedBarItem;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (void)documentDidGetFocus;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performAction:(id)arg1;
@@ -34,6 +38,16 @@
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
 - (id)menu;
+- (BOOL)shouldBeNarrow;
+- (id)touchBarImage;
+- (BOOL)touchBarButtonState;
+- (BOOL)useImageForTouchBarItem;
+- (void)showTouchBarPopover:(id)arg1;
+- (id)makeTouchBarItem;
+- (id)makeTouchBarItemButton;
+- (void)refreshTouchBarItem:(id)arg1;
+- (id)touchBarItem;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
