@@ -14,7 +14,7 @@
 - (id)historyMomentTitle;
 - (id)label;
 - (id)exitToNormalEventHandler;
-- (id)insertShape;
+- (id)insertShape:(id)arg1;
 - (id)prototypeLayer;
 - (id)shapeForInsertion;
 - (void)doPerformAction:(id)arg1;

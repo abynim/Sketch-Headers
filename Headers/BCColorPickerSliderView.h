@@ -9,8 +9,10 @@
 @interface BCColorPickerSliderView : BCColorPickerBaseView
 {
     BOOL _handlingHistoryCoalescing;
+    BOOL _groupingUndo;
 }
 
+@property(nonatomic, getter=isGroupingUndo) BOOL groupingUndo; // @synthesize groupingUndo=_groupingUndo;
 @property(nonatomic) BOOL handlingHistoryCoalescing; // @synthesize handlingHistoryCoalescing=_handlingHistoryCoalescing;
 - (void)drawSelectionMarkerAtPosition:(long long)arg1;
 - (void)mouseUp:(id)arg1;

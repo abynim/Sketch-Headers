@@ -15,7 +15,14 @@
 }
 
 + (id)defaultFillColor;
++ (void)drawNoiseFill:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
++ (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawGradientFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawColorFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawBasicFill:(id)arg1 color:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;
++ (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1;
 - (void)performInitEmptyObject;
+- (id)previewImageOfSize:(struct CGSize)arg1 clippingAsBorder:(BOOL)arg2 borderWidth:(double)arg3;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;

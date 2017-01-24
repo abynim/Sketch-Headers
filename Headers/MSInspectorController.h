@@ -6,9 +6,11 @@
 
 #import "NSViewController.h"
 
-@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSView, NSViewController<MSInspectorChildController>;
+#import "NSTouchBarDelegate.h"
 
-@interface MSInspectorController : NSViewController
+@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSString, NSView, NSViewController<MSInspectorChildController>;
+
+@interface MSInspectorController : NSViewController <NSTouchBarDelegate>
 {
     NSView *_placeholderView;
     NSView *_alignmentView;
@@ -33,14 +35,18 @@
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(retain, nonatomic) NSView *placeholderView; // @synthesize placeholderView=_placeholderView;
 - (void).cxx_destruct;
+- (void)reloadTouchBars;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
+- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)inspectorController;
 - (void)recursivelyDismissAllPresentedViewControllersOfViewController:(id)arg1;
 - (void)viewWillDisappear;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
 - (id)handlerManager;
-- (id)firstTextFieldInView:(id)arg1;
-- (void)focusOnFirstTextField;
+- (id)findTextFieldInView:(id)arg1 withIndex:(unsigned long long)arg2;
+- (void)focusOnTextField:(unsigned long long)arg1;
 - (void)reload;
 - (id)sharedObjectsSection;
 - (void)reloadSharedObjectsSection;
@@ -64,6 +70,12 @@
 - (void)shapeSelectionDidChange:(id)arg1;
 - (void)awakeFromNib;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

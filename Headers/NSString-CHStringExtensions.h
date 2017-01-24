@@ -18,6 +18,7 @@
 - (BOOL)endsWith:(id)arg1;
 - (BOOL)startsWith:(id)arg1;
 - (id)stringByAppendingPathComponents:(id)arg1;
+- (id)stringByStrippingStrings:(id)arg1;
 - (id)stringByDeletingSuffix:(id)arg1;
 - (id)stringByDeletingPrefix:(id)arg1;
 @end

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSSharedSymbolAction.h"
+#import "MSSharedObjectAction.h"
 
-@interface MSReplaceWithSymbolAction : MSSharedSymbolAction
+@interface MSReplaceWithSymbolAction : MSSharedObjectAction
 {
 }
 
@@ -15,6 +15,9 @@
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
+- (id)unsortedSharedObjects;
+- (id)sharedObjectName;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

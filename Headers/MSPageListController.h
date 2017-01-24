@@ -9,17 +9,22 @@
 #import "BCOutlineViewDataSource.h"
 #import "BCOutlineViewDelegate.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSPageListController : MSSidebarListController <BCOutlineViewDataSource, BCOutlineViewDelegate>
 {
+    NSArray *_selectedPages;
 }
 
+@property(retain, nonatomic) NSArray *selectedPages; // @synthesize selectedPages=_selectedPages;
+- (void).cxx_destruct;
 - (void)dataController:(id)arg1 refreshPreviewsOnNodes:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
+- (void)duplicatePages:(id)arg1;
 - (void)removePageWithValidation:(id)arg1;
 - (void)dataController:(id)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;
 - (BOOL)copyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (BOOL)dataController:(id)arg1 moveNodes:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)moveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
 - (void)addPage:(id)arg1 after:(id)arg2 copying:(BOOL)arg3;
 - (BOOL)canMoveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;

@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) NSString *fileFormat;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) long long namingScheme;
 @property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double scale;
 @property(readonly) Class superclass;

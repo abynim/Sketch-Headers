@@ -23,6 +23,7 @@
 @property(retain, nonatomic) id cachedNode; // @synthesize cachedNode=_cachedNode;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id rootObject;
 - (void)refreshPreviewsOnNodes:(id)arg1;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
 - (void)hoverNodeDidChangeTo:(id)arg1;

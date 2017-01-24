@@ -25,6 +25,7 @@
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (id)renderBitmapEffects:(id)arg1;
+- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addGradientsToDocument:(id)arg1;
 

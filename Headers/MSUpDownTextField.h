@@ -8,10 +8,11 @@
 
 #import "MSUpDownProtocol.h"
 #import "NSTextViewDelegate.h"
+#import "NSTouchBarDelegate.h"
 
 @class MSUpDownController, NSString;
 
-@interface MSUpDownTextField : NSTextField <NSTextViewDelegate, MSUpDownProtocol>
+@interface MSUpDownTextField : NSTextField <NSTextViewDelegate, MSUpDownProtocol, NSTouchBarDelegate>
 {
     BOOL _hasMinimum;
     BOOL _hasMaximum;
@@ -19,8 +20,12 @@
     MSUpDownController *_upDownController;
     double _ownMinimum;
     double _ownMaximum;
+    unsigned long long _scrubberCount;
+    unsigned long long _scrubberIndex;
 }
 
+@property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
+@property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
 @property(nonatomic) double ownMaximum; // @synthesize ownMaximum=_ownMaximum;
 @property(nonatomic) double ownMinimum; // @synthesize ownMinimum=_ownMinimum;
 @property(nonatomic) BOOL hasMaximum; // @synthesize hasMaximum=_hasMaximum;
@@ -28,6 +33,7 @@
 @property(readonly, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;
+- (id)makeTouchBar;
 - (void)textDidEndEditing:(id)arg1;
 - (BOOL)becomeFirstResponder;
 - (BOOL)textView:(id)arg1 shouldChangeTextInRanges:(id)arg2 replacementStrings:(id)arg3;

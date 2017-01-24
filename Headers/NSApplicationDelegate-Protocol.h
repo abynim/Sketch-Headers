@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSApplication, NSArray, NSCoder, NSData, NSDictionary, NSError, NSMenu, NSNotification, NSString, NSUserActivity;
+@class CKShareMetadata, NSApplication, NSArray, NSCoder, NSData, NSDictionary, NSError, NSMenu, NSNotification, NSString, NSUserActivity;
 
 @protocol NSApplicationDelegate <NSObject>
 
@@ -26,6 +26,7 @@
 - (void)applicationWillHide:(NSNotification *)arg1;
 - (void)applicationDidFinishLaunching:(NSNotification *)arg1;
 - (void)applicationWillFinishLaunching:(NSNotification *)arg1;
+- (void)application:(NSApplication *)arg1 userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)arg2;
 - (void)application:(NSApplication *)arg1 didUpdateUserActivity:(NSUserActivity *)arg2;
 - (void)application:(NSApplication *)arg1 didFailToContinueUserActivityWithType:(NSString *)arg2 error:(NSError *)arg3;
 - (BOOL)application:(NSApplication *)arg1 continueUserActivity:(NSUserActivity *)arg2 restorationHandler:(void (^)(NSArray *))arg3;

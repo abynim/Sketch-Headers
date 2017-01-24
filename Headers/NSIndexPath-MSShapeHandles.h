@@ -13,5 +13,6 @@
 @property(readonly, nonatomic, getter=shape_ms) unsigned long long shape;
 @property(readonly, nonatomic, getter=point_ms) unsigned long long point;
 @property(readonly, nonatomic, getter=handle_ms) unsigned long long handle;
+- (id)indexPathWithHandle:(unsigned long long)arg1;
 @end
 

@@ -20,7 +20,7 @@
 }
 
 + (BOOL)groupBoundsShouldBeIntegral;
-+ (struct CGRect)groupBoundsForLayers:(id)arg1;
++ (struct CGRect)groupBoundsForContainer:(id)arg1;
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
 + (id)groupFromLayers:(id)arg1;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;

@@ -41,8 +41,6 @@
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)treeAsDictionary;
 - (id)svgRepresentation;
-- (void)applyStrokeColorToContext:(id)arg1;
-- (void)applyFillColorToContext:(id)arg1;
 - (id)NSColorForContext:(id)arg1;
 
 // Remaining properties

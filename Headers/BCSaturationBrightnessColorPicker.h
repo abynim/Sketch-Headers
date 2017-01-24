@@ -10,11 +10,13 @@
 {
     struct CGPoint _originalPoint;
     BOOL _handlingHistoryCoalescing;
+    BOOL _groupingUndo;
     double _hue;
     double _saturation;
     double _brightness;
 }
 
+@property(nonatomic, getter=isGroupingUndo) BOOL groupingUndo; // @synthesize groupingUndo=_groupingUndo;
 @property(nonatomic) BOOL handlingHistoryCoalescing; // @synthesize handlingHistoryCoalescing=_handlingHistoryCoalescing;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
 @property(nonatomic) double saturation; // @synthesize saturation=_saturation;

@@ -9,10 +9,11 @@
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorSectionDelegate.h"
 #import "MSModeModePickerDelegate.h"
+#import "NSTouchBarDelegate.h"
 
 @class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
@@ -51,12 +52,20 @@
 @property(nonatomic) __weak id <MSColorInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
+- (void)touchBarColorAction:(id)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (void)dealloc;
 - (void)colorMagnifierAction:(id)arg1;
+- (void)setColorTabIndex:(unsigned long long)arg1;
+- (unsigned long long)colorTabIndex;
+- (void)switchToColorTabAtIndex:(unsigned long long)arg1;
+- (void)reloadTouchBarsAfterSelectionChange:(id)arg1;
+- (void)reloadTouchBars;
 - (void)pickerViewChanged:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (id)filteredStyleParts:(id)arg1;
@@ -81,6 +90,8 @@
 - (id)currentModePicker;
 - (void)inspectorSectionDidUpdate:(id)arg1;
 - (id)documentAssets;
+- (void)didRemoveAssetOfType:(unsigned long long)arg1;
+- (void)didAddAsset:(id)arg1;
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)applyBackgroundArrowColor;

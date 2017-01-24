@@ -15,6 +15,8 @@
 
 + (void)showPopupForRegistrationResult:(long long)arg1;
 - (void).cxx_destruct;
+- (void)didCloseAllDocuments:(id)arg1;
+- (void)quitAfterClosingAllWindows;
 - (void)awakeFromNib;
 - (void)openRecoveryPage:(id)arg1;
 - (void)visitStore:(id)arg1;

@@ -14,7 +14,7 @@
 {
 }
 
-+ (struct CGRect)groupBoundsForLayers:(id)arg1;
++ (struct CGRect)groupBoundsForContainer:(id)arg1;
 + (BOOL)groupBoundsShouldBeIntegral;
 + (id)shapeWithPath:(id)arg1;
 + (id)shapeWithRect:(struct CGRect)arg1;

@@ -6,12 +6,20 @@
 
 #import "MSDragToMoveOrCopyGestureRecognizer.h"
 
+@class NSAffineTransform;
+
 @interface MSDragHandleGestureRecognizer : MSDragToMoveOrCopyGestureRecognizer
 {
-    unsigned long long _pointDraggingBehaviour;
+    NSAffineTransform *_curveAdjustmentLockingTransform;
+    struct CGPoint _originalHandleLocation;
 }
 
-@property(nonatomic) unsigned long long pointDraggingBehaviour; // @synthesize pointDraggingBehaviour=_pointDraggingBehaviour;
+@property(copy, nonatomic) NSAffineTransform *curveAdjustmentLockingTransform; // @synthesize curveAdjustmentLockingTransform=_curveAdjustmentLockingTransform;
+@property(nonatomic) struct CGPoint originalHandleLocation; // @synthesize originalHandleLocation=_originalHandleLocation;
+- (void).cxx_destruct;
+- (struct CGPoint)locationInLayer:(id)arg1;
+- (void)setCenterForCurveAdjustmentLocking:(struct CGPoint)arg1 slope:(double)arg2;
+@property(readonly, nonatomic) BOOL shouldSteadyCurveAdjustmentHandle;
 - (void)reset;
 
 @end

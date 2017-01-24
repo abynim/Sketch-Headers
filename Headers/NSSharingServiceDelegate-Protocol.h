@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSError, NSImage, NSSharingService, NSWindow;
+@class NSArray, NSError, NSImage, NSSharingService, NSView, NSWindow;
 
 @protocol NSSharingServiceDelegate <NSObject>
 
 @optional
+- (NSView *)anchoringViewForSharingService:(NSSharingService *)arg1 showRelativeToRect:(struct CGRect *)arg2 preferredEdge:(unsigned long long *)arg3;
 - (NSWindow *)sharingService:(NSSharingService *)arg1 sourceWindowForShareItems:(NSArray *)arg2 sharingContentScope:(long long *)arg3;
 - (NSImage *)sharingService:(NSSharingService *)arg1 transitionImageForShareItem:(id)arg2 contentRect:(struct CGRect *)arg3;
 - (struct CGRect)sharingService:(NSSharingService *)arg1 sourceFrameOnScreenForShareItem:(id)arg2;

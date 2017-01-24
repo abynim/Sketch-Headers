@@ -19,7 +19,7 @@
     NSDictionary *_encodingMap;
 }
 
-+ (id)convertObject:(union CGPDFObject *)arg1;
++ (id)convertObject:(struct CGPDFObject *)arg1;
 + (id)convertDictionary:(struct CGPDFDictionary *)arg1;
 + (id)convertArray:(struct CGPDFArray *)arg1;
 @property(retain, nonatomic) NSDictionary *encodingMap; // @synthesize encodingMap=_encodingMap;

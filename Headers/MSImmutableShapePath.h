@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) BOOL isPolygon;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 - (id)pathInRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) BOOL isSVGRectangle;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

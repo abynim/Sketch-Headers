@@ -10,8 +10,8 @@
 
 @interface MSInsertShapeEventHandler : MSDragRectEventHandler
 {
-    NSMutableArray *insertedShapes;
-    NSCursor *shapeCursor;
+    NSMutableArray *_insertedShapes;
+    NSCursor *_cursor;
     MSShapePathLayer *_prototypeLayer;
     NSArray *_snapLines;
     NSArray *_snapRects;
@@ -42,8 +42,9 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)selectAppropriateToolbarItem;
+- (id)applicableActionItemIdentifier;
 - (id)defaultCursor;
+@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

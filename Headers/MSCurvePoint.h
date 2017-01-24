@@ -21,9 +21,9 @@
 @property(readonly, copy) NSString *description;
 - (void)prepareForRemoval;
 - (void)multiplyBy:(double)arg1;
+- (void)moveCurveFromTo:(struct CGPoint)arg1;
+- (void)moveCurveToTo:(struct CGPoint)arg1;
 - (void)movePointTo:(struct CGPoint)arg1;
-- (void)moveCurveFromTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
-- (void)moveCurveToTo:(struct CGPoint)arg1 rect:(struct CGRect)arg2 flags:(long long)arg3;
 - (struct CGPoint)locationOfPoint:(unsigned long long)arg1;
 - (void)inferCurveMode;
 - (BOOL)isEffectivelyStraight;

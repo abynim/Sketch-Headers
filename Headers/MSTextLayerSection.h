@@ -53,6 +53,8 @@
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
+- (void)applyFontPropertyChanges:(id)arg1;
+- (id)popoverWillReturnUndoManager:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)reloadFontWeightPopUp;
 - (id)colorSpaceForFirstColor;
@@ -87,6 +89,7 @@
 - (void)reloadData;
 - (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;
+- (void)updateControlFormatterNativeDecimal:(id)arg1;
 - (void)awakeFromNib;
 
 // Remaining properties

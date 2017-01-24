@@ -10,6 +10,7 @@
 {
 }
 
+- (id)touchBarImage;
 - (BOOL)isSelectable;
 - (BOOL)isActive;
 - (unsigned short)shortcutCharacter;

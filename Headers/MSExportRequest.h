@@ -23,7 +23,7 @@
     MSImmutableDocumentData *_immutableDocument;
     NSString *_format;
     double _compression;
-    unsigned long long _exporterOptions;
+    unsigned long long _hints;
     struct CGRect _rect;
 }
 
@@ -39,7 +39,7 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
-@property(nonatomic) unsigned long long exporterOptions; // @synthesize exporterOptions=_exporterOptions;
+@property(nonatomic) unsigned long long hints; // @synthesize hints=_hints;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;

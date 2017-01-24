@@ -28,11 +28,9 @@
 + (unsigned long long)traits;
 + (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingUserVisibleRotation;
-+ (BOOL)hasNonIntegralOrigin:(id)arg1;
-+ (id)calculateLayerOrigins:(id)arg1 toKey:(id)arg2;
-+ (struct CGRect)alignmentRectForLayers:(id)arg1 isCentred:(BOOL)arg2;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
-+ (void)alignLayersToParentArtboard:(id)arg1 toKey:(id)arg2 pixelFit:(BOOL)arg3;
++ (struct CGRect)alignmentRectForLayers:(id)arg1;
++ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)keyPathsForValuesAffectingNodeName;
@@ -166,7 +164,6 @@
 - (id)cachedOrEmptyImageWithName:(id)arg1;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
-- (void)applyOrigin:(id)arg1 onAxis:(unsigned long long)arg2 pixelFit:(BOOL)arg3;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (id)snapItemForDrawing;

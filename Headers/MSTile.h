@@ -6,11 +6,12 @@
 
 #import "CALayer.h"
 
+#import "CALayerDelegate.h"
 #import "MSTileRenderOperationDelegate.h"
 
 @class MSPage, MSTileRenderOperation, MSTileRenderer, NSString;
 
-@interface MSTile : CALayer <MSTileRenderOperationDelegate>
+@interface MSTile : CALayer <MSTileRenderOperationDelegate, CALayerDelegate>
 {
     BOOL _drawDottedDirtyRect;
     BOOL _shouldHideOverlayControls;

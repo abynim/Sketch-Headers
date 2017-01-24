@@ -21,6 +21,7 @@
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void)setIsVisible:(BOOL)arg1;
 - (void)flatten;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (BOOL)canBeContainedByGroup;
@@ -59,7 +60,6 @@
 - (void)closeLastPath:(BOOL)arg1;
 - (void)performInitEmptyObject;
 - (id)styledLayer;
-- (BOOL)canBeHidden;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (id)handlerName;
@@ -72,6 +72,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)isMasked;
+- (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;

@@ -9,6 +9,8 @@
 @class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSEventHandlerManager, MSPersistentAssetCollection;
 
 @protocol MSColorInspectorSectionDelegate <NSObject>
+- (void)didRemoveAssetOfType:(unsigned long long)arg1;
+- (void)didAddAsset:(id <MSAsset>)arg1;
 - (void)stack;
 - (MSEventHandlerManager *)eventHandler;
 - (MSPersistentAssetCollection *)globalAssets;

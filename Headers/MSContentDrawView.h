@@ -30,12 +30,12 @@
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     MSDocument *_document;
-    NSNumberFormatter *_measurementLabelNumberFormatter;
     MSCacheManager *_cacheManager;
     MSZoomTool *_zoomTool;
     MSImmutablePage *_previouslyRenderedPage;
     MSTiledLayerPile *_tiledLayerPile;
     MSViewPort *_viewPortBeforeZoomOut;
+    NSNumberFormatter *_measurementLabelNumberFormatter;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
     struct CGRect _scrollOriginRelativeContentRedrawRect;
@@ -46,6 +46,7 @@
 + (struct CGPoint)viewCoordinatesFromAbsoluteCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
+@property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
 @property(nonatomic) BOOL ignoreScheduledRedrawRequests; // @synthesize ignoreScheduledRedrawRequests=_ignoreScheduledRedrawRequests;
 @property(nonatomic) BOOL haveStoredMostRecentFullScaleScrollOrigin; // @synthesize haveStoredMostRecentFullScaleScrollOrigin=_haveStoredMostRecentFullScaleScrollOrigin;
@@ -58,7 +59,6 @@
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
-@property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
@@ -84,7 +84,7 @@
 - (id)pages;
 - (id)currentPage;
 - (id)currentView;
-- (id)selectedLayersA;
+- (id)selectedLayers;
 - (void)handleFlagsChangedEvent:(id)arg1;
 - (id)setCurrentHandlerKey:(id)arg1;
 - (id)currentHandlerKey;

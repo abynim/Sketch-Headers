@@ -10,8 +10,12 @@
 {
 }
 
+- (id)touchBarItem;
+- (BOOL)areAllSelectedLayersFlippedVertically;
+- (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 - (void)flipVertical:(id)arg1;
+- (id)historyMomentTitle;
 
 @end
 

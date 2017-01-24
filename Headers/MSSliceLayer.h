@@ -27,10 +27,7 @@
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;
-- (void)performInitEmptyObject;
-- (BOOL)canBeHidden;
 - (unsigned long long)filterType;
-- (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 

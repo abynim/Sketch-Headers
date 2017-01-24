@@ -21,8 +21,8 @@
 
 + (Class)immutableClass;
 + (BOOL)allowsFaulting;
-@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 - (void).cxx_destruct;
 - (void)breakConnectionWith:(id)arg1;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;

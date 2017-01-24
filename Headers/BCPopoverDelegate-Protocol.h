@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class BCPopover, NSNotification;
+@class BCPopover, NSNotification, NSUndoManager;
 
 @protocol BCPopoverDelegate <NSObject>
 
 @optional
+- (NSUndoManager *)popoverWillReturnUndoManager:(BCPopover *)arg1;
 - (BOOL)popoverShouldCauseExistingPopoversToClose:(BCPopover *)arg1;
 - (BOOL)popoverShouldCloseWhenNewPopoverOpens:(BCPopover *)arg1 newPopover:(BCPopover *)arg2;
 - (void)popoverWindowDidMove:(BCPopover *)arg1;

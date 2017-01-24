@@ -6,7 +6,7 @@
 
 #import "MSImmutableLayerGroup.h"
 
-@class MSImmutableLayoutGrid, MSImmutableLayoutGrid<MSLayoutGrid>, MSImmutableRulerData, MSImmutableRulerData<MSRulerData>, MSImmutableSimpleGrid, MSImmutableSimpleGrid<MSSimpleGrid>;
+@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
 
 @interface _MSImmutablePage : MSImmutableLayerGroup
 {
@@ -18,10 +18,10 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableRulerData<MSRulerData> *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-@property(retain, nonatomic) MSImmutableLayoutGrid<MSLayoutGrid> *layout; // @synthesize layout=_layout;
-@property(retain, nonatomic) MSImmutableRulerData<MSRulerData> *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(retain, nonatomic) MSImmutableSimpleGrid<MSSimpleGrid> *grid; // @synthesize grid=_grid;
+@property(retain, nonatomic) MSImmutableRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
+@property(retain, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
+@property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
+@property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

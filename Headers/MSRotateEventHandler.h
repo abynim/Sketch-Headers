@@ -6,7 +6,11 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@interface MSRotateEventHandler : MSNormalBaseEventHandler
+#import "NSTouchBarDelegate.h"
+
+@class NSString;
+
+@interface MSRotateEventHandler : MSNormalBaseEventHandler <NSTouchBarDelegate>
 {
     long long startingDegrees;
     double startingRotation;
@@ -23,8 +27,10 @@
 @property(nonatomic) struct CGPoint rotationCenter; // @synthesize rotationCenter=_rotationCenter;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
-- (id)firstLayer;
-- (id)layers;
+- (void)refreshTouchBarItemWithIdentifier:(id)arg1;
+- (void)rotationBarAction:(id)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
 - (struct CGPoint)rotationCenterInAbsoluteCoordinates;
 - (double)alignDegreesTo45Angles:(double)arg1;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
@@ -41,6 +47,12 @@
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

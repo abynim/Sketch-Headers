@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) NSArray *colors;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSArray *exportPresets;
 @property(readonly, nonatomic) NSArray *gradients;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric; // @dynamic imageCollectionGeneric;

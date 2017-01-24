@@ -93,6 +93,11 @@ struct FBBezierPathElement {
     struct CGPoint _field3[2];
 };
 
+struct FBContourWindingRuleResult {
+    int _field1;
+    int _field2;
+};
+
 struct FBRange {
     double minimum;
     double maximum;

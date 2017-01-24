@@ -12,6 +12,9 @@
 
 + (Class)cellClass;
 - (struct CGSize)fittingSize;
+- (void)windowDidExitFullScreen:(id)arg1;
+- (void)windowWillEnterFullScreen:(id)arg1;
+- (void)viewWillMoveToWindow:(id)arg1;
 
 @end
 

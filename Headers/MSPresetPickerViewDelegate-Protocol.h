@@ -26,7 +26,6 @@
 - (BOOL)pickerViewSupportsDrop:(MSAssetPickerView *)arg1;
 - (BOOL)pickerViewSupportsDrag:(MSAssetPickerView *)arg1 fromIndex:(unsigned long long)arg2;
 - (BOOL)shouldShowAddPresetButton:(MSAssetPickerView *)arg1;
-- (void)drawFullContentForCellInPickerView:(MSAssetPickerView *)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
-- (void)drawContentForCellInPickerView:(MSAssetPickerView *)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
+- (void)drawContentForCellInPickerView:(MSAssetPickerView *)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
 @end
 

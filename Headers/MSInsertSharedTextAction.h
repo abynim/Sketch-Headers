@@ -19,11 +19,10 @@
 - (id)imageName;
 - (id)unsortedSharedObjects;
 - (BOOL)validate;
-- (BOOL)validateMenuItem:(id)arg1;
-- (id)menuItemForMenu:(id)arg1 name:(id)arg2 sharedObject:(id)arg3;
 - (void)updateMenu:(id)arg1;
-- (void)insertSharedObjectInstance:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 - (void)showSharedObjectsSheet:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

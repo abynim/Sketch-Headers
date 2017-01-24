@@ -19,12 +19,12 @@
 
 @interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate>
 {
-    BOOL _hasOpenedImageFile;
-    BOOL _nextReadFromURLIsReload;
     BOOL _layerListRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
     BOOL _cacheFlushInProgress;
     BOOL _hasScheduledDocumentDidChange;
+    BOOL _hasOpenedImageFile;
+    BOOL _nextReadFromURLIsReload;
     NSArray *_exportableLayerSelection;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -40,8 +40,6 @@
     MSInspectorController *_inspectorController;
     MSFontList *_fontList;
     BCSideBarViewController *_sidebarController;
-    MSLayerArray *_selectedLayersA;
-    MSContentDrawViewController *_currentContentViewController;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
@@ -49,6 +47,8 @@
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonWindowController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
+    MSLayerArray *_selectedLayers;
+    MSContentDrawViewController *_currentContentViewController;
 }
 
 + (id)currentDocument;
@@ -57,6 +57,10 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+@property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
+@property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
+@property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
+@property(copy, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
@@ -68,10 +72,6 @@
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
 @property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
-@property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
-@property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
-@property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
-@property(copy, nonatomic) MSLayerArray *selectedLayersA; // @synthesize selectedLayersA=_selectedLayersA;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
@@ -87,6 +87,7 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (void)reloadTouchBars;
 @property(nonatomic) double pageListHeight;
 - (void)resetCloudShare;
 @property(readonly, nonatomic) NSString *publisherFileName;
@@ -107,7 +108,7 @@
 - (void)flagsChangedNotification:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
-- (void)sidebarController:(id)arg1 validateRemovalOfPage:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
+- (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)refreshLayerListIfNecessary;
@@ -137,12 +138,11 @@
 - (void)toggleLayerListVisibility:(id)arg1;
 - (BOOL)isLayerListVisible;
 - (void)renameLayer:(id)arg1;
+- (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 - (void)windowDidExitVersionBrowser:(id)arg1;
 - (void)windowDidEnterVersionBrowser:(id)arg1;
-- (void)colorMagnifierAction:(id)arg1;
 - (BOOL)isRulersVisible;
 - (void)toggleRulers;
-- (BOOL)currentPopoverHandlesColorMagnifier;
 - (void)copyCSSAttributes:(id)arg1;
 - (id)pages;
 - (id)layerStyles;
@@ -169,6 +169,7 @@
 - (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
 - (void)closePath:(id)arg1;
+- (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)historyMakerDidProgressHistory:(id)arg1;
@@ -258,8 +259,6 @@
 - (void)close;
 - (void)setDelegatesToNil;
 - (void)createActions;
-- (void)setSelectedLayers:(id)arg1;
-- (id)selectedLayers;
 - (id)init;
 - (void)hideMessage:(id)arg1;
 - (void)hideMessage;

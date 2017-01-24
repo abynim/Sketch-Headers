@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableColor, MSImmutableColor<MSColor>;
+@class MSImmutableColor;
 
 @interface _MSImmutableGradientStop : MSImmutableModelObject
 {
@@ -15,7 +15,7 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(nonatomic) double position; // @synthesize position=_position;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

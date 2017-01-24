@@ -10,7 +10,6 @@
 
 @interface BCTableCellView : NSTableCellView
 {
-    BOOL _fakeSelection;
     BOOL _currentSelectedState;
     BOOL _isDrawingFocused;
     id <BCTableCellViewDelegate> _delegate;
@@ -23,6 +22,7 @@
     NSLayoutConstraint *_badgeTrailingSpaceConstraint;
 }
 
++ (void)initialize;
 @property(nonatomic) BOOL isDrawingFocused; // @synthesize isDrawingFocused=_isDrawingFocused;
 @property(nonatomic) BOOL currentSelectedState; // @synthesize currentSelectedState=_currentSelectedState;
 @property(nonatomic) __weak NSLayoutConstraint *badgeTrailingSpaceConstraint; // @synthesize badgeTrailingSpaceConstraint=_badgeTrailingSpaceConstraint;
@@ -33,13 +33,11 @@
 @property(nonatomic) __weak NSButton *badgeButton; // @synthesize badgeButton=_badgeButton;
 @property(nonatomic) unsigned long long displayState; // @synthesize displayState=_displayState;
 @property(nonatomic) __weak id <BCTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL fakeSelection; // @synthesize fakeSelection=_fakeSelection;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSWindow *destinationWindow;
 - (void)drawDragImageInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) double widthForDragImage;
 - (void)refreshPreviewImages;
-- (void)setBackgroundStyle:(long long)arg1;
 - (void)updateTextColour;
 - (void)renameNode;
 @property(readonly, nonatomic) BOOL isTextFieldEditing;

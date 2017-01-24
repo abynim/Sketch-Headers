@@ -16,6 +16,7 @@
 
 @property(readonly, nonatomic) NSMutableArray *insertedArtboards; // @synthesize insertedArtboards=_insertedArtboards;
 - (void).cxx_destruct;
+- (BOOL)shouldApplyDefaultStyle;
 - (BOOL)shouldHideExportBar;
 - (BOOL)shouldAddInsertFromSelectionItem;
 - (void)updateInspector;
@@ -30,6 +31,7 @@
 - (void)insertArtboardsFromPresetCollection:(id)arg1;
 - (void)insertArtboardFromPreset:(id)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1;
+- (BOOL)allowsSwitchToInsertAction;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)title;

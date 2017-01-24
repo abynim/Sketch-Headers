@@ -6,9 +6,11 @@
 
 #import "CHWindowController.h"
 
-@class NSWindow;
+#import "NSTouchBarDelegate.h"
 
-@interface CHSheetController : CHWindowController
+@class NSString, NSWindow;
+
+@interface CHSheetController : CHWindowController <NSTouchBarDelegate>
 {
     id _object;
     NSWindow *_parentWindow;
@@ -20,13 +22,20 @@
 @property(nonatomic) __weak NSWindow *parentWindow; // @synthesize parentWindow=_parentWindow;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (id)_init;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
 - (id)windowNibName;
 - (void)closeSheet;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
 - (id)run;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

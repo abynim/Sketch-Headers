@@ -13,6 +13,7 @@
     double _absoluteSize;
     NSString *_fileFormat;
     NSString *_name;
+    long long _namingScheme;
     double _scale;
     long long _visibleScaleType;
 }
@@ -20,6 +21,7 @@
 + (Class)mutableClass;
 @property(nonatomic) long long visibleScaleType; // @synthesize visibleScaleType=_visibleScaleType;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(nonatomic) long long namingScheme; // @synthesize namingScheme=_namingScheme;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 @property(nonatomic) double absoluteSize; // @synthesize absoluteSize=_absoluteSize;

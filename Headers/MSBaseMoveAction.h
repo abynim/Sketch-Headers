@@ -10,6 +10,7 @@
 {
 }
 
+- (void)refreshTouchBarItem;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (BOOL)dynamicTitle;
 - (BOOL)optionKeyPressed;

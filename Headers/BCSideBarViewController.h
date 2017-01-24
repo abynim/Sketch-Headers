@@ -23,6 +23,7 @@
     long long _pageCount;
     NSTextField *_currentPageLabel;
     NSPopUpButton *_pagePopup;
+    BCOutlineViewDataController *_layerListDataController;
     NSView *_layerListContainer;
     BCOutlineViewController *_layerListViewController;
     NSSearchField *_filterStringTextField;
@@ -38,6 +39,7 @@
 @property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
 @property(retain, nonatomic) BCOutlineViewController *layerListViewController; // @synthesize layerListViewController=_layerListViewController;
 @property(retain, nonatomic) NSView *layerListContainer; // @synthesize layerListContainer=_layerListContainer;
+@property(retain, nonatomic) BCOutlineViewDataController *layerListDataController; // @synthesize layerListDataController=_layerListDataController;
 @property(nonatomic) __weak NSPopUpButton *pagePopup; // @synthesize pagePopup=_pagePopup;
 @property(nonatomic) __weak NSTextField *currentPageLabel; // @synthesize currentPageLabel=_currentPageLabel;
 @property(nonatomic) long long pageCount; // @synthesize pageCount=_pageCount;

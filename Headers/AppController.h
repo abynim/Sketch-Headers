@@ -20,6 +20,7 @@
     NSMenu *templatesMenu;
     NSMenu *printMenu;
     NSMenuItem *debugMenuItem;
+    BOOL _userInvokedSparkleUpdate;
     MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
@@ -30,6 +31,7 @@
     MSMirrorDataProvider *_mirrorDataProvider;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
+    unsigned long long _unavailableUpdateCount;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     BCLicenseManager *_licenseManager;
@@ -46,6 +48,8 @@
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
+@property(nonatomic) unsigned long long unavailableUpdateCount; // @synthesize unavailableUpdateCount=_unavailableUpdateCount;
+@property(nonatomic) BOOL userInvokedSparkleUpdate; // @synthesize userInvokedSparkleUpdate=_userInvokedSparkleUpdate;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(retain, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
@@ -64,13 +68,14 @@
 - (void)refreshCurrentDocument;
 - (void)visitDocumentation:(id)arg1;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
-- (void)updatelicenseManager;
+- (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
 - (void)buy:(id)arg1;
 - (void)showSupportPage:(id)arg1;
 - (void)showOnlineHelp:(id)arg1;
 - (void)feedback:(id)arg1;
+- (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)openPreferencesWindow:(id)arg1;
 - (void)documentWillClose:(id)arg1;
@@ -101,7 +106,6 @@
 - (void)welcomeToSketch:(id)arg1;
 - (BOOL)canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
-- (BOOL)isAppStoreVersion;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)init;
@@ -130,9 +134,14 @@
 - (void)runPlugin:(id)arg1;
 - (id)lastRun;
 - (void)rememberLastRun:(id)arg1;
+- (void)displayUnavaiableUpdateMessage;
+- (id)bestValidUpdateInAppcast:(id)arg1 forUpdater:(id)arg2;
+- (void)updater:(id)arg1 didFinishLoadingAppcast:(id)arg2;
+- (void)updateWithAppcast:(id)arg1 orExecuteBlock:(CDUnknownBlockType)arg2;
+- (id)checkerWithAppcast:(id)arg1;
+- (void)updater:(id)arg1 didAbortWithError:(id)arg2;
 - (BOOL)isSparkleUsed;
 - (void)checkForUpdates:(id)arg1;
-- (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
 - (void)checkForUpdates;
 
 // Remaining properties

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)touchBarImage;
 - (unsigned short)shortcutCharacter;
 - (void)rectangleShape:(id)arg1;
 

@@ -13,6 +13,8 @@
 }
 
 + (double)cappedZoom:(double)arg1;
++ (double)minimumZoomValue;
++ (double)maximumZoomValue;
 + (id)viewPortWithScrollOrigin:(struct CGPoint)arg1 zoom:(double)arg2;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;

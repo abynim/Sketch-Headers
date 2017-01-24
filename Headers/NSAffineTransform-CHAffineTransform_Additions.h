@@ -13,6 +13,8 @@
 + (id)transformWithOffset:(struct CGPoint)arg1;
 + (id)transformByScaling:(double)arg1;
 + (id)transformByTranslatingXBy:(double)arg1 yBy:(double)arg2;
+@property(readonly, nonatomic) BOOL includesFlip;
+@property(readonly, nonatomic) double determinant;
 - (struct CGAffineTransform)CGAffineTransform;
 - (id)invertedTransform;
 - (void)transactionWithBlock:(CDUnknownBlockType)arg1;

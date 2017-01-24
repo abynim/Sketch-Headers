@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSShareButtonHandler, NSArray, NSButton, NSView;
+@class MSShareButtonHandler, NSArray, NSButton, NSTextField, NSView;
 
 @interface MSExportInspectorViewController : MSStylePartInspectorViewController
 {
@@ -21,12 +21,16 @@
     NSButton *_shareButton;
     NSButton *_exportButton;
     NSButton *_knifeButton;
+    NSButton *_exportPresetsMenuButton;
+    NSTextField *_exportFormatLabelTextField;
     NSArray *_formatViewControllers;
     MSShareButtonHandler *_shareButtonHandler;
 }
 
 @property(retain, nonatomic) MSShareButtonHandler *shareButtonHandler; // @synthesize shareButtonHandler=_shareButtonHandler;
 @property(copy, nonatomic) NSArray *formatViewControllers; // @synthesize formatViewControllers=_formatViewControllers;
+@property(retain, nonatomic) NSTextField *exportFormatLabelTextField; // @synthesize exportFormatLabelTextField=_exportFormatLabelTextField;
+@property(retain, nonatomic) NSButton *exportPresetsMenuButton; // @synthesize exportPresetsMenuButton=_exportPresetsMenuButton;
 @property(retain, nonatomic) NSButton *knifeButton; // @synthesize knifeButton=_knifeButton;
 @property(retain, nonatomic) NSButton *exportButton; // @synthesize exportButton=_exportButton;
 @property(retain, nonatomic) NSButton *shareButton; // @synthesize shareButton=_shareButton;
@@ -42,6 +46,12 @@
 - (void)dealloc;
 - (id)firstResponderIgnoringFieldEditor;
 - (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)editExportPresets:(id)arg1;
+- (void)addExportPreset:(id)arg1;
+- (void)applyExportPreset:(id)arg1;
+- (id)findExportFormatAmong:(id)arg1 equalToFormat:(id)arg2;
+- (BOOL)exportPresetAppliesToSelectedLayers:(id)arg1;
+- (void)showExportPresetMenu:(id)arg1;
 - (void)exportSingleSlice:(id)arg1;
 - (void)shareAction:(id)arg1;
 - (void)createSliceAction:(id)arg1;

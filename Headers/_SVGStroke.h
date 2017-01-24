@@ -6,7 +6,7 @@
 
 #import "SVGElement.h"
 
-@class MSImmutableColor, NSArray, NSSet, SVGGradient;
+@class MSImmutableColor, NSArray, NSSet, NSString, SVGGradient;
 
 @interface _SVGStroke : SVGElement
 {
@@ -14,6 +14,8 @@
     NSSet *_usedBy;
     MSImmutableColor *_color;
     NSArray *_dashes;
+    NSString *_linecap;
+    NSString *_linejoin;
     double _width;
 }
 
@@ -21,6 +23,8 @@
 + (id)relationshipNames;
 + (id)propertyNames;
 @property(nonatomic) double width; // @synthesize width=_width;
+@property(retain, nonatomic) NSString *linejoin; // @synthesize linejoin=_linejoin;
+@property(retain, nonatomic) NSString *linecap; // @synthesize linecap=_linecap;
 @property(retain, nonatomic) NSArray *dashes; // @synthesize dashes=_dashes;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;

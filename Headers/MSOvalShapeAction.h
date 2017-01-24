@@ -10,6 +10,7 @@
 {
 }
 
+- (id)touchBarImage;
 - (unsigned short)shortcutCharacter;
 - (id)tooltip;
 - (void)ovalShape:(id)arg1;

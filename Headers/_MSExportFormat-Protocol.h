@@ -11,6 +11,7 @@
 @protocol _MSExportFormat <MSModelObject>
 @property(readonly, nonatomic) long long visibleScaleType;
 @property(readonly, nonatomic) double scale;
+@property(readonly, nonatomic) long long namingScheme;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *fileFormat;
 @property(readonly, nonatomic) double absoluteSize;

@@ -9,7 +9,7 @@
 @class MSContentDrawView, MSLayerArray, MSPage;
 
 @protocol MSBasicDelegate <NSObject>
-- (MSLayerArray *)selectedLayersA;
+- (MSLayerArray *)selectedLayers;
 - (MSPage *)currentPage;
 - (MSContentDrawView *)currentView;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;

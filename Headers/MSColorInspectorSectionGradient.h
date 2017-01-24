@@ -45,7 +45,7 @@
 - (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
 - (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
 - (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 atIndex:(unsigned long long)arg2 inRect:(struct CGRect)arg3;
+- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
 - (void)gradientBarAction:(id)arg1;
 - (long long)fillType;
 - (void)switchToGradientHandlerIfNecessary;

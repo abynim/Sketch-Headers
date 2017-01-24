@@ -22,8 +22,6 @@
     NSURLResponse *_response;
     NSError *_error;
     NSData *_responseData;
-    NSString *_responseString;
-    unsigned long long _responseStringEncoding;
     NSURLCredential *_credential;
     AFSecurityPolicy *_securityPolicy;
     NSObject<OS_dispatch_queue> *_completionQueue;
@@ -32,6 +30,8 @@
     long long _state;
     NSRecursiveLock *_lock;
     NSURLConnection *_connection;
+    NSString *_responseString;
+    unsigned long long _responseStringEncoding;
     long long _totalBytesRead;
     CDUnknownBlockType _backgroundTaskCleanup;
     CDUnknownBlockType _uploadProgress;
@@ -52,6 +52,8 @@
 @property(copy, nonatomic) CDUnknownBlockType uploadProgress; // @synthesize uploadProgress=_uploadProgress;
 @property(copy, nonatomic) CDUnknownBlockType backgroundTaskCleanup; // @synthesize backgroundTaskCleanup=_backgroundTaskCleanup;
 @property(nonatomic) long long totalBytesRead; // @synthesize totalBytesRead=_totalBytesRead;
+@property(nonatomic) unsigned long long responseStringEncoding; // @synthesize responseStringEncoding=_responseStringEncoding;
+@property(copy, nonatomic) NSString *responseString; // @synthesize responseString=_responseString;
 @property(retain, nonatomic) NSURLConnection *connection; // @synthesize connection=_connection;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
 @property(nonatomic) long long state; // @synthesize state=_state;
@@ -61,8 +63,6 @@
 @property(retain, nonatomic) AFSecurityPolicy *securityPolicy; // @synthesize securityPolicy=_securityPolicy;
 @property(retain, nonatomic) NSURLCredential *credential; // @synthesize credential=_credential;
 @property(nonatomic) BOOL shouldUseCredentialStorage; // @synthesize shouldUseCredentialStorage=_shouldUseCredentialStorage;
-@property(nonatomic) unsigned long long responseStringEncoding; // @synthesize responseStringEncoding=_responseStringEncoding;
-@property(copy, nonatomic) NSString *responseString; // @synthesize responseString=_responseString;
 @property(retain, nonatomic) NSData *responseData; // @synthesize responseData=_responseData;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSURLResponse *response; // @synthesize response=_response;

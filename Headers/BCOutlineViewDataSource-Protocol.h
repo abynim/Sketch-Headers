@@ -9,6 +9,7 @@
 @class BCOutlineViewDataController, NSArray;
 
 @protocol BCOutlineViewDataSource <NSObject>
+- (id)rootObject;
 - (NSArray *)dataController:(BCOutlineViewDataController *)arg1 childrenOfNode:(id)arg2;
 @end
 
