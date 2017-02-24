@@ -24,6 +24,7 @@
     MSCallToActionButton *_newsletterButton;
     MSCallToActionButton *_pluginsButton;
     NSMenu *_recentDocumentsContextMenu;
+    NSMenu *_templatesContextMenu;
     NSTextField *_versionTextField;
     unsigned long long _collectionToShow;
     NSArray *_cachedRecentDocumentItems;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(nonatomic) unsigned long long collectionToShow; // @synthesize collectionToShow=_collectionToShow;
 @property(retain, nonatomic) NSTextField *versionTextField; // @synthesize versionTextField=_versionTextField;
+@property(retain, nonatomic) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu=_templatesContextMenu;
 @property(retain, nonatomic) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu=_recentDocumentsContextMenu;
 @property(retain, nonatomic) MSCallToActionButton *pluginsButton; // @synthesize pluginsButton=_pluginsButton;
 @property(retain, nonatomic) MSCallToActionButton *newsletterButton; // @synthesize newsletterButton=_newsletterButton;
@@ -68,11 +70,15 @@
 - (void)confirm:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)openDocument:(id)arg1;
+- (void)refreshScrollability;
+- (BOOL)shouldEnableCollectionViewScrolling;
 - (void)showCollection:(unsigned long long)arg1;
 - (void)pickCollection:(id)arg1;
 - (void)togglePluginsButton:(BOOL)arg1;
+- (void)windowDidResize:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)clearCaches;
+- (void)centerWindowIfAppropriate;
 - (void)windowDidLoad;
 
 // Remaining properties

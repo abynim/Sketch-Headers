@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "SMKWebServerDataSource.h"
 
 @class NSDictionary, NSString;
 
-@protocol SMKMirrorDataSource <NSObject>
+@protocol SMKMirrorDataSource <SMKWebServerDataSource>
 @property(readonly) BOOL shouldScrollToSelectedArtboard;
 @property(readonly) NSDictionary *manifestContent;
 @property(readonly) NSString *currentArtboardIdentifier;
-- (void)renderImageForArtboardIdentifier:(NSString *)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 context:(id)arg4 handler:(void (^)(NSData *))arg5;
 @end
 

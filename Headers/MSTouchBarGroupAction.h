@@ -13,7 +13,8 @@
 - (BOOL)supportsState;
 - (void)doPerformAction:(id)arg1;
 - (id)actionNames;
-- (id)touchBarItem;
+- (void)refreshTouchBarItem;
+- (id)makeTouchBarItem;
 
 @end
 

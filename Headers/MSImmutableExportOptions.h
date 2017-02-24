@@ -15,7 +15,7 @@
 }
 
 - (id)firstFormat;
-- (void)migratePropertiesFromV72OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV72OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

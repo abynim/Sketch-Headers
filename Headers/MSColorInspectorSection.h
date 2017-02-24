@@ -56,7 +56,7 @@
 - (long long)numberOfItemsForScrubber:(id)arg1;
 - (id)touchBarCompatibleAssetsForPickerView:(id)arg1;
 - (id)makeTouchBarItemForIdentifier:(id)arg1;
-- (id)touchBarIdentifiers;
+- (id)customTouchBarItemIdentifiers;
 - (BOOL)shouldShowAddPresetButton:(id)arg1;
 - (id)assetPickerViewKeys;
 - (id)assetPickerViews;

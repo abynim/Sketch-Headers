@@ -6,10 +6,6 @@
 
 #import "_MSPage.h"
 
-@class NSArray;
-
 @protocol MSPage <_MSPage>
-@property(readonly, nonatomic) __weak NSArray *artboards;
-- (struct CGRect)contentBounds;
 @end
 

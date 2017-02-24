@@ -46,13 +46,13 @@
 - (void)refreshPreviewImagesWithCache:(id)arg1;
 - (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
-- (void)migratePropertiesFromV51OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
 - (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2;
+- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 - (void)addPathDefinitionToDocument:(id)arg1;
 - (id)svgPathAttribute:(id)arg1;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;

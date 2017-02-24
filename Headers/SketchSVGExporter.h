@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, MSImmutableSymbolInstance, MSSVGFilter, NSAffineTransform, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSXMLDocument, NSXMLElement;
+@class MSImmutableDocumentData, MSImmutableSymbolInstance, MSSVGFilter, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSXMLDocument, NSXMLElement;
 
 @interface SketchSVGExporter : NSObject
 {
@@ -19,7 +19,6 @@
     NSXMLDocument *_doc;
     NSXMLElement *_defs;
     NSXMLElement *_root;
-    NSAffineTransform *_initialMove;
     NSMutableDictionary *_gradients;
     unsigned long long _nextUniqueID;
     NSMutableArray *_parentStack;
@@ -31,7 +30,6 @@
 @property(readonly, nonatomic) NSMutableArray *parentStack; // @synthesize parentStack=_parentStack;
 @property(nonatomic) unsigned long long nextUniqueID; // @synthesize nextUniqueID=_nextUniqueID;
 @property(readonly, nonatomic) NSMutableDictionary *gradients; // @synthesize gradients=_gradients;
-@property(readonly, nonatomic) NSAffineTransform *initialMove; // @synthesize initialMove=_initialMove;
 @property(readonly, nonatomic) NSXMLElement *root; // @synthesize root=_root;
 @property(readonly, nonatomic) NSXMLElement *defs; // @synthesize defs=_defs;
 @property(readonly, nonatomic) NSXMLDocument *doc; // @synthesize doc=_doc;
@@ -51,26 +49,25 @@
 - (void)pushParent:(id)arg1;
 - (id)parentForLayer:(id)arg1;
 - (id)ancestorsForLayer:(id)arg1;
-- (id)radialGradientAttributes:(id)arg1;
+- (id)radialGradientAttributes:(id)arg1 inRect:(id)arg2;
 - (id)linearGradientAttributes:(id)arg1;
 - (id)stopsForGradient:(id)arg1;
-- (id)gradientElement:(id)arg1;
-- (void)addGradient:(id)arg1;
-- (id)hashForGradient:(id)arg1;
+- (id)gradientElement:(id)arg1 inRect:(id)arg2;
+- (void)addGradient:(id)arg1 inRect:(id)arg2;
+- (id)hashForGradient:(id)arg1 inRect:(id)arg2;
 - (BOOL)endFilterGroup;
 - (id)beginFilterGroup;
 - (id)addDefinitionWithWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;
 - (id)uniqueIDForElementWithName:(id)arg1;
 - (void)setDescription:(id)arg1;
 - (void)setTitle:(id)arg1;
-- (id)normalizePath:(id)arg1;
-- (struct CGPoint)normalizePoint:(struct CGPoint)arg1;
 - (id)description;
 - (id)exportLayers:(id)arg1;
 - (id)initWithName:(id)arg1 exportRequest:(id)arg2;
-- (id)initWithImmutableDocument:(id)arg1;
+- (id)initWithImmutableDocument:(id)arg1 exportRect:(struct CGRect)arg2 layerIDs:(id)arg3;
 - (id)init;
-- (void)setupCommonElements:(id)arg1;
+- (void)setupCommonElementsWithName:(id)arg1;
+- (void)setRootSVGElementAttributes;
 
 @end
 

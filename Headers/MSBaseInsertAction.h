@@ -10,6 +10,8 @@
 {
 }
 
+- (BOOL)isTouchBarItemSelected;
+- (BOOL)touchBarItemButtonShouldShowState;
 - (BOOL)validate;
 
 @end

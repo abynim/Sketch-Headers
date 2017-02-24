@@ -8,11 +8,12 @@
 
 #import "MSInspectorChildController.h"
 
-@class MSShapeChangeContext, MSShapeEventHandler, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSPathController, MSShapeEventHandler, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
-    MSShapeChangeContext *_shapeContext;
+    BOOL _isMakingRectSelection;
+    MSPathController *_pathController;
     MSShapeEventHandler *_shapeEventHandler;
     NSTextField *_cornerRadiusField;
     NSPopUpButton *_roundingPopUpButton;
@@ -32,8 +33,9 @@
 @property(retain, nonatomic) NSView *curveModeBackgroundView; // @synthesize curveModeBackgroundView=_curveModeBackgroundView;
 @property(retain, nonatomic) NSPopUpButton *roundingPopUpButton; // @synthesize roundingPopUpButton=_roundingPopUpButton;
 @property(retain, nonatomic) NSTextField *cornerRadiusField; // @synthesize cornerRadiusField=_cornerRadiusField;
+@property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
-@property(copy, nonatomic) MSShapeChangeContext *shapeContext; // @synthesize shapeContext=_shapeContext;
+@property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
@@ -45,13 +47,13 @@
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
+- (void)refreshCurveModeControls;
 - (void)takeHandleLocationOnAxis:(unsigned long long)arg1 fromTextField:(id)arg2;
 - (void)changeYPosition:(id)arg1;
 - (void)changeXPosition:(id)arg1;
 - (void)updateCoordinateValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
 - (void)refreshXYFields;
 - (void)finishEditingAction:(id)arg1;
-- (BOOL)shapePathLayersAreClosedAndCanEdit:(char *)arg1;
 - (void)closePathAction:(id)arg1;
 - (void)refreshClosePathButton;
 - (id)views;

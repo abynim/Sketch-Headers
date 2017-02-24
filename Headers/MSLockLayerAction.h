@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 - (void)lockLayer:(id)arg1;
 - (BOOL)validate;
 

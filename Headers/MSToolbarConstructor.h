@@ -22,7 +22,6 @@
 - (void)dealloc;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
-- (id)toolbarSelectableItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
 - (id)allActions;
 - (id)standardToolbarIdentifiers;

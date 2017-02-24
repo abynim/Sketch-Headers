@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableCustomShapeLayer.h"
+#import "MSImmutableShapePathLayer.h"
 
-@interface _MSImmutableStarShape : MSImmutableCustomShapeLayer
+@interface _MSImmutableStarShape : MSImmutableShapePathLayer
 {
     long long _numberOfPoints;
     double _radius;
@@ -20,7 +20,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

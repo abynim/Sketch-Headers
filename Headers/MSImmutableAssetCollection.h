@@ -14,7 +14,7 @@
 {
 }
 
-- (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *colors;

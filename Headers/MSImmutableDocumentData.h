@@ -18,7 +18,7 @@
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
-+ (id)documentDataFromData:(id)arg1 metadata:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
++ (id)loadDocumentDataWithMetadata:(id)arg1 loadBlock:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
@@ -28,7 +28,7 @@
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (id)usedFontNames;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) MSImmutablePage *currentPage;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
@@ -42,11 +42,10 @@
 - (void)stripRedundantOverridesFromInstancesOfSymbols:(id)arg1;
 - (id)migratedSymbolFromSymbol:(id)arg1 group:(id)arg2;
 - (id)migratedSymbolsFromOldSymbols:(id)arg1;
-- (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV62OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV60OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV54OrEarlierWithCoder:(id)arg1;
-- (id)subObjectsForTreeDiff;
+- (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV62OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV60OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV54OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -62,20 +61,19 @@
 - (id)containedLayers;
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
+- (id)subObjectsForTreeDiff;
 - (void)trackColors:(id)arg1;
 - (id)colorFinderQueue;
 - (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
-@property(readonly, copy, nonatomic) NSString *cloudShareID;
-@property(readonly, nonatomic) NSString *cloudShareURL;
-@property(readonly, nonatomic) NSString *cloudUserID;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL enableLayerInteraction;
 @property(readonly, nonatomic) BOOL enableSliceInteraction;
+@property(readonly, nonatomic) NSArray *foreignSymbols;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;

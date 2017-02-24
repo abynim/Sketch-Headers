@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSTimer *hideSelectionTimer; // @synthesize hideSelectionTimer=_hideSelectionTimer;
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
+- (id)makeTouchBar;
 - (struct CGRect)rectForSelectedRange;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
 - (void)selectSimilar:(id)arg1;

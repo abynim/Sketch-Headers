@@ -10,8 +10,6 @@
 {
 }
 
-- (id)toolbarLabel;
-- (id)imageName;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)createSharedStyle:(id)arg1;

@@ -16,9 +16,11 @@
     NSNumber *_level;
     NSString *_name;
     NSMutableSet *_handlers;
+    ECLogChannel *_parent;
 }
 
 + (id)cleanName:(const char *)arg1;
+@property(retain, nonatomic) ECLogChannel *parent; // @synthesize parent=_parent;
 @property(retain, nonatomic) NSMutableSet *handlers; // @synthesize handlers=_handlers;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSNumber *level; // @synthesize level=_level;
@@ -26,6 +28,9 @@
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) unsigned long long context; // @synthesize context=_context;
 - (void).cxx_destruct;
+- (id)nameIncludingApplication;
+- (unsigned long long)disableFlags:(unsigned long long)arg1;
+- (unsigned long long)flagsExcluding:(unsigned long long)arg1;
 - (void)selectHandlerWithIndex:(unsigned long long)arg1;
 - (BOOL)tickHandlerWithIndex:(unsigned long long)arg1;
 - (void)selectFlagWithIndex:(unsigned long long)arg1;
@@ -39,6 +44,7 @@
 - (void)enableHandler:(id)arg1;
 - (void)disable;
 - (void)enable;
+- (id)initWithName:(id)arg1 parent:(id)arg2;
 - (id)initWithName:(id)arg1;
 - (id)init;
 

@@ -11,7 +11,7 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorConnectionsController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorServerController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
@@ -27,10 +27,12 @@
     NSMenuItem *_cloudEnvironmentMenuItem;
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
-    SMKMirrorConnectionsController *_mirrorController;
+    SMKMirrorServerController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
+    MSActionController *_actionController;
+    MSAssetLibraryController *_librariesController;
     unsigned long long _unavailableUpdateCount;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
@@ -50,10 +52,12 @@
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) unsigned long long unavailableUpdateCount; // @synthesize unavailableUpdateCount=_unavailableUpdateCount;
 @property(nonatomic) BOOL userInvokedSparkleUpdate; // @synthesize userInvokedSparkleUpdate=_userInvokedSparkleUpdate;
+@property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
+@property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
-@property(retain, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
+@property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
-@property(retain, nonatomic) SMKMirrorConnectionsController *mirrorController; // @synthesize mirrorController=_mirrorController;
+@property(retain, nonatomic) SMKMirrorServerController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
@@ -77,7 +81,6 @@
 - (void)feedback:(id)arg1;
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
-- (void)openPreferencesWindow:(id)arg1;
 - (void)documentWillClose:(id)arg1;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
@@ -93,10 +96,12 @@
 - (void)showReleaseNotesWindow:(id)arg1;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
+- (void)createActions;
 - (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;
 - (void)userNotificationCenter:(id)arg1 didDeliverNotification:(id)arg2;
 - (BOOL)userNotificationCenter:(id)arg1 shouldPresentNotification:(id)arg2;
 - (void)applicationWillTerminate:(id)arg1;
+- (void)ensureUserTemplateDirectoryExists;
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
 - (BOOL)applicationOpenUntitledFile:(id)arg1;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
@@ -113,17 +118,12 @@
 - (void)openCloudURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;
+- (id)actionClasses;
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
-- (id)runPluginAtURL:(id)arg1;
-- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
-- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
-- (id)runPluginCommand:(id)arg1;
+- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3;
 - (id)targetDocumentForPluginCommand;
-- (id)pluginContextForDocument:(id)arg1;
-- (id)pluginContext;
-- (id)evaluateScript:(id)arg1;
 - (void)buildPluginsMenu:(id)arg1;
 - (void)revealPlugins:(id)arg1;
 - (void)editPlugins:(id)arg1;
@@ -134,7 +134,11 @@
 - (void)runPlugin:(id)arg1;
 - (id)lastRun;
 - (void)rememberLastRun:(id)arg1;
-- (void)displayUnavaiableUpdateMessage;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3;
+- (id)runPluginAtURL:(id)arg1;
+- (id)evaluateScript:(id)arg1;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
+- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
 - (id)bestValidUpdateInAppcast:(id)arg1 forUpdater:(id)arg2;
 - (void)updater:(id)arg1 didFinishLoadingAppcast:(id)arg2;
 - (void)updateWithAppcast:(id)arg1 orExecuteBlock:(CDUnknownBlockType)arg2;

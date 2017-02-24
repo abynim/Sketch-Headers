@@ -43,6 +43,7 @@
 - (void)colorMagnifierAction:(id)arg1;
 - (void)returnToDefaultHandler;
 - (id)viewControllers;
+- (void)closeAnyColorPopover;
 - (void)changeColor:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (void)prepareViewControllers;

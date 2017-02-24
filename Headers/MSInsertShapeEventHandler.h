@@ -6,12 +6,11 @@
 
 #import "MSDragRectEventHandler.h"
 
-@class MSShapePathLayer, NSArray, NSCursor, NSMutableArray;
+@class MSShapePathLayer, NSArray, NSMutableArray;
 
 @interface MSInsertShapeEventHandler : MSDragRectEventHandler
 {
     NSMutableArray *_insertedShapes;
-    NSCursor *_cursor;
     MSShapePathLayer *_prototypeLayer;
     NSArray *_snapLines;
     NSArray *_snapRects;
@@ -24,16 +23,13 @@
 @property(retain, nonatomic) MSShapePathLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
-- (void)flagsChanged:(id)arg1;
 - (void)drawRectPreview;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)insertShapeAsNewLayer:(struct CGRect)arg1;
 - (id)insertShapeAsSubPathOfShape:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)parentShapeForInsertingSubPath;
-- (id)performActionWithRect:(struct CGRect)arg1;
+- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (id)imageName;
-- (void)handlerWillLoseFocus;
 - (void)addSnapRectsForImmutableGroup:(id)arg1 withAncestors:(id)arg2 toArray:(id)arg3;
 - (void)cacheSnapPointsInBackground;
 - (struct CGPoint)snapMouseToEdges:(struct CGPoint)arg1 guides:(id *)arg2;
@@ -42,9 +38,9 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)selectAppropriateToolbarItem;
-- (id)defaultCursor;
-@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
+- (void)setInsertionRect:(struct CGRect)arg1;
+- (id)applicableActionItemIdentifier;
+- (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

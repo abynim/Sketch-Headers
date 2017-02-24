@@ -6,9 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSEventHandlerManager, MSPersistentAssetCollection;
+@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSEventHandlerManager, MSPersistentAssetCollection, NSTouchBar;
 
 @protocol MSColorInspectorSectionDelegate <NSObject>
+- (NSTouchBar *)touchBar;
+- (void)didRemoveAssetOfType:(unsigned long long)arg1;
+- (void)didAddAsset:(id <MSAsset>)arg1;
 - (void)stack;
 - (MSEventHandlerManager *)eventHandler;
 - (MSPersistentAssetCollection *)globalAssets;

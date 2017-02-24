@@ -25,6 +25,7 @@
 - (id)firstSharedObjectForContents:(id)arg1;
 - (void)updateMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
+- (BOOL)shouldShowNoSharedObjectsPlaceholder;
 - (void)menuNeedsUpdate:(id)arg1;
 
 // Remaining properties

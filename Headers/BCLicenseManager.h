@@ -30,6 +30,7 @@
 - (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
 - (id)apiURL;
 - (id)websiteAvailableVersionsURL;
+- (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
 - (id)currentVersion;
 - (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;

@@ -13,7 +13,6 @@
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
-    char *_useLegacyPlugins;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSArray *_folderMonitors;
@@ -33,14 +32,13 @@
 @property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(nonatomic) char *useLegacyPlugins; // @synthesize useLegacyPlugins=_useLegacyPlugins;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
 - (BOOL)disablePlugin:(id)arg1;
 - (BOOL)enablePlugin:(id)arg1;
 - (BOOL)setMetadataValue:(id)arg1 forKey:(id)arg2 identifier:(id)arg3;
 - (id)metadataValueForKey:(id)arg1 identifier:(id)arg2;
-- (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2 includeLegacyPlugins:(BOOL)arg3;
+- (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2;
 - (void)addCommands:(id)arg1 toMenu:(id)arg2 fromDescription:(id)arg3 selector:(SEL)arg4;
 - (void)sortMenu:(id)arg1 recursively:(BOOL)arg2;
 - (void)editBundle:(id)arg1;
@@ -50,9 +48,10 @@
 - (id)commandWithSpecifier:(id)arg1;
 @property(copy, nonatomic) NSDictionary *plugins;
 - (void)reloadPlugins;
-- (id)pluginsFromFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3;
-- (id)legacyPluginMenuDescriptionWithRelativePath:(id)arg1 commandIdentifier:(id)arg2;
+- (id)pluginsFromResolvedFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3 ignoredNames:(id)arg4;
+- (id)pluginsByResolvingFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3 ignoredNames:(id)arg4;
 - (id)relativePathByDeletingCommonPathComponentsWithFileURL:(id)arg1 fromURL:(id)arg2;
+- (id)folderNamesToIgnore;
 @property(readonly, copy, nonatomic) NSURL *mainPluginsFolderURL;
 - (void)dealloc;
 - (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;

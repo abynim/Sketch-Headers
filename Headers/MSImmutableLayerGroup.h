@@ -28,7 +28,6 @@
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-- (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -42,7 +41,8 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (void)migratePropertiesFromV78OrEarlierWithCoder:(id)arg1;
+- (id)subObjectsForTreeDiff;
+- (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
 - (id)svgStyle:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;

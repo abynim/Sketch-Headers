@@ -22,7 +22,6 @@
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (void)documentDidGetFocus;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performAction:(id)arg1;
@@ -38,14 +37,15 @@
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
 - (id)menu;
-- (BOOL)shouldBeNarrow;
+- (unsigned long long)touchBarItemSizing;
 - (id)touchBarImage;
-- (BOOL)touchBarButtonState;
-- (BOOL)useImageForTouchBarItem;
+- (BOOL)isTouchBarItemSelected;
+- (BOOL)shouldUseImageForTouchBarItem;
 - (void)showTouchBarPopover:(id)arg1;
 - (id)makeTouchBarItem;
+- (BOOL)touchBarItemButtonShouldShowState;
 - (id)makeTouchBarItemButton;
-- (void)refreshTouchBarItem:(id)arg1;
+- (void)refreshTouchBarItem;
 - (id)touchBarItem;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 

@@ -11,7 +11,7 @@
 }
 
 + (unsigned long long)editableLayerTraits;
-- (BOOL)useImageForTouchBarItem;
+- (BOOL)shouldUseImageForTouchBarItem;
 - (id)tooltip;
 - (BOOL)isSelectable;
 - (void)doPerformAction:(id)arg1;

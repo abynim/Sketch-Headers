@@ -8,11 +8,10 @@
 
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
-#import "MSSharedObjectContainerDelegate.h"
 
-@class BCCache, MSImageCollection, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class BCCache, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData, MSSharedObjectContainerDelegate>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
     long long ignoreLayerSelectionDidChangeNotificationsCounter;
     BOOL _autoExpandGroupsInLayerList;
@@ -35,11 +34,10 @@
 - (void)replaceExistingCreationMetadata;
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
-@property(readonly, nonatomic) MSImageCollection *images;
-- (id)rootLayersForSharedObjectContainer:(id)arg1;
+- (id)images;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
-- (void)enumerateSharedObjectContainers:(CDUnknownBlockType)arg1;
 - (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
+- (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)allSymbols;
@@ -91,14 +89,12 @@
 
 // Remaining properties
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
-@property(readonly, copy, nonatomic) NSString *cloudShareID;
-@property(readonly, nonatomic) NSString *cloudShareURL;
-@property(readonly, nonatomic) NSString *cloudUserID;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL enableLayerInteraction;
 @property(readonly, nonatomic) BOOL enableSliceInteraction;
+@property(readonly, nonatomic) NSArray *foreignSymbols;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;

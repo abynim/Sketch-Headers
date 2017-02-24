@@ -10,7 +10,6 @@
 {
 }
 
-- (id)makeTouchBarItemButton;
 - (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 - (void)addBorder:(id)arg1;

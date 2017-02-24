@@ -12,21 +12,20 @@
 
 @interface MSRect : _MSRect <MSRect>
 {
-    double proportions;
-    long long proportionsTempDisabled;
+    long long _proportionsTempDisabled;
     double _right;
     double _bottom;
+    double _proportions;
 }
 
 + (id)rectWithUnionOfRects:(id)arg1;
 + (id)rectWithRect:(struct CGRect)arg1;
 + (id)rectWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
+@property(nonatomic) double proportions; // @synthesize proportions=_proportions;
 @property(nonatomic) double bottom; // @synthesize bottom=_bottom;
 @property(nonatomic) double right; // @synthesize right=_right;
 - (BOOL)isIntegral;
 - (void)setRectByIgnoringProportions:(struct CGRect)arg1;
-- (void)setProportions:(double)arg1;
-- (double)proportions;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
@@ -55,7 +54,7 @@
 - (id)delegate;
 - (void)setWidth:(double)arg1;
 - (BOOL)shouldConstrainProportions;
-- (void)disableProportionsTemporarily:(BOOL)arg1;
+- (void)performUpdatesWithUnconstrainedProportions:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
 - (void)objectDidInit;
 - (id)initWithRect:(struct CGRect)arg1;

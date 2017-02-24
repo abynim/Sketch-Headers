@@ -38,6 +38,7 @@
 - (void)reloadTouchBars;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
+- (void)closeAnyColorPopover;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)inspectorController;
 - (void)recursivelyDismissAllPresentedViewControllersOfViewController:(id)arg1;
@@ -67,7 +68,6 @@
 - (void)viewDidResize;
 - (void)dealloc;
 - (void)movedThroughHistory:(id)arg1;
-- (void)shapeSelectionDidChange:(id)arg1;
 - (void)awakeFromNib;
 - (id)init;
 

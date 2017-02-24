@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
+@class COScript, ECLogChannel, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
 
 @interface MSPluginCommand : NSObject
 {
@@ -19,7 +19,8 @@
     NSDictionary *_handlers;
     NSString *_shortcut;
     MSPluginBundle *_pluginBundle;
-    ECASLClient *_logger;
+    unsigned long long _scope;
+    ECLogChannel *_logger;
     NSMutableString *_log;
     COScript *_session;
     NSMutableDictionary *_context;
@@ -27,8 +28,6 @@
     NSString *_executingScript;
 }
 
-+ (id)rawShortcutStringForPluginAtURL:(id)arg1;
-+ (id)legacyCommandFromScriptAtURL:(id)arg1;
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
@@ -37,7 +36,8 @@
 @property(retain, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableString *log; // @synthesize log=_log;
-@property(retain, nonatomic) ECASLClient *logger; // @synthesize logger=_logger;
+@property(retain, nonatomic) ECLogChannel *logger; // @synthesize logger=_logger;
+@property(readonly, nonatomic) unsigned long long scope; // @synthesize scope=_scope;
 @property(nonatomic) __weak MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(readonly, nonatomic) NSString *shortcut; // @synthesize shortcut=_shortcut;
 @property(readonly, copy, nonatomic) NSDictionary *handlers; // @synthesize handlers=_handlers;
@@ -63,9 +63,11 @@
 @property(readonly, nonatomic) MSPluginCommandSpecifier *commandSpecifier;
 - (void)error:(id)arg1;
 - (void)print:(id)arg1;
+- (void)resetLogger;
 - (void)coscript:(id)arg1 hadError:(id)arg2 onLineNumber:(long long)arg3 atSourceURL:(id)arg4;
 - (id)executeScript:(id)arg1;
 - (id)executeScriptAtURL:(id)arg1;
+- (BOOL)hasRunHandler;
 - (BOOL)tearDownIfFinished;
 - (id)runHandlerWithKey:(id)arg1 context:(id)arg2 manager:(id)arg3;
 - (id)run:(id)arg1 manager:(id)arg2;
@@ -77,9 +79,10 @@
 - (void)loadAPISupport;
 - (void)stopCapturingDeprecatedChannel:(id)arg1;
 - (id)startCapturingDeprecatedChannel;
+- (id)flattenedHandlerIndexWithHandlers:(id)arg1;
 - (void)dealloc;
-- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5;
-- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 runHandler:(id)arg4;
+- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5 scope:(unsigned long long)arg6;
+- (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 runHandler:(id)arg4 scope:(unsigned long long)arg5;
 
 @end
 

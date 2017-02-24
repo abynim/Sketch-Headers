@@ -10,6 +10,7 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
 - (void)removeUnusedStyles:(id)arg1;
 
 @end

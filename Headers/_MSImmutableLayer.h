@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableExportOptions, MSImmutableRect, NSDictionary, NSString;
+@class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
@@ -27,8 +27,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
-@property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
+@property(retain, nonatomic) MSImmutableRect<MSRect> *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSImmutableExportOptions<MSExportOptions> *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
@@ -47,7 +47,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

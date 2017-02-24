@@ -34,7 +34,7 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)mouseMovedEvent:(id)arg1;
-- (id)defaultCursor;
+- (void)cursorUpdate:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 

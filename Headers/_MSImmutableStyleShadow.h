@@ -6,7 +6,7 @@
 
 #import "MSImmutableStylePart.h"
 
-@class MSImmutableColor, MSImmutableGraphicsContextSettings;
+@class MSImmutableColor, MSImmutableColor<MSColor>, MSImmutableGraphicsContextSettings, MSImmutableGraphicsContextSettings<MSGraphicsContextSettings>;
 
 @interface _MSImmutableStyleShadow : MSImmutableStylePart
 {
@@ -19,8 +19,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableGraphicsContextSettings<MSGraphicsContextSettings> *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
 @property(nonatomic) double spread; // @synthesize spread=_spread;
 @property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
 @property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
@@ -31,7 +31,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

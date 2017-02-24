@@ -23,14 +23,15 @@
 - (id)immutableBackgroundColor;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
-- (void)performInitWithCoder:(id)arg1;
+- (void)performInitWithUnarchiver:(id)arg1;
 - (BOOL)exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
-- (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV57OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)svgStyle:(id)arg1;

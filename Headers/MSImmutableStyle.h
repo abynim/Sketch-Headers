@@ -41,12 +41,13 @@
 - (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 position:(unsigned long long)arg3;
 - (void)addBlurFilter:(id)arg1 exporter:(id)arg2;
 - (void)addShadowFilters:(id)arg1 includeSource:(BOOL)arg2 attributes:(id)arg3 exporter:(id)arg4;
+- (void)applyLayerInfluenceRectBounds:(id)arg1 toFilter:(id)arg2 withRadius:(double)arg3;
 - (id)borderAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (id)fillAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (unsigned long long)internalNumberOfElements:(id)arg1;
 - (BOOL)canCombineLastFillWithFirstBorder;
 - (BOOL)requiresPathDefinition:(id)arg1;
-- (BOOL)hasNonCenteredBorder;
+- (BOOL)hasBorderRequiringMask;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2 elementPosition:(unsigned long long)arg3;
 - (unsigned long long)numberOfElementsWithExporter:(id)arg1;
 

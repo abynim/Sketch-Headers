@@ -22,7 +22,6 @@
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
-- (id)contoursContainingOtherContours:(id)arg1;
 - (id)bezierGraphBySplittingSelfCrossingContours:(id)arg1;
 - (id)bezierGraphByTrimmingSelfCrossingContours;
 - (id)bezierGraphByMergingLinearRunsInContours;
@@ -66,6 +65,7 @@
 - (int)contourInsides:(id)arg1;
 - (struct FBContourWindingRuleResult)containmentResultForContour:(id)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
+- (void)insertSelfCrossings:(id)arg1;
 - (void)insertSelfCrossings;
 - (void)insertContourSelfCrossings;
 - (BOOL)isIntersection:(id)arg1 atJoinOfEdge:(id)arg2 andEdge:(id)arg3;
@@ -95,6 +95,7 @@
 - (id)initWithBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (id)initWithBezierPath:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
+- (void)svg_insertSelfCrossings;
 
 @end
 

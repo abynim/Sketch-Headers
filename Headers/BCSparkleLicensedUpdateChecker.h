@@ -11,6 +11,8 @@
 @interface BCSparkleLicensedUpdateChecker : NSObject
 {
     unsigned long long _numberOfUnavailableReleases;
+    NSString *_latestUnavailableVersion;
+    NSString *_latestUnavailableBuildNumber;
     unsigned long long _indexOfBestUpdate;
     NSDate *_expiryDate;
     NSString *_buildNumber;
@@ -20,12 +22,15 @@
 @property(readonly, nonatomic) NSString *buildNumber; // @synthesize buildNumber=_buildNumber;
 @property(readonly, nonatomic) NSDate *expiryDate; // @synthesize expiryDate=_expiryDate;
 @property(readonly, nonatomic) unsigned long long indexOfBestUpdate; // @synthesize indexOfBestUpdate=_indexOfBestUpdate;
+@property(readonly, nonatomic) NSString *latestUnavailableBuildNumber; // @synthesize latestUnavailableBuildNumber=_latestUnavailableBuildNumber;
+@property(readonly, nonatomic) NSString *latestUnavailableVersion; // @synthesize latestUnavailableVersion=_latestUnavailableVersion;
 @property(nonatomic) unsigned long long numberOfUnavailableReleases; // @synthesize numberOfUnavailableReleases=_numberOfUnavailableReleases;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL shouldInvokeSparkleUIForUpdates;
 - (BOOL)isUpdateInstalled:(id)arg1;
 - (long long)compareBuildNumber:(id)arg1 to:(id)arg2;
 - (BOOL)isUpdateItemInstallable:(id)arg1;
+- (id)sparkleShortVersionForItem:(id)arg1;
 - (id)sparkleVersionForItem:(id)arg1;
 - (id)supportDateForItem:(id)arg1;
 - (id)supportDateStringForItem:(id)arg1;

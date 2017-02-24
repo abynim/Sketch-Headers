@@ -76,7 +76,7 @@
 - (void)windowDidResize:(id)arg1;
 - (void)viewWillStartLiveResize;
 - (void)smartMagnifyWithEvent:(id)arg1;
-- (void)currentHandlerChanged;
+- (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
@@ -91,7 +91,6 @@
 - (void)toggleHandlerKey:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
-- (void)resetCursorRects;
 - (void)changeFont:(id)arg1;
 - (BOOL)isOpaque;
 - (void)setLastEvent:(id)arg1;
@@ -134,6 +133,7 @@
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
 - (struct CGRect)transformRectToViewCoords:(struct CGRect)arg1;
 - (void)redrawTileContentIfOpportune;
 - (void)redrawTiles;
@@ -154,7 +154,6 @@
 - (void)scaleTilesBy:(double)arg1;
 - (void)scaleTilesBy:(double)arg1 withScalingCenterInViewCoordinates:(struct CGPoint)arg2;
 - (void)zoomToActualSizeAnimated:(BOOL)arg1;
-- (void)zoomToSelection;
 - (void)zoomToFitRect:(struct CGRect)arg1;
 - (void)animateToZoom:(double)arg1 scalingCenteredOnAbsoluteCoordinates:(struct CGPoint)arg2;
 - (void)animateToZoom:(double)arg1;
@@ -168,6 +167,7 @@
 - (void)animateToViewPort:(id)arg1;
 - (id)viewPortAfterScalingToZoom:(double)arg1 selectionCentered:(BOOL)arg2;
 - (id)viewPortAfterScalingToZoom:(double)arg1 centeredOnAbsoluteCoordinates:(struct CGPoint)arg2;
+- (id)viewPortWithCenter:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
 - (void)tiledLayerPileDidRefreshTileContent:(id)arg1;
@@ -176,7 +176,6 @@
 - (void)scrollTilesBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;
 - (void)tile;
-- (id)grid;
 - (void)placeOriginInTopLeft;
 - (void)centerDocumentAndPlaceScrollOriginInTopLeft;
 - (void)centerInBounds;

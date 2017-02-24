@@ -13,7 +13,7 @@
 - (BOOL)validate;
 - (void)addExportFormatToLayer:(id)arg1;
 - (id)label;
-- (BOOL)dynamicTitle;
+- (BOOL)hasDynamicTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)addExportFormat:(id)arg1;
 

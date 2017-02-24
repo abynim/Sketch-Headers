@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "MSCoding.h"
 #import "NSCopying.h"
 
 @class NSAttributedString, NSSet, NSString;
 
-@interface MSAttributedString : NSObject <NSCoding, NSCopying>
+@interface MSAttributedString : NSObject <MSCoding, NSCopying>
 {
     NSAttributedString *_attributedString;
     NSAttributedString *_encodedAttributedString;
@@ -37,10 +37,15 @@
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)encodeAsJSON:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1;
 - (id)initWithAttributedString:(id)arg1;
 - (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 
 @end
 

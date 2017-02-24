@@ -22,7 +22,7 @@
 - (id)toolbarIdentifier;
 - (BOOL)shouldDrawLayerSelection;
 - (id)imageName;
-- (id)defaultCursor;
+- (void)cursorUpdate:(id)arg1;
 - (void)strokePath:(id)arg1 isHovering:(BOOL)arg2;
 - (id)trimPathOnBothSides:(id)arg1;
 - (void)drawThinStrokeBezierSegments:(id)arg1;

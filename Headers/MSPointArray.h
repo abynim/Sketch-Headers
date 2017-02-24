@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
+#import "MSCoding.h"
 #import "NSCopying.h"
 #import "NSFastEnumeration.h"
 
-@class NSMutableArray;
+@class NSMutableArray, NSString;
 
-@interface MSPointArray : NSObject <NSCoding, NSCopying, NSFastEnumeration>
+@interface MSPointArray : NSObject <MSCoding, NSCopying, NSFastEnumeration>
 {
     NSMutableArray *points;
 }
@@ -25,8 +25,9 @@
 - (void)removeAllPoints;
 - (void)replacePointAtIndex:(unsigned long long)arg1 withPoint:(struct CGPoint)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
+- (void)encodeAsJSON:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
 - (void)setPoints:(id)arg1;
 - (id)points;
 - (unsigned long long)countOfPoints;
@@ -39,6 +40,9 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)init;
 - (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 
 @end
 

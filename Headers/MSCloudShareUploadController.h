@@ -6,16 +6,15 @@
 
 #import "MSCloudShareAPI.h"
 
-@class AFAmazonS3Manager, MSDocumentData, NSError, NSString, NSURL;
+@class AFAmazonS3Manager, NSError, NSString, NSURL;
 
 @interface MSCloudShareUploadController : MSCloudShareAPI
 {
     BOOL _includeDocument;
     BOOL _uploadFailed;
+    id <MSCloudShareUploadControllerDelegate> _delegate;
     NSString *_password;
-    MSDocumentData *_documentData;
-    CDUnknownBlockType _progressHandler;
-    CDUnknownBlockType _completionHandler;
+    id <MSCloudDocument> _document;
     NSURL *_localURL;
     AFAmazonS3Manager *_s3Manager;
     NSError *_uploadError;
@@ -27,11 +26,10 @@
 @property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
 @property(retain, nonatomic) AFAmazonS3Manager *s3Manager; // @synthesize s3Manager=_s3Manager;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
-@property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
-@property(copy, nonatomic) CDUnknownBlockType progressHandler; // @synthesize progressHandler=_progressHandler;
-@property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(nonatomic) __weak id <MSCloudDocument> document; // @synthesize document=_document;
 @property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
+@property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3 progressTracker:(id)arg4;
@@ -42,8 +40,8 @@
 - (BOOL)shouldAttemptReuploadAfterError:(id)arg1;
 - (id)loadManifest;
 - (void)uploadManifest;
-- (void)uploadDocument;
-- (id)initWithDocument:(id)arg1 name:(id)arg2 progressHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)startUpload;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

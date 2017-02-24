@@ -14,11 +14,11 @@
 {
 }
 
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (id)imageWithSHA1:(id)arg1;
 - (id)treeAsDictionary;
-- (void)migratePropertiesFromV75OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

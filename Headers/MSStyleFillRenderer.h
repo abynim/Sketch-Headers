@@ -32,12 +32,11 @@
 @property(retain, nonatomic) MSImmutableStyleFill *fill; // @synthesize fill=_fill;
 @property(nonatomic) __weak MSRenderingContext *context; // @synthesize context=_context;
 - (void).cxx_destruct;
-- (void)drawImage:(struct CGImage *)arg1 inRect:(struct CGRect)arg2;
+- (void)drawImageInRect:(struct CGRect)arg1;
 - (void)drawPatternStretch;
 - (void)drawPatternFit;
 - (void)drawPatternFill;
 - (void)prepareAlphaForContext:(struct CGContext *)arg1;
-- (void)drawCGImageTile:(struct CGImage *)arg1;
 - (struct CGImage *)CGImageForPatternTile;
 - (void)drawPatternTile;
 - (void)drawNoise;

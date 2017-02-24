@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldBeNarrow;
+- (unsigned long long)touchBarItemSizing;
 - (id)actionNames;
 
 @end

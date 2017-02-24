@@ -10,7 +10,6 @@
 
 @interface MSPluginBundle : NSObject
 {
-    BOOL _legacyPlugin;
     BOOL _enabled;
     BOOL _disableCocoaScriptPreprocessor;
     NSURL *_url;
@@ -32,7 +31,6 @@
 + (id)pluginBundleWithURL:(id)arg1;
 @property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic, getter=isLegacyPlugin) BOOL legacyPlugin; // @synthesize legacyPlugin=_legacyPlugin;
 @property(readonly, copy, nonatomic) NSString *compatibleVersion; // @synthesize compatibleVersion=_compatibleVersion;
 @property(readonly, copy, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, copy, nonatomic) NSURL *manifestURL; // @synthesize manifestURL=_manifestURL;
@@ -52,7 +50,6 @@
 - (BOOL)writeToURL:(id)arg1;
 - (id)metadata;
 - (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3;
-- (id)initLegacyPluginWithURL:(id)arg1;
 - (id)initPluginBundleWithURL:(id)arg1;
 
 @end

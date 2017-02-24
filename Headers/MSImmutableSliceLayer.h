@@ -6,17 +6,17 @@
 
 #import "_MSImmutableSliceLayer.h"
 
-#import "MSLayerWithBackgroundColour.h"
 #import "MSSliceLayer.h"
 
 @class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSSliceLayer, MSLayerWithBackgroundColour>
+@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSSliceLayer>
 {
 }
 
 + (id)defaultName;
 + (unsigned long long)traits;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
 - (id)immutableBackgroundColor;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (void)refreshPreviewImagesWithCache:(id)arg1;

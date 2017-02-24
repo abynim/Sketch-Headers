@@ -19,7 +19,6 @@
 + (id)shapeWithPath:(id)arg1;
 + (id)shapeWithRect:(struct CGRect)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
-+ (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (id)keyPathsForValuesAffectingPreviewImages;
 - (BOOL)shouldStripShadowsAndInnerShadow;
@@ -53,7 +52,6 @@
 - (void)applyPropertiesToBezier:(id)arg1;
 - (id)pathWithTransformsUsingCache:(id)arg1;
 @property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
-- (BOOL)includeChildrenInCalculatingStyleSize;
 - (BOOL)hitTestPoint:(struct CGPoint)arg1 inBezier:(id)arg2 zoomValue:(double)arg3;
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
@@ -65,12 +63,12 @@
 - (void)performInitEmptyObject;
 - (BOOL)canFlatten;
 - (BOOL)canProbablyFlatten;
+- (Class)overrideViewControllerClass;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
-- (void)toggleClosePath;
 - (id)lastPoint;
 - (id)firstPoint;
 - (struct CGPoint)rulerBase;
@@ -109,7 +107,7 @@
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
-- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (void)applyOverridesFromSource:(id)arg1;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;

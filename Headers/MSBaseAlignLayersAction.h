@@ -14,7 +14,7 @@
 {
 }
 
-- (BOOL)useImageForTouchBarItem;
+- (BOOL)shouldUseImageForTouchBarItem;
 - (void)performAction:(id)arg1;
 - (BOOL)altButtonCanShowAltImage:(id)arg1;
 - (BOOL)validate;

@@ -36,7 +36,7 @@
 - (struct CGRect)calculateInfluenceRectForFrame;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (struct CGRect)rectByTransformingRect:(struct CGRect)arg1 andPaddingWithAncestors:(id)arg2;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
@@ -101,7 +101,7 @@
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;
 - (void)addPathDefinitionToDocument:(id)arg1;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2;
+- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 - (void)addGradientsToDocument:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;

@@ -36,6 +36,7 @@
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (id)selectionTouchBar;
 - (BOOL)shouldExitOnContentViewResize;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)magnifyWithEvent:(id)arg1;

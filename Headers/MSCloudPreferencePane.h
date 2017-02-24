@@ -15,6 +15,8 @@
     MSCloudPreferencesViewController *_currentViewController;
 }
 
++ (unsigned long long)cloudLoginSwitchPlatformBehavior;
++ (void)loginWithURLParameters:(id)arg1;
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
@@ -23,6 +25,8 @@
 - (void).cxx_destruct;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)applicationDidOpenURL:(id)arg1;
+- (void)platformDidChangeNotification:(id)arg1;
+- (void)applicationDidBecomeActiveNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) MSCloudAuthAPI *authAPI; // @synthesize authAPI=_authAPI;
 - (void)fixFirstResponder;
@@ -30,6 +34,7 @@
 - (void)showRootViewController;
 - (void)showAccountViewController;
 - (void)showIntroViewController;
+- (void)showCloudViewControllerOfClass:(Class)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (void)loadView;

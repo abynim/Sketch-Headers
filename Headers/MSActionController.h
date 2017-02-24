@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSResponder.h"
 
 @class NSMutableDictionary, NSMutableSet;
 
-@interface MSActionController : NSObject
+@interface MSActionController : NSResponder
 {
     NSMutableDictionary *_actionsByIdentifier;
     NSMutableSet *_observers;
@@ -17,10 +17,13 @@
 @property(retain, nonatomic) NSMutableSet *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableDictionary *actionsByIdentifier; // @synthesize actionsByIdentifier=_actionsByIdentifier;
 - (void).cxx_destruct;
+- (id)supplementalTargetForAction:(SEL)arg1 sender:(id)arg2;
 - (BOOL)isSystemSeparatorID:(id)arg1;
 - (void)performActionWithID:(id)arg1 sender:(id)arg2;
-- (id)actionWithID:(id)arg1;
+- (id)actionForSelector:(SEL)arg1;
+- (id)actionForID:(id)arg1;
 - (id)allActions;
+- (void)insertAfterResponder:(id)arg1;
 - (void)assertValidActionID:(id)arg1;
 - (void)registerAction:(id)arg1;
 - (id)init;
@@ -29,7 +32,6 @@
 - (void)registerActionObserver:(id)arg1;
 - (void)didInstantActionWithID:(id)arg1 context:(id)arg2;
 - (void)didFinishActionWithID:(id)arg1 context:(id)arg2;
-- (void)didContinueActionWithID:(id)arg1 context:(id)arg2;
 - (void)willBeginActionWithID:(id)arg1 context:(id)arg2;
 
 @end

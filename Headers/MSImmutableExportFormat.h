@@ -17,7 +17,7 @@
 + (id)defaultNameForScale:(double)arg1;
 - (BOOL)isVectorExport;
 - (id)defaultName;
-- (void)migratePropertiesFromV72OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV72OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) double absoluteSize;

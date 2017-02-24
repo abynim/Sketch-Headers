@@ -21,7 +21,6 @@
     struct CGRect _previousRectCache;
 }
 
-+ (Class)overrideViewControllerClass;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextAlignmentForLayers:(id)arg1;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
@@ -110,6 +109,7 @@
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
 - (long long)cornerRectType;
+- (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (id)handlerName;
 - (void)layerDidResizeFromInspector;
@@ -127,7 +127,7 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
-- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (void)applyOverridesFromSource:(id)arg1;
 - (id)createTextStorage;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;

@@ -4,8 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "MSLayerWithBackgroundColor.h"
 #import "_MSSliceLayer.h"
 
-@protocol MSSliceLayer <_MSSliceLayer>
+@protocol MSSliceLayer <_MSSliceLayer, MSLayerWithBackgroundColor>
 @end
 

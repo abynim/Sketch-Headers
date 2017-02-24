@@ -54,6 +54,7 @@
 - (void).cxx_destruct;
 - (void)touchBarColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)customTouchBarItemIdentifiers;
 - (id)makeTouchBar;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
@@ -65,6 +66,7 @@
 - (unsigned long long)colorTabIndex;
 - (void)switchToColorTabAtIndex:(unsigned long long)arg1;
 - (void)reloadTouchBarsAfterSelectionChange:(id)arg1;
+- (void)reloadTouchBars;
 - (void)pickerViewChanged:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (id)filteredStyleParts:(id)arg1;
@@ -89,6 +91,8 @@
 - (id)currentModePicker;
 - (void)inspectorSectionDidUpdate:(id)arg1;
 - (id)documentAssets;
+- (void)didRemoveAssetOfType:(unsigned long long)arg1;
+- (void)didAddAsset:(id)arg1;
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)applyBackgroundArrowColor;

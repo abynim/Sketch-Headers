@@ -7,6 +7,7 @@
 #import "NSApplication.h"
 
 @interface NSApplication (CHApplicationAdditions)
+- (BOOL)isActiveApplication;
 - (id)applicationBuild;
 - (id)applicationVersion;
 - (id)applicationName;

@@ -36,7 +36,6 @@
 - (id)NSGradientWithColorSpace:(id)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)canSmoothOpacity;
-- (BOOL)hasDefaultValues;
 - (id)defaultStopsArray;
 - (id)initWithNSGradient:(id)arg1;
 - (id)initBlankGradient;

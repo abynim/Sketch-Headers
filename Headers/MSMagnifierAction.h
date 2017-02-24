@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldBeNarrow;
+- (unsigned long long)touchBarItemSizing;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)currentPopoverHandlesColorMagnifier;

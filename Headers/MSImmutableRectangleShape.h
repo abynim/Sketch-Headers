@@ -16,7 +16,7 @@
 
 + (id)defaultName;
 - (BOOL)canSkipAdvancedClipForStrokes;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2;
+- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

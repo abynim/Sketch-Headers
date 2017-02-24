@@ -11,7 +11,7 @@
 }
 
 - (id)touchBarItem;
-- (BOOL)shouldBeNarrow;
+- (unsigned long long)touchBarItemSizing;
 - (BOOL)supportsState;
 - (id)actionNames;
 

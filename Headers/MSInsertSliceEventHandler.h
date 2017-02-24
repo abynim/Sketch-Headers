@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
-- (struct CGPoint)alignMouseToGrid:(struct CGPoint)arg1;
+- (struct CGPoint)alignPointToGrid:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)layerAtPoint:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

@@ -12,7 +12,6 @@
 
 - (void)unregisterSketch:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)purchaseAction:(id)arg1;
 
 @end
 

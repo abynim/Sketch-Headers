@@ -6,10 +6,11 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-@class NSButton, NSProgressIndicator;
+@class NSButton, NSProgressIndicator, NSTextField;
 
 @interface MSCloudPreferencesIntroViewController : MSCloudPreferencesViewController
 {
+    NSTextField *_titleLabel;
     NSButton *_learnMoreButton;
     NSProgressIndicator *_progressIndicator;
     NSButton *_loginButton;
@@ -18,8 +19,11 @@
 @property(retain, nonatomic) NSButton *loginButton; // @synthesize loginButton=_loginButton;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
+@property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
+- (void)cloudAPIPlatformDidChangeNotification:(id)arg1;
 - (void)cloudAPILoggingInDidChangeNotification:(id)arg1;
+- (void)updateTitleLabelValue;
 - (void)learnMore:(id)arg1;
 - (void)login:(id)arg1;
 - (void)signup:(id)arg1;

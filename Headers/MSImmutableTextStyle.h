@@ -17,7 +17,7 @@
 
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void).cxx_destruct;
-- (void)migratePropertiesFromV81OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV81OrEarlierWithUnarchiver:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *attributes;
 - (id)treeAsDictionary;
 

@@ -16,7 +16,7 @@
 - (void)distributeAlongAxis:(unsigned long long)arg1;
 - (void)performAction:(id)arg1;
 - (BOOL)validate;
-- (BOOL)useImageForTouchBarItem;
+- (BOOL)shouldUseImageForTouchBarItem;
 
 @end
 

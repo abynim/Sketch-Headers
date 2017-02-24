@@ -7,6 +7,7 @@
 #import "NSEvent.h"
 
 @interface NSEvent (EventShouldDrag)
+- (BOOL)isRightClick;
 - (BOOL)isDoubleClick;
 - (BOOL)shouldStartDrag;
 @end

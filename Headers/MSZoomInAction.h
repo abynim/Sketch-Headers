@@ -10,6 +10,8 @@
 {
 }
 
+- (void)zoomIn:(id)arg1;
+- (BOOL)validate;
 - (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 

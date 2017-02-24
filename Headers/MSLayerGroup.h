@@ -14,8 +14,6 @@
 {
     BOOL _enableAutomaticScaling;
     BOOL _isOpen;
-    BOOL _lightweightContainsSelectedItem;
-    long long _hasLayerWithMaskMode;
     long long _preCalculatedHasSelectedLayer;
 }
 
@@ -24,9 +22,7 @@
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
 + (id)groupFromLayers:(id)arg1;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
-@property(nonatomic) BOOL lightweightContainsSelectedItem; // @synthesize lightweightContainsSelectedItem=_lightweightContainsSelectedItem;
 @property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
-@property(nonatomic) long long hasLayerWithMaskMode; // @synthesize hasLayerWithMaskMode=_hasLayerWithMaskMode;
 @property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
 - (id)candidatesForMasking;
 - (id)children;
@@ -41,19 +37,17 @@
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
 - (void)setIsHovering:(BOOL)arg1;
-- (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (void)deselectAllLayers;
 - (void)selectLayers:(id)arg1;
 - (BOOL)containsSelectedItem;
-- (BOOL)shouldResizeToFitAfterDrag;
+- (BOOL)shouldAutoresizeChildrenAfterResize;
 - (void)layerDidResize;
 - (void)layerWillResize;
 - (void)setIsSelected:(BOOL)arg1;
 - (BOOL)isExpanded;
 - (void)deselectLayerAndParent;
-- (BOOL)includeChildrenInCalculatingStyleSize;
 - (void)refreshOverlay;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)setIsLocked:(BOOL)arg1;
@@ -72,9 +66,12 @@
 - (id)selectedPreviewImage;
 - (BOOL)expandableInLayerList;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (id)ungroupReturningNextUngroupGroup;
+- (BOOL)hasStyleOrTransform;
 - (void)translateChildrenFrameToLayers:(id)arg1;
 - (void)moveTransformsToChildren:(id)arg1;
 - (id)moveLayersToParent;
+- (void)ungroupSingleChildDescendentGroups;
 - (id)ungroup;
 - (void)setUpNewGroup;
 - (void)insertLayers:(id)arg1 atIndex:(unsigned long long)arg2;

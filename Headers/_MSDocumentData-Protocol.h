@@ -6,20 +6,18 @@
 
 #import "MSModelObject.h"
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDictionary;
 
 @protocol _MSDocumentData <MSModelObject>
 @property(readonly, nonatomic) NSArray *pages;
 @property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric;
 @property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric;
 @property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric;
+@property(readonly, nonatomic) NSArray *foreignSymbols;
 @property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric;
 @property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(readonly, nonatomic) BOOL enableSliceInteraction;
 @property(readonly, nonatomic) BOOL enableLayerInteraction;
 @property(readonly, nonatomic) unsigned long long currentPageIndex;
-@property(readonly, nonatomic) NSString *cloudUserID;
-@property(readonly, nonatomic) NSString *cloudShareURL;
-@property(readonly, copy, nonatomic) NSString *cloudShareID;
 @end
 
