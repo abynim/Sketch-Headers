@@ -6,7 +6,11 @@
 
 #import "_MSSymbolMaster.h"
 
-@interface MSSymbolMaster : _MSSymbolMaster
+#import "MSSymbolMaster.h"
+
+@class NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+
+@interface MSSymbolMaster : _MSSymbolMaster <MSSymbolMaster>
 {
     BOOL _isInvalidatingSymbolInstances;
 }
@@ -15,8 +19,8 @@
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
 - (BOOL)limitsSelectionToBounds;
-- (BOOL)shouldResizeToFitAfterDrag;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)notifySymbolInstancesOfChange;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;
 - (id)ancestorIDsForLayerNamed:(id)arg1 skip:(id)arg2;
@@ -27,9 +31,9 @@
 - (void)removeFromParentAndDetachAllInstances;
 - (void)detachAllInstances;
 - (BOOL)ensureSymbolIDUniqueInDocument:(id)arg1;
-- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (void)applyOverridesFromSource:(id)arg1;
 - (BOOL)hasInstances;
-- (id)allInstances;
+@property(readonly, nonatomic) NSArray *allInstances;
 - (struct BCEdgePaddings)influenceRectPaddingForInstances;
 - (id)newSymbolInstance;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
@@ -40,6 +44,49 @@
 - (id)selectedPreviewImage;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) id <MSColor> backgroundColorGeneric;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
+@property(readonly, nonatomic) id <MSRect> frameGeneric;
+@property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric;
+@property(readonly, nonatomic) BOOL hasBackgroundColor;
+@property(readonly, nonatomic) BOOL hasClickThrough;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric;
+@property(readonly, nonatomic) BOOL includeBackgroundColorInExport;
+@property(readonly, nonatomic) BOOL includeBackgroundColorInInstance;
+@property(readonly, nonatomic) BOOL includeInCloudUpload;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isLocked;
+@property(readonly, nonatomic) BOOL isSelected;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) NSArray *layers;
+@property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric;
+@property(readonly, copy, nonatomic) NSString *name;
+@property(readonly, nonatomic) BOOL nameIsFixed;
+@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) NSString *originalObjectID;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) unsigned long long resizingType;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
+@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
+@property(readonly, nonatomic) id <MSStyle> styleGeneric;
+@property(readonly) Class superclass;
+@property(readonly, nonatomic) NSString *symbolID;
+@property(readonly, copy, nonatomic) NSDictionary *userInfo;
+@property(readonly, nonatomic) id <MSRulerData> verticalRulerDataGeneric;
 
 @end
 

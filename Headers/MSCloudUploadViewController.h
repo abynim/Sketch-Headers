@@ -41,12 +41,14 @@
 - (void)userAccountStatusDidChange;
 - (void)controlTextDidChange:(id)arg1;
 - (void)didTogglePrivateUpload:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)documentCloudShareDidChangeNotification:(id)arg1;
+- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
 - (unsigned long long)defaultState;
 - (void)setCloudController:(id)arg1;
 - (void)viewWillAppear;
 - (void)loadView;
 - (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

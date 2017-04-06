@@ -12,11 +12,8 @@
 
 @interface MSSharedObjectContainer : _MSSharedObjectContainer <MSSharedObjectContainer>
 {
-    id <MSSharedObjectContainerDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <MSSharedObjectContainerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)objectsSortedByName;
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)sharedObjectsInLayers:(id)arg1;
@@ -27,7 +24,6 @@
 - (void)updateValueOfSharedObject:(id)arg1 byCopyingInstance:(struct MSModelObject *)arg2;
 - (BOOL)updateInstancesOfSharedObject:(id)arg1 withValue:(struct MSModelObject *)arg2;
 - (BOOL)syncSharedObjectWithInstance:(struct MSModelObject *)arg1;
-- (id)layersToIterateOver;
 - (void)unregisterInstance:(struct MSModelObject *)arg1;
 - (void)registerInstance:(struct MSModelObject *)arg1 withSharedObject:(id)arg2;
 - (unsigned long long)numberOfSharedObjects;

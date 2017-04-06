@@ -10,6 +10,10 @@
 {
 }
 
+- (void)refreshNoiseIntensityTouchBarSlider;
+- (void)adjustNoiseIntensity:(id)arg1;
+- (id)makeTouchBarItemForIdentifier:(id)arg1;
+- (id)customTouchBarItemIdentifiers;
 - (BOOL)hasPresetPickers;
 - (void)refreshAction:(id)arg1;
 - (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;

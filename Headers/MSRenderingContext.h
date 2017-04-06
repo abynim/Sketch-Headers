@@ -96,6 +96,10 @@
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (void).cxx_destruct;
+- (void)applyShadow:(id)arg1 withXOffset:(double)arg2 respectFlipped:(BOOL)arg3;
+- (void)applyShadow:(id)arg1 withXOffset:(double)arg2;
+- (void)applyShadow:(id)arg1 respectFlipped:(BOOL)arg2;
+- (void)applyShadow:(id)arg1;
 - (void)applyStrokeColor:(id)arg1;
 - (void)applyFillColor:(id)arg1;
 - (BOOL)shouldSkipDrawingShadow:(id)arg1;

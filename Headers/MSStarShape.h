@@ -16,7 +16,7 @@
 
 - (void)resetPoints;
 - (struct CGRect)boundsForCursorPreview;
-- (id)inspectorViewControllers;
+- (id)inspectorViewControllerNames;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

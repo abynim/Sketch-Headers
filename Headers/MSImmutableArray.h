@@ -14,8 +14,9 @@
 }
 
 - (void).cxx_destruct;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
+- (id)initWithUnarchiver:(id)arg1;
 
 @end
 

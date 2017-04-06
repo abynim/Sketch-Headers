@@ -15,7 +15,6 @@
 }
 
 - (void)resetPoints;
-- (void)performInitEmptyObject;
 - (struct CGRect)boundsForCursorPreview;
 
 // Remaining properties

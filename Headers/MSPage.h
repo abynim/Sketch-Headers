@@ -10,49 +10,41 @@
 #import "MSPage.h"
 #import "MSRootLayer.h"
 
-@class MSArtboardGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSPage : _MSPage <MSCloudExportable, MSRootLayer, MSPage>
 {
     MSArtboardGroup *_currentArtboard;
-    NSArray *_cachedArtboards;
     NSArray *_cachedExportableLayers;
+    NSArray *_cachedArtboards;
 }
 
 + (void)enumerateExportableLayersWithPage:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)page;
-@property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
+@property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSString *primitiveName;
 - (void)setIsLocked:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isLocked;
 - (void)setIsVisible:(BOOL)arg1;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
-- (id)symbols;
+@property(readonly, nonatomic) NSArray *symbols;
 - (struct CGPoint)originForNewArtboard;
 @property(readonly, nonatomic) BOOL hasClickThrough;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (id)allAncestorsOfLayers:(id)arg1;
-- (id)currentVerticalRulerData;
-- (id)currentHorizontalRulerData;
+@property(readonly, nonatomic) MSRulerData *currentVerticalRulerData;
+@property(readonly, nonatomic) MSRulerData *currentHorizontalRulerData;
 - (void)moveLayersToArtboards;
 - (BOOL)canContainLayer:(id)arg1;
-- (id)ancestorsAndSelfOfLayer:(id)arg1 inContainer:(id)arg2;
-- (id)ancestorsAndSelfOfLayer:(id)arg1;
 - (void)rectSizeDidChange:(id)arg1;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 @property(readonly, nonatomic) __weak NSArray *artboards;
-- (void)setCurrentLayout:(id)arg1;
-- (id)currentLayout;
-- (void)setCurrentGrid:(id)arg1;
-- (id)currentGrid;
 - (id)parentRoot;
-- (id)currentRoot;
+@property(readonly, nonatomic) MSLayer<MSRootLayer> *currentRoot;
 - (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
@@ -62,7 +54,7 @@
 - (void)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
 - (void)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 - (void)tryToMoveLayerToArtboard:(id)arg1;
-- (id)exportableLayers;
+@property(readonly, nonatomic) NSArray *exportableLayers;
 @property(readonly, nonatomic) unsigned long long exportableLayersCount;
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;

@@ -54,6 +54,7 @@
 - (void).cxx_destruct;
 - (void)touchBarColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)customTouchBarItemIdentifiers;
 - (id)makeTouchBar;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;

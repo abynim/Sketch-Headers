@@ -6,12 +6,12 @@
 
 #import "MSEventHandler.h"
 
-@class MSSnapperData, MSSymbolMaster, NSMutableDictionary, NSOperationQueue;
+@class MSSnapperData, MSSymbolMasterReference, NSMutableDictionary, NSOperationQueue;
 
 @interface MSInsertSymbolEventHandler : MSEventHandler
 {
     BOOL _isMakingPreview;
-    MSSymbolMaster *_symbol;
+    MSSymbolMasterReference *_symbolReference;
     NSMutableDictionary *_previewImages;
     NSOperationQueue *_renderQueue;
     MSSnapperData *_snapperData;
@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSMutableDictionary *previewImages; // @synthesize previewImages=_previewImages;
 @property(nonatomic) BOOL isMakingPreview; // @synthesize isMakingPreview=_isMakingPreview;
 @property(nonatomic) struct CGPoint mouseLocation; // @synthesize mouseLocation=_mouseLocation;
-@property(retain, nonatomic) MSSymbolMaster *symbol; // @synthesize symbol=_symbol;
+@property(retain, nonatomic) MSSymbolMasterReference *symbolReference; // @synthesize symbolReference=_symbolReference;
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
 - (id)previewImage;
@@ -31,6 +31,7 @@
 - (struct CGRect)rectForInserting;
 - (void)refresh;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)importForeignSymbolIfNecessary:(id)arg1;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)initWithManager:(id)arg1;

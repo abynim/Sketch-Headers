@@ -6,7 +6,7 @@
 
 #import "NSScrubberItemView.h"
 
-@class MSColor, MSGradient, NSImage;
+@class MSColor, MSGradient, MSImageData, NSImage;
 
 @interface MSAssetScrubberItemView : NSScrubberItemView
 {
@@ -14,6 +14,7 @@
     BOOL _isLastInCollection;
     MSColor *_color;
     MSGradient *_gradient;
+    MSImageData *_pattern;
     double _tailPadding;
     NSImage *_cachedPreviewImage;
 }
@@ -22,10 +23,14 @@
 @property(readonly, nonatomic) double tailPadding; // @synthesize tailPadding=_tailPadding;
 @property(readonly, nonatomic) BOOL isLastInCollection; // @synthesize isLastInCollection=_isLastInCollection;
 @property(readonly, nonatomic) BOOL isFirstInCollection; // @synthesize isFirstInCollection=_isFirstInCollection;
+@property(readonly, nonatomic) MSImageData *pattern; // @synthesize pattern=_pattern;
 @property(readonly, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
 @property(readonly, nonatomic) MSColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)patternPreviewImageWithDrawingBounds:(struct CGRect)arg1;
+- (id)gradientPreviewImageWithDrawingBounds:(struct CGRect)arg1;
+- (id)colorPreviewImageWithDrawingBounds:(struct CGRect)arg1;
 - (id)previewImage;
 - (struct CGRect)deviceColorPreviewRectForRect:(struct CGRect)arg1 drawingBorder:(BOOL)arg2;
 - (id)clipPathForRect:(struct CGRect)arg1 cornerRadius:(double)arg2;

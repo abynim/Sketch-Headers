@@ -55,16 +55,15 @@
 - (void)reversePath;
 - (BOOL)editable;
 - (void)resetPoints;
-- (void)removePathsAndReset;
+- (void)setNilValueForKey:(id)arg1;
+- (void)resetPointsBasedOnUserInteraction;
 - (void)applyPropertiesToBezier:(id)arg1;
-- (void)closeLastPath:(BOOL)arg1;
 - (void)performInitEmptyObject;
 - (id)styledLayer;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
-- (void)toggleClosePath;
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;

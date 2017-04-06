@@ -12,6 +12,7 @@
 
 - (id)zoomValueString;
 - (void)zoomValueDidChange;
+- (void)doPerformAction:(id)arg1;
 - (void)zoomModeToggle:(id)arg1;
 - (id)zoomView;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;

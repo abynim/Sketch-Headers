@@ -18,7 +18,7 @@
     NSArray *_addedLayers;
 }
 
-+ (void)importFromURL:(id)arg1 inGroup:(id)arg2 importer:(id)arg3;
++ (void)importFromURL:(id)arg1 inPage:(id)arg2 importer:(id)arg3;
 @property(retain, nonatomic) NSArray *addedLayers; // @synthesize addedLayers=_addedLayers;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) CHProgressSheet *sheet; // @synthesize sheet=_sheet;

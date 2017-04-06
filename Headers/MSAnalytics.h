@@ -15,23 +15,25 @@
 
 @interface MSAnalytics : NSObject <MSActionObserver, WebFrameLoadDelegate, WebResourceLoadDelegate, WebUIDelegate>
 {
-    WebView *_webView;
-    NSString *_siteId;
-    NSMutableArray *_queue;
-    BOOL _webViewReady;
     BOOL _debug;
+    BOOL _webViewReady;
+    WebView *_webView;
+    NSString *_siteID;
+    NSMutableArray *_queue;
 }
 
 + (id)sharedInstance;
+@property(nonatomic) BOOL webViewReady; // @synthesize webViewReady=_webViewReady;
+@property(retain, nonatomic) NSMutableArray *queue; // @synthesize queue=_queue;
+@property(copy, nonatomic) NSString *siteID; // @synthesize siteID=_siteID;
+@property(retain, nonatomic) WebView *webView; // @synthesize webView=_webView;
 @property(nonatomic) BOOL debug; // @synthesize debug=_debug;
 - (void).cxx_destruct;
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
-- (BOOL)currentApplicationIsActive;
 - (void)trackEvent:(id)arg1 withInterval:(long long)arg2 checkInterval:(long long)arg3 conditional:(CDUnknownBlockType)arg4;
 - (void)trackEvent:(id)arg1 withValue:(id)arg2;
-- (void)trackEventWithCategory:(id)arg1 action:(id)arg2 label:(id)arg3 value:(id)arg4;
 - (void)trackScreenWithName:(id)arg1;
 - (id)webView:(id)arg1 resource:(id)arg2 willSendRequest:(id)arg3 redirectResponse:(id)arg4 fromDataSource:(id)arg5;
 - (void)webView:(id)arg1 addMessageToConsole:(id)arg2;
@@ -41,7 +43,7 @@
 - (void)callMethod:(id)arg1 arguments:(id)arg2;
 - (void)reload;
 - (void)setup;
-- (void)configureWithSiteId:(id)arg1;
+- (void)configureWithID:(id)arg1;
 - (id)init;
 
 // Remaining properties

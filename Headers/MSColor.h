@@ -30,7 +30,6 @@
 - (id)HSBColor;
 @property(readonly, copy) NSString *description;
 - (id)NSColorWithColorSpace:(id)arg1;
-- (id)replacementObjectForCoder:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithImmutableObject:(id)arg1;

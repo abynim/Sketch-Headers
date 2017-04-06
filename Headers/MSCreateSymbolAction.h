@@ -11,7 +11,7 @@
 }
 
 - (BOOL)shouldUseImageForTouchBarItem;
-- (BOOL)dynamicTitle;
+- (BOOL)hasDynamicTitle;
 - (id)historyMomentTitle;
 - (id)label;
 - (id)imageName;

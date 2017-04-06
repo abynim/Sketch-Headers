@@ -17,10 +17,10 @@
 + (id)defaultName;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSImage;
-- (void)performInitWithCoder:(id)arg1;
+- (void)performInitWithUnarchiver:(id)arg1;
 - (void)updateColorCounter:(id)arg1;
-- (void)migratePropertiesFromV74OrEarlierWithCoder:(id)arg1;
-- (void)migratePropertiesFromV56OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (id)addNoisePatternLink:(id)arg1;
 - (id)addPatternLink:(id)arg1;

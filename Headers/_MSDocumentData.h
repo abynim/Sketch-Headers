@@ -6,18 +6,16 @@
 
 #import "MSModelObject.h"
 
-@class MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray, NSString;
+@class MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray;
 
 @interface _MSDocumentData : MSModelObject
 {
-    NSString *_cloudShareID;
-    NSString *_cloudShareURL;
-    NSString *_cloudUserID;
     unsigned long long _currentPageIndex;
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
     NSDictionary *_userInfo;
     MSAssetCollection *_assets;
+    NSMutableArray *_foreignSymbols;
     MSSharedStyleContainer *_layerStyles;
     MSSymbolContainer *_layerSymbols;
     MSSharedTextStyleContainer *_layerTextStyles;
@@ -41,6 +39,16 @@
 - (void)insertPage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addPages:(id)arg1;
 - (void)addPage:(id)arg1;
+- (void)replaceAllForeignSymbolsWithForeignSymbols:(id)arg1;
+- (void)moveForeignSymbolIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllForeignSymbols;
+- (void)removeForeignSymbolsAtIndexes:(id)arg1;
+- (void)removeForeignSymbolAtIndex:(unsigned long long)arg1;
+- (void)removeForeignSymbol:(id)arg1;
+- (void)insertForeignSymbol:(id)arg1 afterForeignSymbol:(id)arg2;
+- (void)insertForeignSymbol:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addForeignSymbols:(id)arg1;
+- (void)addForeignSymbol:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
@@ -52,15 +60,14 @@
 - (id)layerSymbolsGeneric;
 @property(retain, nonatomic) MSSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
 - (id)layerStylesGeneric;
+- (void)setForeignSymbols:(id)arg1;
+@property(readonly, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
 - (id)assetsGeneric;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
-@property(retain, nonatomic) NSString *cloudUserID; // @synthesize cloudUserID=_cloudUserID;
-@property(retain, nonatomic) NSString *cloudShareURL; // @synthesize cloudShareURL=_cloudShareURL;
-@property(copy, nonatomic) NSString *cloudShareID; // @synthesize cloudShareID=_cloudShareID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

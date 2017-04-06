@@ -15,10 +15,7 @@
 {
 }
 
-+ (double)zoomValueForRenderingFromContextShadowZoomValue:(double)arg1;
 - (void)updateColorCounter:(id)arg1;
-- (void)applyShadowWithXOffset:(double)arg1 context:(id)arg2;
-- (void)applyShadowToContext:(id)arg1;
 - (double)lineWidthForStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (double)growAmountforStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (void)drawShadowFillAndStrokeForPath:(id)arg1 windingRule:(unsigned long long)arg2 options:(id)arg3 strokeType:(long long)arg4 lineWidth:(double)arg5 context:(struct CGContext *)arg6;

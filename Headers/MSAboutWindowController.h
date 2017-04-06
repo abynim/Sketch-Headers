@@ -37,7 +37,6 @@
 @property(nonatomic) __weak NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
 - (void)unlinkDevice:(id)arg1;
-- (void)refreshAfterLicenseStateChange:(id)arg1;
 - (void)registerLicense:(id)arg1;
 - (void)showRenewLicensePage:(id)arg1;
 - (void)showPurchaseLicensePage:(id)arg1;

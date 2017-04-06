@@ -19,10 +19,8 @@
     NSProgressIndicator *_uploadProgressIndicator;
     NSTextField *_uploadStatusLabel;
     NSTimer *_labelUpdateTimer;
-    void *_kvoContext;
 }
 
-@property(nonatomic) void *kvoContext; // @synthesize kvoContext=_kvoContext;
 @property(retain, nonatomic) NSTimer *labelUpdateTimer; // @synthesize labelUpdateTimer=_labelUpdateTimer;
 @property(retain, nonatomic) NSTextField *uploadStatusLabel; // @synthesize uploadStatusLabel=_uploadStatusLabel;
 @property(retain, nonatomic) NSProgressIndicator *uploadProgressIndicator; // @synthesize uploadProgressIndicator=_uploadProgressIndicator;
@@ -36,10 +34,10 @@
 - (void)updateDescriptionLabel;
 - (void)scheduledLabelUpdateFired:(id)arg1;
 - (void)scheduleLabelUpdate;
-- (id)shareTimeDescription;
 - (void)updateViewSize;
 - (void)updateUploadProgress;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
+- (void)documentCloudShareDidChangeNotification:(id)arg1;
 - (void)setCloudController:(id)arg1;
 - (void)updateViewConstraints;
 - (void)viewWillAppear;

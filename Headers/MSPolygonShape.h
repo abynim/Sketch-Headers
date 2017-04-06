@@ -15,6 +15,7 @@
 }
 
 - (void)resetPoints;
+- (id)inspectorViewControllerNames;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

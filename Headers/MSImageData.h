@@ -6,35 +6,48 @@
 
 #import "NSObject.h"
 
+#import "MSCoding.h"
+#import "MSJSONArchiverAlternativeFileReference.h"
 #import "NSCopying.h"
 
-@class NSData, NSImage;
+@class NSData, NSImage, NSString;
 
-@interface MSImageData : NSObject <NSCopying>
+@interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
 {
     NSData *_data;
     NSData *_sha1;
     NSImage *_image;
 }
 
++ (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSData *sha1; // @synthesize sha1=_sha1;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
+- (void)encodeReferenceInJSONZipArchive:(id)arg1;
+- (id)replacementObjectForJSONEncoder:(id)arg1;
+- (void)encodeAsJSON:(id)arg1;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;
-- (id)replacementObjectForKeyedArchiver:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (void)encodeWithCoder:(id)arg1;
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
+- (id)initWithUnarchiver:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
+- (void)decodeWithUnarchiver:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
 - (id)NSImage;
 - (BOOL)isLegacy;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1 convertColorSpace:(BOOL)arg2;
 - (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

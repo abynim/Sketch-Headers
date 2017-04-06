@@ -7,7 +7,8 @@
 #import "NSDocument.h"
 
 #import "BCSideBarViewControllerDelegate.h"
-#import "MSBasicDelegate.h"
+#import "MSAssetLibraryControllerDelegate.h"
+#import "MSCloudDocument.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSEventHandlerManagerDelegate.h"
 #import "MSSidebarControllerDelegate.h"
@@ -15,9 +16,9 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSCloudShare, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
 
-@interface MSDocument : NSDocument <MSSidebarControllerDelegate, MSEventHandlerManagerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate>
+@interface MSDocument : NSDocument <MSCloudDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
 {
     BOOL _layerListRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
@@ -47,6 +48,7 @@
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonWindowController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
+    MSBadgeController *_badgeController;
     MSLayerArray *_selectedLayers;
     MSContentDrawViewController *_currentContentViewController;
 }
@@ -61,6 +63,7 @@
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(copy, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
+@property(readonly, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
@@ -87,10 +90,11 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
+- (void)refreshWindowBadge;
 - (void)reloadTouchBars;
+- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
 @property(nonatomic) double pageListHeight;
-- (void)resetCloudShare;
-@property(readonly, nonatomic) NSString *publisherFileName;
 - (void)copySVG:(id)arg1;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
@@ -149,8 +153,6 @@
 - (void)removePage:(id)arg1;
 - (void)setCurrentPage:(id)arg1;
 - (id)artboards;
-- (id)grid;
-- (id)document;
 - (void)pasteStyle:(id)arg1;
 - (void)copyStyle:(id)arg1;
 - (void)layoutSettings:(id)arg1;
@@ -168,7 +170,6 @@
 - (id)rootDelegate;
 - (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
-- (void)closePath:(id)arg1;
 - (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -204,8 +205,6 @@
 - (void)onFilterChanged:(id)arg1;
 - (void)toggleSliceInteraction:(id)arg1;
 - (void)toggleLayerInteraction:(id)arg1;
-- (void)toggleLayerHighlight:(id)arg1;
-- (void)toggleSelection:(id)arg1;
 - (void)validateMenuItemTitleAndState:(id)arg1;
 - (BOOL)shouldEnableLocalSharing;
 - (BOOL)hasArtboards;
@@ -260,6 +259,9 @@
 - (void)setDelegatesToNil;
 - (void)createActions;
 - (id)init;
+@property(retain, nonatomic) MSCloudShare *cloudShare;
+- (id)cloudDocumentKey;
+@property(readonly, nonatomic) NSString *cloudName;
 - (void)hideMessage:(id)arg1;
 - (void)hideMessage;
 - (id)shadowViewForContentView:(id)arg1 cornerRadius:(double)arg2;
@@ -275,6 +277,7 @@
 - (void)saveArtboardOrSlice:(id)arg1 toFile:(id)arg2;
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
 - (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
+- (id)pluginContext;
 - (void)warnAboutOldVersion;
 - (BOOL)askToOpenDocumentRepairingMetadata;
 - (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
@@ -284,11 +287,8 @@
 - (id)bitmapLayerWithImageAtURL:(id)arg1;
 - (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
 - (void)migrateUIMetadataWithDocumentData:(id)arg1;
-- (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 wasMigrated:(BOOL)arg3 corruptionDetected:(char *)arg4 error:(id *)arg5;
-- (BOOL)processValidationCode:(unsigned long long)arg1 wrapper:(id)arg2 missingFonts:(id)arg3 error:(id *)arg4;
-- (id)migrateWithXPCFromURL:(id)arg1 error:(id *)arg2;
-- (BOOL)validateWrapperWithXPC:(id)arg1 error:(id *)arg2;
-- (BOOL)validateLocallyWithWrapper:(id)arg1 error:(id *)arg2;
+- (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+- (BOOL)validateDocument:(id)arg1 error:(id *)arg2;
 - (BOOL)readDocumentFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (BOOL)revertToContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (BOOL)readEPSFromURL:(id)arg1 error:(id *)arg2;
@@ -296,6 +296,7 @@
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
+- (id)generatePreviewForDocument:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

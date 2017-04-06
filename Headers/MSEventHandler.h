@@ -67,17 +67,17 @@
 - (unsigned long long)inspectorLocation;
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
-- (struct CGPoint)centerPointForZooming;
 - (void)visitArtboardForInstance:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
+- (void)mouseEntered:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (BOOL)handlesHandToolItself;
 - (struct CGRect)rulerGuidesRectAroundMouse:(struct CGPoint)arg1;
 - (id)horizontalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (id)verticalRulerGuidesForGridAlign:(struct CGPoint)arg1;
-- (struct CGPoint)alignMouseToGrid:(struct CGPoint)arg1;
+- (struct CGPoint)alignPointToGrid:(struct CGPoint)arg1;
 - (void)currentPageDidChange;
 - (void)layerRulerOriginChanged;
 - (void)selectionDidChangeTo:(id)arg1;
@@ -95,7 +95,6 @@
 - (id)toolbarIdentifier;
 - (BOOL)shouldDrawLayerSelection;
 - (id)selectedLayers;
-- (struct CGRect)selectedRect;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (id)defaultCursor;
@@ -132,6 +131,9 @@
 - (id)menuForEvent:(id)arg1;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)returnToDefaultHandler;
+- (struct CGPoint)centerPointForZooming;
+- (struct CGRect)selectedRect;
+- (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)commitPendingEdits;
 - (void)didMoveThroughHistory:(id)arg1;

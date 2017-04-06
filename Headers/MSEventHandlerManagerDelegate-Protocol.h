@@ -6,7 +6,9 @@
 
 #import "MSBasicDelegate.h"
 
+@class MSEventHandler, MSEventHandlerManager;
+
 @protocol MSEventHandlerManagerDelegate <MSBasicDelegate>
-- (void)currentHandlerChanged;
+- (void)eventHandlerManager:(MSEventHandlerManager *)arg1 didChangeCurrentHandler:(MSEventHandler *)arg2;
 @end
 

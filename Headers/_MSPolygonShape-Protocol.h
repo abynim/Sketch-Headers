@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCustomShapeLayer.h"
+#import "MSShapePathLayer.h"
 
-@protocol _MSPolygonShape <MSCustomShapeLayer>
+@protocol _MSPolygonShape <MSShapePathLayer>
 @property(readonly, nonatomic) long long numberOfPoints;
 @end
 

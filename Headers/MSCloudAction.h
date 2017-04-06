@@ -27,7 +27,7 @@
 - (void)setProgressImageAt:(double)arg1;
 - (void)setRegularImage;
 - (void)uploadingDidChange:(BOOL)arg1;
-- (void)cloudUploadDidFailNotification:(id)arg1;
+- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)label;
 - (id)image;

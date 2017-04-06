@@ -26,7 +26,7 @@
 - (id)firstPhaseSubtitle;
 - (void)finishImporting;
 - (id)importAsLayer;
-- (void)importIntoGroup:(id)arg1 name:(id)arg2 progress:(CDUnknownBlockType)arg3;
+- (void)importIntoPage:(id)arg1 name:(id)arg2 progress:(CDUnknownBlockType)arg3;
 - (unsigned long long)prepareToImportFromData:(id)arg1;
 - (unsigned long long)prepareToImportFromURL:(id)arg1;
 

@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
+#import "MSCloudShareUploadControllerDelegate.h"
+
 @class MSCloudShare, MSCloudShareAPI, MSCloudShareUploadController, MSDocument, NSString;
 
-@interface MSCloudController : NSObject
+@interface MSCloudController : NSObject <MSCloudShareUploadControllerDelegate>
 {
     MSDocument *_document;
-    MSCloudShare *_share;
     NSString *_password;
     MSCloudShareAPI *_api;
     double _uploadProgress;
@@ -31,9 +32,12 @@
 @property(nonatomic) double uploadProgress; // @synthesize uploadProgress=_uploadProgress;
 @property(retain, nonatomic) MSCloudShareAPI *api; // @synthesize api=_api;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
-@property(retain, nonatomic) MSCloudShare *share; // @synthesize share=_share;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (void)cloudShareController:(id)arg1 willUploadShareAsNew:(BOOL)arg2;
+- (void)cloudShareController:(id)arg1 didChangeProgress:(double)arg2;
+- (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
+- (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
 - (void)presentDocumentDidProcessNotification;
 - (void)checkShareProcessStatusAfterDelay:(double)arg1;
 - (void)cancelUpload;
@@ -44,11 +48,18 @@
 @property(readonly, nonatomic) BOOL uploadedByCurrentUser;
 @property(readonly, nonatomic) BOOL uploaded;
 - (void)resetCloudShare;
+@property(readonly, nonatomic) MSCloudShare *share;
 @property(readonly, nonatomic) BOOL canUpload;
 - (void)userDidChangeNotification:(id)arg1;
 - (void)updateUserAccount;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

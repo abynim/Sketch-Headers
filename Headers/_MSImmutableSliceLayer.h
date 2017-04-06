@@ -6,7 +6,7 @@
 
 #import "MSImmutableLayer.h"
 
-@class MSImmutableColor;
+@class MSImmutableColor, MSImmutableColor<MSColor>;
 
 @interface _MSImmutableSliceLayer : MSImmutableLayer
 {
@@ -15,7 +15,7 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(retain, nonatomic) MSImmutableColor<MSColor> *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
@@ -23,7 +23,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)decodePropertiesWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

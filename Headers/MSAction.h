@@ -9,7 +9,7 @@
 #import "MSPopToolbarItemActionObject.h"
 #import "NSMenuDelegate.h"
 
-@class MSActionController, NSString, NSToolbarItem;
+@class MSActionController, NSAttributedString, NSImage, NSString, NSToolbarItem;
 
 @interface MSAction : NSResponder <NSMenuDelegate, MSPopToolbarItemActionObject>
 {
@@ -20,32 +20,29 @@
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak MSActionController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
-- (BOOL)isActive;
-- (BOOL)showInToolbar;
-- (id)image;
+@property(readonly, nonatomic) BOOL isActive;
 - (BOOL)toolbarItemShouldDrawWithArrow:(id)arg1;
-- (BOOL)hasSubMenu;
+@property(readonly, nonatomic) BOOL hasSubMenu;
 - (id)submenuActionIDs;
 - (BOOL)containsActionWithID:(id)arg1;
-- (BOOL)validate;
-- (id)tooltip;
-- (unsigned short)shortcutCharacter;
-- (id)label;
-- (id)imageName;
+@property(readonly, nonatomic) BOOL validate;
+@property(readonly, nonatomic) unsigned short shortcutCharacter;
+@property(readonly, nonatomic) NSString *label;
+@property(readonly, nonatomic) NSImage *image;
+@property(readonly, nonatomic) NSString *imageName;
 - (void)doPerformAction:(id)arg1;
+- (id)cleanName;
 - (void)performAction:(id)arg1;
 - (id)contextForActionObservers;
-- (SEL)selector;
-- (id)cleanName;
-- (BOOL)dynamicTitle;
-- (BOOL)isSelectable;
-- (id)toolbarLabel;
+@property(readonly, nonatomic) BOOL hasDynamicTitle;
+@property(readonly, nonatomic) NSAttributedString *badgeTitle;
+@property(readonly, nonatomic) NSString *tooltip;
+@property(readonly, nonatomic) BOOL showInToolbar;
 - (id)imageForToolbarCustomisationSheet;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (BOOL)validateToolbarItem:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
-- (BOOL)dynamicallyChangeTitleForItem:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)menuItem;
 - (id)menuItemForMenu:(id)arg1;

@@ -11,11 +11,13 @@
     struct CGPoint _location;
     BOOL _receivedMouseDown;
     BOOL _beginsUponMouseDown;
+    BOOL _lockTranslation;
     unsigned long long _modifierFlags;
     struct CGPoint _translation;
 }
 
 @property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
+@property(nonatomic) BOOL lockTranslation; // @synthesize lockTranslation=_lockTranslation;
 @property(nonatomic) struct CGPoint translation; // @synthesize translation=_translation;
 @property(nonatomic) BOOL beginsUponMouseDown; // @synthesize beginsUponMouseDown=_beginsUponMouseDown;
 - (void)flagsChanged:(id)arg1;

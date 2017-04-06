@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validate;
+- (void)doPerformAction:(id)arg1;
 - (void)showBorderOptions:(id)arg1;
 
 @end

@@ -8,12 +8,12 @@
 
 #import "SMKMirrorDataSource.h"
 
-@class MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorConnectionsController;
+@class MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorServerController;
 
 @interface MSMirrorDataProvider : NSObject <SMKMirrorDataSource>
 {
     BOOL _isAlreadyComparing;
-    SMKMirrorConnectionsController *_connectionController;
+    SMKMirrorServerController *_connectionController;
     id _currentDocumentID;
     id _currentArtboardID;
     MSImmutableDocumentData *_lastImmutableDoc;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) MSImmutableDocumentData *lastImmutableDoc; // @synthesize lastImmutableDoc=_lastImmutableDoc;
 @property(copy, nonatomic) id currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
 @property(copy, nonatomic) id currentDocumentID; // @synthesize currentDocumentID=_currentDocumentID;
-@property(nonatomic) __weak SMKMirrorConnectionsController *connectionController; // @synthesize connectionController=_connectionController;
+@property(nonatomic) __weak SMKMirrorServerController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
 - (id)document;
 - (id)currentArtboard;
@@ -37,7 +37,7 @@
 - (void)currentDocumentDidChange;
 - (void)currentArtboardDidChange;
 - (id)imageData:(id)arg1 dataByInsertingBackgroundColor:(id)arg2;
-- (void)renderImageForArtboardIdentifier:(id)arg1 inRect:(struct CGRect)arg2 scale:(double)arg3 context:(id)arg4 handler:(CDUnknownBlockType)arg5;
+- (void)renderExportForRequest:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly) BOOL shouldScrollToSelectedArtboard;
 @property(readonly) NSDictionary *manifestContent;
 @property(readonly) NSString *currentArtboardIdentifier;

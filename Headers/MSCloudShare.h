@@ -6,27 +6,35 @@
 
 #import "NSObject.h"
 
-@class NSDate, NSString, NSURL;
+@class NSDate, NSDictionary, NSString, NSURL;
 
 @interface MSCloudShare : NSObject
 {
+    BOOL _commentsEnabled;
+    BOOL _isPrivate;
     NSString *_identifier;
-    NSDate *_createdAt;
+    NSString *_userIdentifier;
     NSString *_name;
     NSURL *_publicURL;
-    NSDate *_updatedAt;
+    NSDate *_creationDate;
+    NSDate *_updatedDate;
 }
 
-@property(retain, nonatomic) NSDate *updatedAt; // @synthesize updatedAt=_updatedAt;
+@property(readonly, nonatomic) BOOL isPrivate; // @synthesize isPrivate=_isPrivate;
+@property(readonly, nonatomic) BOOL commentsEnabled; // @synthesize commentsEnabled=_commentsEnabled;
+@property(retain, nonatomic) NSDate *updatedDate; // @synthesize updatedDate=_updatedDate;
+@property(retain, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSDate *createdAt; // @synthesize createdAt=_createdAt;
+@property(retain, nonatomic) NSString *userIdentifier; // @synthesize userIdentifier=_userIdentifier;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *localizedUpdatedTimeComponentsString;
 - (void)applyDictionary:(id)arg1;
-- (id)initWithIdentifier:(id)arg1 publicURL:(id)arg2;
+- (id)dateFormatter;
+@property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 
 @end

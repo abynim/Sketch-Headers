@@ -6,38 +6,39 @@
 
 #import "MSEventHandler.h"
 
+@class MSDragGestureRecognizer, NSCursor;
+
 @interface MSDragRectEventHandler : MSEventHandler
 {
-    BOOL _handToolActive;
-    struct CGPoint _fromPoint;
-    struct CGPoint _toPoint;
+    MSDragGestureRecognizer *_dragGestureRecognizer;
+    NSCursor *_cursor;
+    struct CGRect _insertionRect;
 }
 
-@property(nonatomic) BOOL handToolActive; // @synthesize handToolActive=_handToolActive;
-@property(nonatomic) struct CGPoint toPoint; // @synthesize toPoint=_toPoint;
-@property(nonatomic) struct CGPoint fromPoint; // @synthesize fromPoint=_fromPoint;
+@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
+@property(readonly, nonatomic) MSDragGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
+@property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
+- (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (BOOL)shouldHideExportBar;
-- (BOOL)shouldDrawLayerSelection;
-- (void)flagsChanged:(id)arg1;
+- (void)cursorUpdate:(id)arg1;
 - (id)layerSnapper;
+- (BOOL)shouldDrawLayerSelection;
 - (void)prepareGraphicsContext;
 - (void)drawRectPreview;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (id)currentGroup;
 - (BOOL)handlesHandToolItself;
-- (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
-- (void)refresh;
-- (struct CGRect)rectForInserting;
-- (id)performActionWithRect:(struct CGRect)arg1;
-- (struct CGPoint)alignMouseToGrid:(struct CGPoint)arg1;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
+- (void)handleDrag:(id)arg1;
+- (struct CGRect)drawingRectForInsertionRect:(struct CGRect)arg1;
+- (struct CGPoint)makeDiagonalTranslation:(struct CGPoint)arg1;
+- (struct CGRect)calculateInsertionRect:(id)arg1 inLayer:(id)arg2;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
+- (id)initWithManager:(id)arg1;
 
 @end
 

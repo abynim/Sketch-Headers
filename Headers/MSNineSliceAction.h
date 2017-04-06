@@ -11,7 +11,7 @@
 }
 
 - (id)label;
-- (BOOL)dynamicTitle;
+- (BOOL)hasDynamicTitle;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)nineSlice:(id)arg1;

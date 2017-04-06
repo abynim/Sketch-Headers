@@ -23,6 +23,7 @@
 + (id)stringSuffixForPlatform:(long long)arg1;
 + (void)setCurrentPlatform:(long long)arg1;
 + (long long)currentPlatform;
++ (long long)platformForString:(id)arg1;
 @property(nonatomic) long long reachabilityListenerCount; // @synthesize reachabilityListenerCount=_reachabilityListenerCount;
 @property(readonly, nonatomic) struct __SCNetworkReachability *reachabilityRef; // @synthesize reachabilityRef=_reachabilityRef;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
@@ -38,9 +39,11 @@
 - (void)saveAuthValue:(id)arg1 forKey:(id)arg2;
 - (id)alertForError:(id)arg1;
 @property(readonly, nonatomic) NSString *authToken;
+- (void)setCredential:(id)arg1 forOtherPlatform:(long long)arg2;
 @property(readonly, nonatomic) NSString *userID;
 - (void)clearCredentials;
 @property(retain, nonatomic) NSURLCredential *credential; // @synthesize credential=_credential;
+- (id)protectionSpaceForPlatform:(long long)arg1;
 - (void)credentialDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) BOOL isLoggedIn;
 - (void)logout;
@@ -50,11 +53,12 @@
 - (id)migratedUserFromDefaults;
 - (id)userFromDefaults;
 - (id)hmacsha1:(id)arg1 key:(id)arg2;
-- (id)signingForRequest:(id)arg1 authToken:(id)arg2;
-- (id)signToken;
-- (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 parameters:(id)arg3 authToken:(id)arg4;
+- (id)signingForRequest:(id)arg1 platform:(long long)arg2 authToken:(id)arg3;
+- (id)signTokenForPlatform:(long long)arg1;
+- (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 parameters:(id)arg3 platform:(long long)arg4 authToken:(id)arg5;
+- (id)urlRequestWithMethod:(id)arg1 url:(id)arg2 authToken:(id)arg3;
 - (void)processAPIRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)platformDidChangeNotification:(id)arg1;
+- (void)currentPlatformWillChangeNotification:(id)arg1;
 - (id)URLWithEndpoint:(id)arg1;
 @property(readonly) NSURL *baseURL;
 - (void)dealloc;

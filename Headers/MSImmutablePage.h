@@ -13,23 +13,20 @@
 
 @interface MSImmutablePage : _MSImmutablePage <MSPage, MSImmutableRootLayer>
 {
-    NSArray *_cachedArtboards;
 }
 
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
-- (void).cxx_destruct;
-- (id)symbols;
-@property(readonly, nonatomic) __weak NSArray *artboards;
+@property(readonly, nonatomic) NSArray *symbols;
+@property(readonly, nonatomic) NSArray *artboards;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (id)initWithMutableModelObject:(id)arg1;
+- (id)archiveReferenceIdentifier_bc;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (BOOL)exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
-- (void)migratePropertiesFromV79OrEarlierWithCoder:(id)arg1;
+- (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;

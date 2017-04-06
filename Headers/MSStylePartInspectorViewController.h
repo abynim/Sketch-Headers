@@ -42,6 +42,7 @@
 - (void)updateColorInActiveInspector;
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
+- (void)closePopover;
 - (void)previewCellAction:(id)arg1;
 - (void)dealloc;
 - (void)awakeFromNib;

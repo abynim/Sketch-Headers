@@ -22,7 +22,6 @@
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (void)documentDidGetFocus;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performAction:(id)arg1;

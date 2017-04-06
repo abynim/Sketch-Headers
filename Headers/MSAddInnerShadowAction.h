@@ -10,6 +10,7 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
 - (void)addInnerShadow:(id)arg1;
 
 @end

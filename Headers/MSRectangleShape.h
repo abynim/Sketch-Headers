@@ -19,11 +19,11 @@
 - (BOOL)shouldDrawLayerSelection;
 - (void)resetPointsBasedOnUserInteraction;
 - (void)resetPointsIfNecessary;
-- (void)removePathsAndReset;
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;
 - (void)resetPoints;
 - (id)bezierPathForCursorPreview;
+- (id)inspectorViewControllerNames;
 - (void)didChangeValues;
 - (void)willChangeValues;
 - (double)floatFromNumbers:(id)arg1 atIndex:(unsigned long long)arg2;

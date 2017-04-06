@@ -16,7 +16,6 @@
 - (id)exitToNormalEventHandler;
 - (id)insertShape:(id)arg1;
 - (id)prototypeLayer;
-- (id)shapeForInsertion;
 - (void)doPerformAction:(id)arg1;
 - (id)tooltip;
 - (BOOL)isSelectable;

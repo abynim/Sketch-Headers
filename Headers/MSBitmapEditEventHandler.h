@@ -38,7 +38,6 @@
 - (id)magicWandCursorRemove;
 - (id)magicWandCursorAdd;
 - (id)magicWandCursor;
-- (struct CGPoint)centerPointForZooming;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)makeNewBackupImage;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;

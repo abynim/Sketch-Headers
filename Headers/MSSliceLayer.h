@@ -6,12 +6,11 @@
 
 #import "_MSSliceLayer.h"
 
-#import "MSLayerWithBackgroundColour.h"
 #import "MSSliceLayer.h"
 
 @class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColour, MSSliceLayer>
+@interface MSSliceLayer : _MSSliceLayer <MSSliceLayer>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -39,7 +38,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
 @property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(nonatomic) BOOL hasBackgroundColor;
+@property(readonly, nonatomic) BOOL hasBackgroundColor;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;

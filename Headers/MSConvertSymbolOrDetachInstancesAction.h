@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)dynamicTitle;
+- (BOOL)hasDynamicTitle;
 - (void)convertSymbolMastersToArtboards:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)containsSymbolMasters:(id)arg1;

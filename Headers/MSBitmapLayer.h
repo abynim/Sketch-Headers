@@ -15,7 +15,12 @@
 }
 
 + (unsigned long long)traits;
-+ (Class)overrideViewControllerClass;
++ (id)showImageReductionWarningForWindow:(id)arg1 fileSizeDifference:(unsigned long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (id)showWaitingSheetForWindow:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
++ (id)showUnableToReduceAlert:(id)arg1;
++ (void)setResizedData:(id)arg1 originalData:(id)arg2 forLayers:(id)arg3;
++ (id)largestSizeForImagesMapTableFromLayers:(id)arg1;
++ (void)reduceSizeOfImageLayers:(id)arg1 windowForSheet:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (unsigned long long)scalingFactorForFilename:(id)arg1;
 + (struct CGSize)bestSizeAccountingForPixelDensityOfImage:(id)arg1;
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
@@ -33,10 +38,11 @@
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
+- (Class)overrideViewControllerClass;
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
-- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (void)applyOverridesFromSource:(id)arg1;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties

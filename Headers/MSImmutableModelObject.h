@@ -6,12 +6,12 @@
 
 #import "MSModelObjectCommon.h"
 
+#import "MSCoding.h"
 #import "MSModelObject.h"
-#import "NSCoding.h"
 
 @class NSArray, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSImmutableModelObject : MSModelObjectCommon <NSCoding, MSModelObject>
+@interface MSImmutableModelObject : MSModelObjectCommon <MSModelObject, MSCoding>
 {
 }
 
@@ -20,13 +20,17 @@
 - (id)migrationsInList:(SEL *)arg1;
 - (SEL *)migrationListForClass:(Class)arg1;
 - (SEL *)allocateMigrationListForClass:(Class)arg1;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)decodePropertiesUsingMigrationWithCoder:(id)arg1;
-- (void)performMigrationsWithCoder:(id)arg1;
-- (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 block:(CDUnknownBlockType)arg3;
-- (void)performInitWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)performMigrationsWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
+- (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 toVersion:(long long)arg3 block:(CDUnknownBlockType)arg4;
+- (void)performInitWithUnarchiver:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
+- (id)initWithUnarchiver:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1 decodeBlock:(CDUnknownBlockType)arg2;
+- (id)replacementObjectForJSONEncoder:(id)arg1;
+- (void)encodeAsJSON:(id)arg1;
 - (void)encodeObjectIDWithCoder:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
@@ -40,6 +44,7 @@
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 
 // Remaining properties
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

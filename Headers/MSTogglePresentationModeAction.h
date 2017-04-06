@@ -24,6 +24,7 @@
 - (void)documentWillClose;
 - (unsigned long long)fullscreenPresentationOptions:(unsigned long long)arg1;
 - (void)hideUIForPresentationMode;
+- (void)doPerformAction:(id)arg1;
 - (void)togglePresentationMode:(id)arg1;
 - (BOOL)isFullscreen;
 - (BOOL)validateMenuItem:(id)arg1;

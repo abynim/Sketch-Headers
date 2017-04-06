@@ -6,29 +6,47 @@
 
 #import "NSControl.h"
 
-@class CALayer;
+@class NSTimer;
 
 @interface MSRotationBar : NSControl
 {
+    BOOL _currentlyTrackingTouch;
+    BOOL _didSnapRotation;
     double _rotation;
+    double _currentX;
+    double _lastTouchTime;
     double _startingRotation;
     double _startingX;
-    CALayer *_dialLayer;
+    NSTimer *_inertialTimer;
+    double _inertialSpeed;
 }
 
-@property(retain, nonatomic) CALayer *dialLayer; // @synthesize dialLayer=_dialLayer;
++ (BOOL)shouldContinueInertialScrollingAtSpeed:(double)arg1;
+@property(nonatomic) double inertialSpeed; // @synthesize inertialSpeed=_inertialSpeed;
+@property(retain, nonatomic) NSTimer *inertialTimer; // @synthesize inertialTimer=_inertialTimer;
 @property(nonatomic) double startingX; // @synthesize startingX=_startingX;
 @property(nonatomic) double startingRotation; // @synthesize startingRotation=_startingRotation;
+@property(nonatomic) double lastTouchTime; // @synthesize lastTouchTime=_lastTouchTime;
+@property(nonatomic) BOOL didSnapRotation; // @synthesize didSnapRotation=_didSnapRotation;
+@property(nonatomic) double currentX; // @synthesize currentX=_currentX;
+@property(nonatomic) BOOL currentlyTrackingTouch; // @synthesize currentlyTrackingTouch=_currentlyTrackingTouch;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 - (void).cxx_destruct;
-- (void)drawInContext:(struct CGContext *)arg1 size:(double)arg2;
-- (void)drawMarkerInContext:(struct CGContext *)arg1 size:(double)arg2 origin:(struct CGPoint)arg3;
-- (void)updateLayer;
-- (void)rotateLayerToDegrees:(double)arg1;
-- (BOOL)wantsUpdateLayer;
-- (BOOL)acceptsTouchEvents;
+- (void)drawRect:(struct CGRect)arg1;
+- (BOOL)isFlipped;
+- (void)endInertialScrolling;
+- (void)inertialScrollingTimerDidFire:(id)arg1;
+- (void)startInertialScrollingAtSpeed:(double)arg1;
+- (void)liveUpdateRotation;
 - (void)panGestureAction:(id)arg1;
+- (void)resetTouchToX:(double)arg1;
+- (void)stopTrackingTouch;
+- (void)failTouchTracking;
+- (void)updateTouchTracking:(id)arg1;
+- (void)startTrackingTouch:(id)arg1;
+- (void)setUpGestureRecognizer;
 - (unsigned long long)allowedTouchTypes;
+- (BOOL)acceptsTouchEvents;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

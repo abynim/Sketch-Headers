@@ -30,6 +30,7 @@
 - (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
 - (id)apiURL;
 - (id)websiteAvailableVersionsURL;
+- (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
 - (id)currentVersion;
 - (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
@@ -56,6 +57,7 @@
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;
+@property(readonly, nonatomic) BOOL canUseCloud;
 
 @end
 

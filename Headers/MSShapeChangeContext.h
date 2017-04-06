@@ -26,7 +26,7 @@
 - (void)setLocation:(struct CGPoint)arg1 ofHandleAtIndexPath:(id)arg2;
 - (struct CGPoint)locationOfHandleAtIndexPath:(id)arg1 inLayer:(id)arg2;
 - (id)curvePointAtIndexPath:(id)arg1;
-@property(readonly, nonatomic) NSArray *curvePoints;
+- (void)enumerateCurvePointsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *orderedHandleIndexPaths;
 - (id)initWithLayers:(id)arg1 handleIndexPaths:(id)arg2;
 

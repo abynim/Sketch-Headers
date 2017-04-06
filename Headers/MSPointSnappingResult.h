@@ -14,18 +14,16 @@
 {
     NSArray *_guides;
     unsigned long long _snappedAxes;
-    NSArray *_snappedHandles;
     struct CGPoint _point;
 }
 
-@property(readonly, copy, nonatomic) NSArray *snappedHandles; // @synthesize snappedHandles=_snappedHandles;
 @property(readonly, nonatomic) unsigned long long snappedAxes; // @synthesize snappedAxes=_snappedAxes;
 @property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawAtZoomValue:(double)arg1;
-- (id)initWithPoint:(struct CGPoint)arg1 guides:(id)arg2 snappedAxes:(unsigned long long)arg3 indexPaths:(id)arg4;
+- (id)initWithPoint:(struct CGPoint)arg1 guides:(id)arg2 snappedAxes:(unsigned long long)arg3;
 
 @end
 

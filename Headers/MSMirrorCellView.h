@@ -6,20 +6,22 @@
 
 #import "NSTableCellView.h"
 
-@class NSImageView, NSTextField, SMKPeerConnectionInfo;
+@class NSImageView, NSProgressIndicator, NSTextField, SMKMirrorClient;
 
 @interface MSMirrorCellView : NSTableCellView
 {
-    SMKPeerConnectionInfo *_info;
+    SMKMirrorClient *_client;
     NSTextField *_nameLabel;
     NSImageView *_deviceImageView;
     NSImageView *_statusImageView;
+    NSProgressIndicator *_connectingProgressIndicator;
 }
 
+@property(retain, nonatomic) NSProgressIndicator *connectingProgressIndicator; // @synthesize connectingProgressIndicator=_connectingProgressIndicator;
 @property(retain, nonatomic) NSImageView *statusImageView; // @synthesize statusImageView=_statusImageView;
 @property(retain, nonatomic) NSImageView *deviceImageView; // @synthesize deviceImageView=_deviceImageView;
 @property(retain, nonatomic) NSTextField *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(nonatomic) __weak SMKPeerConnectionInfo *info; // @synthesize info=_info;
+@property(nonatomic) __weak SMKMirrorClient *client; // @synthesize client=_client;
 - (void).cxx_destruct;
 
 @end

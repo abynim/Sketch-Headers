@@ -26,8 +26,8 @@
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
 + (id)defaultName;
 + (unsigned long long)traits;
-+ (Class)overrideViewControllerClass;
 + (id)keyPathsForValuesAffectingUserVisibleRotation;
++ (double)userVisibleRotationForRotation:(double)arg1;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
@@ -110,6 +110,7 @@
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isExpanded;
+- (void)changeAncestorsExpandedTypeToAutomaticIfCollapsed;
 @property(nonatomic) BOOL isSelected;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
@@ -138,14 +139,13 @@
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
 - (long long)cornerRectType;
+- (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
-- (id)objectIDsForSelfAncestorsAndChildren;
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
-- (void)toggleClosePath;
 - (void)layerDidResizeFromInspector;
 @property(nonatomic) double userVisibleRotation;
 - (id)inspectorViewControllers;
@@ -216,6 +216,7 @@
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
 - (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
+- (void)applyOverridesFromSource:(id)arg1;
 - (id)parentRootForAbsoluteRect;
 - (void)removeAllLayers;
 - (void)removeLayerAtIndex:(unsigned long long)arg1;
