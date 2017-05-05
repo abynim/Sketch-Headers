@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class MSImmutablePage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutablePage, NSArray, NSDictionary;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -67,21 +67,7 @@
 - (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
-@property(readonly, nonatomic) unsigned long long currentPageIndex;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL enableLayerInteraction;
-@property(readonly, nonatomic) BOOL enableSliceInteraction;
-@property(readonly, nonatomic) NSArray *foreignSymbols;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
-@property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
-@property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) NSArray *pages;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

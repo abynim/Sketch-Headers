@@ -13,7 +13,7 @@
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
 
-@class MSAbsoluteRect, MSStyledLayer, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSString;
+@class MSAbsoluteRect, MSStyledLayer, NSDictionary, NSMenu, NSSet, NSString;
 
 @interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
 {
@@ -102,6 +102,7 @@
 - (BOOL)hasSelectionHandleAtPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
+- (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
@@ -114,7 +115,7 @@
 @property(nonatomic) BOOL isSelected;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
-- (BOOL)containsSelectedItem;
+- (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
 - (void)layerDidResize;
 - (void)layerWillResize;
@@ -217,7 +218,27 @@
 - (BOOL)hasClippingMask;
 - (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 - (void)applyOverridesFromSource:(id)arg1;
+- (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
+@property(nonatomic) BOOL hasFixedEdges;
+- (void)setFixed:(BOOL)arg1 forEdge:(unsigned long long)arg2;
+@property(nonatomic) BOOL hasFixedHeight;
+@property(nonatomic) BOOL hasFixedWidth;
+@property(nonatomic) BOOL hasFixedBottom;
+@property(nonatomic) BOOL hasFixedTop;
+@property(nonatomic) BOOL hasFixedRight;
+@property(nonatomic) BOOL hasFixedLeft;
+- (BOOL)hasFixedEdge:(unsigned long long)arg1;
+@property(readonly, nonatomic) BOOL canFixHeight;
+@property(readonly, nonatomic) BOOL canFixWidth;
+@property(readonly, nonatomic) BOOL canFixBottom;
+@property(readonly, nonatomic) BOOL canFixTop;
+@property(readonly, nonatomic) BOOL canFixRight;
+@property(readonly, nonatomic) BOOL canFixLeft;
+- (id)resizingConstraintKeys;
 - (id)parentRootForAbsoluteRect;
+- (void)replaceFonts:(id)arg1;
+@property(readonly, nonatomic) NSSet *unavailableFontNames;
+@property(readonly, nonatomic) NSSet *fontNames;
 - (void)removeAllLayers;
 - (void)removeLayerAtIndex:(unsigned long long)arg1;
 - (void)removeLayer:(id)arg1;
@@ -236,23 +257,11 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric; // @dynamic exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric; // @dynamic frameGeneric;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

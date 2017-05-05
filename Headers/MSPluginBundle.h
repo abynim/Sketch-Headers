@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, NSURL;
+@class MSPluginVersions, NSDictionary, NSString, NSURL;
 
 @interface MSPluginBundle : NSObject
 {
@@ -14,6 +14,7 @@
     BOOL _disableCocoaScriptPreprocessor;
     NSURL *_url;
     NSDictionary *_commands;
+    MSPluginVersions *_versions;
     NSString *_version;
     NSString *_name;
     NSString *_identifier;
@@ -23,6 +24,7 @@
     NSString *_author;
     NSString *_authorEmail;
     NSURL *_manifestURL;
+    NSURL *_appcastURL;
     NSURL *_downloadURL;
     NSString *_compatibleVersion;
 }
@@ -33,6 +35,7 @@
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, copy, nonatomic) NSString *compatibleVersion; // @synthesize compatibleVersion=_compatibleVersion;
 @property(readonly, copy, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
+@property(readonly, copy, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
 @property(readonly, copy, nonatomic) NSURL *manifestURL; // @synthesize manifestURL=_manifestURL;
 @property(readonly, copy, nonatomic) NSString *authorEmail; // @synthesize authorEmail=_authorEmail;
 @property(readonly, copy, nonatomic) NSString *author; // @synthesize author=_author;
@@ -42,6 +45,7 @@
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *version; // @synthesize version=_version;
+@property(retain, nonatomic) MSPluginVersions *versions; // @synthesize versions=_versions;
 @property(readonly, copy, nonatomic) NSDictionary *commands; // @synthesize commands=_commands;
 @property(readonly, copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;

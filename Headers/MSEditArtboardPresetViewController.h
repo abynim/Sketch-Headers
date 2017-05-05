@@ -6,29 +6,34 @@
 
 #import "NSViewController.h"
 
-@class NSButton, NSMutableDictionary, NSObjectController, NSTextField;
+#import "NSTouchBarDelegate.h"
 
-@interface MSEditArtboardPresetViewController : NSViewController
+@class MSArtboardPreset, NSButton, NSString;
+
+@interface MSEditArtboardPresetViewController : NSViewController <NSTouchBarDelegate>
 {
-    BOOL _canCancel;
-    NSMutableDictionary *_preset;
-    NSTextField *_nameField;
+    MSArtboardPreset *_preset;
     id <MSEditArtboardPresetViewControllerDelegate> _delegate;
-    NSObjectController *_presetController;
+    NSButton *_confirmButton;
     NSButton *_cancelButton;
 }
 
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(retain, nonatomic) NSObjectController *presetController; // @synthesize presetController=_presetController;
+@property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak id <MSEditArtboardPresetViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL canCancel; // @synthesize canCancel=_canCancel;
-@property(retain, nonatomic) NSTextField *nameField; // @synthesize nameField=_nameField;
-@property(retain, nonatomic) NSMutableDictionary *preset; // @synthesize preset=_preset;
+@property(retain, nonatomic) MSArtboardPreset *preset; // @synthesize preset=_preset;
 - (void).cxx_destruct;
-- (void)close:(BOOL)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (id)makeTouchBar;
+- (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
-- (void)done:(id)arg1;
-- (id)init;
+- (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

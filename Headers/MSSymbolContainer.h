@@ -6,23 +6,11 @@
 
 #import "_MSSymbolContainer.h"
 
-#import "MSSymbolContainer.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSymbolContainer : _MSSymbolContainer <MSSymbolContainer>
+@interface MSSymbolContainer : _MSSymbolContainer
 {
 }
 
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *objects;
-@property(readonly) Class superclass;
 
 @end
 

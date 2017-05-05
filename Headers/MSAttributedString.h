@@ -13,9 +13,11 @@
 
 @interface MSAttributedString : NSObject <MSCoding, NSCopying>
 {
+    NSSet *_fontNames;
     NSAttributedString *_attributedString;
     NSAttributedString *_encodedAttributedString;
     NSAttributedString *_transformedAttributedString;
+    NSSet *_fontDescriptors;
 }
 
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
@@ -23,16 +25,18 @@
 + (id)encodeAttributedString:(id)arg1;
 + (id)decodeAttributesInDictionary:(id)arg1;
 + (id)encodeAttributesInDictionary:(id)arg1;
+@property(copy, nonatomic) NSSet *fontDescriptors; // @synthesize fontDescriptors=_fontDescriptors;
 @property(retain, nonatomic) NSAttributedString *transformedAttributedString; // @synthesize transformedAttributedString=_transformedAttributedString;
 @property(retain, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
 @property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
+@property(copy, nonatomic) NSSet *fontNames; // @synthesize fontNames=_fontNames;
 - (void).cxx_destruct;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (id)debugDescription;
 - (id)immutableModelObject;
+- (id)attributedStringByReplacingFontNames:(id)arg1;
 @property(readonly, nonatomic) BOOL areRequiredFontsAvailable;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
-@property(readonly, nonatomic) NSSet *fontNames;
 @property(readonly, nonatomic) NSString *string;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -41,6 +45,7 @@
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;
+- (id)initWithEncodedAttributedString:(id)arg1;
 - (id)initWithAttributedString:(id)arg1;
 - (id)treeAsDictionary;
 

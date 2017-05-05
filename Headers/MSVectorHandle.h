@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
+- (struct CGSize)drawingSize;
 - (id)imageName;
 - (void)drawAtProposedPoint:(struct CGPoint *)arg1 inView:(id)arg2;
 

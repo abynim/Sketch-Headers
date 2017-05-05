@@ -12,18 +12,18 @@
 
 @interface MSMultipleBorderInspectorViewController : MSMultipleStylePartInspectorViewController <BCPopoverDelegate>
 {
+    MSBorderOptionsInspectorViewController *_borderOptionsController;
     MSTextLabelForUpDownField *_thicknessLabel;
     NSButton *_addStylePartButton;
     NSButton *_advancedOptionsButton;
-    MSBorderOptionsInspectorViewController *_borderOptionsController;
     BCPopover *_popover;
 }
 
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 @property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
+@property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)views;
@@ -37,7 +37,7 @@
 - (void)showAdvancedOptionsAction:(id)arg1;
 - (void)prepare;
 - (unsigned long long)stylePartType;
-- (id)initWithDelegate:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

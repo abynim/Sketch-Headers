@@ -28,13 +28,9 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-- (id)verticalRulerDataGeneric;
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-- (id)layoutGeneric;
 @property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-- (id)horizontalRulerDataGeneric;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-- (id)gridGeneric;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

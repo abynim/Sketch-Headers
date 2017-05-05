@@ -6,11 +6,7 @@
 
 #import "_MSImmutableStyleBorderOptions.h"
 
-#import "MSStyleBorderOptions.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleBorderOptions : _MSImmutableStyleBorderOptions <MSStyleBorderOptions>
+@interface MSImmutableStyleBorderOptions : _MSImmutableStyleBorderOptions
 {
 }
 
@@ -18,17 +14,6 @@
 @property(readonly, nonatomic) int CGLineJoin;
 @property(readonly, nonatomic) BOOL hasDashPattern;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy, nonatomic) NSArray *dashPattern;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, nonatomic) unsigned long long lineCapStyle;
-@property(readonly, nonatomic) unsigned long long lineJoinStyle;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

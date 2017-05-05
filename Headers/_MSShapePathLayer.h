@@ -26,7 +26,6 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
-- (id)pathGeneric;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;

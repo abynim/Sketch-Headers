@@ -6,27 +6,11 @@
 
 #import "_MSImmutableAssetCollection.h"
 
-#import "MSAssetCollection.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableAssetCollection : _MSImmutableAssetCollection <MSAssetCollection>
+@interface MSImmutableAssetCollection : _MSImmutableAssetCollection
 {
 }
 
 - (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) NSArray *colors;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSArray *exportPresets;
-@property(readonly, nonatomic) NSArray *gradients;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric; // @dynamic imageCollectionGeneric;
-@property(readonly, nonatomic) NSArray *images;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

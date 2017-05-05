@@ -33,10 +33,10 @@
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3 progressTracker:(id)arg4;
-- (void)uploadExportedFiles:(id)arg1 shareData:(id)arg2;
+- (void)queueFilesToUploadForShare:(id)arg1;
 - (void)reportProgress:(id)arg1 stepSize:(double)arg2;
 - (void)createS3ManagerWithCredentials:(id)arg1 bucket:(id)arg2 region:(id)arg3;
-- (void)uploadFilesAfterManifestUploadWithResult:(id)arg1;
+- (void)uploadFilesForShare:(id)arg1;
 - (BOOL)shouldAttemptReuploadAfterError:(id)arg1;
 - (id)loadManifest;
 - (void)uploadManifest;

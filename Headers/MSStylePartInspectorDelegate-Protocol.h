@@ -13,7 +13,6 @@
 @optional
 - (void)reload;
 - (NSArray *)layers;
-- (void)returnToDefaultHandler;
 - (id)switchToEventHandlerWithName:(NSString *)arg1;
 @end
 

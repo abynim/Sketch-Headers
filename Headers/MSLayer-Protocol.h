@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSLayer.h"
+#import "NSObject.h"
 
 @class NSAffineTransform;
 
-@protocol MSLayer <_MSLayer>
+@protocol MSLayer <NSObject>
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) struct CGPoint origin;
@@ -17,6 +17,9 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForFrame;

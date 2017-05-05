@@ -11,6 +11,7 @@
     unsigned long long _masterRefreshCounter;
 }
 
++ (id)keyPathsForValuesAffectingPreviewImages;
 @property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
@@ -24,16 +25,17 @@
 - (id)detachByReplacingWithGroup;
 - (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 visitedSymbols:(id)arg2 symbolInstancesBySymbolID:(id)arg3;
 - (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 symbolInstancesBySymbolID:(id)arg2;
-- (void)enumerateOverrides:(id)arg1 inIndex:(unsigned long long)arg2 ancestors:(id)arg3 block:(CDUnknownBlockType)arg4;
+- (void)enumerateOverrides:(id)arg1 ancestors:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (void)enumerateOverridesInBlock:(CDUnknownBlockType)arg1;
-- (id)overrideForInstanceAtIndex:(unsigned long long)arg1 ancestorIDs:(id)arg2;
+- (id)overrideWithAncestorIDs:(id)arg1;
 - (id)updateOverrides:(id)arg1 withOverrides:(id)arg2 ancestorIDs:(id)arg3;
-- (void)addOverrides:(id)arg1 forCellAtIndex:(unsigned long long)arg2 ancestorIDs:(id)arg3;
+- (void)addOverrides:(id)arg1 ancestorIDs:(id)arg2;
 - (unsigned long long)numberOfVisibleCells;
 - (void)updateOverridesToSymbol:(id)arg1;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolMaster;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 @property(nonatomic) struct BCEdgePaddings symbolMasterEdgePaddings; // @dynamic symbolMasterEdgePaddings;
 - (Class)overrideViewControllerClass;
 - (id)inspectorViewControllerNames;

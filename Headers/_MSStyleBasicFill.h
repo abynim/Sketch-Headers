@@ -27,11 +27,8 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
-- (id)gradientGeneric;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-- (id)contextSettingsGeneric;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
-- (id)colorGeneric;
 @property(nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

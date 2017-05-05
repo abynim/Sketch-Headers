@@ -6,7 +6,7 @@
 
 #import "MSImmutableStylePart.h"
 
-@class MSImmutableColor, MSImmutableColor<MSColor>, MSImmutableGradient, MSImmutableGradient<MSGradient>, MSImmutableGraphicsContextSettings, MSImmutableGraphicsContextSettings<MSGraphicsContextSettings>;
+@class MSImmutableColor, MSImmutableGradient, MSImmutableGraphicsContextSettings;
 
 @interface _MSImmutableStyleBasicFill : MSImmutableStylePart
 {
@@ -17,9 +17,9 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableGradient<MSGradient> *gradient; // @synthesize gradient=_gradient;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings<MSGraphicsContextSettings> *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
+@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
@@ -31,9 +31,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)gradientGeneric;
-- (id)contextSettingsGeneric;
-- (id)colorGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

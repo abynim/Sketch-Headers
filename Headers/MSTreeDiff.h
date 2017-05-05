@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) MSImmutableModelObject *secondObject; // @synthesize secondObject=_secondObject;
 @property(readonly, nonatomic) MSImmutableModelObject *firstObject; // @synthesize firstObject=_firstObject;
 - (void).cxx_destruct;
+- (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (id)description;

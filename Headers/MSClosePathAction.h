@@ -10,12 +10,13 @@
 {
 }
 
+- (void)refreshTouchBarItem;
 - (void)doPerformAction:(id)arg1;
 - (void)closePath:(id)arg1;
 - (id)changeContext;
 - (void)enumerateSelectedPathLayersUsingBlock:(CDUnknownBlockType)arg1;
 - (id)label;
-- (BOOL)dynamicTitle;
+- (BOOL)hasDynamicTitle;
 - (BOOL)validate;
 
 @end

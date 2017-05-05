@@ -6,22 +6,9 @@
 
 #import "_MSSymbol.h"
 
-#import "MSSymbol.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSymbol : _MSSymbol <MSSymbol>
+@interface MSSymbol : _MSSymbol
 {
 }
 
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSModelObjectCommon> valueGeneric;
 @end
 

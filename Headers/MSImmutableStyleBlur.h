@@ -6,11 +6,7 @@
 
 #import "_MSImmutableStyleBlur.h"
 
-#import "MSStyleBlur.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleBlur : _MSImmutableStyleBlur <MSStyleBlur>
+@interface MSImmutableStyleBlur : _MSImmutableStyleBlur
 {
 }
 
@@ -18,18 +14,6 @@
 - (id)renderBitmapEffects:(id)arg1;
 - (BOOL)shouldUseCoreImageForEffect;
 - (void)addFilterWithExporter:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) struct CGPoint center;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, nonatomic) double motionAngle;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double radius;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) unsigned long long type;
 
 @end
 

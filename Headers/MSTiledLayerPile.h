@@ -31,7 +31,7 @@
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 - (void).cxx_destruct;
-- (void)tiledLayerDidRefreshTileContent:(id)arg1;
+- (void)tiledLayerDidRefreshTileContent:(id)arg1 finishTime:(unsigned long long)arg2;
 - (void)tiledLayer:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(id)arg1 didChangeToState:(unsigned long long)arg2;

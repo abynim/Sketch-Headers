@@ -13,8 +13,7 @@
 
 + (id)defaultName;
 + (unsigned long long)traits;
-- (void)decodePropertiesWithUnarchiver:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
+@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
 - (struct BCEdgePaddings)masterInfluenceEdgePadding;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (id)overridesFromGroupForMigration:(id)arg1;
@@ -25,6 +24,8 @@
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 forSymbolID:(id)arg2 actualOverrides:(id)arg3 skipping:(id)arg4;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (id)overridesWithGridIndexRemoved:(id)arg1;
+- (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV86OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)differsFromLayer:(id)arg1;

@@ -8,17 +8,20 @@
 
 #import "NSWindowDelegate.h"
 
-@class NSString, NSTextField, NSView;
+@class NSImageView, NSString, NSTextField, NSView;
 
 @interface MSLicenseRegistrationWindowController : NSWindowController <NSWindowDelegate>
 {
     BOOL _runningAsModal;
     BOOL _shouldQuitOnWindowClose;
+    BOOL _checkForAvailableUpdates;
     NSTextField *_titleTextField;
     NSTextField *_descriptionTextField;
     NSView *_contentView;
     NSView *_licenseView;
+    NSImageView *_backgroundImageView;
     NSView *_registrationCompletionView;
+    NSImageView *_registrationCompletionBackgroundView;
     NSTextField *_licenseTextField;
     NSTextField *_licenseDescriptionField;
     NSView *_buttonFooterView;
@@ -39,11 +42,14 @@
 @property(nonatomic) __weak NSView *buttonFooterView; // @synthesize buttonFooterView=_buttonFooterView;
 @property(nonatomic) __weak NSTextField *licenseDescriptionField; // @synthesize licenseDescriptionField=_licenseDescriptionField;
 @property(nonatomic) __weak NSTextField *licenseTextField; // @synthesize licenseTextField=_licenseTextField;
+@property(nonatomic) __weak NSImageView *registrationCompletionBackgroundView; // @synthesize registrationCompletionBackgroundView=_registrationCompletionBackgroundView;
 @property(nonatomic) __weak NSView *registrationCompletionView; // @synthesize registrationCompletionView=_registrationCompletionView;
+@property(nonatomic) __weak NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 @property(nonatomic) __weak NSView *licenseView; // @synthesize licenseView=_licenseView;
 @property(nonatomic) __weak NSView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
 @property(nonatomic) __weak NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
+@property(nonatomic) BOOL checkForAvailableUpdates; // @synthesize checkForAvailableUpdates=_checkForAvailableUpdates;
 @property(nonatomic) BOOL shouldQuitOnWindowClose; // @synthesize shouldQuitOnWindowClose=_shouldQuitOnWindowClose;
 - (void).cxx_destruct;
 - (void)openLicenseManager:(id)arg1;

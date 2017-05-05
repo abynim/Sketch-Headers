@@ -8,8 +8,6 @@
 
 #import "MSRect.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
-
 @interface MSRect : _MSRect <MSRect>
 {
     long long _proportionsTempDisabled;
@@ -29,7 +27,7 @@
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (void)log;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
 - (BOOL)isEqual:(id)arg1;
@@ -59,17 +57,6 @@
 - (void)objectDidInit;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
-
-// Remaining properties
-@property(readonly, nonatomic) BOOL constrainProportions;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) double height;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) double width;
-@property(readonly, nonatomic) double x;
-@property(readonly, nonatomic) double y;
 
 @end
 

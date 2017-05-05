@@ -8,26 +8,19 @@
 
 #import "MSCurvePoint.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
 @interface MSImmutableCurvePoint : _MSImmutableCurvePoint <MSCurvePoint>
 {
 }
 
 @property(readonly, nonatomic) BOOL isRounded;
+@property(readonly, nonatomic) BOOL isStraight;
 
 // Remaining properties
-@property(readonly, nonatomic) double cornerRadius;
-@property(readonly, nonatomic) struct CGPoint curveFrom;
-@property(readonly, nonatomic) long long curveMode;
-@property(readonly, nonatomic) struct CGPoint curveTo;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL hasCurveFrom;
-@property(readonly, nonatomic) BOOL hasCurveTo;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint point;
 @property(readonly) Class superclass;
 
 @end

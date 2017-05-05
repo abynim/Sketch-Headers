@@ -7,11 +7,10 @@
 #import "_MSGradient.h"
 
 #import "MSAsset.h"
-#import "MSGradient.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
-@interface MSGradient : _MSGradient <MSAsset, MSGradient>
+@interface MSGradient : _MSGradient <MSAsset>
 {
     BOOL _svgPositionIsAbsolute;
 }
@@ -26,7 +25,6 @@
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
 - (void)setColor:(id)arg1 atIndex:(unsigned long long)arg2;
 - (id)colorAtIndex:(unsigned long long)arg1;
-- (id)stopGenericAtIndex:(unsigned long long)arg1;
 - (id)stopAtIndex:(unsigned long long)arg1;
 - (void)setPoint:(struct CGPoint)arg1 atIndex:(unsigned long long)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
@@ -52,15 +50,8 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) double elipseLength;
-@property(readonly, nonatomic) struct CGPoint from;
-@property(readonly, nonatomic) long long gradientType;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) BOOL shouldSmoothenOpacity;
-@property(readonly, nonatomic) NSArray *stops;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) struct CGPoint to;
 
 @end
 

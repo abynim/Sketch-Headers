@@ -10,7 +10,8 @@
 {
 }
 
-+ (void)generateImageForSymbol:(id)arg1 imageSize:(struct CGSize)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (id)imageForArtboardAncestry:(id)arg1 withSize:(struct CGSize)arg2 colorSpace:(id)arg3;
++ (void)generateImageForArtboard:(id)arg1 imageSize:(struct CGSize)arg2 completionBlock:(CDUnknownBlockType)arg3;
 
 @end
 

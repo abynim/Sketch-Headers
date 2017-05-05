@@ -11,7 +11,7 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginManagerWithActions, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorServerController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorServerController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
@@ -20,7 +20,6 @@
     NSMenu *templatesMenu;
     NSMenu *printMenu;
     NSMenuItem *debugMenuItem;
-    BOOL _userInvokedSparkleUpdate;
     MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
@@ -31,29 +30,33 @@
     MSMirrorDataProvider *_mirrorDataProvider;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
+    BCLicenseManager *_licenseManager;
+    MSUpdateController *_updateController;
     MSActionController *_actionController;
     MSAssetLibraryController *_librariesController;
-    unsigned long long _unavailableUpdateCount;
+    double _creationTime;
+    double _launchStartTime;
+    double _launchEndTime;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
-    BCLicenseManager *_licenseManager;
     MSPersistentAssetCollection *_globalAssets;
     ECLogManagerMacUISupport *_logSupport;
     id _lastRunPlugin;
 }
 
-+ (id)licenseManager;
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
-@property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
-@property(nonatomic) unsigned long long unavailableUpdateCount; // @synthesize unavailableUpdateCount=_unavailableUpdateCount;
-@property(nonatomic) BOOL userInvokedSparkleUpdate; // @synthesize userInvokedSparkleUpdate=_userInvokedSparkleUpdate;
+@property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
+@property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
+@property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
 @property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
+@property(readonly, nonatomic) MSUpdateController *updateController; // @synthesize updateController=_updateController;
+@property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
@@ -70,15 +73,11 @@
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshCurrentDocument;
-- (void)visitDocumentation:(id)arg1;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
 - (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
 - (void)buy:(id)arg1;
-- (void)showSupportPage:(id)arg1;
-- (void)showOnlineHelp:(id)arg1;
-- (void)feedback:(id)arg1;
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)documentWillClose:(id)arg1;
@@ -93,7 +92,6 @@
 - (void)checkImageTemplates;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
-- (void)showReleaseNotesWindow:(id)arg1;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)createActions;
@@ -107,9 +105,7 @@
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
-- (void)newDocumentFromTemplate:(id)arg1;
-- (void)welcomeToSketch:(id)arg1;
-- (BOOL)canShowWelcomeWindowForUserAction;
+@property(readonly, nonatomic) BOOL canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -125,29 +121,15 @@
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3;
 - (id)targetDocumentForPluginCommand;
 - (void)buildPluginsMenu:(id)arg1;
-- (void)revealPlugins:(id)arg1;
 - (void)editPlugins:(id)arg1;
-- (void)openPluginPreferences:(id)arg1;
-- (void)runLastScriptAction:(id)arg1;
-- (void)runCustomScriptAction:(id)arg1;
 - (void)revealPlugin:(id)arg1;
-- (void)runPlugin:(id)arg1;
-- (id)lastRun;
+@property(readonly, nonatomic) MSPluginCommand *lastRun;
 - (void)rememberLastRun:(id)arg1;
 - (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3;
 - (id)runPluginAtURL:(id)arg1;
 - (id)evaluateScript:(id)arg1;
 - (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
-- (id)bestValidUpdateInAppcast:(id)arg1 forUpdater:(id)arg2;
-- (void)updater:(id)arg1 didFinishLoadingAppcast:(id)arg2;
-- (void)updateWithAppcast:(id)arg1 orExecuteBlock:(CDUnknownBlockType)arg2;
-- (id)checkerWithAppcast:(id)arg1;
-- (void)updater:(id)arg1 didAbortWithError:(id)arg2;
-- (BOOL)isSparkleUsed;
-- (void)checkForUpdates:(id)arg1;
-- (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
-- (void)checkForUpdates;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

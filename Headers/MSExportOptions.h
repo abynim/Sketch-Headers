@@ -7,11 +7,8 @@
 #import "_MSExportOptions.h"
 
 #import "MSExportFormatContainer.h"
-#import "MSExportOptions.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSExportOptions : _MSExportOptions <MSExportOptions, MSExportFormatContainer>
+@interface MSExportOptions : _MSExportOptions <MSExportFormatContainer>
 {
 }
 
@@ -19,17 +16,6 @@
 - (id)containingLayer;
 - (id)firstFormat;
 - (id)addExportFormat;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSArray *exportFormats;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSArray *includedLayerIds;
-@property(readonly, nonatomic) unsigned long long layerOptions;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) BOOL shouldTrim;
-@property(readonly) Class superclass;
 
 @end
 

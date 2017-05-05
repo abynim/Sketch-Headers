@@ -19,7 +19,10 @@
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(copy, nonatomic) NSMutableArray *assetLibraries; // @synthesize assetLibraries=_assetLibraries;
 - (void).cxx_destruct;
-- (void)enumerateSymbolsInDocument:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)syncForeignSymbol:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (id)importForeignSymbol:(id)arg1 fromLibrary:(id)arg2 intoDocument:(id)arg3;
+- (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (id)foreignSymbolInDocument:(id)arg1 matchingMaster:(id)arg2 inLibrary:(id)arg3;
 - (void)loadLibraries;
 - (void)assetLibraryEnableStateChanged:(id)arg1;
 - (void)assetLibraryChangedOnDisk:(id)arg1;

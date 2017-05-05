@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class BCCache, MSPage, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class BCCache, MSPage, NSArray, NSDictionary, NSSet;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -29,6 +29,7 @@
 - (void)determineCurrentArtboard;
 - (void)refreshOverlayOfViews;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
+- (void)immediatelyShowSelectionForAllLayers;
 - (void)immediatelyShowSelectionForLayer:(id)arg1;
 - (void)temporarilyHideSelectionForLayer:(id)arg1;
 - (void)replaceExistingCreationMetadata;
@@ -36,6 +37,8 @@
 - (void)setEnableLayerInteraction:(BOOL)arg1;
 - (id)images;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
+- (void)enumerateForeignSymbolsWithLibraries:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (id)libraryForForeignSymbol:(id)arg1 inLibraries:(id)arg2;
 - (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
@@ -43,6 +46,7 @@
 - (id)allSymbols;
 - (id)allArtboards;
 - (id)symbolInstancesBySymbolID;
+- (void)populateDictionary:(id)arg1 withChildrenOf:(id)arg2;
 - (id)layersByObjectID;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
@@ -50,12 +54,12 @@
 - (void)layerSelectionDidChange;
 - (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
 - (void)changeSelectionTo:(id)arg1;
-- (void)closeParentGroupsIfRequired:(id)arg1;
 - (id)selectedLayers;
 - (BOOL)documentIsEmpty;
 - (void)sharedObjectDidChange:(struct MSModelObject *)arg1;
 - (id)nameForNewPage;
 - (id)symbolsPageOrCreateIfNecessary;
+- (id)symbolsPage;
 - (id)addBlankPage;
 - (void)addPage:(id)arg1;
 - (void)removePages:(id)arg1 detachInstances:(BOOL)arg2;
@@ -69,6 +73,9 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)replaceFonts:(id)arg1;
+@property(readonly, nonatomic) NSSet *unavailableFontNames;
+@property(readonly, nonatomic) NSSet *fontNames;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -88,21 +95,7 @@
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
 
 // Remaining properties
-@property(readonly, nonatomic) id <MSAssetCollection> assetsGeneric; // @dynamic assetsGeneric;
-@property(readonly, nonatomic) unsigned long long currentPageIndex;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL enableLayerInteraction;
-@property(readonly, nonatomic) BOOL enableSliceInteraction;
-@property(readonly, nonatomic) NSArray *foreignSymbols;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSSharedStyleContainer> layerStylesGeneric; // @dynamic layerStylesGeneric;
-@property(readonly, nonatomic) id <MSSymbolContainer> layerSymbolsGeneric; // @dynamic layerSymbolsGeneric;
-@property(readonly, nonatomic) id <MSSharedTextStyleContainer> layerTextStylesGeneric; // @dynamic layerTextStylesGeneric;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) NSArray *pages;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

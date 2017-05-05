@@ -12,10 +12,12 @@
 {
     NSArray *_renderOperations;
     MSTiledLayer *_tiledLayer;
+    unsigned long long _finishTime;
 }
 
 + (void)layerContentsUpdateThreadMain;
 + (void)initialize;
+@property(nonatomic) unsigned long long finishTime; // @synthesize finishTime=_finishTime;
 @property(retain, nonatomic) MSTiledLayer *tiledLayer; // @synthesize tiledLayer=_tiledLayer;
 @property(retain, nonatomic) NSArray *renderOperations; // @synthesize renderOperations=_renderOperations;
 - (void).cxx_destruct;

@@ -6,11 +6,9 @@
 
 #import "_MSSimpleGrid.h"
 
-#import "MSSimpleGrid.h"
+@class NSColor;
 
-@class NSColor, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSimpleGrid : _MSSimpleGrid <MSSimpleGrid>
+@interface MSSimpleGrid : _MSSimpleGrid
 {
     NSColor *lightColor;
     NSColor *darkColor;
@@ -26,16 +24,6 @@
 - (void)from:(double)arg1 doWhile:(CDUnknownBlockType)arg2 incrementBy:(double)arg3 run:(CDUnknownBlockType)arg4;
 - (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) long long gridSize;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) long long thickGridTimes;
 
 @end
 

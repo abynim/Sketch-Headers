@@ -10,38 +10,28 @@
 
 @interface MSLayerPositionDrawing : NSObject
 {
-    BOOL _enabled;
+    BOOL _isEnabled;
     id <MSBasicDelegate> _delegate;
     MSLayer *_targetLayer;
     double _zoomValue;
-    NSNumberFormatter *_numberFormatter;
     NSArray *_hoverGuides;
+    NSNumberFormatter *_numberFormatter;
 }
 
-@property(retain, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
+@property(copy, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
+@property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) __weak MSLayer *targetLayer; // @synthesize targetLayer=_targetLayer;
 @property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)isMeasuringDistance;
-- (void)findHoverGuides:(struct CGPoint)arg1;
 - (void)clear;
-- (void)drawDistanceToEnclosingFrame:(struct CGRect)arg1 zoom:(double)arg2;
-- (struct CGRect)verticalRectBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
-- (struct CGRect)horizontalRectBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
-- (double)dashesOffset;
-- (void)applyDashPattern:(id)arg1;
-- (void)drawHorizontalDashLinesBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
-- (void)drawVerticalDashLinesBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
-- (void)drawHeightBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
-- (void)drawWidthBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
+- (void)drawDistanceFromRect:(struct CGRect)arg1 toLargerRect:(struct CGRect)arg2;
+- (void)drawDashLinesBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
 - (void)drawOutlineForRect:(struct CGRect)arg1;
-- (void)drawDistanceFromSelectionToHover;
-- (void)drawDistanceToGuidesWithZoom;
-- (struct CGRect)selectedLayersRect;
-- (struct CGRect)enclosingGroupRectOrArtboard;
+- (void)drawDistanceFromRect:(struct CGRect)arg1 toRect:(struct CGRect)arg2;
+- (void)drawDistanceToGuidesWithZoom:(struct CGRect)arg1;
 - (void)draw;
 
 @end

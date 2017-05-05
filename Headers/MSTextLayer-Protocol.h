@@ -4,21 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSTextLayer.h"
+#import "MSLayer.h"
 
-@class NSArray, NSAttributedString, NSBezierPath, NSFont, NSLayoutManager, NSString;
+@class NSAttributedString, NSBezierPath, NSLayoutManager, NSString;
 
-@protocol MSTextLayer <_MSTextLayer>
-@property(readonly, copy, nonatomic) NSArray *baselineOffsets;
+@protocol MSTextLayer <MSLayer>
 @property(readonly, nonatomic) double firstBaselineOffset;
+@property(readonly, nonatomic) struct CGPoint drawingPointForText;
 @property(readonly, nonatomic) unsigned long long textAlignment;
-@property(readonly, nonatomic) double lineHeight;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
 @property(readonly, copy, nonatomic) NSString *stringValue;
-@property(readonly, nonatomic) NSFont *font;
 @property(readonly, nonatomic) double fontSize;
+@property(readonly, nonatomic) long long textBehaviour;
+@property(readonly, nonatomic) long long lineSpacingBehaviour;
+@property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
 - (struct CGSize)textContainerSize;
-- (struct CGPoint)drawingPointForText;
 - (double)startingPositionOnPath:(NSBezierPath *)arg1;
 - (double)defaultLineHeight:(NSLayoutManager *)arg1;
 @end

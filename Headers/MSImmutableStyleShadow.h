@@ -7,11 +7,10 @@
 #import "_MSImmutableStyleShadow.h"
 
 #import "MSColorUser.h"
-#import "MSStyleShadow.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
-@interface MSImmutableStyleShadow : _MSImmutableStyleShadow <MSColorUser, MSStyleShadow>
+@interface MSImmutableStyleShadow : _MSImmutableStyleShadow <MSColorUser>
 {
 }
 
@@ -33,17 +32,9 @@
 - (id)addSpread:(double)arg1 withInput:(id)arg2 output:(id)arg3 filter:(id)arg4;
 
 // Remaining properties
-@property(readonly, nonatomic) double blurRadius;
-@property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double offsetX;
-@property(readonly, nonatomic) double offsetY;
-@property(readonly, nonatomic) double spread;
 @property(readonly) Class superclass;
 
 @end

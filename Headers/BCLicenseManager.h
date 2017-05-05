@@ -29,6 +29,8 @@
 - (void).cxx_destruct;
 - (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
 - (id)apiURL;
+- (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
+- (id)metadataAPIURL;
 - (id)websiteAvailableVersionsURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
@@ -54,9 +56,11 @@
 - (long long)currentLicenseType;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)refreshLicenseIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;
+@property(readonly, nonatomic) BOOL canUseCloud;
 
 @end
 

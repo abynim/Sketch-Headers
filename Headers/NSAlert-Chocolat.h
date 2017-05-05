@@ -13,5 +13,6 @@
 + (void)runSheetWithMessage:(id)arg1 info:(id)arg2;
 + (long long)runModalWithMessage:(id)arg1 info:(id)arg2 buttons:(id)arg3;
 + (long long)runModalWithMessage:(id)arg1 info:(id)arg2;
++ (id)alertWithMessage:(id)arg1 info:(id)arg2 buttons:(id)arg3;
 @end
 

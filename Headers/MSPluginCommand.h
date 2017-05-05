@@ -64,6 +64,7 @@
 - (void)error:(id)arg1;
 - (void)print:(id)arg1;
 - (void)resetLogger;
+@property(nonatomic) BOOL stayRunning;
 - (void)coscript:(id)arg1 hadError:(id)arg2 onLineNumber:(long long)arg3 atSourceURL:(id)arg4;
 - (id)executeScript:(id)arg1;
 - (id)executeScriptAtURL:(id)arg1;
@@ -83,6 +84,20 @@
 - (void)dealloc;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5 scope:(unsigned long long)arg6;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 runHandler:(id)arg4 scope:(unsigned long long)arg5;
+- (double)timeToExecuteSelector:(id)arg1 target:(id)arg2 iterations:(unsigned long long)arg3;
+- (id)callback:(id)arg1 asBlockWithArguments:(unsigned long long)arg2 data:(id)arg3;
+- (void)callCallback:(id)arg1 withBlockArguments:(id)arg2 data:(id)arg3 timestamp:(double)arg4;
+- (void)runCallback:(id)arg1 withDocumentAtURL:(id)arg2 data:(id)arg3;
+- (void)finishTestingMultipleItems;
+- (void)testNextItem;
+- (void)finishTestingItem:(id)arg1 results:(id)arg2;
+- (void)beginTestingMultipleItems:(id)arg1 withItemCallback:(id)arg2 finishCallback:(id)arg3;
+- (void)finishPerformanceTestingWithResults:(id)arg1;
+- (void)beginPerformanceTesting:(id)arg1 minimumAPI:(unsigned long long)arg2;
+- (void)prepareForPerformanceTesting;
+- (id)URLForPerformanceTempFileWithName:(id)arg1;
+- (id)URLForPerformanceDocumentWithName:(id)arg1;
+@property(retain, nonatomic) NSDictionary *performanceData;
 
 @end
 

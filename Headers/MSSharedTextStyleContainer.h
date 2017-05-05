@@ -6,23 +6,11 @@
 
 #import "_MSSharedTextStyleContainer.h"
 
-#import "MSSharedTextStyleContainer.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSharedTextStyleContainer : _MSSharedTextStyleContainer <MSSharedTextStyleContainer>
+@interface MSSharedTextStyleContainer : _MSSharedTextStyleContainer
 {
 }
 
 - (unsigned long long)validStyleType;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *objects;
-@property(readonly) Class superclass;
 
 @end
 

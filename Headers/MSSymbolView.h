@@ -6,7 +6,7 @@
 
 #import "NSView.h"
 
-@class MSImmutableDocumentData, MSImmutableSymbolMaster, MSSymbolMaster, NSColor, NSImage, NSString;
+@class MSImmutableLayerAncestry, MSSymbolMaster, NSColor, NSImage, NSString;
 
 @interface MSSymbolView : NSView
 {
@@ -16,13 +16,11 @@
     NSColor *_labelColor;
     NSColor *_labelBackgroundColor;
     NSImage *_previewImage;
-    MSImmutableSymbolMaster *_immutableSymbol;
-    MSImmutableDocumentData *_immutableDocument;
+    MSImmutableLayerAncestry *_symbolAncestry;
 }
 
 @property(nonatomic) BOOL previewDirty; // @synthesize previewDirty=_previewDirty;
-@property(retain, nonatomic) MSImmutableDocumentData *immutableDocument; // @synthesize immutableDocument=_immutableDocument;
-@property(retain, nonatomic) MSImmutableSymbolMaster *immutableSymbol; // @synthesize immutableSymbol=_immutableSymbol;
+@property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(retain, nonatomic) NSColor *labelBackgroundColor; // @synthesize labelBackgroundColor=_labelBackgroundColor;
 @property(retain, nonatomic) NSColor *labelColor; // @synthesize labelColor=_labelColor;
@@ -36,7 +34,6 @@
 - (void)setFrameSize:(struct CGSize)arg1;
 - (void)updateSymbolPreview;
 - (void)generatePreviewInBackground;
-- (id)previewForSymbol:(id)arg1 inDocument:(id)arg2 withBounds:(struct CGRect)arg3 colorSpace:(id)arg4;
 - (struct CGRect)previewBounds;
 
 @end

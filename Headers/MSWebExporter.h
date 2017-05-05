@@ -19,6 +19,7 @@
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
++ (id)fileURLWithHash:(id)arg1 inDirectory:(id)arg2;
 + (void)exportDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;

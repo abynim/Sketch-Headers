@@ -6,21 +6,15 @@
 
 #import "_MSBitmapLayer.h"
 
-#import "MSBitmapLayer.h"
+#import "MSImageOwner.h"
 
-@class MSImageData, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImageData;
 
-@interface MSBitmapLayer : _MSBitmapLayer <MSBitmapLayer>
+@interface MSBitmapLayer : _MSBitmapLayer <MSImageOwner>
 {
 }
 
 + (unsigned long long)traits;
-+ (id)showImageReductionWarningForWindow:(id)arg1 fileSizeDifference:(unsigned long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
-+ (id)showWaitingSheetForWindow:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-+ (id)showUnableToReduceAlert:(id)arg1;
-+ (void)setResizedData:(id)arg1 originalData:(id)arg2 forLayers:(id)arg3;
-+ (id)largestSizeForImagesMapTableFromLayers:(id)arg1;
-+ (void)reduceSizeOfImageLayers:(id)arg1 windowForSheet:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (unsigned long long)scalingFactorForFilename:(id)arg1;
 + (struct CGSize)bestSizeAccountingForPixelDensityOfImage:(id)arg1;
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
@@ -28,9 +22,9 @@
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
 - (id)NSImage;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
-- (BOOL)canInsertIntoGroup:(id)arg1;
+- (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
-- (void)reduceImageSize;
+- (BOOL)canInsertIntoGroup:(id)arg1;
 - (BOOL)hasNineSliceEnabled;
 - (struct CGSize)minimumSize;
 - (id)handlerName;
@@ -46,39 +40,7 @@
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, nonatomic) struct CGRect clippingMask;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) BOOL fillReplacesImage;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(readonly, nonatomic) BOOL hasTransforms;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) MSImageData *image;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, nonatomic) struct CGRect nineSliceCenterRect;
-@property(readonly, nonatomic) struct CGSize nineSliceScale;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
+@property(retain, nonatomic) MSImageData *image;
 
 @end
 

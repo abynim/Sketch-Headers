@@ -55,15 +55,11 @@
 - (void)setPages:(id)arg1;
 @property(readonly, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
-- (id)layerTextStylesGeneric;
 @property(retain, nonatomic) MSSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
-- (id)layerSymbolsGeneric;
 @property(retain, nonatomic) MSSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
-- (id)layerStylesGeneric;
 - (void)setForeignSymbols:(id)arg1;
 @property(readonly, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
-- (id)assetsGeneric;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;

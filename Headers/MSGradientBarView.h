@@ -19,6 +19,7 @@
 @property(retain, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
 @property(nonatomic) __weak id <MSGradientBarViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (BOOL)becomeFirstResponder;
 - (BOOL)acceptsFirstResponder;
 - (BOOL)canBecomeKeyView;
 - (BOOL)canDoAdvancedGradientStopModifications;
@@ -49,6 +50,7 @@
 - (struct CGRect)normaliseRect:(struct CGRect)arg1;
 - (struct CGRect)rectForMarkerAtIndex:(unsigned long long)arg1;
 - (void)awakeFromNib;
+- (BOOL)canBeKeyView;
 
 @end
 

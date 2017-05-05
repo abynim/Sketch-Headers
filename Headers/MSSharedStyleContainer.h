@@ -6,11 +6,7 @@
 
 #import "_MSSharedStyleContainer.h"
 
-#import "MSSharedStyleContainer.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSharedStyleContainer : _MSSharedStyleContainer <MSSharedStyleContainer>
+@interface MSSharedStyleContainer : _MSSharedStyleContainer
 {
 }
 
@@ -28,14 +24,6 @@
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (unsigned long long)validStyleType;
 - (Class)sharedObjectClass;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *objects;
-@property(readonly) Class superclass;
 
 @end
 

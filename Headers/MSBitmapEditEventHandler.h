@@ -28,10 +28,11 @@
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
-- (BOOL)shouldHideExportBar;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
+- (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
+- (void)configureInspector:(id)arg1;
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;
 - (id)crossHairCursor;

@@ -12,6 +12,9 @@
 
 - (id)zoomValueString;
 - (void)zoomValueDidChange;
+- (void)keyUp:(id)arg1;
+- (void)keyDown:(id)arg1;
+- (BOOL)handlesKeyEvent:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)zoomModeToggle:(id)arg1;
 - (id)zoomView;

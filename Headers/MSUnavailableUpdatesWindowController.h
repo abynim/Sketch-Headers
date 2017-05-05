@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSString *lastVersion; // @synthesize lastVersion=_lastVersion;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
 - (void).cxx_destruct;
+- (void)learnMore:(id)arg1;
 - (void)openUpdatesPage:(id)arg1;
 - (void)renewLicense:(id)arg1;
 - (void)windowWillClose:(id)arg1;

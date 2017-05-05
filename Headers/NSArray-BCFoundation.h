@@ -27,6 +27,7 @@
 - (BOOL)containsObjectOfClass:(Class)arg1;
 - (id)reversedArray;
 - (void)enumerateTailUsingBlock:(CDUnknownBlockType)arg1;
+- (id)arrayByRemovingLastObject;
 - (id)tail;
 - (id)filteredByObjectsOfClass:(Class)arg1;
 - (id)filterWithIndex:(CDUnknownBlockType)arg1;

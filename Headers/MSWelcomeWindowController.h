@@ -10,7 +10,7 @@
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSCallToActionButton, NSArray, NSButton, NSCollectionView, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
+@class MSCallToActionButton, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSWelcomeWindowController : CHWindowController <NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
 {
@@ -27,6 +27,7 @@
     NSMenu *_templatesContextMenu;
     NSTextField *_versionTextField;
     unsigned long long _collectionToShow;
+    MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
 }
@@ -37,6 +38,7 @@
 + (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
+@property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) unsigned long long collectionToShow; // @synthesize collectionToShow=_collectionToShow;
 @property(retain, nonatomic) NSTextField *versionTextField; // @synthesize versionTextField=_versionTextField;
 @property(retain, nonatomic) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu=_templatesContextMenu;

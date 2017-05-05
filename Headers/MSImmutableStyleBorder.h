@@ -6,11 +6,7 @@
 
 #import "_MSImmutableStyleBorder.h"
 
-#import "MSStyleBorder.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleBorder : _MSImmutableStyleBorder <MSStyleBorder>
+@interface MSImmutableStyleBorder : _MSImmutableStyleBorder
 {
 }
 
@@ -25,20 +21,6 @@
 - (void)addOuterMaskToAttributes:(id)arg1 withExporter:(id)arg2;
 - (void)addInnerMaskToAttributes:(id)arg1 withExporter:(id)arg2;
 - (id)addMaskElementToAttributes:(id)arg1 withExporter:(id)arg2;
-
-// Remaining properties
-@property(readonly, nonatomic) id <MSColor> colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long fillType;
-@property(readonly, nonatomic) id <MSGradient> gradientGeneric;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) long long position;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) double thickness;
 
 @end
 

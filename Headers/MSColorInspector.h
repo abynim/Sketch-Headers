@@ -11,12 +11,14 @@
 #import "MSModeModePickerDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class BCHSBColorPicker, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
+@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
+    MSAlternatingView *_rgbFieldsView;
+    MSAlternatingView *_hsbFieldsView;
     MSModePickerView *_borderColorTypePicker;
     MSModePickerView *_fillColorTypePicker;
     BCHSBColorPicker *_colorPicker;
@@ -49,6 +51,8 @@
 @property(retain, nonatomic) BCHSBColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
 @property(retain, nonatomic) MSModePickerView *fillColorTypePicker; // @synthesize fillColorTypePicker=_fillColorTypePicker;
 @property(retain, nonatomic) MSModePickerView *borderColorTypePicker; // @synthesize borderColorTypePicker=_borderColorTypePicker;
+@property(nonatomic) __weak MSAlternatingView *hsbFieldsView; // @synthesize hsbFieldsView=_hsbFieldsView;
+@property(nonatomic) __weak MSAlternatingView *rgbFieldsView; // @synthesize rgbFieldsView=_rgbFieldsView;
 @property(nonatomic) __weak id <MSColorInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
@@ -67,6 +71,7 @@
 - (void)switchToColorTabAtIndex:(unsigned long long)arg1;
 - (void)reloadTouchBarsAfterSelectionChange:(id)arg1;
 - (void)reloadTouchBars;
+- (void)refreshTabbingCycle;
 - (void)pickerViewChanged:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (id)filteredStyleParts:(id)arg1;
@@ -77,7 +82,6 @@
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)viewWillDisappear;
-- (void)viewWillAppear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;
@@ -96,6 +100,7 @@
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)applyBackgroundArrowColor;
+- (void)colorModeViewDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;
 
