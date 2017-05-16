@@ -58,7 +58,6 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
-- (id)imageCollectionGeneric;
 - (void)setGradients:(id)arg1;
 @property(readonly, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
 - (void)setExportPresets:(id)arg1;

@@ -62,8 +62,7 @@
 - (void)validateRemoveDisabledStylesButton;
 - (void)loadViewControllers;
 - (void)awakeFromNib;
-- (id)nibName;
-- (id)initWithDelegate:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

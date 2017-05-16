@@ -13,7 +13,6 @@
 - (id)touchBarImage;
 - (BOOL)isSelectable;
 - (BOOL)isActive;
-- (unsigned short)shortcutCharacter;
 - (id)tooltip;
 - (id)rootForShapeHandler;
 - (void)doPerformAction:(id)arg1;

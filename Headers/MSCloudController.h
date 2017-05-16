@@ -23,6 +23,7 @@
 + (void)openRemoteEndpoint:(id)arg1 parameters:(id)arg2;
 + (void)openRemoteSignUp;
 + (void)openRemoteSignIn;
++ (id)remoteAuthenticationURLParameters;
 + (void)openRemoteFileOverview;
 + (void)openRemoteAccountSettings;
 + (void)showPreferences;

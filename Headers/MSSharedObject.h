@@ -6,11 +6,7 @@
 
 #import "_MSSharedObject.h"
 
-#import "MSSharedObject.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSharedObject : _MSSharedObject <MSSharedObject>
+@interface MSSharedObject : _MSSharedObject
 {
 }
 
@@ -24,15 +20,6 @@
 - (void)objectDidInit;
 - (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
 - (id)initWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSModelObjectCommon> valueGeneric; // @dynamic valueGeneric;
 
 @end
 

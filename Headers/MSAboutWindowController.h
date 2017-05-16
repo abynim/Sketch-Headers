@@ -6,12 +6,13 @@
 
 #import "NSWindowController.h"
 
-@class NSButton, NSImageView, NSTextField;
+@class NSButton, NSDate, NSImageView, NSTextField;
 
 @interface MSAboutWindowController : NSWindowController
 {
     NSImageView *_backgroundImageView;
     NSTextField *_buildNumberTextField;
+    NSTextField *_copyrightTextField;
     NSTextField *_expirationTitleTextField;
     NSTextField *_expirationDateTextField;
     NSButton *_purchaseLicenseButton;
@@ -21,9 +22,11 @@
     NSButton *_unlinkDeviceButton;
     NSTextField *_variantNameTextField;
     NSTextField *_versionTextField;
+    NSDate *_remoteUpdateExpirationDate;
 }
 
 + (void)showAboutWindow;
+@property(retain) NSDate *remoteUpdateExpirationDate; // @synthesize remoteUpdateExpirationDate=_remoteUpdateExpirationDate;
 @property(nonatomic) __weak NSTextField *versionTextField; // @synthesize versionTextField=_versionTextField;
 @property(nonatomic) __weak NSTextField *variantNameTextField; // @synthesize variantNameTextField=_variantNameTextField;
 @property(nonatomic) __weak NSButton *unlinkDeviceButton; // @synthesize unlinkDeviceButton=_unlinkDeviceButton;
@@ -33,9 +36,11 @@
 @property(nonatomic) __weak NSButton *purchaseLicenseButton; // @synthesize purchaseLicenseButton=_purchaseLicenseButton;
 @property(nonatomic) __weak NSTextField *expirationDateTextField; // @synthesize expirationDateTextField=_expirationDateTextField;
 @property(nonatomic) __weak NSTextField *expirationTitleTextField; // @synthesize expirationTitleTextField=_expirationTitleTextField;
+@property(nonatomic) __weak NSTextField *copyrightTextField; // @synthesize copyrightTextField=_copyrightTextField;
 @property(nonatomic) __weak NSTextField *buildNumberTextField; // @synthesize buildNumberTextField=_buildNumberTextField;
 @property(nonatomic) __weak NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
+- (void)fetchRemoteUpdateExpiratonDate;
 - (void)unlinkDevice:(id)arg1;
 - (void)registerLicense:(id)arg1;
 - (void)showRenewLicensePage:(id)arg1;

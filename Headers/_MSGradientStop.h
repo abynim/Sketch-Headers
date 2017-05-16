@@ -25,7 +25,6 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
-- (id)colorGeneric;
 @property(nonatomic) double position; // @synthesize position=_position;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

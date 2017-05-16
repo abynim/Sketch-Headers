@@ -9,5 +9,6 @@
 @interface NSResponder (Chocolat)
 + (BOOL)supportsTouchBar;
 @property(readonly, nonatomic) BOOL supportsTouchBar;
+- (BOOL)followsResponder:(id)arg1;
 @end
 

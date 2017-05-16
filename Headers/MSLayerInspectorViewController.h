@@ -67,6 +67,7 @@
 - (id)sharedObjectsSection;
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)resizeConstraintsAction:(id)arg1;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)rotateAction:(id)arg1;
 - (struct CGRect)boundsForParentOf:(id)arg1;

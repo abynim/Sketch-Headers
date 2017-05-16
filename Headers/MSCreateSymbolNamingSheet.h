@@ -13,10 +13,12 @@
     NSButton *_moveSymbolToPageCheckbox;
     NSButton *_confirmButton;
     NSTextField *_symbolNameField;
+    NSTextField *_symbolPageField;
     CDUnknownBlockType _completionBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
+@property(retain, nonatomic) NSTextField *symbolPageField; // @synthesize symbolPageField=_symbolPageField;
 @property(retain, nonatomic) NSTextField *symbolNameField; // @synthesize symbolNameField=_symbolNameField;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) NSButton *moveSymbolToPageCheckbox; // @synthesize moveSymbolToPageCheckbox=_moveSymbolToPageCheckbox;
@@ -25,6 +27,7 @@
 - (void)controlTextDidChange:(id)arg1;
 - (void)setShouldShowMoveCheckbox:(BOOL)arg1;
 - (void)setSuggestedName:(id)arg1;
+- (void)setSymbolPageName:(id)arg1;
 - (void)confirm:(id)arg1;
 - (void)awakeFromNib;
 

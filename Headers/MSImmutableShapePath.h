@@ -8,12 +8,11 @@
 
 #import "MSShapePath.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
 @interface MSImmutableShapePath : _MSImmutableShapePath <MSShapePath>
 {
 }
 
+- (void)migratePropertiesFromV87OrEarlierWithCoder:(id)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfPoints;
 @property(readonly, nonatomic) BOOL isRectangle;
 @property(readonly, nonatomic) BOOL isPolyline;
@@ -21,15 +20,6 @@
 - (id)bezierPathInRect:(struct CGRect)arg1;
 - (id)pathInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL isSVGRectangle;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isClosed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *points;
-@property(readonly) Class superclass;
 
 @end
 

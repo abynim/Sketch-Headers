@@ -18,6 +18,7 @@
 + (id)horizontalGuidesForGrid:(id)arg1 ruler:(id)arg2 forDrawing:(BOOL)arg3 inRect:(struct CGRect)arg4;
 + (id)horizontalGuidesForVerticalRuler:(id)arg1 forDrawing:(BOOL)arg2 inRect:(struct CGRect)arg3 rulersVisible:(BOOL)arg4;
 + (id)horizontalGuidesForVerticalRuler:(id)arg1 forDrawing:(BOOL)arg2 rulersVisible:(BOOL)arg3;
++ (id)findHoverGuides:(struct CGPoint)arg1 rulesVisible:(BOOL)arg2 delegate:(id)arg3;
 
 @end
 

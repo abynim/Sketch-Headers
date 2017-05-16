@@ -18,8 +18,6 @@
 - (void).cxx_destruct;
 - (struct CGSize)fittingSize;
 - (void)windowDidChangeKeyState:(id)arg1;
-- (void)windowDidExitFullScreen:(id)arg1;
-- (void)windowWillEnterFullScreen:(id)arg1;
 - (void)viewWillMoveToWindow:(id)arg1;
 - (id)init;
 - (id)initWithFrame:(struct CGRect)arg1;

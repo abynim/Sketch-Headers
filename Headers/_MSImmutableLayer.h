@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableExportOptions, MSImmutableExportOptions<MSExportOptions>, MSImmutableRect, MSImmutableRect<MSRect>, NSDictionary, NSString;
+@class MSImmutableExportOptions, MSImmutableRect, NSDictionary, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
@@ -18,6 +18,7 @@
     NSString *_name;
     BOOL _nameIsFixed;
     NSString *_originalObjectID;
+    unsigned long long _resizingConstraint;
     unsigned long long _resizingType;
     double _rotation;
     BOOL _shouldBreakMaskChain;
@@ -27,12 +28,13 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableRect<MSRect> *frame; // @synthesize frame=_frame;
-@property(retain, nonatomic) MSImmutableExportOptions<MSExportOptions> *exportOptions; // @synthesize exportOptions=_exportOptions;
+@property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 @property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
+@property(nonatomic) unsigned long long resizingConstraint; // @synthesize resizingConstraint=_resizingConstraint;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -51,8 +53,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)frameGeneric;
-- (id)exportOptionsGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

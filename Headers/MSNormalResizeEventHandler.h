@@ -6,52 +6,51 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayer, MSNormalEventData, MSSnapper, NSDictionary;
+@class MSLayer, MSNormalEventData, MSResizeGestureRecognizer, MSSavedLayerFrames, MSSnapper;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
-    struct CGPoint midPoint;
-    struct CGPoint oppositePoint;
-    struct CGPoint oppositeRotatedPoint;
-    double originalProportions;
+    struct CGPoint _midPoint;
+    struct CGPoint _oppositePoint;
+    struct CGPoint _oppositeRotatedPoint;
     BOOL _layerRectWasIntegral;
     long long _resizingCorner;
     MSLayer *_resizingLayer;
     MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
-    NSDictionary *_layerFramesBeforeResize;
+    MSResizeGestureRecognizer *_resizeGestureRecognizer;
+    MSSavedLayerFrames *_originalFrames;
 }
 
-@property(retain, nonatomic) NSDictionary *layerFramesBeforeResize; // @synthesize layerFramesBeforeResize=_layerFramesBeforeResize;
+@property(retain, nonatomic) MSSavedLayerFrames *originalFrames; // @synthesize originalFrames=_originalFrames;
 @property(nonatomic) BOOL layerRectWasIntegral; // @synthesize layerRectWasIntegral=_layerRectWasIntegral;
+@property(readonly, nonatomic) MSResizeGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
 @property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
 @property(nonatomic) long long resizingCorner; // @synthesize resizingCorner=_resizingCorner;
 - (void).cxx_destruct;
+- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (long long)oppositeCorner;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)finishResizing;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
 - (unsigned long long)validSnapEdgesForResizingCorner;
+- (long long)oppositeCorner;
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
-- (BOOL)shouldConstrainProportionsForFlags:(unsigned long long)arg1;
 - (struct CGRect)makeRect:(struct CGRect)arg1 conformToProportions:(BOOL)arg2;
 - (struct CGPoint)mouseAfterAccountingForRotation:(struct CGPoint)arg1;
 - (void)makeLayerIntegral:(id)arg1;
 - (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
-- (struct CGRect)centerRect:(struct CGRect)arg1;
-- (struct CGRect)newRectForResizeWithMouse:(struct CGPoint)arg1 fromCenter:(BOOL)arg2 maySnap:(BOOL)arg3 constrainProportions:(BOOL)arg4;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (struct CGRect)newRectForResize:(struct CGPoint)arg1 gestureRecognizer:(id)arg2;
+- (void)updateResize:(id)arg1;
 - (BOOL)mouseDraggedEvent:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)calculateOppositeRotatedPoint;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
 - (void)prepareForResize;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (id)currentGroup;
+- (void)resizeLayer:(id)arg1;
+- (id)initWithManager:(id)arg1;
 
 @end
 

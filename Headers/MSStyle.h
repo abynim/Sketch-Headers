@@ -7,19 +7,18 @@
 #import "_MSStyle.h"
 
 #import "MSSharedObjectInstance.h"
-#import "MSStyle.h"
 #import "NSCopying.h"
 
-@class MSStyleBorder, MSStyleFill, MSStyleShadow, MSTextStyle, NSArray, NSObject<NSCopying><NSCoding>, NSString;
+@class MSStyleBorder, MSStyleFill, MSStyleShadow, MSTextStyle, NSObject<NSCopying><NSCoding>, NSString;
 
-@interface MSStyle : _MSStyle <MSSharedObjectInstance, NSCopying, MSStyle>
+@interface MSStyle : _MSStyle <MSSharedObjectInstance, NSCopying>
 {
 }
 
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
-@property(readonly, nonatomic) double thickestInnerStroke;
-@property(readonly, nonatomic) BOOL hasDecorations;
+- (double)thickestInnerStroke;
+- (BOOL)hasDecorations;
 - (double)thickestStroke;
 - (BOOL)hasTextStyle;
 - (unsigned long long)type;
@@ -34,7 +33,7 @@
 @property(retain, nonatomic) MSTextStyle *primitiveTextStyle;
 @property(retain, nonatomic) NSString *primitiveSharedObjectID;
 - (void)setNilValueForKey:(id)arg1;
-@property(readonly, nonatomic) BOOL hasBlending;
+- (BOOL)hasBlending;
 - (id)firstEnabledShadow;
 - (id)enabledInnerShadows;
 - (id)enabledShadows;
@@ -42,37 +41,21 @@
 - (id)enabledFills;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
-- (BOOL)hasEnabledFill;
+@property(readonly, nonatomic) BOOL hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 @property(readonly, nonatomic) __weak MSStyleShadow *innerShadow;
 @property(readonly, nonatomic) __weak MSStyleShadow *shadow;
 @property(retain, nonatomic) MSStyleBorder *border;
-@property(readonly, nonatomic) id <MSStyleBorder> borderGeneric;
 @property(retain, nonatomic) MSStyleFill *fill;
-@property(readonly, nonatomic) id <MSStyleFill> fillGeneric;
 - (long long)determineMaskingMode;
 - (void)prepareAsMask;
 
 // Remaining properties
-@property(readonly, nonatomic) id <MSStyleBlur> blurGeneric; // @dynamic blurGeneric;
-@property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric; // @dynamic borderOptionsGeneric;
-@property(readonly, nonatomic) NSArray *borders;
-@property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric; // @dynamic colorControlsGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long endDecorationType;
-@property(readonly, nonatomic) NSArray *fills;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSArray *innerShadows;
-@property(readonly, nonatomic) long long miterLimit;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric; // @dynamic reflectionGeneric;
-@property(readonly, nonatomic) NSArray *shadows;
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-@property(readonly, nonatomic) unsigned long long startDecorationType;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSTextStyle> textStyleGeneric; // @dynamic textStyleGeneric;
 
 @end
 

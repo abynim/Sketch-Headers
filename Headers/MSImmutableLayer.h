@@ -10,7 +10,7 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableStyle, NSAffineTransform, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
 {
@@ -112,23 +112,11 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric; // @dynamic exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric; // @dynamic frameGeneric;
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
 @property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

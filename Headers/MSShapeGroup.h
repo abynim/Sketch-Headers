@@ -8,7 +8,7 @@
 
 #import "MSShapeGroup.h"
 
-@class MSPath, NSArray, NSBezierPath, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSPath, NSBezierPath;
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
@@ -36,7 +36,6 @@
 - (void)reversePath;
 - (void)flatten;
 - (void)simplify;
-- (void)setIsOpen:(BOOL)arg1;
 @property(nonatomic) BOOL isClosed;
 - (void)setEdited:(BOOL)arg1;
 - (BOOL)canContainLayer:(id)arg1;
@@ -61,8 +60,6 @@
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
-- (BOOL)canFlatten;
-- (BOOL)canProbablyFlatten;
 - (Class)overrideViewControllerClass;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
@@ -99,11 +96,13 @@
 - (id)fillFromBorder:(id)arg1;
 - (double)lineWidthForOutliningWithBorder:(id)arg1;
 - (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
-- (id)outlinePathForSubPath:(id)arg1 withBorder:(id)arg2;
 - (id)outlineShapeWithBorder:(id)arg1;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (BOOL)booleanOperationCanBeReset;
+- (BOOL)canFlatten;
+- (BOOL)canProbablyFlatten;
+- (BOOL)hasFlattenablePath;
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
@@ -111,42 +110,6 @@
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
-
-// Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, nonatomic) long long clippingMaskMode;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(readonly, nonatomic) BOOL hasClickThrough;
-@property(readonly, nonatomic) BOOL hasClippingMask;
-@property(readonly, nonatomic) BOOL hasTransforms;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) NSArray *layers;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
-@property(readonly, nonatomic) unsigned long long windingRule;
 
 @end
 

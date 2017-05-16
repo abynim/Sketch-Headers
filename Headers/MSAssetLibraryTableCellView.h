@@ -4,33 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTableCellView.h"
+#import "MSAssetPrefsTableCellView.h"
 
-#import "MSAssetLibraryControllerDelegate.h"
+@class MSAssetPreferenceItem;
 
-@class MSAssetLibrary, NSImage, NSImageView, NSString;
-
-@interface MSAssetLibraryTableCellView : NSTableCellView <MSAssetLibraryControllerDelegate>
+@interface MSAssetLibraryTableCellView : MSAssetPrefsTableCellView
 {
-    NSImage *_preview;
-    NSImageView *_previewView;
 }
 
-@property(nonatomic) __weak NSImageView *previewView; // @synthesize previewView=_previewView;
-@property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
-- (void).cxx_destruct;
 - (void)generatePreview;
-- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
+@property(readonly, nonatomic) MSAssetPreferenceItem *assetPreferenceItem;
+- (void)viewDidChangeBackingProperties;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setObjectValue:(id)arg1;
-@property(nonatomic) BOOL expanded;
-@property(readonly, nonatomic) MSAssetLibrary *assetLibrary;
-- (void)prepareForReuse;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)drawRect:(struct CGRect)arg1;
+@property(readonly, nonatomic) struct CGRect previewFrame;
 
 @end
 

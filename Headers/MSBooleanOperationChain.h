@@ -20,6 +20,7 @@
 @property(retain, nonatomic) MSPath *resultPath; // @synthesize resultPath=_resultPath;
 @property(retain, nonatomic) MSPath *subjectPath; // @synthesize subjectPath=_subjectPath;
 - (void).cxx_destruct;
+- (id)calculateResultPath;
 - (void)addClippingPath:(id)arg1 forBooleanOperation:(long long)arg2;
 - (id)initWithSubjectPath:(id)arg1;
 

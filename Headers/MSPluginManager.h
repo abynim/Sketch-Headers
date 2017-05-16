@@ -13,18 +13,21 @@
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
+    NSDictionary *_pluginVersions;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSArray *_folderMonitors;
     NSMutableDictionary *_runningCommands;
     NSTimer *_sessionTimer;
     double _lastTimerInterval;
+    id <MSPluginUpdater> _updater;
 }
 
 + (id)pluginsURLs;
 + (id)defaultPluginURL;
 + (id)mainPluginsFolderURL;
 + (void)initialisePlugins;
+@property(readonly, copy, nonatomic) id <MSPluginUpdater> updater; // @synthesize updater=_updater;
 @property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
 @property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
@@ -32,8 +35,15 @@
 @property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
+@property(readonly, nonatomic) NSDictionary *pluginVersions; // @synthesize pluginVersions=_pluginVersions;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
+- (void)clearPluginsCache;
+- (void)cancelDownloadingPluginVersions;
+- (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2;
+- (void)checkForPluginUpdatesWithHandler:(CDUnknownBlockType)arg1;
+- (void)checkForPluginUpdates:(id)arg1 handler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) long long numberOfPluginsWithUpdates;
 - (BOOL)disablePlugin:(id)arg1;
 - (BOOL)enablePlugin:(id)arg1;
 - (BOOL)setMetadataValue:(id)arg1 forKey:(id)arg2 identifier:(id)arg3;
@@ -54,8 +64,8 @@
 - (id)folderNamesToIgnore;
 @property(readonly, copy, nonatomic) NSURL *mainPluginsFolderURL;
 - (void)dealloc;
-- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
-- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2;
+- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 metadataURL:(id)arg3 options:(unsigned long long)arg4;
+- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 metadataURL:(id)arg3;
 - (id)init;
 
 @end

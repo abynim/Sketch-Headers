@@ -15,6 +15,7 @@
     NSMutableArray *_overlaps;
     NSMutableArray *_edges;
     NSBezierPath *_bezPathCache;
+    struct CGPath *_cachedPath;
     struct CGRect _bounds;
     struct CGRect _boundingRect;
     NSNumber *_cachedDirection;
@@ -69,6 +70,7 @@
 @property(readonly, nonatomic) BOOL isClosed;
 - (void)close;
 - (id)bezierPathFromEdge:(id)arg1 toEdge:(id)arg2;
+@property(readonly, nonatomic) struct CGPath *CGPath;
 - (id)bezierPath;
 - (BOOL)contourAndSelfIntersectingContoursContainPoint:(struct CGPoint)arg1;
 - (BOOL)markCrossingsOnEdge:(id)arg1 startParameter:(double)arg2 stopParameter:(double)arg3 otherContours:(id)arg4 isEntry:(BOOL)arg5;
@@ -89,6 +91,7 @@
 - (void)addCurveFrom:(id)arg1 to:(id)arg2;
 - (void)addCurve:(id)arg1;
 @property(readonly, nonatomic) __weak NSMutableArray *overlaps_;
+- (void)dealloc;
 - (id)init;
 
 @end

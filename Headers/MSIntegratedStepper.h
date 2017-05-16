@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) __weak MSUpDownController *target; // @synthesize target=_target;
 - (void).cxx_destruct;
+- (struct CGSize)intrinsicContentSize;
 - (BOOL)isFlipped;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)stepWithEvent:(id)arg1;

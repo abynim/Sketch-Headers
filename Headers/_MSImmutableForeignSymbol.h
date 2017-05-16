@@ -6,17 +6,21 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableSymbolMaster, MSImmutableSymbolMaster<MSSymbolMaster>, NSString;
+@class MSImmutableSymbolMaster, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface _MSImmutableForeignSymbol : MSImmutableModelObject
 {
-    NSString *_sourceDocumentID;
+    struct NSObject *_libraryID;
+    NSString *_sourceLibraryName;
+    MSImmutableSymbolMaster *_originalMaster;
     MSImmutableSymbolMaster *_symbolMaster;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableSymbolMaster<MSSymbolMaster> *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
-@property(retain, nonatomic) NSString *sourceDocumentID; // @synthesize sourceDocumentID=_sourceDocumentID;
+@property(retain, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
+@property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *libraryID; // @synthesize libraryID=_libraryID;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
@@ -27,7 +31,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)symbolMasterGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

@@ -25,7 +25,6 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSModelObjectCommon *value; // @synthesize value=_value;
-- (id)valueGeneric;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

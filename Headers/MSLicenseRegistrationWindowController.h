@@ -14,6 +14,7 @@
 {
     BOOL _runningAsModal;
     BOOL _shouldQuitOnWindowClose;
+    BOOL _checkForAvailableUpdates;
     NSTextField *_titleTextField;
     NSTextField *_descriptionTextField;
     NSView *_contentView;
@@ -48,6 +49,7 @@
 @property(nonatomic) __weak NSView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
 @property(nonatomic) __weak NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
+@property(nonatomic) BOOL checkForAvailableUpdates; // @synthesize checkForAvailableUpdates=_checkForAvailableUpdates;
 @property(nonatomic) BOOL shouldQuitOnWindowClose; // @synthesize shouldQuitOnWindowClose=_shouldQuitOnWindowClose;
 - (void).cxx_destruct;
 - (void)openLicenseManager:(id)arg1;

@@ -11,11 +11,13 @@
 @interface _MSImmutableShapePath : MSImmutableModelObject
 {
     BOOL _isClosed;
+    long long _pointRadiusBehaviour;
     NSArray *_points;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
+@property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

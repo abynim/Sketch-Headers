@@ -17,26 +17,26 @@
     BCMagnifierButton *magnifierButton;
     long long ignoreColorActionsCounter;
     NSTextField *_hexValueTextField;
+    NSTextField *_alphaComponentTextField;
     NSTextField *_redComponentTextField;
     NSTextField *_greenComponentTextField;
     NSTextField *_blueComponentTextField;
     NSTextField *_hueComponentTextField;
     NSTextField *_satComponentTextField;
     NSTextField *_ligComponentTextField;
-    NSTextField *_alphaComponentTextField;
     id _bc_target;
     SEL _bc_action;
 }
 
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
-@property(retain, nonatomic) NSTextField *alphaComponentTextField; // @synthesize alphaComponentTextField=_alphaComponentTextField;
 @property(retain, nonatomic) NSTextField *ligComponentTextField; // @synthesize ligComponentTextField=_ligComponentTextField;
 @property(retain, nonatomic) NSTextField *satComponentTextField; // @synthesize satComponentTextField=_satComponentTextField;
 @property(retain, nonatomic) NSTextField *hueComponentTextField; // @synthesize hueComponentTextField=_hueComponentTextField;
 @property(retain, nonatomic) NSTextField *blueComponentTextField; // @synthesize blueComponentTextField=_blueComponentTextField;
 @property(retain, nonatomic) NSTextField *greenComponentTextField; // @synthesize greenComponentTextField=_greenComponentTextField;
 @property(retain, nonatomic) NSTextField *redComponentTextField; // @synthesize redComponentTextField=_redComponentTextField;
+@property(retain, nonatomic) NSTextField *alphaComponentTextField; // @synthesize alphaComponentTextField=_alphaComponentTextField;
 @property(retain, nonatomic) NSTextField *hexValueTextField; // @synthesize hexValueTextField=_hexValueTextField;
 - (void).cxx_destruct;
 - (void)dealloc;

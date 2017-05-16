@@ -8,7 +8,7 @@
 
 #import "NSMenuDelegate.h"
 
-@class MSLayerArray, MSSharedObject, NSButton, NSImage, NSPopUpButton, NSString, NSTextField;
+@class MSLayerArray, MSSharedObject, MSSortableObjectMenuBuilder, NSButton, NSPopUpButton, NSString, NSTextField;
 
 @interface MSSharedStylesInspectorSection : NSViewController <NSMenuDelegate>
 {
@@ -16,26 +16,27 @@
     NSPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;
     NSButton *_syncOrResetButton;
-    NSImage *_initialImage;
     MSSharedObject *_renamingObject;
     CDUnknownBlockType _renameBlock;
+    MSSortableObjectMenuBuilder *_menuBuilder;
 }
 
+@property(retain, nonatomic) MSSortableObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(copy, nonatomic) CDUnknownBlockType renameBlock; // @synthesize renameBlock=_renameBlock;
 @property(retain, nonatomic) MSSharedObject *renamingObject; // @synthesize renamingObject=_renamingObject;
-@property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
 @property(retain, nonatomic) NSButton *syncOrResetButton; // @synthesize syncOrResetButton=_syncOrResetButton;
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
 @property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)document;
-- (struct MSModelObject *)firstSharedObject;
+- (struct MSModelObject *)firstStyle;
+- (id)firstSharedObject;
 - (id)sharedObjectContainer;
 - (BOOL)hasTextLayers;
 - (BOOL)hasOnlyTextLayers;
 - (unsigned long long)sharedObjectType;
-- (void)generatePreviewForMenuItem:(id)arg1;
+- (void)generatePreviewForMenuItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)syncOrResetSharedStyleAction:(id)arg1;
 - (void)isolateSelectedObject:(id)arg1;
@@ -45,19 +46,14 @@
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)showManageSymbolsSheet:(id)arg1;
-- (id)currentSharedObject;
-- (void)addSharedObjectsToMenu:(id)arg1;
 - (void)createSharedStyle:(id)arg1;
 - (id)sharedObjectDisplayName;
 - (void)reloadMenu;
-- (unsigned long long)selectedMenuIndex;
-- (void)updateMenuSelectionToSelectedIndex;
 - (BOOL)hasLayersWithMissingFonts;
 - (BOOL)hasLayersOutOfSyncWithSharedObject;
 - (void)validateSyncButtons;
 - (void)prepareForDisplay;
 - (void)reloadData;
-- (void)awakeFromNib;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

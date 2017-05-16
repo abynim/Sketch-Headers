@@ -20,6 +20,7 @@
 - (id)unsortedSharedObjects;
 - (BOOL)validate;
 - (void)updateMenu:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)showSharedObjectsSheet:(id)arg1;
 - (id)initWithDocument:(id)arg1;

@@ -6,29 +6,11 @@
 
 #import "_MSImmutableStyleInnerShadow.h"
 
-#import "MSStyleInnerShadow.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleInnerShadow : _MSImmutableStyleInnerShadow <MSStyleInnerShadow>
+@interface MSImmutableStyleInnerShadow : _MSImmutableStyleInnerShadow
 {
 }
 
 - (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
-
-// Remaining properties
-@property(readonly, nonatomic) double blurRadius;
-@property(readonly, nonatomic) id <MSColor> colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double offsetX;
-@property(readonly, nonatomic) double offsetY;
-@property(readonly, nonatomic) double spread;
-@property(readonly) Class superclass;
 
 @end
 

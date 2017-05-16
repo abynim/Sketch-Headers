@@ -117,6 +117,12 @@ struct MSPresetIteratorStruct {
     long long _field3;
 };
 
+struct MSTangent {
+    double _field1;
+    double _field2;
+    double _field3;
+};
+
 struct NSBezierElement {
     unsigned long long _field1;
     struct CGPoint _field2;
@@ -184,6 +190,10 @@ typedef struct {
     unsigned long long *_field3;
     unsigned long long _field4[5];
 } CDStruct_70511ce9;
+
+typedef struct {
+    unsigned long long byEvent[6];
+} CDStruct_aac06691;
 
 typedef struct {
     char *_field1;

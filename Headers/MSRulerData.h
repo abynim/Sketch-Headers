@@ -6,11 +6,7 @@
 
 #import "_MSRulerData.h"
 
-#import "MSRulerData.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSRulerData : _MSRulerData <MSRulerData>
+@interface MSRulerData : _MSRulerData
 {
 }
 
@@ -24,15 +20,6 @@
 - (void)addGuide:(id)arg1;
 - (void)addGuideWithValue:(double)arg1;
 - (void)addGuide;
-
-// Remaining properties
-@property(readonly, nonatomic) long long base;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) NSArray *guides;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

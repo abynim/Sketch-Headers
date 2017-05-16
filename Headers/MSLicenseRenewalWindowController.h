@@ -8,18 +8,21 @@
 
 #import "NSWindowDelegate.h"
 
-@class NSString, NSURL;
+@class NSButton, NSString, NSURL;
 
 @interface MSLicenseRenewalWindowController : NSWindowController <NSWindowDelegate>
 {
     NSURL *_quitWithURL;
     BOOL _shouldQuitOnWindowClose;
+    NSButton *_learnMoreButton;
 }
 
 + (void)showLicenseUpdateWindow;
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 - (void).cxx_destruct;
 - (void)didCloseAllDocuments:(id)arg1;
 - (void)closeDocumentsAndQuitWithURL:(id)arg1;
+- (void)learnMore:(id)arg1;
 - (void)renewLicense:(id)arg1;
 - (void)downloadPreviousVersion:(id)arg1;
 - (void)revertToTrial:(id)arg1;

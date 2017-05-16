@@ -18,6 +18,7 @@
     NSString *_name;
     BOOL _nameIsFixed;
     NSString *_originalObjectID;
+    unsigned long long _resizingConstraint;
     unsigned long long _resizingType;
     double _rotation;
     BOOL _shouldBreakMaskChain;
@@ -37,13 +38,12 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSRect *frame; // @synthesize frame=_frame;
-- (id)frameGeneric;
 @property(retain, nonatomic) MSExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
-- (id)exportOptionsGeneric;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 @property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
+@property(nonatomic) unsigned long long resizingConstraint; // @synthesize resizingConstraint=_resizingConstraint;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

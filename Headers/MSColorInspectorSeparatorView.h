@@ -10,7 +10,7 @@
 {
 }
 
-- (id)leftColor;
+- (id)color;
 
 @end
 

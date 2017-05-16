@@ -11,6 +11,7 @@
 @interface _MSShapePath : MSModelObject
 {
     BOOL _isClosed;
+    long long _pointRadiusBehaviour;
     NSMutableArray *_points;
 }
 
@@ -36,6 +37,7 @@
 - (void)performInitEmptyObject;
 - (void)setPoints:(id)arg1;
 @property(readonly, nonatomic) NSArray *points; // @synthesize points=_points;
+@property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

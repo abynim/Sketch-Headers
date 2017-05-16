@@ -6,11 +6,7 @@
 
 #import "_MSAssetCollection.h"
 
-#import "MSAssetCollection.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSAssetCollection : _MSAssetCollection <MSAssetCollection>
+@interface MSAssetCollection : _MSAssetCollection
 {
 }
 
@@ -22,18 +18,6 @@
 - (id)assetAtIndex:(unsigned long long)arg1 ofType:(unsigned long long)arg2;
 - (void)addAsset:(id)arg1;
 - (unsigned long long)numberOfAssetsOfType:(unsigned long long)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) NSArray *colors;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSArray *exportPresets;
-@property(readonly, nonatomic) NSArray *gradients;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) id <MSImageCollection> imageCollectionGeneric; // @dynamic imageCollectionGeneric;
-@property(readonly, nonatomic) NSArray *images;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

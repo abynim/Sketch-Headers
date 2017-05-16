@@ -95,7 +95,6 @@
 - (id)initWithBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (id)initWithBezierPath:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
-- (void)svg_insertSelfCrossings;
 
 @end
 

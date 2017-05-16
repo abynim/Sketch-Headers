@@ -6,44 +6,46 @@
 
 #import "NSObject.h"
 
+#import "MSLibraryObject.h"
 #import "MSSortable.h"
 #import "NSCoding.h"
 
-@class MSDocumentData, MSFileMonitor, NSData, NSDate, NSString, NSURL;
+@class MSDocumentData, MSFileMonitor, NSData, NSDate, NSObject<NSCopying><NSCoding>, NSString, NSURL;
 
-@interface MSAssetLibrary : NSObject <MSSortable, NSCoding>
+@interface MSAssetLibrary : NSObject <MSSortable, NSCoding, MSLibraryObject>
 {
-    BOOL _enabled;
     BOOL _valid;
+    BOOL _enabled;
+    NSURL *_locationOnDisk;
     MSDocumentData *_document;
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
     NSData *_bookmark;
-    NSURL *_locationOnDisk;
     MSFileMonitor *_fileMonitor;
 }
 
-+ (id)keyPathsForValuesAffectingTextColor;
-@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 @property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
-@property(retain, nonatomic) NSURL *locationOnDisk; // @synthesize locationOnDisk=_locationOnDisk;
 @property(retain, nonatomic) NSData *bookmark; // @synthesize bookmark=_bookmark;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
+@property(retain) NSURL *locationOnDisk; // @synthesize locationOnDisk=_locationOnDisk;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
-- (id)matchForeignSymbolsToLibraryMasters:(id)arg1;
 - (void)resolveLocationOnDisk;
 - (void)startMonitoring;
+- (id)symbolWithID:(struct NSObject *)arg1;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *libraryID;
 @property(readonly, nonatomic) NSDate *dateLastModified;
 - (void)unload;
-- (BOOL)load;
+- (void)loadAsyncWithCompletion:(CDUnknownBlockType)arg1;
+- (BOOL)loadSynchronously;
+- (void)handleDocumentLoaded:(id)arg1;
+- (id)loadDocument;
+@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;
-- (id)textColor;
-@property(nonatomic, getter=isPreviewExpanded) BOOL previewExpanded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

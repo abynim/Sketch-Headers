@@ -6,23 +6,9 @@
 
 #import "_MSImmutableExportPreset.h"
 
-#import "MSExportPreset.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableExportPreset : _MSImmutableExportPreset <MSExportPreset>
+@interface MSImmutableExportPreset : _MSImmutableExportPreset
 {
 }
 
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSArray *exportFormats;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) BOOL shouldApplyAutomatically;
-@property(readonly) Class superclass;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "MSPopoverAction.h"
 
-@class NSStoryboard, NSString;
+@class NSStoryboard, NSString, SMKMirrorServerController;
 
 @interface MSMirrorAction : MSPopoverAction
 {
@@ -21,7 +21,7 @@
 - (id)popoverViewController;
 - (BOOL)validateToolbarItem:(id)arg1;
 @property(readonly, nonatomic) NSString *imageName;
-- (id)mirrorController;
+@property(readonly, nonatomic) SMKMirrorServerController *mirrorController;
 - (void)connectionControllerDidChangeConnectionsNotification:(id)arg1;
 - (void)showMirrorPopover:(id)arg1;
 - (void)dealloc;

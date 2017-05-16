@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableImageCollection, MSImmutableImageCollection<MSImageCollection>, NSArray;
+@class MSImmutableImageCollection, NSArray;
 
 @interface _MSImmutableAssetCollection : MSImmutableModelObject
 {
@@ -18,7 +18,7 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableImageCollection<MSImageCollection> *imageCollection; // @synthesize imageCollection=_imageCollection;
+@property(retain, nonatomic) MSImmutableImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
 @property(retain, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
 @property(retain, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
 @property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
@@ -33,7 +33,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)imageCollectionGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

@@ -23,7 +23,7 @@
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)documentWillClose;
 - (unsigned long long)fullscreenPresentationOptions:(unsigned long long)arg1;
-- (void)hideUIForPresentationMode;
+- (void)hideUIForPresentationMode:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)togglePresentationMode:(id)arg1;
 - (BOOL)isFullscreen;

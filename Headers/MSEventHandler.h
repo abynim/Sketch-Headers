@@ -9,7 +9,7 @@
 #import "NSDraggingDestination.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSTouchBar, NSViewController<MSInspectorChildController>;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSTouchBar;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
@@ -58,16 +58,17 @@
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (void)refreshRulers;
-- (BOOL)shouldHideExportBar;
 - (BOOL)inspectorShouldShowBlendingProperties;
 - (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (BOOL)inspectorShouldShowPositions;
 - (BOOL)inspectorShouldShowSharedStyles;
-@property(readonly, nonatomic) NSViewController<MSInspectorChildController> *inspectorViewController;
+- (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
+- (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
+- (void)configureInspector:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
-- (void)visitArtboardForInstance:(id)arg1;
+- (void)handleSymbolInstanceDoubleClick:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
 - (void)mouseEntered:(id)arg1;
@@ -147,6 +148,7 @@
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;
 - (id)handlerName;
+- (void)cancelOperation:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
 - (void)refreshOverlay;

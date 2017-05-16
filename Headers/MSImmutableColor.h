@@ -8,7 +8,7 @@
 
 #import "MSColor.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
 @interface MSImmutableColor : _MSImmutableColor <MSColor>
 {
@@ -48,7 +48,6 @@
 @property(readonly, nonatomic) double blue;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) double green;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
 

@@ -4,8 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSColor.h"
+#import "NSObject.h"
 
-@protocol MSColor <_MSColor>
+@protocol MSColor <NSObject>
+@property(readonly, nonatomic) double red;
+@property(readonly, nonatomic) double green;
+@property(readonly, nonatomic) double blue;
+@property(readonly, nonatomic) double alpha;
 @end
 

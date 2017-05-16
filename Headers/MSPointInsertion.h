@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)bezierPathOfSegmentFromCurvePoint:(id)arg1 toPoint:(id)arg2 layer:(id)arg3;
++ (id)bezierPathOfSegmentAtIndex:(unsigned long long)arg1 layer:(id)arg2;
 + (id)splitPathSegment:(id)arg1 atProposedPoint:(struct CGPoint *)arg2 layer:(id)arg3;
 + (id)bezierPathBySplittingPathLayer:(id)arg1 atIndex:(unsigned long long)arg2 options:(unsigned long long)arg3 proposedLocation:(struct CGPoint *)arg4 surroundingCurvePoints:(id *)arg5;
 + (BOOL)canInsertAtProposedLocation:(struct CGPoint *)arg1 index:(unsigned long long)arg2 layer:(id)arg3 options:(unsigned long long)arg4;

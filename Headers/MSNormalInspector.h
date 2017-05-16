@@ -9,25 +9,19 @@
 #import "MSInspectorChildController.h"
 #import "MSStylePartInspectorDelegate.h"
 
-@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSReflectionInspectorViewController, NSArray, NSScrollView, NSString;
+@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSScrollView, NSString;
 
 @interface MSNormalInspector : NSViewController <MSStylePartInspectorDelegate, MSInspectorChildController>
 {
-    MSLayerInspectorViewController *layerViewController;
-    MSMultipleShadowInspectorViewController *shadowViewController;
-    MSMultipleShadowInspectorViewController *innerShadowViewController;
-    MSMultipleBorderInspectorViewController *borderViewController;
-    MSBlurInspectorViewController *blurViewController;
-    MSColorControlsInspectorViewController *colorControlsViewController;
-    MSReflectionInspectorViewController *reflectionViewController;
-    MSMultipleFillInspectorViewController *fillViewController;
     MSExportInspectorViewController *exportViewController;
     MSInspectorStackView *_stackView;
     NSArray *_layers;
     MSEventHandler *_eventHandler;
     NSScrollView *_scrollView;
+    MSStandardInspectorViewControllers *_standardInspectors;
 }
 
+@property(readonly, nonatomic) MSStandardInspectorViewControllers *standardInspectors; // @synthesize standardInspectors=_standardInspectors;
 @property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MSEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -35,14 +29,11 @@
 - (void).cxx_destruct;
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (id)views;
-- (BOOL)shouldHideExportBar;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
 - (id)sharedObjectsSection;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
-- (void)returnToDefaultHandler;
-- (id)viewControllers;
 - (void)closeAnyColorPopover;
 - (void)changeColor:(id)arg1;
 - (void)layerPositionPossiblyChanged;

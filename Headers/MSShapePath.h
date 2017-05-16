@@ -8,15 +8,13 @@
 
 #import "MSShapePath.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
 @interface MSShapePath : _MSShapePath <MSShapePath>
 {
 }
 
 + (id)pathWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)pathWithPoints:(id)arg1;
-@property(readonly, copy) NSString *description;
+- (id)description;
 - (BOOL)isPolygon;
 - (BOOL)isRectangle;
 - (BOOL)isLine;
@@ -33,17 +31,10 @@
 - (id)pointAtIndex:(long long)arg1;
 - (void)removeAllPoints;
 - (void)removeLastPoint;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)layer;
 - (id)initWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)initWithPoints:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isClosed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *points;
-@property(readonly) Class superclass;
 
 @end
 

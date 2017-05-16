@@ -41,6 +41,7 @@
 - (id)decodeDictionary:(id)arg1 error:(id *)arg2;
 - (id)decodeData:(id)arg1 error:(id *)arg2;
 - (void)convertDataToJSONDictionary:(id)arg1;
+- (id)JSONDataByFixingData:(id)arg1;
 - (id)init;
 - (id)initWithData:(id)arg1;
 - (id)initWithRootObject:(id)arg1;

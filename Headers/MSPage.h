@@ -7,12 +7,11 @@
 #import "_MSPage.h"
 
 #import "MSCloudExportable.h"
-#import "MSPage.h"
 #import "MSRootLayer.h"
 
-@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSString;
 
-@interface MSPage : _MSPage <MSCloudExportable, MSRootLayer, MSPage>
+@interface MSPage : _MSPage <MSCloudExportable, MSRootLayer>
 {
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedExportableLayers;
@@ -26,14 +25,14 @@
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (void).cxx_destruct;
 - (void)setIsLocked:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isLocked;
+- (BOOL)isLocked;
 - (void)setIsVisible:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL isVisible;
+- (BOOL)isVisible;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 @property(readonly, nonatomic) NSArray *symbols;
 - (struct CGPoint)originForNewArtboard;
-@property(readonly, nonatomic) BOOL hasClickThrough;
+- (BOOL)hasClickThrough;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 @property(readonly, nonatomic) MSRulerData *currentVerticalRulerData;
@@ -51,9 +50,9 @@
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
-- (void)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
-- (void)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
-- (void)tryToMoveLayerToArtboard:(id)arg1;
+- (BOOL)tryToMoveLayerToArtboard:(id)arg1;
+- (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
+- (BOOL)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 @property(readonly, nonatomic) NSArray *exportableLayers;
 @property(readonly, nonatomic) unsigned long long exportableLayersCount;
 - (id)symbolLayersInGroup:(id)arg1;
@@ -84,43 +83,14 @@
 - (unsigned long long)displayType;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
 @property(copy, nonatomic) MSSimpleGrid *grid;
-@property(readonly, nonatomic) id <MSSimpleGrid> gridGeneric; // @dynamic gridGeneric;
-@property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
-@property(readonly, nonatomic) id <MSRulerData> horizontalRulerDataGeneric; // @dynamic horizontalRulerDataGeneric;
-@property(readonly, nonatomic) BOOL includeInCloudUpload;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) NSArray *layers;
 @property(copy, nonatomic) MSLayoutGrid *layout;
-@property(readonly, nonatomic) id <MSLayoutGrid> layoutGeneric; // @dynamic layoutGeneric;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
 @property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
-@property(readonly, nonatomic) id <MSRulerData> verticalRulerDataGeneric; // @dynamic verticalRulerDataGeneric;
 
 @end
 

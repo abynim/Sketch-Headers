@@ -24,7 +24,6 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
-- (id)styleGeneric;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -21,6 +21,7 @@
 - (void)mouseMoved:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)awakeFromNib;
+- (void)toggleColorComponentTextFieldFocusIfAppropriate;
 - (void)mouseUp:(id)arg1;
 - (BOOL)shouldSwapColorModeForEvent:(id)arg1;
 - (void)mouseDragged:(id)arg1;

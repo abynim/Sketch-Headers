@@ -6,11 +6,9 @@
 
 #import "_MSExportFormat.h"
 
-#import "MSExportFormat.h"
+@class NSString;
 
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSExportFormat : _MSExportFormat <MSExportFormat>
+@interface MSExportFormat : _MSExportFormat
 {
 }
 
@@ -19,7 +17,8 @@
 + (id)validFormats;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3 absoluteSize:(double)arg4 namingScheme:(long long)arg5;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
-@property(readonly, copy) NSString *description;
+- (double)exportScaleInRect:(struct CGRect)arg1;
+- (id)description;
 @property(readonly) NSString *baseFileName;
 - (id)defaultName;
 - (void)remove;
@@ -28,18 +27,6 @@
 - (id)initWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3 absoluteSize:(double)arg4 namingScheme:(long long)arg5;
 - (id)initWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3;
 - (BOOL)isScalableExport;
-
-// Remaining properties
-@property(readonly, nonatomic) double absoluteSize;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, nonatomic) NSString *fileFormat;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) long long namingScheme;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double scale;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) long long visibleScaleType;
 
 @end
 

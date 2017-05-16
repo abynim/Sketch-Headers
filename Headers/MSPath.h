@@ -38,10 +38,12 @@
 - (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
 - (id)pathByGrowingBy:(double)arg1;
 - (id)insetPathBy:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
+- (id)insetPathBy:(double)arg1;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;
 - (void)addClipForWindingRule:(unsigned long long)arg1 context:(struct CGContext *)arg2;
 - (void)clipContext:(struct CGContext *)arg1 windingRule:(unsigned long long)arg2 inBlock:(CDUnknownBlockType)arg3;
+- (struct CGContext *)createHelperContext;
 
 @end
 
