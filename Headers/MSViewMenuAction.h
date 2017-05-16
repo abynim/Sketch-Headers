@@ -10,7 +10,6 @@
 {
 }
 
-- (id)menu;
 - (id)tooltip;
 - (id)submenuActionIDs;
 

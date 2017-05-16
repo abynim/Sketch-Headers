@@ -6,11 +6,7 @@
 
 #import "_MSImmutableStyleFill.h"
 
-#import "MSStyleFill.h"
-
-@class MSImageData, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleFill : _MSImmutableStyleFill <MSStyleFill>
+@interface MSImmutableStyleFill : _MSImmutableStyleFill
 {
 }
 
@@ -29,23 +25,6 @@
 - (id)addTiledPattern:(id)arg1 scale:(double)arg2 exporter:(id)arg3;
 - (void)addUseWrapperToPattern:(id)arg1 withImageWrapper:(id)arg2 scaleX:(double)arg3 scaleY:(double)arg4;
 - (id)addImageDefinition:(id)arg1 exporter:(id)arg2;
-
-// Remaining properties
-@property(readonly, nonatomic) id <MSColor> colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long fillType;
-@property(readonly, nonatomic) id <MSGradient> gradientGeneric;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) MSImageData *image;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, nonatomic) long long noiseIndex;
-@property(readonly, nonatomic) double noiseIntensity;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) long long patternFillType;
-@property(readonly, nonatomic) double patternTileScale;
-@property(readonly) Class superclass;
 
 @end
 

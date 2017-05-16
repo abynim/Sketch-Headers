@@ -6,23 +6,11 @@
 
 #import "_MSGraphicsContextSettings.h"
 
-#import "MSGraphicsContextSettings.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSGraphicsContextSettings : _MSGraphicsContextSettings <MSGraphicsContextSettings>
+@interface MSGraphicsContextSettings : _MSGraphicsContextSettings
 {
 }
 
-@property(readonly, copy) NSString *description;
-
-// Remaining properties
-@property(readonly, nonatomic) long long blendMode;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double opacity;
-@property(readonly) Class superclass;
+- (id)description;
 
 @end
 

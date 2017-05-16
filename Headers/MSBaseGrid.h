@@ -6,11 +6,7 @@
 
 #import "_MSBaseGrid.h"
 
-#import "MSBaseGrid.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSBaseGrid : _MSBaseGrid <MSBaseGrid>
+@interface MSBaseGrid : _MSBaseGrid
 {
     BOOL _forceDraw;
 }
@@ -23,14 +19,6 @@
 - (void)setIsEnabled:(BOOL)arg1;
 - (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

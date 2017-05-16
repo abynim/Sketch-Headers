@@ -8,31 +8,27 @@
 
 #import "MSLayerGroup.h"
 
-@class NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray;
 
 @interface MSLayerGroup : _MSLayerGroup <MSLayerGroup>
 {
-    BOOL _enableAutomaticScaling;
-    BOOL _isOpen;
     long long _preCalculatedHasSelectedLayer;
+    unsigned long long _disableAutomaticScalingCounter;
 }
 
 + (BOOL)groupBoundsShouldBeIntegral;
 + (struct CGRect)groupBoundsForContainer:(id)arg1;
 + (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
 + (id)groupFromLayers:(id)arg1;
+@property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
-@property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
-@property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
 - (id)candidatesForMasking;
 - (id)children;
 - (id)layerWithID:(id)arg1;
-- (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
-- (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
-- (unsigned long long)constraintForLayer:(id)arg1 inOldSize:(struct CGSize)arg2;
 - (void)resizeChildLayer:(id)arg1 oldParentSize:(struct CGSize)arg2;
-- (void)resizeChildrenFromOldSize:(struct CGSize)arg1;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
+@property(readonly, nonatomic) BOOL isAutomaticScalingEnabled;
+- (void)disableAutomaticScalingInBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
@@ -41,7 +37,7 @@
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (void)deselectAllLayers;
 - (void)selectLayers:(id)arg1;
-- (BOOL)containsSelectedItem;
+- (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
 - (BOOL)shouldAutoresizeChildrenAfterResize;
 - (void)layerDidResize;
 - (void)layerWillResize;
@@ -50,7 +46,6 @@
 - (void)deselectLayerAndParent;
 - (void)refreshOverlay;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
-- (void)setIsLocked:(BOOL)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
 - (id)bezierPath;
@@ -66,10 +61,10 @@
 - (id)selectedPreviewImage;
 - (BOOL)expandableInLayerList;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)moveTransformsToChildren:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;
 - (BOOL)hasStyleOrTransform;
 - (void)translateChildrenFrameToLayers:(id)arg1;
-- (void)moveTransformsToChildren:(id)arg1;
 - (id)moveLayersToParent;
 - (void)ungroupSingleChildDescendentGroups;
 - (id)ungroup;
@@ -93,37 +88,7 @@
 - (id)CSSAttributeString;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(readonly, nonatomic) BOOL hasClickThrough;
-@property(readonly, nonatomic) BOOL hasTransforms;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

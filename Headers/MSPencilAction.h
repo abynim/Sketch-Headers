@@ -10,7 +10,6 @@
 {
 }
 
-- (unsigned short)shortcutCharacter;
 - (id)tooltip;
 - (BOOL)isSelectable;
 - (BOOL)isActive;

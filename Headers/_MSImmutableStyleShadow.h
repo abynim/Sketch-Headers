@@ -6,7 +6,7 @@
 
 #import "MSImmutableStylePart.h"
 
-@class MSImmutableColor, MSImmutableColor<MSColor>, MSImmutableGraphicsContextSettings, MSImmutableGraphicsContextSettings<MSGraphicsContextSettings>;
+@class MSImmutableColor, MSImmutableGraphicsContextSettings;
 
 @interface _MSImmutableStyleShadow : MSImmutableStylePart
 {
@@ -19,8 +19,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings<MSGraphicsContextSettings> *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor<MSColor> *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(nonatomic) double spread; // @synthesize spread=_spread;
 @property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
 @property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
@@ -35,8 +35,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)contextSettingsGeneric;
-- (id)colorGeneric;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

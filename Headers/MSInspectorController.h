@@ -8,32 +8,38 @@
 
 #import "NSTouchBarDelegate.h"
 
-@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSString, NSView, NSViewController<MSInspectorChildController>;
+@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSLayoutConstraint, NSString, NSView, NSViewController<MSInspectorChildController>;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
 {
-    NSView *_placeholderView;
-    NSView *_alignmentView;
+    BOOL _alignmentBarHidden;
+    BOOL _exportPanelHidden;
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
+    NSView *_alignmentView;
+    NSView *_contentContainerView;
+    NSView *_exportPanelContainerView;
+    NSLayoutConstraint *_exportPanelHeightConstraint;
     MSNormalInspector *_normalInspector;
     MSSliceInspectorViewController *_slicesInspector;
     MSArtboardInspectorViewController *_artboardInspector;
     MSExportInspectorViewController *_bottomExporter;
-    unsigned long long _oldInspectorLocation;
 }
 
-@property(nonatomic) unsigned long long oldInspectorLocation; // @synthesize oldInspectorLocation=_oldInspectorLocation;
 @property(retain, nonatomic) MSExportInspectorViewController *bottomExporter; // @synthesize bottomExporter=_bottomExporter;
 @property(retain, nonatomic) MSArtboardInspectorViewController *artboardInspector; // @synthesize artboardInspector=_artboardInspector;
 @property(retain, nonatomic) MSSliceInspectorViewController *slicesInspector; // @synthesize slicesInspector=_slicesInspector;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
+@property(retain, nonatomic) NSLayoutConstraint *exportPanelHeightConstraint; // @synthesize exportPanelHeightConstraint=_exportPanelHeightConstraint;
+@property(retain, nonatomic) NSView *exportPanelContainerView; // @synthesize exportPanelContainerView=_exportPanelContainerView;
+@property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
+@property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
+@property(nonatomic) BOOL exportPanelHidden; // @synthesize exportPanelHidden=_exportPanelHidden;
+@property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
-@property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
-@property(retain, nonatomic) NSView *placeholderView; // @synthesize placeholderView=_placeholderView;
 - (void).cxx_destruct;
 - (void)reloadTouchBars;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
@@ -49,27 +55,28 @@
 - (id)findTextFieldInView:(id)arg1 withIndex:(unsigned long long)arg2;
 - (void)focusOnTextField:(unsigned long long)arg1;
 - (void)reload;
+- (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
+- (void)refreshCurrentController;
+- (void)layoutContentView;
 - (id)sharedObjectsSection;
 - (void)reloadSharedObjectsSection;
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (BOOL)shouldShowExportBar;
-- (void)hideExportBarIfNecessary;
+- (void)layoutExportPanel;
 - (void)prepareForDisplay;
 - (void)currentHandlerChanged;
 - (void)layerPositionPossiblyChanged;
-- (BOOL)layersAreExportable:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
+- (void)viewDidResize;
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
-- (void)selectionDidChangeTo:(id)arg1;
-- (id)controllerForCurrentSelection:(id)arg1;
-- (void)viewDidResize;
 - (void)dealloc;
 - (void)movedThroughHistory:(id)arg1;
+- (void)viewDidLoad;
 - (void)awakeFromNib;
-- (id)init;
+- (id)initWithCoder:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

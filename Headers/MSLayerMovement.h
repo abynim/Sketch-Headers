@@ -13,6 +13,8 @@
 + (void)moveToBack:(id)arg1;
 + (void)moveToFront:(id)arg1;
 + (void)moveBackward:(id)arg1;
++ (void)moveUpHierarchy:(id)arg1;
++ (BOOL)canMoveLayerUpHierarchy:(id)arg1;
 + (void)moveForward:(id)arg1;
 
 @end

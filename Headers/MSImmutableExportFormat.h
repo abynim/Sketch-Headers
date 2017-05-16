@@ -6,31 +6,15 @@
 
 #import "_MSImmutableExportFormat.h"
 
-#import "MSExportFormat.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableExportFormat : _MSImmutableExportFormat <MSExportFormat>
+@interface MSImmutableExportFormat : _MSImmutableExportFormat
 {
 }
 
 + (id)defaultNameForScale:(double)arg1;
 - (BOOL)isVectorExport;
+- (double)exportScaleInRect:(struct CGRect)arg1;
 - (id)defaultName;
 - (void)migratePropertiesFromV72OrEarlierWithUnarchiver:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) double absoluteSize;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSString *fileFormat;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) long long namingScheme;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double scale;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) long long visibleScaleType;
 
 @end
 

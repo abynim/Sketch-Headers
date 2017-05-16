@@ -6,11 +6,7 @@
 
 #import "_MSSharedObjectContainer.h"
 
-#import "MSSharedObjectContainer.h"
-
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSSharedObjectContainer : _MSSharedObjectContainer <MSSharedObjectContainer>
+@interface MSSharedObjectContainer : _MSSharedObjectContainer
 {
 }
 
@@ -37,14 +33,6 @@
 - (void)removeSharedObject:(id)arg1;
 - (id)addSharedObjectWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
 - (Class)sharedObjectClass;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) NSArray *objects;
-@property(readonly) Class superclass;
 
 @end
 

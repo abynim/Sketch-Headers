@@ -6,11 +6,9 @@
 
 #import "_MSImmutableTextStyle.h"
 
-#import "MSTextStyle.h"
+@class NSDictionary;
 
-@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableTextStyle : _MSImmutableTextStyle <MSTextStyle>
+@interface MSImmutableTextStyle : _MSImmutableTextStyle
 {
     NSDictionary *_decodedAttributes;
 }
@@ -20,14 +18,6 @@
 - (void)migratePropertiesFromV81OrEarlierWithUnarchiver:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *attributes;
 - (id)treeAsDictionary;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) NSDictionary *encodedAttributes;
-@property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

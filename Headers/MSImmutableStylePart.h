@@ -8,19 +8,12 @@
 
 #import "MSStylePart.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
-
 @interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePart>
 {
 }
 
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 @end
 

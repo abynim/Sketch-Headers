@@ -8,5 +8,8 @@
 
 @interface NSFont (Chocolat)
 + (id)fontPreventingAutoActivationWithName:(id)arg1 size_bc:(double)arg2;
++ (id)fontWithName:(id)arg1 size_bc:(double)arg2;
++ (void)setPreventsAutoActivation_bc:(BOOL)arg1;
++ (BOOL)preventsAutoActivation_bc;
 @end
 

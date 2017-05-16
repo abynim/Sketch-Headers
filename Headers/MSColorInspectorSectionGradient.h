@@ -13,16 +13,18 @@
 
 @interface MSColorInspectorSectionGradient : MSColorInspectorSection <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
-    NSButton *smoothOpacityButton;
-    MSGradientBarView *gradientBarView;
+    MSGradientBarView *_gradientBarView;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
+    NSButton *_smoothOpacityButton;
     MSGradientEventHandler *_gradientHandler;
 }
 
 @property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
-@property(retain, nonatomic) NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
-@property(retain, nonatomic) NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
+@property(nonatomic) __weak NSButton *smoothOpacityButton; // @synthesize smoothOpacityButton=_smoothOpacityButton;
+@property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
+@property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
+@property(nonatomic) __weak MSGradientBarView *gradientBarView; // @synthesize gradientBarView=_gradientBarView;
 - (void).cxx_destruct;
 - (unsigned long long)assetType;
 - (void)dealloc;

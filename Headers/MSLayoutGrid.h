@@ -6,11 +6,9 @@
 
 #import "_MSLayoutGrid.h"
 
-#import "MSLayoutGrid.h"
+@class NSColor;
 
-@class NSColor, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSLayoutGrid : _MSLayoutGrid <MSLayoutGrid>
+@interface MSLayoutGrid : _MSLayoutGrid
 {
     NSColor *_lightColor;
     NSColor *_darkColor;
@@ -33,25 +31,6 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-
-// Remaining properties
-@property(readonly, nonatomic) double columnWidth;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL drawHorizontal;
-@property(readonly, nonatomic) BOOL drawHorizontalLines;
-@property(readonly, nonatomic) BOOL drawVertical;
-@property(readonly, nonatomic) double gutterHeight;
-@property(readonly, nonatomic) double gutterWidth;
-@property(readonly, nonatomic) BOOL guttersOutside;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) double horizontalOffset;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, nonatomic) double numberOfColumns;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double rowHeightMultiplication;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) double totalWidth;
 
 @end
 

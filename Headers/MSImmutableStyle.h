@@ -6,11 +6,9 @@
 
 #import "_MSImmutableStyle.h"
 
-#import "MSStyle.h"
+@class MSImmutableStyleBorder, MSImmutableStyleFill, MSImmutableStyleInnerShadow, MSImmutableStyleShadow, NSArray;
 
-@class MSImmutableStyleBorder, MSImmutableStyleFill, MSImmutableStyleInnerShadow, MSImmutableStyleShadow, NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyle : _MSImmutableStyle <MSStyle>
+@interface MSImmutableStyle : _MSImmutableStyle
 {
 }
 
@@ -21,9 +19,7 @@
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasBlending;
-@property(readonly, nonatomic) id <MSStyleFill> fillGeneric;
 @property(readonly, nonatomic) MSImmutableStyleFill *fill;
-@property(readonly, nonatomic) id <MSStyleBorder> borderGeneric;
 @property(readonly, nonatomic) MSImmutableStyleBorder *border;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasEnabledInnerShadow;
@@ -50,27 +46,6 @@
 - (BOOL)hasBorderRequiringMask;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2 elementPosition:(unsigned long long)arg3;
 - (unsigned long long)numberOfElementsWithExporter:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) id <MSStyleBlur> blurGeneric; // @dynamic blurGeneric;
-@property(readonly, nonatomic) id <MSStyleBorderOptions> borderOptionsGeneric; // @dynamic borderOptionsGeneric;
-@property(readonly, nonatomic) NSArray *borders;
-@property(readonly, nonatomic) id <MSStyleColorControls> colorControlsGeneric; // @dynamic colorControlsGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long endDecorationType;
-@property(readonly, nonatomic) NSArray *fills;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSArray *innerShadows;
-@property(readonly, nonatomic) long long miterLimit;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) id <MSStyleReflection> reflectionGeneric; // @dynamic reflectionGeneric;
-@property(readonly, nonatomic) NSArray *shadows;
-@property(readonly, nonatomic) NSString *sharedObjectID;
-@property(readonly, nonatomic) unsigned long long startDecorationType;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) id <MSTextStyle> textStyleGeneric; // @dynamic textStyleGeneric;
 
 @end
 

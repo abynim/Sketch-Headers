@@ -8,17 +8,15 @@
 
 #import "MSWelcomeCollectionItemPreviewImageLoading.h"
 
-@class MSSketchToolRunner, MSWelcomeWindowController, NSImage, NSString, NSURL;
+@class MSWelcomeWindowController, NSImage, NSString, NSURL;
 
 @interface MSWelcomeCollectionItem : NSObject <MSWelcomeCollectionItemPreviewImageLoading>
 {
     NSString *_title;
     MSWelcomeWindowController *_welcomeWindowController;
     NSImage *_cachedPreviewImage;
-    MSSketchToolRunner *_sketchToolRunner;
 }
 
-@property(retain, nonatomic) MSSketchToolRunner *sketchToolRunner; // @synthesize sketchToolRunner=_sketchToolRunner;
 @property(retain, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 @property(nonatomic) __weak MSWelcomeWindowController *welcomeWindowController; // @synthesize welcomeWindowController=_welcomeWindowController;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;

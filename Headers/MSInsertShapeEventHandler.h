@@ -30,7 +30,7 @@
 - (id)insertShapeAsSubPathOfShape:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (id)imageName;
-- (void)addSnapRectsForImmutableGroup:(id)arg1 withAncestors:(id)arg2 toArray:(id)arg3;
+- (void)populateArray:(id)arg1 withSnapRectsForGroup:(id)arg2 ancestors:(id)arg3;
 - (void)cacheSnapPointsInBackground;
 - (struct CGPoint)snapMouseToEdges:(struct CGPoint)arg1 guides:(id *)arg2;
 - (struct CGPoint)snapMouseAndShowSnapLines:(struct CGPoint)arg1;

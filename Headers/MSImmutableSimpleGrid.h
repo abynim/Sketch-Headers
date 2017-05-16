@@ -6,23 +6,9 @@
 
 #import "_MSImmutableSimpleGrid.h"
 
-#import "MSSimpleGrid.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableSimpleGrid : _MSImmutableSimpleGrid <MSSimpleGrid>
+@interface MSImmutableSimpleGrid : _MSImmutableSimpleGrid
 {
 }
 
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) long long gridSize;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) long long thickGridTimes;
 @end
 

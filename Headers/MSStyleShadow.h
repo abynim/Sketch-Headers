@@ -6,35 +6,15 @@
 
 #import "_MSStyleShadow.h"
 
-#import "MSStyleShadow.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSStyleShadow : _MSStyleShadow <MSStyleShadow>
+@interface MSStyleShadow : _MSStyleShadow
 {
 }
 
-- (BOOL)isDefaultShadow;
-- (BOOL)isDefaultGlow;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)blendingViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
-
-// Remaining properties
-@property(readonly, nonatomic) double blurRadius;
-@property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) double offsetX;
-@property(readonly, nonatomic) double offsetY;
-@property(readonly, nonatomic) double spread;
-@property(readonly) Class superclass;
 
 @end
 

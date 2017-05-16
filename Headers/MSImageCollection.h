@@ -6,23 +6,11 @@
 
 #import "_MSImageCollection.h"
 
-#import "MSImageCollection.h"
-
-@class NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImageCollection : _MSImageCollection <MSImageCollection>
+@interface MSImageCollection : _MSImageCollection
 {
 }
 
 - (id)treeAsDictionary;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSDictionary *images;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 
 @end
 

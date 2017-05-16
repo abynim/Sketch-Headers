@@ -8,7 +8,7 @@
 
 #import "MSLayerGroup.h"
 
-@class NSArray, NSDictionary, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray;
 
 @interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSLayerGroup>
 {
@@ -42,6 +42,10 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)subObjectsForTreeDiff;
+- (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
+- (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
+- (unsigned long long)constraintForLayer:(id)arg1;
+- (void)migratePropertiesFromV90OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
 - (id)svgStyle:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
@@ -49,37 +53,7 @@
 - (BOOL)requiresPathDefinition:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(readonly, nonatomic) BOOL hasClickThrough;
-@property(readonly, nonatomic) BOOL hasTransforms;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isLocked;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) NSArray *layers;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
-@property(readonly) Class superclass;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

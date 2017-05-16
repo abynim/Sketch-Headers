@@ -6,25 +6,9 @@
 
 #import "_MSImmutableStyleBasicFill.h"
 
-#import "MSStyleBasicFill.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill <MSStyleBasicFill>
+@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill
 {
 }
 
-
-// Remaining properties
-@property(readonly, nonatomic) id <MSColor> colorGeneric; // @dynamic colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric; // @dynamic contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long fillType;
-@property(readonly, nonatomic) id <MSGradient> gradientGeneric; // @dynamic gradientGeneric;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly) Class superclass;
 @end
 

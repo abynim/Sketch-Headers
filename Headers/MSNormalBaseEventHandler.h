@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)shouldHideExportBar;
+- (void)configureInspector:(id)arg1;
 - (void)resizeParentsOfSelectedLayersToFit;
 - (BOOL)canDuplicate;
 - (id)cursorForCorner:(long long)arg1 transformStruct:(struct _CHTransformStruct)arg2;

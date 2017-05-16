@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSMutableDictionary *distanceItems; // @synthesize distanceItems=_distanceItems;
 @property(retain, nonatomic) NSMutableDictionary *sizeItems; // @synthesize sizeItems=_sizeItems;
 - (void).cxx_destruct;
+- (void)drawForGroup:(id)arg1 zoom:(double)arg2;
 - (void)enumerateInstructions:(CDUnknownBlockType)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)linesForAxis:(unsigned long long)arg1;

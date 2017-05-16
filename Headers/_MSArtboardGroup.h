@@ -13,6 +13,7 @@
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
     BOOL _includeInCloudUpload;
+    BOOL _resizesContent;
     MSColor *_backgroundColor;
     MSSimpleGrid *_grid;
     MSRulerData *_horizontalRulerData;
@@ -31,15 +32,11 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-- (id)verticalRulerDataGeneric;
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
-- (id)layoutGeneric;
 @property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-- (id)horizontalRulerDataGeneric;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-- (id)gridGeneric;
 @property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-- (id)backgroundColorGeneric;
+@property(nonatomic) BOOL resizesContent; // @synthesize resizesContent=_resizesContent;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;

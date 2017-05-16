@@ -10,6 +10,7 @@
 
 @interface BCSparkleLicensedUpdateChecker : NSObject
 {
+    BOOL _hasAvailableUpdates;
     unsigned long long _numberOfUnavailableReleases;
     NSString *_latestUnavailableVersion;
     NSString *_latestUnavailableBuildNumber;
@@ -24,9 +25,10 @@
 @property(readonly, nonatomic) unsigned long long indexOfBestUpdate; // @synthesize indexOfBestUpdate=_indexOfBestUpdate;
 @property(readonly, nonatomic) NSString *latestUnavailableBuildNumber; // @synthesize latestUnavailableBuildNumber=_latestUnavailableBuildNumber;
 @property(readonly, nonatomic) NSString *latestUnavailableVersion; // @synthesize latestUnavailableVersion=_latestUnavailableVersion;
+@property(readonly, nonatomic) BOOL hasAvailableUpdates; // @synthesize hasAvailableUpdates=_hasAvailableUpdates;
 @property(nonatomic) unsigned long long numberOfUnavailableReleases; // @synthesize numberOfUnavailableReleases=_numberOfUnavailableReleases;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL shouldInvokeSparkleUIForUpdates;
+@property(readonly, nonatomic) BOOL hasUnlicensedUpdatesOnly;
 - (BOOL)isUpdateInstalled:(id)arg1;
 - (long long)compareBuildNumber:(id)arg1 to:(id)arg2;
 - (BOOL)isUpdateItemInstallable:(id)arg1;

@@ -11,7 +11,7 @@
 #import "MSTextLayer.h"
 #import "NSLayoutManagerDelegate.h"
 
-@class MSAttributedString, MSImageData, NSArray, NSAttributedString, NSDictionary, NSFont, NSNumber, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSAttributedString, NSNumber, NSString;
 
 @interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSTextLayer, MSFirstLineTypesetterDelegate>
 {
@@ -35,12 +35,12 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
-@property(readonly, copy, nonatomic) NSArray *baselineOffsets;
-@property(readonly, nonatomic) double lineHeight;
+- (id)baselineOffsets;
+- (double)lineHeight;
 @property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
 - (double)defaultLineHeight:(id)arg1;
-@property(readonly, nonatomic) NSFont *font;
+- (id)font;
 @property(readonly, nonatomic) double fontSize;
 @property(readonly, nonatomic) unsigned long long textAlignment;
 - (id)usedFontNames;
@@ -53,7 +53,7 @@
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
 - (id)createLayoutManager;
 - (id)createTextContainer;
-- (struct CGPoint)drawingPointForText;
+@property(readonly, nonatomic) struct CGPoint drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBounds;
@@ -82,41 +82,23 @@
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) MSAttributedString *attributedString;
 @property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol;
-@property(readonly, nonatomic) id <MSExportOptions> exportOptionsGeneric;
-@property(readonly, nonatomic) id <MSRect> frameGeneric;
-@property(readonly, nonatomic) struct CGRect glyphBounds;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL heightIsClipped;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) BOOL isVisible;
-@property(readonly, nonatomic) long long layerListExpandedType;
 @property(readonly, nonatomic) long long lineSpacingBehaviour;
-@property(readonly, copy, nonatomic) NSString *name;
-@property(readonly, nonatomic) BOOL nameIsFixed;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) NSString *originalObjectID;
-@property(readonly, nonatomic) MSImageData *preview;
 @property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) unsigned long long resizingType;
 @property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) BOOL shouldBreakMaskChain;
-@property(readonly, nonatomic) id <MSStyle> styleGeneric;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) long long textBehaviour;
-@property(readonly, copy, nonatomic) NSDictionary *userInfo;
 
 @end
 

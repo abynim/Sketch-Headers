@@ -13,6 +13,7 @@
 - (id)label;
 - (BOOL)hasDynamicTitle;
 - (BOOL)validate;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)nineSlice:(id)arg1;
 

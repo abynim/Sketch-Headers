@@ -10,14 +10,17 @@
 
 @interface MSDragToSelectGestureRecognizer : MSDragGestureRecognizer
 {
+    unsigned long long _selectionExtensionMask;
     NSArray *_initialSelection;
 }
 
 @property(copy, nonatomic) NSArray *initialSelection; // @synthesize initialSelection=_initialSelection;
+@property(nonatomic) unsigned long long selectionExtensionMask; // @synthesize selectionExtensionMask=_selectionExtensionMask;
 - (void).cxx_destruct;
 - (void)reset;
 @property(readonly, nonatomic) BOOL extendSelection;
 - (struct CGRect)selectionRect;
+- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end
 

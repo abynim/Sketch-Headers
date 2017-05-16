@@ -21,8 +21,10 @@
 - (BOOL)closePopovers;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)mouseDown:(id)arg1;
+- (void)cancelOperation:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)sendEvent:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
 
 @end
 

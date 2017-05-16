@@ -11,6 +11,7 @@
 + (id)stringRepresentationForSeconds:(unsigned long long)arg1;
 - (id)uniqueStringComparedToStrings:(id)arg1 includeCopySuffix:(BOOL)arg2;
 - (id)splitByBaseAndNumber;
+- (BOOL)containsCharacter:(unsigned short)arg1;
 - (BOOL)containsSubstring:(id)arg1;
 - (id)trimmedString;
 - (id)stringWithFirstCharacterLowercase;

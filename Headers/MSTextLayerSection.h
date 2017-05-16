@@ -11,12 +11,13 @@
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSString, NSTextField, NSView;
+@class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 
 @interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
 {
     NSView *_basicView;
     NSView *_missingFontsView;
+    NSTextField *_missingFontsLabel;
     NSButton *_fontFamilyButton;
     NSButton *_missingFontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
@@ -27,9 +28,15 @@
     NSTextField *_paragraphHeightField;
     NSSegmentedControl *_alignmentButton;
     BCPopover *_popover;
+    NSSet *_fontPostscriptNames;
+    NSSet *_fontFamilyNames;
+    NSSet *_fontPointSizes;
 }
 
 + (void)initialize;
+@property(copy, nonatomic) NSSet *fontPointSizes; // @synthesize fontPointSizes=_fontPointSizes;
+@property(copy, nonatomic) NSSet *fontFamilyNames; // @synthesize fontFamilyNames=_fontFamilyNames;
+@property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
@@ -40,6 +47,7 @@
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
 @property(retain, nonatomic) NSButton *missingFontFamilyButton; // @synthesize missingFontFamilyButton=_missingFontFamilyButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
+@property(retain, nonatomic) NSTextField *missingFontsLabel; // @synthesize missingFontsLabel=_missingFontsLabel;
 @property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
@@ -47,6 +55,7 @@
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
+- (BOOL)hasMoreThanOneMissingFont;
 - (BOOL)hasMissingFonts;
 - (id)views;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
@@ -54,12 +63,14 @@
 - (void)changeFontPropertiesInBlock:(CDUnknownBlockType)arg1;
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
 - (void)applyFontPropertyChanges:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
 - (id)popoverWillReturnUndoManager:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)reloadFontWeightPopUp;
+- (void)reloadFontFamilyButton;
+- (void)reloadPointSizesTextField;
 - (id)colorSpaceForFirstColor;
 - (id)firstColor;
-- (id)currentFontFamilyName;
 - (void)changeFontFamilyTo:(id)arg1;
 - (void)changeParagraphStyleInBlock:(CDUnknownBlockType)arg1;
 - (id)textView;
@@ -87,6 +98,7 @@
 - (double)lineHeight;
 - (void)reloadLineHeightField;
 - (void)reloadData;
+- (id)fontDescriptorsForSelection;
 - (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;
 - (void)updateControlFormatterNativeDecimal:(id)arg1;

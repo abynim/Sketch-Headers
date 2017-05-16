@@ -6,11 +6,13 @@
 
 #import "MSModelObject.h"
 
-@class MSSymbolMaster, NSString;
+@class MSSymbolMaster, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface _MSForeignSymbol : MSModelObject
 {
-    NSString *_sourceDocumentID;
+    struct NSObject *_libraryID;
+    NSString *_sourceLibraryName;
+    MSSymbolMaster *_originalMaster;
     MSSymbolMaster *_symbolMaster;
 }
 
@@ -25,8 +27,9 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
-- (id)symbolMasterGeneric;
-@property(retain, nonatomic) NSString *sourceDocumentID; // @synthesize sourceDocumentID=_sourceDocumentID;
+@property(retain, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
+@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *libraryID; // @synthesize libraryID=_libraryID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

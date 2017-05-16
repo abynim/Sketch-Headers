@@ -9,9 +9,9 @@
 #import "MSCurvePoint.h"
 #import "NSCopying.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
-@interface MSCurvePoint : _MSCurvePoint <NSCopying, MSCurvePoint>
+@interface MSCurvePoint : _MSCurvePoint <MSCurvePoint, NSCopying>
 {
 }
 
@@ -27,6 +27,7 @@
 - (struct CGPoint)locationOfPoint:(unsigned long long)arg1;
 - (void)inferCurveMode;
 - (BOOL)isEffectivelyStraight;
+@property(readonly, nonatomic) BOOL isStraight;
 - (BOOL)isRounded;
 - (void)changeCurveModeTo:(long long)arg1 usingPoint:(unsigned long long)arg2;
 - (Class)currentBehaviour;
@@ -35,16 +36,8 @@
 - (id)initWithPoint:(struct CGPoint)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) double cornerRadius;
-@property(readonly, nonatomic) struct CGPoint curveFrom;
-@property(readonly, nonatomic) long long curveMode;
-@property(readonly, nonatomic) struct CGPoint curveTo;
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, nonatomic) BOOL hasCurveFrom;
-@property(readonly, nonatomic) BOOL hasCurveTo;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) struct CGPoint point;
 @property(readonly) Class superclass;
 
 @end

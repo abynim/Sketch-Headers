@@ -20,7 +20,6 @@
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (BOOL)shouldHideExportBar;
 - (void)cursorUpdate:(id)arg1;
 - (id)layerSnapper;
 - (BOOL)shouldDrawLayerSelection;

@@ -26,6 +26,7 @@
 - (id)positionPopUpToolTip;
 - (void)setStyleParts:(id)arg1;
 - (void)prepare;
+- (void)viewDidLoad;
 - (id)init;
 
 @end

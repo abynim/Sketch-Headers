@@ -12,7 +12,7 @@
 
 + (id)separator;
 - (void)drawRect:(struct CGRect)arg1;
-- (id)leftColor;
+- (id)color;
 
 @end
 

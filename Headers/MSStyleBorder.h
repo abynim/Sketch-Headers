@@ -6,11 +6,7 @@
 
 #import "_MSStyleBorder.h"
 
-#import "MSStyleBorder.h"
-
-@class NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSStyleBorder : _MSStyleBorder <MSStyleBorder>
+@interface MSStyleBorder : _MSStyleBorder
 {
 }
 
@@ -23,20 +19,6 @@
 - (id)topViewForColorInspector:(id)arg1;
 - (id)blendingViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
-
-// Remaining properties
-@property(readonly, nonatomic) id <MSColor> colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long fillType;
-@property(readonly, nonatomic) id <MSGradient> gradientGeneric;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) long long position;
-@property(readonly) Class superclass;
-@property(readonly, nonatomic) double thickness;
 
 @end
 

@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class MSEditArtboardPresetViewController;
+@class MSArtboardPreset, MSEditArtboardPresetViewController;
 
 @protocol MSEditArtboardPresetViewControllerDelegate <NSObject>
-- (void)artboardPresetViewController:(MSEditArtboardPresetViewController *)arg1 returnCode:(long long)arg2;
+- (void)editArtboardPresetViewController:(MSEditArtboardPresetViewController *)arg1 savePreset:(MSArtboardPreset *)arg2;
 @end
 

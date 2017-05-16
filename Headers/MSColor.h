@@ -9,7 +9,7 @@
 #import "MSAsset.h"
 #import "MSColor.h"
 
-@class NSObject<NSCopying><NSCoding>, NSString;
+@class NSString;
 
 @interface MSColor : _MSColor <MSAsset, MSColor>
 {
@@ -45,7 +45,6 @@
 @property(readonly, nonatomic) double blue;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) double green;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
 

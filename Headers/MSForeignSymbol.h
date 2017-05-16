@@ -6,13 +6,19 @@
 
 #import "_MSForeignSymbol.h"
 
+@class NSObject<NSCopying><NSCoding>;
+
 @interface MSForeignSymbol : _MSForeignSymbol
 {
 }
 
++ (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
+- (id)masterFromLibrary:(id)arg1;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *remoteSymbolID;
 - (id)convertToLocalSymbolMaster;
 - (void)syncWithMaster:(id)arg1;
-- (BOOL)isOutOfDateWithMaster:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (id)initWithSymbolMaster:(id)arg1 inLibrary:(id)arg2;
 
 @end
 

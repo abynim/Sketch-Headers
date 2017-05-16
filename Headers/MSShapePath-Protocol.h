@@ -4,11 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSShapePath.h"
-
 @class MSPath, NSBezierPath;
 
-@protocol MSShapePath <_MSShapePath>
+@protocol MSShapePath
 @property(readonly, nonatomic) unsigned long long numberOfPoints;
 - (NSBezierPath *)bezierPathInRect:(struct CGRect)arg1;
 - (MSPath *)pathInRect:(struct CGRect)arg1;

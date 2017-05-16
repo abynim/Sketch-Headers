@@ -14,17 +14,21 @@
 @interface BCPopover : NSObject <NSWindowDelegate, NSViewControllerPresentationAnimator>
 {
     BOOL dontSendNextPopoverWindowSizeNotification;
+    BOOL _closesOnWindowDidResignKey;
     NSViewController *_contentViewController;
     id <BCPopoverDelegate> _delegate;
     BCPopoverWindow *_window;
     long long _screenEdgeBehaviour;
     long long _layerDependency;
     NSView *_attachedToView;
+    double _attachedToViewMargin;
     unsigned long long _preferredEdge;
 }
 
 @property(nonatomic) unsigned long long preferredEdge; // @synthesize preferredEdge=_preferredEdge;
+@property(nonatomic) double attachedToViewMargin; // @synthesize attachedToViewMargin=_attachedToViewMargin;
 @property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;
+@property(nonatomic) BOOL closesOnWindowDidResignKey; // @synthesize closesOnWindowDidResignKey=_closesOnWindowDidResignKey;
 @property(nonatomic) long long layerDependency; // @synthesize layerDependency=_layerDependency;
 @property(nonatomic) long long screenEdgeBehaviour; // @synthesize screenEdgeBehaviour=_screenEdgeBehaviour;
 @property(retain, nonatomic) BCPopoverWindow *window; // @synthesize window=_window;
@@ -39,6 +43,7 @@
 - (id)windowWillReturnUndoManager:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)windowWillClose:(id)arg1;
+- (void)windowDidResignKey:(id)arg1;
 - (struct CGRect)windowRectForViewSize:(struct CGSize)arg1 above:(struct CGRect)arg2 pointingTo:(struct CGPoint)arg3 edge:(unsigned long long)arg4;
 - (struct CGPoint)pointAtEdge:(unsigned long long)arg1 ofRect:(struct CGRect)arg2;
 - (void)attachedViewDidMove:(id)arg1;

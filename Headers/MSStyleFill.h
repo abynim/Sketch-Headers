@@ -6,17 +6,20 @@
 
 #import "_MSStyleFill.h"
 
-#import "MSStyleFill.h"
+#import "MSImageOwner.h"
 
-@class MSImageData, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImageData;
 
-@interface MSStyleFill : _MSStyleFill <MSStyleFill>
+@interface MSStyleFill : _MSStyleFill <MSImageOwner>
 {
 }
 
 + (id)defaultStylePartForStyle:(id)arg1;
 + (id)defaultFillColor;
 + (id)keyPathsForValuesAffectingInterfaceOpacity;
+@property(readonly, nonatomic) BOOL canReduceImageSize;
+- (void)setReducedImage:(id)arg1;
+@property(readonly, nonatomic) struct CGSize targetSizeForReduction;
 - (id)NSImage;
 - (void)setOpacity:(double)arg1;
 - (BOOL)hasOpacity;
@@ -28,21 +31,7 @@
 - (id)CSSAttributeString;
 
 // Remaining properties
-@property(readonly, nonatomic) id <MSColor> colorGeneric;
-@property(readonly, nonatomic) id <MSGraphicsContextSettings> contextSettingsGeneric;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) unsigned long long fillType;
-@property(readonly, nonatomic) id <MSGradient> gradientGeneric;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) MSImageData *image;
-@property(readonly, nonatomic) BOOL isEnabled;
-@property(readonly, nonatomic) long long noiseIndex;
-@property(readonly, nonatomic) double noiseIntensity;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) long long patternFillType;
-@property(readonly, nonatomic) double patternTileScale;
-@property(readonly) Class superclass;
+@property(retain, nonatomic) MSImageData *image;
 
 @end
 

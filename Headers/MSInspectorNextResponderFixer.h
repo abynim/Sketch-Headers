@@ -16,7 +16,6 @@
 + (BOOL)viewIntersectsVertically:(id)arg1 withView:(id)arg2;
 + (id)subviewsOfView:(id)arg1;
 + (id)orderedSubviewsOfView:(id)arg1;
-+ (BOOL)viewCanBeNextKeyView:(id)arg1;
 + (id)firstKeyViewForInView:(id)arg1;
 + (id)findNextKeyViewFor:(id)arg1 inView:(id)arg2;
 

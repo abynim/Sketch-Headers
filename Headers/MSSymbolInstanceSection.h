@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 - (void).cxx_destruct;
 - (id)documentData;
-- (void)generatePreviewForMenuItem:(id)arg1;
+- (void)generatePreviewForMenuItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)applySharedObjectToSelection:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;

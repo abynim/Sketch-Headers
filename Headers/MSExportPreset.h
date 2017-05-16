@@ -7,29 +7,18 @@
 #import "_MSExportPreset.h"
 
 #import "MSExportFormatContainer.h"
-#import "MSExportPreset.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
-
-@interface MSExportPreset : _MSExportPreset <MSExportPreset, MSExportFormatContainer>
+@interface MSExportPreset : _MSExportPreset <MSExportFormatContainer>
 {
 }
 
++ (void)ensureDefaultExportPresetIsSet;
++ (id)allExportPresets;
 - (id)containingLayer;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 - (id)initWithName:(id)arg1 formats:(id)arg2;
 @property BOOL shouldAutoApply;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSArray *exportFormats;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
-@property(readonly, nonatomic) BOOL shouldApplyAutomatically;
-@property(readonly) Class superclass;
 
 @end
 

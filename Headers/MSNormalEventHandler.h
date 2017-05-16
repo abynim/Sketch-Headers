@@ -22,9 +22,11 @@
     struct NSObject *_duplicatedObjectID;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
+    MSLayer *_activeLayer;
     struct CGSize _duplicateOffset;
 }
 
+@property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(retain, nonatomic) NSObject<NSCopying><NSCoding> *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
@@ -84,7 +86,7 @@
 - (id)parentArtboardWeCanMoveLayersTo:(id)arg1;
 - (void)moveLayersOnOrOffArtboard:(id)arg1;
 - (void)keyDownMoveLayers:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (void)escapeKeyPressed;
+- (void)cancelOperation:(id)arg1;
 - (id)artboardsInReadingOrder;
 - (id)currentFocussedArtboard;
 - (struct CGRect)artboardRectInViewCoordinates:(id)arg1 withScrollOrigin:(struct CGPoint)arg2;
@@ -105,7 +107,8 @@
 - (void)selectLayer:(id)arg1;
 - (void)refreshPositionDrawingIfApplicable:(unsigned long long)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)mouseDownMoveLayers:(struct CGPoint)arg1 clickCount:(long long)arg2 flags:(unsigned long long)arg3;
+- (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
+- (void)mouseDownOnLayer:(id)arg1 atPoint:(struct CGPoint)arg2 clickCount:(long long)arg3 flags:(unsigned long long)arg4;
 - (void)mouseDownDoubleClick:(struct CGPoint)arg1 onLayer:(id)arg2;
 - (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 handle:(long long *)arg4 manager:(id)arg5;
 - (void)enterLineResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;

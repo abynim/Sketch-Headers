@@ -11,11 +11,13 @@
 @interface MSSnapItem : NSObject
 {
     MSLayer *_layer;
+    struct CGRect _rectAtInit;
 }
 
 + (id)snapLinesForLayer:(id)arg1;
 + (id)snapperObjectWithLayers:(id)arg1;
 @property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
+@property(nonatomic) struct CGRect rectAtInit; // @synthesize rectAtInit=_rectAtInit;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (id)snapItemForDrawing;
