@@ -6,12 +6,12 @@
 
 #import "MSDocumentAction.h"
 
-@interface MSToggleVisibilityBaseAction : MSDocumentAction
+@interface MSManageForeignSymbolAction : MSDocumentAction
 {
 }
 
-- (BOOL)validate;
-@property(readonly, nonatomic) BOOL isValidInFullScreenMode;
+- (void)doPerformAction:(id)arg1;
+- (void)showOrganizeForeignSymbolSheet:(id)arg1;
 
 @end
 

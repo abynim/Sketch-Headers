@@ -47,6 +47,7 @@
 - (BOOL)hasSliceIcon;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (struct CGRect)optimalBoundingBox;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;

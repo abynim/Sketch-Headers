@@ -26,7 +26,7 @@
 - (id)contextForActionWithID:(id)arg1 context:(id)arg2;
 - (void)buildHandlerIndex;
 - (void)setPlugins:(id)arg1;
-- (id)initWithPluginsFolderURLs:(id)arg1 metadataURL:(id)arg2 options:(unsigned long long)arg3;
+- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 pluginStateManager:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,7 +11,7 @@
 }
 
 - (void)drawTextLayer:(id)arg1 onUnderlyingPath:(id)arg2 context:(id)arg3;
-- (void)drawBorderForLayoutManager:(id)arg1 style:(id)arg2 atPoint:(struct CGPoint)arg3 context:(id)arg4;
+- (void)drawBorder:(id)arg1 forLayoutManager:(id)arg2 atPoint:(struct CGPoint)arg3 context:(id)arg4;
 - (void)drawLayoutManager:(id)arg1 style:(id)arg2 aPoint:(struct CGPoint)arg3 context:(id)arg4;
 - (void)drawTextLayerAsPath:(id)arg1 withTextStorage:(id)arg2 inBounds:(struct CGRect)arg3 context:(id)arg4;
 - (void)drawTextLayerInsideBoundsTransform:(id)arg1 context:(id)arg2;

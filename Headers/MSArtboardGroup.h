@@ -11,7 +11,7 @@
 #import "MSLayerWithBackgroundColor.h"
 #import "MSRootLayer.h"
 
-@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
+@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor>
 {
@@ -33,7 +33,6 @@
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
 - (void)setRect:(struct CGRect)arg1;
-- (void)removeFromParent;
 - (BOOL)shouldAutoresizeChildrenAfterResize;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (id)parentRoot;
@@ -67,6 +66,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (unsigned long long)displayType;
+- (struct CGRect)optimalBoundingBox;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (id)parentRootForAbsoluteRect;
@@ -85,8 +85,8 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
 @property(copy, nonatomic) MSLayoutGrid *layout;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;

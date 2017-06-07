@@ -10,7 +10,6 @@
 {
 }
 
-- (void)menuWillOpen:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (id)imageName;
 - (id)initWithDocument:(id)arg1;

@@ -10,12 +10,17 @@
 {
     BOOL _isNewShape;
     BOOL _allowSelectionOnly;
+    BOOL _allowClosingPathUsingMouse;
 }
 
++ (void)initialize;
+@property(nonatomic) BOOL allowClosingPathUsingMouse; // @synthesize allowClosingPathUsingMouse=_allowClosingPathUsingMouse;
 @property(nonatomic) BOOL allowSelectionOnly; // @synthesize allowSelectionOnly=_allowSelectionOnly;
 @property(readonly, nonatomic) BOOL isNewShape; // @synthesize isNewShape=_isNewShape;
 - (BOOL)shouldClosePathWhenMouseDownOnHandleAtIndexPath:(id)arg1 modifierFlags:(unsigned long long)arg2 context:(id)arg3;
+- (BOOL)canInsertPoints;
 - (BOOL)isAddingPoints:(id)arg1;
+- (void)dealloc;
 - (id)initForDrawingNewShape:(BOOL)arg1;
 
 @end

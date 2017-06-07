@@ -17,7 +17,6 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-- (BOOL)containsSelectedItem;
 - (id)layerWithID:(struct NSObject *)arg1;
 - (id)children;
 - (id)keysDifferingFromObject:(id)arg1;

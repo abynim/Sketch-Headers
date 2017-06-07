@@ -11,9 +11,9 @@
 }
 
 - (id)sharedObjectName;
-- (BOOL)shouldShowNoSharedObjectsPlaceholder;
-- (id)unsortedSharedObjects;
-- (void)updateMenu:(id)arg1;
+- (id)sortedObjectMenuItemsForMenu:(id)arg1;
+- (id)menuItemForSymbols:(id)arg1 inMenu:(id)arg2 library:(id)arg3 localSymbolMapTable:(id)arg4;
+- (id)availableSymbolMapping;
 
 @end
 

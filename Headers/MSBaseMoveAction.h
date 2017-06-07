@@ -12,7 +12,6 @@
 
 - (void)refreshTouchBarItem;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
-- (BOOL)hasDynamicTitle;
 - (BOOL)optionKeyPressed;
 - (id)tooltip;
 - (BOOL)validate;

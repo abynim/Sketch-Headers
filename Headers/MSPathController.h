@@ -20,7 +20,7 @@
 - (void).cxx_destruct;
 - (void)remove:(id)arg1;
 - (void)changeCurveMode:(long long)arg1;
-- (long long)currentCurveMode;
+- (id)currentCurveMode;
 - (void)selectPrevious:(id)arg1;
 - (void)selectNext:(id)arg1;
 - (void)invalidateChangeContext;

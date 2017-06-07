@@ -17,9 +17,8 @@
 - (id)label;
 - (id)sharedObjectName;
 - (id)imageName;
-- (id)unsortedSharedObjects;
+- (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (BOOL)validate;
-- (void)updateMenu:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)showSharedObjectsSheet:(id)arg1;

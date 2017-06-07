@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSToggleVisibilityBaseAction.h"
+#import "MSAction.h"
 
-@interface MSToggleLayersAndInspectorVisibilityAction : MSToggleVisibilityBaseAction
+@interface MSToggleHUDAction : MSAction
 {
 }
 
 - (id)label;
 - (BOOL)hasDynamicTitle;
-- (BOOL)isValidInFullScreenMode;
 - (void)doPerformAction:(id)arg1;
-- (void)toggleLayersAndInspectorVisibility:(id)arg1;
+- (id)mainHUD;
+- (void)toggleHUD:(id)arg1;
 
 @end
 

@@ -18,7 +18,6 @@
 @property(retain, nonatomic) NSButton *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 - (void).cxx_destruct;
 - (id)touchBar;
-- (BOOL)closePopovers;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)mouseDown:(id)arg1;
 - (void)cancelOperation:(id)arg1;

@@ -60,6 +60,7 @@
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)customTouchBarItemIdentifiers;
 - (id)makeTouchBar;
+- (double)minimumPopoverContentViewHeight:(id)arg1;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
@@ -81,12 +82,16 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
+- (id)documentRedoAction;
+- (id)documentUndoAction;
 - (void)viewWillDisappear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;
 - (long long)initialColorTypePickerMode;
-- (id)viewsByAddingSeparatorsToViews:(id)arg1;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
 - (void)findFrequentColors;

@@ -6,18 +6,27 @@
 
 #import "NSObject.h"
 
+@class BCDownloadManager;
+
 @interface MSPluginUpdaterImplementation : NSObject
 {
     long long _downloadingAppcastsStatus;
     long long _downloadingPluginVersionsStatus;
+    BCDownloadManager *_pluginDownloader;
 }
 
+@property(retain, nonatomic) BCDownloadManager *pluginDownloader; // @synthesize pluginDownloader=_pluginDownloader;
 @property(nonatomic) long long downloadingPluginVersionsStatus; // @synthesize downloadingPluginVersionsStatus=_downloadingPluginVersionsStatus;
 @property(nonatomic) long long downloadingAppcastsStatus; // @synthesize downloadingAppcastsStatus=_downloadingAppcastsStatus;
+- (void).cxx_destruct;
+- (BOOL)makeDecompressError:(id *)arg1 withDescription:(id)arg2;
+- (BOOL)decompressCurrentFile:(void *)arg1 toURL:(id)arg2 error:(id *)arg3;
+- (BOOL)decompressPluginZip:(id)arg1 toFolder:(id)arg2 error:(id *)arg3;
 - (id)versionsDictionaryFromAppcast:(id)arg1;
 - (void)cancelDownloadingPluginVersions;
-- (void)downloadPlugins:(id)arg1 downloadPluginHandler:(CDUnknownBlockType)arg2;
-- (void)downloadPluginAppcasts:(id)arg1 downloadAppcastHandler:(CDUnknownBlockType)arg2;
+- (void)downloadPlugins:(id)arg1 downloadPluginHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)downloadPluginFromURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)downloadPluginAppcasts:(id)arg1 downloadAppcastHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end
 

@@ -25,7 +25,6 @@
 - (BOOL)shouldDrawLayerSelection;
 - (void)prepareGraphicsContext;
 - (void)drawRectPreview;
-- (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (id)currentGroup;
 - (BOOL)handlesHandToolItself;

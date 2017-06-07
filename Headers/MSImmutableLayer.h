@@ -10,11 +10,10 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSString;
+@class MSImmutableStyle, NSAffineTransform, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
 {
-    BOOL _isSelected;
     unsigned long long _traits;
     struct CGRect _influenceRectForBounds;
     struct CGRect _influenceRectForFrame;
@@ -25,9 +24,7 @@
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) struct CGRect influenceRectForBounds; // @synthesize influenceRectForBounds=_influenceRectForBounds;
-@property(readonly, nonatomic) BOOL isSelected; // @synthesize isSelected=_isSelected;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
-- (BOOL)containsSelectedItem;
 - (BOOL)canSkipAdvancedClipForStrokes;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
@@ -60,7 +57,6 @@
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)keysDifferingFromObject:(id)arg1;
 - (void)objectDidInit;
-- (void)performInitWithMutableModelObject:(id)arg1;
 - (void)addPreviewWithBezier:(id)arg1 toCache:(id)arg2;
 - (id)previewImageWithBezier:(id)arg1 selected:(BOOL)arg2;
 - (id)previewFillColor:(BOOL)arg1;
@@ -115,6 +111,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

@@ -46,8 +46,8 @@
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)menuItem;
-- (id)menuItemForMenu:(id)arg1;
+- (id)menuItems;
+- (id)menuItemsForMenu:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

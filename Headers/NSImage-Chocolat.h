@@ -18,6 +18,7 @@
 - (id)firstBitmapImageRep;
 - (id)firstBitmapImageRepOrCreateIfNecessary;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1;
+- (id)highlightImage;
 - (id)altImage;
 - (id)pressedImage;
 - (id)hoverImage;

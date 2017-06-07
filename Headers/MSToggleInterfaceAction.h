@@ -6,29 +6,27 @@
 
 #import "MSDocumentAction.h"
 
-@interface MSTogglePresentationModeAction : MSDocumentAction
+@interface MSToggleInterfaceAction : MSDocumentAction
 {
     BOOL _didHideLayerList;
     BOOL _didHideInspector;
     BOOL _didHideRulers;
-    BOOL _didEnterPresentationMode;
+    BOOL _didHideToolbar;
 }
 
-@property(nonatomic) BOOL didEnterPresentationMode; // @synthesize didEnterPresentationMode=_didEnterPresentationMode;
+@property(nonatomic) BOOL didHideToolbar; // @synthesize didHideToolbar=_didHideToolbar;
 @property(nonatomic) BOOL didHideRulers; // @synthesize didHideRulers=_didHideRulers;
 @property(nonatomic) BOOL didHideInspector; // @synthesize didHideInspector=_didHideInspector;
 @property(nonatomic) BOOL didHideLayerList; // @synthesize didHideLayerList=_didHideLayerList;
-- (void)dealloc;
-- (void)leavePresentationMode;
-- (void)windowDidExitFullScreen:(id)arg1;
+- (BOOL)isToolbarVisible;
+- (BOOL)isInterfaceHidden;
 - (void)documentWillClose;
-- (unsigned long long)fullscreenPresentationOptions:(unsigned long long)arg1;
-- (void)hideUIForPresentationMode:(id)arg1;
+- (void)showHiddenInterface;
+- (BOOL)hideInterfaceElementForActionNamed:(id)arg1;
+- (void)hideInterface;
 - (void)doPerformAction:(id)arg1;
-- (void)togglePresentationMode:(id)arg1;
-- (BOOL)isFullscreen;
+- (void)toggleHideInterface:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)initWithDocument:(id)arg1;
 
 @end
 

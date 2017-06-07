@@ -6,53 +6,61 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSMutableDictionary;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface ECLogManager : NSObject
 {
     BOOL _showMenu;
-    NSMutableDictionary *_channels;
-    NSMutableDictionary *_handlers;
     NSMutableArray *_defaultHandlers;
-    unsigned long long _defaultContextFlags;
     NSMutableDictionary *_settings;
     id <ECLogManagerDelegate> _delegate;
+    unsigned long long _defaultContextFlags;
+    NSMutableDictionary *_channels;
+    NSMutableDictionary *_handlers;
     NSArray *_handlersSorted;
+    NSDictionary *_defaultSettings;
 }
 
 + (id)sharedInstance;
+@property(retain, nonatomic) NSDictionary *defaultSettings; // @synthesize defaultSettings=_defaultSettings;
 @property(retain, nonatomic) NSArray *handlersSorted; // @synthesize handlersSorted=_handlersSorted;
+@property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
+@property(retain, nonatomic) NSMutableDictionary *channels; // @synthesize channels=_channels;
+@property(nonatomic) unsigned long long defaultContextFlags; // @synthesize defaultContextFlags=_defaultContextFlags;
 @property(nonatomic) BOOL showMenu; // @synthesize showMenu=_showMenu;
 @property(nonatomic) __weak id <ECLogManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableDictionary *settings; // @synthesize settings=_settings;
-@property(nonatomic) unsigned long long defaultContextFlags; // @synthesize defaultContextFlags=_defaultContextFlags;
 @property(retain, nonatomic) NSMutableArray *defaultHandlers; // @synthesize defaultHandlers=_defaultHandlers;
-@property(retain, nonatomic) NSMutableDictionary *handlers; // @synthesize handlers=_handlers;
-@property(retain, nonatomic) NSMutableDictionary *channels; // @synthesize channels=_channels;
 - (void).cxx_destruct;
+- (void)resetAllAssertions;
+- (void)suppressAssertionForKey:(id)arg1;
+- (BOOL)isAssertionSuppressedForKey:(id)arg1;
+@property(readonly, nonatomic, getter=assertionsAreEnabled) BOOL assertionsAreEnabled;
+@property(readonly, nonatomic, getter=debugChannelsAreEnabled) BOOL debugChannelsAreEnabled;
 - (void)handler:(id)arg1 setDefault:(BOOL)arg2;
 - (BOOL)handlerIsDefault:(id)arg1;
-- (id)handlersSortedByName;
-- (unsigned long long)handlerCount;
+@property(readonly, nonatomic) NSArray *handlersSortedByName;
+@property(readonly, nonatomic) unsigned long long handlerCount;
 - (id)handlerNameForIndex:(unsigned long long)arg1;
 - (id)handlerForIndex:(unsigned long long)arg1;
-- (unsigned long long)contextFlagCount;
+@property(readonly, nonatomic) unsigned long long contextFlagCount;
 - (unsigned long long)contextFlagValueForIndex:(unsigned long long)arg1;
 - (id)contextFlagNameForIndex:(unsigned long long)arg1;
-- (id)channelsSortedByName;
+@property(readonly, nonatomic) NSArray *channelsSortedByName;
 - (void)resetAllSettings;
 - (void)resetAllChannels;
 - (void)resetChannel:(id)arg1;
 - (void)disableAllChannels;
 - (void)enableAllChannels;
 - (void)logFromChannel:(id)arg1 withObject:(id)arg2 arguments:(struct __va_list_tag [1])arg3 context:(CDStruct_5b5d1a5d *)arg4;
-- (id)optionsSettings;
+@property(readonly, nonatomic) NSDictionary *options;
 - (void)saveChannelSettings;
 - (void)loadChannelSettings;
 - (void)loadSettings;
 - (unsigned long long)expectedSettingsVersionWithDefaultSettings:(id)arg1;
-- (id)defaultSettings;
-- (id)settingsFromBundle:(id)arg1;
+- (void)mergeSettings:(id)arg1 fromBundle:(id)arg2;
+- (void)mergeSettings:(id)arg1 fromURL:(id)arg2;
+- (void)mergeSettings:(id)arg1 withOverrides:(id)arg2 name:(id)arg3;
 - (void)notifyDelegateOfStartup;
 - (void)processForcedChannels;
 - (void)finishStartup;

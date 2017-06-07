@@ -4,16 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSToggleVisibilityAction.h"
 
-@interface MSToggleRulersAction : MSDocumentAction
+@interface MSToggleRulersAction : MSToggleVisibilityAction
 {
 }
 
 - (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)imageName;
-- (void)doPerformAction:(id)arg1;
+- (void)hide;
+- (void)show;
+- (id)defaultsKey;
+- (BOOL)isActive;
 - (void)toggleRulers:(id)arg1;
 
 @end

@@ -18,7 +18,7 @@
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *upDownTextField; // @synthesize upDownTextField=_upDownTextField;
 - (void).cxx_destruct;
 - (BOOL)canScrub;
-- (BOOL)trackMouseDraggedInBlock:(CDUnknownBlockType)arg1;
+- (BOOL)trackMouseDraggingWithDownEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)mouseDown:(id)arg1;
 - (id)textField;
 - (void)mouseExited:(id)arg1;

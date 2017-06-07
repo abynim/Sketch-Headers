@@ -62,7 +62,7 @@
 - (id)firstBaselineOffset;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textDidChange:(id)arg1;
-- (id)windowWillReturnUndoManager:(id)arg1;
+- (id)undoManager;
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;

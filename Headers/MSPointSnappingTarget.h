@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) BOOL showGuide; // @synthesize showGuide=_showGuide;
 @property(readonly, nonatomic) unsigned long long snappableAxes; // @synthesize snappableAxes=_snappableAxes;
 @property(readonly, nonatomic) struct CGPoint center; // @synthesize center=_center;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)initWithCenter:(struct CGPoint)arg1 snappableAxes:(unsigned long long)arg2 showGuide:(BOOL)arg3 length:(double)arg4;

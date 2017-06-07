@@ -9,7 +9,7 @@
 #import "MSSharedObjectInstance.h"
 #import "NSCopying.h"
 
-@class MSStyleBorder, MSStyleFill, MSStyleShadow, MSTextStyle, NSObject<NSCopying><NSCoding>, NSString;
+@class MSTextStyle, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSStyle : _MSStyle <MSSharedObjectInstance, NSCopying>
 {
@@ -17,9 +17,9 @@
 
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
-- (double)thickestInnerStroke;
-- (BOOL)hasDecorations;
-- (double)thickestStroke;
+@property(readonly, nonatomic) double thickestInnerStroke;
+@property(readonly, nonatomic) BOOL hasDecorations;
+@property(readonly, nonatomic) double thickestStroke;
 - (BOOL)hasTextStyle;
 - (unsigned long long)type;
 - (id)parentStyle;
@@ -33,20 +33,20 @@
 @property(retain, nonatomic) MSTextStyle *primitiveTextStyle;
 @property(retain, nonatomic) NSString *primitiveSharedObjectID;
 - (void)setNilValueForKey:(id)arg1;
-- (BOOL)hasBlending;
+@property(readonly, nonatomic) BOOL hasBlending;
 - (id)firstEnabledShadow;
+- (id)firstEnabledFill;
+- (id)firstEnabledBorder;
 - (id)enabledInnerShadows;
 - (id)enabledShadows;
 - (id)enabledBorders;
 - (id)enabledFills;
+- (void)disableAllFills;
+- (void)disableAllBorders;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
-@property(readonly, nonatomic) __weak MSStyleShadow *innerShadow;
-@property(readonly, nonatomic) __weak MSStyleShadow *shadow;
-@property(retain, nonatomic) MSStyleBorder *border;
-@property(retain, nonatomic) MSStyleFill *fill;
 - (long long)determineMaskingMode;
 - (void)prepareAsMask;
 

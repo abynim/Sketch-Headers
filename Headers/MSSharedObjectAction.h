@@ -18,14 +18,12 @@
 @property(retain, nonatomic) MSSortableObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
 - (BOOL)hasSubMenu;
+- (id)noSharedObjectMenuItemForMenu:(id)arg1;
 - (id)noSharedObjectsView;
-- (id)menuItemForMenu:(id)arg1 name:(id)arg2 sharedObject:(id)arg3;
 @property(readonly, nonatomic) NSString *sharedObjectName;
-- (id)unsortedSharedObjects;
-- (id)firstSharedObjectForContents:(id)arg1;
-- (void)updateMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
-- (BOOL)shouldShowNoSharedObjectsPlaceholder;
+- (id)sortedObjectMenuItemsForMenu:(id)arg1;
+- (id)menuItemsForMenu:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 
 // Remaining properties

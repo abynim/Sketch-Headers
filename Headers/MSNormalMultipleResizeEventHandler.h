@@ -10,8 +10,6 @@
 
 @interface MSNormalMultipleResizeEventHandler : MSNormalBaseEventHandler
 {
-    struct CGPoint midPoint;
-    struct CGPoint oppositePoint;
     NSArray *_layers;
     long long _resizingCorner;
     MSSnapper *_layerSnapper;
@@ -19,9 +17,13 @@
     double _originalProportions;
     NSDictionary *_layerFramesBeforeResize;
     NSDictionary *_absoluteLayerFramesBeforeResize;
+    struct CGPoint _midPoint;
+    struct CGPoint _oppositePoint;
     struct CGRect _originalRect;
 }
 
+@property(nonatomic) struct CGPoint oppositePoint; // @synthesize oppositePoint=_oppositePoint;
+@property(nonatomic) struct CGPoint midPoint; // @synthesize midPoint=_midPoint;
 @property(retain, nonatomic) NSDictionary *absoluteLayerFramesBeforeResize; // @synthesize absoluteLayerFramesBeforeResize=_absoluteLayerFramesBeforeResize;
 @property(retain, nonatomic) NSDictionary *layerFramesBeforeResize; // @synthesize layerFramesBeforeResize=_layerFramesBeforeResize;
 @property(nonatomic) double originalProportions; // @synthesize originalProportions=_originalProportions;
@@ -39,15 +41,12 @@
 - (unsigned long long)validSnapEdgesForResizingCorner;
 - (struct CGRect)snapRect:(struct CGRect)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)mouseDraggedEvent:(id)arg1;
-- (void)refresh;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;
 - (void)storeCurrentLayerFrame;
 - (void)flattenSubpathsIfNecessary:(id)arg1;
 - (void)flattenRotatedShapes;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 
 @end

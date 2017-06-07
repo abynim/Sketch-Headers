@@ -13,7 +13,6 @@
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
-    long long ignoreLayerSelectionDidChangeNotificationsCounter;
     BOOL _autoExpandGroupsInLayerList;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
@@ -44,16 +43,14 @@
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)allSymbols;
+- (id)localSymbols;
 - (id)allArtboards;
 - (id)symbolInstancesBySymbolID;
 - (void)populateDictionary:(id)arg1 withChildrenOf:(id)arg2;
 - (id)layersByObjectID;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
-- (void)deselectAllLayers;
-- (void)layerSelectionDidChange;
-- (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
-- (void)changeSelectionTo:(id)arg1;
+- (void)layerSelectionMightHaveChanged;
 - (id)selectedLayers;
 - (BOOL)documentIsEmpty;
 - (void)sharedObjectDidChange:(struct MSModelObject *)arg1;

@@ -10,7 +10,7 @@
 #import "MSImmutableRootLayer.h"
 #import "MSLayerWithBackgroundColor.h"
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSObject<NSCopying><NSCoding>, NSString;
 
 @interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
@@ -34,6 +34,7 @@
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
+- (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)svgStyle:(id)arg1;
 
@@ -51,8 +52,8 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
+@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;

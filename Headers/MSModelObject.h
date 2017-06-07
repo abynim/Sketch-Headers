@@ -30,6 +30,7 @@
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
+- (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;

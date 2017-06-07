@@ -6,18 +6,19 @@
 
 #import "NSControl.h"
 
-@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, NSTextField;
+@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSTextField;
 
 @interface BCHSBColorPicker : NSControl
 {
-    BCSaturationBrightnessColorPicker *sbPickerView;
-    BCHueColorPicker *hPickerView;
-    BCAlphaColorPicker *aPickerView;
-    BCColorPreview *colorPreviewView;
-    BCMagnifierButton *magnifierButton;
     long long ignoreColorActionsCounter;
     NSTextField *_hexValueTextField;
     NSTextField *_alphaComponentTextField;
+    MSColorInspectorSeparatorView *_separatorView;
+    BCSaturationBrightnessColorPicker *_sbPickerView;
+    BCHueColorPicker *_hPickerView;
+    BCAlphaColorPicker *_aPickerView;
+    BCColorPreview *_colorPreviewView;
+    BCMagnifierButton *_magnifierButton;
     NSTextField *_redComponentTextField;
     NSTextField *_greenComponentTextField;
     NSTextField *_blueComponentTextField;
@@ -36,6 +37,12 @@
 @property(retain, nonatomic) NSTextField *blueComponentTextField; // @synthesize blueComponentTextField=_blueComponentTextField;
 @property(retain, nonatomic) NSTextField *greenComponentTextField; // @synthesize greenComponentTextField=_greenComponentTextField;
 @property(retain, nonatomic) NSTextField *redComponentTextField; // @synthesize redComponentTextField=_redComponentTextField;
+@property(retain, nonatomic) BCMagnifierButton *magnifierButton; // @synthesize magnifierButton=_magnifierButton;
+@property(retain, nonatomic) BCColorPreview *colorPreviewView; // @synthesize colorPreviewView=_colorPreviewView;
+@property(retain, nonatomic) BCAlphaColorPicker *aPickerView; // @synthesize aPickerView=_aPickerView;
+@property(retain, nonatomic) BCHueColorPicker *hPickerView; // @synthesize hPickerView=_hPickerView;
+@property(retain, nonatomic) BCSaturationBrightnessColorPicker *sbPickerView; // @synthesize sbPickerView=_sbPickerView;
+@property(retain, nonatomic) MSColorInspectorSeparatorView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) NSTextField *alphaComponentTextField; // @synthesize alphaComponentTextField=_alphaComponentTextField;
 @property(retain, nonatomic) NSTextField *hexValueTextField; // @synthesize hexValueTextField=_hexValueTextField;
 - (void).cxx_destruct;

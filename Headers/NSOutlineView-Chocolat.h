@@ -6,7 +6,7 @@
 
 #import "NSOutlineView.h"
 
-@interface NSOutlineView (ECCore)
+@interface NSOutlineView (Chocolat)
 - (void)collapseAllItems;
 - (void)expandAllItems;
 - (void)restoreSimpleExpandedState;

@@ -32,7 +32,7 @@
 - (void)highlightCurrentColor;
 - (void)reloadPresetPicker;
 - (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
 - (id)initWithDelegate:(id)arg1;
 
 @end

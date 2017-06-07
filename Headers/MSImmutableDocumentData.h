@@ -24,6 +24,7 @@
 - (void).cxx_destruct;
 - (id)pagesAndArtboardsMetadata;
 - (id)allSymbols;
+- (id)localSymbols;
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
@@ -42,6 +43,8 @@
 - (void)stripRedundantOverridesFromInstancesOfSymbols:(id)arg1;
 - (id)migratedSymbolFromSymbol:(id)arg1 group:(id)arg2;
 - (id)migratedSymbolsFromOldSymbols:(id)arg1;
+- (void)migratePropertiesFromV91OrEarlierWithUnarchiver:(id)arg1;
+- (void)regenerateObjectIDOnSymbolMaster:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV62OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithUnarchiver:(id)arg1;

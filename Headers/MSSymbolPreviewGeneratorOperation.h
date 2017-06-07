@@ -12,7 +12,7 @@
 
 @interface MSSymbolPreviewGeneratorOperation : NSOperation <MSRenderingContextCacheProvider>
 {
-    MSImmutableLayerAncestry *_artboardAncestry;
+    MSImmutableLayerAncestry *_symbolAncestry;
     CDUnknownBlockType _imageBlock;
     BCCache *_renderingCache;
     struct CGSize _size;
@@ -21,7 +21,7 @@
 @property(retain, nonatomic) BCCache *renderingCache; // @synthesize renderingCache=_renderingCache;
 @property(copy, nonatomic) CDUnknownBlockType imageBlock; // @synthesize imageBlock=_imageBlock;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(retain, nonatomic) MSImmutableLayerAncestry *artboardAncestry; // @synthesize artboardAncestry=_artboardAncestry;
+@property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (id)cacheForZoomLevel:(double)arg1;

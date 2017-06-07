@@ -12,7 +12,7 @@
 
 - (id)touchBarImage;
 - (id)historyMomentTitle;
-- (id)label;
+- (BOOL)validateToolbarItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)moveForward:(id)arg1;
 

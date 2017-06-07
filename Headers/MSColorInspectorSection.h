@@ -13,7 +13,7 @@
 #import "NSScrubberFlowLayoutDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSAssetPickerView, NSArray, NSMapTable, NSScrollView, NSString;
+@class MSAssetPickerView, NSArray, NSMapTable, NSString;
 
 @interface MSColorInspectorSection : NSViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate, NSTouchBarDelegate, NSScrubberDataSource, NSScrubberDelegate, NSScrubberFlowLayoutDelegate>
 {
@@ -21,15 +21,13 @@
     NSArray *_styleParts;
     MSAssetPickerView *_globalPresetPicker;
     MSAssetPickerView *_documentPresetPicker;
-    NSScrollView *_globalPresetPickerScrollView;
-    NSScrollView *_documentPresetPickerScrollView;
     NSMapTable *_scrubberToAssets;
 }
 
++ (id)viewsByAddingColorInspectorSeparators:(id)arg1;
++ (void)refreshColorPickerViewHeight:(id)arg1;
 + (void)initialize;
 @property(retain, nonatomic) NSMapTable *scrubberToAssets; // @synthesize scrubberToAssets=_scrubberToAssets;
-@property(retain, nonatomic) NSScrollView *documentPresetPickerScrollView; // @synthesize documentPresetPickerScrollView=_documentPresetPickerScrollView;
-@property(retain, nonatomic) NSScrollView *globalPresetPickerScrollView; // @synthesize globalPresetPickerScrollView=_globalPresetPickerScrollView;
 @property(retain, nonatomic) MSAssetPickerView *documentPresetPicker; // @synthesize documentPresetPicker=_documentPresetPicker;
 @property(retain, nonatomic) MSAssetPickerView *globalPresetPicker; // @synthesize globalPresetPicker=_globalPresetPicker;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
@@ -60,7 +58,7 @@
 - (BOOL)shouldShowAddPresetButton:(id)arg1;
 - (id)assetPickerViewKeys;
 - (id)assetPickerViews;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
 - (void)refreshAction:(id)arg1;
 - (void)dealloc;
 - (BOOL)pickerView:(id)arg1 didDragPresetAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
@@ -80,7 +78,9 @@
 - (void)reloadPresetPicker;
 - (id)assetCollectionForPresetPicker:(id)arg1;
 - (void)assetHeaderViewDidClick:(id)arg1;
-- (id)wrapPickerInScrollView:(id)arg1;
+- (double)minimumHeight;
+- (id)scrollViewWithStackedViews:(id)arg1;
+- (id)stackViewsInVerticalScrollView:(id)arg1 frame:(struct CGRect)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (BOOL)hasPresetPickers;
 - (id)initWithDelegate:(id)arg1;
