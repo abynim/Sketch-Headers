@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (void)configureInspector:(id)arg1;
+- (void)updateMeasurementLabel;
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;
 - (id)crossHairCursor;
@@ -44,7 +45,6 @@
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
 - (id)bitmapLayer;
 - (id)coordinateTransformMatrix;
-- (void)drawSizeLabel;
 - (void)drawBorderAroundBounds;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)shouldDrawLayerSelection;

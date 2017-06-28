@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (BOOL)hasDynamicTitle;
 - (BOOL)validate;

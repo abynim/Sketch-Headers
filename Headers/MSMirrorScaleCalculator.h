@@ -10,10 +10,9 @@
 {
 }
 
-+ (double)scaleForArtboardWithWidth:(double)arg1;
-+ (id)scaleForWidth:(double)arg1;
-+ (double)scaleForDeviceScale:(double)arg1 artboardSize:(struct CGSize)arg2;
-+ (void)initialize;
++ (double)userScaleForArtboardWithSize:(struct CGSize)arg1;
++ (double)exportScaleForDeviceScale:(double)arg1 artboardSize:(struct CGSize)arg2;
++ (id)mirrorScalesOfDeviceWidths;
 
 @end
 

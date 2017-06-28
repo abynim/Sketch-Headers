@@ -10,28 +10,31 @@
 
 @interface MSPointSnapper : NSObject
 {
-    BOOL _rulersVisible;
+    BOOL _snapToRulerGuides;
     double _snapThreshold;
     unsigned long long _allowedAxes;
     NSArray *_snapTargets;
-    id <MSBasicDelegate> _rulerProvider;
+    NSArray *_rulerGuideTargets;
     MSPointSnapperWorkings *_xWorkings;
     MSPointSnapperWorkings *_yWorkings;
 }
 
 @property(readonly, nonatomic) MSPointSnapperWorkings *yWorkings; // @synthesize yWorkings=_yWorkings;
 @property(readonly, nonatomic) MSPointSnapperWorkings *xWorkings; // @synthesize xWorkings=_xWorkings;
-@property(retain, nonatomic) id <MSBasicDelegate> rulerProvider; // @synthesize rulerProvider=_rulerProvider;
-@property(nonatomic) BOOL rulersVisible; // @synthesize rulersVisible=_rulersVisible;
+@property(nonatomic) BOOL snapToRulerGuides; // @synthesize snapToRulerGuides=_snapToRulerGuides;
+@property(copy, nonatomic) NSArray *rulerGuideTargets; // @synthesize rulerGuideTargets=_rulerGuideTargets;
 @property(copy, nonatomic) NSArray *snapTargets; // @synthesize snapTargets=_snapTargets;
 @property(nonatomic) unsigned long long allowedAxes; // @synthesize allowedAxes=_allowedAxes;
 @property(nonatomic) double snapThreshold; // @synthesize snapThreshold=_snapThreshold;
 - (void).cxx_destruct;
-- (id)targetForSnappingToHandleAtIndexPath:(id)arg1 location:(struct CGPoint)arg2 shape:(id)arg3 selection:(id)arg4;
-- (void)populateArray:(id)arg1 withTargetsForSnappingToMidpointOfLayer:(id)arg2;
-- (void)configureSnapTargetsWithContext:(id)arg1;
+- (void)snapToTargets:(id)arg1;
 - (id)snapPoint:(struct CGPoint)arg1 inLayer:(id)arg2;
 - (id)init;
+- (void)configureRulerGuideTargetsWithProvider:(id)arg1;
+- (id)targetForSnappingToHandleAtIndexPath:(id)arg1 location:(struct CGPoint)arg2 shape:(id)arg3 excluding:(id)arg4;
+- (void)populateArray:(id)arg1 withTargetsForSnappingToMidpointOfLayer:(id)arg2;
+- (id)targetsForMidpointsOfLayers:(id)arg1;
+- (id)shapePointTargetsWithContext:(id)arg1 excludingPointsAtIndexPaths:(id)arg2;
 
 @end
 

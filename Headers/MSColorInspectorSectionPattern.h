@@ -10,11 +10,14 @@
 
 @interface MSColorInspectorSectionPattern : MSColorInspectorSection
 {
-    NSImageView *patternWell;
-    NSButton *choosePatternButton;
-    NSPopUpButton *patternTilButton;
+    NSImageView *_patternWell;
+    NSButton *_choosePatternButton;
+    NSPopUpButton *_patternTilButton;
 }
 
+@property(retain, nonatomic) NSPopUpButton *patternTilButton; // @synthesize patternTilButton=_patternTilButton;
+@property(retain, nonatomic) NSButton *choosePatternButton; // @synthesize choosePatternButton=_choosePatternButton;
+@property(retain, nonatomic) NSImageView *patternWell; // @synthesize patternWell=_patternWell;
 - (void).cxx_destruct;
 - (unsigned long long)assetType;
 - (void)updatePatternWellImage;
@@ -30,7 +33,7 @@
 - (long long)fillType;
 - (void)enableSectionButtonAction:(id)arg1;
 - (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
 - (void)viewDidAppear;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;

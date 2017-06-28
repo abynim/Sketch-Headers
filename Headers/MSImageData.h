@@ -20,6 +20,7 @@
 }
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
++ (id)errorImage;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSData *sha1; // @synthesize sha1=_sha1;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;

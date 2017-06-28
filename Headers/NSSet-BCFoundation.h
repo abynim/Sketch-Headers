@@ -7,6 +7,7 @@
 #import "NSSet.h"
 
 @interface NSSet (BCFoundation)
+- (id)setMinusSet:(id)arg1;
 - (id)sortedArrayUsingKey:(id)arg1;
 @end
 

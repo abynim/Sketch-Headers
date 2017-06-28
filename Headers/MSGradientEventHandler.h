@@ -12,13 +12,15 @@
 
 @interface MSGradientEventHandler : MSPointsEventHandler <MSGradientPointArrayDelegate>
 {
-    NSCursor *selectPointCursor;
-    NSCursor *insertPointCursor;
     MSStyleBasicFill *_stylePart;
     id <MSGradientEventHandlerDelegate> _gradientDelegate;
+    NSCursor *_selectPointCursor;
+    NSCursor *_insertPointCursor;
 }
 
 + (id)gradientHandlerForStylePart:(id)arg1 manager:(id)arg2;
+@property(retain, nonatomic) NSCursor *insertPointCursor; // @synthesize insertPointCursor=_insertPointCursor;
+@property(retain, nonatomic) NSCursor *selectPointCursor; // @synthesize selectPointCursor=_selectPointCursor;
 @property(nonatomic) __weak id <MSGradientEventHandlerDelegate> gradientDelegate; // @synthesize gradientDelegate=_gradientDelegate;
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
@@ -27,8 +29,6 @@
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
-- (id)insertPointCursor;
-- (id)selectPointCursor;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
 - (void)concatTransformsForDrawSnaps;
 - (BOOL)useSnaps;

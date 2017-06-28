@@ -20,12 +20,12 @@
 
 @interface MSDocument : NSDocument <MSCloudDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
 {
+    BOOL _nextReadFromURLIsReload;
+    BOOL _hasOpenedImageFile;
     BOOL _layerListRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
     BOOL _cacheFlushInProgress;
     BOOL _hasScheduledDocumentDidChange;
-    BOOL _hasOpenedImageFile;
-    BOOL _nextReadFromURLIsReload;
     NSArray *_exportableLayerSelection;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -34,6 +34,7 @@
     NSView *_canvasPlaceholderView;
     MSToolbarConstructor *_toolbarConstructor;
     MSActionController *_actionsController;
+    MSBadgeController *_badgeController;
     MSDocumentData *_documentData;
     MSEventHandlerManager *_eventHandlerManager;
     MSCacheManager *_cacheManager;
@@ -41,6 +42,7 @@
     MSInspectorController *_inspectorController;
     MSFontList *_fontList;
     BCSideBarViewController *_sidebarController;
+    MSContentDrawViewController *_currentContentViewController;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
@@ -48,22 +50,17 @@
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonWindowController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
-    MSBadgeController *_badgeController;
     MSLayerArray *_selectedLayers;
-    MSContentDrawViewController *_currentContentViewController;
 }
 
++ (void)openForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 + (id)currentDocument;
 + (id)windowForSheet;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
-@property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
-@property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
-@property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(copy, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
-@property(readonly, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
@@ -75,6 +72,9 @@
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
 @property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
+@property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
+@property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
+@property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
@@ -82,6 +82,7 @@
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
 @property(retain, nonatomic) NSView *canvasPlaceholderView; // @synthesize canvasPlaceholderView=_canvasPlaceholderView;
@@ -127,7 +128,7 @@
 - (void)debugCountObjects:(id)arg1;
 - (void)logBuggyBezierPaths;
 - (void)determineCurrentArtboard;
-- (void)layerSelectionDidChange;
+- (void)layerSelectionMightHaveChanged;
 - (void)pageTreeLayoutDidChange;
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
@@ -142,7 +143,6 @@
 - (void)windowDidExitVersionBrowser:(id)arg1;
 - (void)windowDidEnterVersionBrowser:(id)arg1;
 - (BOOL)isRulersVisible;
-- (void)toggleRulers;
 - (id)pages;
 - (id)layerStyles;
 - (void)removePage:(id)arg1;
@@ -203,7 +203,6 @@
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)coalescedSelectionDidChangeNotification:(id)arg1;
-- (id)findSelectedLayers;
 - (void)saveDocumentAs:(id)arg1;
 - (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;
@@ -217,6 +216,7 @@
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (id)toolbar;
 - (BOOL)shouldCreateToolbar;
+- (void)showWindows;
 - (void)windowControllerDidLoadNib:(id)arg1;
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
@@ -236,7 +236,6 @@
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidEndSheet:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
-- (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (id)window;
 - (void)dealloc;
 - (void)close;
@@ -246,6 +245,9 @@
 @property(retain, nonatomic) MSCloudShare *cloudShare;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;
+- (id)hudDocumentData;
+- (void)hudSetMonitor:(id)arg1;
+- (id)hudClientName;
 - (void)hideMessage:(id)arg1;
 - (void)hideMessage;
 - (id)shadowViewForContentView:(id)arg1 cornerRadius:(double)arg2;

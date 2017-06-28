@@ -19,15 +19,17 @@
 @property(readonly, copy, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (BOOL)isSketchCompatibleUpdateAvailableForVersion:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *latestSketchCompatibleVersion;
 - (BOOL)isUpdateAvailableForVersion:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *latestVersionAvailable;
 @property(readonly, copy, nonatomic) NSDictionary *versionsDictionary;
 - (BOOL)isVersionListed:(id)arg1;
 - (BOOL)isVersionDownloaded:(id)arg1;
-- (void)setDownloadedPluginURL:(id)arg1 forVersion:(id)arg2;
-- (id)downloadedPluginURLForVersion:(id)arg1;
+- (BOOL)isVersionCompatibleWithSketch:(id)arg1;
 - (id)downloadURLForVersion:(id)arg1;
 - (void)addVersions:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *compatibleVersions;
 @property(readonly, copy, nonatomic) NSArray *versions;
 - (id)initWithIdentifier:(id)arg1 appcastURL:(id)arg2;
 

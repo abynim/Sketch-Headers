@@ -10,7 +10,7 @@
 #import "MSSortable.h"
 #import "NSCoding.h"
 
-@class MSDocumentData, MSFileMonitor, NSData, NSDate, NSObject<NSCopying><NSCoding>, NSString, NSURL;
+@class MSDocumentData, NSData, NSDate, NSObject<NSCopying><NSCoding>, NSString, NSURL;
 
 @interface MSAssetLibrary : NSObject <MSSortable, NSCoding, MSLibraryObject>
 {
@@ -21,10 +21,8 @@
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
     NSData *_bookmark;
-    MSFileMonitor *_fileMonitor;
 }
 
-@property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
 @property(retain, nonatomic) NSData *bookmark; // @synthesize bookmark=_bookmark;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
@@ -33,7 +31,6 @@
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
 - (void)resolveLocationOnDisk;
-- (void)startMonitoring;
 - (id)symbolWithID:(struct NSObject *)arg1;
 @property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *libraryID;
 @property(readonly, nonatomic) NSDate *dateLastModified;
@@ -42,6 +39,7 @@
 - (BOOL)loadSynchronously;
 - (void)handleDocumentLoaded:(id)arg1;
 - (id)loadDocument;
+@property(readonly, nonatomic) BOOL isUserLibrary;
 @property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

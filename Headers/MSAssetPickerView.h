@@ -14,22 +14,23 @@
 
 @interface MSAssetPickerView : NSView <NSScrubberDataSource, NSScrubberDelegate, NSTouchBarDelegate>
 {
-    long long sourceDragIndex;
     id <MSPresetPickerViewDelegate> _delegate;
     double _tileMargin;
-    double _edgeMargin;
     unsigned long long _hoveringIndex;
     NSIndexSet *_currentIndexes;
     MSAssetCollection *_assetCollection;
     unsigned long long _assetType;
+    long long _sourceDragIndex;
     struct CGSize _tileSize;
+    struct NSEdgeInsets _edgeMargins;
 }
 
+@property(nonatomic) long long sourceDragIndex; // @synthesize sourceDragIndex=_sourceDragIndex;
 @property(nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
 @property(retain, nonatomic) MSAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 @property(copy, nonatomic) NSIndexSet *currentIndexes; // @synthesize currentIndexes=_currentIndexes;
 @property(nonatomic) unsigned long long hoveringIndex; // @synthesize hoveringIndex=_hoveringIndex;
-@property(nonatomic) double edgeMargin; // @synthesize edgeMargin=_edgeMargin;
+@property(nonatomic) struct NSEdgeInsets edgeMargins; // @synthesize edgeMargins=_edgeMargins;
 @property(nonatomic) double tileMargin; // @synthesize tileMargin=_tileMargin;
 @property(nonatomic) struct CGSize tileSize; // @synthesize tileSize=_tileSize;
 @property(nonatomic) __weak id <MSPresetPickerViewDelegate> delegate; // @synthesize delegate=_delegate;

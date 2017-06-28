@@ -9,7 +9,7 @@
 #import "MSEventHandlerManagerDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSRenderMonitor, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSLayer, MSRenderMonitor, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
 
 @interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView>
 {
@@ -25,6 +25,7 @@
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _ignoreScheduledRedrawRequests;
     BOOL _isMagnifying;
+    MSLayer *_hoveredLayer;
     id <MSContentDrawViewDelegate> _delegate;
     MSEventHandlerManager *_eventHandlerManager;
     MSRulerView *_horizontalRuler;
@@ -68,6 +69,7 @@
 @property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSContentDrawViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak MSLayer *hoveredLayer; // @synthesize hoveredLayer=_hoveredLayer;
 - (void).cxx_destruct;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
@@ -191,6 +193,7 @@
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
 - (void)viewDidChangeBackingProperties;
+- (BOOL)canHighlightLayer:(id)arg1;
 - (BOOL)canDrawConcurrently;
 - (long long)tag;
 - (BOOL)isFlipped;

@@ -53,7 +53,7 @@
 - (void)switchToGradientHandlerIfNecessary;
 - (void)validate;
 - (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
 - (void)gradientBarChanged:(id)arg1;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;

@@ -18,7 +18,9 @@
 @property(retain, nonatomic) NSString *preferenceKey; // @synthesize preferenceKey=_preferenceKey;
 @property(nonatomic) __weak id <MSAssetPickerHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)titleButtonWasClicked:(id)arg1;
 - (void)expandArrowWasClicked:(id)arg1;
+- (id)disclosureButton;
 
 @end
 

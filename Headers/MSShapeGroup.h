@@ -106,6 +106,7 @@
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;

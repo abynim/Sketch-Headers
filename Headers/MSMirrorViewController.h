@@ -9,13 +9,13 @@
 #import "NSSharingServicePickerDelegate.h"
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
-#import "SMKMirrorServerControllerDelegate.h"
+#import "SMKMirrorControllerDelegate.h"
 
-@class NSButton, NSLayoutConstraint, NSString, NSTableView, NSTextField, SMKMirrorServerController;
+@class NSButton, NSLayoutConstraint, NSString, NSTableView, NSTextField, SMKMirrorController;
 
-@interface MSMirrorViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, SMKMirrorServerControllerDelegate, NSSharingServicePickerDelegate>
+@interface MSMirrorViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, SMKMirrorControllerDelegate, NSSharingServicePickerDelegate>
 {
-    SMKMirrorServerController *_connectionController;
+    SMKMirrorController *_connectionController;
     NSTableView *_tableView;
     NSButton *_visitLocalWebsiteButton;
     NSLayoutConstraint *_emptyLabelBottomConstraint;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) NSLayoutConstraint *emptyLabelBottomConstraint; // @synthesize emptyLabelBottomConstraint=_emptyLabelBottomConstraint;
 @property(retain, nonatomic) NSButton *visitLocalWebsiteButton; // @synthesize visitLocalWebsiteButton=_visitLocalWebsiteButton;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
-@property(retain, nonatomic) SMKMirrorServerController *connectionController; // @synthesize connectionController=_connectionController;
+@property(retain, nonatomic) SMKMirrorController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
 - (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
 - (void)openMirrorWebsite:(id)arg1;
@@ -40,8 +40,8 @@
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)reloadData;
-- (void)mirrorServerController:(id)arg1 didChangeWebURL:(id)arg2;
-- (void)mirrorServerController:(id)arg1 didChangeClients:(id)arg2;
+- (void)mirrorController:(id)arg1 didChangeWebURL:(id)arg2;
+- (void)mirrorController:(id)arg1 didChangeClients:(id)arg2;
 - (void)reloadWebURL;
 - (void)openLocalWebsite:(id)arg1;
 - (void)viewWillAppear;

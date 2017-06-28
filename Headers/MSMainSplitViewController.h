@@ -12,17 +12,21 @@
 
 @interface MSMainSplitViewController : NSObject <NSSplitViewDelegate>
 {
-    long long leftSide;
-    long long rightSide;
-    BOOL isInVersionBrowser;
-    NSView *savedInspectorView;
+    BOOL _isInVersionBrowser;
     NSView *_layerListView;
     NSView *_canvasView;
     NSView *_inspectorView;
     NSSplitView *_splitView;
     NSWindow *_window;
+    long long _leftSide;
+    long long _rightSide;
+    NSView *_savedInspectorView;
 }
 
+@property(retain, nonatomic) NSView *savedInspectorView; // @synthesize savedInspectorView=_savedInspectorView;
+@property(nonatomic) BOOL isInVersionBrowser; // @synthesize isInVersionBrowser=_isInVersionBrowser;
+@property(nonatomic) long long rightSide; // @synthesize rightSide=_rightSide;
+@property(nonatomic) long long leftSide; // @synthesize leftSide=_leftSide;
 @property(retain, nonatomic) NSWindow *window; // @synthesize window=_window;
 @property(retain, nonatomic) NSSplitView *splitView; // @synthesize splitView=_splitView;
 @property(nonatomic) __weak NSView *inspectorView; // @synthesize inspectorView=_inspectorView;

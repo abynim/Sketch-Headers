@@ -97,7 +97,9 @@
 - (double)defaultLineHeight;
 - (double)lineHeight;
 - (void)reloadLineHeightField;
+- (void)reloadKerningField;
 - (void)reloadData;
+- (void)storeCurrentFontNamesAndSizes;
 - (id)fontDescriptorsForSelection;
 - (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;

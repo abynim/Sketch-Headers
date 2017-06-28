@@ -10,7 +10,6 @@
 {
 }
 
-- (struct CGRect)boundingBoxForVisibleContentOfArtboard:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)resizeArtboardToFit:(id)arg1;
 - (BOOL)validate;

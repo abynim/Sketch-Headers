@@ -23,7 +23,7 @@
 - (id)snapItemForDrawing;
 - (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 - (id)description;
-@property(nonatomic) struct CGRect rect;
+@property(nonatomic) struct CGRect rectForSnapping;
 - (struct CGRect)boundsRect;
 - (void)concatAncestorsAndSelfTransforms;
 - (struct CGAffineTransform)preDrawingTransform;

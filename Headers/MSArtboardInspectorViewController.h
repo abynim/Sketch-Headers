@@ -39,7 +39,6 @@
 @property(retain, nonatomic) NSView *symbolStandardPropertiesView; // @synthesize symbolStandardPropertiesView=_symbolStandardPropertiesView;
 @property(retain, nonatomic) NSView *artboardBackgroundView; // @synthesize artboardBackgroundView=_artboardBackgroundView;
 - (void).cxx_destruct;
-- (void)refreshAction:(id)arg1;
 - (void)artboardPresetsViewController:(id)arg1 didSelectPreset:(id)arg2;
 - (id)views;
 - (void)prepareForDisplay;

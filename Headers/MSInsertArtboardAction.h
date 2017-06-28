@@ -15,6 +15,7 @@
 - (id)touchBarImage;
 - (id)imageName;
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)insertArtboard:(id)arg1;
 
 @end

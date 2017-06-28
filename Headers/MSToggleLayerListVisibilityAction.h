@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSToggleVisibilityBaseAction.h"
+#import "MSToggleVisibilityAction.h"
 
-@interface MSToggleLayerListVisibilityAction : MSToggleVisibilityBaseAction
+@interface MSToggleLayerListVisibilityAction : MSToggleVisibilityAction
 {
 }
 
-- (BOOL)isValidInFullScreenMode;
+- (void)hide;
+- (void)show;
 - (BOOL)isActive;
-- (void)doPerformAction:(id)arg1;
 - (void)toggleLayerListVisibility:(id)arg1;
 
 @end

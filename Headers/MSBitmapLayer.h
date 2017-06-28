@@ -36,6 +36,7 @@
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 

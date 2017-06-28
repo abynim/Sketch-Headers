@@ -19,8 +19,9 @@
 - (void)menuWillOpen:(id)arg1;
 - (id)menuItemWithName:(id)arg1 target:(id)arg2 selector:(SEL)arg3 sharedObjects:(id)arg4;
 - (id)sharedObjectsFromDescriptorsContents:(id)arg1;
+- (id)menuItemsForSortedSharedObjects:(id)arg1 selectedObjects:(id)arg2 target:(id)arg3 selector:(SEL)arg4;
+- (id)menuItemsForSortableObjects:(id)arg1 selectedObjects:(id)arg2 target:(id)arg3 selector:(SEL)arg4;
 - (void)addSortedSharedObjects:(id)arg1 selectedObjects:(id)arg2 toMenu:(id)arg3 target:(id)arg4 selector:(SEL)arg5;
-- (void)addSortableObjects:(id)arg1 selectedObjects:(id)arg2 toMenu:(id)arg3 target:(id)arg4 selector:(SEL)arg5;
 - (void)selectMenuItemsInPopUpButton:(id)arg1 selectedObjects:(id)arg2;
 - (void)addSortableObjects:(id)arg1 selectedObjects:(id)arg2 toPopUpButton:(id)arg3 target:(id)arg4 selector:(SEL)arg5;
 

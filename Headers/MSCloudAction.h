@@ -13,7 +13,7 @@
     MSCloudController *_cloudController;
 }
 
-+ (void)openCloudUploadURL:(id)arg1;
++ (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
 @property(readonly, nonatomic) MSCloudController *cloudController; // @synthesize cloudController=_cloudController;

@@ -18,5 +18,6 @@
 - (void)popoverWindowSizeDidChange:(BCPopover *)arg1;
 - (void)popoverWillClose:(BCPopover *)arg1;
 - (void)popoverWillShow:(NSNotification *)arg1;
+- (double)minimumPopoverContentViewHeight:(BCPopover *)arg1;
 @end
 

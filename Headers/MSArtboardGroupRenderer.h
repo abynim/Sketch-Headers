@@ -10,9 +10,8 @@
 {
 }
 
-- (BOOL)shouldDrawArtboardBackground:(id)arg1 context:(id)arg2;
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3 isDrawingAsSymbolInstance:(BOOL)arg4;
-- (void)renderSymbolMaster:(id)arg1 context:(id)arg2;
+- (void)renderSymbolMaster:(id)arg1 asInstanceInContext:(id)arg2;
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end

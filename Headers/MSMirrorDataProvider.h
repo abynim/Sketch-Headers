@@ -8,12 +8,12 @@
 
 #import "SMKMirrorDataSource.h"
 
-@class MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorServerController;
+@class MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorController;
 
 @interface MSMirrorDataProvider : NSObject <SMKMirrorDataSource>
 {
     BOOL _isAlreadyComparing;
-    SMKMirrorServerController *_connectionController;
+    SMKMirrorController *_connectionController;
     id _currentDocumentID;
     id _currentArtboardID;
     MSImmutableDocumentData *_lastImmutableDoc;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) MSImmutableDocumentData *lastImmutableDoc; // @synthesize lastImmutableDoc=_lastImmutableDoc;
 @property(copy, nonatomic) id currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
 @property(copy, nonatomic) id currentDocumentID; // @synthesize currentDocumentID=_currentDocumentID;
-@property(nonatomic) __weak SMKMirrorServerController *connectionController; // @synthesize connectionController=_connectionController;
+@property(nonatomic) __weak SMKMirrorController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
 - (id)document;
 - (id)currentArtboard;

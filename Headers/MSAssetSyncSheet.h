@@ -14,17 +14,20 @@
 
 @interface MSAssetSyncSheet : CHSheetController <NSTableViewDataSource, NSTableViewDelegate, NSSplitViewDelegate>
 {
+    BOOL _hasSyncableItems;
     NSArray *_tableViewData;
     MSSymbolView *_currentSymbolView;
     MSSymbolView *_updatedSymbolView;
     NSSplitView *_splitView;
 }
 
+@property(nonatomic) BOOL hasSyncableItems; // @synthesize hasSyncableItems=_hasSyncableItems;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
 @property(nonatomic) __weak MSSymbolView *updatedSymbolView; // @synthesize updatedSymbolView=_updatedSymbolView;
 @property(nonatomic) __weak MSSymbolView *currentSymbolView; // @synthesize currentSymbolView=_currentSymbolView;
 @property(readonly, nonatomic) NSArray *tableViewData; // @synthesize tableViewData=_tableViewData;
 - (void).cxx_destruct;
+- (void)updateSelectedForSync:(id)arg1;
 - (BOOL)splitView:(id)arg1 shouldAdjustSizeOfSubview:(id)arg2;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;

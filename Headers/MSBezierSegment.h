@@ -8,7 +8,6 @@
 
 @interface MSBezierSegment : NSObject
 {
-    long long _lineLengthToken;
     double _lineLength;
     unsigned long long _segmentType;
     struct CGPoint _endPoint1;

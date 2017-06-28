@@ -37,6 +37,7 @@
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
 - (id)menu;
+- (void)repopulateMenu:(id)arg1;
 - (unsigned long long)touchBarItemSizing;
 - (id)touchBarImage;
 - (BOOL)isTouchBarItemSelected;

@@ -12,11 +12,11 @@
 
 @interface MSBlurInspectorViewController : MSStylePartInspectorViewController <NSMenuDelegate>
 {
-    NSView *gaussianBlurView;
-    NSView *motionBlurView;
-    NSView *zoomBlurView;
-    NSButton *editButton;
-    NSMenuItem *backgroundBlurMenuItem;
+    NSView *_gaussianBlurView;
+    NSView *_motionBlurView;
+    NSView *_zoomBlurView;
+    NSButton *_editButton;
+    NSMenuItem *_backgroundBlurMenuItem;
     NSTextField *_zoomBlurTextField;
     NSTextField *_motionBlurTextField;
     NSTextField *_normalBlurTextField;
@@ -31,6 +31,11 @@
 @property(retain, nonatomic) NSTextField *normalBlurTextField; // @synthesize normalBlurTextField=_normalBlurTextField;
 @property(retain, nonatomic) NSTextField *motionBlurTextField; // @synthesize motionBlurTextField=_motionBlurTextField;
 @property(retain, nonatomic) NSTextField *zoomBlurTextField; // @synthesize zoomBlurTextField=_zoomBlurTextField;
+@property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
+@property(retain, nonatomic) NSButton *editButton; // @synthesize editButton=_editButton;
+@property(retain, nonatomic) NSView *zoomBlurView; // @synthesize zoomBlurView=_zoomBlurView;
+@property(retain, nonatomic) NSView *motionBlurView; // @synthesize motionBlurView=_motionBlurView;
+@property(retain, nonatomic) NSView *gaussianBlurView; // @synthesize gaussianBlurView=_gaussianBlurView;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)handlerFocusDidChange:(id)arg1;
