@@ -11,11 +11,10 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
-    BOOL _incompatiblePluginVersionsDisabled;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_templatesMenu;
@@ -43,17 +42,20 @@
     MSPersistentAssetCollection *_globalAssets;
     ECLogManagerMacUISupport *_logSupport;
     MSHUDWindowController *_hud;
+    MSDocumentationSearcher *_documentationSearcher;
+    NSArray *_debugSettings;
     id _lastRunPlugin;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
+@property(retain, nonatomic) NSArray *debugSettings; // @synthesize debugSettings=_debugSettings;
+@property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
-@property(nonatomic) BOOL incompatiblePluginVersionsDisabled; // @synthesize incompatiblePluginVersionsDisabled=_incompatiblePluginVersionsDisabled;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
@@ -116,13 +118,15 @@
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
 - (BOOL)applicationOpenUntitledFile:(id)arg1;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
-- (BOOL)updateLastRunVersionNumber;
+- (BOOL)isFirstLaunchOfNewVersion;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) BOOL canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)removeObserversForDebugSettings;
+- (void)addObserversForDebugSettings;
 - (id)init;
 - (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;

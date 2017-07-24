@@ -8,7 +8,7 @@
 
 #import "MSTilePlacerDelegate.h"
 
-@class MSCGContextPool, MSTilePlacer, MSTileUpdateOperation, NSColorSpace, NSOperationQueue, NSSet, NSString;
+@class MSCGContextPool, MSRenderingDriver, MSTilePlacer, MSTileUpdateOperation, NSColorSpace, NSOperationQueue, NSSet, NSString;
 
 @interface MSTiledLayer : CALayer <MSTilePlacerDelegate>
 {
@@ -21,6 +21,7 @@
     NSColorSpace *_colorSpace;
     MSCGContextPool *_contextPool;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
+    MSRenderingDriver *_driver;
     MSTilePlacer *_tilePlacer;
     NSSet *_renderingTiles;
     CDUnknownBlockType _tileRenderingCompletion;
@@ -35,6 +36,7 @@
 @property(copy, nonatomic) CDUnknownBlockType tileRenderingCompletion; // @synthesize tileRenderingCompletion=_tileRenderingCompletion;
 @property(retain, nonatomic) NSSet *renderingTiles; // @synthesize renderingTiles=_renderingTiles;
 @property(retain, nonatomic) MSTilePlacer *tilePlacer; // @synthesize tilePlacer=_tilePlacer;
+@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
@@ -78,7 +80,7 @@
 - (id)actionForKey:(id)arg1;
 - (void)setupContextPool;
 - (void)dealloc;
-- (id)initWithZoomLevel:(double)arg1 scrollOrigin:(struct CGPoint)arg2 viewBounds:(struct CGRect)arg3;
+- (id)initWithDriver:(id)arg1 zoomLevel:(double)arg2 scrollOrigin:(struct CGPoint)arg3 viewBounds:(struct CGRect)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

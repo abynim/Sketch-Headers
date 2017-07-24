@@ -6,37 +6,41 @@
 
 #import "MSLayerSection.h"
 
-@class MSSymbolsMenuBuilder, NSArray, NSImage, NSPopUpButton, NSView;
+#import "MSAssetLibraryControllerDelegate.h"
 
-@interface MSSymbolInstanceSection : MSLayerSection
+@class MSForeignSymbolMenuBuilder, NSArray, NSPopUpButton, NSString, NSView;
+
+@interface MSSymbolInstanceSection : MSLayerSection <MSAssetLibraryControllerDelegate>
 {
     NSPopUpButton *_sharedObjectsPopUpButton;
     NSView *_overridesHeaderView;
-    NSImage *_initialImage;
     NSArray *_overrideViewControllers;
-    MSSymbolsMenuBuilder *_menuBuilder;
+    MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSSymbolsMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+@property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSArray *overrideViewControllers; // @synthesize overrideViewControllers=_overrideViewControllers;
-@property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
 @property(retain, nonatomic) NSView *overridesHeaderView; // @synthesize overridesHeaderView=_overridesHeaderView;
 @property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 - (void).cxx_destruct;
+- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (id)documentData;
-- (void)generatePreviewForMenuItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (BOOL)validateMenuItem:(id)arg1;
-- (void)applySharedObjectToSelection:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;
-- (id)mastersForSelectedLayers;
 - (void)reloadMenu;
-- (void)awakeFromNib;
 - (id)overrideIDsSortedInLayerListOrder:(id)arg1 lookup:(id)arg2;
 - (id)overrideViewsWithOverrides:(id)arg1 ancestorIDs:(id)arg2 lookup:(id)arg3;
 - (void)makeOverrideViewControllers;
 - (id)views;
+- (void)viewDidAppear;
 - (void)setLayers:(id)arg1;
-- (id)initWithLayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

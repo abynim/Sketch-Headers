@@ -21,6 +21,7 @@
 }
 
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
++ (id)fontDescriptorInDictionary:(id)arg1;
 + (id)decodeAttributedString:(id)arg1;
 + (id)encodeAttributedString:(id)arg1;
 + (id)decodeAttributesInDictionary:(id)arg1;

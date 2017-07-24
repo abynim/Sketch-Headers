@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSAffineTransform, NSObject<NSCopying><NSCoding>;
+@class NSAffineTransform, NSString;
 
 @protocol MSLayer <NSObject>
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -16,7 +16,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;

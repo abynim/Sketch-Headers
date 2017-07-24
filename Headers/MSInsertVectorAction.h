@@ -15,6 +15,7 @@
 - (BOOL)isActive;
 - (id)tooltip;
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)insertVector:(id)arg1;
 
 @end

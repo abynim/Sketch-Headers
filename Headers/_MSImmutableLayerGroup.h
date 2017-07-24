@@ -6,18 +6,18 @@
 
 #import "MSImmutableStyledLayer.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>;
+@class NSArray, NSString;
 
 @interface _MSImmutableLayerGroup : MSImmutableStyledLayer
 {
     BOOL _hasClickThrough;
-    struct NSObject *_sharedObjectID;
+    NSString *_sharedObjectID;
     NSArray *_layers;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
+@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

@@ -13,6 +13,7 @@
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
+    long long _numberOfIncompatiblePluginDisabled;
     long long _updatesAddedToWarehouse;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
@@ -46,9 +47,10 @@
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
+@property(nonatomic) long long numberOfIncompatiblePluginDisabled; // @synthesize numberOfIncompatiblePluginDisabled=_numberOfIncompatiblePluginDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
-- (void)removePluginVersions;
+- (void)removePluginVersionsNotInIdentifiers:(id)arg1;
 - (void)addDownloadAndDecompressPluginError:(id)arg1;
 - (id)compatiblePluginUpdatesNotDownloaded;
 - (id)latestPluginUpdatesNotDownloaded;
@@ -69,6 +71,7 @@
 - (void)checkForPluginUpdatesWithHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)checkForPluginUpdates:(id)arg1 handler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)shouldEnablePluginIdentifier:(id)arg1 withVersion:(id)arg2;
+- (void)registerIncompatiblePlugins;
 - (BOOL)isPluginWithIdentifier:(id)arg1 incompatibleWithVersion:(id)arg2;
 - (BOOL)isIncompatiblePlugin:(id)arg1;
 - (id)versionsForPlugin:(id)arg1;

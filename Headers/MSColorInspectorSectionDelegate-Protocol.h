@@ -13,7 +13,7 @@
 - (void)didRemoveAssetOfType:(unsigned long long)arg1;
 - (void)didAddAsset:(id <MSAsset>)arg1;
 - (void)stack;
-- (MSEventHandlerManager *)eventHandler;
+- (MSEventHandlerManager *)eventHandlerManager;
 - (MSPersistentAssetCollection *)globalAssets;
 - (MSAssetCollection *)documentAssets;
 - (void)inspectorSectionDidUpdate:(MSColorInspectorSectionPattern *)arg1;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSPluginBundle, NSAttributedString, NSString;
+@class MSPluginBundle, NSAttributedString, NSString, NSURL;
 
 @interface MSPreferencesPluginInfo : NSObject
 {
@@ -22,6 +22,7 @@
 @property(retain, nonatomic) MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(nonatomic) BOOL isUpdating; // @synthesize isUpdating=_isUpdating;
 - (void).cxx_destruct;
+- (id)pluginManager;
 - (id)latestPluginUpdate;
 @property(readonly, copy, nonatomic) NSString *updateVersionString;
 @property(readonly, nonatomic) BOOL isCompatible;
@@ -30,6 +31,7 @@
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, copy, nonatomic) NSString *pluginDescription;
 @property(readonly, copy, nonatomic) NSString *namePlusAuthor;
+@property(readonly, copy, nonatomic) NSURL *homepage;
 @property(readonly, copy, nonatomic) NSString *version;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, copy, nonatomic) NSString *enableCheckboxTitle;

@@ -48,6 +48,7 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)menuItems;
 - (id)menuItemsForMenu:(id)arg1;
+@property(readonly, nonatomic) SEL preferredMenuAction;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

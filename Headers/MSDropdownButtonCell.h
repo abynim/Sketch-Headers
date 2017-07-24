@@ -8,8 +8,10 @@
 
 @interface MSDropdownButtonCell : MSSmallButtonCell
 {
+    double _imageRightEdgeInset;
 }
 
+@property(nonatomic) double imageRightEdgeInset; // @synthesize imageRightEdgeInset=_imageRightEdgeInset;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 
 @end

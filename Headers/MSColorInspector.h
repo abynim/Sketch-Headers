@@ -11,7 +11,7 @@
 #import "MSModeModePickerDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
+@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate>
 {
@@ -30,16 +30,18 @@
     MSColorInspectorSectionGradient *_gradientSection;
     MSColorInspectorSectionPattern *_patternSection;
     MSColorInspectorSectionNoise *_noiseSection;
-    MSEventHandlerManager *_eventHandler;
+    MSEventHandlerManager *_eventHandlerManager;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSStackView *_stackView;
+    NSTextField *_textFieldToContinueEditing;
 }
 
+@property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
-@property(retain, nonatomic) MSEventHandlerManager *eventHandler; // @synthesize eventHandler=_eventHandler;
+@property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) MSColorInspectorSectionNoise *noiseSection; // @synthesize noiseSection=_noiseSection;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;
 @property(retain, nonatomic) MSColorInspectorSectionGradient *gradientSection; // @synthesize gradientSection=_gradientSection;
@@ -74,6 +76,7 @@
 - (void)reloadTouchBars;
 - (void)refreshTabbingCycle;
 - (void)pickerViewChanged:(id)arg1;
+- (void)pickerViewWillChange:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (id)filteredStyleParts:(id)arg1;
 - (void)close;

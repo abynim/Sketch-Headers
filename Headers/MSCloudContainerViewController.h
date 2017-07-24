@@ -23,7 +23,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeChildViewControllerAtIndex:(long long)arg1;
 - (void)addChildViewController:(id)arg1;
-- (void)updateViewConstraints;
+- (void)updateLayoutConstraints;
 - (void)setCloudController:(id)arg1;
 - (void)dealloc;
 - (struct CGSize)preferredContentSize;
@@ -31,6 +31,7 @@
 - (void)applicationDidBecomeActiveNotification:(id)arg1;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
+- (void)loadView;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

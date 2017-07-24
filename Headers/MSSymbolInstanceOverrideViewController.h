@@ -6,29 +6,43 @@
 
 #import "MSOverrideViewController.h"
 
-@class NSObject<NSCopying><NSCoding>, NSPopUpButton, NSTextField;
+#import "MSAssetLibraryControllerDelegate.h"
 
-@interface MSSymbolInstanceOverrideViewController : MSOverrideViewController
+@class MSDocument, MSForeignSymbolMenuBuilder, NSPopUpButton, NSString, NSTextField;
+
+@interface MSSymbolInstanceOverrideViewController : MSOverrideViewController <MSAssetLibraryControllerDelegate>
 {
     NSTextField *_labelField;
     NSPopUpButton *_popupButton;
     NSPopUpButton *_popup;
-    struct NSObject *_currentMasterID;
+    NSString *_currentMasterID;
+    MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
-@property(copy, nonatomic) NSObject<NSCopying><NSCoding> *currentMasterID; // @synthesize currentMasterID=_currentMasterID;
+@property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+@property(copy, nonatomic) NSString *currentMasterID; // @synthesize currentMasterID=_currentMasterID;
 @property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(retain, nonatomic) NSPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(retain, nonatomic) NSTextField *labelField; // @synthesize labelField=_labelField;
 - (void).cxx_destruct;
-- (void)generatePreviewForMenuItem:(id)arg1;
+- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)addSymbolMaster:(id)arg1 toMenu:(id)arg2;
 - (void)updateOtherOverridesForNestedSymbolFromID:(id)arg1 toID:(id)arg2;
 - (void)overrideValueAction:(id)arg1;
 - (id)valueFromControlView:(id)arg1;
-- (id)menuForInstancesWithSelectedItem:(id *)arg1;
+- (void)reloadMenu;
+- (void)viewDidAppear;
+- (id)currentlySelectedItemInMenu:(id)arg1;
 - (id)controlViewForEditingOverride;
+@property(readonly, nonatomic) MSDocument *document;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

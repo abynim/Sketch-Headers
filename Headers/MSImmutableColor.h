@@ -8,7 +8,7 @@
 
 #import "MSColor.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSImmutableColor : _MSImmutableColor <MSColor>
 {
@@ -39,6 +39,7 @@
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
+@property(readonly, nonatomic) NSArray *manifestComponents;
 - (id)treeAsDictionary;
 - (id)svgRepresentation;
 - (id)NSColorForContext:(id)arg1;

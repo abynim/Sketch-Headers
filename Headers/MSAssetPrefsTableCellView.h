@@ -13,6 +13,7 @@
     NSTextField *_secondaryTextField;
 }
 
++ (void)initialize;
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 - (void).cxx_destruct;
 - (void)setBackgroundStyle:(long long)arg1;

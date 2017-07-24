@@ -14,7 +14,6 @@
 - (double)xHeight;
 - (double)baseline;
 - (BOOL)supportsResizingForSnapping;
-- (id)snapEnumerations;
 
 @end
 

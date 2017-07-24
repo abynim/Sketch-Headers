@@ -16,6 +16,7 @@
 - (id)tooltip;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)insertTextLayer:(id)arg1;
 - (BOOL)validate;
 

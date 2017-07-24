@@ -17,6 +17,7 @@
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
+    MSExportInspectorViewController *_bottomExporter;
     NSView *_alignmentView;
     NSView *_contentContainerView;
     NSView *_exportPanelContainerView;
@@ -24,10 +25,8 @@
     MSNormalInspector *_normalInspector;
     MSSliceInspectorViewController *_slicesInspector;
     MSArtboardInspectorViewController *_artboardInspector;
-    MSExportInspectorViewController *_bottomExporter;
 }
 
-@property(retain, nonatomic) MSExportInspectorViewController *bottomExporter; // @synthesize bottomExporter=_bottomExporter;
 @property(retain, nonatomic) MSArtboardInspectorViewController *artboardInspector; // @synthesize artboardInspector=_artboardInspector;
 @property(retain, nonatomic) MSSliceInspectorViewController *slicesInspector; // @synthesize slicesInspector=_slicesInspector;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
@@ -37,6 +36,7 @@
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(nonatomic) BOOL exportPanelHidden; // @synthesize exportPanelHidden=_exportPanelHidden;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
+@property(retain, nonatomic) MSExportInspectorViewController *bottomExporter; // @synthesize bottomExporter=_bottomExporter;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;

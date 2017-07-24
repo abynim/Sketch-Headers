@@ -21,7 +21,7 @@
 @property(retain, nonatomic) AFMultipartBodyStream *bodyStream; // @synthesize bodyStream=_bodyStream;
 @property(copy, nonatomic) NSString *boundary; // @synthesize boundary=_boundary;
 @property(nonatomic) unsigned long long stringEncoding; // @synthesize stringEncoding=_stringEncoding;
-@property(readonly, nonatomic) NSMutableURLRequest *request; // @synthesize request=_request;
+@property(copy, nonatomic) NSMutableURLRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
 - (id)requestByFinalizingMultipartFormData;
 - (void)throttleBandwidthWithPacketSize:(unsigned long long)arg1 delay:(double)arg2;

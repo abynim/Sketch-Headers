@@ -16,6 +16,7 @@
 }
 
 + (id)bezierGraph;
++ (id)bezierGraphWithContours:(id)arg1;
 + (id)bezierGraphWithBezierPath:(id)arg1;
 + (id)bezierGraphWithCGPath:(struct CGPath *)arg1;
 @property(nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
@@ -40,6 +41,7 @@
 - (void)debuggingInsertCrossingsForIntersectWithBezierGraph:(id)arg1;
 - (void)debuggingInsertCrossingsForUnionWithBezierGraph:(id)arg1;
 - (id)nonselfIntersectingContours;
+@property(readonly, nonatomic) NSArray *nonEmptyContours;
 - (id)nonintersectingContours;
 - (id)disjointContours;
 - (void)addContour:(id)arg1;
@@ -71,6 +73,8 @@
 - (BOOL)isIntersection:(id)arg1 atJoinOfEdge:(id)arg2 andEdge:(id)arg3;
 - (void)sortCoincidentCrossings;
 - (void)removeDuplicateCrossings;
+- (void)insertCrossingsAtOverlapMiddle;
+- (void)insertCrossingsAtOverlapStartStop;
 - (void)removeCrossingsInOverlaps;
 - (void)cleanupCrossingsWithBezierGraph:(id)arg1;
 - (unsigned long long)insertCrossingsWithBezierGraph:(id)arg1;
@@ -90,6 +94,11 @@
 - (id)unionWithBezierGraph:(id)arg1;
 - (id)performOperationWithGraph:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)convertToEvenOddWindingRule;
+- (id)convertToNoneZeroWindingRule;
+- (id)bezierGraphBySplittingOverlapsInContours:(id)arg1;
+- (id)contourByFollowingCrossingsFromEdge:(id)arg1 atOffset:(double)arg2 usedEdges:(id *)arg3;
+- (id)contourByFollowingCrossingsFromEdge:(id)arg1 atOffset:(double)arg2;
+- (id)contourByFollowingCrossingsFromEdge:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;

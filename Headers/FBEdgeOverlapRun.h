@@ -22,7 +22,8 @@
 @property(readonly, nonatomic) FBBezierContour *contour2;
 @property(readonly, nonatomic) FBBezierContour *contour1;
 - (id)middleIntersection;
-- (void)addCrossings;
+- (void)addStartAndStopCrossings;
+- (void)addMiddleCrossing;
 - (BOOL)isCrossingUsingNonZeroWindingRule;
 - (BOOL)isCrossing;
 - (BOOL)isCrossingWithTangentsOnly;

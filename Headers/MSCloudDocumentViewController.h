@@ -12,6 +12,7 @@
 
 @interface MSCloudDocumentViewController : MSCloudViewController <MSClickableTextFieldDelegate>
 {
+    BOOL _isUploading;
     NSTextField *_descriptionLabel;
     NSProgressIndicator *_progressIndicator;
     NSLayoutConstraint *_uploadDescriptionSpacingConstraint;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSLayoutConstraint *uploadDescriptionSpacingConstraint; // @synthesize uploadDescriptionSpacingConstraint=_uploadDescriptionSpacingConstraint;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
+@property(nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
 - (void).cxx_destruct;
 - (void)textFieldDidClick:(id)arg1;
 - (BOOL)textFieldCanBeClicked:(id)arg1;
@@ -39,8 +41,9 @@
 - (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
 - (void)documentCloudShareDidChangeNotification:(id)arg1;
 - (void)setCloudController:(id)arg1;
-- (void)updateViewConstraints;
+- (void)updateLayoutConstraints;
 - (void)viewWillAppear;
+- (void)loadView;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 

@@ -14,7 +14,7 @@
 + (id)unboundedLayersTrailingLayer:(id)arg1 inDirection:(long long)arg2;
 + (id)sortLayers:(id)arg1 inDirection:(long long)arg2;
 + (id)layersTrailingLayer:(id)arg1 inDirection:(long long)arg2;
-+ (void)changeFrameForLayer:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (void)changeFrameForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 
 @end
 

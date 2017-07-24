@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseLayerRenderer.h"
+#import "MSArtboardRendererCG.h"
 
-@interface MSSymbolInstanceRenderer : MSBaseLayerRenderer
+@interface MSSymbolRendererCG : MSArtboardRendererCG
 {
 }
 
@@ -14,7 +14,7 @@
 - (id)modifiedArtboard:(id)arg1 instance:(id)arg2 context:(id)arg3;
 - (id)modifiedSymbolForInstance:(id)arg1 artboard:(id)arg2 inContext:(id)arg3;
 - (void)renderArtboard:(id)arg1 forInstance:(id)arg2 inContext:(id)arg3;
-- (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end
 

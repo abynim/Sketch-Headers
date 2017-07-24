@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSSymbolMaster, NSObject<NSCopying><NSCoding>, NSString;
+@class MSSymbolMaster, NSString;
 
 @protocol MSLibraryObject <NSObject>
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *libraryID;
+@property(readonly, nonatomic) NSString *libraryID;
 @property(readonly, nonatomic) NSString *name;
-- (MSSymbolMaster *)symbolWithID:(struct NSObject *)arg1;
+- (MSSymbolMaster *)symbolWithID:(NSString *)arg1;
 @end
 

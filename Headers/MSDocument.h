@@ -16,7 +16,7 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSCloudShare, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSCloudShare, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
 
 @interface MSDocument : NSDocument <MSCloudDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
 {
@@ -40,7 +40,6 @@
     MSCacheManager *_cacheManager;
     MSHistoryMaker *_historyMaker;
     MSInspectorController *_inspectorController;
-    MSFontList *_fontList;
     BCSideBarViewController *_sidebarController;
     MSContentDrawViewController *_currentContentViewController;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
@@ -76,7 +75,6 @@
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
-@property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSHistoryMaker *historyMaker; // @synthesize historyMaker=_historyMaker;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
@@ -91,6 +89,7 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (id)localSymbolForSymbol:(id)arg1 inLibrary:(id)arg2;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
@@ -100,7 +99,7 @@
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
 @property(retain, nonatomic) NSDictionary *UIMetadata;
 - (void)setFileURL:(id)arg1;
-- (void)visitSymbolMasterWithID:(struct NSObject *)arg1;
+- (void)visitSymbolMasterWithID:(id)arg1;
 - (void)visitArtboardForInstance:(id)arg1;
 - (void)removeViewportForArtboard:(id)arg1;
 - (BOOL)canRestoreViewportAfterArtboardEdit:(id)arg1;
@@ -148,9 +147,7 @@
 - (void)removePage:(id)arg1;
 - (void)setCurrentPage:(id)arg1;
 - (id)artboards;
-- (void)returnToDefaultHandler:(id)arg1;
-- (id)defaultHandler;
-- (id)setCurrentHandlerKey:(id)arg1;
+- (id)normalHandler;
 - (id)toggleHandlerKey:(id)arg1;
 - (void)reloadInspector;
 - (void)redrawView;

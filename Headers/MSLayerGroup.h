@@ -25,11 +25,11 @@
 - (id)candidatesForMasking;
 - (id)children;
 - (id)layerWithID:(id)arg1;
-- (BOOL)shouldAutoresizeChildrenAfterResize;
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (void)resizeChildrenWithOldSize:(struct CGSize)arg1;
+- (struct CGSize)calculateMinimumSize;
 @property(readonly, nonatomic) BOOL isAutomaticScalingEnabled;
 - (void)disableAutomaticScalingInBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;

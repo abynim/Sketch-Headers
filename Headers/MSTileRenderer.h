@@ -37,10 +37,10 @@
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
 - (void).cxx_destruct;
-- (void)prepareContext:(struct CGContext *)arg1;
-- (id)contextWithCGContext:(struct CGContext *)arg1 colorSpace:(id)arg2;
+- (void)prepareCGContext:(struct CGContext *)arg1;
+- (id)renderingContextWithDriver:(id)arg1 cgContext:(struct CGContext *)arg2;
 - (void)cancel;
-- (void)renderInContext:(struct CGContext *)arg1 colorSpace:(id)arg2 zoomValue:(double)arg3;
+- (void)renderWithDriver:(id)arg1 context:(struct CGContext *)arg2 zoomValue:(double)arg3;
 - (id)init;
 
 @end

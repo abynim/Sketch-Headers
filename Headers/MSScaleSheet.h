@@ -8,7 +8,7 @@
 
 @class NSDictionary, NSTextField, NSTimer, NSView;
 
-@interface MSResizeSheet : CHSheetController
+@interface MSScaleSheet : CHSheetController
 {
     BOOL _hasDoneFirstScale;
     double _scale;

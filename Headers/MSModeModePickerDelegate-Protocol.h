@@ -11,5 +11,6 @@
 @protocol MSModeModePickerDelegate <NSObject>
 - (NSString *)pickerView:(MSModePickerView *)arg1 labelForMode:(long long)arg2;
 - (void)pickerViewChanged:(MSModePickerView *)arg1;
+- (void)pickerViewWillChange:(MSModePickerView *)arg1;
 @end
 

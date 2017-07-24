@@ -13,7 +13,6 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-- (void)toggleSubpixelAntialiasingAction:(id)arg1;
 - (void)adjustColorsAction:(id)arg1;
 
 @end

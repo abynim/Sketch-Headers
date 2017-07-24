@@ -9,7 +9,7 @@
 #import "MSSharedObjectInstance.h"
 #import "NSCopying.h"
 
-@class MSTextStyle, NSObject<NSCopying><NSCoding>, NSString;
+@class MSTextStyle, NSString;
 
 @interface MSStyle : _MSStyle <MSSharedObjectInstance, NSCopying>
 {
@@ -54,7 +54,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
+@property(retain, nonatomic) NSString *sharedObjectID;
 @property(readonly) Class superclass;
 
 @end

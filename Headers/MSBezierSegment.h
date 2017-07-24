@@ -6,10 +6,14 @@
 
 #import "NSObject.h"
 
+@class NSSet;
+
 @interface MSBezierSegment : NSObject
 {
     double _lineLength;
     unsigned long long _segmentType;
+    NSSet *_xAxisRoots;
+    NSSet *_yAxisRoots;
     struct CGPoint _endPoint1;
     struct CGPoint _endPoint2;
     struct CGPoint _controlPoint1;
@@ -19,33 +23,46 @@
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
+@property(retain, nonatomic) NSSet *yAxisRoots; // @synthesize yAxisRoots=_yAxisRoots;
+@property(retain, nonatomic) NSSet *xAxisRoots; // @synthesize xAxisRoots=_xAxisRoots;
 @property(readonly, nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
 @property(readonly, nonatomic) struct CGPoint controlPoint1; // @synthesize controlPoint1=_controlPoint1;
 @property(readonly, nonatomic) struct CGPoint endPoint2; // @synthesize endPoint2=_endPoint2;
 @property(readonly, nonatomic) struct CGPoint endPoint1; // @synthesize endPoint1=_endPoint1;
 @property(readonly, nonatomic) unsigned long long segmentType; // @synthesize segmentType=_segmentType;
+- (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (id)description;
 - (id)repr;
 - (id)bezierPath;
-- (unsigned long long)hash;
-- (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
+- (struct CGRect)bounds;
+@property(readonly, nonatomic) NSSet *inflectionOffsets;
+@property(readonly, nonatomic) double curviness;
+- (id)derivative;
 - (id)reversedSegment;
 - (id)representationUsingType:(unsigned long long)arg1;
 - (id)cubicRepresentation;
 - (id)quadraticRepresentation;
 - (id)lineRepresentation;
+- (id)segmentWithInset:(double)arg1;
+- (id)segmentWithTransform:(struct CGAffineTransform)arg1;
+@property(readonly, nonatomic) struct CGAffineTransform transformForXAxisAlignment;
 - (id)segmentFromOffset:(double)arg1;
 - (id)segmentToOffset:(double)arg1;
+- (id)intersectionsWithSegment:(id)arg1;
+- (id)offsetsOfIntersectionsWithTangent:(struct MSTangent)arg1;
 - (double)offsetForNormalToPoint:(struct CGPoint)arg1;
 - (struct CGPoint)pointAtOffset:(double)arg1;
 - (struct MSTangent)tangentAtOffset:(double)arg1;
 - (void)tanget:(struct MSTangent *)arg1 andPoint:(struct CGPoint *)arg2 atOffset:(double)arg3;
 - (void)quadraticDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
 - (void)cubicDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
+@property(readonly, nonatomic) BOOL isAPoint;
 @property(readonly, nonatomic) BOOL looksLikeALine;
 @property(readonly, nonatomic) double lineLength;
+- (id)segmentWithEndPoint2:(struct CGPoint)arg1;
+- (id)segmentWithEndPoint1:(struct CGPoint)arg1;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;

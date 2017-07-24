@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseLayerRenderer.h"
+#import "MSLayerRendererCG.h"
 
-@interface MSLayerGroupRenderer : MSBaseLayerRenderer
+@interface MSGroupRendererCG : MSLayerRendererCG
 {
 }
 
@@ -16,7 +16,7 @@
 - (double)beginMask:(id)arg1 context:(id)arg2;
 - (void)renderSubLayer:(id)arg1 skipFills:(BOOL)arg2 ignoreDirtyRect:(BOOL)arg3 maskShapeGroup:(id)arg4 context:(id)arg5;
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
-- (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end
 

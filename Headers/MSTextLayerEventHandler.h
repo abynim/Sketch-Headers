@@ -46,6 +46,7 @@
 - (void)makeUppercase:(id)arg1;
 - (void)applyTextTransform:(id)arg1;
 - (void)removeTextView;
+- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)commitPendingEdits;
 - (BOOL)handlesHistoryCoalescing;
@@ -68,7 +69,6 @@
 - (void)windowDidResignKey:(id)arg1;
 - (void)adjustForegroundColor;
 - (id)insertionPointColor;
-- (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 - (struct CGImage *)newTextLayerImageFromWindowBackingStore;
 - (void)beginEditing;
 - (void)updateTextViewStyling;

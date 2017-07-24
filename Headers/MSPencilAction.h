@@ -14,6 +14,7 @@
 - (BOOL)isSelectable;
 - (BOOL)isActive;
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)pencil:(id)arg1;
 
 @end

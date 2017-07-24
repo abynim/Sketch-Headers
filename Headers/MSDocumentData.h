@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class BCCache, MSPage, NSArray, NSDictionary, NSSet;
+@class BCCache, MSFontList, MSPage, NSArray, NSDictionary, NSSet;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -17,9 +17,11 @@
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
+    MSFontList *_fontList;
 }
 
 + (void)initialize;
+@property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;

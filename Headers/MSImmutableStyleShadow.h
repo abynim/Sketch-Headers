@@ -14,16 +14,9 @@
 {
 }
 
+- (double)adjustmentAmountForStrokeType:(long long)arg1 lineWidth:(double)arg2;
+- (struct CGRect)shadowBoundsForRect:(struct CGRect)arg1;
 - (void)updateColorCounter:(id)arg1;
-- (double)lineWidthForStrokeType:(long long)arg1 lineWidth:(double)arg2;
-- (double)growAmountforStrokeType:(long long)arg1 lineWidth:(double)arg2;
-- (void)drawShadowFillAndStrokeForPath:(id)arg1 windingRule:(unsigned long long)arg2 options:(id)arg3 strokeType:(long long)arg4 lineWidth:(double)arg5 context:(struct CGContext *)arg6;
-- (void)drawShadowStrokeForPath:(id)arg1 strokeType:(long long)arg2 options:(id)arg3 lineWidth:(double)arg4 context:(struct CGContext *)arg5;
-- (void)drawShadowFillForPath:(id)arg1 windingRule:(unsigned long long)arg2 options:(id)arg3 spread:(double)arg4 context:(struct CGContext *)arg5;
-- (struct CGRect)boundingBoxForRect:(struct CGRect)arg1;
-- (void)drawInnerShadowForPath:(id)arg1 windingRule:(unsigned long long)arg2 context:(id)arg3;
-- (void)drawShadowForRect:(struct CGRect)arg1 context:(id)arg2 block:(CDUnknownBlockType)arg3;
-- (void)drawShadowForPath:(id)arg1 windingRule:(unsigned long long)arg2 options:(id)arg3 type:(unsigned long long)arg4 strokeType:(long long)arg5 fillShouldClip:(BOOL)arg6 lineWidth:(double)arg7 context:(id)arg8;
 - (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
 - (id)addColorMatrix:(id)arg1 color:(id)arg2 output:(id)arg3 filter:(id)arg4;
 - (id)addOffsetTo:(id)arg1 dx:(double)arg2 dy:(double)arg3 output:(id)arg4 filter:(id)arg5;

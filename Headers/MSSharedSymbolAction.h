@@ -6,14 +6,18 @@
 
 #import "MSSharedObjectAction.h"
 
+@class MSForeignSymbolMenuBuilder;
+
 @interface MSSharedSymbolAction : MSSharedObjectAction
 {
+    MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
+@property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+- (void).cxx_destruct;
 - (id)sharedObjectName;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
-- (id)menuItemForSymbols:(id)arg1 inMenu:(id)arg2 library:(id)arg3 localSymbolMapTable:(id)arg4;
-- (id)availableSymbolMapping;
+- (id)initWithDocument:(id)arg1;
 
 @end
 
