@@ -41,6 +41,9 @@
 @property(readonly, nonatomic) BOOL hasConnectedClients;
 - (void)updateAllClientsWithConnectionInfo:(id)arg1;
 - (id)newClientWithConnectionInfo:(id)arg1;
+- (void)sendConnectedMessageToConnectionID:(id)arg1;
+- (id)currentArtboardMessage;
+- (id)contentMessage;
 - (void)sendMessage:(id)arg1 toConnectionID:(id)arg2;
 - (void)broadcastMessage:(id)arg1;
 - (void)disconnect:(id)arg1;

@@ -27,7 +27,9 @@
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
 - (id)previewImage;
-- (struct CGRect)rectForInserting;
+- (struct CGRect)rectAroundMouseFromBoundsCoordinates:(struct CGRect)arg1;
+- (struct CGPoint)originForInserting;
+- (struct CGRect)previewRectForInserting;
 - (void)refresh;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

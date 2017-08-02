@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseLayerRenderer.h"
+#import "MSLayerRendererCG.h"
 
-@interface MSTextLayerRenderer : MSBaseLayerRenderer
+@interface MSTextRendererCG : MSLayerRendererCG
 {
 }
 
@@ -15,7 +15,7 @@
 - (void)drawLayoutManager:(id)arg1 style:(id)arg2 aPoint:(struct CGPoint)arg3 context:(id)arg4;
 - (void)drawTextLayerAsPath:(id)arg1 withTextStorage:(id)arg2 inBounds:(struct CGRect)arg3 context:(id)arg4;
 - (void)drawTextLayerInsideBoundsTransform:(id)arg1 context:(id)arg2;
-- (void)doDrawLayer:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end
 

@@ -12,7 +12,6 @@
 
 - (void)doPerformAction:(id)arg1;
 - (id)imageName;
-- (id)initWithDocument:(id)arg1;
 
 @end
 

@@ -10,8 +10,9 @@
 {
 }
 
-- (BOOL)showBundleAlreadyInstalledAlert:(id)arg1 existingPlugin:(id)arg2;
-- (BOOL)showBundleUpgradeAlert:(id)arg1 existingPlugin:(id)arg2;
+- (BOOL)showBundleIncompatibleAlert:(id)arg1;
+- (BOOL)showBundleAlreadyInstalledAlert:(id)arg1 isIncompatible:(BOOL)arg2 existingPlugin:(id)arg3;
+- (BOOL)showBundleUpgradeAlert:(id)arg1 isIncompatible:(BOOL)arg2 existingPlugin:(id)arg3;
 - (id)titleFromPlugin:(id)arg1;
 - (BOOL)copyPluginBundle:(id)arg1 toPluginsFolderURL:(id)arg2;
 - (void)removeExistingPlugin:(id)arg1;

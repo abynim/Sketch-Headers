@@ -14,6 +14,8 @@
 
 @interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
 {
+    struct CGRect _lineFragmentBounds;
+    double _firstLineCapOffset;
     NSObject *_calculateBaselineOffsetsAtomicity;
     NSObject *_calculateInfluenceRectForBoundsAtomicity;
     struct CGRect _calculatedInfluenceRectForBounds;
@@ -23,6 +25,7 @@
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
++ (id)calculateBaselineOffsets:(id)arg1 lineFragmentBounds:(struct CGRect *)arg2 firstLineCapOffset:(double *)arg3;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
@@ -34,8 +37,9 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
+@property(readonly, nonatomic) double firstLineCapOffset;
+@property(readonly, nonatomic) struct CGRect lineFragmentBounds;
 @property(readonly, copy, nonatomic) NSArray *baselineOffsets;
-- (id)calculateBaselineOffsets:(id)arg1;
 - (double)lineHeight;
 @property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
@@ -49,6 +53,7 @@
 - (id)firstUnderlyingShapePathWithParentGroup:(id)arg1 usingCache:(id)arg2;
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
+- (struct CGRect)capHeightBounds;
 @property(readonly, nonatomic) struct CGPoint drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;

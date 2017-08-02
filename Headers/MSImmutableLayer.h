@@ -10,7 +10,7 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableStyle, NSAffineTransform, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
 {
@@ -111,7 +111,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

@@ -34,6 +34,7 @@
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (id)description;
+- (BOOL)isEqualToEdgeCrossing:(id)arg1;
 - (BOOL)isCoincidentWith:(id)arg1;
 @property(readonly, nonatomic, getter=isAtEnd) BOOL atEnd;
 @property(readonly, nonatomic, getter=isAtStart) BOOL atStart;

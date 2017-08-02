@@ -9,7 +9,7 @@
 #import "NSDraggingDestination.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSTouchBar;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSEvent, NSMutableArray, NSString, NSTouchBar;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
@@ -73,6 +73,7 @@
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
 - (void)handleSymbolInstanceDoubleClick:(id)arg1;
+- (void)handleForeignSymbolInstanceDoubleClick:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
 - (void)mouseEntered:(id)arg1;
@@ -105,12 +106,11 @@
 - (void)cursorUpdate:(id)arg1;
 - (id)defaultCursor;
 - (void)drawHandles;
-- (void)windowDidResize:(id)arg1;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;
 - (BOOL)escapeKeyIsPressed:(unsigned short)arg1;
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
-- (id)lastEvent;
+@property(readonly, nonatomic) NSEvent *lastEvent;
 - (unsigned long long)hitTestingOptions;
 - (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -151,6 +151,7 @@
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
 - (void)drawDragSelection;
+- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;

@@ -10,5 +10,8 @@
 
 @protocol MSArtboardPresetsViewControllerDelegate <NSObject>
 - (void)artboardPresetsViewController:(MSArtboardPresetsViewController *)arg1 didSelectPreset:(MSArtboardPreset *)arg2;
+
+@optional
+- (void)artboardPresetsViewController:(MSArtboardPresetsViewController *)arg1 didSelectOrientation:(long long)arg2;
 @end
 

@@ -11,7 +11,7 @@
 #import "MSLayerWithBackgroundColor.h"
 #import "MSRootLayer.h"
 
-@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSObject<NSCopying><NSCoding>, NSString;
+@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor>
 {
@@ -27,13 +27,13 @@
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
+- (struct CGSize)calculateMinimumSize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
 - (void)setRect:(struct CGRect)arg1;
-- (BOOL)shouldAutoresizeChildrenAfterResize;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (id)parentRoot;
 - (id)parentArtboard;
@@ -86,7 +86,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(copy, nonatomic) MSLayoutGrid *layout;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;

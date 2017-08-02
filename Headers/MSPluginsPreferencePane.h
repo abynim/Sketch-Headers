@@ -73,6 +73,7 @@
 - (id)makePluginCellView;
 @property(readonly, nonatomic) MSPluginsPreferenceTableCellView *pluginCellViewForHeightCalculations;
 - (id)attributedStringUpdateAvailableLinkForString:(id)arg1;
+- (void)configurePluginUpdateInfoButton:(id)arg1 withPluginInfo:(id)arg2;
 - (id)tableCellViewContainingControl:(id)arg1;
 - (unsigned long long)rowForControl:(id)arg1;
 - (void)setSelectedIndexesFromSelectionIdentifierArray;

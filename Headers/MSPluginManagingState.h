@@ -27,7 +27,7 @@
 - (BOOL)setPluginMetadaDictionary:(id)arg1 forIdentifier:(id)arg2;
 - (BOOL)isPluginVersion:(id)arg1 incompatibleWithVersion:(id)arg2;
 - (BOOL)isPluginWithIdentifier:(id)arg1 incompatibleWithVersion:(id)arg2;
-- (BOOL)registerPluginIncompatibilityForVersions:(id)arg1;
+- (long long)registerPluginIncompatibilityForVersions:(id)arg1;
 - (void)updateMetadataWithPluginIndentifiers:(id)arg1;
 - (BOOL)shouldEnablePluginIdentifier:(id)arg1 withVersion:(id)arg2;
 - (void)setEnabled:(BOOL)arg1 forPluginIdentifier:(id)arg2 withVersion:(id)arg3;

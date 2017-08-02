@@ -14,6 +14,7 @@
 {
 }
 
+@property(readonly, nonatomic) long long foreignSymbolsOutOfDate;
 @property(readonly, nonatomic) BOOL wantsBadge;
 - (id)label;
 @property(readonly, nonatomic) NSColor *badgeTint;

@@ -9,10 +9,11 @@
 #import "MSArtboardGroup.h"
 #import "MSImmutableRootLayer.h"
 #import "MSLayerWithBackgroundColor.h"
+#import "MSWebExportableRootLayer.h"
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSObject<NSCopying><NSCoding>, NSString;
+@class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
     struct CGSize _unscaledNameSize;
 }
@@ -28,7 +29,8 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
-- (BOOL)exporterRequiresContentClipping;
+@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+@property(readonly) BOOL exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
@@ -53,7 +55,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;

@@ -136,10 +136,6 @@ struct NSEdgeInsets {
     double right;
 };
 
-struct NSObject {
-    Class _field1;
-};
-
 struct _CHTransformStruct {
     double _field1;
     char _field2;

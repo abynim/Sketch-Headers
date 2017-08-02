@@ -11,9 +11,9 @@
 @interface MSPluginManager : NSObject
 {
     NSDictionary *_plugins;
-    BOOL _incompatiblePluginVersionsDisabled;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
+    long long _numberOfIncompatiblePluginDisabled;
     long long _updatesAddedToWarehouse;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
@@ -47,7 +47,7 @@
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
-@property(nonatomic) BOOL incompatiblePluginVersionsDisabled; // @synthesize incompatiblePluginVersionsDisabled=_incompatiblePluginVersionsDisabled;
+@property(nonatomic) long long numberOfIncompatiblePluginDisabled; // @synthesize numberOfIncompatiblePluginDisabled=_numberOfIncompatiblePluginDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
 - (void)removePluginVersionsNotInIdentifiers:(id)arg1;

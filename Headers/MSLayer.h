@@ -11,10 +11,11 @@
 #import "MSLayerContainment.h"
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
+#import "SnapItem.h"
 
-@class MSAbsoluteRect, MSStyledLayer, NSDictionary, NSMenu, NSObject<NSCopying><NSCoding>, NSSet, NSString;
+@class MSAbsoluteRect, MSStyledLayer, NSArray, NSDictionary, NSMenu, NSSet, NSString;
 
-@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayer, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <SnapItem, BCOutlineViewNode, MSLayerContainment, MSLayer, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     BOOL _isHovering;
@@ -93,6 +94,7 @@
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (struct CGSize)calculateMinimumSize;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)layerDidEndResize;
@@ -134,6 +136,7 @@
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
+- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
@@ -144,7 +147,7 @@
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
-- (void)layerDidResizeFromInspector;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @property(nonatomic) double userVisibleRotation;
 - (id)inspectorViewControllers;
 - (id)inspectorViewControllerNames;
@@ -158,16 +161,17 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
 - (BOOL)canSplitPaths;
-- (struct CGRect)rectForSnapping;
 - (id)contextualMenuPreviewImage;
 - (id)cachedOrEmptyImageWithName:(id)arg1;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
-- (id)snapItemForDrawing;
-- (id)snapLines;
 - (Class)layerSnapperObjectClass;
+- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
+@property(readonly, nonatomic) struct CGRect rectForSnapping;
+@property(readonly, nonatomic) id <SnapItem> snapItemForDrawing;
+@property(readonly, nonatomic) NSArray *snapLines;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
 - (id)hudDescription;
@@ -253,7 +257,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

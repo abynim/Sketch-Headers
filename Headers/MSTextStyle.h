@@ -6,7 +6,7 @@
 
 #import "_MSTextStyle.h"
 
-@class NSDictionary;
+@class NSDictionary, NSString;
 
 @interface MSTextStyle : _MSTextStyle
 {
@@ -16,8 +16,10 @@
 + (id)styleWithAttributes:(id)arg1;
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void).cxx_destruct;
+@property(nonatomic) long long verticalAlignment;
 - (void)syncOwningTextLayerWithThisStyle;
 @property(copy, nonatomic) NSDictionary *attributes;
+@property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
 - (id)treeAsDictionary;
 

@@ -8,7 +8,7 @@
 
 #import "MSGestureRecognizerDelegate.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject<NSCopying><NSCoding>, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSString;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate>
 {
@@ -18,7 +18,7 @@
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSNormalEventData *_eventData;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
-    struct NSObject *_duplicatedObjectID;
+    NSString *_duplicatedObjectID;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSLayer *_activeLayer;
@@ -28,7 +28,7 @@
 @property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
+@property(retain, nonatomic) NSString *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
 @property(nonatomic) struct CGSize duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(nonatomic) BOOL nextModifierKeyChangeShouldRefreshView; // @synthesize nextModifierKeyChangeShouldRefreshView=_nextModifierKeyChangeShouldRefreshView;

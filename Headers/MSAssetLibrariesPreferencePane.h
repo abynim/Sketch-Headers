@@ -35,6 +35,9 @@
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
+- (id)menuForEvent:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)toggleLibraryEnabled:(id)arg1;
 - (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (id)draggedURLsFromPasteboard:(id)arg1;

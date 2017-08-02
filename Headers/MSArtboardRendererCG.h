@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayerGroupRenderer.h"
+#import "MSGroupRendererCG.h"
 
-@interface MSArtboardGroupRenderer : MSLayerGroupRenderer
+@interface MSArtboardRendererCG : MSGroupRendererCG
 {
 }
 
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3 isDrawingAsSymbolInstance:(BOOL)arg4;
-- (void)renderSymbolMaster:(id)arg1 asInstanceInContext:(id)arg2;
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
 
 @end

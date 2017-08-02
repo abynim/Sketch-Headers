@@ -13,6 +13,7 @@
     BOOL _commentsEnabled;
     BOOL _isPrivate;
     NSString *_identifier;
+    NSString *_shortID;
     NSString *_userID;
     NSString *_name;
     NSURL *_publicURL;
@@ -27,6 +28,7 @@
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *userID; // @synthesize userID=_userID;
+@property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (unsigned long long)hash;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CIContext, MSBackgroundBlurRenderer, MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSStyleFillRenderer, MSStyleImageRenderer, MSStylePathRenderer, NSColor, NSColorSpace, NSDictionary, NSGraphicsContext, NSMutableArray;
+@class MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSRenderingDriver, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
 
 @interface MSRenderingContext : NSObject
 {
@@ -21,13 +21,11 @@
     BOOL _shouldFlipShadows;
     BOOL _cancelled;
     int _internalBlendMode;
-    MSBackgroundBlurRenderer *_backgroundBlurRenderer;
-    CIContext *_ciContext;
-    struct CGContext *_contextRef;
     unsigned long long _disableDrawingFillsCounter;
     unsigned long long _disableClippingFillsCounter;
     double _zoomLevel;
     NSColorSpace *_colorSpace;
+    struct CGContext *_contextRef;
     NSColor *_backgroundColor;
     id _rootObject;
     double _shadowScale;
@@ -35,18 +33,15 @@
     double _parentLayerOpacity;
     MSImmutableDocumentData *_document;
     MSImmutableLayer *_untilLayer;
+    MSRenderingDriver *_driver;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     MSCGContextPool *_contextPool;
-    MSStylePathRenderer *_stylePathRenderer;
-    MSStyleImageRenderer *_styleImageRenderer;
-    MSStyleFillRenderer *_styleFillRenderer;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
     NSMutableArray *_symbolMasterStack;
     NSGraphicsContext *_graphicsContext;
-    NSDictionary *_renderers;
     struct CGPoint _scrollOrigin;
     struct CGRect _dirtyRect;
     struct CGAffineTransform _initialTransform;
@@ -54,7 +49,6 @@
     struct CGAffineTransform _totalTransform;
 }
 
-@property(retain, nonatomic) NSDictionary *renderers; // @synthesize renderers=_renderers;
 @property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
 @property(retain, nonatomic) NSMutableArray *symbolMasterStack; // @synthesize symbolMasterStack=_symbolMasterStack;
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
@@ -64,11 +58,9 @@
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
-@property(retain, nonatomic) MSStyleFillRenderer *styleFillRenderer; // @synthesize styleFillRenderer=_styleFillRenderer;
-@property(retain, nonatomic) MSStyleImageRenderer *styleImageRenderer; // @synthesize styleImageRenderer=_styleImageRenderer;
-@property(retain, nonatomic) MSStylePathRenderer *stylePathRenderer; // @synthesize stylePathRenderer=_stylePathRenderer;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
+@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) struct CGAffineTransform initialTransform; // @synthesize initialTransform=_initialTransform;
 @property(retain, nonatomic) MSImmutableLayer *untilLayer; // @synthesize untilLayer=_untilLayer;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
@@ -81,6 +73,7 @@
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;
+@property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
@@ -93,8 +86,6 @@
 @property(nonatomic) BOOL isBitmapBacked; // @synthesize isBitmapBacked=_isBitmapBacked;
 @property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
 @property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
-@property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
-@property(retain, nonatomic) CIContext *ciContext; // @synthesize ciContext=_ciContext;
 - (void).cxx_destruct;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2 respectFlipped:(BOOL)arg3;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2;
@@ -146,16 +137,16 @@
 - (void)dealloc;
 - (void)tearDown;
 - (BOOL)hasGraphicsContext;
-- (id)CIContextWithSoftwareRenderer:(BOOL)arg1;
 - (void)setUp;
+- (void)renderSymbol:(id)arg1;
+- (void)renderRect:(struct CGRect)arg1 withStyle:(id)arg2;
+- (void)renderLayer:(id)arg1 ignoreCacheAndDirtyRect:(BOOL)arg2;
 - (void)renderInBlock:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) MSBackgroundBlurRenderer *backgroundBlurRenderer; // @synthesize backgroundBlurRenderer=_backgroundBlurRenderer;
-- (id)bitmapBackedSubContextWithContextRef:(struct CGContext *)arg1 size:(struct CGSize)arg2;
-- (id)blurSubContextWithContextRef:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
-- (id)subContextWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
-- (id)rendererForClass:(Class)arg1;
-- (id)rendererForLayer:(id)arg1;
-- (id)initWithContextRef:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 colorSpace:(id)arg3 atZoomLevel:(double)arg4 document:(id)arg5;
+- (id)bitmapBackedSubContextWithCGContext:(struct CGContext *)arg1 size:(struct CGSize)arg2;
+- (id)blurSubContextWithCGContext:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
+- (id)subContextWithCGContext:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
+- (id)subContextWithDefaultSettingsForCGContext:(struct CGContext *)arg1 atZoomLevel:(double)arg2;
+- (id)initWithDriver:(id)arg1 cgContext:(struct CGContext *)arg2 contextIsVectorBacked:(BOOL)arg3 colorSpace:(id)arg4 atZoomLevel:(double)arg5 document:(id)arg6;
 - (id)init;
 
 @end

@@ -15,7 +15,6 @@
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
-- (id)initWithDocument:(id)arg1;
 
 @end
 

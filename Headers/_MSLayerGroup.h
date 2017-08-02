@@ -6,12 +6,12 @@
 
 #import "MSStyledLayer.h"
 
-@class NSArray, NSMutableArray, NSObject<NSCopying><NSCoding>;
+@class NSArray, NSMutableArray, NSString;
 
 @interface _MSLayerGroup : MSStyledLayer
 {
     BOOL _hasClickThrough;
-    struct NSObject *_sharedObjectID;
+    NSString *_sharedObjectID;
     NSMutableArray *_layers;
 }
 
@@ -38,7 +38,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
+@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

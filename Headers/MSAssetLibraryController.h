@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
 @property(retain, nonatomic) NSArray *internalLibraries; // @synthesize internalLibraries=_internalLibraries;
 - (void).cxx_destruct;
+- (id)libraryForSymbol:(id)arg1;
+- (void)enumerateForeignSymbolsInDocument:(id)arg1 includeDisabled:(BOOL)arg2 block:(CDUnknownBlockType)arg3;
 - (void)syncForeignSymbol:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importForeignSymbol:(id)arg1 fromLibrary:(id)arg2 intoDocument:(id)arg3;
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;

@@ -16,8 +16,9 @@
 @property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
 - (void).cxx_destruct;
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)valueSelected:(id)arg1;
 - (void)optionSelected:(id)arg1;
-- (void)buildMenuWithOptions:(id)arg1;
+- (void)buildMenuWithOptions:(id)arg1 action:(SEL)arg2;
 - (void)setupAsRootMenu;
 - (void)dealloc;
 - (void)awakeFromNib;

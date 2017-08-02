@@ -6,13 +6,13 @@
 
 #import "NSTableCellView.h"
 
-@class NSButton, NSLayoutConstraint, NSProgressIndicator, NSView;
+@class MSPluginsPreferencesUpdateButton, NSButton, NSLayoutConstraint, NSProgressIndicator, NSView;
 
 @interface MSPluginsPreferenceTableCellView : NSTableCellView
 {
     NSView *_updateAvailableContainer;
     NSView *_pluginIncompatibleContainer;
-    NSButton *_updateAvailableInfo;
+    MSPluginsPreferencesUpdateButton *_updateAvailableInfo;
     NSButton *_updatePlugin;
     NSProgressIndicator *_pluginUpdating;
     NSLayoutConstraint *_updateAvailableHeightConstraint;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) NSLayoutConstraint *updateAvailableHeightConstraint; // @synthesize updateAvailableHeightConstraint=_updateAvailableHeightConstraint;
 @property(retain, nonatomic) NSProgressIndicator *pluginUpdating; // @synthesize pluginUpdating=_pluginUpdating;
 @property(retain, nonatomic) NSButton *updatePlugin; // @synthesize updatePlugin=_updatePlugin;
-@property(retain, nonatomic) NSButton *updateAvailableInfo; // @synthesize updateAvailableInfo=_updateAvailableInfo;
+@property(retain, nonatomic) MSPluginsPreferencesUpdateButton *updateAvailableInfo; // @synthesize updateAvailableInfo=_updateAvailableInfo;
 @property(retain, nonatomic) NSView *pluginIncompatibleContainer; // @synthesize pluginIncompatibleContainer=_pluginIncompatibleContainer;
 @property(retain, nonatomic) NSView *updateAvailableContainer; // @synthesize updateAvailableContainer=_updateAvailableContainer;
 - (void).cxx_destruct;

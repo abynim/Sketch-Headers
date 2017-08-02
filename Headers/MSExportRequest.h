@@ -56,7 +56,7 @@
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)configureForLayer:(id)arg1;
-- (void)setNameFromID:(struct NSObject *)arg1 exportFormat:(id)arg2;
+- (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

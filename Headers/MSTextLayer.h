@@ -20,8 +20,13 @@
     struct CGRect _previousRectCache;
 }
 
++ (long long)menuItemStateForTest:(CDUnknownBlockType)arg1 forLayers:(id)arg2;
++ (long long)menuItemStateForAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextAlignmentForLayers:(id)arg1;
++ (long long)menuItemStateForTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
@@ -105,11 +110,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
+- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (id)handlerName;
-- (void)layerDidResizeFromInspector;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)copyStylePropertiesToShape:(id)arg1;

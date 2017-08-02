@@ -25,6 +25,8 @@
 - (id)_init;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
+- (SEL)selectorForTouchbarItemIdentifier:(id)arg1;
+- (id)touchBarItemIdentifiers;
 - (id)windowNibName;
 - (void)closeSheet;
 - (void)cancel:(id)arg1;

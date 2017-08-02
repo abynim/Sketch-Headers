@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@interface MSBackgroundBlurRenderer : NSObject
+@interface MSResizeArtboardToFitValidator : NSObject
 {
 }
 
-- (void)blurBackgroundBehindShape:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
++ (BOOL)isValidForSelectedLayers:(id)arg1;
 
 @end
 

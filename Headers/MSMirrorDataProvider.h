@@ -8,14 +8,14 @@
 
 #import "SMKMirrorDataSource.h"
 
-@class MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorController;
+@class MSDocument, MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorController;
 
 @interface MSMirrorDataProvider : NSObject <SMKMirrorDataSource>
 {
     BOOL _isAlreadyComparing;
+    NSString *_currentArtboardID;
     SMKMirrorController *_connectionController;
-    id _currentDocumentID;
-    id _currentArtboardID;
+    NSString *_currentDocumentID;
     MSImmutableDocumentData *_lastImmutableDoc;
     NSObject<OS_dispatch_queue> *_mirrorQueue;
 }
@@ -23,24 +23,26 @@
 @property(nonatomic) BOOL isAlreadyComparing; // @synthesize isAlreadyComparing=_isAlreadyComparing;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *mirrorQueue; // @synthesize mirrorQueue=_mirrorQueue;
 @property(retain, nonatomic) MSImmutableDocumentData *lastImmutableDoc; // @synthesize lastImmutableDoc=_lastImmutableDoc;
-@property(copy, nonatomic) id currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
-@property(copy, nonatomic) id currentDocumentID; // @synthesize currentDocumentID=_currentDocumentID;
+@property(copy, nonatomic) NSString *currentDocumentID; // @synthesize currentDocumentID=_currentDocumentID;
 @property(nonatomic) __weak SMKMirrorController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
-- (id)document;
+@property(readonly, nonatomic) MSDocument *document;
 - (id)currentArtboard;
 - (void)hasDocumentStructureChangedWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)sendUpdateFromOldArtboard:(id)arg1 toNewArtboard:(id)arg2;
 - (void)sendPartialUpdateForNewDocument:(id)arg1;
 - (void)sendUpdate;
+@property(copy, nonatomic) NSString *currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
+- (void)windowDidResignMainNotification:(id)arg1;
+- (void)windowDidBecomeMainNotification:(id)arg1;
 - (void)currentDocumentNameDidChange;
 - (void)currentDocumentDidChange;
 - (void)currentArtboardDidChange;
 - (id)imageData:(id)arg1 dataByInsertingBackgroundColor:(id)arg2;
 - (void)renderExportForRequest:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly) BOOL shouldScrollToSelectedArtboard;
-@property(readonly) NSDictionary *manifestContent;
-@property(readonly) NSString *currentArtboardIdentifier;
+@property(readonly, nonatomic) NSDictionary *manifestContent;
+- (void)dealloc;
 - (id)init;
 
 // Remaining properties

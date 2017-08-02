@@ -6,11 +6,15 @@
 
 #import "MSDocumentAction.h"
 
+@class MSForeignSymbolMenuBuilder;
+
 @interface MSInsertMenuAction : MSDocumentAction
 {
     id <NSObject> _documentCloseObserver;
+    MSForeignSymbolMenuBuilder *_symbolMenuBuilder;
 }
 
+@property(retain, nonatomic) MSForeignSymbolMenuBuilder *symbolMenuBuilder; // @synthesize symbolMenuBuilder=_symbolMenuBuilder;
 @property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (void).cxx_destruct;
 - (void)menuNeedsUpdate:(id)arg1;

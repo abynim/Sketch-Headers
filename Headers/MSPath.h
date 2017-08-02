@@ -6,17 +6,24 @@
 
 #import "NSObject.h"
 
+@class NSArray;
+
 @interface MSPath : NSObject
 {
     struct CGPath *_CGPath;
     long long _signedElementCount;
+    NSArray *_contours;
 }
 
 + (id)pathWithEllipseInRect:(struct CGRect)arg1;
 + (id)pathWithRect:(struct CGRect)arg1;
 + (id)pathWithSubPaths:(id)arg1;
+@property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 @property(nonatomic) long long signedElementCount; // @synthesize signedElementCount=_signedElementCount;
 @property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
+- (void).cxx_destruct;
+- (id)pathWithInset:(double)arg1;
+- (id)debugQuickLookObject;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
@@ -34,7 +41,6 @@
 - (id)booleanIntersectWith:(id)arg1;
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
-- (id)debugQuickLookObject;
 - (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
 - (id)pathByGrowingBy:(double)arg1;
 - (id)insetPathBy:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;

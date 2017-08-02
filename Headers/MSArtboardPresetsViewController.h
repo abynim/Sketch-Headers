@@ -6,6 +6,7 @@
 
 #import "NSViewController.h"
 
+#import "BCPopoverDelegate.h"
 #import "MSEditArtboardPresetViewControllerDelegate.h"
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
@@ -13,7 +14,7 @@
 
 @class MSArtboardPreset, MSArtboardPresetStore, MSArtboardPresetsCategory, NSArray, NSArrayController, NSSegmentedControl, NSString, NSTableView;
 
-@interface MSArtboardPresetsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MSEditArtboardPresetViewControllerDelegate, NSUserInterfaceValidations>
+@interface MSArtboardPresetsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MSEditArtboardPresetViewControllerDelegate, NSUserInterfaceValidations, BCPopoverDelegate>
 {
     MSArtboardPresetStore *_presetStore;
     long long _orientation;
@@ -41,6 +42,7 @@
 @property(copy, nonatomic) NSArray *extraPresets; // @synthesize extraPresets=_extraPresets;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 - (void).cxx_destruct;
+- (void)popoverWillShow:(id)arg1;
 - (void)editArtboardPresetViewController:(id)arg1 savePreset:(id)arg2;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;

@@ -8,20 +8,16 @@
 
 #import "NSMenuDelegate.h"
 
-@class MSSortableObjectMenuBuilder, NSString;
+@class NSString;
 
 @interface MSSharedObjectAction : MSDocumentAction <NSMenuDelegate>
 {
-    MSSortableObjectMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSSortableObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-- (void).cxx_destruct;
 - (BOOL)hasSubMenu;
 - (id)noSharedObjectMenuItemForMenu:(id)arg1;
 - (id)noSharedObjectsView;
 @property(readonly, nonatomic) NSString *sharedObjectName;
-- (void)menuWillOpen:(id)arg1;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (id)menuItemsForMenu:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;

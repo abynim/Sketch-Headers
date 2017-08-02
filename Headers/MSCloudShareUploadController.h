@@ -13,7 +13,6 @@
     BOOL _includeDocument;
     BOOL _uploadFailed;
     id <MSCloudShareUploadControllerDelegate> _delegate;
-    NSString *_password;
     id <MSCloudDocument> _document;
     NSURL *_localURL;
     AFAmazonS3Manager *_s3Manager;
@@ -28,7 +27,6 @@
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(nonatomic) __weak id <MSCloudDocument> document; // @synthesize document=_document;
 @property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
-@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)cancel;

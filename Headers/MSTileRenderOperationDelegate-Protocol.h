@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSTileRenderOperation;
+@class MSRenderingDriver, MSTileRenderOperation;
 
 @protocol MSTileRenderOperationDelegate <NSObject>
 - (void)tileRenderOperationDidFinishRendering:(MSTileRenderOperation *)arg1;
+- (MSRenderingDriver *)driver;
 @end
 

@@ -14,6 +14,7 @@
 + (unsigned long long)traits;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (BOOL)influenceRectClipsToBounds;
+- (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)masterWithOverrides:(id)arg1 size:(struct CGSize)arg2 allSymbols:(id)arg3;
 - (id)masterWithOverrides:(id)arg1 allSymbols:(id)arg2;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;

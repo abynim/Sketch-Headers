@@ -8,12 +8,12 @@
 
 #import "MSModelObjectCommon.h"
 
-@class MSModelObjectCache, MSModelObjectCacheGeneration, NSObject<NSCopying><NSCoding>, NSString;
+@class MSModelObjectCache, MSModelObjectCacheGeneration, NSString;
 
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
     MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
-    struct NSObject *_objectID;
+    NSString *_objectID;
     MSModelObjectCache *_cache;
 }
 
@@ -26,7 +26,7 @@
 @property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (id)primitiveObjectID;
-@property(copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID; // @synthesize objectID=_objectID;
+@property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (BOOL)hasObjectID;
 - (id)generateObjectID;
 - (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
