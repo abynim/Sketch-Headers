@@ -53,6 +53,10 @@
 - (id)intersectionsWithSegment:(id)arg1;
 - (id)offsetsOfIntersectionsWithTangent:(struct MSTangent)arg1;
 - (double)offsetForNormalToPoint:(struct CGPoint)arg1;
+- (double)curvatureAtOffset:(double)arg1;
+- (double)curvatureAtEndPoint2;
+- (double)curvatureAtEndPoint1;
+- (double)curvatureFromPoint1:(struct CGPoint)arg1 point2:(struct CGPoint)arg2 point3:(struct CGPoint)arg3;
 - (struct CGPoint)pointAtOffset:(double)arg1;
 - (struct MSTangent)tangentAtOffset:(double)arg1;
 - (void)tanget:(struct MSTangent *)arg1 andPoint:(struct CGPoint *)arg2 atOffset:(double)arg3;
@@ -66,6 +70,7 @@
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
+- (id)segmentBySmoothingEndPoints:(double)arg1 decay:(double)arg2;
 
 @end
 

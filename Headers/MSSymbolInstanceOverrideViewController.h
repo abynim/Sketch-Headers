@@ -33,6 +33,8 @@
 - (void)overrideValueAction:(id)arg1;
 - (id)valueFromControlView:(id)arg1;
 - (void)reloadMenu;
+- (id)symbolMenuItems;
+- (id)menuItemsForSymbolMasterRefs:(id)arg1;
 - (void)viewDidAppear;
 - (id)currentlySelectedItemInMenu:(id)arg1;
 - (id)controlViewForEditingOverride;

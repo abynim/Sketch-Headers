@@ -12,17 +12,18 @@
 {
 }
 
-+ (double)lastUsedFixedRadius;
++ (BOOL)useSmoothCorners;
++ (double)lastUsedCornerRadius;
 - (BOOL)canFlatten;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)shouldDrawLayerSelection;
-- (void)resetPointsBasedOnUserInteraction;
 - (void)resetPointsIfNecessary;
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;
 - (void)resetPoints;
 - (id)bezierPathForCursorPreview;
 - (id)inspectorViewControllerNames;
+@property(nonatomic) BOOL hasSmoothCorners;
 - (void)didChangeValues;
 - (void)willChangeValues;
 - (double)floatFromNumbers:(id)arg1 atIndex:(unsigned long long)arg2;

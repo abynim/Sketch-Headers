@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "SCKEnvironment.h"
 
 @class NSString;
 
-@protocol MSSortable <NSObject>
-@property(readonly, nonatomic) NSString *name;
+@interface SCKEnvironment (Representable)
+@property(readonly, nonatomic) NSString *suffixRepresentation;
 @end
 

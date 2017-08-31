@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "MSSortable.h"
+#import "BCSortable.h"
 
 @class MSAssetLibrary, MSSymbolMaster, NSString;
 
-@interface MSSymbolMasterReference : NSObject <MSSortable>
+@interface MSSymbolMasterReference : NSObject <BCSortable>
 {
     MSAssetLibrary *_sourceLibrary;
     MSSymbolMaster *_symbolMaster;

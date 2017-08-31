@@ -6,7 +6,11 @@
 
 #import "_MSStyleBasicFill.h"
 
-@interface MSStyleBasicFill : _MSStyleBasicFill
+#import "MSColorSpaceConvertible.h"
+
+@class NSString;
+
+@interface MSStyleBasicFill : _MSStyleBasicFill <MSColorSpaceConvertible>
 {
 }
 
@@ -14,11 +18,19 @@
 + (void)drawNoiseFill:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
 + (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
 + (void)drawGradientFill:(id)arg1 inRect:(struct CGRect)arg2;
-+ (void)drawColorFill:(id)arg1 inRect:(struct CGRect)arg2;
-+ (void)drawBasicFill:(id)arg1 color:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;
++ (void)drawColorFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
++ (void)drawColor:(id)arg1 enabled:(BOOL)arg2 inRect:(struct CGRect)arg3;
++ (void)drawBasicFill:(id)arg1 colorSpace:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;
 + (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1;
+- (void)convertColorsUsing:(id)arg1;
 - (void)performInitEmptyObject;
-- (id)previewImageOfSize:(struct CGSize)arg1 clippingAsBorder:(BOOL)arg2 borderWidth:(double)arg3;
+- (id)previewImageOfSize:(struct CGSize)arg1 colorSpace:(id)arg2 clippingAsBorder:(BOOL)arg3 borderWidth:(double)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

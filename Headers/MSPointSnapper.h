@@ -30,7 +30,7 @@
 - (void)snapToTargets:(id)arg1;
 - (id)snapPoint:(struct CGPoint)arg1 inLayer:(id)arg2;
 - (id)init;
-- (void)configureRulerGuideTargetsWithProvider:(id)arg1;
+- (void)configureRulerGuideTargetsForPage:(id)arg1;
 - (id)targetForSnappingToHandleAtIndexPath:(id)arg1 location:(struct CGPoint)arg2 shape:(id)arg3 excluding:(id)arg4;
 - (void)populateArray:(id)arg1 withTargetsForSnappingToMidpointOfLayer:(id)arg2;
 - (id)targetsForMidpointsOfLayers:(id)arg1;

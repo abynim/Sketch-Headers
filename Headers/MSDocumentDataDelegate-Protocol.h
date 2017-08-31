@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, MSLayer, MSModelObject, MSPage, NSString;
+@class MSDocumentData, MSModelObject, MSPage, NSArray, NSString;
 
 @protocol MSDocumentDataDelegate <NSObject>
 - (void)determineCurrentArtboard;
@@ -18,8 +18,7 @@
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;
 - (void)documentDidChange:(MSDocumentData *)arg1;
 - (void)documentDataImmediatelyShowSelectionForAllLayers:(MSDocumentData *)arg1;
-- (void)documentData:(MSDocumentData *)arg1 immediatelyShowSelectionForLayer:(MSLayer *)arg2;
-- (void)documentData:(MSDocumentData *)arg1 temporarilyHideSelectionForLayer:(MSLayer *)arg2;
+- (void)documentData:(MSDocumentData *)arg1 temporarilyHideSelectionForLayers:(NSArray *)arg2;
 - (void)documentData:(MSDocumentData *)arg1 sharedObjectDidChange:(id <MSSharedObjectInstance>)arg2;
 - (void)documentData:(MSDocumentData *)arg1 didChangeToPage:(MSPage *)arg2;
 @end

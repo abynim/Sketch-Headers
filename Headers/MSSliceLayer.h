@@ -6,11 +6,12 @@
 
 #import "_MSSliceLayer.h"
 
+#import "MSColorSpaceConvertible.h"
 #import "MSLayerWithBackgroundColor.h"
 
 @class NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColor>
+@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColor, MSColorSpaceConvertible>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -19,6 +20,7 @@
 + (id)sliceLayerFromLayer:(id)arg1;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (void)convertColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;

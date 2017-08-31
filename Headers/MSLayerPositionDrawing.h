@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSLayer, NSArray, NSNumberFormatter;
+@class MSLayer, MSLayerArray, NSArray, NSNumberFormatter;
 
 @interface MSLayerPositionDrawing : NSObject
 {
@@ -15,12 +15,14 @@
     MSLayer *_targetLayer;
     double _zoomValue;
     unsigned long long _modifierFlags;
+    MSLayerArray *_selectedLayers;
     NSArray *_hoverGuides;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(copy, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
+@property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;

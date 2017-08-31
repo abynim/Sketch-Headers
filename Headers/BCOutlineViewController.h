@@ -29,8 +29,10 @@
     NSTextField *_menuDisabledTextField;
     NSMutableSet *_referencedNodes;
     unsigned long long _refreshMask;
+    NSArray *_postRefreshBlocks;
 }
 
+@property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
 @property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
 @property(retain, nonatomic) NSTextField *menuDisabledTextField; // @synthesize menuDisabledTextField=_menuDisabledTextField;
@@ -60,6 +62,7 @@
 - (void)refreshWithMask:(unsigned long long)arg1;
 - (void)refreshPreviewImages;
 - (void)internalRefreshPreviewImages;
+- (void)executeAfterRefreshCompleted:(CDUnknownBlockType)arg1;
 - (void)refresh;
 - (void)internalRefresh;
 - (void)renameNode;

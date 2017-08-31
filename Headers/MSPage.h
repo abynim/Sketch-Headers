@@ -6,12 +6,11 @@
 
 #import "_MSPage.h"
 
-#import "MSCloudExportable.h"
 #import "MSRootLayer.h"
 
 @class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayerArray, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
 
-@interface MSPage : _MSPage <MSCloudExportable, MSRootLayer>
+@interface MSPage : _MSPage <MSRootLayer>
 {
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedExportableLayers;
@@ -76,11 +75,6 @@
 - (id)parentGroup;
 - (void)objectDidInit;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)setIsMarkedForCloudExport:(BOOL)arg1;
-- (long long)includeForCloudExportState;
-- (id)childAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfChildren;
-- (BOOL)hasChildren;
 - (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
 - (void)adjustRulerDataToTopLeftInViewBounds;
 - (BOOL)shouldDrawSelection;

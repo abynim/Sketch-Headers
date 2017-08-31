@@ -29,6 +29,8 @@
 - (id)documentData;
 - (id)uniqueArtboardIDsOfSelectedLayers;
 - (void)reloadMenu;
+- (id)menuItemsWithAction:(id)arg1 forSymbolMasterRefs:(id)arg2;
+- (id)symbolsAtSameLevelAsSymbolMaster:(id)arg1;
 - (id)overrideIDsSortedInLayerListOrder:(id)arg1 lookup:(id)arg2;
 - (id)overrideViewsWithOverrides:(id)arg1 ancestorIDs:(id)arg2 lookup:(id)arg3;
 - (void)makeOverrideViewControllers;

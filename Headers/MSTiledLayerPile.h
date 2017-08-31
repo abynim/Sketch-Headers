@@ -8,7 +8,7 @@
 
 #import "MSTiledLayerDelegate.h"
 
-@class MSImmutableDocumentData, MSImmutablePage, NSArray, NSMutableArray, NSString, NSView<MSTiledLayerPileHostView>;
+@class MSImmutableDocumentData, MSImmutablePage, MSTiledLayer, NSArray, NSMutableArray, NSString, NSView<MSTiledLayerPileHostView>;
 
 @interface MSTiledLayerPile : NSObject <MSTiledLayerDelegate>
 {
@@ -49,9 +49,9 @@
 - (void)removeAllTiledLayers;
 - (void)removeObsoleteTiledLayers;
 @property(readonly, nonatomic) NSArray *supercededTiledLayers;
-- (id)currentTiledLayer;
+@property(readonly, nonatomic) MSTiledLayer *currentTiledLayer;
 - (void)addNewTiledLayer:(id)arg1;
-- (id)prepareNewTiledLayerWithZoomValue:(double)arg1 scrollOrigin:(struct CGPoint)arg2;
+- (id)prepareNewTiledLayerWithZoomValue:(double)arg1 scrollOrigin:(struct CGPoint)arg2 colorSpace:(id)arg3;
 - (void)dealloc;
 - (id)init;
 - (id)initWithHostView:(id)arg1;

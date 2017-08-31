@@ -37,6 +37,8 @@
 @property(readonly, nonatomic) MSBezierSegment *segment1; // @synthesize segment1=_segment1;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
+- (void)addArcToBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
+- (id)arcSegments;
 - (id)reversedFillet;
 @property(readonly, nonatomic) BOOL clockwise;
 @property(readonly, nonatomic) double endAngle;

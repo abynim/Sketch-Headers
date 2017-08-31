@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSColorSpace.h"
 
-@interface NSObject (CloudAPISigning)
-- (id)signingString;
+@interface NSColorSpace (Chocolat)
++ (id)RGBColorSpaceNamed:(id)arg1;
 @end
 

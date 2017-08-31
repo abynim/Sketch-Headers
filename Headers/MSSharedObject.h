@@ -6,7 +6,11 @@
 
 #import "_MSSharedObject.h"
 
-@interface MSSharedObject : _MSSharedObject
+#import "BCSortable.h"
+
+@class NSString;
+
+@interface MSSharedObject : _MSSharedObject <BCSortable>
 {
 }
 
@@ -20,6 +24,13 @@
 - (void)objectDidInit;
 - (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
 - (id)initWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly) Class superclass;
 
 @end
 
