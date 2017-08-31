@@ -6,48 +6,80 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSTimer, NSURL;
+@class MSPluginManagingState, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSTimer, NSURL;
 
 @interface MSPluginManager : NSObject
 {
     NSDictionary *_plugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
-    NSDictionary *_pluginVersions;
+    long long _numberOfIncompatiblePluginDisabled;
+    long long _updatesAddedToWarehouse;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
-    NSArray *_folderMonitors;
     NSMutableDictionary *_runningCommands;
     NSTimer *_sessionTimer;
     double _lastTimerInterval;
     id <MSPluginUpdater> _updater;
+    NSArray *_folderMonitors;
+    MSPluginManagingState *_pluginStateManager;
+    NSMutableDictionary *_pluginVersions;
+    NSMutableArray *_downloadPluginsErrors;
+    NSDictionary *_incompatiblePluginVersions;
 }
 
++ (id)warehousePluginFolderForIdentifier:(id)arg1 withVersion:(id)arg2;
++ (id)pluginsWarehouseURL;
 + (id)pluginsURLs;
 + (id)defaultPluginURL;
 + (id)mainPluginsFolderURL;
 + (void)initialisePlugins;
+@property(retain, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
+@property(retain, nonatomic) NSMutableArray *downloadPluginsErrors; // @synthesize downloadPluginsErrors=_downloadPluginsErrors;
+@property(retain, nonatomic) NSMutableDictionary *pluginVersions; // @synthesize pluginVersions=_pluginVersions;
+@property(readonly, nonatomic) MSPluginManagingState *pluginStateManager; // @synthesize pluginStateManager=_pluginStateManager;
+@property(readonly, nonatomic) BOOL monitorForChanges; // @synthesize monitorForChanges=_monitorForChanges;
+@property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(readonly, copy, nonatomic) id <MSPluginUpdater> updater; // @synthesize updater=_updater;
 @property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
 @property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
-@property(readonly, nonatomic) BOOL monitorForChanges; // @synthesize monitorForChanges=_monitorForChanges;
-@property(retain, nonatomic) NSArray *folderMonitors; // @synthesize folderMonitors=_folderMonitors;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(readonly, nonatomic) NSDictionary *pluginVersions; // @synthesize pluginVersions=_pluginVersions;
+@property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
+@property(nonatomic) long long numberOfIncompatiblePluginDisabled; // @synthesize numberOfIncompatiblePluginDisabled=_numberOfIncompatiblePluginDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
+- (void)removePluginVersionsNotInIdentifiers:(id)arg1;
+- (void)addDownloadAndDecompressPluginError:(id)arg1;
+- (id)compatiblePluginUpdatesNotDownloaded;
+- (id)latestPluginUpdatesNotDownloaded;
+@property(readonly, nonatomic) long long numberOfPluginsWithUpdates;
+@property(readonly, nonatomic) long long numberOfPluginsWithSketchCompatibleUpdates;
+- (id)downloadedPluginURLWithIdentifier:(id)arg1 version:(id)arg2;
+- (id)firstPluginBundleFoundInFolder:(id)arg1;
+- (BOOL)installPluginAtURL:(id)arg1 withIdentifier:(id)arg2 error:(id *)arg3;
+- (BOOL)isPluginUpdateDownloadedWithIdentifier:(id)arg1 version:(id)arg2;
+- (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2 error:(id *)arg3;
+- (void)downloadAndInstallPluginWithIdentifier:(id)arg1 version:(id)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)downloadPluginUpdate:(id)arg1 withVersion:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)clearPluginsCache;
 - (void)cancelDownloadingPluginVersions;
-- (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2;
-- (void)checkForPluginUpdatesWithHandler:(CDUnknownBlockType)arg1;
-- (void)checkForPluginUpdates:(id)arg1 handler:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) long long numberOfPluginsWithUpdates;
-- (BOOL)disablePlugin:(id)arg1;
-- (BOOL)enablePlugin:(id)arg1;
-- (BOOL)setMetadataValue:(id)arg1 forKey:(id)arg2 identifier:(id)arg3;
-- (id)metadataValueForKey:(id)arg1 identifier:(id)arg2;
+- (void)downloadLatestPluginUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)downloadCompatiblePluginUpdatesWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)downloadPluginUpdates:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)checkForPluginUpdatesWithHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)checkForPluginUpdates:(id)arg1 handler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (BOOL)shouldEnablePluginIdentifier:(id)arg1 withVersion:(id)arg2;
+- (void)registerIncompatiblePlugins;
+- (BOOL)isPluginWithIdentifier:(id)arg1 incompatibleWithVersion:(id)arg2;
+- (BOOL)isIncompatiblePlugin:(id)arg1;
+- (id)versionsForPlugin:(id)arg1;
+@property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginsWithCompatibleUpdates;
+@property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginsWithUpdates;
+@property(readonly, copy, nonatomic) NSArray *incompatiblePlugins;
+- (void)disablePlugin:(id)arg1;
+- (void)enablePlugin:(id)arg1;
 - (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2;
 - (void)addCommands:(id)arg1 toMenu:(id)arg2 fromDescription:(id)arg3 selector:(SEL)arg4;
 - (void)sortMenu:(id)arg1 recursively:(BOOL)arg2;
@@ -57,6 +89,8 @@
 - (id)stopTrackingLongRunningCommandWithSpecifier:(id)arg1;
 - (id)commandWithSpecifier:(id)arg1;
 @property(copy, nonatomic) NSDictionary *plugins;
+- (void)setupFolderMonitoringWithVisitedURLs:(id)arg1;
+- (void)clearFolderMonitors;
 - (void)reloadPlugins;
 - (id)pluginsFromResolvedFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3 ignoredNames:(id)arg4;
 - (id)pluginsByResolvingFolderAtURL:(id)arg1 visitedURLs:(id)arg2 relativeFolderPath:(id)arg3 ignoredNames:(id)arg4;
@@ -64,8 +98,7 @@
 - (id)folderNamesToIgnore;
 @property(readonly, copy, nonatomic) NSURL *mainPluginsFolderURL;
 - (void)dealloc;
-- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 metadataURL:(id)arg3 options:(unsigned long long)arg4;
-- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 metadataURL:(id)arg3;
+- (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 pluginStateManager:(id)arg3;
 - (id)init;
 
 @end

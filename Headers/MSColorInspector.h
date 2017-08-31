@@ -11,7 +11,7 @@
 #import "MSModeModePickerDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSView;
+@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate>
 {
@@ -30,16 +30,18 @@
     MSColorInspectorSectionGradient *_gradientSection;
     MSColorInspectorSectionPattern *_patternSection;
     MSColorInspectorSectionNoise *_noiseSection;
-    MSEventHandlerManager *_eventHandler;
+    MSEventHandlerManager *_eventHandlerManager;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSStackView *_stackView;
+    NSTextField *_textFieldToContinueEditing;
 }
 
+@property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
-@property(retain, nonatomic) MSEventHandlerManager *eventHandler; // @synthesize eventHandler=_eventHandler;
+@property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) MSColorInspectorSectionNoise *noiseSection; // @synthesize noiseSection=_noiseSection;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;
 @property(retain, nonatomic) MSColorInspectorSectionGradient *gradientSection; // @synthesize gradientSection=_gradientSection;
@@ -60,6 +62,7 @@
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)customTouchBarItemIdentifiers;
 - (id)makeTouchBar;
+- (double)minimumPopoverContentViewHeight:(id)arg1;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
@@ -73,6 +76,7 @@
 - (void)reloadTouchBars;
 - (void)refreshTabbingCycle;
 - (void)pickerViewChanged:(id)arg1;
+- (void)pickerViewWillChange:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (id)filteredStyleParts:(id)arg1;
 - (void)close;
@@ -81,12 +85,16 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
+- (id)documentRedoAction;
+- (id)documentUndoAction;
 - (void)viewWillDisappear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;
 - (long long)initialColorTypePickerMode;
-- (id)viewsByAddingSeparatorsToViews:(id)arg1;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
 - (void)findFrequentColors;

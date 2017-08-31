@@ -11,22 +11,22 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorServerController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
-    id shapesMenu;
-    NSMenuItem *pluginsMenuItem;
-    NSMenu *templatesMenu;
-    NSMenu *printMenu;
-    NSMenuItem *debugMenuItem;
+    id _shapesMenu;
+    NSMenuItem *_pluginsMenuItem;
+    NSMenu *_templatesMenu;
+    NSMenu *_printMenu;
+    NSMenuItem *_debugMenuItem;
     MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenuItem *_cloudEnvironmentMenuItem;
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
-    SMKMirrorServerController *_mirrorController;
+    SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
@@ -41,11 +41,17 @@
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     MSPersistentAssetCollection *_globalAssets;
     ECLogManagerMacUISupport *_logSupport;
+    MSHUDWindowController *_hud;
+    MSDocumentationSearcher *_documentationSearcher;
+    NSArray *_debugSettings;
     id _lastRunPlugin;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
+@property(retain, nonatomic) NSArray *debugSettings; // @synthesize debugSettings=_debugSettings;
+@property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
+@property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
@@ -60,18 +66,24 @@
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
-@property(retain, nonatomic) SMKMirrorServerController *mirrorController; // @synthesize mirrorController=_mirrorController;
+@property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
+@property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
+@property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
+@property(nonatomic) __weak NSMenu *templatesMenu; // @synthesize templatesMenu=_templatesMenu;
+@property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
+@property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
 - (void)waitForResourceMigrationToFinish;
 - (void)migrateResources:(id)arg1;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)refreshDocumentWindowBadges;
 - (void)refreshCurrentDocument;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
 - (void)updateLicenseManager;
@@ -92,6 +104,9 @@
 - (void)checkImageTemplates;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
+- (void)badgeWindows;
+- (void)checkForAndDownloadPluginUpdates;
+- (void)installCompatiblePluginUpdates;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)createActions;
@@ -103,14 +118,17 @@
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
 - (BOOL)applicationOpenUntitledFile:(id)arg1;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
+- (BOOL)isFirstLaunchOfNewVersion;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) BOOL canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)removeObserversForDebugSettings;
+- (void)addObserversForDebugSettings;
 - (id)init;
-- (void)openCloudUploadURL:(id)arg1;
+- (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;

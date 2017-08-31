@@ -10,8 +10,10 @@
 {
 }
 
+- (id)menuItemsForMenu:(id)arg1;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)addNewPage:(id)arg1;
 
 @end

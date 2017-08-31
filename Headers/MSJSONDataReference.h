@@ -10,5 +10,7 @@
 {
 }
 
+- (id)initWithJSONDecoder:(id)arg1;
+
 @end
 

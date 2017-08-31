@@ -6,12 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray;
+@class MSDocumentData, NSArray;
 
 @interface MSFontList : NSObject
 {
     unsigned long long _cachingIndex;
-    NSArray *_commonFonts;
+    NSArray *_documentFontFamilyNames;
+    MSDocumentData *_documentData;
     NSArray *_systemFonts;
     NSArray *_allFonts;
     NSArray *_filterFonts;
@@ -21,7 +22,8 @@
 @property(retain, nonatomic) NSArray *filterFonts; // @synthesize filterFonts=_filterFonts;
 @property(retain, nonatomic) NSArray *allFonts; // @synthesize allFonts=_allFonts;
 @property(retain, nonatomic) NSArray *systemFonts; // @synthesize systemFonts=_systemFonts;
-@property(retain, nonatomic) NSArray *commonFonts; // @synthesize commonFonts=_commonFonts;
+@property(readonly, nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(copy, nonatomic) NSArray *documentFontFamilyNames; // @synthesize documentFontFamilyNames=_documentFontFamilyNames;
 - (void).cxx_destruct;
 - (void)prepareForDealloc;
 - (void)stopCachingFonts;
@@ -29,12 +31,13 @@
 - (void)startCachingFonts;
 - (void)clearFilter;
 - (void)filter:(id)arg1;
-- (id)fontForFontAtIndex:(unsigned long long)arg1;
-- (id)nameOfFontAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfFonts;
+- (id)fontForFontFamilyAtIndex:(unsigned long long)arg1;
+- (id)nameOfFontFamilyAtIndex:(unsigned long long)arg1;
+- (unsigned long long)numberOfFontFamilies;
 - (void)findCommonFontsInDocument:(id)arg1;
 - (void)findSystemFonts;
-- (void)prepareList:(id)arg1;
+- (void)reloadFonts;
+- (id)initWithDocumentData:(id)arg1;
 
 @end
 

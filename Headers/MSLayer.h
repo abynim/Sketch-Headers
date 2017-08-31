@@ -9,16 +9,15 @@
 #import "BCOutlineViewNode.h"
 #import "MSLayer.h"
 #import "MSLayerContainment.h"
-#import "MSLayerManipulation.h"
 #import "MSRectDelegate.h"
 #import "NSCopying.h"
+#import "SnapItem.h"
 
-@class MSAbsoluteRect, MSStyledLayer, NSDictionary, NSMenu, NSSet, NSString;
+@class MSAbsoluteRect, MSStyledLayer, NSArray, NSDictionary, NSMenu, NSSet, NSString;
 
-@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayer, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <SnapItem, BCOutlineViewNode, MSLayerContainment, MSLayer, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
-    BOOL _isSelected;
     BOOL _isHovering;
     MSAbsoluteRect *_absoluteRect;
 }
@@ -38,6 +37,7 @@
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
+- (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (id)allSymbolInstancesInChildren;
 - (BOOL)canInsertIntoGroup:(id)arg1;
 - (BOOL)canResize;
@@ -74,14 +74,12 @@
 - (id)parentPage;
 - (BOOL)isOpen;
 - (void)removeFromParent;
-- (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)calculateProportions;
 - (BOOL)isRectIntegral;
 - (void)makeRectIntegral;
 - (void)makeOriginIntegral;
 @property(nonatomic) struct CGPoint absolutePosition;
-- (BOOL)closePath;
 - (id)bezierPathWithTransforms;
 - (id)bezierPath;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
@@ -96,9 +94,12 @@
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)influenceRectForFrame;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (struct CGSize)calculateMinimumSize;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
-- (void)parentDidResizeLayerToRect:(struct CGRect)arg1;
+- (void)layerDidEndResize;
+- (void)layerWillStartResize;
+- (void)resizeWithOldGroupSize:(struct CGSize)arg1;
 - (BOOL)hasSelectionHandleAtPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
@@ -111,14 +112,11 @@
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isExpanded;
-- (void)changeAncestorsExpandedTypeToAutomaticIfCollapsed;
-@property(nonatomic) BOOL isSelected;
-- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
-- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
+@property(readonly, nonatomic) BOOL isSelected;
+- (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
+- (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2;
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
-- (void)layerDidResize;
-- (void)layerWillResize;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (void)setName:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -136,18 +134,20 @@
 @property(readonly, nonatomic) MSStyledLayer *styledLayer;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
-- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
+- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
+- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
+- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
 - (id)handlerName;
 - (BOOL)handleDoubleClick;
-- (void)layerDidResizeFromInspector;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @property(nonatomic) double userVisibleRotation;
 - (id)inspectorViewControllers;
 - (id)inspectorViewControllerNames;
@@ -167,11 +167,14 @@
 - (id)selectedPreviewImage;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
-- (id)snapItemForDrawing;
-- (id)snapLines;
 - (Class)layerSnapperObjectClass;
+- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
+@property(readonly, nonatomic) struct CGRect rectForSnapping;
+@property(readonly, nonatomic) id <SnapItem> snapItemForDrawing;
+@property(readonly, nonatomic) NSArray *snapLines;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
+- (id)hudDescription;
 - (BOOL)booleanOperationCanBeReset;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 - (id)cloneDictionaryReplacingImages:(id)arg1;
@@ -216,8 +219,10 @@
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
 - (void)applyOverridesFromSource:(id)arg1;
+- (void)resetConstraints;
 - (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasFixedEdges;
 - (void)setFixed:(BOOL)arg1 forEdge:(unsigned long long)arg2;
@@ -239,14 +244,6 @@
 - (void)replaceFonts:(id)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
-- (void)removeAllLayers;
-- (void)removeLayerAtIndex:(unsigned long long)arg1;
-- (void)removeLayer:(id)arg1;
-- (void)insertLayers:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)insertLayers:(id)arg1 afterLayer:(id)arg2;
-- (void)insertLayers:(id)arg1 beforeLayer:(id)arg2;
-- (void)addLayers:(id)arg1;
-- (void)replaceAllLayersWithLayers:(id)arg1;
 - (id)CSSAttributes;
 - (id)CSSRotationString;
 - (id)CSSAttributeString;
@@ -260,6 +257,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

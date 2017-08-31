@@ -8,18 +8,17 @@
 
 #import "MSGestureRecognizerDelegate.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject<NSCopying><NSCoding>, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSString;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
     BOOL _nextModifierKeyChangeShouldRefreshView;
     MSLayerPositionDrawing *_positionDrawing;
-    MSLayer *_highlightedLayer;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSNormalEventData *_eventData;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
-    struct NSObject *_duplicatedObjectID;
+    NSString *_duplicatedObjectID;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSLayer *_activeLayer;
@@ -29,13 +28,12 @@
 @property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
+@property(retain, nonatomic) NSString *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
 @property(nonatomic) struct CGSize duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(nonatomic) BOOL nextModifierKeyChangeShouldRefreshView; // @synthesize nextModifierKeyChangeShouldRefreshView=_nextModifierKeyChangeShouldRefreshView;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(retain, nonatomic) MSLayer *highlightedLayer; // @synthesize highlightedLayer=_highlightedLayer;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
@@ -70,9 +68,6 @@
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)drawLayerHighlight:(id)arg1;
 - (void)drawLayerSelection;
-- (unsigned long long)hitTestingOptions;
-- (id)layerAtPoint:(struct CGPoint)arg1;
-- (void)deselectAllLayers;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
@@ -96,7 +91,8 @@
 - (void)moveToPreviousArtboard;
 - (void)keyDown:(id)arg1;
 - (void)trackMouse:(id)arg1;
-- (BOOL)validateLayerForHighlighting:(id)arg1;
+- (void)setHighlightedLayer:(id)arg1;
+- (id)highlightedLayer;
 - (BOOL)isMouseHoveringMultipleSelectedLayerCorner;
 - (long long)multipleSelectedLayerCornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)isMouseHoveringLayer:(id)arg1 corner:(struct CGPoint)arg2 flags:(unsigned long long)arg3;

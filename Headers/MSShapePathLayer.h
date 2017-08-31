@@ -68,7 +68,6 @@
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
-- (id)bezierPathForHover;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)isMasked;

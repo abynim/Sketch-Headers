@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSLayer;
+#import "SnapItem.h"
 
-@interface MSSnapItem : NSObject
+@class MSLayer, NSArray, NSString;
+
+@interface MSSnapItem : NSObject <SnapItem>
 {
     MSLayer *_layer;
     struct CGRect _rectAtInit;
@@ -16,14 +18,14 @@
 
 + (id)snapLinesForLayer:(id)arg1;
 + (id)snapperObjectWithLayers:(id)arg1;
-@property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
 @property(nonatomic) struct CGRect rectAtInit; // @synthesize rectAtInit=_rectAtInit;
+@property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
-- (id)snapItemForDrawing;
+@property(readonly, nonatomic) id <SnapItem> snapItemForDrawing;
 - (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
-- (id)description;
-@property(nonatomic) struct CGRect rect;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) struct CGRect rectForSnapping;
 - (struct CGRect)boundsRect;
 - (void)concatAncestorsAndSelfTransforms;
 - (struct CGAffineTransform)preDrawingTransform;
@@ -32,13 +34,18 @@
 - (BOOL)shouldConstrainProportions;
 - (BOOL)supportsResizingForSnapping;
 - (struct CGRect)originalRect;
+- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 - (id)otherLayersForSnapping;
 - (id)otherLayersForSizeSnapping;
 - (id)artboardForSnapping;
-- (id)snapLines;
-- (id)snapEnumerations;
+@property(readonly, nonatomic) NSArray *snapLines;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
 - (id)initWithLayer:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -9,11 +9,10 @@
 #import "MSEventHandlerManagerDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSRenderMonitor, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSLayer, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
 
 @interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView>
 {
-    NSEvent *lastEvent;
     BOOL handToolIsActive;
     struct CGPoint handToolOriginalPoint;
     struct CGPoint handToolOriginalScrollOrigin;
@@ -25,6 +24,7 @@
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _ignoreScheduledRedrawRequests;
     BOOL _isMagnifying;
+    MSLayer *_hoveredLayer;
     id <MSContentDrawViewDelegate> _delegate;
     MSEventHandlerManager *_eventHandlerManager;
     MSRulerView *_horizontalRuler;
@@ -33,10 +33,13 @@
     MSRenderMonitor *_pendingMonitor;
     MSCacheManager *_cacheManager;
     MSZoomTool *_zoomTool;
+    NSEvent *_lastEvent;
     MSImmutablePage *_previouslyRenderedPage;
     MSTiledLayerPile *_tiledLayerPile;
     NSNumberFormatter *_measurementLabelNumberFormatter;
     MSRenderMonitor *_performanceMonitor;
+    MSRenderingDriver *_normalDriver;
+    MSRenderingDriver *_debugDriver;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
     struct CGRect _scrollOriginRelativeContentRedrawRect;
@@ -47,6 +50,8 @@
 + (struct CGPoint)viewCoordinatesFromAbsoluteCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
+@property(retain, nonatomic) MSRenderingDriver *debugDriver; // @synthesize debugDriver=_debugDriver;
+@property(retain, nonatomic) MSRenderingDriver *normalDriver; // @synthesize normalDriver=_normalDriver;
 @property(retain, nonatomic) MSRenderMonitor *performanceMonitor; // @synthesize performanceMonitor=_performanceMonitor;
 @property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
@@ -58,6 +63,7 @@
 @property(nonatomic) struct CGRect scrollOriginRelativeContentRedrawRect; // @synthesize scrollOriginRelativeContentRedrawRect=_scrollOriginRelativeContentRedrawRect;
 @property(retain, nonatomic) MSTiledLayerPile *tiledLayerPile; // @synthesize tiledLayerPile=_tiledLayerPile;
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
+@property(retain, nonatomic) NSEvent *lastEvent; // @synthesize lastEvent=_lastEvent;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
@@ -68,6 +74,7 @@
 @property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSContentDrawViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak MSLayer *hoveredLayer; // @synthesize hoveredLayer=_hoveredLayer;
 - (void).cxx_destruct;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
@@ -83,21 +90,15 @@
 - (void)setFrame:(struct CGRect)arg1;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
-- (id)defaultHandler;
 - (id)pages;
 - (id)currentPage;
 - (id)currentView;
 - (id)selectedLayers;
 - (void)handleFlagsChangedEvent:(id)arg1;
-- (id)setCurrentHandlerKey:(id)arg1;
-- (id)currentHandlerKey;
-- (void)toggleHandlerKey:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (void)changeFont:(id)arg1;
 - (BOOL)isOpaque;
-- (void)setLastEvent:(id)arg1;
-- (id)lastEvent;
 - (id)menuForEvent:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
 - (BOOL)performDragOperation:(id)arg1;
@@ -186,16 +187,21 @@
 - (void)pageDidChange:(id)arg1;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
-- (void)userDefaultsDidChange:(id)arg1;
+- (void)debugSettingChanged:(id)arg1;
 - (void)prepare;
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
 - (void)viewDidChangeBackingProperties;
+- (BOOL)canHighlightLayer:(id)arg1;
 - (BOOL)canDrawConcurrently;
 - (long long)tag;
 - (BOOL)isFlipped;
 - (void)removeFromSuperview;
 - (void)viewDidMoveToWindow;
+- (void)removeObserversForNotifications;
+- (void)addObserversForNotifications;
+@property(readonly, nonatomic) MSRenderingDriver *driver;
+- (BOOL)useDebugDriver;
 - (void)dealloc;
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;

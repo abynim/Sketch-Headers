@@ -24,8 +24,6 @@
 @property(readonly, copy, nonatomic) NSDictionary *versionsDictionary;
 - (BOOL)isVersionListed:(id)arg1;
 - (BOOL)isVersionDownloaded:(id)arg1;
-- (void)setDownloadedPluginURL:(id)arg1 forVersion:(id)arg2;
-- (id)downloadedPluginURLForVersion:(id)arg1;
 - (id)downloadURLForVersion:(id)arg1;
 - (void)addVersions:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *versions;

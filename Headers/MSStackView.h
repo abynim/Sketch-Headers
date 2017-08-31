@@ -10,14 +10,18 @@
 
 @interface MSStackView : NSView
 {
+    BOOL _autoupdatesMaximumHeight;
     long long _maximumHeight;
+    double _minimumHeight;
     NSColor *_backgroundColor;
     id _keyResponder;
 }
 
 @property(nonatomic) __weak id keyResponder; // @synthesize keyResponder=_keyResponder;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(nonatomic) double minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(nonatomic) long long maximumHeight; // @synthesize maximumHeight=_maximumHeight;
+@property(nonatomic) BOOL autoupdatesMaximumHeight; // @synthesize autoupdatesMaximumHeight=_autoupdatesMaximumHeight;
 - (void).cxx_destruct;
 - (void)keyDown:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
@@ -26,6 +30,8 @@
 - (unsigned long long)doStack;
 - (long long)totalRequiredHeight;
 - (BOOL)adjustScrollViewsToFitMaximumHeight;
+- (struct CGRect)adjustScroll:(struct CGRect)arg1;
+- (double)refreshMaximumHeightFromSubviews;
 - (void)stack:(id)arg1;
 - (void)cancelOperation:(id)arg1;
 - (void)awakeFromNib;

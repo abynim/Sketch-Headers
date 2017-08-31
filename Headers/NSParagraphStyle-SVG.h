@@ -7,6 +7,6 @@
 #import "NSParagraphStyle.h"
 
 @interface NSParagraphStyle (SVG)
-- (void)addSVGAttributes:(id)arg1 options:(unsigned long long)arg2;
+- (void)addSVGAttributes:(id)arg1;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (BOOL)supportsState;
 - (id)actionNames;
 

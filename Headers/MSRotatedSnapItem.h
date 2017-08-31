@@ -12,8 +12,8 @@
 
 - (void)setY:(double)arg1;
 - (void)setX:(double)arg1;
-- (void)setRect:(struct CGRect)arg1;
-- (struct CGRect)rect;
+- (void)setRectForSnapping:(struct CGRect)arg1;
+- (struct CGRect)rectForSnapping;
 
 @end
 

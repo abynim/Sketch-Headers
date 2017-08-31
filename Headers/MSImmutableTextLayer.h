@@ -8,34 +8,38 @@
 
 #import "MSColorUser.h"
 #import "MSFirstLineTypesetterDelegate.h"
-#import "MSTextLayer.h"
 #import "NSLayoutManagerDelegate.h"
 
-@class NSArray, NSAttributedString, NSNumber, NSString;
+@class NSArray, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSTextLayer, MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
 {
-    long long _calculateBaselineOffsetsToken;
-    long long _calculateDefaultLineHeightValueToken;
-    long long _calculateInfluenceRectForBoundsToken;
+    struct CGRect _lineFragmentBounds;
+    double _firstLineCapOffset;
+    NSObject *_calculateBaselineOffsetsAtomicity;
+    NSObject *_calculateInfluenceRectForBoundsAtomicity;
     struct CGRect _calculatedInfluenceRectForBounds;
+    BOOL _didAlreadyCalculateInfluenceRect;
     BOOL _isEditingText;
-    NSNumber *_defaultLineHeightValue;
     NSArray *_baselineOffsetsValue;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
++ (id)calculateBaselineOffsets:(id)arg1 lineFragmentBounds:(struct CGRect *)arg2 firstLineCapOffset:(double *)arg3;
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(readonly, copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
-@property(readonly, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
+@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
+- (id)createTextStorage;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
 @property(readonly, nonatomic) double firstBaselineOffset;
-- (id)baselineOffsets;
+@property(readonly, nonatomic) double firstLineCapOffset;
+@property(readonly, nonatomic) struct CGRect lineFragmentBounds;
+@property(readonly, copy, nonatomic) NSArray *baselineOffsets;
 - (double)lineHeight;
 @property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
@@ -44,15 +48,12 @@
 @property(readonly, nonatomic) double fontSize;
 @property(readonly, nonatomic) unsigned long long textAlignment;
 - (id)usedFontNames;
-- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (double)startingPositionOnPath:(id)arg1;
-- (id)bezierPathWithParentGroup:(id)arg1 layoutManager:(id)arg2;
 - (id)bezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;
 - (id)firstUnderlyingShapePathWithParentGroup:(id)arg1 usingCache:(id)arg2;
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
-- (id)createLayoutManager;
-- (id)createTextContainer;
+- (struct CGRect)capHeightBounds;
 @property(readonly, nonatomic) struct CGPoint drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
@@ -81,24 +82,10 @@
 - (id)svgStyle:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
-@property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) long long lineSpacingBehaviour;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) long long textBehaviour;
 
 @end
 

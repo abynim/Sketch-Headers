@@ -26,9 +26,12 @@
 - (void).cxx_destruct;
 - (void)setState:(unsigned long long)arg1;
 - (void)flagsChanged:(id)arg1;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (void)setLocationWithEvent:(id)arg1;
 - (struct CGPoint)locationInView:(id)arg1;
 - (id)init;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

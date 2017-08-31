@@ -50,6 +50,7 @@
 - (struct CGRect)ensureRectFitsInParentWindow:(struct CGRect)arg1;
 - (struct CGPoint)attachToPointInScreenCoordinates;
 - (struct CGRect)screenAnchorRect;
+@property(readonly, nonatomic) double minimumHeight;
 - (struct CGRect)popoverWindowFrame;
 - (struct CGRect)screenFrame;
 - (double)popoverArrowPosition;

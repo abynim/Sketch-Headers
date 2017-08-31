@@ -36,7 +36,9 @@
 - (void)clearCache;
 - (void)merge:(id)arg1;
 - (id)flip;
+@property(readonly, nonatomic) FBBezierIntersection *stopIntersection;
 @property(readonly, nonatomic) FBBezierIntersection *middleIntersection;
+@property(readonly, nonatomic) FBBezierIntersection *startIntersection;
 @property(readonly, nonatomic, getter=isAtStopOfCurve2) BOOL atStopOfCurve2;
 @property(readonly, nonatomic, getter=isAtStartOfCurve2) BOOL atStartOfCurve2;
 @property(readonly, nonatomic, getter=isAtStopOfCurve1) BOOL atStopOfCurve1;

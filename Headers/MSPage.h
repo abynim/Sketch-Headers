@@ -9,17 +9,21 @@
 #import "MSCloudExportable.h"
 #import "MSRootLayer.h"
 
-@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSString;
+@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayerArray, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
 
 @interface MSPage : _MSPage <MSCloudExportable, MSRootLayer>
 {
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
+    MSLayerArray *_cachedSelectedLayers;
+    NSMutableSet *_selectedLayerIDs;
 }
 
 + (void)enumerateExportableLayersWithPage:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)page;
+@property(readonly, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+@property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
@@ -50,9 +54,9 @@
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
-- (void)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
-- (void)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
-- (void)tryToMoveLayerToArtboard:(id)arg1;
+- (BOOL)tryToMoveLayerToArtboard:(id)arg1;
+- (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
+- (BOOL)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 @property(readonly, nonatomic) NSArray *exportableLayers;
 @property(readonly, nonatomic) unsigned long long exportableLayersCount;
 - (id)symbolLayersInGroup:(id)arg1;
@@ -63,8 +67,15 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)canBeContainedByDocument;
 - (void)dealloc;
+- (void)clearSelectionCache;
+- (void)changeSelectionBySelectingLayers:(id)arg1;
+- (void)changeSelectionUsingBlock:(CDUnknownBlockType)arg1;
+- (BOOL)isLayerSelected:(id)arg1;
+- (id)layersWithIDs:(id)arg1;
 - (id)selectedLayers;
 - (id)parentGroup;
+- (void)objectDidInit;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)setIsMarkedForCloudExport:(BOOL)arg1;
 - (long long)includeForCloudExportState;
 - (id)childAtIndex:(unsigned long long)arg1;

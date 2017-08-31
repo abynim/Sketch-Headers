@@ -27,6 +27,7 @@
     MSUpDownTextField *_lineHeightField;
     NSTextField *_paragraphHeightField;
     NSSegmentedControl *_alignmentButton;
+    NSSegmentedControl *_verticalAlignmentButton;
     BCPopover *_popover;
     NSSet *_fontPostscriptNames;
     NSSet *_fontFamilyNames;
@@ -38,6 +39,7 @@
 @property(copy, nonatomic) NSSet *fontFamilyNames; // @synthesize fontFamilyNames=_fontFamilyNames;
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
 @property(retain, nonatomic) MSUpDownTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
@@ -74,6 +76,8 @@
 - (void)changeFontFamilyTo:(id)arg1;
 - (void)changeParagraphStyleInBlock:(CDUnknownBlockType)arg1;
 - (id)textView;
+- (void)verticalAlignmentAction:(id)arg1;
+- (void)textBehaviourButtonAction:(id)arg1;
 - (void)alignmentButtonAction:(id)arg1;
 - (id)currentView;
 - (void)paragraphHeightAction:(id)arg1;
@@ -97,7 +101,10 @@
 - (double)defaultLineHeight;
 - (double)lineHeight;
 - (void)reloadLineHeightField;
+- (void)reloadKerningField;
+- (void)reloadVerticalAlignmentButton;
 - (void)reloadData;
+- (void)storeCurrentFontNamesAndSizes;
 - (id)fontDescriptorsForSelection;
 - (id)missingFontTitle;
 - (void)textViewDidChange:(id)arg1;

@@ -9,7 +9,7 @@
 #import "CALayerDelegate.h"
 #import "MSTileRenderOperationDelegate.h"
 
-@class MSPage, MSTileRenderOperation, MSTileRenderer, NSString;
+@class MSPage, MSRenderingDriver, MSTileRenderOperation, MSTileRenderer, NSString;
 
 @interface MSTile : CALayer <MSTileRenderOperationDelegate, CALayerDelegate>
 {
@@ -20,6 +20,7 @@
     id <MSTileDelegate> _tileDelegate;
     struct CGColorSpace *_colorSpace;
     double _zoomValue;
+    MSRenderingDriver *_driver;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     CALayer *_overlayLayer;
     CALayer *_contentLayer;
@@ -37,6 +38,7 @@
 @property(retain, nonatomic) CALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
 @property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
@@ -66,7 +68,7 @@
 - (void)removeFromSuperlayer;
 - (id)init;
 - (void)dealloc;
-- (id)initWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2;
+- (id)initWithDriver:(id)arg1 size:(struct CGSize)arg2 colorSpace:(struct CGColorSpace *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

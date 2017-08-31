@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSPluginVersions, NSDictionary, NSString, NSURL;
+@class NSDictionary, NSString, NSURL;
 
 @interface MSPluginBundle : NSObject
 {
@@ -14,7 +14,6 @@
     BOOL _disableCocoaScriptPreprocessor;
     NSURL *_url;
     NSDictionary *_commands;
-    MSPluginVersions *_versions;
     NSString *_version;
     NSString *_name;
     NSString *_identifier;
@@ -23,20 +22,18 @@
     NSURL *_homepageURL;
     NSString *_author;
     NSString *_authorEmail;
-    NSURL *_manifestURL;
     NSURL *_appcastURL;
-    NSURL *_downloadURL;
     NSString *_compatibleVersion;
+    NSString *_maximumCompatibleVersion;
 }
 
 + (id)commandsFromArray:(id)arg1 sketchPluginURL:(id)arg2 pluginBundle:(id)arg3;
 + (id)pluginBundleWithURL:(id)arg1;
 @property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
+@property(readonly, copy, nonatomic) NSString *maximumCompatibleVersion; // @synthesize maximumCompatibleVersion=_maximumCompatibleVersion;
 @property(readonly, copy, nonatomic) NSString *compatibleVersion; // @synthesize compatibleVersion=_compatibleVersion;
-@property(readonly, copy, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, copy, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
-@property(readonly, copy, nonatomic) NSURL *manifestURL; // @synthesize manifestURL=_manifestURL;
 @property(readonly, copy, nonatomic) NSString *authorEmail; // @synthesize authorEmail=_authorEmail;
 @property(readonly, copy, nonatomic) NSString *author; // @synthesize author=_author;
 @property(readonly, copy, nonatomic) NSURL *homepageURL; // @synthesize homepageURL=_homepageURL;
@@ -45,7 +42,6 @@
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *version; // @synthesize version=_version;
-@property(retain, nonatomic) MSPluginVersions *versions; // @synthesize versions=_versions;
 @property(readonly, copy, nonatomic) NSDictionary *commands; // @synthesize commands=_commands;
 @property(readonly, copy, nonatomic) NSURL *url; // @synthesize url=_url;
 - (void).cxx_destruct;
@@ -53,6 +49,7 @@
 - (id)urlForResourceNamed:(id)arg1;
 - (BOOL)writeToURL:(id)arg1;
 - (id)metadata;
+@property(readonly, nonatomic, getter=isCompatible) BOOL compatible;
 - (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3;
 - (id)initPluginBundleWithURL:(id)arg1;
 

@@ -12,18 +12,25 @@
 
 @interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
 {
-    NSMutableArray *_assetLibraries;
+    NSArray *_internalLibraries;
+    NSMutableArray *_userLibraries;
     NSHashTable *_delegates;
 }
 
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
-@property(copy, nonatomic) NSMutableArray *assetLibraries; // @synthesize assetLibraries=_assetLibraries;
+@property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
+@property(retain, nonatomic) NSArray *internalLibraries; // @synthesize internalLibraries=_internalLibraries;
 - (void).cxx_destruct;
+- (id)libraryForSymbol:(id)arg1;
+- (void)enumerateForeignSymbolsInDocument:(id)arg1 includeDisabled:(BOOL)arg2 block:(CDUnknownBlockType)arg3;
 - (void)syncForeignSymbol:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importForeignSymbol:(id)arg1 fromLibrary:(id)arg2 intoDocument:(id)arg3;
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (void)symcSymbolOverridesForInstance:(id)arg1 fromLibrary:(id)arg2;
 - (id)foreignSymbolInDocument:(id)arg1 matchingMaster:(id)arg2 inLibrary:(id)arg3;
 - (void)loadLibraries;
+- (void)setupInternalLibraries;
+- (id)loadLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2;
 - (void)assetLibraryEnableStateChanged:(id)arg1;
 - (void)assetLibraryChangedOnDisk:(id)arg1;
 - (void)reloadLibrary:(id)arg1;

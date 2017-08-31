@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSPluginBundle, NSAttributedString, NSString;
+@class MSPluginBundle, NSAttributedString, NSString, NSURL;
 
 @interface MSPreferencesPluginInfo : NSObject
 {
     BOOL _enabled;
+    BOOL _isUpdating;
     MSPluginBundle *_pluginBundle;
     NSString *_name;
 }
@@ -19,9 +20,18 @@
 + (id)pluginInfoWithPluginBundle:(id)arg1;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
+@property(nonatomic) BOOL isUpdating; // @synthesize isUpdating=_isUpdating;
 - (void).cxx_destruct;
+- (id)pluginManager;
+- (id)latestPluginUpdate;
+@property(readonly, copy, nonatomic) NSString *updateVersionString;
+@property(readonly, nonatomic) BOOL isCompatible;
+@property(readonly, nonatomic) BOOL updateAvailable;
+@property(readonly, copy, nonatomic) NSString *warningString;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, copy, nonatomic) NSString *pluginDescription;
+@property(readonly, copy, nonatomic) NSString *namePlusAuthor;
+@property(readonly, copy, nonatomic) NSURL *homepage;
 @property(readonly, copy, nonatomic) NSString *version;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, copy, nonatomic) NSString *enableCheckboxTitle;

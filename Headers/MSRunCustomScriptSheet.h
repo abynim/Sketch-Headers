@@ -8,7 +8,7 @@
 
 #import "NSTextViewDelegate.h"
 
-@class JSTTextView, NSButton, NSPopUpButton, NSString, NSTextField, NSTextView, NSUndoManager;
+@class JSTTextView, NSButton, NSString, NSTextField, NSTextView, NSUndoManager;
 
 @interface MSRunCustomScriptSheet : CHSheetController <NSTextViewDelegate>
 {
@@ -16,11 +16,14 @@
     NSButton *saveButton;
     NSTextField *scriptNameField;
     NSButton *runButton;
-    NSPopUpButton *actionButton;
     NSTextView *_logField;
     NSUndoManager *_undoManager;
+    NSButton *_touchBarSave;
+    NSButton *_touchBarRun;
 }
 
+@property(nonatomic) __weak NSButton *touchBarRun; // @synthesize touchBarRun=_touchBarRun;
+@property(nonatomic) __weak NSButton *touchBarSave; // @synthesize touchBarSave=_touchBarSave;
 @property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 @property(retain, nonatomic) NSTextView *logField; // @synthesize logField=_logField;
 - (void).cxx_destruct;
@@ -33,6 +36,9 @@
 - (void)saveAction:(id)arg1;
 - (void)showHelp:(id)arg1;
 - (void)runScript:(id)arg1;
+- (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
+- (SEL)selectorForTouchbarItemIdentifier:(id)arg1;
+- (id)touchBarItemIdentifiers;
 - (id)commandToRunWithName:(id)arg1;
 - (void)awakeFromNib;
 

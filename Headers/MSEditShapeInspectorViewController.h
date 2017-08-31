@@ -39,7 +39,7 @@
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
-- (void)forceSelection:(id)arg1;
+- (void)changeTool:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)titleForRoundingPopUp;
 - (void)refreshRoundingPopUpTitle;

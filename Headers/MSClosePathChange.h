@@ -12,6 +12,7 @@
 
 + (id)toggleClosePath;
 - (id)titleForContext:(id)arg1;
+- (BOOL)validateWithContext:(id)arg1;
 - (void)executeWithContext:(id)arg1;
 
 @end

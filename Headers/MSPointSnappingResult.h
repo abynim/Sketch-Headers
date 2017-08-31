@@ -17,6 +17,7 @@
     struct CGPoint _point;
 }
 
++ (id)snappingResultWithPoint:(struct CGPoint)arg1 axes:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned long long snappedAxes; // @synthesize snappedAxes=_snappedAxes;
 @property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;

@@ -8,13 +8,13 @@
 
 #import "NSWindowDelegate.h"
 
-@class NSImageView, NSString, NSTextField, NSView;
+@class NSButton, NSImageView, NSString, NSTextField, NSView;
 
 @interface MSLicenseRegistrationWindowController : NSWindowController <NSWindowDelegate>
 {
-    BOOL _runningAsModal;
     BOOL _shouldQuitOnWindowClose;
     BOOL _checkForAvailableUpdates;
+    BOOL _runningAsModal;
     NSTextField *_titleTextField;
     NSTextField *_descriptionTextField;
     NSView *_contentView;
@@ -30,25 +30,29 @@
     NSView *_notSupportedVersionButtons;
     NSView *_tooManyDevicesButtons;
     NSView *_invalidLicenseButtons;
+    NSButton *_registerButton;
 }
 
++ (void)registerWithKey:(id)arg1;
 + (void)showRegistrationWindow;
 + (void)showTrialExpiredModal;
-@property(nonatomic) __weak NSView *invalidLicenseButtons; // @synthesize invalidLicenseButtons=_invalidLicenseButtons;
-@property(nonatomic) __weak NSView *tooManyDevicesButtons; // @synthesize tooManyDevicesButtons=_tooManyDevicesButtons;
-@property(nonatomic) __weak NSView *notSupportedVersionButtons; // @synthesize notSupportedVersionButtons=_notSupportedVersionButtons;
-@property(nonatomic) __weak NSView *registrationCompletionButtons; // @synthesize registrationCompletionButtons=_registrationCompletionButtons;
-@property(nonatomic) __weak NSView *defaultButtons; // @synthesize defaultButtons=_defaultButtons;
-@property(nonatomic) __weak NSView *buttonFooterView; // @synthesize buttonFooterView=_buttonFooterView;
-@property(nonatomic) __weak NSTextField *licenseDescriptionField; // @synthesize licenseDescriptionField=_licenseDescriptionField;
-@property(nonatomic) __weak NSTextField *licenseTextField; // @synthesize licenseTextField=_licenseTextField;
-@property(nonatomic) __weak NSImageView *registrationCompletionBackgroundView; // @synthesize registrationCompletionBackgroundView=_registrationCompletionBackgroundView;
-@property(nonatomic) __weak NSView *registrationCompletionView; // @synthesize registrationCompletionView=_registrationCompletionView;
-@property(nonatomic) __weak NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
-@property(nonatomic) __weak NSView *licenseView; // @synthesize licenseView=_licenseView;
-@property(nonatomic) __weak NSView *contentView; // @synthesize contentView=_contentView;
-@property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
-@property(nonatomic) __weak NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
+@property(retain, nonatomic) NSButton *registerButton; // @synthesize registerButton=_registerButton;
+@property(retain, nonatomic) NSView *invalidLicenseButtons; // @synthesize invalidLicenseButtons=_invalidLicenseButtons;
+@property(retain, nonatomic) NSView *tooManyDevicesButtons; // @synthesize tooManyDevicesButtons=_tooManyDevicesButtons;
+@property(retain, nonatomic) NSView *notSupportedVersionButtons; // @synthesize notSupportedVersionButtons=_notSupportedVersionButtons;
+@property(retain, nonatomic) NSView *registrationCompletionButtons; // @synthesize registrationCompletionButtons=_registrationCompletionButtons;
+@property(retain, nonatomic) NSView *defaultButtons; // @synthesize defaultButtons=_defaultButtons;
+@property(retain, nonatomic) NSView *buttonFooterView; // @synthesize buttonFooterView=_buttonFooterView;
+@property(retain, nonatomic) NSTextField *licenseDescriptionField; // @synthesize licenseDescriptionField=_licenseDescriptionField;
+@property(retain, nonatomic) NSTextField *licenseTextField; // @synthesize licenseTextField=_licenseTextField;
+@property(retain, nonatomic) NSImageView *registrationCompletionBackgroundView; // @synthesize registrationCompletionBackgroundView=_registrationCompletionBackgroundView;
+@property(retain, nonatomic) NSView *registrationCompletionView; // @synthesize registrationCompletionView=_registrationCompletionView;
+@property(retain, nonatomic) NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
+@property(retain, nonatomic) NSView *licenseView; // @synthesize licenseView=_licenseView;
+@property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
+@property(retain, nonatomic) NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
+@property(retain, nonatomic) NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
+@property(readonly, nonatomic) BOOL runningAsModal; // @synthesize runningAsModal=_runningAsModal;
 @property(nonatomic) BOOL checkForAvailableUpdates; // @synthesize checkForAvailableUpdates=_checkForAvailableUpdates;
 @property(nonatomic) BOOL shouldQuitOnWindowClose; // @synthesize shouldQuitOnWindowClose=_shouldQuitOnWindowClose;
 - (void).cxx_destruct;
@@ -63,9 +67,14 @@
 - (void)showContentView:(id)arg1;
 - (void)renameButtonsToQuit:(id)arg1;
 - (void)showButtonSet:(id)arg1;
+- (void)showCopyForActiveLicense;
 - (void)showCopyForTrialExpired;
 - (void)windowWillClose:(id)arg1;
+- (void)loadInitialView;
 - (void)windowDidLoad;
+- (void)licenseChanged:(id)arg1;
+- (void)transformToModal;
+- (void)dealloc;
 - (id)initWithWindowNibName:(id)arg1 modal:(BOOL)arg2 quitOnClose:(BOOL)arg3;
 
 // Remaining properties

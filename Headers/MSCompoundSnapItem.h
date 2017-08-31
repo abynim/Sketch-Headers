@@ -19,8 +19,8 @@
 @property(retain, nonatomic) NSArray *relativeRects; // @synthesize relativeRects=_relativeRects;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (void)setRect:(struct CGRect)arg1;
-- (struct CGRect)rect;
+- (void)setRectForSnapping:(struct CGRect)arg1;
+- (struct CGRect)rectForSnapping;
 - (struct CGRect)boundsRect;
 - (void)concatAncestorsAndSelfTransforms;
 - (double)rotation;

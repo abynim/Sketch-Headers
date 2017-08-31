@@ -130,14 +130,10 @@ struct NSBezierElement {
 };
 
 struct NSEdgeInsets {
-    double _field1;
-    double _field2;
-    double _field3;
-    double _field4;
-};
-
-struct NSObject {
-    Class _field1;
+    double top;
+    double left;
+    double bottom;
+    double right;
 };
 
 struct _CHTransformStruct {

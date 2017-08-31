@@ -6,19 +6,14 @@
 
 #import "NSObject.h"
 
-@class NSArray;
-
 @interface MSGridConstructor : NSObject
 {
-    NSArray *_layers;
     CDStruct_ec0e0888 _options;
 }
 
 @property(nonatomic) CDStruct_ec0e0888 options; // @synthesize options=_options;
-@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 - (id)duplicateLayers:(id)arg1;
-- (id)makeAllLayers;
+- (id)makeAllLayers:(id)arg1;
 - (double)largestHeightInLayers:(id)arg1;
 - (struct CGSize)sizeForLayer:(id)arg1;
 - (void)makeGridWithLayers:(id)arg1 options:(CDStruct_ec0e0888)arg2;

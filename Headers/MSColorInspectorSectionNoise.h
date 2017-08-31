@@ -14,9 +14,10 @@
 - (void)adjustNoiseIntensity:(id)arg1;
 - (id)makeTouchBarItemForIdentifier:(id)arg1;
 - (id)customTouchBarItemIdentifiers;
+- (double)minimumHeight;
 - (BOOL)hasPresetPickers;
 - (void)refreshAction:(id)arg1;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2;
+- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
 
 @end
 

@@ -6,51 +6,90 @@
 
 #import "MSPreferencePane.h"
 
+#import "MSDropableViewDelegate.h"
 #import "NSTableViewDelegate.h"
+#import "NSTextFieldDelegate.h"
 
-@class BCKeyEventActionTableView, MSPluginManager, NSArray, NSArrayController, NSButton, NSCache, NSControl, NSFont, NSImage, NSLayoutConstraint, NSMenu, NSPredicate, NSString, NSTableCellView, NSTextField;
+@class BCKeyEventActionTableView, MSPluginManager, MSPluginsPreferenceTableCellView, NSArray, NSArrayController, NSButton, NSCache, NSControl, NSFont, NSImage, NSImageView, NSMenu, NSNib, NSPredicate, NSSearchField, NSString;
 
-@interface MSPluginsPreferencePane : MSPreferencePane <NSTableViewDelegate>
+@interface MSPluginsPreferencePane : MSPreferencePane <NSTableViewDelegate, MSDropableViewDelegate, NSTextFieldDelegate>
 {
+    MSPluginsPreferenceTableCellView *_pluginCellViewForHeightCalculations;
+    BOOL _enableUpdateAllButton;
     BOOL _observingPlugins;
     NSArrayController *_pluginsArrayController;
     NSPredicate *_pluginFilterPredicate;
     NSImage *_zeroPluginsImage;
     NSString *_zeroPluginsTitle;
     NSString *_zeroPluginsText;
-    NSTextField *_filterTextField;
+    NSSearchField *_filterTextField;
     BCKeyEventActionTableView *_tableView;
     NSButton *_getPluginsButton;
     NSControl *_contextMenuControl;
     NSMenu *_contextMenu;
+    NSButton *_spyglassFilterButton;
     MSPluginManager *_pluginManager;
     NSArray *_filteredPlugins;
-    NSTableCellView *_pluginCellView;
-    NSLayoutConstraint *_pluginCellViewWidthConstraint;
     NSCache *_rowHeightCache;
+    NSImageView *_zeroPluginsImageView;
+    long long _originalHeightUpdatesAvailable;
+    long long _originalHeightIncompatiblePlugin;
+    NSArray *_selectedItemIdentifiers;
+    NSNib *_tableCellViewNib;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(retain, nonatomic) NSNib *tableCellViewNib; // @synthesize tableCellViewNib=_tableCellViewNib;
+@property(retain, nonatomic) NSArray *selectedItemIdentifiers; // @synthesize selectedItemIdentifiers=_selectedItemIdentifiers;
+@property(nonatomic) long long originalHeightIncompatiblePlugin; // @synthesize originalHeightIncompatiblePlugin=_originalHeightIncompatiblePlugin;
+@property(nonatomic) long long originalHeightUpdatesAvailable; // @synthesize originalHeightUpdatesAvailable=_originalHeightUpdatesAvailable;
+@property(nonatomic) __weak NSImageView *zeroPluginsImageView; // @synthesize zeroPluginsImageView=_zeroPluginsImageView;
 @property(nonatomic) BOOL observingPlugins; // @synthesize observingPlugins=_observingPlugins;
 @property(retain, nonatomic) NSCache *rowHeightCache; // @synthesize rowHeightCache=_rowHeightCache;
-@property(retain, nonatomic) NSLayoutConstraint *pluginCellViewWidthConstraint; // @synthesize pluginCellViewWidthConstraint=_pluginCellViewWidthConstraint;
-@property(retain, nonatomic) NSTableCellView *pluginCellView; // @synthesize pluginCellView=_pluginCellView;
 @property(copy, nonatomic) NSArray *filteredPlugins; // @synthesize filteredPlugins=_filteredPlugins;
 @property(nonatomic) __weak MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
+@property(nonatomic) BOOL enableUpdateAllButton; // @synthesize enableUpdateAllButton=_enableUpdateAllButton;
+@property(nonatomic) __weak NSButton *spyglassFilterButton; // @synthesize spyglassFilterButton=_spyglassFilterButton;
 @property(nonatomic) __weak NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(nonatomic) __weak NSControl *contextMenuControl; // @synthesize contextMenuControl=_contextMenuControl;
 @property(nonatomic) __weak NSButton *getPluginsButton; // @synthesize getPluginsButton=_getPluginsButton;
 @property(nonatomic) __weak BCKeyEventActionTableView *tableView; // @synthesize tableView=_tableView;
-@property(nonatomic) __weak NSTextField *filterTextField; // @synthesize filterTextField=_filterTextField;
+@property(nonatomic) __weak NSSearchField *filterTextField; // @synthesize filterTextField=_filterTextField;
 @property(copy, nonatomic) NSString *zeroPluginsText; // @synthesize zeroPluginsText=_zeroPluginsText;
 @property(copy, nonatomic) NSString *zeroPluginsTitle; // @synthesize zeroPluginsTitle=_zeroPluginsTitle;
 @property(retain, nonatomic) NSImage *zeroPluginsImage; // @synthesize zeroPluginsImage=_zeroPluginsImage;
 @property(copy, nonatomic) NSPredicate *pluginFilterPredicate; // @synthesize pluginFilterPredicate=_pluginFilterPredicate;
 @property(retain, nonatomic) NSArrayController *pluginsArrayController; // @synthesize pluginsArrayController=_pluginsArrayController;
 - (void).cxx_destruct;
+- (void)updateAndReloadPluginsWithBlock:(CDUnknownBlockType)arg1;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (void)installPluginsWithURLArray:(id)arg1;
+- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (id)draggedURLsFromPasteboard:(id)arg1;
+- (id)draggedTypesForView:(id)arg1;
+- (id)makePluginCellView;
+@property(readonly, nonatomic) MSPluginsPreferenceTableCellView *pluginCellViewForHeightCalculations;
+- (id)attributedStringUpdateAvailableLinkForString:(id)arg1;
+- (void)configurePluginUpdateInfoButton:(id)arg1 withPluginInfo:(id)arg2;
+- (id)tableCellViewContainingControl:(id)arg1;
+- (unsigned long long)rowForControl:(id)arg1;
+- (void)setSelectedIndexesFromSelectionIdentifierArray;
+- (void)setSelectionIdentifierArrayFromSelectionIndexes;
+- (void)addPluginEnableToggleMenuItemWithPluginInfos:(id)arg1 toMenu:(id)arg2;
+- (BOOL)areAnyPluginsDisabled;
+- (BOOL)areAnyPluginsEnabled;
+- (BOOL)areAllPluginsDisabled:(id)arg1;
+- (void)disablePluginInfo:(id)arg1;
+- (void)enablePluginInfo:(id)arg1;
+- (void)disableAllPlugins:(id)arg1;
+- (void)enableAllPlugins:(id)arg1;
+- (void)tableViewSelectionDidChange:(id)arg1;
 - (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
+- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *pluginSortDescriptors;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -61,15 +100,18 @@
 - (void)toggleSelectedItemsEnabled;
 - (void)toggleSelectedItemsEnabled:(id)arg1;
 - (void)tableContextMenu:(id)arg1;
+- (void)activateSearchField:(id)arg1;
 - (void)getPlugins:(id)arg1;
-- (void)disablePluginInfo:(id)arg1;
-- (void)enablePluginInfo:(id)arg1;
+- (void)openPluginURL:(id)arg1;
+- (void)installPluginUpdates:(id)arg1;
+- (void)installPluginUpdate:(id)arg1;
 - (void)togglePluginEnabled:(id)arg1;
 - (void)uninstallSelectedPlugins:(id)arg1;
 - (void)uninstallPlugins:(id)arg1;
 - (void)uninstallSelectedPlugins;
 - (id)pluginsAtRowIndexes:(id)arg1;
 - (void)openPluginsFolder:(id)arg1;
+@property(readonly, nonatomic) BOOL updatesAvailable;
 @property(readonly, copy, nonatomic) NSFont *zeroPluginsTitleFont;
 - (id)searchString;
 - (void)updateUIForPluginsChange;

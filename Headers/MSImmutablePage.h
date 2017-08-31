@@ -7,22 +7,28 @@
 #import "_MSImmutablePage.h"
 
 #import "MSImmutableRootLayer.h"
+#import "MSWebExportableRootLayer.h"
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSString;
+@class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
 
-@interface MSImmutablePage : _MSImmutablePage <MSImmutableRootLayer>
+@interface MSImmutablePage : _MSImmutablePage <MSWebExportableRootLayer, MSImmutableRootLayer>
 {
+    NSSet *_selectedLayerIDs;
 }
 
 + (unsigned long long)traits;
 + (id)defaultName;
+@property(readonly, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *symbols;
 @property(readonly, nonatomic) NSArray *artboards;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
-- (BOOL)exporterRequiresContentClipping;
+- (void)performInitWithMutableModelObject:(id)arg1;
+@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+@property(readonly) BOOL exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;

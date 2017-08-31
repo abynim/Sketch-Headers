@@ -9,7 +9,7 @@
 #import "MSCoding.h"
 #import "MSModelObject.h"
 
-@class NSArray, NSObject<NSCopying><NSCoding>, NSString;
+@class NSArray, NSString;
 
 @interface MSImmutableModelObject : MSModelObjectCommon <MSModelObject, MSCoding>
 {
@@ -48,7 +48,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, copy, nonatomic) NSString *objectID;
 @property(readonly) Class superclass;
 
 @end

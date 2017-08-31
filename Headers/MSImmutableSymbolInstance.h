@@ -24,6 +24,8 @@
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 forSymbolID:(id)arg2 actualOverrides:(id)arg3 skipping:(id)arg4;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (id)updateOverridesDictionary:(id)arg1 withObjectIDMapping:(id)arg2 afterChangingSymbolMasterWithID:(id)arg3 currentID:(id)arg4;
+- (void)updateOverridesWithObjectIDMapping:(id)arg1 afterChangingSymbolMasterWithID:(id)arg2;
 - (id)overridesWithGridIndexRemoved:(id)arg1;
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV86OrEarlierWithUnarchiver:(id)arg1;

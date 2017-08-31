@@ -8,21 +8,24 @@
 
 #import "NSMenuDelegate.h"
 
-@class NSString;
+@class MSSortableObjectMenuBuilder, NSString;
 
 @interface MSInsertSharedTextAction : MSSharedObjectAction <NSMenuDelegate>
 {
+    MSSortableObjectMenuBuilder *_menuBuilder;
 }
 
+@property(retain, nonatomic) MSSortableObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+- (void).cxx_destruct;
 - (id)label;
 - (id)sharedObjectName;
 - (id)imageName;
-- (id)unsortedSharedObjects;
+- (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (BOOL)validate;
-- (void)updateMenu:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)showSharedObjectsSheet:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 
 // Remaining properties

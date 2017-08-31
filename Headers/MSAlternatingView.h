@@ -8,12 +8,13 @@
 
 @interface MSAlternatingView : NSView
 {
-    NSView *otherView;
     BOOL didDrag;
     BOOL isInside;
     BOOL isDown;
+    NSView *_otherView;
 }
 
+@property(nonatomic) __weak NSView *otherView; // @synthesize otherView=_otherView;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)buttonImage;

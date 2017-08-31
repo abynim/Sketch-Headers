@@ -46,6 +46,7 @@
 - (void)makeUppercase:(id)arg1;
 - (void)applyTextTransform:(id)arg1;
 - (void)removeTextView;
+- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)commitPendingEdits;
 - (BOOL)handlesHistoryCoalescing;
@@ -62,13 +63,12 @@
 - (id)firstBaselineOffset;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textDidChange:(id)arg1;
-- (id)windowWillReturnUndoManager:(id)arg1;
+- (id)undoManager;
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;
 - (void)adjustForegroundColor;
 - (id)insertionPointColor;
-- (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 - (struct CGImage *)newTextLayerImageFromWindowBackingStore;
 - (void)beginEditing;
 - (void)updateTextViewStyling;

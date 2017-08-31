@@ -11,6 +11,7 @@
 }
 
 - (void)doPerformAction:(id)arg1;
+- (SEL)preferredMenuAction;
 - (void)insertSlice:(id)arg1;
 
 @end

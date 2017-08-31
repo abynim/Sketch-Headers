@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSObject<NSCopying><NSCoding>;
+@class NSString;
 
 @protocol MSSharedObjectInstance <NSObject>
-@property(retain, nonatomic) NSObject<NSCopying><NSCoding> *sharedObjectID;
+@property(retain, nonatomic) NSString *sharedObjectID;
 - (unsigned long long)type;
 @end
 

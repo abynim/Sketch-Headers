@@ -14,12 +14,14 @@
     id <MSBasicDelegate> _delegate;
     MSLayer *_targetLayer;
     double _zoomValue;
+    unsigned long long _modifierFlags;
     NSArray *_hoverGuides;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(copy, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
+@property(nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) __weak MSLayer *targetLayer; // @synthesize targetLayer=_targetLayer;
@@ -27,6 +29,7 @@
 - (void).cxx_destruct;
 - (BOOL)isMeasuringDistance;
 - (void)clear;
+- (struct CGRect)rectForPositionDrawingForLayers:(id)arg1;
 - (void)drawDistanceFromRect:(struct CGRect)arg1 toLargerRect:(struct CGRect)arg2;
 - (void)drawDashLinesBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2;
 - (void)drawOutlineForRect:(struct CGRect)arg1;

@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class NSAffineTransform;
+@class NSAffineTransform, NSString;
 
 @protocol MSLayer <NSObject>
 @property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;

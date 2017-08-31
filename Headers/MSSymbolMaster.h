@@ -11,6 +11,7 @@
 @interface MSSymbolMaster : _MSSymbolMaster
 {
     BOOL _isInvalidatingSymbolInstances;
+    NSSet *_cachedInfluencingSymbolIDs;
     long long _changeIdentifier;
 }
 
@@ -18,7 +19,9 @@
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
+- (void).cxx_destruct;
 - (BOOL)limitsSelectionToBounds;
+- (id)influencingSymbolIDsWithOverrides:(id)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)notifySymbolInstancesOfChange;
 - (id)parentSymbol;
@@ -33,7 +36,7 @@
 - (BOOL)ensureSymbolIDUniqueInDocument:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
 - (BOOL)hasInstances;
-@property(readonly, nonatomic) NSArray *allInstancesIncludingNested;
+@property(readonly, nonatomic) NSArray *allInfluencedInstances;
 - (id)nestedSymbolsSkipping:(id)arg1;
 @property(readonly, nonatomic) NSSet *nestedSymbols;
 @property(readonly, nonatomic) NSArray *allInstances;
@@ -47,6 +50,7 @@
 - (BOOL)hasSliceIcon;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (struct CGRect)optimalBoundingBox;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;

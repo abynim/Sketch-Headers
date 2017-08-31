@@ -13,7 +13,6 @@
 @interface MSCloudController : NSObject <MSCloudShareUploadControllerDelegate>
 {
     MSDocument *_document;
-    NSString *_password;
     MSCloudShareAPI *_api;
     double _uploadProgress;
     double _uploadStartTime;
@@ -32,15 +31,13 @@
 @property(nonatomic) double uploadStartTime; // @synthesize uploadStartTime=_uploadStartTime;
 @property(nonatomic) double uploadProgress; // @synthesize uploadProgress=_uploadProgress;
 @property(retain, nonatomic) MSCloudShareAPI *api; // @synthesize api=_api;
-@property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (void)openRemoteShareSettings;
 - (void)cloudShareController:(id)arg1 willUploadShareAsNew:(BOOL)arg2;
 - (void)cloudShareController:(id)arg1 didChangeProgress:(double)arg2;
 - (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
 - (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
-- (void)presentDocumentDidProcessNotification;
-- (void)checkShareProcessStatusAfterDelay:(double)arg1;
 - (void)cancelUpload;
 - (void)startUpload;
 @property(readonly, nonatomic) BOOL uploadIncludesDocumentData;

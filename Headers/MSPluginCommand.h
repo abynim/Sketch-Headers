@@ -29,6 +29,7 @@
 }
 
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
++ (id)actionIDsNotToReload;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
@@ -56,6 +57,7 @@
 - (id)valueForKey:(id)arg1 onDocument:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)metadata;
+- (BOOL)shouldReloadWithActionID:(id)arg1;
 - (id)menuItemWithAction:(SEL)arg1;
 - (unsigned long long)shortcutModifiers;
 - (id)shortcutKey;
@@ -76,7 +78,7 @@
 - (id)fullContextFromContext:(id)arg1 url:(id)arg2;
 - (void)tearDownSession;
 - (void)setUpSessionWithContext:(id)arg1;
-- (void)newSessionForURL:(id)arg1;
+- (void)newSessionForURL:(id)arg1 shouldReload:(BOOL)arg2;
 - (void)loadAPISupport;
 - (void)stopCapturingDeprecatedChannel:(id)arg1;
 - (id)startCapturingDeprecatedChannel;

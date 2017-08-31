@@ -20,8 +20,8 @@
 @property(retain, nonatomic) NSArray *layersForSnapping; // @synthesize layersForSnapping=_layersForSnapping;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL shouldConstrainProportions;
-- (void)setRect:(struct CGRect)arg1;
-- (struct CGRect)rect;
+- (void)setRectForSnapping:(struct CGRect)arg1;
+- (struct CGRect)rectForSnapping;
 - (struct CGRect)boundsRect;
 - (void)concatAncestorsAndSelfTransforms;
 - (struct CGAffineTransform)preDrawingTransform;

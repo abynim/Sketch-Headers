@@ -27,14 +27,13 @@
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
+- (struct CGSize)calculateMinimumSize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
 - (void)setRect:(struct CGRect)arg1;
-- (void)removeFromParent;
-- (BOOL)shouldAutoresizeChildrenAfterResize;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (id)parentRoot;
 - (id)parentArtboard;
@@ -67,6 +66,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (unsigned long long)displayType;
+- (struct CGRect)optimalBoundingBox;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (id)parentRootForAbsoluteRect;
@@ -85,8 +85,8 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
 @property(copy, nonatomic) MSLayoutGrid *layout;
+@property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;

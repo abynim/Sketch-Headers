@@ -12,7 +12,6 @@
 {
     NSString *_mask;
     NSString *_currentShapeDef;
-    unsigned long long _hints;
     MSImmutableDocumentData *_document;
     MSSVGFilter *_currentFilterGroup;
     MSImmutableSymbolInstance *_currentSymbolInstance;
@@ -36,7 +35,6 @@
 @property(retain, nonatomic) MSImmutableSymbolInstance *currentSymbolInstance; // @synthesize currentSymbolInstance=_currentSymbolInstance;
 @property(retain, nonatomic) MSSVGFilter *currentFilterGroup; // @synthesize currentFilterGroup=_currentFilterGroup;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-@property(readonly, nonatomic) unsigned long long hints; // @synthesize hints=_hints;
 @property(retain, nonatomic) NSString *currentShapeDef; // @synthesize currentShapeDef=_currentShapeDef;
 @property(retain, nonatomic) NSString *mask; // @synthesize mask=_mask;
 @property(readonly, nonatomic) struct CGRect exportBounds; // @synthesize exportBounds=_exportBounds;

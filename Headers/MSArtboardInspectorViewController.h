@@ -25,8 +25,10 @@
     NSButton *_presetButton;
     MSArtboardPresetsViewController *_presetsViewController;
     NSSegmentedControl *_orientationControl;
+    NSButton *_sizeToFitButton;
 }
 
+@property(retain, nonatomic) NSButton *sizeToFitButton; // @synthesize sizeToFitButton=_sizeToFitButton;
 @property(retain, nonatomic) NSSegmentedControl *orientationControl; // @synthesize orientationControl=_orientationControl;
 @property(retain, nonatomic) MSArtboardPresetsViewController *presetsViewController; // @synthesize presetsViewController=_presetsViewController;
 @property(retain, nonatomic) NSButton *presetButton; // @synthesize presetButton=_presetButton;
@@ -39,7 +41,7 @@
 @property(retain, nonatomic) NSView *symbolStandardPropertiesView; // @synthesize symbolStandardPropertiesView=_symbolStandardPropertiesView;
 @property(retain, nonatomic) NSView *artboardBackgroundView; // @synthesize artboardBackgroundView=_artboardBackgroundView;
 - (void).cxx_destruct;
-- (void)refreshAction:(id)arg1;
+- (void)artboardPresetsViewController:(id)arg1 didSelectOrientation:(long long)arg2;
 - (void)artboardPresetsViewController:(id)arg1 didSelectPreset:(id)arg2;
 - (id)views;
 - (void)prepareForDisplay;
@@ -57,13 +59,15 @@
 - (void)backgroundColorAction:(id)arg1;
 - (void)prepareArtboardsForFill;
 - (void)artboardBackgroundCheckAction:(id)arg1;
+- (void)refreshSizeToFitButton;
 - (id)orientationOfArtboard:(id)arg1;
 - (id)orientation;
-- (id)selectedPreset;
-- (void)switchOrientation:(id)arg1;
+- (void)didChangeOrientation:(long long)arg1;
+- (void)toggleOrientation:(id)arg1;
+- (void)applyOrientation:(long long)arg1;
 - (void)refreshOrientationControl;
+- (id)selectedPreset;
 - (void)refreshPresetButtonAndPopover;
-- (void)configureExtraPresetsForViewController:(id)arg1;
 - (void)showPresets:(id)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;

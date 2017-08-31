@@ -52,6 +52,7 @@
 @property(readonly, nonatomic) FBBezierCurve *next;
 - (void)removeCrossingsInOverlap;
 - (void)reorderCoincidentCrossingA:(id)arg1 crossingB:(id)arg2;
+- (void)removeDuplicateCrossings;
 - (void)removeAllCrossings;
 - (void)removeCrossing:(id)arg1;
 - (void)addCrossing:(id)arg1;

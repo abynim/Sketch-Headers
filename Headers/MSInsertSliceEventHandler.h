@@ -6,15 +6,13 @@
 
 #import "MSInsertLayerEventHandler.h"
 
-@class MSLayer, NSArray;
+@class NSArray;
 
 @interface MSInsertSliceEventHandler : MSInsertLayerEventHandler
 {
     NSArray *_allSlices;
-    MSLayer *_hoveringLayer;
 }
 
-@property(retain, nonatomic) MSLayer *hoveringLayer; // @synthesize hoveringLayer=_hoveringLayer;
 @property(retain, nonatomic) NSArray *allSlices; // @synthesize allSlices=_allSlices;
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;

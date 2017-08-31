@@ -28,6 +28,7 @@
 - (void)contentViewSizeDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldObserveContentSizeChanges;
 - (void)dealloc;
+- (void)viewWillAppear;
 - (void)loadView;
 
 @end

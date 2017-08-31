@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSObject<NSCopying><NSCoding>;
+@class NSString;
 
 @protocol MSModelObjectCommon <NSObject>
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, copy, nonatomic) NSString *objectID;
 @end
 

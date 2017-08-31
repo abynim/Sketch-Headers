@@ -36,6 +36,7 @@
 - (void)prepareForDisplay;
 - (id)views;
 - (void)pickerViewChanged:(id)arg1;
+- (void)pickerViewWillChange:(id)arg1;
 - (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)colorMagnifierAction:(id)arg1;

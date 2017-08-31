@@ -48,7 +48,7 @@
 @property(readonly, nonatomic) __weak NSArray *intersectingContours;
 - (id)debugPathForContainmentOfCrossing:(id)arg1 transform:(struct CGAffineTransform)arg2;
 - (BOOL)containsCrossingUsingNonZeroWindingRule:(id)arg1;
-- (long long)adjustWindingCount:(long long)arg1 forIntersection:(id)arg2;
+- (long long)adjustWindingCount:(long long)arg1 forIntersection:(id)arg2 testRay:(id)arg3;
 - (id)crossingContainmentRay:(struct CGPoint)arg1;
 - (BOOL)intersection:(id)arg1 isReallyTheSameAs:(id)arg2;
 - (BOOL)containsPointUsingNonZeroWindingRule:(struct CGPoint)arg1;
@@ -91,6 +91,7 @@
 - (void)addCurveFrom:(id)arg1 to:(id)arg2;
 - (void)addCurve:(id)arg1;
 @property(readonly, nonatomic) __weak NSMutableArray *overlaps_;
+@property(readonly, nonatomic) NSArray *overlaps;
 - (void)dealloc;
 - (id)init;
 

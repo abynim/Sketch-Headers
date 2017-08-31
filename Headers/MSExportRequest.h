@@ -23,7 +23,6 @@
     MSImmutableDocumentData *_immutableDocument;
     NSString *_format;
     double _compression;
-    unsigned long long _hints;
     struct CGRect _rect;
 }
 
@@ -39,7 +38,6 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
-@property(nonatomic) unsigned long long hints; // @synthesize hints=_hints;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
@@ -58,7 +56,7 @@
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)configureForLayer:(id)arg1;
-- (void)setNameFromID:(struct NSObject *)arg1 exportFormat:(id)arg2;
+- (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

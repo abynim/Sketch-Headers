@@ -35,6 +35,7 @@
 - (void)enumerateWithIndex:(CDUnknownBlockType)arg1;
 - (void)enumerate:(CDUnknownBlockType)arg1;
 - (id)mapWithIndex:(CDUnknownBlockType)arg1;
+- (id)flatMap:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 @end
 

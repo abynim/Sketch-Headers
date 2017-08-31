@@ -7,27 +7,32 @@
 #import "_MSTextLayer.h"
 
 #import "MSFirstLineTypesetterDelegate.h"
-#import "MSTextLayer.h"
 
 @class MSColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
 
-@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSTextLayer>
+@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
+    id <MSTextLayerEditingDelegate> _editingDelegate;
     NSNumber *_defaultLineHeightValue;
     NSArray *_baselineOffsetsValue;
-    id <MSTextLayerEditingDelegate> _editingDelegate;
     struct CGRect _previousRectCache;
 }
 
++ (long long)menuItemStateForTest:(CDUnknownBlockType)arg1 forLayers:(id)arg2;
++ (long long)menuItemStateForAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextAlignmentForLayers:(id)arg1;
++ (long long)menuItemStateForTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-+ (id)createTextStorageForLayer:(id)arg1;
-@property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
++ (id)keyPathsForValuesAffectingHasFixedHeight;
++ (id)keyPathsForValuesAffectingCanFixHeight;
 @property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
 @property(retain, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
+@property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
@@ -35,7 +40,7 @@
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;
 - (void)checkTextBehaviourAndClippingAfterResizeFromCorner:(long long)arg1 mayClip:(BOOL)arg2;
-- (void)parentDidResizeLayerToRect:(struct CGRect)arg1;
+- (void)resizeWithOldGroupSize:(struct CGSize)arg1;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)replaceTextPreservingAttributeRanges:(id)arg1;
 - (void)setTextTransform:(unsigned long long)arg1 range:(struct _NSRange)arg2;
@@ -72,7 +77,7 @@
 - (id)bezierPathFromGlyphsInBounds;
 - (id)bezierPathFromGlyphsInFrame;
 @property(readonly, nonatomic) NSBezierPath *bezierPath;
-@property(readonly, nonatomic) struct CGPoint drawingPointForText;
+- (struct CGPoint)drawingPointForText;
 - (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
@@ -91,10 +96,7 @@
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;
 - (id)baselineOffsets;
-@property(readonly, nonatomic) double firstBaselineOffset;
-- (struct CGSize)textContainerSize;
-- (id)createTextContainer;
-- (id)createLayoutManager;
+- (double)firstBaselineOffset;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
 - (void)setTextBehaviour:(long long)arg1 mayAdjustFrame:(BOOL)arg2;
@@ -108,11 +110,12 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
+- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (id)handlerName;
-- (void)layerDidResizeFromInspector;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
 - (void)copyStylePropertiesToShape:(id)arg1;
@@ -126,34 +129,22 @@
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
+- (unsigned long long)resizingConstraint;
+- (BOOL)canFixHeight;
 - (void)replaceFonts:(id)arg1;
-- (id)createTextStorage;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
 - (long long)layoutDirection;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath;
-@property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) BOOL isSelected;
-@property(readonly, nonatomic) long long lineSpacingBehaviour;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
-@property(readonly, nonatomic) long long textBehaviour;
 
 @end
 

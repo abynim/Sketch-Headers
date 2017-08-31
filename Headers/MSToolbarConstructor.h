@@ -8,11 +8,11 @@
 
 #import "NSToolbarDelegate.h"
 
-@class MSDocument, MSToolbar, NSString;
+@class MSDocument, NSString, NSToolbar;
 
 @interface MSToolbarConstructor : NSObject <NSToolbarDelegate>
 {
-    MSToolbar *toolbar;
+    NSToolbar *_toolbar;
     MSDocument *_doc;
 }
 
@@ -26,7 +26,6 @@
 - (id)allActions;
 - (id)standardToolbarIdentifiers;
 - (void)constructToolbarForWindow:(id)arg1;
-- (id)toolbar;
 - (id)initWithDocument:(id)arg1;
 
 // Remaining properties

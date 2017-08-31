@@ -30,7 +30,6 @@
 @property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
 @property(nonatomic) long long resizingCorner; // @synthesize resizingCorner=_resizingCorner;
 - (void).cxx_destruct;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)finishResizing;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
@@ -43,7 +42,6 @@
 - (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (struct CGRect)newRectForResize:(struct CGPoint)arg1 gestureRecognizer:(id)arg2;
 - (void)updateResize:(id)arg1;
-- (BOOL)mouseDraggedEvent:(id)arg1;
 - (void)calculateOppositeRotatedPoint;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;

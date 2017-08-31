@@ -20,6 +20,8 @@
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
+- (void)resizeToOriginalSize;
+- (BOOL)isAtOriginalSize;
 - (id)NSImage;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
@@ -36,6 +38,7 @@
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 

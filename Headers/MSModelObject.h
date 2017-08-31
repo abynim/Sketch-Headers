@@ -9,7 +9,7 @@
 #import "MSModelObject.h"
 #import "NSCopying.h"
 
-@class MSDocumentData, NSObject<NSCopying><NSCoding>, NSString;
+@class MSDocumentData, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
@@ -30,6 +30,7 @@
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
+- (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
@@ -55,7 +56,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSObject<NSCopying><NSCoding> *objectID;
+@property(readonly, copy, nonatomic) NSString *objectID;
 @property(readonly) Class superclass;
 
 @end

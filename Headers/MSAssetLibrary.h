@@ -10,39 +10,40 @@
 #import "MSSortable.h"
 #import "NSCoding.h"
 
-@class MSDocumentData, MSFileMonitor, NSData, NSDate, NSObject<NSCopying><NSCoding>, NSString, NSURL;
+@class MSDocumentData, NSData, NSDate, NSString, NSURL;
 
 @interface MSAssetLibrary : NSObject <MSSortable, NSCoding, MSLibraryObject>
 {
-    BOOL _valid;
     BOOL _enabled;
+    unsigned long long _status;
     NSURL *_locationOnDisk;
     MSDocumentData *_document;
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
     NSData *_bookmark;
-    MSFileMonitor *_fileMonitor;
+    NSString *_libraryID;
 }
 
-@property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
++ (id)keyPathsForValuesAffectingValid;
+@property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 @property(retain, nonatomic) NSData *bookmark; // @synthesize bookmark=_bookmark;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
 @property(retain) NSURL *locationOnDisk; // @synthesize locationOnDisk=_locationOnDisk;
+@property(nonatomic) unsigned long long status; // @synthesize status=_status;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
 - (void)resolveLocationOnDisk;
-- (void)startMonitoring;
-- (id)symbolWithID:(struct NSObject *)arg1;
-@property(readonly, nonatomic) NSObject<NSCopying><NSCoding> *libraryID;
+- (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDate *dateLastModified;
 - (void)unload;
 - (void)loadAsyncWithCompletion:(CDUnknownBlockType)arg1;
 - (BOOL)loadSynchronously;
 - (void)handleDocumentLoaded:(id)arg1;
-- (id)loadDocument;
-@property(nonatomic) BOOL valid; // @synthesize valid=_valid;
+- (id)loadDocument:(unsigned long long *)arg1;
+@property(readonly, nonatomic) BOOL isUserLibrary;
+@property(readonly, nonatomic) BOOL valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;

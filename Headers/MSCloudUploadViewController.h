@@ -12,8 +12,7 @@
 {
     unsigned long long _state;
     NSButton *_openButton;
-    NSButton *_privateButton;
-    NSButton *_privateUploadButton;
+    NSButton *_uploadButton;
     NSView *_existingUploadView;
     NSView *_uploadView;
     NSView *_visibleView;
@@ -26,27 +25,20 @@
 @property(nonatomic) __weak NSView *visibleView; // @synthesize visibleView=_visibleView;
 @property(retain, nonatomic) NSView *uploadView; // @synthesize uploadView=_uploadView;
 @property(retain, nonatomic) NSView *existingUploadView; // @synthesize existingUploadView=_existingUploadView;
-@property(retain, nonatomic) NSButton *privateUploadButton; // @synthesize privateUploadButton=_privateUploadButton;
-@property(retain, nonatomic) NSButton *privateButton; // @synthesize privateButton=_privateButton;
+@property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
 @property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (void)showPreferences:(id)arg1;
 - (void)updateExistingShare:(id)arg1;
 - (void)createNewShare:(id)arg1;
-- (void)updatePasswordFieldAppearance:(id)arg1;
-- (void)applyPasswordState;
-- (void)updatePasswordState;
 - (void)openShare:(id)arg1;
 - (void)userAccountStatusDidChange;
-- (void)controlTextDidChange:(id)arg1;
-- (void)didTogglePrivateUpload:(id)arg1;
 - (void)documentCloudShareDidChangeNotification:(id)arg1;
 - (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
 - (unsigned long long)defaultState;
 - (void)setCloudController:(id)arg1;
 - (void)viewWillAppear;
-- (void)loadView;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 

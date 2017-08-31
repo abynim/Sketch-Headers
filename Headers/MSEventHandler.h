@@ -9,7 +9,7 @@
 #import "NSDraggingDestination.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSMutableArray, NSString, NSTouchBar;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSEvent, NSMutableArray, NSString, NSTouchBar;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
@@ -24,14 +24,18 @@
     NSTouchBar *_noSelectionTouchBar;
     NSTouchBar *_selectionTouchBar;
     MSMouseTracker *_mouseTracker;
+    NSString *_measurementText;
     NSArray *_activeGestureRecognizers;
     struct CGPoint _viewCoordinateMouse;
+    struct CGSize _measurementLabelSize;
     struct CGRect _selectionRect;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
+@property(nonatomic) struct CGSize measurementLabelSize; // @synthesize measurementLabelSize=_measurementLabelSize;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
+@property(copy, nonatomic) NSString *measurementText; // @synthesize measurementText=_measurementText;
 @property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
 @property(retain, nonatomic) NSTouchBar *noSelectionTouchBar; // @synthesize noSelectionTouchBar=_noSelectionTouchBar;
@@ -69,13 +73,14 @@
 - (void)layerPositionPossiblyChanged;
 - (void)willResignFirstResponder;
 - (void)handleSymbolInstanceDoubleClick:(id)arg1;
+- (void)handleForeignSymbolInstanceDoubleClick:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
 - (void)mouseEntered:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (BOOL)handlesHandToolItself;
-- (struct CGRect)rulerGuidesRectAroundMouse:(struct CGPoint)arg1;
+- (struct CGRect)rulerGuidesRectAroundPoint:(struct CGPoint)arg1;
 - (id)horizontalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (id)verticalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (struct CGPoint)alignPointToGrid:(struct CGPoint)arg1;
@@ -95,17 +100,19 @@
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (BOOL)shouldDrawLayerSelection;
+- (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (id)defaultCursor;
 - (void)drawHandles;
-- (void)windowDidResize:(id)arg1;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;
 - (BOOL)escapeKeyIsPressed:(unsigned short)arg1;
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
-- (id)lastEvent;
+@property(readonly, nonatomic) NSEvent *lastEvent;
+- (unsigned long long)hitTestingOptions;
+- (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
@@ -144,6 +151,7 @@
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
 - (void)drawDragSelection;
+- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)handlerGotFocus;
@@ -153,8 +161,15 @@
 - (void)keyDown:(id)arg1;
 - (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
+- (void)drawMeasurementLabel;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)setMeasurementLabelNeedsDisplay;
+@property(readonly, nonatomic) struct CGRect measurementBackgroundRect;
+- (struct CGPoint)locationForMeasurementLabel;
+- (id)measurementLabelAttributes;
+- (void)setMeasurementTextWithDegrees:(long long)arg1;
+- (void)setMeasurementTextWithSize:(struct CGSize)arg1;
 - (void)addGestureRecognizer:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *gestureRecognizers;
 - (void)viewDidScroll:(id)arg1;
@@ -176,10 +191,6 @@
 - (id)drawView;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
-- (void)drawMeasurementsLabelAtMouseForString:(id)arg1;
-- (void)drawMeasurementsLabelAtMouseForRotation:(long long)arg1;
-- (void)drawMeasurementsLabelAtMouseForSize:(struct CGSize)arg1;
-- (void)refreshMeasurementsLabel;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

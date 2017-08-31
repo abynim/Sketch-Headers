@@ -9,6 +9,6 @@
 @class MSRect;
 
 @protocol MSRectDelegate <NSObject>
-- (void)rectDidChange:(MSRect *)arg1 fromRect:(struct CGRect)arg2;
+- (void)rect:(MSRect *)arg1 didChangeFromRect:(struct CGRect)arg2;
 @end
 

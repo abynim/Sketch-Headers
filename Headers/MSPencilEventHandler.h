@@ -10,12 +10,14 @@
 
 @interface MSPencilEventHandler : MSEventHandler
 {
-    BOOL isDragging;
-    struct CGPoint lastMouse;
+    BOOL _isDragging;
     MSShapePathLayer *_shape;
     MSLayerGroup *_currentGroup;
+    struct CGPoint _lastMouse;
 }
 
+@property(nonatomic) struct CGPoint lastMouse; // @synthesize lastMouse=_lastMouse;
+@property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(retain, nonatomic) MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;

@@ -17,7 +17,6 @@
     struct CGPoint _previousMouseLocation;
     BOOL _exitOnMouseUp;
     BOOL _disableMoving;
-    BOOL _showMeasurementLabel;
     MSDragGestureRecognizer *_dragGestureRecognizer;
     unsigned long long _draggedComponent;
     struct CGPoint _rotationCenter;
@@ -27,7 +26,6 @@
 + (long long)degreesForPoint:(struct CGPoint)arg1 inLayer:(id)arg2 rotationCenter:(struct CGPoint)arg3;
 @property(nonatomic) unsigned long long draggedComponent; // @synthesize draggedComponent=_draggedComponent;
 @property(readonly, nonatomic) MSDragGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
-@property(nonatomic) BOOL showMeasurementLabel; // @synthesize showMeasurementLabel=_showMeasurementLabel;
 @property(nonatomic) struct CGPoint rotationCenter; // @synthesize rotationCenter=_rotationCenter;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
@@ -36,7 +34,6 @@
 - (void)rotationBarAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
-- (void)drawRotationMeasurementLabel;
 - (void)drawRotationCenter;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (double)alignDegreesTo45Angles:(double)arg1;
@@ -45,7 +42,6 @@
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDraggedRotateLayer:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (void)mouseDraggedMoveLayer:(id)arg1 mouse:(struct CGPoint)arg2;
-- (BOOL)mouseDraggedEvent:(id)arg1;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handleDrag:(id)arg1;

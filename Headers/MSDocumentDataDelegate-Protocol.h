@@ -10,7 +10,7 @@
 
 @protocol MSDocumentDataDelegate <NSObject>
 - (void)determineCurrentArtboard;
-- (void)layerSelectionDidChange;
+- (void)layerSelectionMightHaveChanged;
 - (void)refreshOverlayOfViews;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)layerTreeLayoutDidChange;

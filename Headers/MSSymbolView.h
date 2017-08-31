@@ -10,11 +10,13 @@
 
 @interface MSSymbolView : NSView
 {
+    BOOL _hasShadow;
     BOOL _previewDirty;
     MSSymbolMaster *_symbol;
     NSString *_label;
     NSColor *_labelColor;
     NSColor *_labelBackgroundColor;
+    unsigned long long _borders;
     NSImage *_previewImage;
     MSImmutableLayerAncestry *_symbolAncestry;
 }
@@ -22,6 +24,8 @@
 @property(nonatomic) BOOL previewDirty; // @synthesize previewDirty=_previewDirty;
 @property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
+@property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
+@property(nonatomic) unsigned long long borders; // @synthesize borders=_borders;
 @property(retain, nonatomic) NSColor *labelBackgroundColor; // @synthesize labelBackgroundColor=_labelBackgroundColor;
 @property(retain, nonatomic) NSColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
@@ -29,6 +33,7 @@
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawBorder;
+- (void)drawBorderFrom:(long long)arg1 to:(long long)arg2;
 - (void)drawSymbol;
 - (void)drawLabel;
 - (void)setFrameSize:(struct CGSize)arg1;

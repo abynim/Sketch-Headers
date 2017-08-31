@@ -6,13 +6,19 @@
 
 #import "_MSSymbolInstance.h"
 
+@class NSSet;
+
 @interface MSSymbolInstance : _MSSymbolInstance
 {
     unsigned long long _masterRefreshCounter;
+    NSSet *_influencingSymbolIDs;
 }
 
 + (id)keyPathsForValuesAffectingPreviewImages;
+@property(retain, nonatomic) NSSet *influencingSymbolIDs; // @synthesize influencingSymbolIDs=_influencingSymbolIDs;
 @property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
+- (void).cxx_destruct;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;
@@ -42,6 +48,7 @@
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
 
 @end

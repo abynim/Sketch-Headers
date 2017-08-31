@@ -7,29 +7,42 @@
 #import "MSPreferencePane.h"
 
 #import "MSAssetPreferenceItemDelegate.h"
+#import "MSDropableViewDelegate.h"
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
 
-@class MSAssetLibrary, MSAssetLibraryController, NSArray, NSMenu, NSString, NSTableView;
+@class MSAssetLibrary, MSAssetLibraryController, NSArray, NSImageView, NSMenu, NSString, NSTableView, NSView;
 
-@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, NSTableViewDelegate, NSTableViewDataSource>
+@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, NSTableViewDelegate, NSTableViewDataSource>
 {
     BOOL _hasAssets;
-    BOOL _hasSelectedAssetLibrary;
+    BOOL _shouldEnableCogMenu;
     NSTableView *_tableView;
     NSArray *_items;
     NSMenu *_contextMenu;
+    NSView *_emptyStateView;
+    NSImageView *_emptyStateIconView;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(nonatomic) BOOL hasSelectedAssetLibrary; // @synthesize hasSelectedAssetLibrary=_hasSelectedAssetLibrary;
+@property(retain, nonatomic) NSImageView *emptyStateIconView; // @synthesize emptyStateIconView=_emptyStateIconView;
+@property(retain, nonatomic) NSView *emptyStateView; // @synthesize emptyStateView=_emptyStateView;
+@property(nonatomic) BOOL shouldEnableCogMenu; // @synthesize shouldEnableCogMenu=_shouldEnableCogMenu;
 @property(nonatomic) BOOL hasAssets; // @synthesize hasAssets=_hasAssets;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
+- (id)menuForEvent:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)toggleLibraryEnabled:(id)arg1;
+- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (id)draggedURLsFromPasteboard:(id)arg1;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (id)draggedTypesForView:(id)arg1;
 - (void)reloadSelectingRow:(long long)arg1;
 - (void)preferenceItemHasUpdated:(id)arg1;
 - (void)showContextMenu:(id)arg1;
