@@ -6,10 +6,9 @@
 
 #import "NSObject.h"
 
-@class MSContentDrawView, MSLayerArray, MSPage;
+@class MSContentDrawView, MSPage;
 
 @protocol MSBasicDelegate <NSObject>
-- (MSLayerArray *)selectedLayers;
 - (MSPage *)currentPage;
 - (MSContentDrawView *)currentView;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;

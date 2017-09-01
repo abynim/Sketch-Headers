@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSCloudShare, MSDocumentData, NSString;
+@class MSDocumentData, NSString, SCKShare;
 
-@protocol MSCloudDocument <NSObject>
+@protocol MSCloudExportableDocument <NSObject>
 @property(readonly, nonatomic) NSString *cloudName;
-@property(retain, nonatomic) MSCloudShare *cloudShare;
+@property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSDocumentData *documentData;
 @end
 

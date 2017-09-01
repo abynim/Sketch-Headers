@@ -31,8 +31,7 @@
 - (void)refreshOverlayOfViews;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)immediatelyShowSelectionForAllLayers;
-- (void)immediatelyShowSelectionForLayer:(id)arg1;
-- (void)temporarilyHideSelectionForLayer:(id)arg1;
+- (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
 - (void)setEnableSliceInteraction:(BOOL)arg1;
 - (void)setEnableLayerInteraction:(BOOL)arg1;
@@ -72,6 +71,8 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)convertToColorSpace:(unsigned long long)arg1;
+- (void)assignColorSpace:(unsigned long long)arg1;
 - (void)replaceFonts:(id)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;

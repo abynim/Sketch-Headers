@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSDictionary.h"
+#import "NSObject.h"
 
-@interface NSDictionary (CloudAPISigning)
-- (id)signingString;
+@class NSString;
+
+@protocol BCSortable <NSObject>
+@property(readonly, nonatomic) NSString *name;
 @end
 

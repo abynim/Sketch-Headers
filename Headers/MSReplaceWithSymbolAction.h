@@ -8,13 +8,20 @@
 
 @interface MSReplaceWithSymbolAction : MSSharedSymbolAction
 {
+    id <NSObject> _documentCloseObserver;
 }
 
+@property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
+- (void).cxx_destruct;
+- (void)menuNeedsUpdate:(id)arg1;
+- (void)removeDocumentCloseObserver;
 - (BOOL)showInToolbar;
 - (void)replaceLayer:(id)arg1 withSymbol:(id)arg2;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
+- (SEL)preferredMenuAction;
+- (void)replaceWithSymbol:(id)arg1;
 
 @end
 

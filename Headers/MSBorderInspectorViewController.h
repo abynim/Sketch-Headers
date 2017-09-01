@@ -21,7 +21,6 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)lineShapes;
-- (void)borderThicknessChanged:(id)arg1;
 - (void)enableAction:(id)arg1;
 - (id)layers;
 - (BOOL)canDrawInnerOrOuterBorders;

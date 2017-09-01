@@ -41,7 +41,7 @@
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL isRendering; // @synthesize isRendering=_isRendering;
-@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGRect viewBounds; // @synthesize viewBounds=_viewBounds;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double renderingZoomLevel; // @synthesize renderingZoomLevel=_renderingZoomLevel;
@@ -69,6 +69,7 @@
 - (void)tilePlacer:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tilePlacer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)removeOffscreenTiles;
+- (void)adaptToColorSpaceChange;
 - (void)adaptToPixelGridChange;
 @property(readonly, nonatomic) struct CGRect tiledRect;
 @property(readonly, nonatomic) unsigned long long tileCount;
@@ -80,7 +81,7 @@
 - (id)actionForKey:(id)arg1;
 - (void)setupContextPool;
 - (void)dealloc;
-- (id)initWithDriver:(id)arg1 zoomLevel:(double)arg2 scrollOrigin:(struct CGPoint)arg3 viewBounds:(struct CGRect)arg4;
+- (id)initWithDriver:(id)arg1 zoomLevel:(double)arg2 scrollOrigin:(struct CGPoint)arg3 viewBounds:(struct CGRect)arg4 colorSpace:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

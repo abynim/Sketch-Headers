@@ -13,6 +13,7 @@
 @interface MSArchiveHeader : NSObject <MSCoding>
 {
     long long _version;
+    long long _compatibilityVersion;
     NSDictionary *_metadata;
     id _root;
 }
@@ -20,6 +21,7 @@
 + (id)metadataForNewHeader;
 @property(retain, nonatomic) id root; // @synthesize root=_root;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) long long compatibilityVersion; // @synthesize compatibilityVersion=_compatibilityVersion;
 @property(nonatomic) long long version; // @synthesize version=_version;
 - (void).cxx_destruct;
 - (void)encodeAsJSON:(id)arg1;

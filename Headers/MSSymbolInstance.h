@@ -50,6 +50,8 @@
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)applyOverridesFromSource:(id)arg1;
+- (id)availableOverrides;
+- (id)overridePoints;
 
 @end
 

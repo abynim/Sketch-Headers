@@ -6,13 +6,14 @@
 
 #import "NSObject.h"
 
+#import "BCSortable.h"
 #import "MSLibraryObject.h"
-#import "MSSortable.h"
 #import "NSCoding.h"
+#import "QLPreviewItem.h"
 
-@class MSDocumentData, NSData, NSDate, NSString, NSURL;
+@class MSDocumentData, NSDate, NSString, NSURL;
 
-@interface MSAssetLibrary : NSObject <MSSortable, NSCoding, MSLibraryObject>
+@interface MSAssetLibrary : NSObject <QLPreviewItem, BCSortable, NSCoding, MSLibraryObject>
 {
     BOOL _enabled;
     unsigned long long _status;
@@ -20,15 +21,14 @@
     MSDocumentData *_document;
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
-    NSData *_bookmark;
     NSString *_libraryID;
 }
 
++ (id)URLForTemplateLibraryNamed:(id)arg1;
 + (id)keyPathsForValuesAffectingValid;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
-@property(retain, nonatomic) NSData *bookmark; // @synthesize bookmark=_bookmark;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
 @property(retain) NSURL *locationOnDisk; // @synthesize locationOnDisk=_locationOnDisk;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;
@@ -43,15 +43,19 @@
 - (void)handleDocumentLoaded:(id)arg1;
 - (id)loadDocument:(unsigned long long *)arg1;
 @property(readonly, nonatomic) BOOL isUserLibrary;
+- (void)setName:(id)arg1;
 @property(readonly, nonatomic) BOOL valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;
+@property(readonly) NSString *previewItemTitle;
+@property(readonly) NSURL *previewItemURL;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(readonly) id previewItemDisplayState;
 @property(readonly) Class superclass;
 
 @end

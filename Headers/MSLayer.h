@@ -244,6 +244,8 @@
 - (void)replaceFonts:(id)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
+- (id)overridePointsWithParent:(id)arg1;
+- (id)overridePoints;
 - (id)CSSAttributes;
 - (id)CSSRotationString;
 - (id)CSSAttributeString;

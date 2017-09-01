@@ -20,6 +20,9 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 inDocument:(id)arg3;
+- (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
+- (id)overridePointsWithParent:(id)arg1;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
 - (id)svgStyle:(id)arg1;
 - (void)addTransformAttributes:(id)arg1 exporter:(id)arg2;

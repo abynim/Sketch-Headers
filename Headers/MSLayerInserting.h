@@ -10,8 +10,7 @@
 {
 }
 
-+ (id)groupForInserting:(id)arg1;
-+ (struct CGRect)rectForCenteringLayerWithSize:(struct CGSize)arg1 delegate:(id)arg2;
++ (struct CGRect)rectForCenteringLayerWithSize:(struct CGSize)arg1 inView:(id)arg2 selection:(id)arg3;
 
 @end
 

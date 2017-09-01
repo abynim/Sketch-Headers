@@ -8,7 +8,7 @@
 
 #import "MSContentDrawViewDelegate.h"
 
-@class MSContentDrawView, MSDocument, MSRulerView, NSLayoutConstraint, NSString, NSView;
+@class MSContentDrawView, MSDocument, MSFlashController, MSRulerView, NSLayoutConstraint, NSString, NSView;
 
 @interface MSContentDrawViewController : NSViewController <MSContentDrawViewDelegate>
 {
@@ -18,10 +18,12 @@
     NSView *_rulerCornerView;
     NSLayoutConstraint *_rulerWidthConstraint;
     NSLayoutConstraint *_rulerHeightConstraint;
+    MSFlashController *_flashController;
     MSDocument *_document;
 }
 
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(retain, nonatomic) MSFlashController *flashController; // @synthesize flashController=_flashController;
 @property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *rulerWidthConstraint; // @synthesize rulerWidthConstraint=_rulerWidthConstraint;
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;

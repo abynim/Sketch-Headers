@@ -6,14 +6,17 @@
 
 #import "NSObject.h"
 
-@interface MSObjectSorting : NSObject
+@interface BCObjectSorting : NSObject
 {
 }
 
++ (id)consolidateGroups:(id)arg1;
 + (void)recursiveSplitByPrefix:(id)arg1;
 + (id)splitByPrefix:(id)arg1;
 + (id)normalizedName:(id)arg1;
-+ (id)sortObjects:(id)arg1;
++ (id)sortObjectsWithCompressedNesting:(id)arg1;
++ (id)sortObjectsWithNesting:(id)arg1;
++ (id)sortObjectsAlphabetically:(id)arg1;
 
 @end
 

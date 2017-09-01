@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCloudShare.h"
+#import "SCKShare.h"
 
 @class NSArray, NSDictionary, NSString;
 
-@interface MSCloudShareUpload : MSCloudShare
+@interface MSCloudShareUpload : SCKShare
 {
     NSDictionary *_s3Credentials;
     NSString *_s3Bucket;
@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) NSDictionary *s3Credentials; // @synthesize s3Credentials=_s3Credentials;
 - (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1 atDocumentURL:(id)arg2;
+- (id)initWithData:(id)arg1 atDocumentURL:(id)arg2 error:(id *)arg3;
 
 @end
 

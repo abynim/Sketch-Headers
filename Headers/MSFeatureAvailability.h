@@ -10,8 +10,6 @@
 {
 }
 
-+ (void)setAssetLibrariesEnabled:(BOOL)arg1;
-+ (BOOL)assetLibrariesEnabled;
 + (void)setFeature:(id)arg1 enabled:(BOOL)arg2;
 + (BOOL)isFeatureEnabled:(id)arg1;
 + (void)enableFeatureAvailability;
