@@ -8,15 +8,17 @@
 
 @interface BCMagnifierWindow : NSWindow
 {
+    struct CGPoint _frameOffset;
     struct CGRect _screenFrame;
 }
 
 @property(nonatomic) struct CGRect screenFrame; // @synthesize screenFrame=_screenFrame;
+@property(readonly, nonatomic) struct CGPoint frameOffset; // @synthesize frameOffset=_frameOffset;
 - (void)flagsChanged;
 - (void)setCurrentColor:(id)arg1;
-- (void)setScreenGrab:(id)arg1;
+- (void)updateScreenGrabIfNeeded:(id)arg1;
 - (void)mouseMovedTo:(struct CGPoint)arg1;
-- (id)initWithScreenGrab:(id)arg1;
+- (id)initWithScreenGrab:(id)arg1 frameOffset:(struct CGPoint)arg2;
 - (struct CGRect)frameForWindowAroundMouse;
 
 @end

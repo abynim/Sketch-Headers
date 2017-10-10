@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) MSAssetLibrary *library; // @synthesize library=_library;
 @property(nonatomic) __weak id <MSAssetPreferenceItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-@property(readonly) NSString *errorDescription;
+@property(readonly) NSString *secondaryTitle;
 @property(readonly, nonatomic) NSString *modificationDate;
 @property(readonly, nonatomic) BOOL valid;
 @property(nonatomic) BOOL enabled;

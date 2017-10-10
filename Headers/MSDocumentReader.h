@@ -24,6 +24,7 @@
 - (unsigned long long)validate;
 @property(readonly, nonatomic) NSDictionary *UIMetadata;
 - (BOOL)open:(id *)arg1;
+@property(readonly, nonatomic) long long compatibilityVersion;
 @property(readonly, nonatomic) long long version;
 @property(readonly, nonatomic) NSArray *missingFonts;
 - (void)repair;

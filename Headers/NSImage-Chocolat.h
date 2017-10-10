@@ -7,6 +7,8 @@
 #import "NSImage.h"
 
 @interface NSImage (Chocolat)
++ (id)imageWithDataFixingInvalidGamma:(id)arg1;
++ (id)pngDataByInvertingGammaInData:(id)arg1;
 + (id)PDFImageWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 drawingHandler:(CDUnknownBlockType)arg3;
 - (id)imageWithShadow:(id)arg1 size:(struct CGSize)arg2;
 - (struct CGSize)pixelSize;

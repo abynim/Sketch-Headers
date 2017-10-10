@@ -6,15 +6,26 @@
 
 #import "_MSStyleShadow.h"
 
-@interface MSStyleShadow : _MSStyleShadow
+#import "MSColorSpaceConvertible.h"
+
+@class NSString;
+
+@interface MSStyleShadow : _MSStyleShadow <MSColorSpaceConvertible>
 {
 }
 
+- (void)convertColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)blendingViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

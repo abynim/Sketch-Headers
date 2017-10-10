@@ -11,6 +11,7 @@
 @interface BCHSBColorPicker : NSControl
 {
     long long ignoreColorActionsCounter;
+    id <BCHSBColorPickerDelegate> _delegate;
     NSTextField *_hexValueTextField;
     NSTextField *_alphaComponentTextField;
     MSColorInspectorSeparatorView *_separatorView;
@@ -45,6 +46,7 @@
 @property(retain, nonatomic) MSColorInspectorSeparatorView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) NSTextField *alphaComponentTextField; // @synthesize alphaComponentTextField=_alphaComponentTextField;
 @property(retain, nonatomic) NSTextField *hexValueTextField; // @synthesize hexValueTextField=_hexValueTextField;
+@property(nonatomic) __weak id <BCHSBColorPickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)setFrequentColors:(id)arg1;

@@ -79,6 +79,7 @@
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
 @property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
+- (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (void)waitForResourceMigrationToFinish;
 - (void)migrateResources:(id)arg1;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
@@ -104,6 +105,7 @@
 - (void)checkImageTemplates;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) long long checkForUpdatesPeriod;
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;

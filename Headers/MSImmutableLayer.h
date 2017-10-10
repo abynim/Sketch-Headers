@@ -83,6 +83,7 @@
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2;
+- (id)overridePointsWithParent:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;

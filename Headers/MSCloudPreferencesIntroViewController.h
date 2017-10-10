@@ -21,8 +21,7 @@
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
-- (void)cloudAPIPlatformDidChangeNotification:(id)arg1;
-- (void)cloudAPILoggingInDidChangeNotification:(id)arg1;
+- (void)cloudEnvironmentDidChangeNotification:(id)arg1;
 - (void)updateTitleLabelValue;
 - (void)learnMore:(id)arg1;
 - (void)login:(id)arg1;

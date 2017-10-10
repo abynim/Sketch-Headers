@@ -6,26 +6,30 @@
 
 #import "MSPointsEventHandler.h"
 
-@class DKDistortionTransform, MSLayerGroup, MSPointArray, MSShapeDictionary, NSMutableArray;
+@class DKDistortionTransform, MSLayerGroup, MSPointArray, NSMapTable, NSMutableArray;
 
 @interface MSTransformEventHandler : MSPointsEventHandler
 {
-    MSLayerGroup *currentGroup;
-    struct CGRect originalRect;
-    unsigned long long directionLock;
-    struct CGPoint firstSelectedLocation;
-    DKDistortionTransform *_transform;
     MSPointArray *_transformPoints;
     MSPointArray *_mouseDownPoints;
-    MSShapeDictionary *_shapeDictionary;
+    NSMapTable *_shapeMapping;
+    DKDistortionTransform *_transform;
     NSMutableArray *_originalPoints;
+    MSLayerGroup *_currentGroup;
+    unsigned long long _directionLock;
+    struct CGPoint _firstSelectedLocation;
+    struct CGRect _originalRect;
 }
 
+@property(nonatomic) struct CGPoint firstSelectedLocation; // @synthesize firstSelectedLocation=_firstSelectedLocation;
+@property(nonatomic) unsigned long long directionLock; // @synthesize directionLock=_directionLock;
+@property(retain, nonatomic) MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
 @property(retain, nonatomic) NSMutableArray *originalPoints; // @synthesize originalPoints=_originalPoints;
-@property(retain, nonatomic) MSShapeDictionary *shapeDictionary; // @synthesize shapeDictionary=_shapeDictionary;
+@property(retain, nonatomic) DKDistortionTransform *transform; // @synthesize transform=_transform;
+@property(retain, nonatomic) NSMapTable *shapeMapping; // @synthesize shapeMapping=_shapeMapping;
 @property(retain, nonatomic) MSPointArray *mouseDownPoints; // @synthesize mouseDownPoints=_mouseDownPoints;
 @property(retain, nonatomic) MSPointArray *transformPoints; // @synthesize transformPoints=_transformPoints;
-@property(retain, nonatomic) DKDistortionTransform *transform; // @synthesize transform=_transform;
+@property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
 - (void).cxx_destruct;
 - (void)concatTransformsForDrawSnaps;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
@@ -40,7 +44,6 @@
 - (void)keyDown:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (struct CGRect)bounds;
-- (id)currentGroup;
 - (void)movePointsRelatedToCorner:(long long)arg1 newLocation:(struct CGPoint)arg2 previous:(struct CGPoint)arg3;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (void)replacePointAtCorner:(long long)arg1 withPoint:(struct CGPoint)arg2;

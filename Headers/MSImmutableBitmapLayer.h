@@ -19,6 +19,7 @@
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV61OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV59OrEarlierWithUnarchiver:(id)arg1;

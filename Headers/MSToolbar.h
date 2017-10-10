@@ -10,8 +10,6 @@
 {
 }
 
-- (void)setConfigurationFromDictionary:(id)arg1;
-- (id)configurationDictionary;
 - (double)ms_toolbarHeight;
 - (BOOL)_allowsSizeMode:(unsigned long long)arg1;
 - (void)setSizeMode:(unsigned long long)arg1;

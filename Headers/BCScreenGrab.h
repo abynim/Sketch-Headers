@@ -14,17 +14,22 @@
     NSImage *_image;
     NSBitmapImageRep *_bitmapRep;
     NSColorSpace *_colorSpace;
+    struct CGPoint _imageOrigin;
 }
 
 + (id)screenGrabForDisplay:(unsigned int)arg1;
-@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(retain, nonatomic) NSBitmapImageRep *bitmapRep; // @synthesize bitmapRep=_bitmapRep;
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-@property(nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
++ (id)screenGrabWithBitmapImageRep:(id)arg1 originOnScreen:(struct CGPoint)arg2 colorSpace:(id)arg3 displayID:(unsigned int)arg4;
+@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) struct CGPoint imageOrigin; // @synthesize imageOrigin=_imageOrigin;
+@property(readonly, nonatomic) NSBitmapImageRep *bitmapRep; // @synthesize bitmapRep=_bitmapRep;
+@property(readonly, nonatomic) NSImage *image; // @synthesize image=_image;
+@property(readonly, nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
 - (void).cxx_destruct;
+- (id)bitmapImageRepCroppingToRect:(struct CGRect)arg1;
 - (id)currentScreen;
-- (BOOL)isRetinaScreen;
+@property(readonly, nonatomic) BOOL isRetinaScreen;
 @property(readonly, nonatomic) struct CGRect screenFrame; // @dynamic screenFrame;
+- (id)initWithBitmapImageRep:(id)arg1 originOnScreen:(struct CGPoint)arg2 colorSpace:(id)arg3 displayID:(unsigned int)arg4;
 
 @end
 

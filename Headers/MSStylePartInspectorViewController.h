@@ -7,13 +7,14 @@
 #import "NSViewController.h"
 
 #import "MSColorInspectorDelegate.h"
+#import "MSColorPreviewButtonDelegate.h"
 #import "MSInspectorSection.h"
 #import "NSPopoverDelegate.h"
 #import "NSWindowDelegate.h"
 
 @class BCPopover, MSColorPreviewButton, NSArray, NSArrayController, NSString, NSView;
 
-@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate>
+@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate, MSColorPreviewButtonDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
+- (id)colorPreviewButtonColorSpace:(id)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
 - (BOOL)hasEnabledStyle;

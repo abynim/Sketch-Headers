@@ -11,9 +11,11 @@
 @interface _MSImmutableTextStyle : MSImmutableModelObject
 {
     NSDictionary *_encodedAttributes;
+    long long _verticalAlignment;
 }
 
 + (Class)mutableClass;
+@property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
 @property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

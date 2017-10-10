@@ -12,10 +12,12 @@
 {
     MSStyleBasicFill *_basicFill;
     NSColor *_color;
+    id <MSColorPreviewButtonDelegate> _delegate;
     id _dragOwner;
 }
 
 @property(nonatomic) __weak id dragOwner; // @synthesize dragOwner=_dragOwner;
+@property(nonatomic) __weak id <MSColorPreviewButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSStyleBasicFill *basicFill; // @synthesize basicFill=_basicFill;
 - (void).cxx_destruct;

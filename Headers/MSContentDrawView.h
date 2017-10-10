@@ -24,6 +24,7 @@
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _ignoreScheduledRedrawRequests;
     BOOL _isMagnifying;
+    MSTiledLayerPile *_tiledLayerPile;
     MSLayer *_hoveredLayer;
     id <MSContentDrawViewDelegate> _delegate;
     MSEventHandlerManager *_eventHandlerManager;
@@ -34,8 +35,8 @@
     MSCacheManager *_cacheManager;
     MSZoomTool *_zoomTool;
     NSEvent *_lastEvent;
+    unsigned long long _previouslyRenderedColorSpace;
     MSImmutablePage *_previouslyRenderedPage;
-    MSTiledLayerPile *_tiledLayerPile;
     NSNumberFormatter *_measurementLabelNumberFormatter;
     MSRenderMonitor *_performanceMonitor;
     MSRenderingDriver *_normalDriver;
@@ -61,8 +62,8 @@
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
 @property(nonatomic) struct CGRect overlayRectNeedingRedraw; // @synthesize overlayRectNeedingRedraw=_overlayRectNeedingRedraw;
 @property(nonatomic) struct CGRect scrollOriginRelativeContentRedrawRect; // @synthesize scrollOriginRelativeContentRedrawRect=_scrollOriginRelativeContentRedrawRect;
-@property(retain, nonatomic) MSTiledLayerPile *tiledLayerPile; // @synthesize tiledLayerPile=_tiledLayerPile;
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
+@property(nonatomic) unsigned long long previouslyRenderedColorSpace; // @synthesize previouslyRenderedColorSpace=_previouslyRenderedColorSpace;
 @property(retain, nonatomic) NSEvent *lastEvent; // @synthesize lastEvent=_lastEvent;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
@@ -75,6 +76,7 @@
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSContentDrawViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSLayer *hoveredLayer; // @synthesize hoveredLayer=_hoveredLayer;
+@property(retain, nonatomic) MSTiledLayerPile *tiledLayerPile; // @synthesize tiledLayerPile=_tiledLayerPile;
 - (void).cxx_destruct;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
