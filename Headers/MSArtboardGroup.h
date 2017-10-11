@@ -7,13 +7,13 @@
 #import "_MSArtboardGroup.h"
 
 #import "MSArtboardGroup.h"
-#import "MSCloudExportable.h"
+#import "MSColorSpaceConvertible.h"
 #import "MSLayerWithBackgroundColor.h"
 #import "MSRootLayer.h"
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSCloudExportable, MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor>
+@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor, MSColorSpaceConvertible>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -21,6 +21,7 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (void)convertColorsUsing:(id)arg1;
 - (void)makeChildRectsIntegral;
 - (id)immutableBackgroundColor;
 - (id)closestClippingLayer;
@@ -55,11 +56,6 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
-- (long long)includeForCloudExportState;
-- (void)setIsMarkedForCloudExport:(BOOL)arg1;
-- (id)childAtIndex:(unsigned long long)arg1;
-- (unsigned long long)numberOfChildren;
-- (BOOL)hasChildren;
 - (BOOL)hasSliceIcon;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)contextualMenuPreviewImage;

@@ -37,7 +37,7 @@
 - (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 @property(nonatomic) unsigned long long selectedTabIndex;
 - (void)updateWindowFrame;
-- (void)switchToPaneWithIdentifier:(id)arg1;
+- (id)switchToPaneWithIdentifier:(id)arg1;
 - (void)switchPanes:(id)arg1;
 - (void)adjustColorsAction:(id)arg1;
 - (void)awakeFromNib;

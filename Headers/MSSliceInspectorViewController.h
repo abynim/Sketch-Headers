@@ -8,11 +8,12 @@
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
+#import "MSColorPreviewButtonDelegate.h"
 #import "MSSliceLayerWatcher.h"
 
 @class BCPopover, MSColorPreviewButton, NSButton, NSString, NSView;
 
-@interface MSSliceInspectorViewController : MSBaseExportableInspectorViewController <MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate>
+@interface MSSliceInspectorViewController : MSBaseExportableInspectorViewController <MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate, MSColorPreviewButtonDelegate>
 {
     NSView *_sliceExportPropertiesView;
     NSView *_standardPropertiesView;
@@ -29,6 +30,9 @@
 @property(retain, nonatomic) NSView *standardPropertiesView; // @synthesize standardPropertiesView=_standardPropertiesView;
 @property(retain, nonatomic) NSView *sliceExportPropertiesView; // @synthesize sliceExportPropertiesView=_sliceExportPropertiesView;
 - (void).cxx_destruct;
+- (id)colorPreviewButtonColorSpace:(id)arg1;
+- (id)previewColorSpaceForControl:(id)arg1;
+- (id)documentColorSpace;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (id)nibName;

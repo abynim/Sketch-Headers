@@ -8,7 +8,7 @@
 
 #import "BCSideBarViewControllerDelegate.h"
 #import "MSAssetLibraryControllerDelegate.h"
-#import "MSCloudDocument.h"
+#import "MSCloudExportableDocument.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSEventHandlerManagerDelegate.h"
 #import "MSSidebarControllerDelegate.h"
@@ -16,9 +16,9 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSCloudShare, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow;
+@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow, SCKShare;
 
-@interface MSDocument : NSDocument <MSCloudDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
@@ -42,6 +42,8 @@
     MSInspectorController *_inspectorController;
     BCSideBarViewController *_sidebarController;
     MSContentDrawViewController *_currentContentViewController;
+    id _colorSpaceMismatchWarning;
+    id _editingLibraryWarning;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
@@ -71,6 +73,8 @@
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
 @property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
+@property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
+@property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
@@ -89,6 +93,9 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (void)warnIfEditingLibrary;
+- (BOOL)isLibraryDocument;
+- (void)showNonDefaultColorSpaceWarningIfApplicable;
 - (id)localSymbolForSymbol:(id)arg1 inLibrary:(id)arg2;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
@@ -108,7 +115,7 @@
 - (void)resetHiddenSelectionHandles;
 - (void)documentDataImmediatelyShowSelectionForAllLayers:(id)arg1;
 - (void)documentData:(id)arg1 immediatelyShowSelectionForLayer:(id)arg2;
-- (void)documentData:(id)arg1 temporarilyHideSelectionForLayer:(id)arg2;
+- (void)documentData:(id)arg1 temporarilyHideSelectionForLayers:(id)arg2;
 - (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
@@ -119,7 +126,6 @@
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)refreshLayerListIfNecessary;
 - (void)scheduleLayerListRefresh;
-- (void)showPagesList;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)updateSliceCount;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
@@ -150,11 +156,9 @@
 - (id)normalHandler;
 - (id)toggleHandlerKey:(id)arg1;
 - (void)reloadInspector;
-- (void)redrawView;
 - (void)reloadView;
 - (void)refreshOverlayOfViews;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
-- (id)rootDelegate;
 - (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
 - (id)actionForMenu:(id)arg1;
@@ -168,7 +172,6 @@
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
 - (void)changeToImmutableDocumentData:(id)arg1 pageChanged:(BOOL)arg2;
-- (void)setupHistory;
 - (void)commitHistoryIfNecessary:(id)arg1;
 - (void)flushCachesIfNecessary;
 - (id)currentVerticalRulerData;
@@ -188,7 +191,6 @@
 - (void)updateFilterSettings;
 - (void)onFilterChanged:(id)arg1;
 - (void)validateMenuItemTitleAndState:(id)arg1;
-- (BOOL)shouldEnableLocalSharing;
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)layerWouldOverlapExistingLayer:(id)arg1 inGroup:(id)arg2;
@@ -234,22 +236,19 @@
 - (void)windowDidEndSheet:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
 - (id)window;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)close;
 - (void)setDelegatesToNil;
 - (void)createActions;
+@property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
-@property(retain, nonatomic) MSCloudShare *cloudShare;
+@property(retain, nonatomic) SCKShare *cloudShare;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;
 - (id)hudDocumentData;
 - (void)hudSetMonitor:(id)arg1;
 - (id)hudClientName;
-- (void)hideMessage:(id)arg1;
-- (void)hideMessage;
-- (id)shadowViewForContentView:(id)arg1 cornerRadius:(double)arg2;
-- (void)displayMessage:(id)arg1 timeout:(double)arg2;
-- (void)displayMessage:(id)arg1;
 - (void)showMessage:(id)arg1;
 - (void)stopAccessingFolderToken:(id)arg1;
 - (id)startAccessingFolder:(id)arg1 tokenName:(id)arg2;
@@ -261,10 +260,12 @@
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
 - (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (id)pluginContext;
-- (void)warnAboutOldVersion;
 - (BOOL)askToOpenDocumentRepairingMetadata;
 - (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
-- (void)alertDocumentCorruptionWasDetected;
+- (BOOL)alertDocumentCorruptionWasDetected;
+- (void)contactSupportAction:(id)arg1;
+- (BOOL)handleNewerDocument:(id)arg1 error:(id *)arg2;
+- (long long)askToOpenNewerDocument;
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
 - (id)bitmapLayerWithImageAtURL:(id)arg1;

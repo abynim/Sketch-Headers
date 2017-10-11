@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSCloudShare, MSCloudShareUploadController, NSError;
+@class MSCloudShareUploadController, NSError, SCKShare;
 
 @protocol MSCloudShareUploadControllerDelegate <NSObject>
-- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didUploadShare:(MSCloudShare *)arg2;
+- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didUploadShare:(SCKShare *)arg2;
 
 @optional
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 willUploadShareAsNew:(BOOL)arg2;

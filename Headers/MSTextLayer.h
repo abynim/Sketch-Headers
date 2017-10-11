@@ -6,11 +6,12 @@
 
 #import "_MSTextLayer.h"
 
+#import "MSColorSpaceConvertible.h"
 #import "MSFirstLineTypesetterDelegate.h"
 
 @class MSColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
 
-@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate>
+@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorSpaceConvertible>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
@@ -36,6 +37,7 @@
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
+- (void)convertColorsUsing:(id)arg1;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;
@@ -67,6 +69,7 @@
 @property(retain, nonatomic) NSString *fontPostscriptName;
 - (void)setFont:(id)arg1;
 @property(nonatomic) double fontSize;
+@property(nonatomic) long long verticalAlignment;
 @property(nonatomic) unsigned long long textAlignment;
 - (void)setLeading:(double)arg1;
 - (double)leading;

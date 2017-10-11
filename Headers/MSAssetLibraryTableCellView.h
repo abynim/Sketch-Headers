@@ -4,21 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSAssetPrefsTableCellView.h"
+#import "NSTableCellView.h"
 
-@class MSAssetPreferenceItem;
+@class MSAssetLibraryPreview, MSAssetPreferenceItem, NSTextField;
 
-@interface MSAssetLibraryTableCellView : MSAssetPrefsTableCellView
+@interface MSAssetLibraryTableCellView : NSTableCellView
 {
+    NSTextField *_primaryTextField;
+    NSTextField *_secondaryTextField;
+    MSAssetLibraryPreview *_previewContainer;
 }
 
-- (void)generatePreview;
++ (void)initialize;
+@property(nonatomic) __weak MSAssetLibraryPreview *previewContainer; // @synthesize previewContainer=_previewContainer;
+@property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
+@property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSAssetPreferenceItem *assetPreferenceItem;
-- (void)viewDidChangeBackingProperties;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setObjectValue:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) struct CGRect previewFrame;
+- (void)setBackgroundStyle:(long long)arg1;
 
 @end
 

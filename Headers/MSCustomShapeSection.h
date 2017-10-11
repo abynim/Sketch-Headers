@@ -10,7 +10,8 @@
 {
 }
 
-- (void)userAction:(id)arg1;
+- (void)refreshAction:(id)arg1;
+- (void)refreshAndResetAction:(id)arg1;
 - (id)nibName;
 
 @end

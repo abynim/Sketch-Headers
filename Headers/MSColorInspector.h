@@ -6,14 +6,16 @@
 
 #import "NSViewController.h"
 
+#import "BCHSBColorPickerDelegate.h"
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorSectionDelegate.h"
+#import "MSColorPreviewButtonDelegate.h"
 #import "MSModeModePickerDelegate.h"
 #import "NSTouchBarDelegate.h"
 
 @class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate, BCHSBColorPickerDelegate, MSColorPreviewButtonDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
@@ -85,6 +87,10 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (id)colorPreviewButtonColorSpace:(id)arg1;
+- (id)previewColorSpaceForControl:(id)arg1;
+- (id)documentColorSpace;
+- (id)hsbColorPickerColorSpace:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;

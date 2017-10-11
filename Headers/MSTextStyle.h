@@ -16,9 +16,9 @@
 + (id)styleWithAttributes:(id)arg1;
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void).cxx_destruct;
-@property(nonatomic) long long verticalAlignment;
 - (void)syncOwningTextLayerWithThisStyle;
 @property(copy, nonatomic) NSDictionary *attributes;
+- (void)updateAttributesWithoutSyncingOwningTextLayer:(id)arg1;
 @property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
 - (id)treeAsDictionary;

@@ -19,6 +19,7 @@
     MSPath *_path;
 }
 
++ (id)contourWithRect:(struct CGRect)arg1;
 @property(nonatomic) BOOL cachedBounds; // @synthesize cachedBounds=_cachedBounds;
 @property(nonatomic) BOOL cachedClockwise; // @synthesize cachedClockwise=_cachedClockwise;
 @property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
@@ -28,8 +29,6 @@
 - (id)debugQuickLookObject;
 - (id)contourWithInset:(double)arg1;
 - (id)rejoinSegments:(id)arg1 closed:(BOOL)arg2;
-- (id)segmentBeforeSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
-- (id)segmentAfterSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
 - (id)segmentsByJoiningCurveSegment1:(id)arg1 withLineSegment2:(id)arg2;
 - (id)segmentsByJoiningLineSegment1:(id)arg1 withCurveSegment2:(id)arg2;
 - (id)segmentsByJoiningLineSegment1:(id)arg1 withLineSegment2:(id)arg2;
@@ -39,7 +38,10 @@
 - (id)closestOffsetGreaterThan:(double)arg1 inSet:(id)arg2;
 - (id)closestOffsetLessThan:(double)arg1 inSet:(id)arg2;
 - (id)firstOffsetInBezierIntervalFromSet:(id)arg1;
+- (id)segmentBeforeSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
+- (id)segmentAfterSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
 - (id)segmentAfter:(id)arg1;
+- (id)segmentBefore:(id)arg1;
 - (id)reversedContour;
 @property(nonatomic, getter=isClockwise) BOOL clockwise;
 @property(readonly, nonatomic) struct CGRect bounds;

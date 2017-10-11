@@ -6,7 +6,11 @@
 
 #import "_MSStyleBorder.h"
 
-@interface MSStyleBorder : _MSStyleBorder
+#import "MSColorSpaceConvertible.h"
+
+@class NSString;
+
+@interface MSStyleBorder : _MSStyleBorder <MSColorSpaceConvertible>
 {
 }
 
@@ -19,6 +23,12 @@
 - (id)topViewForColorInspector:(id)arg1;
 - (id)blendingViewForColorInspector:(id)arg1;
 - (id)CSSAttributeString;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

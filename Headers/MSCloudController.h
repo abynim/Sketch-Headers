@@ -8,12 +8,11 @@
 
 #import "MSCloudShareUploadControllerDelegate.h"
 
-@class MSCloudShare, MSCloudShareAPI, MSCloudShareUploadController, MSDocument, NSString;
+@class MSCloudShareUploadController, MSDocument, NSString;
 
 @interface MSCloudController : NSObject <MSCloudShareUploadControllerDelegate>
 {
     MSDocument *_document;
-    MSCloudShareAPI *_api;
     double _uploadProgress;
     double _uploadStartTime;
     MSCloudShareUploadController *_currentUploadController;
@@ -26,11 +25,9 @@
 + (void)openRemoteFileOverview;
 + (void)openRemoteAccountSettings;
 + (void)showPreferences;
-+ (id)baseURL;
 @property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
 @property(nonatomic) double uploadStartTime; // @synthesize uploadStartTime=_uploadStartTime;
 @property(nonatomic) double uploadProgress; // @synthesize uploadProgress=_uploadProgress;
-@property(retain, nonatomic) MSCloudShareAPI *api; // @synthesize api=_api;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (void)openRemoteShareSettings;
@@ -46,11 +43,7 @@
 @property(readonly, nonatomic) BOOL uploadedByCurrentUser;
 @property(readonly, nonatomic) BOOL uploaded;
 - (void)resetCloudShare;
-@property(readonly, nonatomic) MSCloudShare *share;
 @property(readonly, nonatomic) BOOL canUpload;
-- (void)userDidChangeNotification:(id)arg1;
-- (void)updateUserAccount;
-- (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 
 // Remaining properties

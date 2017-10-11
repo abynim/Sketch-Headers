@@ -27,7 +27,6 @@
 @property(readonly, nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 - (void).cxx_destruct;
 - (void)addCurveFromPointAtIndex:(unsigned long long)arg1 toPointAtIndex:(unsigned long long)arg2 inArray:(id)arg3 inRect:(struct CGRect)arg4 includingTrailingArc:(BOOL)arg5 toBezierPath:(id)arg6 orCGPath:(struct CGPath *)arg7;
-- (void)addArcForFillet:(id)arg1 toBezierPath:(id)arg2 orCGPath:(struct CGPath *)arg3;
 - (id)filletAtIndex:(unsigned long long)arg1 inPointArray:(id)arg2 rect:(struct CGRect)arg3;
 - (void)buildV1BezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (void)extendPath:(id)arg1 orCGPath:(struct CGPath *)arg2 toPoint:(struct CGPoint)arg3 controlPoint1:(struct CGPoint)arg4 controlPoint2:(struct CGPoint)arg5;

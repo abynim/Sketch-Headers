@@ -12,8 +12,9 @@
 
 + (void)updateOverridesForInstancesOnPasteboard:(id)arg1;
 + (BOOL)propertiesAreEqualBetweenSymbol:(id)arg1 andSymbol:(id)arg2;
-+ (void)addSymbolMasterWithID:(id)arg1 inDocument:(id)arg2 fromPasteboardLayers:(id)arg3;
 + (void)addSymbolMastersInDocument:(id)arg1 fromPasteboardLayers:(id)arg2;
++ (void)updateInstancesWithSymbolID:(id)arg1 fromPasteboardLayers:(id)arg2 toSymbol:(id)arg3;
++ (void)updateOverridesOnInstance:(id)arg1 withIDMap:(id)arg2;
 + (void)ensureSymbolMastersHaveUniqueID:(id)arg1 inDocument:(id)arg2;
 + (void)addSharedObjectsInDocument:(id)arg1 fromPasteboardLayers:(id)arg2;
 + (id)rightmostArtboardOnPage:(id)arg1 intersectingRect:(struct CGRect)arg2;

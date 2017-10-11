@@ -6,14 +6,25 @@
 
 #import "_MSGradientStop.h"
 
-@interface MSGradientStop : _MSGradientStop
+#import "MSColorSpaceConvertible.h"
+
+@class NSString;
+
+@interface MSGradientStop : _MSGradientStop <MSColorSpaceConvertible>
 {
 }
 
 + (id)stopWithPosition:(double)arg1 color:(id)arg2;
+- (void)convertColorsUsing:(id)arg1;
 - (double)cappedBounds:(double)arg1;
 - (void)setPosition:(double)arg1;
 - (id)initWithPosition:(double)arg1 color:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

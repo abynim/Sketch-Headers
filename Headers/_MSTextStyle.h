@@ -11,6 +11,7 @@
 @interface _MSTextStyle : MSModelObject
 {
     NSDictionary *_encodedAttributes;
+    long long _verticalAlignment;
 }
 
 + (BOOL)allowsFaulting;
@@ -23,6 +24,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
 @property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

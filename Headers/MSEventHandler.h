@@ -48,6 +48,9 @@
 - (void)touchBarTextColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (void)refreshStylePreviewTouchBarButton:(id)arg1 forIdentifier:(id)arg2;
+- (id)touchBarPreviewColorSpace;
+- (id)previewColorSpace;
+- (id)documentColorSpace;
 - (void)openInnerShadowAction:(id)arg1;
 - (void)openShadowAction:(id)arg1;
 - (void)openBorderAction:(id)arg1;

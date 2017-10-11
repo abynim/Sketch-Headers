@@ -32,6 +32,8 @@
 @property(readonly, nonatomic) struct CGRect safeBounds;
 - (id)init;
 - (id)initWithEllipseInRect:(struct CGRect)arg1;
+- (id)initWithSquircleInRect:(struct CGRect)arg1 radius:(double)arg2;
+- (id)initWithRoundedRect:(struct CGRect)arg1 radius:(double)arg2;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithBezierPath:(id)arg1;
 - (void)dealloc;

@@ -8,12 +8,13 @@
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
+#import "MSColorPreviewButtonDelegate.h"
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
 @class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 
-@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource>
+@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSColorPreviewButtonDelegate>
 {
     NSView *_basicView;
     NSView *_missingFontsView;
@@ -53,6 +54,7 @@
 @property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
+- (id)colorPreviewButtonColorSpace:(id)arg1;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
@@ -71,10 +73,10 @@
 - (void)reloadFontWeightPopUp;
 - (void)reloadFontFamilyButton;
 - (void)reloadPointSizesTextField;
-- (id)colorSpaceForFirstColor;
 - (id)firstColor;
 - (void)changeFontFamilyTo:(id)arg1;
 - (void)changeParagraphStyleInBlock:(CDUnknownBlockType)arg1;
+- (id)textEventHandler;
 - (id)textView;
 - (void)verticalAlignmentAction:(id)arg1;
 - (void)textBehaviourButtonAction:(id)arg1;
@@ -88,6 +90,7 @@
 - (void)putFocusOnTextView;
 - (void)colorInspectorWillClose:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
+- (id)documentColorSpace;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)showColorPickerAction:(id)arg1;
 - (void)showParagraphStylingAction:(id)arg1;

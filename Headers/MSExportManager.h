@@ -15,7 +15,7 @@
 }
 
 @property(copy, nonatomic) CDUnknownBlockType sliceCompletionBlock; // @synthesize sliceCompletionBlock=_sliceCompletionBlock;
-@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;
 - (id)savePanelWithDefaultFilename:(id)arg1;
 - (void)showSavePanelToExportIndividualSlice:(id)arg1;
@@ -31,7 +31,7 @@
 - (void)exportFileForRequest:(id)arg1 toFileURL:(id)arg2;
 - (id)exportedDataForRequest:(id)arg1;
 - (id)rendererForRequest:(id)arg1;
-- (id)init;
+- (id)initWithColorSpace:(id)arg1;
 
 @end
 

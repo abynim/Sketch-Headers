@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCloudShareAPI.h"
+#import "NSObject.h"
 
 @class AFAmazonS3Manager, NSError, NSString, NSURL;
 
-@interface MSCloudShareUploadController : MSCloudShareAPI
+@interface MSCloudShareUploadController : NSObject
 {
     BOOL _includeDocument;
     BOOL _uploadFailed;
     id <MSCloudShareUploadControllerDelegate> _delegate;
-    id <MSCloudDocument> _document;
+    id <MSCloudExportableDocument> _document;
     NSURL *_localURL;
     AFAmazonS3Manager *_s3Manager;
     NSError *_uploadError;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
 @property(retain, nonatomic) AFAmazonS3Manager *s3Manager; // @synthesize s3Manager=_s3Manager;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
-@property(nonatomic) __weak id <MSCloudDocument> document; // @synthesize document=_document;
+@property(nonatomic) __weak id <MSCloudExportableDocument> document; // @synthesize document=_document;
 @property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

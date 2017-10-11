@@ -62,6 +62,7 @@
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
 - (void)updateColorCounter:(id)arg1;
+- (id)overridePointsWithParent:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV76OrEarlierWithUnarchiver:(id)arg1;

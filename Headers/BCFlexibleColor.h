@@ -26,6 +26,7 @@
 @property(nonatomic) double blue; // @synthesize blue=_blue;
 @property(nonatomic) double green; // @synthesize green=_green;
 @property(nonatomic) double red; // @synthesize red=_red;
+- (id)description;
 - (id)colorForColorSpace:(id)arg1;
 
 @end

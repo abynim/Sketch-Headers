@@ -10,6 +10,7 @@
 
 @interface _MSDocumentData : MSModelObject
 {
+    unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
     BOOL _enableLayerInteraction;
     BOOL _enableSliceInteraction;
@@ -66,6 +67,7 @@
 @property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
 @property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
+@property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

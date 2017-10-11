@@ -7,6 +7,7 @@
 #import "NSURL.h"
 
 @interface NSURL (BCFoundation)
+@property(readonly, nonatomic) BOOL isInTrash_bc;
 - (BOOL)hasExtension:(id)arg1;
 - (id)URLByAppendingNameWithSeparators:(id)arg1 defaultName:(id)arg2;
 - (id)URLByStrippingInvisiblePeriod_bc;
