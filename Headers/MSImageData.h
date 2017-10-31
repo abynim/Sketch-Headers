@@ -43,7 +43,6 @@
 - (BOOL)isLegacy;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
-- (id)initWithImageConvertingColorSpace:(id)arg1;
 - (id)initWithImage:(id)arg1;
 - (id)treeAsDictionary;
 

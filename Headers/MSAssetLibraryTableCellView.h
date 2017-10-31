@@ -6,22 +6,43 @@
 
 #import "NSTableCellView.h"
 
-@class MSAssetLibraryPreview, MSAssetPreferenceItem, NSTextField;
+@class MSAssetLibrariesPreferencePane, MSAssetLibraryPreview, MSAssetPreferenceItem, NSProgressIndicator, NSTextField;
 
 @interface MSAssetLibraryTableCellView : NSTableCellView
 {
+    BOOL _quickLookButtonHidden;
+    BOOL _downloadButtonHidden;
+    BOOL _downloadProgressHidden;
     NSTextField *_primaryTextField;
     NSTextField *_secondaryTextField;
+    NSTextField *_updateAvailablePrimaryTextField;
+    NSTextField *_updateAvailableSecondaryTextField;
+    MSAssetLibrariesPreferencePane *_libraryPreferencePane;
     MSAssetLibraryPreview *_previewContainer;
+    NSProgressIndicator *_downloadProgress;
 }
 
++ (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (void)initialize;
+@property(nonatomic) BOOL downloadProgressHidden; // @synthesize downloadProgressHidden=_downloadProgressHidden;
+@property(nonatomic) BOOL downloadButtonHidden; // @synthesize downloadButtonHidden=_downloadButtonHidden;
+@property(nonatomic) BOOL quickLookButtonHidden; // @synthesize quickLookButtonHidden=_quickLookButtonHidden;
+@property(nonatomic) __weak NSProgressIndicator *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(nonatomic) __weak MSAssetLibraryPreview *previewContainer; // @synthesize previewContainer=_previewContainer;
+@property(nonatomic) __weak MSAssetLibrariesPreferencePane *libraryPreferencePane; // @synthesize libraryPreferencePane=_libraryPreferencePane;
+@property(nonatomic) __weak NSTextField *updateAvailableSecondaryTextField; // @synthesize updateAvailableSecondaryTextField=_updateAvailableSecondaryTextField;
+@property(nonatomic) __weak NSTextField *updateAvailablePrimaryTextField; // @synthesize updateAvailablePrimaryTextField=_updateAvailablePrimaryTextField;
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
 - (void).cxx_destruct;
+- (void)setPrimaryTextFieldTextColor:(id)arg1;
+- (void)setSecondaryTextFieldTextColor:(id)arg1;
+- (void)downloadLibrary:(id)arg1;
+@property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) MSAssetPreferenceItem *assetPreferenceItem;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)startDownloading;
+- (void)setupButtons;
 - (void)setObjectValue:(id)arg1;
 - (void)setBackgroundStyle:(long long)arg1;
 

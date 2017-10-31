@@ -10,7 +10,8 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
+- (id)title;
+- (BOOL)hasDynamicTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)lockLayer:(id)arg1;
 - (BOOL)validate;

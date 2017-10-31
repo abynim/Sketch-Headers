@@ -19,10 +19,10 @@
 - (void).cxx_destruct;
 - (void)resolveLocationOnDisk;
 - (void)startMonitoring;
-- (void)loadAsyncWithCompletion:(CDUnknownBlockType)arg1;
+- (void)loadAsyncWithDispatchGroup:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)loadSynchronously;
 - (void)setEnabled:(BOOL)arg1;
-- (BOOL)isUserLibrary;
+- (unsigned long long)libraryType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;

@@ -17,7 +17,7 @@
 
 - (void)writeData:(id)arg1 toPasteboard:(id)arg2;
 - (BOOL)canWriteDataToPasteboard:(id)arg1;
-- (id)pasteboardDataFromPasteboard:(id)arg1 options:(unsigned long long)arg2 sender:(id)arg3;
+- (id)pasteboardDataFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 sender:(id)arg4;
 - (id)supportedPasteboardTypes;
 
 // Remaining properties

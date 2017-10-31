@@ -8,20 +8,24 @@
 
 #import "NSToolbarDelegate.h"
 
-@class MSDocument, NSString, NSToolbar;
+@class MSDocument, NSArray, NSString, NSToolbar;
 
 @interface MSToolbarConstructor : NSObject <NSToolbarDelegate>
 {
-    NSToolbar *_toolbar;
     MSDocument *_doc;
+    NSArray *_toolbarSelectableIdentifiers;
+    NSToolbar *_toolbar;
 }
 
 + (id)toolbarForDocument:(id)arg1;
+@property(retain, nonatomic) NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
+@property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
+- (id)toolbarSelectableItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
 - (id)allActions;
 - (id)standardToolbarIdentifiers;

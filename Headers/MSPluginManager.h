@@ -11,9 +11,10 @@
 @interface MSPluginManager : NSObject
 {
     NSDictionary *_plugins;
+    BOOL _doNotLoadPlugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
-    long long _numberOfIncompatiblePluginDisabled;
+    long long _numberOfIncompatiblePluginsDisabled;
     long long _updatesAddedToWarehouse;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
@@ -46,8 +47,9 @@
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
+@property(nonatomic) BOOL doNotLoadPlugins; // @synthesize doNotLoadPlugins=_doNotLoadPlugins;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
-@property(nonatomic) long long numberOfIncompatiblePluginDisabled; // @synthesize numberOfIncompatiblePluginDisabled=_numberOfIncompatiblePluginDisabled;
+@property(nonatomic) long long numberOfIncompatiblePluginsDisabled; // @synthesize numberOfIncompatiblePluginsDisabled=_numberOfIncompatiblePluginsDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
 - (void)removePluginVersionsNotInIdentifiers:(id)arg1;

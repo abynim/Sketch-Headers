@@ -8,7 +8,7 @@
 
 #import "MSClickableTextFieldDelegate.h"
 
-@class NSLayoutConstraint, NSProgressIndicator, NSString, NSTextField, NSTimer;
+@class NSButton, NSLayoutConstraint, NSProgressIndicator, NSString, NSTextField, NSTimer;
 
 @interface MSCloudDocumentViewController : MSCloudViewController <MSClickableTextFieldDelegate>
 {
@@ -19,10 +19,12 @@
     NSLayoutConstraint *_descriptionBottomSpacingConstraint;
     NSProgressIndicator *_uploadProgressIndicator;
     NSTextField *_uploadStatusLabel;
+    NSButton *_cancelButton;
     NSTimer *_labelUpdateTimer;
 }
 
 @property(retain, nonatomic) NSTimer *labelUpdateTimer; // @synthesize labelUpdateTimer=_labelUpdateTimer;
+@property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSTextField *uploadStatusLabel; // @synthesize uploadStatusLabel=_uploadStatusLabel;
 @property(retain, nonatomic) NSProgressIndicator *uploadProgressIndicator; // @synthesize uploadProgressIndicator=_uploadProgressIndicator;
 @property(retain, nonatomic) NSLayoutConstraint *descriptionBottomSpacingConstraint; // @synthesize descriptionBottomSpacingConstraint=_descriptionBottomSpacingConstraint;
@@ -33,12 +35,14 @@
 - (void).cxx_destruct;
 - (void)textFieldDidClick:(id)arg1;
 - (BOOL)textFieldCanBeClicked:(id)arg1;
+- (void)cancelUpload:(id)arg1;
 - (void)updateDescriptionLabel;
 - (void)scheduledLabelUpdateFired:(id)arg1;
 - (void)scheduleLabelUpdate;
 - (void)updateViewSize;
 - (void)updateUploadProgress;
 - (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
+- (void)uploadProgressDidChangeNotification:(id)arg1;
 - (void)documentCloudShareDidChangeNotification:(id)arg1;
 - (void)setCloudController:(id)arg1;
 - (void)updateLayoutConstraints;

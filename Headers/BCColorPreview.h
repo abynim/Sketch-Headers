@@ -12,13 +12,16 @@
 {
     BOOL _isHovering;
     BCFlexibleColor *_color;
+    id <BCColorPreviewDelegate> _delegate;
     NSArray *_frequentColors;
     NSNumberFormatter *_numberFormatter;
 }
 
++ (id)imageForColorTracker:(id)arg1 documentColorSpace:(id)arg2;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 @property(copy, nonatomic) NSArray *frequentColors; // @synthesize frequentColors=_frequentColors;
+@property(nonatomic) __weak id <BCColorPreviewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)drawCheckerboard;
@@ -27,7 +30,6 @@
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
-- (id)imageForColorTracker:(id)arg1;
 - (id)toolTipForColorTracker:(id)arg1;
 - (id)initInBounds:(struct CGRect)arg1;
 

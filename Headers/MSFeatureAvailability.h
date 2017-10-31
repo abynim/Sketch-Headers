@@ -10,6 +10,8 @@
 {
 }
 
++ (void)setIsComponentsPanelEnabled:(BOOL)arg1;
++ (BOOL)isComponentsPanelEnabled;
 + (void)setFeature:(id)arg1 enabled:(BOOL)arg2;
 + (BOOL)isFeatureEnabled:(id)arg1;
 + (void)enableFeatureAvailability;

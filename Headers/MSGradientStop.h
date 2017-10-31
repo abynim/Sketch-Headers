@@ -6,11 +6,11 @@
 
 #import "_MSGradientStop.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 
 @class NSString;
 
-@interface MSGradientStop : _MSGradientStop <MSColorSpaceConvertible>
+@interface MSGradientStop : _MSGradientStop <MSColorConvertible>
 {
 }
 

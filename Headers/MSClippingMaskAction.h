@@ -13,7 +13,7 @@
 - (void)doPerformAction:(id)arg1;
 - (void)clippingMask:(id)arg1;
 - (BOOL)validate;
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)isActive;
 
 @end
 

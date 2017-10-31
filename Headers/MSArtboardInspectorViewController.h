@@ -42,8 +42,7 @@
 @property(retain, nonatomic) NSView *symbolStandardPropertiesView; // @synthesize symbolStandardPropertiesView=_symbolStandardPropertiesView;
 @property(retain, nonatomic) NSView *artboardBackgroundView; // @synthesize artboardBackgroundView=_artboardBackgroundView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonColorSpace:(id)arg1;
-- (id)documentColorSpace;
+- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
 - (void)artboardPresetsViewController:(id)arg1 didSelectOrientation:(long long)arg2;
 - (void)artboardPresetsViewController:(id)arg1 didSelectPreset:(id)arg2;
 - (id)views;
@@ -57,6 +56,7 @@
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (void)changeBackgroundColorTo:(id)arg1;
+- (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)validateArtboardBackgroundButtons;
 - (void)backgroundColorAction:(id)arg1;

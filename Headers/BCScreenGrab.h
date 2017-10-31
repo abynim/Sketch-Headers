@@ -17,7 +17,7 @@
     struct CGPoint _imageOrigin;
 }
 
-+ (id)screenGrabForDisplay:(unsigned int)arg1;
++ (id)screenGrabForDisplay:(unsigned int)arg1 belowWindowWithID:(unsigned int)arg2;
 + (id)screenGrabWithBitmapImageRep:(id)arg1 originOnScreen:(struct CGPoint)arg2 colorSpace:(id)arg3 displayID:(unsigned int)arg4;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGPoint imageOrigin; // @synthesize imageOrigin=_imageOrigin;

@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+- (id)overrideImage;
 - (id)NSImage;
 - (id)valueFromControlView:(id)arg1;
 - (void)choosePatternImage:(id)arg1;

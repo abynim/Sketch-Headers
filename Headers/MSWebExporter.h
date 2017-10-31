@@ -13,6 +13,7 @@
     BOOL _includeBackground;
     BOOL _selectiveExport;
     BOOL _includeDocument;
+    BOOL _cancelled;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
@@ -20,8 +21,10 @@
 }
 
 + (id)fileURLWithHash:(id)arg1 inDirectory:(id)arg2;
++ (id)documentURLInDirectory:(id)arg1;
 + (void)exportDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
+@property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
@@ -34,8 +37,10 @@
 - (id)imageRepresentationFromRootLayer:(id)arg1 onPage:(id)arg2 scale:(double)arg3;
 - (id)exportedImageDataForRoot:(id)arg1 onPage:(id)arg2 scale:(double)arg3;
 - (id)metadataForDocument:(id)arg1;
+@property(readonly, nonatomic) unsigned long long documentFileSize;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
 - (void)exportWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 localURL:(id)arg4;
 
 @end

@@ -138,14 +138,13 @@
 - (BOOL)canBeHidden;
 - (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
-- (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
-- (id)handlerName;
+- (Class)handlerClass;
 - (BOOL)handleDoubleClick;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @property(nonatomic) double userVisibleRotation;
@@ -176,6 +175,7 @@
 - (BOOL)canSnapToLayer:(id)arg1;
 - (id)hudDescription;
 - (BOOL)booleanOperationCanBeReset;
+- (id)replaceWithInstanceOfSymbol:(id)arg1;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 - (id)cloneDictionaryReplacingImages:(id)arg1;
 - (void)addMastersForInstancesToDocument:(id)arg1;
@@ -219,9 +219,6 @@
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
-- (BOOL)acceptsOverrideValue:(id)arg1;
-- (void)applyOverrides:(id)arg1 allSymbols:(id)arg2;
-- (void)applyOverridesFromSource:(id)arg1;
 - (void)resetConstraints;
 - (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasFixedEdges;
@@ -244,6 +241,8 @@
 - (void)replaceFonts:(id)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
+- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
+- (void)applyOverrides:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (id)overridePoints;
 - (id)CSSAttributes;

@@ -11,10 +11,11 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
 {
+    BOOL _sketchSafeModeOn;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_templatesMenu;
@@ -37,25 +38,28 @@
     double _creationTime;
     double _launchStartTime;
     double _launchEndTime;
+    MSPersistentAssetCollection *_globalAssets;
+    MSComponentsPanelController *_componentsPanelController;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
-    MSPersistentAssetCollection *_globalAssets;
     ECLogManagerMacUISupport *_logSupport;
     MSHUDWindowController *_hud;
     MSDocumentationSearcher *_documentationSearcher;
-    NSArray *_debugSettings;
+    NSArray *_visualSettings;
     id _lastRunPlugin;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
-@property(retain, nonatomic) NSArray *debugSettings; // @synthesize debugSettings=_debugSettings;
+@property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
-@property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
+@property(readonly, nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
+@property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
+@property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
@@ -111,6 +115,7 @@
 - (void)installCompatiblePluginUpdates;
 - (void)setupMetrics;
 - (void)applicationDidFinishLaunching:(id)arg1;
+- (void)checkForAssetLibraryUpdates;
 - (void)createActions;
 - (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;
 - (void)userNotificationCenter:(id)arg1 didDeliverNotification:(id)arg2;
@@ -120,18 +125,21 @@
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
 - (BOOL)applicationOpenUntitledFile:(id)arg1;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
+- (id)toggleComponentsPanel;
 - (BOOL)isFirstLaunchOfNewVersion;
+- (void)reloadAssetLibraryPreferencesTableView;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) BOOL canShowWelcomeWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)removeObserversForDebugSettings;
-- (void)addObserversForDebugSettings;
+- (void)removeObserversForVisualSettings;
+- (void)addObserversForVisualSettings;
 - (id)init;
 - (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;
+- (void)didOpenURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;
 - (id)actionClasses;

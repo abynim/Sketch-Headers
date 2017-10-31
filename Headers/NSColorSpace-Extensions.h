@@ -7,7 +7,6 @@
 #import "NSColorSpace.h"
 
 @interface NSColorSpace (Extensions)
-+ (id)canvasColorSpaceForScreenColorSpace:(id)arg1 documentColorSpace:(id)arg2;
 + (id)colorSpaceForSketchColorSpace:(unsigned long long)arg1;
 @end
 

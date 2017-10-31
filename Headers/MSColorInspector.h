@@ -39,6 +39,7 @@
     NSTextField *_textFieldToContinueEditing;
 }
 
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 initialColor:(id)arg4;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
@@ -65,6 +66,9 @@
 - (id)customTouchBarItemIdentifiers;
 - (id)makeTouchBar;
 - (double)minimumPopoverContentViewHeight:(id)arg1;
+- (id)popoverWillReturnUndoManager:(id)arg1;
+- (BOOL)popoverShouldTrackSuperviewOfAttachedToView:(id)arg1;
+- (void)adjustInspectorToColorPopoverIfNeeded:(id)arg1;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
@@ -87,10 +91,8 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (id)colorPreviewButtonColorSpace:(id)arg1;
-- (id)previewColorSpaceForControl:(id)arg1;
-- (id)documentColorSpace;
-- (id)hsbColorPickerColorSpace:(id)arg1;
+- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)hsbColorPickerPreviewColorSpace:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;

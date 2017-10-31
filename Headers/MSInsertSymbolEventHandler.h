@@ -26,14 +26,22 @@
 @property(retain, nonatomic) MSSymbolMasterReference *symbolReference; // @synthesize symbolReference=_symbolReference;
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
+- (BOOL)pasteboardContainsSymbolInfo:(id)arg1;
+- (void)draggingExited:(id)arg1;
+- (void)updateDraggingItemsForDrag:(id)arg1;
+- (BOOL)performDragOperation:(id)arg1;
+- (unsigned long long)draggingUpdated:(id)arg1;
+- (unsigned long long)draggingEntered:(id)arg1;
 - (id)previewImage;
 - (struct CGRect)rectAroundMouseFromBoundsCoordinates:(struct CGRect)arg1;
 - (struct CGPoint)originForInserting;
 - (struct CGRect)previewRectForInserting;
 - (void)refresh;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (BOOL)insertSymbolAtCurrentMouseLocation;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)initWithManager:(id)arg1;
 
 @end

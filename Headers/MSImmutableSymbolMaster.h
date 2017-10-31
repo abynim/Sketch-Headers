@@ -15,12 +15,13 @@
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (BOOL)influenceRectClipsToBounds;
 - (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (id)masterWithOverrides:(id)arg1 size:(struct CGSize)arg2 allSymbols:(id)arg3;
-- (id)masterWithOverrides:(id)arg1 allSymbols:(id)arg2;
+- (id)modifiedMasterByApplyingInstance:(id)arg1 inDocument:(id)arg2;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 inDocument:(id)arg3;
+- (id)mergeNestedOverrides:(id)arg1 withParent:(id)arg2;
+- (id)nestedOverridesWithParent:(id)arg1;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;

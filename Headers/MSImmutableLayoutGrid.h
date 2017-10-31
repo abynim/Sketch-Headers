@@ -10,5 +10,7 @@
 {
 }
 
+- (BOOL)shouldDrawAtZoom:(double)arg1;
+
 @end
 

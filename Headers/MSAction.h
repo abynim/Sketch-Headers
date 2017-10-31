@@ -13,10 +13,12 @@
 
 @interface MSAction : NSResponder <NSMenuDelegate, MSPopToolbarItemActionObject>
 {
+    BOOL _isSelectable;
     MSActionController *_controller;
     NSToolbarItem *_toolbarItem;
 }
 
+@property(readonly, nonatomic) BOOL isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak MSActionController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
@@ -27,6 +29,7 @@
 @property(readonly, nonatomic) BOOL hasSubMenu;
 - (id)submenuActionIDs;
 - (BOOL)containsActionWithID:(id)arg1;
+@property(readonly, nonatomic) long long validationStatus;
 @property(readonly, nonatomic) BOOL validate;
 @property(readonly, nonatomic) unsigned short shortcutCharacter;
 @property(readonly, nonatomic) NSString *label;

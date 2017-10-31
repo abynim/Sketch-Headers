@@ -13,7 +13,7 @@
     BOOL _isFirstInCollection;
     BOOL _isLastInCollection;
     MSColor *_color;
-    NSColorSpace *_documentColorSpace;
+    NSColorSpace *_canvasColorSpace;
     MSGradient *_gradient;
     MSImageData *_pattern;
     double _tailPadding;
@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) BOOL isFirstInCollection; // @synthesize isFirstInCollection=_isFirstInCollection;
 @property(readonly, nonatomic) MSImageData *pattern; // @synthesize pattern=_pattern;
 @property(readonly, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
-@property(readonly, nonatomic) NSColorSpace *documentColorSpace; // @synthesize documentColorSpace=_documentColorSpace;
+@property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(readonly, nonatomic) MSColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
@@ -39,7 +39,7 @@
 - (id)clipPath;
 - (struct CGRect)drawingBounds;
 - (BOOL)shouldDrawBorderForColor:(id)arg1;
-- (id)initWithAssetAtIndex:(unsigned long long)arg1 amongAssets:(id)arg2 documentColorSpace:(id)arg3 tailPadding:(double)arg4;
+- (id)initWithAssetAtIndex:(unsigned long long)arg1 amongAssets:(id)arg2 canvasColorSpace:(id)arg3 tailPadding:(double)arg4;
 
 @end
 

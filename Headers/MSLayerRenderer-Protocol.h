@@ -9,7 +9,7 @@
 @class MSImmutableLayer, MSRenderingContext;
 
 @protocol MSLayerRenderer <MSRenderer>
-- (void)renderLayerUncached:(MSImmutableLayer *)arg1 ignoreDirtyRect:(BOOL)arg2 context:(MSRenderingContext *)arg3;
-- (void)renderLayer:(MSImmutableLayer *)arg1 ignoreDirtyRect:(BOOL)arg2 context:(MSRenderingContext *)arg3;
+- (void)renderLayerUncached:(MSImmutableLayer *)arg1 ignoreDrawingArea:(BOOL)arg2 context:(MSRenderingContext *)arg3;
+- (void)renderLayer:(MSImmutableLayer *)arg1 ignoreDrawingArea:(BOOL)arg2 context:(MSRenderingContext *)arg3;
 @end
 

@@ -6,12 +6,12 @@
 
 #import "_MSTextLayer.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 #import "MSFirstLineTypesetterDelegate.h"
 
-@class MSColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
+@class MSImmutableColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
 
-@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorSpaceConvertible>
+@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
@@ -62,7 +62,7 @@
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
-@property(copy, nonatomic) MSColor *textColor;
+@property(copy, nonatomic) MSImmutableColor *textColor;
 @property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
 @property(retain, nonatomic) NSNumber *characterSpacing;
@@ -98,8 +98,6 @@
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;
-- (id)baselineOffsets;
-- (double)firstBaselineOffset;
 - (void)setupBehaviour:(BOOL)arg1;
 - (void)setTextBehaviour:(long long)arg1;
 - (void)setTextBehaviour:(long long)arg1 mayAdjustFrame:(BOOL)arg2;
@@ -108,16 +106,15 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)performInitEmptyObject;
 - (void)objectDidInit;
-- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 type:(long long)arg3;
-- (id)initWithAttributedString:(id)arg1 maxWidth:(double)arg2;
+- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(id)arg3 type:(long long)arg4;
+- (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2 maxWidth:(double)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
 - (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
 - (long long)cornerRectType;
-- (Class)overrideViewControllerClass;
 - (BOOL)shouldDrawSelection;
-- (id)handlerName;
+- (Class)handlerClass;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
@@ -132,9 +129,8 @@
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsInnerOuterBorders;
-- (BOOL)acceptsOverrideValue:(id)arg1;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
-- (void)applyOverridesFromSource:(id)arg1;
+- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (unsigned long long)resizingConstraint;
 - (BOOL)canFixHeight;
 - (void)replaceFonts:(id)arg1;

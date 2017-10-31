@@ -22,6 +22,7 @@
 - (void).cxx_destruct;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
 - (id)previewBitmapImageRepWithSize:(struct CGSize)arg1;
+- (id)libraryPreviewImage;
 - (id)previewImage;
 - (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
 - (unsigned long long)validate;

@@ -6,23 +6,39 @@
 
 #import "NSObject.h"
 
-@class MSAssetLibrary, NSImage, NSString;
+@class MSAssetLibrary, MSRemoteAssetLibrary, NSImage, NSString;
 
 @interface MSAssetPreferenceItem : NSObject
 {
+    BOOL _currentlyDownloading;
     id <MSAssetPreferenceItemDelegate> _delegate;
     MSAssetLibrary *_library;
     NSImage *_preview;
+    NSString *_secondaryTitle;
+    unsigned long long _fileSize;
+    unsigned long long _downloadedSoFar;
 }
 
 + (id)preferenceItemForLibrary:(id)arg1;
+@property(nonatomic) unsigned long long downloadedSoFar; // @synthesize downloadedSoFar=_downloadedSoFar;
+@property(nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
+@property(nonatomic) BOOL currentlyDownloading; // @synthesize currentlyDownloading=_currentlyDownloading;
+@property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(readonly, nonatomic) MSAssetLibrary *library; // @synthesize library=_library;
 @property(nonatomic) __weak id <MSAssetPreferenceItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-@property(readonly) NSString *secondaryTitle;
+@property(readonly, nonatomic) MSRemoteAssetLibrary *remoteLibrary;
+- (void)evaluateSecondaryTitle;
+- (id)secondaryTitleStringWhenUpdateAvailable;
+- (id)downloadProgress;
 @property(readonly, nonatomic) NSString *modificationDate;
-@property(readonly, nonatomic) BOOL valid;
+- (id)infoText;
+@property(readonly, nonatomic) BOOL hasAppcastURL;
+@property(readonly, nonatomic) BOOL downloadAvailable;
+@property(readonly, nonatomic) BOOL updateAvailable;
+@property(readonly, nonatomic) BOOL validForSecondaryTextField;
+- (BOOL)valid;
 @property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) NSString *name;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

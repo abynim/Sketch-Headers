@@ -7,6 +7,8 @@
 #import "NSMenu.h"
 
 @interface NSMenu (CHMenuAdditions)
+- (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3 deferred:(BOOL)arg4;
+- (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3;
 - (void)replaceMenuItem:(id)arg1 withMenuItem_ms:(id)arg2;
 - (id)replaceItemWithAction:(SEL)arg1 withMenuItem_ms:(id)arg2;
 - (void)addItemsFromArray:(id)arg1;

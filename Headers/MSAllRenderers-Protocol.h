@@ -6,10 +6,12 @@
 
 #import "MSBackgroundBlurRenderer.h"
 #import "MSFillRenderer.h"
+#import "MSGridRenderer.h"
 #import "MSLayerRenderer.h"
+#import "MSPageOverlayRenderer.h"
 #import "MSPathRenderer.h"
 #import "MSShadowRenderer.h"
 
-@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer>
+@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSPageOverlayRenderer, MSGridRenderer>
 @end
 

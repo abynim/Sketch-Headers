@@ -4,22 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "_MSOverrideValue.h"
 
-@class NSString;
-
-@interface MSOverrideValue : NSObject
+@interface MSOverrideValue : _MSOverrideValue
 {
-    NSString *_overrideName;
-    id _value;
+    BOOL _isInherited;
+    MSOverrideValue *_predecessor;
 }
 
-+ (id)overrideValuesFromDictionary:(id)arg1;
-+ (id)dictionaryFromOverrideValues:(id)arg1;
-+ (id)overrideValuesFromDictionary:(id)arg1 withPrefix:(id)arg2;
-@property(readonly, nonatomic) id value; // @synthesize value=_value;
-@property(readonly, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
+@property(retain, nonatomic) MSOverrideValue *predecessor; // @synthesize predecessor=_predecessor;
+@property(nonatomic) BOOL isInherited; // @synthesize isInherited=_isInherited;
 - (void).cxx_destruct;
+- (void)addPredecessor:(id)arg1;
 - (id)description;
 - (id)initWithName:(id)arg1 value:(id)arg2;
 

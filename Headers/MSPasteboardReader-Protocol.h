@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSPasteboardLayers, NSArray, NSPasteboard;
+@class MSPasteboardLayers, NSArray, NSColorSpace, NSPasteboard;
 
 @protocol MSPasteboardReader <NSObject>
-- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 options:(unsigned long long)arg2 sender:(id <NSDraggingInfo>)arg3;
+- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 colorSpace:(NSColorSpace *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4;
 - (NSArray *)supportedPasteboardTypes;
 @end
 

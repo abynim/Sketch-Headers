@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSReflectionInspectorViewController;
+@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController;
 
 @interface MSStandardInspectorViewControllers : NSObject
 {
@@ -17,10 +17,8 @@
     MSColorControlsInspectorViewController *_colorControlsViewController;
     MSMultipleShadowInspectorViewController *_shadowViewController;
     MSMultipleShadowInspectorViewController *_innerShadowViewController;
-    MSReflectionInspectorViewController *_reflectionViewController;
 }
 
-@property(readonly, nonatomic) MSReflectionInspectorViewController *reflectionViewController; // @synthesize reflectionViewController=_reflectionViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *innerShadowViewController; // @synthesize innerShadowViewController=_innerShadowViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController; // @synthesize shadowViewController=_shadowViewController;
 @property(readonly, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;

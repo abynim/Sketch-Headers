@@ -12,6 +12,7 @@
 {
     NSMutableArray *_contours;
     struct CGRect _bounds;
+    BOOL _insertedSelfCrossings;
     struct CGPath *_CGPath;
 }
 
@@ -19,6 +20,7 @@
 + (id)bezierGraphWithContours:(id)arg1;
 + (id)bezierGraphWithBezierPath:(id)arg1;
 + (id)bezierGraphWithCGPath:(struct CGPath *)arg1;
+@property(nonatomic) BOOL insertedSelfCrossings; // @synthesize insertedSelfCrossings=_insertedSelfCrossings;
 @property(nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 @property(readonly, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 - (void).cxx_destruct;
@@ -48,6 +50,8 @@
 - (void)removeOverlaps;
 - (void)removeCrossings;
 - (id)bezierGraphFromNonselfIntersections:(BOOL)arg1;
+- (id)addReverseCurvesFromCrossing:(id)arg1 useNonself:(BOOL)arg2 toContour:(id)arg3;
+- (id)addCurvesFromCrossing:(id)arg1 useNonself:(BOOL)arg2 toContour:(id)arg3;
 - (id)firstUnprocessedCrossing:(BOOL)arg1;
 - (void)markAllCrossingsAsUnprocessed;
 - (void)removeCrossings:(id)arg1 forContours:(id)arg2;
@@ -65,21 +69,22 @@
 - (id)closestCrossingToPoint:(struct CGPoint)arg1;
 - (id)closestLocationToPoint:(struct CGPoint)arg1;
 - (int)contourInsides:(id)arg1;
-- (struct FBContourWindingRuleResult)containmentResultForContour:(id)arg1;
+- (id)containmentResultForContour:(id)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
-- (void)insertSelfCrossings:(id)arg1;
 - (void)insertSelfCrossings;
 - (void)insertContourSelfCrossings;
 - (BOOL)isIntersection:(id)arg1 atJoinOfEdge:(id)arg2 andEdge:(id)arg3;
 - (void)sortCoincidentCrossings;
 - (void)removeDuplicateCrossings;
 - (void)insertCrossingsAtOverlapMiddle;
-- (void)insertCrossingsAtOverlapStartStop;
-- (void)removeCrossingsInOverlaps;
+- (void)removeCrossingsInOverlapsWithTypes:(unsigned long long)arg1;
+- (void)removeCrossingsInNonCrossingOverlapRuns;
 - (void)cleanupCrossingsWithBezierGraph:(id)arg1;
+- (unsigned long long)insertCrossingsWithBezierGraph:(id)arg1 overlapRunCrossingTypes:(unsigned long long)arg2 crossingPosition:(unsigned long long)arg3;
 - (unsigned long long)insertCrossingsWithBezierGraph:(id)arg1;
 - (id)bezierPathWithClass:(Class)arg1;
 - (id)bezierPath;
+- (id)bezierGraphWithClockwiseFillsAnticlockwiseHoles;
 - (id)noneWithBezierGraph:(id)arg1;
 - (id)xorWithBezierGraph:(id)arg1;
 - (void)markSelfCrossingsAsEntryOrExit;
@@ -95,10 +100,8 @@
 - (id)performOperationWithGraph:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)convertToEvenOddWindingRule;
 - (id)convertToNoneZeroWindingRule;
-- (id)bezierGraphBySplittingOverlapsInContours:(id)arg1;
-- (id)contourByFollowingCrossingsFromEdge:(id)arg1 atOffset:(double)arg2 usedEdges:(id *)arg3;
 - (id)contourByFollowingCrossingsFromEdge:(id)arg1 atOffset:(double)arg2;
-- (id)contourByFollowingCrossingsFromEdge:(id)arg1;
+- (id)contourByFollowingUnprocessedCrossingsFromCrossing:(id)arg1;
 - (void)dealloc;
 - (id)init;
 - (id)initWithBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;

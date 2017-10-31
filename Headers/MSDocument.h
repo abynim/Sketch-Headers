@@ -42,6 +42,7 @@
     MSInspectorController *_inspectorController;
     BCSideBarViewController *_sidebarController;
     MSContentDrawViewController *_currentContentViewController;
+    id _oldDocumentVersionWarning;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
     MSImmutableDocumentData *_documentDataUsedForLayerList;
@@ -75,6 +76,7 @@
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
+@property(retain, nonatomic) id oldDocumentVersionWarning; // @synthesize oldDocumentVersionWarning=_oldDocumentVersionWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
@@ -96,6 +98,7 @@
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
+- (id)symbolReferenceForRecipe:(id)arg1;
 - (id)localSymbolForSymbol:(id)arg1 inLibrary:(id)arg2;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
@@ -138,7 +141,6 @@
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
 - (void)sliceDidChangeVisibility:(id)arg1;
-- (void)debugStressTestRendering:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -154,12 +156,11 @@
 - (void)setCurrentPage:(id)arg1;
 - (id)artboards;
 - (id)normalHandler;
-- (id)toggleHandlerKey:(id)arg1;
+- (id)toggleHandlerClass:(Class)arg1;
 - (void)reloadInspector;
 - (void)reloadView;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
-- (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
 - (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
@@ -228,7 +229,7 @@
 - (void)awakeFromNib;
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
-- (id)currentView;
+- (id)contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
@@ -241,6 +242,7 @@
 - (void)close;
 - (void)setDelegatesToNil;
 - (void)createActions;
+@property(readonly, nonatomic) NSColorSpace *canvasColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
 @property(retain, nonatomic) SCKShare *cloudShare;
@@ -260,6 +262,7 @@
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
 - (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (id)pluginContext;
+- (void)warnAboutOldVersion;
 - (BOOL)askToOpenDocumentRepairingMetadata;
 - (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
 - (BOOL)alertDocumentCorruptionWasDetected;
@@ -280,7 +283,9 @@
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
-- (id)generatePreviewForDocument:(id)arg1;
+- (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
+- (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
+- (id)generatePreviewsForDocument:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

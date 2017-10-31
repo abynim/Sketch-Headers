@@ -12,7 +12,8 @@
 
 - (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)isActive;
+- (BOOL)validate;
 - (void)refreshDocumentOverlayAfterDefaultsChange;
 
 @end

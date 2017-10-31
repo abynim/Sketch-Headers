@@ -32,6 +32,7 @@
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (id)displayNameForSystemFontname:(id)arg1;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (void)fontFamilyAction:(id)arg1;

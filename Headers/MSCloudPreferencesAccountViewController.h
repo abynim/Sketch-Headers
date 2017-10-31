@@ -6,13 +6,13 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-@class NSProgressIndicator, NSTextField, NSView;
+@class MSCloudAvatarView, NSProgressIndicator, NSTextField, NSView;
 
 @interface MSCloudPreferencesAccountViewController : MSCloudPreferencesViewController
 {
     NSTextField *_introLabel;
     NSView *_userMetadataView;
-    NSTextField *_initialsLabel;
+    MSCloudAvatarView *_avatarView;
     NSTextField *_nameLabel;
     NSTextField *_emailLabel;
     NSProgressIndicator *_progressIndicator;
@@ -21,13 +21,12 @@
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSTextField *emailLabel; // @synthesize emailLabel=_emailLabel;
 @property(retain, nonatomic) NSTextField *nameLabel; // @synthesize nameLabel=_nameLabel;
-@property(retain, nonatomic) NSTextField *initialsLabel; // @synthesize initialsLabel=_initialsLabel;
+@property(retain, nonatomic) MSCloudAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSView *userMetadataView; // @synthesize userMetadataView=_userMetadataView;
 @property(retain, nonatomic) NSTextField *introLabel; // @synthesize introLabel=_introLabel;
 - (void).cxx_destruct;
 - (void)showAccountSettings:(id)arg1;
 - (void)logout:(id)arg1;
-- (id)initialsForName:(id)arg1;
 - (void)updateUserData;
 - (void)updateUserLoading;
 - (void)userDidChangeLoadingNotification:(id)arg1;
