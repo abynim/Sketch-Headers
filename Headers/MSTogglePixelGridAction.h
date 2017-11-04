@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)isActive;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)imageName;
 - (BOOL)isShowingPixelatedView;

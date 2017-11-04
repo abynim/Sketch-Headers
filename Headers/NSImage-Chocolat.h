@@ -7,6 +7,8 @@
 #import "NSImage.h"
 
 @interface NSImage (Chocolat)
++ (id)imageWithDataFixingInvalidGamma:(id)arg1;
++ (id)pngDataByInvertingGammaInData:(id)arg1;
 + (id)PDFImageWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 drawingHandler:(CDUnknownBlockType)arg3;
 - (id)imageWithShadow:(id)arg1 size:(struct CGSize)arg2;
 - (struct CGSize)pixelSize;
@@ -16,6 +18,7 @@
 - (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 fraction:(double)arg3 respectFlipped:(BOOL)arg4 colorSpace:(id)arg5;
 - (id)bitSafeBitmapImageRep;
 - (id)firstBitmapImageRep;
+- (id)firstBitmapImageRepOfScale:(double)arg1;
 - (id)firstBitmapImageRepOrCreateIfNecessary;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1;
 - (id)highlightImage;

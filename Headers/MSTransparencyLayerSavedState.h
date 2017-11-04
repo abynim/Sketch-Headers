@@ -6,16 +6,18 @@
 
 #import "NSObject.h"
 
-@class NSGraphicsContext;
+@class NSGraphicsContext, NSString;
 
 @interface MSTransparencyLayerSavedState : NSObject
 {
     BOOL _shouldFlip;
     NSGraphicsContext *_graphicsContext;
     struct CGContext *_contextRef;
+    NSString *_name;
     struct CGRect _deviceRect;
 }
 
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) BOOL shouldFlip; // @synthesize shouldFlip=_shouldFlip;
 @property(nonatomic) struct CGRect deviceRect; // @synthesize deviceRect=_deviceRect;
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;

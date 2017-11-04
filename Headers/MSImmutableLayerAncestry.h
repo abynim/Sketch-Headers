@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, MSImmutableLayer, MSImmutableLayerGroup, MSImmutablePage, NSArray;
+@class MSImmutableArtboardGroup, MSImmutableDocumentData, MSImmutableLayer, MSImmutableLayerGroup, MSImmutablePage, NSArray;
 
 @interface MSImmutableLayerAncestry : NSObject
 {
@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) MSImmutableLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSImmutableArtboardGroup *artboard;
 @property(readonly, nonatomic) MSImmutableLayerGroup *parentGroup;
 @property(readonly, nonatomic) NSArray *ancestorsAndSelf;
 - (BOOL)ancestorsForLayerInGroup:(id)arg1 array:(id)arg2;

@@ -28,7 +28,6 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-@property(readonly) BOOL exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;

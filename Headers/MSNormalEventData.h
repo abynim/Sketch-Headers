@@ -31,7 +31,6 @@
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(nonatomic) BOOL hasMultipleTouches; // @synthesize hasMultipleTouches=_hasMultipleTouches;
 - (void).cxx_destruct;
-- (void)setSnapperData:(id)arg1 delegate:(id)arg2;
 
 @end
 

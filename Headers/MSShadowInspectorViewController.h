@@ -31,6 +31,7 @@
 - (id)title;
 - (id)keyPath;
 - (BOOL)isSpreadFieldAvailable;
+- (BOOL)allowsNegativeSpread;
 - (void)prepare;
 
 @end

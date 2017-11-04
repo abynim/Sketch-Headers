@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBitmapEditEventHandler, MSBitmapLayer, NSBezierPath;
+@class MSBitmapEditEventHandler, MSLayer<MSBitmapEditable>, NSBezierPath;
 
 @interface MSBitmapEditor : NSObject
 {
@@ -22,7 +22,7 @@
 - (struct CGPoint)pointInBitmapLayer:(struct CGPoint)arg1;
 - (void)refreshRectInBitmapCoordinates:(struct CGRect)arg1;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @dynamic accumulatedSelection;
-@property(readonly, nonatomic) MSBitmapLayer *bitmapLayer; // @dynamic bitmapLayer;
+@property(readonly, nonatomic) MSLayer<MSBitmapEditable> *bitmapEditableLayer; // @dynamic bitmapEditableLayer;
 - (void)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDragged:(struct CGPoint)arg1;
 - (void)mouseDown:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

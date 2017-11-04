@@ -11,6 +11,7 @@
 @protocol MSVectorCanvasDelegate <NSObject>
 - (void)vectorCanvasDidEditPoints:(MSVectorCanvas *)arg1;
 - (void)vectorCanvas:(MSVectorCanvas *)arg1 didSelectLayers:(NSArray *)arg2;
+- (void)vectorCanvasDidFinishInteractiveSelection:(MSVectorCanvas *)arg1;
 - (void)vectorCanvas:(MSVectorCanvas *)arg1 didDeselectHandlesAtIndexPaths:(NSArray *)arg2;
 - (void)vectorCanvas:(MSVectorCanvas *)arg1 didSelectHandlesAtIndexPaths:(NSArray *)arg2;
 - (void)vectorCanvas:(MSVectorCanvas *)arg1 didUnhighlightHandleAtIndexPath:(NSIndexPath *)arg2;

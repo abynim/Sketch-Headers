@@ -8,7 +8,7 @@
 
 #import "NSWindowDelegate.h"
 
-@class NSButton, NSImageView, NSString, NSTextField, NSView;
+@class NSButton, NSDate, NSImageView, NSString, NSTextField, NSView;
 
 @interface MSLicenseRegistrationWindowController : NSWindowController <NSWindowDelegate>
 {
@@ -31,11 +31,13 @@
     NSView *_tooManyDevicesButtons;
     NSView *_invalidLicenseButtons;
     NSButton *_registerButton;
+    NSDate *_licenseUpdateExpirationDate;
 }
 
 + (void)registerWithKey:(id)arg1;
 + (void)showRegistrationWindow;
 + (void)showTrialExpiredModal;
+@property(retain, nonatomic) NSDate *licenseUpdateExpirationDate; // @synthesize licenseUpdateExpirationDate=_licenseUpdateExpirationDate;
 @property(retain, nonatomic) NSButton *registerButton; // @synthesize registerButton=_registerButton;
 @property(retain, nonatomic) NSView *invalidLicenseButtons; // @synthesize invalidLicenseButtons=_invalidLicenseButtons;
 @property(retain, nonatomic) NSView *tooManyDevicesButtons; // @synthesize tooManyDevicesButtons=_tooManyDevicesButtons;

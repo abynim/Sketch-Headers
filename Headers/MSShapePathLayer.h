@@ -19,6 +19,7 @@
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
 - (id)flattenedLayer;
 - (void)flatten;
 @property(readonly, nonatomic) BOOL canFlatten;
@@ -30,8 +31,7 @@
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndDecorationType:(unsigned long long)arg1;
 - (void)setStartDecorationType:(unsigned long long)arg1;
-- (id)bezierPathAroundPoint:(id)arg1 andPoint:(id)arg2 xTol:(double)arg3 yTol:(double)arg4;
-- (BOOL)point:(struct CGPoint)arg1 isBetweenPoint:(id)arg2 andPoint:(id)arg3 tolerance:(struct CGSize)arg4;
+- (double)distanceSquaredToSegmentAtIndex:(unsigned long long)arg1 fromPoint:(struct CGPoint)arg2 tolerance:(double)arg3;
 - (unsigned long long)indexOfSegmentAtPoint:(struct CGPoint)arg1 tolerance:(struct CGSize)arg2;
 - (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
@@ -63,7 +63,7 @@
 - (id)styledLayer;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
-- (id)handlerName;
+- (Class)handlerClass;
 - (BOOL)handleDoubleClick;
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;

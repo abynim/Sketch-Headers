@@ -8,7 +8,14 @@
 
 @interface MSImmutableBaseGrid : _MSImmutableBaseGrid
 {
+    BOOL _forceDraw;
 }
+
++ (BOOL)displayableAtZoom:(double)arg1;
++ (void)initialize;
+@property(nonatomic) BOOL forceDraw; // @synthesize forceDraw=_forceDraw;
+- (BOOL)shouldDrawAtZoom:(double)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

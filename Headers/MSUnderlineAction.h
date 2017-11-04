@@ -10,7 +10,8 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)isActive;
+- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)areOneOrMoreLayersUnderlinedInArray:(id)arg1;
 - (id)selectedTextLayers;

@@ -14,8 +14,7 @@
 {
 }
 
-- (double)adjustmentAmountForStrokeType:(long long)arg1 lineWidth:(double)arg2;
-- (struct CGRect)shadowBoundsForRect:(struct CGRect)arg1;
+- (double)shadowInsetForStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (void)updateColorCounter:(id)arg1;
 - (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
 - (id)addColorMatrix:(id)arg1 color:(id)arg2 output:(id)arg3 filter:(id)arg4;

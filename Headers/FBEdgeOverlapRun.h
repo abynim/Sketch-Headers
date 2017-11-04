@@ -11,6 +11,11 @@
 @interface FBEdgeOverlapRun : NSObject
 {
     NSMutableArray *_overlaps;
+    unsigned long long _crossingType;
+    struct FBEdgeOverlapRunTestPoints _contour1TestPoints;
+    struct FBEdgeOverlapRunTestPoints _contour2TestPoints;
+    struct FBEdgeOverlapRunStartStopInsides _contour1StartStopInsides;
+    struct FBEdgeOverlapRunStartStopInsides _contour2StartStopInsides;
 }
 
 + (id)overlapRun;
@@ -22,15 +27,27 @@
 @property(readonly, nonatomic) FBBezierContour *contour2;
 @property(readonly, nonatomic) FBBezierContour *contour1;
 - (id)middleIntersection;
-- (void)addStartAndStopCrossings;
+- (void)addStopCrossing;
+- (void)addStartCrossing;
 - (void)addMiddleCrossing;
+- (void)removeCrossings;
 - (BOOL)isCrossingUsingNonZeroWindingRule;
 - (BOOL)isCrossing;
+- (BOOL)isCrossingWithOutsetLines;
 - (BOOL)isCrossingWithTangentsOnly;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2;
+@property(readonly, nonatomic) unsigned long long crossingType;
 - (BOOL)doesContainCrossing:(id)arg1;
 - (BOOL)isComplete;
 - (BOOL)insertOverlap:(id)arg1;
+@property(readonly, nonatomic) BOOL stopIsInsideContour2;
+@property(readonly, nonatomic) BOOL stopIsInsideContour1;
+@property(readonly, nonatomic) BOOL startIsInsideContour2;
+@property(readonly, nonatomic) BOOL startIsInsideContour1;
+- (void)calculateContour2StartStopInsides;
+- (void)calculateContour1StartStopInsides;
+- (struct FBEdgeOverlapRunTestPoints *)contour2TestPoints;
+- (struct FBEdgeOverlapRunTestPoints *)contour1TestPoints;
 - (id)init;
 
 @end

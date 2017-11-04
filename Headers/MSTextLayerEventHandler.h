@@ -59,6 +59,7 @@
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
 - (void)scheduleUpdateInsertionPointColorTimer;
+- (id)layoutManager:(id)arg1 shouldUseTemporaryAttributes:(id)arg2 forDrawingToScreen:(BOOL)arg3 atCharacterIndex:(unsigned long long)arg4 effectiveRange:(struct _NSRange *)arg5;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
 - (id)firstBaselineOffset;
 - (void)textViewDidChangeSelection:(id)arg1;

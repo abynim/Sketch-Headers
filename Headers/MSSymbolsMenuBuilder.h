@@ -6,17 +6,19 @@
 
 #import "MSSortableObjectMenuBuilder.h"
 
-@class NSImage;
+@class NSColorSpace, NSImage;
 
 @interface MSSymbolsMenuBuilder : MSSortableObjectMenuBuilder
 {
+    NSColorSpace *_previewColorSpace;
     NSImage *_initialImage;
 }
 
 @property(retain, nonatomic) NSImage *initialImage; // @synthesize initialImage=_initialImage;
+@property(readonly, nonatomic) NSColorSpace *previewColorSpace; // @synthesize previewColorSpace=_previewColorSpace;
 - (void).cxx_destruct;
 - (void)prepareForDisplay:(id)arg1;
-- (id)init;
+- (id)initWithPreviewColorSpace:(id)arg1;
 
 @end
 

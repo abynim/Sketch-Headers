@@ -10,8 +10,8 @@
 {
 }
 
-- (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3 isDrawingAsSymbolInstance:(BOOL)arg4;
-- (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderSubLayersOfGroup:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3 isDrawingAsSymbolInstance:(BOOL)arg4;
+- (void)renderSubLayersOfGroup:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

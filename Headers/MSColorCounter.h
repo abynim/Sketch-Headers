@@ -16,9 +16,11 @@
     unsigned long long _borderCount;
     unsigned long long _shadowCount;
     unsigned long long _textCount;
+    unsigned long long _artboardCount;
 }
 
 + (void)initialize;
+@property(nonatomic) unsigned long long artboardCount; // @synthesize artboardCount=_artboardCount;
 @property(nonatomic) unsigned long long textCount; // @synthesize textCount=_textCount;
 @property(nonatomic) unsigned long long shadowCount; // @synthesize shadowCount=_shadowCount;
 @property(nonatomic) unsigned long long borderCount; // @synthesize borderCount=_borderCount;
@@ -26,9 +28,16 @@
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSImmutableColor *immutableColor; // @synthesize immutableColor=_immutableColor;
 - (void).cxx_destruct;
+- (long long)compareArtboardCounts:(id)arg1;
+- (long long)compareTextCounts:(id)arg1;
+- (long long)compareShadowCounts:(id)arg1;
+- (long long)compareBorderCounts:(id)arg1;
+- (long long)compareFillCounts:(id)arg1;
+- (long long)compareTotalCounts:(id)arg1;
+- (long long)compare:(id)arg1 byColorUse:(unsigned long long)arg2;
+- (long long)compare:(id)arg1;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) unsigned long long totalCount;
-- (long long)compare:(id)arg1;
 - (void)countSource:(id)arg1;
 
 @end

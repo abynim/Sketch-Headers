@@ -15,7 +15,7 @@
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validate;
 - (long long)stateForConstraint;
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)isActive;
 @property(readonly, nonatomic) NSString *validationKeyPath;
 @property(readonly, nonatomic) NSString *actionKeyPath;
 

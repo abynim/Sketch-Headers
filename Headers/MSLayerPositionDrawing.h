@@ -6,28 +6,28 @@
 
 #import "NSObject.h"
 
-@class MSLayer, MSLayerArray, NSArray, NSNumberFormatter;
+@class MSLayer, MSLayerArray, MSPage, NSArray, NSNumberFormatter;
 
 @interface MSLayerPositionDrawing : NSObject
 {
     BOOL _isEnabled;
-    id <MSBasicDelegate> _delegate;
     MSLayer *_targetLayer;
     double _zoomValue;
     unsigned long long _modifierFlags;
     MSLayerArray *_selectedLayers;
+    MSPage *_currentPage;
     NSArray *_hoverGuides;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(copy, nonatomic) NSArray *hoverGuides; // @synthesize hoverGuides=_hoverGuides;
+@property(retain, nonatomic) MSPage *currentPage; // @synthesize currentPage=_currentPage;
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) __weak MSLayer *targetLayer; // @synthesize targetLayer=_targetLayer;
-@property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)isMeasuringDistance;
 - (void)clear;

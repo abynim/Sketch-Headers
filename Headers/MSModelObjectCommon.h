@@ -49,6 +49,7 @@
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)recordDeallocation;
 - (void)recordAllocation;
+- (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,19 +8,17 @@
 
 #import "MSAssetLibraryControllerDelegate.h"
 
-@class MSDocument, MSForeignSymbolMenuBuilder, NSPopUpButton, NSString, NSTextField;
+@class MSDocument, MSDocumentData, MSForeignSymbolMenuBuilder, MSSymbolInstance, MSSymbolMaster, NSPopUpButton, NSString, NSTextField;
 
 @interface MSSymbolInstanceOverrideViewController : MSOverrideViewController <MSAssetLibraryControllerDelegate>
 {
     NSTextField *_labelField;
     NSPopUpButton *_popupButton;
     NSPopUpButton *_popup;
-    NSString *_currentMasterID;
     MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
 @property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(copy, nonatomic) NSString *currentMasterID; // @synthesize currentMasterID=_currentMasterID;
 @property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(retain, nonatomic) NSPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(retain, nonatomic) NSTextField *labelField; // @synthesize labelField=_labelField;
@@ -29,16 +27,21 @@
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)updateOtherOverridesForNestedSymbolFromID:(id)arg1 toID:(id)arg2;
-- (void)overrideValueAction:(id)arg1;
+- (void)applyOverrideToSelectedLayers:(id)arg1;
+- (id)valueFromSymbolMasterReference:(id)arg1;
 - (id)valueFromControlView:(id)arg1;
 - (void)reloadMenu;
 - (id)symbolMenuItems;
 - (id)menuItemsForSymbolMasterRefs:(id)arg1;
-- (void)viewDidAppear;
-- (id)currentlySelectedItemInMenu:(id)arg1;
+- (void)overrideValueAction:(id)arg1;
+- (id)nameOfCurrentNestedSymbol;
 - (id)controlViewForEditingOverride;
+@property(readonly, nonatomic) MSSymbolInstance *firstInstance;
+@property(readonly, nonatomic) MSSymbolMaster *originalMaster;
+@property(readonly, nonatomic) NSString *originalMasterID;
+@property(readonly, nonatomic) NSString *currentMasterID;
 @property(readonly, nonatomic) MSDocument *document;
+@property(readonly, nonatomic) MSDocumentData *documentData;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

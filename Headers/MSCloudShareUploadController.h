@@ -6,40 +6,47 @@
 
 #import "NSObject.h"
 
-@class AFAmazonS3Manager, NSError, NSString, NSURL;
+#import "SCKShareUploadDataSource.h"
 
-@interface MSCloudShareUploadController : NSObject
+@class MSWebExporter, NSProgress, NSString, NSURL, SCKShare, SCKShareUploadOperation;
+
+@interface MSCloudShareUploadController : NSObject <SCKShareUploadDataSource>
 {
-    BOOL _includeDocument;
-    BOOL _uploadFailed;
+    BOOL _cancelled;
     id <MSCloudShareUploadControllerDelegate> _delegate;
+    SCKShare *_existingShare;
     id <MSCloudExportableDocument> _document;
     NSURL *_localURL;
-    AFAmazonS3Manager *_s3Manager;
-    NSError *_uploadError;
     NSString *_name;
+    MSWebExporter *_webExporter;
+    SCKShareUploadOperation *_operation;
 }
 
-@property(nonatomic) BOOL uploadFailed; // @synthesize uploadFailed=_uploadFailed;
+@property(retain, nonatomic) SCKShareUploadOperation *operation; // @synthesize operation=_operation;
+@property(retain, nonatomic) MSWebExporter *webExporter; // @synthesize webExporter=_webExporter;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
-@property(retain, nonatomic) AFAmazonS3Manager *s3Manager; // @synthesize s3Manager=_s3Manager;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(nonatomic) __weak id <MSCloudExportableDocument> document; // @synthesize document=_document;
-@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
+@property(readonly, nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
+@property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)documentFileURLForShareUploadOperation:(id)arg1;
+- (id)shareUploadOperation:(id)arg1 fileURLForItemWithHash:(id)arg2;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)cancel;
-- (void)queueFileToUpload:(id)arg1 index:(unsigned long long)arg2 stepSize:(double)arg3 progressTracker:(id)arg4;
-- (void)queueFilesToUploadForShare:(id)arg1;
-- (void)reportProgress:(id)arg1 stepSize:(double)arg2;
-- (void)createS3ManagerWithCredentials:(id)arg1 bucket:(id)arg2 region:(id)arg3;
-- (void)uploadFilesForShare:(id)arg1;
-- (BOOL)shouldAttemptReuploadAfterError:(id)arg1;
 - (id)loadManifest;
 - (void)uploadManifest;
 - (void)startUpload;
+@property(readonly, nonatomic) NSProgress *progress;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

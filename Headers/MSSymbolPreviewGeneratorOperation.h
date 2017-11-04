@@ -8,11 +8,12 @@
 
 #import "MSRenderingContextCacheProvider.h"
 
-@class BCCache, MSImmutableLayerAncestry, NSString;
+@class BCCache, MSImmutableLayerAncestry, NSColorSpace, NSString;
 
 @interface MSSymbolPreviewGeneratorOperation : NSOperation <MSRenderingContextCacheProvider>
 {
     MSImmutableLayerAncestry *_symbolAncestry;
+    NSColorSpace *_colorSpace;
     CDUnknownBlockType _imageBlock;
     BCCache *_renderingCache;
     struct CGSize _size;
@@ -20,6 +21,7 @@
 
 @property(retain, nonatomic) BCCache *renderingCache; // @synthesize renderingCache=_renderingCache;
 @property(copy, nonatomic) CDUnknownBlockType imageBlock; // @synthesize imageBlock=_imageBlock;
+@property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
 - (void).cxx_destruct;

@@ -67,6 +67,7 @@
 - (void)showContextMenu:(id)arg1;
 @property(readonly, nonatomic) NSArray *selectedLibraries;
 - (id)currentLibrary;
+- (void)addLibrariesFromURLS:(id)arg1;
 - (void)importLibraryAction:(id)arg1;
 - (void)addNextLibraryFromURLs:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;

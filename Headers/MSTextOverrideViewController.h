@@ -12,7 +12,8 @@
 
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
-- (id)textLayer;
+- (BOOL)hasStandardCellHeight;
+- (unsigned long long)numberOfLines;
 
 @end
 

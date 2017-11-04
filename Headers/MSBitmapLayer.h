@@ -20,6 +20,7 @@
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
+- (void)correctInvalidGamma;
 - (void)resizeToOriginalSize;
 - (BOOL)isAtOriginalSize;
 - (id)NSImage;
@@ -27,19 +28,16 @@
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
 - (BOOL)canInsertIntoGroup:(id)arg1;
-- (BOOL)hasNineSliceEnabled;
-- (struct CGSize)minimumSize;
 - (id)handlerName;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
-- (Class)overrideViewControllerClass;
+- (Class)handlerClass;
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
-- (BOOL)acceptsOverrideValue:(id)arg1;
-- (void)applyOverridesFromSource:(id)arg1;
+- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties

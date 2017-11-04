@@ -8,7 +8,7 @@
 
 #import "BCSortable.h"
 
-@class MSAssetLibrary, MSSymbolMaster, NSString;
+@class MSAssetLibrary, MSSymbolMaster, MSSymbolMasterReferenceDescriptor, NSString;
 
 @interface MSSymbolMasterReference : NSObject <BCSortable>
 {
@@ -21,6 +21,7 @@
 @property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSSymbolMasterReferenceDescriptor *descriptor;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSString *name;

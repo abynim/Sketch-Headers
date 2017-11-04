@@ -7,11 +7,12 @@
 #import "NSView.h"
 
 #import "MSEventHandlerManagerDelegate.h"
+#import "MSOverlayRenderingDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
 @class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSLayer, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
 
-@interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView>
+@interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView, MSOverlayRenderingDelegate>
 {
     BOOL handToolIsActive;
     struct CGPoint handToolOriginalPoint;
@@ -22,7 +23,7 @@
     BOOL _shouldHideOverlayControls;
     BOOL _didMouseDown;
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
-    BOOL _ignoreScheduledRedrawRequests;
+    BOOL _redrawPending;
     BOOL _isMagnifying;
     MSTiledLayerPile *_tiledLayerPile;
     MSLayer *_hoveredLayer;
@@ -44,7 +45,7 @@
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
     struct CGRect _scrollOriginRelativeContentRedrawRect;
-    struct CGRect _overlayRectNeedingRedraw;
+    struct CGRect _overlayDirtyRect;
 }
 
 + (struct CGPoint)absoluteCoordinatesFromViewCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
@@ -56,11 +57,11 @@
 @property(retain, nonatomic) MSRenderMonitor *performanceMonitor; // @synthesize performanceMonitor=_performanceMonitor;
 @property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
-@property(nonatomic) BOOL ignoreScheduledRedrawRequests; // @synthesize ignoreScheduledRedrawRequests=_ignoreScheduledRedrawRequests;
+@property(nonatomic) BOOL redrawPending; // @synthesize redrawPending=_redrawPending;
 @property(nonatomic) BOOL haveStoredMostRecentFullScaleScrollOrigin; // @synthesize haveStoredMostRecentFullScaleScrollOrigin=_haveStoredMostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint mostRecentFullScaleScrollOrigin; // @synthesize mostRecentFullScaleScrollOrigin=_mostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
-@property(nonatomic) struct CGRect overlayRectNeedingRedraw; // @synthesize overlayRectNeedingRedraw=_overlayRectNeedingRedraw;
+@property(nonatomic) struct CGRect overlayDirtyRect; // @synthesize overlayDirtyRect=_overlayDirtyRect;
 @property(nonatomic) struct CGRect scrollOriginRelativeContentRedrawRect; // @synthesize scrollOriginRelativeContentRedrawRect=_scrollOriginRelativeContentRedrawRect;
 @property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
 @property(nonatomic) unsigned long long previouslyRenderedColorSpace; // @synthesize previouslyRenderedColorSpace=_previouslyRenderedColorSpace;
@@ -94,7 +95,7 @@
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (id)pages;
 - (id)currentPage;
-- (id)currentView;
+- (id)contentDrawView;
 - (id)selectedLayers;
 - (void)handleFlagsChangedEvent:(id)arg1;
 - (void)changeColor:(id)arg1;
@@ -102,7 +103,9 @@
 - (void)changeFont:(id)arg1;
 - (BOOL)isOpaque;
 - (id)menuForEvent:(id)arg1;
+- (void)switchToSymbolHandlerIfPasteboardContentsDetected:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
+- (void)updateDraggingItemsForDrag:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
@@ -146,7 +149,7 @@
 - (void)scheduleRedraw;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (struct CGPoint)mouseInView;
 - (void)reloadAllTiles;
 - (void)redrawAllTiles;
@@ -176,10 +179,14 @@
 - (id)viewPortWithCenter:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
+- (void)refreshOverlayAfterSettingsChange;
+- (void)refreshEverythingAfterSettingsChange;
 - (void)queuePendingMonitor;
 - (void)tiledLayerPileDidRefreshTileContent:(id)arg1 finishTime:(unsigned long long)arg2;
-- (void)tiledLayerPile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tiledLayerPile:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
+- (void)tile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
+- (unsigned long long)overlayOptionsForPage:(id)arg1 zoom:(double)arg2 fullScreen:(BOOL)arg3;
+- (id)overlayRenderer;
 - (void)scrollTilesBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;
 - (void)tile;
@@ -189,7 +196,7 @@
 - (void)pageDidChange:(id)arg1;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
-- (void)debugSettingChanged:(id)arg1;
+- (void)visualSettingChanged:(id)arg1;
 - (void)prepare;
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
@@ -204,6 +211,7 @@
 - (void)addObserversForNotifications;
 @property(readonly, nonatomic) MSRenderingDriver *driver;
 - (BOOL)useDebugDriver;
+- (void)initDrivers;
 - (void)dealloc;
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;

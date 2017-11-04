@@ -11,6 +11,7 @@
 }
 
 + (id)separator;
+- (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)color;
 

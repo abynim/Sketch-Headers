@@ -34,7 +34,7 @@
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonColorSpace:(id)arg1;
+- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
 - (BOOL)hasEnabledStyle;

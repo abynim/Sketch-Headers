@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)isActive;
 - (id)root;
 - (void)setGrid:(id)arg1;
 - (id)grid;

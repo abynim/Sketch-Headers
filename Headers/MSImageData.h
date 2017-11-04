@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSData *sha1; // @synthesize sha1=_sha1;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
+- (void)correctInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
@@ -42,7 +43,6 @@
 - (BOOL)isLegacy;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
-- (id)initWithImageConvertingColorSpace:(id)arg1;
 - (id)initWithImage:(id)arg1;
 - (id)treeAsDictionary;
 

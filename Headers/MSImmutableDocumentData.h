@@ -65,9 +65,10 @@
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
 - (id)subObjectsForTreeDiff;
-- (void)trackColors:(id)arg1;
+- (void)trackColors:(id)arg1 withinHierarchyOf:(id)arg2 excludeForeignSymbols:(BOOL)arg3;
+- (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
 - (id)colorFinderQueue;
-- (void)findFrequentColorsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)findFrequentColorsForUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoreAlpha:(BOOL)arg3 excludeForeignSymbols:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *pages;

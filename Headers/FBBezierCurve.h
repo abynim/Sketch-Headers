@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FBBezierContour, FBEdgeCrossing, NSMutableArray;
+@class FBBezierContour, FBEdgeCrossing, NSArray, NSMutableArray;
 
 @interface FBBezierCurve : NSObject
 {
@@ -37,6 +37,7 @@
 - (id)firstCrossingUsingNonself:(BOOL)arg1;
 @property(readonly, nonatomic) FBEdgeCrossing *lastCrossing;
 @property(readonly, nonatomic) FBEdgeCrossing *firstCrossing;
+@property(readonly, copy, nonatomic) NSArray *crossings;
 - (void)selfIntersectingEdgesWithBlock:(CDUnknownBlockType)arg1;
 - (void)intersectingEdgesWithBlock:(CDUnknownBlockType)arg1;
 - (id)previousCrossing:(id)arg1;
@@ -50,7 +51,7 @@
 @property(readonly, nonatomic) FBBezierCurve *nextNonpoint;
 @property(readonly, nonatomic) FBBezierCurve *previous;
 @property(readonly, nonatomic) FBBezierCurve *next;
-- (void)removeCrossingsInOverlap;
+- (void)removeCrossingsInNonCrossingOverlapRuns;
 - (void)reorderCoincidentCrossingA:(id)arg1 crossingB:(id)arg2;
 - (void)removeDuplicateCrossings;
 - (void)removeAllCrossings;

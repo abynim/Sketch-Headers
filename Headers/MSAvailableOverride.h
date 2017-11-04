@@ -14,19 +14,24 @@
     MSImmutableSymbolMaster *_master;
     MSImmutableLayer *_affectedLayer;
     MSOverridePoint *_overridePoint;
-    MSOverrideValue *_overrideValue;
+    MSOverrideValue *_internalOverrideValue;
 }
 
 + (void)enumerateOverrides:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 inParent:(id)arg4;
-@property(readonly, nonatomic) MSOverrideValue *overrideValue; // @synthesize overrideValue=_overrideValue;
+@property(readonly, nonatomic) MSOverrideValue *internalOverrideValue; // @synthesize internalOverrideValue=_internalOverrideValue;
 @property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
 @property(readonly, nonatomic) MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL hasOverride;
+@property(readonly, nonatomic) id overrideValue;
+@property(readonly, nonatomic) id defaultValue;
+@property(readonly, nonatomic) id currentValue;
 @property(readonly, nonatomic) NSArray *children;
 - (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 inParent:(id)arg5;
+- (id)createOverrideViewController;
 
 @end
 

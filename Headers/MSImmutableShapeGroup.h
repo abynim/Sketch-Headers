@@ -43,9 +43,12 @@
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;
+- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
 - (void)refreshPreviewImagesWithCache:(id)arg1;
 - (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (id)defaultValueForOverridePoint:(id)arg1;
+- (id)overridePointsWithParent:(id)arg1;
+- (id)imageFillForOverrides;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;

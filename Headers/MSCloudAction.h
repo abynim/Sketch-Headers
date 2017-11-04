@@ -6,7 +6,7 @@
 
 #import "MSPopoverAction.h"
 
-@class MSCloudController;
+@class MSCloudController, NSImage;
 
 @interface MSCloudAction : MSPopoverAction
 {
@@ -20,11 +20,11 @@
 - (void).cxx_destruct;
 - (BOOL)validate;
 - (BOOL)validateToolbarItem:(id)arg1;
-- (void)setToolbarImage:(id)arg1;
+@property(retain, nonatomic) NSImage *toolbarImage;
 - (void)setCloudPlatform:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)progressImagesWithSuffix:(id)arg1;
-- (void)setProgressImageAt:(double)arg1;
+- (void)updateProgressImage;
 - (void)setRegularImage;
 - (void)uploadingDidChange:(BOOL)arg1;
 - (void)cloudControllerDidChangeUploadingNotification:(id)arg1;

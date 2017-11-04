@@ -12,6 +12,7 @@
 
 - (BOOL)isSelectable;
 - (id)eventHandlerKey;
+- (Class)eventHandlerClass;
 - (BOOL)validate;
 - (BOOL)isActive;
 - (void)doPerformAction:(id)arg1;

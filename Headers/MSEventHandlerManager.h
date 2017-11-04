@@ -6,22 +6,26 @@
 
 #import "NSObject.h"
 
-@class MSEventHandler, MSNormalEventHandler;
+@class MSDocument, MSEventHandler, MSNormalEventHandler, NSUndoManager;
 
 @interface MSEventHandlerManager : NSObject
 {
+    MSDocument *_document;
     id <MSEventHandlerManagerDelegate> _delegate;
     MSEventHandler *_currentHandler;
     MSNormalEventHandler *_normalHandler;
     long long _lastMouseDownClickCount;
     unsigned long long _lastEventType;
+    NSUndoManager *_undoManager;
 }
 
+@property(readonly, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 @property(nonatomic) unsigned long long lastEventType; // @synthesize lastEventType=_lastEventType;
 @property(nonatomic) long long lastMouseDownClickCount; // @synthesize lastMouseDownClickCount=_lastMouseDownClickCount;
 @property(retain, nonatomic) MSNormalEventHandler *normalHandler; // @synthesize normalHandler=_normalHandler;
 @property(retain, nonatomic) MSEventHandler *currentHandler; // @synthesize currentHandler=_currentHandler;
 @property(nonatomic) __weak id <MSEventHandlerManagerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (void)recordEvent:(id)arg1;
 - (void)sendMouseMovedEvent:(id)arg1;
@@ -29,9 +33,9 @@
 - (void)sendMouseDraggedEvent:(id)arg1;
 - (void)sendMouseDownEvent:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
-- (id)switchToEventHandlerKey:(id)arg1;
-- (id)toggleHandlerKey:(id)arg1;
-- (id)handlerForKey:(id)arg1;
+- (id)switchToEventHandlerClass:(Class)arg1;
+- (id)toggleHandlerClass:(Class)arg1;
+- (id)handlerForClass:(Class)arg1;
 - (id)initWithDelegate:(id)arg1;
 
 @end

@@ -14,6 +14,7 @@
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
     BOOL _autoExpandGroupsInLayerList;
+    NSDictionary *_symbolMap;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -28,7 +29,7 @@
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
 - (void)determineCurrentArtboard;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)immediatelyShowSelectionForAllLayers;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
@@ -43,6 +44,7 @@
 - (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;
 - (id)allSymbols;
 - (id)localSymbols;
 - (id)allArtboards;
@@ -73,6 +75,8 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)convertToColorSpace:(unsigned long long)arg1;
 - (void)assignColorSpace:(unsigned long long)arg1;
+- (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlpha:(BOOL)arg4;
+- (void)enumerateColorConvertiblesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
 - (void)replaceFonts:(id)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;

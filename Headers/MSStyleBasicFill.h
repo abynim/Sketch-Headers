@@ -6,18 +6,18 @@
 
 #import "_MSStyleBasicFill.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 
 @class NSString;
 
-@interface MSStyleBasicFill : _MSStyleBasicFill <MSColorSpaceConvertible>
+@interface MSStyleBasicFill : _MSStyleBasicFill <MSColorConvertible>
 {
 }
 
 + (id)defaultFillColor;
 + (void)drawNoiseFill:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
 + (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
-+ (void)drawGradientFill:(id)arg1 inRect:(struct CGRect)arg2;
++ (void)drawGradientFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
 + (void)drawColorFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
 + (void)drawColor:(id)arg1 enabled:(BOOL)arg2 inRect:(struct CGRect)arg3;
 + (void)drawBasicFill:(id)arg1 colorSpace:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;

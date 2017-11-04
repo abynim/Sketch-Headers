@@ -8,29 +8,45 @@
 
 #import "MSAssetLibraryDelegate.h"
 
-@class NSArray, NSHashTable, NSMutableArray, NSString;
+@class MSAssetLibraryUpdater, NSArray, NSHashTable, NSMutableArray, NSString;
 
 @interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
 {
     NSArray *_internalLibraries;
     NSMutableArray *_userLibraries;
+    NSArray *_remoteLibraries;
     NSHashTable *_delegates;
+    MSAssetLibraryUpdater *_assetLibraryUpdater;
 }
 
+@property(readonly, nonatomic) MSAssetLibraryUpdater *assetLibraryUpdater; // @synthesize assetLibraryUpdater=_assetLibraryUpdater;
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
+@property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
 @property(retain, nonatomic) NSArray *internalLibraries; // @synthesize internalLibraries=_internalLibraries;
 - (void).cxx_destruct;
+- (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
+- (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
+- (BOOL)shouldAttemptToLoadVersionZeroLibraries;
+- (id)librariesWithUpdates;
+- (void)updateAndLoadAssetLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)startDownloadingAssetLibrary:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)downloadAssetLibraryAppcastsWithHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)libraryForSymbol:(id)arg1;
 - (void)enumerateForeignSymbolsInDocument:(id)arg1 includeDisabled:(BOOL)arg2 block:(CDUnknownBlockType)arg3;
 - (void)syncForeignSymbol:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importForeignSymbol:(id)arg1 fromLibrary:(id)arg2 intoDocument:(id)arg3;
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
-- (void)symcSymbolOverridesForInstance:(id)arg1 fromLibrary:(id)arg2;
+- (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (id)foreignSymbolInDocument:(id)arg1 matchingMaster:(id)arg2 inLibrary:(id)arg3;
-- (void)loadLibraries;
-- (void)setupInternalLibraries;
-- (id)loadLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2;
+- (BOOL)shouldLoadPreviouslySavedLibraries;
+- (void)loadInternalLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadLibrariesWithDispatchGroup:(id)arg1;
+- (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;
+- (void)setupInternalLibrariesWithDispatchGroup:(id)arg1;
+- (id)initialInternalLibraries;
+- (id)initialRemoteLibraryDefinitions;
+- (id)loadLibrariesForKey:(id)arg1 dispatchGroup:(id)arg2;
 - (void)assetLibraryEnableStateChanged:(id)arg1;
 - (void)assetLibraryChangedOnDisk:(id)arg1;
 - (void)reloadLibrary:(id)arg1;
@@ -38,6 +54,7 @@
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;
 - (void)saveLibraries;
+- (void)saveLibraries:(id)arg1 withLibrariesKey:(id)arg2;
 - (void)removeAssetLibrary:(id)arg1;
 - (long long)addAssetLibraryAtURL:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;

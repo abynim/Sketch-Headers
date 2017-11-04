@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (void)vectorCanvasDidEditPoints:(id)arg1;
 - (void)vectorCanvas:(id)arg1 didSelectLayers:(id)arg2;
+- (void)vectorCanvasDidFinishInteractiveSelection:(id)arg1;
 - (void)vectorCanvas:(id)arg1 didDeselectHandlesAtIndexPaths:(id)arg2;
 - (void)vectorCanvas:(id)arg1 didSelectHandlesAtIndexPaths:(id)arg2;
 - (void)vectorCanvas:(id)arg1 didUnhighlightHandleAtIndexPath:(id)arg2;
@@ -69,6 +70,8 @@
 - (struct CGRect)selectedRect;
 - (void)zoomToSelection;
 - (void)updateToolButton;
+- (void)setAllowSelectionOnly:(BOOL)arg1;
+- (void)toggleForceSelection:(id)arg1;
 - (void)forceSelection:(id)arg1;
 - (void)markLayer:(id)arg1 asEditing:(BOOL)arg2;
 - (void)setLayers:(id)arg1;
