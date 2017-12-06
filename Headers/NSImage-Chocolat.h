@@ -18,6 +18,7 @@
 - (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 fraction:(double)arg3 respectFlipped:(BOOL)arg4 colorSpace:(id)arg5;
 - (id)bitSafeBitmapImageRep;
 - (id)firstBitmapImageRep;
+- (id)firstBitmapImageRepOfScale:(double)arg1;
 - (id)firstBitmapImageRepOrCreateIfNecessary;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1;
 - (id)highlightImage;

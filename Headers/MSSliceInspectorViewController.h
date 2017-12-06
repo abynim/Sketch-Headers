@@ -30,9 +30,9 @@
 @property(retain, nonatomic) NSView *standardPropertiesView; // @synthesize standardPropertiesView=_standardPropertiesView;
 @property(retain, nonatomic) NSView *sliceExportPropertiesView; // @synthesize sliceExportPropertiesView=_sliceExportPropertiesView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonColorSpace:(id)arg1;
-- (id)previewColorSpaceForControl:(id)arg1;
+- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)documentColorSpace;
+- (id)canvasColorSpace;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (id)nibName;

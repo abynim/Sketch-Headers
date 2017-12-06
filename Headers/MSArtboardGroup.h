@@ -7,13 +7,13 @@
 #import "_MSArtboardGroup.h"
 
 #import "MSArtboardGroup.h"
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 #import "MSLayerWithBackgroundColor.h"
 #import "MSRootLayer.h"
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor, MSColorSpaceConvertible>
+@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor, MSColorConvertible>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }
@@ -21,6 +21,7 @@
 + (unsigned long long)traits;
 @property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (void).cxx_destruct;
+- (void)setShouldBreakMaskChain:(BOOL)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (void)makeChildRectsIntegral;
 - (id)immutableBackgroundColor;
@@ -54,6 +55,7 @@
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
 - (BOOL)hasSliceIcon;

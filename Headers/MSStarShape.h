@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)shouldHitTestOnFill:(id)arg1;
 - (BOOL)canFlatten;
 - (void)resetPoints;
 - (struct CGRect)boundsForCursorPreview;

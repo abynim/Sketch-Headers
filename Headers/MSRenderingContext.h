@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSRenderingDriver, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray;
+@class MSCGContextPool, MSImmutableDocumentData, MSImmutableLayer, MSRenderingDriver, NSColor, NSColorSpace, NSGraphicsContext, NSMutableArray, NSString;
 
 @interface MSRenderingContext : NSObject
 {
-    BOOL _isDrawingReflection;
     BOOL _isDrawingBackgroundForBlur;
     BOOL _isBitmapBacked;
     BOOL _isExporting;
+    BOOL _isPrinting;
     BOOL _isDrawingPixelated;
     BOOL _isDrawingMask;
     BOOL _includeArtboardBackground;
@@ -36,14 +36,14 @@
     MSRenderingDriver *_driver;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     MSCGContextPool *_contextPool;
+    NSString *_name;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
     NSMutableArray *_symbolMasterStack;
     NSGraphicsContext *_graphicsContext;
-    struct CGPoint _scrollOrigin;
-    struct CGRect _dirtyRect;
+    struct CGRect _drawingArea;
     struct CGAffineTransform _initialTransform;
     struct CGAffineTransform _rotateFlipTransform;
     struct CGAffineTransform _totalTransform;
@@ -58,6 +58,7 @@
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
@@ -71,22 +72,22 @@
 @property(nonatomic) double shadowScale; // @synthesize shadowScale=_shadowScale;
 @property(retain, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-@property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL isDrawingMask; // @synthesize isDrawingMask=_isDrawingMask;
 @property(nonatomic) BOOL isDrawingPixelated; // @synthesize isDrawingPixelated=_isDrawingPixelated;
+@property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(nonatomic) BOOL isExporting; // @synthesize isExporting=_isExporting;
 @property(nonatomic) BOOL isBitmapBacked; // @synthesize isBitmapBacked=_isBitmapBacked;
 @property(nonatomic) BOOL isDrawingBackgroundForBlur; // @synthesize isDrawingBackgroundForBlur=_isDrawingBackgroundForBlur;
-@property(nonatomic) BOOL isDrawingReflection; // @synthesize isDrawingReflection=_isDrawingReflection;
+@property(nonatomic) struct CGRect drawingArea; // @synthesize drawingArea=_drawingArea;
 - (void).cxx_destruct;
+- (BOOL)shouldLog;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2 respectFlipped:(BOOL)arg3;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2;
 - (void)applyShadow:(id)arg1 respectFlipped:(BOOL)arg2;
@@ -98,8 +99,9 @@
 - (void)drawSymbolMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (BOOL)canDrawSymbolMasterWithoutRiskingRecursion:(id)arg1;
 - (BOOL)shouldDisableSubpixelQuantization;
-- (BOOL)layerIntersectsDirtyRect:(id)arg1;
-- (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDirtyRect:(BOOL)arg3;
+- (BOOL)drawingAreaIntersectsLayer:(id)arg1;
+- (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDrawingArea:(BOOL)arg3;
+- (void)clipToRect:(struct CGRect)arg1;
 - (BOOL)shouldClipFills;
 - (void)doNotClipFillsInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawFills;
@@ -122,8 +124,9 @@
 @property(readonly, nonatomic) double zoomLevelForShadows;
 - (void)transparencyLayerInRect:(struct CGRect)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)transparencyLayerInBlock:(CDUnknownBlockType)arg1;
-- (void)transparencyLayerInRect:(struct CGRect)arg1 mayOptimise:(BOOL)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)cancel;
+- (long long)depthOfLayer:(id)arg1;
+- (BOOL)layer:(id)arg1 isSiblingOfLayer:(id)arg2;
 - (id)popParentGroup;
 - (void)pushParentGroup:(id)arg1;
 - (id)parentGroupForLayer:(id)arg1;
@@ -140,13 +143,14 @@
 - (void)setUp;
 - (void)renderSymbol:(id)arg1;
 - (void)renderRect:(struct CGRect)arg1 withStyle:(id)arg2;
-- (void)renderLayer:(id)arg1 ignoreCacheAndDirtyRect:(BOOL)arg2;
+- (void)renderLayer:(id)arg1 ignoreCacheAndDrawingArea:(BOOL)arg2;
 - (void)renderInBlock:(CDUnknownBlockType)arg1;
 - (id)bitmapBackedSubContextWithCGContext:(struct CGContext *)arg1 size:(struct CGSize)arg2;
 - (id)blurSubContextWithCGContext:(struct CGContext *)arg1 untilLayer:(id)arg2 rect:(struct CGRect)arg3;
 - (id)subContextWithCGContext:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 atZoomLevel:(double)arg3;
 - (id)subContextWithDefaultSettingsForCGContext:(struct CGContext *)arg1 atZoomLevel:(double)arg2;
-- (id)initWithDriver:(id)arg1 cgContext:(struct CGContext *)arg2 contextIsVectorBacked:(BOOL)arg3 colorSpace:(id)arg4 atZoomLevel:(double)arg5 document:(id)arg6;
+- (id)initWithName:(id)arg1 driver:(id)arg2 cgContext:(struct CGContext *)arg3 contextIsVectorBacked:(BOOL)arg4 colorSpace:(id)arg5 atZoomLevel:(double)arg6 document:(id)arg7;
+- (id)initWithName:(id)arg1 driver:(id)arg2 context:(struct CGContext *)arg3 colorSpace:(id)arg4 zoom:(double)arg5;
 - (id)init;
 
 @end

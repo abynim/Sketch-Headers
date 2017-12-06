@@ -93,9 +93,16 @@ struct FBBezierPathElement {
     struct CGPoint _field3[2];
 };
 
-struct FBContourWindingRuleResult {
-    int _field1;
-    int _field2;
+struct FBEdgeOverlapRunStartStopInsides {
+    char isValid;
+    char startInside;
+    char stopInside;
+};
+
+struct FBEdgeOverlapRunTestPoints {
+    char isValid;
+    struct CGPoint startPoint;
+    struct CGPoint stopPoint;
 };
 
 struct FBRange {
@@ -144,8 +151,8 @@ struct _CHTransformStruct {
 };
 
 struct _NSRange {
-    unsigned long long location;
-    unsigned long long length;
+    unsigned long long _field1;
+    unsigned long long _field2;
 };
 
 struct __va_list_tag {

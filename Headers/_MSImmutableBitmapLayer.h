@@ -13,13 +13,9 @@
     struct CGRect _clippingMask;
     BOOL _fillReplacesImage;
     MSImageData *_image;
-    struct CGRect _nineSliceCenterRect;
-    struct CGSize _nineSliceScale;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) struct CGSize nineSliceScale; // @synthesize nineSliceScale=_nineSliceScale;
-@property(nonatomic) struct CGRect nineSliceCenterRect; // @synthesize nineSliceCenterRect=_nineSliceCenterRect;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 @property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
 @property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;

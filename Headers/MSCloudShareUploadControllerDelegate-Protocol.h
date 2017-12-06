@@ -6,14 +6,14 @@
 
 #import "NSObject.h"
 
-@class MSCloudShareUploadController, NSError, SCKShare;
+@class MSCloudShareUploadController, NSError, NSProgress, SCKShare;
 
 @protocol MSCloudShareUploadControllerDelegate <NSObject>
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 didUploadShare:(SCKShare *)arg2;
 
 @optional
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 willUploadShareAsNew:(BOOL)arg2;
-- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didChangeProgress:(double)arg2;
+- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didChangeProgress:(NSProgress *)arg2;
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 uploadDidFailWithError:(NSError *)arg2;
 @end
 

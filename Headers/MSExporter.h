@@ -8,18 +8,20 @@
 
 #import "MSRenderingContextCacheProvider.h"
 
-@class BCCache, MSExportRequest, NSColorSpace, NSString;
+@class BCCache, MSExportRequest, MSRenderingDriver, NSColorSpace, NSString;
 
 @interface MSExporter : NSObject <MSRenderingContextCacheProvider>
 {
     BOOL _isPrinting;
     BOOL _allowSubpixelAntialiasing;
     MSExportRequest *_request;
+    MSRenderingDriver *_driver;
     NSColorSpace *_colorSpace;
     BCCache *_cache;
     struct CGRect _bounds;
 }
 
++ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2 driver:(id)arg3;
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
 + (void)registerExporterClass:(Class)arg1 forFormat:(id)arg2;
 + (void)initialize;
@@ -27,6 +29,7 @@
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 - (void).cxx_destruct;
@@ -42,6 +45,7 @@
 - (id)image;
 - (id)data;
 - (struct CGRect)boundsForVectorRender;
+- (id)initWithRequest:(id)arg1 colorSpace:(id)arg2 driver:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

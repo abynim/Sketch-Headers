@@ -16,8 +16,8 @@
 + (id)defaultDriver;
 @property(retain, nonatomic) NSMapTable *renderers; // @synthesize renderers=_renderers;
 - (void).cxx_destruct;
-- (id)contextForCGContext:(struct CGContext *)arg1;
-- (id)contextForCGContext:(struct CGContext *)arg1 zoomLevel:(double)arg2 document:(id)arg3;
+- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2;
+- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 zoomLevel:(double)arg3 document:(id)arg4;
 - (id)rendererForObject:(id)arg1 protocol:(id)arg2;
 - (void)addRenderersForSubclasses:(id)arg1;
 - (id)setupRendererMap;

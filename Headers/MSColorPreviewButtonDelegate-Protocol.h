@@ -9,6 +9,6 @@
 @class MSColorPreviewButton, NSColorSpace;
 
 @protocol MSColorPreviewButtonDelegate <NSObject>
-- (NSColorSpace *)colorPreviewButtonColorSpace:(MSColorPreviewButton *)arg1;
+- (NSColorSpace *)colorPreviewButtonPreviewColorSpace:(MSColorPreviewButton *)arg1;
 @end
 

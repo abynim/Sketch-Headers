@@ -6,7 +6,7 @@
 
 #import "MSModelObject.h"
 
-@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSStyleReflection, MSTextStyle, NSArray, NSMutableArray, NSString;
+@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSTextStyle, NSArray, NSMutableArray, NSString;
 
 @interface _MSStyle : MSModelObject
 {
@@ -21,7 +21,6 @@
     MSGraphicsContextSettings *_contextSettings;
     NSMutableArray *_fills;
     NSMutableArray *_innerShadows;
-    MSStyleReflection *_reflection;
     NSMutableArray *_shadows;
     MSTextStyle *_textStyle;
 }
@@ -86,7 +85,6 @@
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
-@property(retain, nonatomic) MSStyleReflection *reflection; // @synthesize reflection=_reflection;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
 @property(retain, nonatomic) NSArray *fills; // @synthesize fills=_fills;
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;

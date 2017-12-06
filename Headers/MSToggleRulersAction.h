@@ -11,7 +11,7 @@
 }
 
 - (id)label;
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)validate;
 - (id)imageName;
 - (void)hide;
 - (void)show;

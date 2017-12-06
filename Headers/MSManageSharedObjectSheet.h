@@ -12,12 +12,12 @@
 {
     NSSegmentedControl *_tabSegmentControl;
     NSView *_containerView;
-    NSViewController *_currentViewController;
+    NSViewController *_contentDrawViewController;
 }
 
 + (void)setTabIndex:(unsigned long long)arg1;
 + (unsigned long long)tabIndex;
-@property(retain, nonatomic) NSViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
+@property(retain, nonatomic) NSViewController *contentDrawViewController; // @synthesize contentDrawViewController=_contentDrawViewController;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
 @property(retain, nonatomic) NSSegmentedControl *tabSegmentControl; // @synthesize tabSegmentControl=_tabSegmentControl;
 - (void).cxx_destruct;

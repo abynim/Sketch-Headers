@@ -17,6 +17,8 @@
     NSImage *_cachedPreviewImage;
 }
 
++ (id)userTemplatesDirectoryURL;
++ (id)bundledTemplatesDirectoryURL;
 @property(retain, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 @property(nonatomic) __weak MSWelcomeWindowController *welcomeWindowController; // @synthesize welcomeWindowController=_welcomeWindowController;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;

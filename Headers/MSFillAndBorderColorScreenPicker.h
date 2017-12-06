@@ -15,7 +15,7 @@
 + (id)stylesForColorAdjusting:(id)arg1;
 + (void)changeColorForNormalLayer:(id)arg1 color:(id)arg2;
 + (void)applyColor:(id)arg1 toLayers:(id)arg2;
-+ (void)pickColorForLayers:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
++ (void)pickColorForLayers:(id)arg1 colorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 
 @end
 

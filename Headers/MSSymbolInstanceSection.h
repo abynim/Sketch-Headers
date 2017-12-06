@@ -8,18 +8,22 @@
 
 #import "MSAssetLibraryControllerDelegate.h"
 
-@class MSForeignSymbolMenuBuilder, NSArray, NSPopUpButton, NSString, NSView;
+@class MSForeignSymbolMenuBuilder, NSArray, NSButton, NSPopUpButton, NSString, NSView;
 
 @interface MSSymbolInstanceSection : MSLayerSection <MSAssetLibraryControllerDelegate>
 {
     NSPopUpButton *_sharedObjectsPopUpButton;
     NSView *_overridesHeaderView;
+    NSView *_stylesHeaderView;
+    NSButton *_symbolSwappingButton;
     NSArray *_overrideViewControllers;
     MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
 @property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSArray *overrideViewControllers; // @synthesize overrideViewControllers=_overrideViewControllers;
+@property(retain, nonatomic) NSButton *symbolSwappingButton; // @synthesize symbolSwappingButton=_symbolSwappingButton;
+@property(retain, nonatomic) NSView *stylesHeaderView; // @synthesize stylesHeaderView=_stylesHeaderView;
 @property(retain, nonatomic) NSView *overridesHeaderView; // @synthesize overridesHeaderView=_overridesHeaderView;
 @property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 - (void).cxx_destruct;
@@ -31,10 +35,9 @@
 - (void)reloadMenu;
 - (id)menuItemsWithAction:(id)arg1 forSymbolMasterRefs:(id)arg2;
 - (id)symbolsAtSameLevelAsSymbolMaster:(id)arg1;
-- (id)overrideIDsSortedInLayerListOrder:(id)arg1 lookup:(id)arg2;
-- (id)overrideViewsWithOverrides:(id)arg1 ancestorIDs:(id)arg2 lookup:(id)arg3;
 - (void)makeOverrideViewControllers;
 - (id)views;
+- (void)symbolSwappingAction:(id)arg1;
 - (void)viewDidAppear;
 - (void)setLayers:(id)arg1;
 

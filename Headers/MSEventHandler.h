@@ -18,7 +18,6 @@
     NSMutableArray *_gestureRecognizers;
     BOOL _mouseIsDown;
     MSEventHandlerManager *_manager;
-    id <MSBasicDelegate> _delegate;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
     NSTouchBar *_noSelectionTouchBar;
@@ -42,14 +41,11 @@
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
-@property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
 - (void)touchBarTextColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (void)refreshStylePreviewTouchBarButton:(id)arg1 forIdentifier:(id)arg2;
-- (id)touchBarPreviewColorSpace;
-- (id)previewColorSpace;
 - (id)documentColorSpace;
 - (void)openInnerShadowAction:(id)arg1;
 - (void)openShadowAction:(id)arg1;
@@ -94,6 +90,7 @@
 - (void)zoomValueDidChange;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (double)zoomValue;
+- (void)updateDraggingItemsForDrag:(id)arg1;
 - (id)dragDropHintForDropOnPoint:(struct CGPoint)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
@@ -162,7 +159,6 @@
 - (void)cancelOperation:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
-- (void)refreshOverlay;
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)drawMeasurementLabel;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
@@ -189,9 +185,9 @@
 @property(nonatomic) struct CGPoint scrollOrigin; // @dynamic scrollOrigin;
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (id)document;
-- (id)drawView;
+- (id)contentDrawView;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
 

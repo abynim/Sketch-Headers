@@ -4,71 +4,66 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CALayer.h"
+#import "MSRenderingCALayer.h"
 
 #import "CALayerDelegate.h"
 #import "MSTileRenderOperationDelegate.h"
 
-@class MSPage, MSRenderingDriver, MSTileRenderOperation, MSTileRenderer, NSString;
+@class CALayer, CATextLayer, MSContentCALayer, MSOverlayCALayer, MSRenderingDriver, MSTileRenderOperation, NSString;
 
-@interface MSTile : CALayer <MSTileRenderOperationDelegate, CALayerDelegate>
+@interface MSTile : MSRenderingCALayer <MSTileRenderOperationDelegate, CALayerDelegate>
 {
-    BOOL _drawDottedDirtyRect;
     BOOL _shouldHideOverlayControls;
     BOOL _drawingIsCancelled;
     BOOL _completedFirstRenderOrWasCancelled;
-    id <MSTileDelegate> _tileDelegate;
     struct CGColorSpace *_colorSpace;
     double _zoomValue;
     MSRenderingDriver *_driver;
+    unsigned long long _index;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
-    CALayer *_overlayLayer;
-    CALayer *_contentLayer;
-    MSPage *_pageForOverlay;
-    MSTileRenderer *_tileRenderer;
+    MSOverlayCALayer *_overlayLayer;
+    MSContentCALayer *_contentLayer;
+    CATextLayer *_debugLabelLayer;
+    CALayer *_debugDrawingAreaLayer;
     MSTileRenderOperation *_currentRenderOperation;
     struct CGPoint _scrollOrigin;
     struct CGPoint _distanceFromScrollOrigin;
 }
 
 @property(nonatomic) __weak MSTileRenderOperation *currentRenderOperation; // @synthesize currentRenderOperation=_currentRenderOperation;
-@property(retain, nonatomic) MSTileRenderer *tileRenderer; // @synthesize tileRenderer=_tileRenderer;
-@property(retain, nonatomic) MSPage *pageForOverlay; // @synthesize pageForOverlay=_pageForOverlay;
-@property(retain, nonatomic) CALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
-@property(retain, nonatomic) CALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
+@property(retain, nonatomic) CALayer *debugDrawingAreaLayer; // @synthesize debugDrawingAreaLayer=_debugDrawingAreaLayer;
+@property(retain, nonatomic) CATextLayer *debugLabelLayer; // @synthesize debugLabelLayer=_debugLabelLayer;
+@property(retain, nonatomic) MSContentCALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
+@property(retain, nonatomic) MSOverlayCALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
 @property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
-@property(nonatomic) BOOL drawDottedDirtyRect; // @synthesize drawDottedDirtyRect=_drawDottedDirtyRect;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(nonatomic) __weak id <MSTileDelegate> tileDelegate; // @synthesize tileDelegate=_tileDelegate;
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)moveToPosition:(struct CGPoint)arg1;
 - (void)pixelGridDidChange;
 - (BOOL)shouldDrawPixelated;
 - (double)scaleForContentLayer;
-- (void)drawOverlayInContext:(struct CGContext *)arg1;
-- (void)drawLayer:(id)arg1 inContext:(struct CGContext *)arg2;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 page:(id)arg2;
 - (void)cancelDrawing;
 - (void)tileRenderOperationDidFinishRendering:(id)arg1;
 - (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
 - (id)renderOperationForContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3 contextPool:(id)arg4;
-- (void)enableDebugFramesInner:(BOOL)arg1 outer:(BOOL)arg2;
-- (void)clearLayerAnimationsForLayer:(id)arg1;
-- (void)prepareLayer:(id)arg1;
-- (void)makeNewOverlayLayer;
-- (void)makeNewContentLayer;
+- (void)updateDebugLabel;
+- (void)setupDebugLabel;
+- (void)setupDebugDrawingArea;
+- (void)setDebugOptionsToDrawInner:(BOOL)arg1 outer:(BOOL)arg2 dirty:(BOOL)arg3;
 - (void)removeFromSuperlayer;
 - (id)init;
 - (void)dealloc;
-- (id)initWithDriver:(id)arg1 size:(struct CGSize)arg2 colorSpace:(struct CGColorSpace *)arg3;
+- (id)initWithTiledLayer:(id)arg1 size:(struct CGSize)arg2 colorSpace:(struct CGColorSpace *)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -10,13 +10,11 @@
 {
 }
 
-- (void)drawNineSliceImageWithStyle:(id)arg1 layer:(id)arg2 rect:(struct CGRect)arg3 context:(id)arg4;
-- (BOOL)canDrawNineSliceContentForLayer:(id)arg1 rect:(struct CGRect)arg2;
 - (void)drawImageWithStyle:(id)arg1 layer:(id)arg2 rect:(struct CGRect)arg3 context:(id)arg4;
 - (id)imageForLayerWithStyle:(id)arg1 layer:(id)arg2 context:(id)arg3;
 - (void)drawImageAndFillsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (void)drawBitmapLayer:(id)arg1 context:(id)arg2 inRect:(struct CGRect)arg3;
-- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

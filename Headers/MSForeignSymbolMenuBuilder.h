@@ -10,16 +10,16 @@
 
 @interface MSForeignSymbolMenuBuilder : NSObject
 {
-    BOOL _requiresSymbolSubmenu;
-    CDUnknownBlockType _filter;
-    MSDocument *_document;
     MSSymbolsMenuBuilder *_menuBuilder;
+    BOOL _requiresSymbolSubmenu;
+    MSDocument *_document;
+    CDUnknownBlockType _filter;
 }
 
-@property(retain, nonatomic) MSSymbolsMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
++ (id)gatherSymbolsInDocument:(id)arg1 filter:(CDUnknownBlockType)arg2;
 @property(nonatomic) BOOL requiresSymbolSubmenu; // @synthesize requiresSymbolSubmenu=_requiresSymbolSubmenu;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
+@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (id)menuItemsForSymbolRefs:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
 - (id)buildMenuItemsForMenu:(id)arg1 withAction:(id)arg2;
@@ -29,6 +29,7 @@
 - (id)gatherSymbolsForMenus;
 - (id)buildLibraryToSymbolMap;
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController;
+@property(retain, nonatomic) MSSymbolsMenuBuilder *menuBuilder;
 - (id)initWithDocument:(id)arg1;
 
 @end

@@ -75,7 +75,6 @@
 - (struct CGPoint)determineLocationAndSnappingOfDrag:(id)arg1;
 - (void)dragHandle:(id)arg1;
 - (void)flagsChanged:(id)arg1;
-- (BOOL)isMakingRectSelection;
 - (void)dragToSelect:(id)arg1;
 - (void)clickToSelect:(id)arg1;
 - (void)mouseUpAtPoint:(struct CGPoint)arg1;
@@ -100,6 +99,7 @@
 - (void)updateWire;
 - (void)prepareSnapperForDragging:(BOOL)arg1;
 - (id)changeContext;
+@property(readonly, nonatomic, getter=isInteractivelySelecting) BOOL interactivelySelecting;
 - (void)toggleSelectionOfHandleAtIndexPath:(id)arg1 notifyDelegate:(BOOL)arg2;
 - (void)didChangeSelection;
 - (void)deselectHandleAtIndexPath:(id)arg1;
@@ -108,7 +108,7 @@
 - (id)selectHandleAtIndexPath:(id)arg1 extendSelection:(BOOL)arg2 notifyDelegate:(BOOL)arg3;
 - (void)selectHandleAtIndexPath:(id)arg1 extendSelection:(BOOL)arg2;
 @property(readonly, copy, nonatomic) NSArray *indexPathsForSelectedHandles;
-- (void)forceSelectionMode:(BOOL)arg1;
+- (void)didChangeAllowSelectionOnly;
 - (void)selectLayers:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)pathLayersForLayer:(id)arg1;
 - (void)rebuildVisibleLayersMaintainingSelection:(BOOL)arg1;

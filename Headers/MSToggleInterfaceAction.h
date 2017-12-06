@@ -26,7 +26,8 @@
 - (void)hideInterface;
 - (void)doPerformAction:(id)arg1;
 - (void)toggleHideInterface:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
+- (id)label;
+- (BOOL)hasDynamicTitle;
 
 @end
 

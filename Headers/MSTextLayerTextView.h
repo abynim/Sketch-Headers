@@ -34,6 +34,11 @@
 - (void)mouseDown:(id)arg1;
 - (BOOL)hitTestFromEvent:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
+- (void)setTypingAttributes:(id)arg1;
+- (void)applyTextColor:(id)arg1 previousTextColors:(id)arg2;
+- (id)textColorProviderForChangeColorSender:(id)arg1;
+- (id)colorProvidersForRanges:(id)arg1 colorSpace:(id)arg2;
+- (void)changeColor:(id)arg1;
 - (void)viewWillMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 

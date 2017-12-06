@@ -10,7 +10,7 @@
 
 @interface MSTextWindow : NSWindow
 {
-    MSContentDrawView *_drawView;
+    MSContentDrawView *_contentDrawView;
     NSTextView *_textView;
 }
 
@@ -18,11 +18,12 @@
 + (struct CGRect)adjustFrameHeight:(struct CGRect)arg1;
 + (struct CGRect)makeBiggerRect:(struct CGRect)arg1 withBehaviour:(long long)arg2 alignment:(unsigned long long)arg3;
 @property(retain, nonatomic) NSTextView *textView; // @synthesize textView=_textView;
-@property(retain, nonatomic) MSContentDrawView *drawView; // @synthesize drawView=_drawView;
+@property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;
+- (id)undoManager;
 - (BOOL)canBecomeKeyWindow;
 - (void)addTextView:(id)arg1 toView:(id)arg2;
-- (void)moveToRect:(struct CGRect)arg1 drawViewRect:(struct CGRect)arg2 behaviour:(long long)arg3;
+- (void)moveToRect:(struct CGRect)arg1 contentDrawViewRect:(struct CGRect)arg2 behaviour:(long long)arg3;
 - (void)mouseDown:(id)arg1;
 - (id)initWithRect:(struct CGRect)arg1;
 

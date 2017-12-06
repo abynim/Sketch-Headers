@@ -9,7 +9,6 @@
 @class MSTilePlacer;
 
 @protocol MSTilePlacerDelegate <NSObject>
-- (void)tilePlacer:(MSTilePlacer *)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tilePlacer:(MSTilePlacer *)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 @end
 

@@ -48,6 +48,7 @@
 - (id)children;
 @property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, nonatomic) struct CGPoint origin;
+- (BOOL)canBreakMaskChain;
 - (BOOL)hasClippingMask;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) struct CGRect bounds;
@@ -57,6 +58,7 @@
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)keysDifferingFromObject:(id)arg1;
 - (void)objectDidInit;
+- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
 - (void)addPreviewWithBezier:(id)arg1 toCache:(id)arg2;
 - (id)previewImageWithBezier:(id)arg1 selected:(BOOL)arg2;
 - (id)previewFillColor:(BOOL)arg1;
@@ -81,9 +83,8 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
-- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
-- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;

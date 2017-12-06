@@ -43,7 +43,7 @@
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)makeNewBackupImage;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
-- (id)bitmapLayer;
+- (id)bitmapEditableLayer;
 - (id)coordinateTransformMatrix;
 - (void)drawBorderAroundBounds;
 - (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;

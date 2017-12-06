@@ -6,9 +6,12 @@
 
 #import "NSControl.h"
 
-@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSTextField;
+#import "BCColorPreviewDelegate.h"
+#import "BCMagnifierButtonDelegate.h"
 
-@interface BCHSBColorPicker : NSControl
+@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSString, NSTextField;
+
+@interface BCHSBColorPicker : NSControl <BCColorPreviewDelegate, BCMagnifierButtonDelegate>
 {
     long long ignoreColorActionsCounter;
     id <BCHSBColorPickerDelegate> _delegate;
@@ -60,6 +63,8 @@
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
 @property(copy, nonatomic) MSColor *color; // @dynamic color;
 - (id)flexibleColor;
+- (id)magnifierButtonDocumentColorSpace:(id)arg1;
+- (id)colorPreviewColorSpace:(id)arg1;
 - (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)updateColorPreviewView;
@@ -76,6 +81,12 @@
 - (void)setTarget:(id)arg1;
 - (SEL)action;
 - (id)target;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

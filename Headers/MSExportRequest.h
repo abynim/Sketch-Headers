@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableColor, MSImmutableDocumentData, MSImmutablePage, NSSet, NSString;
+@class MSImmutableArtboardGroup, MSImmutableColor, MSImmutableDocumentData, MSImmutablePage, NSSet, NSString;
 
 @interface MSExportRequest : NSObject
 {
@@ -21,6 +21,7 @@
     MSImmutableColor *_backgroundColor;
     MSImmutablePage *_immutablePage;
     MSImmutableDocumentData *_immutableDocument;
+    MSImmutableArtboardGroup *_artboard;
     NSString *_format;
     double _compression;
     struct CGRect _rect;
@@ -42,6 +43,7 @@
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
+@property(readonly, nonatomic) MSImmutableArtboardGroup *artboard; // @synthesize artboard=_artboard;
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocument; // @synthesize immutableDocument=_immutableDocument;
 @property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
 @property(copy, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
@@ -57,6 +59,7 @@
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)configureForLayer:(id)arg1;
 - (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
+- (void)readSettingsFromDefaults;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

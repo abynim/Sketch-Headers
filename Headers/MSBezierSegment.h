@@ -11,9 +11,18 @@
 @interface MSBezierSegment : NSObject
 {
     double _lineLength;
+    double _arcLength;
+    struct CGRect _bounds;
+    BOOL _looksLikeALine;
+    BOOL _lineLengthCached;
+    BOOL _arcLengthCached;
+    BOOL _boundsCached;
+    BOOL _looksLikeALineCached;
     unsigned long long _segmentType;
     NSSet *_xAxisRoots;
     NSSet *_yAxisRoots;
+    NSSet *_inflectionOffsets;
+    MSBezierSegment *_derivative;
     struct CGPoint _endPoint1;
     struct CGPoint _endPoint2;
     struct CGPoint _controlPoint1;
@@ -23,6 +32,8 @@
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
+@property(retain, nonatomic) MSBezierSegment *derivative; // @synthesize derivative=_derivative;
+@property(retain, nonatomic) NSSet *inflectionOffsets; // @synthesize inflectionOffsets=_inflectionOffsets;
 @property(retain, nonatomic) NSSet *yAxisRoots; // @synthesize yAxisRoots=_yAxisRoots;
 @property(retain, nonatomic) NSSet *xAxisRoots; // @synthesize xAxisRoots=_xAxisRoots;
 @property(readonly, nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
@@ -37,9 +48,7 @@
 - (id)bezierPath;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
 - (struct CGRect)bounds;
-@property(readonly, nonatomic) NSSet *inflectionOffsets;
 @property(readonly, nonatomic) double curviness;
-- (id)derivative;
 - (id)reversedSegment;
 - (id)representationUsingType:(unsigned long long)arg1;
 - (id)cubicRepresentation;
@@ -64,7 +73,10 @@
 - (void)cubicDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
 @property(readonly, nonatomic) BOOL isAPoint;
 @property(readonly, nonatomic) BOOL looksLikeALine;
+@property(readonly, nonatomic) double arcLength;
+- (double)arcLengthWithSegments:(unsigned long long)arg1;
 @property(readonly, nonatomic) double lineLength;
+- (id)segmentMirroredAtOffset:(double)arg1;
 - (id)segmentWithEndPoint2:(struct CGPoint)arg1;
 - (id)segmentWithEndPoint1:(struct CGPoint)arg1;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;

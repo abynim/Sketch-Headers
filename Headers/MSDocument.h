@@ -96,6 +96,7 @@
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
+- (id)symbolReferenceForRecipe:(id)arg1;
 - (id)localSymbolForSymbol:(id)arg1 inLibrary:(id)arg2;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
@@ -138,7 +139,6 @@
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
 - (void)sliceDidChangeVisibility:(id)arg1;
-- (void)debugStressTestRendering:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -154,12 +154,11 @@
 - (void)setCurrentPage:(id)arg1;
 - (id)artboards;
 - (id)normalHandler;
-- (id)toggleHandlerKey:(id)arg1;
+- (id)toggleHandlerClass:(Class)arg1;
 - (void)reloadInspector;
 - (void)reloadView;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
-- (void)refreshAfterArtboardDeletion;
 - (void)deleteSymbolMasters:(id)arg1;
 - (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
@@ -202,7 +201,6 @@
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)coalescedSelectionDidChangeNotification:(id)arg1;
-- (void)saveDocumentAs:(id)arg1;
 - (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;
 - (void)exportSliceLayers:(id)arg1;
@@ -228,7 +226,7 @@
 - (void)awakeFromNib;
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
-- (id)currentView;
+- (id)contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
@@ -241,6 +239,7 @@
 - (void)close;
 - (void)setDelegatesToNil;
 - (void)createActions;
+@property(readonly, nonatomic) NSColorSpace *canvasColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
 @property(retain, nonatomic) SCKShare *cloudShare;
@@ -280,7 +279,9 @@
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
-- (id)generatePreviewForDocument:(id)arg1;
+- (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
+- (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
+- (id)generatePreviewsForDocument:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;

@@ -12,10 +12,10 @@
 
 + (unsigned int)displayIDForScreenPoint:(struct CGPoint)arg1;
 + (id)grabVisibleCanvas:(id)arg1;
-+ (id)colorAtScreenPoint:(struct CGPoint)arg1 inScreenGrab:(id)arg2;
++ (id)colorAtScreenPoint:(struct CGPoint)arg1 inScreenGrab:(id)arg2 colorSpace:(id)arg3;
 + (id)grabCanvasAtScreenPoint:(struct CGPoint)arg1 belowWindow:(id)arg2 previousGrabResult:(id)arg3;
-+ (void)updateMagnifierWindow:(id)arg1 mouseLocation:(struct CGPoint)arg2 screenGrab:(id)arg3;
-+ (void)pickColorWithCompletionBlock:(CDUnknownBlockType)arg1;
++ (void)updateMagnifierWindow:(id)arg1 mouseLocation:(struct CGPoint)arg2 screenGrab:(id)arg3 colorSpace:(id)arg4;
++ (void)pickColorInColorSpace:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (struct CGPoint)pointInFlippedCoordinates:(struct CGPoint)arg1;
 
 @end

@@ -30,6 +30,9 @@
 - (id)colorWithAlphaComponent:(double)arg1;
 - (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
 - (id)stringValueWithAlpha:(BOOL)arg1;
+- (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1 precision:(double)arg2;
+- (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1;
+- (BOOL)fuzzyIsEqual:(id)arg1 precision:(double)arg2;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (id)hexValue;
 - (BOOL)isBlack;

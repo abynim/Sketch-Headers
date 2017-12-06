@@ -15,14 +15,11 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 - (BOOL)canSkipAdvancedClipForStrokes;
-@property(readonly, nonatomic) BOOL hasNineSliceEnabled;
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
-- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
-- (void)migratePropertiesFromV61OrEarlierWithUnarchiver:(id)arg1;
-- (void)migratePropertiesFromV59OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
