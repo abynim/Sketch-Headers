@@ -36,6 +36,7 @@
 - (id)debugPathForIntersectionType:(long long)arg1 withTransform:(struct CGAffineTransform)arg2 andSizeTransform:(struct CGAffineTransform)arg3;
 - (id)description;
 - (id)closestLocationToPoint:(struct CGPoint)arg1;
+- (id)clone;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)doesOverlapContainParameter:(double)arg1 onEdge:(id)arg2;
 - (BOOL)doesOverlapContainCrossing:(id)arg1;
@@ -86,10 +87,12 @@
 @property(readonly, nonatomic) struct CGPoint firstPoint;
 @property(readonly, nonatomic) struct CGRect boundingRect;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy, nonatomic) NSArray *nonPointEdges;
 - (void)addReverseCurveFrom:(id)arg1 to:(id)arg2;
 - (void)addReverseCurve:(id)arg1;
 - (void)addCurveFrom:(id)arg1 to:(id)arg2;
 - (void)addCurve:(id)arg1;
+@property(readonly, copy, nonatomic) NSArray *crossings;
 @property(readonly, nonatomic) __weak NSMutableArray *overlaps_;
 @property(readonly, nonatomic) NSArray *overlaps;
 - (void)dealloc;

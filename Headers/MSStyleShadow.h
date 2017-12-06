@@ -6,11 +6,11 @@
 
 #import "_MSStyleShadow.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 
 @class NSString;
 
-@interface MSStyleShadow : _MSStyleShadow <MSColorSpaceConvertible>
+@interface MSStyleShadow : _MSStyleShadow <MSColorConvertible>
 {
 }
 

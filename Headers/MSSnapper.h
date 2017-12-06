@@ -11,7 +11,6 @@
 @interface MSSnapper : NSObject
 {
     BOOL _useAlignmentGuides;
-    id <MSBasicDelegate> _delegate;
     double _zoomValue;
     MSSnapperData *_snapperData;
 }
@@ -19,7 +18,6 @@
 @property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
 @property(nonatomic) BOOL useAlignmentGuides; // @synthesize useAlignmentGuides=_useAlignmentGuides;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)snapsForItems:(id)arg1 skipLayers:(id)arg2;
 - (void)snapItem:(id)arg1 lines:(id)arg2 visible:(BOOL)arg3 snap:(unsigned long long)arg4 resize:(BOOL)arg5 edgesMask:(long long)arg6;

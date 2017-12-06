@@ -14,7 +14,7 @@
 - (id)modifiedArtboard:(id)arg1 instance:(id)arg2 context:(id)arg3;
 - (id)modifiedSymbolForInstance:(id)arg1 artboard:(id)arg2 inContext:(id)arg3;
 - (void)renderArtboard:(id)arg1 forInstance:(id)arg2 inContext:(id)arg3;
-- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

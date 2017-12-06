@@ -7,13 +7,14 @@
 #import "_MSImmutableArtboardGroup.h"
 
 #import "MSArtboardGroup.h"
+#import "MSColorUser.h"
 #import "MSImmutableRootLayer.h"
 #import "MSLayerWithBackgroundColor.h"
 #import "MSWebExportableRootLayer.h"
 
 @class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
     struct CGSize _unscaledNameSize;
 }
@@ -30,14 +31,16 @@
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-@property(readonly) BOOL exporterRequiresContentClipping;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
-- (id)possibleOverridesInDocument:(id)arg1 actualOverrides:(id)arg2 skipping:(id)arg3;
+- (void)updateColorCounter:(id)arg1;
+- (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
+- (void)trackColors:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;
 
 // Remaining properties

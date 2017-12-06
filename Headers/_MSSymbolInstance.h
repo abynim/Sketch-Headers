@@ -6,7 +6,7 @@
 
 #import "MSStyledLayer.h"
 
-@class NSDictionary, NSString;
+@class NSArray, NSMutableArray, NSString;
 
 @interface _MSSymbolInstance : MSStyledLayer
 {
@@ -15,9 +15,10 @@
     double _masterInfluenceEdgeMaxYPadding;
     double _masterInfluenceEdgeMinXPadding;
     double _masterInfluenceEdgeMinYPadding;
-    NSDictionary *_overrides;
+    double _scale;
     NSString *_symbolID;
     double _verticalSpacing;
+    NSMutableArray *_overrideValues;
 }
 
 + (BOOL)allowsFaulting;
@@ -27,12 +28,25 @@
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)moveOverrideValueIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllOverrideValues;
+- (void)removeOverrideValuesAtIndexes:(id)arg1;
+- (void)removeOverrideValueAtIndex:(unsigned long long)arg1;
+- (void)removeOverrideValue:(id)arg1;
+- (void)insertOverrideValues:(id)arg1 afterOverrideValue:(id)arg2;
+- (void)insertOverrideValue:(id)arg1 afterOverrideValue:(id)arg2;
+- (void)insertOverrideValues:(id)arg1 beforeOverrideValue:(id)arg2;
+- (void)insertOverrideValue:(id)arg1 beforeOverrideValue:(id)arg2;
+- (void)insertOverrideValue:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addOverrideValues:(id)arg1;
+- (void)addOverrideValue:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(retain, nonatomic) NSArray *overrideValues; // @synthesize overrideValues=_overrideValues;
 @property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
-@property(retain, nonatomic) NSDictionary *overrides; // @synthesize overrides=_overrides;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) double masterInfluenceEdgeMinYPadding; // @synthesize masterInfluenceEdgeMinYPadding=_masterInfluenceEdgeMinYPadding;
 @property(nonatomic) double masterInfluenceEdgeMinXPadding; // @synthesize masterInfluenceEdgeMinXPadding=_masterInfluenceEdgeMinXPadding;
 @property(nonatomic) double masterInfluenceEdgeMaxYPadding; // @synthesize masterInfluenceEdgeMaxYPadding=_masterInfluenceEdgeMaxYPadding;

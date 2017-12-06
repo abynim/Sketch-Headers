@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class FBBezierCurve, FBBezierIntersection;
+@class FBBezierCurve, FBBezierIntersection, FBEdgeOverlapRun;
 
 @interface FBEdgeCrossing : NSObject
 {
     BOOL _entry;
     BOOL _processed;
     BOOL _selfCrossing;
-    BOOL _fromCrossingOverlap;
     BOOL _suspicious;
     FBBezierCurve *_edge;
     FBEdgeCrossing *_counterpart;
+    FBEdgeOverlapRun *_overlapRun;
     unsigned long long _index;
     FBBezierIntersection *_intersection;
 }
@@ -25,7 +25,7 @@
 @property(readonly, nonatomic) FBBezierIntersection *intersection; // @synthesize intersection=_intersection;
 @property(nonatomic, getter=isSuspicious) BOOL suspicious; // @synthesize suspicious=_suspicious;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
-@property(nonatomic) BOOL fromCrossingOverlap; // @synthesize fromCrossingOverlap=_fromCrossingOverlap;
+@property(retain, nonatomic) FBEdgeOverlapRun *overlapRun; // @synthesize overlapRun=_overlapRun;
 @property(nonatomic, getter=isSelfCrossing) BOOL selfCrossing; // @synthesize selfCrossing=_selfCrossing;
 @property(nonatomic, getter=isProcessed) BOOL processed; // @synthesize processed=_processed;
 @property(nonatomic, getter=isEntry) BOOL entry; // @synthesize entry=_entry;
@@ -36,6 +36,7 @@
 - (id)description;
 - (BOOL)isEqualToEdgeCrossing:(id)arg1;
 - (BOOL)isCoincidentWith:(id)arg1;
+@property(readonly, nonatomic, getter=isFromCrossingOverlap) BOOL fromCrossingOverlap;
 @property(readonly, nonatomic, getter=isAtEnd) BOOL atEnd;
 @property(readonly, nonatomic, getter=isAtStart) BOOL atStart;
 @property(readonly, nonatomic) __weak FBBezierCurve *rightCurve;

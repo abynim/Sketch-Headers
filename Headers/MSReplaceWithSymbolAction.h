@@ -16,8 +16,8 @@
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)removeDocumentCloseObserver;
 - (BOOL)showInToolbar;
-- (void)replaceLayer:(id)arg1 withSymbol:(id)arg2;
 - (void)doPerformAction:(id)arg1;
+- (BOOL)hasSubMenu;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
 - (SEL)preferredMenuAction;

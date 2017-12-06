@@ -9,31 +9,30 @@
 #import "NSMenuDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDocument, NSString, NSTouchBarItem;
+@class MSDocument, NSEvent, NSString, NSTouchBarItem;
 
 @interface MSDocumentAction : MSAction <NSMenuDelegate, NSTouchBarDelegate>
 {
     MSDocument *_document;
-    id <MSBasicDelegate> _delegate;
     NSTouchBarItem *_cachedTouchedBarItem;
+    NSEvent *_previousEvent;
 }
 
+@property(nonatomic) __weak NSEvent *previousEvent; // @synthesize previousEvent=_previousEvent;
 @property(retain, nonatomic) NSTouchBarItem *cachedTouchedBarItem; // @synthesize cachedTouchedBarItem=_cachedTouchedBarItem;
-@property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performAction:(id)arg1;
-- (void)refreshOverlayOfViews;
+- (void)refreshOverlay;
 - (id)contentDrawView;
 - (id)currentPage;
 - (void)switchToNormalHandler;
-- (id)setCurrentHandlerKey:(id)arg1;
-- (id)toggleHandlerKey:(id)arg1;
+- (id)setCurrentHandlerClass:(Class)arg1;
+- (id)toggleHandlerClass:(Class)arg1;
 - (id)currentHandler;
 - (BOOL)isInNormalHandler;
-- (id)currentHandlerKey;
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
 - (id)menu;

@@ -14,9 +14,9 @@
 {
     MSLayerArray *_layers;
     NSDictionary *_sharedObjects;
-    NSDictionary *_symbols;
+    NSDictionary *_localSymbols;
+    NSDictionary *_foreignSymbols;
     unsigned long long _parentTraits;
-    NSDictionary *_idToNameMapping;
     struct CGPoint _suggestedPosition;
 }
 
@@ -27,10 +27,10 @@
 + (id)pasteboardLayersWithForeignLayers:(id)arg1;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
-@property(retain, nonatomic) NSDictionary *idToNameMapping; // @synthesize idToNameMapping=_idToNameMapping;
 @property(nonatomic) unsigned long long parentTraits; // @synthesize parentTraits=_parentTraits;
 @property(nonatomic) struct CGPoint suggestedPosition; // @synthesize suggestedPosition=_suggestedPosition;
-@property(retain, nonatomic) NSDictionary *symbols; // @synthesize symbols=_symbols;
+@property(retain, nonatomic) NSDictionary *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
+@property(retain, nonatomic) NSDictionary *localSymbols; // @synthesize localSymbols=_localSymbols;
 @property(retain, nonatomic) NSDictionary *sharedObjects; // @synthesize sharedObjects=_sharedObjects;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;

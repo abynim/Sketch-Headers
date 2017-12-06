@@ -9,10 +9,12 @@
 #import "MSGradientBarViewDelegate.h"
 #import "MSGradientEventHandlerDelegate.h"
 
-@class MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
+@class MSGradientBarView, MSGradientEventHandler, NSButton, NSString, NSView;
 
 @interface MSColorInspectorSectionGradient : MSColorInspectorSection <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
+    NSView *_gradientBarParentView;
+    NSView *_gradientRotationView;
     MSGradientBarView *_gradientBarView;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
@@ -25,6 +27,8 @@
 @property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
 @property(nonatomic) __weak MSGradientBarView *gradientBarView; // @synthesize gradientBarView=_gradientBarView;
+@property(nonatomic) __weak NSView *gradientRotationView; // @synthesize gradientRotationView=_gradientRotationView;
+@property(nonatomic) __weak NSView *gradientBarParentView; // @synthesize gradientBarParentView=_gradientBarParentView;
 - (void).cxx_destruct;
 - (unsigned long long)assetType;
 - (void)dealloc;
@@ -36,7 +40,7 @@
 - (void)rotateRightAction:(id)arg1;
 - (void)rotateLeftAction:(id)arg1;
 - (void)refreshAction:(id)arg1;
-- (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 colorspace:(id)arg3;
+- (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 colorSpace:(id)arg3;
 - (void)updateOtherGradientsToReflectChanges;
 - (void)gradientHandlerDidChangeGradient:(id)arg1;
 - (void)gradientHandlerWillLoseFocus:(id)arg1;
@@ -54,6 +58,7 @@
 - (void)validate;
 - (id)assetPickerViewKeys;
 - (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
+- (id)gradientBarViewPreviewColorSpace:(id)arg1;
 - (void)gradientBarChanged:(id)arg1;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;

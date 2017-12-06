@@ -14,9 +14,9 @@
 - (id)maskImageForShape:(id)arg1 context:(id)arg2 scale:(double)arg3;
 - (void)beginAlphaMask:(id)arg1 context:(id)arg2;
 - (double)beginMask:(id)arg1 context:(id)arg2;
-- (void)renderSubLayer:(id)arg1 skipFills:(BOOL)arg2 ignoreDirtyRect:(BOOL)arg3 maskShapeGroup:(id)arg4 context:(id)arg5;
-- (void)renderSubLayersOfGroup:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
-- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderSubLayer:(id)arg1 skipFills:(BOOL)arg2 ignoreDrawingArea:(BOOL)arg3 maskShapeGroup:(id)arg4 context:(id)arg5;
+- (void)renderSubLayersOfGroup:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

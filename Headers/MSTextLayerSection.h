@@ -6,7 +6,6 @@
 
 #import "MSLayerSection.h"
 
-#import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
 #import "MSColorPreviewButtonDelegate.h"
 #import "NSComboBoxDataSource.h"
@@ -14,7 +13,7 @@
 
 @class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 
-@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, BCPopoverDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSColorPreviewButtonDelegate>
+@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSColorPreviewButtonDelegate>
 {
     NSView *_basicView;
     NSView *_missingFontsView;
@@ -54,7 +53,7 @@
 @property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonColorSpace:(id)arg1;
+- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
@@ -68,7 +67,7 @@
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
 - (void)applyFontPropertyChanges:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)popoverWillReturnUndoManager:(id)arg1;
+- (id)colorInspectorUndoManager:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)reloadFontWeightPopUp;
 - (void)reloadFontFamilyButton;
@@ -81,7 +80,7 @@
 - (void)verticalAlignmentAction:(id)arg1;
 - (void)textBehaviourButtonAction:(id)arg1;
 - (void)alignmentButtonAction:(id)arg1;
-- (id)currentView;
+- (id)contentDrawView;
 - (void)paragraphHeightAction:(id)arg1;
 - (double)valueForUpDownTextField:(id)arg1;
 - (void)lineHeightAction:(id)arg1;
@@ -91,6 +90,7 @@
 - (void)colorInspectorWillClose:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)documentColorSpace;
+- (id)canvasColorSpace;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)showColorPickerAction:(id)arg1;
 - (void)showParagraphStylingAction:(id)arg1;

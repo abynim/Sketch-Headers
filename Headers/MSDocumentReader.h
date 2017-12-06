@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) NSImage *libraryPreviewImage;
 @property(readonly, nonatomic) NSImage *previewImage;
 @property(readonly, nonatomic) NSDictionary *metadata;
 - (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
@@ -28,6 +29,7 @@
 @property(readonly, nonatomic) long long version;
 @property(readonly, nonatomic) NSArray *missingFonts;
 - (void)repair;
+- (BOOL)containsLibraryPreviewImage;
 @property(readonly, nonatomic) BOOL containsPreviewImage;
 @property(readonly, nonatomic) BOOL documentWasMigrated;
 - (id)readDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;

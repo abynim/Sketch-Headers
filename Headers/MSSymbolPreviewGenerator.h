@@ -12,7 +12,7 @@
 
 + (id)imageForSymbolAncestry:(id)arg1 withSize:(struct CGSize)arg2 colorSpace:(id)arg3 trimmed:(BOOL)arg4;
 + (id)imageRepForArtboardAncestry:(id)arg1 withSize:(struct CGSize)arg2 drawingRect:(struct CGRect)arg3 colorSpace:(id)arg4;
-+ (void)generateImageForSymbol:(id)arg1 imageSize:(struct CGSize)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (void)generateImageForSymbol:(id)arg1 imageSize:(struct CGSize)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 
 @end
 

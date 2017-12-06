@@ -6,12 +6,12 @@
 
 #import "_MSSliceLayer.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 #import "MSLayerWithBackgroundColor.h"
 
 @class NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColor, MSColorSpaceConvertible>
+@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColor, MSColorConvertible>
 {
     id <MSSliceLayerWatcher> _sliceWatcher;
 }

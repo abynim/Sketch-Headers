@@ -60,11 +60,10 @@
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
-- (Class)overrideViewControllerClass;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
 - (BOOL)shouldFlattenAfterRotate;
-- (id)handlerName;
+- (Class)handlerClass;
 - (BOOL)handleDoubleClick;
 - (id)lastPoint;
 - (id)firstPoint;
@@ -106,9 +105,7 @@
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
-- (id)imageFillForOverrides;
-- (BOOL)acceptsOverrideValue:(id)arg1;
-- (void)applyOverridesFromSource:(id)arg1;
+- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;

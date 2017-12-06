@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSGradientBarView;
+@class MSGradientBarView, NSColorSpace;
 
 @protocol MSGradientBarViewDelegate <NSObject>
 - (void)gradientBarChanged:(MSGradientBarView *)arg1;
+- (NSColorSpace *)gradientBarViewPreviewColorSpace:(MSGradientBarView *)arg1;
 @end
 

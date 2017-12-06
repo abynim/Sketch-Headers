@@ -10,15 +10,21 @@
 
 @interface MSFrequentColorTracker : NSObject
 {
+    BOOL _shouldIgnoreAlpha;
+    unsigned long long _colorUse;
+    unsigned long long _maximumColorCount;
     NSMutableDictionary *_colorDict;
 }
 
 @property(retain, nonatomic) NSMutableDictionary *colorDict; // @synthesize colorDict=_colorDict;
+@property(readonly, nonatomic) BOOL shouldIgnoreAlpha; // @synthesize shouldIgnoreAlpha=_shouldIgnoreAlpha;
+@property(readonly, nonatomic) unsigned long long maximumColorCount; // @synthesize maximumColorCount=_maximumColorCount;
+@property(readonly, nonatomic) unsigned long long colorUse; // @synthesize colorUse=_colorUse;
 - (void).cxx_destruct;
 - (id)frequentColors;
 - (void)registerColors:(id)arg1 fromSource:(id)arg2;
 - (void)registerColor:(id)arg1 fromSource:(id)arg2;
-- (id)init;
+- (id)initWithColorUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoringAlpha:(BOOL)arg3;
 
 @end
 

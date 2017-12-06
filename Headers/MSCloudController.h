@@ -8,12 +8,12 @@
 
 #import "MSCloudShareUploadControllerDelegate.h"
 
-@class MSCloudShareUploadController, MSDocument, NSString;
+@class MSCloudShareUploadController, MSDocument, NSProgress, NSString;
 
 @interface MSCloudController : NSObject <MSCloudShareUploadControllerDelegate>
 {
     MSDocument *_document;
-    double _uploadProgress;
+    NSProgress *_uploadProgress;
     double _uploadStartTime;
     MSCloudShareUploadController *_currentUploadController;
 }
@@ -27,17 +27,18 @@
 + (void)showPreferences;
 @property(retain, nonatomic) MSCloudShareUploadController *currentUploadController; // @synthesize currentUploadController=_currentUploadController;
 @property(nonatomic) double uploadStartTime; // @synthesize uploadStartTime=_uploadStartTime;
-@property(nonatomic) double uploadProgress; // @synthesize uploadProgress=_uploadProgress;
+@property(nonatomic) NSProgress *uploadProgress; // @synthesize uploadProgress=_uploadProgress;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (void)openRemoteShareSettings;
 - (void)cloudShareController:(id)arg1 willUploadShareAsNew:(BOOL)arg2;
-- (void)cloudShareController:(id)arg1 didChangeProgress:(double)arg2;
+- (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
 - (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
 - (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
+@property(readonly, nonatomic, getter=isUploadCancelled) BOOL uploadCancelled;
 - (void)cancelUpload;
-- (void)startUpload;
-@property(readonly, nonatomic) BOOL uploadIncludesDocumentData;
+- (void)startUploadUpdating:(id)arg1;
+- (BOOL)uploadIncludesDocumentData;
 @property(readonly, nonatomic, getter=isUploading) BOOL uploading;
 - (void)updateShareWithHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL uploadedByCurrentUser;

@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-#import "MSTileDelegate.h"
+@class MSTiledLayer, NSMutableDictionary;
 
-@class MSTiledLayer, NSMutableDictionary, NSString;
-
-@interface MSTilePlacer : NSObject <MSTileDelegate>
+@interface MSTilePlacer : NSObject
 {
     id <MSTilePlacerDelegate> _delegate;
     MSTiledLayer *_tiledLayer;
@@ -25,7 +23,6 @@
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) __weak id <MSTilePlacerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)tile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)dealloc;
 - (id)allTileIDs;
 - (id)allTiles;
@@ -49,12 +46,6 @@
 - (void)moveTiles;
 - (id)initWithTiledLayer:(id)arg1;
 - (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

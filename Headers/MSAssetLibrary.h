@@ -11,7 +11,7 @@
 #import "NSCoding.h"
 #import "QLPreviewItem.h"
 
-@class MSDocumentData, NSDate, NSString, NSURL;
+@class MSDocumentData, NSDate, NSDictionary, NSString, NSURL;
 
 @interface MSAssetLibrary : NSObject <QLPreviewItem, BCSortable, NSCoding, MSLibraryObject>
 {
@@ -21,12 +21,18 @@
     MSDocumentData *_document;
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
+    unsigned long long _libraryType;
+    NSDictionary *_propertyListDictionaryRepresentation;
     NSString *_libraryID;
 }
 
++ (id)URLForApplicationSupportLibraryNamed:(id)arg1;
++ (id)assetLibraryFolder;
 + (id)URLForTemplateLibraryNamed:(id)arg1;
 + (id)keyPathsForValuesAffectingValid;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
+@property(readonly, nonatomic) NSDictionary *propertyListDictionaryRepresentation; // @synthesize propertyListDictionaryRepresentation=_propertyListDictionaryRepresentation;
+@property(readonly, nonatomic) unsigned long long libraryType; // @synthesize libraryType=_libraryType;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
@@ -38,15 +44,16 @@
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDate *dateLastModified;
 - (void)unload;
-- (void)loadAsyncWithCompletion:(CDUnknownBlockType)arg1;
+- (void)handleAssetLibraryUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadAsyncWithDispatchGroup:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)loadSynchronously;
 - (void)handleDocumentLoaded:(id)arg1;
 - (id)loadDocument:(unsigned long long *)arg1;
-@property(readonly, nonatomic) BOOL isUserLibrary;
 - (void)setName:(id)arg1;
 @property(readonly, nonatomic) BOOL valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithName:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;
 @property(readonly) NSString *previewItemTitle;
 @property(readonly) NSURL *previewItemURL;

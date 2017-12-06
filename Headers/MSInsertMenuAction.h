@@ -20,6 +20,7 @@
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)addInsertSharedTextToMenu:(id)arg1;
 - (void)addInsertSymbolsToMenu:(id)arg1;
+- (BOOL)isSelectable;
 - (id)label;
 - (id)tooltip;
 - (id)submenuActionIDs;

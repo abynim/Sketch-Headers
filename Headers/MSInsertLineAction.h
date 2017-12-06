@@ -13,7 +13,7 @@
 - (id)imageName;
 - (id)tooltip;
 - (BOOL)isSelectable;
-- (id)eventHandlerName;
+- (Class)eventHandlerClass;
 - (void)doPerformAction:(id)arg1;
 - (id)lineShapeFrom:(struct CGPoint)arg1 to:(struct CGPoint)arg2;
 - (void)insertLine:(id)arg1;

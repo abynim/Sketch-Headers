@@ -66,7 +66,6 @@
 - (void)zoomBy:(double)arg1 centeredOnViewPoint:(struct CGPoint)arg2;
 - (void)zoomBy:(double)arg1;
 - (struct CGPoint)midPoint;
-- (void)tilePlacer:(id)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tilePlacer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)removeOffscreenTiles;
 - (void)adaptToColorSpaceChange;

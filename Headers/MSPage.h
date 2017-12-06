@@ -8,7 +8,7 @@
 
 #import "MSRootLayer.h"
 
-@class MSArtboardGroup, MSLayer<MSRootLayer>, MSLayerArray, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
+@class MSArtboardGroup, MSLayerArray, MSLayerGroup<MSRootLayer>, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
 
 @interface MSPage : _MSPage <MSRootLayer>
 {
@@ -46,7 +46,7 @@
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 @property(readonly, nonatomic) __weak NSArray *artboards;
 - (id)parentRoot;
-@property(readonly, nonatomic) MSLayer<MSRootLayer> *currentRoot;
+@property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
 - (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
@@ -94,6 +94,7 @@
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(copy, nonatomic) MSLayoutGrid *layout;
+@property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
 

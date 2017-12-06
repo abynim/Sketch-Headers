@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableStyleReflection, MSImmutableTextStyle, NSArray, NSString;
+@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableTextStyle, NSArray, NSString;
 
 @interface _MSImmutableStyle : MSImmutableModelObject
 {
@@ -21,7 +21,6 @@
     MSImmutableGraphicsContextSettings *_contextSettings;
     NSArray *_fills;
     NSArray *_innerShadows;
-    MSImmutableStyleReflection *_reflection;
     NSArray *_shadows;
     MSImmutableTextStyle *_textStyle;
 }
@@ -29,7 +28,6 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
-@property(retain, nonatomic) MSImmutableStyleReflection *reflection; // @synthesize reflection=_reflection;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
 @property(retain, nonatomic) NSArray *fills; // @synthesize fills=_fills;
 @property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;

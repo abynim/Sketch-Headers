@@ -6,11 +6,11 @@
 
 #import "_MSStyleBorder.h"
 
-#import "MSColorSpaceConvertible.h"
+#import "MSColorConvertible.h"
 
 @class NSString;
 
-@interface MSStyleBorder : _MSStyleBorder <MSColorSpaceConvertible>
+@interface MSStyleBorder : _MSStyleBorder <MSColorConvertible>
 {
 }
 

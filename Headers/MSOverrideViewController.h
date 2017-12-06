@@ -6,38 +6,29 @@
 
 #import "NSViewController.h"
 
-#import "MSInspectorSection.h"
+@class MSAvailableOverride, NSArray, NSSet;
 
-@class MSLayer, NSArray, NSSet, NSString;
-
-@interface MSOverrideViewController : NSViewController <MSInspectorSection>
+@interface MSOverrideViewController : NSViewController
 {
+    MSAvailableOverride *_primaryOverride;
     NSArray *_instances;
-    MSLayer *_layerInsideSymbol;
-    id _info;
-    NSSet *_overrides;
+    NSSet *_allOverrides;
 }
 
-@property(retain, nonatomic) NSSet *overrides; // @synthesize overrides=_overrides;
-@property(retain, nonatomic) id info; // @synthesize info=_info;
-@property(retain, nonatomic) MSLayer *layerInsideSymbol; // @synthesize layerInsideSymbol=_layerInsideSymbol;
+@property(retain, nonatomic) NSSet *allOverrides; // @synthesize allOverrides=_allOverrides;
 @property(retain, nonatomic) NSArray *instances; // @synthesize instances=_instances;
+@property(readonly, nonatomic) MSAvailableOverride *primaryOverride; // @synthesize primaryOverride=_primaryOverride;
 - (void).cxx_destruct;
-- (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
+@property(readonly, nonatomic) BOOL hasSingleOverride;
 - (void)applyOverrideToSelectedLayers:(id)arg1;
 - (void)overrideValueAction:(id)arg1;
 - (id)labelView;
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
+- (BOOL)hasStandardCellHeight;
 - (void)build;
 - (id)views;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithPrimaryOverride:(id)arg1;
 
 @end
 

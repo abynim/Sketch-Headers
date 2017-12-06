@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSRenderingDriver, MSTiledLayerPile;
+@class MSRenderingDriver, MSTiledLayerPile, NSView<MSOverlayRenderingDelegate>;
 
 @protocol MSTiledLayerPileHostView <NSObject>
 - (void)tiledLayerPileDidRefreshTileContent:(MSTiledLayerPile *)arg1 finishTime:(unsigned long long)arg2;
-- (void)tiledLayerPile:(MSTiledLayerPile *)arg1 renderOverlayInRect:(struct CGRect)arg2;
 - (void)tiledLayerPile:(MSTiledLayerPile *)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (MSRenderingDriver *)driver;
+- (NSView<MSOverlayRenderingDelegate> *)overlayRenderer;
 @end
 

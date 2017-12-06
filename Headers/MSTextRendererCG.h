@@ -15,7 +15,7 @@
 - (void)drawLayoutManager:(id)arg1 style:(id)arg2 aPoint:(struct CGPoint)arg3 context:(id)arg4;
 - (void)drawTextLayerAsPath:(id)arg1 withTextStorage:(id)arg2 inBounds:(struct CGRect)arg3 context:(id)arg4;
 - (void)drawTextLayerInsideBoundsTransform:(id)arg1 context:(id)arg2;
-- (void)renderLayerUncached:(id)arg1 ignoreDirtyRect:(BOOL)arg2 context:(id)arg3;
+- (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

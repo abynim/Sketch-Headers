@@ -23,10 +23,12 @@
 @property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 - (void).cxx_destruct;
 - (id)pathWithInset:(double)arg1;
+- (id)reversedPath;
 - (id)debugQuickLookObject;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
+@property(readonly, nonatomic) BOOL isRectangular;
 @property(readonly, nonatomic) struct CGRect controlPointBounds;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect safeBounds;

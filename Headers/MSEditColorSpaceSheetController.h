@@ -6,34 +6,45 @@
 
 #import "CHSheetController.h"
 
-@class NSButton, NSPopUpButton, NSTextField;
+@class MSDocument, NSButton, NSLayoutConstraint, NSPopUpButton, NSTextField, NSView;
 
 @interface MSEditColorSpaceSheetController : CHSheetController
 {
     NSButton *_assignButton;
+    NSTextField *_assignDescriptionTextField;
     NSPopUpButton *_colorSpacePopUpButton;
     NSTextField *_descriptionTextField;
     NSButton *_confirmButton;
     NSButton *_convertButton;
+    NSTextField *_convertDescriptionTextField;
+    double _optionsViewBottomMargin;
+    double _optionsViewHeight;
 }
 
+@property(readonly, nonatomic) double optionsViewHeight; // @synthesize optionsViewHeight=_optionsViewHeight;
+@property(readonly, nonatomic) double optionsViewBottomMargin; // @synthesize optionsViewBottomMargin=_optionsViewBottomMargin;
+@property(nonatomic) __weak NSTextField *convertDescriptionTextField; // @synthesize convertDescriptionTextField=_convertDescriptionTextField;
 @property(nonatomic) __weak NSButton *convertButton; // @synthesize convertButton=_convertButton;
 @property(nonatomic) __weak NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
 @property(nonatomic) __weak NSPopUpButton *colorSpacePopUpButton; // @synthesize colorSpacePopUpButton=_colorSpacePopUpButton;
+@property(nonatomic) __weak NSTextField *assignDescriptionTextField; // @synthesize assignDescriptionTextField=_assignDescriptionTextField;
 @property(nonatomic) __weak NSButton *assignButton; // @synthesize assignButton=_assignButton;
 - (void).cxx_destruct;
 - (void)confirm:(id)arg1;
 - (void)viewDocumentation:(id)arg1;
 - (void)disableUI;
+- (void)showOptionsViewIfAppropriate;
 - (void)refreshDescription;
 - (void)validateConfirmButton;
 - (void)pickChangeLogic:(id)arg1;
 - (void)pickColorSpace:(id)arg1;
 - (void)windowDidLoad;
-- (unsigned long long)selectedColorSpace;
-- (unsigned long long)currentColorSpace;
-- (id)currentDocument;
+@property(readonly, nonatomic) NSLayoutConstraint *optionsViewBottomMarginConstraint;
+@property(readonly, nonatomic) NSView *optionsView;
+@property(readonly, nonatomic) unsigned long long selectedColorSpace;
+@property(readonly, nonatomic) unsigned long long currentColorSpace;
+@property(readonly, nonatomic) MSDocument *currentDocument;
 
 @end
 

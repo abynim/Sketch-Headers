@@ -24,10 +24,10 @@
 - (id)description;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2 startExtends:(BOOL)arg3 endExtends:(BOOL)arg4;
 - (id)middleIntersection;
-- (void)addStopCrossing;
-- (void)addMiddleCrossing;
-- (void)addStartCrossing;
-- (void)addIntersection:(id)arg1;
+- (void)addStopCrossing:(id)arg1;
+- (void)addMiddleCrossing:(id)arg1;
+- (void)addStartCrossing:(id)arg1;
+- (void)addIntersection:(id)arg1 overlapRun:(id)arg2;
 - (BOOL)fitsAfter:(id)arg1;
 - (BOOL)fitsBefore:(id)arg1;
 - (id)initWithRange:(id)arg1 edge1:(id)arg2 edge2:(id)arg3;

@@ -10,7 +10,6 @@
 
 @protocol MSWebExportableRootLayer <MSImmutableRootLayer>
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-@property(readonly) BOOL exporterRequiresContentClipping;
 - (MSExporter *)exporterForWebOnPage:(MSImmutablePage *)arg1 document:(MSImmutableDocumentData *)arg2 scale:(double)arg3;
 @end
 
