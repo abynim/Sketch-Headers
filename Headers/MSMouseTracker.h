@@ -11,26 +11,31 @@
 @interface MSMouseTracker : NSObject
 {
     struct CGPoint _location;
+    BOOL _checksMouseHitTesting;
     id _target;
     SEL _action;
-    unsigned long long _state;
+    unsigned long long _trackingState;
     NSView *_view;
     unsigned long long _modifierFlags;
 }
 
 @property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
+@property(nonatomic) BOOL checksMouseHitTesting; // @synthesize checksMouseHitTesting=_checksMouseHitTesting;
 @property(nonatomic) __weak NSView *view; // @synthesize view=_view;
-@property(readonly, nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(readonly, nonatomic) unsigned long long trackingState; // @synthesize trackingState=_trackingState;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 - (void).cxx_destruct;
-- (void)setState:(unsigned long long)arg1;
+- (void)removeTrackingState:(unsigned long long)arg1;
+- (void)addTrackingState:(unsigned long long)arg1;
 - (void)flagsChanged:(id)arg1;
 - (void)mouseUp:(id)arg1;
+- (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (BOOL)validateLocation;
 - (void)setLocationWithEvent:(id)arg1;
 - (struct CGPoint)locationInView:(id)arg1;
 - (id)init;

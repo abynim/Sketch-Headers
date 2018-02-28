@@ -22,12 +22,14 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) MSImmutableLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+- (struct CGRect)absoluteRect;
 @property(readonly, nonatomic) MSImmutableArtboardGroup *artboard;
 @property(readonly, nonatomic) MSImmutableLayerGroup *parentGroup;
 @property(readonly, nonatomic) NSArray *ancestorsAndSelf;
 - (BOOL)ancestorsForLayerInGroup:(id)arg1 array:(id)arg2;
 - (id)findAncestors;
 - (id)initWithMSLayer:(id)arg1;
+- (id)initWithLayer:(id)arg1 ancestors:(id)arg2 document:(id)arg3;
 - (id)initWithLayer:(id)arg1 document:(id)arg2;
 
 @end

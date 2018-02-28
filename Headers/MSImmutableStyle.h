@@ -31,7 +31,6 @@
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
-@property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 - (void)clearTextStyle;
 - (id)renderBitmapEffects:(id)arg1;
 - (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 position:(unsigned long long)arg3;

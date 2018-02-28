@@ -24,7 +24,7 @@
 - (id)frequentColors;
 - (void)registerColors:(id)arg1 fromSource:(id)arg2;
 - (void)registerColor:(id)arg1 fromSource:(id)arg2;
-- (id)initWithColorUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoringAlpha:(BOOL)arg3;
+- (id)initWithColorUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoreAlpha:(BOOL)arg3;
 
 @end
 

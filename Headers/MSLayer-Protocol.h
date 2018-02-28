@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSAffineTransform, NSString;
+@class NSAffineTransform, NSArray, NSString;
 
 @protocol MSLayer <NSObject>
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -20,6 +20,9 @@
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
+- (NSArray *)childrenIncludingSelf:(BOOL)arg1;
+- (NSArray *)children;
+- (id)layerWithID:(NSString *)arg1;
 - (struct CGRect)overlayInfluenceRectForFrame;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)influenceRectForFrame;

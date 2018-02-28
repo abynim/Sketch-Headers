@@ -12,10 +12,11 @@
     struct CGSize _contextSize;
 }
 
-@property(readonly, nonatomic) struct CGSize contextSize; // @synthesize contextSize=_contextSize;
-@property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) struct CGSize contextSize; // @synthesize contextSize=_contextSize;
+@property(nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void)recycleContext:(struct CGContext *)arg1;
-- (struct CGContext *)vendOrCreateContext;
+- (struct CGContext *)vendOrCreateContextOfSize:(struct CGSize)arg1;
+- (BOOL)vendsSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2;
 - (void)dealloc;
 - (id)initWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2;
 

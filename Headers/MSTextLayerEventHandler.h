@@ -8,6 +8,7 @@
 
 #import "MSFirstLineTypesetterDelegate.h"
 #import "MSTextLayerEditingDelegate.h"
+#import "MSTextLayerTextViewDelegate.h"
 #import "NSLayoutManagerDelegate.h"
 #import "NSTextStorageDelegate.h"
 #import "NSTextViewDelegate.h"
@@ -15,7 +16,7 @@
 
 @class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSNumber, NSString, NSTextStorage, NSTimer;
 
-@interface MSTextLayerEventHandler : MSEventHandler <NSLayoutManagerDelegate, NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSFirstLineTypesetterDelegate>
+@interface MSTextLayerEventHandler : MSEventHandler <NSLayoutManagerDelegate, NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSTextLayerTextViewDelegate, MSFirstLineTypesetterDelegate>
 {
     MSTextLayerTextView *_textView;
     MSTextWindow *_textViewWindow;
@@ -62,6 +63,7 @@
 - (id)layoutManager:(id)arg1 shouldUseTemporaryAttributes:(id)arg2 forDrawingToScreen:(BOOL)arg3 atCharacterIndex:(unsigned long long)arg4 effectiveRange:(struct _NSRange *)arg5;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
 - (id)firstBaselineOffset;
+- (id)documentColorSpaceForTextLayerTextView:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;
 - (void)textDidChange:(id)arg1;
 - (id)undoManager;

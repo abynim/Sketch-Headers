@@ -8,11 +8,12 @@
 
 @interface NSIndexPath (MSShapeHandles)
 + (id)indexPathForPoint:(unsigned long long)arg1 ofShape:(unsigned long long)arg2;
-+ (id)indexPathForHandle:(unsigned long long)arg1 point:(unsigned long long)arg2 ofShape:(unsigned long long)arg3;
-- (void)checkIfHandleIndexPath;
++ (id)indexPathForComponent:(unsigned long long)arg1 point:(unsigned long long)arg2 ofShape:(unsigned long long)arg3;
+- (void)checkIfComponentIndexPath:(BOOL)arg1;
+@property(readonly, nonatomic, getter=handle_ms) unsigned long long handle;
 @property(readonly, nonatomic, getter=shape_ms) unsigned long long shape;
 @property(readonly, nonatomic, getter=point_ms) unsigned long long point;
-@property(readonly, nonatomic, getter=handle_ms) unsigned long long handle;
-- (id)indexPathWithHandle:(unsigned long long)arg1;
+@property(readonly, nonatomic, getter=component_ms) unsigned long long component;
+- (id)indexPathWithComponent:(unsigned long long)arg1;
 @end
 

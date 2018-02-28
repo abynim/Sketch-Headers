@@ -7,10 +7,10 @@
 #import "NSDocument.h"
 
 #import "BCSideBarViewControllerDelegate.h"
-#import "MSAssetLibraryControllerDelegate.h"
 #import "MSCloudExportableDocument.h"
 #import "MSDocumentDataDelegate.h"
 #import "MSEventHandlerManagerDelegate.h"
+#import "MSMenuBuilderDelegate.h"
 #import "MSSidebarControllerDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSToolbarDelegate.h"
@@ -18,7 +18,7 @@
 
 @class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow, SCKShare;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSAssetLibraryControllerDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
@@ -93,6 +93,7 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (id)previewColorSpaceForItem:(id)arg1;
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
@@ -101,7 +102,7 @@
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
-- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
+- (void)libraryControllerDidChange:(id)arg1;
 @property(nonatomic) double pageListHeight;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
@@ -128,7 +129,6 @@
 - (void)refreshLayerListIfNecessary;
 - (void)scheduleLayerListRefresh;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
-- (void)updateSliceCount;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
@@ -138,7 +138,6 @@
 - (void)pageTreeLayoutDidChange;
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
-- (void)sliceDidChangeVisibility:(id)arg1;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -218,8 +217,6 @@
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
 - (void)resetDocumentData:(id)arg1;
-- (void)unbindLayerSliceInteraction;
-- (void)bindLayerSliceInteraction;
 - (void)loadInspectorPanel;
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;
@@ -228,7 +225,12 @@
 - (void)wireDocumentDataToUI;
 - (id)contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
+- (void)notifyIfDocumentResignedCurrent;
+- (void)notifyIfDocumentBecameCurrent;
+@property(readonly, nonatomic) BOOL isCurrent;
 - (void)windowWillClose:(id)arg1;
+- (void)windowDidResignMain:(id)arg1;
+- (void)windowDidBecomeMain:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidEndSheet:(id)arg1;
@@ -237,6 +239,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)close;
+- (void)setViewsToNil;
+- (void)setViewControllersToNil;
 - (void)setDelegatesToNil;
 - (void)createActions;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace;
@@ -249,8 +253,6 @@
 - (void)hudSetMonitor:(id)arg1;
 - (id)hudClientName;
 - (void)showMessage:(id)arg1;
-- (void)stopAccessingFolderToken:(id)arg1;
-- (id)startAccessingFolder:(id)arg1 tokenName:(id)arg2;
 - (id)dataForRequest:(id)arg1 ofType:(id)arg2;
 - (void)saveExportRequest:(id)arg1 toFile:(id)arg2;
 - (id)exportRequestWithName:(id)arg1 rect:(struct CGRect)arg2;
@@ -269,6 +271,7 @@
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
 - (id)bitmapLayerWithImageAtURL:(id)arg1;
 - (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
+- (void)restoreDocumentWindowWithIdentifier:(id)arg1 state:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)migrateUIMetadataWithDocumentData:(id)arg1;
 - (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 - (BOOL)validateDocument:(id)arg1 error:(id *)arg2;
@@ -279,12 +282,10 @@
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
-- (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
-- (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
-- (id)generatePreviewsForDocument:(id)arg1;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)prepareForSaveOperation:(unsigned long long)arg1;
 - (id)actionClasses;
 
 // Remaining properties

@@ -12,6 +12,7 @@
 
 + (id)defaultName;
 - (BOOL)canSkipAdvancedClipForStrokes;
+- (BOOL)isSVGRectangle;
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 
 @end

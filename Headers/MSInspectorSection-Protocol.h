@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSView;
+@class NSArray;
 
 @protocol MSInspectorSection <NSObject>
 - (NSArray *)views;
 
 @optional
-- (BOOL)wantsSeparatorBetweenView:(NSView *)arg1 andView:(NSView *)arg2;
+- (BOOL)wantsSeparatorAfterViews;
 @end
 

@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isAffectedLayerOrParentHidden;
 @property(readonly, nonatomic) BOOL isAffectedLayerOrParentLocked;
 @property(readonly, nonatomic) BOOL hasOverride;
 @property(readonly, nonatomic) id overrideValue;

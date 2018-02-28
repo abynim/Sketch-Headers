@@ -19,6 +19,7 @@
 @property(copy, nonatomic) NSURL *folderURL; // @synthesize folderURL=_folderURL;
 - (void).cxx_destruct;
 - (void)dealloc;
+- (void)flush;
 - (unsigned int)flags;
 - (id)initWithURL:(id)arg1 latency:(double)arg2 contentsChangedBlock:(CDUnknownBlockType)arg3;
 - (id)initWithURL:(id)arg1 contentsChangedBlock:(CDUnknownBlockType)arg2;

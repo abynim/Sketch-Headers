@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSImmutableModelObject, NSMutableArray;
+@class MSImmutableDocumentData, NSMutableArray;
 
 @interface MSTreeDiff : NSObject
 {
-    MSImmutableModelObject *_firstObject;
-    MSImmutableModelObject *_secondObject;
+    MSImmutableDocumentData *_firstDoc;
+    MSImmutableDocumentData *_secondDoc;
     NSMutableArray *_mutableDiffs;
     NSMutableArray *_firstObjectAncestorStack;
     NSMutableArray *_secondObjectAncestorStack;
@@ -20,21 +20,23 @@
 @property(retain, nonatomic) NSMutableArray *secondObjectAncestorStack; // @synthesize secondObjectAncestorStack=_secondObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *firstObjectAncestorStack; // @synthesize firstObjectAncestorStack=_firstObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *mutableDiffs; // @synthesize mutableDiffs=_mutableDiffs;
-@property(readonly, nonatomic) MSImmutableModelObject *secondObject; // @synthesize secondObject=_secondObject;
-@property(readonly, nonatomic) MSImmutableModelObject *firstObject; // @synthesize firstObject=_firstObject;
+@property(retain, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
+@property(retain, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
 - (void).cxx_destruct;
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
-- (struct CGRect)contentDirtyDiffRect;
+- (struct CGRect)contentDirtyDiffRectWithCache:(id)arg1;
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
 - (void)diffObject:(id)arg1 withObject:(id)arg2;
 - (void)diffObjects:(id)arg1 withObjects:(id)arg2;
 - (id)diffs;
 - (id)init;
-- (id)initWithFirstObject:(id)arg1 secondObject:(id)arg2;
+- (id)initWithFirstDocument:(id)arg1 secondDocument:(id)arg2;
+- (BOOL)subTreeRootContainsSymbolChange:(id)arg1;
+- (BOOL)symbolsChanged;
 
 @end
 

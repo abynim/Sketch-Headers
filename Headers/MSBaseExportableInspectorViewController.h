@@ -9,7 +9,7 @@
 #import "MSInspectorChildController.h"
 #import "MSSliceLayerWatcher.h"
 
-@class MSFlippedView, MSInspectorStackView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
+@class MSInspectorStackView, MSSeparatorlessView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
 
 @interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSInspectorChildController>
 {
@@ -18,16 +18,17 @@
     NSTimer *_refreshTimer;
     NSMutableArray *_sliceViews;
     NSMutableSet *_sliceViewPool;
-    MSFlippedView *_sliceViewContainerView;
+    MSSeparatorlessView *_sliceViewContainerView;
 }
 
-@property(retain, nonatomic) MSFlippedView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
+@property(retain, nonatomic) MSSeparatorlessView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
 @property(retain, nonatomic) NSMutableSet *sliceViewPool; // @synthesize sliceViewPool=_sliceViewPool;
 @property(retain, nonatomic) NSMutableArray *sliceViews; // @synthesize sliceViews=_sliceViews;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void).cxx_destruct;
+- (BOOL)wantsSeparatorAfterViews;
 - (void)sizeSliceView;
 - (void)reloadSlicesFromArray:(id)arg1;
 - (id)sliceViewWithRect:(struct CGRect)arg1;
@@ -37,7 +38,6 @@
 - (void)scheduleSliceViewReload;
 - (void)refreshAction:(id)arg1;
 - (id)document;
-- (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (void)layerPositionPossiblyChanged;
 - (id)previewContainerView;
 - (id)views;

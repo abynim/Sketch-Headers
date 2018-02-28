@@ -35,6 +35,9 @@
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
 - (void).cxx_destruct;
+- (id)sketchRemoteLibraryPlaceholderImage;
+- (id)missingLibraryPlaceholderImage;
+- (id)placeholderImage;
 - (void)setPrimaryTextFieldTextColor:(id)arg1;
 - (void)setSecondaryTextFieldTextColor:(id)arg1;
 - (void)downloadLibrary:(id)arg1;
@@ -43,6 +46,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)startDownloading;
 - (void)setupButtons;
+- (void)generatePreviewImage;
 - (void)setObjectValue:(id)arg1;
 - (void)setBackgroundStyle:(long long)arg1;
 

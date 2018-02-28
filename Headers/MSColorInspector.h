@@ -9,13 +9,13 @@
 #import "BCHSBColorPickerDelegate.h"
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorSectionDelegate.h"
-#import "MSColorPreviewButtonDelegate.h"
 #import "MSModeModePickerDelegate.h"
+#import "MSStylePartPreviewButtonDelegate.h"
 #import "NSTouchBarDelegate.h"
 
 @class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate, BCHSBColorPickerDelegate, MSColorPreviewButtonDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate, BCHSBColorPickerDelegate, MSStylePartPreviewButtonDelegate>
 {
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
@@ -39,7 +39,7 @@
     NSTextField *_textFieldToContinueEditing;
 }
 
-+ (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 initialColor:(id)arg4;
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 colorInspectorSetupHandler:(CDUnknownBlockType)arg4;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
@@ -91,7 +91,7 @@
 - (void)colorPickerAction:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)hsbColorPickerDocumentColorSpace:(id)arg1;
 - (id)hsbColorPickerPreviewColorSpace:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

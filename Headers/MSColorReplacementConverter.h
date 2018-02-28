@@ -33,7 +33,7 @@
 - (BOOL)shouldConvertColor:(id)arg1;
 - (id)convertImmutableColor:(id)arg1;
 - (id)convertColor:(id)arg1;
-- (id)initWithColor:(id)arg1 replacementColor:(id)arg2 colorSpace:(id)arg3 ignoreAlphaWhenMatching:(BOOL)arg4 replaceAlpha:(BOOL)arg5;
+- (id)initWithColor:(id)arg1 replacementColor:(id)arg2 colorSpace:(id)arg3 ignoreAlphaWhenMatching:(BOOL)arg4 replaceAlphaOfOriginalColor:(BOOL)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

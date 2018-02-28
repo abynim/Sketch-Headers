@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController;
+@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSFlowInspectorViewController, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSOpacityBlendingInspectorViewController, MSSharedStylesInspectorSection, MSSpecialLayerViewController;
 
 @interface MSStandardInspectorViewControllers : NSObject
 {
@@ -17,8 +17,16 @@
     MSColorControlsInspectorViewController *_colorControlsViewController;
     MSMultipleShadowInspectorViewController *_shadowViewController;
     MSMultipleShadowInspectorViewController *_innerShadowViewController;
+    MSFlowInspectorViewController *_flowInspectorViewController;
+    MSOpacityBlendingInspectorViewController *_opacityBlendingViewController;
+    MSSharedStylesInspectorSection *_sharedStyledInspectorSection;
+    MSSpecialLayerViewController *_specialLayerViewController;
 }
 
+@property(readonly, nonatomic) MSSpecialLayerViewController *specialLayerViewController; // @synthesize specialLayerViewController=_specialLayerViewController;
+@property(readonly, nonatomic) MSSharedStylesInspectorSection *sharedStyledInspectorSection; // @synthesize sharedStyledInspectorSection=_sharedStyledInspectorSection;
+@property(readonly, nonatomic) MSOpacityBlendingInspectorViewController *opacityBlendingViewController; // @synthesize opacityBlendingViewController=_opacityBlendingViewController;
+@property(readonly, nonatomic) MSFlowInspectorViewController *flowInspectorViewController; // @synthesize flowInspectorViewController=_flowInspectorViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *innerShadowViewController; // @synthesize innerShadowViewController=_innerShadowViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController; // @synthesize shadowViewController=_shadowViewController;
 @property(readonly, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;

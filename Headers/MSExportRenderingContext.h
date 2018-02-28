@@ -15,9 +15,9 @@
 
 @property(retain, nonatomic) MSExportRequest *exportRequest; // @synthesize exportRequest=_exportRequest;
 - (void).cxx_destruct;
-- (BOOL)isExporting;
 - (BOOL)rendererShouldSkipDrawingLayer:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDrawingArea:(BOOL)arg3;
+- (id)initWithName:(id)arg1 driver:(id)arg2 context:(struct CGContext *)arg3 renderingRequest:(id)arg4;
 
 @end
 

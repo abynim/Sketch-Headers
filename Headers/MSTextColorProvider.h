@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSColor *color; // @synthesize color=_color;
 @property(readonly, nonatomic) MSImmutableColor *textColor; // @synthesize textColor=_textColor;
 - (void).cxx_destruct;
+- (id)debugDescription;
 - (id)initWithTextColor:(id)arg1 colorSpace:(id)arg2 ranges:(id)arg3;
 
 @end

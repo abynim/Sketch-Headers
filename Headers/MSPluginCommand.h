@@ -11,6 +11,8 @@
 @interface MSPluginCommand : NSObject
 {
     MSPluginCommandSpecifier *_commandSpecifier;
+    BOOL _disableCocoaScriptPreprocessor;
+    BOOL _hasAPI;
     BOOL _errorInScript;
     BOOL _skipNextLog;
     NSString *_identifier;
@@ -24,20 +26,22 @@
     NSMutableString *_log;
     COScript *_session;
     NSMutableDictionary *_context;
-    id _api;
     NSString *_executingScript;
+    NSDictionary *_coreModuleMap;
 }
 
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
 + (id)actionIDsNotToReload;
+@property(retain, nonatomic) NSDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
-@property(retain, nonatomic) id api; // @synthesize api=_api;
+@property(nonatomic) BOOL hasAPI; // @synthesize hasAPI=_hasAPI;
 @property(retain, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableString *log; // @synthesize log=_log;
 @property(retain, nonatomic) ECLogChannel *logger; // @synthesize logger=_logger;
+@property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(readonly, nonatomic) unsigned long long scope; // @synthesize scope=_scope;
 @property(nonatomic) __weak MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(readonly, nonatomic) NSString *shortcut; // @synthesize shortcut=_shortcut;
@@ -56,6 +60,7 @@
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3 forPluginIdentifier:(id)arg4;
 - (id)valueForKey:(id)arg1 onDocument:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2 forPluginIdentifier:(id)arg3;
+- (id)logs;
 - (id)metadata;
 - (BOOL)shouldReloadWithActionID:(id)arg1;
 - (id)menuItemWithAction:(SEL)arg1;
@@ -72,9 +77,13 @@
 - (id)executeScriptAtURL:(id)arg1;
 - (BOOL)hasRunHandler;
 - (BOOL)tearDownIfFinished;
+- (id)runHandler:(id)arg1 context:(id)arg2 manager:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
+- (id)runHandler:(id)arg1 context:(id)arg2 manager:(id)arg3;
+- (id)runHandlerWithKey:(id)arg1 context:(id)arg2 manager:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
 - (id)runHandlerWithKey:(id)arg1 context:(id)arg2 manager:(id)arg3;
+- (id)run:(id)arg1 manager:(id)arg2 onComplete:(CDUnknownBlockType)arg3;
 - (id)run:(id)arg1 manager:(id)arg2;
-- (void)runHandler:(id)arg1 context:(id)arg2;
+- (id)runHandler:(id)arg1 withOptionalKey:(id)arg2 context:(id)arg3 manager:(id)arg4 onComplete:(CDUnknownBlockType)arg5;
 - (id)fullContextFromContext:(id)arg1 url:(id)arg2;
 - (void)tearDownSession;
 - (void)setUpSessionWithContext:(id)arg1;

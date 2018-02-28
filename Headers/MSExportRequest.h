@@ -6,22 +6,24 @@
 
 #import "NSObject.h"
 
-@class MSImmutableArtboardGroup, MSImmutableColor, MSImmutableDocumentData, MSImmutablePage, NSSet, NSString;
+#import "NSCopying.h"
 
-@interface MSExportRequest : NSObject
+@class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString;
+
+@interface MSExportRequest : NSObject <NSCopying>
 {
     BOOL _shouldTrim;
     BOOL _saveForWeb;
     BOOL _progressive;
+    BOOL _interlaced;
     BOOL _includeArtboardBackground;
     NSString *_name;
     unsigned long long _options;
     NSSet *_includedLayerIDs;
     double _scale;
     MSImmutableColor *_backgroundColor;
-    MSImmutablePage *_immutablePage;
+    MSImmutableLayer *_rootLayer;
     MSImmutableDocumentData *_immutableDocument;
-    MSImmutableArtboardGroup *_artboard;
     NSString *_format;
     double _compression;
     struct CGRect _rect;
@@ -39,13 +41,13 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
+@property(nonatomic) BOOL interlaced; // @synthesize interlaced=_interlaced;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
-@property(readonly, nonatomic) MSImmutableArtboardGroup *artboard; // @synthesize artboard=_artboard;
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocument; // @synthesize immutableDocument=_immutableDocument;
-@property(retain, nonatomic) MSImmutablePage *immutablePage; // @synthesize immutablePage=_immutablePage;
+@property(retain, nonatomic) MSImmutableLayer *rootLayer; // @synthesize rootLayer=_rootLayer;
 @property(copy, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
@@ -54,12 +56,13 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)init;
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
-- (void)configureForLayer:(id)arg1;
 - (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
 - (void)readSettingsFromDefaults;
+@property(readonly, nonatomic) NSString *pasteboardType;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

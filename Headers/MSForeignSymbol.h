@@ -15,10 +15,16 @@
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
 - (id)masterFromLibrary:(id)arg1;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
-- (id)convertToLocalSymbolMaster;
-- (void)syncWithMaster:(id)arg1;
+- (id)unlinkFromRemote;
+- (void)syncWithRemote:(id)arg1;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
-- (id)initWithSymbolMaster:(id)arg1 inLibrary:(id)arg2;
+- (id)remoteShareID;
+- (void)setLocalShareID:(id)arg1;
+- (id)localShareID;
+- (void)setOriginalObject:(id)arg1;
+- (id)originalObject;
+- (void)setLocalObject:(id)arg1;
+- (id)localObject;
 
 @end
 

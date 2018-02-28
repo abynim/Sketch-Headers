@@ -14,7 +14,7 @@
 {
 }
 
-- (void)drawPatternImageFill:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3;
+- (void)drawPatternImageFill:(id)arg1 rect:(struct CGRect)arg2 parentLayerOpacity:(double)arg3 context:(id)arg4;
 - (void)drawPatternTiledImageFill:(id)arg1 path:(id)arg2 winding:(unsigned long long)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (void)drawPatternFill:(id)arg1 path:(id)arg2 layer:(id)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (void)drawNoiseFill:(id)arg1 path:(id)arg2 layer:(id)arg3 rect:(struct CGRect)arg4 context:(id)arg5;

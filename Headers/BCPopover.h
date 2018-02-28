@@ -15,6 +15,7 @@
 {
     BOOL dontSendNextPopoverWindowSizeNotification;
     BOOL _closesOnWindowDidResignKey;
+    BOOL _closed;
     NSViewController *_contentViewController;
     id <BCPopoverDelegate> _delegate;
     BCPopoverWindow *_window;
@@ -25,6 +26,7 @@
     unsigned long long _preferredEdge;
 }
 
+@property(nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 @property(nonatomic) unsigned long long preferredEdge; // @synthesize preferredEdge=_preferredEdge;
 @property(nonatomic) double attachedToViewMargin; // @synthesize attachedToViewMargin=_attachedToViewMargin;
 @property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;

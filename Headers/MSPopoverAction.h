@@ -8,15 +8,15 @@
 
 #import "BCPopoverDelegate.h"
 
-@class BCToolbarPopover, MSPopUpToolbarItem, NSString, NSViewController;
+@class BCPopover, MSPopUpToolbarItem, NSString, NSViewController;
 
 @interface MSPopoverAction : MSDocumentAction <BCPopoverDelegate>
 {
-    BCToolbarPopover *_popover;
+    BCPopover *_popover;
 }
 
 + (Class)popoverClass;
-@property(retain, nonatomic) BCToolbarPopover *popover; // @synthesize popover=_popover;
+@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 - (void).cxx_destruct;
 - (BOOL)showInToolbar;
 - (id)menu;

@@ -16,6 +16,7 @@
 @property(nonatomic) unsigned long long arrowEdge; // @dynamic arrowEdge;
 - (unsigned long long)collectionBehavior;
 - (BOOL)canBecomeKeyWindow;
+- (void)sendEvent:(id)arg1;
 - (void)resignMainWindow;
 - (id)initWithContentRect:(struct CGRect)arg1;
 

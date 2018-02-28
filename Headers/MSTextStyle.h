@@ -21,6 +21,7 @@
 - (void)updateAttributesWithoutSyncingOwningTextLayer:(id)arg1;
 @property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
+- (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (id)treeAsDictionary;
 
 @end

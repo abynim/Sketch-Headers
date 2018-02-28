@@ -19,7 +19,6 @@
     NSMutableSet *_selectedLayerIDs;
 }
 
-+ (void)enumerateExportableLayersWithPage:(id)arg1 block:(CDUnknownBlockType)arg2;
 + (id)page;
 @property(readonly, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
@@ -34,7 +33,9 @@
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 @property(readonly, nonatomic) NSArray *symbols;
-- (struct CGPoint)originForNewArtboard;
+- (struct CGPoint)originForNewArtboardWithSize:(struct CGSize)arg1;
+- (id)artboardsMatchingWidth:(double)arg1;
+- (BOOL)contentIntersectsWithRect:(struct CGRect)arg1;
 - (BOOL)hasClickThrough;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
@@ -44,6 +45,7 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (void)rectSizeDidChange:(id)arg1;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
+- (id)artboardWithID:(id)arg1;
 @property(readonly, nonatomic) __weak NSArray *artboards;
 - (id)parentRoot;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
@@ -57,7 +59,6 @@
 - (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
 - (BOOL)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 @property(readonly, nonatomic) NSArray *exportableLayers;
-@property(readonly, nonatomic) unsigned long long exportableLayersCount;
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 @property(nonatomic) struct CGPoint rulerBase;
@@ -71,6 +72,7 @@
 - (void)changeSelectionUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)isLayerSelected:(id)arg1;
 - (id)layersWithIDs:(id)arg1;
+- (id)layersByObjectID;
 - (id)selectedLayers;
 - (id)parentGroup;
 - (void)objectDidInit;
@@ -80,11 +82,9 @@
 - (BOOL)shouldDrawSelection;
 - (BOOL)canBeHovered;
 - (id)displayName;
-- (id)cloneForDocument:(id)arg1;
 - (BOOL)isExportableViaDragAndDrop;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)previewImages;
-- (void)duplicate:(id)arg1;
 - (unsigned long long)displayType;
 
 // Remaining properties

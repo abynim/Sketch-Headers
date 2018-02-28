@@ -10,14 +10,9 @@
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
-    unsigned long long _masterRefreshCounter;
-    NSSet *_influencingSymbolIDs;
 }
 
 + (id)keyPathsForValuesAffectingPreviewImages;
-@property(retain, nonatomic) NSSet *influencingSymbolIDs; // @synthesize influencingSymbolIDs=_influencingSymbolIDs;
-@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
-- (void).cxx_destruct;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (void)applyOverrides:(id)arg1;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
@@ -26,7 +21,7 @@
 - (void)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2;
 - (id)availableOverridesUnderPoint:(id)arg1;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
+@property(readonly, nonatomic) NSSet *influencingSymbolIDs;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (struct CGSize)naturalSize;
@@ -34,7 +29,6 @@
 - (double)scale;
 - (void)resetSizeToMaster;
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
-- (void)symbolMasterDidChange:(id)arg1 withInfluencePaddings:(struct BCEdgePaddings)arg2;
 - (void)resizeInstanceToFitSymbol:(id)arg1;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachByReplacingWithGroup;
@@ -44,8 +38,7 @@
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolMaster;
-- (void)performInitWithImmutableModelObject:(id)arg1;
-@property(nonatomic) struct BCEdgePaddings symbolMasterEdgePaddings; // @dynamic symbolMasterEdgePaddings;
+- (BOOL)shouldRefreshOverlayForFlows;
 - (id)inspectorViewControllerNames;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

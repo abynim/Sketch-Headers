@@ -49,6 +49,9 @@
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 - (long long)determineMaskingMode;
 - (void)prepareAsMask;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)prepareForPreviewingWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2;
+- (id)pathForPreviewWithSize:(struct CGSize)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

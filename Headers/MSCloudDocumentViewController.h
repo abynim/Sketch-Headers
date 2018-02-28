@@ -4,58 +4,41 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCloudViewController.h"
+#import "MSCloudBaseViewController.h"
 
-#import "MSClickableTextFieldDelegate.h"
+@class MSCursorButton, NSButton, NSStackView, NSTimer, SCKShare;
 
-@class NSButton, NSLayoutConstraint, NSProgressIndicator, NSString, NSTextField, NSTimer;
-
-@interface MSCloudDocumentViewController : MSCloudViewController <MSClickableTextFieldDelegate>
+@interface MSCloudDocumentViewController : MSCloudBaseViewController
 {
-    BOOL _isUploading;
-    NSTextField *_descriptionLabel;
-    NSProgressIndicator *_progressIndicator;
-    NSLayoutConstraint *_uploadDescriptionSpacingConstraint;
-    NSLayoutConstraint *_descriptionBottomSpacingConstraint;
-    NSProgressIndicator *_uploadProgressIndicator;
-    NSTextField *_uploadStatusLabel;
-    NSButton *_cancelButton;
-    NSTimer *_labelUpdateTimer;
+    NSStackView *_buttonStackView;
+    NSButton *_uploadButton;
+    NSButton *_updateButton;
+    MSCursorButton *_linkButton;
+    NSButton *_settingsButton;
+    NSTimer *_timeLabelUpdateTimer;
 }
 
-@property(retain, nonatomic) NSTimer *labelUpdateTimer; // @synthesize labelUpdateTimer=_labelUpdateTimer;
-@property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(retain, nonatomic) NSTextField *uploadStatusLabel; // @synthesize uploadStatusLabel=_uploadStatusLabel;
-@property(retain, nonatomic) NSProgressIndicator *uploadProgressIndicator; // @synthesize uploadProgressIndicator=_uploadProgressIndicator;
-@property(retain, nonatomic) NSLayoutConstraint *descriptionBottomSpacingConstraint; // @synthesize descriptionBottomSpacingConstraint=_descriptionBottomSpacingConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *uploadDescriptionSpacingConstraint; // @synthesize uploadDescriptionSpacingConstraint=_uploadDescriptionSpacingConstraint;
-@property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
-@property(retain, nonatomic) NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
-@property(nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
+@property(retain, nonatomic) NSTimer *timeLabelUpdateTimer; // @synthesize timeLabelUpdateTimer=_timeLabelUpdateTimer;
+@property(retain, nonatomic) NSButton *settingsButton; // @synthesize settingsButton=_settingsButton;
+@property(retain, nonatomic) MSCursorButton *linkButton; // @synthesize linkButton=_linkButton;
+@property(retain, nonatomic) NSButton *updateButton; // @synthesize updateButton=_updateButton;
+@property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
+@property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
 - (void).cxx_destruct;
-- (void)textFieldDidClick:(id)arg1;
-- (BOOL)textFieldCanBeClicked:(id)arg1;
-- (void)cancelUpload:(id)arg1;
-- (void)updateDescriptionLabel;
-- (void)scheduledLabelUpdateFired:(id)arg1;
-- (void)scheduleLabelUpdate;
-- (void)updateViewSize;
-- (void)updateUploadProgress;
-- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
-- (void)uploadProgressDidChangeNotification:(id)arg1;
-- (void)documentCloudShareDidChangeNotification:(id)arg1;
-- (void)setCloudController:(id)arg1;
-- (void)updateLayoutConstraints;
+- (void)openShareSettings:(id)arg1;
+- (void)openPublicURL:(id)arg1;
+- (void)update:(id)arg1;
+- (void)upload:(id)arg1;
+- (void)reloadTitleLabel;
+- (void)scheduledTimeLabelUpdateFired:(id)arg1;
+- (void)scheduleTimeLabelUpdate;
+- (void)reloadTimeLabel;
+- (void)reloadData;
+@property(readonly, nonatomic) SCKShare *share;
+- (void)dealloc;
 - (void)viewWillAppear;
 - (void)loadView;
-- (void)dealloc;
-- (id)initWithCoder:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (struct NSEdgeInsets)edgeInsets;
 
 @end
 

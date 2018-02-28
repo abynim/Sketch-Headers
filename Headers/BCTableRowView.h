@@ -22,7 +22,7 @@
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
 @property(nonatomic) __weak NSTableView *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
-- (void)drawDisclosureTriangle;
+- (void)mouseDown:(id)arg1;
 - (void)drawSelectionInRect:(struct CGRect)arg1;
 - (void)drawDraggingDestinationFeedbackInRect:(struct CGRect)arg1;
 - (void)drawHighlight;

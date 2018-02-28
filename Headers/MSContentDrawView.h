@@ -10,7 +10,7 @@
 #import "MSOverlayRenderingDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutablePage, MSLayer, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutableDocumentData, MSMouseTracker, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSEvent, NSNumberFormatter, NSString;
 
 @interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView, MSOverlayRenderingDelegate>
 {
@@ -26,7 +26,6 @@
     BOOL _redrawPending;
     BOOL _isMagnifying;
     MSTiledLayerPile *_tiledLayerPile;
-    MSLayer *_hoveredLayer;
     id <MSContentDrawViewDelegate> _delegate;
     MSEventHandlerManager *_eventHandlerManager;
     MSRulerView *_horizontalRuler;
@@ -34,10 +33,11 @@
     MSDocument *_document;
     MSRenderMonitor *_pendingMonitor;
     MSCacheManager *_cacheManager;
+    MSMouseTracker *_mouseTracker;
     MSZoomTool *_zoomTool;
     NSEvent *_lastEvent;
     unsigned long long _previouslyRenderedColorSpace;
-    MSImmutablePage *_previouslyRenderedPage;
+    MSImmutableDocumentData *_previouslyRenderedDoc;
     NSNumberFormatter *_measurementLabelNumberFormatter;
     MSRenderMonitor *_performanceMonitor;
     MSRenderingDriver *_normalDriver;
@@ -63,11 +63,12 @@
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
 @property(nonatomic) struct CGRect overlayDirtyRect; // @synthesize overlayDirtyRect=_overlayDirtyRect;
 @property(nonatomic) struct CGRect scrollOriginRelativeContentRedrawRect; // @synthesize scrollOriginRelativeContentRedrawRect=_scrollOriginRelativeContentRedrawRect;
-@property(retain, nonatomic) MSImmutablePage *previouslyRenderedPage; // @synthesize previouslyRenderedPage=_previouslyRenderedPage;
+@property(retain, nonatomic) MSImmutableDocumentData *previouslyRenderedDoc; // @synthesize previouslyRenderedDoc=_previouslyRenderedDoc;
 @property(nonatomic) unsigned long long previouslyRenderedColorSpace; // @synthesize previouslyRenderedColorSpace=_previouslyRenderedColorSpace;
 @property(retain, nonatomic) NSEvent *lastEvent; // @synthesize lastEvent=_lastEvent;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
+@property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSRenderMonitor *pendingMonitor; // @synthesize pendingMonitor=_pendingMonitor;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
@@ -76,7 +77,6 @@
 @property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSContentDrawViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak MSLayer *hoveredLayer; // @synthesize hoveredLayer=_hoveredLayer;
 @property(retain, nonatomic) MSTiledLayerPile *tiledLayerPile; // @synthesize tiledLayerPile=_tiledLayerPile;
 - (void).cxx_destruct;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
@@ -133,6 +133,7 @@
 - (void)centerLayersInCanvas;
 - (void)centerRect:(struct CGRect)arg1 animated:(BOOL)arg2;
 - (void)centerRect:(struct CGRect)arg1;
+- (void)trackMouse:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)doMouseDraggedEvent:(id)arg1;
@@ -201,7 +202,6 @@
 - (void)enableLayerBackedDrawing;
 - (void)pixelGridDidChange;
 - (void)viewDidChangeBackingProperties;
-- (BOOL)canHighlightLayer:(id)arg1;
 - (BOOL)canDrawConcurrently;
 - (long long)tag;
 - (BOOL)isFlipped;

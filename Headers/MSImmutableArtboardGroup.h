@@ -12,7 +12,7 @@
 #import "MSLayerWithBackgroundColor.h"
 #import "MSWebExportableRootLayer.h"
 
-@class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
 @interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
@@ -23,23 +23,26 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
+@property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
-- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2 cache:(id)arg3;
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (void)updateColorCounter:(id)arg1;
 - (BOOL)canBreakMaskChain;
+- (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
 - (void)trackColors:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1;
-- (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;
 
@@ -56,6 +59,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;

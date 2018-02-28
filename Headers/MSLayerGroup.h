@@ -23,8 +23,6 @@
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 - (id)candidatesForMasking;
-- (id)children;
-- (id)layerWithID:(id)arg1;
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
@@ -51,9 +49,10 @@
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
+- (BOOL)shouldRefreshOverlayForFlows;
 - (BOOL)handleDoubleClick;
 - (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
+- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
 - (void)prepareAsMaskContainer;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

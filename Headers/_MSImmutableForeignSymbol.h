@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelObject.h"
+#import "MSImmutableForeignObject.h"
 
-@class MSImmutableSymbolMaster, NSString;
+@class MSImmutableSymbolMaster;
 
-@interface _MSImmutableForeignSymbol : MSImmutableModelObject
+@interface _MSImmutableForeignSymbol : MSImmutableForeignObject
 {
-    NSString *_libraryID;
-    NSString *_sourceLibraryName;
     MSImmutableSymbolMaster *_originalMaster;
     MSImmutableSymbolMaster *_symbolMaster;
 }
@@ -19,8 +17,6 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
-@property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
-@property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

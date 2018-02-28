@@ -22,6 +22,7 @@
 - (id)bezierPathWithLineWidth:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;
 - (id)insetPathBy:(double)arg1;
+- (BOOL)outlinePathWithWidth:(double)arg1 containsPoint:(struct CGPoint)arg2;
 - (id)outlinePathWithWidth:(double)arg1;
 - (BOOL)containsRect:(struct CGRect)arg1;
 - (void)debugWriteToFileNamed:(id)arg1;

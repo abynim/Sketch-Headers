@@ -49,6 +49,7 @@
 - (id)cutCopyPasteItems;
 - (id)replaceWithSymbolItems;
 - (id)menuWithItemGroups:(id)arg1;
+- (id)dataFeedsItems;
 - (id)standardMenuItemGroups;
 - (void)constructMenus;
 - (id)menuForLayers:(id)arg1;

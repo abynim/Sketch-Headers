@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
-- (struct CGRect)contentDirtyDiffRect;
+- (struct CGRect)contentDirtyDiffRectWithCache:(id)arg1;
 - (id)init;
 - (id)initWithFirstObjectRoot:(id)arg1 secondObjectRoot:(id)arg2;
 

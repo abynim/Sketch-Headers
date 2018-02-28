@@ -24,11 +24,11 @@
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)drawRectPreview;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)insertShapeAsNewLayer:(struct CGRect)arg1;
 - (id)insertShapeAsSubPathOfShape:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
+- (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (id)imageName;
 - (void)populateArray:(id)arg1 withSnapRectsForGroup:(id)arg2 ancestors:(id)arg3;
 - (void)cacheSnapPointsInBackground;

@@ -12,6 +12,7 @@
 
 - (void)doPerformAction:(id)arg1;
 - (void)showReplaceColorSheet:(id)arg1;
+- (BOOL)validate;
 
 @end
 

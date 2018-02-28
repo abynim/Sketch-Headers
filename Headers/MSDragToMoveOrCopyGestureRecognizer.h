@@ -29,8 +29,10 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL align;
 - (void)reset;
+- (void)setState:(long long)arg1;
 @property(readonly, nonatomic) BOOL shouldSnap;
 @property(readonly, nonatomic) BOOL shouldCopyDraggedItems;
+- (void)recalculateAlignmentAxis;
 - (struct CGPoint)locationInLayer:(id)arg1;
 - (struct CGPoint)translation;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

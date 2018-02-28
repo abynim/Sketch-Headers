@@ -6,7 +6,7 @@
 
 #import "MSModelObject.h"
 
-@class MSExportOptions, MSRect, NSDictionary, NSString;
+@class MSExportOptions, MSFlowConnection, MSRect, NSDictionary, NSString;
 
 @interface _MSLayer : MSModelObject
 {
@@ -24,6 +24,7 @@
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
     MSExportOptions *_exportOptions;
+    MSFlowConnection *_flow;
     MSRect *_frame;
 }
 
@@ -38,6 +39,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSRect *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSFlowConnection *flow; // @synthesize flow=_flow;
 @property(retain, nonatomic) MSExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;

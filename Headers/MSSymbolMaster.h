@@ -6,11 +6,14 @@
 
 #import "_MSSymbolMaster.h"
 
-@class MSForeignSymbol, NSArray, NSSet;
+#import "BCSortable.h"
+#import "MSPreviewGeneration.h"
+#import "MSSharedObjectStyling.h"
 
-@interface MSSymbolMaster : _MSSymbolMaster
+@class NSArray, NSSet, NSString;
+
+@interface MSSymbolMaster : _MSSymbolMaster <MSPreviewGeneration, MSSharedObjectStyling, BCSortable>
 {
-    BOOL _isInvalidatingSymbolInstances;
     long long _changeIdentifier;
 }
 
@@ -20,7 +23,6 @@
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (BOOL)limitsSelectionToBounds;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)notifySymbolInstancesOfChange;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;
 - (id)ancestorIDsForLayerNamed:(id)arg1 skip:(id)arg2;
@@ -36,7 +38,6 @@
 - (id)nestedSymbolsSkipping:(id)arg1;
 @property(readonly, nonatomic) NSSet *nestedSymbols;
 @property(readonly, nonatomic) NSArray *allInstances;
-- (struct BCEdgePaddings)influenceRectPaddingForInstances;
 - (id)newSymbolInstance;
 - (id)copyWithIDMapping:(id)arg1;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
@@ -44,16 +45,27 @@
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)hasSliceIcon;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (struct CGRect)optimalBoundingBox;
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (BOOL)canSnapToLayer:(id)arg1;
-@property(readonly, nonatomic) BOOL isForeign;
-@property(readonly, nonatomic) MSForeignSymbol *foreignSymbol;
+- (Class)shareableObjectReferenceClass_bc;
+- (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
+- (id)generatePreviewForManageSheetWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)generatePreviewForPopup:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)generateShadowedPreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 withColorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)applyOverrides:(id)arg1;
 - (id)availableOverrides;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly) Class superclass;
 
 @end
 

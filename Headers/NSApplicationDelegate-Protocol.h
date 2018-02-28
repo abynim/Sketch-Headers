@@ -48,6 +48,7 @@
 - (BOOL)application:(NSApplication *)arg1 openTempFile:(NSString *)arg2;
 - (void)application:(NSApplication *)arg1 openFiles:(NSArray *)arg2;
 - (BOOL)application:(NSApplication *)arg1 openFile:(NSString *)arg2;
+- (void)application:(NSApplication *)arg1 openURLs:(NSArray *)arg2;
 - (unsigned long long)applicationShouldTerminate:(NSApplication *)arg1;
 @end
 

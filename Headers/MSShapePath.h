@@ -6,35 +6,9 @@
 
 #import "_MSShapePath.h"
 
-#import "MSShapePath.h"
-
-@interface MSShapePath : _MSShapePath <MSShapePath>
+@interface MSShapePath : _MSShapePath
 {
 }
-
-+ (id)pathWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
-+ (id)pathWithPoints:(id)arg1;
-- (id)description;
-- (BOOL)isPolygon;
-- (BOOL)isRectangle;
-- (BOOL)isLine;
-- (void)multiplyBy:(double)arg1;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-- (id)pathInRect:(struct CGRect)arg1;
-- (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
-- (BOOL)simplifyPathOnce;
-- (void)simplifyPath;
-@property(readonly, nonatomic) unsigned long long numberOfPoints;
-- (id)lastPoint;
-- (id)firstPoint;
-- (id)pointsAroundIndex:(unsigned long long)arg1;
-- (id)pointAtIndex:(long long)arg1;
-- (void)removeAllPoints;
-- (void)removeLastPoint;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (id)layer;
-- (id)initWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)initWithPoints:(id)arg1;
 
 @end
 

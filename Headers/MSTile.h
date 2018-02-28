@@ -7,22 +7,19 @@
 #import "MSRenderingCALayer.h"
 
 #import "CALayerDelegate.h"
-#import "MSTileRenderOperationDelegate.h"
 
-@class CALayer, CATextLayer, MSContentCALayer, MSOverlayCALayer, MSRenderingDriver, MSTileRenderOperation, NSString;
+@class CALayer, CATextLayer, MSContentCALayer, MSOverlayCALayer, MSRenderingDriver, MSRenderingRequest, MSTileRenderOperation, NSString;
 
-@interface MSTile : MSRenderingCALayer <MSTileRenderOperationDelegate, CALayerDelegate>
+@interface MSTile : MSRenderingCALayer <CALayerDelegate>
 {
     BOOL _shouldHideOverlayControls;
-    BOOL _drawingIsCancelled;
     BOOL _completedFirstRenderOrWasCancelled;
     struct CGColorSpace *_colorSpace;
-    double _zoomValue;
     MSRenderingDriver *_driver;
     unsigned long long _index;
-    id <MSRenderingContextCacheProvider> _renderingCacheProvider;
-    MSOverlayCALayer *_overlayLayer;
     MSContentCALayer *_contentLayer;
+    MSRenderingRequest *_renderingRequest;
+    MSOverlayCALayer *_overlayLayer;
     CATextLayer *_debugLabelLayer;
     CALayer *_debugDrawingAreaLayer;
     MSTileRenderOperation *_currentRenderOperation;
@@ -33,29 +30,25 @@
 @property(nonatomic) __weak MSTileRenderOperation *currentRenderOperation; // @synthesize currentRenderOperation=_currentRenderOperation;
 @property(retain, nonatomic) CALayer *debugDrawingAreaLayer; // @synthesize debugDrawingAreaLayer=_debugDrawingAreaLayer;
 @property(retain, nonatomic) CATextLayer *debugLabelLayer; // @synthesize debugLabelLayer=_debugLabelLayer;
-@property(retain, nonatomic) MSContentCALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
 @property(retain, nonatomic) MSOverlayCALayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
 @property(nonatomic) BOOL completedFirstRenderOrWasCancelled; // @synthesize completedFirstRenderOrWasCancelled=_completedFirstRenderOrWasCancelled;
-@property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
+@property(retain) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest=_renderingRequest;
+@property(retain, nonatomic) MSContentCALayer *contentLayer; // @synthesize contentLayer=_contentLayer;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
-@property(nonatomic) BOOL drawingIsCancelled; // @synthesize drawingIsCancelled=_drawingIsCancelled;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;
+- (void)tileRenderingDidFinish;
 @property(readonly, copy) NSString *description;
 - (void)moveToPosition:(struct CGPoint)arg1;
-- (void)pixelGridDidChange;
-- (BOOL)shouldDrawPixelated;
-- (double)scaleForContentLayer;
+@property(nonatomic) double contentLayerScale;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 page:(id)arg2;
 - (void)cancelDrawing;
-- (void)tileRenderOperationDidFinishRendering:(id)arg1;
 - (struct CGRect)normalizeRect:(struct CGRect)arg1 origin:(struct CGPoint)arg2;
-- (id)renderOperationForContentRect:(struct CGRect)arg1 page:(id)arg2 document:(id)arg3 contextPool:(id)arg4;
+- (id)renderOperationForContentRect:(struct CGRect)arg1 page:(id)arg2 renderingRequest:(id)arg3 contextPool:(id)arg4;
 - (void)updateDebugLabel;
 - (void)setupDebugLabel;
 - (void)setupDebugDrawingArea;

@@ -6,13 +6,15 @@
 
 #import "MSLayerGroup.h"
 
-@class MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid;
+@class MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSDictionary;
 
 @interface _MSArtboardGroup : MSLayerGroup
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
     BOOL _includeInCloudUpload;
+    BOOL _isFlowHome;
+    NSDictionary *_presetDictionary;
     BOOL _resizesContent;
     MSColor *_backgroundColor;
     MSSimpleGrid *_grid;
@@ -37,6 +39,8 @@
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 @property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL resizesContent; // @synthesize resizesContent=_resizesContent;
+@property(retain, nonatomic) NSDictionary *presetDictionary; // @synthesize presetDictionary=_presetDictionary;
+@property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;

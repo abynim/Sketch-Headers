@@ -10,9 +10,9 @@
 {
 }
 
-+ (void)drawSelectionHandlersForLayer:(id)arg1 zoomValue:(double)arg2;
++ (double)strokeWidthForZoomValue:(double)arg1;
++ (void)drawSelectionHandlesForLayer:(id)arg1 zoomValue:(double)arg2;
 + (void)drawSelectionStrokeForLayer:(id)arg1 zoomValue:(double)arg2;
-+ (BOOL)shouldDrawSelectionStrokeForLayer:(id)arg1;
 + (void)drawSelectionForLayer:(id)arg1 zoomValue:(double)arg2;
 
 @end

@@ -19,7 +19,6 @@
 + (id)pointWithPoint:(struct CGPoint)arg1;
 + (id)point;
 @property(readonly, copy) NSString *description;
-- (void)prepareForRemoval;
 - (void)multiplyBy:(double)arg1;
 - (void)moveCurveFromTo:(struct CGPoint)arg1;
 - (void)moveCurveToTo:(struct CGPoint)arg1;

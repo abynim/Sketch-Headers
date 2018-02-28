@@ -6,21 +6,19 @@
 
 #import "NSObject.h"
 
-@class BCWindowBadge, MSDocument, MSDocumentWindow, NSArray;
+@class MSDocument, MSDocumentWindow, NSArray;
 
 @interface MSBadgeController : NSObject
 {
     MSDocument *_document;
     NSArray *_activeActions;
-    BCWindowBadge *_badge;
 }
 
-@property(retain, nonatomic) BCWindowBadge *badge; // @synthesize badge=_badge;
 @property(readonly, nonatomic) NSArray *activeActions; // @synthesize activeActions=_activeActions;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (void)refresh;
-- (void)updateBadgeForAction:(id)arg1;
+- (id)updateBadge:(id)arg1 forAction:(id)arg2;
 - (id)activeBadgingActionsForController:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *activeWindowBadgingActions;
 @property(readonly, nonatomic) MSDocumentWindow *documentWindow;

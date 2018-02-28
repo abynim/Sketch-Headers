@@ -6,14 +6,27 @@
 
 #import "_MSSharedStyle.h"
 
-@class MSStyle;
+#import "MSSharedObjectStyling.h"
 
-@interface MSSharedStyle : _MSSharedStyle
+@class MSStyle, NSString;
+
+@interface MSSharedStyle : _MSSharedStyle <MSSharedObjectStyling>
 {
 }
 
 - (id)newInstance;
 @property(readonly, nonatomic) MSStyle *style;
+- (Class)shareableObjectReferenceClass_bc;
+- (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
+- (id)generatePreviewForManageSheetWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)generatePreviewForPopup:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

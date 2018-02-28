@@ -28,6 +28,7 @@
 - (BOOL)savePreset:(id)arg1 error:(id *)arg2;
 - (void)loadUserPresets;
 - (id)systemCategories;
+- (id)resizablePresetMatchingSize:(struct CGSize)arg1 preferredCategory:(id)arg2;
 - (id)presetWithSize:(struct CGSize)arg1 preferredCategory:(id)arg2;
 - (BOOL)enumeratePresetsInCategory:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)init;

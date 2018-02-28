@@ -26,6 +26,7 @@
 + (id)colorWithSVGString:(id)arg1;
 + (id)namedColor:(id)arg1;
 + (id)staticColorDictionary;
+- (BOOL)propertiesAreEqual:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;
 - (id)colorWithAlphaComponent:(double)arg1;
 - (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;

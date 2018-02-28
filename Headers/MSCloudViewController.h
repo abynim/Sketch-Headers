@@ -6,34 +6,39 @@
 
 #import "NSViewController.h"
 
-#import "MSCloudViewControllerDelegate.h"
+@class MSCloudAction, MSCloudBaseViewController;
 
-@class MSCloudController, NSString;
-
-@interface MSCloudViewController : NSViewController <MSCloudViewControllerDelegate>
+@interface MSCloudViewController : NSViewController
 {
-    BOOL _isTransitioning;
-    id <MSCloudViewControllerDelegate> _delegate;
-    MSCloudController *_cloudController;
+    MSCloudBaseViewController *_contentViewController;
+    MSCloudAction *_action;
 }
 
-@property(nonatomic) BOOL isTransitioning; // @synthesize isTransitioning=_isTransitioning;
-@property(retain, nonatomic) MSCloudController *cloudController; // @synthesize cloudController=_cloudController;
-@property(nonatomic) __weak id <MSCloudViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) MSCloudAction *action; // @synthesize action=_action;
+@property(retain, nonatomic) MSCloudBaseViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
 - (void).cxx_destruct;
-- (void)cloudViewControllerNeedsResizing:(id)arg1;
-- (void)viewDidTransition;
-- (void)viewWillTransition;
-- (void)parentViewControllerDidTransitionNotification:(id)arg1;
-- (void)parentViewControllerWillTransitionNotification:(id)arg1;
+- (void)refreshLicenseIfIneligible;
+- (void)resetContentViewController:(id)arg1;
+- (void)licenseDidChangeNotification:(id)arg1;
+- (void)shareUploadDidChangeNotification:(id)arg1;
+- (void)userDidUpdateNotification:(id)arg1;
+- (void)userDidChangeNotification:(id)arg1;
+- (void)environmentDidChangeNotification:(id)arg1;
+- (void)updateFrame;
+- (void)animateFrameWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)animateAlpha:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)defaultContentViewController;
+- (void)addContentViewController:(id)arg1;
+- (void)removeContentViewController:(id)arg1;
+- (void)setContentViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)dealloc;
 - (void)viewDidLoad;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)viewDidAppear;
+- (void)viewWillAppear;
+- (void)loadView;
+- (id)initWithAction:(id)arg1;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

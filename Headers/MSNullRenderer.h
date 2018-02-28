@@ -14,8 +14,9 @@
 {
 }
 
+- (unsigned long long)renderFlowForLayer:(id)arg1 inRect:(struct CGRect)arg2 isSelected:(BOOL)arg3 artboards:(id)arg4 mayDrawHotspotBounds:(BOOL)arg5 history:(unsigned long long)arg6 context:(id)arg7;
 - (void)renderGrid:(id)arg1 in:(struct CGRect)arg2 origin:(struct CGPoint)arg3 context:(id)arg4;
-- (void)renderOverlayForPage:(id)arg1 selectedArtboard:(id)arg2 options:(unsigned long long)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
+- (void)renderOverlayForPage:(id)arg1 selectedLayers:(id)arg2 selectedArtboard:(id)arg3 options:(unsigned long long)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBackgroundForPage:(id)arg1 rect:(struct CGRect)arg2 origin:(struct CGPoint)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
 - (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 context:(id)arg4;
 - (void)renderShadow:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3 block:(CDUnknownBlockType)arg4;

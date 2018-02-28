@@ -9,7 +9,7 @@
 #import "MSColorConvertible.h"
 #import "MSFirstLineTypesetterDelegate.h"
 
-@class MSImmutableColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
+@class MSColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
 
 @interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
 {
@@ -29,6 +29,8 @@
 + (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (id)keyPathsForValuesAffectingTextBehaviourSegmentIndex;
++ (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
 @property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
@@ -38,6 +40,7 @@
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
 - (void)convertColorsUsing:(id)arg1;
+- (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;
@@ -62,7 +65,7 @@
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
-@property(copy, nonatomic) MSImmutableColor *textColor;
+@property(copy, nonatomic) MSColor *textColor;
 @property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
 @property(retain, nonatomic) NSNumber *characterSpacing;
@@ -111,23 +114,28 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
-- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
+- (struct CGRect)measurementRectWithOptions:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (BOOL)shouldDrawSelection;
 - (Class)handlerClass;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
+- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
 - (void)copyStylePropertiesToShape:(id)arg1;
 - (id)rawCopyOfStyle:(id)arg1;
 - (void)copyTextPropertiesToShape:(id)arg1;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (Class)layerSnapperObjectClass;
+- (void)embedInRotatedGroup;
+- (long long)cornerForBaselineMaintaining;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (void)setTextBehaviourSegmentIndex:(long long)arg1;
+- (long long)textBehaviourSegmentIndex;
+- (BOOL)supportsVerticalAlignment;
 - (BOOL)supportsInnerOuterBorders;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;

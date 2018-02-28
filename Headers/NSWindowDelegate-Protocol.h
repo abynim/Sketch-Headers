@@ -61,6 +61,6 @@
 - (struct CGRect)windowWillUseStandardFrame:(NSWindow *)arg1 defaultFrame:(struct CGRect)arg2;
 - (struct CGSize)windowWillResize:(NSWindow *)arg1 toSize:(struct CGSize)arg2;
 - (id)windowWillReturnFieldEditor:(NSWindow *)arg1 toObject:(id)arg2;
-- (BOOL)windowShouldClose:(id)arg1;
+- (BOOL)windowShouldClose:(NSWindow *)arg1;
 @end
 

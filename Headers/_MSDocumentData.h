@@ -12,8 +12,6 @@
 {
     unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
-    BOOL _enableLayerInteraction;
-    BOOL _enableSliceInteraction;
     NSDictionary *_userInfo;
     MSAssetCollection *_assets;
     NSMutableArray *_foreignSymbols;
@@ -64,8 +62,6 @@
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
-@property(nonatomic) BOOL enableSliceInteraction; // @synthesize enableSliceInteraction=_enableSliceInteraction;
-@property(nonatomic) BOOL enableLayerInteraction; // @synthesize enableLayerInteraction=_enableLayerInteraction;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void)performInitWithImmutableModelObject:(id)arg1;

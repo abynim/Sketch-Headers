@@ -9,8 +9,7 @@
 @class NSDictionary, NSString;
 
 @protocol SMKMirrorDataSource <SMKWebServerDataSource>
-@property(readonly) BOOL shouldScrollToSelectedArtboard;
-@property(readonly, nonatomic) NSDictionary *manifestContent;
-@property(readonly, nonatomic) NSString *currentArtboardID;
+@property(readonly) NSDictionary *manifestContent;
+@property(readonly) NSString *currentArtboardID;
 @end
 

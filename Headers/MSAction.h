@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak MSActionController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
+- (id)interfaceQueryObject;
 - (void)keyDown:(id)arg1;
 - (BOOL)handlesKeyEvent:(id)arg1;
 @property(readonly, nonatomic) BOOL isActive;
@@ -44,12 +45,15 @@
 @property(readonly, nonatomic) NSString *tooltip;
 @property(readonly, nonatomic) BOOL showInToolbar;
 - (id)imageForToolbarCustomisationSheet;
+@property(readonly, nonatomic) NSString *labelForToolbarCustomisationSheet;
+@property(readonly, nonatomic) NSString *labelForToolbar;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (BOOL)validateToolbarItem:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)menuItems;
+@property(readonly, nonatomic) NSString *labelForMenu;
 - (id)menuItemsForMenu:(id)arg1;
 @property(readonly, nonatomic) SEL preferredMenuAction;
 

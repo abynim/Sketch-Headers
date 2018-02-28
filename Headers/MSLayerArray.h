@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)description;
+- (id)sortedArrayByUsingComparator:(CDUnknownBlockType)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
@@ -50,6 +51,9 @@
 - (id)initWithLayers:(id)arg1;
 - (void)removeUnusedStylePartsOfType:(unsigned long long)arg1;
 - (id)addStylePartsOfType:(unsigned long long)arg1;
+- (unsigned long long)indexOfLayerWithID:(id)arg1;
+- (void)updateFlowDestinationsWithMapping:(id)arg1;
+- (id)copyByGivingNewObjectIDs;
 
 @end
 

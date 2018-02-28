@@ -8,29 +8,29 @@
 
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
-#import "MSColorPreviewButtonDelegate.h"
 #import "MSSliceLayerWatcher.h"
+#import "MSStylePartPreviewButtonDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, NSButton, NSString, NSView;
+@class BCPopover, MSStylePartPreviewButton, NSButton, NSString, NSView;
 
-@interface MSSliceInspectorViewController : MSBaseExportableInspectorViewController <MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate, MSColorPreviewButtonDelegate>
+@interface MSSliceInspectorViewController : MSBaseExportableInspectorViewController <MSSliceLayerWatcher, MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate>
 {
     NSView *_sliceExportPropertiesView;
     NSView *_standardPropertiesView;
     NSView *_sliceBackgroundView;
     NSButton *_groupContentsOnlyButton;
-    MSColorPreviewButton *_sliceBackgroundColorButton;
+    MSStylePartPreviewButton *_sliceBackgroundColorButton;
     BCPopover *_popover;
 }
 
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) MSColorPreviewButton *sliceBackgroundColorButton; // @synthesize sliceBackgroundColorButton=_sliceBackgroundColorButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *sliceBackgroundColorButton; // @synthesize sliceBackgroundColorButton=_sliceBackgroundColorButton;
 @property(retain, nonatomic) NSButton *groupContentsOnlyButton; // @synthesize groupContentsOnlyButton=_groupContentsOnlyButton;
 @property(retain, nonatomic) NSView *sliceBackgroundView; // @synthesize sliceBackgroundView=_sliceBackgroundView;
 @property(retain, nonatomic) NSView *standardPropertiesView; // @synthesize standardPropertiesView=_standardPropertiesView;
 @property(retain, nonatomic) NSView *sliceExportPropertiesView; // @synthesize sliceExportPropertiesView=_sliceExportPropertiesView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)colorMagnifierAction:(id)arg1;

@@ -47,6 +47,7 @@
 - (void).cxx_destruct;
 - (id)debugDescription;
 - (id)urlForResourceNamed:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *versionedIdentifier;
 - (BOOL)writeToURL:(id)arg1;
 - (id)metadata;
 @property(readonly, nonatomic, getter=isCompatible) BOOL compatible;

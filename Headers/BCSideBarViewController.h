@@ -14,7 +14,6 @@
 {
     BOOL _userUpdatedPageHeight;
     NSObject<BCSideBarViewControllerDelegate> *_delegate;
-    unsigned long long _sliceCount;
     BCFilterInfo *_filter;
     BCOutlineViewDataController *_pageListDataController;
     NSView *_pageCreationView;
@@ -28,13 +27,11 @@
     BCOutlineViewController *_layerListViewController;
     NSSearchField *_filterStringTextField;
     NSButton *_togglePageListButton;
-    NSButton *_filterSlicesButton;
     NSSplitView *_splitView;
 }
 
 @property(nonatomic) BOOL userUpdatedPageHeight; // @synthesize userUpdatedPageHeight=_userUpdatedPageHeight;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
-@property(nonatomic) __weak NSButton *filterSlicesButton; // @synthesize filterSlicesButton=_filterSlicesButton;
 @property(nonatomic) __weak NSButton *togglePageListButton; // @synthesize togglePageListButton=_togglePageListButton;
 @property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
 @property(retain, nonatomic) BCOutlineViewController *layerListViewController; // @synthesize layerListViewController=_layerListViewController;
@@ -48,7 +45,6 @@
 @property(retain, nonatomic) NSView *pageCreationView; // @synthesize pageCreationView=_pageCreationView;
 @property(retain, nonatomic) BCOutlineViewDataController *pageListDataController; // @synthesize pageListDataController=_pageListDataController;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
-@property(nonatomic) unsigned long long sliceCount; // @synthesize sliceCount=_sliceCount;
 @property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
