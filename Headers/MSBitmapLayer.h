@@ -28,6 +28,8 @@
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
 - (BOOL)canInsertIntoGroup:(id)arg1;
+- (void)reduceImageSize;
+- (void)replaceImageWithImage:(id)arg1;
 - (id)handlerName;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)performInitEmptyObject;

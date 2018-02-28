@@ -36,8 +36,8 @@
 - (void)tiledLayer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(id)arg1 didChangeToState:(unsigned long long)arg2;
 @property(readonly, nonatomic) BOOL isRendering;
-- (void)refreshContentForPage:(id)arg1 document:(id)arg2;
-- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
+- (void)refreshContentForPage:(id)arg1 document:(id)arg2 quality:(long long)arg3;
+- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 quality:(long long)arg4;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
 - (void)redraw;
 - (void)tile;

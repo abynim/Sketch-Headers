@@ -9,16 +9,16 @@
 #import "BCPopoverDelegate.h"
 #import "MSArtboardPresetsViewControllerDelegate.h"
 #import "MSColorInspectorDelegate.h"
-#import "MSColorPreviewButtonDelegate.h"
+#import "MSStylePartPreviewButtonDelegate.h"
 
-@class BCPopover, MSArtboardPresetStore, MSArtboardPresetsViewController, MSColorPreviewButton, NSArrayController, NSButton, NSSegmentedControl, NSString, NSView;
+@class BCPopover, MSArtboardPresetStore, MSArtboardPresetsViewController, MSStylePartPreviewButton, NSArrayController, NSButton, NSSegmentedControl, NSString, NSView;
 
-@interface MSArtboardInspectorViewController : MSBaseExportableInspectorViewController <MSArtboardPresetsViewControllerDelegate, MSColorInspectorDelegate, BCPopoverDelegate, MSColorPreviewButtonDelegate>
+@interface MSArtboardInspectorViewController : MSBaseExportableInspectorViewController <MSArtboardPresetsViewControllerDelegate, MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate>
 {
     NSView *_artboardBackgroundView;
     NSView *_symbolStandardPropertiesView;
     NSView *_artboardResizingView;
-    MSColorPreviewButton *_artboardBackgroundColorButton;
+    MSStylePartPreviewButton *_artboardBackgroundColorButton;
     NSView *_bottomLabelView;
     NSArrayController *_layersController;
     BCPopover *_colorPopover;
@@ -37,12 +37,12 @@
 @property(retain, nonatomic) BCPopover *colorPopover; // @synthesize colorPopover=_colorPopover;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) NSView *bottomLabelView; // @synthesize bottomLabelView=_bottomLabelView;
-@property(retain, nonatomic) MSColorPreviewButton *artboardBackgroundColorButton; // @synthesize artboardBackgroundColorButton=_artboardBackgroundColorButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *artboardBackgroundColorButton; // @synthesize artboardBackgroundColorButton=_artboardBackgroundColorButton;
 @property(retain, nonatomic) NSView *artboardResizingView; // @synthesize artboardResizingView=_artboardResizingView;
 @property(retain, nonatomic) NSView *symbolStandardPropertiesView; // @synthesize symbolStandardPropertiesView=_symbolStandardPropertiesView;
 @property(retain, nonatomic) NSView *artboardBackgroundView; // @synthesize artboardBackgroundView=_artboardBackgroundView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (void)artboardPresetsViewController:(id)arg1 didSelectOrientation:(long long)arg2;
 - (void)artboardPresetsViewController:(id)arg1 didSelectPreset:(id)arg2;
 - (id)views;

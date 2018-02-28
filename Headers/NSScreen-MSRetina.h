@@ -7,6 +7,7 @@
 #import "NSScreen.h"
 
 @interface NSScreen (MSRetina)
++ (double)highestBackingScale_bc;
 + (BOOL)isOnRetinaScreen;
 - (BOOL)isOnRetinaScreen;
 @end

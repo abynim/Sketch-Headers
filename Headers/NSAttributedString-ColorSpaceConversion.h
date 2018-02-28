@@ -7,6 +7,8 @@
 #import "NSAttributedString.h"
 
 @interface NSAttributedString (ColorSpaceConversion)
+- (id)convertedToColorSpace:(id)arg1;
 - (id)attributedStringWithDocumentColorSpace:(id)arg1 convert:(BOOL)arg2;
+- (id)standardAttributedStringWithDocumentColorSpace:(id)arg1;
 @end
 

@@ -9,14 +9,11 @@
 #import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
-@class MSSharedStylesInspectorSection, NSArray, NSButton, NSNumberFormatter, NSSegmentedControl, NSString, NSTextField, NSView;
+@class NSArray, NSNumberFormatter, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSLayerInspectorViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
     BOOL _shouldShowPositions;
-    BOOL _shouldShowSharedStyles;
-    BOOL _shouldShowLayerSpecificProperties;
-    BOOL _shouldShowBlendingProperties;
     BOOL _hasScheduledLayerPositionPossiblyChanged;
     NSArray *_layers;
     NSView *_positionView;
@@ -26,25 +23,16 @@
     NSTextField *_yTextField;
     NSTextField *_widthTextField;
     NSTextField *_heightTextField;
-    NSButton *_lockProportionsButton;
     NSSegmentedControl *_flipSegmentedControl;
     NSSegmentedControl *_lineFlipSegmentedControl;
-    MSSharedStylesInspectorSection *_sharedObjectsController;
-    NSArray *_layerInspectorControllers;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(nonatomic) BOOL hasScheduledLayerPositionPossiblyChanged; // @synthesize hasScheduledLayerPositionPossiblyChanged=_hasScheduledLayerPositionPossiblyChanged;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
-@property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
-@property(retain, nonatomic) MSSharedStylesInspectorSection *sharedObjectsController; // @synthesize sharedObjectsController=_sharedObjectsController;
-@property(nonatomic) BOOL shouldShowBlendingProperties; // @synthesize shouldShowBlendingProperties=_shouldShowBlendingProperties;
-@property(nonatomic) BOOL shouldShowLayerSpecificProperties; // @synthesize shouldShowLayerSpecificProperties=_shouldShowLayerSpecificProperties;
-@property(nonatomic) BOOL shouldShowSharedStyles; // @synthesize shouldShowSharedStyles=_shouldShowSharedStyles;
 @property(nonatomic) BOOL shouldShowPositions; // @synthesize shouldShowPositions=_shouldShowPositions;
 @property(nonatomic) __weak NSSegmentedControl *lineFlipSegmentedControl; // @synthesize lineFlipSegmentedControl=_lineFlipSegmentedControl;
 @property(nonatomic) __weak NSSegmentedControl *flipSegmentedControl; // @synthesize flipSegmentedControl=_flipSegmentedControl;
-@property(nonatomic) __weak NSButton *lockProportionsButton; // @synthesize lockProportionsButton=_lockProportionsButton;
 @property(nonatomic) __weak NSTextField *heightTextField; // @synthesize heightTextField=_heightTextField;
 @property(nonatomic) __weak NSTextField *widthTextField; // @synthesize widthTextField=_widthTextField;
 @property(nonatomic) __weak NSTextField *yTextField; // @synthesize yTextField=_yTextField;
@@ -57,16 +45,10 @@
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (BOOL)hasLineShapeLayer;
-- (BOOL)layerIsGroup;
 - (id)views;
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)document;
 - (void)refreshAction:(id)arg1;
-- (id)inspectorsWithProperContent;
-- (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
-- (id)sharedObjectsSection;
-- (void)layerWithSharedStyleDidChange;
-- (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)resizeConstraintsAction:(id)arg1;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)rotateAction:(id)arg1;
@@ -92,7 +74,6 @@
 - (void)updatePositionAndSizeFields;
 - (void)_layerPositionPossiblyChanged;
 - (void)layerPositionPossiblyChanged;
-- (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (void)viewDidLoad;
 - (id)init;
 

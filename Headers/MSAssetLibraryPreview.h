@@ -6,24 +6,24 @@
 
 #import "NSView.h"
 
-@class MSAssetLibrary, NSBezierPath, NSImage;
+@class NSBezierPath, NSImage;
 
 @interface MSAssetLibraryPreview : NSView
 {
-    MSAssetLibrary *_library;
+    NSImage *_libraryPreview;
     NSImage *_preview;
 }
 
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
-@property(nonatomic) __weak MSAssetLibrary *library; // @synthesize library=_library;
+@property(nonatomic) __weak NSImage *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
 - (void).cxx_destruct;
-- (void)generatePreview;
-- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
 - (id)thumbFromImage:(id)arg1 centerTopInSize:(struct CGSize)arg2;
 - (id)thumbWithSize:(struct CGSize)arg1 byDrawingImage:(id)arg2 inRect:(struct CGRect)arg3 fromRect:(struct CGRect)arg4;
-- (void)drawRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
+- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
+- (id)centeredThumbFromImage:(id)arg1;
+- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

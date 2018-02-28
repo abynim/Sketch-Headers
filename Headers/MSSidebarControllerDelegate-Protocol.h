@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, MSLayer, MSSidebarListController, NSArray;
+@class MSDocumentData, MSLayer, MSSidebarListController, NSArray, NSColorSpace;
 
 @protocol MSSidebarControllerDelegate <NSObject>
+@property(readonly, nonatomic) NSColorSpace *colorSpace;
 @property(readonly, nonatomic) MSDocumentData *documentData;
 - (void)sidebarController:(MSSidebarListController *)arg1 hoveredLayerDidChangeTo:(MSLayer *)arg2;
 - (NSArray *)sidebarControllerContextMenuItemsForCurrentSelection:(MSSidebarListController *)arg1;

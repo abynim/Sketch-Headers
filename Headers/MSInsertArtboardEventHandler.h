@@ -30,7 +30,7 @@
 - (struct CGRect)rectForArtboardWithPreset:(id)arg1;
 - (struct CGRect)rectOfSelectedLayers;
 - (void)insertArtboardFromPreset:(id)arg1;
-- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
+- (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;

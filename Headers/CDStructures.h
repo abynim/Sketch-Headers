@@ -151,8 +151,8 @@ struct _CHTransformStruct {
 };
 
 struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __va_list_tag {

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSDocument, MSEventHandler, MSNormalEventHandler, NSUndoManager;
+@class MSDocument, MSEventHandler, MSNormalEventHandler;
 
 @interface MSEventHandlerManager : NSObject
 {
@@ -16,10 +16,8 @@
     MSNormalEventHandler *_normalHandler;
     long long _lastMouseDownClickCount;
     unsigned long long _lastEventType;
-    NSUndoManager *_undoManager;
 }
 
-@property(readonly, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 @property(nonatomic) unsigned long long lastEventType; // @synthesize lastEventType=_lastEventType;
 @property(nonatomic) long long lastMouseDownClickCount; // @synthesize lastMouseDownClickCount=_lastMouseDownClickCount;
 @property(retain, nonatomic) MSNormalEventHandler *normalHandler; // @synthesize normalHandler=_normalHandler;
@@ -32,7 +30,7 @@
 - (void)sendMouseUpEvent:(id)arg1;
 - (void)sendMouseDraggedEvent:(id)arg1;
 - (void)sendMouseDownEvent:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (id)switchToEventHandlerClass:(Class)arg1;
 - (id)toggleHandlerClass:(Class)arg1;
 - (id)handlerForClass:(Class)arg1;

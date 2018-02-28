@@ -13,10 +13,10 @@
     long long _visibilityAroundSelectedHandles;
     long long _visibilityAroundHighlight;
     MSShapeChangeContext *_selectionContext;
-    NSIndexPath *_indexPathForHighlightedHandle;
+    NSIndexPath *_indexPathForHighlightedComponent;
 }
 
-@property(copy, nonatomic) NSIndexPath *indexPathForHighlightedHandle; // @synthesize indexPathForHighlightedHandle=_indexPathForHighlightedHandle;
+@property(copy, nonatomic) NSIndexPath *indexPathForHighlightedComponent; // @synthesize indexPathForHighlightedComponent=_indexPathForHighlightedComponent;
 @property(copy, nonatomic) MSShapeChangeContext *selectionContext; // @synthesize selectionContext=_selectionContext;
 @property(nonatomic) long long visibilityAroundHighlight; // @synthesize visibilityAroundHighlight=_visibilityAroundHighlight;
 @property(nonatomic) long long visibilityAroundSelectedHandles; // @synthesize visibilityAroundSelectedHandles=_visibilityAroundSelectedHandles;
@@ -26,6 +26,7 @@
 - (unsigned long long)stateOfCurvePointAtIndexPath:(id)arg1 curveToState:(unsigned long long *)arg2 curveFromState:(unsigned long long *)arg3;
 - (BOOL)isCurveAdjustmentHandleVisibleDueToHighlightedHandle:(id)arg1;
 - (BOOL)isCurveAdjustmentHandleVisibleDueToSelectedHandles:(id)arg1;
+- (BOOL)isHandleAtIndexPath:(id)arg1 relevantToSegmentAtIndexPath:(id)arg2;
 - (BOOL)isHandleAtIndexPathVisible:(id)arg1;
 - (id)indexPathOfPointAfterIndexPath:(id)arg1;
 - (id)indexPathOfPointBeforeIndexPath:(id)arg1;

@@ -4,32 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MSShareableObjectReference.h"
 
-#import "BCSortable.h"
+@class MSSymbolMaster, MSSymbolMasterReferenceDescriptor;
 
-@class MSAssetLibrary, MSSymbolMaster, MSSymbolMasterReferenceDescriptor, NSString;
-
-@interface MSSymbolMasterReference : NSObject <BCSortable>
+@interface MSSymbolMasterReference : MSShareableObjectReference
 {
-    MSAssetLibrary *_sourceLibrary;
-    MSSymbolMaster *_symbolMaster;
 }
 
-+ (id)referenceForSymbolMaster:(id)arg1 inLibrary:(id)arg2;
-+ (id)referenceForSymbolMaster:(id)arg1;
-@property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
-@property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) MSSymbolMasterReferenceDescriptor *descriptor;
-@property(readonly) unsigned long long hash;
+- (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic) NSString *name;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) Class superclass;
+@property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
 
 @end
 

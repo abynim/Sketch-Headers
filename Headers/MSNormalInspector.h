@@ -29,9 +29,11 @@
 - (void).cxx_destruct;
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (id)views;
+- (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)reloadSharedObjectsSection;
+- (void)layerWithSharedStyleDidChange;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
-- (id)sharedObjectsSection;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (void)closeAnyColorPopover;

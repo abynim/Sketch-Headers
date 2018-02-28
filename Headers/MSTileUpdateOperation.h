@@ -6,23 +6,26 @@
 
 #import "NSOperation.h"
 
-@class MSTiledLayer, NSArray;
+@class MSTiledLayer, NSMapTable;
 
 @interface MSTileUpdateOperation : NSOperation
 {
-    NSArray *_renderOperations;
     MSTiledLayer *_tiledLayer;
     unsigned long long _finishTime;
+    NSMapTable *_operationsToTilesMapTable;
 }
 
 + (void)layerContentsUpdateThreadMain;
 + (void)initialize;
+@property(retain, nonatomic) NSMapTable *operationsToTilesMapTable; // @synthesize operationsToTilesMapTable=_operationsToTilesMapTable;
 @property(nonatomic) unsigned long long finishTime; // @synthesize finishTime=_finishTime;
-@property(retain, nonatomic) MSTiledLayer *tiledLayer; // @synthesize tiledLayer=_tiledLayer;
-@property(retain, nonatomic) NSArray *renderOperations; // @synthesize renderOperations=_renderOperations;
+@property(readonly, nonatomic) __weak MSTiledLayer *tiledLayer; // @synthesize tiledLayer=_tiledLayer;
 - (void).cxx_destruct;
 - (void)cancel;
 - (void)main;
+- (void)addRenderOperation:(id)arg1 forTile:(id)arg2;
+- (id)initWithTiledLayer:(id)arg1;
+- (id)init;
 
 @end
 

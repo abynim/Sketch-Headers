@@ -6,13 +6,24 @@
 
 #import "MSPreferencePane.h"
 
+@class NSPopUpButton, NSTextField;
+
 @interface MSGeneralPreferencePane : MSPreferencePane
 {
+    NSTextField *_defaultColorSpaceDescriptionLabel;
+    NSPopUpButton *_defaultColorSpacePopUpButton;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(nonatomic) __weak NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
+@property(nonatomic) __weak NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
+- (void).cxx_destruct;
+- (void)pickDefaultColorSpace:(id)arg1;
+- (void)refreshColorSpaceDescription;
+- (void)analyticsAction:(id)arg1;
+- (void)viewDidLoad;
 
 @end
 

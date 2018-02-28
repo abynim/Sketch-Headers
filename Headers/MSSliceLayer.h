@@ -25,9 +25,10 @@
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;
+- (BOOL)shouldDrawSelectionStroke;
+- (BOOL)isActive;
 - (unsigned long long)filterType;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

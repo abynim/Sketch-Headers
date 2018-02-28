@@ -109,7 +109,6 @@
 - (void)uninstallSelectedPlugins:(id)arg1;
 - (void)uninstallPlugins:(id)arg1;
 - (void)uninstallSelectedPlugins;
-- (id)pluginsAtRowIndexes:(id)arg1;
 - (void)openPluginsFolder:(id)arg1;
 @property(readonly, nonatomic) BOOL updatesAvailable;
 @property(readonly, copy, nonatomic) NSFont *zeroPluginsTitleFont;

@@ -6,17 +6,17 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSColorPreviewButton, MSUpDownTextField, NSPopUpButton;
+@class MSStylePartPreviewButton, MSUpDownTextField, NSPopUpButton;
 
 @interface MSBorderInspectorViewController : MSStylePartInspectorViewController
 {
     NSPopUpButton *_positionPopUp;
-    MSColorPreviewButton *_colorButton;
+    MSStylePartPreviewButton *_colorButton;
     MSUpDownTextField *_thicknessField;
 }
 
 @property(retain, nonatomic) MSUpDownTextField *thicknessField; // @synthesize thicknessField=_thicknessField;
-@property(retain, nonatomic) MSColorPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 @property(retain, nonatomic) NSPopUpButton *positionPopUp; // @synthesize positionPopUp=_positionPopUp;
 - (void).cxx_destruct;
 - (void)dealloc;

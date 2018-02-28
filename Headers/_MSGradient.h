@@ -13,7 +13,6 @@
     double _elipseLength;
     struct CGPoint _from;
     long long _gradientType;
-    BOOL _shouldSmoothenOpacity;
     struct CGPoint _to;
     NSMutableArray *_stops;
 }
@@ -42,7 +41,6 @@
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
-@property(nonatomic) BOOL shouldSmoothenOpacity; // @synthesize shouldSmoothenOpacity=_shouldSmoothenOpacity;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;

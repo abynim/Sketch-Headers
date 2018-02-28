@@ -11,7 +11,7 @@
 @interface MSPluginManager : NSObject
 {
     NSDictionary *_plugins;
-    BOOL _doNotLoadPlugins;
+    BOOL _disableAllPlugins;
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
     long long _numberOfIncompatiblePluginsDisabled;
@@ -19,6 +19,7 @@
     NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSMutableDictionary *_runningCommands;
+    NSMutableDictionary *_runningCommandCallbacks;
     NSTimer *_sessionTimer;
     double _lastTimerInterval;
     id <MSPluginUpdater> _updater;
@@ -44,10 +45,11 @@
 @property(readonly, copy, nonatomic) id <MSPluginUpdater> updater; // @synthesize updater=_updater;
 @property(nonatomic) double lastTimerInterval; // @synthesize lastTimerInterval=_lastTimerInterval;
 @property(retain, nonatomic) NSTimer *sessionTimer; // @synthesize sessionTimer=_sessionTimer;
+@property(retain, nonatomic) NSMutableDictionary *runningCommandCallbacks; // @synthesize runningCommandCallbacks=_runningCommandCallbacks;
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(nonatomic) BOOL doNotLoadPlugins; // @synthesize doNotLoadPlugins=_doNotLoadPlugins;
+@property(nonatomic) BOOL disableAllPlugins; // @synthesize disableAllPlugins=_disableAllPlugins;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
 @property(nonatomic) long long numberOfIncompatiblePluginsDisabled; // @synthesize numberOfIncompatiblePluginsDisabled=_numberOfIncompatiblePluginsDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
@@ -61,6 +63,7 @@
 - (id)downloadedPluginURLWithIdentifier:(id)arg1 version:(id)arg2;
 - (id)firstPluginBundleFoundInFolder:(id)arg1;
 - (BOOL)installPluginAtURL:(id)arg1 withIdentifier:(id)arg2 error:(id *)arg3;
+- (void)resetAllPluginMetadataToBeDisabled;
 - (BOOL)isPluginUpdateDownloadedWithIdentifier:(id)arg1 version:(id)arg2;
 - (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2 error:(id *)arg3;
 - (void)downloadAndInstallPluginWithIdentifier:(id)arg1 version:(id)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3;
@@ -80,14 +83,17 @@
 @property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginsWithCompatibleUpdates;
 @property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginsWithUpdates;
 @property(readonly, copy, nonatomic) NSArray *incompatiblePlugins;
+- (id)disabledPlugins;
+- (id)enabledPlugins;
 - (void)disablePlugin:(id)arg1;
 - (void)enablePlugin:(id)arg1;
 - (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2;
 - (void)addCommands:(id)arg1 toMenu:(id)arg2 fromDescription:(id)arg3 selector:(SEL)arg4;
 - (void)sortMenu:(id)arg1 recursively:(BOOL)arg2;
+- (void)runHandlerWithKey:(id)arg1 fromCommand:(id)arg2 inPlugin:(id)arg3 withContext:(id)arg4;
 - (void)editBundle:(id)arg1;
 - (void)cleanupFinishedCommands;
-- (void)trackLongRunningCommand:(id)arg1;
+- (void)trackLongRunningCommand:(id)arg1 onComplete:(CDUnknownBlockType)arg2;
 - (id)stopTrackingLongRunningCommandWithSpecifier:(id)arg1;
 - (id)commandWithSpecifier:(id)arg1;
 @property(copy, nonatomic) NSDictionary *plugins;

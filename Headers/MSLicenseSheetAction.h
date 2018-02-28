@@ -14,7 +14,7 @@
 {
 }
 
-@property(readonly, nonatomic) BOOL wantsBadge;
+@property(readonly, nonatomic) unsigned long long numberOfBadges;
 - (BOOL)validate;
 @property(readonly, nonatomic) NSColor *badgeTint;
 - (id)label;

@@ -13,7 +13,7 @@
 #import "NSCopying.h"
 #import "SnapItem.h"
 
-@class MSAbsoluteRect, MSStyledLayer, NSArray, NSDictionary, NSMenu, NSSet, NSString;
+@class MSAbsoluteRect, MSImmutableLayerAncestry, MSStyledLayer, NSArray, NSDictionary, NSMenu, NSString;
 
 @interface MSLayer : _MSLayer <SnapItem, BCOutlineViewNode, MSLayerContainment, MSLayer, NSCopying, MSRectDelegate>
 {
@@ -37,10 +37,11 @@
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 - (void).cxx_destruct;
+- (void)resetFlow;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (id)allSymbolInstancesInChildren;
 - (BOOL)canInsertIntoGroup:(id)arg1;
-- (BOOL)canResize;
+- (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -64,12 +65,14 @@
 - (struct CGRect)convertRectToAbsoluteCoordinates:(struct CGRect)arg1;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
+- (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
 - (id)ancestorsAndSelfTransforms;
 - (id)ancestorsAndSelf;
 - (id)ancestors;
 - (id)parentSymbol;
 - (id)parentArtboard;
+@property(readonly, nonatomic) MSImmutableLayerAncestry *ancestry;
 - (id)parentRoot;
 - (id)parentPage;
 - (BOOL)isOpen;
@@ -104,7 +107,7 @@
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
@@ -136,8 +139,10 @@
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
-- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
+- (struct CGRect)measurementRectWithOptions:(unsigned long long)arg1;
 - (long long)cornerRectType;
+- (BOOL)shouldRefreshOverlayForFlows;
+- (BOOL)shouldDrawSelectionStroke;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
@@ -152,8 +157,7 @@
 - (id)inspectorViewControllerNames;
 - (BOOL)canBeHovered;
 - (id)bezierPathForHover;
-- (id)colorForHover;
-- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
+- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
 - (void)writeBitmapImageToFile:(id)arg1;
 - (id)parentForInsertingLayers;
 - (id)displayName;
@@ -183,7 +187,7 @@
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isMasked;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
-@property(readonly, nonatomic) BOOL hasSliceIcon;
+@property(readonly, nonatomic) unsigned long long badgeType;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL selectedInLayerList;
@@ -214,6 +218,7 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)setIsVisible:(BOOL)arg1;
 - (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)closestClippingLayer;
 - (id)candidatesForMasking;
@@ -239,8 +244,6 @@
 - (id)resizingConstraintKeys;
 - (id)parentRootForAbsoluteRect;
 - (void)replaceFonts:(id)arg1;
-@property(readonly, nonatomic) NSSet *unavailableFontNames;
-@property(readonly, nonatomic) NSSet *fontNames;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (void)applyOverrides:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;

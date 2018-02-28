@@ -54,6 +54,8 @@
 - (void)stopObserving;
 - (void)startObserving;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (id)addBadgeWithName:(id)arg1 badgeMaskName:(id)arg2 withRect:(struct CGRect)arg3 toImage:(id)arg4;
+- (id)addFlowIconToImage:(id)arg1;
 - (id)addSliceIconToImage:(id)arg1;
 @property(readonly, nonatomic) id <BCOutlineViewNode> node;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;

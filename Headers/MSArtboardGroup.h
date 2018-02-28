@@ -11,7 +11,7 @@
 #import "MSLayerWithBackgroundColor.h"
 #import "MSRootLayer.h"
 
-@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
+@class MSArtboardPreset, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor, MSColorConvertible>
 {
@@ -30,11 +30,13 @@
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (struct CGSize)calculateMinimumSize;
+- (void)layerDidEndResize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
+@property(retain, nonatomic) MSArtboardPreset *preset;
 - (void)setRect:(struct CGRect)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (id)parentRoot;
@@ -58,7 +60,7 @@
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
-- (BOOL)hasSliceIcon;
+- (BOOL)shouldRefreshOverlayForFlows;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)contextualMenuPreviewImage;
 - (id)unselectedPreviewImage;

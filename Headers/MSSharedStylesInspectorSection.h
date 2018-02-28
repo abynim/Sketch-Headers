@@ -6,29 +6,31 @@
 
 #import "NSViewController.h"
 
+#import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
-@class MSLayerArray, MSSharedObject, MSSortableObjectMenuBuilder, NSButton, NSPopUpButton, NSString, NSTextField;
+@class MSForeignObjectMenuBuilder, MSLayerArray, MSShareableObjectPopUpButton, MSSharedObject, NSButton, NSString, NSTextField;
 
-@interface MSSharedStylesInspectorSection : NSViewController <NSMenuDelegate>
+@interface MSSharedStylesInspectorSection : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
     MSLayerArray *_layers;
-    NSPopUpButton *_sharedObjectsPopUpButton;
+    MSShareableObjectPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;
     NSButton *_syncOrResetButton;
     MSSharedObject *_renamingObject;
     CDUnknownBlockType _renameBlock;
-    MSSortableObjectMenuBuilder *_menuBuilder;
+    MSForeignObjectMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSSortableObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+@property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(copy, nonatomic) CDUnknownBlockType renameBlock; // @synthesize renameBlock=_renameBlock;
 @property(retain, nonatomic) MSSharedObject *renamingObject; // @synthesize renamingObject=_renamingObject;
 @property(retain, nonatomic) NSButton *syncOrResetButton; // @synthesize syncOrResetButton=_syncOrResetButton;
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
-@property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
+@property(retain, nonatomic) MSShareableObjectPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (id)views;
 - (id)document;
 - (struct MSModelObject *)firstStyle;
 - (id)firstSharedObject;
@@ -36,20 +38,12 @@
 - (BOOL)hasTextLayers;
 - (BOOL)hasOnlyTextLayers;
 - (unsigned long long)sharedObjectType;
-- (void)generatePreviewForMenuItem:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)syncOrResetSharedStyleAction:(id)arg1;
-- (void)isolateSelectedObject:(id)arg1;
-- (void)applySharedObjectToSelection:(id)arg1;
 - (void)renameSharedObjectAction:(id)arg1;
 - (void)renameSharedObject:(id)arg1;
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (void)showManageSymbolsSheet:(id)arg1;
-- (void)createSharedStyle:(id)arg1;
-- (id)sharedObjectDisplayName;
-- (void)reloadMenu;
-- (BOOL)hasLayersWithMissingFonts;
 - (BOOL)hasLayersOutOfSyncWithSharedObject;
 - (void)validateSyncButtons;
 - (void)prepareForDisplay;

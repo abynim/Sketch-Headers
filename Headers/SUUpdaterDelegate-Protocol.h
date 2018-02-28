@@ -19,6 +19,7 @@
 - (NSString *)pathToRelaunchForUpdater:(SUUpdater *)arg1;
 - (id <SUVersionDisplay>)versionDisplayerForUpdater:(SUUpdater *)arg1;
 - (id <SUVersionComparison>)versionComparatorForUpdater:(SUUpdater *)arg1;
+- (void)updaterDidRelaunchApplication:(SUUpdater *)arg1;
 - (void)updaterWillRelaunchApplication:(SUUpdater *)arg1;
 - (BOOL)updaterShouldRelaunchApplication:(SUUpdater *)arg1;
 - (BOOL)updater:(SUUpdater *)arg1 shouldPostponeRelaunchForUpdate:(SUAppcastItem *)arg2 untilInvoking:(NSInvocation *)arg3;

@@ -6,15 +6,13 @@
 
 #import "MSAssetLibrary.h"
 
-@class MSFileMonitor, NSData;
+@class MSFileMonitor;
 
 @interface MSUserAssetLibrary : MSAssetLibrary
 {
     MSFileMonitor *_fileMonitor;
-    NSData *_bookmark;
 }
 
-@property(retain, nonatomic) NSData *bookmark; // @synthesize bookmark=_bookmark;
 @property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
 - (void).cxx_destruct;
 - (void)resolveLocationOnDisk;
@@ -25,7 +23,6 @@
 - (unsigned long long)libraryType;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithDocumentAtURL:(id)arg1;
 
 @end
 

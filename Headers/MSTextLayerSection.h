@@ -7,13 +7,13 @@
 #import "MSLayerSection.h"
 
 #import "MSColorInspectorDelegate.h"
-#import "MSColorPreviewButtonDelegate.h"
+#import "MSStylePartPreviewButtonDelegate.h"
 #import "NSComboBoxDataSource.h"
 #import "NSMenuDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSStylePartPreviewButton, MSUpDownTextField, NSButton, NSComboBox, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 
-@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSColorPreviewButtonDelegate>
+@interface MSTextLayerSection : MSLayerSection <NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate>
 {
     NSView *_basicView;
     NSView *_missingFontsView;
@@ -22,7 +22,7 @@
     NSButton *_missingFontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
     NSComboBox *_fontSizeField;
-    MSColorPreviewButton *_colorPickerButton;
+    MSStylePartPreviewButton *_colorPickerButton;
     NSTextField *_kerningField;
     MSUpDownTextField *_lineHeightField;
     NSTextField *_paragraphHeightField;
@@ -44,7 +44,7 @@
 @property(retain, nonatomic) NSTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
 @property(retain, nonatomic) MSUpDownTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
 @property(retain, nonatomic) NSTextField *kerningField; // @synthesize kerningField=_kerningField;
-@property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(retain, nonatomic) NSComboBox *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
 @property(retain, nonatomic) NSButton *missingFontFamilyButton; // @synthesize missingFontFamilyButton=_missingFontFamilyButton;
@@ -53,7 +53,7 @@
 @property(retain, nonatomic) NSView *missingFontsView; // @synthesize missingFontsView=_missingFontsView;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
@@ -89,6 +89,7 @@
 - (void)putFocusOnTextView;
 - (void)colorInspectorWillClose:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
+- (id)document;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)changeTextLayerFont:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSColorPreviewButton, MSUpDownTextField, NSString;
+@class MSStylePartPreviewButton, MSUpDownTextField, NSString;
 
 @interface MSShadowInspectorViewController : MSStylePartInspectorViewController
 {
@@ -15,10 +15,10 @@
     MSUpDownTextField *_yOffsetField;
     MSUpDownTextField *_blurRadiusField;
     MSUpDownTextField *_spreadField;
-    MSColorPreviewButton *_colorButton;
+    MSStylePartPreviewButton *_colorButton;
 }
 
-@property(retain, nonatomic) MSColorPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 @property(retain, nonatomic) MSUpDownTextField *spreadField; // @synthesize spreadField=_spreadField;
 @property(retain, nonatomic) MSUpDownTextField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
 @property(retain, nonatomic) MSUpDownTextField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;

@@ -15,14 +15,18 @@
     MSPasteboardLayers *_pasteboardLayers;
 }
 
++ (id)duplicateLayers:(id)arg1;
 + (id)parentForData:(id)arg1 hint:(id)arg2 page:(id)arg3;
 + (id)parentForData:(id)arg1 hint:(id)arg2 page:(id)arg3 viewPort:(id)arg4;
 + (id)insertPasteboardData:(id)arg1 intoParent:(id)arg2 atPosition:(struct CGPoint)arg3 afterLayer:(id)arg4;
++ (id)insertPagePasteboardData:(id)arg1 intoDocument:(id)arg2 afterPage:(id)arg3;
++ (id)insertPasteboardData:(id)arg1 intoParent:(id)arg2 beforeLayer:(id)arg3;
 + (id)insertPasteboardData:(id)arg1 onPage:(id)arg2 withHint:(id)arg3 viewPort:(id)arg4;
 @property(readonly, nonatomic) MSPasteboardLayers *pasteboardLayers; // @synthesize pasteboardLayers=_pasteboardLayers;
 @property(readonly, nonatomic) NSMutableArray *insertedSymbolMasters; // @synthesize insertedSymbolMasters=_insertedSymbolMasters;
 @property(readonly, nonatomic) NSMutableDictionary *objectIDMap; // @synthesize objectIDMap=_objectIDMap;
 - (void).cxx_destruct;
+- (void)removeDisconnectedFlowsFromLayers:(id)arg1;
 - (BOOL)propertiesAreEqualBetweenSymbol:(id)arg1 andSymbol:(id)arg2;
 - (void)addForeignSymbolsInOocument:(id)arg1;
 - (id)matchingForeignSymbol:(id)arg1 inDocument:(id)arg2;
@@ -38,7 +42,11 @@
 - (id)pathsExtractedFromLayers:(id)arg1;
 - (id)layersFromPasteboardSuitedForParent:(id)arg1;
 - (void)setCombinedOrigin:(struct CGPoint)arg1 forLayers:(id)arg2;
+- (id)insertPagePasteboardDataIntoDocument:(id)arg1 afterPage:(id)arg2;
+- (id)insertPasteboardDataIntoParent:(id)arg1 beforeLayer:(id)arg2;
 - (id)insertPasteboardDataIntoParent:(id)arg1 atPosition:(struct CGPoint)arg2 afterLayer:(id)arg3;
+- (id)fixupAfterPastingLayers:(id)arg1 intoParent:(id)arg2;
+- (id)prepareToInsertLayers:(id)arg1 intoDocument:(id)arg2;
 - (struct CGRect)centerSize:(struct CGSize)arg1 inAllowedRect:(struct CGRect)arg2;
 - (struct CGRect)allowedRectForViewport:(id)arg1 root:(id)arg2;
 - (struct CGRect)rectByMaintainingOriginalPositionInRoot:(id)arg1;

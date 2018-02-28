@@ -54,12 +54,13 @@
 - (BOOL)hitTestPoint:(struct CGPoint)arg1 inBezier:(id)arg2 zoomValue:(double)arg3;
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)defaultName;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
+- (BOOL)shouldDrawSelectionStroke;
 - (BOOL)canSmartRotate;
 - (BOOL)isStraightTriangle;
 - (BOOL)shouldFlattenAfterRotate;
@@ -78,7 +79,7 @@
 - (struct CGPoint)p2;
 - (struct CGPoint)p1;
 - (id)inspectorViewControllers;
-- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
+- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
 - (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;

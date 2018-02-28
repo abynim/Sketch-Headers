@@ -9,12 +9,11 @@
 #import "NSToolbarDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSPluginManager, MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
+@class MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
 
 @interface MSPreferencesController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 {
     MSPreferencePane *_currentPreferencePane;
-    MSPluginManager *_pluginManager;
     NSArray *_toolbarItemIdentifiers;
     NSDictionary *_preferencePaneClasses;
     NSCache *_preferencePanes;
@@ -26,7 +25,6 @@
 @property(retain, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
 @property(copy, nonatomic) NSDictionary *preferencePaneClasses; // @synthesize preferencePaneClasses=_preferencePaneClasses;
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
-@property(retain, nonatomic) MSPluginManager *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;
 - (void).cxx_destruct;
 - (BOOL)validateToolbarItem:(id)arg1;

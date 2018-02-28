@@ -43,6 +43,8 @@
 - (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
 - (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
 - (id)cachedValueForKey:(id)arg1;
+@property(readonly, nonatomic) BOOL isForeign;
+@property(readonly, nonatomic) MSModelObject *foreignObject;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;

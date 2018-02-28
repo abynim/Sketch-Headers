@@ -10,14 +10,14 @@
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, MSPopoverDismisserView, NSButton, NSMenu, NSString;
+@class BCPopover, MSPopoverDismisserView, MSStylePartPreviewButton, NSButton, NSMenu, NSString;
 
 @interface MSReplaceColorSheetController : CHSheetController <NSWindowDelegate, NSMenuDelegate, MSColorInspectorDelegate>
 {
     NSButton *_cancelButton;
     NSButton *_ignoreAlphaWhenMatchingOriginalColorButton;
-    MSColorPreviewButton *_originalColorButton;
-    MSColorPreviewButton *_replacementColorButton;
+    MSStylePartPreviewButton *_originalColorButton;
+    MSStylePartPreviewButton *_replacementColorButton;
     NSButton *_keepAlphaOfOriginalColorButton;
     MSPopoverDismisserView *_replacementColorPopoverDismissingView;
     NSButton *_replaceButton;
@@ -30,8 +30,8 @@
 @property(nonatomic) __weak NSButton *replaceButton; // @synthesize replaceButton=_replaceButton;
 @property(nonatomic) __weak MSPopoverDismisserView *replacementColorPopoverDismissingView; // @synthesize replacementColorPopoverDismissingView=_replacementColorPopoverDismissingView;
 @property(nonatomic) __weak NSButton *keepAlphaOfOriginalColorButton; // @synthesize keepAlphaOfOriginalColorButton=_keepAlphaOfOriginalColorButton;
-@property(nonatomic) __weak MSColorPreviewButton *replacementColorButton; // @synthesize replacementColorButton=_replacementColorButton;
-@property(nonatomic) __weak MSColorPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
+@property(nonatomic) __weak MSStylePartPreviewButton *replacementColorButton; // @synthesize replacementColorButton=_replacementColorButton;
+@property(nonatomic) __weak MSStylePartPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
 @property(nonatomic) __weak NSButton *ignoreAlphaWhenMatchingOriginalColorButton; // @synthesize ignoreAlphaWhenMatchingOriginalColorButton=_ignoreAlphaWhenMatchingOriginalColorButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 - (void).cxx_destruct;

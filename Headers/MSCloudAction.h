@@ -6,36 +6,53 @@
 
 #import "MSPopoverAction.h"
 
-@class MSCloudController, NSImage;
+#import "MSCloudShareUploadControllerDelegate.h"
 
-@interface MSCloudAction : MSPopoverAction
+@class MSCloudShareUploadController, NSArray, NSError, NSImage, NSString, NSViewController, SCKAPIOperation;
+
+@interface MSCloudAction : MSPopoverAction <MSCloudShareUploadControllerDelegate>
 {
-    MSCloudController *_cloudController;
+    NSViewController *_popoverViewController;
+    NSArray *_progressImages;
+    MSCloudShareUploadController *_upload;
+    NSError *_uploadError;
+    SCKAPIOperation *_refreshOperation;
 }
 
++ (void)addRemoteLibraryWithURL:(id)arg1 parameters:(id)arg2;
 + (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
-@property(readonly, nonatomic) MSCloudController *cloudController; // @synthesize cloudController=_cloudController;
+@property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
+@property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
+@property(retain, nonatomic) MSCloudShareUploadController *upload; // @synthesize upload=_upload;
+@property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
 - (void).cxx_destruct;
+- (void)setCloudPlatform:(id)arg1;
 - (BOOL)validate;
 - (BOOL)validateToolbarItem:(id)arg1;
-@property(retain, nonatomic) NSImage *toolbarImage;
-- (void)setCloudPlatform:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)progressImagesWithSuffix:(id)arg1;
+@property(retain, nonatomic) NSImage *toolbarImage;
+@property(readonly, nonatomic) NSArray *progressImages; // @synthesize progressImages=_progressImages;
 - (void)updateProgressImage;
 - (void)setRegularImage;
-- (void)uploadingDidChange:(BOOL)arg1;
-- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)label;
 - (id)image;
+- (id)label;
 - (id)tooltip;
 - (BOOL)showInToolbar;
-- (id)popoverViewController;
-- (void)dealloc;
 - (id)initWithDocument:(id)arg1;
+- (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
+- (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
+- (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
+- (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
+- (void)startUploadUpdating:(id)arg1;
+@property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

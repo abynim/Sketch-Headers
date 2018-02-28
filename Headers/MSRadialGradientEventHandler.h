@@ -16,7 +16,7 @@
 - (struct CGPoint)ellipsePoint;
 - (id)ovalPath;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)hasSelectedPoint;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

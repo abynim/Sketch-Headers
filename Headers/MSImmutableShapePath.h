@@ -6,20 +6,11 @@
 
 #import "_MSImmutableShapePath.h"
 
-#import "MSShapePath.h"
-
-@interface MSImmutableShapePath : _MSImmutableShapePath <MSShapePath>
+@interface MSImmutableShapePath : _MSImmutableShapePath
 {
 }
 
-- (void)migratePropertiesFromV87OrEarlierWithCoder:(id)arg1;
-@property(readonly, nonatomic) unsigned long long numberOfPoints;
-@property(readonly, nonatomic) BOOL isRectangle;
-@property(readonly, nonatomic) BOOL isPolyline;
-@property(readonly, nonatomic) BOOL isPolygon;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-- (id)pathInRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) BOOL isSVGRectangle;
+- (id)initWithPoints:(id)arg1 pointRadiusBehaviour:(long long)arg2 isClosed:(BOOL)arg3;
 
 @end
 

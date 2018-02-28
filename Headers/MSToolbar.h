@@ -11,6 +11,8 @@
 }
 
 - (double)ms_toolbarHeight;
+- (BOOL)_allowsDisplayMode:(unsigned long long)arg1;
+- (void)setDisplayMode:(unsigned long long)arg1;
 - (BOOL)_allowsSizeMode:(unsigned long long)arg1;
 - (void)setSizeMode:(unsigned long long)arg1;
 

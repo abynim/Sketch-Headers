@@ -15,9 +15,9 @@
 
 @interface MSAssetLibrary : NSObject <QLPreviewItem, BCSortable, NSCoding, MSLibraryObject>
 {
+    NSURL *_locationOnDisk;
     BOOL _enabled;
     unsigned long long _status;
-    NSURL *_locationOnDisk;
     MSDocumentData *_document;
     NSString *_name;
     id <MSAssetLibraryDelegate> _delegate;
@@ -26,20 +26,19 @@
     NSString *_libraryID;
 }
 
-+ (id)URLForApplicationSupportLibraryNamed:(id)arg1;
-+ (id)assetLibraryFolder;
 + (id)URLForTemplateLibraryNamed:(id)arg1;
 + (id)keyPathsForValuesAffectingValid;
++ (unsigned long long)assetLibraryStatusForDocumentErrorCode:(unsigned long long)arg1;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 @property(readonly, nonatomic) NSDictionary *propertyListDictionaryRepresentation; // @synthesize propertyListDictionaryRepresentation=_propertyListDictionaryRepresentation;
 @property(readonly, nonatomic) unsigned long long libraryType; // @synthesize libraryType=_libraryType;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
-@property(retain) NSURL *locationOnDisk; // @synthesize locationOnDisk=_locationOnDisk;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSURL *previewURL;
 - (void)resolveLocationOnDisk;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDate *dateLastModified;
@@ -49,7 +48,8 @@
 - (BOOL)loadSynchronously;
 - (void)handleDocumentLoaded:(id)arg1;
 - (id)loadDocument:(unsigned long long *)arg1;
-- (void)setName:(id)arg1;
+@property(retain) NSURL *locationOnDisk;
+@property(readonly, nonatomic) BOOL canLibraryBeRemoved;
 @property(readonly, nonatomic) BOOL valid;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

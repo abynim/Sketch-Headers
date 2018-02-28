@@ -11,9 +11,9 @@
 }
 
 - (void)drawErrorPatternInRect:(struct CGRect)arg1 context:(id)arg2;
-- (id)modifiedArtboard:(id)arg1 instance:(id)arg2 context:(id)arg3;
-- (id)modifiedSymbolForInstance:(id)arg1 artboard:(id)arg2 inContext:(id)arg3;
-- (void)renderArtboard:(id)arg1 forInstance:(id)arg2 inContext:(id)arg3;
+- (void)renderArtboard:(id)arg1 forInstance:(id)arg2 influenceBounds:(struct CGRect)arg3 inContext:(id)arg4;
+- (void)renderSymbolOrErrorPatternForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 context:(id)arg3;
+- (BOOL)setupTransparencyIfRequiredForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 context:(id)arg3 previousAlpha:(double *)arg4;
 - (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end

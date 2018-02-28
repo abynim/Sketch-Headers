@@ -4,28 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSPopoverAction.h"
+#import "MSDocumentAction.h"
 
-@class NSStoryboard, NSString, SMKMirrorController;
+#import "MSWindowBadgeAction.h"
 
-@interface MSMirrorAction : MSPopoverAction
+@class NSAttributedString, NSColor, NSString, SMKMirrorController;
+
+@interface MSMirrorAction : MSDocumentAction <MSWindowBadgeAction>
 {
-    NSStoryboard *_storyboard;
 }
 
-@property(retain, nonatomic) NSStoryboard *storyboard; // @synthesize storyboard=_storyboard;
-- (void).cxx_destruct;
-- (id)tooltip;
-- (id)label;
-- (BOOL)showInToolbar;
-- (id)popoverViewController;
-- (BOOL)validateToolbarItem:(id)arg1;
-@property(readonly, nonatomic) NSString *imageName;
 @property(readonly, nonatomic) SMKMirrorController *mirrorController;
-- (void)connectionControllerDidChangeConnectionsNotification:(id)arg1;
-- (void)showMirrorPopover:(id)arg1;
-- (void)dealloc;
+- (id)availableClients;
+@property(readonly, nonatomic) NSColor *badgeTint;
+@property(readonly, nonatomic) unsigned long long numberOfBadges;
+- (id)menuItems;
+- (id)label;
+- (void)doPerformAction:(id)arg1;
+- (void)mirrorClientsDidChangeNotification:(id)arg1;
 - (id)initWithDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) NSAttributedString *badgeTitle; // @dynamic badgeTitle;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

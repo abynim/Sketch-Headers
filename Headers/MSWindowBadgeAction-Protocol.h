@@ -11,6 +11,6 @@
 @protocol MSWindowBadgeAction <NSObject>
 @property(readonly, nonatomic) NSColor *badgeTint;
 @property(readonly, nonatomic) NSAttributedString *badgeTitle;
-@property(readonly, nonatomic) BOOL wantsBadge;
+@property(readonly, nonatomic) unsigned long long numberOfBadges;
 @end
 

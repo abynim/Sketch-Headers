@@ -10,7 +10,6 @@
 {
 }
 
-+ (void)renderLayer:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3 baseContext:(id)arg4;
 + (id)basicImageForLayer:(id)arg1 context:(id)arg2;
 + (id)imageToCacheForLayer:(id)arg1 context:(id)arg2;
 

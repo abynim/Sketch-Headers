@@ -21,8 +21,10 @@
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;
 - (void)resetPoints;
+- (BOOL)shouldDrawSelectionStroke;
 - (id)bezierPathForCursorPreview;
 - (id)inspectorViewControllerNames;
+@property(readonly, nonatomic) BOOL smoothCornersAllowed;
 @property(nonatomic) BOOL hasSmoothCorners;
 - (void)didChangeValues;
 - (void)willChangeValues;

@@ -10,23 +10,32 @@
 #import "BITHockeyManagerDelegate.h"
 #import "MSActionObserver.h"
 
-@class NSMutableArray, NSString, NSURL;
+@class NSMutableArray, NSMutableDictionary, NSString, NSURL;
 
 @interface MSCrashLogManager : NSObject <MSActionObserver, BITHockeyManagerDelegate, BITCrashManagerDelegate>
 {
+    NSString *_text;
     NSMutableArray *_items;
-    NSURL *_url;
+    NSMutableDictionary *_environment;
+    NSURL *_logURL;
+    NSURL *_environmentURL;
 }
 
-@property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
+@property(retain, nonatomic) NSURL *environmentURL; // @synthesize environmentURL=_environmentURL;
+@property(retain, nonatomic) NSURL *logURL; // @synthesize logURL=_logURL;
+@property(retain, nonatomic) NSMutableDictionary *environment; // @synthesize environment=_environment;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
+@property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
 - (id)applicationLogForCrashManager:(id)arg1;
 - (BOOL)setup;
+- (id)environmentText;
+- (id)logText;
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
-@property(readonly, nonatomic) NSString *text;
+- (id)appSupportURL;
+- (void)setEnvironmentValue:(id)arg1 forKey:(id)arg2;
 - (void)log:(id)arg1;
 
 // Remaining properties

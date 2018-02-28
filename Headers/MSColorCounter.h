@@ -15,6 +15,7 @@
     unsigned long long _fillCount;
     unsigned long long _borderCount;
     unsigned long long _shadowCount;
+    unsigned long long _innerShadowCount;
     unsigned long long _textCount;
     unsigned long long _artboardCount;
 }
@@ -22,6 +23,7 @@
 + (void)initialize;
 @property(nonatomic) unsigned long long artboardCount; // @synthesize artboardCount=_artboardCount;
 @property(nonatomic) unsigned long long textCount; // @synthesize textCount=_textCount;
+@property(nonatomic) unsigned long long innerShadowCount; // @synthesize innerShadowCount=_innerShadowCount;
 @property(nonatomic) unsigned long long shadowCount; // @synthesize shadowCount=_shadowCount;
 @property(nonatomic) unsigned long long borderCount; // @synthesize borderCount=_borderCount;
 @property(nonatomic) unsigned long long fillCount; // @synthesize fillCount=_fillCount;
@@ -30,6 +32,7 @@
 - (void).cxx_destruct;
 - (long long)compareArtboardCounts:(id)arg1;
 - (long long)compareTextCounts:(id)arg1;
+- (long long)compareInnerShadowCounts:(id)arg1;
 - (long long)compareShadowCounts:(id)arg1;
 - (long long)compareBorderCounts:(id)arg1;
 - (long long)compareFillCounts:(id)arg1;

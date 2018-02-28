@@ -13,7 +13,7 @@
 @property(readonly, nonatomic) NSMenu *badgeMenu;
 @property(readonly, nonatomic) NSDictionary *previewImages;
 @property(readonly, nonatomic) NSDictionary *badgeMap;
-@property(readonly, nonatomic) BOOL hasSliceIcon;
+@property(readonly, nonatomic) unsigned long long badgeType;
 @property(readonly, nonatomic) BOOL hasHighlight;
 @property(readonly, nonatomic) BOOL isActive;
 @property(retain, nonatomic) NSString *nodeName;

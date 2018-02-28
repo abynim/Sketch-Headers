@@ -29,11 +29,10 @@
 - (void)setPoint:(struct CGPoint)arg1 atIndex:(unsigned long long)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (double)conditionedEllipseLength;
-- (void)rotatePointsBy:(long long)arg1;
+- (void)rotatePointsBy:(double)arg1;
 - (void)invert;
 - (id)NSGradientWithColorSpace:(id)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (BOOL)canSmoothOpacity;
 - (id)defaultStopsArray;
 - (id)initWithNSGradient:(id)arg1;
 - (id)initBlankGradient;

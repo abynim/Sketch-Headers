@@ -11,10 +11,6 @@
 @interface _MSImmutableSymbolInstance : MSImmutableStyledLayer
 {
     double _horizontalSpacing;
-    double _masterInfluenceEdgeMaxXPadding;
-    double _masterInfluenceEdgeMaxYPadding;
-    double _masterInfluenceEdgeMinXPadding;
-    double _masterInfluenceEdgeMinYPadding;
     double _scale;
     NSString *_symbolID;
     double _verticalSpacing;
@@ -26,10 +22,6 @@
 @property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(nonatomic) double masterInfluenceEdgeMinYPadding; // @synthesize masterInfluenceEdgeMinYPadding=_masterInfluenceEdgeMinYPadding;
-@property(nonatomic) double masterInfluenceEdgeMinXPadding; // @synthesize masterInfluenceEdgeMinXPadding=_masterInfluenceEdgeMinXPadding;
-@property(nonatomic) double masterInfluenceEdgeMaxYPadding; // @synthesize masterInfluenceEdgeMaxYPadding=_masterInfluenceEdgeMaxYPadding;
-@property(nonatomic) double masterInfluenceEdgeMaxXPadding; // @synthesize masterInfluenceEdgeMaxXPadding=_masterInfluenceEdgeMaxXPadding;
 @property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

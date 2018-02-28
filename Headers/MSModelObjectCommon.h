@@ -28,6 +28,7 @@
 - (id)primitiveObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (BOOL)hasObjectID;
+- (id)recursivelyGenerateObjectID;
 - (id)generateObjectID;
 - (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateDescendants:(CDUnknownBlockType)arg1;

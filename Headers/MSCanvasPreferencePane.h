@@ -6,14 +6,24 @@
 
 #import "MSPreferencePane.h"
 
+@class NSColorWell, NSTextField;
+
 @interface MSCanvasPreferencePane : MSPreferencePane
 {
+    NSColorWell *_flowColorWell;
+    NSTextField *_flowColorLabel;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-- (void)adjustColorsAction:(id)arg1;
+@property(nonatomic) __weak NSTextField *flowColorLabel; // @synthesize flowColorLabel=_flowColorLabel;
+@property(nonatomic) __weak NSColorWell *flowColorWell; // @synthesize flowColorWell=_flowColorWell;
+- (void).cxx_destruct;
+- (void)refreshOpenDocuments;
+- (void)adjustFlowColorAction:(id)arg1;
+- (void)adjustSnapColorAction:(id)arg1;
+- (void)awakeFromNib;
 
 @end
 

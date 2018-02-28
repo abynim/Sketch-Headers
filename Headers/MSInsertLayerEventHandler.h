@@ -26,7 +26,7 @@
 - (id)currentGroup;
 - (void)insertNewLayerInCurrentGroup:(id)arg1;
 - (id)insertAsNewLayer:(struct CGRect)arg1;
-- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
+- (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (void)drawRectPreview;
 - (id)imageName;
 - (void)handlerWillLoseFocus;

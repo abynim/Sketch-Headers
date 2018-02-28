@@ -6,7 +6,7 @@
 
 #import "_MSShapePathLayer.h"
 
-@class NSBezierPath;
+@class MSCurvePoint, NSBezierPath;
 
 @interface MSShapePathLayer : _MSShapePathLayer
 {
@@ -15,43 +15,49 @@
 
 + (void)performBatchEdits:(CDUnknownBlockType)arg1;
 + (id)shapeWithBezierPath:(id)arg1;
-+ (id)shapeWithShapePath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void)didChangeValueForKey:(id)arg1;
+- (void)willChangeValueForKey:(id)arg1;
+- (BOOL)isPolygon;
+- (BOOL)isRectangle;
+- (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
+- (BOOL)simplifyPathOnce;
+- (void)simplify;
+- (id)pointsAroundIndex:(unsigned long long)arg1;
+- (BOOL)isLine;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
 - (id)flattenedLayer;
 - (void)flatten;
 @property(readonly, nonatomic) BOOL canFlatten;
+@property(readonly, nonatomic) MSCurvePoint *lastPoint;
+@property(readonly, nonatomic) MSCurvePoint *firstPoint;
+@property(readonly, nonatomic) unsigned long long numberOfCurvePoints;
 @property(readonly, nonatomic) BOOL hasRoundedCorners;
-- (void)setIsVisible:(BOOL)arg1;
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (BOOL)canBeContainedByGroup;
-- (BOOL)isLine;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndDecorationType:(unsigned long long)arg1;
 - (void)setStartDecorationType:(unsigned long long)arg1;
 - (double)distanceSquaredToSegmentAtIndex:(unsigned long long)arg1 fromPoint:(struct CGPoint)arg2 tolerance:(double)arg3;
 - (unsigned long long)indexOfSegmentAtPoint:(struct CGPoint)arg1 tolerance:(struct CGSize)arg2;
-- (id)allCurvePoints;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)isPartOfClippingMask;
-@property(nonatomic) BOOL isClosed;
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)isNearlyEmpty;
 - (struct CGPoint)convertPointToPathCoordinates:(struct CGPoint)arg1;
 - (struct CGPoint)convertPointFromPathCoordinates:(struct CGPoint)arg1;
 - (void)didEdit;
-- (void)simplify;
 - (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
 @property(retain, nonatomic) NSBezierPath *bezierPath;
 - (id)bezierPathWithTransforms;
+- (id)bezierPathWithoutTransformsInRect:(struct CGRect)arg1;
 - (id)bezierPathInRect:(struct CGRect)arg1;
 - (id)pathInRect:(struct CGRect)arg1;
 - (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)boundsOfPathIntegral:(BOOL)arg1;
 - (void)adjustFrameAfterEditIntegral:(BOOL)arg1;
-- (void)refreshOverlay;
 - (void)applyAffineTransformToPath:(struct CGAffineTransform)arg1;
 - (void)reversePath;
 - (BOOL)editable;
@@ -61,6 +67,7 @@
 - (void)applyPropertiesToBezier:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)styledLayer;
+- (BOOL)shouldDrawSelectionStroke;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (Class)handlerClass;

@@ -13,7 +13,7 @@
 
 @property(nonatomic) struct CGColor *coordinateColor; // @synthesize coordinateColor=_coordinateColor;
 - (void)drawDebugCoordinatesWithZoom:(double)arg1 context:(struct CGContext *)arg2;
-- (void)renderOverlayForPage:(id)arg1 selectedArtboard:(id)arg2 options:(unsigned long long)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
+- (void)renderOverlayForPage:(id)arg1 selectedLayers:(id)arg2 selectedArtboard:(id)arg3 options:(unsigned long long)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBackgroundForPage:(id)arg1 rect:(struct CGRect)arg2 origin:(struct CGPoint)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
 - (void)dealloc;
 - (id)initWithTitleFont:(id)arg1;

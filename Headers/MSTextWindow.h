@@ -20,7 +20,6 @@
 @property(retain, nonatomic) NSTextView *textView; // @synthesize textView=_textView;
 @property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;
-- (id)undoManager;
 - (BOOL)canBecomeKeyWindow;
 - (void)addTextView:(id)arg1 toView:(id)arg2;
 - (void)moveToRect:(struct CGRect)arg1 contentDrawViewRect:(struct CGRect)arg2 behaviour:(long long)arg3;

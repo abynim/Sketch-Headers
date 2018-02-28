@@ -57,7 +57,6 @@
 - (void)createSliceAction:(id)arg1;
 - (id)document;
 - (void)addExportFormat:(id)arg1;
-- (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)views;
 - (id)view;
 - (BOOL)hasEnabledStyle;

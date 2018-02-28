@@ -11,8 +11,8 @@
 }
 
 + (id)textAttachmentForImageNamed:(id)arg1;
-+ (id)attributedTitle:(id)arg1 style:(id)arg2 colorSpace:(id)arg3 includeStyleInfo:(BOOL)arg4 inMainMenu:(BOOL)arg5;
-+ (void)applyStyle:(id)arg1 toMenuItem:(id)arg2 colorSpace:(id)arg3 includeStyleInfo:(BOOL)arg4;
++ (id)attributedTitle:(id)arg1 styles:(id)arg2 colorSpace:(id)arg3 includeStyleInfo:(BOOL)arg4 inMainMenu:(BOOL)arg5;
++ (void)applyTextStylesToMenuItem:(id)arg1 colorSpace:(id)arg2 includeStyleInfo:(BOOL)arg3;
 
 @end
 

@@ -6,46 +6,23 @@
 
 #import "MSLayerSection.h"
 
-#import "MSAssetLibraryControllerDelegate.h"
+@class NSArray, NSView;
 
-@class MSForeignSymbolMenuBuilder, NSArray, NSButton, NSPopUpButton, NSString, NSView;
-
-@interface MSSymbolInstanceSection : MSLayerSection <MSAssetLibraryControllerDelegate>
+@interface MSSymbolInstanceSection : MSLayerSection
 {
-    NSPopUpButton *_sharedObjectsPopUpButton;
     NSView *_overridesHeaderView;
     NSView *_stylesHeaderView;
-    NSButton *_symbolSwappingButton;
     NSArray *_overrideViewControllers;
-    MSForeignSymbolMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSArray *overrideViewControllers; // @synthesize overrideViewControllers=_overrideViewControllers;
-@property(retain, nonatomic) NSButton *symbolSwappingButton; // @synthesize symbolSwappingButton=_symbolSwappingButton;
 @property(retain, nonatomic) NSView *stylesHeaderView; // @synthesize stylesHeaderView=_stylesHeaderView;
 @property(retain, nonatomic) NSView *overridesHeaderView; // @synthesize overridesHeaderView=_overridesHeaderView;
-@property(retain, nonatomic) NSPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 - (void).cxx_destruct;
-- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
-- (void)viewDidDisappear;
-- (void)viewWillAppear;
-- (id)documentData;
 - (id)uniqueArtboardIDsOfSelectedLayers;
-- (void)reloadMenu;
-- (id)menuItemsWithAction:(id)arg1 forSymbolMasterRefs:(id)arg2;
-- (id)symbolsAtSameLevelAsSymbolMaster:(id)arg1;
 - (void)makeOverrideViewControllers;
 - (id)views;
-- (void)symbolSwappingAction:(id)arg1;
-- (void)viewDidAppear;
 - (void)setLayers:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

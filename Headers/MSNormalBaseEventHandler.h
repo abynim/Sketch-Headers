@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)mayShowResizingInspectorView;
 - (void)configureInspector:(id)arg1;
 - (void)resizeParentsOfSelectedLayersToFit;
 - (BOOL)canDuplicate;

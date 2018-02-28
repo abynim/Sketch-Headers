@@ -9,6 +9,8 @@
 @class MSExporter, MSImmutableColor, MSImmutableDocumentData, MSImmutablePage;
 
 @protocol MSWebExportableRootLayer <MSImmutableRootLayer>
+@property(readonly, nonatomic) BOOL isFlowHome;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (MSExporter *)exporterForWebOnPage:(MSImmutablePage *)arg1 document:(MSImmutableDocumentData *)arg2 scale:(double)arg3;
 @end

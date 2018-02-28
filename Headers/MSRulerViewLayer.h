@@ -6,7 +6,7 @@
 
 #import "CALayer.h"
 
-@class NSArray, NSColor, NSNumberFormatter;
+@class NSArray, NSColor, NSNumberFormatter, NSView;
 
 @interface MSRulerViewLayer : CALayer
 {
@@ -17,11 +17,11 @@
     double _zoomValue;
     double _baseLine;
     NSArray *_guides;
-    NSColor *_lineColor;
+    NSView *_parentView;
     struct CGRect _occupiedRegion;
 }
 
-@property(retain, nonatomic) NSColor *lineColor; // @synthesize lineColor=_lineColor;
+@property(nonatomic) __weak NSView *parentView; // @synthesize parentView=_parentView;
 @property(nonatomic) BOOL shouldDrawGuides; // @synthesize shouldDrawGuides=_shouldDrawGuides;
 @property(retain, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) struct CGRect occupiedRegion; // @synthesize occupiedRegion=_occupiedRegion;
@@ -34,14 +34,14 @@
 - (BOOL)isFlipped;
 - (long long)rulerHeight;
 - (long long)rulerLength;
-- (void)drawAlignmentGuides;
+- (void)drawAlignmentGuidesWithColor:(id)arg1;
 - (void)drawOccupiedRegion;
 - (void)drawBackgroundForLabel:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)drawMetric:(id)arg1 atPoint:(struct CGPoint)arg2 drawBackground:(BOOL)arg3;
 - (void)drawMetric:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)drawLineAtPosition:(double)arg1 withOptions:(unsigned long long)arg2;
-- (void)drawMetricsWithOptions:(long long)arg1;
-- (void)drawMetrics;
+- (void)drawLineAtPosition:(double)arg1 withOptions:(unsigned long long)arg2 color:(id)arg3;
+- (void)drawMetricsWithOptions:(long long)arg1 color:(id)arg2;
+- (void)drawMetricsWithColor:(id)arg1;
 - (void)drawBackground;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (id)init;

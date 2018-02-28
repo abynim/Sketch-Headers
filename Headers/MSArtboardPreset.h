@@ -13,6 +13,7 @@
 @interface MSArtboardPreset : NSObject <NSCopying>
 {
     BOOL _offersLandscapeVariant;
+    BOOL _allowResizedMatching;
     BOOL _isSizeToFit;
     BOOL _isNew;
     NSString *_name;
@@ -23,10 +24,13 @@
 }
 
 + (id)sizeToFitPresetWithName:(id)arg1 size:(struct CGSize)arg2;
++ (double)resizeScaleFromArtboardSize:(struct CGSize)arg1 presetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3;
++ (long long)compareArtboardSize:(struct CGSize)arg1 withScaledPresetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3;
 @property(nonatomic) BOOL isNew; // @synthesize isNew=_isNew;
 @property(readonly, nonatomic) BOOL isSizeToFit; // @synthesize isSizeToFit=_isSizeToFit;
 @property(readonly, copy, nonatomic) NSString *tooltip; // @synthesize tooltip=_tooltip;
-@property(readonly, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
+@property(retain, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
+@property(readonly, nonatomic) BOOL allowResizedMatching; // @synthesize allowResizedMatching=_allowResizedMatching;
 @property(readonly, nonatomic) BOOL offersLandscapeVariant; // @synthesize offersLandscapeVariant=_offersLandscapeVariant;
 @property(nonatomic) unsigned long long height; // @synthesize height=_height;
 @property(nonatomic) unsigned long long width; // @synthesize width=_width;
@@ -45,6 +49,8 @@
 - (id)init;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)initWithName:(id)arg1 size:(struct CGSize)arg2 imageName:(id)arg3;
+- (double)resizeScaleFromArtboardSize:(struct CGSize)arg1;
+- (unsigned long long)matchWithArtboardSize:(struct CGSize)arg1;
 
 @end
 

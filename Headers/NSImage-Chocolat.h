@@ -20,6 +20,7 @@
 - (id)firstBitmapImageRep;
 - (id)firstBitmapImageRepOfScale:(double)arg1;
 - (id)firstBitmapImageRepOrCreateIfNecessary;
+- (void)drawFlippedAtPoint:(struct CGPoint)arg1 fraction:(double)arg2;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1;
 - (id)highlightImage;
 - (id)altImage;

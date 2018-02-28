@@ -41,9 +41,6 @@
 - (void)refreshCloseOrOpenPathUI;
 - (void)pathDidOpenOrClose;
 - (id)makeTouchBar;
-- (BOOL)inspectorShouldShowBlendingProperties;
-- (BOOL)inspectorShouldShowLayerSpecificProperties;
-- (BOOL)inspectorShouldShowSharedStyles;
 - (BOOL)inspectorShouldShowPositions;
 @property(readonly, nonatomic) MSEditShapeInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (unsigned long long)inspectorLocation;
@@ -51,7 +48,7 @@
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
 - (BOOL)shouldDrawLayerSelection;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;
 - (long long)curveModeForPressedKey:(long long)arg1;
@@ -62,6 +59,7 @@
 - (void)selectAll:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (id)layersToCopy;
+- (void)trackMouse:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (id)parentGroupForInserting;

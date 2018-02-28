@@ -9,7 +9,7 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class MSImmutablePage, NSArray, NSDictionary;
+@class MSImmutablePage, NSArray, NSDictionary, NSSet;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
@@ -31,6 +31,8 @@
 - (id)usedFontNames;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) MSImmutablePage *currentPage;
+- (id)artboardWithID:(id)arg1 page:(id *)arg2;
+- (id)artboardWithID:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
@@ -49,6 +51,7 @@
 - (void)migratePropertiesFromV62OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithUnarchiver:(id)arg1;
+- (BOOL)symbolsChangedSincePreviousDocument:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -65,6 +68,11 @@
 - (BOOL)canBeContainedByDocument;
 - (BOOL)canBeContainedByGroup;
 - (id)subObjectsForTreeDiff;
+@property(readonly, nonatomic) BOOL containsUnavailableFontNames;
+@property(readonly, nonatomic) NSSet *unavailableFontNames;
+@property(readonly, nonatomic) NSSet *fontNames;
+- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2 cache:(id)arg3;
 - (void)trackColors:(id)arg1 withinHierarchyOf:(id)arg2 excludeForeignSymbols:(BOOL)arg3;
 - (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
 - (id)colorFinderQueue;
