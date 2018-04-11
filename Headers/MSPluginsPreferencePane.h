@@ -41,6 +41,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
++ (void)openWithPluginToHightlight:(id)arg1;
 @property(retain, nonatomic) NSNib *tableCellViewNib; // @synthesize tableCellViewNib=_tableCellViewNib;
 @property(retain, nonatomic) NSArray *selectedItemIdentifiers; // @synthesize selectedItemIdentifiers=_selectedItemIdentifiers;
 @property(nonatomic) long long originalHeightIncompatiblePlugin; // @synthesize originalHeightIncompatiblePlugin=_originalHeightIncompatiblePlugin;
@@ -93,6 +94,7 @@
 - (void)controlTextDidChange:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *pluginSortDescriptors;
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)highlightPluginWithIdentifier:(id)arg1;
 - (void)viewDocumentation:(id)arg1;
 - (void)editCode:(id)arg1;
 - (void)revealInFinder:(id)arg1;
@@ -109,7 +111,6 @@
 - (void)uninstallSelectedPlugins:(id)arg1;
 - (void)uninstallPlugins:(id)arg1;
 - (void)uninstallSelectedPlugins;
-- (id)pluginsAtRowIndexes:(id)arg1;
 - (void)openPluginsFolder:(id)arg1;
 @property(readonly, nonatomic) BOOL updatesAvailable;
 @property(readonly, copy, nonatomic) NSFont *zeroPluginsTitleFont;

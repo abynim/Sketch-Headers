@@ -17,8 +17,10 @@
     NSURL *_licenseURL;
     NSURLSession *_urlSession;
     NSDate *_applicationBuildDate;
+    NSString *_applicationVariant;
 }
 
+@property(retain, nonatomic) NSString *applicationVariant; // @synthesize applicationVariant=_applicationVariant;
 @property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
@@ -54,12 +56,13 @@
 - (id)updateExpirationDate;
 - (id)registeredEmailAddress;
 - (long long)currentLicenseType;
+- (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshLicenseIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;
+- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4 applicationVariant:(id)arg5;
 @property(readonly, nonatomic) BOOL canUseCloud;
 
 @end

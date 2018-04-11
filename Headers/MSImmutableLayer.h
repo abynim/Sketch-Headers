@@ -6,38 +6,38 @@
 
 #import "_MSImmutableLayer.h"
 
+#import "MSFlowContainmentCheck.h"
 #import "MSLayer.h"
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSString;
+@class MSImmutableStyle, MSPath, NSAffineTransform, NSArray, NSSet, NSString;
 
-@interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSLayer, MSLayerTraits>
+@interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSFlowContainmentCheck, MSLayer, MSLayerTraits>
 {
     unsigned long long _traits;
-    struct CGRect _influenceRectForBounds;
-    struct CGRect _influenceRectForFrame;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
-@property(readonly, nonatomic) struct CGRect influenceRectForBounds; // @synthesize influenceRectForBounds=_influenceRectForBounds;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (BOOL)canSkipAdvancedClipForStrokes;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-- (struct CGRect)overlayInfluenceRectForFrame;
-- (struct CGRect)transformInfluenceRectToParent:(struct CGRect)arg1;
-- (struct CGRect)calculateInfluenceRectForFrame;
+@property(readonly, nonatomic) struct CGRect influenceRectForFrame;
 - (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (struct CGRect)rectByTransformingRect:(struct CGRect)arg1 andPaddingWithAncestors:(id)arg2;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
-- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)bezierBoundsInAbsoluteCoordinatesWithAncestors:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForTransforms;
@@ -45,6 +45,10 @@
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
+@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
+@property(readonly, nonatomic) MSPath *pathInFrame;
+- (id)calculatePathInBounds;
+- (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
 @property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, nonatomic) struct CGPoint origin;
@@ -53,19 +57,21 @@
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
-- (BOOL)hasBitmapStylesEnabled;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+- (id)layerWithID:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (void)objectDidInit;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (void)addPreviewWithBezier:(id)arg1 toCache:(id)arg2;
-- (id)previewImageWithBezier:(id)arg1 selected:(BOOL)arg2;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
-- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 bezier:(id)arg3;
-- (void)refreshPreviewImagesWithCache:(id)arg1;
-- (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
+- (void)addPreviewWithBezier:(id)arg1 documentData:(id)arg2 cache:(id)arg3;
+- (id)previewImageWithBezier:(id)arg1 documentData:(id)arg2 selected:(BOOL)arg3;
+- (id)previewFillColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
+- (id)previewBorderColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
+- (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
+- (BOOL)includeInManifest;
+@property(readonly, nonatomic) NSArray *manifestLayers;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -83,8 +89,15 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
+- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (id)defaultValueForOverridePoint:(id)arg1;
+- (BOOL)canOverridePoint:(id)arg1;
+@property(readonly, nonatomic) NSSet *unavailableFontNames;
+@property(readonly, nonatomic) NSSet *fontNames;
+- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;
@@ -114,6 +127,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

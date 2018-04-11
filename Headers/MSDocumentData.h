@@ -9,12 +9,13 @@
 #import "MSDocumentData.h"
 #import "MSLayerContainment.h"
 
-@class BCCache, MSFontList, MSPage, NSArray, NSDictionary, NSSet;
+@class BCCache, MSFontList, MSPage, NSArray, NSDictionary;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
+    NSDictionary *_symbolInstancesBySymbolID;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -34,23 +35,29 @@
 - (void)immediatelyShowSelectionForAllLayers;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
-- (void)setEnableSliceInteraction:(BOOL)arg1;
-- (void)setEnableLayerInteraction:(BOOL)arg1;
 - (id)images;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
-- (void)enumerateForeignSymbolsWithLibraries:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (id)libraryForForeignSymbol:(id)arg1 inLibraries:(id)arg2;
+- (void)purgeForeignObjects;
+- (void)purgeForeignStyles;
+- (void)purgeForeignSymbols;
+- (id)symbolsReferencedBySymbolInstances;
+- (id)symbolsReferencedBySymbolMasters;
+- (id)symbolsReferencedByInstances:(id)arg1;
+- (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
+- (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;
+- (id)allForeignObjects;
 - (id)allSymbols;
 - (id)localSymbols;
 - (id)allArtboards;
-- (id)symbolInstancesBySymbolID;
+@property(readonly, nonatomic) NSDictionary *symbolInstancesBySymbolID; // @synthesize symbolInstancesBySymbolID=_symbolInstancesBySymbolID;
 - (void)populateDictionary:(id)arg1 withChildrenOf:(id)arg2;
 - (id)layersByObjectID;
+- (id)artboardWithID:(id)arg1;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
 - (void)layerSelectionMightHaveChanged;
@@ -61,7 +68,6 @@
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)symbolsPage;
 - (id)addBlankPage;
-- (void)addPage:(id)arg1;
 - (void)removePages:(id)arg1 detachInstances:(BOOL)arg2;
 @property(retain, nonatomic) MSPage *currentPage;
 - (void)setCurrentPageIndex:(unsigned long long)arg1;
@@ -75,11 +81,10 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)convertToColorSpace:(unsigned long long)arg1;
 - (void)assignColorSpace:(unsigned long long)arg1;
-- (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlpha:(BOOL)arg4;
+- (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlphaOfOriginalColor:(BOOL)arg4;
 - (void)enumerateColorConvertiblesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
 - (void)replaceFonts:(id)arg1;
-@property(readonly, nonatomic) NSSet *unavailableFontNames;
-@property(readonly, nonatomic) NSSet *fontNames;
+- (void)invalidateFonts;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;

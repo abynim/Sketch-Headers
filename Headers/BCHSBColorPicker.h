@@ -7,10 +7,11 @@
 #import "NSControl.h"
 
 #import "BCColorPreviewDelegate.h"
+#import "BCMagnifierButtonDelegate.h"
 
 @class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSString, NSTextField;
 
-@interface BCHSBColorPicker : NSControl <BCColorPreviewDelegate>
+@interface BCHSBColorPicker : NSControl <BCColorPreviewDelegate, BCMagnifierButtonDelegate>
 {
     long long ignoreColorActionsCounter;
     id <BCHSBColorPickerDelegate> _delegate;
@@ -62,6 +63,7 @@
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
 @property(copy, nonatomic) MSColor *color; // @dynamic color;
 - (id)flexibleColor;
+- (id)magnifierButtonDocumentColorSpace:(id)arg1;
 - (id)colorPreviewColorSpace:(id)arg1;
 - (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;

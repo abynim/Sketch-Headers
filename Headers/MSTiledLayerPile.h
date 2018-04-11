@@ -12,7 +12,6 @@
 
 @interface MSTiledLayerPile : NSObject <MSTiledLayerDelegate>
 {
-    BOOL _shouldHideOverlayControls;
     double _zoomValue;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     NSView<MSTiledLayerPileHostView> *_hostView;
@@ -27,18 +26,15 @@
 @property(retain, nonatomic) NSMutableArray *tiledLayers; // @synthesize tiledLayers=_tiledLayers;
 @property(readonly, nonatomic) __weak NSView<MSTiledLayerPileHostView> *hostView; // @synthesize hostView=_hostView;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
-@property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) struct CGPoint scrollOrigin; // @synthesize scrollOrigin=_scrollOrigin;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 - (void).cxx_destruct;
-- (id)overlayRenderer;
 - (void)tiledLayerDidRefreshTileContent:(id)arg1 finishTime:(unsigned long long)arg2;
 - (void)tiledLayer:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
 - (void)tiledLayer:(id)arg1 didChangeToState:(unsigned long long)arg2;
 @property(readonly, nonatomic) BOOL isRendering;
-- (void)refreshContentForPage:(id)arg1 document:(id)arg2;
-- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3;
-- (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
+- (void)refreshContentForPage:(id)arg1 document:(id)arg2 quality:(long long)arg3;
+- (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 quality:(long long)arg4;
 - (void)redraw;
 - (void)tile;
 - (void)adaptToPixelGridChange;

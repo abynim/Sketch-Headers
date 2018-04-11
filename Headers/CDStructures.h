@@ -143,6 +143,11 @@ struct NSEdgeInsets {
     double right;
 };
 
+struct _BCLine {
+    double _field1;
+    unsigned long long _field2;
+};
+
 struct _CHTransformStruct {
     double _field1;
     char _field2;
@@ -151,8 +156,8 @@ struct _CHTransformStruct {
 };
 
 struct _NSRange {
-    unsigned long long _field1;
-    unsigned long long _field2;
+    unsigned long long location;
+    unsigned long long length;
 };
 
 struct __va_list_tag {
@@ -221,4 +226,10 @@ typedef struct {
     CDUnknownFunctionPointerType _field4;
     CDUnknownFunctionPointerType _field5;
 } CDStruct_e097db04;
+
+typedef struct {
+    int _field1;
+    struct CGPoint _field2[2];
+    struct CGPoint _field3;
+} CDStruct_ab7f5933;
 

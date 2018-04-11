@@ -14,15 +14,17 @@
 
 + (unsigned long long)traits;
 - (unsigned long long)windingRule;
-@property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
+@property(readonly, nonatomic) BOOL allowsBlur;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
-- (id)previewFillColor:(BOOL)arg1;
-- (id)previewBorderColor:(BOOL)arg1;
+- (id)previewFillColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
+- (id)previewBorderColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
+- (BOOL)hasSharedStyleInDocumentData:(id)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
+- (id)renderBitmapEffects:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (id)renderBitmapEffects:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldRasterize;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addGradientsToDocument:(id)arg1;

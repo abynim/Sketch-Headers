@@ -31,7 +31,6 @@
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasDecorations;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
-@property(readonly, nonatomic) BOOL hasBitmapStylesEnabled;
 - (void)clearTextStyle;
 - (id)renderBitmapEffects:(id)arg1;
 - (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 position:(unsigned long long)arg3;
@@ -41,6 +40,7 @@
 - (id)borderAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (id)fillAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (unsigned long long)internalNumberOfElements:(id)arg1;
+- (id)borderWithGreatestInset;
 - (BOOL)canCombineLastFillWithFirstBorder;
 - (BOOL)requiresPathDefinition:(id)arg1;
 - (BOOL)hasBorderRequiringMask;

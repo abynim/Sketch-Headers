@@ -33,7 +33,6 @@
 - (void).cxx_destruct;
 - (void)concatTransformsForDrawSnaps;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
-- (BOOL)shouldDrawLayerSelection;
 - (void)drawHandleLines;
 - (void)resetTransformsForLayer:(id)arg1;
 - (void)transformShape;

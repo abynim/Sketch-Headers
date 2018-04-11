@@ -11,6 +11,8 @@
 }
 
 - (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (id)imageFromImage:(id)arg1 withState:(long long)arg2 hovering:(BOOL)arg3;
+- (id)init;
 
 @end
 

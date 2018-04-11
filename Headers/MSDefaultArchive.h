@@ -15,9 +15,8 @@
 
 @property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
 - (void).cxx_destruct;
-- (void)setDefaultObject:(id)arg1;
+@property(retain, nonatomic) id defaultObject;
 - (id)newObject;
-- (id)defaultObject;
 - (id)archivesNeedingMigration;
 - (Class)defaultClass;
 - (id)oldDefaultsName;

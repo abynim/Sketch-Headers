@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class FBBezierContour, NSMutableArray;
+@class FBBezierContour, NSArray, NSMutableArray;
 
 @interface FBContourOverlap : NSObject
 {
@@ -24,6 +24,7 @@
 - (BOOL)isComplete;
 - (void)reset;
 - (void)runsWithBlock:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSArray *overlapRuns;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2;
 - (BOOL)doesContainCrossing:(id)arg1;
 - (void)addOverlap:(id)arg1 forEdge1:(id)arg2 edge2:(id)arg3;

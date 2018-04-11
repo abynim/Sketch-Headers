@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate.h"
 
-@class MSArtboardInspectorViewController, MSDocument, MSExportInspectorViewController, MSNormalInspector, MSPersistentAssetCollection, MSSliceInspectorViewController, NSLayoutConstraint, NSString, NSView, NSViewController<MSInspectorChildController>;
+@class MSDocument, MSExportInspectorViewController, MSLayerArray, MSNormalInspector, MSPersistentAssetCollection, NSLayoutConstraint, NSString, NSView, NSViewController<MSInspectorChildController>;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
 {
@@ -18,22 +18,20 @@
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSExportInspectorViewController *_bottomExporter;
+    MSLayerArray *_selectedLayers;
     NSView *_alignmentView;
     NSView *_contentContainerView;
     NSView *_exportPanelContainerView;
     NSLayoutConstraint *_exportPanelHeightConstraint;
     MSNormalInspector *_normalInspector;
-    MSSliceInspectorViewController *_slicesInspector;
-    MSArtboardInspectorViewController *_artboardInspector;
 }
 
-@property(retain, nonatomic) MSArtboardInspectorViewController *artboardInspector; // @synthesize artboardInspector=_artboardInspector;
-@property(retain, nonatomic) MSSliceInspectorViewController *slicesInspector; // @synthesize slicesInspector=_slicesInspector;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSLayoutConstraint *exportPanelHeightConstraint; // @synthesize exportPanelHeightConstraint=_exportPanelHeightConstraint;
 @property(retain, nonatomic) NSView *exportPanelContainerView; // @synthesize exportPanelContainerView=_exportPanelContainerView;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
+@property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL exportPanelHidden; // @synthesize exportPanelHidden=_exportPanelHidden;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
 @property(retain, nonatomic) MSExportInspectorViewController *bottomExporter; // @synthesize bottomExporter=_bottomExporter;
@@ -41,10 +39,12 @@
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL sharedStyleInspectorVisible;
 - (void)reloadTouchBars;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
 - (void)closeAnyColorPopover;
+- (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)inspectorController;
 - (void)recursivelyDismissAllPresentedViewControllersOfViewController:(id)arg1;
@@ -58,7 +58,6 @@
 - (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
 - (void)refreshCurrentController;
 - (void)layoutContentView;
-- (id)sharedObjectsSection;
 - (void)reloadSharedObjectsSection;
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
@@ -73,7 +72,6 @@
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
 - (void)dealloc;
-- (void)movedThroughHistory:(id)arg1;
 - (void)viewDidLoad;
 - (void)awakeFromNib;
 - (id)initWithCoder:(id)arg1;

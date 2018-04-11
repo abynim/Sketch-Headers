@@ -7,27 +7,24 @@
 #import "_MSSliceLayer.h"
 
 #import "MSColorConvertible.h"
-#import "MSLayerWithBackgroundColor.h"
+#import "MSLayerWithMutableBackgroundColor.h"
 
 @class NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithBackgroundColor, MSColorConvertible>
+@interface MSSliceLayer : _MSSliceLayer <MSLayerWithMutableBackgroundColor, MSColorConvertible>
 {
-    id <MSSliceLayerWatcher> _sliceWatcher;
 }
 
 + (id)keyPathsForValuesAffectingPreviewImages;
 + (id)sliceLayerFromLayer:(id)arg1;
-@property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
-- (void).cxx_destruct;
 - (void)convertColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;
+- (BOOL)shouldDrawSelectionStroke;
+- (BOOL)isActive;
 - (unsigned long long)filterType;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;

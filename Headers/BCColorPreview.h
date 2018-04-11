@@ -6,9 +6,11 @@
 
 #import "NSPopUpButton.h"
 
-@class BCFlexibleColor, NSArray, NSNumberFormatter;
+#import "NSMenuDelegate.h"
 
-@interface BCColorPreview : NSPopUpButton
+@class BCFlexibleColor, NSArray, NSNumberFormatter, NSString;
+
+@interface BCColorPreview : NSPopUpButton <NSMenuDelegate>
 {
     BOOL _isHovering;
     BCFlexibleColor *_color;
@@ -17,7 +19,10 @@
     NSNumberFormatter *_numberFormatter;
 }
 
-+ (id)imageForColorTracker:(id)arg1 documentColorSpace:(id)arg2;
++ (id)menuItemForColorCounter:(id)arg1 target:(id)arg2 action:(SEL)arg3 documentColorSpace:(id)arg4 useHSB:(BOOL)arg5;
++ (id)menuItemAttributedTitleForColorCounter:(id)arg1 useHSB:(BOOL)arg2;
++ (id)previewImageForColorCounter:(id)arg1 documentColorSpace:(id)arg2;
++ (BOOL)shouldUseHSBInColorDescriptions;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 @property(copy, nonatomic) NSArray *frequentColors; // @synthesize frequentColors=_frequentColors;
@@ -30,8 +35,14 @@
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
-- (id)toolTipForColorTracker:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 - (id)initInBounds:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

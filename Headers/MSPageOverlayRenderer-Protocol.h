@@ -6,10 +6,10 @@
 
 #import "MSRenderer.h"
 
-@class MSImmutableArtboardGroup, MSImmutablePage, MSRenderingContext;
+@class MSImmutableArtboardGroup, MSImmutablePage, MSLayerArray, MSRenderingContext;
 
 @protocol MSPageOverlayRenderer <MSRenderer>
-- (void)renderOverlayForPage:(MSImmutablePage *)arg1 selectedArtboard:(MSImmutableArtboardGroup *)arg2 options:(unsigned long long)arg3 rect:(struct CGRect)arg4 context:(MSRenderingContext *)arg5;
+- (void)renderOverlayForPage:(MSImmutablePage *)arg1 selectedLayers:(MSLayerArray *)arg2 selectedArtboard:(MSImmutableArtboardGroup *)arg3 options:(unsigned long long)arg4 rect:(struct CGRect)arg5 context:(MSRenderingContext *)arg6;
 - (void)renderBackgroundForPage:(MSImmutablePage *)arg1 rect:(struct CGRect)arg2 origin:(struct CGPoint)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
 @end
 

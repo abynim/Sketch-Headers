@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) double imageRightEdgeInset; // @synthesize imageRightEdgeInset=_imageRightEdgeInset;
+- (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 
 @end

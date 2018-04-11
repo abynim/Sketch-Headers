@@ -10,8 +10,16 @@
 {
 }
 
++ (void)setCloudDocumentsEnabled:(BOOL)arg1;
++ (BOOL)cloudDocumentsEnabled;
++ (BOOL)builtInRemoteLibrariesEnabled;
++ (void)setBuiltInRemoteLibrariesEnabled:(BOOL)arg1;
 + (void)setIsComponentsPanelEnabled:(BOOL)arg1;
 + (BOOL)isComponentsPanelEnabled;
++ (void)setDataSuppliersEnabled:(BOOL)arg1;
++ (BOOL)dataSuppliersEnabled;
++ (void)setLibraryStylesEnabled:(BOOL)arg1;
++ (BOOL)libraryStylesEnabled;
 + (void)setFeature:(id)arg1 enabled:(BOOL)arg2;
 + (BOOL)isFeatureEnabled:(id)arg1;
 + (void)enableFeatureAvailability;

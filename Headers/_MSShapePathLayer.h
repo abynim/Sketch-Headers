@@ -6,13 +6,15 @@
 
 #import "MSLayer.h"
 
-@class MSShapePath;
+@class NSArray, NSMutableArray;
 
 @interface _MSShapePathLayer : MSLayer
 {
     long long _booleanOperation;
     BOOL _edited;
-    MSShapePath *_path;
+    BOOL _isClosed;
+    long long _pointRadiusBehaviour;
+    NSMutableArray *_points;
 }
 
 + (BOOL)allowsFaulting;
@@ -22,10 +24,24 @@
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)moveCurvePointIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllCurvePoints;
+- (void)removeCurvePointsAtIndexes:(id)arg1;
+- (void)removeCurvePointAtIndex:(unsigned long long)arg1;
+- (void)removeCurvePoint:(id)arg1;
+- (void)insertCurvePoints:(id)arg1 afterCurvePoint:(id)arg2;
+- (void)insertCurvePoint:(id)arg1 afterCurvePoint:(id)arg2;
+- (void)insertCurvePoints:(id)arg1 beforeCurvePoint:(id)arg2;
+- (void)insertCurvePoint:(id)arg1 beforeCurvePoint:(id)arg2;
+- (void)insertCurvePoint:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addCurvePoints:(id)arg1;
+- (void)addCurvePoint:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
+@property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
+@property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
+@property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;

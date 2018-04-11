@@ -6,37 +6,43 @@
 
 #import "_MSImmutableSymbolInstance.h"
 
-@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance
+#import "MSFlowContainmentCheck.h"
+
+@class NSDictionary;
+
+@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
-    unsigned long long _masterRefreshCounter;
 }
 
 + (id)defaultName;
 + (unsigned long long)traits;
-@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
-- (struct BCEdgePaddings)masterInfluenceEdgePadding;
+@property(readonly, nonatomic) id <NSCopying> modifiedMasterCacheKey;
 - (double)scale;
 - (BOOL)isScaled;
-- (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)paddedInfluenceRect:(struct CGRect)arg1 withPaddingsFromMasterInDocument:(id)arg2 visitedSymbols:(id)arg3;
+- (struct CGRect)influenceRectForBounds;
+- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (id)overridesFromGroupForMigration:(id)arg1;
-- (void)calculateMasterInfluencePaddingsBetweenRect:(struct CGRect)arg1 andInfluenceRect:(struct CGRect)arg2;
-- (BOOL)isEqualForDiffToObject:(id)arg1;
-- (void)performInitWithMutableModelObject:(id)arg1;
-- (id)keysDifferingFromObject:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
+- (BOOL)includeInManifest;
+- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *overrides;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)ensureOverrideValuesAreUnique;
 - (id)updateOverridesDictionary:(id)arg1 withObjectIDMapping:(id)arg2 afterChangingSymbolMasterWithID:(id)arg3 currentID:(id)arg4;
 - (void)updateOverridesWithObjectIDMapping:(id)arg1 afterChangingSymbolMasterWithID:(id)arg2;
 - (id)overridesWithGridIndexRemoved:(id)arg1;
 - (void)migratePropertiesFromV96OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
-- (void)migratePropertiesFromV86OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)differsFromLayer:(id)arg1;
+- (id)uncachedModifiedSymbolForMaster:(id)arg1 document:(id)arg2;
+- (id)cachedModifiedSymbolForMaster:(id)arg1 document:(id)arg2 cache:(id)arg3;
+- (id)cachedModifiedSymbolForMaster:(id)arg1 inContext:(id)arg2;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
 
 @end

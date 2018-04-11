@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) MSAssetLibrary *library; // @synthesize library;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL shouldSync;
 @property(readonly, nonatomic) NSString *modifiedDateString;
 @property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) unsigned long long type;

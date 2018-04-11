@@ -8,19 +8,17 @@
 
 #import "MSArtboardGroup.h"
 #import "MSColorConvertible.h"
-#import "MSLayerWithBackgroundColor.h"
+#import "MSLayerWithMutableBackgroundColor.h"
 #import "MSRootLayer.h"
 
-@class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
+@class MSArtboardPreset, MSLayoutGrid, MSPath, MSRulerData, MSSimpleGrid, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithBackgroundColor, MSColorConvertible>
+@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorConvertible>
 {
-    id <MSSliceLayerWatcher> _sliceWatcher;
 }
 
 + (unsigned long long)traits;
-@property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
-- (void).cxx_destruct;
++ (struct CGRect)artboardRectFromLayersInArray:(id)arg1;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (void)makeChildRectsIntegral;
@@ -30,11 +28,13 @@
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (struct CGSize)calculateMinimumSize;
+- (void)layerDidEndResize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGSize)arg1;
+@property(retain, nonatomic) MSArtboardPreset *preset;
 - (void)setRect:(struct CGRect)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (id)parentRoot;
@@ -54,11 +54,11 @@
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)canBeHidden;
-- (BOOL)hasSliceIcon;
+- (BOOL)shouldRefreshOverlayForFlows;
+- (id)inspectorViewControllerNames;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)contextualMenuPreviewImage;
 - (id)unselectedPreviewImage;
@@ -67,6 +67,8 @@
 - (struct CGRect)optimalBoundingBox;
 - (id)parentForInsertingLayers;
 - (id)displayName;
+- (BOOL)shouldResizeToFitRect:(struct CGRect)arg1;
+- (void)resizeToFitChildren;
 - (id)parentRootForAbsoluteRect;
 
 // Remaining properties
@@ -86,6 +88,9 @@
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) MSPath *pathInBounds;
+@property(readonly, nonatomic) MSPath *pathInFrame;
+@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;

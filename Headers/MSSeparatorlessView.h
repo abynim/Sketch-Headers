@@ -10,8 +10,7 @@
 {
 }
 
-- (BOOL)isFlipped;
-- (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;
+- (BOOL)wantsSeparator;
 
 @end
 

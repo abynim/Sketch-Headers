@@ -10,7 +10,6 @@
 
 @interface _SVGGradient : SVGElement
 {
-    BOOL _absolute;
     BOOL _radial;
     NSSet *_linkedFrom;
     SVGGradient *_linkedTo;
@@ -32,7 +31,6 @@
 @property(nonatomic) BOOL radial; // @synthesize radial=_radial;
 @property(nonatomic) double fromY; // @synthesize fromY=_fromY;
 @property(nonatomic) double fromX; // @synthesize fromX=_fromX;
-@property(nonatomic) BOOL absolute; // @synthesize absolute=_absolute;
 @property(retain, nonatomic) NSSet *usedByStrokes; // @synthesize usedByStrokes=_usedByStrokes;
 @property(retain, nonatomic) NSSet *usedByFills; // @synthesize usedByFills=_usedByFills;
 @property(retain, nonatomic) SVGGradient *linkedTo; // @synthesize linkedTo=_linkedTo;

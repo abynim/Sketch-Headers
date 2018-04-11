@@ -4,32 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCloudViewController.h"
+#import "MSCloudBaseViewController.h"
 
-@class NSButton, NSTextField, NSURL;
+@class NSButton;
 
-@interface MSCloudInvalidLicenseViewController : MSCloudViewController
+@interface MSCloudInvalidLicenseViewController : MSCloudBaseViewController
 {
-    NSTextField *_contentLabel;
     NSButton *_learnMoreButton;
-    NSButton *_renewButton;
 }
 
-@property(retain, nonatomic) NSButton *renewButton; // @synthesize renewButton=_renewButton;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
-@property(retain, nonatomic) NSTextField *contentLabel; // @synthesize contentLabel=_contentLabel;
 - (void).cxx_destruct;
-- (void)presentCloudPopoverIfEligible;
-- (void)refreshLicense;
-- (void)openURL:(id)arg1;
-- (void)showMoreInfo:(id)arg1;
-- (void)renewLicense:(id)arg1;
-- (void)receiptLicenseDidChangeStateNotification:(id)arg1;
-@property(readonly, nonatomic) NSURL *infoURL;
-@property(readonly, nonatomic) NSURL *renewalURL;
-- (void)localize;
-- (void)loadView;
+- (void)learnMore:(id)arg1;
 - (void)viewDidLoad;
+- (void)loadView;
 
 @end
 

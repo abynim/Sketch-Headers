@@ -13,9 +13,11 @@
     struct CGRect _clippingMask;
     BOOL _fillReplacesImage;
     MSImageData *_image;
+    long long _intendedDPI;
 }
 
 + (Class)mutableClass;
+@property(nonatomic) long long intendedDPI; // @synthesize intendedDPI=_intendedDPI;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 @property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
 @property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
@@ -29,6 +31,7 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

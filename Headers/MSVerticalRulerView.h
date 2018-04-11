@@ -11,7 +11,6 @@
 }
 
 - (id)titleForRemoveAllGuidesMenuItem;
-- (id)snapLineWithPosition:(double)arg1;
 - (id)occupiedRegionForRect:(struct CGRect)arg1 withOffset:(long long)arg2 zoom:(double)arg3;
 - (id)bezierPathForLineAtPosition:(double)arg1 inRect:(struct CGRect)arg2;
 - (void)refreshTemporaryRulerGuide;

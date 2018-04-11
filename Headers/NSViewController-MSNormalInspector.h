@@ -7,7 +7,6 @@
 #import "NSViewController.h"
 
 @interface NSViewController (MSNormalInspector)
-- (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (void)reloadInspectorStack:(id)arg1;
 @end
 

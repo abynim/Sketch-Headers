@@ -18,12 +18,12 @@
     NSXPCConnection *_helperConnection;
     unsigned long long _helperRestartCount;
     NSMutableDictionary *_advertisements;
-    NSMutableSet *_challenges;
+    NSMutableSet *_advertisementWhiteList;
     SMKWebServer *_webServer;
 }
 
 @property(retain, nonatomic) SMKWebServer *webServer; // @synthesize webServer=_webServer;
-@property(retain, nonatomic) NSMutableSet *challenges; // @synthesize challenges=_challenges;
+@property(retain, nonatomic) NSMutableSet *advertisementWhiteList; // @synthesize advertisementWhiteList=_advertisementWhiteList;
 @property(retain, nonatomic) NSMutableDictionary *advertisements; // @synthesize advertisements=_advertisements;
 @property unsigned long long helperRestartCount; // @synthesize helperRestartCount=_helperRestartCount;
 @property(retain, nonatomic) NSXPCConnection *helperConnection; // @synthesize helperConnection=_helperConnection;
@@ -52,6 +52,8 @@
 - (void)invalidateCurrentArtboard;
 - (void)invalidateContent;
 - (void)continueUserActivity:(id)arg1;
+- (BOOL)isClientWhitelisted:(id)arg1;
+- (void)whitelistClientAdvertisementID:(id)arg1;
 @property(readonly, nonatomic) NSURL *authorizedWebURL;
 @property(readonly, nonatomic) NSURL *webURL;
 @property(readonly, nonatomic) id <SMKCommunicationInterface> helperObject;

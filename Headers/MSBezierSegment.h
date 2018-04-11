@@ -56,6 +56,7 @@
 - (id)lineRepresentation;
 - (id)segmentWithInset:(double)arg1;
 - (id)segmentWithTransform:(struct CGAffineTransform)arg1;
+- (id)segmentByMovingPointAtOffset:(double)arg1 toLocation:(struct CGPoint)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform transformForXAxisAlignment;
 - (id)segmentFromOffset:(double)arg1;
 - (id)segmentToOffset:(double)arg1;

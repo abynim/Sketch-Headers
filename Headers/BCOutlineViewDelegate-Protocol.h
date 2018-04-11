@@ -11,11 +11,10 @@
 @protocol BCOutlineViewDelegate <NSObject>
 - (void)dataController:(BCOutlineViewDataController *)arg1 refreshPreviewsOnNodes:(NSArray *)arg2;
 - (void)dataController:(BCOutlineViewDataController *)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;
-- (BOOL)dataController:(BCOutlineViewDataController *)arg1 copyNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;
-- (BOOL)dataController:(BCOutlineViewDataController *)arg1 moveNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;
-- (BOOL)dataController:(BCOutlineViewDataController *)arg1 canCopyNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;
-- (BOOL)dataController:(BCOutlineViewDataController *)arg1 canMoveNodes:(NSArray *)arg2 toParent:(id)arg3 after:(id)arg4;
-- (NSArray *)dataController:(BCOutlineViewDataController *)arg1 readNodesFromPasteboard:(NSPasteboard *)arg2;
+- (BOOL)dataController:(BCOutlineViewDataController *)arg1 copyFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;
+- (BOOL)dataController:(BCOutlineViewDataController *)arg1 moveFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;
+- (BOOL)dataController:(BCOutlineViewDataController *)arg1 canCopyFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;
+- (BOOL)dataController:(BCOutlineViewDataController *)arg1 canMoveFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 writeNodes:(NSArray *)arg2 toPasteboard:(NSPasteboard *)arg3;
 - (NSArray *)dragTypesForDataController:(BCOutlineViewDataController *)arg1;
 - (NSArray *)dataController:(BCOutlineViewDataController *)arg1 exportNodes:(NSArray *)arg2 toFolder:(NSURL *)arg3;

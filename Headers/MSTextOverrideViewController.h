@@ -6,13 +6,19 @@
 
 #import "MSOverrideViewController.h"
 
+@class NSTextField;
+
 @interface MSTextOverrideViewController : MSOverrideViewController
 {
+    NSTextField *_overrideTextField;
 }
 
+@property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
+- (void).cxx_destruct;
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
-- (BOOL)hasStandardCellHeight;
+- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
+- (unsigned long long)supportedDataProviders;
 - (unsigned long long)numberOfLines;
 
 @end

@@ -16,7 +16,7 @@
 
 @property(readonly, nonatomic) NSColor *badgeTint;
 - (id)label;
-@property(readonly, nonatomic) BOOL wantsBadge;
+@property(readonly, nonatomic) unsigned long long numberOfBadges;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)replaceMissingFonts:(id)arg1;

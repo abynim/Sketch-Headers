@@ -6,36 +6,33 @@
 
 #import "MSEventHandler.h"
 
-@class MSShapeGroup;
+@class NSIndexPath;
 
 @interface MSScissorsEventHandler : MSEventHandler
 {
     BOOL _didCutOnMouseDown;
-    MSShapeGroup *_shape;
-    unsigned long long _hoverIndex;
+    NSIndexPath *_hoveringSegment;
 }
 
 @property(nonatomic) BOOL didCutOnMouseDown; // @synthesize didCutOnMouseDown=_didCutOnMouseDown;
-@property(nonatomic) unsigned long long hoverIndex; // @synthesize hoverIndex=_hoverIndex;
-@property(retain, nonatomic) MSShapeGroup *shape; // @synthesize shape=_shape;
+@property(retain, nonatomic) NSIndexPath *hoveringSegment; // @synthesize hoveringSegment=_hoveringSegment;
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;
-- (BOOL)shouldDrawLayerSelection;
 - (id)imageName;
-- (void)cursorUpdate:(id)arg1;
 - (void)strokePath:(id)arg1 isHovering:(BOOL)arg2;
 - (id)trimPathOnBothSides:(id)arg1;
-- (void)drawThinStrokeBezierSegments:(id)arg1;
+- (void)drawThinStrokeBezierSegments:(id)arg1 hoverIndex:(unsigned long long)arg2;
 - (void)drawThickStrokeBezierPath:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
-- (unsigned long long)hoverIndexForMouse:(struct CGPoint)arg1;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)hoverSegmentForMouse:(struct CGPoint)arg1;
+- (id)shapeForIndexPath:(id)arg1;
 - (void)cut;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
+- (BOOL)canCutSegments;
 - (void)handlerGotFocus;
-- (id)initWithManager:(id)arg1;
 
 @end
 

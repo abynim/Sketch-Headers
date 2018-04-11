@@ -36,7 +36,7 @@
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
 @property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
 @property(retain, nonatomic) NSTextField *menuDisabledTextField; // @synthesize menuDisabledTextField=_menuDisabledTextField;
-@property(retain, nonatomic) id currentlyHoveredNode; // @synthesize currentlyHoveredNode=_currentlyHoveredNode;
+@property(readonly, nonatomic) id currentlyHoveredNode; // @synthesize currentlyHoveredNode=_currentlyHoveredNode;
 @property(retain, nonatomic) NSArray *contextMenuSelection; // @synthesize contextMenuSelection=_contextMenuSelection;
 @property(nonatomic) BOOL draggingInProgress; // @synthesize draggingInProgress=_draggingInProgress;
 @property(retain, nonatomic) NSEvent *ignoreExpansionChangingEvent; // @synthesize ignoreExpansionChangingEvent=_ignoreExpansionChangingEvent;
@@ -69,14 +69,16 @@
 - (void)flagsChangedNotification;
 - (id)tableCellViewForNode:(id)arg1;
 - (void)updateDisplayStateOnView:(id)arg1;
-@property(nonatomic) __weak BCTableCellView *currentlyHoveredView;
+- (void)setCurrentlyHoveredNode:(id)arg1 notifyDelegate:(BOOL)arg2;
+- (void)setCurrentlyHoveredView:(id)arg1 notifyDelegate:(BOOL)arg2;
+@property(readonly, nonatomic) __weak BCTableCellView *currentlyHoveredView;
 - (void)tableCellViewDidBeginEditing:(id)arg1;
 - (void)tableCellViewMouseExited:(id)arg1;
 - (void)tableCellViewMouseEntered:(id)arg1;
 - (void)tableCellViewHandleBadgePressed:(id)arg1;
 - (BOOL)isTableCellViewNodeSelected:(id)arg1;
 - (void)menuDidClose:(id)arg1;
-- (void)menuWillOpen:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 - (id)viewAtCurrentMousePoint;
 - (id)nodeAtCurrentMousePoint;
 - (long long)rowAtCurrentMousePoint;

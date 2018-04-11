@@ -6,17 +6,17 @@
 
 #import "NSObject.h"
 
-@class MSDocumentData, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class MSCacheManager, MSDocumentData, NSObject<OS_dispatch_queue>, NSString, NSURL;
 
 @interface MSWebExporter : NSObject
 {
-    BOOL _includeBackground;
     BOOL _selectiveExport;
     BOOL _includeDocument;
     BOOL _cancelled;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
+    MSCacheManager *_cacheManager;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
@@ -28,7 +28,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
-@property(nonatomic) BOOL includeBackground; // @synthesize includeBackground=_includeBackground;
+@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;

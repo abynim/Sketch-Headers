@@ -6,27 +6,32 @@
 
 #import "_MSImmutableLayerGroup.h"
 
+#import "MSFlowContainmentCheck.h"
 #import "MSLayerGroup.h"
 
 @class NSArray;
 
-@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSLayerGroup>
+@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroup>
 {
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-- (id)layerWithID:(id)arg1;
-- (id)children;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
 - (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
-- (struct CGRect)overlayInfluenceRectForBounds;
 - (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (id)calculatePathInBounds;
+- (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
+@property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
+@property(readonly, nonatomic) double mirrorExportScale;
+- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;

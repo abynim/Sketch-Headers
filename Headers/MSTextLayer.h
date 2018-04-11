@@ -9,12 +9,13 @@
 #import "MSColorConvertible.h"
 #import "MSFirstLineTypesetterDelegate.h"
 
-@class MSImmutableColor, NSArray, NSAttributedString, NSBezierPath, NSDictionary, NSNumber, NSString;
+@class MSColor, NSArray, NSAttributedString, NSDictionary, NSNumber, NSString, NSValue;
 
 @interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
 {
     int ignoreDelegateNotificationsCounter;
     BOOL _isEditingText;
+    NSValue *_transientGlyphBoundsValue;
     id <MSTextLayerEditingDelegate> _editingDelegate;
     NSNumber *_defaultLineHeightValue;
     NSArray *_baselineOffsetsValue;
@@ -28,16 +29,20 @@
 + (long long)menuItemStateForTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
 + (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
-+ (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (id)keyPathsForValuesAffectingTextBehaviourSegmentIndex;
++ (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
++ (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
 @property(retain, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
+@property(retain, nonatomic) NSValue *transientGlyphBoundsValue; // @synthesize transientGlyphBoundsValue=_transientGlyphBoundsValue;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void).cxx_destruct;
 - (void)convertColorsUsing:(id)arg1;
+- (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;
@@ -57,12 +62,13 @@
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
 - (void)updateAttributedStringInBlock:(CDUnknownBlockType)arg1;
+- (void)setGlyphBounds:(struct CGRect)arg1;
 - (void)setAttributedString:(id)arg1;
 @property(copy, nonatomic) NSAttributedString *attributedStringValue;
 - (void)layerStyleDidChange;
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
-@property(copy, nonatomic) MSImmutableColor *textColor;
+@property(copy, nonatomic) MSColor *textColor;
 @property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
 @property(retain, nonatomic) NSNumber *characterSpacing;
@@ -78,10 +84,7 @@
 - (float)kerning;
 - (void)refreshOverlay;
 - (id)bezierPathFromGlyphsInBounds;
-- (id)bezierPathFromGlyphsInFrame;
-@property(readonly, nonatomic) NSBezierPath *bezierPath;
 - (struct CGPoint)drawingPointForText;
-- (id)bezierPathWithTransforms;
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
 - (id)font;
@@ -111,29 +114,41 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
-- (struct CGRect)layerPositionDrawingRectWithModifierFlags:(unsigned long long)arg1;
+- (struct CGRect)measurementRectWithOptions:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (BOOL)shouldDrawSelection;
 - (Class)handlerClass;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1 cache:(id)arg2;
+- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
 - (void)copyStylePropertiesToShape:(id)arg1;
-- (id)rawCopyOfStyle:(id)arg1;
 - (void)copyTextPropertiesToShape:(id)arg1;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
-- (Class)layerSnapperObjectClass;
+- (unsigned long long)shareableObjectType;
+- (id)snapLines;
+- (Class)snapItemClass;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (void)setTextBehaviourSegmentIndex:(long long)arg1;
+- (long long)textBehaviourSegmentIndex;
+@property(readonly, nonatomic) BOOL supportsVerticalAlignment;
 - (BOOL)supportsInnerOuterBorders;
+- (void)resetSharedStyle;
+- (void)setSharedStyle:(id)arg1;
+- (id)foreignSharedStyles;
+- (id)localSharedStyles;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (unsigned long long)resizingConstraint;
 - (BOOL)canFixHeight;
+- (void)invalidateFonts;
 - (void)replaceFonts:(id)arg1;
+- (void)embedInRotatedGroup;
+- (long long)cornerForBaselineMaintaining;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;
 - (long long)layoutDirection;

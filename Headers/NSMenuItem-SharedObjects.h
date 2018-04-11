@@ -9,8 +9,8 @@
 @class NSArray;
 
 @interface NSMenuItem (SharedObjects)
-- (BOOL)generateSymbolPreviewWithColorSpace:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-@property(retain, nonatomic) NSArray *symbolMasterReferences;
-@property(retain, nonatomic) NSArray *sharedObjects;
+- (BOOL)generatePreviewWithColorSpace:(id)arg1 backingScale:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(retain, nonatomic) NSArray *shareableObjectReferences;
+@property(readonly, nonatomic) NSArray *symbolMasterReferences;
 @end
 

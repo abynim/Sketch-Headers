@@ -10,7 +10,7 @@
 {
 }
 
-- (id)title;
+- (id)label;
 - (BOOL)hasDynamicTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)lockLayer:(id)arg1;

@@ -6,24 +6,32 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, NSString;
+@class MSCacheManager, MSImmutableDocumentData, NSString;
 
 @interface MSManifestMaker : NSObject
 {
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
     MSImmutableDocumentData *_documentData;
+    MSCacheManager *_cacheManager;
     NSString *_name;
 }
 
-+ (BOOL)isArtboardEqual:(id)arg1 toArtboard:(id)arg2;
-+ (BOOL)isPageEqual:(id)arg1 toPage:(id)arg2;
-+ (BOOL)wouldManifestChangeBetweenOldDoc:(id)arg1 andNewDoc:(id)arg2;
++ (id)keyForFlowAnimationType:(long long)arg1;
++ (id)manifestValueForColorSpace:(unsigned long long)arg1;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
+- (id)metadataForFlow:(id)arg1;
+- (id)dictForRect:(struct CGRect)arg1 inRootLayer:(id)arg2;
+- (id)metadataForLayer:(id)arg1;
+- (id)metadataForChildLayersInSymbolInstance:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5;
+- (id)metadataForChildLayersInLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5;
+- (id)metadataForLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5;
+- (id)metadataForLayersInRootLayer:(id)arg1 ancestors:(id)arg2;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (BOOL)shouldExportLayerGroup:(id)arg1;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;

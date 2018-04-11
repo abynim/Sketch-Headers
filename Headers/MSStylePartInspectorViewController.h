@@ -7,34 +7,34 @@
 #import "NSViewController.h"
 
 #import "MSColorInspectorDelegate.h"
-#import "MSColorPreviewButtonDelegate.h"
 #import "MSInspectorSection.h"
+#import "MSStylePartPreviewButtonDelegate.h"
 #import "NSPopoverDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCPopover, MSColorPreviewButton, NSArray, NSArrayController, NSString, NSView;
+@class BCPopover, MSStylePartPreviewButton, NSArray, NSArrayController, NSString, NSView;
 
-@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate, MSColorPreviewButtonDelegate>
+@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;
     NSArrayController *_arrayController;
     id <MSStylePartInspectorDelegate> _delegate;
     unsigned long long _index;
-    MSColorPreviewButton *_colorPickerButton;
+    MSStylePartPreviewButton *_colorPickerButton;
     BCPopover *_popover;
 }
 
 + (id)reusableControllerArray;
 + (id)stylePartViewController;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) MSColorPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
+@property(retain, nonatomic) MSStylePartPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) __weak id <MSStylePartInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
-- (id)colorPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
 - (BOOL)hasEnabledStyle;
@@ -45,6 +45,7 @@
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)closePopover;
+- (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)dealloc;
 - (void)awakeFromNib;

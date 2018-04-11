@@ -22,8 +22,10 @@
 
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
 + (id)fontDescriptorInDictionary:(id)arg1;
++ (id)attributedStringWithRefreshedFontDescriptors:(id)arg1;
 + (id)decodeAttributedString:(id)arg1;
 + (id)encodeAttributedString:(id)arg1;
++ (id)refreshFontDescriptorsInDictionary:(id)arg1;
 + (id)decodeAttributesInDictionary:(id)arg1;
 + (id)encodeAttributesInDictionary:(id)arg1;
 @property(copy, nonatomic) NSSet *fontDescriptors; // @synthesize fontDescriptors=_fontDescriptors;
@@ -40,6 +42,7 @@
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSString *string;
 - (unsigned long long)hash;
+- (void)resetComputedProperties;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeAsJSON:(id)arg1;

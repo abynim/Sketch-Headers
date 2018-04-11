@@ -6,22 +6,16 @@
 
 #import "NSObject.h"
 
-@class MSImmutableColor, NSArray, NSColor, NSColorSpace;
+@class NSColor;
 
 @interface MSTextColorProvider : NSObject
 {
-    MSImmutableColor *_textColor;
     NSColor *_color;
-    NSColorSpace *_colorSpace;
-    NSArray *_ranges;
 }
 
-@property(readonly, copy, nonatomic) NSArray *ranges; // @synthesize ranges=_ranges;
-@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) NSColor *color; // @synthesize color=_color;
-@property(readonly, nonatomic) MSImmutableColor *textColor; // @synthesize textColor=_textColor;
 - (void).cxx_destruct;
-- (id)initWithTextColor:(id)arg1 colorSpace:(id)arg2 ranges:(id)arg3;
+- (id)initWithColor:(id)arg1;
 
 @end
 

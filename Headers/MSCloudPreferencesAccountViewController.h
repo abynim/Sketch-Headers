@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSTextField *introLabel; // @synthesize introLabel=_introLabel;
 - (void).cxx_destruct;
 - (void)showAccountSettings:(id)arg1;
+- (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (void)logout:(id)arg1;
 - (void)updateUserData;
 - (void)updateUserLoading;

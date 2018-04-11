@@ -16,7 +16,7 @@
 
 + (unsigned long long)traits;
 + (unsigned long long)scalingFactorForFilename:(id)arg1;
-+ (struct CGSize)bestSizeAccountingForPixelDensityOfImage:(id)arg1;
++ (double)bestScaleAccountingForPixelDensityOfImage:(id)arg1;
 + (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)bitmapLayerWithImageFromPath:(id)arg1;
 + (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
@@ -28,6 +28,8 @@
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
 - (BOOL)canInsertIntoGroup:(id)arg1;
+- (void)reduceImageSize;
+- (void)replaceImageWithImage:(id)arg1;
 - (id)handlerName;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)performInitEmptyObject;

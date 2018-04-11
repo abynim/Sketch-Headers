@@ -22,6 +22,7 @@
 @property(copy, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(copy, nonatomic) NSURL *libraryLocation; // @synthesize libraryLocation=_libraryLocation;
 - (void).cxx_destruct;
+- (unsigned long long)shareableObjectType;
 - (id)initWithPasteboardPropertyList:(id)arg1 ofType:(id)arg2;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (id)writableTypesForPasteboard:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import "MSModelObject.h"
 
-@class MSExportOptions, MSRect, NSDictionary, NSString;
+@class MSExportOptions, MSFlowConnection, MSPath, MSRect, NSDictionary, NSString;
 
 @interface _MSLayer : MSModelObject
 {
@@ -24,6 +24,7 @@
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
     MSExportOptions *_exportOptions;
+    MSFlowConnection *_flow;
     MSRect *_frame;
 }
 
@@ -38,12 +39,14 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSRect *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSFlowConnection *flow; // @synthesize flow=_flow;
 @property(retain, nonatomic) MSExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 @property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
 @property(nonatomic) unsigned long long resizingConstraint; // @synthesize resizingConstraint=_resizingConstraint;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -52,6 +55,7 @@
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
+@property(readonly, nonatomic) struct CGRect influenceRectForBounds;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

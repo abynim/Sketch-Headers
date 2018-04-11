@@ -6,44 +6,17 @@
 
 #import "NSObject.h"
 
-@class BCCache, MSEventHandlerManager, MSPage, MSZoomTool;
-
 @interface MSOverlayRenderer : NSObject
 {
-    BOOL _canDrawSlicesOutline;
-    BOOL _shouldDrawArtboardTitles;
-    MSPage *_page;
-    MSZoomTool *_zoomTool;
-    MSEventHandlerManager *_eventManager;
-    BCCache *_cache;
-    struct CGRect _rect;
+    BOOL _enabled;
+    id <MSOverlayRendererDelegate> _delegate;
 }
 
-@property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
-@property(retain, nonatomic) MSEventHandlerManager *eventManager; // @synthesize eventManager=_eventManager;
-@property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
-@property(retain, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
-@property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
-@property(nonatomic) BOOL shouldDrawArtboardTitles; // @synthesize shouldDrawArtboardTitles=_shouldDrawArtboardTitles;
-@property(nonatomic) BOOL canDrawSlicesOutline; // @synthesize canDrawSlicesOutline=_canDrawSlicesOutline;
+@property(nonatomic) __weak id <MSOverlayRendererDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
-- (struct CGRect)scaledArtboardRect:(id)arg1;
-- (void)drawArtboardTitles;
-- (id)artboardsVisibleInTileRect;
-- (void)drawArtboardShadowForRect:(struct CGRect)arg1 image:(id)arg2;
-- (void)drawArtboardOutline;
-- (void)drawSliceOutline:(id)arg1;
-- (void)drawSlicesOutlineForGroup:(id)arg1 inRect:(struct CGRect)arg2 zoom:(double)arg3;
-- (void)drawSlicesOutline;
-- (BOOL)shouldDrawSlicesOutline;
-- (void)drawPixelLines;
-- (BOOL)shouldDrawPixelLines;
-- (void)doDrawGridForRootLayer:(id)arg1;
-- (void)drawGridForRootLayer:(id)arg1;
-- (void)draw;
-- (void)drawDebugCoordinates;
-- (void)renderPage:(id)arg1 inRect:(struct CGRect)arg2 withZoomTool:(id)arg3 handlerManager:(id)arg4 cache:(id)arg5;
-- (id)init;
+- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
+- (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
 
 @end
 

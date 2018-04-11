@@ -6,38 +6,24 @@
 
 #import "MSDragRectEventHandler.h"
 
-@class MSShapePathLayer, NSArray, NSMutableArray;
+@class MSShapePathLayer, NSMutableArray;
 
 @interface MSInsertShapeEventHandler : MSDragRectEventHandler
 {
     NSMutableArray *_insertedShapes;
     MSShapePathLayer *_prototypeLayer;
-    NSArray *_snapLines;
-    NSArray *_snapRects;
     struct CGRect _initialPrototypeRect;
 }
 
-@property(retain, nonatomic) NSArray *snapRects; // @synthesize snapRects=_snapRects;
 @property(nonatomic) struct CGRect initialPrototypeRect; // @synthesize initialPrototypeRect=_initialPrototypeRect;
-@property(retain, nonatomic) NSArray *snapLines; // @synthesize snapLines=_snapLines;
 @property(retain, nonatomic) MSShapePathLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)drawRectPreview;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)insertShapeAsNewLayer:(struct CGRect)arg1;
 - (id)insertShapeAsSubPathOfShape:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)performActionWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
-- (id)imageName;
-- (void)populateArray:(id)arg1 withSnapRectsForGroup:(id)arg2 ancestors:(id)arg3;
-- (void)cacheSnapPointsInBackground;
-- (struct CGPoint)snapMouseToEdges:(struct CGPoint)arg1 guides:(id *)arg2;
-- (struct CGPoint)snapMouseAndShowSnapLines:(struct CGPoint)arg1;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (void)setInsertionRect:(struct CGRect)arg1;
 - (id)applicableActionItemIdentifier;
 - (void)handlerWillLoseFocus;

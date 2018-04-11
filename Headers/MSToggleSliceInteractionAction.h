@@ -4,13 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSToggleViewPreferenceAction.h"
 
-@interface MSToggleSliceInteractionAction : MSDocumentAction
+@interface MSToggleSliceInteractionAction : MSToggleViewPreferenceAction
 {
 }
 
-- (BOOL)isActive;
+- (id)labelForToolbar;
+- (id)label;
+- (id)imageName;
+- (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;
 - (void)toggleSliceInteraction:(id)arg1;
 

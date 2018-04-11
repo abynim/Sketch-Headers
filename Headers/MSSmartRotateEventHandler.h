@@ -21,7 +21,6 @@
 @property(copy, nonatomic) NSArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
 @property(nonatomic) unsigned long long numberOfRepetitions; // @synthesize numberOfRepetitions=_numberOfRepetitions;
 - (void).cxx_destruct;
-- (BOOL)shouldDrawLayerSelection;
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (void)dealloc;
@@ -30,7 +29,7 @@
 - (void)registerObservers;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;
 - (void)drawControlPoints;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)tryToSnapPoint:(struct CGPoint)arg1 toMid:(struct CGPoint)arg2;
 - (void)rotateCopies;

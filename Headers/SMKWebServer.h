@@ -39,7 +39,6 @@
 - (id)exportRequestForServerRequest:(id)arg1;
 - (id)artboardResponseForRequest:(id)arg1;
 - (id)resourceResponseForRequest:(id)arg1;
-- (BOOL)isFilePath:(id)arg1 inDirectory:(id)arg2;
 - (id)defaultWebServerFilePath;
 - (id)resourcesPath;
 - (void)deauthorizeAdvertisementID:(id)arg1;

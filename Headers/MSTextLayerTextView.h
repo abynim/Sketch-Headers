@@ -11,12 +11,14 @@
 @interface MSTextLayerTextView : NSTextView
 {
     MSHangingGlyphView *_hangingGlyphView;
+    id <MSTextLayerTextViewDelegate> _textLayerTextViewDelegate;
     NSTimer *_hideSelectionTimer;
     NSDictionary *_selectedTextAttributesBackup;
 }
 
 @property(copy, nonatomic) NSDictionary *selectedTextAttributesBackup; // @synthesize selectedTextAttributesBackup=_selectedTextAttributesBackup;
 @property(retain, nonatomic) NSTimer *hideSelectionTimer; // @synthesize hideSelectionTimer=_hideSelectionTimer;
+@property(nonatomic) __weak id <MSTextLayerTextViewDelegate> textLayerTextViewDelegate; // @synthesize textLayerTextViewDelegate=_textLayerTextViewDelegate;
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
 - (id)makeTouchBar;
@@ -25,6 +27,8 @@
 - (void)selectSimilar:(id)arg1;
 - (void)hideSelectionTimerFired:(id)arg1;
 - (id)makeHideSelectionTimer;
+- (BOOL)writeSelectionToPasteboard:(id)arg1 type:(id)arg2;
+- (id)writablePasteboardTypes;
 - (void)pasteWithOptions:(unsigned long long)arg1;
 - (void)pasteWithStyle:(id)arg1;
 - (void)paste:(id)arg1;
@@ -34,11 +38,10 @@
 - (void)mouseDown:(id)arg1;
 - (BOOL)hitTestFromEvent:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
-- (void)setTypingAttributes:(id)arg1;
-- (void)applyTextColor:(id)arg1 previousTextColors:(id)arg2;
-- (id)textColorProviderForChangeColorSender:(id)arg1;
-- (id)colorProvidersForRanges:(id)arg1 colorSpace:(id)arg2;
+- (BOOL)shouldIgnoreAlreadyApplicableColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (id)canvasColorSpace;
+- (id)documentColorSpace;
 - (void)viewWillMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 

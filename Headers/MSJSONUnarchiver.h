@@ -26,12 +26,12 @@
 - (id)referenceObjectWithIdentifier:(id)arg1;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;
 - (void)addReference:(id)arg1 withIdentifier:(id)arg2;
-- (struct CGSize)decodeSizeForKey:(id)arg1;
-- (long long)decodeIntegerForKey:(id)arg1;
-- (struct CGPoint)decodePointForKey:(id)arg1;
-- (struct CGRect)decodeRectForKey:(id)arg1;
-- (BOOL)decodeBoolForKey:(id)arg1;
-- (double)decodeDoubleForKey:(id)arg1;
+- (struct CGSize)decodeSizeForKey:(id)arg1 withDefault:(struct CGSize)arg2;
+- (long long)decodeIntegerForKey:(id)arg1 withDefault:(long long)arg2;
+- (struct CGPoint)decodePointForKey:(id)arg1 withDefault:(struct CGPoint)arg2;
+- (struct CGRect)decodeRectForKey:(id)arg1 withDefault:(struct CGRect)arg2;
+- (BOOL)decodeBoolForKey:(id)arg1 withDefault:(BOOL)arg2;
+- (double)decodeDoubleForKey:(id)arg1 withDefault:(double)arg2;
 - (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)decodeObjectForKey:(id)arg1;

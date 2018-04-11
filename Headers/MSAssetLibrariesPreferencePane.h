@@ -13,7 +13,7 @@
 #import "QLPreviewPanelDataSource.h"
 #import "QLPreviewPanelDelegate.h"
 
-@class MSAssetLibraryController, NSArray, NSMenu, NSString, NSTableView;
+@class MSAssetLibraryController, NSArray, NSMenu, NSString, NSTableView, NSWindow;
 
 @interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate, NSTableViewDelegate, NSTableViewDataSource>
 {
@@ -22,17 +22,24 @@
     NSTableView *_tableView;
     NSArray *_items;
     NSMenu *_contextMenu;
+    NSWindow *_libraryInstallerAlertWindow;
+    NSWindow *_duplicateLibraryAlertWindow;
+    NSWindow *_chooseLibraryPanelWindow;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(nonatomic) __weak NSWindow *chooseLibraryPanelWindow; // @synthesize chooseLibraryPanelWindow=_chooseLibraryPanelWindow;
+@property(nonatomic) __weak NSWindow *duplicateLibraryAlertWindow; // @synthesize duplicateLibraryAlertWindow=_duplicateLibraryAlertWindow;
+@property(nonatomic) __weak NSWindow *libraryInstallerAlertWindow; // @synthesize libraryInstallerAlertWindow=_libraryInstallerAlertWindow;
 @property(nonatomic) BOOL shouldEnableCogMenu; // @synthesize shouldEnableCogMenu=_shouldEnableCogMenu;
 @property(nonatomic) BOOL hasAssets; // @synthesize hasAssets=_hasAssets;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
+- (void)libraryControllerDidChange:(id)arg1;
 - (void)learnMoreAboutLibraries:(id)arg1;
 - (void)updateQLPreview;
 - (void)viewWillDisappear;
@@ -47,10 +54,15 @@
 - (BOOL)tableView:(id)arg1 shouldTypeSelectForEvent:(id)arg2 withCurrentSearchString:(id)arg3;
 - (id)menuForEvent:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)validateLocateLibraryMenuItem:(id)arg1;
+- (void)locateLibraryAction:(id)arg1;
+- (BOOL)canLocateLibrary:(id)arg1;
 - (BOOL)validateOpenInSketchMenuItem:(id)arg1;
 - (void)openInSketchAction:(id)arg1;
 - (BOOL)validateRemoveLibraryMenuItem:(id)arg1;
 - (void)removeLibraryAction:(id)arg1;
+- (BOOL)availableUserLibrariesFromLibraries:(id)arg1;
+- (id)sketchShareURLsFromLibraries:(id)arg1;
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;
 - (void)revealInFinderAction:(id)arg1;
 - (BOOL)validateToggleLibraryMenuItem:(id)arg1;
@@ -62,10 +74,18 @@
 - (id)draggedURLsFromPasteboard:(id)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
+- (void)dismissAlertSheet;
+- (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
+- (void)displayInstallerAlertSheetForRemoteAssetLibrary;
+- (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)tableCellForRemoteLibrary:(id)arg1;
+- (void)startDownloadForRemoteLibrary:(id)arg1;
+- (void)updateAvailableForRemoteLibrary:(id)arg1;
 - (void)reloadSelectingLibrary:(id)arg1;
 - (void)preferenceItemHasUpdated:(id)arg1;
 - (void)showContextMenu:(id)arg1;
 @property(readonly, nonatomic) NSArray *selectedLibraries;
+@property(readonly, nonatomic) NSArray *selection;
 - (id)currentLibrary;
 - (void)addLibrariesFromURLS:(id)arg1;
 - (void)importLibraryAction:(id)arg1;

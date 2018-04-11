@@ -6,13 +6,28 @@
 
 #import "NSPopUpButtonCell.h"
 
+@class MSShareableObjectReference, NSImage;
+
 @interface MSSharedStylesPopUpButtonCell : NSPopUpButtonCell
 {
+    BOOL _localIsOutOfSync;
+    NSImage *_previewImage;
 }
 
+@property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
+@property(nonatomic) BOOL localIsOutOfSync; // @synthesize localIsOutOfSync=_localIsOutOfSync;
+- (void).cxx_destruct;
+- (void)setMenuItem:(id)arg1;
+- (void)drawImageWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (struct CGRect)drawDefaultTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (struct CGRect)drawSharedObjectTitleWithFrame:(struct CGRect)arg1;
+- (struct CGRect)drawSharedObjectSecondaryTitle:(struct CGRect)arg1;
+- (struct CGRect)drawSharedObjectMainTitle:(struct CGRect)arg1;
 - (void)attachPopUpWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawBorderAndBackgroundWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+@property(readonly, nonatomic) MSShareableObjectReference *sharedObject;
 
 @end
 

@@ -16,25 +16,29 @@
     NSSet *_selectedLayerIDs;
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *symbols;
+@property(readonly, nonatomic) BOOL hasArtboards;
 @property(readonly, nonatomic) NSArray *artboards;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (struct CGPoint)rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(readonly, nonatomic) BOOL isFlowHome;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
+- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (id)svgStyle:(id)arg1;
 - (BOOL)shouldIncludeInSVGExport:(id)arg1;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;

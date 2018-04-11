@@ -6,29 +6,35 @@
 
 #import "NSObject.h"
 
+#import "MSDataMenuProviderDelegate.h"
+#import "MSDataSupplierManagerDelegate.h"
 #import "NSApplicationDelegate.h"
 #import "NSMenuDelegate.h"
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
+    BOOL _canCreateDocuments;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_templatesMenu;
     NSMenu *_printMenu;
+    NSMenuItem *_prototypingMenuItem;
     NSMenuItem *_debugMenuItem;
     MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
+    NSMenuItem *_dataFeedMenuItem;
     NSMenuItem *_cloudEnvironmentMenuItem;
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
+    MSDataMenuProvider *_dataFeedProvider;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
     BCLicenseManager *_licenseManager;
@@ -39,26 +45,29 @@
     double _launchStartTime;
     double _launchEndTime;
     MSPersistentAssetCollection *_globalAssets;
-    MSComponentsPanelController *_componentsPanelController;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     ECLogManagerMacUISupport *_logSupport;
     MSHUDWindowController *_hud;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
+    MSComponentsPanelController *_componentsPanelController;
+    MSFontWatcher *_fontWatcher;
     id _lastRunPlugin;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
+@property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
+@property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
+@property(nonatomic) BOOL canCreateDocuments; // @synthesize canCreateDocuments=_canCreateDocuments;
 @property(readonly, nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
-@property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
@@ -69,15 +78,18 @@
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
+@property(readonly, nonatomic) MSDataMenuProvider *dataFeedProvider; // @synthesize dataFeedProvider=_dataFeedProvider;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
+@property(retain, nonatomic) NSMenuItem *dataFeedMenuItem; // @synthesize dataFeedMenuItem=_dataFeedMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
+@property(nonatomic) __weak NSMenuItem *prototypingMenuItem; // @synthesize prototypingMenuItem=_prototypingMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
 @property(nonatomic) __weak NSMenu *templatesMenu; // @synthesize templatesMenu=_templatesMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
@@ -90,6 +102,7 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshDocumentWindowBadges;
 - (void)refreshCurrentDocument;
+- (void)currentDocumentDidChange;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
 - (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
@@ -98,6 +111,11 @@
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)documentWillClose:(id)arg1;
+- (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
+- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
+- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
+- (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
 - (id)templateLibraryPath;
@@ -113,7 +131,7 @@
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;
-- (void)setupMetrics;
+@property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)checkForAssetLibraryUpdates;
 - (void)createActions;
@@ -125,8 +143,9 @@
 - (BOOL)applicationShouldHandleReopen:(id)arg1 hasVisibleWindows:(BOOL)arg2;
 - (BOOL)applicationOpenUntitledFile:(id)arg1;
 - (BOOL)applicationShouldOpenUntitledFile:(id)arg1;
-- (id)toggleComponentsPanel;
 - (BOOL)isFirstLaunchOfNewVersion;
+- (void)storePluginList:(id)arg1 inCrashLogKey:(id)arg2;
+- (void)storePluginsForCrashReport;
 - (void)reloadAssetLibraryPreferencesTableView;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
@@ -137,15 +156,20 @@
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
 - (id)init;
+- (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
+- (void)startDownloadingLibrary:(id)arg1;
 - (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;
+- (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;
 - (void)didOpenURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;
 - (id)actionClasses;
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
+- (id)runPluginScript:(id)arg1 handler:(id)arg2 name:(id)arg3 withPreprocess:(BOOL)arg4;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
+- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3;
 - (id)targetDocumentForPluginCommand;
 - (void)buildPluginsMenu:(id)arg1;
@@ -153,6 +177,7 @@
 - (void)revealPlugin:(id)arg1;
 @property(readonly, nonatomic) MSPluginCommand *lastRun;
 - (void)rememberLastRun:(id)arg1;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3 portToAsnwerTo:(id)arg4;
 - (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3;
 - (id)runPluginAtURL:(id)arg1;
 - (id)evaluateScript:(id)arg1;

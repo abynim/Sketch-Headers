@@ -11,6 +11,7 @@
     BOOL _mouseIsHovering;
 }
 
++ (Class)cellClass;
 @property(nonatomic) BOOL mouseIsHovering; // @synthesize mouseIsHovering=_mouseIsHovering;
 - (void)mouseDown:(id)arg1;
 - (void)mouseExited:(id)arg1;

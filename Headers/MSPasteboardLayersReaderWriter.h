@@ -16,8 +16,12 @@
 }
 
 - (void)writeData:(id)arg1 toPasteboard:(id)arg2;
+- (void)writeData:(id)arg1 toPasteboard:(id)arg2 withType:(id)arg3;
 - (BOOL)canWriteDataToPasteboard:(id)arg1;
 - (id)pasteboardDataFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 sender:(id)arg4;
+- (id)readDataFromPasteboard:(id)arg1;
+- (id)readDataFromPasteboard:(id)arg1 withType:(id)arg2;
+- (id)tempFileTypeForType:(id)arg1;
 - (id)supportedPasteboardTypes;
 
 // Remaining properties

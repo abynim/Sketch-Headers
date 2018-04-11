@@ -8,40 +8,52 @@
 
 #import "SMKMirrorDataSource.h"
 
-@class MSDocument, MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, SMKMirrorController;
+@class MSDocument, MSImmutableDocumentData, NSDictionary, NSObject<OS_dispatch_queue>, NSString, NSTimer, SMKMirrorController;
 
 @interface MSMirrorDataProvider : NSObject <SMKMirrorDataSource>
 {
+    BOOL _requiresImmediateUpdate;
     BOOL _isAlreadyComparing;
+    BOOL _needsUpdateMetadata;
     NSString *_currentArtboardID;
     SMKMirrorController *_connectionController;
-    NSString *_currentDocumentID;
-    MSImmutableDocumentData *_lastImmutableDoc;
+    MSDocument *_document;
+    MSImmutableDocumentData *_documentData;
+    NSDictionary *_manifestContent;
     NSObject<OS_dispatch_queue> *_mirrorQueue;
+    NSTimer *_updateTimer;
 }
 
+@property(nonatomic) BOOL needsUpdateMetadata; // @synthesize needsUpdateMetadata=_needsUpdateMetadata;
+@property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(nonatomic) BOOL isAlreadyComparing; // @synthesize isAlreadyComparing=_isAlreadyComparing;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *mirrorQueue; // @synthesize mirrorQueue=_mirrorQueue;
-@property(retain, nonatomic) MSImmutableDocumentData *lastImmutableDoc; // @synthesize lastImmutableDoc=_lastImmutableDoc;
-@property(copy, nonatomic) NSString *currentDocumentID; // @synthesize currentDocumentID=_currentDocumentID;
+@property(retain, nonatomic) NSDictionary *manifestContent; // @synthesize manifestContent=_manifestContent;
+@property(nonatomic) BOOL requiresImmediateUpdate; // @synthesize requiresImmediateUpdate=_requiresImmediateUpdate;
+@property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak SMKMirrorController *connectionController; // @synthesize connectionController=_connectionController;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) MSDocument *document;
 - (id)currentArtboard;
-- (void)hasDocumentStructureChangedWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (void)sendUpdateFromOldArtboard:(id)arg1 toNewArtboard:(id)arg2;
-- (void)sendPartialUpdateForNewDocument:(id)arg1;
+@property(readonly, nonatomic) BOOL hasConnectedClients;
+- (void)lookupUpdateTypeWithHandler:(CDUnknownBlockType)arg1;
+- (BOOL)treeDiff:(id)arg1 containsFlowLayerChangesInNewDocument:(id)arg2;
+- (void)sendVisualUpdateForNewDocument:(id)arg1;
+- (void)invalidateRootLayer:(id)arg1 inCanvasRect:(struct CGRect)arg2;
 - (void)sendUpdate;
+- (void)updateIfNeeded;
+- (void)setNeedsUpdateMetadata;
+- (void)setNeedsUpdate;
 @property(copy, nonatomic) NSString *currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
-- (void)windowDidResignMainNotification:(id)arg1;
-- (void)windowDidBecomeMainNotification:(id)arg1;
-- (void)currentDocumentNameDidChange;
-- (void)currentDocumentDidChange;
+- (id)createManifestContent;
+- (void)documentDidResignCurrentNotification:(id)arg1;
+- (void)documentDidBecomeCurrentNotification:(id)arg1;
+- (void)mirrorConnectionsDidChangeNotification:(id)arg1;
 - (void)currentArtboardDidChange;
+- (void)setDocumentData:(id)arg1;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)imageData:(id)arg1 dataByInsertingBackgroundColor:(id)arg2;
 - (void)renderExportForRequest:(id)arg1 handler:(CDUnknownBlockType)arg2;
-@property(readonly) BOOL shouldScrollToSelectedArtboard;
-@property(readonly, nonatomic) NSDictionary *manifestContent;
 - (void)dealloc;
 - (id)init;
 

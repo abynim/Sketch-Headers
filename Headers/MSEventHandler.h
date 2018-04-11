@@ -9,7 +9,7 @@
 #import "NSDraggingDestination.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSMouseTracker, NSArray, NSEvent, NSMutableArray, NSString, NSTouchBar;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSArray, NSCursor, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
@@ -17,12 +17,13 @@
     struct CGPoint mouseAtTimeOfMenu;
     NSMutableArray *_gestureRecognizers;
     BOOL _mouseIsDown;
+    NSMutableArray *_overlayRenderers;
     MSEventHandlerManager *_manager;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
     NSTouchBar *_noSelectionTouchBar;
     NSTouchBar *_selectionTouchBar;
-    MSMouseTracker *_mouseTracker;
+    NSCursor *_cursor;
     NSString *_measurementText;
     NSArray *_activeGestureRecognizers;
     struct CGPoint _viewCoordinateMouse;
@@ -34,8 +35,9 @@
 @property(nonatomic) struct CGSize measurementLabelSize; // @synthesize measurementLabelSize=_measurementLabelSize;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
+@property(readonly, nonatomic) NSArray *overlayRenderers; // @synthesize overlayRenderers=_overlayRenderers;
 @property(copy, nonatomic) NSString *measurementText; // @synthesize measurementText=_measurementText;
-@property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
+@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
 @property(retain, nonatomic) NSTouchBar *noSelectionTouchBar; // @synthesize noSelectionTouchBar=_noSelectionTouchBar;
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
@@ -43,6 +45,8 @@
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (id)documentWindow;
+- (BOOL)mayShowResizingInspectorView;
 - (void)touchBarTextColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (void)refreshStylePreviewTouchBarButton:(id)arg1 forIdentifier:(id)arg2;
@@ -61,12 +65,11 @@
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (void)refreshRulers;
-- (BOOL)inspectorShouldShowBlendingProperties;
-- (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (BOOL)inspectorShouldShowPositions;
-- (BOOL)inspectorShouldShowSharedStyles;
 - (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
+- (BOOL)shouldShowSharedStyles;
+- (BOOL)shouldShowFlowView;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (void)configureInspector:(id)arg1;
 - (void)layerPositionPossiblyChanged;
@@ -75,7 +78,6 @@
 - (void)handleForeignSymbolInstanceDoubleClick:(id)arg1;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
-- (void)mouseEntered:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (BOOL)handlesHandToolItself;
@@ -99,18 +101,16 @@
 - (unsigned long long)draggingEntered:(id)arg1;
 - (id)imageName;
 - (id)toolbarIdentifier;
-- (BOOL)shouldDrawLayerSelection;
+@property(readonly) BOOL wantsLayerHighlight;
+@property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;
-- (void)cursorUpdate:(id)arg1;
-- (id)defaultCursor;
 - (void)drawHandles;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;
 - (BOOL)escapeKeyIsPressed:(unsigned short)arg1;
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
-@property(readonly, nonatomic) NSEvent *lastEvent;
 - (unsigned long long)hitTestingOptions;
 - (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -141,6 +141,7 @@
 - (void)returnToDefaultHandler;
 - (struct CGPoint)centerPointForZooming;
 - (struct CGRect)selectedRect;
+- (void)zoomToArtboard;
 - (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)commitPendingEdits;
@@ -162,7 +163,8 @@
 - (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 - (void)drawMeasurementLabel;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (void)addOverlayRenderer:(id)arg1;
 - (void)setMeasurementLabelNeedsDisplay;
 @property(readonly, nonatomic) struct CGRect measurementBackgroundRect;
 - (struct CGPoint)locationForMeasurementLabel;
@@ -178,6 +180,9 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)rightMouseDown:(id)arg1;
+- (void)setNeedsUpdateCursor;
+- (BOOL)updateCursor;
+- (void)trackMouse:(id)arg1;
 - (BOOL)mouseMovedEvent:(id)arg1;
 - (BOOL)mouseUpEvent:(id)arg1;
 - (BOOL)mouseDraggedEvent:(id)arg1;
@@ -186,6 +191,7 @@
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;
 - (void)refreshOverlay;
+@property(readonly, nonatomic) NSUndoManager *undoManager;
 - (id)document;
 - (id)contentDrawView;
 - (void)dealloc;

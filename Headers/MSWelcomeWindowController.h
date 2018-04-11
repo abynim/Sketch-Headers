@@ -10,7 +10,7 @@
 #import "NSMenuDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class MSCallToActionButton, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
+@class MSCallToActionButton, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSWelcomeWindowController : CHWindowController <NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
 {
@@ -19,6 +19,7 @@
     NSScrollView *_collectionScrollView;
     NSView *_collectionStaticContainerView;
     NSSegmentedControl *_collectionsSegmentedControl;
+    NSLayoutConstraint *_collectionsWidthConstraint;
     NSButton *_confirmButton;
     NSButton *_doNotShowAgainButton;
     MSCallToActionButton *_newsletterButton;
@@ -30,12 +31,14 @@
     MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
+    NSArray *_cachedCloudItems;
 }
 
 + (id)templateURLsAtDirectoryURL:(id)arg1;
 + (BOOL)hideWelcomeWindowIfNeeded;
 + (BOOL)showWelcomeWindowIfAppropriate;
 + (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
+@property(retain, nonatomic) NSArray *cachedCloudItems; // @synthesize cachedCloudItems=_cachedCloudItems;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
@@ -47,6 +50,7 @@
 @property(retain, nonatomic) MSCallToActionButton *newsletterButton; // @synthesize newsletterButton=_newsletterButton;
 @property(retain, nonatomic) NSButton *doNotShowAgainButton; // @synthesize doNotShowAgainButton=_doNotShowAgainButton;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
+@property(retain, nonatomic) NSLayoutConstraint *collectionsWidthConstraint; // @synthesize collectionsWidthConstraint=_collectionsWidthConstraint;
 @property(retain, nonatomic) NSSegmentedControl *collectionsSegmentedControl; // @synthesize collectionsSegmentedControl=_collectionsSegmentedControl;
 @property(retain, nonatomic) NSView *collectionStaticContainerView; // @synthesize collectionStaticContainerView=_collectionStaticContainerView;
 @property(retain, nonatomic) NSScrollView *collectionScrollView; // @synthesize collectionScrollView=_collectionScrollView;
@@ -63,6 +67,7 @@
 @property(readonly, nonatomic) long long numberOfDocuments;
 - (void)openTemplateAtURL:(id)arg1;
 - (void)openDocumentAtURL:(id)arg1;
+- (void)requestCloudItems;
 - (void)joinSketchCloud:(id)arg1;
 - (void)visitSketchMirrorPage:(id)arg1;
 - (void)subscribeToNewsletter:(id)arg1;
@@ -77,11 +82,14 @@
 - (void)showCollection:(unsigned long long)arg1;
 - (void)pickCollection:(id)arg1;
 - (void)togglePluginsButton:(BOOL)arg1;
+- (void)cloudUserDidChange:(id)arg1;
 - (void)windowDidResize:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)clearCaches;
 - (void)centerWindowIfAppropriate;
+- (void)updateCollectionSegments;
 - (void)windowDidLoad;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

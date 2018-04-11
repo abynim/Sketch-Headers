@@ -28,7 +28,6 @@
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
-- (BOOL)inspectorShouldShowLayerSpecificProperties;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
@@ -46,8 +45,7 @@
 - (id)bitmapEditableLayer;
 - (id)coordinateTransformMatrix;
 - (void)drawBorderAroundBounds;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
-- (BOOL)shouldDrawLayerSelection;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (id)selectionBezierForFlippingCoordinates;
 - (struct CGRect)imageBounds;
 - (struct CGSize)imageSize;

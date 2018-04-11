@@ -4,43 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSCloudViewController.h"
+#import "MSCloudBaseViewController.h"
 
-@class NSButton, NSSecureTextField, NSTextField, NSView;
+@class MSCloudUploadArrowView, NSButton, NSProgressIndicator, NSStackView;
 
-@interface MSCloudUploadViewController : MSCloudViewController
+@interface MSCloudUploadViewController : MSCloudBaseViewController
 {
-    unsigned long long _state;
-    NSButton *_openButton;
-    NSButton *_uploadButton;
-    NSView *_existingUploadView;
-    NSView *_uploadView;
-    NSView *_visibleView;
-    NSSecureTextField *_updatePasswordField;
-    NSTextField *_updatePasswordPlaceholder;
+    NSStackView *_buttonStackView;
+    NSProgressIndicator *_progressIndicator;
+    NSButton *_cancelButton;
+    MSCloudUploadArrowView *_arrowView;
 }
 
-@property(retain, nonatomic) NSTextField *updatePasswordPlaceholder; // @synthesize updatePasswordPlaceholder=_updatePasswordPlaceholder;
-@property(retain, nonatomic) NSSecureTextField *updatePasswordField; // @synthesize updatePasswordField=_updatePasswordField;
-@property(nonatomic) __weak NSView *visibleView; // @synthesize visibleView=_visibleView;
-@property(retain, nonatomic) NSView *uploadView; // @synthesize uploadView=_uploadView;
-@property(retain, nonatomic) NSView *existingUploadView; // @synthesize existingUploadView=_existingUploadView;
-@property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
-@property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
-@property(nonatomic) unsigned long long state; // @synthesize state=_state;
+@property(retain, nonatomic) MSCloudUploadArrowView *arrowView; // @synthesize arrowView=_arrowView;
+@property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
+@property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
 - (void).cxx_destruct;
-- (void)showPreferences:(id)arg1;
-- (void)updateExistingShare:(id)arg1;
-- (void)createNewShare:(id)arg1;
-- (void)openShare:(id)arg1;
-- (void)userAccountStatusDidChange;
-- (void)documentCloudShareDidChangeNotification:(id)arg1;
-- (void)cloudControllerDidChangeUploadingNotification:(id)arg1;
-- (unsigned long long)defaultState;
-- (void)setCloudController:(id)arg1;
+- (void)updateProgress;
+- (void)cancel:(id)arg1;
+- (void)progressDidChangeNotification:(id)arg1;
+- (void)cloudBaseViewControllerDidAppear;
 - (void)viewWillAppear;
 - (void)dealloc;
-- (id)initWithCoder:(id)arg1;
+- (void)viewDidLoad;
+- (void)loadView;
+- (struct NSEdgeInsets)edgeInsets;
 
 @end
 

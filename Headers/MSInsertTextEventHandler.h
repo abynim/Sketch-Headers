@@ -20,7 +20,6 @@
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
-- (BOOL)shouldDrawLayerSelection;
 - (id)toolbarIdentifier;
 - (struct CGRect)rectForInsertingDirectly:(struct CGPoint)arg1;
 - (void)selectTextLayerAndEdit:(id)arg1;
@@ -29,11 +28,9 @@
 - (id)groupForInserting;
 - (id)textLayerWithRect:(struct CGRect)arg1 type:(long long)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)mouseMovedEvent:(id)arg1;
-- (void)cursorUpdate:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 

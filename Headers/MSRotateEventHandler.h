@@ -35,7 +35,7 @@
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
 - (void)drawRotationCenter;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (double)alignDegreesTo45Angles:(double)arg1;
 - (long long)degreesForPoint:(struct CGPoint)arg1;
 - (void)keyDown:(id)arg1;

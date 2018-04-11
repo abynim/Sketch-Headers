@@ -8,7 +8,7 @@
 
 #import "MSShapeGroup.h"
 
-@class MSPath, NSBezierPath;
+@class MSPath;
 
 @interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup>
 {
@@ -25,28 +25,22 @@
 + (void)cacheDecorations;
 - (id)bezierPathForEndDecorationOnPath:(id)arg1;
 - (id)bezierPathForStartDecorationOnPath:(id)arg1;
-@property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
-- (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
-- (id)_bezierPathInSize:(struct CGSize)arg1;
-- (id)_pathInSize:(struct CGSize)arg1;
-- (id)pathInBoundsWithCache:(id)arg1;
-@property(readonly, nonatomic) MSPath *pathInBounds;
+@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
+- (id)calculatePathInBounds;
 - (void)applyPropertiesToBezier:(id)arg1;
-@property(readonly, nonatomic) NSBezierPath *bezierPath;
-- (id)pathWithTransformsUsingCache:(id)arg1;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (struct CGRect)calculateInfluenceRectForBounds;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (id)defaultName;
+- (BOOL)allowsBlur;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
 - (void)objectDidInit;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (void)refreshPreviewImagesWithCache:(id)arg1;
-- (BOOL)previewImagesRequireRefreshWithCache:(id)arg1;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
 - (id)defaultValueForOverridePoint:(id)arg1;
+- (BOOL)canOverridePoint:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (id)imageFillForOverrides;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;

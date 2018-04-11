@@ -10,11 +10,11 @@
 {
 }
 
-+ (id)usedSharedObjectsInDocument:(id)arg1 layers:(id)arg2;
 + (id)usedSymbolsInContainer:(id)arg1 document:(id)arg2;
 + (void)usedSymbolsInInstance:(id)arg1 document:(id)arg2 foundSet:(id)arg3;
 + (void)usedSymbolsInSymbolWithID:(id)arg1 document:(id)arg2 foundSet:(id)arg3;
-+ (id)dataForPasteboardData:(id)arg1;
++ (id)dictionaryFromPasteboardLayers:(id)arg1;
++ (id)dataFromPasteboardDictionary:(id)arg1;
 + (id)pasteboardDataFromData:(id)arg1;
 
 @end

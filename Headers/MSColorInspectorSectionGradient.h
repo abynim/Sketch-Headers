@@ -14,31 +14,24 @@
 @interface MSColorInspectorSectionGradient : MSColorInspectorSection <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
     NSView *_gradientBarParentView;
-    NSView *_gradientRotationView;
     MSGradientBarView *_gradientBarView;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
-    NSButton *_smoothOpacityButton;
     MSGradientEventHandler *_gradientHandler;
 }
 
 @property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
-@property(nonatomic) __weak NSButton *smoothOpacityButton; // @synthesize smoothOpacityButton=_smoothOpacityButton;
 @property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
 @property(nonatomic) __weak MSGradientBarView *gradientBarView; // @synthesize gradientBarView=_gradientBarView;
-@property(nonatomic) __weak NSView *gradientRotationView; // @synthesize gradientRotationView=_gradientRotationView;
 @property(nonatomic) __weak NSView *gradientBarParentView; // @synthesize gradientBarParentView=_gradientBarParentView;
 - (void).cxx_destruct;
 - (unsigned long long)assetType;
 - (void)dealloc;
 - (void)closeGradientHandler;
 - (void)popoverWillClose;
-- (id)linearGradients;
-- (id)rotateTransformForGradient:(id)arg1 angle:(double)arg2;
-- (void)rotateGradientsByAngle:(double)arg1;
-- (void)rotateRightAction:(id)arg1;
-- (void)rotateLeftAction:(id)arg1;
+- (id)gradients;
+- (void)rotateGradientAction:(id)arg1;
 - (void)refreshAction:(id)arg1;
 - (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 colorSpace:(id)arg3;
 - (void)updateOtherGradientsToReflectChanges;

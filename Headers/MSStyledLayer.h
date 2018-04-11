@@ -24,6 +24,9 @@
 - (void)setStyleByPreservingSharedObjectReference:(id)arg1;
 - (id)sharedObject;
 - (BOOL)hasSharedStyle;
+- (id)stylesForColorAdjustingWithPreferredName:(id)arg1;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
+- (unsigned long long)shareableObjectType;
 - (void)changeColor:(id)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;

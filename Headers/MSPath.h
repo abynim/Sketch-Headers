@@ -6,25 +6,72 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSArray;
 
-@interface MSPath : NSObject
+@interface MSPath : NSObject <NSCopying>
 {
+    BOOL _cachedPropertiesInitialized;
+    BOOL _cachedIsClosed;
     struct CGPath *_CGPath;
     long long _signedElementCount;
     NSArray *_contours;
+    struct CGPoint _cachedStartPoint;
+    struct CGPoint _cachedEndPoint;
 }
 
++ (id)pathWithPoints:(const struct CGPoint *)arg1 pointCount:(int)arg2 close:(BOOL)arg3;
++ (id)pathWithCurveFromPoint:(struct CGPoint)arg1 to:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
++ (id)pathWithLineFrom:(struct CGPoint)arg1 to:(struct CGPoint)arg2;
++ (id)pathWithBezierPath:(id)arg1;
++ (id)pathWithCGPath:(struct CGPath *)arg1;
 + (id)pathWithEllipseInRect:(struct CGRect)arg1;
 + (id)pathWithRect:(struct CGRect)arg1;
 + (id)pathWithSubPaths:(id)arg1;
+@property(nonatomic) BOOL cachedIsClosed; // @synthesize cachedIsClosed=_cachedIsClosed;
+@property(nonatomic) struct CGPoint cachedEndPoint; // @synthesize cachedEndPoint=_cachedEndPoint;
+@property(nonatomic) struct CGPoint cachedStartPoint; // @synthesize cachedStartPoint=_cachedStartPoint;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
+@property(nonatomic) BOOL cachedPropertiesInitialized; // @synthesize cachedPropertiesInitialized=_cachedPropertiesInitialized;
 @property(nonatomic) long long signedElementCount; // @synthesize signedElementCount=_signedElementCount;
 @property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 - (void).cxx_destruct;
+- (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
+- (BOOL)isEqualToPath:(id)arg1;
+- (CDStruct_ab7f5933)elementAtIndex:(unsigned long long)arg1;
+- (id)pathByRearrangingSubPathsIfNecessary;
+- (id)pathByReplacingMoveToByLineToComponents;
+- (id)pointsInRect:(struct CGRect)arg1;
+- (id)pathByApplyingModifierBlock:(CDUnknownBlockType)arg1;
+- (void)_initCachedProperties;
+- (unsigned long long)bezierIndexForPoint:(struct CGPoint)arg1;
+- (id)pathFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (struct CGPoint)endPoint;
+- (struct CGPoint)startPoint;
+- (id)pathByTrimmingToLength:(double)arg1 withMaximumError:(double)arg2;
+- (double)length;
+- (double)lengthWithMaximumError:(double)arg1;
+- (id)pathByTrimmingToLength:(double)arg1;
+- (struct CGPoint)pointOnPathAtLength:(double)arg1;
+- (double)slopeAtLength:(double)arg1;
+- (BOOL)isClosed;
+- (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1;
+- (id)subPaths;
+- (id)outlinePathWithWidth:(double)arg1;
+- (id)_pathByScalingToBounds:(struct CGRect)arg1;
+- (id)pathByScalingToBounds:(struct CGRect)arg1;
+- (id)pathByCuttingBeforeIndex:(unsigned long long)arg1;
+- (id)pathByJoiningWithPath:(id)arg1;
+- (id)pathByReplacingElementAtIndexWithMoveTo:(long long)arg1;
+- (id)pathByReplacingClosePathByLineToComponents;
+- (id)pathByRemovingSubsequentMoveToComponents;
+- (id)pathWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
 - (id)pathWithInset:(double)arg1;
 - (id)reversedPath;
 - (id)debugQuickLookObject;
+- (id)transformedPathUsingMapBlock:(CDUnknownBlockType)arg1;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
@@ -33,6 +80,9 @@
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect safeBounds;
 - (id)init;
+- (id)initWithPoints:(const struct CGPoint *)arg1 pointCount:(int)arg2 close:(BOOL)arg3;
+- (id)initWithCurveFromPoint:(struct CGPoint)arg1 to:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
+- (id)initWithLineFrom:(struct CGPoint)arg1 to:(struct CGPoint)arg2;
 - (id)initWithEllipseInRect:(struct CGRect)arg1;
 - (id)initWithSquircleInRect:(struct CGRect)arg1 radius:(double)arg2;
 - (id)initWithRoundedRect:(struct CGRect)arg1 radius:(double)arg2;
@@ -40,6 +90,7 @@
 - (id)initWithBezierPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithCGPath:(struct CGPath *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)booleanExclusiveOrWith:(id)arg1;
 - (id)booleanSubtractWith:(id)arg1;
 - (id)booleanIntersectWith:(id)arg1;

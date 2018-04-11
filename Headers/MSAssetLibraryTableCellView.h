@@ -17,6 +17,7 @@
     NSTextField *_secondaryTextField;
     NSTextField *_updateAvailablePrimaryTextField;
     NSTextField *_updateAvailableSecondaryTextField;
+    NSTextField *_updateAvailableTextField;
     MSAssetLibrariesPreferencePane *_libraryPreferencePane;
     MSAssetLibraryPreview *_previewContainer;
     NSProgressIndicator *_downloadProgress;
@@ -30,19 +31,25 @@
 @property(nonatomic) __weak NSProgressIndicator *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(nonatomic) __weak MSAssetLibraryPreview *previewContainer; // @synthesize previewContainer=_previewContainer;
 @property(nonatomic) __weak MSAssetLibrariesPreferencePane *libraryPreferencePane; // @synthesize libraryPreferencePane=_libraryPreferencePane;
+@property(nonatomic) __weak NSTextField *updateAvailableTextField; // @synthesize updateAvailableTextField=_updateAvailableTextField;
 @property(nonatomic) __weak NSTextField *updateAvailableSecondaryTextField; // @synthesize updateAvailableSecondaryTextField=_updateAvailableSecondaryTextField;
 @property(nonatomic) __weak NSTextField *updateAvailablePrimaryTextField; // @synthesize updateAvailablePrimaryTextField=_updateAvailablePrimaryTextField;
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
 - (void).cxx_destruct;
+- (id)sketchRemoteLibraryPlaceholderImage;
+- (id)missingLibraryPlaceholderImage;
+- (id)placeholderImage;
 - (void)setPrimaryTextFieldTextColor:(id)arg1;
 - (void)setSecondaryTextFieldTextColor:(id)arg1;
 - (void)downloadLibrary:(id)arg1;
 @property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) MSAssetPreferenceItem *assetPreferenceItem;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)startDownloadWithEnable:(BOOL)arg1;
 - (void)startDownloading;
 - (void)setupButtons;
+- (void)generatePreviewImage;
 - (void)setObjectValue:(id)arg1;
 - (void)setBackgroundStyle:(long long)arg1;
 

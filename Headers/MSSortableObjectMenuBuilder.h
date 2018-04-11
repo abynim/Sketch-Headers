@@ -8,14 +8,22 @@
 
 #import "NSMenuDelegate.h"
 
-@class NSString;
+@class NSMutableDictionary, NSString;
 
 @interface MSSortableObjectMenuBuilder : NSObject <NSMenuDelegate>
 {
+    NSMutableDictionary *_collatedImages;
+    id <MSMenuBuilderDelegate> _delegate;
 }
 
+@property(readonly, nonatomic) __weak id <MSMenuBuilderDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)applyStyleToMenuItem:(id)arg1;
 - (void)prepareForDisplay:(id)arg1;
+- (void)updateImages;
+@property(readonly, nonatomic) NSMutableDictionary *collatedImages; // @synthesize collatedImages=_collatedImages;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuItemWithName:(id)arg1 target:(id)arg2 selector:(SEL)arg3 sharedObjects:(id)arg4;
 - (id)sharedObjectsFromDescriptorsContents:(id)arg1;
@@ -24,6 +32,7 @@
 - (void)addSortedSharedObjects:(id)arg1 selectedObjects:(id)arg2 toMenu:(id)arg3 target:(id)arg4 selector:(SEL)arg5;
 - (void)selectMenuItemsInPopUpButton:(id)arg1 selectedObjects:(id)arg2;
 - (void)addSortableObjects:(id)arg1 selectedObjects:(id)arg2 toPopUpButton:(id)arg3 target:(id)arg4 selector:(SEL)arg5;
+- (id)initWithDelegate:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

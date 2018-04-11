@@ -6,21 +6,35 @@
 
 #import "MSOverrideViewController.h"
 
-@class NSImageView;
+#import "MSDataMenuProviderDelegate.h"
 
-@interface MSBitmapOverrideViewController : MSOverrideViewController
+@class MSImageOverrideView, NSPopUpButton, NSString;
+
+@interface MSBitmapOverrideViewController : MSOverrideViewController <MSDataMenuProviderDelegate>
 {
-    NSImageView *_imageView;
+    MSImageOverrideView *_imageView;
+    NSPopUpButton *_dataPopUpButton;
 }
 
-@property(retain, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
+@property(retain, nonatomic) NSPopUpButton *dataPopUpButton; // @synthesize dataPopUpButton=_dataPopUpButton;
+@property(retain, nonatomic) MSImageOverrideView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) struct CGRect controlRect;
+- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
+- (unsigned long long)supportedDataProviders;
 - (id)overrideImage;
 - (id)NSImage;
 - (id)valueFromControlView:(id)arg1;
 - (void)choosePatternImage:(id)arg1;
 - (void)build;
+- (void)imageViewAction:(id)arg1;
 - (id)controlViewForEditingOverride;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

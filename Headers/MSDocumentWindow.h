@@ -6,16 +6,18 @@
 
 #import "NSWindow.h"
 
-@class NSButton, NSEvent;
+#import "MSInterfaceTheme.h"
 
-@interface MSDocumentWindow : NSWindow
+@class BCWindowBadge, NSEvent, NSString;
+
+@interface MSDocumentWindow : NSWindow <MSInterfaceTheme>
 {
-    NSButton *_titleBarBadge;
+    BCWindowBadge *_titleBarBadge;
     NSEvent *_lastForwardedKeyEvent;
 }
 
 @property(nonatomic) __weak NSEvent *lastForwardedKeyEvent; // @synthesize lastForwardedKeyEvent=_lastForwardedKeyEvent;
-@property(retain, nonatomic) NSButton *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
+@property(retain, nonatomic) BCWindowBadge *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 - (void).cxx_destruct;
 - (id)touchBar;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
@@ -24,6 +26,12 @@
 - (void)keyDown:(id)arg1;
 - (void)sendEvent:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -14,18 +14,20 @@
     NSString *_property;
     MSOverridePoint *_parent;
     NSString *_layerName;
+    NSString *_name;
 }
 
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *layerName; // @synthesize layerName=_layerName;
 @property(readonly, nonatomic) __weak MSOverridePoint *parent; // @synthesize parent=_parent;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
 @property(readonly, nonatomic) NSString *layerID; // @synthesize layerID=_layerID;
 - (void).cxx_destruct;
+- (unsigned long long)distanceToOverridePoint:(id)arg1;
 - (long long)comparisonScoreAgainst:(id)arg1;
 @property(readonly, nonatomic) BOOL isSymbolOverride;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
-@property(readonly, nonatomic) NSString *name;
 - (id)layerIDPath;
 - (id)initWithLayer:(id)arg1 property:(id)arg2 parent:(id)arg3;
 

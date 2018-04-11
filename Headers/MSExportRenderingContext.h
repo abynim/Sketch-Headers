@@ -4,20 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSRenderingContext.h"
+#import "MSRenderingContextCG.h"
 
 @class MSExportRequest;
 
-@interface MSExportRenderingContext : MSRenderingContext
+@interface MSExportRenderingContext : MSRenderingContextCG
 {
     MSExportRequest *_exportRequest;
 }
 
 @property(retain, nonatomic) MSExportRequest *exportRequest; // @synthesize exportRequest=_exportRequest;
 - (void).cxx_destruct;
-- (BOOL)isExporting;
 - (BOOL)rendererShouldSkipDrawingLayer:(id)arg1;
 - (BOOL)shouldDrawLayer:(id)arg1 withMaskingShapeGroup:(id)arg2 ignoreDrawingArea:(BOOL)arg3;
+- (id)initWithName:(id)arg1 driver:(id)arg2 context:(struct CGContext *)arg3 renderingRequest:(id)arg4;
 
 @end
 

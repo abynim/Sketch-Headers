@@ -25,15 +25,17 @@
 @property(retain, nonatomic) NSMutableArray *errors; // @synthesize errors=_errors;
 @property(retain, nonatomic) NSMutableString *output; // @synthesize output=_output;
 - (void).cxx_destruct;
+- (void)outputErrorWithDomain:(id)arg1 code:(unsigned long long)arg2 info:(id)arg3 format:(id)arg4;
+- (void)outputError:(id)arg1;
 - (void)closeInfoGroup;
 - (void)openInfoGroupWithKey:(id)arg1;
 - (void)outputInfo:(id)arg1 withKey:(id)arg2;
 - (void)outputFormat:(id)arg1;
-- (void)outputError:(id)arg1 format:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *results;
 - (id)urlOptionForKey:(id)arg1 defaultingToWorkingDirectory:(BOOL)arg2;
 - (double)doubleOptionForKey:(id)arg1;
 - (BOOL)boolOptionForKey:(id)arg1;
+- (id)stringOptionForKey:(id)arg1;
 - (id)arrayOptionForKey:(id)arg1 separator:(id)arg2;
 - (id)optionForKey:(id)arg1;
 - (id)initWithOptions:(id)arg1 driver:(id)arg2;

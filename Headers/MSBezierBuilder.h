@@ -39,6 +39,7 @@
 - (id)_path;
 - (id)path;
 - (id)bezierPath;
+- (BOOL)treatCurvePointAsRounded:(id)arg1;
 - (BOOL)isStraightLine;
 - (id)init;
 - (id)initWithPointRadiusBehavior:(long long)arg1;

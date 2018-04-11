@@ -8,9 +8,13 @@
 
 @interface BCMagnifierButton : BCBaseMagnifierButton
 {
+    id <BCMagnifierButtonDelegate> _delegate;
 }
 
 + (Class)cellClass;
+@property(nonatomic) __weak id <BCMagnifierButtonDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (id)documentColorSpace;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

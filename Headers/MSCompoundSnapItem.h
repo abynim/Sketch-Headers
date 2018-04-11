@@ -10,14 +10,12 @@
 
 @interface MSCompoundSnapItem : MSSnapItem
 {
-    NSArray *_layers;
     NSArray *_relativeRects;
     struct CGRect _unionRect;
 }
 
 @property(nonatomic) struct CGRect unionRect; // @synthesize unionRect=_unionRect;
 @property(retain, nonatomic) NSArray *relativeRects; // @synthesize relativeRects=_relativeRects;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (void)setRectForSnapping:(struct CGRect)arg1;
 - (struct CGRect)rectForSnapping;
@@ -25,9 +23,13 @@
 - (void)concatAncestorsAndSelfTransforms;
 - (double)rotation;
 - (BOOL)shouldConstrainProportions;
-- (id)otherLayersForSnapping;
-- (struct CGRect)originalRect;
-- (id)layer;
+- (id)candidateLayersForSnapping;
+- (id)centerYAnchor;
+- (id)centerXAnchor;
+- (id)bottomAnchor;
+- (id)topAnchor;
+- (id)rightAnchor;
+- (id)leftAnchor;
 - (id)snapLines;
 - (id)initWithLayers:(id)arg1;
 

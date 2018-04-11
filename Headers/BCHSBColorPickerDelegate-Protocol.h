@@ -10,5 +10,6 @@
 
 @protocol BCHSBColorPickerDelegate <NSObject>
 - (NSColorSpace *)hsbColorPickerPreviewColorSpace:(BCHSBColorPicker *)arg1;
+- (NSColorSpace *)hsbColorPickerDocumentColorSpace:(BCHSBColorPicker *)arg1;
 @end
 

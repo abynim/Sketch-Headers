@@ -29,6 +29,7 @@
 - (void)scrollRowToVisible:(long long)arg1;
 - (id)dragImageForRowsWithIndexes:(id)arg1 tableColumns:(id)arg2 event:(id)arg3 offset:(struct CGPoint *)arg4;
 - (id)menuForEvent:(id)arg1;
+- (struct CGRect)frameOfOutlineCellAtRow:(long long)arg1;
 - (id)makeViewWithIdentifier:(id)arg1 owner:(id)arg2;
 - (void)registerView:(id)arg1 withIdentifier:(id)arg2;
 - (void)disclosureTriangleClicked:(id)arg1;

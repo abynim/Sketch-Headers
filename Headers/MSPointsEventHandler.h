@@ -30,7 +30,7 @@
 - (id)handleLinesPath;
 - (id)handleLinesColor;
 - (void)drawHandleLines;
-- (void)drawInRect:(struct CGRect)arg1 cache:(id)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)keyDown:(id)arg1;
 - (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;
@@ -43,7 +43,6 @@
 - (long long)indexForMouse:(struct CGPoint)arg1;
 - (BOOL)allowsEmptySelection;
 - (struct CGPoint)relMouse:(struct CGPoint)arg1;
-- (BOOL)shouldDrawLayerSelection;
 - (void)sendUpdate;
 - (struct CGRect)bounds;
 - (id)points;

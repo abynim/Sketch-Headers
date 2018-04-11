@@ -29,14 +29,14 @@
 @property(retain, nonatomic) MSArtboardShadow *normalShadow; // @synthesize normalShadow=_normalShadow;
 @property(readonly, nonatomic) NSFont *titleFont; // @synthesize titleFont=_titleFont;
 - (void).cxx_destruct;
-- (void)renderOverlayForPage:(id)arg1 selectedArtboard:(id)arg2 options:(unsigned long long)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
+- (void)renderOverlayForPage:(id)arg1 selectedLayers:(id)arg2 selectedArtboard:(id)arg3 options:(unsigned long long)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBackgroundForPage:(id)arg1 rect:(struct CGRect)arg2 origin:(struct CGPoint)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
 - (void)drawTitlesForArtboards:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3;
 - (void)drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3;
 - (void)drawPixelLinesInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)drawSliceOutline:(id)arg1 zoom:(double)arg2 ancestors:(id)arg3 context:(struct CGContext *)arg4;
-- (void)drawSlicesOutlineForGroup:(id)arg1 inRect:(struct CGRect)arg2 zoom:(double)arg3 ancestors:(id)arg4 context:(struct CGContext *)arg5;
-- (void)drawSlicesOutlineForGroup:(id)arg1 inRect:(struct CGRect)arg2 context:(id)arg3;
+- (void)drawSlicesOutlineForGroup:(id)arg1 selectedLayers:(id)arg2 inRect:(struct CGRect)arg3 zoom:(double)arg4 ancestors:(id)arg5 options:(unsigned long long)arg6 context:(struct CGContext *)arg7;
+- (void)drawSlicesOutlineForGroup:(id)arg1 selectedLayers:(id)arg2 inRect:(struct CGRect)arg3 options:(unsigned long long)arg4 context:(id)arg5;
 - (void)dealloc;
 - (id)initWithTitleFont:(id)arg1;
 - (id)init;

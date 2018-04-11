@@ -6,13 +6,15 @@
 
 #import "MSImmutableLayerGroup.h"
 
-@class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
+@class MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSDictionary;
 
 @interface _MSImmutableArtboardGroup : MSImmutableLayerGroup
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
     BOOL _includeInCloudUpload;
+    BOOL _isFlowHome;
+    NSDictionary *_presetDictionary;
     BOOL _resizesContent;
     MSImmutableColor *_backgroundColor;
     MSImmutableSimpleGrid *_grid;
@@ -28,6 +30,8 @@
 @property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
 @property(retain, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL resizesContent; // @synthesize resizesContent=_resizesContent;
+@property(retain, nonatomic) NSDictionary *presetDictionary; // @synthesize presetDictionary=_presetDictionary;
+@property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
@@ -41,6 +45,7 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

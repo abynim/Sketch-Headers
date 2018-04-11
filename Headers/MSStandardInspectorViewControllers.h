@@ -6,26 +6,36 @@
 
 #import "NSObject.h"
 
-@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSLayerInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController;
+@class MSBlurInspectorViewController, MSColorControlsInspectorViewController, MSExportPreviewInspectorSection, MSFlowInspectorViewController, MSGeometryInspectorSection, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleShadowInspectorViewController, MSOpacityBlendingInspectorViewController, MSSharedStylesInspectorSection, MSSpecialLayerViewController;
 
 @interface MSStandardInspectorViewControllers : NSObject
 {
-    MSLayerInspectorViewController *_layerViewController;
+    MSGeometryInspectorSection *_geometryViewController;
     MSMultipleFillInspectorViewController *_fillViewController;
     MSMultipleBorderInspectorViewController *_borderViewController;
     MSBlurInspectorViewController *_blurViewController;
     MSColorControlsInspectorViewController *_colorControlsViewController;
     MSMultipleShadowInspectorViewController *_shadowViewController;
     MSMultipleShadowInspectorViewController *_innerShadowViewController;
+    MSFlowInspectorViewController *_flowInspectorViewController;
+    MSOpacityBlendingInspectorViewController *_opacityBlendingViewController;
+    MSSharedStylesInspectorSection *_sharedStyledInspectorSection;
+    MSSpecialLayerViewController *_specialLayerViewController;
+    MSExportPreviewInspectorSection *_exportPreviewViewController;
 }
 
+@property(readonly, nonatomic) MSExportPreviewInspectorSection *exportPreviewViewController; // @synthesize exportPreviewViewController=_exportPreviewViewController;
+@property(readonly, nonatomic) MSSpecialLayerViewController *specialLayerViewController; // @synthesize specialLayerViewController=_specialLayerViewController;
+@property(readonly, nonatomic) MSSharedStylesInspectorSection *sharedStyledInspectorSection; // @synthesize sharedStyledInspectorSection=_sharedStyledInspectorSection;
+@property(readonly, nonatomic) MSOpacityBlendingInspectorViewController *opacityBlendingViewController; // @synthesize opacityBlendingViewController=_opacityBlendingViewController;
+@property(readonly, nonatomic) MSFlowInspectorViewController *flowInspectorViewController; // @synthesize flowInspectorViewController=_flowInspectorViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *innerShadowViewController; // @synthesize innerShadowViewController=_innerShadowViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController; // @synthesize shadowViewController=_shadowViewController;
 @property(readonly, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;
 @property(readonly, nonatomic) MSBlurInspectorViewController *blurViewController; // @synthesize blurViewController=_blurViewController;
 @property(readonly, nonatomic) MSMultipleBorderInspectorViewController *borderViewController; // @synthesize borderViewController=_borderViewController;
 @property(readonly, nonatomic) MSMultipleFillInspectorViewController *fillViewController; // @synthesize fillViewController=_fillViewController;
-@property(readonly, nonatomic) MSLayerInspectorViewController *layerViewController; // @synthesize layerViewController=_layerViewController;
+@property(readonly, nonatomic) MSGeometryInspectorSection *geometryViewController; // @synthesize geometryViewController=_geometryViewController;
 - (void).cxx_destruct;
 - (id)init;
 

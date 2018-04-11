@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableExportOptions, MSImmutableRect, NSDictionary, NSString;
+@class MSImmutableExportOptions, MSImmutableFlowConnection, MSImmutableRect, MSPath, NSDictionary, NSObject, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
@@ -24,11 +24,17 @@
     BOOL _shouldBreakMaskChain;
     NSDictionary *_userInfo;
     MSImmutableExportOptions *_exportOptions;
+    MSImmutableFlowConnection *_flow;
     MSImmutableRect *_frame;
+    NSObject *_calculatedInfluenceRectForBoundsAtomicity;
+    struct CGRect _calculatedInfluenceRectForBounds;
+    NSObject *_calculatedPathInBoundsAtomicity;
+    MSPath *_calculatedPathInBounds;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
+@property(retain, nonatomic) MSImmutableFlowConnection *flow; // @synthesize flow=_flow;
 @property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) BOOL shouldBreakMaskChain; // @synthesize shouldBreakMaskChain=_shouldBreakMaskChain;
@@ -53,6 +59,11 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (id)calculatePathInBounds;
+@property(readonly, nonatomic) MSPath *pathInBounds;
+- (struct CGRect)calculateInfluenceRectForBounds;
+@property(readonly, nonatomic) struct CGRect influenceRectForBounds;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

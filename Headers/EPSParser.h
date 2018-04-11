@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)debugConvertedFile:(id)arg1;
 - (id)name;
+- (void)parsePastedDocument;
 - (void)parseWithProgress:(CDUnknownBlockType)arg1;
 - (unsigned long long)pageCount;
 - (void)loadDocumentFromData:(id)arg1;

@@ -18,7 +18,7 @@
 @property(nonatomic) BOOL allowDocumentUpload; // @synthesize allowDocumentUpload=_allowDocumentUpload;
 - (void).cxx_destruct;
 - (id)fileMetadataForRoot:(id)arg1 onPage:(id)arg2 id:(id)arg3 exportScale:(double)arg4 manifestScale:(double)arg5;
-- (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3 scale:(double)arg4;
+- (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)createManifest;
 

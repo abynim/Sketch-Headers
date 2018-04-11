@@ -16,10 +16,10 @@
     MSDocument *_document;
     MSHistory *_history;
     NSString *_historyMomentTitle;
-    long long _disableMakingHistoryCounter;
+    long long _deferMakingHistoryCounter;
 }
 
-@property long long disableMakingHistoryCounter; // @synthesize disableMakingHistoryCounter=_disableMakingHistoryCounter;
+@property long long deferMakingHistoryCounter; // @synthesize deferMakingHistoryCounter=_deferMakingHistoryCounter;
 @property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
 @property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
 @property(nonatomic) BOOL historyIsCoalescing; // @synthesize historyIsCoalescing=_historyIsCoalescing;
@@ -27,10 +27,11 @@
 @property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
 @property(readonly, nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
 - (void)moveThroughHistoryBackInTime:(BOOL)arg1;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
 - (void)makeHistoryIfNecessaryUsingTransientMoment:(BOOL)arg1;
-- (void)disableMakingHistoryInBlock:(CDUnknownBlockType)arg1;
+- (void)deferMakingHistoryInBlock:(CDUnknownBlockType)arg1;
 - (void)makeTransientMomentInHistoryIfNecessary;
 - (void)makeHistoryIfNecessary;
 - (void)commitTransientMomentIfNecessary;

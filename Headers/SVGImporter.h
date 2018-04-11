@@ -38,6 +38,7 @@
 - (void)addedDrawableElement:(id)arg1;
 - (id)relativeURLForLink:(id)arg1;
 - (void)processReferences:(id)arg1 withElement:(id)arg2;
+- (id)makeRecordWithIdentifier:(id)arg1 type:(id)arg2 target:(id)arg3 property:(id)arg4;
 - (void)addReferenceToIdentifier:(id)arg1 type:(id)arg2 target:(id)arg3 property:(id)arg4;
 - (void)registerElementWithIdentifier:(id)arg1 type:(id)arg2 element:(id)arg3;
 - (id)referenceEntriesForType:(id)arg1;

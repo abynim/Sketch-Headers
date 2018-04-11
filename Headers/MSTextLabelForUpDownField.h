@@ -21,8 +21,7 @@
 - (BOOL)trackMouseDraggingWithDownEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)mouseDown:(id)arg1;
 - (id)textField;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
+- (void)cursorUpdate:(id)arg1;
 - (void)awakeFromNib;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 

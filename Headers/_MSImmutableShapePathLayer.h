@@ -6,17 +6,21 @@
 
 #import "MSImmutableLayer.h"
 
-@class MSImmutableShapePath;
+@class NSArray;
 
 @interface _MSImmutableShapePathLayer : MSImmutableLayer
 {
     long long _booleanOperation;
     BOOL _edited;
-    MSImmutableShapePath *_path;
+    BOOL _isClosed;
+    long long _pointRadiusBehaviour;
+    NSArray *_points;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableShapePath *path; // @synthesize path=_path;
+@property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
+@property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
+@property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
@@ -29,6 +33,7 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

@@ -6,25 +6,24 @@
 
 #import "MSOverrideViewController.h"
 
-#import "MSAssetLibraryControllerDelegate.h"
+@class MSDocument, MSDocumentData, MSForeignObjectMenuBuilder, MSSymbolInstance, MSSymbolMaster, NSPopUpButton, NSString, NSTextField;
 
-@class MSDocument, MSDocumentData, MSForeignSymbolMenuBuilder, MSSymbolInstance, MSSymbolMaster, NSPopUpButton, NSString, NSTextField;
-
-@interface MSSymbolInstanceOverrideViewController : MSOverrideViewController <MSAssetLibraryControllerDelegate>
+@interface MSSymbolInstanceOverrideViewController : MSOverrideViewController
 {
     NSTextField *_labelField;
     NSPopUpButton *_popupButton;
+    MSSymbolMaster *_originalMaster;
     NSPopUpButton *_popup;
-    MSForeignSymbolMenuBuilder *_menuBuilder;
+    MSForeignObjectMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSForeignSymbolMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+@property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
+@property(readonly, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
 @property(retain, nonatomic) NSPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(retain, nonatomic) NSTextField *labelField; // @synthesize labelField=_labelField;
 - (void).cxx_destruct;
-- (void)assetLibraryController:(id)arg1 libraryChanged:(id)arg2;
-- (void)viewDidDisappear;
+- (void)libraryControllerDidChange:(id)arg1;
 - (void)viewWillAppear;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)applyOverrideToSelectedLayers:(id)arg1;
@@ -33,21 +32,13 @@
 - (void)reloadMenu;
 - (id)symbolMenuItems;
 - (id)menuItemsForSymbolMasterRefs:(id)arg1;
-- (void)overrideValueAction:(id)arg1;
 - (id)nameOfCurrentNestedSymbol;
 - (id)controlViewForEditingOverride;
 @property(readonly, nonatomic) MSSymbolInstance *firstInstance;
-@property(readonly, nonatomic) MSSymbolMaster *originalMaster;
 @property(readonly, nonatomic) NSString *originalMasterID;
 @property(readonly, nonatomic) NSString *currentMasterID;
 @property(readonly, nonatomic) MSDocument *document;
 @property(readonly, nonatomic) MSDocumentData *documentData;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

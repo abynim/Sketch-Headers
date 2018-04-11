@@ -21,6 +21,7 @@
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)topViewForColorInspector:(id)arg1;
 - (id)blendingViewForColorInspector:(id)arg1;
+- (id)previewImageForSize:(struct CGSize)arg1 colorSpace:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL isEnabled;

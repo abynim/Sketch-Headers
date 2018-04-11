@@ -10,8 +10,7 @@
 {
 }
 
-- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2;
-- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 zoomLevel:(double)arg3 document:(id)arg4;
+- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 renderingRequest:(id)arg3;
 - (void)addGridRenderersToMap:(id)arg1;
 - (void)addSimpleRenderersToMap:(id)arg1;
 - (id)setupRendererMap;

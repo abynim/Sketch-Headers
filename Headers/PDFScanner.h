@@ -240,6 +240,8 @@
 - (struct CGPoint)currentPoint;
 - (id)currentFont;
 - (id)gradientForPattern:(id)arg1;
+- (unsigned long long)componentIndexForColorSpace:(id)arg1 colorSpaceInfo:(id)arg2;
+- (BOOL)isCMYKColorSpaceName:(id)arg1;
 - (id)tryToPopObject;
 - (id)popObject;
 - (id)popArray;
@@ -263,6 +265,7 @@
 - (id)data:(id)arg1 filteredWith:(id)arg2;
 - (id)inflate:(id)arg1;
 - (int)renderingIntentNamed:(id)arg1;
+- (id)deviceNColorSpace:(id)arg1;
 - (id)colorSpaceWithParameters:(id)arg1 mapping:(id *)arg2;
 - (id)colorSpaceWithInfo:(id)arg1 mapping:(id *)arg2;
 - (id)colorSpaceNamed:(id)arg1 mapping:(id *)arg2;
