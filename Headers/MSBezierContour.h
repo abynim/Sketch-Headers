@@ -30,8 +30,9 @@
 @property(readonly, nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
+- (id)contourWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
 - (id)contourWithInset:(double)arg1;
-- (id)rejoinSegments:(id)arg1 closed:(BOOL)arg2;
+- (id)rejoinSegments:(id)arg1 joinStrategy:(unsigned long long)arg2 closed:(BOOL)arg3;
 - (id)segmentsByDiscardingTinySegments:(id)arg1 closed:(BOOL)arg2;
 - (id)segmentsByCheckingForPointsInJoin:(id)arg1;
 - (id)simplifiedSegments;

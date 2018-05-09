@@ -45,18 +45,18 @@
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (struct CGRect)optimalBoundingBox;
-- (BOOL)canSnapSizeToLayer:(id)arg1;
-- (BOOL)canSnapToLayer:(id)arg1;
+- (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
 - (Class)shareableObjectReferenceClass_bc;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
-- (id)generatePreviewForManageSheetWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)generatePreviewForPopup:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)generateShadowedPreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 withColorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 backingScale:(double)arg3 shadow:(BOOL)arg4 colorSpace:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
+- (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)applyOverrides:(id)arg1;
 - (id)availableOverrides;
 

@@ -8,7 +8,7 @@
 
 #import "MSShapeGroup.h"
 
-@class MSPath, NSBezierPath;
+@class MSPath;
 
 @interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
 {
@@ -25,7 +25,6 @@
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)canRotate;
 - (void)adjustStyleToFitSubPaths;
-- (void)debugWritePaths:(long long)arg1;
 - (BOOL)isVerticalLine;
 - (BOOL)isHorizontalLine;
 - (void)makeLinePixelAligned;
@@ -40,24 +39,17 @@
 - (void)setEdited:(BOOL)arg1;
 - (BOOL)canContainLayer:(id)arg1;
 - (struct CGRect)safeFrameForBezierPath:(id)arg1;
-@property(retain, nonatomic) NSBezierPath *bezierPath;
+@property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 @property(readonly, nonatomic) BOOL hasDecorations;
-@property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
-- (id)bezierPathOfSubPath:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
-@property(readonly, nonatomic) MSPath *pathInBounds;
-- (id)_bezierPathInSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
 - (void)applyPropertiesToBezier:(id)arg1;
-- (id)pathWithTransformsUsingCache:(id)arg1;
-@property(readonly, nonatomic) NSBezierPath *bezierPathWithTransforms;
-- (BOOL)hitTestPoint:(struct CGPoint)arg1 inBezier:(id)arg2 zoomValue:(double)arg3;
+- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3;
 - (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
 - (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)defaultName;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
-- (long long)selectionHandleAtPoint:(struct CGPoint)arg1 zoom:(double)arg2;
+- (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)shouldDrawSelectionStroke;
@@ -80,7 +72,6 @@
 - (struct CGPoint)p1;
 - (id)inspectorViewControllers;
 - (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
-- (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)expandableInLayerList;
@@ -103,11 +94,11 @@
 - (BOOL)canFlatten;
 - (BOOL)canProbablyFlatten;
 - (BOOL)hasFlattenablePath;
+- (BOOL)hasBooleanOperations;
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
 - (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
-- (id)bezierOperationChain;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
 

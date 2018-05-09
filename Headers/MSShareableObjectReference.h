@@ -22,13 +22,19 @@
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject; // @synthesize shareableObject=_shareableObject;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 - (void).cxx_destruct;
+- (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
-- (id)generatePreviewForManageSheetWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)generatePreviewForPopup:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSString *locationPath;
+- (id)localLocationPath;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) unsigned long long shareableObjectType;
+- (id)foreignObjectCollectionInDocument:(id)arg1;
+@property(readonly, nonatomic) NSString *sharedObjectID;
 - (BOOL)isEqual:(id)arg1;
+- (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

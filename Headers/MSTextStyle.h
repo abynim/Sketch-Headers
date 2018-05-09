@@ -16,12 +16,13 @@
 + (id)styleWithAttributes:(id)arg1;
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void).cxx_destruct;
+- (void)resetDecodedAttributes;
 - (void)syncOwningTextLayerWithThisStyle;
 @property(copy, nonatomic) NSDictionary *attributes;
 - (void)updateAttributesWithoutSyncingOwningTextLayer:(id)arg1;
 @property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
-- (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (id)treeAsDictionary;
 
 @end

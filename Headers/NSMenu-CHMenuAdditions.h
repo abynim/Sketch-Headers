@@ -13,7 +13,8 @@
 - (id)replaceItemWithAction:(SEL)arg1 withMenuItem_ms:(id)arg2;
 - (void)addItemsFromArray:(id)arg1;
 - (void)insertItemsFromArray:(id)arg1 atIndex:(unsigned long long)arg2;
-- (BOOL)isInMainMenu;
+@property(readonly, nonatomic) BOOL isDarkMode_ms;
+@property(readonly, nonatomic) BOOL isInMainMenu;
 - (id)addItemWithTitle:(id)arg1 font:(id)arg2 target:(id)arg3 action:(SEL)arg4;
 - (id)addSmallItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 - (id)addSmallItalicItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;

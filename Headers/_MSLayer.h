@@ -6,7 +6,7 @@
 
 #import "MSModelObject.h"
 
-@class MSExportOptions, MSFlowConnection, MSRect, NSDictionary, NSString;
+@class MSExportOptions, MSFlowConnection, MSPath, MSRect, NSDictionary, NSString;
 
 @interface _MSLayer : MSModelObject
 {
@@ -46,6 +46,7 @@
 @property(nonatomic) double rotation; // @synthesize rotation=_rotation;
 @property(nonatomic) unsigned long long resizingType; // @synthesize resizingType=_resizingType;
 @property(nonatomic) unsigned long long resizingConstraint; // @synthesize resizingConstraint=_resizingConstraint;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -54,6 +55,7 @@
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
+@property(readonly, nonatomic) struct CGRect influenceRectForBounds;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -22,6 +22,7 @@
 @property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
 - (void).cxx_destruct;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawAtZoomValue:(double)arg1;
 - (id)initWithPoint:(struct CGPoint)arg1 guides:(id)arg2 snappedAxes:(unsigned long long)arg3;

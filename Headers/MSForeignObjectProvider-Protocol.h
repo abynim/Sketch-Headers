@@ -11,6 +11,7 @@
 @property(readonly, nonatomic) MSAssetLibraryController *libraryController;
 @property(readonly, nonatomic) MSDocumentData *currentDocument;
 @property(readonly, nonatomic) NSArray *foreignObjects;
+- (BOOL)masterIsOutOfSyncWithInstance:(MSModelObject *)arg1;
 - (struct MSModelObject *)masterObjectForInstance:(MSModelObject *)arg1;
 - (BOOL)currentDocumentIsLibrary:(MSAssetLibrary *)arg1;
 - (NSArray *)localObjectsForDocument:(MSDocumentData *)arg1;

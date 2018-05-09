@@ -31,6 +31,7 @@
 - (void)sendMouseDraggedEvent:(id)arg1;
 - (void)sendMouseDownEvent:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (void)setCurrentHandler:(id)arg1 force:(BOOL)arg2;
 - (id)switchToEventHandlerClass:(Class)arg1;
 - (id)toggleHandlerClass:(Class)arg1;
 - (id)handlerForClass:(Class)arg1;

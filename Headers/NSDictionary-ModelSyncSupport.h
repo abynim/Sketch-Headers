@@ -8,6 +8,5 @@
 
 @interface NSDictionary (ModelSyncSupport)
 - (BOOL)propertiesAreEqual:(id)arg1;
-- (BOOL)fuzzyIsEqualFloatValueForKey:(id)arg1 otherDictionary:(id)arg2 precision:(double)arg3;
 @end
 

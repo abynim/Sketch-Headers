@@ -66,6 +66,7 @@
 - (id)presetAtIndexPath:(id)arg1;
 - (void)refreshOrientationControl;
 - (void)selectOrientation:(id)arg1;
+- (void)showCreateCustomSizeSheet:(id)arg1;
 - (void)selectCategory:(id)arg1;
 - (id)categoryForPreset:(id)arg1;
 @property(retain, nonatomic) MSArtboardPresetsCategory *selectedCategory;

@@ -10,7 +10,5 @@
 {
 }
 
-- (id)initWithPoints:(id)arg1 pointRadiusBehaviour:(long long)arg2 isClosed:(BOOL)arg3;
-
 @end
 

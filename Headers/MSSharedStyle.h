@@ -7,20 +7,27 @@
 #import "_MSSharedStyle.h"
 
 #import "MSSharedObjectStyling.h"
+#import "MSSharedStylePasting.h"
 
 @class MSStyle, NSString;
 
-@interface MSSharedStyle : _MSSharedStyle <MSSharedObjectStyling>
+@interface MSSharedStyle : _MSSharedStyle <MSSharedObjectStyling, MSSharedStylePasting>
 {
 }
 
 - (id)newInstance;
 @property(readonly, nonatomic) MSStyle *style;
 - (Class)shareableObjectReferenceClass_bc;
+- (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (void)generateTextPreviewForSyncSheettWithSize:(struct CGSize)arg1 backingScale:(double)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
-- (id)generatePreviewForManageSheetWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (id)generatePreviewForPopup:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)updateToMatch:(struct MSModelObject *)arg1;
+- (void)resetReferencingInstances;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+- (id)handlePasteIntoDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

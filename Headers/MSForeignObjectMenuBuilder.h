@@ -10,14 +10,14 @@
 
 @interface MSForeignObjectMenuBuilder : MSSortableObjectMenuBuilder
 {
-    BOOL _requiresSymbolSubmenu;
+    BOOL _requiresLocalSubmenu;
     CDUnknownBlockType _filter;
     MSForeignObjectCollector *_collector;
 }
 
 + (CDUnknownBlockType)filterForReplacingSymbolInstances:(id)arg1;
 @property(retain, nonatomic) MSForeignObjectCollector *collector; // @synthesize collector=_collector;
-@property(nonatomic) BOOL requiresSymbolSubmenu; // @synthesize requiresSymbolSubmenu=_requiresSymbolSubmenu;
+@property(nonatomic) BOOL requiresLocalSubmenu; // @synthesize requiresLocalSubmenu=_requiresLocalSubmenu;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
 - (id)buildMenuItemsForMenu:(id)arg1 withAction:(id)arg2;

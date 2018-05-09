@@ -7,18 +7,12 @@
 #import "NSBezierPath.h"
 
 @interface NSBezierPath (NSBezierPath_Slopes)
-- (id)bezierPathByRearrangingSubPathsIfNecessary;
-- (id)bezierPathByReplacingElementAtIndexWithMoveTo:(long long)arg1;
-- (id)bezierPathByReplacingClosePathByLineToComponents;
-- (id)bezierPathByRemovingSubsequentMoveToComponents;
-- (id)bezierPathByReplacingMoveToByLineToComponents;
 - (id)bezierPathByApplyingModifierBlock:(CDUnknownBlockType)arg1;
 - (id)subDivideAtPoint:(struct CGPoint)arg1;
 - (void)drawDebugWithZoom:(double)arg1;
 - (id)bezierPathBySmootheningSubPath:(double)arg1;
 - (struct CGPoint)pointAtIndex:(long long)arg1;
 - (void)appendBezierPathByRemovingMoveToPoint:(id)arg1;
-- (id)bezierPathByJoiningWithBezierPath:(id)arg1;
 - (BOOL)isEqualToBezierPath:(id)arg1;
 - (double)lengthWithMaximumError:(double)arg1;
 - (double)length;

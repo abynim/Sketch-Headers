@@ -10,6 +10,7 @@
 {
 }
 
+@property(readonly, nonatomic) BOOL usesAbsoluteUnits;
 - (id)stopsElements;
 - (id)svgAttributesDescription;
 - (struct CGPoint)to;

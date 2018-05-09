@@ -28,7 +28,6 @@
 - (struct CGRect)initialRectForNewArtboard:(struct CGSize)arg1 besidesExistingArtboard:(id)arg2;
 - (struct CGRect)newPositionForSecondArtboardWithSize:(struct CGSize)arg1;
 - (struct CGRect)rectForArtboardWithPreset:(id)arg1;
-- (struct CGRect)rectOfSelectedLayers;
 - (void)insertArtboardFromPreset:(id)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (BOOL)allowsSwitchToInsertAction;

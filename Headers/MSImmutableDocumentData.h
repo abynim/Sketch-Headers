@@ -29,6 +29,7 @@
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (id)usedFontNames;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) MSImmutablePage *currentPage;
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
@@ -72,7 +73,7 @@
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2 cache:(id)arg3;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (void)trackColors:(id)arg1 withinHierarchyOf:(id)arg2 excludeForeignSymbols:(BOOL)arg3;
 - (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
 - (id)colorFinderQueue;

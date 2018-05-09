@@ -12,6 +12,7 @@
 - (id)colorFromHexColorWithColorSpace:(id)arg1;
 - (id)sRGBColorFromHexColor;
 - (id)rgbCalibratedColorFromHexColor;
+- (id)colorFromRGB:(id)arg1;
 - (id)colorFromRGB;
 - (id)colorValue;
 @end

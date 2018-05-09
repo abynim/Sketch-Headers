@@ -16,7 +16,6 @@
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)openMirrorPreview:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
 
 @end
 

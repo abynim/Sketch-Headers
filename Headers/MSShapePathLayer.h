@@ -6,7 +6,7 @@
 
 #import "_MSShapePathLayer.h"
 
-@class MSCurvePoint, NSBezierPath;
+@class MSCurvePoint, MSPath;
 
 @interface MSShapePathLayer : _MSShapePathLayer
 {
@@ -14,7 +14,7 @@
 }
 
 + (void)performBatchEdits:(CDUnknownBlockType)arg1;
-+ (id)shapeWithBezierPath:(id)arg1;
++ (id)shapeWithPath:(id)arg1;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingPreviewImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
@@ -50,11 +50,7 @@
 - (struct CGPoint)convertPointFromPathCoordinates:(struct CGPoint)arg1;
 - (void)didEdit;
 - (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
-@property(retain, nonatomic) NSBezierPath *bezierPath;
-- (id)bezierPathWithTransforms;
-- (id)bezierPathWithoutTransformsInRect:(struct CGRect)arg1;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-- (id)pathInRect:(struct CGRect)arg1;
+@property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 - (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)boundsOfPathIntegral:(BOOL)arg1;
 - (void)adjustFrameAfterEditIntegral:(BOOL)arg1;
@@ -79,13 +75,13 @@
 - (id)selectedPreviewImage;
 - (BOOL)isMasked;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
-- (void)copyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isExportableViaDragAndDrop;
 - (id)badgeMenu;
 - (void)onBooleanOperation:(id)arg1;
 - (unsigned long long)selectedBadgeMenuItem;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (unsigned long long)shareableObjectType;
 - (BOOL)booleanOperationCanBeReset;
 - (BOOL)supportsInnerOuterBorders;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;

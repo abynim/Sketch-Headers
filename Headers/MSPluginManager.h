@@ -15,7 +15,9 @@
     BOOL _monitorForChanges;
     NSArray *_pluginsFolderURLs;
     long long _numberOfIncompatiblePluginsDisabled;
+    NSArray *_pluginsWithSketchCompatipleUpdates;
     long long _updatesAddedToWarehouse;
+    id _logAction;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSMutableDictionary *_runningCommands;
@@ -49,8 +51,10 @@
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
+@property(nonatomic) __weak id logAction; // @synthesize logAction=_logAction;
 @property(nonatomic) BOOL disableAllPlugins; // @synthesize disableAllPlugins=_disableAllPlugins;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
+@property(nonatomic) NSArray *pluginsWithSketchCompatipleUpdates; // @synthesize pluginsWithSketchCompatipleUpdates=_pluginsWithSketchCompatipleUpdates;
 @property(nonatomic) long long numberOfIncompatiblePluginsDisabled; // @synthesize numberOfIncompatiblePluginsDisabled=_numberOfIncompatiblePluginsDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
 - (void).cxx_destruct;
@@ -64,6 +68,8 @@
 - (id)firstPluginBundleFoundInFolder:(id)arg1;
 - (BOOL)installPluginAtURL:(id)arg1 withIdentifier:(id)arg2 error:(id *)arg3;
 - (void)resetAllPluginMetadataToBeDisabled;
+- (BOOL)contentsSameForSmallTextFiles:(id)arg1 file2:(id)arg2;
+- (void)downloadRemotePluginsBlacklist;
 - (BOOL)isPluginUpdateDownloadedWithIdentifier:(id)arg1 version:(id)arg2;
 - (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2 error:(id *)arg3;
 - (void)downloadAndInstallPluginWithIdentifier:(id)arg1 version:(id)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3;

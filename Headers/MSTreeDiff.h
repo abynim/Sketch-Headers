@@ -28,7 +28,7 @@
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRect;
-- (struct CGRect)contentDirtyDiffRectWithCache:(id)arg1;
+- (struct CGRect)contentDirtyDiffRect;
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
 - (void)diffObject:(id)arg1 withObject:(id)arg2;
 - (void)diffObjects:(id)arg1 withObjects:(id)arg2;

@@ -7,21 +7,21 @@
 #import "NSViewController.h"
 
 #import "MSInspectorChildController.h"
-#import "MSSliceLayerWatcher.h"
+#import "MSLayerChangeObserver.h"
 
-@class MSInspectorStackView, MSSeparatorlessView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
+@class MSInspectorStackView, MSSeparatorlessFlippedView, NSArray, NSMutableArray, NSMutableSet, NSString, NSTimer;
 
-@interface MSBaseExportableInspectorViewController : NSViewController <MSSliceLayerWatcher, MSInspectorChildController>
+@interface MSBaseExportableInspectorViewController : NSViewController <MSLayerChangeObserver, MSInspectorChildController>
 {
     MSInspectorStackView *_stackView;
     NSArray *_layers;
     NSTimer *_refreshTimer;
     NSMutableArray *_sliceViews;
     NSMutableSet *_sliceViewPool;
-    MSSeparatorlessView *_sliceViewContainerView;
+    MSSeparatorlessFlippedView *_sliceViewContainerView;
 }
 
-@property(retain, nonatomic) MSSeparatorlessView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
+@property(retain, nonatomic) MSSeparatorlessFlippedView *sliceViewContainerView; // @synthesize sliceViewContainerView=_sliceViewContainerView;
 @property(retain, nonatomic) NSMutableSet *sliceViewPool; // @synthesize sliceViewPool=_sliceViewPool;
 @property(retain, nonatomic) NSMutableArray *sliceViews; // @synthesize sliceViews=_sliceViews;
 @property(retain, nonatomic) NSTimer *refreshTimer; // @synthesize refreshTimer=_refreshTimer;
@@ -41,7 +41,7 @@
 - (void)layerPositionPossiblyChanged;
 - (id)previewContainerView;
 - (id)views;
-- (void)sliceLayerDidChange:(id)arg1;
+- (void)layerDidChange:(id)arg1;
 - (void)prepareForDisplay;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)dealloc;

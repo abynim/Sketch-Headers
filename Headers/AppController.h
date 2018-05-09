@@ -13,7 +13,7 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
 {
@@ -52,11 +52,13 @@
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
     MSComponentsPanelController *_componentsPanelController;
+    MSFontWatcher *_fontWatcher;
     id _lastRunPlugin;
 }
 
 + (id)sharedInstance;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
+@property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
 @property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
@@ -76,7 +78,7 @@
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
-@property(retain, nonatomic) MSDataMenuProvider *dataFeedProvider; // @synthesize dataFeedProvider=_dataFeedProvider;
+@property(readonly, nonatomic) MSDataMenuProvider *dataFeedProvider; // @synthesize dataFeedProvider=_dataFeedProvider;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
@@ -154,7 +156,7 @@
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
 - (id)init;
-- (void)selectInstalledLibrary:(id)arg1;
+- (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)startDownloadingLibrary:(id)arg1;
 - (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;

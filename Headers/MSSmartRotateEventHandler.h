@@ -21,7 +21,6 @@
 @property(copy, nonatomic) NSArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
 @property(nonatomic) unsigned long long numberOfRepetitions; // @synthesize numberOfRepetitions=_numberOfRepetitions;
 - (void).cxx_destruct;
-- (BOOL)shouldDrawLayerSelection;
 - (id)imageName;
 - (id)toolbarIdentifier;
 - (void)dealloc;

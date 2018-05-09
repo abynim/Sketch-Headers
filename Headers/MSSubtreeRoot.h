@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, MSImmutableModelObject, NSArray;
+@class MSImmutableDocumentData, MSImmutableLayerGroup<MSWebExportableRootLayer>, MSImmutableModelObject, NSArray;
 
 @interface MSSubtreeRoot : NSObject
 {
@@ -20,7 +20,8 @@
 @property(retain, nonatomic) MSImmutableModelObject *object; // @synthesize object=_object;
 - (void).cxx_destruct;
 - (struct CGRect)overlayInfluenceRect;
-- (struct CGRect)contentDirtyDiffRectWithCache:(id)arg1;
+- (struct CGRect)contentDirtyDiffRect;
+@property(readonly, nonatomic) MSImmutableLayerGroup<MSWebExportableRootLayer> *webExportableRootLayer;
 
 @end
 

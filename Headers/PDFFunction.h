@@ -18,13 +18,13 @@
     unsigned long long _bytesPerSampleComponent;
     unsigned long long _bytesPerSample;
     unsigned long long _numberOfSamples;
-    NSArray *_range;
     NSArray *_domain;
+    NSArray *_range;
 }
 
 + (id)functionWithInfo:(id)arg1;
-@property(retain, nonatomic) NSArray *domain; // @synthesize domain=_domain;
 @property(retain, nonatomic) NSArray *range; // @synthesize range=_range;
+@property(retain, nonatomic) NSArray *domain; // @synthesize domain=_domain;
 @property(nonatomic) unsigned long long numberOfSamples; // @synthesize numberOfSamples=_numberOfSamples;
 @property(nonatomic) unsigned long long bytesPerSample; // @synthesize bytesPerSample=_bytesPerSample;
 @property(nonatomic) unsigned long long bytesPerSampleComponent; // @synthesize bytesPerSampleComponent=_bytesPerSampleComponent;

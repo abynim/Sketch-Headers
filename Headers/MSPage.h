@@ -12,15 +12,14 @@
 
 @interface MSPage : _MSPage <MSRootLayer>
 {
+    NSMutableSet *_selectedLayerIDs;
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
     MSLayerArray *_cachedSelectedLayers;
-    NSMutableSet *_selectedLayerIDs;
 }
 
 + (id)page;
-@property(readonly, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
@@ -74,8 +73,10 @@
 - (id)layersWithIDs:(id)arg1;
 - (id)layersByObjectID;
 - (id)selectedLayers;
+@property(retain, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 - (id)parentGroup;
 - (void)objectDidInit;
+- (void)resetSelectedLayerIDs:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
 - (void)adjustRulerDataToTopLeftInViewBounds;

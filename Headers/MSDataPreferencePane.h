@@ -10,7 +10,7 @@
 #import "NSTableViewDataSource.h"
 #import "NSTableViewDelegate.h"
 
-@class MSDataSupplierManager, MSDataTableView, NSArray, NSArrayController, NSMenu, NSString;
+@class MSDataSupplierManager, MSDataTableView, NSArray, NSArrayController, NSMenu, NSString, NSWindow;
 
 @interface MSDataPreferencePane : MSPreferencePane <MSDropableViewDelegate, NSTableViewDelegate, NSTableViewDataSource>
 {
@@ -20,11 +20,13 @@
     NSArrayController *_localDataArrayController;
     NSMenu *_contextMenu;
     NSArray *_localData;
+    NSWindow *_chooseDataPanelWindow;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(nonatomic) __weak NSWindow *chooseDataPanelWindow; // @synthesize chooseDataPanelWindow=_chooseDataPanelWindow;
 @property(copy, nonatomic) NSArray *localData; // @synthesize localData=_localData;
 @property(nonatomic) BOOL enableShowInFinder; // @synthesize enableShowInFinder=_enableShowInFinder;
 @property(nonatomic) BOOL shouldEnableCogMenu; // @synthesize shouldEnableCogMenu=_shouldEnableCogMenu;
@@ -49,6 +51,7 @@
 - (id)draggedURLsFromPasteboard:(id)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
+- (void)dismissAlertSheet;
 - (BOOL)validateRemoveLocalDataMenuItem:(id)arg1;
 - (void)removeLocalDataAction:(id)arg1;
 - (void)importLocalData:(id)arg1;

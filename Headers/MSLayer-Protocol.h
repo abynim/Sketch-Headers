@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSAffineTransform, NSArray, NSString;
+@class MSPath, NSAffineTransform, NSArray, NSString;
 
 @protocol MSLayer <NSObject>
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -16,6 +16,9 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
+@property(readonly, nonatomic) MSPath *pathInFrame;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
@@ -23,10 +26,6 @@
 - (NSArray *)childrenIncludingSelf:(BOOL)arg1;
 - (NSArray *)children;
 - (id)layerWithID:(NSString *)arg1;
-- (struct CGRect)overlayInfluenceRectForFrame;
-- (struct CGRect)overlayInfluenceRectForBounds;
-- (struct CGRect)influenceRectForFrame;
-- (struct CGRect)influenceRectForBounds;
 - (NSAffineTransform *)transformForRect:(struct CGRect)arg1;
 @end
 

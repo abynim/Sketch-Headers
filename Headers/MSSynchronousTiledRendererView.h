@@ -6,12 +6,11 @@
 
 #import "NSView.h"
 
-#import "MSOverlayRenderingDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
 @class MSImmutableDocumentData, MSTiledLayerPile, NSString;
 
-@interface MSSynchronousTiledRendererView : NSView <MSTiledLayerPileHostView, MSOverlayRenderingDelegate>
+@interface MSSynchronousTiledRendererView : NSView <MSTiledLayerPileHostView>
 {
     BOOL _ignoreScheduleRedrawRequest;
     BOOL _finished;
@@ -33,9 +32,7 @@
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 - (void).cxx_destruct;
 - (void)tiledLayerPileDidRefreshTileContent:(id)arg1 finishTime:(unsigned long long)arg2;
-- (void)tile:(id)arg1 renderOverlayInRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
 - (void)tiledLayerPile:(id)arg1 requiresRedrawInRect:(struct CGRect)arg2;
-- (id)overlayRenderer;
 - (id)imageRepresentation;
 - (void)draw;
 - (void)redrawTiles;

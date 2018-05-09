@@ -30,7 +30,6 @@
 - (void)drawRectPreview;
 - (id)imageName;
 - (void)handlerWillLoseFocus;
-- (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 
 @end

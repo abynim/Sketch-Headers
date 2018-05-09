@@ -6,41 +6,46 @@
 
 #import "NSObject.h"
 
-#import "SnapItem.h"
+#import "MSSnappable.h"
 
-@class MSLayer, NSArray, NSString;
+@class MSLayer, MSSnapLine, NSArray, NSString;
 
-@interface MSSnapItem : NSObject <SnapItem>
+@interface MSSnapItem : NSObject <MSSnappable>
 {
-    MSLayer *_layer;
+    NSArray *_layers;
     struct CGRect _rectAtInit;
 }
 
-+ (id)snapLinesForLayer:(id)arg1;
-+ (id)snapperObjectWithLayers:(id)arg1;
++ (id)snapItemWithLayers:(id)arg1;
 @property(nonatomic) struct CGRect rectAtInit; // @synthesize rectAtInit=_rectAtInit;
-@property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
+@property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (BOOL)isEqual:(id)arg1;
-@property(readonly, nonatomic) id <SnapItem> snapItemForDrawing;
-- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 @property(readonly, copy) NSString *description;
+- (BOOL)isEqual:(id)arg1;
+- (struct CGAffineTransform)textCorrectionTransform;
+- (void)concatAncestorsAndSelfTransforms;
+- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
+- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
+@property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
+- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 @property(nonatomic) struct CGRect rectForSnapping;
 - (struct CGRect)boundsRect;
-- (void)concatAncestorsAndSelfTransforms;
-- (struct CGAffineTransform)preDrawingTransform;
-- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (double)rotation;
-- (BOOL)shouldConstrainProportions;
-- (BOOL)supportsResizingForSnapping;
-- (struct CGRect)originalRect;
-- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
-- (id)otherLayersForSnapping;
-- (id)otherLayersForSizeSnapping;
+@property(readonly, nonatomic) BOOL shouldConstrainProportions;
+@property(readonly, nonatomic) BOOL supportsResizingForSnapping;
 - (id)artboardForSnapping;
+- (id)candidateLayersForSnapping:(unsigned long long)arg1;
+@property(readonly, nonatomic) MSLayer *layer;
+@property(readonly, nonatomic) MSSnapLine *centerYAnchor;
+@property(readonly, nonatomic) MSSnapLine *centerXAnchor;
+@property(readonly, nonatomic) MSSnapLine *bottomAnchor;
+@property(readonly, nonatomic) MSSnapLine *topAnchor;
+@property(readonly, nonatomic) MSSnapLine *rightAnchor;
+@property(readonly, nonatomic) MSSnapLine *leftAnchor;
 @property(readonly, nonatomic) NSArray *snapLines;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
-- (id)initWithLayer:(id)arg1;
+- (id)init;
+- (id)initWithLayers:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

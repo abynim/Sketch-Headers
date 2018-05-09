@@ -44,7 +44,6 @@
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
-- (id)bezierPath;
 - (id)defaultStyle;
 - (id)parentGroupRecursive;
 - (void)objectDidInit;

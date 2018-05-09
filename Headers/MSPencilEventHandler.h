@@ -21,9 +21,7 @@
 @property(retain, nonatomic) MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
 - (void).cxx_destruct;
-- (void)cursorUpdate:(id)arg1;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (BOOL)shouldDrawLayerSelection;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)addCurvePoint:(id)arg1;
 - (void)addPoint:(struct CGPoint)arg1;

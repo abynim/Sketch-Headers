@@ -10,6 +10,7 @@
 {
 }
 
+- (id)tooltipMoveDescription;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)moveToBack:(id)arg1;

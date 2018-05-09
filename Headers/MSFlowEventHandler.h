@@ -36,6 +36,7 @@
 - (void)drawAreaIndicatorsWithImageNamed:(id)arg1 atOffset:(double)arg2 atEdge:(unsigned long long)arg3;
 - (void)drawOtherPageAreaIndicator;
 - (void)drawBackAreaIndicator;
+- (void)drawFlowPath:(id)arg1 fromLayer:(id)arg2 ofType:(unsigned long long)arg3 context:(id)arg4;
 - (void)drawConnectionToMouseInContext:(id)arg1;
 - (void)drawConnectionToArtboardInContext:(id)arg1;
 - (void)drawConnectionToOtherPageInContext:(id)arg1;

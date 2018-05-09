@@ -43,7 +43,6 @@
 - (long long)indexForMouse:(struct CGPoint)arg1;
 - (BOOL)allowsEmptySelection;
 - (struct CGPoint)relMouse:(struct CGPoint)arg1;
-- (BOOL)shouldDrawLayerSelection;
 - (void)sendUpdate;
 - (struct CGRect)bounds;
 - (id)points;

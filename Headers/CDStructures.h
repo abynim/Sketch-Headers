@@ -143,6 +143,11 @@ struct NSEdgeInsets {
     double right;
 };
 
+struct _BCLine {
+    double _field1;
+    unsigned long long _field2;
+};
+
 struct _CHTransformStruct {
     double _field1;
     char _field2;
@@ -221,4 +226,16 @@ typedef struct {
     CDUnknownFunctionPointerType _field4;
     CDUnknownFunctionPointerType _field5;
 } CDStruct_e097db04;
+
+typedef struct {
+    long long _field1;
+    long long _field2;
+    long long _field3;
+} CDStruct_2ec95fd7;
+
+typedef struct {
+    int _field1;
+    struct CGPoint _field2[2];
+    struct CGPoint _field3;
+} CDStruct_ab7f5933;
 

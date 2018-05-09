@@ -14,7 +14,9 @@
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
     MSImmutableAssetCollection *_assets;
+    NSArray *_foreignLayerStyles;
     NSArray *_foreignSymbols;
+    NSArray *_foreignTextStyles;
     MSImmutableSharedStyleContainer *_layerStyles;
     MSImmutableSymbolContainer *_layerSymbols;
     MSImmutableSharedTextStyleContainer *_layerTextStyles;
@@ -26,7 +28,9 @@
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 @property(retain, nonatomic) MSImmutableSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
 @property(retain, nonatomic) MSImmutableSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
+@property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
+@property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
 @property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
@@ -41,6 +45,7 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

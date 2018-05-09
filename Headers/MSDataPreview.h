@@ -19,12 +19,9 @@
 - (void).cxx_destruct;
 - (id)firstFourDataImages;
 - (id)firstThreeDataTextItems;
-@property(readonly) struct CGRect imageFrameInPreviewFrame;
 @property(readonly) struct CGSize imageSize;
-- (id)thumbWithSize:(struct CGSize)arg1 byDrawingImage:(id)arg2 inRect:(struct CGRect)arg3 fromRect:(struct CGRect)arg4;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
-- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
 - (id)centeredThumbFromImage:(id)arg1;
 - (id)generateTextDataPreview;
 - (id)generateImageDataPreview;

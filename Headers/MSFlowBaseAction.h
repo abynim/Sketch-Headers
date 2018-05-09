@@ -10,9 +10,7 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshLayerListInspectorAndOverlay;
-- (void)performAction:(id)arg1;
 
 @end
 

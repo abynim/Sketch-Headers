@@ -10,13 +10,12 @@
 {
 }
 
++ (void)setCloudDocumentsEnabled:(BOOL)arg1;
++ (BOOL)cloudDocumentsEnabled;
 + (BOOL)builtInRemoteLibrariesEnabled;
 + (void)setBuiltInRemoteLibrariesEnabled:(BOOL)arg1;
-+ (BOOL)shouldArchiveMSAttributedStringAsJSON;
 + (void)setIsComponentsPanelEnabled:(BOOL)arg1;
 + (BOOL)isComponentsPanelEnabled;
-+ (void)setFlowsEnabled:(BOOL)arg1;
-+ (BOOL)flowsEnabled;
 + (void)setDataSuppliersEnabled:(BOOL)arg1;
 + (BOOL)dataSuppliersEnabled;
 + (void)setLibraryStylesEnabled:(BOOL)arg1;

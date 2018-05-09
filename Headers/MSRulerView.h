@@ -24,6 +24,9 @@
     struct CGPoint _mouseDownPoint;
 }
 
++ (BOOL)rulerDraggingLocked;
++ (void)setRulerDraggingLocked:(BOOL)arg1;
++ (void)initialize;
 @property(retain, nonatomic) MSRulerViewLayer *rulerViewLayer; // @synthesize rulerViewLayer=_rulerViewLayer;
 @property(nonatomic) double temporaryRulerGuide; // @synthesize temporaryRulerGuide=_temporaryRulerGuide;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
@@ -55,26 +58,25 @@
 - (struct CGRect)rulerBasedRectForLayer:(id)arg1;
 - (double)snapGuideToSelectedLayers:(double)arg1;
 - (double)guidePositionForMouse:(struct CGPoint)arg1;
-- (void)showAppropriateCursorForMouse:(struct CGPoint)arg1;
+- (void)setDragCursor;
+- (void)setResizeCursor;
+- (void)updateCursorForDragingGuideToPoint:(struct CGPoint)arg1;
+- (void)cursorUpdate:(id)arg1;
 - (void)dragSelectedGuideWithMouse:(struct CGPoint)arg1;
 - (void)updateSelectedLayerOriginsInInspector;
 - (struct CGPoint)distanceFromDragOrigin:(struct CGPoint)arg1;
-- (void)dragRulerBaseWithMouse:(struct CGPoint)arg1;
-- (void)mouseDraggedAtPoint:(struct CGPoint)arg1;
+- (void)dragRulerBaseWithMouse:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (unsigned long long)indexOfGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)addNewGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)mouseDown:(id)arg1;
-- (void)setDragCursor;
-- (void)setResizeCursor;
 - (double)otherAxisForPoint:(struct CGPoint)arg1;
 - (double)relevantAxisForPoint:(struct CGPoint)arg1;
 - (void)refreshGuide:(double)arg1;
 - (void)refreshTemporaryRulerGuide;
 - (void)mouseMoved:(id)arg1;
-- (BOOL)eventInView:(id)arg1;
-- (BOOL)acceptsFirstResponder;
+- (BOOL)isEventInView:(id)arg1;
 - (void)removeAllGuides:(id)arg1;
 - (void)removeGuide:(id)arg1;
 - (void)addAction:(id)arg1 toMenu:(id)arg2;

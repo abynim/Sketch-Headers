@@ -30,6 +30,7 @@
 - (id)sectionTitle;
 - (id)title;
 - (id)keyPath;
+- (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (BOOL)isSpreadFieldAvailable;
 - (BOOL)allowsNegativeSpread;
 - (void)prepare;

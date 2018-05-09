@@ -16,6 +16,7 @@
 - (id)imageName;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;
+- (void)performAction:(id)arg1;
 - (void)insertArtboard:(id)arg1;
 
 @end

@@ -51,17 +51,16 @@
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonWindowController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
-    MSLayerArray *_selectedLayers;
+    MSLayerArray *_previousSelectedLayers;
 }
 
-+ (void)openForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 + (id)currentDocument;
 + (id)windowForSheet;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
-@property(copy, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
+@property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
 @property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
@@ -93,12 +92,13 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (void)installedFontsDidChange;
 - (id)previewColorSpaceForItem:(id)arg1;
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
 - (id)symbolReferenceForRecipe:(id)arg1;
-- (id)localSymbolForSymbol:(id)arg1 inLibrary:(id)arg2;
+- (id)localObjectForObjectReference:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
@@ -109,11 +109,13 @@
 @property(retain, nonatomic) NSDictionary *UIMetadata;
 - (void)setFileURL:(id)arg1;
 - (void)visitSymbolMasterWithID:(id)arg1;
+- (void)openLibrariesForForeignObjects:(id)arg1;
 - (void)visitArtboardForInstance:(id)arg1;
 - (void)removeViewportForArtboard:(id)arg1;
 - (BOOL)canRestoreViewportAfterArtboardEdit:(id)arg1;
 - (void)restoreViewportAfterArtboardEdit:(id)arg1;
 - (void)storeViewport:(id)arg1 andInstance:(id)arg2 forArtboard:(id)arg3;
+- (BOOL)isShowingMeasurements;
 - (void)resetHiddenSelectionHandles;
 - (void)documentDataImmediatelyShowSelectionForAllLayers:(id)arg1;
 - (void)documentData:(id)arg1 immediatelyShowSelectionForLayer:(id)arg2;
@@ -132,9 +134,7 @@
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
-- (void)logBuggyBezierPaths;
 - (void)determineCurrentArtboard;
-- (void)layerSelectionMightHaveChanged;
 - (void)pageTreeLayoutDidChange;
 - (void)layerTreeLayoutDidChange;
 - (void)currentArtboardDidChange;
@@ -169,7 +169,7 @@
 - (void)documentDidChange:(id)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
-- (void)changeToImmutableDocumentData:(id)arg1 pageChanged:(BOOL)arg2;
+- (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
 - (void)commitHistoryIfNecessary:(id)arg1;
 - (void)flushCachesIfNecessary;
 - (id)currentVerticalRulerData;
@@ -199,7 +199,10 @@
 - (void)setCurrentArtboard:(id)arg1;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
+- (void)layerSelectionDidChange;
+- (id)selectedLayers;
 - (void)coalescedSelectionDidChangeNotification:(id)arg1;
+- (void)layerSelectionMightHaveChanged;
 - (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;
 - (void)exportSliceLayers:(id)arg1;

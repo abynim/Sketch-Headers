@@ -18,7 +18,9 @@
 
 @property(readonly, nonatomic) __weak id <MSMenuBuilderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)applyStyleToMenuItem:(id)arg1;
 - (void)prepareForDisplay:(id)arg1;
 - (void)updateImages;
 @property(readonly, nonatomic) NSMutableDictionary *collatedImages; // @synthesize collatedImages=_collatedImages;

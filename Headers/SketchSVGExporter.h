@@ -55,7 +55,7 @@
 - (id)hashForGradient:(id)arg1 inRect:(id)arg2;
 - (BOOL)endFilterGroup;
 - (id)beginFilterGroup;
-- (id)addDefinitionWithWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;
+- (id)addDefinitionWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;
 - (id)uniqueIDForElementWithName:(id)arg1;
 - (void)setDescription:(id)arg1;
 - (void)setTitle:(id)arg1;

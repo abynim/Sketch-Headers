@@ -20,10 +20,10 @@
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 - (void).cxx_destruct;
 - (id)snapsForItems:(id)arg1 skipLayers:(id)arg2;
-- (void)snapItem:(id)arg1 lines:(id)arg2 visible:(BOOL)arg3 snap:(unsigned long long)arg4 resize:(BOOL)arg5 edgesMask:(long long)arg6;
-- (void)snapItem:(id)arg1 toLines:(id)arg2 visible:(BOOL)arg3 snap:(unsigned long long)arg4 resize:(BOOL)arg5 edges:(unsigned long long)arg6;
-- (void)changeSnapItem:(id)arg1 forLine:(id)arg2 visible:(BOOL)arg3 direction:(unsigned long long)arg4 snap:(unsigned long long)arg5 block:(CDUnknownBlockType)arg6;
-- (void)snapItem:(id)arg1 snap:(unsigned long long)arg2 resize:(BOOL)arg3 rulersVisible:(BOOL)arg4 edges:(unsigned long long)arg5;
+- (void)_snapItem:(id)arg1 attributes:(id)arg2 toLines:(id)arg3 visible:(BOOL)arg4 snap:(unsigned long long)arg5 resize:(BOOL)arg6;
+- (void)snapItem:(id)arg1 attributes:(id)arg2 toLines:(id)arg3 visible:(BOOL)arg4 snap:(unsigned long long)arg5 resize:(BOOL)arg6;
+- (void)changeSnapItem:(id)arg1 toRect:(struct CGRect)arg2 forLine:(id)arg3 visible:(BOOL)arg4 snap:(unsigned long long)arg5;
+- (void)snapItem:(id)arg1 attributes:(id)arg2 snap:(unsigned long long)arg3 resize:(BOOL)arg4 rulersVisible:(BOOL)arg5;
 - (id)snapLayerKeys:(id)arg1 rulersVisible:(BOOL)arg2;
 - (id)snapItemDuringResize:(id)arg1 rulersVisible:(BOOL)arg2 edges:(unsigned long long)arg3;
 - (id)snapItemDuringMove:(id)arg1 allowSnaps:(unsigned long long)arg2 rulersVisible:(BOOL)arg3;

@@ -18,6 +18,7 @@
 + (Class)popoverClass;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 - (void).cxx_destruct;
+- (void)windowDidResignMain:(id)arg1;
 - (BOOL)showInToolbar;
 - (id)menu;
 - (BOOL)hasSubMenu;
@@ -30,6 +31,7 @@
 @property(readonly) BOOL popoverVisible;
 - (void)showPopover:(id)arg1;
 - (void)doPerformAction:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

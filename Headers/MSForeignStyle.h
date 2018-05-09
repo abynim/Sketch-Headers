@@ -6,19 +6,25 @@
 
 #import "_MSForeignStyle.h"
 
-@interface MSForeignStyle : _MSForeignStyle
+#import "MSSharedStylePasting.h"
+
+@class NSString;
+
+@interface MSForeignStyle : _MSForeignStyle <MSSharedStylePasting>
 {
 }
 
+- (void)syncWithRemote:(id)arg1;
 - (id)unlinkFromRemote;
-- (id)masterFromLibrary:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;
-- (void)setOriginalObject:(id)arg1;
-- (id)originalObject;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
+- (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+- (id)handlePasteIntoDocument:(id)arg1;
 
 @end
 

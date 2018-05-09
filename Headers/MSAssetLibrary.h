@@ -40,7 +40,6 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *previewURL;
 - (void)resolveLocationOnDisk;
-- (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDate *dateLastModified;
 - (void)unload;
 - (void)handleAssetLibraryUpdateWithCompletionHandler:(CDUnknownBlockType)arg1;

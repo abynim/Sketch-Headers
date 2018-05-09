@@ -37,14 +37,20 @@
 - (void)replaceExistingCreationMetadata;
 - (id)images;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
+- (void)purgeForeignObjects;
+- (void)purgeForeignStyles;
 - (void)purgeForeignSymbols;
-- (void)enumerateForeignSymbolsWithLibraries:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (id)symbolsReferencedBySymbolInstances;
+- (id)symbolsReferencedBySymbolMasters;
+- (id)symbolsReferencedByInstances:(id)arg1;
+- (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;
+- (id)allForeignObjects;
 - (id)allSymbols;
 - (id)localSymbols;
 - (id)allArtboards;
@@ -78,6 +84,7 @@
 - (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlphaOfOriginalColor:(BOOL)arg4;
 - (void)enumerateColorConvertiblesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
 - (void)replaceFonts:(id)arg1;
+- (void)invalidateFonts;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -95,6 +102,7 @@
 - (BOOL)canBeContainedByGroup;
 - (id)metadataForKey:(id)arg1 object:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
+- (id)UIMetadataKey;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *pages;

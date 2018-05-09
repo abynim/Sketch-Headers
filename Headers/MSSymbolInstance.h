@@ -12,10 +12,12 @@
 {
 }
 
++ (void)updateInstances:(id)arg1 preservingOverridesInBlock:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingPreviewImages;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (void)applyOverrides:(id)arg1;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
+- (void)prepareOverrideMappingForPoint:(id)arg1 withSymbolMapTable:(id)arg2 attributeMapTable:(id)arg3;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)mapOverrides:(id)arg1 forOverridePoint:(id)arg2;
 - (void)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2;
@@ -37,9 +39,12 @@
 - (unsigned long long)numberOfVisibleCells;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
+- (id)symbolID;
 - (id)symbolMaster;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (id)inspectorViewControllerNames;
+- (struct MSModelObject *)sharedMaster;
+- (unsigned long long)shareableObjectType;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
 - (id)replaceWithInstanceOfSymbol:(id)arg1;

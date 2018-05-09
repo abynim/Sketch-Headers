@@ -8,26 +8,33 @@
 
 #import "NSWindowDelegate.h"
 
-@class NSString, NSTextField;
+@class NSButton, NSString, NSTextField;
 
 @interface MSUnavailableUpdatesWindowController : NSWindowController <NSWindowDelegate>
 {
     NSTextField *_descriptionTextField;
+    NSTextField *_headerTextField;
+    NSButton *_confirmationButton;
     NSString *_lastVersion;
     NSString *_lastBuildNumber;
+    long long _blockedUpdateReason;
 }
 
-+ (void)showModalWithVersion:(id)arg1 buildNumber:(id)arg2;
++ (void)showModalWithVersion:(id)arg1 buildNumber:(id)arg2 reason:(long long)arg3;
+@property(nonatomic) long long blockedUpdateReason; // @synthesize blockedUpdateReason=_blockedUpdateReason;
 @property(retain, nonatomic) NSString *lastBuildNumber; // @synthesize lastBuildNumber=_lastBuildNumber;
 @property(retain, nonatomic) NSString *lastVersion; // @synthesize lastVersion=_lastVersion;
+@property(nonatomic) __weak NSButton *confirmationButton; // @synthesize confirmationButton=_confirmationButton;
+@property(nonatomic) __weak NSTextField *headerTextField; // @synthesize headerTextField=_headerTextField;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
 - (void).cxx_destruct;
 - (void)learnMore:(id)arg1;
 - (void)openUpdatesPage:(id)arg1;
-- (void)renewLicense:(id)arg1;
+- (void)confirmationAction:(id)arg1;
+- (BOOL)renewalRequired;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidLoad;
-- (id)initWithWindowNibName:(id)arg1 version:(id)arg2 buildNumber:(id)arg3;
+- (id)initWithWindowNibName:(id)arg1 version:(id)arg2 buildNumber:(id)arg3 reason:(long long)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

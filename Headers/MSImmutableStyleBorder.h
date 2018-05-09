@@ -21,6 +21,7 @@
 - (void)addOuterMaskToAttributes:(id)arg1 withExporter:(id)arg2;
 - (void)addInnerMaskToAttributes:(id)arg1 withExporter:(id)arg2;
 - (id)addMaskElementToAttributes:(id)arg1 withExporter:(id)arg2;
+- (double)borderInset;
 
 @end
 

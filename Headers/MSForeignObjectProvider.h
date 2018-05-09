@@ -18,6 +18,7 @@
 + (id)providerForLayers:(id)arg1 inDocument:(id)arg2;
 @property(readonly, nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (BOOL)masterIsOutOfSyncWithInstance:(id)arg1;
 @property(readonly, nonatomic) unsigned long long objectType;
 - (struct MSModelObject *)shareableObjectForInstance:(id)arg1 inContainerOfType:(unsigned long long)arg2;
 - (struct MSModelObject *)masterObjectForInstance:(id)arg1;

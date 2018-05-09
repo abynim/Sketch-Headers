@@ -10,7 +10,7 @@
 {
     BOOL _snapped;
     unsigned long long _axis;
-    double _snapThreshold;
+    double _snapDistance;
     double _snapLocation;
     double _guideStart;
     double _guideEnd;
@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) double guideStart; // @synthesize guideStart=_guideStart;
 @property(readonly, nonatomic) double snapLocation; // @synthesize snapLocation=_snapLocation;
 @property(readonly, nonatomic) BOOL snapped; // @synthesize snapped=_snapped;
-@property(nonatomic) double snapThreshold; // @synthesize snapThreshold=_snapThreshold;
+@property(nonatomic) double snapDistance; // @synthesize snapDistance=_snapDistance;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(nonatomic) struct CGPoint pointToSnap; // @synthesize pointToSnap=_pointToSnap;
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1 andMakeGuide:(id *)arg2 forLayer:(id)arg3;

@@ -27,9 +27,12 @@
 - (struct CGRect)rectValue;
 - (struct CGRect)rectValueFromAttributeWithName:(id)arg1;
 - (long long)intValueFromAttributeWithName:(id)arg1;
+- (id)stringForHREFLink;
+- (id)stringFromAttributeWithName:(id)arg1 orDefault:(id)arg2;
 - (id)stringFromAttributeWithName:(id)arg1;
 - (id)numbersFromAttributeWithName:(id)arg1 scale:(double)arg2;
 - (id)numbersFromAttributeWithName:(id)arg1;
+- (double)doubleValueFromAttributeWithName:(id)arg1 orDefault:(double)arg2;
 - (double)doubleValueFromAttributeWithName:(id)arg1 scale:(double)arg2;
 - (double)doubleValueFromAttributeWithName:(id)arg1 alternate:(id)arg2;
 - (double)doubleValueFromAttributeWithName:(id)arg1;

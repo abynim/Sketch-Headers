@@ -20,6 +20,7 @@
 + (id)colorWithNSColor:(id)arg1;
 + (id)blackColor;
 + (id)whiteColor;
++ (id)colorWithWhite:(double)arg1 alpha:(double)arg2;
 + (id)colorWithIntegerRed:(long long)arg1 green:(long long)arg2 blue:(long long)arg3;
 + (id)colorWithIntegerRed:(long long)arg1 green:(long long)arg2 blue:(long long)arg3 alpha:(long long)arg4;
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
@@ -36,6 +37,7 @@
 - (BOOL)fuzzyIsEqual:(id)arg1 precision:(double)arg2;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (id)hexValue;
+- (BOOL)isGrayscale;
 - (BOOL)isBlack;
 - (BOOL)isWhite;
 - (struct CGColor *)newCGColorWithColorSpace:(struct CGColorSpace *)arg1;

@@ -14,7 +14,7 @@
 {
 }
 
-@property(readonly, nonatomic) long long foreignSymbolsOutOfDate;
+@property(readonly, nonatomic) BOOL areForeignObjectsOutOfDate;
 @property(readonly, nonatomic) unsigned long long numberOfBadges;
 - (id)label;
 @property(readonly, nonatomic) NSColor *badgeTint;

@@ -58,9 +58,8 @@
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizerShouldDelaySelectionUntilMouseUp:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
-- (void)updateCursorIfActive;
+- (void)setNeedsUpdateCursor;
 - (void)updateCursor;
-- (void)cursorUpdate:(id)arg1;
 - (void)trackMouse:(id)arg1;
 - (void)clickToEndEditing:(id)arg1;
 - (void)dragSegment:(id)arg1;
@@ -99,6 +98,7 @@
 - (void)drawHairline;
 - (id)makeWireBezierPathForClosingPath:(BOOL)arg1 indexPathForSelectedHandle:(id)arg2;
 - (void)updateWire;
+- (void)addTargetForHandleAtLocation:(struct CGPoint)arg1 shape:(id)arg2;
 - (void)prepareSnapperForDragging:(BOOL)arg1;
 - (id)changeContext;
 @property(readonly, nonatomic, getter=isInteractivelySelecting) BOOL interactivelySelecting;

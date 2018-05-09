@@ -29,12 +29,8 @@
 @property(retain, nonatomic) MSArtboardShadow *normalShadow; // @synthesize normalShadow=_normalShadow;
 @property(readonly, nonatomic) NSFont *titleFont; // @synthesize titleFont=_titleFont;
 - (void).cxx_destruct;
-- (BOOL)shouldDrawFlowsForSelectedLayers:(id)arg1 options:(unsigned long long)arg2 context:(id)arg3;
 - (void)renderOverlayForPage:(id)arg1 selectedLayers:(id)arg2 selectedArtboard:(id)arg3 options:(unsigned long long)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBackgroundForPage:(id)arg1 rect:(struct CGRect)arg2 origin:(struct CGPoint)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
-- (unsigned long long)drawFlowForLayer:(id)arg1 inRect:(struct CGRect)arg2 isSelected:(BOOL)arg3 ancestors:(id)arg4 artboardDict:(id)arg5 options:(unsigned long long)arg6 mayDrawHotspotBounds:(BOOL)arg7 history:(unsigned long long)arg8 context:(id)arg9;
-- (unsigned long long)recursivelyDrawFlowsForLayer:(id)arg1 inRect:(struct CGRect)arg2 ancestors:(id)arg3 allArtboards:(id)arg4 selectedLayerIDs:(id)arg5 options:(unsigned long long)arg6 mayDrawHotspotBounds:(BOOL)arg7 history:(unsigned long long)arg8 context:(id)arg9;
-- (void)drawFlowsForPage:(id)arg1 selectedLayers:(id)arg2 inRect:(struct CGRect)arg3 options:(unsigned long long)arg4 context:(id)arg5;
 - (void)drawTitlesForArtboards:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3;
 - (void)drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3;
 - (void)drawPixelLinesInRect:(struct CGRect)arg1 context:(id)arg2;

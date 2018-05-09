@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSPluginBundle, NSAttributedString, NSString, NSURL;
+@class MSPluginBundle, NSAttributedString, NSImage, NSString, NSURL;
 
 @interface MSPreferencesPluginInfo : NSObject
 {
@@ -35,6 +35,7 @@
 @property(readonly, copy, nonatomic) NSString *version;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, copy, nonatomic) NSString *enableCheckboxTitle;
+@property(readonly, copy, nonatomic) NSImage *icon;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedTitle;
 - (void)dealloc;
 

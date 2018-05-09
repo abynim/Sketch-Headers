@@ -11,7 +11,7 @@
 }
 
 - (BOOL)validate;
-- (id)joinBezierPath:(id)arg1 withBezierPath:(id)arg2;
+- (id)joinPath:(id)arg1 withPath:(id)arg2;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)join:(id)arg1;
