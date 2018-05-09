@@ -13,8 +13,7 @@
 }
 
 + (id)transformWithInitialRect:(struct CGRect)arg1;
-- (id)transformBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)transformBezierPath:(id)arg1;
+- (id)transformPath:(id)arg1 inRect:(struct CGRect)arg2;
 - (struct CGPoint)transformPoint:(struct CGPoint)arg1 fromRect:(struct CGRect)arg2;
 - (void)invert;
 - (void)differentialPerspectiveBy:(double)arg1;

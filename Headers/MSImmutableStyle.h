@@ -40,6 +40,7 @@
 - (id)borderAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (id)fillAtElementPosition:(long long)arg1 exporter:(id)arg2;
 - (unsigned long long)internalNumberOfElements:(id)arg1;
+- (id)borderWithGreatestInset;
 - (BOOL)canCombineLastFillWithFirstBorder;
 - (BOOL)requiresPathDefinition:(id)arg1;
 - (BOOL)hasBorderRequiringMask;

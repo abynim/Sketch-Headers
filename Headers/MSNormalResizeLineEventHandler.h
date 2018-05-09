@@ -22,7 +22,7 @@
 @property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
 - (void).cxx_destruct;
 - (struct CGPoint)roundMouse:(struct CGPoint)arg1;
-- (id)cursorForDegrees:(long long)arg1;
+- (id)cursorForRadians:(double)arg1;
 - (void)displayResizeCursor;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;

@@ -11,8 +11,10 @@
 @interface MSInspectorStackView : NSView
 {
     NSArray *_sectionViewControllers;
+    NSArray *_sectionViews;
 }
 
+@property(retain, nonatomic) NSArray *sectionViews; // @synthesize sectionViews=_sectionViews;
 @property(retain, nonatomic) NSArray *sectionViewControllers; // @synthesize sectionViewControllers=_sectionViewControllers;
 - (void).cxx_destruct;
 - (id)enclosingStackView;
@@ -22,6 +24,7 @@
 - (void)stack;
 - (void)recalculateHeight:(id)arg1;
 - (void)recalculateHeight;
+- (void)layout;
 - (void)reloadSubviews;
 
 @end

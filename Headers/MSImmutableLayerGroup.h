@@ -22,10 +22,11 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
 - (struct CGRect)rectByApplyingEdgePaddingsToRect:(struct CGRect)arg1;
-- (struct CGRect)overlayInfluenceRectForBounds;
-- (struct CGRect)influenceRectForBounds;
-- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 cache:(id)arg2 visitedSymbols:(id)arg3;
-- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 cache:(id)arg2 visitedSymbols:(id)arg3;
+- (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (id)calculatePathInBounds;
+- (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;

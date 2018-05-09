@@ -10,6 +10,7 @@
 {
 }
 
+- (id)tooltipMoveDescription;
 - (id)touchBarImage;
 - (id)historyMomentTitle;
 - (BOOL)validateToolbarItem:(id)arg1;

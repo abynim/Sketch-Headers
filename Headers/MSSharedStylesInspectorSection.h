@@ -9,14 +9,13 @@
 #import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
-@class MSForeignObjectMenuBuilder, MSLayerArray, MSShareableObjectPopUpButton, MSSharedObject, NSButton, NSString, NSTextField;
+@class MSForeignObjectMenuBuilder, MSLayerArray, MSShareableObjectPopUpButton, MSSharedObject, NSString, NSTextField;
 
 @interface MSSharedStylesInspectorSection : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
     MSLayerArray *_layers;
     MSShareableObjectPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;
-    NSButton *_syncOrResetButton;
     MSSharedObject *_renamingObject;
     CDUnknownBlockType _renameBlock;
     MSForeignObjectMenuBuilder *_menuBuilder;
@@ -25,28 +24,16 @@
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(copy, nonatomic) CDUnknownBlockType renameBlock; // @synthesize renameBlock=_renameBlock;
 @property(retain, nonatomic) MSSharedObject *renamingObject; // @synthesize renamingObject=_renamingObject;
-@property(retain, nonatomic) NSButton *syncOrResetButton; // @synthesize syncOrResetButton=_syncOrResetButton;
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
 @property(retain, nonatomic) MSShareableObjectPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)views;
 - (id)document;
-- (struct MSModelObject *)firstStyle;
-- (id)firstSharedObject;
-- (id)sharedObjectContainer;
-- (BOOL)hasTextLayers;
-- (BOOL)hasOnlyTextLayers;
-- (unsigned long long)sharedObjectType;
-- (BOOL)validateMenuItem:(id)arg1;
-- (void)syncOrResetSharedStyleAction:(id)arg1;
 - (void)renameSharedObjectAction:(id)arg1;
 - (void)renameSharedObject:(id)arg1;
 - (void)layerWithSharedStyleDidChange;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (BOOL)hasLayersOutOfSyncWithSharedObject;
-- (void)validateSyncButtons;
-- (void)prepareForDisplay;
 - (void)reloadData;
 
 // Remaining properties

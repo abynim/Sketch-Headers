@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, NSString;
+@class MSImmutableDocumentData, NSSet, NSString;
 
 @interface MSMoment : NSObject
 {
@@ -14,8 +14,12 @@
     NSString *_title;
     MSImmutableDocumentData *_document;
     unsigned long long _adaptability;
+    NSSet *_selectedLayerIDs;
+    NSString *_pageID;
 }
 
+@property(retain, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
+@property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(nonatomic) unsigned long long adaptability; // @synthesize adaptability=_adaptability;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;

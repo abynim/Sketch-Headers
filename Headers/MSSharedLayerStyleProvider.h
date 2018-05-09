@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)masterIsOutOfSyncWithInstance:(id)arg1;
 - (struct MSModelObject *)masterObjectForInstance:(id)arg1;
 - (unsigned long long)objectType;
 - (id)foreignObjects;

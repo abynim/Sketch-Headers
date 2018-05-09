@@ -4,26 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "MSOverlayRenderer.h"
 
-@class MSContentDrawView, MSLayerArray, MSLayerMeasurementTarget, NSNumberFormatter;
+@class MSLayerArray, MSLayerMeasurementTarget, MSMeasurementDrawing, NSNumberFormatter;
 
-@interface MSLayerMeasurementRenderer : NSObject
+@interface MSLayerMeasurementRenderer : MSOverlayRenderer
 {
-    BOOL _isEnabled;
     MSLayerArray *_selectedLayers;
     MSLayerMeasurementTarget *_measurementTarget;
     unsigned long long _measurementOptions;
     NSNumberFormatter *_numberFormatter;
-    MSContentDrawView *_view;
+    MSMeasurementDrawing *_measurementStamp;
 }
 
-@property(nonatomic) __weak MSContentDrawView *view; // @synthesize view=_view;
+@property(retain, nonatomic) MSMeasurementDrawing *measurementStamp; // @synthesize measurementStamp=_measurementStamp;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) unsigned long long measurementOptions; // @synthesize measurementOptions=_measurementOptions;
 @property(retain, nonatomic) MSLayerMeasurementTarget *measurementTarget; // @synthesize measurementTarget=_measurementTarget;
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
-@property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 - (void).cxx_destruct;
 - (BOOL)isMeasuringDistance;
 - (void)clear;
@@ -32,12 +30,15 @@
 - (void)drawDistanceFromRect:(struct CGRect)arg1 toRect:(struct CGRect)arg2 zoomScale:(double)arg3;
 - (void)drawDistanceFromRect:(struct CGRect)arg1 toGuides:(id)arg2 zoomScale:(double)arg3;
 - (void)prepareForGeometryChange;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (struct CGRect)rectForPositionDrawingForLayers:(id)arg1;
+- (void)drawVerticalDistanceBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2 zoomScale:(double)arg3;
+- (void)drawHorizontalDistanceBetweenRect:(struct CGRect)arg1 andRect:(struct CGRect)arg2 zoomScale:(double)arg3;
+- (void)drawMeasurement:(unsigned long long)arg1 ofRect:(struct CGRect)arg2 zoomScale:(double)arg3;
 - (void)drawOutlineForRect:(struct CGRect)arg1 zoomScale:(double)arg2;
-- (void)drawWithZoomScale:(double)arg1;
+- (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
 - (struct CGRect)drawingRectForData:(id)arg1;
 - (id)measurementData;
+- (void)setEnabled:(BOOL)arg1;
 
 @end
 

@@ -6,14 +6,16 @@
 
 #import "NSObject.h"
 
-@class NSColorSpace;
+@class MSRenderingDriver, NSColorSpace;
 
 @interface MSExportManager : NSObject
 {
     NSColorSpace *_colorSpace;
     CDUnknownBlockType _sliceCompletionBlock;
+    MSRenderingDriver *_driver;
 }
 
+@property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(copy, nonatomic) CDUnknownBlockType sliceCompletionBlock; // @synthesize sliceCompletionBlock=_sliceCompletionBlock;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void).cxx_destruct;
@@ -31,7 +33,7 @@
 - (void)exportFileForRequest:(id)arg1 toFileURL:(id)arg2;
 - (id)exportedDataForRequest:(id)arg1;
 - (id)rendererForRequest:(id)arg1;
-- (id)initWithColorSpace:(id)arg1;
+- (id)init;
 
 @end
 

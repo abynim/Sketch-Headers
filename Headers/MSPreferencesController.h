@@ -27,6 +27,7 @@
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;
 - (void).cxx_destruct;
+- (void)dismissAnyAlertSheet;
 - (BOOL)validateToolbarItem:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarSelectableItemIdentifiers:(id)arg1;
@@ -35,6 +36,7 @@
 - (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 @property(nonatomic) unsigned long long selectedTabIndex;
 - (void)updateWindowFrame;
+- (id)existingPaneWithIdentifier:(id)arg1;
 - (id)switchToPaneWithIdentifier:(id)arg1;
 - (void)switchPanes:(id)arg1;
 - (void)adjustColorsAction:(id)arg1;

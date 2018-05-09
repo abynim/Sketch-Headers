@@ -19,9 +19,6 @@
 - (void)fillShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 windingRule:(unsigned long long)arg4 spread:(double)arg5 context:(id)arg6;
 - (void)clipAndTransformForShadow:(id)arg1 forBounds:(struct CGRect)arg2 context:(id)arg3 inBlock:(CDUnknownBlockType)arg4;
 - (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 context:(id)arg4;
-- (id)pathForFillingAndStrokingShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 spread:(double)arg4 options:(id)arg5 strokeType:(long long)arg6 lineWidth:(double)arg7 context:(id)arg8;
-- (id)pathForFilling:(id)arg1 shadow:(id)arg2 cacheObject:(id)arg3 spread:(double)arg4 context:(id)arg5;
-- (id)pathForStroking:(id)arg1 cacheObject:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4 context:(id)arg5;
 - (void)renderShadow:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3 block:(CDUnknownBlockType)arg4;
 - (void)renderShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 windingRule:(unsigned long long)arg4 options:(id)arg5 type:(unsigned long long)arg6 strokeType:(long long)arg7 fillShouldClip:(BOOL)arg8 lineWidth:(double)arg9 context:(id)arg10;
 

@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 - (BOOL)isEditable;
 - (BOOL)isEnabled;
-- (BOOL)hasValidFirstResponder;
+- (BOOL)isEditing;
 - (double)floatValue;
 - (double)incrementValueAccountingForModifierFlags;
 - (double)adjustValueForMinimum:(double)arg1;

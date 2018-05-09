@@ -20,6 +20,7 @@
 - (void)refreshLicenseIfIneligible;
 - (void)resetContentViewController:(id)arg1;
 - (void)licenseDidChangeNotification:(id)arg1;
+- (void)shareDidChangeNotification:(id)arg1;
 - (void)shareUploadDidChangeNotification:(id)arg1;
 - (void)userDidUpdateNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;

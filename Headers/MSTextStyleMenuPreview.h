@@ -10,9 +10,12 @@
 {
 }
 
-+ (id)textAttachmentForImageNamed:(id)arg1;
-+ (id)attributedTitle:(id)arg1 styles:(id)arg2 colorSpace:(id)arg3 includeStyleInfo:(BOOL)arg4 inMainMenu:(BOOL)arg5;
-+ (void)applyTextStylesToMenuItem:(id)arg1 colorSpace:(id)arg2 includeStyleInfo:(BOOL)arg3;
++ (id)attributedTitleForTextStyle:(id)arg1 colorSpace:(id)arg2;
++ (void)applyTextStylesToMenuItem:(id)arg1 colorSpace:(id)arg2;
++ (id)ensureAttributes:(id)arg1 areVisibleDrawingInMenuItem:(id)arg2;
++ (id)ensureAttributes:(id)arg1 areVisibleDrawingAgainstRed:(double)arg2 green:(double)arg3 blue:(double)arg4;
++ (id)attributesForDrawingTextWithStyle:(id)arg1 inColorSpace:(id)arg2;
++ (id)attributedDescriptionOfTextStyles:(id)arg1 withHightlight:(BOOL)arg2;
 
 @end
 

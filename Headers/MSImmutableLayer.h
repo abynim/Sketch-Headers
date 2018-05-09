@@ -11,7 +11,7 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, NSAffineTransform, NSArray, NSSet, NSString;
+@class MSImmutableStyle, MSPath, NSAffineTransform, NSArray, NSSet, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSFlowContainmentCheck, MSLayer, MSLayerTraits>
 {
@@ -25,20 +25,19 @@
 - (BOOL)canSkipAdvancedClipForStrokes;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-- (struct CGRect)overlayInfluenceRectForFrame;
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame;
 - (struct CGRect)overlayInfluenceRectForBounds;
-@property(readonly, nonatomic) struct CGRect influenceRectForBounds;
-- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 cache:(id)arg2 visitedSymbols:(id)arg3;
-- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 cache:(id)arg2 visitedSymbols:(id)arg3;
-- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 cache:(id)arg2 visitedSymbols:(id)arg3;
-- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 cache:(id)arg2;
-- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 cache:(id)arg2;
+- (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1;
+- (struct CGRect)influenceRectForFrameInDocument:(id)arg1;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (struct CGRect)rectByTransformingRect:(struct CGRect)arg1 andPaddingWithAncestors:(id)arg2;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 - (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
-- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2 cache:(id)arg3;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)bezierBoundsInAbsoluteCoordinatesWithAncestors:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForTransforms;
@@ -46,6 +45,9 @@
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
+@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
+@property(readonly, nonatomic) MSPath *pathInFrame;
+- (id)calculatePathInBounds;
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
 @property(readonly, nonatomic) struct CGPoint center;
@@ -95,7 +97,7 @@
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2 cache:(id)arg3;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldRenderInTransparencyLayer;
@@ -125,6 +127,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) MSPath *pathInBounds;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;
 

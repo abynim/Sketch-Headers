@@ -10,5 +10,6 @@
 
 @protocol MSTextLayerTextViewDelegate <NSObject>
 - (NSColorSpace *)documentColorSpaceForTextLayerTextView:(MSTextLayerTextView *)arg1;
+- (NSColorSpace *)canvasColorSpaceForTextLayerTextView:(MSTextLayerTextView *)arg1;
 @end
 

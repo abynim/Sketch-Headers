@@ -46,7 +46,6 @@
 - (id)coordinateTransformMatrix;
 - (void)drawBorderAroundBounds;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (BOOL)shouldDrawLayerSelection;
 - (id)selectionBezierForFlippingCoordinates;
 - (struct CGRect)imageBounds;
 - (struct CGSize)imageSize;

@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObject.h"
+#import "MSForeignObject.h"
 
-@class MSSharedStyle;
+@class MSSharedStyle, NSString;
 
-@interface _MSForeignStyle : MSModelObject
+@interface _MSForeignStyle : MSForeignObject
 {
-    MSSharedStyle *_originalStyle;
-    MSSharedStyle *_style;
+    NSString *_remoteStyleID;
+    MSSharedStyle *_localSharedStyle;
 }
 
 + (BOOL)allowsFaulting;
@@ -24,8 +24,8 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(retain, nonatomic) MSSharedStyle *style; // @synthesize style=_style;
-@property(retain, nonatomic) MSSharedStyle *originalStyle; // @synthesize originalStyle=_originalStyle;
+@property(retain, nonatomic) MSSharedStyle *localSharedStyle; // @synthesize localSharedStyle=_localSharedStyle;
+@property(retain, nonatomic) NSString *remoteStyleID; // @synthesize remoteStyleID=_remoteStyleID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

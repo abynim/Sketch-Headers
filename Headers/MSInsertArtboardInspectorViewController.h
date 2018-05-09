@@ -17,12 +17,12 @@
     BOOL _shouldAddInsertFromSelectionItem;
     MSInsertArtboardEventHandler *_eventHandler;
     NSView *_presetsContainerView;
-    struct CGSize _sizeOfSelectedLayers;
+    struct CGSize _proposedArtboardSize;
 }
 
 @property(retain, nonatomic) NSView *presetsContainerView; // @synthesize presetsContainerView=_presetsContainerView;
 @property(nonatomic) MSInsertArtboardEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
-@property(nonatomic) struct CGSize sizeOfSelectedLayers; // @synthesize sizeOfSelectedLayers=_sizeOfSelectedLayers;
+@property(nonatomic) struct CGSize proposedArtboardSize; // @synthesize proposedArtboardSize=_proposedArtboardSize;
 @property(nonatomic) BOOL shouldAddInsertFromSelectionItem; // @synthesize shouldAddInsertFromSelectionItem=_shouldAddInsertFromSelectionItem;
 - (void).cxx_destruct;
 - (id)views;

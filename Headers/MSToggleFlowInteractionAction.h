@@ -10,7 +10,6 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
 - (id)labelForToolbar;
 - (id)label;
 - (id)imageName;

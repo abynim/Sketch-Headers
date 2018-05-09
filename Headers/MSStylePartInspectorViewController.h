@@ -45,6 +45,7 @@
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)closePopover;
+- (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)dealloc;
 - (void)awakeFromNib;

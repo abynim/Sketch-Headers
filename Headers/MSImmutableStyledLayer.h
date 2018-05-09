@@ -14,6 +14,7 @@
 
 + (unsigned long long)traits;
 - (unsigned long long)windingRule;
+@property(readonly, nonatomic) BOOL allowsBlur;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
 - (id)previewFillColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
 - (id)previewBorderColorForDocumentData:(id)arg1 selected:(BOOL)arg2;

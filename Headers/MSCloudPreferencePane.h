@@ -25,6 +25,8 @@
 @property(retain, nonatomic) MSCloudPreferencesViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
 - (void).cxx_destruct;
+- (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
+- (id)willPresentError:(id)arg1;
 - (void)updateAuthenticatedUser;
 @property(readonly, nonatomic) BOOL isUpdatingAuthenticatedUser;
 - (void)cloudURLDidOpenNotification:(id)arg1;

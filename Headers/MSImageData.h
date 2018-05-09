@@ -10,20 +10,20 @@
 #import "MSJSONArchiverAlternativeFileReference.h"
 #import "NSCopying.h"
 
-@class NSData, NSImage, NSString;
+@class NSData, NSImage, NSObject<OS_dispatch_semaphore>, NSString;
 
 @interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
 {
-    NSData *_data;
     NSData *_sha1;
+    NSData *_data;
     NSImage *_image;
+    NSObject<OS_dispatch_semaphore> *_dataLock;
 }
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
+@property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-@property(retain, nonatomic) NSData *sha1; // @synthesize sha1=_sha1;
-@property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
 - (void)correctInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
@@ -41,6 +41,11 @@
 - (void)encodeWithArchiver:(id)arg1;
 - (id)NSImage;
 - (BOOL)isLegacy;
+- (void)setSha1:(id)arg1;
+- (void)setData:(id)arg1;
+@property(readonly, nonatomic) NSData *sha1;
+@property(readonly, nonatomic) NSData *data;
+- (void)waitForDataLock;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;

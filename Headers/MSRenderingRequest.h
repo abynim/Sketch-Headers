@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class MSImmutableDocumentData, MSImmutableLayer, NSColorSpace;
+@class MSImmutableDocumentData, MSImmutableLayer;
 
 @interface MSRenderingRequest : NSObject
 {
     id <MSRenderingContextCacheProvider> _cacheProvider;
-    NSColorSpace *_colorSpace;
+    struct CGColorSpace *_colorSpace;
     MSImmutableDocumentData *_document;
     double _pointScale;
     double _zoomLevel;
@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(readonly, nonatomic) double pointScale; // @synthesize pointScale=_pointScale;
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) long long renderingQuality;
@@ -39,9 +39,10 @@
 - (id)requestWithBackgroundBlurLayer:(id)arg1;
 - (id)requestWithPointScale:(double)arg1;
 - (id)requestWithZoomLevel:(double)arg1;
+- (void)dealloc;
 - (id)requestWithOptions:(unsigned long long)arg1;
-- (id)initWithDocument:(id)arg1 colorSpace:(id)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 cacheProvider:(id)arg5 options:(unsigned long long)arg6;
-- (id)initWithDocument:(id)arg1 colorSpace:(id)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 cacheProvider:(id)arg5 backgroundBlurLayer:(id)arg6 options:(unsigned long long)arg7;
+- (id)initWithDocument:(id)arg1 colorSpace:(struct CGColorSpace *)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 cacheProvider:(id)arg5 options:(unsigned long long)arg6;
+- (id)initWithDocument:(id)arg1 colorSpace:(struct CGColorSpace *)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 cacheProvider:(id)arg5 backgroundBlurLayer:(id)arg6 options:(unsigned long long)arg7;
 - (id)init;
 
 @end

@@ -23,7 +23,6 @@
 - (void)refreshOpenDocuments;
 - (void)adjustFlowColorAction:(id)arg1;
 - (void)adjustSnapColorAction:(id)arg1;
-- (void)awakeFromNib;
 
 @end
 

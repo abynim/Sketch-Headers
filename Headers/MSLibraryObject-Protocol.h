@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSSymbolMaster, NSString;
+@class MSDocumentData, NSString;
 
 @protocol MSLibraryObject <NSObject>
+@property(readonly, nonatomic) MSDocumentData *document;
 @property(readonly, nonatomic) NSString *libraryID;
 @property(readonly, nonatomic) NSString *name;
-- (MSSymbolMaster *)symbolWithID:(NSString *)arg1;
 @end
 

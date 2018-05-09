@@ -16,7 +16,6 @@
 + (double)lastUsedCornerRadius;
 - (BOOL)canFlatten;
 - (void)multiplyBy:(double)arg1;
-- (BOOL)shouldDrawLayerSelection;
 - (void)resetPointsIfNecessary;
 - (void)resetPathsToRoundedRect;
 - (void)resetPathsToRect;

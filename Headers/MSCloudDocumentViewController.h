@@ -6,21 +6,25 @@
 
 #import "MSCloudBaseViewController.h"
 
-@class MSCursorButton, NSButton, NSStackView, NSTimer, SCKShare;
+@class MSCursorButton, NSButton, NSLayoutConstraint, NSStackView, NSTextField, NSTimer, SCKShare;
 
 @interface MSCloudDocumentViewController : MSCloudBaseViewController
 {
     NSStackView *_buttonStackView;
     NSButton *_uploadButton;
     NSButton *_updateButton;
+    NSLayoutConstraint *_uploadButtonWidthConstraint;
     MSCursorButton *_linkButton;
     NSButton *_settingsButton;
+    NSTextField *_permissionLabel;
     NSTimer *_timeLabelUpdateTimer;
 }
 
 @property(retain, nonatomic) NSTimer *timeLabelUpdateTimer; // @synthesize timeLabelUpdateTimer=_timeLabelUpdateTimer;
+@property(retain, nonatomic) NSTextField *permissionLabel; // @synthesize permissionLabel=_permissionLabel;
 @property(retain, nonatomic) NSButton *settingsButton; // @synthesize settingsButton=_settingsButton;
 @property(retain, nonatomic) MSCursorButton *linkButton; // @synthesize linkButton=_linkButton;
+@property(retain, nonatomic) NSLayoutConstraint *uploadButtonWidthConstraint; // @synthesize uploadButtonWidthConstraint=_uploadButtonWidthConstraint;
 @property(retain, nonatomic) NSButton *updateButton; // @synthesize updateButton=_updateButton;
 @property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
 @property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
@@ -29,6 +33,8 @@
 - (void)openPublicURL:(id)arg1;
 - (void)update:(id)arg1;
 - (void)upload:(id)arg1;
+- (void)userDidChangeNotification:(id)arg1;
+@property(readonly, nonatomic) BOOL canUpdateShare;
 - (void)reloadTitleLabel;
 - (void)scheduledTimeLabelUpdateFired:(id)arg1;
 - (void)scheduleTimeLabelUpdate;
@@ -39,6 +45,7 @@
 - (void)viewWillAppear;
 - (void)loadView;
 - (struct NSEdgeInsets)edgeInsets;
+- (id)initWithAction:(id)arg1;
 
 @end
 

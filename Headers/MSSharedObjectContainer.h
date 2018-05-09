@@ -14,12 +14,6 @@
 - (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (id)sharedObjectsInLayers:(id)arg1;
 - (id)sharedObjectsInLayer:(id)arg1;
-- (BOOL)resetSharedObjectInstance:(struct MSModelObject *)arg1;
-- (void)syncInstance:(struct MSModelObject *)arg1 withTemplateInstance:(struct MSModelObject *)arg2;
-- (void)synchroniseInstancesOfSharedObject:(id)arg1 withInstance:(struct MSModelObject *)arg2;
-- (void)updateValueOfSharedObject:(id)arg1 byCopyingInstance:(struct MSModelObject *)arg2;
-- (BOOL)updateInstancesOfSharedObject:(id)arg1 withValue:(struct MSModelObject *)arg2;
-- (BOOL)syncSharedObjectWithInstance:(struct MSModelObject *)arg1;
 - (void)unregisterInstance:(struct MSModelObject *)arg1;
 - (void)registerInstance:(struct MSModelObject *)arg1 withSharedObject:(id)arg2;
 - (unsigned long long)numberOfSharedObjects;
@@ -29,9 +23,7 @@
 - (id)sharedObjectForInstance:(struct MSModelObject *)arg1;
 - (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
 - (id)instancesOf:(id)arg1 inContainer:(id)arg2;
-- (id)mergeSharedObjectWithName:(id)arg1 sharedObjectID:(id)arg2 instance:(struct MSModelObject *)arg3;
 - (void)removeSharedObject:(id)arg1;
-- (id)addSharedObjectWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
 - (Class)sharedObjectClass;
 
 @end

@@ -9,7 +9,7 @@
 #import "NSDraggingDestination.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSArray, NSEvent, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSArray, NSCursor, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
 {
@@ -17,11 +17,13 @@
     struct CGPoint mouseAtTimeOfMenu;
     NSMutableArray *_gestureRecognizers;
     BOOL _mouseIsDown;
+    NSMutableArray *_overlayRenderers;
     MSEventHandlerManager *_manager;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
     NSTouchBar *_noSelectionTouchBar;
     NSTouchBar *_selectionTouchBar;
+    NSCursor *_cursor;
     NSString *_measurementText;
     NSArray *_activeGestureRecognizers;
     struct CGPoint _viewCoordinateMouse;
@@ -33,7 +35,9 @@
 @property(nonatomic) struct CGSize measurementLabelSize; // @synthesize measurementLabelSize=_measurementLabelSize;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
+@property(readonly, nonatomic) NSArray *overlayRenderers; // @synthesize overlayRenderers=_overlayRenderers;
 @property(copy, nonatomic) NSString *measurementText; // @synthesize measurementText=_measurementText;
+@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
 @property(retain, nonatomic) NSTouchBar *noSelectionTouchBar; // @synthesize noSelectionTouchBar=_noSelectionTouchBar;
 @property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
@@ -90,6 +94,7 @@
 - (double)zoomValue;
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (id)dragDropHintForDropOnPoint:(struct CGPoint)arg1;
+- (void)replaceArtboardWithLayerGroupInPasteBoardData:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
@@ -97,19 +102,16 @@
 - (unsigned long long)draggingEntered:(id)arg1;
 - (id)imageName;
 - (id)toolbarIdentifier;
-- (BOOL)shouldDrawLayerHighlight;
-- (BOOL)shouldDrawLayerSelection;
+@property(readonly) BOOL wantsLayerHighlight;
+@property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;
-- (void)cursorUpdate:(id)arg1;
-- (id)defaultCursor;
 - (void)drawHandles;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;
 - (BOOL)escapeKeyIsPressed:(unsigned short)arg1;
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
-@property(readonly, nonatomic) NSEvent *lastEvent;
 - (unsigned long long)hitTestingOptions;
 - (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
@@ -140,6 +142,7 @@
 - (void)returnToDefaultHandler;
 - (struct CGPoint)centerPointForZooming;
 - (struct CGRect)selectedRect;
+- (void)zoomToArtboard;
 - (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)commitPendingEdits;
@@ -162,6 +165,7 @@
 - (void)drawMeasurementLabel;
 - (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (void)addOverlayRenderer:(id)arg1;
 - (void)setMeasurementLabelNeedsDisplay;
 @property(readonly, nonatomic) struct CGRect measurementBackgroundRect;
 - (struct CGPoint)locationForMeasurementLabel;
@@ -177,6 +181,8 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)rightMouseDown:(id)arg1;
+- (void)setNeedsUpdateCursor;
+- (BOOL)updateCursor;
 - (void)trackMouse:(id)arg1;
 - (BOOL)mouseMovedEvent:(id)arg1;
 - (BOOL)mouseUpEvent:(id)arg1;

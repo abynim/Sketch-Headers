@@ -15,6 +15,8 @@
     NSDictionary *_incompatiblePluginVersions;
 }
 
++ (id)incompatiblePlugins;
++ (id)existingDownloadededBlacklistURL;
 @property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;

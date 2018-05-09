@@ -21,6 +21,8 @@
 + (id)arrayWithLayer:(id)arg1;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)arg1;
 - (id)description;
 - (id)sortedArrayByUsingComparator:(CDUnknownBlockType)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
@@ -39,6 +41,7 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (id)filter:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)commonArtboard;
 - (id)layersSuitableForInsertingIntoGroup:(id)arg1;

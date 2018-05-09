@@ -18,9 +18,7 @@
 @property(retain, nonatomic) NSIndexPath *hoveringSegment; // @synthesize hoveringSegment=_hoveringSegment;
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;
-- (BOOL)shouldDrawLayerSelection;
 - (id)imageName;
-- (void)cursorUpdate:(id)arg1;
 - (void)strokePath:(id)arg1 isHovering:(BOOL)arg2;
 - (id)trimPathOnBothSides:(id)arg1;
 - (void)drawThinStrokeBezierSegments:(id)arg1 hoverIndex:(unsigned long long)arg2;

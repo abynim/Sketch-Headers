@@ -9,6 +9,5 @@
 @interface NSFontDescriptor (JSONEncoder)
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
-- (BOOL)respondsToSelector:(SEL)arg1;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class COScript, ECLogChannel, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
+@class COScript, ECLogChannel, MSPluginBundle, MSPluginCommandSpecifier, MSPluginManager, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
 
 @interface MSPluginCommand : NSObject
 {
@@ -27,12 +27,14 @@
     COScript *_session;
     NSMutableDictionary *_context;
     NSString *_executingScript;
-    NSDictionary *_coreModuleMap;
+    NSMutableDictionary *_coreModuleMap;
+    MSPluginManager *_manager;
 }
 
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
 + (id)actionIDsNotToReload;
-@property(retain, nonatomic) NSDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
+@property(nonatomic) __weak MSPluginManager *manager; // @synthesize manager=_manager;
+@property(retain, nonatomic) NSMutableDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
@@ -70,11 +72,11 @@
 @property(readonly, nonatomic) MSPluginCommandSpecifier *commandSpecifier;
 - (void)error:(id)arg1;
 - (void)print:(id)arg1;
+- (void)log:(id)arg1 atLevel:(id)arg2;
 - (void)resetLogger;
 @property(nonatomic) BOOL stayRunning;
 - (void)coscript:(id)arg1 hadError:(id)arg2 onLineNumber:(long long)arg3 atSourceURL:(id)arg4;
 - (id)executeScript:(id)arg1;
-- (id)executeScriptAtURL:(id)arg1;
 - (BOOL)hasRunHandler;
 - (BOOL)tearDownIfFinished;
 - (id)runHandler:(id)arg1 context:(id)arg2 manager:(id)arg3 onComplete:(CDUnknownBlockType)arg4;

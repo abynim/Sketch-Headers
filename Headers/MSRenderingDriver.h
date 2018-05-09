@@ -14,17 +14,15 @@
     NSMapTable *_renderers;
 }
 
-+ (id)defaultDriver;
 @property(retain, nonatomic) NSMapTable *renderers; // @synthesize renderers=_renderers;
 @property(readonly, nonatomic) MSRenderingDriverSettings *settings; // @synthesize settings=_settings;
 - (void).cxx_destruct;
 - (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 renderingRequest:(id)arg3;
-- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 zoomLevel:(double)arg3 document:(id)arg4;
 - (id)rendererForObject:(id)arg1 protocol:(id)arg2;
 - (void)addRenderersForSubclasses:(id)arg1;
 - (id)setupRendererMap;
 - (id)initWithSettings:(id)arg1;
-- (struct CGColor *)colorFromDefaultNamed:(id)arg1;
+- (struct CGColor *)createColorFromDefaultNamed:(id)arg1;
 - (id)init;
 
 @end

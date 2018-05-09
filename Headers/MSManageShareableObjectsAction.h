@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSBaseSharedObjectAction.h"
 
-@interface MSManageShareableObjectsAction : MSDocumentAction
+@interface MSManageShareableObjectsAction : MSBaseSharedObjectAction
 {
 }
 
+- (id)label;
+- (void)showOrganiserSheet:(id)arg1;
 - (void)showSheetWithTabIndex:(unsigned long long)arg1;
 
 @end

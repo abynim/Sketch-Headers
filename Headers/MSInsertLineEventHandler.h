@@ -17,15 +17,15 @@
 @property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
 @property(copy, nonatomic) CDUnknownBlockType lineShapeCreator; // @synthesize lineShapeCreator=_lineShapeCreator;
 - (void).cxx_destruct;
-- (id)findCurrentGroup;
+- (id)currentGroup;
 - (double)lineThickness;
 - (id)style;
 - (void)createShapeAtMouse:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (void)cursorUpdate:(id)arg1;
 - (struct CGPoint)roundMouse:(struct CGPoint)arg1;
+- (void)handlerGotFocus;
 
 @end
 

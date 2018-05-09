@@ -13,7 +13,8 @@
 }
 
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
-- (id)masterFromLibrary:(id)arg1;
+- (id)collectionInDocument:(id)arg1;
+- (id)masterFromDocument:(id)arg1;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)syncWithRemote:(id)arg1;
@@ -25,6 +26,9 @@
 - (id)originalObject;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
+- (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+- (id)tooltipForObject_MSAssetSyncSheetObject:(struct MSModelObject *)arg1;
+- (unsigned long long)type_MSAssetSyncSheetObject;
 
 @end
 

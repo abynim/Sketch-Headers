@@ -10,7 +10,6 @@
 {
 }
 
-- (BOOL)isFlipped;
 - (BOOL)wantsSeparator;
 
 @end

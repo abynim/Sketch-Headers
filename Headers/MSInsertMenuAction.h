@@ -12,14 +12,18 @@
 {
     id <NSObject> _documentCloseObserver;
     MSForeignObjectMenuBuilder *_symbolMenuBuilder;
+    MSForeignObjectMenuBuilder *_textStyleMenuBuilder;
 }
 
+@property(retain, nonatomic) MSForeignObjectMenuBuilder *textStyleMenuBuilder; // @synthesize textStyleMenuBuilder=_textStyleMenuBuilder;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *symbolMenuBuilder; // @synthesize symbolMenuBuilder=_symbolMenuBuilder;
 @property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (void).cxx_destruct;
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)addInsertMenuItemsFor:(id)arg1 usingMenuBuilder:(id)arg2 forMenu:(id)arg3;
 - (void)addInsertSharedTextToMenu:(id)arg1;
 - (void)addInsertSymbolsToMenu:(id)arg1;
+- (void)addHeaderToMenu:(id)arg1 withTitle:(id)arg2;
 - (BOOL)isSelectable;
 - (id)label;
 - (id)tooltip;

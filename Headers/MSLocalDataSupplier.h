@@ -32,6 +32,7 @@
 - (id)imageFileURLForDataItem:(id)arg1;
 - (void)generateDataWithCount:(unsigned long long)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
+@property(readonly, nonatomic) BOOL isBuiltin;
 - (BOOL)valid;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFileSystemURL:(id)arg1;

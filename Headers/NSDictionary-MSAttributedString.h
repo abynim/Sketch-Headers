@@ -11,8 +11,8 @@
 - (id)dictionaryByConvertingMSImmutableColorsToNSColorsInColorSpace:(id)arg1;
 - (id)dictionaryByConvertingNSColorsToMSImmutableColorsInColorSpace:(id)arg1;
 - (id)dictionaryByMappingComponentsDictionaryToMSImmutableColor;
-- (id)dictionaryByMappingMSImmutableColorsToComponentsDictionary;
 - (id)dictionaryByMappingFontDescriptorsToFont;
+- (id)dictionaryByRefreshingFontDescriptors;
 - (id)dictionaryByMappingFontToFontDescriptors;
 - (id)prepareStringAttributesAfterDecoding;
 - (id)prepareStringAttributesForEncoding;

@@ -10,7 +10,6 @@
 {
 }
 
-+ (id)snapLinesForLayer:(id)arg1;
 - (double)xHeight;
 - (double)baseline;
 - (BOOL)supportsResizingForSnapping;

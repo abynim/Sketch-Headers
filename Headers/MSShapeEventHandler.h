@@ -47,7 +47,6 @@
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
-- (BOOL)shouldDrawLayerSelection;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;
@@ -59,6 +58,7 @@
 - (void)selectAll:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (id)layersToCopy;
+- (BOOL)updateCursor;
 - (void)trackMouse:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

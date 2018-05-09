@@ -6,15 +6,15 @@
 
 #import "NSTableCellView.h"
 
-@class MSSymbolView, NSTextField;
+@class MSSharedObjectView, NSTextField;
 
 @interface MSManageForeignSymbolTableCellView : NSTableCellView
 {
     NSTextField *_secondaryTextField;
-    MSSymbolView *_symbolView;
+    MSSharedObjectView *_sharedObjectView;
 }
 
-@property(retain, nonatomic) MSSymbolView *symbolView; // @synthesize symbolView=_symbolView;
+@property(retain, nonatomic) MSSharedObjectView *sharedObjectView; // @synthesize sharedObjectView=_sharedObjectView;
 @property(retain, nonatomic) NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 - (void).cxx_destruct;
 - (void)setBackgroundStyle:(long long)arg1;

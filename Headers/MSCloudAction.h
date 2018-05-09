@@ -23,6 +23,9 @@
 + (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
++ (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
++ (id)cloudError:(id)arg1 addingRecoveryOptionsWithAttempter:(id)arg2;
++ (BOOL)isErrorRecoverable:(id)arg1;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(retain, nonatomic) NSError *uploadError; // @synthesize uploadError=_uploadError;
 @property(retain, nonatomic) MSCloudShareUploadController *upload; // @synthesize upload=_upload;
@@ -41,6 +44,8 @@
 - (id)tooltip;
 - (BOOL)showInToolbar;
 - (id)initWithDocument:(id)arg1;
+- (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
+- (id)willPresentError:(id)arg1;
 - (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
 - (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
 - (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;

@@ -43,7 +43,7 @@
 - (BOOL)differsFromObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2 cache:(id)arg3;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

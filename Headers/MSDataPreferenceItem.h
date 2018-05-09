@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(readonly, nonatomic) MSLocalDataSupplier *localData; // @synthesize localData=_localData;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isBuiltinDataSupplier;
 @property(readonly, nonatomic) BOOL valid;
 @property(readonly, nonatomic) NSString *name;
 - (id)initWithLocalData:(id)arg1;

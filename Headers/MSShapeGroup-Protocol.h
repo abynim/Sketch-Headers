@@ -4,18 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class BCCache, MSPath, MSShapePathLayer, NSBezierPath;
+@class MSPath, NSBezierPath;
 
 @protocol MSShapeGroup
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasDecorations;
-@property(readonly, nonatomic) NSBezierPath *decoratedBezierPathInBounds;
-@property(readonly, nonatomic) NSBezierPath *bezierPathInBounds;
-@property(readonly, nonatomic) NSBezierPath *bezierPath;
-@property(readonly, nonatomic) MSPath *pathInBounds;
+@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
 - (void)applyPropertiesToBezier:(NSBezierPath *)arg1;
-- (MSPath *)pathWithTransformsUsingCache:(BCCache *)arg1;
-- (NSBezierPath *)bezierPathOfSubPath:(MSShapePathLayer *)arg1 inRect:(struct CGRect)arg2;
-- (NSBezierPath *)bezierPathInRect:(struct CGRect)arg1;
 @end
 

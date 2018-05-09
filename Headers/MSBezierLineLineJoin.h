@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)segmentsByJoiningSegment1:(id)arg1 segment2:(id)arg2;
-+ (id)joinWithSegment1:(id)arg1 segment2:(id)arg2;
++ (id)segmentsByJoiningSegment1:(id)arg1 segment2:(id)arg2 strategy:(unsigned long long)arg3;
++ (id)joinWithSegment1:(id)arg1 segment2:(id)arg2 strategy:(unsigned long long)arg3;
 
 @end
 

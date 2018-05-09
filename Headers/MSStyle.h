@@ -15,6 +15,7 @@
 {
 }
 
+- (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
 @property(readonly, nonatomic) double thickestInnerStroke;
@@ -49,9 +50,9 @@
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 - (long long)determineMaskingMode;
 - (void)prepareAsMask;
-- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)prepareForPreviewingWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2;
-- (id)pathForPreviewWithSize:(struct CGSize)arg1;
+- (id)shapeForPreviewWithSize:(struct CGSize)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

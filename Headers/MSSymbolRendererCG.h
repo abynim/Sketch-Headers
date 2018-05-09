@@ -10,7 +10,9 @@
 {
 }
 
-- (void)drawErrorPatternInRect:(struct CGRect)arg1 context:(id)arg2;
+- (void)drawErrorPatternInRect:(struct CGRect)arg1 context:(id)arg2 error:(long long)arg3;
+- (void)drawBrokenLinkSymbolErrorIconInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
+- (void)drawRecursiveSymbolErrorIconInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
 - (void)renderArtboard:(id)arg1 forInstance:(id)arg2 influenceBounds:(struct CGRect)arg3 inContext:(id)arg4;
 - (void)renderSymbolOrErrorPatternForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 context:(id)arg3;
 - (BOOL)setupTransparencyIfRequiredForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 context:(id)arg3 previousAlpha:(double *)arg4;

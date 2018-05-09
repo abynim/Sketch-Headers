@@ -17,16 +17,13 @@
 + (id)defaultName;
 + (unsigned long long)traits;
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
-- (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) BOOL isRectangle;
 @property(readonly, nonatomic) BOOL isPolyline;
 @property(readonly, nonatomic) BOOL isPolygon;
 @property(readonly, nonatomic) unsigned long long numberOfCurvePoints;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
 - (BOOL)isLayerExportable;
-- (id)bezierPathWithoutTransformsInRect:(struct CGRect)arg1;
-- (id)bezierPathInRect:(struct CGRect)arg1;
-- (id)pathInRect:(struct CGRect)arg1;
+- (id)calculatePathInBounds;
 - (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
 - (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
 - (void)migratePropertiesFromV99OrEarlierWithUnarchiver:(id)arg1;

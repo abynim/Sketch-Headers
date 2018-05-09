@@ -6,11 +6,12 @@
 
 #import "SVGElement.h"
 
-@class MSImmutableColor, NSSet, NSString, SVGGradient;
+@class MSImmutableColor, NSSet, NSString, SVGGradient, SVGPattern;
 
 @interface _SVGFill : SVGElement
 {
     SVGGradient *_gradient;
+    SVGPattern *_pattern;
     NSSet *_usedBy;
     MSImmutableColor *_color;
     double _opacity;
@@ -24,12 +25,14 @@
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
+@property(retain, nonatomic) SVGPattern *pattern; // @synthesize pattern=_pattern;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;
 - (void).cxx_destruct;
 - (void)primitiveRemoveUsedByObject:(id)arg1;
 - (void)primitiveAddUsedByObject:(id)arg1;
 - (void)removeUsedByObject:(id)arg1;
 - (void)addUsedByObject:(id)arg1;
+- (void)primitiveSetPattern:(id)arg1;
 - (void)primitiveSetGradient:(id)arg1;
 
 @end

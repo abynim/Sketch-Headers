@@ -12,6 +12,7 @@
 
 - (BOOL)mayShowResizingInspectorView;
 - (void)configureInspector:(id)arg1;
+- (BOOL)wantsStandardSelectionControls;
 - (void)resizeParentsOfSelectedLayersToFit;
 - (BOOL)canDuplicate;
 - (id)cursorForCorner:(long long)arg1 transformStruct:(struct _CHTransformStruct)arg2;

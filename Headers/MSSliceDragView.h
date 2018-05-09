@@ -34,8 +34,7 @@
 - (id)writableTypesForPasteboard:(id)arg1;
 - (void)beginDragWithEvent:(id)arg1;
 - (void)mouseDown:(id)arg1;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
+- (void)cursorUpdate:(id)arg1;
 - (void)setExportableLayer:(id)arg1 previewCompletionBlock:(CDUnknownBlockType)arg2;
 - (id)exportingColorSpace;
 - (void)setup;

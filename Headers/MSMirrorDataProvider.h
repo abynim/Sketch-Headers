@@ -38,8 +38,8 @@
 @property(readonly, nonatomic) BOOL hasConnectedClients;
 - (void)lookupUpdateTypeWithHandler:(CDUnknownBlockType)arg1;
 - (BOOL)treeDiff:(id)arg1 containsFlowLayerChangesInNewDocument:(id)arg2;
-- (void)sendUpdateFromOldArtboard:(id)arg1 toNewArtboard:(id)arg2 newDocument:(id)arg3 diffRect:(struct CGRect)arg4;
 - (void)sendVisualUpdateForNewDocument:(id)arg1;
+- (void)invalidateRootLayer:(id)arg1 inCanvasRect:(struct CGRect)arg2;
 - (void)sendUpdate;
 - (void)updateIfNeeded;
 - (void)setNeedsUpdateMetadata;

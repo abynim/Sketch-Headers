@@ -39,8 +39,11 @@
 - (void)reloadFontWeightPopup:(id)arg1 familyName:(id)arg2 row:(long long)arg3;
 - (void)fontWeightAction:(id)arg1;
 - (void)changeFontFamilyTo:(id)arg1 forRow:(long long)arg2;
+- (void)updateFonts;
 - (void)setObject:(id)arg1;
+- (void)systemFontsChanged:(id)arg1;
 - (void)windowDidLoad;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

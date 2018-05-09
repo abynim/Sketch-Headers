@@ -6,10 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSString, NSURL, SCKShareUploadOperation;
+@class NSString, NSURL, SCKShare, SCKShareUploadOperation;
 
 @protocol SCKShareUploadDataSource <NSObject>
-- (NSURL *)documentFileURLForShareUploadOperation:(SCKShareUploadOperation *)arg1;
+- (void)shareUploadOperation:(SCKShareUploadOperation *)arg1 exportDocumentWithHandler:(void (^)(NSURL *))arg2;
+- (void)shareUploadOperation:(SCKShareUploadOperation *)arg1 willStartUploadingShare:(SCKShare *)arg2;
 - (NSURL *)shareUploadOperation:(SCKShareUploadOperation *)arg1 fileURLForItemWithHash:(NSString *)arg2;
 @end
 

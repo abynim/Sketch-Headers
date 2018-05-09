@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseSharedStyleAction.h"
+#import "MSBaseSharedObjectAction.h"
 
-@interface MSDetachSharedStyleAction : MSBaseSharedStyleAction
+@interface MSDetachSharedStyleAction : MSBaseSharedObjectAction
 {
 }
 
-- (void)doPerformAction:(id)arg1;
+- (id)label;
+- (void)performSharedObjectAction;
 - (void)detachSharedStyle:(id)arg1;
 
 @end

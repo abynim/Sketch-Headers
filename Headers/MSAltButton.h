@@ -8,10 +8,14 @@
 
 @interface MSAltButton : MSHoverButton
 {
+    id _bc_weakTarget;
 }
 
+@property(nonatomic) __weak id bc_weakTarget; // @synthesize bc_weakTarget=_bc_weakTarget;
+- (void).cxx_destruct;
 - (void)dealloc;
 - (void)flagsChangedNotification:(id)arg1;
+- (void)setTarget:(id)arg1;
 - (void)awakeFromNib;
 
 @end

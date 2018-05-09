@@ -20,9 +20,11 @@
 @property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (void)changeTextLayerFont:(id)arg1;
 - (id)views;
 - (id)inspectorsWithProperContent;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
+- (void)loadView;
 - (id)init;
 
 // Remaining properties

@@ -8,12 +8,12 @@
 
 #import "MSLayerTraits.h"
 
-@class MSLayerArray, NSDictionary, NSString;
+@class MSLayerArray, NSArray, NSDictionary, NSString;
 
 @interface MSPasteboardLayers : NSObject <MSLayerTraits>
 {
     MSLayerArray *_layers;
-    NSDictionary *_sharedObjects;
+    NSArray *_sharedStyles;
     NSDictionary *_localSymbols;
     NSDictionary *_foreignSymbols;
     unsigned long long _parentTraits;
@@ -31,11 +31,11 @@
 @property(nonatomic) struct CGPoint suggestedPosition; // @synthesize suggestedPosition=_suggestedPosition;
 @property(retain, nonatomic) NSDictionary *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) NSDictionary *localSymbols; // @synthesize localSymbols=_localSymbols;
-@property(retain, nonatomic) NSDictionary *sharedObjects; // @synthesize sharedObjects=_sharedObjects;
+@property(retain, nonatomic) NSArray *sharedStyles; // @synthesize sharedStyles=_sharedStyles;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (struct CGRect)suggestedRect;
-- (id)insertInGroup:(id)arg1 atPosition:(struct CGPoint)arg2 afterLayer:(id)arg3;
+- (id)insertInGroup:(id)arg1 atPosition:(struct CGPoint)arg2 afterLayer:(id)arg3 viewport:(id)arg4 fitToParent:(BOOL)arg5;
 - (id)insertOnPage:(id)arg1 viewport:(id)arg2 hint:(id)arg3;
 - (id)layerPositionsRelativeToUnion;
 - (struct CGSize)unionSize;

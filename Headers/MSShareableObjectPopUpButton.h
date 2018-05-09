@@ -27,13 +27,15 @@
 - (void)addOriganiseMenu;
 - (void)addCreateNewMenu;
 - (BOOL)hasLayerWithMissingFonts;
-- (void)addUnlinkMenu;
+- (void)addOpenLibraryMenu;
+- (void)addSyncMenu;
 - (void)addReplacementObjectsToMenu;
-- (void)addMenuItemForActionName:(id)arg1 title:(id)arg2;
+- (id)addMenuItemForActionName:(id)arg1 title:(id)arg2;
 - (id)objectsAtSameLevelAsMaster;
 - (void)addObjectsAtSameLevelToMenu;
 - (void)addDetachMenuItem;
 - (void)addTitleMenuItem;
+- (BOOL)containsOutOfSyncInstance;
 - (id)masterObjects;
 - (id)localizedTypeString:(id)arg1;
 @property(readonly, nonatomic) NSString *objectTypeName;

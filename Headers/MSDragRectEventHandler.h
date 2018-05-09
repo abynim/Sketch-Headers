@@ -6,23 +6,28 @@
 
 #import "MSEventHandler.h"
 
-@class MSDragGestureRecognizer, NSCursor;
+@class MSDragGestureRecognizer, MSPointSnapper, MSPointSnappingResult, NSCursor;
 
 @interface MSDragRectEventHandler : MSEventHandler
 {
     MSDragGestureRecognizer *_dragGestureRecognizer;
-    NSCursor *_cursor;
+    MSPointSnapper *_snapper;
+    MSPointSnappingResult *_snappingResult;
+    NSCursor *_insertionCursor;
     struct CGRect _insertionRect;
 }
 
-@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
+@property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
+@property(retain, nonatomic) MSPointSnappingResult *snappingResult; // @synthesize snappingResult=_snappingResult;
+@property(readonly, nonatomic) MSPointSnapper *snapper; // @synthesize snapper=_snapper;
 @property(readonly, nonatomic) MSDragGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)cursorUpdate:(id)arg1;
-- (id)layerSnapper;
-- (BOOL)shouldDrawLayerSelection;
+- (void)enumeratePossibleSnapTargetLayersInGroup:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)cacheSnapTargets;
+- (id)snapMouseToEdges:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (struct CGPoint)snapMouseAndShowSnapLines:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)prepareGraphicsContext;
 - (void)drawRectPreview;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
@@ -32,15 +37,18 @@
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 @property(readonly) unsigned long long layerSelectionOptionsForInsertingFromExistingLayer;
 - (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
-- (BOOL)shouldDrawLayerHighlight;
+- (BOOL)wantsLayerHighlight;
 @property(readonly) BOOL allowsInsertLayerFromExistingLayer;
 @property(readonly, nonatomic) NSCursor *cursorForInsertingFromExisting;
 - (void)trackMouse:(id)arg1;
+- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handleDrag:(id)arg1;
 - (struct CGRect)drawingRectForInsertionRect:(struct CGRect)arg1;
 - (struct CGPoint)makeDiagonalTranslation:(struct CGPoint)arg1;
 - (struct CGRect)calculateInsertionRect:(id)arg1 inLayer:(id)arg2;
-- (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

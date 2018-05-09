@@ -16,6 +16,7 @@
 }
 
 + (id)segmentsByJoiningSegment1:(id)arg1 segment2:(id)arg2;
++ (id)joinWithSegment1:(id)arg1 segment2:(id)arg2 strategy:(unsigned long long)arg3;
 + (id)joinWithSegment1:(id)arg1 segment2:(id)arg2;
 @property(readonly, copy, nonatomic) NSArray *joinedSegments; // @synthesize joinedSegments=_joinedSegments;
 @property(readonly, nonatomic) MSBezierSegment *segment2; // @synthesize segment2=_segment2;

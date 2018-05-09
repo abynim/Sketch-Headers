@@ -8,7 +8,7 @@
 
 #import "MSDataMenuProviderDelegate.h"
 
-@class MSAvailableOverride, MSDataMenuProvider, NSArray, NSSet, NSString;
+@class MSAvailableOverride, MSDataMenuProvider, NSArray, NSLayoutConstraint, NSSet, NSString, NSView;
 
 @interface MSOverrideViewController : NSViewController <MSDataMenuProviderDelegate>
 {
@@ -16,8 +16,12 @@
     NSArray *_instances;
     NSSet *_allOverrides;
     MSDataMenuProvider *_dataController;
+    NSView *_contentView;
+    NSLayoutConstraint *_indentationConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *indentationConstraint; // @synthesize indentationConstraint=_indentationConstraint;
+@property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MSDataMenuProvider *dataController; // @synthesize dataController=_dataController;
 @property(retain, nonatomic) NSSet *allOverrides; // @synthesize allOverrides=_allOverrides;
 @property(retain, nonatomic) NSArray *instances; // @synthesize instances=_instances;
@@ -35,6 +39,7 @@
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
 - (void)build;
+- (void)setIndentationLevel:(unsigned long long)arg1;
 - (id)views;
 - (id)initWithPrimaryOverride:(id)arg1;
 

@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBaseSharedStyleAction.h"
+#import "MSDocumentAction.h"
 
-@interface MSApplySharedStyleAction : MSBaseSharedStyleAction
+@interface MSApplySharedStyleAction : MSDocumentAction
 {
 }
 
+- (BOOL)validateMenuItem:(id)arg1;
 - (id)filteredLayersForStyle;
 - (void)doPerformAction:(id)arg1;
 - (void)applySharedStyle:(id)arg1;
+- (BOOL)validate;
 
 @end
 

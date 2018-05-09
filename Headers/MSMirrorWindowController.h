@@ -36,6 +36,7 @@
 @property(nonatomic) __weak NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
 - (void).cxx_destruct;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
+- (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
 - (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (void)windowWillClose:(id)arg1;
@@ -78,8 +79,6 @@
 - (void)dealloc;
 - (id)initWithWindowNibName:(id)arg1;
 - (void)changeVisibleArtboardID:(id)arg1;
-@property(readonly, nonatomic) MSImmutableArtboardGroup *previousArtboard;
-@property(readonly, nonatomic) MSImmutableArtboardGroup *nextArtboard;
 @property(readonly, nonatomic) MSImmutableArtboardGroup *currentStartpoint;
 - (id)sortedArtboards:(id)arg1;
 @property(readonly, nonatomic) NSArray *startpoints;

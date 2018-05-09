@@ -15,7 +15,6 @@
 - (void)doPerformAction:(id)arg1;
 - (void)insertHotspot:(id)arg1;
 - (SEL)preferredMenuAction;
-- (id)menuItemsForMenu:(id)arg1;
 
 @end
 

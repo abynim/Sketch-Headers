@@ -53,6 +53,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)metadataForKey:(id)arg1;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) NSString *UIMetadataKey;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

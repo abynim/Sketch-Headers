@@ -8,17 +8,19 @@
 
 #import "NSTouchBarDelegate.h"
 
-@class NSString, NSWindow;
+@class NSCountedSet, NSString, NSWindow;
 
 @interface CHSheetController : CHWindowController <NSTouchBarDelegate>
 {
     id _object;
     NSWindow *_parentWindow;
+    NSCountedSet *_selfReferences;
 }
 
 + (id)findSuitableWindowForSheet;
 + (id)runForWindow:(id)arg1 withObject:(id)arg2;
 + (id)runForWindow:(id)arg1;
+@property(retain, nonatomic) NSCountedSet *selfReferences; // @synthesize selfReferences=_selfReferences;
 @property(nonatomic) __weak NSWindow *parentWindow; // @synthesize parentWindow=_parentWindow;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void).cxx_destruct;
@@ -32,6 +34,8 @@
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
 - (id)run;
+- (void)releaseSelf;
+- (void)retainSelf;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

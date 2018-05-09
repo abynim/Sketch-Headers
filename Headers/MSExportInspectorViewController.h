@@ -6,11 +6,11 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSShareButtonHandler, NSArray, NSButton, NSTextField, NSView;
+@class MSLayerArray, MSShareButtonHandler, NSArray, NSButton, NSTextField, NSView;
 
 @interface MSExportInspectorViewController : MSStylePartInspectorViewController
 {
-    NSArray *_layers;
+    MSLayerArray *_layers;
     NSView *_topFillerView;
     NSView *_bottomLabelView;
     NSView *_exportButtonView;
@@ -41,7 +41,7 @@
 @property(retain, nonatomic) NSView *exportButtonView; // @synthesize exportButtonView=_exportButtonView;
 @property(retain, nonatomic) NSView *bottomLabelView; // @synthesize bottomLabelView=_bottomLabelView;
 @property(retain, nonatomic) NSView *topFillerView; // @synthesize topFillerView=_topFillerView;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+@property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (void)dealloc;
 - (id)firstResponderIgnoringFieldEditor;

@@ -6,32 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary;
+@class MSSnappingAccumulator;
 
 @interface MSSnapperData : NSObject
 {
-    NSMutableDictionary *_sizeItems;
-    NSMutableDictionary *_distanceItems;
-    NSMutableDictionary *_lines;
+    MSSnappingAccumulator *_xAxisAccumulator;
+    MSSnappingAccumulator *_yAxisAccumulator;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *lines; // @synthesize lines=_lines;
-@property(retain, nonatomic) NSMutableDictionary *distanceItems; // @synthesize distanceItems=_distanceItems;
-@property(retain, nonatomic) NSMutableDictionary *sizeItems; // @synthesize sizeItems=_sizeItems;
+@property(readonly, nonatomic) MSSnappingAccumulator *yAxisAccumulator; // @synthesize yAxisAccumulator=_yAxisAccumulator;
+@property(readonly, nonatomic) MSSnappingAccumulator *xAxisAccumulator; // @synthesize xAxisAccumulator=_xAxisAccumulator;
 - (void).cxx_destruct;
-- (void)drawForGroup:(id)arg1 zoom:(double)arg2;
-- (void)enumerateInstructions:(CDUnknownBlockType)arg1;
+- (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)linesForAxis:(unsigned long long)arg1;
-- (void)removeAllDistanceInstructionsForAxis:(unsigned long long)arg1;
-- (void)addDistanceInstruction:(id)arg1;
-- (id)firstDistanceForAxis:(unsigned long long)arg1;
-- (BOOL)hasDistanceInstructionsForAxis:(unsigned long long)arg1;
-- (void)removeAllSizeInstructionsForAxis:(unsigned long long)arg1;
-- (void)addSizeInstruction:(id)arg1;
-- (id)firstSizeForAxis:(unsigned long long)arg1;
-- (BOOL)hasSizeInstructionsForAxis:(unsigned long long)arg1;
-- (id)axisDictionary;
+- (void)drawAccumulator:(id)arg1 zoomScale:(double)arg2;
+- (void)drawForGroup:(id)arg1 zoom:(double)arg2;
+- (void)resetSnappingForAxis:(unsigned long long)arg1;
+- (void)extendGuideForAxis:(unsigned long long)arg1 toStartPosition:(double)arg2 endPosition:(double)arg3;
+- (void)addTarget:(id)arg1;
+- (void)enumerateMeasurementsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)addDistanceMeasurement:(id)arg1;
+- (id)firstDistanceMeasurementForAxis:(unsigned long long)arg1;
+@property(readonly) unsigned long long measurementAxes;
+- (void)addDimensionMeasurement:(id)arg1;
+- (id)firstDimensionMeasurementForAxis:(unsigned long long)arg1;
+- (id)accumulatorForAxis:(unsigned long long)arg1;
 - (id)init;
 
 @end

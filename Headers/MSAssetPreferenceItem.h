@@ -28,6 +28,7 @@
 @property(nonatomic) __weak id <MSAssetPreferenceItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long updatingStatus; // @synthesize updatingStatus=_updatingStatus;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL missingRemoteLibraryWithNoInternet;
 @property(readonly, nonatomic) MSRemoteAssetLibrary *remoteLibrary;
 - (void)evaluateSecondaryTitle;
 - (id)updatingRelatedSecondaryTitle;

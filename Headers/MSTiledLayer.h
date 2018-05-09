@@ -13,7 +13,6 @@
 @interface MSTiledLayer : CALayer <MSTilePlacerDelegate>
 {
     BOOL _isRendering;
-    BOOL _shouldHideOverlayControls;
     double _zoomLevel;
     id <MSTiledLayerDelegate> _tiledLayerDelegate;
     unsigned long long _state;
@@ -39,7 +38,6 @@
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
-@property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) BOOL isRendering; // @synthesize isRendering=_isRendering;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGRect viewBounds; // @synthesize viewBounds=_viewBounds;
@@ -52,7 +50,6 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)stopObservingRenderingTiles;
 - (void)observeRenderingOfTiles:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)showOverlays:(BOOL)arg1;
 - (void)transitionFromState:(unsigned long long)arg1 toState:(unsigned long long)arg2;
 - (void)replace;
 - (void)prepare;
@@ -74,8 +71,6 @@
 @property(readonly, nonatomic) struct CGRect tiledRect;
 @property(readonly, nonatomic) unsigned long long tileCount;
 - (BOOL)shouldDrawPixelated;
-- (void)refreshOverlayInViewRect:(struct CGRect)arg1 forPage:(id)arg2;
-- (void)refreshOverlayWithBlock:(CDUnknownBlockType)arg1;
 - (void)refreshContentForPage:(id)arg1 document:(id)arg2 quality:(long long)arg3;
 - (void)tileUpdateOperationDidComplete:(id)arg1;
 - (void)refreshContentRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 quality:(long long)arg4;

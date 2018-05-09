@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, NSURL;
+@class MSPluginBundleIconInfo, NSDictionary, NSImage, NSString, NSURL;
 
 @interface MSPluginBundle : NSObject
 {
@@ -25,10 +25,12 @@
     NSURL *_appcastURL;
     NSString *_compatibleVersion;
     NSString *_maximumCompatibleVersion;
+    MSPluginBundleIconInfo *_iconInfo;
 }
 
 + (id)commandsFromArray:(id)arg1 sketchPluginURL:(id)arg2 pluginBundle:(id)arg3;
 + (id)pluginBundleWithURL:(id)arg1;
+@property(retain, nonatomic) MSPluginBundleIconInfo *iconInfo; // @synthesize iconInfo=_iconInfo;
 @property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, copy, nonatomic) NSString *maximumCompatibleVersion; // @synthesize maximumCompatibleVersion=_maximumCompatibleVersion;
@@ -49,9 +51,11 @@
 - (id)urlForResourceNamed:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *versionedIdentifier;
 - (BOOL)writeToURL:(id)arg1;
+@property(readonly, nonatomic) NSImage *alertIcon;
+@property(readonly, nonatomic) NSImage *icon;
 - (id)metadata;
 @property(readonly, nonatomic, getter=isCompatible) BOOL compatible;
-- (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3;
+- (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3 icon:(id)arg4;
 - (id)initPluginBundleWithURL:(id)arg1;
 
 @end

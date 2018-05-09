@@ -21,7 +21,9 @@
 @property(retain, nonatomic) PDFScanner *scanner; // @synthesize scanner=_scanner;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)parsePastedDocument;
 - (void)parseWithProgress:(CDUnknownBlockType)arg1;
+- (void)parseWithProgress:(CDUnknownBlockType)arg1 isPasted:(BOOL)arg2;
 - (unsigned long long)pageCount;
 - (void)loadDocumentFromData:(id)arg1;
 - (void)loadDocumentFromURL:(id)arg1;

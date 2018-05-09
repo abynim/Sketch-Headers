@@ -16,23 +16,31 @@
     NSString *_objectID;
     NSMutableArray *_pluginData;
     NSMutableArray *_localData;
+    NSMutableArray *_builtinData;
     NSMutableDictionary *_replyContexts;
 }
 
 + (BOOL)validLocalDataFileSystemURL:(id)arg1;
++ (id)URLForBuiltinDataNamed:(id)arg1;
++ (id)builtinDataFolder;
++ (id)sketchBuiltinLocalData;
 + (id)makeObjectID;
 @property(retain, nonatomic) NSMutableDictionary *replyContexts; // @synthesize replyContexts=_replyContexts;
+@property(retain, nonatomic) NSMutableArray *builtinData; // @synthesize builtinData=_builtinData;
 @property(retain, nonatomic) NSMutableArray *localData; // @synthesize localData=_localData;
 @property(retain, nonatomic) NSMutableArray *pluginData; // @synthesize pluginData=_pluginData;
 @property(readonly, copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) __weak id <MSDataSupplierManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)localDataForDefaultsKey:(id)arg1;
 - (void)postLocalDataSupplierChangeNotification;
+- (BOOL)isBuiltinDataSupplier:(id)arg1;
 - (void)locaDataSupplierDataChanged:(id)arg1;
+- (void)removeDataSupplier:(id)arg1;
+- (void)loadBuiltinData;
 - (void)loadLocalData;
-- (void)saveLocalData;
-- (void)removeLocalData:(id)arg1;
 - (void)addLocalData:(id)arg1;
+- (void)resetSketchBuiltinData;
 @property(readonly, nonatomic) NSArray *localDataSuppliers;
 @property(readonly, nonatomic) NSArray *dataSuppliers;
 - (void)supplyData:(id)arg1 forKey:(id)arg2;

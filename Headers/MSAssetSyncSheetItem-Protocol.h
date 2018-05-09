@@ -9,6 +9,7 @@
 @class MSAssetLibrary, NSString;
 
 @protocol MSAssetSyncSheetItem <NSObject>
+@property(readonly, nonatomic) BOOL shouldSync;
 @property(readonly, nonatomic) NSString *displayName;
 @property(retain, nonatomic) MSAssetLibrary *library;
 @property(readonly, nonatomic) unsigned long long type;
