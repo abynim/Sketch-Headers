@@ -17,7 +17,7 @@
 @property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
 @property(copy, nonatomic) CDUnknownBlockType lineShapeCreator; // @synthesize lineShapeCreator=_lineShapeCreator;
 - (void).cxx_destruct;
-- (id)findCurrentGroup;
+- (id)currentGroup;
 - (double)lineThickness;
 - (id)style;
 - (void)createShapeAtMouse:(struct CGPoint)arg1;

@@ -10,8 +10,9 @@
 {
 }
 
-+ (id)sharedStandardIntegerFormatter;
-+ (id)sharedStandardFloatFormatter;
++ (id)standardPercentFormatter;
++ (id)standardIntegerFormatter;
++ (id)standardFloatFormatter;
 - (id)stringForObjectValue:(id)arg1;
 
 @end

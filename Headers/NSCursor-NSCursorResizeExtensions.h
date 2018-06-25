@@ -18,11 +18,12 @@
 + (id)resizeBottomLeftToTopRightCursor;
 + (id)resizeTopLeftToBottomRightCursor;
 + (id)resizeVerCursor;
++ (id)resizeHorCursorLong;
++ (id)resizeHorCursorShort;
 + (id)resizeHorCursor;
 + (id)pencilCursor;
 + (id)penCloseCursor;
 + (id)penAddCursor;
 + (id)penCursor;
-+ (id)cursorWithName:(id)arg1 hotSpot:(struct CGPoint)arg2;
 @end
 

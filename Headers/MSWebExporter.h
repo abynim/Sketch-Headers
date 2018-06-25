@@ -11,7 +11,6 @@
 @interface MSWebExporter : NSObject
 {
     BOOL _selectiveExport;
-    BOOL _includeDocument;
     BOOL _cancelled;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
@@ -20,13 +19,14 @@
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
-+ (id)fileURLWithHash:(id)arg1 inDirectory:(id)arg2;
++ (id)exportViewportBitmapImageForRequest:(id)arg1;
++ (id)exportBitmapImageForRequest:(id)arg1;
++ (id)imageURLWithHash:(id)arg1 inDirectory:(id)arg2;
 + (id)documentURLInDirectory:(id)arg1;
-+ (void)exportDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
-+ (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 includeDocument:(BOOL)arg3 toLocalURL:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
++ (void)exportArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
++ (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
-@property(nonatomic) BOOL includeDocument; // @synthesize includeDocument=_includeDocument;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -34,14 +34,14 @@
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;
-- (id)imageRepresentationFromRootLayer:(id)arg1 onPage:(id)arg2 scale:(double)arg3;
-- (id)exportedImageDataForRoot:(id)arg1 onPage:(id)arg2 scale:(double)arg3;
+- (id)exportedImageDataForRequest:(id)arg1;
 - (id)metadataForDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long documentFileSize;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
-- (void)exportWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)cancel;
-- (id)initWithDocument:(id)arg1 name:(id)arg2 includeDocument:(BOOL)arg3 localURL:(id)arg4;
+- (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 
 @end
 

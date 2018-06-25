@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, nonatomic) MSPath *pathInFrame;
 @property(readonly, nonatomic) MSPath *pathInBounds;

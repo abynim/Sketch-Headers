@@ -8,11 +8,11 @@
 
 #import "NSMenuDelegate.h"
 
-@class NSMutableDictionary, NSString;
+@class NSMapTable, NSString;
 
 @interface MSSortableObjectMenuBuilder : NSObject <NSMenuDelegate>
 {
-    NSMutableDictionary *_collatedImages;
+    NSMapTable *_collatedImages;
     id <MSMenuBuilderDelegate> _delegate;
 }
 
@@ -23,7 +23,7 @@
 - (void)applyStyleToMenuItem:(id)arg1;
 - (void)prepareForDisplay:(id)arg1;
 - (void)updateImages;
-@property(readonly, nonatomic) NSMutableDictionary *collatedImages; // @synthesize collatedImages=_collatedImages;
+@property(readonly, nonatomic) NSMapTable *collatedImages; // @synthesize collatedImages=_collatedImages;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuItemWithName:(id)arg1 target:(id)arg2 selector:(SEL)arg3 sharedObjects:(id)arg4;
 - (id)sharedObjectsFromDescriptorsContents:(id)arg1;

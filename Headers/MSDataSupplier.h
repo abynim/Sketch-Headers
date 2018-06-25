@@ -12,11 +12,13 @@
 
 @interface MSDataSupplier : NSObject <NSCoding>
 {
+    BOOL _enabled;
     NSString *_dataName;
     unsigned long long _dataType;
     NSString *_dataIdentifier;
 }
 
+@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) NSString *dataIdentifier; // @synthesize dataIdentifier=_dataIdentifier;
 @property(readonly, nonatomic) unsigned long long dataType; // @synthesize dataType=_dataType;
 @property(readonly, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;

@@ -6,27 +6,33 @@
 
 #import "MSNormalBaseEventHandler.h"
 
+#import "MSAlignmentEngineDelegate.h"
 #import "NSTouchBarDelegate.h"
 
-@class MSDragGestureRecognizer, NSString;
+@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSRotationGestureInterpreter, NSString;
 
-@interface MSRotateEventHandler : MSNormalBaseEventHandler <NSTouchBarDelegate>
+@interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
-    double _startingRotation;
-    struct CGPoint _previousMouseLocation;
     BOOL _exitOnMouseUp;
     BOOL _disableMoving;
-    MSDragGestureRecognizer *_dragGestureRecognizer;
+    MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
+    MSRotationGestureInterpreter *_cursorRotationInterpreter;
+    MSRotationGestureInterpreter *_dragRotationInterpreter;
     unsigned long long _draggedComponent;
-    struct CGPoint _rotationCenter;
+    MSAlignmentEngineResult *_centerPointSnaps;
+    struct CGPoint _rotationCenterPoint;
+    struct CGPoint _rotationAnchorPoint;
 }
 
 + (id)cursorForDegrees:(long long)arg1;
-+ (long long)degreesForPoint:(struct CGPoint)arg1 inLayer:(id)arg2 rotationCenter:(struct CGPoint)arg3;
+@property(retain, nonatomic) MSAlignmentEngineResult *centerPointSnaps; // @synthesize centerPointSnaps=_centerPointSnaps;
 @property(nonatomic) unsigned long long draggedComponent; // @synthesize draggedComponent=_draggedComponent;
-@property(readonly, nonatomic) MSDragGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
-@property(nonatomic) struct CGPoint rotationCenter; // @synthesize rotationCenter=_rotationCenter;
+@property(readonly, nonatomic) MSRotationGestureInterpreter *dragRotationInterpreter; // @synthesize dragRotationInterpreter=_dragRotationInterpreter;
+@property(readonly, nonatomic) MSRotationGestureInterpreter *cursorRotationInterpreter; // @synthesize cursorRotationInterpreter=_cursorRotationInterpreter;
+@property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
+@property(nonatomic) struct CGPoint rotationAnchorPoint; // @synthesize rotationAnchorPoint=_rotationAnchorPoint;
+@property(nonatomic) struct CGPoint rotationCenterPoint; // @synthesize rotationCenterPoint=_rotationCenterPoint;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
 - (void).cxx_destruct;
@@ -34,19 +40,20 @@
 - (void)rotationBarAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
-- (void)drawRotationCenter;
+- (void)drawRotationCenterAtZoomScale:(double)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (double)alignDegreesTo45Angles:(double)arg1;
-- (long long)degreesForPoint:(struct CGPoint)arg1;
+- (double)alignDegreesTo15Angles:(double)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)mouseDraggedRotateLayer:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
-- (void)mouseDraggedMoveLayer:(id)arg1 mouse:(struct CGPoint)arg2;
+- (void)dragLayer:(id)arg1;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)trackMouse:(id)arg1;
+- (void)dragCenterPoint:(id)arg1;
 - (void)handleDrag:(id)arg1;
+- (void)handleRotation:(id)arg1;
 - (unsigned long long)componentAtPoint:(struct CGPoint)arg1;
-- (struct CGPoint)rotationCenterInAbsoluteCoordinates;
+- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
+- (void)setRotationCenterPointWithoutUpdatingAnchorPoint:(struct CGPoint)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;

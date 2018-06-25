@@ -81,10 +81,8 @@
 - (void)scanStream:(struct CGPDFContentStream *)arg1 dictionary:(id)arg2;
 - (void)adjustVerticalOffset:(double)arg1 ofChildrenInContainer:(id)arg2;
 - (id)makeCropLayerFromPDFPage:(struct CGPDFPage *)arg1;
-- (void)prepareAndScan:(struct CGPDFPage *)arg1 parser:(id)arg2;
 - (BOOL)isPDFPageCropped:(struct CGPDFPage *)arg1;
-- (void)scanPage:(struct CGPDFPage *)arg1 parser:(id)arg2;
-- (void)scanPastedPage:(struct CGPDFPage *)arg1 parser:(id)arg2;
+- (void)scanPage:(struct CGPDFPage *)arg1 parser:(id)arg2 isPasted:(BOOL)arg3;
 - (id)nameForType:(id)arg1;
 - (id)init;
 

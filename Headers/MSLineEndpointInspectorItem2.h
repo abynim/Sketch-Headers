@@ -10,7 +10,6 @@
 {
 }
 
-- (void)viewDidLoad;
 - (id)init;
 
 @end

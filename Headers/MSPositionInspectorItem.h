@@ -6,20 +6,31 @@
 
 #import "MSTwoTextFieldInspectorItem.h"
 
-@interface MSPositionInspectorItem : MSTwoTextFieldInspectorItem
+#import "MSInspectorValueAdaptorDelegate.h"
+
+@class MSCoordinateInspectorValueAdaptor, NSString;
+
+@interface MSPositionInspectorItem : MSTwoTextFieldInspectorItem <MSInspectorValueAdaptorDelegate>
 {
+    MSCoordinateInspectorValueAdaptor *_xAdaptor;
+    MSCoordinateInspectorValueAdaptor *_yAdaptor;
 }
 
+@property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
+@property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
+- (void).cxx_destruct;
+- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (BOOL)allowFloatValues;
 - (void)updateDisplayedValues;
-- (double)rulerOriginXForLayer:(id)arg1;
-- (double)rulerOriginYForLayer:(id)arg1;
-- (double)absoluteYForLayers;
-- (double)absoluteXForLayers;
-- (void)setLayerPositionFromString:(id)arg1 onAxis:(unsigned long long)arg2;
-- (void)textField2Action:(id)arg1;
-- (void)textField1Action:(id)arg1;
+- (void)viewDidLoad;
+- (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

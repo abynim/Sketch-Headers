@@ -28,7 +28,8 @@
 + (id)pathWithCGPath:(struct CGPath *)arg1;
 + (id)pathWithEllipseInRect:(struct CGRect)arg1;
 + (id)pathWithRect:(struct CGRect)arg1;
-+ (id)pathWithSubPaths:(id)arg1;
++ (id)pathWithContours:(id)arg1;
++ (id)pathWithSubpaths:(id)arg1;
 @property(nonatomic) BOOL cachedIsClosed; // @synthesize cachedIsClosed=_cachedIsClosed;
 @property(nonatomic) struct CGPoint cachedEndPoint; // @synthesize cachedEndPoint=_cachedEndPoint;
 @property(nonatomic) struct CGPoint cachedStartPoint; // @synthesize cachedStartPoint=_cachedStartPoint;
@@ -45,7 +46,7 @@
 - (id)pointsInRect:(struct CGRect)arg1;
 - (id)pathByApplyingModifierBlock:(CDUnknownBlockType)arg1;
 - (void)_initCachedProperties;
-- (unsigned long long)bezierIndexForPoint:(struct CGPoint)arg1;
+- (unsigned long long)bezierIndexForPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
 - (id)pathFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (struct CGPoint)endPoint;
 - (struct CGPoint)startPoint;
@@ -54,11 +55,12 @@
 - (double)lengthWithMaximumError:(double)arg1;
 - (id)pathByTrimmingToLength:(double)arg1;
 - (struct CGPoint)pointOnPathAtLength:(double)arg1;
-- (double)slopeAtLength:(double)arg1;
 - (BOOL)isClosed;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
-- (id)subPaths;
+@property(readonly, nonatomic) NSArray *closedSubpaths;
+@property(readonly, nonatomic) NSArray *openSubpaths;
+@property(readonly, nonatomic) NSArray *subpaths;
 - (id)outlinePathWithWidth:(double)arg1;
 - (id)_pathByScalingToBounds:(struct CGRect)arg1;
 - (id)pathByScalingToBounds:(struct CGRect)arg1;
@@ -89,6 +91,7 @@
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithBezierPath:(id)arg1;
 - (void)dealloc;
+- (id)initWithContours:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)booleanExclusiveOrWith:(id)arg1;

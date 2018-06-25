@@ -10,7 +10,8 @@
 
 @interface MSDragToMoveOrCopyGestureRecognizer : MSDragGestureRecognizer
 {
-    unsigned long long _alignMask;
+    BOOL _shouldInterpretAlignment;
+    unsigned long long _alignModifierMask;
     unsigned long long _alignmentAxis;
     id _draggedItem;
     NSArray *_originalDraggedItems;
@@ -25,7 +26,8 @@
 @property(copy, nonatomic) NSArray *originalDraggedItems; // @synthesize originalDraggedItems=_originalDraggedItems;
 @property(retain, nonatomic) id draggedItem; // @synthesize draggedItem=_draggedItem;
 @property(readonly, nonatomic) unsigned long long alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
-@property(nonatomic) unsigned long long alignMask; // @synthesize alignMask=_alignMask;
+@property(nonatomic) BOOL shouldInterpretAlignment; // @synthesize shouldInterpretAlignment=_shouldInterpretAlignment;
+@property(nonatomic) unsigned long long alignModifierMask; // @synthesize alignModifierMask=_alignModifierMask;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL align;
 - (void)reset;
@@ -34,7 +36,7 @@
 @property(readonly, nonatomic) BOOL shouldCopyDraggedItems;
 - (void)recalculateAlignmentAxis;
 - (struct CGPoint)locationInLayer:(id)arg1;
-- (struct CGPoint)translation;
+- (struct CGVector)translationInLayer:(id)arg1;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end

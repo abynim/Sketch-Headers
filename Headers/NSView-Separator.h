@@ -7,6 +7,7 @@
 #import "NSView.h"
 
 @interface NSView (Separator)
+- (struct NSEdgeInsets)separatorInsetBetweenSelfAndView:(id)arg1;
 - (BOOL)wantsSeparator;
 - (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;
 @end

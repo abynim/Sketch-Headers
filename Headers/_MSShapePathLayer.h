@@ -10,7 +10,6 @@
 
 @interface _MSShapePathLayer : MSLayer
 {
-    long long _booleanOperation;
     BOOL _edited;
     BOOL _isClosed;
     long long _pointRadiusBehaviour;
@@ -43,7 +42,6 @@
 @property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
-@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

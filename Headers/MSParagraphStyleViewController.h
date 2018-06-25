@@ -27,8 +27,6 @@
 - (void)changeFontPropertiesOfTextObjectsInBlock:(CDUnknownBlockType)arg1;
 - (void)transformPopUpAction:(id)arg1;
 - (void)prepareTransformPopUpButton;
-- (long long)indexForBulletListName:(id)arg1;
-- (id)markerForBulletListIndex:(long long)arg1;
 - (void)listPopUpAction:(id)arg1;
 - (void)decorationButtonAction:(id)arg1;
 - (void)prepareBulletListPopUpButton;

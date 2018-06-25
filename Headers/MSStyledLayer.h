@@ -11,6 +11,9 @@
     BOOL ignoreStyleDidChangeNotifications;
 }
 
++ (id)layerWithImage:(id)arg1;
++ (id)layerWithImageFromFileURL:(id)arg1;
++ (id)layerWithImageFromPasteboard:(id)arg1;
 + (void)pasteExportOptions:(id)arg1 onLayers:(id)arg2;
 + (void)pasteTextStyle:(id)arg1 onLayers:(id)arg2;
 + (void)pasteStyleDict:(id)arg1 onLayers:(id)arg2 document:(id)arg3;

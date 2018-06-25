@@ -6,15 +6,13 @@
 
 #import "MSEventHandler.h"
 
-@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, NSBezierPath, NSBitmapImageRep, NSCursor;
+@class MSBitmapEditInspectorViewController, MSBitmapRectangleEditor, NSBezierPath, NSBitmapImageRep, NSCursor;
 
 @interface MSBitmapEditEventHandler : MSEventHandler
 {
     MSBitmapEditInspectorViewController *_inspectorViewController;
-    long long _currentMode;
     NSBezierPath *_accumulatedSelection;
     MSBitmapRectangleEditor *_rectangleEditor;
-    MSBitmapMagicWandEditor *_magicWandEditor;
     NSBitmapImageRep *_backupImageRep;
     NSBitmapImageRep *_cachedFirstBitmapImageRep;
     NSCursor *_currentCursor;
@@ -23,10 +21,8 @@
 @property(retain, nonatomic) NSCursor *currentCursor; // @synthesize currentCursor=_currentCursor;
 @property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
-@property(retain, nonatomic) MSBitmapMagicWandEditor *magicWandEditor; // @synthesize magicWandEditor=_magicWandEditor;
 @property(retain, nonatomic) MSBitmapRectangleEditor *rectangleEditor; // @synthesize rectangleEditor=_rectangleEditor;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
-@property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
@@ -36,9 +32,6 @@
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;
 - (id)crossHairCursor;
-- (id)magicWandCursorRemove;
-- (id)magicWandCursorAdd;
-- (id)magicWandCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)makeNewBackupImage;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;

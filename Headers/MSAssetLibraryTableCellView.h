@@ -23,6 +23,8 @@
     NSProgressIndicator *_downloadProgress;
 }
 
++ (id)sketchRemoteLibraryPlaceholderImage;
++ (id)missingLibraryPlaceholderImage;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
 + (void)initialize;
 @property(nonatomic) BOOL downloadProgressHidden; // @synthesize downloadProgressHidden=_downloadProgressHidden;
@@ -37,9 +39,6 @@
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
 - (void).cxx_destruct;
-- (id)sketchRemoteLibraryPlaceholderImage;
-- (id)missingLibraryPlaceholderImage;
-- (id)placeholderImage;
 - (void)setPrimaryTextFieldTextColor:(id)arg1;
 - (void)setSecondaryTextFieldTextColor:(id)arg1;
 - (void)downloadLibrary:(id)arg1;

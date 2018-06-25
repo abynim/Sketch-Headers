@@ -44,6 +44,8 @@
 - (id)minimum;
 - (double)incrementValue;
 - (void)awakeFromNib;
+- (void)connectToValueAdapter:(id)arg1 bindingOptions:(id)arg2;
+- (void)connectToValueAdapter:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

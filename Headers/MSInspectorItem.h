@@ -6,11 +6,12 @@
 
 #import "NSViewController.h"
 
+#import "MSInspectorValueAdaptorDelegate.h"
 #import "MSUpDownTextFieldDelegate.h"
 
 @class MSDocument, MSLayerArray, NSArrayController, NSString;
 
-@interface MSInspectorItem : NSViewController <MSUpDownTextFieldDelegate>
+@interface MSInspectorItem : NSViewController <MSInspectorValueAdaptorDelegate, MSUpDownTextFieldDelegate>
 {
     id <MSInspectorItemDelegate> _delegate;
     MSLayerArray *_layers;
@@ -29,6 +30,7 @@
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)refreshAction:(id)arg1;
 
 // Remaining properties

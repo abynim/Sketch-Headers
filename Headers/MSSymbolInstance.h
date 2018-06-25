@@ -6,14 +6,16 @@
 
 #import "_MSSymbolInstance.h"
 
-@class NSDictionary, NSSet;
+@class NSArray, NSDictionary, NSSet;
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
+    long long _masterRefreshCounter;
 }
 
-+ (void)updateInstances:(id)arg1 preservingOverridesInBlock:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingPreviewImages;
+@property(nonatomic) long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
+- (BOOL)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
 - (void)applyOverride:(id)arg1 toPoint:(id)arg2;
 - (void)applyOverrides:(id)arg1;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
@@ -34,12 +36,13 @@
 - (void)resizeInstanceToFitSymbol:(id)arg1;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachByReplacingWithGroup;
-- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 visitedSymbols:(id)arg2 symbolInstancesBySymbolID:(id)arg3;
-- (BOOL)canInsertIntoGroupWithoutInfiniteRecursion:(id)arg1 symbolInstancesBySymbolID:(id)arg2;
 - (unsigned long long)numberOfVisibleCells;
+- (void)invalidateImmutableObject;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
+- (id)symbolID;
 - (id)symbolMaster;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (id)inspectorViewControllerNames;
 - (struct MSModelObject *)sharedMaster;
@@ -49,7 +52,7 @@
 - (id)replaceWithInstanceOfSymbol:(id)arg1;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 @property(copy, nonatomic) NSDictionary *overrides;
-- (id)availableOverrides;
+@property(readonly, nonatomic) NSArray *availableOverrides;
 - (id)overridePoints;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 

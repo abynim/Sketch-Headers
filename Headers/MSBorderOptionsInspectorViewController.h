@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class NSArray, NSPopUpButton, NSSegmentedControl, NSTextField;
+@class NSArray, NSPopUpButton, NSSegmentedControl, NSSet, NSTextField;
 
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
@@ -19,8 +19,14 @@
     NSTextField *_dashField4;
     NSSegmentedControl *_capSegmentedControl;
     NSSegmentedControl *_joinSegmentedControl;
+    NSArray *_filteredLayers;
+    NSSet *_startMarkerTypes;
+    NSSet *_endMarkerTypes;
 }
 
+@property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
+@property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
+@property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
 @property(retain, nonatomic) NSSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
 @property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
 @property(retain, nonatomic) NSTextField *dashField4; // @synthesize dashField4=_dashField4;
@@ -38,10 +44,12 @@
 - (void)joinAction:(id)arg1;
 - (void)capAction:(id)arg1;
 - (void)evaluateCapJoinButtons;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)prepareDecorationButtons;
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;
 - (void)reloadData;
+- (void)awakeFromNib;
 
 @end
 

@@ -8,14 +8,16 @@
 
 #import "MSFlowMenuBuilderTarget.h"
 #import "MSInspectorSection.h"
+#import "MSLayerChangeObserver.h"
 
 @class NSArray, NSButton, NSPopUpButton, NSString, NSView;
 
-@interface MSFlowInspectorViewController : NSViewController <MSInspectorSection, MSFlowMenuBuilderTarget>
+@interface MSFlowInspectorViewController : NSViewController <MSLayerChangeObserver, MSInspectorSection, MSFlowMenuBuilderTarget>
 {
     NSArray *_layers;
     NSView *_flowHeaderView;
     NSView *_flowView;
+    NSView *_fixLayerView;
     NSPopUpButton *_flowDestinationButton;
     NSButton *_flowAnimationInstantButton;
     NSButton *_flowAnimationSlideFromRightButton;
@@ -26,8 +28,10 @@
     NSButton *_removeFlowButton;
     NSButton *_convertToHotspotButton;
     NSButton *_followFlowButton;
+    NSButton *_fixToViewportButton;
 }
 
+@property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 @property(nonatomic) __weak NSButton *followFlowButton; // @synthesize followFlowButton=_followFlowButton;
 @property(nonatomic) __weak NSButton *convertToHotspotButton; // @synthesize convertToHotspotButton=_convertToHotspotButton;
 @property(nonatomic) __weak NSButton *removeFlowButton; // @synthesize removeFlowButton=_removeFlowButton;
@@ -38,6 +42,7 @@
 @property(nonatomic) __weak NSButton *flowAnimationSlideFromRightButton; // @synthesize flowAnimationSlideFromRightButton=_flowAnimationSlideFromRightButton;
 @property(nonatomic) __weak NSButton *flowAnimationInstantButton; // @synthesize flowAnimationInstantButton=_flowAnimationInstantButton;
 @property(nonatomic) __weak NSPopUpButton *flowDestinationButton; // @synthesize flowDestinationButton=_flowDestinationButton;
+@property(retain, nonatomic) NSView *fixLayerView; // @synthesize fixLayerView=_fixLayerView;
 @property(retain, nonatomic) NSView *flowView; // @synthesize flowView=_flowView;
 @property(retain, nonatomic) NSView *flowHeaderView; // @synthesize flowHeaderView=_flowHeaderView;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -48,8 +53,11 @@
 - (void)reload;
 - (id)flowConnection;
 - (BOOL)isInFlowEventHandler;
+- (void)validateFixLayersToViewportButton;
+- (void)layerDidChange:(id)arg1;
 - (void)validateFlowAnimationButtonForFlow:(id)arg1;
 - (id)views;
+- (BOOL)shouldShowFixedLayerView;
 - (BOOL)shouldShowFullInspectorForFlow:(id)arg1;
 - (void)validateHeaderButtonsForFlow:(id)arg1;
 - (void)enumerateLayersAndReload:(CDUnknownBlockType)arg1;
@@ -60,6 +68,7 @@
 - (void)removeFlowAction:(id)arg1;
 - (void)changeFlowAnimationAction:(id)arg1;
 - (void)addFlowAction:(id)arg1;
+- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

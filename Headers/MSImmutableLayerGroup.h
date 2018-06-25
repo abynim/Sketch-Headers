@@ -31,7 +31,7 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
 @property(readonly, nonatomic) double mirrorExportScale;
-- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;

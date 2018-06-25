@@ -13,22 +13,22 @@
     NSTextField *_fps;
     NSTextField *_fpsTrend;
     NSTextField *_selection;
-    NSTextField *_hovered;
+    NSTextField *_highlighted;
     double *_buffer;
     unsigned long long _bufferPosition;
 }
 
 @property(nonatomic) unsigned long long bufferPosition; // @synthesize bufferPosition=_bufferPosition;
 @property(nonatomic) double *buffer; // @synthesize buffer=_buffer;
-@property(nonatomic) __weak NSTextField *hovered; // @synthesize hovered=_hovered;
+@property(nonatomic) __weak NSTextField *highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) __weak NSTextField *selection; // @synthesize selection=_selection;
 @property(nonatomic) __weak NSTextField *fpsTrend; // @synthesize fpsTrend=_fpsTrend;
 @property(nonatomic) __weak NSTextField *fps; // @synthesize fps=_fps;
 - (void).cxx_destruct;
 - (void)updateAverage:(double)arg1;
 - (void)updateSelection:(id)arg1;
-- (void)updateHoveredLayer:(id)arg1;
-- (void)hoveredChangedNotification:(id)arg1;
+- (void)updateHighlightedLayer:(id)arg1;
+- (void)highlightedLayerChangedNotification:(id)arg1;
 - (void)selectionChangedNotification:(id)arg1;
 - (void)uninstallMonitorForClient:(id)arg1;
 - (void)installMonitorForClient:(id)arg1;

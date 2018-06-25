@@ -16,7 +16,7 @@
 - (void)drawBorder:(id)arg1 advancedOptions:(id)arg2 context:(id)arg3;
 - (BOOL)needsOutlinePath:(id)arg1;
 - (BOOL)requiresMask:(id)arg1;
-- (id)bezierPathWithExporter:(id)arg1;
+- (id)pathWithExporter:(id)arg1;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (void)addOuterMaskToAttributes:(id)arg1 withExporter:(id)arg2;
 - (void)addInnerMaskToAttributes:(id)arg1 withExporter:(id)arg2;

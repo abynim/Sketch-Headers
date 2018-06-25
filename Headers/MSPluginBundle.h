@@ -51,6 +51,7 @@
 - (id)urlForResourceNamed:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *versionedIdentifier;
 - (BOOL)writeToURL:(id)arg1;
+@property(readonly, nonatomic) NSImage *alertIcon;
 @property(readonly, nonatomic) NSImage *icon;
 - (id)metadata;
 @property(readonly, nonatomic, getter=isCompatible) BOOL compatible;

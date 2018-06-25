@@ -37,6 +37,7 @@
 - (BOOL)fuzzyIsEqual:(id)arg1 precision:(double)arg2;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (id)hexValue;
+@property(readonly, nonatomic, getter=isOpaque) BOOL opaque;
 - (BOOL)isGrayscale;
 - (BOOL)isBlack;
 - (BOOL)isWhite;

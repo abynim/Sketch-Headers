@@ -15,6 +15,8 @@
 @property(retain, nonatomic) MSOverrideValue *predecessor; // @synthesize predecessor=_predecessor;
 @property(nonatomic) BOOL isInherited; // @synthesize isInherited=_isInherited;
 - (void).cxx_destruct;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)arg1;
 - (void)addPredecessor:(id)arg1;
 - (id)description;
 - (id)initWithName:(id)arg1 value:(id)arg2;

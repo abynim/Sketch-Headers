@@ -54,6 +54,7 @@
 - (void)relayResponderAction:(SEL)arg1 with:(id)arg2;
 - (BOOL)shouldInterceptResponderActions;
 - (void)showContextualMenuWithEvent:(id)arg1;
+- (void)goWithTheFlow:(id)arg1;
 - (void)goBack:(id)arg1;
 - (void)toggleFlowHome:(id)arg1;
 - (void)openStartpoint:(id)arg1;
@@ -78,6 +79,7 @@
 - (void)loadWindow;
 - (void)dealloc;
 - (id)initWithWindowNibName:(id)arg1;
+- (void)transitionToArtboardID:(id)arg1 animatedBy:(long long)arg2;
 - (void)changeVisibleArtboardID:(id)arg1;
 @property(readonly, nonatomic) MSImmutableArtboardGroup *currentStartpoint;
 - (id)sortedArtboards:(id)arg1;

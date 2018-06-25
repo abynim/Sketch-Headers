@@ -15,7 +15,7 @@
 - (void)handlerWillLoseFocus;
 - (id)toolbarIdentifier;
 - (id)perspectiveImage;
-- (void)transformShape;
+- (void)transformLayers;
 - (struct CGPoint)layerPointForCorner:(long long)arg1;
 - (struct CGRect)newLayerRect;
 - (struct CGPoint)pointForCorner:(long long)arg1 rect:(struct CGRect)arg2;

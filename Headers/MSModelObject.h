@@ -30,6 +30,8 @@
 - (id)parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
+- (void)invalidateImmutableObjectAndAncestors;
+- (void)invalidateImmutableObject;
 - (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
@@ -53,6 +55,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)metadataForKey:(id)arg1;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) NSString *UIMetadataKey;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

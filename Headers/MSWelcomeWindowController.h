@@ -62,6 +62,7 @@
 - (id)templateItems;
 - (id)recentDocumentItems;
 - (void)clearRecentDocuments:(id)arg1;
+- (void)revealDocumentInCloud:(id)arg1;
 - (void)revealDocumentInFinder:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 @property(readonly, nonatomic) long long numberOfDocuments;

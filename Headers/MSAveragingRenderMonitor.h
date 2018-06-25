@@ -10,7 +10,7 @@
 
 @interface MSAveragingRenderMonitor : MSRenderMonitor
 {
-    long long _framesSinceStart;
+    // Error parsing type: Aq, name: _framesSinceStart
     unsigned long long _start;
     NSTimer *_updateTimer;
 }

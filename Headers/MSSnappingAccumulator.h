@@ -10,34 +10,25 @@
 
 @interface MSSnappingAccumulator : NSObject
 {
-    NSMutableArray *_dimensionMeasurements;
-    NSMutableArray *_distanceMeasurements;
-    BOOL _snappedToLine;
-    BOOL _wantsGuide;
+    NSMutableArray *_dimensionSnaps;
+    NSMutableArray *_spacingSnaps;
+    NSMutableArray *_edgeSnaps;
     unsigned long long _axis;
-    double _position;
-    double _guideStartPosition;
-    double _guideEndPosition;
 }
 
-@property(readonly, nonatomic) NSArray *distanceMeasurements; // @synthesize distanceMeasurements=_distanceMeasurements;
-@property(readonly, nonatomic) NSArray *dimensionMeasurements; // @synthesize dimensionMeasurements=_dimensionMeasurements;
-@property(readonly, nonatomic) double guideEndPosition; // @synthesize guideEndPosition=_guideEndPosition;
-@property(readonly, nonatomic) double guideStartPosition; // @synthesize guideStartPosition=_guideStartPosition;
-@property(readonly, nonatomic) BOOL wantsGuide; // @synthesize wantsGuide=_wantsGuide;
-@property(readonly, nonatomic) double position; // @synthesize position=_position;
-@property(readonly, nonatomic) BOOL snappedToLine; // @synthesize snappedToLine=_snappedToLine;
+@property(readonly, nonatomic) NSArray *spacingSnaps; // @synthesize spacingSnaps=_spacingSnaps;
+@property(readonly, nonatomic) NSArray *dimensionSnaps; // @synthesize dimensionSnaps=_dimensionSnaps;
+@property(readonly, nonatomic) NSArray *edgeSnaps; // @synthesize edgeSnaps=_edgeSnaps;
 @property(readonly, nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
-- (void)removeAllDistanceMeasurements;
+- (void)removeAllSpacingSnaps;
 - (void)addDistanceMeasurement:(id)arg1;
-- (void)removeAllDimensionMeasurements;
+- (void)removeAllDimensionSnaps;
 - (void)addDimensionMeasurement:(id)arg1;
-- (void)resetLineSnapping;
-- (void)extendGuideToStartPosition:(double)arg1 endPosition:(double)arg2;
-- (void)addTarget:(id)arg1;
+- (void)removeAllEdgeSnaps;
+- (void)addLineRelationship:(id)arg1;
 - (id)initWithAxis:(unsigned long long)arg1;
 
 @end

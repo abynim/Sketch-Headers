@@ -41,6 +41,9 @@
 - (void)dealloc;
 - (id)toolbarIdentifier;
 - (void)doTextModification:(CDUnknownBlockType)arg1;
+- (void)setListType:(id)arg1;
+- (id)applyTextColor:(id)arg1;
+- (void)colorMagnifierAction:(id)arg1;
 - (void)removeTextTransform:(id)arg1;
 - (void)makeLowercase:(id)arg1;
 - (void)makeUppercase:(id)arg1;

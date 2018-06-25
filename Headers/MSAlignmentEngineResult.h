@@ -10,7 +10,7 @@
 
 @class NSArray;
 
-@interface MSPointSnappingResult : NSObject <NSCopying>
+@interface MSAlignmentEngineResult : NSObject <NSCopying>
 {
     NSArray *_guides;
     unsigned long long _snappedAxes;

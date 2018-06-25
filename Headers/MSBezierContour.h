@@ -21,6 +21,7 @@
     MSPath *_path;
 }
 
++ (id)contourWithPolygonAtPoint:(struct CGPoint)arg1 radius:(double)arg2 sides:(unsigned long long)arg3;
 + (id)contourWithRect:(struct CGRect)arg1;
 @property(nonatomic) BOOL cachedIsRectangular; // @synthesize cachedIsRectangular=_cachedIsRectangular;
 @property(nonatomic) BOOL cachedBounds; // @synthesize cachedBounds=_cachedBounds;
@@ -30,6 +31,7 @@
 @property(readonly, nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
+- (id)intersectionsWithSegment:(id)arg1;
 - (id)contourWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
 - (id)contourWithInset:(double)arg1;
 - (id)rejoinSegments:(id)arg1 joinStrategy:(unsigned long long)arg2 closed:(BOOL)arg3;
@@ -42,6 +44,7 @@
 - (id)segmentAfterSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
 - (id)segmentAfter:(id)arg1;
 - (id)segmentBefore:(id)arg1;
+- (id)closedContour;
 - (id)reversedContour;
 @property(nonatomic, getter=isClockwise) BOOL clockwise;
 @property(nonatomic) BOOL isRectangular;

@@ -10,21 +10,28 @@
 #import "MSJSONArchiverAlternativeFileReference.h"
 #import "NSCopying.h"
 
-@class NSData, NSImage, NSObject<OS_dispatch_semaphore>, NSString;
+@class BCReadWriteLock, NSData, NSImage, NSObject<OS_dispatch_semaphore>, NSString;
 
 @interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
 {
     NSData *_sha1;
     NSData *_data;
+    struct CGImage *_cgImages[8];
     NSImage *_image;
     NSObject<OS_dispatch_semaphore> *_dataLock;
+    BCReadWriteLock *_imageLock;
 }
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
+@property(readonly, nonatomic) BCReadWriteLock *imageLock; // @synthesize imageLock=_imageLock;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1;
+- (struct CGImage *)generateCGImageAtLevelOfDetail:(unsigned long long)arg1;
+- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) struct CGImage *cgImage;
 - (void)correctInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
@@ -46,9 +53,11 @@
 @property(readonly, nonatomic) NSData *sha1;
 @property(readonly, nonatomic) NSData *data;
 - (void)waitForDataLock;
+- (void)dealloc;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;
+- (id)initDefault;
 - (id)treeAsDictionary;
 
 // Remaining properties

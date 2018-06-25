@@ -94,6 +94,7 @@
 - (void).cxx_destruct;
 - (void)installedFontsDidChange;
 - (id)previewColorSpaceForItem:(id)arg1;
+- (void)warnIfPluginsDisabled;
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
@@ -169,12 +170,13 @@
 - (void)documentDidChange:(id)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
-- (void)changeToImmutableDocumentData:(id)arg1 pageChanged:(BOOL)arg2;
+- (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
 - (void)commitHistoryIfNecessary:(id)arg1;
 - (void)flushCachesIfNecessary;
 - (id)currentVerticalRulerData;
 - (id)currentHorizontalRulerData;
 - (void)zoomValueDidChange;
+- (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
 - (void)documentData:(id)arg1 sharedObjectDidChange:(id)arg2;
 - (void)performPostPageSwitchUpdates;
 - (void)documentData:(id)arg1 didChangeToPage:(id)arg2;
@@ -272,9 +274,7 @@
 - (long long)askToOpenNewerDocument;
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
-- (id)bitmapLayerWithImageAtURL:(id)arg1;
 - (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
-- (void)restoreDocumentWindowWithIdentifier:(id)arg1 state:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)migrateUIMetadataWithDocumentData:(id)arg1;
 - (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 - (BOOL)validateDocument:(id)arg1 error:(id *)arg2;

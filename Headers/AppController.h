@@ -13,11 +13,12 @@
 #import "NSUserNotificationCenterDelegate.h"
 #import "NSWindowDelegate.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSIOSConnectionController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
+    BOOL _needToInformUserPluginsAreDisabled;
     BOOL _canCreateDocuments;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
@@ -25,7 +26,6 @@
     NSMenu *_printMenu;
     NSMenuItem *_prototypingMenuItem;
     NSMenuItem *_debugMenuItem;
-    MSIOSConnectionController *_connectionController;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenuItem *_dataFeedMenuItem;
@@ -67,7 +67,8 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) BOOL canCreateDocuments; // @synthesize canCreateDocuments=_canCreateDocuments;
-@property(readonly, nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
+@property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
+@property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
@@ -87,7 +88,6 @@
 @property(retain, nonatomic) NSMenuItem *dataFeedMenuItem; // @synthesize dataFeedMenuItem=_dataFeedMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
-@property(retain, nonatomic) MSIOSConnectionController *connectionController; // @synthesize connectionController=_connectionController;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
 @property(nonatomic) __weak NSMenuItem *prototypingMenuItem; // @synthesize prototypingMenuItem=_prototypingMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
@@ -111,11 +111,17 @@
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)documentWillClose:(id)arg1;
+- (BOOL)isThereAPluginForDataSupplier:(id)arg1;
+- (BOOL)isPluginForDataSupplierEnabled:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
+- (id)dataAction;
+- (void)dataMenuProviderApplyMasterDataToInstances:(id)arg1;
+- (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
 - (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
+- (id)dataMenuProviderSelectedLayerDataSupplierIdentifier:(id)arg1;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
 - (id)templateLibraryPath;
@@ -127,6 +133,8 @@
 - (void)checkImageTemplates;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
+- (long long)periodWithInitialValue:(long long)arg1 defaultsKey:(id)arg2;
+@property(readonly, nonatomic) long long checkForLibraryUpdatesPeriod;
 @property(readonly, nonatomic) long long checkForUpdatesPeriod;
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
@@ -146,6 +154,7 @@
 - (BOOL)isFirstLaunchOfNewVersion;
 - (void)storePluginList:(id)arg1 inCrashLogKey:(id)arg2;
 - (void)storePluginsForCrashReport;
+- (void)setupPluginManager;
 - (void)reloadAssetLibraryPreferencesTableView;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
@@ -156,8 +165,6 @@
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
 - (id)init;
-- (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
-- (void)startDownloadingLibrary:(id)arg1;
 - (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 - (void)openCloudURL:(id)arg1;
 - (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;

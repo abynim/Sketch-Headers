@@ -10,6 +10,8 @@
 
 @interface _MSLayer : MSModelObject
 {
+    long long _booleanOperation;
+    BOOL _isFixedToViewport;
     BOOL _isFlippedHorizontal;
     BOOL _isFlippedVertical;
     BOOL _isLocked;
@@ -55,7 +57,9 @@
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
+@property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(readonly, nonatomic) struct CGRect influenceRectForBounds;
+@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

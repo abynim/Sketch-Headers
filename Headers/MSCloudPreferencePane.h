@@ -6,13 +6,12 @@
 
 #import "MSPreferencePane.h"
 
-@class MSCloudPreferencesViewController, NSStoryboard, SCKAPIOperation;
+@class MSCloudPreferencesViewController, NSStoryboard;
 
 @interface MSCloudPreferencePane : MSPreferencePane
 {
     NSStoryboard *_cloudStoryboard;
     MSCloudPreferencesViewController *_currentViewController;
-    SCKAPIOperation *_updateUserOperation;
 }
 
 + (long long)cloudLoginOverrideBehaviorWithUser:(id)arg1;
@@ -21,12 +20,9 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(retain, nonatomic) SCKAPIOperation *updateUserOperation; // @synthesize updateUserOperation=_updateUserOperation;
 @property(retain, nonatomic) MSCloudPreferencesViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
 - (void).cxx_destruct;
-- (void)updateAuthenticatedUser;
-@property(readonly, nonatomic) BOOL isUpdatingAuthenticatedUser;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)applicationDidOpenURL:(id)arg1;
 - (void)platformDidChangeNotification:(id)arg1;

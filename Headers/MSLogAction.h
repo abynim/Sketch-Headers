@@ -6,10 +6,16 @@
 
 #import "MSAction.h"
 
+@class NSDictionary;
+
 @interface MSLogAction : MSAction
 {
+    NSDictionary *_value;
 }
 
+@property(retain, nonatomic) NSDictionary *value; // @synthesize value=_value;
+- (void).cxx_destruct;
+- (id)contextForActionObservers;
 - (void)print:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 

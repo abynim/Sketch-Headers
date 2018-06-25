@@ -9,19 +9,23 @@
 #import "MSInspectorSection.h"
 #import "NSMenuDelegate.h"
 
-@class NSArray, NSNumberFormatter, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSArray, NSArrayController, NSString;
 
 @interface MSOpacityBlendingInspectorViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
 {
     NSArray *_layers;
-    NSNumberFormatter *_numberFormatter;
+    MSUpDownTextField *_opacityField;
+    NSArrayController *_arrayController;
+    MSMathInspectorValueAdaptor *_opacityAdaptor;
 }
 
-@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
+@property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
+@property(retain, nonatomic) MSUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)views;
-- (id)init;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

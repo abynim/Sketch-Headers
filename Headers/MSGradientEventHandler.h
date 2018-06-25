@@ -25,12 +25,10 @@
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
 - (BOOL)canDuplicate;
-- (id)layerFromSelectedLayers;
+- (id)findSelectedLayer;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
-- (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
-- (void)concatTransformsForDrawSnaps;
 - (BOOL)useSnaps;
 - (BOOL)shouldDisplayMessageForSelectedStop;
 - (id)previousStop;
@@ -40,7 +38,7 @@
 - (void)setSelectedStopToPercentage:(long long)arg1;
 - (void)keyDown:(id)arg1;
 - (void)delete:(id)arg1;
-- (void)setSelectedPoint:(long long)arg1;
+- (void)setIndexForSelectedPoint:(long long)arg1;
 - (BOOL)hasSelectedPoint;
 - (BOOL)canInsertPointAtMouse:(struct CGPoint)arg1;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
@@ -54,9 +52,9 @@
 - (void)repairGradientIfNecessary;
 - (void)colorMagnifierAction:(id)arg1;
 - (id)gradient;
-- (void)gradientPointArray:(id)arg1 replacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
+- (void)gradientPointArray:(id)arg1 didReplacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
 - (id)points;
-- (void)drawDotAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
+- (void)drawHandleAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
 - (void)handlerWillLoseFocus;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)handlerGotFocus;

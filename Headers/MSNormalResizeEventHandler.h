@@ -33,6 +33,7 @@
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)finishResizing;
 - (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
+- (struct CGPoint)pointInLocalCoordinates:(struct CGPoint)arg1;
 - (unsigned long long)validSnapEdgesForResizingCorner;
 - (long long)oppositeCorner;
 - (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
@@ -42,7 +43,6 @@
 - (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (struct CGRect)newRectForResize:(struct CGPoint)arg1 gestureRecognizer:(id)arg2;
 - (void)updateResize:(id)arg1;
-- (void)calculateOppositeRotatedPoint;
 - (void)calculateOppositePoint;
 - (void)calculateMidPoint;
 - (void)displayResizeCursor;

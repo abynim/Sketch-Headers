@@ -19,13 +19,6 @@ struct BCEdgePaddings {
     double _field4;
 };
 
-struct BCPixel {
-    unsigned char r;
-    unsigned char g;
-    unsigned char b;
-    unsigned char a;
-};
-
 struct CATransform3D {
     double _field1;
     double _field2;
@@ -69,6 +62,11 @@ struct CGSize {
     double height;
 };
 
+struct CGVector {
+    double dx;
+    double dy;
+};
+
 struct FBBezierCurveData {
     struct CGPoint endPoint1;
     struct CGPoint controlPoint1;
@@ -110,6 +108,17 @@ struct FBRange {
     double maximum;
 };
 
+struct MSLine {
+    double A;
+    double B;
+    double C;
+};
+
+struct MSLineSegment {
+    struct CGPoint _field1;
+    struct CGPoint _field2;
+};
+
 struct MSModelObject {
     Class _field1;
     id _field2;
@@ -122,12 +131,6 @@ struct MSPresetIteratorStruct {
     long long _field1;
     long long _field2;
     long long _field3;
-};
-
-struct MSTangent {
-    double _field1;
-    double _field2;
-    double _field3;
 };
 
 struct NSBezierElement {
@@ -144,8 +147,8 @@ struct NSEdgeInsets {
 };
 
 struct _BCLine {
-    double _field1;
-    unsigned long long _field2;
+    double position;
+    unsigned long long axis;
 };
 
 struct _CHTransformStruct {
@@ -220,12 +223,23 @@ typedef struct {
 } CDStruct_8727d297;
 
 typedef struct {
+    double _field1;
+    double _field2;
+} CDStruct_c3b9c2ee;
+
+typedef struct {
     long long _field1;
     void *_field2;
     CDUnknownFunctionPointerType _field3;
     CDUnknownFunctionPointerType _field4;
     CDUnknownFunctionPointerType _field5;
 } CDStruct_e097db04;
+
+typedef struct {
+    long long _field1;
+    long long _field2;
+    long long _field3;
+} CDStruct_2ec95fd7;
 
 typedef struct {
     int _field1;

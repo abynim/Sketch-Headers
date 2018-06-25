@@ -39,6 +39,7 @@
     NSTextField *_textFieldToContinueEditing;
 }
 
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 colorInspectorSetupHandler:(CDUnknownBlockType)arg5;
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 colorInspectorSetupHandler:(CDUnknownBlockType)arg4;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;

@@ -6,11 +6,17 @@
 
 #import "MSBaseTransformInspectorItem.h"
 
+@class MSMathInspectorValueAdaptor;
+
 @interface MSLineTransformInspectorItem : MSBaseTransformInspectorItem
 {
+    MSMathInspectorValueAdaptor *_lengthAdapter;
 }
 
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *lengthAdapter; // @synthesize lengthAdapter=_lengthAdapter;
+- (void).cxx_destruct;
 - (void)viewDidLoad;
+- (id)initWithTitle:(id)arg1 textFieldLabel:(id)arg2;
 - (id)init;
 
 @end

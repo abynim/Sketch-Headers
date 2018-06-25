@@ -6,49 +6,30 @@
 
 #import "NSViewController.h"
 
-#import "BCPopoverDelegate.h"
-#import "MSColorInspectorDelegate.h"
 #import "MSInspectorChildController.h"
-#import "MSModeModePickerDelegate.h"
 
-@class BCPopover, MSBitmapEditEventHandler, MSModePickerView, NSButton, NSString;
+@class MSBitmapEditEventHandler, NSButton, NSString;
 
-@interface MSBitmapEditInspectorViewController : NSViewController <MSModeModePickerDelegate, BCPopoverDelegate, MSColorInspectorDelegate, MSInspectorChildController>
+@interface MSBitmapEditInspectorViewController : NSViewController <MSInspectorChildController>
 {
     BOOL _hasSelection;
-    long long _currentMode;
     MSBitmapEditEventHandler *_eventHandler;
-    MSModePickerView *_pickerView;
-    NSButton *_rectSelectionButton;
-    NSButton *_magicWandButton;
-    BCPopover *_popover;
+    NSButton *_cropButton;
+    NSButton *_invertButton;
 }
 
-@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSButton *magicWandButton; // @synthesize magicWandButton=_magicWandButton;
-@property(retain, nonatomic) NSButton *rectSelectionButton; // @synthesize rectSelectionButton=_rectSelectionButton;
-@property(retain, nonatomic) MSModePickerView *pickerView; // @synthesize pickerView=_pickerView;
+@property(retain, nonatomic) NSButton *invertButton; // @synthesize invertButton=_invertButton;
+@property(retain, nonatomic) NSButton *cropButton; // @synthesize cropButton=_cropButton;
 @property(nonatomic) MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(nonatomic) BOOL hasSelection; // @synthesize hasSelection=_hasSelection;
-@property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (id)views;
-- (void)pickerViewChanged:(id)arg1;
-- (void)pickerViewWillChange:(id)arg1;
-- (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
-- (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
-- (void)colorMagnifierAction:(id)arg1;
-- (void)colorizeAction:(id)arg1;
 - (void)finishEditing:(id)arg1;
 - (void)cropAction:(id)arg1;
 - (void)invertAction:(id)arg1;
-- (void)magicWandAction:(id)arg1;
-- (void)rectSelectionAction:(id)arg1;
 - (void)refresh;
-- (void)dismissViewController:(id)arg1;
-- (void)viewWillDisappear;
 - (void)viewDidLoad;
 
 // Remaining properties

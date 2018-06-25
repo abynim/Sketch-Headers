@@ -23,7 +23,6 @@
 - (void)updateErrorDescription;
 - (void)viewDidLoad;
 - (void)loadView;
-- (id)initWithAction:(id)arg1;
 
 @end
 

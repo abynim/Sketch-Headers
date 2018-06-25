@@ -6,50 +6,50 @@
 
 #import "MSEventHandler.h"
 
-@class MSLayer, NSMutableDictionary;
+@class MSLayer, MSStyledLayer, NSMutableDictionary;
 
 @interface MSPointsEventHandler : MSEventHandler
 {
-    MSLayer *layer;
     NSMutableDictionary *currentSnaps;
     BOOL firstDrag;
-    long long _selectedPoint;
+    MSStyledLayer *_layer;
+    long long _indexForSelectedPoint;
 }
 
-@property(nonatomic) long long selectedPoint; // @synthesize selectedPoint=_selectedPoint;
+@property(nonatomic) long long indexForSelectedPoint; // @synthesize indexForSelectedPoint=_indexForSelectedPoint;
+@property(retain, nonatomic) MSStyledLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
 - (struct CGPoint)convertPointToAbsoluteCoordinates:(struct CGPoint)arg1;
+@property(readonly, nonatomic) MSLayer *coordinateSpace;
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1 toLines:(id)arg2;
-- (id)snapsForPoints:(id)arg1;
-- (id)snapsForShape;
+- (id)pointsToSnap;
+- (id)snapTargetsForPoints:(id)arg1;
 - (BOOL)useSnaps;
-- (void)drawDotAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
+- (void)drawHandleAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
 - (void)drawHandles;
 - (void)drawSnaps;
-- (void)concatTransformsForDrawSnaps;
 - (id)handleLinesPath;
 - (id)handleLinesColor;
 - (void)drawHandleLines;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)keyDown:(id)arg1;
-- (struct CGPoint)adjustPoint:(struct CGPoint)arg1;
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)movePointAtIndex:(long long)arg1 toLocation:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (BOOL)point:(struct CGPoint)arg1 isNearPoint:(struct CGPoint)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (long long)indexForMouse:(struct CGPoint)arg1;
+- (long long)indexOfPointAtLocation:(struct CGPoint)arg1;
 - (BOOL)allowsEmptySelection;
-- (struct CGPoint)relMouse:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointToUnitCoordinateSpace:(struct CGPoint)arg1;
 - (void)sendUpdate;
 - (struct CGRect)bounds;
 - (id)points;
-- (void)setLayer:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
-- (id)layerFromSelectedLayers;
+- (id)findSelectedLayer;
 - (id)initWithManager:(id)arg1;
 
 @end

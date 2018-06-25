@@ -33,7 +33,7 @@
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
 - (id)otherArtboardUnderArtboard;
-- (void)moveBySuggestedOffset:(struct CGSize)arg1;
+- (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(retain, nonatomic) MSArtboardPreset *preset;
 - (void)setRect:(struct CGRect)arg1;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
@@ -88,6 +88,7 @@
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
 @property(readonly, nonatomic) MSPath *pathInBounds;
 @property(readonly, nonatomic) MSPath *pathInFrame;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;

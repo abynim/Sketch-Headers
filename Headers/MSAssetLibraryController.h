@@ -31,6 +31,8 @@
 - (void)createAssetLibraryFolder;
 - (id)librariesWithUpdates;
 - (void)addRemoteLibraryFromAppcastURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)makeDuplicateRemoteLibraryError;
+- (id)remoteLibraryWithAppcast:(id)arg1;
 - (void)updateAndLoadAssetLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)startDownloadingAssetLibrary:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)downloadAssetLibraryAppcastsWithHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;

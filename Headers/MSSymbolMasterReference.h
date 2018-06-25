@@ -12,7 +12,9 @@
 {
 }
 
+- (id)localLocationPath;
 - (id)foreignObjectCollectionInDocument:(id)arg1;
+- (unsigned long long)shareableObjectType;
 - (id)sharedObjectID;
 @property(readonly, nonatomic) MSSymbolMasterReferenceDescriptor *descriptor;
 - (unsigned long long)hash;

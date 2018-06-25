@@ -30,6 +30,9 @@
 @property(readonly, nonatomic) BOOL hasSingleOverride;
 - (void)applyOverrideToSelectedLayers:(id)arg1;
 - (void)overrideValueAction:(id)arg1;
+- (void)dataMenuProviderApplyMasterDataToInstances:(id)arg1;
+- (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
+- (id)dataMenuProviderSelectedLayerDataSupplierIdentifier:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;

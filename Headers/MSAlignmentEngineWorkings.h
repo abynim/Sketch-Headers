@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@interface MSPointSnapperWorkings : NSObject
+@interface MSAlignmentEngineWorkings : NSObject
 {
     BOOL _snapped;
     unsigned long long _axis;
@@ -24,8 +24,10 @@
 @property(nonatomic) double snapDistance; // @synthesize snapDistance=_snapDistance;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(nonatomic) struct CGPoint pointToSnap; // @synthesize pointToSnap=_pointToSnap;
-- (struct CGPoint)snapPoint:(struct CGPoint)arg1 andMakeGuide:(id *)arg2 forLayer:(id)arg3;
+- (id)makeGuideForSnapToPoint:(struct CGPoint)arg1;
+- (struct CGPoint)snapPoint:(struct CGPoint)arg1 withConstraint:(id)arg2;
 - (BOOL)trySnapToTarget:(id)arg1;
+- (void)extendGuideToPoint:(struct CGPoint)arg1;
 - (void)extendGuideToTarget:(id)arg1;
 
 @end

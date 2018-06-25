@@ -31,12 +31,13 @@
 @property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)documentFileURLForShareUploadOperation:(id)arg1;
+- (void)shareUploadOperation:(id)arg1 exportDocumentWithHandler:(CDUnknownBlockType)arg2;
+- (void)shareUploadOperation:(id)arg1 willStartUploadingShare:(id)arg2;
 - (id)shareUploadOperation:(id)arg1 fileURLForItemWithHash:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)cancel;
 - (id)loadManifest;
-- (void)uploadManifest;
+- (void)createShare;
 - (void)startUpload;
 @property(readonly, nonatomic) NSProgress *progress;
 - (void)dealloc;

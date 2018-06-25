@@ -272,7 +272,7 @@
 - (id)defaultColorSpaceNamed:(id)arg1;
 - (id)resourceNamed:(id)arg1 ofKind:(id)arg2;
 - (void)scanStream:(struct CGPDFContentStream *)arg1 dictionary:(id)arg2;
-- (void)scanPage:(struct CGPDFPage *)arg1 parser:(id)arg2;
+- (void)scanPage:(struct CGPDFPage *)arg1 parser:(id)arg2 isPasted:(BOOL)arg3;
 - (id)addOperator:(CDUnknownFunctionPointerType)arg1 name:(id)arg2 description:(id)arg3;
 - (void)registerAllOperators;
 - (void)logUnusedParametersWithInfo:(id)arg1;

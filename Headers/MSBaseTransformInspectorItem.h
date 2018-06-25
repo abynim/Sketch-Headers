@@ -6,11 +6,11 @@
 
 #import "MSInspectorItem.h"
 
-@class MSMathNumberFormatter, NSSegmentedControl, NSString, NSTextField;
+@class MSMathNumberFormatter, MSUpDownTextField, NSSegmentedControl, NSString, NSTextField;
 
 @interface MSBaseTransformInspectorItem : MSInspectorItem
 {
-    NSTextField *_textField;
+    MSUpDownTextField *_textField;
     NSSegmentedControl *_flipSegmentedControl;
     MSMathNumberFormatter *_textFieldFormatter;
     NSTextField *_textFieldLabel;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) NSTextField *textFieldLabel; // @synthesize textFieldLabel=_textFieldLabel;
 @property(retain, nonatomic) MSMathNumberFormatter *textFieldFormatter; // @synthesize textFieldFormatter=_textFieldFormatter;
 @property(retain, nonatomic) NSSegmentedControl *flipSegmentedControl; // @synthesize flipSegmentedControl=_flipSegmentedControl;
-@property(retain, nonatomic) NSTextField *textField; // @synthesize textField=_textField;
+@property(retain, nonatomic) MSUpDownTextField *textField; // @synthesize textField=_textField;
 - (void).cxx_destruct;
 - (BOOL)areAllLayersFlippedVertically;
 - (BOOL)areAllLayersFlippedHorizontally;

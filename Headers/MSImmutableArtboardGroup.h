@@ -31,18 +31,21 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) BOOL containsFixedLayers;
+- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
+- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-- (id)exporterForWebOnPage:(id)arg1 document:(id)arg2 scale:(double)arg3;
 - (void)updateColorCounter:(id)arg1;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (void)trackColors:(id)arg1;
-- (void)configureBackgroundOfRequest:(id)arg1;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
+- (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;
 
@@ -64,6 +67,7 @@
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
 @property(readonly, nonatomic) MSPath *pathInBounds;
 @property(readonly, nonatomic) MSPath *pathInFrame;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;

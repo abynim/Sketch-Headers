@@ -6,9 +6,11 @@
 
 #import "MSInspectorItem.h"
 
-@class NSButton;
+#import "MSLayerChangeObserver.h"
 
-@interface MSExportPropertiesInspectorItem : MSInspectorItem
+@class NSButton, NSString;
+
+@interface MSExportPropertiesInspectorItem : MSInspectorItem <MSLayerChangeObserver>
 {
     NSButton *_groupContentsOnlyButton;
 }
@@ -16,8 +18,17 @@
 + (id)filterSelection:(id)arg1;
 @property(retain, nonatomic) NSButton *groupContentsOnlyButton; // @synthesize groupContentsOnlyButton=_groupContentsOnlyButton;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (void)layerDidChange:(id)arg1;
+- (void)setLayers:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)groupContentsOnlyAction:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

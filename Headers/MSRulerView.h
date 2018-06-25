@@ -47,7 +47,6 @@
 - (void)setHidden:(BOOL)arg1;
 - (double)baseLineIncludingScrollOrigin:(BOOL)arg1;
 - (double)baseLine;
-- (id)snapLineWithPosition:(double)arg1;
 - (struct CGPoint)mouseEventToPoint:(id)arg1;
 - (void)refreshGuidesForGrid:(id)arg1;
 - (void)refreshAllGuidesInDrawView;

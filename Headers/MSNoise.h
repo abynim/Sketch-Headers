@@ -12,6 +12,7 @@
 
 + (void)drawWithIntensity:(double)arg1 ofType:(long long)arg2 inRect:(struct CGRect)arg3 zoomValue:(double)arg4 context:(struct CGContext *)arg5;
 + (void)drawWithIntensity:(double)arg1 ofType:(long long)arg2 inPath:(id)arg3 windingRule:(unsigned long long)arg4 zoomValue:(double)arg5 context:(struct CGContext *)arg6;
++ (BOOL)noiseIsOpaqueForType:(long long)arg1;
 
 @end
 

@@ -9,12 +9,13 @@
 #import "MSColorInspectorDelegate.h"
 #import "MSInspectorSection.h"
 #import "MSStylePartPreviewButtonDelegate.h"
+#import "MSStylePartPreviewButtonDisabledTarget.h"
 #import "NSPopoverDelegate.h"
 #import "NSWindowDelegate.h"
 
 @class BCPopover, MSStylePartPreviewButton, NSArray, NSArrayController, NSString, NSView;
 
-@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate>
+@interface MSStylePartInspectorViewController : NSViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSInspectorSection, NSWindowDelegate, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;
@@ -46,11 +47,11 @@
 - (void)dismissViewController:(id)arg1;
 - (void)closePopover;
 - (unsigned long long)supportedActionsForLayers:(id)arg1;
+- (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)dealloc;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;
-- (id)init;
 - (void)prepareForReuse;
 
 // Remaining properties

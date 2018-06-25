@@ -6,13 +6,30 @@
 
 #import "MSBaseTransformInspectorItem.h"
 
-@interface MSTransformInspectorItem : MSBaseTransformInspectorItem
+#import "MSInspectorValueAdaptorDelegate.h"
+
+@class MSMathInspectorValueAdaptor, NSString;
+
+@interface MSTransformInspectorItem : MSBaseTransformInspectorItem <MSInspectorValueAdaptorDelegate>
 {
+    MSMathInspectorValueAdaptor *_rotationAdapter;
 }
 
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdapter; // @synthesize rotationAdapter=_rotationAdapter;
+- (void).cxx_destruct;
+- (void)updateDisplayedValues;
+- (void)updateTouchbarItems;
+- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)textFieldAction:(id)arg1;
 - (void)viewDidLoad;
+- (id)initWithTitle:(id)arg1 textFieldLabel:(id)arg2;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

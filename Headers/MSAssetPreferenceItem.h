@@ -19,6 +19,7 @@
     unsigned long long _downloadedSoFar;
 }
 
++ (id)keyPathsForValuesAffectingUpdateAvailable;
 + (id)preferenceItemForLibrary:(id)arg1;
 @property(nonatomic) unsigned long long downloadedSoFar; // @synthesize downloadedSoFar=_downloadedSoFar;
 @property(nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;

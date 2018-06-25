@@ -8,7 +8,7 @@
 
 #import "MSInspectorChildController.h"
 
-@class MSPathController, MSShapeEventHandler, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSMathInspectorValueAdaptor, MSPathController, MSShapeEventHandler, MSUpDownTextField, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
@@ -20,14 +20,20 @@
     NSView *_curveModeBackgroundView;
     NSButton *_makeRectSelectionButton;
     NSButton *_closePathButton;
-    NSTextField *_curvePointXField;
-    NSTextField *_curvePointYField;
+    MSUpDownTextField *_curvePointXField;
+    MSUpDownTextField *_curvePointYField;
     NSSlider *_cornerRadiusSlider;
+    MSMathInspectorValueAdaptor *_xAdapter;
+    MSMathInspectorValueAdaptor *_yAdapter;
+    NSArrayController *_pointsController;
 }
 
+@property(retain, nonatomic) NSArrayController *pointsController; // @synthesize pointsController=_pointsController;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *yAdapter; // @synthesize yAdapter=_yAdapter;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *xAdapter; // @synthesize xAdapter=_xAdapter;
 @property(retain, nonatomic) NSSlider *cornerRadiusSlider; // @synthesize cornerRadiusSlider=_cornerRadiusSlider;
-@property(retain, nonatomic) NSTextField *curvePointYField; // @synthesize curvePointYField=_curvePointYField;
-@property(retain, nonatomic) NSTextField *curvePointXField; // @synthesize curvePointXField=_curvePointXField;
+@property(retain, nonatomic) MSUpDownTextField *curvePointYField; // @synthesize curvePointYField=_curvePointYField;
+@property(retain, nonatomic) MSUpDownTextField *curvePointXField; // @synthesize curvePointXField=_curvePointXField;
 @property(retain, nonatomic) NSButton *closePathButton; // @synthesize closePathButton=_closePathButton;
 @property(retain, nonatomic) NSButton *makeRectSelectionButton; // @synthesize makeRectSelectionButton=_makeRectSelectionButton;
 @property(retain, nonatomic) NSView *curveModeBackgroundView; // @synthesize curveModeBackgroundView=_curveModeBackgroundView;
@@ -37,6 +43,7 @@
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 - (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)changeTool:(id)arg1;
@@ -46,13 +53,9 @@
 - (void)roundingPopUpAction:(id)arg1;
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
+- (void)refreshCoordinates;
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
 - (void)refreshCurveModeControls;
-- (void)takeHandleLocationOnAxis:(unsigned long long)arg1 fromTextField:(id)arg2;
-- (void)changeYPosition:(id)arg1;
-- (void)changeXPosition:(id)arg1;
-- (void)updateCoordinateValueForField:(id)arg1 onAxis:(unsigned long long)arg2;
-- (void)refreshXYFields;
 - (void)finishEditingAction:(id)arg1;
 - (void)closePathAction:(id)arg1;
 - (void)refreshClosePathButton;
@@ -60,6 +63,7 @@
 - (void)refresh;
 - (void)dealloc;
 - (void)viewDidLoad;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

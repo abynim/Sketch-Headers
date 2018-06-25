@@ -9,10 +9,11 @@
 #import "BCPopoverDelegate.h"
 #import "MSColorInspectorDelegate.h"
 #import "MSStylePartPreviewButtonDelegate.h"
+#import "MSStylePartPreviewButtonDisabledTarget.h"
 
 @class BCPopover, MSStylePartPreviewButton, NSString;
 
-@interface MSExportBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate>
+@interface MSExportBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget>
 {
     MSStylePartPreviewButton *_backgroundColorButton;
     BCPopover *_popover;
@@ -31,6 +32,7 @@
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
+- (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)backgroundColorAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (void)updateDisplayedValues;

@@ -25,6 +25,7 @@
 @property(nonatomic) unsigned long long hoverType; // @synthesize hoverType=_hoverType;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (void)didMoveThroughHistory:(id)arg1;
 - (BOOL)mayShowResizingInspectorView;
 - (id)findTargetLayerForMouse:(struct CGPoint)arg1;
 - (struct CGPoint)positionOfOtherPageImageIndicatorForArtboard:(id)arg1;

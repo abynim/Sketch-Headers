@@ -10,7 +10,7 @@
 #import "MSOverlayRendererDelegate.h"
 #import "MSTiledLayerPileHostView.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSImmutableDocumentData, MSMouseTracker, MSOverlayView, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSArray, NSNumberFormatter, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSFlowRendererCollector, MSImmutableDocumentData, MSMouseTracker, MSOverlayView, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledLayerPile, MSViewPort, MSZoomTool, NSNumberFormatter, NSString;
 
 @interface MSContentDrawView : NSView <MSEventHandlerManagerDelegate, MSTiledLayerPileHostView, MSOverlayRendererDelegate>
 {
@@ -46,7 +46,7 @@
     MSRenderMonitor *_performanceMonitor;
     MSRenderingDriver *_normalDriver;
     MSRenderingDriver *_debugDriver;
-    NSArray *_flowRenderers;
+    MSFlowRendererCollector *_flowCollector;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
     struct CGRect _scrollOriginRelativeContentRedrawRect;
@@ -57,7 +57,7 @@
 + (struct CGPoint)viewCoordinatesFromAbsoluteCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
-@property(retain, nonatomic) NSArray *flowRenderers; // @synthesize flowRenderers=_flowRenderers;
+@property(retain, nonatomic) MSFlowRendererCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
 @property(retain, nonatomic) MSRenderingDriver *debugDriver; // @synthesize debugDriver=_debugDriver;
 @property(retain, nonatomic) MSRenderingDriver *normalDriver; // @synthesize normalDriver=_normalDriver;
 @property(retain, nonatomic) MSRenderMonitor *performanceMonitor; // @synthesize performanceMonitor=_performanceMonitor;
@@ -161,6 +161,7 @@
 - (void)redrawTileContentIfOpportune;
 - (void)redrawTiles;
 - (void)scheduleRedraw;
+- (void)refreshRulers;
 - (void)refreshOverlayInViewRect:(struct CGRect)arg1;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)refreshOverlay;

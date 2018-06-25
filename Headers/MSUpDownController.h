@@ -11,6 +11,7 @@
 @interface MSUpDownController : NSResponder
 {
     BOOL didChangeTextDuringEditing;
+    id <MSIncrementDecrementDelegate> _incrementDecrementDelegate;
     NSTextField<MSUpDownProtocol> *_textField;
     MSIntegratedStepper *_stepper;
 }
@@ -18,6 +19,7 @@
 + (void)initialize;
 @property(retain, nonatomic) MSIntegratedStepper *stepper; // @synthesize stepper=_stepper;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *textField; // @synthesize textField=_textField;
+@property(nonatomic) __weak id <MSIncrementDecrementDelegate> incrementDecrementDelegate; // @synthesize incrementDecrementDelegate=_incrementDecrementDelegate;
 - (void).cxx_destruct;
 - (BOOL)isEditable;
 - (BOOL)isEnabled;
@@ -25,6 +27,7 @@
 - (double)floatValue;
 - (double)incrementValueAccountingForModifierFlags;
 - (double)adjustValueForMinimum:(double)arg1;
+- (void)incrementBy:(double)arg1;
 - (void)decrement;
 - (double)adjustValueForMaximum:(double)arg1;
 - (void)increment;

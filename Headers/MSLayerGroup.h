@@ -34,7 +34,7 @@
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
-- (void)setIsHovering:(BOOL)arg1;
+- (void)setIsHighlighted:(BOOL)arg1;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;

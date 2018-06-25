@@ -17,11 +17,8 @@
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(nonatomic) __weak NSImage *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
 - (void).cxx_destruct;
-- (id)thumbFromImage:(id)arg1 centerTopInSize:(struct CGSize)arg2;
-- (id)thumbWithSize:(struct CGSize)arg1 byDrawingImage:(id)arg2 inRect:(struct CGRect)arg3 fromRect:(struct CGRect)arg4;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
-- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
 - (id)centeredThumbFromImage:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 

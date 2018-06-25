@@ -6,9 +6,9 @@
 
 #import "NSObject.h"
 
-@class SMKExportRequest;
+@class NSURL;
 
 @protocol SMKWebServerDataSource <NSObject>
-- (void)renderExportForRequest:(SMKExportRequest *)arg1 handler:(void (^)(NSData *))arg2;
+- (void)renderExportForRequest:(NSURL *)arg1 handler:(void (^)(NSData *))arg2;
 @end
 

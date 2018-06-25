@@ -6,32 +6,38 @@
 
 #import "NSObject.h"
 
-@class MSSnappingAccumulator;
+@class MSMeasurementDrawing, MSSnapItem, MSSnappingAccumulator, NSNumberFormatter;
 
 @interface MSSnapperData : NSObject
 {
+    MSSnapItem *_item;
     MSSnappingAccumulator *_xAxisAccumulator;
     MSSnappingAccumulator *_yAxisAccumulator;
+    NSNumberFormatter *_numberFormatter;
+    MSMeasurementDrawing *_drawingHelper;
 }
 
+@property(retain, nonatomic) MSMeasurementDrawing *drawingHelper; // @synthesize drawingHelper=_drawingHelper;
+@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(readonly, nonatomic) MSSnappingAccumulator *yAxisAccumulator; // @synthesize yAxisAccumulator=_yAxisAccumulator;
 @property(readonly, nonatomic) MSSnappingAccumulator *xAxisAccumulator; // @synthesize xAxisAccumulator=_xAxisAccumulator;
+@property(readonly, nonatomic) MSSnapItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
-- (void)drawAccumulator:(id)arg1 zoomScale:(double)arg2;
-- (void)drawForGroup:(id)arg1 zoom:(double)arg2;
-- (void)resetSnappingForAxis:(unsigned long long)arg1;
-- (void)extendGuideForAxis:(unsigned long long)arg1 toStartPosition:(double)arg2 endPosition:(double)arg3;
-- (void)addTarget:(id)arg1;
-- (void)enumerateMeasurementsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)addDistanceMeasurement:(id)arg1;
-- (id)firstDistanceMeasurementForAxis:(unsigned long long)arg1;
-@property(readonly) unsigned long long measurementAxes;
-- (void)addDimensionMeasurement:(id)arg1;
-- (id)firstDimensionMeasurementForAxis:(unsigned long long)arg1;
+- (void)drawSpacingSnap:(id)arg1 zoomScale:(double)arg2 coordinateSpace:(id)arg3;
+- (void)drawDimensionSnap:(id)arg1 zoomScale:(double)arg2;
+- (void)drawAccumulator:(id)arg1 inLayer:(id)arg2 zoomScale:(double)arg3;
+- (void)drawForGroup:(id)arg1 zoomScale:(double)arg2;
+- (void)resetEdgeSnapsForAxis:(unsigned long long)arg1;
+- (void)addEdgeSnap:(id)arg1;
+- (void)addSpacingSnap:(id)arg1;
+- (id)firstSpacingSnapForAxis:(unsigned long long)arg1;
+@property(readonly) unsigned long long dimensionAxes;
+- (void)addDimensionSnap:(id)arg1;
+- (id)firstDimensionSnapForAxis:(unsigned long long)arg1;
 - (id)accumulatorForAxis:(unsigned long long)arg1;
-- (id)init;
+- (id)initWithItem:(id)arg1;
 
 @end
 

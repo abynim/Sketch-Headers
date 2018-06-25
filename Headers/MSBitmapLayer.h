@@ -15,11 +15,6 @@
 }
 
 + (unsigned long long)traits;
-+ (unsigned long long)scalingFactorForFilename:(id)arg1;
-+ (double)bestScaleAccountingForPixelDensityOfImage:(id)arg1;
-+ (id)bitmapLayerFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
-+ (id)bitmapLayerWithImageFromPath:(id)arg1;
-+ (id)bitmapLayerWithImageFromPasteboard:(id)arg1;
 - (void)correctInvalidGamma;
 - (void)resizeToOriginalSize;
 - (BOOL)isAtOriginalSize;

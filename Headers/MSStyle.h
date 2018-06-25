@@ -19,7 +19,7 @@
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
 @property(readonly, nonatomic) double thickestInnerStroke;
-@property(readonly, nonatomic) BOOL hasDecorations;
+@property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) double thickestStroke;
 - (BOOL)hasTextStyle;
 - (unsigned long long)type;
@@ -42,6 +42,8 @@
 - (id)enabledShadows;
 - (id)enabledBorders;
 - (id)enabledFills;
+- (void)disableAllInnerShadows;
+- (void)disableAllShadows;
 - (void)disableAllFills;
 - (void)disableAllBorders;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;

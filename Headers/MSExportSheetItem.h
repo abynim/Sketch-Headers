@@ -6,12 +6,12 @@
 
 #import "NSCollectionViewItem.h"
 
-@class MSExportSheet, MSSliceDragView, NSButton, NSImageView, NSTextField;
+@class MSExportSheet, NSButton, NSImageView, NSTextField, NSView;
 
 @interface MSExportSheetItem : NSCollectionViewItem
 {
     BOOL _showWarningLabel;
-    MSSliceDragView *_previewView;
+    NSView *_previewContainer;
     NSTextField *_titleField;
     NSTextField *_subTitleField;
     NSButton *_checkBox;
@@ -25,10 +25,11 @@
 @property(retain, nonatomic) NSButton *checkBox; // @synthesize checkBox=_checkBox;
 @property(retain, nonatomic) NSTextField *subTitleField; // @synthesize subTitleField=_subTitleField;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
-@property(retain, nonatomic) MSSliceDragView *previewView; // @synthesize previewView=_previewView;
+@property(retain, nonatomic) NSView *previewContainer; // @synthesize previewContainer=_previewContainer;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isExportable;
 - (id)subTitle;
+- (void)exportPreviewOperationDidFinish:(id)arg1;
 - (void)loadUI;
 - (void)awakeFromNib;
 - (id)init;

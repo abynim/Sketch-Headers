@@ -6,47 +6,38 @@
 
 #import "MSStylePartInspectorViewController.h"
 
+#import "MSStylePartInspectorItemDelegate.h"
 #import "NSMenuDelegate.h"
 
-@class NSButton, NSMenuItem, NSSlider, NSString, NSTextField, NSView;
+@class MSBlurNameInspectorItem, MSMotionBlurInspectorItem, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
 
-@interface MSBlurInspectorViewController : MSStylePartInspectorViewController <NSMenuDelegate>
+@interface MSBlurInspectorViewController : MSStylePartInspectorViewController <MSStylePartInspectorItemDelegate, NSMenuDelegate>
 {
-    NSView *_gaussianBlurView;
-    NSView *_motionBlurView;
-    NSView *_zoomBlurView;
-    NSButton *_editButton;
     NSMenuItem *_backgroundBlurMenuItem;
-    NSTextField *_zoomBlurTextField;
-    NSTextField *_motionBlurTextField;
-    NSTextField *_normalBlurTextField;
-    NSSlider *_zoomBlurSlider;
-    NSSlider *_motionBlurSlider;
-    NSSlider *_normalBlurSlider;
+    NSMenuItem *_multipleBlursMenuItem;
+    MSBlurNameInspectorItem *_blurNameItem;
+    MSSimpleBlurInspectorItem *_simpleBlurItem;
+    MSMotionBlurInspectorItem *_motionBlurItem;
+    MSZoomBlurInspectorItem *_zoomBlurItem;
 }
 
-@property(retain, nonatomic) NSSlider *normalBlurSlider; // @synthesize normalBlurSlider=_normalBlurSlider;
-@property(retain, nonatomic) NSSlider *motionBlurSlider; // @synthesize motionBlurSlider=_motionBlurSlider;
-@property(retain, nonatomic) NSSlider *zoomBlurSlider; // @synthesize zoomBlurSlider=_zoomBlurSlider;
-@property(retain, nonatomic) NSTextField *normalBlurTextField; // @synthesize normalBlurTextField=_normalBlurTextField;
-@property(retain, nonatomic) NSTextField *motionBlurTextField; // @synthesize motionBlurTextField=_motionBlurTextField;
-@property(retain, nonatomic) NSTextField *zoomBlurTextField; // @synthesize zoomBlurTextField=_zoomBlurTextField;
+@property(retain, nonatomic) MSZoomBlurInspectorItem *zoomBlurItem; // @synthesize zoomBlurItem=_zoomBlurItem;
+@property(retain, nonatomic) MSMotionBlurInspectorItem *motionBlurItem; // @synthesize motionBlurItem=_motionBlurItem;
+@property(retain, nonatomic) MSSimpleBlurInspectorItem *simpleBlurItem; // @synthesize simpleBlurItem=_simpleBlurItem;
+@property(retain, nonatomic) MSBlurNameInspectorItem *blurNameItem; // @synthesize blurNameItem=_blurNameItem;
+@property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
-@property(retain, nonatomic) NSButton *editButton; // @synthesize editButton=_editButton;
-@property(retain, nonatomic) NSView *zoomBlurView; // @synthesize zoomBlurView=_zoomBlurView;
-@property(retain, nonatomic) NSView *motionBlurView; // @synthesize motionBlurView=_motionBlurView;
-@property(retain, nonatomic) NSView *gaussianBlurView; // @synthesize gaussianBlurView=_gaussianBlurView;
 - (void).cxx_destruct;
-- (void)dealloc;
-- (void)handlerFocusDidChange:(id)arg1;
-- (void)blurPopUpAction:(id)arg1;
-- (void)editZoomCenter:(id)arg1;
+- (void)valuesPossiblyChanged:(id)arg1;
+- (id)stylePartInspectorItemDocument:(id)arg1;
 - (id)layers;
-- (void)menuNeedsUpdate:(id)arg1;
+- (void)setStyleParts:(id)arg1;
+- (id)blurKinds;
 - (id)views;
+- (id)items;
 - (void)prepareLayersForBackgroundBlur:(id)arg1;
 - (void)reloadInspectorStack:(id)arg1;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

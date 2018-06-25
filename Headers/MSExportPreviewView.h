@@ -9,37 +9,28 @@
 #import "NSDraggingSource.h"
 #import "NSPasteboardWriting.h"
 
-@class MSExportRequest, MSImmutableLayerAncestry, NSImage, NSString;
+@class MSExportPreviewViewModel, NSString;
 
-@interface MSSliceDragView : NSView <NSDraggingSource, NSPasteboardWriting>
+@interface MSExportPreviewView : NSView <NSDraggingSource, NSPasteboardWriting>
 {
-    NSImage *_previewImage;
-    MSImmutableLayerAncestry *_ancestry;
-    MSExportRequest *_cachedExportRequest;
+    MSExportPreviewViewModel *_viewModel;
 }
 
-+ (void)initialize;
-@property(retain, nonatomic) MSExportRequest *cachedExportRequest; // @synthesize cachedExportRequest=_cachedExportRequest;
-@property(retain, nonatomic) MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
-@property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
+@property(retain, nonatomic) MSExportPreviewViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (void).cxx_destruct;
-- (struct CGRect)imageDrawRect;
-- (void)drawRect:(struct CGRect)arg1;
-- (BOOL)isFlipped;
-- (void)sizeToFit;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
-- (id)imageDataInFormat:(id)arg1;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (unsigned long long)writingOptionsForType:(id)arg1 pasteboard:(id)arg2;
 - (id)writableTypesForPasteboard:(id)arg1;
 - (void)beginDragWithEvent:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
-- (void)setExportableLayer:(id)arg1 previewCompletionBlock:(CDUnknownBlockType)arg2;
-- (id)exportingColorSpace;
+- (struct CGRect)imageDrawRect;
+- (void)drawRect:(struct CGRect)arg1;
 - (void)setup;
 - (void)awakeFromNib;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithViewModel:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

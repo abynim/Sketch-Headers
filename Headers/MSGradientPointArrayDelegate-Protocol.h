@@ -9,6 +9,6 @@
 @class MSGradientPointArray;
 
 @protocol MSGradientPointArrayDelegate <NSObject>
-- (void)gradientPointArray:(MSGradientPointArray *)arg1 replacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
+- (void)gradientPointArray:(MSGradientPointArray *)arg1 didReplacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
 @end
 

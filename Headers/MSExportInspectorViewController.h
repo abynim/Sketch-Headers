@@ -48,6 +48,7 @@
 - (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)editExportPresets:(id)arg1;
 - (void)addExportPreset:(id)arg1;
+- (void)unApplyAllExportPresets:(id)arg1;
 - (void)applyExportPreset:(id)arg1;
 - (id)findExportFormatAmong:(id)arg1 equalToFormat:(id)arg2;
 - (BOOL)exportPresetAppliesToSelectedLayers:(id)arg1;

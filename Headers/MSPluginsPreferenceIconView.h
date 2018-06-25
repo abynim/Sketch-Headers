@@ -19,8 +19,6 @@
 - (void).cxx_destruct;
 - (struct CGRect)previewFrame;
 - (id)contentPath;
-- (id)thumbWithSize:(struct CGSize)arg1 byDrawingImage:(id)arg2 inRect:(struct CGRect)arg3 fromRect:(struct CGRect)arg4;
-- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
 - (id)centeredThumbFromImage:(id)arg1;
 - (void)generatePreview;
 @property(readonly, nonatomic) NSImage *placeHolderImage;

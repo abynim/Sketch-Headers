@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@interface MSPointSnappingGuide : NSObject <NSCopying>
+@interface MSAlignmentEngineResultGuide : NSObject <NSCopying>
 {
     struct CGPoint _start;
     struct CGPoint _end;

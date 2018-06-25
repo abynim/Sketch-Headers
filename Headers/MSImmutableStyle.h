@@ -12,10 +12,14 @@
 {
 }
 
+- (void)migratePropertiesFromV104OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
+- (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) NSArray *enabledInnerShadows;
 @property(readonly, nonatomic) NSArray *enabledShadows;
 @property(readonly, nonatomic) NSArray *enabledBorders;
 @property(readonly, nonatomic) NSArray *enabledFills;
+- (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) double thickestStroke;
@@ -29,9 +33,11 @@
 @property(readonly, nonatomic) MSImmutableStyleInnerShadow *firstEnabledInnerShadow;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
-@property(readonly, nonatomic) BOOL hasDecorations;
+@property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
 - (void)clearTextStyle;
+@property(readonly, nonatomic) NSArray *renderableFills;
+@property(readonly, nonatomic) BOOL hasEnabledOpaqueFill;
 - (id)renderBitmapEffects:(id)arg1;
 - (void)addSVGFilterAttributes:(id)arg1 exporter:(id)arg2 position:(unsigned long long)arg3;
 - (void)addBlurFilter:(id)arg1 exporter:(id)arg2;

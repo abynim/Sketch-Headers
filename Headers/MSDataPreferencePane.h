@@ -17,9 +17,9 @@
     BOOL _shouldEnableCogMenu;
     BOOL _enableShowInFinder;
     MSDataTableView *_tableView;
-    NSArrayController *_localDataArrayController;
+    NSArrayController *_dataArrayController;
     NSMenu *_contextMenu;
-    NSArray *_localData;
+    NSArray *_data;
     NSWindow *_chooseDataPanelWindow;
 }
 
@@ -27,11 +27,11 @@
 + (id)title;
 + (id)identifier;
 @property(nonatomic) __weak NSWindow *chooseDataPanelWindow; // @synthesize chooseDataPanelWindow=_chooseDataPanelWindow;
-@property(copy, nonatomic) NSArray *localData; // @synthesize localData=_localData;
+@property(copy, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(nonatomic) BOOL enableShowInFinder; // @synthesize enableShowInFinder=_enableShowInFinder;
 @property(nonatomic) BOOL shouldEnableCogMenu; // @synthesize shouldEnableCogMenu=_shouldEnableCogMenu;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
-@property(retain, nonatomic) NSArrayController *localDataArrayController; // @synthesize localDataArrayController=_localDataArrayController;
+@property(retain, nonatomic) NSArrayController *dataArrayController; // @synthesize dataArrayController=_dataArrayController;
 @property(nonatomic) __weak MSDataTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
 - (void)selectionDidChange;
@@ -62,7 +62,7 @@
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)tableViewSelectionDidChange:(id)arg1;
-@property(readonly, nonatomic) NSArray *selectedLocalData;
+@property(readonly, nonatomic) NSArray *selectedData;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager;
 - (void)awakeFromNib;
 

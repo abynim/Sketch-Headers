@@ -10,11 +10,9 @@
 {
     long long _clippingMaskMode;
     BOOL _hasClippingMask;
-    unsigned long long _windingRule;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (id)keysDifferingFromObject:(id)arg1;

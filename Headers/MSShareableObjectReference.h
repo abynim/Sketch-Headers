@@ -28,6 +28,7 @@
 - (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSString *locationPath;
+- (id)localLocationPath;
 @property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) unsigned long long shareableObjectType;
 - (id)foreignObjectCollectionInDocument:(id)arg1;

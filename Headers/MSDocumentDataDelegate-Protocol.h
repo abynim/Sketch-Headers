@@ -9,6 +9,7 @@
 @class MSDocumentData, MSModelObject, MSPage, NSArray, NSString;
 
 @protocol MSDocumentDataDelegate <NSObject>
+- (struct CGRect)visibleCanvasRectForDocumentData:(MSDocumentData *)arg1;
 - (void)determineCurrentArtboard;
 - (void)layerSelectionMightHaveChanged;
 - (void)refreshOverlay;

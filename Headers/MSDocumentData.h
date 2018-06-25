@@ -15,7 +15,6 @@
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
-    NSDictionary *_symbolInstancesBySymbolID;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -45,6 +44,7 @@
 - (id)symbolsReferencedByInstances:(id)arg1;
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
+- (void)invalidateAffectedSymbolInstances;
 - (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
 - (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
@@ -54,7 +54,6 @@
 - (id)allSymbols;
 - (id)localSymbols;
 - (id)allArtboards;
-@property(readonly, nonatomic) NSDictionary *symbolInstancesBySymbolID; // @synthesize symbolInstancesBySymbolID=_symbolInstancesBySymbolID;
 - (void)populateDictionary:(id)arg1 withChildrenOf:(id)arg2;
 - (id)layersByObjectID;
 - (id)artboardWithID:(id)arg1;
@@ -102,6 +101,7 @@
 - (BOOL)canBeContainedByGroup;
 - (id)metadataForKey:(id)arg1 object:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
+- (id)UIMetadataKey;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *pages;

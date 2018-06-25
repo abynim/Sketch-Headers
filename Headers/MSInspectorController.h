@@ -52,8 +52,9 @@
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
 - (id)handlerManager;
-- (id)findTextFieldInView:(id)arg1 withIndex:(unsigned long long)arg2;
-- (void)focusOnTextField:(unsigned long long)arg1;
+- (void)focusOnTextFieldWithIdentifier:(id)arg1;
+- (id)findFirstTextFieldInView:(id)arg1;
+- (void)focusOnFirstTextField;
 - (void)reload;
 - (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
 - (void)refreshCurrentController;

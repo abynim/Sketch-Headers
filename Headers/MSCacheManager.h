@@ -26,6 +26,7 @@
 - (void)clearCachesExceptForOwners:(id)arg1;
 - (id)cacheForZoomLevel:(double)arg1;
 - (id)init;
+- (id)initWithZoomIndependentCache:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -24,6 +24,7 @@
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)awakeFromNib;
 - (void)updateWithMenuBuilder:(id)arg1 forLayers:(id)arg2;
+- (void)addOriganiseMenu;
 - (void)addCreateNewMenu;
 - (BOOL)hasLayerWithMissingFonts;
 - (void)addOpenLibraryMenu;

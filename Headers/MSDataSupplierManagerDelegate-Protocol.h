@@ -9,6 +9,8 @@
 @class MSPluginDataSupplier, NSDictionary;
 
 @protocol MSDataSupplierManagerDelegate <NSObject>
+- (BOOL)isThereAPluginForDataSupplier:(MSPluginDataSupplier *)arg1;
+- (BOOL)isPluginForDataSupplierEnabled:(MSPluginDataSupplier *)arg1;
 - (void)requestDataFromPluginDataSupplier:(MSPluginDataSupplier *)arg1 pluginContext:(NSDictionary *)arg2;
 @end
 

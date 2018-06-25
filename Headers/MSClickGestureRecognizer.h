@@ -17,6 +17,7 @@
 @property(nonatomic) BOOL isDrag; // @synthesize isDrag=_isDrag;
 @property(nonatomic) long long numberOfClicksRequired; // @synthesize numberOfClicksRequired=_numberOfClicksRequired;
 @property(nonatomic) unsigned long long buttonMask; // @synthesize buttonMask=_buttonMask;
+- (BOOL)shouldRecognizeMouseUpEvent:(id)arg1;
 - (void)mouseUp:(id)arg1 location:(struct CGPoint)arg2;
 - (void)mouseDragged:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 modifierFlags:(unsigned long long)arg3;

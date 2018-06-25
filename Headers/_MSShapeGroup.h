@@ -10,7 +10,6 @@
 {
     long long _clippingMaskMode;
     BOOL _hasClippingMask;
-    unsigned long long _windingRule;
 }
 
 + (BOOL)allowsFaulting;
@@ -22,7 +21,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;

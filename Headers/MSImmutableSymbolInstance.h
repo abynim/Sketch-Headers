@@ -8,14 +8,20 @@
 
 #import "MSFlowContainmentCheck.h"
 
-@class NSDictionary;
+@class BCReadWriteLock, NSArray, NSDictionary;
 
 @interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
+    BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
+    NSArray *_calculatedAvailableOverrides;
+    unsigned long long _masterRefreshCounter;
 }
 
 + (id)defaultName;
 + (unsigned long long)traits;
+@property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
+- (void).cxx_destruct;
+- (id)availableOverridesWithDocument:(id)arg1;
 @property(readonly, nonatomic) id <NSCopying> modifiedMasterCacheKey;
 - (double)scale;
 - (BOOL)isScaled;
@@ -23,12 +29,15 @@
 - (struct CGRect)influenceRectForBounds;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (id)overridesFromGroupForMigration:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
+- (void)objectDidInit;
+- (void)performInitWithMutableModelObject:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (BOOL)includeInManifest;
-- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;
-- (id)availableOverridesWithDocument:(id)arg1;
+- (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;

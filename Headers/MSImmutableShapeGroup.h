@@ -14,17 +14,9 @@
 {
 }
 
-+ (id)bezierPathForEndDecorationOnPath:(id)arg1 decorationType:(unsigned long long)arg2;
-+ (id)bezierPathForStartDecorationOnPath:(id)arg1 decorationType:(unsigned long long)arg2;
 + (unsigned long long)traits;
 + (void)initialize;
-+ (id)lineDecoration;
-+ (id)openArrowDecoration;
-+ (id)closedArrowDecoration;
-+ (id)pathForDecorationType:(unsigned long long)arg1;
-+ (void)cacheDecorations;
-- (id)bezierPathForEndDecorationOnPath:(id)arg1;
-- (id)bezierPathForStartDecorationOnPath:(id)arg1;
+- (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
 - (id)calculatePathInBounds;
 - (void)applyPropertiesToBezier:(id)arg1;
@@ -34,7 +26,7 @@
 - (id)defaultName;
 - (BOOL)allowsBlur;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
-@property(readonly, nonatomic) BOOL hasDecorations;
+@property(readonly, nonatomic) BOOL hasMarkers;
 - (void)objectDidInit;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
 - (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
@@ -43,6 +35,7 @@
 - (BOOL)canOverridePoint:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (id)imageFillForOverrides;
+- (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
@@ -52,6 +45,7 @@
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 - (void)addPathDefinitionToDocument:(id)arg1;
 - (id)svgPathAttribute:(id)arg1;
+- (id)pathWithExporter:(id)arg1 border:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (BOOL)requiresPathDefinition:(id)arg1;
 - (id)svgStyle:(id)arg1;

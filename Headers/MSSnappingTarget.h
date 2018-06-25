@@ -16,6 +16,7 @@
     struct CGPoint _point;
 }
 
++ (id)targetsForEdgesAndCentersOfRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) double length; // @synthesize length=_length;
 @property(readonly, nonatomic) BOOL wantsGuide; // @synthesize wantsGuide=_wantsGuide;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;

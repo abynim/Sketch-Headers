@@ -12,6 +12,7 @@
 
 - (id)touchBarItem;
 - (BOOL)areAllSelectedLayersFlippedHorizontally;
+- (BOOL)isTouchBarItemSelected;
 - (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 - (void)flipHorizontal:(id)arg1;

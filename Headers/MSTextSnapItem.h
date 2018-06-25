@@ -10,8 +10,6 @@
 {
 }
 
-- (double)xHeight;
-- (double)baseline;
 - (BOOL)supportsResizingForSnapping;
 
 @end

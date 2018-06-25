@@ -6,11 +6,31 @@
 
 #import "MSStylePartInspectorViewController.h"
 
+@class MSMathInspectorValueAdaptor, MSUpDownTextField;
+
 @interface MSColorControlsInspectorViewController : MSStylePartInspectorViewController
 {
+    MSMathInspectorValueAdaptor *_hueAdaptor;
+    MSMathInspectorValueAdaptor *_saturationAdaptor;
+    MSMathInspectorValueAdaptor *_brightnessAdaptor;
+    MSMathInspectorValueAdaptor *_contrastAdaptor;
+    MSUpDownTextField *_hueField;
+    MSUpDownTextField *_saturationField;
+    MSUpDownTextField *_brightnessField;
+    MSUpDownTextField *_contrastField;
 }
 
+@property(retain, nonatomic) MSUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
+@property(retain, nonatomic) MSUpDownTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
+@property(retain, nonatomic) MSUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
+@property(retain, nonatomic) MSUpDownTextField *hueField; // @synthesize hueField=_hueField;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *contrastAdaptor; // @synthesize contrastAdaptor=_contrastAdaptor;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *brightnessAdaptor; // @synthesize brightnessAdaptor=_brightnessAdaptor;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdaptor; // @synthesize saturationAdaptor=_saturationAdaptor;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *hueAdaptor; // @synthesize hueAdaptor=_hueAdaptor;
+- (void).cxx_destruct;
 - (void)reset:(id)arg1;
+- (void)viewDidLoad;
 
 @end
 

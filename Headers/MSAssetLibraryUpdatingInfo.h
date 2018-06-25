@@ -18,10 +18,12 @@
     NSString *_libraryName;
     NSURL *_imageURL;
     MSFolderMonitor *_folderMonitor;
+    NSString *_downloadTaskIdentifier;
     NSURL *_shareLink;
 }
 
 @property(readonly, nonatomic) NSURL *shareLink; // @synthesize shareLink=_shareLink;
+@property(copy, nonatomic) NSString *downloadTaskIdentifier; // @synthesize downloadTaskIdentifier=_downloadTaskIdentifier;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
 @property(readonly, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
 @property(readonly, nonatomic) NSString *libraryName; // @synthesize libraryName=_libraryName;
@@ -29,6 +31,7 @@
 @property(readonly, nonatomic) NSString *versionNumberForUpdate; // @synthesize versionNumberForUpdate=_versionNumberForUpdate;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 - (void).cxx_destruct;
+- (BOOL)isHigherVersionThan:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToAssetLibraryUpdatingInfo:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

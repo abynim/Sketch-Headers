@@ -10,7 +10,6 @@
 
 @interface _MSImmutableShapePathLayer : MSImmutableLayer
 {
-    long long _booleanOperation;
     BOOL _edited;
     BOOL _isClosed;
     long long _pointRadiusBehaviour;
@@ -22,7 +21,6 @@
 @property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
-@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

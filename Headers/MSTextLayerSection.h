@@ -56,7 +56,7 @@
 - (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (id)comboBox:(id)arg1 objectValueForItemAtIndex:(long long)arg2;
 - (long long)numberOfItemsInComboBox:(id)arg1;
-- (void)colorMagnifierAction:(id)arg1;
+- (void)applyTextColor:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;
 - (BOOL)hasMoreThanOneMissingFont;
 - (BOOL)hasMissingFonts;

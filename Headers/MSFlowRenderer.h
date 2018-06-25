@@ -11,7 +11,7 @@
 @interface MSFlowRenderer : MSOverlayRenderer
 {
     BOOL _shouldDrawSourceLayerBounds;
-    NSArray *_flowParentLayerIDs;
+    NSArray *_flowInfluencingLayerIDs;
     unsigned long long _flowType;
     NSBezierPath *_flowPath;
     NSBezierPath *_flowClipPath;
@@ -23,7 +23,7 @@
 @property(nonatomic) unsigned long long flowType; // @synthesize flowType=_flowType;
 @property(nonatomic) struct CGRect sourceLayerBounds; // @synthesize sourceLayerBounds=_sourceLayerBounds;
 @property(nonatomic) BOOL shouldDrawSourceLayerBounds; // @synthesize shouldDrawSourceLayerBounds=_shouldDrawSourceLayerBounds;
-@property(copy, nonatomic) NSArray *flowParentLayerIDs; // @synthesize flowParentLayerIDs=_flowParentLayerIDs;
+@property(copy, nonatomic) NSArray *flowInfluencingLayerIDs; // @synthesize flowInfluencingLayerIDs=_flowInfluencingLayerIDs;
 - (void).cxx_destruct;
 - (void)drawDotInContext:(id)arg1;
 - (void)drawTipInContext:(id)arg1;

@@ -6,24 +6,40 @@
 
 #import "MSTwoTextFieldInspectorItem.h"
 
-@interface MSSizeInspectorItem : MSTwoTextFieldInspectorItem
+#import "MSInspectorValueAdaptorDelegate.h"
+
+@class MSSizeInspectorValueAdaptor, NSString;
+
+@interface MSSizeInspectorItem : MSTwoTextFieldInspectorItem <MSInspectorValueAdaptorDelegate>
 {
+    MSSizeInspectorValueAdaptor *_widthAdapter;
+    MSSizeInspectorValueAdaptor *_heightAdapter;
 }
 
+@property(retain, nonatomic) MSSizeInspectorValueAdaptor *heightAdapter; // @synthesize heightAdapter=_heightAdapter;
+@property(retain, nonatomic) MSSizeInspectorValueAdaptor *widthAdapter; // @synthesize widthAdapter=_widthAdapter;
+- (void).cxx_destruct;
+- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
+- (void)showSizeAlertForValue:(double)arg1;
+- (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
+- (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(double)arg2 forModel:(id)arg3 context:(id)arg4;
+- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (void)updateDisplayedValues;
-- (double)layerSizeOnAxis:(unsigned long long)arg1;
-- (long long)anchorFromString:(id)arg1 axis:(unsigned long long)arg2;
-- (void)setLayerSizeFromString:(id)arg1 onAxis:(unsigned long long)arg2;
 - (void)interTextFieldButtonAction:(id)arg1;
-- (void)textField2Action:(id)arg1;
-- (void)textField1Action:(id)arg1;
 - (void)setupAccessoryButton;
 - (void)updateUI;
 @property(readonly, nonatomic) unsigned long long accessory;
 - (BOOL)allowFloatValues;
 - (void)setLayers:(id)arg1;
 - (void)viewDidLoad;
+- (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,14 +8,20 @@
 
 #import "NSMenuDelegate.h"
 
-@class MSWelcomeCollectionItem, NSString;
+@class MSWelcomeCollectionItem, MSWelcomeProgressView, NSString;
 
 @interface MSWelcomeCollectionViewItem : NSCollectionViewItem <NSMenuDelegate>
 {
     struct CGSize _designedImageViewSize;
+    MSWelcomeProgressView *_progressView;
 }
 
+@property(nonatomic) __weak MSWelcomeProgressView *progressView; // @synthesize progressView=_progressView;
+- (void).cxx_destruct;
+- (BOOL)validateRevealInCloudMenuItem:(id)arg1;
+- (BOOL)validateRevealInFinderMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)fetchPreviewImage;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSWelcomeCollectionItem *collectionItem;
 - (void)setSelected:(BOOL)arg1;

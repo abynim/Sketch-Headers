@@ -7,7 +7,7 @@
 #import "NSBezierPath.h"
 
 @interface NSBezierPath (DebugTools)
-- (void)appendArrowAtPoint_ms:(struct CGPoint)arg1 tangent:(struct MSTangent)arg2 size:(double)arg3 scale:(double)arg4;
+- (void)appendArrowAtPoint_ms:(struct CGPoint)arg1 tangent:(struct MSLine)arg2 size:(double)arg3 scale:(double)arg4;
 - (void)appendCircleAtPoint_ms:(struct CGPoint)arg1 radius:(double)arg2 scale:(double)arg3;
 - (void)appendSquareAtPoint_ms:(struct CGPoint)arg1 size:(double)arg2 scale:(double)arg3;
 - (double)debugScale_ms;

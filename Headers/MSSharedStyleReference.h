@@ -10,6 +10,7 @@
 {
 }
 
+- (id)localLocationPath;
 - (BOOL)isEqual:(id)arg1;
 - (id)sharedObjectID;
 

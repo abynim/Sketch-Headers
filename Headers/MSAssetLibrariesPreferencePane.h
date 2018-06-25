@@ -78,7 +78,7 @@
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)displayInstallerAlertSheetForRemoteAssetLibrary;
 - (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (id)tableCellForRemoteLibrary:(id)arg1;
+- (id)tableCellForLibrary:(id)arg1;
 - (void)startDownloadForRemoteLibrary:(id)arg1;
 - (void)updateAvailableForRemoteLibrary:(id)arg1;
 - (void)reloadSelectingLibrary:(id)arg1;

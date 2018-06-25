@@ -11,7 +11,7 @@
 #import "MSLayerContainment.h"
 #import "MSLayerTraits.h"
 
-@class MSImmutableStyle, MSPath, NSAffineTransform, NSArray, NSSet, NSString;
+@class MSImmutableStyle, MSPath, NSAffineTransform, NSSet, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSLayerContainment, MSFlowContainmentCheck, MSLayer, MSLayerTraits>
 {
@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 - (id)transformForRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle;
+@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, nonatomic) MSPath *pathInFrame;
 - (id)calculatePathInBounds;
@@ -70,8 +71,6 @@
 - (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
 - (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
 - (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
-- (BOOL)includeInManifest;
-@property(readonly, nonatomic) NSArray *manifestLayers;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -89,8 +88,9 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
-- (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
+- (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (id)firstFlowWithSymbolsFromDocument:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1;
 - (id)defaultValueForOverridePoint:(id)arg1;
 - (BOOL)canOverridePoint:(id)arg1;

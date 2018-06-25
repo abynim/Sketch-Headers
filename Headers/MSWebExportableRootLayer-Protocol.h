@@ -6,12 +6,15 @@
 
 #import "MSImmutableRootLayer.h"
 
-@class MSExporter, MSImmutableColor, MSImmutableDocumentData, MSImmutablePage;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayer;
 
 @protocol MSWebExportableRootLayer <MSImmutableRootLayer>
+@property(readonly, nonatomic) BOOL containsFixedLayers;
+@property(readonly, nonatomic) MSArtboardPreset *preset;
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-- (MSExporter *)exporterForWebOnPage:(MSImmutablePage *)arg1 document:(MSImmutableDocumentData *)arg2 scale:(double)arg3;
+- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(MSImmutableLayer *)arg2;
+- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(MSImmutableLayer *)arg2;
 @end
 

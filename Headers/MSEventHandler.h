@@ -64,7 +64,6 @@
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
-- (void)refreshRulers;
 - (BOOL)inspectorShouldShowPositions;
 - (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
@@ -94,6 +93,7 @@
 - (double)zoomValue;
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (id)dragDropHintForDropOnPoint:(struct CGPoint)arg1;
+- (void)replaceArtboardWithLayerGroupInPasteBoardData:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (BOOL)prepareForDragOperation:(id)arg1;
@@ -117,10 +117,10 @@
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (void)focusOnMainWindow;
-- (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 offset:(struct CGSize)arg3;
-- (id)duplicateSelectedLayersInGroup:(id)arg1 withOffset:(struct CGSize)arg2;
+- (id)duplicateLayer:(id)arg1 toIndex:(unsigned long long)arg2 offset:(struct CGVector)arg3;
+- (id)duplicateSelectedLayersInGroup:(id)arg1 withOffset:(struct CGVector)arg2;
 - (id)layersSeparatedByGroups:(id)arg1;
-- (id)duplicateSelectedLayersWithOffset:(struct CGSize)arg1;
+- (id)duplicateSelectedLayersWithOffset:(struct CGVector)arg1;
 - (struct CGPoint)currentMousePointInCanvasCoordinates;
 - (void)pasteHere:(id)arg1;
 - (void)pasteOverSelection:(id)arg1;

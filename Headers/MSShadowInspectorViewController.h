@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSStylePartPreviewButton, MSUpDownTextField, NSString;
+@class MSMathInspectorValueAdaptor, MSStylePartPreviewButton, MSUpDownTextField, NSString;
 
 @interface MSShadowInspectorViewController : MSStylePartInspectorViewController
 {
@@ -16,8 +16,16 @@
     MSUpDownTextField *_blurRadiusField;
     MSUpDownTextField *_spreadField;
     MSStylePartPreviewButton *_colorButton;
+    MSMathInspectorValueAdaptor *_xOffsetAdapter;
+    MSMathInspectorValueAdaptor *_yOffsetAdapter;
+    MSMathInspectorValueAdaptor *_radiusAdapter;
+    MSMathInspectorValueAdaptor *_spreadAdapter;
 }
 
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *spreadAdapter; // @synthesize spreadAdapter=_spreadAdapter;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *xOffsetAdapter; // @synthesize xOffsetAdapter=_xOffsetAdapter;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 @property(retain, nonatomic) MSUpDownTextField *spreadField; // @synthesize spreadField=_spreadField;
 @property(retain, nonatomic) MSUpDownTextField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
@@ -34,6 +42,7 @@
 - (BOOL)isSpreadFieldAvailable;
 - (BOOL)allowsNegativeSpread;
 - (void)prepare;
+- (void)viewDidLoad;
 
 @end
 

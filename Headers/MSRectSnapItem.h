@@ -8,21 +8,27 @@
 
 @interface MSRectSnapItem : MSSnapItem
 {
+    struct CGRect _rectForSnapping;
     BOOL _constrainProportions;
-    struct CGRect _storedRect;
 }
 
-+ (id)snapItemWithRect:(struct CGRect)arg1 layer:(id)arg2 constrainProportions:(BOOL)arg3;
-@property(nonatomic) struct CGRect storedRect; // @synthesize storedRect=_storedRect;
++ (id)rectSnapItemWithLayer:(id)arg1 rect:(struct CGRect)arg2 constrainProportions:(BOOL)arg3;
 - (void)concatAncestorsAndSelfTransforms;
 - (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (BOOL)shouldConstrainProportions;
+- (struct CGRect)alignmentRectInLayer:(id)arg1 options:(unsigned long long)arg2;
 - (void)setRectForSnapping:(struct CGRect)arg1;
 - (struct CGRect)rectForSnapping;
 - (struct CGRect)boundsRect;
 - (double)rotation;
 - (BOOL)supportsResizingForSnapping;
-- (id)snapLines;
+- (id)centerYAnchor;
+- (id)centerXAnchor;
+- (id)bottomAnchor;
+- (id)topAnchor;
+- (id)rightAnchor;
+- (id)leftAnchor;
+- (id)anchorsForSnapping;
 - (id)snapItemForDrawing;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
 

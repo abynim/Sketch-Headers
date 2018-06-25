@@ -40,6 +40,7 @@
 - (void)doCommandBySelector:(SEL)arg1;
 - (BOOL)shouldIgnoreAlreadyApplicableColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (void)changeColorWithColor:(id)arg1;
 - (id)canvasColorSpace;
 - (id)documentColorSpace;
 - (void)viewWillMoveToSuperview:(id)arg1;

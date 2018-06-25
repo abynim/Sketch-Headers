@@ -36,7 +36,6 @@
 - (void)invalidateAllArtboards;
 - (void)invalidateArtboardID:(id)arg1;
 - (id)cachedExportRequestsWithArtboardID:(id)arg1;
-- (id)exportRequestForServerRequest:(id)arg1;
 - (id)artboardResponseForRequest:(id)arg1;
 - (id)resourceResponseForRequest:(id)arg1;
 - (id)defaultWebServerFilePath;

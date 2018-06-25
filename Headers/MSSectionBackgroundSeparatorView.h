@@ -8,9 +8,12 @@
 
 @interface MSSectionBackgroundSeparatorView : NSView
 {
+    struct NSEdgeInsets _edgeInsets;
 }
 
++ (id)separatorWithInsets:(struct NSEdgeInsets)arg1;
 + (id)separator;
+@property(nonatomic) struct NSEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 - (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)color;

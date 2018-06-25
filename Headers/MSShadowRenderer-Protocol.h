@@ -9,7 +9,7 @@
 @class MSImmutableStyleBorderOptions, MSImmutableStyleInnerShadow, MSImmutableStyleShadow, MSModelObjectCommon, MSPath, MSRenderingContext;
 
 @protocol MSShadowRenderer <MSRenderer>
-- (void)renderInnerShadow:(MSImmutableStyleInnerShadow *)arg1 path:(MSPath *)arg2 windingRule:(unsigned long long)arg3 context:(MSRenderingContext *)arg4;
+- (void)renderInnerShadow:(MSImmutableStyleInnerShadow *)arg1 path:(MSPath *)arg2 windingRule:(unsigned long long)arg3 context:(MSRenderingContext *)arg4 cacheObject:(MSModelObjectCommon *)arg5;
 - (void)renderShadow:(MSImmutableStyleShadow *)arg1 rect:(struct CGRect)arg2 context:(MSRenderingContext *)arg3 block:(void (^)(void))arg4;
 - (void)renderShadow:(MSImmutableStyleShadow *)arg1 path:(MSPath *)arg2 cacheObject:(MSModelObjectCommon *)arg3 windingRule:(unsigned long long)arg4 options:(MSImmutableStyleBorderOptions *)arg5 type:(unsigned long long)arg6 strokeType:(long long)arg7 fillShouldClip:(BOOL)arg8 lineWidth:(double)arg9 context:(MSRenderingContext *)arg10;
 @end

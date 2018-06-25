@@ -14,6 +14,7 @@
 {
 }
 
++ (id)defaultName;
 - (id)parentGroup;
 - (unsigned long long)type;
 - (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;

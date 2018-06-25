@@ -6,13 +6,19 @@
 
 #import "_MSImmutableSymbolMaster.h"
 
+@class BCReadWriteLock, NSArray;
+
 @interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster
 {
+    BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
+    NSArray *_calculatedAvailableOverrides;
     long long _changeIdentifier;
 }
 
 + (unsigned long long)traits;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
+- (void).cxx_destruct;
+- (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
 - (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
@@ -20,10 +26,11 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 inDocument:(id)arg3;
-- (id)mergeNestedOverrides:(id)arg1 withParent:(id)arg2;
-- (id)nestedOverridesWithParent:(id)arg1;
+- (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MSImmutableDocumentData;
+@class MSImmutableDocumentData, MSImmutableFlowConnection;
 
 @protocol MSFlowContainmentCheck
 - (BOOL)containsFlowWithSymbolsFromDocument:(MSImmutableDocumentData *)arg1;
+- (MSImmutableFlowConnection *)firstFlowWithSymbolsFromDocument:(MSImmutableDocumentData *)arg1;
 @end
 

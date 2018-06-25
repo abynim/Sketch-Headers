@@ -46,7 +46,6 @@
 - (void)startTrackingTouch:(id)arg1;
 - (void)setUpGestureRecognizer;
 - (unsigned long long)allowedTouchTypes;
-- (BOOL)acceptsTouchEvents;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

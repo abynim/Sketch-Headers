@@ -6,14 +6,19 @@
 
 #import "NSTextField.h"
 
-@class NSArray, NSTextField<MSUpDownProtocol>;
+@class MSMouseTracker, NSArray, NSTextField<MSUpDownProtocol>;
 
 @interface MSTextLabelForUpDownField : NSTextField
 {
     NSTextField<MSUpDownProtocol> *_upDownTextField;
     NSArray *_textFields;
+    id _flagsMonitor;
+    MSMouseTracker *_mouseTracker;
 }
 
++ (id)resizeCursorForFlags:(unsigned long long)arg1;
+@property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
+@property(retain, nonatomic) id flagsMonitor; // @synthesize flagsMonitor=_flagsMonitor;
 @property(copy, nonatomic) NSArray *textFields; // @synthesize textFields=_textFields;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *upDownTextField; // @synthesize upDownTextField=_upDownTextField;
 - (void).cxx_destruct;
@@ -22,7 +27,11 @@
 - (void)mouseDown:(id)arg1;
 - (id)textField;
 - (void)cursorUpdate:(id)arg1;
+- (void)updateCursor;
+- (void)trackMouse:(id)arg1;
 - (void)awakeFromNib;
+- (void)setShouldTrackFlags:(BOOL)arg1;
+- (void)dealloc;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

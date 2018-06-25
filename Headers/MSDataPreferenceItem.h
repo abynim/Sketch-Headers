@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class MSLocalDataSupplier, NSImage, NSString;
+@class MSDataSupplier, MSLocalDataSupplier, MSPluginBundle, MSPluginDataSupplier, NSImage, NSString;
 
 @interface MSDataPreferenceItem : NSObject
 {
-    MSLocalDataSupplier *_localData;
+    MSDataSupplier *_data;
     NSImage *_preview;
     NSString *_modificationDate;
     NSString *_secondaryTitle;
@@ -20,12 +20,18 @@
 @property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
 @property(readonly, nonatomic) NSString *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
-@property(readonly, nonatomic) MSLocalDataSupplier *localData; // @synthesize localData=_localData;
+@property(readonly, nonatomic) MSDataSupplier *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL isBuiltinDataSupplier;
+@property(readonly, nonatomic) BOOL isPluginEnabled;
+@property(readonly, nonatomic) NSImage *pluginBundleIcon;
+@property(readonly, nonatomic) MSPluginBundle *pluginBundle;
+@property(readonly, nonatomic) BOOL canRevealInFinder;
+@property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) BOOL valid;
 @property(readonly, nonatomic) NSString *name;
-- (id)initWithLocalData:(id)arg1;
+@property(readonly, nonatomic) MSPluginDataSupplier *pluginData;
+@property(readonly, nonatomic) MSLocalDataSupplier *localData;
+- (id)initWithData:(id)arg1;
 
 @end
 

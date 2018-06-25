@@ -10,23 +10,24 @@
 
 @interface MSDataPreview : NSView
 {
-    MSDataPreferenceItem *_localDataItem;
+    MSDataPreferenceItem *_dataItem;
     NSImage *_preview;
 }
 
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
-@property(nonatomic) __weak MSDataPreferenceItem *localDataItem; // @synthesize localDataItem=_localDataItem;
+@property(nonatomic) __weak MSDataPreferenceItem *dataItem; // @synthesize dataItem=_dataItem;
 - (void).cxx_destruct;
 - (id)firstFourDataImages;
 - (id)firstThreeDataTextItems;
-@property(readonly) struct CGRect imageFrameInPreviewFrame;
 @property(readonly) struct CGSize imageSize;
-- (id)thumbWithSize:(struct CGSize)arg1 byDrawingImage:(id)arg2 inRect:(struct CGRect)arg3 fromRect:(struct CGRect)arg4;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
-- (id)thumbFromImage:(id)arg1 centeredInSize:(struct CGSize)arg2;
 - (id)centeredThumbFromImage:(id)arg1;
+- (id)generatePluginTextDataPreview;
+- (id)generateLocalTextDataPreview;
 - (id)generateTextDataPreview;
+- (id)generatePluginImageDataPreview;
+- (id)generateLocalImageDataPreview;
 - (id)generateImageDataPreview;
 - (void)generatePreview;
 - (id)placeHolderImage;

@@ -6,21 +6,20 @@
 
 #import "MSDragToMoveOrCopyGestureRecognizer.h"
 
-@class NSAffineTransform;
+@class MSAlignmentEngineConstraint;
 
 @interface MSDragHandleGestureRecognizer : MSDragToMoveOrCopyGestureRecognizer
 {
-    NSAffineTransform *_curveAdjustmentLockingTransform;
+    MSAlignmentEngineConstraint *_lockingConstraint;
     struct CGPoint _originalHandleLocation;
 }
 
-@property(copy, nonatomic) NSAffineTransform *curveAdjustmentLockingTransform; // @synthesize curveAdjustmentLockingTransform=_curveAdjustmentLockingTransform;
+@property(copy, nonatomic) MSAlignmentEngineConstraint *lockingConstraint; // @synthesize lockingConstraint=_lockingConstraint;
 @property(nonatomic) struct CGPoint originalHandleLocation; // @synthesize originalHandleLocation=_originalHandleLocation;
 - (void).cxx_destruct;
-- (struct CGPoint)locationInLayer:(id)arg1;
-- (void)setCenterForCurveAdjustmentLocking:(struct CGPoint)arg1 slope:(double)arg2;
-@property(readonly, nonatomic) BOOL shouldSteadyCurveAdjustmentHandle;
+@property(readonly, nonatomic) MSAlignmentEngineConstraint *effectiveLockingConstraint;
 - (void)reset;
+- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 @end
 

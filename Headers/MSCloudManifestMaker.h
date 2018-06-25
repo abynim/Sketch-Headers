@@ -8,16 +8,12 @@
 
 @interface MSCloudManifestMaker : MSManifestMaker
 {
-    BOOL _allowDocumentUpload;
-    unsigned long long _documentFileSize;
     CDUnknownBlockType _imageFileProviderBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType imageFileProviderBlock; // @synthesize imageFileProviderBlock=_imageFileProviderBlock;
-@property(nonatomic) unsigned long long documentFileSize; // @synthesize documentFileSize=_documentFileSize;
-@property(nonatomic) BOOL allowDocumentUpload; // @synthesize allowDocumentUpload=_allowDocumentUpload;
 - (void).cxx_destruct;
-- (id)fileMetadataForRoot:(id)arg1 onPage:(id)arg2 id:(id)arg3 exportScale:(double)arg4 manifestScale:(double)arg5;
+- (id)fileMetadataForRequest:(id)arg1 id:(id)arg2 manifestScale:(double)arg3;
 - (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)createManifest;

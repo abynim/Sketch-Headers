@@ -12,17 +12,22 @@
 {
 }
 
++ (BOOL)validateComponentString:(id)arg1;
++ (id)componentStringWithValues:(id)arg1;
++ (BOOL)looksLikeComponentString:(id)arg1;
 + (BOOL)useSmoothCorners;
 + (double)lastUsedCornerRadius;
 - (BOOL)canFlatten;
 - (void)multiplyBy:(double)arg1;
 - (void)resetPointsIfNecessary;
 - (void)resetPathsToRoundedRect;
+@property(readonly, nonatomic) double maximumAllowedRadius;
 - (void)resetPathsToRect;
 - (void)resetPoints;
 - (BOOL)shouldDrawSelectionStroke;
 - (id)bezierPathForCursorPreview;
-- (id)inspectorViewControllerNames;
+- (id)inspectorViewControllers;
+- (void)resetPointsBasedOnUserInteraction;
 @property(readonly, nonatomic) BOOL smoothCornersAllowed;
 @property(nonatomic) BOOL hasSmoothCorners;
 - (void)didChangeValues;
@@ -34,6 +39,8 @@
 - (id)rectangleNumberFormatter;
 @property(nonatomic) double cornerRadiusFloat;
 @property(nonatomic) double normalizedExponentialCornerRadius;
+- (BOOL)validateProposedCornerRadiusWithFloat:(double)arg1;
+- (BOOL)validateProposedCornerRadiusSizeWithString:(id)arg1;
 
 @end
 

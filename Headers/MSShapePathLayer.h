@@ -38,8 +38,8 @@
 - (id)layerSuitableForInsertingIntoGroup:(id)arg1;
 - (BOOL)canBeContainedByGroup;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
-- (void)setEndDecorationType:(unsigned long long)arg1;
-- (void)setStartDecorationType:(unsigned long long)arg1;
+- (void)setEndMarkerType:(unsigned long long)arg1;
+- (void)setStartMarkerType:(unsigned long long)arg1;
 - (double)distanceSquaredToSegmentAtIndex:(unsigned long long)arg1 fromPoint:(struct CGPoint)arg2 tolerance:(double)arg3;
 - (unsigned long long)indexOfSegmentAtPoint:(struct CGPoint)arg1 tolerance:(struct CGSize)arg2;
 - (void)multiplyBy:(double)arg1;

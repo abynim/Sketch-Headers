@@ -10,6 +10,8 @@
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
+    long long _booleanOperation;
+    BOOL _isFixedToViewport;
     BOOL _isFlippedHorizontal;
     BOOL _isFlippedVertical;
     BOOL _isLocked;
@@ -49,6 +51,8 @@
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
 @property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
+@property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
+@property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

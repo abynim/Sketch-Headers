@@ -9,16 +9,14 @@
 #import "MSColorConvertible.h"
 #import "MSFirstLineTypesetterDelegate.h"
 
-@class MSColor, NSArray, NSAttributedString, NSDictionary, NSNumber, NSString, NSValue;
+@class MSColor, NSAttributedString, NSDictionary, NSNumber, NSString, NSValue;
 
 @interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
 {
-    int ignoreDelegateNotificationsCounter;
+    // Error parsing type: Ai, name: ignoreDelegateNotificationsCounter
     BOOL _isEditingText;
     NSValue *_transientGlyphBoundsValue;
     id <MSTextLayerEditingDelegate> _editingDelegate;
-    NSNumber *_defaultLineHeightValue;
-    NSArray *_baselineOffsetsValue;
     struct CGRect _previousRectCache;
 }
 
@@ -34,8 +32,6 @@
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-@property(copy, nonatomic) NSArray *baselineOffsetsValue; // @synthesize baselineOffsetsValue=_baselineOffsetsValue;
-@property(retain, nonatomic) NSNumber *defaultLineHeightValue; // @synthesize defaultLineHeightValue=_defaultLineHeightValue;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(retain, nonatomic) NSValue *transientGlyphBoundsValue; // @synthesize transientGlyphBoundsValue=_transientGlyphBoundsValue;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
@@ -93,6 +89,7 @@
 - (id)shapeToUseForTextOnPath;
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
+- (struct CGRect)alignmentRectInLayer:(id)arg1 options:(unsigned long long)arg2;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
 - (void)finishEditing;
@@ -114,20 +111,19 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
-- (struct CGRect)measurementRectWithOptions:(unsigned long long)arg1;
 - (long long)cornerRectType;
 - (BOOL)shouldDrawSelection;
 - (Class)handlerClass;
-- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (id)inspectorViewControllerNames;
 - (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
 - (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 - (void)copyStylePropertiesToShape:(id)arg1;
 - (void)copyTextPropertiesToShape:(id)arg1;
 - (BOOL)canConvertToOutlines;
 - (id)layersByConvertingToOutlines;
 - (unsigned long long)shareableObjectType;
-- (id)snapLines;
+- (id)anchorsForSnapping;
 - (Class)snapItemClass;
 - (id)unselectedPreviewImage;
 - (id)selectedPreviewImage;
@@ -147,7 +143,7 @@
 - (BOOL)canFixHeight;
 - (void)invalidateFonts;
 - (void)replaceFonts:(id)arg1;
-- (void)embedInRotatedGroup;
+- (void)embedInTransformedGroup;
 - (long long)cornerForBaselineMaintaining;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (id)CSSAttributes;

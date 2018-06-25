@@ -8,7 +8,7 @@
 
 @protocol MSShapeGroup
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
-@property(readonly, nonatomic) BOOL hasDecorations;
+@property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
 - (void)applyPropertiesToBezier:(NSBezierPath *)arg1;
 @end

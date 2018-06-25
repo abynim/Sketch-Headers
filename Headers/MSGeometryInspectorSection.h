@@ -37,6 +37,7 @@
 @property(retain, nonatomic) MSPositionInspectorItem *positionItem; // @synthesize positionItem=_positionItem;
 @property(nonatomic) BOOL shouldShowPositions; // @synthesize shouldShowPositions=_shouldShowPositions;
 - (void).cxx_destruct;
+- (void)valuesPossiblyChanged:(id)arg1;
 - (BOOL)wantsSeparatorAfterViews;
 - (void)valuesPossiblyChanged;
 - (void)refreshBindingsOnShape:(id)arg1;

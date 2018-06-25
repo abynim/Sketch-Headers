@@ -10,7 +10,7 @@
 {
 }
 
-- (id)defaultName;
++ (id)defaultName;
 
 @end
 

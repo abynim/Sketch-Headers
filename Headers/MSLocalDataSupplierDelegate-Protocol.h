@@ -8,6 +8,6 @@
 
 @protocol MSLocalDataSupplierDelegate
 - (BOOL)isBuiltinDataSupplier:(MSLocalDataSupplier *)arg1;
-- (void)locaDataSupplierDataChanged:(MSLocalDataSupplier *)arg1;
+- (void)localDataSupplierDataChanged:(MSLocalDataSupplier *)arg1;
 @end
 

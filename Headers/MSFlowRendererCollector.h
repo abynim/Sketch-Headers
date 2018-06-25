@@ -6,13 +6,13 @@
 
 #import "NSObject.h"
 
-@class BCCache, MSImmutableDocumentData, MSImmutablePage, NSDictionary, NSMutableArray, NSSet;
+@class BCCache, MSImmutableDocumentData, MSImmutablePage, NSArray, NSDictionary, NSMutableArray, NSSet;
 
 @interface MSFlowRendererCollector : NSObject
 {
     MSImmutablePage *_page;
     MSImmutableDocumentData *_document;
-    NSMutableArray *_renderers;
+    NSMutableArray *_mutableRenderers;
     NSSet *_selectedLayerIDs;
     NSDictionary *_artboardsByID;
     BCCache *_cache;
@@ -25,7 +25,7 @@
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) NSDictionary *artboardsByID; // @synthesize artboardsByID=_artboardsByID;
 @property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
-@property(retain, nonatomic) NSMutableArray *renderers; // @synthesize renderers=_renderers;
+@property(retain, nonatomic) NSMutableArray *mutableRenderers; // @synthesize mutableRenderers=_mutableRenderers;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
 - (void).cxx_destruct;
@@ -34,7 +34,8 @@
 - (void)collectFlowForLayer:(id)arg1 mayDrawHotspotBounds:(BOOL)arg2;
 - (void)collectFlowForLayer:(id)arg1 ancestors:(id)arg2 options:(unsigned long long)arg3 mayDrawHotspotBounds:(BOOL)arg4;
 - (void)recursivelyCollectFlowsForLayer:(id)arg1 ancestors:(id)arg2 options:(unsigned long long)arg3 mayDrawHotspotBounds:(BOOL)arg4;
-- (id)collect;
+@property(readonly, nonatomic) NSArray *flowRenderers;
+- (BOOL)shouldInvalidateCollectedFlowsWithDiff:(id)arg1;
 - (id)initWithLayers:(id)arg1 onPage:(id)arg2 document:(id)arg3 zoomLevel:(double)arg4 cache:(id)arg5;
 
 @end

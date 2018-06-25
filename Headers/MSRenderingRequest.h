@@ -36,9 +36,6 @@
 @property(readonly, nonatomic, getter=isDrawingPixelated) BOOL drawingPixelated;
 @property(readonly, nonatomic, getter=isDrawingMask) BOOL drawingMask;
 @property(readonly, nonatomic, getter=isExporting) BOOL exporting;
-- (id)requestWithBackgroundBlurLayer:(id)arg1;
-- (id)requestWithPointScale:(double)arg1;
-- (id)requestWithZoomLevel:(double)arg1;
 - (void)dealloc;
 - (id)requestWithOptions:(unsigned long long)arg1;
 - (id)initWithDocument:(id)arg1 colorSpace:(struct CGColorSpace *)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 cacheProvider:(id)arg5 options:(unsigned long long)arg6;
