@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSButton.h"
+#import "MSInspectorButton.h"
 
 @class MSStylePart, NSColor;
+@protocol MSStylePartPreviewButtonDelegate;
 
-@interface MSStylePartPreviewButton : NSButton
+@interface MSStylePartPreviewButton : MSInspectorButton
 {
     MSStylePart *_stylePart;
     NSColor *_color;
@@ -21,12 +22,9 @@
 @property(copy, nonatomic) NSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSStylePart *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
-- (id)fillColor;
-- (id)innerBorderColor;
-- (id)borderColor;
 - (BOOL)isFlipped;
+- (struct CGRect)contentRect;
 - (void)drawButton;
-- (struct CGRect)colorFrame;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)mouseDown:(id)arg1;
 

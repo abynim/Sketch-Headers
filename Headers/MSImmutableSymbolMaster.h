@@ -6,16 +6,19 @@
 
 #import "_MSImmutableSymbolMaster.h"
 
-@class BCReadWriteLock, NSArray;
+@class BCCache, BCReadWriteLock, NSArray;
 
 @interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
     long long _changeIdentifier;
+    BCCache *_modifiedMasterCache;
 }
 
 + (unsigned long long)traits;
++ (unsigned long long)traitsForPropertyName:(id)arg1;
+@property(readonly, nonatomic) BCCache *modifiedMasterCache; // @synthesize modifiedMasterCache=_modifiedMasterCache;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void).cxx_destruct;
 - (id)availableOverridesWithDocument:(id)arg1;
@@ -32,8 +35,8 @@
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 inDocument:(id)arg3;
 - (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
-- (id)overridePointsWithParent:(id)arg1;
-- (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)svgStyle:(id)arg1;
 - (void)addTransformAttributes:(id)arg1 exporter:(id)arg2;
 

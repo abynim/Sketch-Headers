@@ -6,7 +6,7 @@
 
 #import "_MSSharedObject.h"
 
-#import "BCSortable.h"
+#import "BCSortable-Protocol.h"
 
 @class NSString;
 

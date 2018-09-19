@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)textLayers;
 - (BOOL)validate;
 - (BOOL)isActive;

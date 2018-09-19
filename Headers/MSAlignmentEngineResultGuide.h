@@ -4,22 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @interface MSAlignmentEngineResultGuide : NSObject <NSCopying>
 {
-    struct CGPoint _start;
-    struct CGPoint _end;
+    struct MSLineSegment _lineSegment;
 }
 
-@property(readonly, nonatomic) struct CGPoint end; // @synthesize end=_end;
-@property(readonly, nonatomic) struct CGPoint start; // @synthesize start=_start;
+@property(readonly, nonatomic) struct MSLineSegment lineSegment; // @synthesize lineSegment=_lineSegment;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawWithLineWidth:(double)arg1;
 - (id)bezierPath;
-- (id)initWithStart:(struct CGPoint)arg1 end:(struct CGPoint)arg2;
+- (id)initWithLineSegment:(struct MSLineSegment)arg1;
 
 @end
 

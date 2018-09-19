@@ -15,6 +15,7 @@
 - (id)imageName;
 - (BOOL)isShowingPixelatedView;
 - (void)doPerformAction:(id)arg1;
+- (id)tooltip;
 - (id)label;
 - (void)togglePixelGrid:(id)arg1;
 

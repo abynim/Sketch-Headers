@@ -6,7 +6,7 @@
 
 #import "_MSRect.h"
 
-#import "MSRect.h"
+#import "MSRect-Protocol.h"
 
 @interface MSRect : _MSRect <MSRect>
 {

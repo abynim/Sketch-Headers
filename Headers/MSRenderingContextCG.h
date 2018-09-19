@@ -45,8 +45,6 @@
 - (void)renderLayer:(id)arg1 ignoreCacheAndDrawingArea:(BOOL)arg2;
 - (void)tearDown;
 - (BOOL)shouldDisableSubpixelQuantization;
-- (BOOL)allowsSubpixelQuantization;
-- (BOOL)allowsSubpixelQuantization:(id)arg1;
 - (void)setupCGContext:(struct CGContext *)arg1 withRenderingRequest:(id)arg2;
 - (BOOL)hasGraphicsContext;
 - (void)setUp;
@@ -65,7 +63,7 @@
 - (void)pushGraphicsState;
 - (void)concatTransform:(struct CGAffineTransform)arg1;
 - (void)setContextRef:(struct CGContext *)arg1;
-- (id)blurSubContextWithCGContext:(struct CGContext *)arg1 backgroundBlurLayer:(id)arg2 pointScale:(double)arg3 rect:(struct CGRect)arg4;
+- (id)subContextForBackgroundBlurWithCGContext:(struct CGContext *)arg1 backgroundBlurLayer:(id)arg2 pointScale:(double)arg3 rect:(struct CGRect)arg4;
 - (id)subContextWithCGContext:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 pointScale:(double)arg3 zoomLevel:(double)arg4 options:(unsigned long long)arg5;
 - (id)subContextWithCGContext:(struct CGContext *)arg1 contextIsVectorBacked:(BOOL)arg2 renderingRequest:(id)arg3;
 - (void)dealloc;

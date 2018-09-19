@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSObject-Protocol.h"
 
 @class MSPasteboardLayers, NSArray, NSColorSpace, NSPasteboard;
+@protocol NSDraggingInfo;
 
 @protocol MSPasteboardReader <NSObject>
 - (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 colorSpace:(NSColorSpace *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4;

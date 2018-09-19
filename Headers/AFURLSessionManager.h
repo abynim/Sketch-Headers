@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
-#import "NSURLSessionDataDelegate.h"
-#import "NSURLSessionDelegate.h"
-#import "NSURLSessionDownloadDelegate.h"
-#import "NSURLSessionTaskDelegate.h"
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
+#import "NSURLSessionDataDelegate-Protocol.h"
+#import "NSURLSessionDelegate-Protocol.h"
+#import "NSURLSessionDownloadDelegate-Protocol.h"
+#import "NSURLSessionTaskDelegate-Protocol.h"
 
-@class AFNetworkReachabilityManager, AFSecurityPolicy, NSArray, NSLock, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, NSURLSession, NSURLSessionConfiguration;
+@class AFNetworkReachabilityManager, AFSecurityPolicy, NSArray, NSLock, NSMutableDictionary, NSOperationQueue, NSString, NSURLSession, NSURLSessionConfiguration;
+@protocol AFURLResponseSerialization, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate, NSSecureCoding, NSCopying>
 {
@@ -79,7 +80,6 @@
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didResumeAtOffset:(long long)arg3 expectedTotalBytes:(long long)arg4;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didWriteData:(long long)arg3 totalBytesWritten:(long long)arg4 totalBytesExpectedToWrite:(long long)arg5;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didFinishDownloadingToURL:(id)arg3;
-- (void)URLSessionDidFinishEventsForBackgroundURLSession:(id)arg1;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 willCacheResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didBecomeDownloadTask:(id)arg3;

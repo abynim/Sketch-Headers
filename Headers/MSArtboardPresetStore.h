@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSArtboardPresetsCategory, NSArray;
 
@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) MSArtboardPresetsCategory *customPresetsCategory; // @synthesize customPresetsCategory=_customPresetsCategory;
 @property(readonly, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 - (void).cxx_destruct;
+- (id)presetWithName:(id)arg1 matchingSize:(struct CGSize)arg2;
 - (id)suggestedNameForUserPreset;
 - (void)artboardPresetStoreDidChange:(id)arg1;
 - (BOOL)saveUserPresets:(id *)arg1;

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class MSLayerArray, MSModelObject<BCSortable><MSSharedObjectStyling>, MSStyle, NSSet, NSString;
+@class MSLayerArray, MSModelObject, MSStyle, NSSet, NSString;
+@protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSShareableObjectUpdater : NSObject
 {
@@ -35,8 +36,6 @@
 - (void)performCreateNewStyleAction;
 - (id)localObjectContainer;
 @property(readonly, nonatomic) NSString *menuItemTitleForCreateNewStyleAction;
-- (id)menuItemType;
-- (id)menuItemTypeNameForType:(unsigned long long)arg1;
 
 @end
 

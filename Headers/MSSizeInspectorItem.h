@@ -4,42 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSTwoTextFieldInspectorItem.h"
+#import "MSBaseSizeInspectorItem.h"
 
-#import "MSInspectorValueAdaptorDelegate.h"
+@class NSButton;
 
-@class MSSizeInspectorValueAdaptor, NSString;
-
-@interface MSSizeInspectorItem : MSTwoTextFieldInspectorItem <MSInspectorValueAdaptorDelegate>
+@interface MSSizeInspectorItem : MSBaseSizeInspectorItem
 {
-    MSSizeInspectorValueAdaptor *_widthAdapter;
-    MSSizeInspectorValueAdaptor *_heightAdapter;
+    NSButton *_flipHorizontalButton;
+    NSButton *_flipVerticalButton;
 }
 
-@property(retain, nonatomic) MSSizeInspectorValueAdaptor *heightAdapter; // @synthesize heightAdapter=_heightAdapter;
-@property(retain, nonatomic) MSSizeInspectorValueAdaptor *widthAdapter; // @synthesize widthAdapter=_widthAdapter;
+@property(retain, nonatomic) NSButton *flipVerticalButton; // @synthesize flipVerticalButton=_flipVerticalButton;
+@property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
 - (void).cxx_destruct;
-- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
-- (void)showSizeAlertForValue:(double)arg1;
-- (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
-- (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(double)arg2 forModel:(id)arg3 context:(id)arg4;
-- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
-- (void)updateDisplayedValues;
-- (void)interTextFieldButtonAction:(id)arg1;
-- (void)setupAccessoryButton;
+- (void)updateButtonState:(id)arg1;
 - (void)updateUI;
-@property(readonly, nonatomic) unsigned long long accessory;
-- (BOOL)allowFloatValues;
-- (void)setLayers:(id)arg1;
-- (void)viewDidLoad;
-- (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)updateDisplayedValues;
 
 @end
 

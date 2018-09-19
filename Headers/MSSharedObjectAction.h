@@ -6,7 +6,7 @@
 
 #import "MSDocumentAction.h"
 
-#import "NSMenuDelegate.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class NSString;
 

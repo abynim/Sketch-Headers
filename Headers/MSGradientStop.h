@@ -6,7 +6,7 @@
 
 #import "_MSGradientStop.h"
 
-#import "MSColorConvertible.h"
+#import "MSColorConvertible-Protocol.h"
 
 @class NSString;
 

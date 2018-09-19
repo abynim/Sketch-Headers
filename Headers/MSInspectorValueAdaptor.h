@@ -4,44 +4,39 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class NSArray, NSArrayController, NSNumberFormatter, NSString, NSView;
+@class NSArray, NSArrayController, NSHashTable, NSView;
+@protocol MSInspectorValueAdaptorDelegate;
 
 @interface MSInspectorValueAdaptor : NSObject
 {
-    BOOL _clampsValues;
-    BOOL _adjustIndividually;
     BOOL _showsDefaultAlerts;
     id <MSInspectorValueAdaptorDelegate> _delegate;
-    NSNumberFormatter *_numberFormatter;
+    NSView *_view;
+    NSArrayController *_modelsController;
     CDUnknownBlockType _valueGetter;
     CDUnknownBlockType _valueSetter;
-    NSArrayController *_modelsController;
-    NSView *_view;
     NSArray *_keyPathsToWatch;
+    NSHashTable *_changeObservers;
 }
 
+@property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) NSArray *keyPathsToWatch; // @synthesize keyPathsToWatch=_keyPathsToWatch;
-@property(nonatomic) __weak NSView *view; // @synthesize view=_view;
-@property(nonatomic) BOOL showsDefaultAlerts; // @synthesize showsDefaultAlerts=_showsDefaultAlerts;
-@property(nonatomic) BOOL adjustIndividually; // @synthesize adjustIndividually=_adjustIndividually;
-@property(nonatomic) BOOL clampsValues; // @synthesize clampsValues=_clampsValues;
-@property(retain, nonatomic) NSArrayController *modelsController; // @synthesize modelsController=_modelsController;
 @property(copy, nonatomic) CDUnknownBlockType valueSetter; // @synthesize valueSetter=_valueSetter;
 @property(copy, nonatomic) CDUnknownBlockType valueGetter; // @synthesize valueGetter=_valueGetter;
-@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
+@property(retain, nonatomic) NSArrayController *modelsController; // @synthesize modelsController=_modelsController;
+@property(nonatomic) __weak NSView *view; // @synthesize view=_view;
+@property(nonatomic) BOOL showsDefaultAlerts; // @synthesize showsDefaultAlerts=_showsDefaultAlerts;
 @property(nonatomic) __weak id <MSInspectorValueAdaptorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)removeChangeObserver:(id)arg1;
+- (void)addChangeObserver:(id)arg1;
 - (void)handleInvalidInputError:(id)arg1;
 - (void)presentError:(id)arg1;
-- (id)checkAndAdjustValues:(id)arg1 contexts:(id)arg2 withNumberFormatter:(id)arg3 error:(id *)arg4;
-- (id)transformValueString:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
-- (unsigned long long)currentAdjustOptions;
-- (id)transformedValuesFromString:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
-@property(retain, nonatomic) NSString *value;
-@property(readonly, nonatomic) BOOL allowsFloat;
-@property(readonly, nonatomic) NSNumberFormatter *actualNumberFormatter;
+- (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
+- (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
+@property(retain, nonatomic) id value;
 - (void)valuesDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

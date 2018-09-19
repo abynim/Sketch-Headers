@@ -6,13 +6,14 @@
 
 #import "_MSSymbolMaster.h"
 
-#import "BCSortable.h"
-#import "MSPreviewGeneration.h"
-#import "MSSharedObjectStyling.h"
+#import "BCSortable-Protocol.h"
+#import "MSLayerPreviewability-Protocol.h"
+#import "MSPreviewGeneration-Protocol.h"
+#import "MSSharedObjectStyling-Protocol.h"
 
 @class NSArray, NSSet, NSString;
 
-@interface MSSymbolMaster : _MSSymbolMaster <MSPreviewGeneration, MSSharedObjectStyling, BCSortable>
+@interface MSSymbolMaster : _MSSymbolMaster <MSPreviewGeneration, MSLayerPreviewability, MSSharedObjectStyling, BCSortable>
 {
     BOOL _isDirty;
     long long _changeIdentifier;
@@ -50,8 +51,8 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
 - (struct CGRect)optimalBoundingBox;
 - (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
 - (Class)shareableObjectReferenceClass_bc;
@@ -61,10 +62,12 @@
 - (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (void)applyOverrides:(id)arg1;
+- (BOOL)previewShouldIndicateSharedStyle;
+- (void)applyOverrides:(id)arg1 document:(id)arg2;
 @property(readonly, nonatomic) NSArray *availableOverrides;
 
 // Remaining properties
+@property(readonly, nonatomic) unsigned long long badgeType;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

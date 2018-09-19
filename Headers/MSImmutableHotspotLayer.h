@@ -6,20 +6,26 @@
 
 #import "_MSImmutableHotspotLayer.h"
 
-@interface MSImmutableHotspotLayer : _MSImmutableHotspotLayer
+#import "MSImmutableLayerPreviewability-Protocol.h"
+
+@interface MSImmutableHotspotLayer : _MSImmutableHotspotLayer <MSImmutableLayerPreviewability>
 {
 }
 
 + (id)defaultName;
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 - (void)performInitEmptyObject;
+- (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
 - (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
 - (id)flowDestination;
-- (id)overridePointsWithParent:(id)arg1;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 
 @end
 

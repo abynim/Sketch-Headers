@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @class NSArray;
 
@@ -24,7 +24,7 @@
 - (struct CGRect)rectOfSelectedPoints;
 - (id)selectedHandlesSortedByAxis:(unsigned long long)arg1;
 - (void)setLocation:(struct CGPoint)arg1 ofHandleAtIndexPath:(id)arg2;
-- (struct CGPoint)locationOfHandleAtIndexPath:(id)arg1 inLayer:(id)arg2;
+- (struct CGPoint)locationOfHandleAtIndexPath:(id)arg1 inCoordinateSpace:(id)arg2;
 - (id)curvePointAtIndexPath:(id)arg1;
 - (void)enumerateCurvePointsUsingBlock:(CDUnknownBlockType)arg1;
 @property(readonly, copy, nonatomic) NSArray *orderedHandleIndexPaths;

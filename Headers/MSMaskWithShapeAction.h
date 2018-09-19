@@ -11,7 +11,7 @@
 }
 
 - (id)label;
-- (BOOL)showInToolbar;
+- (id)tooltip;
 - (void)doPerformAction:(id)arg1;
 - (void)maskWithShape:(id)arg1;
 - (BOOL)validate;

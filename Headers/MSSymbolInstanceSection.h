@@ -4,25 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayerSection.h"
+#import "MSBaseInspectorSection.h"
 
-@class NSArray, NSView;
+@class MSCollapsibleHeaderInspectorItem, MSSharedSymbolStylesInspectorItem, NSArray;
 
-@interface MSSymbolInstanceSection : MSLayerSection
+@interface MSSymbolInstanceSection : MSBaseInspectorSection
 {
-    NSView *_overridesHeaderView;
-    NSView *_stylesHeaderView;
-    NSArray *_overrideViewControllers;
+    NSArray *_selectedOverrides;
+    MSSharedSymbolStylesInspectorItem *_sharedStyleItem;
+    MSCollapsibleHeaderInspectorItem *_headerItem;
+    NSArray *_overrideInspectorItems;
 }
 
-@property(retain, nonatomic) NSArray *overrideViewControllers; // @synthesize overrideViewControllers=_overrideViewControllers;
-@property(retain, nonatomic) NSView *stylesHeaderView; // @synthesize stylesHeaderView=_stylesHeaderView;
-@property(retain, nonatomic) NSView *overridesHeaderView; // @synthesize overridesHeaderView=_overridesHeaderView;
+@property(retain, nonatomic) NSArray *overrideInspectorItems; // @synthesize overrideInspectorItems=_overrideInspectorItems;
+@property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+@property(retain, nonatomic) MSSharedSymbolStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
+@property(copy, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void).cxx_destruct;
+- (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)refreshIfNecessary:(id)arg1;
+- (BOOL)overrideSelectionHasChanged:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;
-- (void)makeOverrideViewControllers;
-- (id)views;
+- (void)addOverride:(id)arg1 toViewControllers:(id)arg2 after:(id)arg3 atLevel:(unsigned long long)arg4;
+- (BOOL)addOverrides:(id)arg1 toViewControllers:(id)arg2 atLevel:(unsigned long long)arg3;
+- (void)updateItems;
 - (void)setLayers:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

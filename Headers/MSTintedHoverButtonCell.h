@@ -6,15 +6,15 @@
 
 #import "MSHoverButtonCell.h"
 
-@class NSString;
+@class NSColor;
 
 @interface MSTintedHoverButtonCell : MSHoverButtonCell
 {
 }
 
 - (id)imageFromImage:(id)arg1 withState:(long long)arg2 hovering:(BOOL)arg3;
-@property(readonly, nonatomic) NSString *hoverTint;
-@property(readonly, nonatomic) NSString *normalTint;
+@property(readonly, nonatomic) NSColor *hoverTint;
+@property(readonly, nonatomic) NSColor *normalTint;
 
 @end
 

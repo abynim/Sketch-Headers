@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @interface MSAlignmentEngineConstraint : NSObject <NSCopying>
 {
@@ -14,10 +14,11 @@
     struct MSLine _line;
 }
 
-+ (id)constraintWithOrthogonalOrDiagonalLineFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
++ (id)orthogonalOrDiagonalConstraintFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 + (id)constraintWithSourcePoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 @property(readonly, nonatomic) struct MSLine line; // @synthesize line=_line;
 @property(readonly, nonatomic) struct CGPoint sourcePoint; // @synthesize sourcePoint=_sourcePoint;
+- (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithPoint:(struct CGPoint)arg1 line:(struct MSLine)arg2;
 

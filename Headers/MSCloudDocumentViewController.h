@@ -42,6 +42,7 @@
 - (void)reloadData;
 @property(readonly, nonatomic) SCKShare *share;
 - (void)dealloc;
+- (void)viewDidLayout;
 - (void)viewWillAppear;
 - (void)loadView;
 - (struct NSEdgeInsets)edgeInsets;

@@ -11,7 +11,8 @@
 }
 
 - (double)cropRadius;
-- (id)renderBitmapEffects:(id)arg1;
+- (void)migratePropertiesFromV106OrEarlierWithUnarchiver:(id)arg1;
+- (id)renderBitmapEffects:(id)arg1 bounds:(struct CGRect)arg2 parentCoordinateTransform:(struct CGAffineTransform)arg3;
 - (BOOL)shouldUseCoreImageForEffect;
 - (void)addFilterWithExporter:(id)arg1;
 

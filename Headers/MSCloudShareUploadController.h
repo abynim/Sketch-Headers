@@ -4,17 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "SCKShareUploadDataSource.h"
+#import "SCKShareUploadDataSource-Protocol.h"
 
-@class MSWebExporter, NSProgress, NSString, NSURL, SCKShare, SCKShareUploadOperation;
+@class MSWebExporter, NSProgress, NSString, NSURL, SCKOrganization, SCKShare, SCKShareUploadOperation;
+@protocol MSCloudExportableDocument, MSCloudShareUploadControllerDelegate;
 
 @interface MSCloudShareUploadController : NSObject <SCKShareUploadDataSource>
 {
     BOOL _cancelled;
     id <MSCloudShareUploadControllerDelegate> _delegate;
     SCKShare *_existingShare;
+    SCKOrganization *_organization;
     id <MSCloudExportableDocument> _document;
     NSURL *_localURL;
     NSString *_name;
@@ -28,6 +30,7 @@
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(nonatomic) __weak id <MSCloudExportableDocument> document; // @synthesize document=_document;
 @property(readonly, nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
+@property(retain, nonatomic) SCKOrganization *organization; // @synthesize organization=_organization;
 @property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;

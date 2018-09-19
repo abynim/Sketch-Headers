@@ -6,7 +6,7 @@
 
 #import "CHWindowController.h"
 
-#import "NSTouchBarDelegate.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class NSCountedSet, NSString, NSWindow;
 
@@ -24,6 +24,7 @@
 @property(nonatomic) __weak NSWindow *parentWindow; // @synthesize parentWindow=_parentWindow;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void).cxx_destruct;
+- (void)sheetWillClose;
 - (id)_init;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;

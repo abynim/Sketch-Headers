@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSCoding.h"
-#import "MSJSONArchiverAlternativeFileReference.h"
-#import "NSCopying.h"
+#import "MSCoding-Protocol.h"
+#import "MSJSONArchiverAlternativeFileReference-Protocol.h"
+#import "NSCopying-Protocol.h"
 
-@class BCReadWriteLock, NSData, NSImage, NSObject<OS_dispatch_semaphore>, NSString;
+@class BCReadWriteLock, NSData, NSImage, NSString;
+@protocol OS_dispatch_semaphore;
 
 @interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
 {

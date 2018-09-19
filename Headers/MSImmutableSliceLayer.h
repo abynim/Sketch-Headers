@@ -6,11 +6,12 @@
 
 #import "_MSImmutableSliceLayer.h"
 
-#import "MSLayerWithBackgroundColor.h"
+#import "MSImmutableLayerPreviewability-Protocol.h"
+#import "MSLayerWithBackgroundColor-Protocol.h"
 
 @class NSString;
 
-@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSLayerWithBackgroundColor>
+@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSImmutableLayerPreviewability, MSLayerWithBackgroundColor>
 {
 }
 
@@ -18,9 +19,12 @@
 + (unsigned long long)traits;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)immutableBackgroundColor;
+- (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
 - (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
 - (void)configureBackgroundOfRequest:(id)arg1;
 

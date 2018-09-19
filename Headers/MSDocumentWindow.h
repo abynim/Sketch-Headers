@@ -4,13 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindow.h"
+#import <AppKit/NSWindow.h>
 
-#import "MSInterfaceTheme.h"
+@class BCWindowBadge, NSEvent;
 
-@class BCWindowBadge, NSEvent, NSString;
-
-@interface MSDocumentWindow : NSWindow <MSInterfaceTheme>
+@interface MSDocumentWindow : NSWindow
 {
     BCWindowBadge *_titleBarBadge;
     NSEvent *_lastForwardedKeyEvent;
@@ -19,6 +17,8 @@
 @property(nonatomic) __weak NSEvent *lastForwardedKeyEvent; // @synthesize lastForwardedKeyEvent=_lastForwardedKeyEvent;
 @property(retain, nonatomic) BCWindowBadge *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 - (void).cxx_destruct;
+- (void)setAppearance:(id)arg1;
+- (void)refreshAppearanceDependentViews;
 - (id)touchBar;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)mouseDown:(id)arg1;
@@ -26,12 +26,6 @@
 - (void)keyDown:(id)arg1;
 - (void)sendEvent:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

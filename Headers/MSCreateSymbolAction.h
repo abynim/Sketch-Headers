@@ -13,8 +13,8 @@
 - (BOOL)shouldUseImageForTouchBarItem;
 - (BOOL)hasDynamicTitle;
 - (id)historyMomentTitle;
+- (id)tooltip;
 - (id)label;
-- (id)imageName;
 - (void)createSymbolFromLayers:(id)arg1;
 - (void)doCreateSymbolsFromArtboards:(id)arg1;
 - (void)createSymbolsFromArtboards:(id)arg1;

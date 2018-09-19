@@ -4,21 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
-
-@class NSArray;
+#import <objc/NSObject.h>
 
 @interface MSRotationGestureInterpreter : NSObject
 {
     double _rotation;
     double _rotationOffset;
-    NSArray *_initialRotations;
     struct CGPoint _centerPoint;
 }
 
-@property(copy, nonatomic) NSArray *initialRotations; // @synthesize initialRotations=_initialRotations;
 @property(nonatomic) struct CGPoint centerPoint; // @synthesize centerPoint=_centerPoint;
-- (void).cxx_destruct;
 - (double)convertRotation:(double)arg1 toLayer:(id)arg2;
 - (double)angleOfPoint:(struct CGPoint)arg1 inLayer:(id)arg2;
 - (double)rotationInDegreesInLayer:(id)arg1;

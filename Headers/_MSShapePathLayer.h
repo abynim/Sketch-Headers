@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayer.h"
+#import "MSStyledLayer.h"
 
 @class NSArray, NSMutableArray;
 
-@interface _MSShapePathLayer : MSLayer
+@interface _MSShapePathLayer : MSStyledLayer
 {
     BOOL _edited;
     BOOL _isClosed;

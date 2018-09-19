@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class COScript, ECLogChannel, MSPluginBundle, MSPluginCommandSpecifier, MSPluginManager, MSPluginScript, NSDictionary, NSMutableDictionary, NSMutableString, NSString;
+#import "COPrintController-Protocol.h"
 
-@interface MSPluginCommand : NSObject
+@class COScript, MSPluginBundle, MSPluginCommandSpecifier, MSPluginManager, MSPluginScript, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
+
+@interface MSPluginCommand : NSObject <COPrintController>
 {
     MSPluginCommandSpecifier *_commandSpecifier;
     BOOL _disableCocoaScriptPreprocessor;
     BOOL _hasAPI;
     BOOL _errorInScript;
-    BOOL _skipNextLog;
     NSString *_identifier;
     MSPluginScript *_script;
     NSString *_name;
@@ -22,8 +23,7 @@
     NSString *_shortcut;
     MSPluginBundle *_pluginBundle;
     unsigned long long _scope;
-    ECLogChannel *_logger;
-    NSMutableString *_log;
+    NSMutableArray *_logsWhenRunViaTests;
     COScript *_session;
     NSMutableDictionary *_context;
     NSString *_executingScript;
@@ -36,13 +36,11 @@
 @property(nonatomic) __weak MSPluginManager *manager; // @synthesize manager=_manager;
 @property(retain, nonatomic) NSMutableDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
-@property(nonatomic) BOOL skipNextLog; // @synthesize skipNextLog=_skipNextLog;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
 @property(nonatomic) BOOL hasAPI; // @synthesize hasAPI=_hasAPI;
 @property(retain, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
-@property(retain, nonatomic) NSMutableString *log; // @synthesize log=_log;
-@property(retain, nonatomic) ECLogChannel *logger; // @synthesize logger=_logger;
+@property(retain, nonatomic) NSMutableArray *logsWhenRunViaTests; // @synthesize logsWhenRunViaTests=_logsWhenRunViaTests;
 @property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(readonly, nonatomic) unsigned long long scope; // @synthesize scope=_scope;
 @property(nonatomic) __weak MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
@@ -62,20 +60,17 @@
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3 forPluginIdentifier:(id)arg4;
 - (id)valueForKey:(id)arg1 onDocument:(id)arg2 forPluginIdentifier:(id)arg3;
 - (id)valueForKey:(id)arg1 onLayer:(id)arg2 forPluginIdentifier:(id)arg3;
-- (id)logs;
 - (id)metadata;
 - (BOOL)shouldReloadWithActionID:(id)arg1;
 - (id)menuItemWithAction:(SEL)arg1;
 - (unsigned long long)shortcutModifiers;
 - (id)shortcutKey;
-- (void)testDeprecationLogging;
 @property(readonly, nonatomic) MSPluginCommandSpecifier *commandSpecifier;
 - (void)error:(id)arg1;
 - (void)print:(id)arg1;
+- (id)logString;
 - (void)log:(id)arg1 atLevel:(id)arg2;
-- (void)resetLogger;
 @property(nonatomic) BOOL stayRunning;
-- (void)coscript:(id)arg1 hadError:(id)arg2 onLineNumber:(long long)arg3 atSourceURL:(id)arg4;
 - (id)executeScript:(id)arg1;
 - (BOOL)hasRunHandler;
 - (BOOL)tearDownIfFinished;
@@ -91,8 +86,6 @@
 - (void)setUpSessionWithContext:(id)arg1;
 - (void)newSessionForURL:(id)arg1 shouldReload:(BOOL)arg2;
 - (void)loadAPISupport;
-- (void)stopCapturingDeprecatedChannel:(id)arg1;
-- (id)startCapturingDeprecatedChannel;
 - (id)flattenedHandlerIndexWithHandlers:(id)arg1;
 - (void)dealloc;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5 scope:(unsigned long long)arg6;

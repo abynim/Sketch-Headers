@@ -6,7 +6,7 @@
 
 #import "_MSExportOptions.h"
 
-#import "MSExportFormatContainer.h"
+#import "MSExportFormatContainer-Protocol.h"
 
 @interface MSExportOptions : _MSExportOptions <MSExportFormatContainer>
 {

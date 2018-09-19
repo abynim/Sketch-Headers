@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSArtboardPresetsViewControllerDelegate.h"
-#import "MSEditArtboardPresetViewControllerDelegate.h"
-#import "MSInspectorChildController.h"
+#import "MSArtboardPresetsViewControllerDelegate-Protocol.h"
+#import "MSEditArtboardPresetViewControllerDelegate-Protocol.h"
+#import "MSInspectorChildController-Protocol.h"
 
 @class MSInsertArtboardEventHandler, NSString, NSView;
 
@@ -26,6 +26,7 @@
 @property(nonatomic) BOOL shouldAddInsertFromSelectionItem; // @synthesize shouldAddInsertFromSelectionItem=_shouldAddInsertFromSelectionItem;
 - (void).cxx_destruct;
 - (id)views;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)editArtboardPresetViewController:(id)arg1 savePreset:(id)arg2;

@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayerTraits.h"
+#import "MSLayerTraits-Protocol.h"
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
+@class MSImmutableDocumentData, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
 
 @protocol MSImmutableRootLayer <MSLayerTraits>
 @property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, copy, nonatomic) MSImmutableSimpleGrid *grid;
-@property(readonly, nonatomic) struct CGRect contentBounds;
+- (struct CGRect)contentBoundsForDocument:(MSImmutableDocumentData *)arg1;
 @end
 

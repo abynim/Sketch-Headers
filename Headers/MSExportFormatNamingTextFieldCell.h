@@ -4,27 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTextFieldCell.h"
+#import "MSTextFieldWithDropDownMenuCell.h"
 
-@class NSAttributedString;
-
-@interface MSExportFormatNamingTextFieldCell : NSTextFieldCell
+@interface MSExportFormatNamingTextFieldCell : MSTextFieldWithDropDownMenuCell
 {
-    NSAttributedString *_prefixedLayerNamePlaceholder;
-    NSAttributedString *_suffixedLayerNamePlaceholder;
     double _layerNamePlaceholderWidth;
 }
 
 @property(nonatomic) double layerNamePlaceholderWidth; // @synthesize layerNamePlaceholderWidth=_layerNamePlaceholderWidth;
-@property(retain, nonatomic) NSAttributedString *suffixedLayerNamePlaceholder; // @synthesize suffixedLayerNamePlaceholder=_suffixedLayerNamePlaceholder;
-@property(retain, nonatomic) NSAttributedString *prefixedLayerNamePlaceholder; // @synthesize prefixedLayerNamePlaceholder=_prefixedLayerNamePlaceholder;
-- (void).cxx_destruct;
-- (id)setUpFieldEditorAttributes:(id)arg1;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (struct CGRect)fittingFrameForFieldEditor:(id)arg1 controlView:(id)arg2 counterSelectionInset:(BOOL)arg3;
-- (void)selectWithFrame:(struct CGRect)arg1 inView:(id)arg2 editor:(id)arg3 delegate:(id)arg4 start:(long long)arg5 length:(long long)arg6;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (struct CGRect)drawingRectForBounds:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL isPrefixed;
 @property(readonly, nonatomic) long long namingScheme;
+- (void)controlTextDidChange:(id)arg1;
+- (void)dealloc;
+- (void)setupExportFormatNamingTextFieldCell;
+- (id)initTextCell:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

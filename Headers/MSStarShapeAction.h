@@ -10,6 +10,8 @@
 {
 }
 
+- (id)tooltip;
+- (id)label;
 - (void)starShape:(id)arg1;
 
 @end

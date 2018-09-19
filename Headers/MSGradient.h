@@ -6,7 +6,7 @@
 
 #import "_MSGradient.h"
 
-#import "MSAsset.h"
+#import "MSAsset-Protocol.h"
 
 @class NSString;
 

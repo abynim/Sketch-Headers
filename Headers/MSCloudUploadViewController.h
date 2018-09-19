@@ -27,6 +27,7 @@
 - (void)cloudBaseViewControllerDidAppear;
 - (void)viewWillAppear;
 - (void)dealloc;
+- (void)viewDidLayout;
 - (void)viewDidLoad;
 - (void)loadView;
 - (struct NSEdgeInsets)edgeInsets;

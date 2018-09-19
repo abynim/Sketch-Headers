@@ -4,39 +4,39 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class MSAlignmentEngineConstraint, MSAlignmentEngineResult, MSAlignmentEngineWorkings;
+@class MSAlignmentEngineConstraint, MSAlignmentEngineResult, _TtC17SketchControllers22MSAlignmentEngineCycle;
+@protocol MSAlignmentEngineDelegate;
 
 @interface MSAlignmentEngine : NSObject
 {
     double _snapDistance;
-    unsigned long long _allowedAxes;
     MSAlignmentEngineConstraint *_constraint;
+    _TtC17SketchControllers22MSAlignmentEngineCycle *_currentCycle;
     id <MSAlignmentEngineDelegate> _delegate;
-    MSAlignmentEngineWorkings *_xWorkings;
-    MSAlignmentEngineWorkings *_yWorkings;
-    struct CGPoint _point;
 }
 
++ (id)enumeratorForPossibleSnapTargetLayersInGroup:(id)arg1;
 + (id)snapTargetsForCentersOfLayers:(id)arg1;
-@property(readonly, nonatomic) MSAlignmentEngineWorkings *yWorkings; // @synthesize yWorkings=_yWorkings;
-@property(readonly, nonatomic) MSAlignmentEngineWorkings *xWorkings; // @synthesize xWorkings=_xWorkings;
 @property(nonatomic) __weak id <MSAlignmentEngineDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
-@property(copy, nonatomic) MSAlignmentEngineConstraint *constraint; // @synthesize constraint=_constraint;
-@property(nonatomic) unsigned long long allowedAxes; // @synthesize allowedAxes=_allowedAxes;
+@property(readonly, nonatomic) _TtC17SketchControllers22MSAlignmentEngineCycle *currentCycle; // @synthesize currentCycle=_currentCycle;
+@property(readonly, nonatomic) MSAlignmentEngineConstraint *constraint; // @synthesize constraint=_constraint;
 @property(nonatomic) double snapDistance; // @synthesize snapDistance=_snapDistance;
 - (void).cxx_destruct;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1;
 - (struct CGPoint)applyDelegateAlignment:(struct CGPoint)arg1 snappedAxes:(unsigned long long)arg2;
+- (struct MSLineSegment)extendGuide:(struct MSLineSegment)arg1 toIncludePoint:(struct CGPoint)arg2;
+- (id)makeGuideFromAlignedTarget:(id)arg1 point:(struct CGPoint)arg2;
 @property(readonly, nonatomic) MSAlignmentEngineResult *alignmentResult;
-- (void)includePoint:(struct CGPoint)arg1;
-- (void)includeTargets:(id)arg1;
-- (void)includeTarget:(id)arg1;
-- (void)beginAlignmentForPoint:(struct CGPoint)arg1;
+- (void)addTargetsForRect:(struct CGRect)arg1 includeCenter:(BOOL)arg2;
+- (void)addOrthogonalTargetsThroughPoint:(struct CGPoint)arg1;
+- (void)addTargetWithLineSegment:(struct MSLineSegment)arg1;
+- (void)addTargets:(id)arg1;
+- (void)addTarget:(id)arg1;
+- (id)beginCycleWithPoint:(struct CGPoint)arg1 constraint:(id)arg2;
 - (BOOL)canSnapOnAxis:(unsigned long long)arg1;
-- (id)init;
+- (id)initWithCycle:(id)arg1;
 - (void)includeRulerGuideTargetsForPage:(id)arg1 zoomScale:(double)arg2;
 
 @end

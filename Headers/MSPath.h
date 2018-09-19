@@ -4,21 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @class NSArray;
 
 @interface MSPath : NSObject <NSCopying>
 {
-    BOOL _cachedPropertiesInitialized;
-    BOOL _cachedIsClosed;
+    struct MSPathCachedProperties _cachedProperties;
+    // Error parsing type: A^^v, name: __contoursAtomic
+    // Error parsing type: A^v, name: __cachedPropertiesAtomic
     struct CGPath *_CGPath;
-    long long _signedElementCount;
     NSArray *_contours;
-    struct CGPoint _cachedStartPoint;
-    struct CGPoint _cachedEndPoint;
 }
 
 + (id)pathWithPoints:(const struct CGPoint *)arg1 pointCount:(int)arg2 close:(BOOL)arg3;
@@ -30,12 +28,7 @@
 + (id)pathWithRect:(struct CGRect)arg1;
 + (id)pathWithContours:(id)arg1;
 + (id)pathWithSubpaths:(id)arg1;
-@property(nonatomic) BOOL cachedIsClosed; // @synthesize cachedIsClosed=_cachedIsClosed;
-@property(nonatomic) struct CGPoint cachedEndPoint; // @synthesize cachedEndPoint=_cachedEndPoint;
-@property(nonatomic) struct CGPoint cachedStartPoint; // @synthesize cachedStartPoint=_cachedStartPoint;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
-@property(nonatomic) BOOL cachedPropertiesInitialized; // @synthesize cachedPropertiesInitialized=_cachedPropertiesInitialized;
-@property(nonatomic) long long signedElementCount; // @synthesize signedElementCount=_signedElementCount;
 @property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 - (void).cxx_destruct;
 - (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
@@ -45,7 +38,8 @@
 - (id)pathByReplacingMoveToByLineToComponents;
 - (id)pointsInRect:(struct CGRect)arg1;
 - (id)pathByApplyingModifierBlock:(CDUnknownBlockType)arg1;
-- (void)_initCachedProperties;
+- (struct MSPathCachedProperties)_initCachedProperties;
+- (struct MSPathCachedProperties)_calculateCachedProperies;
 - (unsigned long long)bezierIndexForPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
 - (id)pathFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (struct CGPoint)endPoint;
@@ -58,9 +52,8 @@
 - (BOOL)isClosed;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
-@property(readonly, nonatomic) NSArray *closedSubpaths;
-@property(readonly, nonatomic) NSArray *openSubpaths;
 @property(readonly, nonatomic) NSArray *subpaths;
+- (id)outlinePathWithWidth:(double)arg1 lineCap:(int)arg2 lineJoin:(int)arg3;
 - (id)outlinePathWithWidth:(double)arg1;
 - (id)_pathByScalingToBounds:(struct CGRect)arg1;
 - (id)pathByScalingToBounds:(struct CGRect)arg1;
@@ -75,6 +68,7 @@
 - (id)debugQuickLookObject;
 - (id)transformedPathUsingMapBlock:(CDUnknownBlockType)arg1;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
+- (id)createContours;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) BOOL isRectangular;
@@ -94,20 +88,29 @@
 - (id)initWithContours:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4;
+- (id)shadowPathWithSpread:(double)arg1;
+- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2;
+- (double)lineWidthForOutliningWithBorder:(id)arg1;
+- (id)outlinedSubpathWithBorder:(id)arg1 options:(id)arg2;
+- (id)outlinedPathWithBorder:(id)arg1 options:(id)arg2;
 - (id)booleanExclusiveOrWith:(id)arg1;
 - (id)booleanSubtractWith:(id)arg1;
 - (id)booleanIntersectWith:(id)arg1;
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
-- (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
+- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4 cacheObject:(id)arg5 context:(id)arg6;
+- (id)shadowPathWithSpread:(double)arg1 cacheObject:(id)arg2 context:(id)arg3;
+- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
+- (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2;
 - (id)pathByGrowingBy:(double)arg1;
-- (id)insetPathBy:(double)arg1 borderOptions:(id)arg2 context:(struct CGContext *)arg3;
+- (id)insetPathBy:(double)arg1 borderOptions:(id)arg2;
 - (id)insetPathBy:(double)arg1;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;
+- (id)pathWithDashPattern:(id)arg1;
 - (void)addClipForWindingRule:(unsigned long long)arg1 context:(struct CGContext *)arg2;
 - (void)clipContext:(struct CGContext *)arg1 windingRule:(unsigned long long)arg2 inBlock:(CDUnknownBlockType)arg3;
-- (struct CGContext *)createHelperContext;
 
 @end
 

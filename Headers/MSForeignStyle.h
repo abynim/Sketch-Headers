@@ -6,7 +6,7 @@
 
 #import "_MSForeignStyle.h"
 
-#import "MSSharedStylePasting.h"
+#import "MSSharedStylePasting-Protocol.h"
 
 @class NSString;
 

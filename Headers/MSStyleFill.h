@@ -6,7 +6,7 @@
 
 #import "_MSStyleFill.h"
 
-#import "MSImageOwner.h"
+#import "MSImageOwner-Protocol.h"
 
 @class MSImageData;
 
@@ -28,6 +28,8 @@
 - (id)topViewForColorInspector:(id)arg1;
 - (id)parentStyle;
 @property(nonatomic) double interfaceOpacity;
+- (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 - (id)CSSAttributeString;
 
 // Remaining properties

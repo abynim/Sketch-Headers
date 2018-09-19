@@ -6,8 +6,8 @@
 
 #import "MSModelObjectCommon.h"
 
-#import "MSModelObject.h"
-#import "NSCopying.h"
+#import "MSModelObject-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class MSDocumentData, NSString;
 
@@ -23,9 +23,9 @@
 + (BOOL)allowsFaulting;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
+@property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
 - (void)breakConnectionWith:(id)arg1;
-@property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (id)parentGroupRecursive;
 - (id)parentGroup;
 - (void)setAsParentOnChildren;

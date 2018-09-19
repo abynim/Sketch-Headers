@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSAlignmentEngineDelegate.h"
-#import "MSSelectVectorHandleGestureRecognizerDelegate.h"
+#import "MSAlignmentEngineDelegate-Protocol.h"
+#import "MSSelectVectorHandleGestureRecognizerDelegate-Protocol.h"
 
 @class MSAlignmentEngine, MSAlignmentEngineResult, MSClickGestureRecognizer, MSContentDrawView, MSDragHandleGestureRecognizer, MSDragSegmentGestureRecognizer, MSDragToSelectGestureRecognizer, MSPathController, MSSelectVectorHandleGestureRecognizer, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, NSArray, NSBezierPath, NSIndexPath, NSMutableArray, NSString;
+@protocol MSVectorCanvasDelegate;
 
 @interface MSVectorCanvas : NSObject <MSSelectVectorHandleGestureRecognizerDelegate, MSAlignmentEngineDelegate>
 {
@@ -103,7 +104,9 @@
 - (void)drawHairline;
 - (id)makeWireBezierPathForClosingPath:(BOOL)arg1 indexPathForSelectedHandle:(id)arg2;
 - (void)updateWire;
+- (void)addOtherLayersToSnapper:(id)arg1;
 - (void)includePointForSnapping:(struct CGPoint)arg1 inPathLayer:(id)arg2;
+- (void)addHandlesToSnapperForDragging:(BOOL)arg1;
 - (void)addTargetsToSnapperForDragging:(BOOL)arg1;
 - (void)prepareSnapper;
 - (id)changeContext;

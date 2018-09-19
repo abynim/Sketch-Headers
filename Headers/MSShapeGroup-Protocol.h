@@ -4,12 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MSPath, NSBezierPath;
-
 @protocol MSShapeGroup
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasMarkers;
-@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
-- (void)applyPropertiesToBezier:(NSBezierPath *)arg1;
 @end
 

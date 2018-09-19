@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) NSButton *editOriginButton; // @synthesize editOriginButton=_editOriginButton;
 - (void).cxx_destruct;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)editZoomCenter:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)handlerFocusDidChange:(id)arg1;

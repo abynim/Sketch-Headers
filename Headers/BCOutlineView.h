@@ -4,36 +4,47 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSOutlineView.h"
+#import <AppKit/NSOutlineView.h>
 
-@class BCOutlineViewDataController, NSMutableDictionary, NSMutableSet;
+@class BCOutlineViewDataController;
 
 @interface BCOutlineView : NSOutlineView
 {
+    BOOL _useHighlightedBackgroundColor;
+    BOOL _isUserActivated;
     BCOutlineViewDataController *_dataController;
     id _discloserTriangleClickedItem;
+    BCOutlineView *_counterpartOutlineView;
+    unsigned long long _activeStateScheme;
     SEL _disclosureButtonAction;
-    NSMutableDictionary *_viewCache;
-    NSMutableSet *_registeredViews;
 }
 
-@property(retain, nonatomic) NSMutableSet *registeredViews; // @synthesize registeredViews=_registeredViews;
-@property(retain, nonatomic) NSMutableDictionary *viewCache; // @synthesize viewCache=_viewCache;
+@property(nonatomic) BOOL isUserActivated; // @synthesize isUserActivated=_isUserActivated;
 @property(nonatomic) SEL disclosureButtonAction; // @synthesize disclosureButtonAction=_disclosureButtonAction;
+@property(nonatomic) BOOL useHighlightedBackgroundColor; // @synthesize useHighlightedBackgroundColor=_useHighlightedBackgroundColor;
+@property(nonatomic) unsigned long long activeStateScheme; // @synthesize activeStateScheme=_activeStateScheme;
+@property(nonatomic) __weak BCOutlineView *counterpartOutlineView; // @synthesize counterpartOutlineView=_counterpartOutlineView;
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
-- (void)reloadData;
-- (void)addViewToCache:(id)arg1;
+- (void)refreshSelectedRowViews;
+- (void)refreshAllRowViews;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)setIntercellSpacing:(struct CGSize)arg1;
 - (void)deliberateScrollRowToVisible:(long long)arg1;
 - (void)scrollRowToVisible:(long long)arg1;
 - (id)dragImageForRowsWithIndexes:(id)arg1 tableColumns:(id)arg2 event:(id)arg3 offset:(struct CGPoint *)arg4;
+- (void)viewWillDraw;
 - (id)menuForEvent:(id)arg1;
 - (struct CGRect)frameOfOutlineCellAtRow:(long long)arg1;
 - (id)makeViewWithIdentifier:(id)arg1 owner:(id)arg2;
-- (void)registerView:(id)arg1 withIdentifier:(id)arg2;
 - (void)disclosureTriangleClicked:(id)arg1;
 - (BOOL)becomeFirstResponder;
+- (void)_noteUserDidActivateCounterpartOutlineView;
+- (void)noteUserDidActivateOutlineView;
+@property(readonly, nonatomic) BOOL isActiveOutlineView;
+- (void)setUpCoordinationWithCounterpartOutlineView:(id)arg1;
+- (BOOL)sendRenameNodeActionForRowIfAppropriate:(long long)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)awakeFromNib;
 

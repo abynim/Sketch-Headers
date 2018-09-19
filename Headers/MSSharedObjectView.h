@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
+#import <AppKit/NSView.h>
 
-@class MSModelObject<BCSortable><MSSharedObjectStyling>, NSColor, NSImage, NSString;
+@class MSModelObject, NSColor, NSImage, NSString;
+@protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSSharedObjectView : NSView
 {

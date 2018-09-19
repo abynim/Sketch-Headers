@@ -6,11 +6,28 @@
 
 #import "MSInspectorItem.h"
 
+@class NSButton, _TtC6Sketch21MSResizingPreviewView;
+
 @interface MSResizeInspectorItem : MSInspectorItem
 {
+    NSButton *_fixHorizontalButton;
+    NSButton *_fixVerticalButton;
+    _TtC6Sketch21MSResizingPreviewView *_resizingPreviewView;
 }
 
+@property(retain, nonatomic) _TtC6Sketch21MSResizingPreviewView *resizingPreviewView; // @synthesize resizingPreviewView=_resizingPreviewView;
+@property(retain, nonatomic) NSButton *fixVerticalButton; // @synthesize fixVerticalButton=_fixVerticalButton;
+@property(retain, nonatomic) NSButton *fixHorizontalButton; // @synthesize fixHorizontalButton=_fixHorizontalButton;
+- (void).cxx_destruct;
+- (void)resetConstraints:(id)arg1;
+- (void)toggleBoth:(id)arg1;
 - (void)resizeConstraintsAction:(id)arg1;
+- (long long)zPositionForButton:(id)arg1;
+- (void)updateButtonOrder;
+- (void)dealloc;
+- (void)viewDidLoad;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

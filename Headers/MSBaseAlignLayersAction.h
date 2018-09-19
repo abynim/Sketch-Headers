@@ -6,7 +6,7 @@
 
 #import "MSDocumentAction.h"
 
-#import "MSAltButtonTarget.h"
+#import "MSAltButtonTarget-Protocol.h"
 
 @class NSString;
 

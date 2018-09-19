@@ -6,46 +6,26 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSLayer, MSNormalEventData, MSResizeGestureRecognizer, MSSavedLayerFrames, MSSnapper;
+@class MSNormalEventData, MSResizeGestureRecognizer, MSSnappingSession, _TtC17SketchControllers15MSResizeSession;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
-    struct CGPoint _midPoint;
-    struct CGPoint _oppositePoint;
-    struct CGPoint _oppositeRotatedPoint;
-    BOOL _layerRectWasIntegral;
-    long long _resizingCorner;
-    MSLayer *_resizingLayer;
-    MSSnapper *_layerSnapper;
+    MSSnappingSession *_snappingSession;
     MSNormalEventData *_eventData;
+    _TtC17SketchControllers15MSResizeSession *_resizeSession;
     MSResizeGestureRecognizer *_resizeGestureRecognizer;
-    MSSavedLayerFrames *_originalFrames;
 }
 
-@property(retain, nonatomic) MSSavedLayerFrames *originalFrames; // @synthesize originalFrames=_originalFrames;
-@property(nonatomic) BOOL layerRectWasIntegral; // @synthesize layerRectWasIntegral=_layerRectWasIntegral;
 @property(readonly, nonatomic) MSResizeGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
+@property(readonly, nonatomic) _TtC17SketchControllers15MSResizeSession *resizeSession; // @synthesize resizeSession=_resizeSession;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
-@property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
-@property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
-@property(nonatomic) long long resizingCorner; // @synthesize resizingCorner=_resizingCorner;
+@property(retain, nonatomic) MSSnappingSession *snappingSession; // @synthesize snappingSession=_snappingSession;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)finishResizing;
-- (void)flipResizingLayerIfNecessary:(struct CGPoint)arg1;
-- (struct CGPoint)pointInLocalCoordinates:(struct CGPoint)arg1;
-- (unsigned long long)validSnapEdgesForResizingCorner;
 - (long long)oppositeCorner;
-- (struct CGRect)placeRectInOppositeCorner:(struct CGRect)arg1;
-- (struct CGRect)makeRect:(struct CGRect)arg1 conformToProportions:(BOOL)arg2;
-- (struct CGPoint)mouseAfterAccountingForRotation:(struct CGPoint)arg1;
-- (void)makeLayerIntegral:(id)arg1;
-- (struct CGRect)snapRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
-- (struct CGRect)newRectForResize:(struct CGPoint)arg1 gestureRecognizer:(id)arg2;
 - (void)updateResize:(id)arg1;
-- (void)calculateOppositePoint;
-- (void)calculateMidPoint;
-- (void)displayResizeCursor;
+- (BOOL)updateCursor;
 - (void)prepareForResize;
 - (void)resizeLayer:(id)arg1;
 - (id)initWithManager:(id)arg1;

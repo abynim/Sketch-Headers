@@ -6,13 +6,13 @@
 
 #import "MSEventHandler.h"
 
-#import "MSFirstLineTypesetterDelegate.h"
-#import "MSTextLayerEditingDelegate.h"
-#import "MSTextLayerTextViewDelegate.h"
-#import "NSLayoutManagerDelegate.h"
-#import "NSTextStorageDelegate.h"
-#import "NSTextViewDelegate.h"
-#import "NSWindowDelegate.h"
+#import "MSFirstLineTypesetterDelegate-Protocol.h"
+#import "MSTextLayerEditingDelegate-Protocol.h"
+#import "MSTextLayerTextViewDelegate-Protocol.h"
+#import "NSLayoutManagerDelegate-Protocol.h"
+#import "NSTextStorageDelegate-Protocol.h"
+#import "NSTextViewDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
 @class MSTextLayer, MSTextLayerTextView, MSTextWindow, NSNumber, NSString, NSTextStorage, NSTimer;
 
@@ -33,6 +33,7 @@
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
 - (void).cxx_destruct;
+- (void)willStartExporting;
 - (id)selectionTouchBar;
 - (BOOL)shouldExitOnContentViewResize;
 - (BOOL)validateMenuItem:(id)arg1;

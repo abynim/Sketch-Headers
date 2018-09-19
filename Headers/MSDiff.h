@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSSubtreeRoot;
 
@@ -18,8 +18,8 @@
 @property(retain, nonatomic) MSSubtreeRoot *firstObjectRoot; // @synthesize firstObjectRoot=_firstObjectRoot;
 - (void).cxx_destruct;
 - (id)description;
-- (struct CGRect)overlayDirtyDiffRect;
-- (struct CGRect)contentDirtyDiffRect;
+- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
+- (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (id)init;
 - (id)initWithFirstObjectRoot:(id)arg1 secondObjectRoot:(id)arg2;
 

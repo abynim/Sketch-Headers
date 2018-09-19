@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSObject-Protocol.h"
 
 @class MSUpDownController, NSNumber;
 
 @protocol MSUpDownProtocol <NSObject>
+@property(nonatomic) double minimumIncrementValue;
 @property(readonly, nonatomic) MSUpDownController *upDownController;
 - (NSNumber *)maximum;
 - (NSNumber *)minimum;

@@ -6,8 +6,8 @@
 
 #import "_MSImmutablePage.h"
 
-#import "MSImmutableRootLayer.h"
-#import "MSWebExportableRootLayer.h"
+#import "MSImmutableRootLayer-Protocol.h"
+#import "MSWebExportableRootLayer-Protocol.h"
 
 @class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
 
@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) NSArray *symbols;
 @property(readonly, nonatomic) BOOL hasArtboards;
 @property(readonly, nonatomic) NSArray *artboards;
-@property(readonly, nonatomic) struct CGRect contentBounds;
+- (struct CGRect)contentBoundsForDocument:(id)arg1;
 - (struct CGPoint)rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 - (void)performInitWithMutableModelObject:(id)arg1;

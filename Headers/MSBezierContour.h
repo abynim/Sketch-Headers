@@ -4,29 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSPath, NSArray;
 
 @interface MSBezierContour : NSObject
 {
-    BOOL _clockwise;
     struct CGRect _bounds;
+    BOOL _clockwise;
     BOOL _isRectangular;
-    BOOL _closed;
-    BOOL _cachedClockwise;
-    BOOL _cachedBounds;
-    BOOL _cachedIsRectangular;
-    NSArray *_segments;
     MSPath *_path;
+    // Error parsing type: A^^v, name: __boundsAtomic
+    // Error parsing type: A^^v, name: __clockwiseAtomic
+    // Error parsing type: A^^v, name: __isRectangularAtomic
+    // Error parsing type: A^^v, name: __pathAtomic
+    BOOL _closed;
+    NSArray *_segments;
 }
 
 + (id)contourWithPolygonAtPoint:(struct CGPoint)arg1 radius:(double)arg2 sides:(unsigned long long)arg3;
 + (id)contourWithRect:(struct CGRect)arg1;
-@property(nonatomic) BOOL cachedIsRectangular; // @synthesize cachedIsRectangular=_cachedIsRectangular;
-@property(nonatomic) BOOL cachedBounds; // @synthesize cachedBounds=_cachedBounds;
-@property(nonatomic) BOOL cachedClockwise; // @synthesize cachedClockwise=_cachedClockwise;
-@property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(readonly, copy, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 @property(readonly, nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 - (void).cxx_destruct;
@@ -38,6 +35,7 @@
 - (id)segmentsByDiscardingTinySegments:(id)arg1 closed:(BOOL)arg2;
 - (id)segmentsByCheckingForPointsInJoin:(id)arg1;
 - (id)simplifiedSegments;
+- (id)segmentsWithFlatness:(double)arg1;
 - (id)simplifySegment:(id)arg1;
 - (id)simplifiedSegmentsBySplittingSegment:(id)arg1 atOffset:(double)arg2;
 - (id)segmentBeforeSegment:(id)arg1 inArray:(id)arg2 closed:(BOOL)arg3;
@@ -46,11 +44,14 @@
 - (id)segmentBefore:(id)arg1;
 - (id)closedContour;
 - (id)reversedContour;
-@property(nonatomic, getter=isClockwise) BOOL clockwise;
-@property(nonatomic) BOOL isRectangular;
+@property(readonly, nonatomic, getter=isClockwise) BOOL clockwise;
+- (BOOL)calculateIsClockwise;
+@property(readonly, nonatomic) MSPath *path;
+- (id)createPath;
+@property(readonly, nonatomic) BOOL isRectangular;
 - (BOOL)doSegmentsFormARectangle:(id)arg1 closed:(BOOL)arg2;
 @property(readonly, nonatomic) struct CGRect bounds;
-- (void)setBounds:(struct CGRect)arg1;
+- (struct CGRect)calculateBounds;
 - (id)initWithSegments:(id)arg1 closed:(BOOL)arg2;
 
 @end

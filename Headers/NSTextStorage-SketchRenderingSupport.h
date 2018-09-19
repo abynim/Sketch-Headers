@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTextStorage.h"
+#import <AppKit/NSTextStorage.h>
 
 @interface NSTextStorage (SketchRenderingSupport)
 - (void)applyTextColor:(id)arg1 forRange:(struct _NSRange)arg2 context:(id)arg3;

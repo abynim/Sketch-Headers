@@ -4,25 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import "MSNestedInspectorSection.h"
 
-#import "MSInspectorSection.h"
-#import "NSMenuDelegate.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@class NSArray, NSString;
+@class MSBaseInspectorSection, NSArray, NSString;
 
-@interface MSSpecialLayerViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
+@interface MSSpecialLayerViewController : MSNestedInspectorSection <NSMenuDelegate>
 {
-    NSArray *_layers;
-    NSArray *_layerInspectorControllers;
+    MSBaseInspectorSection *_textSection;
+    NSArray *_layerInspectorSections;
 }
 
-@property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
++ (id)layerOrder;
+@property(retain, nonatomic) NSArray *layerInspectorSections; // @synthesize layerInspectorSections=_layerInspectorSections;
+@property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 - (void).cxx_destruct;
+- (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
+- (void)sectionDidResize:(id)arg1;
+- (void)colorMagnifierAction:(id)arg1;
+- (BOOL)canHandleColorMagnifierAction;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)valuesPossiblyChanged;
 - (void)changeTextLayerFont:(id)arg1;
 - (id)views;
+- (id)regularLayerInspectorSections;
+- (id)externalLayerInspectorSections;
+- (void)updateItems;
 - (id)inspectorsWithProperContent;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
 - (void)loadView;

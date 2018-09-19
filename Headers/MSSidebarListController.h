@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSDocumentData;
+@protocol MSSidebarControllerDelegate;
 
 @interface MSSidebarListController : NSObject
 {
@@ -29,6 +30,7 @@
 - (id)readDragNodesFromPasteboard:(id)arg1;
 - (BOOL)dataController:(id)arg1 writeNodes:(id)arg2 toPasteboard:(id)arg3;
 @property(readonly, nonatomic) Class pasteboardWriterClass;
+- (id)layersFromNodeArray:(id)arg1;
 - (id)layerForNode:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (id)initWithDelegate:(id)arg1;

@@ -24,6 +24,7 @@
 - (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
 - (id)instancesOf:(id)arg1 inContainer:(id)arg2;
 - (void)removeSharedObject:(id)arg1;
+- (void)removeSharedObjects:(id)arg1;
 - (Class)sharedObjectClass;
 
 @end

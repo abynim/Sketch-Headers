@@ -6,7 +6,8 @@
 
 #import "MSImmutableModelObject.h"
 
-@class NSObject<NSCopying>, NSString;
+@class NSObject, NSString;
+@protocol NSCopying;
 
 @interface _MSImmutableOverrideValue : MSImmutableModelObject
 {
@@ -27,7 +28,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

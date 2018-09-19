@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class NSView;
 
@@ -34,6 +34,7 @@
 - (void)mouseExited:(id)arg1;
 - (void)mouseMoved:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+@property(readonly, nonatomic) BOOL canUpdateCursor;
 - (void)setLocationWithEvent:(id)arg1;
 - (struct CGPoint)locationInView:(id)arg1;
 - (id)init;

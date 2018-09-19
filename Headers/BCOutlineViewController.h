@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "BCTableCellViewDelegate.h"
-#import "BCTableRowViewDelegate.h"
-#import "NSMenuDelegate.h"
-#import "NSOutlineViewDataSource.h"
-#import "NSOutlineViewDelegate.h"
-#import "NSTextFieldDelegate.h"
+#import "BCTableCellViewDelegate-Protocol.h"
+#import "BCTableRowViewDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSOutlineViewDataSource-Protocol.h"
+#import "NSOutlineViewDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
 @class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
 
@@ -20,6 +20,8 @@
     BOOL _selectionStateUpdating;
     BOOL _expansionStateUpdating;
     BOOL _draggingInProgress;
+    BOOL _shouldRestoreGroupFloatingAfterDragDrop;
+    BOOL _viewHasAppearedBefore;
     BCOutlineView *_outlineView;
     BCOutlineViewDataController *_dataController;
     NSEvent *_ignoreSelectionChangingEvent;
@@ -32,12 +34,15 @@
     NSArray *_postRefreshBlocks;
 }
 
++ (BOOL)itemRowCanFloat:(id)arg1;
 @property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
+@property(nonatomic) BOOL viewHasAppearedBefore; // @synthesize viewHasAppearedBefore=_viewHasAppearedBefore;
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
 @property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
 @property(retain, nonatomic) NSTextField *menuDisabledTextField; // @synthesize menuDisabledTextField=_menuDisabledTextField;
 @property(readonly, nonatomic) id currentlyHoveredNode; // @synthesize currentlyHoveredNode=_currentlyHoveredNode;
 @property(retain, nonatomic) NSArray *contextMenuSelection; // @synthesize contextMenuSelection=_contextMenuSelection;
+@property(nonatomic) BOOL shouldRestoreGroupFloatingAfterDragDrop; // @synthesize shouldRestoreGroupFloatingAfterDragDrop=_shouldRestoreGroupFloatingAfterDragDrop;
 @property(nonatomic) BOOL draggingInProgress; // @synthesize draggingInProgress=_draggingInProgress;
 @property(retain, nonatomic) NSEvent *ignoreExpansionChangingEvent; // @synthesize ignoreExpansionChangingEvent=_ignoreExpansionChangingEvent;
 @property(retain, nonatomic) NSEvent *ignoreSelectionChangingEvent; // @synthesize ignoreSelectionChangingEvent=_ignoreSelectionChangingEvent;
@@ -46,10 +51,14 @@
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 - (void).cxx_destruct;
+- (id)tableCellOutlineView:(id)arg1;
 - (id)tableCellViewDestinationWindow:(id)arg1;
 - (unsigned long long)tableRowView:(id)arg1 displayTypeOfRowAtIndex:(long long)arg2;
+- (void)tableCellViewNodeRequiresRefresh:(id)arg1;
 - (long long)indexOfTableRowView:(id)arg1;
 - (BOOL)isNodeExpandedInTableRowView:(id)arg1;
+- (BOOL)multipleNodesSelected;
+- (BOOL)isNodeSelectedOnRow:(long long)arg1;
 - (BOOL)isNodeSelectedInTableRowView:(id)arg1;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
@@ -76,6 +85,9 @@
 - (void)tableCellViewMouseExited:(id)arg1;
 - (void)tableCellViewMouseEntered:(id)arg1;
 - (void)tableCellViewHandleBadgePressed:(id)arg1;
+- (BOOL)isTableCellViewNodeLockedOnCanvas:(id)arg1;
+- (BOOL)isTableCellViewNodeContainedByHiddenAncestorNode:(id)arg1;
+- (BOOL)isTableCellViewNodeHiddenOnCanvas:(id)arg1;
 - (BOOL)isTableCellViewNodeSelected:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -115,8 +127,8 @@
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (id)childrenForItem:(id)arg1;
 - (void)dealloc;
-@property(readonly, nonatomic) BOOL hasSourceListStyle;
 @property(readonly, nonatomic) double preferredHeight;
+- (void)viewDidAppear;
 - (void)awakeFromNib;
 - (id)initWithDataController:(id)arg1;
 

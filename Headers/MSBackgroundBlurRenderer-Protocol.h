@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSRenderer.h"
+#import "MSRenderer-Protocol.h"
 
-@class MSImmutableShapeGroup, MSPath, MSRenderingContext;
+@class MSImmutableStyledLayer, MSPath, MSRenderingContext;
 
 @protocol MSBackgroundBlurRenderer <MSRenderer>
-- (void)renderBackgroundBlurBehindShape:(MSImmutableShapeGroup *)arg1 context:(MSRenderingContext *)arg2 clippedToPath:(MSPath *)arg3;
+- (void)renderBackgroundBlurBehindLayer:(MSImmutableStyledLayer *)arg1 context:(MSRenderingContext *)arg2 clippedToPath:(MSPath *)arg3;
 @end
 

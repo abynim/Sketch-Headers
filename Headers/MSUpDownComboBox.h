@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSComboBox.h"
+#import <AppKit/NSComboBox.h>
 
-#import "MSUpDownProtocol.h"
-#import "NSTextViewDelegate.h"
+#import "MSUpDownProtocol-Protocol.h"
+#import "NSTextViewDelegate-Protocol.h"
 
 @class MSUpDownController, NSString;
 
@@ -15,8 +15,10 @@
 {
     id _refreshDelegate;
     MSUpDownController *_upDownController;
+    double _minimumIncrementValue;
 }
 
+@property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
 @property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;

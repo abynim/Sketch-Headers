@@ -6,7 +6,7 @@
 
 #import "MSDocumentAction.h"
 
-#import "NSTouchBarDelegate.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class NSString;
 

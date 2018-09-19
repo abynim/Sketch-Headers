@@ -10,6 +10,7 @@
 {
 }
 
++ (id)separatorWithInsets:(struct NSEdgeInsets)arg1;
 - (id)color;
 
 @end

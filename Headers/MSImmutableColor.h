@@ -6,7 +6,7 @@
 
 #import "_MSImmutableColor.h"
 
-#import "MSColor.h"
+#import "MSColor-Protocol.h"
 
 @class NSArray, NSString;
 

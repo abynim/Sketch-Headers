@@ -16,10 +16,12 @@
     NSString *_originalName;
     NSString *_infoText;
     MSAssetLibraryUpdatingInfo *_updatingInfo;
+    NSString *_displayName;
 }
 
 + (id)URLForApplicationSupportLibraryNamed:(id)arg1;
 + (id)assetLibraryFolder;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(retain, nonatomic) MSAssetLibraryUpdatingInfo *updatingInfo; // @synthesize updatingInfo=_updatingInfo;
 @property(nonatomic) BOOL newUpdatingInfo; // @synthesize newUpdatingInfo=_newUpdatingInfo;
 @property(retain, nonatomic) NSString *infoText; // @synthesize infoText=_infoText;
@@ -27,6 +29,9 @@
 @property(retain, nonatomic) NSString *libraryVersion; // @synthesize libraryVersion=_libraryVersion;
 @property(retain, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
 - (void).cxx_destruct;
+- (void)assetLibraryUpdated;
+- (id)name;
+@property(readonly, nonatomic) NSString *fileName;
 - (id)previewURL;
 - (void)resolveLocationOnDisk;
 @property(readonly, nonatomic) BOOL downloadAvailable;

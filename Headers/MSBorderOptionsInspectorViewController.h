@@ -10,13 +10,10 @@
 
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
-    NSArray *_layers;
     NSPopUpButton *_startDecorationButton;
     NSPopUpButton *_endDecorationButton;
     NSTextField *_dashField1;
     NSTextField *_dashField2;
-    NSTextField *_dashField3;
-    NSTextField *_dashField4;
     NSSegmentedControl *_capSegmentedControl;
     NSSegmentedControl *_joinSegmentedControl;
     NSArray *_filteredLayers;
@@ -29,13 +26,10 @@
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
 @property(retain, nonatomic) NSSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
 @property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
-@property(retain, nonatomic) NSTextField *dashField4; // @synthesize dashField4=_dashField4;
-@property(retain, nonatomic) NSTextField *dashField3; // @synthesize dashField3=_dashField3;
 @property(retain, nonatomic) NSTextField *dashField2; // @synthesize dashField2=_dashField2;
 @property(retain, nonatomic) NSTextField *dashField1; // @synthesize dashField1=_dashField1;
 @property(retain, nonatomic) NSPopUpButton *endDecorationButton; // @synthesize endDecorationButton=_endDecorationButton;
 @property(retain, nonatomic) NSPopUpButton *startDecorationButton; // @synthesize startDecorationButton=_startDecorationButton;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)dashFields;
 - (void)fillDashPlaceholderFields;
@@ -46,6 +40,7 @@
 - (void)evaluateCapJoinButtons;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)prepareDecorationButtons;
+- (void)setStyleParts:(id)arg1;
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;
 - (void)reloadData;

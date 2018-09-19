@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSInspectorChildController.h"
+#import "MSInspectorChildController-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSPathController, MSShapeEventHandler, MSUpDownTextField, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
+@class MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, MSUpDownTextField, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
@@ -26,8 +26,10 @@
     MSMathInspectorValueAdaptor *_xAdapter;
     MSMathInspectorValueAdaptor *_yAdapter;
     NSArrayController *_pointsController;
+    MSShapeButtonInspectorItem *_buttonItem;
 }
 
+@property(retain, nonatomic) MSShapeButtonInspectorItem *buttonItem; // @synthesize buttonItem=_buttonItem;
 @property(retain, nonatomic) NSArrayController *pointsController; // @synthesize pointsController=_pointsController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yAdapter; // @synthesize yAdapter=_yAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *xAdapter; // @synthesize xAdapter=_xAdapter;
@@ -44,6 +46,7 @@
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 - (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)changeTool:(id)arg1;
@@ -57,19 +60,12 @@
 - (void)vectorModeSegmentedButtonAction:(id)arg1;
 - (void)refreshCurveModeControls;
 - (void)finishEditingAction:(id)arg1;
-- (void)closePathAction:(id)arg1;
 - (void)refreshClosePathButton;
 - (id)views;
 - (void)refresh;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -4,27 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSInspectorItemDelegate.h"
-#import "MSInspectorSection.h"
+#import "MSInspectorItemDelegate-Protocol.h"
+#import "MSInspectorSection-Protocol.h"
 
 @class MSLayerArray, NSArray, NSString;
+@protocol MSInspectorSectionDelegate;
 
 @interface MSBaseInspectorSection : NSViewController <MSInspectorSection, MSInspectorItemDelegate>
 {
     BOOL _throttleUpdate;
     BOOL _needsUpdate;
-    NSArray *_items;
     MSLayerArray *_layers;
     id <MSInspectorSectionDelegate> _delegate;
+    NSArray *_items;
 }
 
+@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) BOOL needsUpdate; // @synthesize needsUpdate=_needsUpdate;
 @property(nonatomic) BOOL throttleUpdate; // @synthesize throttleUpdate=_throttleUpdate;
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
-@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 - (void).cxx_destruct;
 - (id)documentForInspectorItem:(id)arg1;
 - (void)valuesPossiblyChanged:(id)arg1;
@@ -32,11 +33,16 @@
 - (void)doUpdateDisplayedValues;
 - (void)scheduleUpdate;
 - (void)valuesPossiblyChanged;
+- (struct NSEdgeInsets)separatorInset;
 - (BOOL)wantsSeparatorAfterViews;
 - (void)assignItemLayers;
 - (void)updateItems;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
+@property(readonly, nonatomic) BOOL selectionContainsChildrenOfCompoundPath;
 - (id)views;
 - (void)viewDidLoad;
+- (void)loadView;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)canHandleColorMagnifierAction;

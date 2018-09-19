@@ -10,9 +10,10 @@
 {
 }
 
+- (id)label;
+- (id)tooltip;
 - (id)touchBarImage;
-- (id)historyMomentTitle;
-- (void)doPerformAction:(id)arg1;
+- (long long)booleanOperation;
 - (void)booleanSubtract:(id)arg1;
 
 @end

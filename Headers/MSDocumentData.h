@@ -6,15 +6,17 @@
 
 #import "_MSDocumentData.h"
 
-#import "MSDocumentData.h"
-#import "MSLayerContainment.h"
+#import "MSDocumentData-Protocol.h"
+#import "MSLayerContainment-Protocol.h"
 
 @class BCCache, MSFontList, MSPage, NSArray, NSDictionary;
+@protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
+    NSArray *_selectedOverrides;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -34,10 +36,17 @@
 - (void)immediatelyShowSelectionForAllLayers;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
+- (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
 - (id)images;
+- (id)layerStyleWithID:(id)arg1;
+- (id)textStyleWithID:(id)arg1;
+- (id)allLayerStyles;
+- (id)allTextStyles;
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
+@property(retain, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void)purgeForeignObjects;
 - (void)purgeForeignStyles;
+- (id)stylesReferencedInDocument;
 - (void)purgeForeignSymbols;
 - (id)symbolsReferencedBySymbolInstances;
 - (id)symbolsReferencedBySymbolMasters;
@@ -59,10 +68,8 @@
 - (id)artboardWithID:(id)arg1;
 - (id)layerWithID:(id)arg1;
 - (void)layerTreeLayoutDidChange;
-- (void)layerSelectionMightHaveChanged;
 - (id)selectedLayers;
 - (BOOL)documentIsEmpty;
-- (void)sharedObjectDidChange:(struct MSModelObject *)arg1;
 - (id)nameForNewPage;
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)symbolsPage;
@@ -88,7 +95,6 @@
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
-- (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)containsNoOrOneLayers;
@@ -97,8 +103,6 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (BOOL)canBeContainedByDocument;
-- (BOOL)canBeContainedByGroup;
 - (id)metadataForKey:(id)arg1 object:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
 - (id)UIMetadataKey;

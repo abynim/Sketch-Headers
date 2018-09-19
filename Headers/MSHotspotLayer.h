@@ -6,12 +6,14 @@
 
 #import "_MSHotspotLayer.h"
 
-@interface MSHotspotLayer : _MSHotspotLayer
+#import "MSLayerPreviewability-Protocol.h"
+
+@interface MSHotspotLayer : _MSHotspotLayer <MSLayerPreviewability>
 {
 }
 
 + (id)hotspotLayerFromLayer:(id)arg1;
-+ (id)keyPathsForValuesAffectingPreviewImages;
++ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 - (void)resetFlow;
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
@@ -19,12 +21,18 @@
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)shouldDrawSelectionStroke;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (BOOL)canChangeBooleanOperation;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
 - (BOOL)isExportableViaDragAndDrop;
 - (BOOL)isActive;
-- (unsigned long long)filterType;
-- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
+- (unsigned long long)filterTypeMask;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
+
+// Remaining properties
+@property(readonly, nonatomic) unsigned long long badgeType;
 
 @end
 

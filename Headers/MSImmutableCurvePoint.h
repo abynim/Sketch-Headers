@@ -6,7 +6,7 @@
 
 #import "_MSImmutableCurvePoint.h"
 
-#import "MSCurvePoint.h"
+#import "MSCurvePoint-Protocol.h"
 
 @class NSString;
 
@@ -14,6 +14,7 @@
 {
 }
 
+@property(readonly, nonatomic) BOOL isEffectivelyStraight;
 @property(readonly, nonatomic) BOOL isRounded;
 @property(readonly, nonatomic) BOOL isStraight;
 

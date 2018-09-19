@@ -10,10 +10,11 @@
 {
 }
 
-- (id)tooltipMoveDescription;
+- (id)label;
+- (id)tooltip;
 - (id)touchBarImage;
 - (id)historyMomentTitle;
-- (BOOL)validateToolbarItem:(id)arg1;
+- (void)validateToolbarItem;
 - (void)doPerformAction:(id)arg1;
 - (void)moveForward:(id)arg1;
 

@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSObject-Protocol.h"
 
-@class MSPluginDataSupplier, NSDictionary;
+@class MSPluginDataSupplier, NSDictionary, NSImage, NSString;
 
 @protocol MSDataSupplierManagerDelegate <NSObject>
+- (NSString *)pluginNameForIdentifier:(NSString *)arg1;
+- (NSImage *)pluginIconForIdentifier:(NSString *)arg1;
 - (BOOL)isThereAPluginForDataSupplier:(MSPluginDataSupplier *)arg1;
-- (BOOL)isPluginForDataSupplierEnabled:(MSPluginDataSupplier *)arg1;
 - (void)requestDataFromPluginDataSupplier:(MSPluginDataSupplier *)arg1 pluginContext:(NSDictionary *)arg2;
 @end
 

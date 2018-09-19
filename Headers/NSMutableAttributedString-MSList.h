@@ -4,11 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSMutableAttributedString.h"
+#import <Foundation/NSMutableAttributedString.h>
 
 @interface NSMutableAttributedString (MSList)
 - (id)paragraphStyle;
-- (id)attributeForKey:(id)arg1;
 - (id)stringByStrippingMarkers:(id)arg1 oldList:(id)arg2 index:(long long)arg3;
 - (id)stringByStrippingNewlinesSpacesAndTabs:(id)arg1;
 - (id)stripListMarkers:(id)arg1 oldList:(id)arg2 lineIndex:(long long)arg3;
@@ -18,6 +17,5 @@
 - (id)listTabStops;
 - (void)updateListFrom:(id)arg1 toList:(id)arg2;
 - (void)updateListStyle:(id)arg1;
-- (id)currentListStyle;
 @end
 

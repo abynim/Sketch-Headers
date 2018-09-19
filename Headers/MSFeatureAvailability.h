@@ -4,12 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @interface MSFeatureAvailability : NSObject
 {
 }
 
++ (void)setFeature14414Enabled:(BOOL)arg1;
++ (BOOL)feature14414Enabled;
++ (void)setCloudOrganizationsEnabled:(BOOL)arg1;
++ (BOOL)cloudOrganizationsEnabled;
++ (void)setCloudOAuthEnabled:(BOOL)arg1;
++ (BOOL)cloudOAuthEnabled;
 + (void)setCloudDocumentsEnabled:(BOOL)arg1;
 + (BOOL)cloudDocumentsEnabled;
 + (BOOL)builtInRemoteLibrariesEnabled;

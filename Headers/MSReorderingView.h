@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
+#import <AppKit/NSView.h>
 
-#import "NSDraggingSource.h"
+#import "NSDraggingSource-Protocol.h"
 
 @class NSString;
 
@@ -23,6 +23,7 @@
 @property(nonatomic) SEL duplicateAction; // @synthesize duplicateAction=_duplicateAction;
 @property(nonatomic) SEL deleteAction; // @synthesize deleteAction=_deleteAction;
 - (void).cxx_destruct;
+- (BOOL)wantsSeparator;
 - (id)menuForEvent:(id)arg1;
 - (void)draggingSession:(id)arg1 endedAtPoint:(struct CGPoint)arg2 operation:(unsigned long long)arg3;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSImmutableDocumentData, MSImmutableLayer;
+@protocol MSRenderingContextCacheProvider;
 
 @interface MSRenderingRequest : NSObject
 {
@@ -27,7 +28,6 @@
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) long long renderingQuality;
 @property(readonly, nonatomic) BOOL skipLayerInclusionTests;
 @property(readonly, nonatomic) BOOL shouldFlipShadows;
 @property(readonly, nonatomic, getter=isPrinting) BOOL printing;

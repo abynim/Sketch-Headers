@@ -4,11 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSInspectorSection.h"
+@class MSTreeDiff, NSArray;
 
-@class NSArray;
-
-@protocol MSInspectorChildController <MSInspectorSection>
+@protocol MSInspectorChildController
+- (void)refreshIfNecessary:(MSTreeDiff *)arg1;
 - (void)selectionDidChangeTo:(NSArray *)arg1;
 - (void)prepareForDisplay;
 

@@ -6,7 +6,7 @@
 
 #import "_MSImmutableRect.h"
 
-#import "MSRect.h"
+#import "MSRect-Protocol.h"
 
 @interface MSImmutableRect : _MSImmutableRect <MSRect>
 {
@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) struct CGRect rect;
+- (id)initWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (id)initWithRect:(struct CGRect)arg1;
 
 @end

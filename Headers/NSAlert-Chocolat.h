@@ -4,12 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSAlert.h"
+#import <AppKit/NSAlert.h>
 
 @interface NSAlert (Chocolat)
-+ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 format:(id)arg2 withSuppressionButton:(BOOL)arg3 completionBlock:(CDUnknownBlockType)arg4;
-+ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 withSuppressionButton:(BOOL)arg2 completionBlock:(CDUnknownBlockType)arg3;
-+ (void)runConfirmationSheetWithLocalizedStrings:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 + (void)runSheetWithMessage:(id)arg1 info:(id)arg2;
 + (long long)runModalSessionWithMessage:(id)arg1 info:(id)arg2 buttons:(id)arg3;
 + (long long)runModalWithMessage:(id)arg1 info:(id)arg2 buttons:(id)arg3;

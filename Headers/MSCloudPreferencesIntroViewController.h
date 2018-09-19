@@ -6,7 +6,7 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-#import "MSCloudLoginWindowControllerDelegate.h"
+#import "MSCloudLoginWindowControllerDelegate-Protocol.h"
 
 @class NSButton, NSProgressIndicator, NSString, NSTextField;
 

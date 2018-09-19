@@ -6,8 +6,8 @@
 
 #import "_MSStyle.h"
 
-#import "MSSharedObjectInstance.h"
-#import "NSCopying.h"
+#import "MSSharedObjectInstance-Protocol.h"
+#import "NSCopying-Protocol.h"
 
 @class MSTextStyle, NSString;
 

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSModelObjectCommon.h"
+#import "MSModelObjectCommon-Protocol.h"
 
 @class MSModelObjectCache, MSModelObjectCacheGeneration, NSString;
 
@@ -17,14 +17,14 @@
     MSModelObjectCache *_cache;
 }
 
++ (unsigned long long)traits;
 + (id)generateObjectID;
 + (id)defaultName;
-+ (void)clearInstanceCount;
-+ (void)printInstanceCount:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL hasModelObjectCacheGeneration;
 @property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (BOOL)propertiesAreEqual:(id)arg1;
+- (unsigned long long)traits;
 - (id)primitiveObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (BOOL)hasObjectID;
@@ -39,7 +39,7 @@
 - (void)objectDidInit;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitEmptyObject;
-- (id)initWithNoSetup;
+- (id)initWithMinimalSetup;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 @property(readonly, copy) NSString *description;
@@ -48,8 +48,6 @@
 - (id)treeStructure;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
-- (void)recordDeallocation;
-- (void)recordAllocation;
 - (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 
 // Remaining properties

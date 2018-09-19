@@ -4,32 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @interface MSSnappingTarget : NSObject <NSCopying>
 {
-    BOOL _wantsGuide;
-    unsigned long long _axes;
-    double _length;
+    unsigned long long _guideType;
     struct CGPoint _point;
+    struct CGVector _directionVector;
 }
 
-+ (id)targetsForEdgesAndCentersOfRect:(struct CGRect)arg1;
-@property(readonly, nonatomic) double length; // @synthesize length=_length;
-@property(readonly, nonatomic) BOOL wantsGuide; // @synthesize wantsGuide=_wantsGuide;
++ (id)targetsForEdgesOfRect:(struct CGRect)arg1 includeCenter:(BOOL)arg2;
+@property(readonly, nonatomic) unsigned long long guideType; // @synthesize guideType=_guideType;
+@property(readonly, nonatomic) struct CGVector directionVector; // @synthesize directionVector=_directionVector;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
-@property(readonly, nonatomic) unsigned long long axes; // @synthesize axes=_axes;
 - (id)description;
-- (unsigned long long)hash;
-- (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)init;
-- (id)initWithPoint:(struct CGPoint)arg1 snappableAxes:(unsigned long long)arg2 wantsGuide:(BOOL)arg3 length:(double)arg4;
-- (id)initWithLine:(struct _BCLine)arg1;
+- (id)targetByApplyingTransform:(struct CGAffineTransform)arg1;
+@property(readonly, nonatomic) struct MSLineSegment lineSegment;
+@property(readonly, nonatomic) struct MSLine line;
+- (id)initWithPoint:(struct CGPoint)arg1 directionVector:(struct CGVector)arg2 guideType:(unsigned long long)arg3;
+- (id)initWithPoint:(struct CGPoint)arg1 axis:(unsigned long long)arg2 wantsGuide:(BOOL)arg3 length:(double)arg4;
 - (id)initWithPosition:(double)arg1 onAxis:(unsigned long long)arg2;
-- (id)initWithPoint:(struct CGPoint)arg1;
+- (id)initWithGuideLine:(struct MSLineSegment)arg1;
 
 @end
 

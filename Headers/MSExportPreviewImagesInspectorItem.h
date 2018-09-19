@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-#import "MSLayerChangeObserver.h"
+#import "MSLayerChangeObserver-Protocol.h"
 
 @class NSArray, NSString;
 
@@ -18,7 +18,7 @@
 
 + (void)setFrameOfViewModels:(id)arg1 withInspectorWidth:(double)arg2;
 + (void)reloadPreviewsForLayers:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
-+ (id)filterSelection:(id)arg1;
++ (BOOL)canHandleLayer:(id)arg1;
 @property(nonatomic) long long throttleCount; // @synthesize throttleCount=_throttleCount;
 @property(retain, nonatomic) NSArray *previewViews; // @synthesize previewViews=_previewViews;
 - (void).cxx_destruct;

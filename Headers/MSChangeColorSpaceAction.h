@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)refreshColorSpaceDependentUI;
 
 @end

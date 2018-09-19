@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSPluginBundle, NSAttributedString, NSImage, NSString, NSURL;
 
@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) BOOL isCompatible;
 @property(readonly, nonatomic) BOOL updateAvailable;
 @property(readonly, copy, nonatomic) NSString *warningString;
+@property(readonly, nonatomic) BOOL suppliesData;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, copy, nonatomic) NSString *pluginDescription;
 @property(readonly, copy, nonatomic) NSString *namePlusAuthor;

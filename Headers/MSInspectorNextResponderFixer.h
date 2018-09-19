@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @interface MSInspectorNextResponderFixer : NSObject
 {
@@ -17,6 +17,7 @@
 + (id)subviewsOfView:(id)arg1;
 + (id)orderedSubviewsOfView:(id)arg1;
 + (id)firstKeyViewForInView:(id)arg1;
++ (id)findNextKeyViewFor:(id)arg1 inView:(id)arg2 alreadyProcessed:(id)arg3;
 + (id)findNextKeyViewFor:(id)arg1 inView:(id)arg2;
 
 @end

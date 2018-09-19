@@ -6,28 +6,35 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-#import "MSStylePartInspectorItemDelegate.h"
-#import "NSMenuDelegate.h"
+#import "MSStylePartInspectorItemDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@class MSBlurNameInspectorItem, MSMotionBlurInspectorItem, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
+@class MSBackgroundBlurInspectorItem, MSBlurNameInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
 
 @interface MSBlurInspectorViewController : MSStylePartInspectorViewController <MSStylePartInspectorItemDelegate, NSMenuDelegate>
 {
     NSMenuItem *_backgroundBlurMenuItem;
     NSMenuItem *_multipleBlursMenuItem;
+    MSSeparatorlessView *_paddingView;
     MSBlurNameInspectorItem *_blurNameItem;
     MSSimpleBlurInspectorItem *_simpleBlurItem;
     MSMotionBlurInspectorItem *_motionBlurItem;
     MSZoomBlurInspectorItem *_zoomBlurItem;
+    MSBackgroundBlurInspectorItem *_backgroundBlurItem;
+    MSPaddingInspectorItem *_paddingItem;
 }
 
+@property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
+@property(retain, nonatomic) MSBackgroundBlurInspectorItem *backgroundBlurItem; // @synthesize backgroundBlurItem=_backgroundBlurItem;
 @property(retain, nonatomic) MSZoomBlurInspectorItem *zoomBlurItem; // @synthesize zoomBlurItem=_zoomBlurItem;
 @property(retain, nonatomic) MSMotionBlurInspectorItem *motionBlurItem; // @synthesize motionBlurItem=_motionBlurItem;
 @property(retain, nonatomic) MSSimpleBlurInspectorItem *simpleBlurItem; // @synthesize simpleBlurItem=_simpleBlurItem;
 @property(retain, nonatomic) MSBlurNameInspectorItem *blurNameItem; // @synthesize blurNameItem=_blurNameItem;
+@property(retain, nonatomic) MSSeparatorlessView *paddingView; // @synthesize paddingView=_paddingView;
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
 - (void).cxx_destruct;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)valuesPossiblyChanged:(id)arg1;
 - (id)stylePartInspectorItemDocument:(id)arg1;
 - (id)layers;

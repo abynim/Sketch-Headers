@@ -6,7 +6,7 @@
 
 #import "MSDocumentAction.h"
 
-#import "MSWindowBadgeAction.h"
+#import "MSWindowBadgeAction-Protocol.h"
 
 @class NSAttributedString, NSColor, NSString, SMKMirrorController;
 

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class BCFilterInfo, NSArray, NSObject<BCOutlineViewDataSource>, NSObject<BCOutlineViewDelegate>, NSPredicate;
+@class BCFilterInfo, NSArray, NSPredicate;
+@protocol BCOutlineViewDataSource, BCOutlineViewDelegate;
 
 @interface BCOutlineViewDataController : NSObject
 {
@@ -24,15 +25,21 @@
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) id rootObject;
-- (void)refreshPreviewsOnNodes:(id)arg1;
+- (void)refreshPreviewsOnNode:(id)arg1;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
+- (BOOL)isNodeHighlighted:(id)arg1;
 - (void)hoverNodeDidChangeTo:(id)arg1;
 - (id)menuItemsForSelectedObjects:(id)arg1;
 @property(readonly, nonatomic) BOOL canProvideContextMenuItems;
 @property(readonly, nonatomic) NSArray *dragTypes;
 - (void)updateNode:(id)arg1 expandedState:(unsigned long long)arg2;
 - (BOOL)isNodeExpandable:(id)arg1;
+- (BOOL)multipleNodesSelected;
 - (BOOL)isNodeExpanded:(id)arg1;
+- (BOOL)nodeHasSharedStyle:(id)arg1;
+- (BOOL)isNodeLockedOnCanvas:(id)arg1;
+- (BOOL)isAncestorOfNodeHiddenOnCanvas:(id)arg1;
+- (BOOL)isNodeHiddenOnCanvas:(id)arg1;
 - (BOOL)isNodeSelected:(id)arg1;
 - (void)changeSelectionTo:(id)arg1;
 - (BOOL)handleDragWithPasteboard:(id)arg1 forProposedItem:(id)arg2 proposedChildIndex:(long long)arg3 copying:(BOOL)arg4 validationOnly:(BOOL)arg5;

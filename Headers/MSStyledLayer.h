@@ -6,7 +6,11 @@
 
 #import "_MSStyledLayer.h"
 
-@interface MSStyledLayer : _MSStyledLayer
+#import "MSStyledLayer-Protocol.h"
+
+@class NSString;
+
+@interface MSStyledLayer : _MSStyledLayer <MSStyledLayer>
 {
     BOOL ignoreStyleDidChangeNotifications;
 }
@@ -20,23 +24,50 @@
 + (void)pasteStyleFromPasteboard:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
-- (id)styledLayer;
+- (BOOL)hasMarkers;
+- (id)usedStyle;
 - (BOOL)hasEnabledBackgroundBlur;
 - (void)multiplyBy:(double)arg1;
+- (void)applyPropertiesToBezier:(id)arg1;
 - (void)layerStyleDidChange;
 - (void)setStyleByPreservingSharedObjectReference:(id)arg1;
 - (id)sharedObject;
-- (BOOL)hasSharedStyle;
+- (void)adjustAfterInsert;
 - (id)stylesForColorAdjustingWithPreferredName:(id)arg1;
 - (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
+- (void)prepareAsMask;
+- (id)outlineShapeFromPath:(id)arg1 withBorder:(id)arg2;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (unsigned long long)shareableObjectType;
 - (void)changeColor:(id)arg1;
+- (BOOL)previewShouldIndicateSharedStyle;
+- (void)applyOverrides:(id)arg1 document:(id)arg2;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
 - (void)copyStyleToPasteboard:(id)arg1;
 - (id)copyStyleToPasteboard;
 - (id)CSSAttributes;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 
 @end
 

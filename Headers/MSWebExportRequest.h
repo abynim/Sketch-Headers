@@ -6,7 +6,8 @@
 
 #import "MSExportRequest.h"
 
-@class MSImmutableLayer<MSWebExportableRootLayer>;
+@class MSImmutableLayer;
+@protocol MSWebExportableRootLayer;
 
 @interface MSWebExportRequest : MSExportRequest
 {

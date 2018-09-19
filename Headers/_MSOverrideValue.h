@@ -6,7 +6,8 @@
 
 #import "MSModelObject.h"
 
-@class NSObject<NSCopying>, NSString;
+@class NSObject, NSString;
+@protocol NSCopying;
 
 @interface _MSOverrideValue : MSModelObject
 {

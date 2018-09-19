@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSBackgroundBlurRenderer.h"
-#import "MSFillRenderer.h"
-#import "MSGridRenderer.h"
-#import "MSLayerRenderer.h"
-#import "MSPageOverlayRenderer.h"
-#import "MSPathRenderer.h"
-#import "MSShadowRenderer.h"
+#import "MSBackgroundBlurRenderer-Protocol.h"
+#import "MSFillRenderer-Protocol.h"
+#import "MSGridRenderer-Protocol.h"
+#import "MSLayerRenderer-Protocol.h"
+#import "MSPathRenderer-Protocol.h"
+#import "MSShadowRenderer-Protocol.h"
 
-@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSPageOverlayRenderer, MSGridRenderer>
+@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSGridRenderer>
 @end
 

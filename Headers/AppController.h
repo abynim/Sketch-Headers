@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSDataMenuProviderDelegate.h"
-#import "MSDataSupplierManagerDelegate.h"
-#import "NSApplicationDelegate.h"
-#import "NSMenuDelegate.h"
-#import "NSUserNotificationCenterDelegate.h"
-#import "NSWindowDelegate.h"
+#import "MSDataMenuProviderDelegate-Protocol.h"
+#import "MSDataSupplierManagerDelegate-Protocol.h"
+#import "NSApplicationDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSUserNotificationCenterDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, ECLogManagerMacUISupport, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
+@protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
 {
@@ -47,7 +48,6 @@
     MSPersistentAssetCollection *_globalAssets;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
-    ECLogManagerMacUISupport *_logSupport;
     MSHUDWindowController *_hud;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
@@ -63,7 +63,6 @@
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
-@property(retain, nonatomic) ECLogManagerMacUISupport *logSupport; // @synthesize logSupport=_logSupport;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) BOOL canCreateDocuments; // @synthesize canCreateDocuments=_canCreateDocuments;
@@ -95,12 +94,15 @@
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
 @property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
+- (void)applyAppearanceToAllWindows:(id)arg1;
+- (void)toggleDarkMode:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (void)waitForResourceMigrationToFinish;
 - (void)migrateResources:(id)arg1;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshDocumentWindowBadges;
+- (void)refreshDocuments;
 - (void)refreshCurrentDocument;
 - (void)currentDocumentDidChange;
 - (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
@@ -111,17 +113,22 @@
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)documentWillClose:(id)arg1;
+- (id)pluginNameForIdentifier:(id)arg1;
+- (id)pluginIconForIdentifier:(id)arg1;
 - (BOOL)isThereAPluginForDataSupplier:(id)arg1;
-- (BOOL)isPluginForDataSupplierEnabled:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
 - (id)dataAction;
-- (void)dataMenuProviderApplyMasterDataToInstances:(id)arg1;
+- (id)dataMenuProviderDataIdentifier:(id)arg1;
+- (void)dataMenuProviderRemoveDataRecord:(id)arg1;
+- (void)dataMenuProviderRefreshMasterData:(id)arg1;
+- (void)dataMenuProviderRefreshData:(id)arg1;
+- (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
 - (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
-- (id)dataMenuProviderSelectedLayerDataSupplierIdentifier:(id)arg1;
+- (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
 - (id)templateLibraryPath;

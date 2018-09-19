@@ -9,10 +9,15 @@
 @interface MSPaddingInspectorItem : MSInspectorItem
 {
     BOOL _wantsSeparator;
+    BOOL _wantsInsetSeparator;
 }
 
++ (id)paddingWithHeight:(double)arg1;
+@property(nonatomic) BOOL wantsInsetSeparator; // @synthesize wantsInsetSeparator=_wantsInsetSeparator;
 @property(nonatomic) BOOL wantsSeparator; // @synthesize wantsSeparator=_wantsSeparator;
+- (void)updateView;
 - (void)viewDidLoad;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

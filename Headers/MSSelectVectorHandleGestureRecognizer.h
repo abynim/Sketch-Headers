@@ -6,6 +6,8 @@
 
 #import "MSGestureRecognizer.h"
 
+@protocol MSSelectVectorHandleGestureRecognizerDelegate;
+
 @interface MSSelectVectorHandleGestureRecognizer : MSGestureRecognizer
 {
     struct CGPoint _location;

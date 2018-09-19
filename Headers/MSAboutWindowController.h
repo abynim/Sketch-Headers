@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindowController.h"
+#import <AppKit/NSWindowController.h>
 
-@class NSButton, NSDate, NSImageView, NSTextField;
+@class MSThemeImageView, NSButton, NSDate, NSTextField;
 
 @interface MSAboutWindowController : NSWindowController
 {
-    NSImageView *_backgroundImageView;
+    MSThemeImageView *_backgroundImageView;
     NSTextField *_buildNumberTextField;
     NSTextField *_copyrightTextField;
     NSTextField *_expirationTitleTextField;
@@ -38,7 +38,7 @@
 @property(nonatomic) __weak NSTextField *expirationTitleTextField; // @synthesize expirationTitleTextField=_expirationTitleTextField;
 @property(nonatomic) __weak NSTextField *copyrightTextField; // @synthesize copyrightTextField=_copyrightTextField;
 @property(nonatomic) __weak NSTextField *buildNumberTextField; // @synthesize buildNumberTextField=_buildNumberTextField;
-@property(nonatomic) __weak NSImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
+@property(nonatomic) __weak MSThemeImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
 - (void)fetchRemoteUpdateExpiratonDate;
 - (void)unlinkDevice:(id)arg1;

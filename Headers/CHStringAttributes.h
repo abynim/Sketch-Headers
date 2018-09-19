@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSDictionary.h"
+#import <Foundation/NSDictionary.h>
 
-#import "NSCopying.h"
+#import "NSCopying-Protocol.h"
 
 @class NSColor, NSFont, NSMutableDictionary, NSShadow;
 
@@ -16,6 +16,7 @@
 }
 
 + (id)stringAttributesWithFont:(id)arg1 color:(id)arg2 alignment:(unsigned long long)arg3;
++ (id)stringAttributesWithFont:(id)arg1 alignment:(unsigned long long)arg2;
 + (id)stringAttributesWithFont:(id)arg1 color:(id)arg2;
 + (id)stringAttributesWithFont:(id)arg1;
 - (void).cxx_destruct;

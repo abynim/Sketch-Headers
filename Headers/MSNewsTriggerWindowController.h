@@ -6,7 +6,7 @@
 
 #import "CHWindowController.h"
 
-#import "WKNavigationDelegate.h"
+#import "WKNavigationDelegate-Protocol.h"
 
 @class NSButton, NSString, NSURL, WKWebView;
 

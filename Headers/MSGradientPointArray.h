@@ -6,6 +6,8 @@
 
 #import "MSPointArray.h"
 
+@protocol MSGradientPointArrayDelegate;
+
 @interface MSGradientPointArray : MSPointArray
 {
     id <MSGradientPointArrayDelegate> _delegate;

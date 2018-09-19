@@ -10,9 +10,9 @@
 {
 }
 
+- (id)tooltip;
 - (id)label;
 - (BOOL)validate;
-- (id)imageName;
 - (void)hide;
 - (void)show;
 - (id)defaultsKey;

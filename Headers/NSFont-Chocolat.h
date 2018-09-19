@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSFont.h"
+#import <AppKit/NSFont.h>
 
 @interface NSFont (Chocolat)
 + (id)fontPreventingAutoActivationWithName:(id)arg1 size_bc:(double)arg2;

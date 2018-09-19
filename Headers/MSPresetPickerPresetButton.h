@@ -6,7 +6,7 @@
 
 #import "MSPresetPickerButton.h"
 
-#import "NSDraggingSource.h"
+#import "NSDraggingSource-Protocol.h"
 
 @class NSString;
 

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class MSCacheManager, MSDocumentData, NSObject<OS_dispatch_queue>, NSString, NSURL;
+@class MSCacheManager, MSDocumentData, NSString, NSURL, SCKOrganization;
+@protocol OS_dispatch_queue;
 
 @interface MSWebExporter : NSObject
 {
@@ -16,6 +17,7 @@
     NSURL *_destinationURL;
     NSString *_name;
     MSCacheManager *_cacheManager;
+    SCKOrganization *_cloudOrganization;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
@@ -27,6 +29,7 @@
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
+@property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;

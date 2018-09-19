@@ -6,7 +6,7 @@
 
 #import "MSBaseUnarchiver.h"
 
-#import "BCJSONDecoderDelegate.h"
+#import "BCJSONDecoderDelegate-Protocol.h"
 
 @class BCJSONDecoder, NSMutableDictionary, NSSet, NSString;
 

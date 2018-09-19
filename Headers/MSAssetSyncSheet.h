@@ -6,9 +6,9 @@
 
 #import "CHSheetController.h"
 
-#import "NSSplitViewDelegate.h"
-#import "NSTableViewDataSource.h"
-#import "NSTableViewDelegate.h"
+#import "NSSplitViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 
 @class MSDocument, MSSharedObjectView, NSArray, NSSplitView, NSString;
 

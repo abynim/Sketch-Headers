@@ -6,11 +6,11 @@
 
 #import "CHWindowController.h"
 
-#import "MSWelcomeCollectionViewDelegate.h"
-#import "NSMenuDelegate.h"
-#import "NSWindowDelegate.h"
+#import "MSWelcomeCollectionViewDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
-@class MSCallToActionButton, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
+@class MSCallToActionButton, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
 
 @interface MSWelcomeWindowController : CHWindowController <NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
 {
@@ -31,14 +31,14 @@
     MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
-    NSArray *_cachedCloudItems;
+    MSCloudSharesController *_cloudSharesController;
 }
 
 + (id)templateURLsAtDirectoryURL:(id)arg1;
 + (BOOL)hideWelcomeWindowIfNeeded;
 + (BOOL)showWelcomeWindowIfAppropriate;
 + (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
-@property(retain, nonatomic) NSArray *cachedCloudItems; // @synthesize cachedCloudItems=_cachedCloudItems;
+@property(retain, nonatomic) MSCloudSharesController *cloudSharesController; // @synthesize cloudSharesController=_cloudSharesController;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
@@ -57,8 +57,12 @@
 @property(retain, nonatomic) NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) NSButton *closeButton; // @synthesize closeButton=_closeButton;
 - (void).cxx_destruct;
+- (void)scrollViewDidScrollNotification:(id)arg1;
+- (void)cloudSharesController:(id)arg1 didFailLoadingWithError:(id)arg2;
+- (void)cloudSharesController:(id)arg1 didFinishLoadingShares:(id)arg2;
 - (id)collectionView:(id)arg1 newItemForRepresentedObject:(id)arg2;
 - (id)collectionItems;
+- (id)cloudItems;
 - (id)templateItems;
 - (id)recentDocumentItems;
 - (void)clearRecentDocuments:(id)arg1;

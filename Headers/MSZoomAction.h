@@ -10,15 +10,24 @@
 {
 }
 
+- (id)label;
 - (id)zoomValueString;
 - (void)zoomValueDidChange;
 - (void)keyUp:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)handlesKeyEvent:(id)arg1;
 - (void)doPerformAction:(id)arg1;
-- (void)zoomModeToggle:(id)arg1;
-- (id)zoomView;
+- (void)zoomTo400Action:(id)arg1;
+- (void)zoomTo200Action:(id)arg1;
+- (void)zoomTo50Action:(id)arg1;
+- (void)zoomTo25Action:(id)arg1;
+- (id)findZoomPopupButton;
+- (BOOL)validate;
+- (id)menu;
+- (BOOL)hasSubMenu;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
+- (id)zoomPopupButtonWithFrame:(struct CGRect)arg1;
+- (id)zoomButtonWithAction:(id)arg1 imageNamed:(id)arg2;
 
 @end
 

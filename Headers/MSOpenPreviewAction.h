@@ -11,8 +11,7 @@
 }
 
 - (id)label;
-- (id)imageName;
-- (BOOL)showInToolbar;
+- (id)tooltip;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)openMirrorPreview:(id)arg1;

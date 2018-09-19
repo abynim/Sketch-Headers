@@ -6,8 +6,8 @@
 
 #import "_MSColor.h"
 
-#import "MSAsset.h"
-#import "MSColor.h"
+#import "MSAsset-Protocol.h"
+#import "MSColor-Protocol.h"
 
 @class NSString;
 

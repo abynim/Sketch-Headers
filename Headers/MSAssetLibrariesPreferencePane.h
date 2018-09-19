@@ -6,38 +6,47 @@
 
 #import "MSPreferencePane.h"
 
-#import "MSAssetPreferenceItemDelegate.h"
-#import "MSDropableViewDelegate.h"
-#import "NSTableViewDataSource.h"
-#import "NSTableViewDelegate.h"
-#import "QLPreviewPanelDataSource.h"
-#import "QLPreviewPanelDelegate.h"
+#import "MSAssetPreferenceItemDelegate-Protocol.h"
+#import "MSDropableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
+#import "QLPreviewPanelDataSource-Protocol.h"
+#import "QLPreviewPanelDelegate-Protocol.h"
 
-@class MSAssetLibraryController, NSArray, NSMenu, NSString, NSTableView, NSWindow;
+@class MSAssetLibraryController, MSAssetLibraryTableView, NSArray, NSArrayController, NSButton, NSMenu, NSPredicate, NSSearchField, NSString, NSWindow;
 
-@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate, NSTableViewDelegate, NSTableViewDataSource>
+@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
 {
     BOOL _hasAssets;
     BOOL _shouldEnableCogMenu;
-    NSTableView *_tableView;
+    MSAssetLibraryTableView *_tableView;
+    NSArrayController *_librariesArrayController;
     NSArray *_items;
     NSMenu *_contextMenu;
+    NSButton *_spyglassFilterButton;
+    NSSearchField *_filterTextField;
     NSWindow *_libraryInstallerAlertWindow;
     NSWindow *_duplicateLibraryAlertWindow;
     NSWindow *_chooseLibraryPanelWindow;
+    NSPredicate *_librariesFilterPredicate;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(copy, nonatomic) NSPredicate *librariesFilterPredicate; // @synthesize librariesFilterPredicate=_librariesFilterPredicate;
 @property(nonatomic) __weak NSWindow *chooseLibraryPanelWindow; // @synthesize chooseLibraryPanelWindow=_chooseLibraryPanelWindow;
 @property(nonatomic) __weak NSWindow *duplicateLibraryAlertWindow; // @synthesize duplicateLibraryAlertWindow=_duplicateLibraryAlertWindow;
 @property(nonatomic) __weak NSWindow *libraryInstallerAlertWindow; // @synthesize libraryInstallerAlertWindow=_libraryInstallerAlertWindow;
 @property(nonatomic) BOOL shouldEnableCogMenu; // @synthesize shouldEnableCogMenu=_shouldEnableCogMenu;
 @property(nonatomic) BOOL hasAssets; // @synthesize hasAssets=_hasAssets;
+@property(retain, nonatomic) NSSearchField *filterTextField; // @synthesize filterTextField=_filterTextField;
+@property(retain, nonatomic) NSButton *spyglassFilterButton; // @synthesize spyglassFilterButton=_spyglassFilterButton;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) NSArrayController *librariesArrayController; // @synthesize librariesArrayController=_librariesArrayController;
+@property(nonatomic) __weak MSAssetLibraryTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)learnMoreAboutLibraries:(id)arg1;
@@ -66,7 +75,7 @@
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;
 - (void)revealInFinderAction:(id)arg1;
 - (BOOL)validateToggleLibraryMenuItem:(id)arg1;
-- (id)pluraliseMenuItemTitle:(id)arg1;
+- (BOOL)multipleLibrariesSelected;
 - (void)toggleLibraryEnabled:(id)arg1;
 - (BOOL)hasDisabledLibrariesSelected;
 - (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
@@ -77,7 +86,7 @@
 - (void)dismissAlertSheet;
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)displayInstallerAlertSheetForRemoteAssetLibrary;
-- (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 cancelButton:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)tableCellForLibrary:(id)arg1;
 - (void)startDownloadForRemoteLibrary:(id)arg1;
 - (void)updateAvailableForRemoteLibrary:(id)arg1;
@@ -90,10 +99,13 @@
 - (void)addLibrariesFromURLS:(id)arg1;
 - (void)importLibraryAction:(id)arg1;
 - (void)addNextLibraryFromURLs:(id)arg1;
+- (id)searchString;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (BOOL)doesNewPredicateGiveDifferentResult:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
-- (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
-- (long long)numberOfRowsInTableView:(id)arg1;
 - (void)tableViewSelectionDidChange:(id)arg1;
+- (void)activateSearchField:(id)arg1;
 - (void)syncLibraryItems;
 @property(readonly, nonatomic) MSAssetLibraryController *assetLibraryController;
 - (void)awakeFromNib;

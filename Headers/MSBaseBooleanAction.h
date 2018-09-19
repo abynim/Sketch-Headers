@@ -10,7 +10,9 @@
 {
 }
 
-- (id)tooltip;
+- (id)historyMomentTitle;
+- (void)doPerformAction:(id)arg1;
+- (long long)booleanOperation;
 - (BOOL)hasShapePartsSelected;
 - (BOOL)validate;
 

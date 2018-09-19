@@ -6,19 +6,20 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-#import "MSGestureRecognizerDelegate.h"
+#import "MSGestureRecognizerDelegate-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerMeasurementRenderer, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerMeasurementRenderer, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject, NSSet, NSString;
+@protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
     MSLayerMeasurementRenderer *_measurementRenderer;
-    MSLayer *_highlightedLayer;
+    NSObject<MSHoverableItem> *_highlightedItem;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSNormalEventData *_eventData;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
-    NSString *_duplicatedObjectID;
+    NSSet *_duplicatedObjectIDs;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSLayer *_activeLayer;
@@ -28,12 +29,12 @@
 @property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
-@property(retain, nonatomic) NSString *duplicatedObjectID; // @synthesize duplicatedObjectID=_duplicatedObjectID;
+@property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(retain, nonatomic) MSLayer *highlightedLayer; // @synthesize highlightedLayer=_highlightedLayer;
+@property(retain, nonatomic) NSObject<MSHoverableItem> *highlightedItem; // @synthesize highlightedItem=_highlightedItem;
 @property(readonly, nonatomic) MSLayerMeasurementRenderer *measurementRenderer; // @synthesize measurementRenderer=_measurementRenderer;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
@@ -47,7 +48,6 @@
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (void)tabInForwardDirection:(BOOL)arg1;
-- (id)layerSnapper;
 - (void)changeColor:(id)arg1;
 - (void)deleteNormalLayers:(id)arg1;
 - (void)delete:(id)arg1;
@@ -63,7 +63,7 @@
 - (void)layerDragged:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (void)drawPathsInShapeGroup:(id)arg1;
+- (void)drawOutlineForShapeChild:(id)arg1;
 - (void)drawSelectedShapePathLayers;
 - (void)drawMultipleSelection;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
@@ -93,7 +93,6 @@
 - (void)keyDown:(id)arg1;
 - (void)trackMouse:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
-- (BOOL)canHighlightLayer:(id)arg1;
 - (BOOL)isMouseHoveringMultipleSelectedLayerCorner:(struct CGPoint)arg1;
 - (long long)multipleSelectedLayerCornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)isMouse:(struct CGPoint)arg1 hoveringCornerOfLayer:(id)arg2 modiferFlags:(unsigned long long)arg3;

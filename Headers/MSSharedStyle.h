@@ -6,8 +6,8 @@
 
 #import "_MSSharedStyle.h"
 
-#import "MSSharedObjectStyling.h"
-#import "MSSharedStylePasting.h"
+#import "MSSharedObjectStyling-Protocol.h"
+#import "MSSharedStylePasting-Protocol.h"
 
 @class MSStyle, NSString;
 
@@ -26,6 +26,8 @@
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)updateToMatch:(struct MSModelObject *)arg1;
 - (void)resetReferencingInstances;
+- (id)allInstances;
+- (id)allLayersInstances;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;
 

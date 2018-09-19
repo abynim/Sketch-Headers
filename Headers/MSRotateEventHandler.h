@@ -6,23 +6,23 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-#import "MSAlignmentEngineDelegate.h"
-#import "NSTouchBarDelegate.h"
+#import "MSAlignmentEngineDelegate-Protocol.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
-@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSRotationGestureInterpreter, NSString;
+@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSRotationGestureInterpreter, NSArray, NSString;
 
 @interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
     BOOL _exitOnMouseUp;
     BOOL _disableMoving;
+    NSArray *_rotationItems;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSRotationGestureInterpreter *_cursorRotationInterpreter;
     MSRotationGestureInterpreter *_dragRotationInterpreter;
     unsigned long long _draggedComponent;
     MSAlignmentEngineResult *_centerPointSnaps;
     struct CGPoint _rotationCenterPoint;
-    struct CGPoint _rotationAnchorPoint;
 }
 
 + (id)cursorForDegrees:(long long)arg1;
@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) MSRotationGestureInterpreter *dragRotationInterpreter; // @synthesize dragRotationInterpreter=_dragRotationInterpreter;
 @property(readonly, nonatomic) MSRotationGestureInterpreter *cursorRotationInterpreter; // @synthesize cursorRotationInterpreter=_cursorRotationInterpreter;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
-@property(nonatomic) struct CGPoint rotationAnchorPoint; // @synthesize rotationAnchorPoint=_rotationAnchorPoint;
+@property(readonly, nonatomic) NSArray *rotationItems; // @synthesize rotationItems=_rotationItems;
 @property(nonatomic) struct CGPoint rotationCenterPoint; // @synthesize rotationCenterPoint=_rotationCenterPoint;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
@@ -53,7 +53,10 @@
 - (void)handleRotation:(id)arg1;
 - (unsigned long long)componentAtPoint:(struct CGPoint)arg1;
 - (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
-- (void)setRotationCenterPointWithoutUpdatingAnchorPoint:(struct CGPoint)arg1;
+- (struct CGPoint)rotationCenterPointForAnchorPoint:(struct CGPoint)arg1 layer:(id)arg2;
+- (void)setRotationCenterPoint:(struct CGPoint)arg1 updateAnchorPoints:(BOOL)arg2;
+- (void)resetWithSelection:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSURLSessionDataDelegate.h"
-#import "NSURLSessionDownloadDelegate.h"
-#import "NSURLSessionTaskDelegate.h"
+#import "NSURLSessionDataDelegate-Protocol.h"
+#import "NSURLSessionDownloadDelegate-Protocol.h"
+#import "NSURLSessionTaskDelegate-Protocol.h"
 
 @class AFURLSessionManager, NSMutableData, NSProgress, NSString, NSURL;
 

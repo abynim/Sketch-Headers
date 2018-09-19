@@ -6,7 +6,7 @@
 
 #import "MSHighLevelExporter.h"
 
-#import "MSHighLevelExportDelegate.h"
+#import "MSHighLevelExportDelegate-Protocol.h"
 
 @class NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableString, NSString;
 

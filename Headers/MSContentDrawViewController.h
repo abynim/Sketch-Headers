@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSContentDrawViewDelegate.h"
+#import "MSContentDrawViewDelegate-Protocol.h"
 
-@class MSContentDrawView, MSDocument, MSFlashController, MSOverlayView, MSRulerView, NSLayoutConstraint, NSString, NSView;
+@class MSContentDrawView, MSContentDrawViewParent, MSDocument, MSFlashController, MSRulerView, NSLayoutConstraint, NSString, NSView;
 
 @interface MSContentDrawViewController : NSViewController <MSContentDrawViewDelegate>
 {
     MSContentDrawView *_contentDrawView;
-    MSOverlayView *_overlayView;
+    MSContentDrawViewParent *_contentDrawViewParent;
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     NSView *_rulerCornerView;
@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
 @property(retain, nonatomic) MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(retain, nonatomic) MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
-@property(retain, nonatomic) MSOverlayView *overlayView; // @synthesize overlayView=_overlayView;
+@property(retain, nonatomic) MSContentDrawViewParent *contentDrawViewParent; // @synthesize contentDrawViewParent=_contentDrawViewParent;
 @property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;
 - (void)prepareForDealloc;

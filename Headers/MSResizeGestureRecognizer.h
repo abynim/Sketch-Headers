@@ -8,10 +8,8 @@
 
 @interface MSResizeGestureRecognizer : MSDragGestureRecognizer
 {
-    double _originalProportions;
 }
 
-@property(nonatomic) double originalProportions; // @synthesize originalProportions=_originalProportions;
 @property(readonly) BOOL constrainProportions;
 @property(readonly) BOOL shouldResizeFromCenter;
 @property(readonly) BOOL maySnap;

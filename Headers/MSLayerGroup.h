@@ -6,7 +6,7 @@
 
 #import "_MSLayerGroup.h"
 
-#import "MSLayerGroup.h"
+#import "MSLayerGroup-Protocol.h"
 
 @class NSArray;
 
@@ -18,8 +18,9 @@
 
 + (BOOL)groupBoundsShouldBeIntegral;
 + (struct CGRect)groupBoundsForContainer:(id)arg1;
-+ (void)moveLayers:(id)arg1 intoGroup:(id)arg2;
-+ (id)groupFromLayers:(id)arg1;
++ (id)groupWithLayers:(id)arg1;
++ (id)groupWithLayer:(id)arg1;
++ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 - (id)candidatesForMasking;
@@ -34,7 +35,6 @@
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
 - (struct CGRect)requiredRect;
-- (void)setIsHighlighted:(BOOL)arg1;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
@@ -44,27 +44,28 @@
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
+- (BOOL)canContainLayer:(id)arg1;
 - (id)defaultStyle;
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (BOOL)handleDoubleClick;
-- (id)inspectorViewControllerNames;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
+- (id)inspectorViewControllerItemClasses;
 - (void)prepareAsMaskContainer;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (id)pathForHoverInBounds;
+- (id)styleForBooleanOperation;
+- (id)selectedPreviewTemplateImage;
+- (id)unselectedPreviewTemplateImage;
 - (BOOL)expandableInLayerList;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (void)moveTransformsToChildren:(id)arg1;
+- (void)applyTransformsToLayers:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;
 - (BOOL)hasStyleOrTransform;
 - (void)translateChildrenFrameToLayers:(id)arg1;
 - (id)moveLayersToParent;
 - (void)ungroupSingleChildDescendentGroups;
 - (id)ungroup;
-- (void)setUpNewGroup;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -75,7 +76,6 @@
 - (BOOL)containsOneLayer;
 - (BOOL)containsLayers;
 - (BOOL)containsNoOrOneLayers;
-- (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;

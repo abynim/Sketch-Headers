@@ -6,28 +6,32 @@
 
 #import "_MSShapePathLayer.h"
 
-@class MSCurvePoint, MSPath;
+#import "MSLayerPreviewability-Protocol.h"
+#import "MSPathLayer-Protocol.h"
 
-@interface MSShapePathLayer : _MSShapePathLayer
+@class MSCurvePoint, MSPath, NSString;
+
+@interface MSShapePathLayer : _MSShapePathLayer <MSLayerPreviewability, MSPathLayer>
 {
     BOOL _isEditing;
 }
 
 + (void)performBatchEdits:(CDUnknownBlockType)arg1;
-+ (id)shapeWithPath:(id)arg1;
-+ (id)keyPathsForValuesAffectingBadgeMap;
-+ (id)keyPathsForValuesAffectingPreviewImages;
++ (id)shapeWithRect:(struct CGRect)arg1;
++ (id)layerWithPath:(id)arg1 integralFrame:(BOOL)arg2;
++ (id)layerWithPath:(id)arg1;
++ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void)resizeWithOldGroupSize:(struct CGSize)arg1;
+- (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
 - (void)didChangeValueForKey:(id)arg1;
 - (void)willChangeValueForKey:(id)arg1;
 - (BOOL)isPolygon;
 - (BOOL)isRectangle;
-- (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2;
+- (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2 pathToLayerTransform:(struct CGAffineTransform)arg3;
 - (BOOL)simplifyPathOnce;
 - (void)simplify;
 - (id)pointsAroundIndex:(unsigned long long)arg1;
-- (BOOL)isLine;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
 - (id)flattenedLayer;
 - (void)flatten;
 @property(readonly, nonatomic) BOOL canFlatten;
@@ -35,8 +39,6 @@
 @property(readonly, nonatomic) MSCurvePoint *firstPoint;
 @property(readonly, nonatomic) unsigned long long numberOfCurvePoints;
 @property(readonly, nonatomic) BOOL hasRoundedCorners;
-- (id)layerSuitableForInsertingIntoGroup:(id)arg1;
-- (BOOL)canBeContainedByGroup;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setEndMarkerType:(unsigned long long)arg1;
 - (void)setStartMarkerType:(unsigned long long)arg1;
@@ -44,47 +46,72 @@
 - (unsigned long long)indexOfSegmentAtPoint:(struct CGPoint)arg1 tolerance:(struct CGSize)arg2;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)isPartOfClippingMask;
-- (void)setBooleanOperation:(long long)arg1;
 - (BOOL)isNearlyEmpty;
-- (struct CGPoint)convertPointToPathCoordinates:(struct CGPoint)arg1;
-- (struct CGPoint)convertPointFromPathCoordinates:(struct CGPoint)arg1;
 - (void)didEdit;
 - (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
 @property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 - (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)boundsOfPathIntegral:(BOOL)arg1;
-- (void)adjustFrameAfterEditIntegral:(BOOL)arg1;
+- (void)adjustFrameAfterEditIntegral:(BOOL)arg1 fixAncestors:(BOOL)arg2;
 - (void)applyAffineTransformToPath:(struct CGAffineTransform)arg1;
 - (void)reversePath;
 - (BOOL)editable;
 - (void)resetPoints;
 - (void)setNilValueForKey:(id)arg1;
 - (void)resetPointsBasedOnUserInteraction;
-- (void)applyPropertiesToBezier:(id)arg1;
+- (id)usedStyle;
 - (void)performInitEmptyObject;
-- (id)styledLayer;
+- (void)adjustAfterInsert;
 - (BOOL)shouldDrawSelectionStroke;
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (Class)handlerClass;
 - (BOOL)handleDoubleClick;
+@property(nonatomic) double length; // @dynamic length;
+@property(nonatomic) double y2; // @dynamic y2;
+@property(nonatomic) double x2; // @dynamic x2;
+@property(nonatomic) double y1; // @dynamic y1;
+@property(nonatomic) double x1; // @dynamic x1;
+- (void)setP2:(struct CGPoint)arg1;
+- (struct CGPoint)p2;
+- (void)setP1:(struct CGPoint)arg1;
+- (struct CGPoint)p1;
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
-- (BOOL)isMasked;
-- (void)handleBadgeClickWithAltState:(BOOL)arg1;
-- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (BOOL)isExportableViaDragAndDrop;
-- (id)badgeMenu;
-- (void)onBooleanOperation:(id)arg1;
-- (unsigned long long)selectedBadgeMenuItem;
-- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
 - (unsigned long long)shareableObjectType;
-- (BOOL)booleanOperationCanBeReset;
+- (id)styleForBooleanOperation;
 - (BOOL)supportsInnerOuterBorders;
-- (id)setupWithLayerBuilderDictionary:(id)arg1;
+- (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
+- (void)possiblyFixRectangleBorderBeforeCut;
+- (BOOL)canCutSegments;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestAsPath;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) unsigned long long badgeType;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(nonatomic) BOOL edited;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(nonatomic) BOOL isClosed;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 
 @end
 

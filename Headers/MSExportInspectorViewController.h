@@ -4,48 +4,39 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSInspectorItem.h"
 
-@class MSLayerArray, MSShareButtonHandler, NSArray, NSButton, NSTextField, NSView;
+@class MSHeaderInspectorItem, NSArray, NSButton, NSLayoutConstraint, NSTextField, NSView;
 
-@interface MSExportInspectorViewController : MSStylePartInspectorViewController
+@interface MSExportInspectorViewController : MSInspectorItem
 {
-    MSLayerArray *_layers;
-    NSView *_topFillerView;
     NSView *_bottomLabelView;
-    NSView *_exportButtonView;
-    NSView *_separatorView;
-    NSView *_separatorView2;
-    NSView *_bigExportLabel;
     NSButton *_addExportFormatButton;
-    NSButton *_shareButton;
-    NSButton *_exportButton;
     NSButton *_knifeButton;
     NSButton *_exportPresetsMenuButton;
     NSTextField *_exportFormatLabelTextField;
+    NSTextField *_headerLabel;
+    NSLayoutConstraint *_textLabelRightConstraint;
+    NSView *_nameView;
     NSArray *_formatViewControllers;
-    MSShareButtonHandler *_shareButtonHandler;
+    double _textLabelRightConstraintExpandedWidth;
+    MSHeaderInspectorItem *_headerItem;
 }
 
-@property(retain, nonatomic) MSShareButtonHandler *shareButtonHandler; // @synthesize shareButtonHandler=_shareButtonHandler;
++ (BOOL)canHandleLayer:(id)arg1;
+@property(retain, nonatomic) MSHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+@property(nonatomic) double textLabelRightConstraintExpandedWidth; // @synthesize textLabelRightConstraintExpandedWidth=_textLabelRightConstraintExpandedWidth;
 @property(copy, nonatomic) NSArray *formatViewControllers; // @synthesize formatViewControllers=_formatViewControllers;
+@property(retain, nonatomic) NSView *nameView; // @synthesize nameView=_nameView;
+@property(retain, nonatomic) NSLayoutConstraint *textLabelRightConstraint; // @synthesize textLabelRightConstraint=_textLabelRightConstraint;
+@property(retain, nonatomic) NSTextField *headerLabel; // @synthesize headerLabel=_headerLabel;
 @property(retain, nonatomic) NSTextField *exportFormatLabelTextField; // @synthesize exportFormatLabelTextField=_exportFormatLabelTextField;
 @property(retain, nonatomic) NSButton *exportPresetsMenuButton; // @synthesize exportPresetsMenuButton=_exportPresetsMenuButton;
 @property(retain, nonatomic) NSButton *knifeButton; // @synthesize knifeButton=_knifeButton;
-@property(retain, nonatomic) NSButton *exportButton; // @synthesize exportButton=_exportButton;
-@property(retain, nonatomic) NSButton *shareButton; // @synthesize shareButton=_shareButton;
 @property(retain, nonatomic) NSButton *addExportFormatButton; // @synthesize addExportFormatButton=_addExportFormatButton;
-@property(retain, nonatomic) NSView *bigExportLabel; // @synthesize bigExportLabel=_bigExportLabel;
-@property(retain, nonatomic) NSView *separatorView2; // @synthesize separatorView2=_separatorView2;
-@property(retain, nonatomic) NSView *separatorView; // @synthesize separatorView=_separatorView;
-@property(retain, nonatomic) NSView *exportButtonView; // @synthesize exportButtonView=_exportButtonView;
 @property(retain, nonatomic) NSView *bottomLabelView; // @synthesize bottomLabelView=_bottomLabelView;
-@property(retain, nonatomic) NSView *topFillerView; // @synthesize topFillerView=_topFillerView;
-@property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (id)firstResponderIgnoringFieldEditor;
-- (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)editExportPresets:(id)arg1;
 - (void)addExportPreset:(id)arg1;
 - (void)unApplyAllExportPresets:(id)arg1;
@@ -53,19 +44,15 @@
 - (id)findExportFormatAmong:(id)arg1 equalToFormat:(id)arg2;
 - (BOOL)exportPresetAppliesToSelectedLayers:(id)arg1;
 - (void)showExportPresetMenu:(id)arg1;
-- (void)exportSingleSlice:(id)arg1;
-- (void)shareAction:(id)arg1;
 - (void)createSliceAction:(id)arg1;
 - (id)document;
 - (void)addExportFormat:(id)arg1;
-- (id)views;
-- (id)view;
+@property(readonly, nonatomic) NSArray *views;
+@property(readonly, nonatomic) BOOL hasExports;
 - (BOOL)hasEnabledStyle;
-- (id)exportButtonDisplayName;
-- (void)applyDisplayNameToExportButton;
 - (void)prepare;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)awakeFromNib;
+- (void)setLayers:(id)arg1;
+- (void)viewDidLoad;
 
 @end
 

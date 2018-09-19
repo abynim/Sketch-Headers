@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@class AFHTTPRequestSerializer<AFURLRequestSerialization>, AFHTTPResponseSerializer<AFURLResponseSerialization>, AFNetworkReachabilityManager, AFSecurityPolicy, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOperationQueue, NSURL, NSURLCredential;
+@class AFHTTPRequestSerializer, AFHTTPResponseSerializer, AFNetworkReachabilityManager, AFSecurityPolicy, NSOperationQueue, NSURL, NSURLCredential;
+@protocol AFURLRequestSerialization, AFURLResponseSerialization, OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFHTTPRequestOperationManager : NSObject <NSSecureCoding, NSCopying>
 {

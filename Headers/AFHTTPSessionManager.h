@@ -6,10 +6,11 @@
 
 #import "AFURLSessionManager.h"
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@class AFHTTPRequestSerializer<AFURLRequestSerialization>, AFHTTPResponseSerializer<AFURLResponseSerialization>, NSURL;
+@class AFHTTPRequestSerializer, AFHTTPResponseSerializer, NSURL;
+@protocol AFURLRequestSerialization, AFURLResponseSerialization;
 
 @interface AFHTTPSessionManager : AFURLSessionManager <NSSecureCoding, NSCopying>
 {

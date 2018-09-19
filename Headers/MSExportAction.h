@@ -17,6 +17,8 @@
 - (void)createInitialSliceWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)showInspectorPanelIfNecessary;
 - (BOOL)hasArtboardsWitNoExportFormats;
+- (id)tooltip;
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validate;
 - (void)export:(id)arg1;

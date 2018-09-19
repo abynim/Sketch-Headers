@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class FBBezierContour, FBEdgeCrossing, NSArray, NSMutableArray;
 
@@ -58,6 +58,7 @@
 - (void)removeCrossing:(id)arg1;
 - (void)addCrossing:(id)arg1;
 - (id)description;
+- (id)edgesWithFlatness:(double)arg1;
 - (id)clone;
 @property(readonly, nonatomic) NSMutableArray *crossings_;
 - (id)bezierPath;
@@ -66,6 +67,7 @@
 - (struct CGPoint)tangentFromRightOffset:(double)arg1;
 - (struct CGPoint)pointFromLeftOffset:(double)arg1;
 - (struct CGPoint)pointFromRightOffset:(double)arg1;
+@property(readonly, nonatomic) double flatness;
 @property(readonly, nonatomic) struct CGRect boundingRect;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct FBBezierCurveLocation)closestLocationToPoint:(struct CGPoint)arg1;

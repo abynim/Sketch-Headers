@@ -4,28 +4,36 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class MSDataSupplier, MSLocalDataSupplier, MSPluginBundle, MSPluginDataSupplier, NSImage, NSString;
+@class MSDataSupplier, MSDataTableCellView, MSLocalDataSupplier, MSPluginBundle, MSPluginDataSupplier, NSColor, NSImage, NSString;
 
 @interface MSDataPreferenceItem : NSObject
 {
     MSDataSupplier *_data;
     NSImage *_preview;
+    MSDataTableCellView *_cellView;
     NSString *_modificationDate;
     NSString *_secondaryTitle;
 }
 
++ (id)keyPathsForValuesAffectingSecondaryTitle;
++ (id)keyPathsForValuesAffectingSecondaryTextFieldColor;
++ (id)keyPathsForValuesAffectingPrimaryTextFieldColor;
 + (id)preferenceItemForLocalData:(id)arg1;
 @property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
 @property(readonly, nonatomic) NSString *modificationDate; // @synthesize modificationDate=_modificationDate;
+@property(nonatomic) __weak MSDataTableCellView *cellView; // @synthesize cellView=_cellView;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(readonly, nonatomic) MSDataSupplier *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL isPluginEnabled;
+- (id)dataTypeString;
+@property(readonly, nonatomic) NSColor *secondaryTextFieldColor;
+@property(readonly, nonatomic) NSColor *primaryTextFieldColor;
 @property(readonly, nonatomic) NSImage *pluginBundleIcon;
 @property(readonly, nonatomic) MSPluginBundle *pluginBundle;
 @property(readonly, nonatomic) BOOL canRevealInFinder;
+@property(readonly, nonatomic) NSString *namePlusPluginName;
 @property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) BOOL valid;
 @property(readonly, nonatomic) NSString *name;

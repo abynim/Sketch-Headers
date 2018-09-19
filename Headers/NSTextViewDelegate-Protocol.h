@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTextDelegate.h"
+#import "NSTextDelegate-Protocol.h"
 
 @class NSArray, NSDictionary, NSEvent, NSMenu, NSNotification, NSOrthography, NSPasteboard, NSSharingServicePicker, NSString, NSTextAttachment, NSTextView, NSURL, NSUndoManager;
+@protocol NSTextAttachmentCell;
 
 @protocol NSTextViewDelegate <NSTextDelegate>
 

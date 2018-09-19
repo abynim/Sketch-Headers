@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @interface MSGridConstructor : NSObject
 {
@@ -14,7 +14,7 @@
 @property(nonatomic) CDStruct_ec0e0888 options; // @synthesize options=_options;
 - (id)duplicateLayers:(id)arg1;
 - (id)makeAllLayers:(id)arg1;
-- (struct CGRect)alignmentRectOfLayer:(id)arg1;
+- (struct CGRect)distributionRectForLayer:(id)arg1;
 - (double)largestDistributionHeightInLayers:(id)arg1;
 - (struct CGSize)sizeForLayer:(id)arg1;
 - (void)makeGridWithLayers:(id)arg1 options:(CDStruct_ec0e0888)arg2;

@@ -11,6 +11,7 @@
 }
 
 - (id)historyMomentTitle;
+- (id)label;
 - (id)tooltip;
 - (BOOL)canFlattenSelection;
 - (void)doPerformAction:(id)arg1;

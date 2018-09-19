@@ -6,18 +6,21 @@
 
 #import "_MSSymbolInstance.h"
 
-@class NSArray, NSDictionary, NSSet;
+@class MSImmutableSymbolMaster, MSOverrideRepresentationContainer, NSArray, NSDictionary, NSSet;
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
+    MSOverrideRepresentationContainer *_overrideContainer;
     long long _masterRefreshCounter;
 }
 
-+ (id)keyPathsForValuesAffectingPreviewImages;
++ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 @property(nonatomic) long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
+- (void).cxx_destruct;
 - (BOOL)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
-- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
-- (void)applyOverrides:(id)arg1;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
+- (void)removeShareableObjectsFromOverrides:(id)arg1;
+- (void)applyOverrides:(id)arg1 document:(id)arg2;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
 - (void)prepareOverrideMappingForPoint:(id)arg1 withSymbolMapTable:(id)arg2 attributeMapTable:(id)arg3;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
@@ -41,19 +44,30 @@
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolID;
+@property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
+@property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedMaster;
 - (id)symbolMaster;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (BOOL)shouldRefreshOverlayForFlows;
-- (id)inspectorViewControllerNames;
+- (id)inspectorSections;
+- (id)inspectorViewControllerItemClasses;
+- (id)pathForHoverInBounds;
 - (struct MSModelObject *)sharedMaster;
 - (unsigned long long)shareableObjectType;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (id)styleForBooleanOperation;
+- (id)childrenForLayerList;
+- (BOOL)isExpanded;
+- (BOOL)expandableInLayerList;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
 - (id)replaceWithInstanceOfSymbol:(id)arg1;
+- (BOOL)previewShouldIndicateSharedStyle;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 @property(copy, nonatomic) NSDictionary *overrides;
 @property(readonly, nonatomic) NSArray *availableOverrides;
-- (id)overridePoints;
+@property(readonly, nonatomic) NSArray *overridePoints;
+- (id)sharedStylesReferencedInDocument:(id)arg1;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 @end

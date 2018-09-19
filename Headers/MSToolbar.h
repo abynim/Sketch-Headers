@@ -4,15 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSToolbar.h"
+#import <AppKit/NSToolbar.h>
 
 @interface MSToolbar : NSToolbar
 {
 }
 
-- (double)ms_toolbarHeight;
-- (BOOL)_allowsDisplayMode:(unsigned long long)arg1;
-- (void)setDisplayMode:(unsigned long long)arg1;
+- (double)toolbarHeight_ms;
 - (BOOL)_allowsSizeMode:(unsigned long long)arg1;
 - (void)setSizeMode:(unsigned long long)arg1;
 

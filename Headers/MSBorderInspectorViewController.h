@@ -4,33 +4,35 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSStylePartPreviewButton, MSUpDownTextField, NSPopUpButton;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSSegmentedControl, NSTextField;
 
-@interface MSBorderInspectorViewController : MSStylePartInspectorViewController
+@interface MSBorderInspectorViewController : MSColorStylePartInspectorViewController
 {
-    NSPopUpButton *_positionPopUp;
-    MSStylePartPreviewButton *_colorButton;
+    NSSegmentedControl *_positionControl;
     MSUpDownTextField *_thicknessField;
     MSMathInspectorValueAdaptor *_thicknessAdaptor;
+    NSTextField *_fillTypeLabel;
+    NSTextField *_borderPositionLabel;
 }
 
+@property(retain, nonatomic) NSTextField *borderPositionLabel; // @synthesize borderPositionLabel=_borderPositionLabel;
+@property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *thicknessAdaptor; // @synthesize thicknessAdaptor=_thicknessAdaptor;
 @property(retain, nonatomic) MSUpDownTextField *thicknessField; // @synthesize thicknessField=_thicknessField;
-@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
-@property(retain, nonatomic) NSPopUpButton *positionPopUp; // @synthesize positionPopUp=_positionPopUp;
+@property(retain, nonatomic) NSSegmentedControl *positionControl; // @synthesize positionControl=_positionControl;
 - (void).cxx_destruct;
-- (void)dealloc;
-- (id)lineShapes;
+- (void)updateUI;
 - (void)enableAction:(id)arg1;
-- (id)layers;
 - (BOOL)canDrawInnerOrOuterBorders;
 - (id)positionPopUpToolTip;
+- (void)updateDisplayedValues;
 - (void)setStyleParts:(id)arg1;
-- (void)prepare;
 - (void)viewDidLoad;
-- (id)init;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

@@ -7,6 +7,7 @@
 #import "MSRenderingDriverCG.h"
 
 @class NSMutableString, NSString;
+@protocol MSProfilingRendererDelegate;
 
 @interface MSRenderingDriverCGProfiling : MSRenderingDriverCG
 {

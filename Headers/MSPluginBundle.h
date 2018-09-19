@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSPluginBundleIconInfo, NSDictionary, NSImage, NSString, NSURL;
 
 @interface MSPluginBundle : NSObject
 {
+    BOOL _suppliesData;
     BOOL _enabled;
     BOOL _disableCocoaScriptPreprocessor;
     NSURL *_url;
@@ -28,6 +29,7 @@
     MSPluginBundleIconInfo *_iconInfo;
 }
 
++ (id)scriptDefaultTitle;
 + (id)commandsFromArray:(id)arg1 sketchPluginURL:(id)arg2 pluginBundle:(id)arg3;
 + (id)pluginBundleWithURL:(id)arg1;
 @property(retain, nonatomic) MSPluginBundleIconInfo *iconInfo; // @synthesize iconInfo=_iconInfo;
@@ -40,6 +42,7 @@
 @property(readonly, copy, nonatomic) NSString *author; // @synthesize author=_author;
 @property(readonly, copy, nonatomic) NSURL *homepageURL; // @synthesize homepageURL=_homepageURL;
 @property(copy, nonatomic) NSDictionary *menuDescription; // @synthesize menuDescription=_menuDescription;
+@property(readonly, nonatomic) BOOL suppliesData; // @synthesize suppliesData=_suppliesData;
 @property(readonly, copy, nonatomic) NSString *pluginDescription; // @synthesize pluginDescription=_pluginDescription;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -56,6 +59,7 @@
 - (id)metadata;
 @property(readonly, nonatomic, getter=isCompatible) BOOL compatible;
 - (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3 icon:(id)arg4;
+- (void)logErrorString:(id)arg1;
 - (id)initPluginBundleWithURL:(id)arg1;
 
 @end

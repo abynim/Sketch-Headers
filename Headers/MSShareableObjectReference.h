@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "BCSortable.h"
-#import "MSSharedObjectStyling.h"
+#import "BCSortable-Protocol.h"
+#import "MSSharedObjectStyling-Protocol.h"
 
-@class MSAssetLibrary, MSModelObject<BCSortable><MSSharedObjectStyling>, NSString;
+@class MSAssetLibrary, MSModelObject, NSString;
+@protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSShareableObjectReference : NSObject <BCSortable, MSSharedObjectStyling>
 {
@@ -33,13 +34,13 @@
 @property(readonly, nonatomic) unsigned long long shareableObjectType;
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 @property(readonly, nonatomic) NSString *sharedObjectID;
+@property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

@@ -10,6 +10,8 @@
 {
 }
 
+- (id)label;
+- (BOOL)shouldIncludeBackgroundColorFromLayers:(id)arg1;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)copySVG:(id)arg1;

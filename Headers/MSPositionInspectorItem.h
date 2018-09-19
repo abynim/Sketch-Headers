@@ -4,27 +4,35 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSTwoTextFieldInspectorItem.h"
+#import "MSInspectorItem.h"
 
-#import "MSInspectorValueAdaptorDelegate.h"
+#import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSCoordinateInspectorValueAdaptor, NSString;
+@class MSCoordinateInspectorValueAdaptor, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSString;
 
-@interface MSPositionInspectorItem : MSTwoTextFieldInspectorItem <MSInspectorValueAdaptorDelegate>
+@interface MSPositionInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate>
 {
+    MSInlineUpDownTextField *_yField;
+    MSInlineUpDownTextField *_rotationField;
+    MSInlineUpDownTextField *_xField;
     MSCoordinateInspectorValueAdaptor *_xAdaptor;
     MSCoordinateInspectorValueAdaptor *_yAdaptor;
+    MSMathInspectorValueAdaptor *_rotationAdapter;
 }
 
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdapter; // @synthesize rotationAdapter=_rotationAdapter;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
+@property(retain, nonatomic) MSInlineUpDownTextField *xField; // @synthesize xField=_xField;
+@property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
+@property(retain, nonatomic) MSInlineUpDownTextField *yField; // @synthesize yField=_yField;
 - (void).cxx_destruct;
+- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (BOOL)allowFloatValues;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
-- (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3;
-- (id)init;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

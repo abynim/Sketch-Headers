@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @interface MSCoreImageQueue : NSObject
 {
@@ -13,8 +13,8 @@
 + (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 + (id)imageWithWhiteBackground:(id)arg1;
 + (id)applyEffect:(unsigned long long)arg1 fromSource:(id)arg2 toImage:(struct CGImage *)arg3;
-+ (id)cachedImage:(struct CGImage *)arg1 withEffect:(unsigned long long)arg2 fromObject:(id)arg3 colorSpace:(id)arg4;
-+ (void)drawImage:(struct CGImage *)arg1 withEffect:(unsigned long long)arg2 inRect:(struct CGRect)arg3 fromObject:(id)arg4 context:(struct CGContext *)arg5 colorSpace:(id)arg6 options:(unsigned long long)arg7;
++ (id)cachedImage:(struct CGImage *)arg1 withEffect:(unsigned long long)arg2 fromObject:(id)arg3 colorSpace:(struct CGColorSpace *)arg4;
++ (void)drawImage:(struct CGImage *)arg1 withEffect:(unsigned long long)arg2 inRect:(struct CGRect)arg3 fromObject:(id)arg4 context:(struct CGContext *)arg5 colorSpace:(struct CGColorSpace *)arg6 options:(unsigned long long)arg7;
 + (void)initialize;
 
 @end

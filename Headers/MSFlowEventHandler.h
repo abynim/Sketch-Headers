@@ -6,7 +6,7 @@
 
 #import "MSEventHandler.h"
 
-#import "MSFlowMenuBuilderTarget.h"
+#import "MSFlowMenuBuilderTarget-Protocol.h"
 
 @class MSArtboardGroup, MSLayerArray;
 

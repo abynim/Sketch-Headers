@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSAssetLibraryDelegate.h"
+#import "MSAssetLibraryDelegate-Protocol.h"
 
 @class MSAssetLibraryUpdater, NSArray, NSHashTable, NSMutableArray, NSString;
 
@@ -65,6 +65,7 @@
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;
+- (void)addRemoteLibraryFromAppcastURL:(id)arg1 context:(id)arg2 callback:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

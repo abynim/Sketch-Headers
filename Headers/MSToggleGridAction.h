@@ -11,8 +11,8 @@
 }
 
 - (BOOL)validate;
+- (id)tooltip;
 - (id)label;
-- (id)imageName;
 - (void)setGrid:(id)arg1;
 - (id)grid;
 - (id)prepareNewGrid;

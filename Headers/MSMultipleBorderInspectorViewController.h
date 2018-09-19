@@ -4,23 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSMultipleStylePartInspectorViewController.h"
+#import "MSMultipleColorStylePartInspectorViewController.h"
 
-#import "BCPopoverDelegate.h"
+#import "BCPopoverDelegate-Protocol.h"
 
-@class BCPopover, MSBorderOptionsInspectorViewController, MSTextLabelForUpDownField, NSButton, NSString;
+@class MSBorderOptionsInspectorViewController, MSTextLabelForUpDownField, NSButton, NSString;
 
-@interface MSMultipleBorderInspectorViewController : MSMultipleStylePartInspectorViewController <BCPopoverDelegate>
+@interface MSMultipleBorderInspectorViewController : MSMultipleColorStylePartInspectorViewController <BCPopoverDelegate>
 {
     MSBorderOptionsInspectorViewController *_borderOptionsController;
     MSTextLabelForUpDownField *_thicknessLabel;
     NSButton *_addStylePartButton;
-    NSButton *_advancedOptionsButton;
-    BCPopover *_popover;
 }
 
-@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
 @property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
@@ -29,11 +25,10 @@
 - (id)views;
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
+- (BOOL)advancedOptionsApplicable;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (BOOL)shouldHideAddStylePartButton;
-- (void)setLayers:(id)arg1;
 - (void)styleDidEnableOrDisable;
-- (void)dismissViewController:(id)arg1;
 - (void)showAdvancedOptionsAction:(id)arg1;
 - (void)prepare;
 - (unsigned long long)stylePartType;

@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTextField.h"
+#import <AppKit/NSTextField.h>
 
-@class MSMouseTracker, NSArray, NSTextField<MSUpDownProtocol>;
+@class MSMouseTracker, NSArray;
+@protocol MSUpDownProtocol;
 
 @interface MSTextLabelForUpDownField : NSTextField
 {
@@ -23,15 +24,20 @@
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *upDownTextField; // @synthesize upDownTextField=_upDownTextField;
 - (void).cxx_destruct;
 - (BOOL)canScrub;
+- (void)userClickedWithMouseDownEvent:(id)arg1 mouseUpEvent:(id)arg2;
 - (BOOL)trackMouseDraggingWithDownEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)mouseDown:(id)arg1;
 - (id)textField;
 - (void)cursorUpdate:(id)arg1;
 - (void)updateCursor;
 - (void)trackMouse:(id)arg1;
+- (void)windowStatusChanged:(id)arg1;
+- (void)viewDidMoveToWindow;
 - (void)awakeFromNib;
 - (void)setShouldTrackFlags:(BOOL)arg1;
+- (void)setupTextLabelForUpDownField;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

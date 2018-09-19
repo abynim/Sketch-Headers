@@ -4,28 +4,28 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "NSSplitViewDelegate.h"
+#import "NSSplitViewDelegate-Protocol.h"
 
-@class BCFilterInfo, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSObject<BCSideBarViewControllerDelegate>, NSPopUpButton, NSSearchField, NSSplitView, NSString, NSTextField, NSView;
+@class BCLayerListFilterViewController, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSObject, NSPopUpButton, NSSplitView, NSString, NSView;
+@protocol BCOutlineViewNode, BCSideBarViewControllerDelegate;
 
 @interface BCSideBarViewController : NSViewController <NSSplitViewDelegate>
 {
     BOOL _userUpdatedPageHeight;
     NSObject<BCSideBarViewControllerDelegate> *_delegate;
-    BCFilterInfo *_filter;
+    BCLayerListFilterViewController *_filterViewController;
+    NSButton *_pageTabButton;
     BCOutlineViewDataController *_pageListDataController;
-    NSView *_pageCreationView;
     BCPageListViewController *_pageListViewController;
     NSView *_pageListContainer;
     long long _pageCount;
-    NSTextField *_currentPageLabel;
-    NSPopUpButton *_pagePopup;
+    NSPopUpButton *_pagePopUpButton;
     BCOutlineViewDataController *_layerListDataController;
     NSView *_layerListContainer;
     BCOutlineViewController *_layerListViewController;
-    NSSearchField *_filterStringTextField;
+    NSButton *_addPageButton;
     NSButton *_togglePageListButton;
     NSSplitView *_splitView;
 }
@@ -33,18 +33,17 @@
 @property(nonatomic) BOOL userUpdatedPageHeight; // @synthesize userUpdatedPageHeight=_userUpdatedPageHeight;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
 @property(nonatomic) __weak NSButton *togglePageListButton; // @synthesize togglePageListButton=_togglePageListButton;
-@property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
+@property(nonatomic) __weak NSButton *addPageButton; // @synthesize addPageButton=_addPageButton;
 @property(retain, nonatomic) BCOutlineViewController *layerListViewController; // @synthesize layerListViewController=_layerListViewController;
 @property(retain, nonatomic) NSView *layerListContainer; // @synthesize layerListContainer=_layerListContainer;
 @property(retain, nonatomic) BCOutlineViewDataController *layerListDataController; // @synthesize layerListDataController=_layerListDataController;
-@property(nonatomic) __weak NSPopUpButton *pagePopup; // @synthesize pagePopup=_pagePopup;
-@property(nonatomic) __weak NSTextField *currentPageLabel; // @synthesize currentPageLabel=_currentPageLabel;
+@property(nonatomic) __weak NSPopUpButton *pagePopUpButton; // @synthesize pagePopUpButton=_pagePopUpButton;
 @property(nonatomic) long long pageCount; // @synthesize pageCount=_pageCount;
 @property(retain, nonatomic) NSView *pageListContainer; // @synthesize pageListContainer=_pageListContainer;
 @property(retain, nonatomic) BCPageListViewController *pageListViewController; // @synthesize pageListViewController=_pageListViewController;
-@property(retain, nonatomic) NSView *pageCreationView; // @synthesize pageCreationView=_pageCreationView;
 @property(retain, nonatomic) BCOutlineViewDataController *pageListDataController; // @synthesize pageListDataController=_pageListDataController;
-@property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
+@property(nonatomic) __weak NSButton *pageTabButton; // @synthesize pageTabButton=_pageTabButton;
+@property(retain, nonatomic) BCLayerListFilterViewController *filterViewController; // @synthesize filterViewController=_filterViewController;
 @property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
@@ -52,25 +51,27 @@
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (double)splitView:(id)arg1 constrainMinCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (BOOL)splitView:(id)arg1 canCollapseSubview:(id)arg2;
+- (id)pageListToggleButtonTooltip;
 - (void)onTogglePageList:(id)arg1;
-@property(readonly, nonatomic) BOOL isPageListCollapsed;
+@property(readonly, nonatomic) BOOL isSplitViewCollapsed;
+- (void)showPagePopUpButton;
 - (void)showPageView;
+- (void)hidePagePopUpButton;
 - (void)hidePageView;
 - (void)flagsChangedNotification;
-- (void)findLayer:(id)arg1;
 - (void)renamePage;
 - (void)renameLayerAfterNextLayerListRefresh;
 - (void)renameLayer;
-- (void)controlTextDidChange:(id)arg1;
 - (void)checkPageListHeight;
 - (void)refreshWithMask:(unsigned long long)arg1;
 - (void)refreshPagePopup;
-- (void)pagePopupChanged:(id)arg1;
+- (void)pagePopUpButtonDidChange:(id)arg1;
 - (void)updatePopupWithBlock:(CDUnknownBlockType)arg1;
-- (void)refreshPageLabel;
 @property(readonly, nonatomic) id <BCOutlineViewNode> currentPage;
 - (void)viewDidAppear;
 @property(nonatomic) double currentPageHeight;
+- (void)applyAppearance;
+- (void)refreshAfterAppearanceChange;
 - (void)awakeFromNib;
 - (void)embedView:(id)arg1 inView:(id)arg2;
 - (void)dealloc;

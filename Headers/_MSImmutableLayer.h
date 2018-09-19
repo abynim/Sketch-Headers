@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableExportOptions, MSImmutableFlowConnection, MSImmutableRect, MSPath, NSDictionary, NSObject, NSString;
+@class MSImmutableExportOptions, MSImmutableFlowConnection, MSImmutableRect, NSDictionary, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
@@ -28,10 +28,6 @@
     MSImmutableExportOptions *_exportOptions;
     MSImmutableFlowConnection *_flow;
     MSImmutableRect *_frame;
-    NSObject *_calculatedInfluenceRectForBoundsAtomicity;
-    struct CGRect _calculatedInfluenceRectForBounds;
-    NSObject *_calculatedPathInBoundsAtomicity;
-    MSPath *_calculatedPathInBounds;
 }
 
 + (Class)mutableClass;
@@ -63,12 +59,8 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)calculatePathInBounds;
-@property(readonly, nonatomic) MSPath *pathInBounds;
-- (struct CGRect)calculateInfluenceRectForBounds;
-@property(readonly, nonatomic) struct CGRect influenceRectForBounds;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)initWithMinimalSetup;
 
 @end
 

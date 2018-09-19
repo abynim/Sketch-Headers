@@ -6,8 +6,8 @@
 
 #import "MSColorInspectorSection.h"
 
-#import "MSGradientBarViewDelegate.h"
-#import "MSGradientEventHandlerDelegate.h"
+#import "MSGradientBarViewDelegate-Protocol.h"
+#import "MSGradientEventHandlerDelegate-Protocol.h"
 
 @class MSGradientBarView, MSGradientEventHandler, NSButton, NSString, NSView;
 

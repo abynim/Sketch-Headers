@@ -6,8 +6,8 @@
 
 #import "MSAction.h"
 
-#import "NSMenuDelegate.h"
-#import "NSTouchBarDelegate.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class MSDocument, NSEvent, NSString, NSTouchBarItem;
 
@@ -22,7 +22,6 @@
 @property(retain, nonatomic) NSTouchBarItem *cachedTouchedBarItem; // @synthesize cachedTouchedBarItem=_cachedTouchedBarItem;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (id)interfaceQueryObject;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performAction:(id)arg1;

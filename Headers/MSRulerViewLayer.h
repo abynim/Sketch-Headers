@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CALayer.h"
+#import <QuartzCore/CALayer.h>
 
 @class NSArray, NSColor, NSNumberFormatter, NSView;
 
@@ -35,13 +35,19 @@
 - (long long)rulerHeight;
 - (long long)rulerLength;
 - (void)drawAlignmentGuidesWithColor:(id)arg1;
+- (void)drawSeparatorForOccupiedRegion;
 - (void)drawOccupiedRegion;
 - (void)drawBackgroundForLabel:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)drawMetric:(id)arg1 atPoint:(struct CGPoint)arg2 drawBackground:(BOOL)arg3;
 - (void)drawMetric:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)drawLineAtPosition:(double)arg1 withOptions:(unsigned long long)arg2 color:(id)arg3;
-- (void)drawMetricsWithOptions:(long long)arg1 color:(id)arg2;
-- (void)drawMetricsWithColor:(id)arg1;
+- (void)drawTickmarksWithOptions:(long long)arg1 color:(id)arg2 inRect:(struct CGRect)arg3;
+- (void)drawTickmarksWithColor:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)drawMetricsWithOptions:(long long)arg1;
+- (BOOL)_shouldDrawTickmarkAtPosition:(double)arg1 options:(long long)arg2;
+- (long long)smallStep;
+- (double)adjustedBase;
+- (void)drawMetrics;
 - (void)drawBackground;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (id)init;

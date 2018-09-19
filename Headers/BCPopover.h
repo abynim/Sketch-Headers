@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSViewControllerPresentationAnimator.h"
-#import "NSWindowDelegate.h"
+#import "NSViewControllerPresentationAnimator-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
 @class BCPopoverWindow, NSString, NSView, NSViewController;
+@protocol BCPopoverDelegate;
 
 @interface BCPopover : NSObject <NSWindowDelegate, NSViewControllerPresentationAnimator>
 {

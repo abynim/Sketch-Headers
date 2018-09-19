@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSBitmapImageRep.h"
+#import <AppKit/NSBitmapImageRep.h>
 
 @interface NSBitmapImageRep (CHBitmapRepAdditions)
++ (id)bitmapImageRepWithSize:(struct CGSize)arg1 pixelSize:(struct CGSize)arg2 flags:(unsigned long long)arg3 colorSpace:(id)arg4 drawingBlock:(CDUnknownBlockType)arg5;
 + (id)bitmapImageRepWithSize:(struct CGSize)arg1 flags:(unsigned long long)arg2 colorSpace:(id)arg3 drawingBlock:(CDUnknownBlockType)arg4;
 - (BOOL)hasTransparentPixels;
 - (id)bitSafeBitmapImageRep;

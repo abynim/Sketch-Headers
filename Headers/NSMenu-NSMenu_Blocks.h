@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSMenu.h"
+#import <AppKit/NSMenu.h>
 
 @interface NSMenu (NSMenu_Blocks)
 + (id)menuWithItems:(id)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
 @class MSCloudAction, MSCloudBaseViewController;
 
@@ -22,11 +22,9 @@
 - (void)licenseDidChangeNotification:(id)arg1;
 - (void)shareDidChangeNotification:(id)arg1;
 - (void)shareUploadDidChangeNotification:(id)arg1;
-- (void)userDidUpdateNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
 - (void)environmentDidChangeNotification:(id)arg1;
 - (void)updateFrame;
-- (void)animateFrameWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)animateAlpha:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)defaultContentViewController;
 - (void)addContentViewController:(id)arg1;

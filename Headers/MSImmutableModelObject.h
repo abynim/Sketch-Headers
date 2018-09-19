@@ -6,8 +6,8 @@
 
 #import "MSModelObjectCommon.h"
 
-#import "MSCoding.h"
-#import "MSModelObject.h"
+#import "MSCoding-Protocol.h"
+#import "MSModelObject-Protocol.h"
 
 @class NSArray, NSString;
 

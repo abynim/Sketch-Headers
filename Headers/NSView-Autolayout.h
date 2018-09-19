@@ -4,12 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
+#import <AppKit/NSView.h>
 
 @interface NSView (Autolayout)
 - (id)widthConstraint;
+- (id)constraintsWithView:(id)arg1 attributeMatcher:(CDUnknownBlockType)arg2;
 - (id)verticalConstraintsWithView:(id)arg1;
 - (id)verticalConstraintWithView:(id)arg1;
+- (id)horizontalConstraintsWithView:(id)arg1;
+- (id)horizontalConstraintWithView:(id)arg1;
 - (void)showWithWidth:(double)arg1;
 - (void)showWithHeight:(double)arg1;
 - (void)hideWithZeroWidth;

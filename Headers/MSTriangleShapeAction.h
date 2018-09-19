@@ -10,6 +10,8 @@
 {
 }
 
+- (id)tooltip;
+- (id)label;
 - (void)triangleShape:(id)arg1;
 
 @end

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSSharingServiceDelegate.h"
-#import "NSSharingServicePickerDelegate.h"
+#import "NSSharingServiceDelegate-Protocol.h"
+#import "NSSharingServicePickerDelegate-Protocol.h"
 
 @class MSContentDrawView, MSLayer, NSString, NSWindow;
 

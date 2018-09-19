@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)zoomOut:(id)arg1;
 - (BOOL)validate;
 - (id)touchBarImage;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindow.h"
+#import <AppKit/NSWindow.h>
 
 @interface BCPopoverWindow : NSWindow
 {
@@ -17,6 +17,7 @@
 - (unsigned long long)collectionBehavior;
 - (BOOL)canBecomeKeyWindow;
 - (void)sendEvent:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1 display:(BOOL)arg2 animate:(BOOL)arg3;
 - (void)resignMainWindow;
 - (id)initWithContentRect:(struct CGRect)arg1;
 

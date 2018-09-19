@@ -6,9 +6,9 @@
 
 #import "CHSheetController.h"
 
-#import "MSColorInspectorDelegate.h"
-#import "NSMenuDelegate.h"
-#import "NSWindowDelegate.h"
+#import "MSColorInspectorDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
 @class BCPopover, MSPopoverDismisserView, MSStylePartPreviewButton, NSButton, NSMenu, NSString;
 

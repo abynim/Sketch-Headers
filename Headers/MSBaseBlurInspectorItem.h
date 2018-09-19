@@ -6,22 +6,34 @@
 
 #import "MSStylePartInspectorItem.h"
 
-#import "MSInspectorValueAdaptorDelegate.h"
+#import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
+#import "MSInspectorValueAdaptorDelegate-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSSlider, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSMenuItem, NSPopUpButton, NSSlider, NSString;
 
-@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorValueAdaptorDelegate>
+@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorMathValueAdaptorDelegate, MSInspectorValueAdaptorDelegate>
 {
     MSUpDownTextField *_radiusField;
     NSSlider *_radiusSlider;
+    NSPopUpButton *_blurPopUp;
+    NSMenuItem *_backgroundBlurMenuItem;
+    NSMenuItem *_multipleBlursMenuItem;
     MSMathInspectorValueAdaptor *_radiusAdapter;
 }
 
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
+@property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
+@property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
+@property(retain, nonatomic) NSPopUpButton *blurPopUp; // @synthesize blurPopUp=_blurPopUp;
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
 - (void).cxx_destruct;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
+- (long long)popUpMenuIndexFromBlurType:(unsigned long long)arg1;
+- (unsigned long long)blurTypeFromPopUpMenuIndex:(long long)arg1;
+- (void)updateDisplayedValues;
+- (void)menuNeedsUpdate:(id)arg1;
+- (void)blurPopUpAction:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

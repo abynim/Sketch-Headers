@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "SMKCommunicationResponseInterface.h"
+#import "SMKCommunicationResponseInterface-Protocol.h"
 
 @class NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSURL, NSXPCConnection, NSXPCInterface, SMKWebServer;
+@protocol SMKCommunicationInterface, SMKMirrorControllerDelegate, SMKMirrorDataSource;
 
 @interface SMKMirrorController : NSObject <SMKCommunicationResponseInterface>
 {

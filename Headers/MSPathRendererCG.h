@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "MSPathRenderer.h"
+#import "MSPathRenderer-Protocol.h"
 
 @class NSString;
 
@@ -14,8 +14,6 @@
 {
 }
 
-- (long long)shadowStrokeTypeForStyle:(id)arg1;
-- (unsigned long long)shadowDrawingTypeForStyle:(id)arg1;
 - (void)drawInnerShadowsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4;
 - (BOOL)shadowFillShouldClipForStyle:(id)arg1;
 - (void)drawShadowsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4;

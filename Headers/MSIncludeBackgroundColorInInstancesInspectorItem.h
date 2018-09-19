@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)filterSelection:(id)arg1;
++ (BOOL)canHandleLayer:(id)arg1;
 
 @end
 

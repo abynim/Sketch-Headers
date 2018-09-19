@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSDocument, MSHistory, NSString;
 
 @interface MSHistoryMaker : NSObject
 {
     BOOL _historyIsCoalescing;
+    BOOL _fontsDidChange;
     BOOL _isMovingThroughHistory;
     BOOL _isMakingHistory;
     MSDocument *_document;
@@ -22,14 +23,17 @@
 @property long long deferMakingHistoryCounter; // @synthesize deferMakingHistoryCounter=_deferMakingHistoryCounter;
 @property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
 @property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
+@property(nonatomic) BOOL fontsDidChange; // @synthesize fontsDidChange=_fontsDidChange;
 @property(nonatomic) BOOL historyIsCoalescing; // @synthesize historyIsCoalescing=_historyIsCoalescing;
 @property(retain, nonatomic) NSString *historyMomentTitle; // @synthesize historyMomentTitle=_historyMomentTitle;
 @property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
 @property(readonly, nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (void)installedFontsChanged;
 - (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
 - (void)moveThroughHistoryBackInTime:(BOOL)arg1;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
+- (void)updateCurrentMomentWithSelection:(id)arg1;
 - (void)makeHistoryIfNecessaryUsingTransientMoment:(BOOL)arg1;
 - (void)deferMakingHistoryInBlock:(CDUnknownBlockType)arg1;
 - (void)makeTransientMomentInHistoryIfNecessary;

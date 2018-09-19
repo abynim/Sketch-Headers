@@ -6,10 +6,11 @@
 
 #import "AFHTTPRequestOperationManager.h"
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
 
-@class AFAmazonS3RequestSerializer<AFURLRequestSerialization>, NSURL;
+@class AFAmazonS3RequestSerializer, NSURL;
+@protocol AFURLRequestSerialization;
 
 @interface AFAmazonS3Manager : AFHTTPRequestOperationManager <NSSecureCoding, NSCopying>
 {

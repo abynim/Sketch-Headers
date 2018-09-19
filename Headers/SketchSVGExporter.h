@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSImmutableDocumentData, MSImmutableSymbolInstance, MSSVGFilter, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSXMLDocument, NSXMLElement;
 
 @interface SketchSVGExporter : NSObject
 {
+    BOOL _includeArtboardBackground;
+    BOOL _includeSketchCredit;
     NSString *_mask;
     NSString *_currentShapeDef;
     MSImmutableDocumentData *_document;
@@ -25,6 +27,7 @@
     struct CGRect _exportBounds;
 }
 
+@property(readonly, nonatomic) BOOL includeSketchCredit; // @synthesize includeSketchCredit=_includeSketchCredit;
 @property(readonly, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(readonly, nonatomic) NSMutableArray *parentStack; // @synthesize parentStack=_parentStack;
 @property(nonatomic) unsigned long long nextUniqueID; // @synthesize nextUniqueID=_nextUniqueID;
@@ -32,6 +35,7 @@
 @property(readonly, nonatomic) NSXMLElement *root; // @synthesize root=_root;
 @property(readonly, nonatomic) NSXMLElement *defs; // @synthesize defs=_defs;
 @property(readonly, nonatomic) NSXMLDocument *doc; // @synthesize doc=_doc;
+@property(readonly, nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(retain, nonatomic) MSImmutableSymbolInstance *currentSymbolInstance; // @synthesize currentSymbolInstance=_currentSymbolInstance;
 @property(retain, nonatomic) MSSVGFilter *currentFilterGroup; // @synthesize currentFilterGroup=_currentFilterGroup;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
@@ -60,9 +64,12 @@
 - (void)setDescription:(id)arg1;
 - (void)setTitle:(id)arg1;
 - (id)description;
+- (BOOL)isDescElement:(id)arg1;
+@property(readonly, nonatomic) unsigned long long defsIndexInRoot;
+@property(readonly, nonatomic) BOOL hasDefs;
 - (id)exportLayers:(id)arg1;
 - (id)initWithName:(id)arg1 exportRequest:(id)arg2;
-- (id)initWithImmutableDocument:(id)arg1 exportRect:(struct CGRect)arg2 layerIDs:(id)arg3;
+- (id)initWithImmutableDocument:(id)arg1 exportRect:(struct CGRect)arg2 layerIDs:(id)arg3 includeBackground:(BOOL)arg4;
 - (id)init;
 - (void)setupCommonElementsWithName:(id)arg1;
 - (void)setRootSVGElementAttributes;

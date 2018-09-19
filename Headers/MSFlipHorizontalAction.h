@@ -10,6 +10,8 @@
 {
 }
 
++ (id)flipHorizontalHistoryTitle;
+- (BOOL)isActive;
 - (id)touchBarItem;
 - (BOOL)areAllSelectedLayersFlippedHorizontally;
 - (BOOL)isTouchBarItemSelected;

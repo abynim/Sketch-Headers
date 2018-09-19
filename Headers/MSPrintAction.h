@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)makeArtboardBeforePrinting:(id)arg1;
 - (BOOL)validate;

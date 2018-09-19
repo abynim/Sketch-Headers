@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSObject-Protocol.h"
 
 @class MSInspectorValueAdaptor, NSError;
 
@@ -13,7 +13,6 @@
 @optional
 - (void)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 didEncounterError:(NSError *)arg2;
 - (void)inspectorValueAdaptorDidChangeValue:(MSInspectorValueAdaptor *)arg1;
-- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 validateValue:(double)arg2 forModel:(id)arg3 context:(id)arg4;
-- (BOOL)inspectorValueAdaptorAllowFloat:(MSInspectorValueAdaptor *)arg1;
+- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 @end
 

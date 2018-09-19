@@ -6,10 +6,10 @@
 
 #import "CHSheetController.h"
 
-#import "BCPopoverDelegate.h"
-#import "NSTableViewDataSource.h"
-#import "NSTableViewDelegate.h"
-#import "NSWindowDelegate.h"
+#import "BCPopoverDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
 @class BCPopover, NSMutableArray, NSString, NSTableView, NSViewController;
 
@@ -21,6 +21,7 @@
     BCPopover *_popover;
 }
 
++ (id)dontReplaceFontLabel;
 @property(nonatomic) __weak BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSViewController *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) NSMutableArray *fonts; // @synthesize fonts=_fonts;

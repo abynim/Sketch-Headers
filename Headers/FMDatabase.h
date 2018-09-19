@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class NSDateFormatter, NSMutableDictionary, NSMutableSet, NSString;
 
@@ -106,7 +106,6 @@
 - (struct sqlite3 *)sqliteHandle;
 - (id)databasePath;
 - (void)dealloc;
-- (void)finalize;
 - (id)initWithPath:(id)arg1;
 - (id)init;
 - (BOOL)validateSQL:(id)arg1 error:(id *)arg2;

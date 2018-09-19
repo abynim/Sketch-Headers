@@ -6,7 +6,7 @@
 
 #import "CHSheetController.h"
 
-#import "NSTextViewDelegate.h"
+#import "NSTextViewDelegate-Protocol.h"
 
 @class JSTTextView, NSButton, NSString, NSTextField, NSTextView, NSUndoManager;
 
@@ -39,6 +39,9 @@
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (SEL)selectorForTouchbarItemIdentifier:(id)arg1;
 - (id)touchBarItemIdentifiers;
+- (void)sheetWillClose;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)windowDidLoad;
 - (id)commandToRunWithName:(id)arg1;
 - (void)awakeFromNib;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSTableCellView.h"
+#import <AppKit/NSTableCellView.h>
 
 @class MSDataPreferenceItem, MSDataPreferencePane, MSDataPreview, NSButton, NSTextField;
 
@@ -17,7 +17,6 @@
     NSButton *_revealButton;
 }
 
-+ (void)initialize;
 @property(nonatomic) __weak NSButton *revealButton; // @synthesize revealButton=_revealButton;
 @property(nonatomic) __weak MSDataPreview *previewContainer; // @synthesize previewContainer=_previewContainer;
 @property(nonatomic) __weak MSDataPreferencePane *dataPreferencePane; // @synthesize dataPreferencePane=_dataPreferencePane;
@@ -26,7 +25,6 @@
 - (void).cxx_destruct;
 - (void)setObjectValue:(id)arg1;
 @property(readonly, nonatomic) MSDataPreferenceItem *dataPreferenceItem;
-- (void)setBackgroundStyle:(long long)arg1;
 - (void)awakeFromNib;
 - (id)initWithCoder:(id)arg1;
 

@@ -4,39 +4,54 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-@class MSExportFormatNamingTextField, NSArray, NSButton, NSPopUpButton, NSTextField, NSView;
+@class MSExportFormatNamingTextField, MSTextFieldWithDropDownMenu, NSArray, NSButton, NSMenu, NSPopUpButton, NSView;
 
 @interface MSExportFormatViewController : NSViewController
 {
-    double _designedFormatPopUpButtonWidth;
+    BOOL _removeButtonHidden;
+    BOOL _drawOldFashioned;
     NSPopUpButton *_formatPopup;
     NSButton *_removeSizeButton;
     NSView *_sizeView;
     MSExportFormatNamingTextField *_suffixTextField;
     NSArray *_exportFormats;
-    NSTextField *_scaleField;
+    MSTextFieldWithDropDownMenu *_scaleField;
+    NSView *_removeButtonContainerView;
+    double _expandedRemoveWidth;
+    double _designedFormatPopUpButtonWidth;
+    NSMenu *_scalePopupMenu;
 }
 
 + (id)scaleDisplayStringForValue:(double)arg1 suffix:(unsigned short)arg2;
 + (void)initialize;
-@property(retain, nonatomic) NSTextField *scaleField; // @synthesize scaleField=_scaleField;
+@property(retain, nonatomic) NSMenu *scalePopupMenu; // @synthesize scalePopupMenu=_scalePopupMenu;
+@property(nonatomic) double designedFormatPopUpButtonWidth; // @synthesize designedFormatPopUpButtonWidth=_designedFormatPopUpButtonWidth;
+@property(nonatomic) double expandedRemoveWidth; // @synthesize expandedRemoveWidth=_expandedRemoveWidth;
+@property(retain, nonatomic) NSView *removeButtonContainerView; // @synthesize removeButtonContainerView=_removeButtonContainerView;
+@property(nonatomic) BOOL drawOldFashioned; // @synthesize drawOldFashioned=_drawOldFashioned;
+@property(nonatomic, getter=isRemoveButtonHidden) BOOL removeButtonHidden; // @synthesize removeButtonHidden=_removeButtonHidden;
+@property(retain, nonatomic) MSTextFieldWithDropDownMenu *scaleField; // @synthesize scaleField=_scaleField;
 @property(retain, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 @property(retain, nonatomic) MSExportFormatNamingTextField *suffixTextField; // @synthesize suffixTextField=_suffixTextField;
 @property(retain, nonatomic) NSView *sizeView; // @synthesize sizeView=_sizeView;
 @property(retain, nonatomic) NSButton *removeSizeButton; // @synthesize removeSizeButton=_removeSizeButton;
 @property(retain, nonatomic) NSPopUpButton *formatPopup; // @synthesize formatPopup=_formatPopup;
 - (void).cxx_destruct;
+- (void)updateRemoveButtonLayout;
 - (double)sizeByRemovingSuffixes:(id)arg1;
 - (void)applyEditedScaleFieldValue:(double)arg1 toExportFormat:(id)arg2 scaleType:(long long)arg3 normalSize:(struct CGSize)arg4;
 - (void)findSizeOfLayer:(id)arg1 forScaleType:(long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (void)commitScaleFieldEditsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)commitScaleStringEdit:(id)arg1 withCompletionBlock:(CDUnknownBlockType)arg2;
+- (void)exportSelection:(id)arg1;
 - (void)scaleFieldAction:(id)arg1;
+- (void)scaleMenuAction:(id)arg1;
 - (void)formatPopupAction:(id)arg1;
 - (void)removeExportFormat:(id)arg1;
 - (id)firstExportFormat;
 - (BOOL)exportFormatCanBeScaled;
+- (void)updateTextFieldProperties;
 - (void)prepare;
 - (void)viewDidLoad;
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
+#import <AppKit/NSView.h>
 
 @class MSUpDownController, NSTimer;
 
@@ -12,15 +12,15 @@
 {
     BOOL _keepFiringTimer;
     MSUpDownController *_target;
+    long long _highlightMode;
     NSTimer *_timer;
     NSTimer *_initialSlowTimer;
-    long long _highlightMode;
 }
 
 @property(nonatomic) BOOL keepFiringTimer; // @synthesize keepFiringTimer=_keepFiringTimer;
-@property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(retain, nonatomic) NSTimer *initialSlowTimer; // @synthesize initialSlowTimer=_initialSlowTimer;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
+@property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(nonatomic) __weak MSUpDownController *target; // @synthesize target=_target;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;

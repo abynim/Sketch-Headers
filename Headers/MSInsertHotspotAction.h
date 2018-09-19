@@ -10,8 +10,8 @@
 {
 }
 
-- (BOOL)showInToolbar;
-- (id)imageName;
+- (id)tooltip;
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)insertHotspot:(id)arg1;
 - (SEL)preferredMenuAction;

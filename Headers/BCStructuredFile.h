@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class FMDatabaseQueue, NSMutableDictionary, NSURL;
 
@@ -22,18 +22,12 @@
 - (void).cxx_destruct;
 - (BOOL)checkDatabaseIsOpen:(id *)arg1;
 - (BOOL)readMetaData:(id *)arg1;
-- (BOOL)databaseIsValid;
-- (BOOL)setupTables:(id *)arg1;
 - (BOOL)close:(id *)arg1;
-- (BOOL)removeDataWithKey:(id)arg1 error:(id *)arg2;
-- (BOOL)writeData:(id)arg1 withKey:(id)arg2 error:(id *)arg3;
 - (id)dataWithKey:(id)arg1 error:(id *)arg2;
-- (BOOL)setMetaData:(id)arg1 withKey:(id)arg2 error:(id *)arg3;
 - (id)metaDataWithKey:(id)arg1;
 - (id)metadata;
-- (BOOL)openWithMode:(unsigned long long)arg1 error:(id *)arg2;
-- (BOOL)create:(id *)arg1;
-- (id)initWithURL:(id)arg1 mode:(unsigned long long)arg2 error:(id *)arg3;
+- (BOOL)openForReadingWithError:(id *)arg1;
+- (id)initWithURL:(id)arg1 error:(id *)arg2;
 - (id)init;
 
 @end

@@ -7,6 +7,7 @@
 #import "BCColorPickerBaseView.h"
 
 @class MSGradient;
+@protocol MSGradientBarViewDelegate;
 
 @interface MSGradientBarView : BCColorPickerBaseView
 {

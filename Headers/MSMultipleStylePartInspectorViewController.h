@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSReorderingContainerDelegate.h"
+#import "MSReorderingContainerDelegate-Protocol.h"
 
 @class MSReorderingContainerView, NSArray, NSButton, NSString, NSTextField, NSView;
+@protocol MSStylePartInspectorDelegate;
 
 @interface MSMultipleStylePartInspectorViewController : NSViewController <MSReorderingContainerDelegate>
 {
@@ -21,8 +22,10 @@
     NSView *_nameView;
     NSButton *_removeDisabledStylesButton;
     NSButton *_showAdvancedOptionsButton;
+    NSButton *_headerButton;
 }
 
+@property(retain, nonatomic) NSButton *headerButton; // @synthesize headerButton=_headerButton;
 @property(retain, nonatomic) NSButton *showAdvancedOptionsButton; // @synthesize showAdvancedOptionsButton=_showAdvancedOptionsButton;
 @property(retain, nonatomic) NSButton *removeDisabledStylesButton; // @synthesize removeDisabledStylesButton=_removeDisabledStylesButton;
 @property(retain, nonatomic) NSView *nameView; // @synthesize nameView=_nameView;
@@ -33,8 +36,7 @@
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (void)closeAnyColorPopover;
-- (void)openPopoverAtIndex:(unsigned long long)arg1;
+- (void)updateDisplayedValues;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
 - (BOOL)hasEnabledStyle;
@@ -50,6 +52,8 @@
 - (BOOL)hasPopOver;
 - (id)lastEnabledStylePartController;
 - (void)addStylePartAction:(id)arg1;
+- (void)addNewStylePart;
+- (void)closePopovers;
 - (id)rotatedStyleParts;
 - (void)validateSpecialButtons;
 - (void)prepare;

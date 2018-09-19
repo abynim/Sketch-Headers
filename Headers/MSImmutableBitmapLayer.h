@@ -18,7 +18,9 @@
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (id)overridePointsWithParent:(id)arg1;
+- (id)overridePreviewImageInDocument:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;

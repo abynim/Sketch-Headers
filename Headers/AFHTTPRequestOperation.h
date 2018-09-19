@@ -6,7 +6,8 @@
 
 #import "AFURLConnectionOperation.h"
 
-@class AFHTTPResponseSerializer<AFURLResponseSerialization>, NSError, NSHTTPURLResponse, NSRecursiveLock;
+@class AFHTTPResponseSerializer, NSError, NSHTTPURLResponse, NSRecursiveLock;
+@protocol AFURLResponseSerialization;
 
 @interface AFHTTPRequestOperation : AFURLConnectionOperation
 {

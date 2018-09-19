@@ -10,7 +10,6 @@
 {
 }
 
-- (id)imageName;
 - (id)label;
 - (id)tooltip;
 - (id)submenuActionIDs;

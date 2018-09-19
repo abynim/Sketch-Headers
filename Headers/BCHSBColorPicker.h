@@ -4,16 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSControl.h"
+#import <AppKit/NSControl.h>
 
-#import "BCColorPreviewDelegate.h"
-#import "BCMagnifierButtonDelegate.h"
+#import "BCColorPreviewDelegate-Protocol.h"
+#import "BCMagnifierButtonDelegate-Protocol.h"
 
 @class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSString, NSTextField;
+@protocol BCHSBColorPickerDelegate;
 
 @interface BCHSBColorPicker : NSControl <BCColorPreviewDelegate, BCMagnifierButtonDelegate>
 {
     long long ignoreColorActionsCounter;
+    BOOL _displaysMultipleValues;
     id <BCHSBColorPickerDelegate> _delegate;
     NSTextField *_hexValueTextField;
     NSTextField *_alphaComponentTextField;
@@ -35,6 +37,7 @@
 
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
+@property(nonatomic) BOOL displaysMultipleValues; // @synthesize displaysMultipleValues=_displaysMultipleValues;
 @property(retain, nonatomic) NSTextField *ligComponentTextField; // @synthesize ligComponentTextField=_ligComponentTextField;
 @property(retain, nonatomic) NSTextField *satComponentTextField; // @synthesize satComponentTextField=_satComponentTextField;
 @property(retain, nonatomic) NSTextField *hueComponentTextField; // @synthesize hueComponentTextField=_hueComponentTextField;
@@ -60,7 +63,10 @@
 - (long long)lightDisplayValueForColor:(id)arg1;
 - (long long)satDisplayValueForColor:(id)arg1;
 - (long long)hueDisplayValueForColor:(id)arg1;
+- (void)setMultiTextFieldValues;
+- (void)setTextFieldValuesWithColor:(id)arg1 ignoringFields:(id)arg2;
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
+- (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 @property(copy, nonatomic) MSColor *color; // @dynamic color;
 - (id)flexibleColor;
 - (id)magnifierButtonDocumentColorSpace:(id)arg1;

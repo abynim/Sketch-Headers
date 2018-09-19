@@ -6,7 +6,7 @@
 
 #import "MSPluginManager.h"
 
-#import "MSActionObserver.h"
+#import "MSActionObserver-Protocol.h"
 
 @class MSDataSupplierManager, NSDictionary, NSString;
 

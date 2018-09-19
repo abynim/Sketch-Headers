@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSLayoutManager.h"
+#import <AppKit/NSLayoutManager.h>
 
 @interface NSLayoutManager (CollectTemporaryAttributes)
 - (void)setTemporaryAttributes:(id)arg1 forKey:(id)arg2;

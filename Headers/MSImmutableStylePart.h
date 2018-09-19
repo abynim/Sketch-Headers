@@ -6,7 +6,7 @@
 
 #import "_MSImmutableStylePart.h"
 
-#import "MSStylePart.h"
+#import "MSStylePart-Protocol.h"
 
 @interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePart>
 {

@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "BCPopoverDelegate.h"
-#import "MSEditArtboardPresetViewControllerDelegate.h"
-#import "NSTableViewDataSource.h"
-#import "NSTableViewDelegate.h"
-#import "NSUserInterfaceValidations.h"
+#import "BCPopoverDelegate-Protocol.h"
+#import "MSEditArtboardPresetViewControllerDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+#import "NSUserInterfaceValidations-Protocol.h"
 
 @class MSArtboardPreset, MSArtboardPresetStore, MSArtboardPresetsCategory, NSArray, NSArrayController, NSSegmentedControl, NSString, NSTableView;
+@protocol MSArtboardPresetsViewControllerDelegate;
 
 @interface MSArtboardPresetsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MSEditArtboardPresetViewControllerDelegate, NSUserInterfaceValidations, BCPopoverDelegate>
 {
@@ -51,6 +52,7 @@
 - (BOOL)tableView:(id)arg1 isGroupRow:(long long)arg2;
 - (id)viewForGroupRow:(long long)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
 - (BOOL)validateUserInterfaceItem:(id)arg1;

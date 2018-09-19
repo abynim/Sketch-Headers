@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSPluginManagingState, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSTimer, NSURL;
+@protocol MSPluginLogAction, MSPluginUpdater;
 
 @interface MSPluginManager : NSObject
 {
@@ -17,7 +18,7 @@
     long long _numberOfIncompatiblePluginsDisabled;
     NSArray *_pluginsWithSketchCompatipleUpdates;
     long long _updatesAddedToWarehouse;
-    id _logAction;
+    id <MSPluginLogAction> _logAction;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
     NSMutableDictionary *_runningCommands;
@@ -51,7 +52,7 @@
 @property(retain, nonatomic) NSMutableDictionary *runningCommands; // @synthesize runningCommands=_runningCommands;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(copy, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
-@property(nonatomic) __weak id logAction; // @synthesize logAction=_logAction;
+@property(nonatomic) __weak id <MSPluginLogAction> logAction; // @synthesize logAction=_logAction;
 @property(nonatomic) BOOL disableAllPlugins; // @synthesize disableAllPlugins=_disableAllPlugins;
 @property(nonatomic) long long updatesAddedToWarehouse; // @synthesize updatesAddedToWarehouse=_updatesAddedToWarehouse;
 @property(nonatomic) NSArray *pluginsWithSketchCompatipleUpdates; // @synthesize pluginsWithSketchCompatipleUpdates=_pluginsWithSketchCompatipleUpdates;

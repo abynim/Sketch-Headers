@@ -10,6 +10,8 @@
 {
 }
 
+- (id)label;
+- (id)tooltip;
 - (void)rotationBarAction:(id)arg1;
 - (void)refreshTouchBarItem;
 - (id)touchBarItem;

@@ -11,8 +11,10 @@
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
++ (id)keyPathsForValuesAffectingUserVisibleContrast;
 - (void)resetToDefaultValues;
 - (BOOL)hasDefaultColorControlsValues;
+@property(nonatomic) double userVisibleContrast;
 
 @end
 

@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "NSMenuDelegate.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class NSMapTable, NSString;
+@protocol MSMenuBuilderDelegate;
 
 @interface MSSortableObjectMenuBuilder : NSObject <NSMenuDelegate>
 {

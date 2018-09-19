@@ -6,20 +6,20 @@
 
 #import "MSInspectorItem.h"
 
-#import "MSArtboardPresetsViewControllerDelegate.h"
-#import "MSEditArtboardPresetViewControllerDelegate.h"
+#import "MSArtboardPresetsViewControllerDelegate-Protocol.h"
+#import "MSEditArtboardPresetViewControllerDelegate-Protocol.h"
 
-@class MSArtboardPresetStore, MSArtboardPresetsViewController, NSButton, NSString;
+@class MSArtboardPresetButton, MSArtboardPresetStore, MSArtboardPresetsViewController, NSString;
 
 @interface MSArtboardPresetInspectorItem : MSInspectorItem <MSArtboardPresetsViewControllerDelegate, MSEditArtboardPresetViewControllerDelegate>
 {
     MSArtboardPresetsViewController *_presetsViewController;
     MSArtboardPresetStore *_presetStore;
-    NSButton *_presetButton;
+    MSArtboardPresetButton *_presetButton;
 }
 
-+ (id)filterSelection:(id)arg1;
-@property(retain, nonatomic) NSButton *presetButton; // @synthesize presetButton=_presetButton;
++ (BOOL)canHandleLayer:(id)arg1;
+@property(retain, nonatomic) MSArtboardPresetButton *presetButton; // @synthesize presetButton=_presetButton;
 @property(readonly, nonatomic) MSArtboardPresetStore *presetStore; // @synthesize presetStore=_presetStore;
 @property(retain, nonatomic) MSArtboardPresetsViewController *presetsViewController; // @synthesize presetsViewController=_presetsViewController;
 - (void).cxx_destruct;
@@ -39,6 +39,8 @@
 - (void)applyOrientation:(long long)arg1;
 - (void)applyPreset:(id)arg1;
 - (id)selectedPreset;
+- (id)displayImageForPreset:(id)arg1;
+- (id)sizeStringForPreset:(id)arg1 match:(unsigned long long)arg2;
 - (void)refreshPresetButtonAndPopover;
 - (void)showPresets:(id)arg1;
 - (void)updateDisplayedValues;

@@ -23,7 +23,6 @@
 - (unsigned long long)roundingModeForLayer:(id)arg1;
 - (unsigned long long)roundModeForShapeHandler;
 - (unsigned long long)roundingMode;
-- (id)imageName;
 - (id)tooltip;
 - (id)label;
 - (id)recipeName;

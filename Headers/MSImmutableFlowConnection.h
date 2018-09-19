@@ -13,6 +13,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (id)bezierPathForRenderingFlowFromParentLayer:(id)arg1 toArtboard:(id)arg2 zoomLevel:(double)arg3;
 - (unsigned long long)flowTypeForTransitionFromParentLayer:(id)arg1 toArtboard:(id)arg2;
+- (BOOL)isValidFlowConnectionInDocumentData:(id)arg1;
 @property(readonly, nonatomic) BOOL isBackAction;
 
 @end

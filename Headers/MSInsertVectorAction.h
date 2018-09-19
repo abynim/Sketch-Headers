@@ -13,6 +13,7 @@
 - (id)touchBarImage;
 - (BOOL)isSelectable;
 - (BOOL)isActive;
+- (id)label;
 - (id)tooltip;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;

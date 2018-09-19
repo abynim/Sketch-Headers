@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
 @class NSArray, NSArrayController;
+@protocol MSStylePartInspectorItemDelegate;
 
 @interface MSStylePartInspectorItem : NSViewController
 {
@@ -20,6 +21,7 @@
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *layers;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

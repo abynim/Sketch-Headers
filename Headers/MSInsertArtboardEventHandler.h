@@ -16,7 +16,6 @@
 
 @property(readonly, nonatomic) NSMutableArray *insertedArtboards; // @synthesize insertedArtboards=_insertedArtboards;
 - (void).cxx_destruct;
-- (BOOL)shouldApplyDefaultStyle;
 - (BOOL)shouldAddInsertFromSelectionItem;
 - (void)updateInspector;
 @property(readonly, nonatomic) MSInsertArtboardInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;

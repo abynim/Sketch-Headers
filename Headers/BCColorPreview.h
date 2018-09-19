@@ -4,11 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSPopUpButton.h"
+#import <AppKit/NSPopUpButton.h>
 
-#import "NSMenuDelegate.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class BCFlexibleColor, NSArray, NSNumberFormatter, NSString;
+@protocol BCColorPreviewDelegate;
 
 @interface BCColorPreview : NSPopUpButton <NSMenuDelegate>
 {
@@ -29,6 +30,7 @@
 @property(nonatomic) __weak id <BCColorPreviewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+- (struct CGRect)contentBounds;
 - (void)drawCheckerboard;
 - (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (void)drawRect:(struct CGRect)arg1;

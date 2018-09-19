@@ -6,29 +6,67 @@
 
 #import "_MSImmutableShapePathLayer.h"
 
-@class MSImmutableStyle;
+#import "MSImmutableLayerPreviewability-Protocol.h"
+#import "MSImmutablePathLayer-Protocol.h"
 
-@interface MSImmutableShapePathLayer : _MSImmutableShapePathLayer
+@class MSImmutableStyle, NSString;
+
+@interface MSImmutableShapePathLayer : _MSImmutableShapePathLayer <MSImmutableLayerPreviewability, MSImmutablePathLayer>
 {
     BOOL _isEditing;
+    MSImmutableStyle *_usedStyle;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)defaultName;
 + (unsigned long long)traits;
+@property(readonly, nonatomic) MSImmutableStyle *usedStyle; // @synthesize usedStyle=_usedStyle;
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void).cxx_destruct;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 @property(readonly, nonatomic) BOOL isRectangle;
 @property(readonly, nonatomic) BOOL isPolyline;
 @property(readonly, nonatomic) BOOL isPolygon;
 @property(readonly, nonatomic) unsigned long long numberOfCurvePoints;
-@property(readonly, nonatomic) MSImmutableStyle *usedStyle;
-- (BOOL)isLayerExportable;
-- (id)calculatePathInBounds;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
+- (BOOL)isLine;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (void)migrateByTakingStyleFrom:(id)arg1;
+- (void)migratePropertiesFromShapeGroup:(id)arg1;
 - (void)migratePropertiesFromV99OrEarlierWithUnarchiver:(id)arg1;
+- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
+- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
+- (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
+- (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
+- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
+- (BOOL)requiresPathDefinition:(id)arg1;
+- (id)svgStyle:(id)arg1;
 - (struct CGRect)relativeRectWithExporter:(id)arg1;
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasMarkers;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) MSImmutableStyle *style;
+@property(readonly) Class superclass;
 
 @end
 

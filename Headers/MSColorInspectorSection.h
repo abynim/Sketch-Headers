@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSAssetPickerHeaderViewDelegate.h"
-#import "MSPresetPickerViewDelegate.h"
-#import "NSScrubberDataSource.h"
-#import "NSScrubberDelegate.h"
-#import "NSScrubberFlowLayoutDelegate.h"
-#import "NSTouchBarDelegate.h"
+#import "MSAssetPickerHeaderViewDelegate-Protocol.h"
+#import "MSPresetPickerViewDelegate-Protocol.h"
+#import "NSScrubberDataSource-Protocol.h"
+#import "NSScrubberDelegate-Protocol.h"
+#import "NSScrubberFlowLayoutDelegate-Protocol.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class MSAssetPickerView, NSArray, NSMapTable, NSString;
+@protocol MSColorInspectorSectionDelegate;
 
 @interface MSColorInspectorSection : NSViewController <MSPresetPickerViewDelegate, MSAssetPickerHeaderViewDelegate, NSTouchBarDelegate, NSScrubberDataSource, NSScrubberDelegate, NSScrubberFlowLayoutDelegate>
 {
@@ -26,6 +27,7 @@
 
 + (id)viewsByAddingColorInspectorSeparators:(id)arg1;
 + (void)refreshColorPickerViewHeight:(id)arg1;
++ (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1 size:(double)arg2 foreColor:(struct CGColor *)arg3 backgroundColor:(struct CGColor *)arg4;
 + (void)initialize;
 @property(retain, nonatomic) NSMapTable *scrubberToAssets; // @synthesize scrubberToAssets=_scrubberToAssets;
 @property(retain, nonatomic) MSAssetPickerView *documentPresetPicker; // @synthesize documentPresetPicker=_documentPresetPicker;

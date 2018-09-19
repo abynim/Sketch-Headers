@@ -11,7 +11,7 @@
 @interface MSLocalDataSupplier : MSDataSupplier
 {
     NSURL *_dataSource;
-    id <MSLocalDataSupplierDelegate> _delegate;
+    BOOL _builtin;
     MSFolderMonitor *_folderMonitor;
     NSArray *_data;
 }
@@ -21,21 +21,23 @@
 + (id)textDataFromFileURL:(id)arg1;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
-@property(nonatomic) __weak id <MSLocalDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) NSURL *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)respondToContentChanged;
-- (id)arrayWithCount:(unsigned long long)arg1 fromArray:(id)arg2;
+- (id)shuffleArray:(id)arg1 truncateToLength:(unsigned long long)arg2;
+- (id)shuffledArrayWithCount:(unsigned long long)arg1 fromArray:(id)arg2;
 - (void)makeTextDataFileSystemMonitor;
 - (void)makeImageDataFileSystemMonitor;
 - (void)makeFolderMonitor;
+- (void)generateDataForCount:(unsigned long long)arg1 dataApplier:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) NSURL *dataSource;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataWithCount:(unsigned long long)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
 @property(readonly, nonatomic) BOOL isBuiltin;
 - (BOOL)valid;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFileSystemURL:(id)arg1;
+- (id)initWithFileSystemURL:(id)arg1 isBuiltin:(BOOL)arg2;
 
 @end
 

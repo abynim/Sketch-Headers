@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSOperation.h"
+#import <Foundation/NSOperation.h>
 
-#import "NSCopying.h"
-#import "NSSecureCoding.h"
-#import "NSURLConnectionDataDelegate.h"
-#import "NSURLConnectionDelegate.h"
+#import "NSCopying-Protocol.h"
+#import "NSSecureCoding-Protocol.h"
+#import "NSURLConnectionDataDelegate-Protocol.h"
+#import "NSURLConnectionDelegate-Protocol.h"
 
-@class AFSecurityPolicy, NSData, NSDictionary, NSError, NSInputStream, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSOutputStream, NSRecursiveLock, NSSet, NSString, NSURLConnection, NSURLCredential, NSURLRequest, NSURLResponse;
+@class AFSecurityPolicy, NSData, NSDictionary, NSError, NSInputStream, NSObject, NSOutputStream, NSRecursiveLock, NSSet, NSString, NSURLConnection, NSURLCredential, NSURLRequest, NSURLResponse;
+@protocol OS_dispatch_group, OS_dispatch_queue;
 
 @interface AFURLConnectionOperation : NSOperation <NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSSecureCoding, NSCopying>
 {

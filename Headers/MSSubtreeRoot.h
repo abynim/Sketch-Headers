@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutableLayerGroup<MSWebExportableRootLayer>, MSImmutableModelObject, NSArray;
+@class MSImmutableDocumentData, MSImmutableLayerGroup, MSImmutableModelObject, NSArray;
+@protocol MSWebExportableRootLayer;
 
 @interface MSSubtreeRoot : NSObject
 {
@@ -19,8 +20,9 @@
 @property(retain, nonatomic) NSArray *ancestorsOfObject; // @synthesize ancestorsOfObject=_ancestorsOfObject;
 @property(retain, nonatomic) MSImmutableModelObject *object; // @synthesize object=_object;
 - (void).cxx_destruct;
-- (struct CGRect)overlayInfluenceRect;
-- (struct CGRect)contentDirtyDiffRect;
+- (id)page;
+- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
+- (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSWebExportableRootLayer> *webExportableRootLayer;
 
 @end

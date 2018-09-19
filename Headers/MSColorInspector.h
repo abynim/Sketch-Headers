@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "BCHSBColorPickerDelegate.h"
-#import "BCPopoverDelegate.h"
-#import "MSColorInspectorSectionDelegate.h"
-#import "MSModeModePickerDelegate.h"
-#import "MSStylePartPreviewButtonDelegate.h"
-#import "NSTouchBarDelegate.h"
+#import "BCHSBColorPickerDelegate-Protocol.h"
+#import "BCPopoverDelegate-Protocol.h"
+#import "MSColorInspectorSectionDelegate-Protocol.h"
+#import "MSModeModePickerDelegate-Protocol.h"
+#import "MSStylePartPreviewButtonDelegate-Protocol.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
+@protocol MSColorInspectorDelegate;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate, BCHSBColorPickerDelegate, MSStylePartPreviewButtonDelegate>
 {
+    BOOL _displayingDiverseStyles;
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
     MSAlternatingView *_rgbFieldsView;
@@ -43,6 +45,7 @@
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 colorInspectorSetupHandler:(CDUnknownBlockType)arg4;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
+@property(nonatomic) BOOL displayingDiverseStyles; // @synthesize displayingDiverseStyles=_displayingDiverseStyles;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
@@ -104,6 +107,8 @@
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
 - (id)currentSection;
+- (long long)colorTypePickerModeForStyle:(id)arg1;
+- (long long)currentColorTypePickerMode;
 - (long long)initialColorTypePickerMode;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
@@ -117,7 +122,6 @@
 - (void)didAddAsset:(id)arg1;
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
-- (void)applyBackgroundArrowColor;
 - (void)colorModeViewDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;

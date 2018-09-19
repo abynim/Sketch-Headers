@@ -4,40 +4,34 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class MSSnapperData;
 
 @interface MSSnapper : NSObject
 {
-    BOOL _useAlignmentGuides;
-    double _zoomValue;
+    BOOL _enabled;
     MSSnapperData *_snapperData;
 }
 
 @property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
-@property(nonatomic) BOOL useAlignmentGuides; // @synthesize useAlignmentGuides=_useAlignmentGuides;
-@property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
 - (id)snappableAnchorsOfItems:(id)arg1 exceptLayers:(id)arg2;
-- (void)_snapAttributes:(id)arg1 toLines:(id)arg2 visible:(BOOL)arg3 snap:(unsigned long long)arg4 resize:(BOOL)arg5;
-- (void)snapAttributes:(id)arg1 toLines:(id)arg2 visible:(BOOL)arg3 snap:(unsigned long long)arg4 resize:(BOOL)arg5;
-- (void)changeItemToRect:(struct CGRect)arg1 usingAnchor:(id)arg2 forLine:(id)arg3 visible:(BOOL)arg4 snap:(unsigned long long)arg5;
-- (void)snapAttributes:(id)arg1 snap:(unsigned long long)arg2 resize:(BOOL)arg3 rulersVisible:(BOOL)arg4;
-- (id)snapLayerKeys:(id)arg1 rulersVisible:(BOOL)arg2;
-- (id)snapItemDuringResize:(id)arg1 rulersVisible:(BOOL)arg2 edges:(unsigned long long)arg3;
-- (id)snapItemDuringMove:(id)arg1 allowSnaps:(unsigned long long)arg2 rulersVisible:(BOOL)arg3;
+- (void)snapToLines:(id)arg1 axis:(unsigned long long)arg2 adjustableAxes:(unsigned long long)arg3 mayResize:(BOOL)arg4 originalRect:(struct CGRect)arg5;
+- (void)snapToLines:(id)arg1 adjustableAxes:(unsigned long long)arg2 mayResize:(BOOL)arg3;
+- (void)changeItemToRect:(struct CGRect)arg1 usingAnchor:(id)arg2 forLine:(id)arg3 adjustableAxes:(unsigned long long)arg4;
+- (void)snapEdgesForAxes:(unsigned long long)arg1 mayResize:(BOOL)arg2;
+- (id)snapDuringSession:(id)arg1;
+- (id)init;
 - (void)snapSizeOnAxis:(unsigned long long)arg1 snap:(unsigned long long)arg2 edges:(long long)arg3;
 - (void)collectSnapsForItem:(id)arg1 withLayer:(id)arg2 onAxis:(unsigned long long)arg3 snap:(unsigned long long)arg4;
 - (unsigned long long)snapSize:(unsigned long long)arg1 edges:(long long)arg2;
-- (BOOL)rect:(struct CGRect)arg1 isOnLineWithRect:(struct CGRect)arg2 inDirection:(unsigned long long)arg3;
 - (struct CGRect)rectBySnappingRect:(struct CGRect)arg1 toClosestDistance:(struct CGRect)arg2 inDirection:(unsigned long long)arg3 mayResize:(BOOL)arg4;
-- (id)findClosestDistanceMatchForItem:(id)arg1 againstItems:(id)arg2 direction:(unsigned long long)arg3;
-- (void)snapAgainstItems:(id)arg1 inDirection:(unsigned long long)arg2 resize:(BOOL)arg3;
-- (id)distanceRectanglesBetweenSnapItems:(id)arg1 inDirection:(unsigned long long)arg2;
-- (id)snappableItemsOnLineFromLayer:(id)arg1 inDirection:(unsigned long long)arg2 order:(long long)arg3;
-- (void)snapOnAxis:(unsigned long long)arg1 resize:(BOOL)arg2;
-- (unsigned long long)snapByDistanceEdges:(long long)arg1 resize:(BOOL)arg2;
+- (id)findClosestDistanceMatchForItem:(id)arg1 againstLayers:(id)arg2 direction:(unsigned long long)arg3;
+- (void)snapAgainstLayers:(id)arg1 alongAxis:(unsigned long long)arg2 mayResize:(BOOL)arg3;
+- (void)snapSpacingOnAxis:(unsigned long long)arg1 mayResize:(BOOL)arg2;
+- (unsigned long long)snapSpacingOnEdges:(unsigned long long)arg1 mayResize:(BOOL)arg2;
 
 @end
 

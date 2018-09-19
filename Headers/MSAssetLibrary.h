@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "BCSortable.h"
-#import "MSLibraryObject.h"
-#import "NSCoding.h"
-#import "QLPreviewItem.h"
+#import "BCSortable-Protocol.h"
+#import "MSLibraryObject-Protocol.h"
+#import "NSCoding-Protocol.h"
+#import "QLPreviewItem-Protocol.h"
 
 @class MSDocumentData, NSDate, NSDictionary, NSString, NSURL;
+@protocol MSAssetLibraryDelegate;
 
 @interface MSAssetLibrary : NSObject <QLPreviewItem, BCSortable, NSCoding, MSLibraryObject>
 {

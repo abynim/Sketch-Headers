@@ -4,36 +4,33 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayerSection.h"
+#import "MSBaseInspectorSection.h"
 
-#import "MSInspectorItemDelegate.h"
+@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, NSArrayController;
 
-@class MSArtboardContentResizeInspectorItem, NSArray, NSString;
-
-@interface MSArtboardInspectorSection : MSLayerSection <MSInspectorItemDelegate>
+@interface MSArtboardInspectorSection : MSBaseInspectorSection
 {
-    MSArtboardContentResizeInspectorItem *_contentResizeItem;
-    NSArray *_items;
+    BOOL _colorEnabled;
+    MSArtboardContentResizeInspectorItem *_resizeItem;
+    MSArtboardBackgroundColorInspectorItem *_colorItem;
+    MSIncludeBackgroundColorInExportInspectorItem *_includeInExportItem;
+    MSIncludeBackgroundColorInInstancesInspectorItem *_includeInInstancesItem;
+    MSPaddingInspectorItem *_paddingItem;
+    NSArrayController *_layersController;
 }
 
-@property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
-@property(retain, nonatomic) MSArtboardContentResizeInspectorItem *contentResizeItem; // @synthesize contentResizeItem=_contentResizeItem;
+@property(nonatomic) BOOL colorEnabled; // @synthesize colorEnabled=_colorEnabled;
+@property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
+@property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
+@property(retain, nonatomic) MSIncludeBackgroundColorInInstancesInspectorItem *includeInInstancesItem; // @synthesize includeInInstancesItem=_includeInInstancesItem;
+@property(retain, nonatomic) MSIncludeBackgroundColorInExportInspectorItem *includeInExportItem; // @synthesize includeInExportItem=_includeInExportItem;
+@property(retain, nonatomic) MSArtboardBackgroundColorInspectorItem *colorItem; // @synthesize colorItem=_colorItem;
+@property(retain, nonatomic) MSArtboardContentResizeInspectorItem *resizeItem; // @synthesize resizeItem=_resizeItem;
 - (void).cxx_destruct;
-- (void)valuesPossiblyChanged:(id)arg1;
-- (void)itemDidResize:(id)arg1;
-- (id)documentForInspectorItem:(id)arg1;
-- (id)views;
-- (void)viewDidLoad;
 - (void)updateItems;
-- (void)assignItemLayers;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setLayers:(id)arg1;
-- (id)initWithLayer:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

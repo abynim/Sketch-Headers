@@ -4,25 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
-#import "GCDWebServerDelegate.h"
-#import "SMKDiskCacheDelegate.h"
+#import "GCDWebServerDelegate-Protocol.h"
+#import "SMKDiskCacheDelegate-Protocol.h"
 
-@class GCDWebServer, NSMutableArray, NSMutableDictionary, NSString, NSURL, SMKDiskCache;
+@class GCDWebServer, NSArray, NSDictionary, NSString, NSURL, SMKDiskCache;
+@protocol SMKWebServerDataSource;
 
 @interface SMKWebServer : NSObject <GCDWebServerDelegate, SMKDiskCacheDelegate>
 {
     id <SMKWebServerDataSource> _dataSource;
     GCDWebServer *_server;
     SMKDiskCache *_diskCache;
-    NSMutableArray *_cachedExports;
-    NSMutableDictionary *_assetAccounts;
+    NSArray *_cachedExports;
+    NSDictionary *_assetAccounts;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *assetAccounts; // @synthesize assetAccounts=_assetAccounts;
-@property(retain) NSMutableArray *cachedExports; // @synthesize cachedExports=_cachedExports;
-@property(retain) SMKDiskCache *diskCache; // @synthesize diskCache=_diskCache;
+@property(copy) NSDictionary *assetAccounts; // @synthesize assetAccounts=_assetAccounts;
+@property(copy) NSArray *cachedExports; // @synthesize cachedExports=_cachedExports;
+@property(retain, nonatomic) SMKDiskCache *diskCache; // @synthesize diskCache=_diskCache;
 @property(retain, nonatomic) GCDWebServer *server; // @synthesize server=_server;
 @property(nonatomic) __weak id <SMKWebServerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;

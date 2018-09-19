@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSWindowController.h"
+#import <AppKit/NSWindowController.h>
 
-#import "NSToolbarDelegate.h"
-#import "NSWindowDelegate.h"
+#import "NSToolbarDelegate-Protocol.h"
+#import "NSWindowDelegate-Protocol.h"
 
 @class MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
 
@@ -33,7 +33,6 @@
 - (id)toolbarSelectableItemIdentifiers:(id)arg1;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 @property(nonatomic) unsigned long long selectedTabIndex;
 - (void)updateWindowFrame;
 - (id)existingPaneWithIdentifier:(id)arg1;

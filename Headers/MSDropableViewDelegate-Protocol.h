@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import "NSObject-Protocol.h"
 
 @class NSArray, NSView;
+@protocol NSDraggingInfo;
 
 @protocol MSDropableViewDelegate <NSObject>
 - (BOOL)view:(NSView *)arg1 performDragOperation:(id <NSDraggingInfo>)arg2;

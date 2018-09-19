@@ -6,7 +6,7 @@
 
 #import "_MSImmutableStyleInnerShadow.h"
 
-#import "MSColorUser.h"
+#import "MSColorUser-Protocol.h"
 
 @class NSString;
 

@@ -10,13 +10,11 @@
 {
 }
 
-- (id)imageName;
 - (BOOL)validate;
 - (BOOL)hasDynamicTitle;
 - (id)labelForToolbar;
 - (id)tooltip;
 - (id)label;
-- (BOOL)showInToolbar;
 - (void)doPerformAction:(id)arg1;
 - (void)addFlow:(id)arg1;
 

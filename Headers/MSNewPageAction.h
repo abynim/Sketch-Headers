@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)menuItemsForMenu:(id)arg1;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;

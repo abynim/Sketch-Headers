@@ -10,8 +10,8 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
-- (BOOL)showInToolbar;
 - (void)doPerformAction:(id)arg1;
 - (void)addFlowBack:(id)arg1;
 - (BOOL)validate;

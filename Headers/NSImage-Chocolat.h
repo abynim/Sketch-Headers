@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSImage.h"
+#import <AppKit/NSImage.h>
 
 @interface NSImage (Chocolat)
 + (id)pngDataByFixingInvalidGamma:(id)arg1;
 + (id)pngDataByInvertingGammaInData:(id)arg1;
 + (id)PDFImageWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 drawingHandler:(CDUnknownBlockType)arg3;
++ (id)bundledImageNamed:(id)arg1;
 - (id)thumbWithSize:(struct CGSize)arg1 cornerRadius:(double)arg2;
-- (id)imageWithShadow:(id)arg1 size:(struct CGSize)arg2;
+- (id)imageWithShadow:(id)arg1 padding:(unsigned long long)arg2;
 - (struct CGSize)pixelSize;
 - (BOOL)isImageSizeLargerThan:(struct CGSize)arg1;
 - (id)imageWithPadding:(unsigned long long)arg1;
@@ -20,13 +21,15 @@
 - (id)bitSafeBitmapImageRep;
 - (id)firstBitmapImageRep;
 - (id)firstBitmapImageRepOfScale:(double)arg1;
+- (id)firstBitmapImageRepOrCreateIfNecessaryPreservingPixelSize:(BOOL)arg1;
 - (id)firstBitmapImageRepOrCreateIfNecessary;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1 fraction:(double)arg2;
 - (void)drawFlippedAtPoint:(struct CGPoint)arg1;
 - (id)verticallyFlipped;
 - (id)horizontallyFlipped;
+- (id)tintedWithColor:(id)arg1 forOwner:(id)arg2;
+- (id)tintedWithColor:(id)arg1 compositingOperation:(unsigned long long)arg2;
 - (id)tintedWithColor:(id)arg1;
-- (id)tintedWithColorNamed:(id)arg1 interfaceTheme:(id)arg2;
 - (id)highlightImage;
 - (id)altImage;
 - (id)pressedImage;

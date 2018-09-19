@@ -10,11 +10,15 @@
 
 @interface _MSImmutableStyledLayer : MSImmutableLayer
 {
+    long long _clippingMaskMode;
+    BOOL _hasClippingMask;
     MSImmutableStyle *_style;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableStyle *style; // @synthesize style=_style;
+@property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
+@property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
@@ -25,7 +29,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

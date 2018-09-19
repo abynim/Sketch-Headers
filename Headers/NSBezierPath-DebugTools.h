@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSBezierPath.h"
+#import <AppKit/NSBezierPath.h>
 
 @interface NSBezierPath (DebugTools)
 - (void)appendArrowAtPoint_ms:(struct CGPoint)arg1 tangent:(struct MSLine)arg2 size:(double)arg3 scale:(double)arg4;

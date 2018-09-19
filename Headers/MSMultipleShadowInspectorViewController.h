@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSMultipleStylePartInspectorViewController.h"
+#import "MSMultipleColorStylePartInspectorViewController.h"
 
-@class MSTextLabelForUpDownField, NSButton;
+@class MSTextLabelForUpDownField, NSButton, NSLayoutConstraint;
 
-@interface MSMultipleShadowInspectorViewController : MSMultipleStylePartInspectorViewController
+@interface MSMultipleShadowInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
     NSButton *_addStylePartButton;
     MSTextLabelForUpDownField *_xOffsetField;
     MSTextLabelForUpDownField *_yOffsetField;
     MSTextLabelForUpDownField *_blurRadiusField;
     MSTextLabelForUpDownField *_spreadField;
+    NSLayoutConstraint *_buttonsTrailingConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *buttonsTrailingConstraint; // @synthesize buttonsTrailingConstraint=_buttonsTrailingConstraint;
 @property(retain, nonatomic) MSTextLabelForUpDownField *spreadField; // @synthesize spreadField=_spreadField;
 @property(retain, nonatomic) MSTextLabelForUpDownField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
 @property(retain, nonatomic) MSTextLabelForUpDownField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;
@@ -24,7 +26,6 @@
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 - (void).cxx_destruct;
 - (id)views;
-- (void)validateSpecialButtons;
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (BOOL)shouldHideAddStylePartButton;

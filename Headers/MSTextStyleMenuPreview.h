@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @interface MSTextStyleMenuPreview : NSObject
 {
 }
 
++ (id)ensureAttributes:(id)arg1 areVisibleAgainstColor:(id)arg2;
 + (id)attributedTitleForTextStyle:(id)arg1 colorSpace:(id)arg2;
 + (void)applyTextStylesToMenuItem:(id)arg1 colorSpace:(id)arg2;
 + (id)ensureAttributes:(id)arg1 areVisibleDrawingInMenuItem:(id)arg2;

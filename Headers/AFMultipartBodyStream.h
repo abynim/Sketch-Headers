@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSInputStream.h"
+#import <Foundation/NSInputStream.h>
 
-#import "NSCopying.h"
-#import "NSStreamDelegate.h"
+#import "NSCopying-Protocol.h"
+#import "NSStreamDelegate-Protocol.h"
 
 @class AFHTTPBodyPart, NSEnumerator, NSError, NSMutableArray, NSMutableData, NSOutputStream, NSString;
+@protocol NSStreamDelegate;
 
 @interface AFMultipartBodyStream : NSInputStream <NSCopying, NSStreamDelegate>
 {

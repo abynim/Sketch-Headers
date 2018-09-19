@@ -6,7 +6,7 @@
 
 #import "_MSStyleShadow.h"
 
-#import "MSColorConvertible.h"
+#import "MSColorConvertible-Protocol.h"
 
 @class NSString;
 
@@ -19,6 +19,8 @@
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)blendingViewForColorInspector:(id)arg1;
+- (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 - (id)CSSAttributeString;
 
 // Remaining properties

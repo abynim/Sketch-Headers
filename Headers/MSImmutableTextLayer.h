@@ -6,33 +6,32 @@
 
 #import "_MSImmutableTextLayer.h"
 
-#import "MSColorUser.h"
-#import "MSFirstLineTypesetterDelegate.h"
-#import "NSLayoutManagerDelegate.h"
+#import "MSColorUser-Protocol.h"
+#import "MSFirstLineTypesetterDelegate-Protocol.h"
+#import "NSLayoutManagerDelegate-Protocol.h"
 
-@class MSTextLayout, NSAttributedString, NSObject, NSString, NSValue;
+@class MSTextLayout, NSAttributedString, NSObject, NSString;
 
 @interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
 {
+    MSTextLayout *_textLayout;
+    // Error parsing type: A^v, name: _textLayoutAtomicPointer
     NSObject *_calculateTextLayoutAtomicity;
     BOOL _isEditingText;
-    MSTextLayout *_textLayout;
-    NSValue *_transientGlyphBoundsValue;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
-@property(retain, nonatomic) NSValue *transientGlyphBoundsValue; // @synthesize transientGlyphBoundsValue=_transientGlyphBoundsValue;
 - (void).cxx_destruct;
-- (id)calculatePathInBounds;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
-@property(readonly, nonatomic) MSTextLayout *textLayout; // @synthesize textLayout=_textLayout;
+@property(readonly, nonatomic) MSTextLayout *textLayout;
 - (double)lineHeight;
 @property(readonly, copy, nonatomic) NSString *stringValue;
 @property(readonly, copy, nonatomic) NSAttributedString *attributedStringValue;
@@ -50,11 +49,15 @@
 @property(readonly, nonatomic) struct CGPoint drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;
-- (struct CGRect)calculateInfluenceRectForBounds;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (BOOL)shouldBeIncludedInParentPath;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (id)overridePointsWithParent:(id)arg1;
+- (id)overridePreviewImageInDocument:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (BOOL)canOverridePoint:(id)arg1;
 - (void)updateColorCounter:(id)arg1;
 - (void)migratePropertiesFromV97OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithUnarchiver:(id)arg1;

@@ -14,7 +14,7 @@
     MSCloudPreferencesViewController *_currentViewController;
 }
 
-+ (long long)cloudLoginOverrideBehaviorWithUser:(id)arg1;
++ (long long)cloudLoginOverrideBehavior;
 + (long long)cloudLoginSwitchPlatformBehavior;
 + (void)loginWithURLParameters:(id)arg1;
 + (id)toolbarIcon;
@@ -23,10 +23,10 @@
 @property(retain, nonatomic) MSCloudPreferencesViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
 - (void).cxx_destruct;
+- (id)willPresentError:(id)arg1;
 - (void)cloudURLDidOpenNotification:(id)arg1;
 - (void)applicationDidOpenURL:(id)arg1;
 - (void)platformDidChangeNotification:(id)arg1;
-- (void)applicationDidBecomeActiveNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
 - (void)fixFirstResponder;
 - (void)updateWindowFrame;

@@ -7,6 +7,7 @@
 #import "MSDocumentAction.h"
 
 @class MSForeignObjectMenuBuilder;
+@protocol NSObject;
 
 @interface MSInsertMenuAction : MSDocumentAction
 {

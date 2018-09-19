@@ -10,6 +10,8 @@
 
 @interface _MSStyledLayer : MSLayer
 {
+    long long _clippingMaskMode;
+    BOOL _hasClippingMask;
     MSStyle *_style;
 }
 
@@ -24,6 +26,8 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
+@property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
+@property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

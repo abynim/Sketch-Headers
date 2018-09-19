@@ -10,9 +10,9 @@
 {
 }
 
+- (id)tooltip;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
-- (id)imageName;
 
 @end
 

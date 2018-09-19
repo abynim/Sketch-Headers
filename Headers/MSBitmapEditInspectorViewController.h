@@ -4,32 +4,65 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
-#import "MSInspectorChildController.h"
+#import "BCPopoverDelegate-Protocol.h"
+#import "MSColorInspectorDelegate-Protocol.h"
+#import "MSInspectorChildController-Protocol.h"
 
-@class MSBitmapEditEventHandler, NSButton, NSString;
+@class BCPopover, MSBitmapEditEventHandler, NSButton, NSString, NSTextField;
 
-@interface MSBitmapEditInspectorViewController : NSViewController <MSInspectorChildController>
+@interface MSBitmapEditInspectorViewController : NSViewController <BCPopoverDelegate, MSColorInspectorDelegate, MSInspectorChildController>
 {
-    BOOL _hasSelection;
+    long long _currentMode;
     MSBitmapEditEventHandler *_eventHandler;
-    NSButton *_cropButton;
+    NSButton *_rectSelectionButton;
+    NSButton *_magicWandButton;
+    BCPopover *_popover;
     NSButton *_invertButton;
+    NSButton *_cropButton;
+    NSButton *_fillButton;
+    NSTextField *_widthField;
+    NSTextField *_heightField;
+    NSTextField *_invertLabel;
+    NSTextField *_cropLabel;
+    NSTextField *_fillLabel;
+    struct CGSize _selectionSize;
 }
 
-@property(retain, nonatomic) NSButton *invertButton; // @synthesize invertButton=_invertButton;
+@property(retain, nonatomic) NSTextField *fillLabel; // @synthesize fillLabel=_fillLabel;
+@property(retain, nonatomic) NSTextField *cropLabel; // @synthesize cropLabel=_cropLabel;
+@property(retain, nonatomic) NSTextField *invertLabel; // @synthesize invertLabel=_invertLabel;
+@property(retain, nonatomic) NSTextField *heightField; // @synthesize heightField=_heightField;
+@property(retain, nonatomic) NSTextField *widthField; // @synthesize widthField=_widthField;
+@property(retain, nonatomic) NSButton *fillButton; // @synthesize fillButton=_fillButton;
 @property(retain, nonatomic) NSButton *cropButton; // @synthesize cropButton=_cropButton;
+@property(retain, nonatomic) NSButton *invertButton; // @synthesize invertButton=_invertButton;
+@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(retain, nonatomic) NSButton *magicWandButton; // @synthesize magicWandButton=_magicWandButton;
+@property(retain, nonatomic) NSButton *rectSelectionButton; // @synthesize rectSelectionButton=_rectSelectionButton;
 @property(nonatomic) MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
-@property(nonatomic) BOOL hasSelection; // @synthesize hasSelection=_hasSelection;
+@property(nonatomic) struct CGSize selectionSize; // @synthesize selectionSize=_selectionSize;
+@property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (id)views;
+- (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
+- (void)colorMagnifierAction:(id)arg1;
+- (void)colorizeAction:(id)arg1;
 - (void)finishEditing:(id)arg1;
 - (void)cropAction:(id)arg1;
 - (void)invertAction:(id)arg1;
+- (void)magicWandAction:(id)arg1;
+- (void)rectSelectionAction:(id)arg1;
+@property(readonly, nonatomic) BOOL hasSelection;
 - (void)refresh;
+- (id)buttonLabels;
+- (id)actionButtons;
+- (void)dismissViewController:(id)arg1;
+- (void)viewWillDisappear;
 - (void)viewDidLoad;
 
 // Remaining properties

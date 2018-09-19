@@ -10,5 +10,7 @@
 {
 }
 
+@property(readonly, nonatomic) BOOL hasOpacity;
+
 @end
 

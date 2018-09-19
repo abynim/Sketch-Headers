@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSDocumentController.h"
+#import <AppKit/NSDocumentController.h>
 
 @interface MSDocumentController : NSDocumentController
 {
@@ -16,6 +16,7 @@
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)typeForContentsOfURL:(id)arg1 error:(id *)arg2;
+- (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 context:(id)arg3 callback:(id)arg4;
 
 @end
 

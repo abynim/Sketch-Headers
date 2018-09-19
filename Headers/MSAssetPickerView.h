@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
+#import <AppKit/NSView.h>
 
-#import "NSScrubberDataSource.h"
-#import "NSScrubberDelegate.h"
-#import "NSTouchBarDelegate.h"
+#import "NSScrubberDataSource-Protocol.h"
+#import "NSScrubberDelegate-Protocol.h"
+#import "NSTouchBarDelegate-Protocol.h"
 
 @class MSAssetCollection, NSIndexSet, NSString;
+@protocol MSPresetPickerViewDelegate;
 
 @interface MSAssetPickerView : NSView <NSScrubberDataSource, NSScrubberDelegate, NSTouchBarDelegate>
 {

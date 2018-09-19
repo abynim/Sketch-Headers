@@ -6,16 +6,16 @@
 
 #import "_MSSliceLayer.h"
 
-#import "MSColorConvertible.h"
-#import "MSLayerWithMutableBackgroundColor.h"
+#import "MSColorConvertible-Protocol.h"
+#import "MSLayerPreviewability-Protocol.h"
+#import "MSLayerWithMutableBackgroundColor-Protocol.h"
 
-@class NSString;
+@class MSColor, NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithMutableBackgroundColor, MSColorConvertible>
+@interface MSSliceLayer : _MSSliceLayer <MSLayerPreviewability, MSLayerWithMutableBackgroundColor, MSColorConvertible>
 {
 }
 
-+ (id)keyPathsForValuesAffectingPreviewImages;
 + (id)sliceLayerFromLayer:(id)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
@@ -25,11 +25,16 @@
 - (void)setName:(id)arg1;
 - (BOOL)shouldDrawSelectionStroke;
 - (BOOL)isActive;
-- (unsigned long long)filterType;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (unsigned long long)filterTypeMask;
+- (BOOL)canChangeBooleanOperation;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
 
 // Remaining properties
+@property(retain, nonatomic) MSColor *backgroundColor;
+@property(readonly, nonatomic) unsigned long long badgeType;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL hasBackgroundColor;

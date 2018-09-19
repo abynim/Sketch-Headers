@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject.h"
+#import <objc/NSObject.h>
 
 @class NSSet;
 
@@ -48,6 +48,8 @@
 - (id)bezierPath;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
 - (struct CGRect)bounds;
+@property(readonly, nonatomic) double flatness;
+- (id)normalizedSegment;
 @property(readonly, nonatomic) double curviness;
 - (id)reversedSegment;
 - (id)representationUsingType:(unsigned long long)arg1;
@@ -55,6 +57,7 @@
 - (id)quadraticRepresentation;
 - (id)lineRepresentation;
 - (id)segmentWithInset:(double)arg1;
+- (id)segmentsWithFlatness:(double)arg1;
 - (id)segmentWithTransform:(struct CGAffineTransform)arg1;
 - (id)segmentByMovingPointAtOffset:(double)arg1 toLocation:(struct CGPoint)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform transformForXAxisAlignment;

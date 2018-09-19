@@ -6,9 +6,10 @@
 
 #import "MSPopoverAction.h"
 
-#import "MSCloudShareUploadControllerDelegate.h"
+#import "MSCloudShareUploadControllerDelegate-Protocol.h"
 
 @class MSCloudShareUploadController, NSArray, NSString, NSViewController, SCKAPIOperation;
+@protocol MSCloudExportableDocument;
 
 @interface MSCloudAction : MSPopoverAction <MSCloudShareUploadControllerDelegate>
 {
@@ -31,21 +32,21 @@
 - (void).cxx_destruct;
 - (void)setCloudPlatform:(id)arg1;
 - (BOOL)validate;
-- (BOOL)validateToolbarItem:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 @property(readonly, nonatomic) NSArray *progressImages; // @synthesize progressImages=_progressImages;
 - (void)updateProgressImage;
 - (id)image;
+- (BOOL)popoverShouldAnimateOnContentFrameDidChange:(id)arg1;
 - (id)label;
 - (id)tooltip;
-- (BOOL)showInToolbar;
+- (BOOL)mayShowInToolbar;
 - (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (id)willPresentError:(id)arg1;
 - (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
 - (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
 - (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
-- (void)startUploadUpdating:(id)arg1;
+- (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
 
 // Remaining properties

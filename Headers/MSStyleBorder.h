@@ -6,7 +6,7 @@
 
 #import "_MSStyleBorder.h"
 
-#import "MSColorConvertible.h"
+#import "MSColorConvertible-Protocol.h"
 
 @class NSString;
 
@@ -15,6 +15,7 @@
 }
 
 + (id)defaultFillColor;
+- (id)asFill;
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (long long)patternFillType;

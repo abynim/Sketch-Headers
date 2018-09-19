@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSViewController.h"
+#import <AppKit/NSViewController.h>
 
 @class MSPreferencesController;
 
@@ -19,6 +19,7 @@
 + (id)identifier;
 @property(readonly, nonatomic) __weak MSPreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
 - (void).cxx_destruct;
+- (void)didSwitchToPane;
 - (void)dismissAlertSheet;
 - (void)dismissAlertWindow:(id)arg1;
 - (id)initWithPreferencesController:(id)arg1;
