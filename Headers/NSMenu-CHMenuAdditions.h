@@ -7,6 +7,7 @@
 #import <AppKit/NSMenu.h>
 
 @interface NSMenu (CHMenuAdditions)
+- (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3 deferred:(BOOL)arg4 triggerControlViewActionOnZeroItems:(BOOL)arg5;
 - (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3 deferred:(BOOL)arg4;
 - (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3;
 - (void)replaceMenuItem:(id)arg1 withMenuItem_ms:(id)arg2;
@@ -18,6 +19,7 @@
 - (id)addItemWithTitle:(id)arg1 font:(id)arg2 target:(id)arg3 action:(SEL)arg4;
 - (id)addSmallItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
 - (id)addSmallItalicItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3;
+- (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 image:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 imageNamed:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 submenu:(id)arg4;
 - (id)addItemWithTitle:(id)arg1 target:(id)arg2 action:(SEL)arg3 representedObject:(id)arg4;

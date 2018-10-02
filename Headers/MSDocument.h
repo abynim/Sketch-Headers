@@ -16,16 +16,17 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonWindowController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSResponder, NSString, NSTimer, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
-    BOOL _layerListRefreshIsScheduled;
+    BOOL _supplementaryViewRefreshIsScheduled;
     BOOL _temporarilyDisableSelectionHiding;
     BOOL _cacheFlushInProgress;
     BOOL _hasScheduledDocumentDidChange;
+    BOOL _hasScheduledInspectorReload;
     NSArray *_exportableLayerSelection;
     NSWindow *_documentWindow;
     NSView *_messageView;
@@ -44,12 +45,12 @@
     MSContentDrawViewController *_currentContentViewController;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
-    MSImmutableDocumentData *_documentDataUsedForLayerList;
+    MSImmutableDocumentData *_documentDataUsedForSupplementaryViews;
     NSMutableSet *_layersWithHiddenSelectionHandles;
     NSTimer *_resetHiddenSelectionHandlesTimer;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
-    MSBackButtonWindowController *_backButtonController;
+    MSBackButtonController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
     MSLayerArray *_previousSelectedLayers;
 }
@@ -61,17 +62,18 @@
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
+@property(nonatomic) BOOL hasScheduledInspectorReload; // @synthesize hasScheduledInspectorReload=_hasScheduledInspectorReload;
 @property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
-@property(retain, nonatomic) MSBackButtonWindowController *backButtonController; // @synthesize backButtonController=_backButtonController;
+@property(retain, nonatomic) MSBackButtonController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
 @property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
 @property(retain, nonatomic) NSTimer *resetHiddenSelectionHandlesTimer; // @synthesize resetHiddenSelectionHandlesTimer=_resetHiddenSelectionHandlesTimer;
 @property(retain, nonatomic) NSMutableSet *layersWithHiddenSelectionHandles; // @synthesize layersWithHiddenSelectionHandles=_layersWithHiddenSelectionHandles;
 @property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
-@property(nonatomic) BOOL layerListRefreshIsScheduled; // @synthesize layerListRefreshIsScheduled=_layerListRefreshIsScheduled;
-@property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForLayerList; // @synthesize documentDataUsedForLayerList=_documentDataUsedForLayerList;
+@property(nonatomic) BOOL supplementaryViewRefreshIsScheduled; // @synthesize supplementaryViewRefreshIsScheduled=_supplementaryViewRefreshIsScheduled;
+@property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForSupplementaryViews; // @synthesize documentDataUsedForSupplementaryViews=_documentDataUsedForSupplementaryViews;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
@@ -93,6 +95,7 @@
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
 - (void)installedFontsDidChange;
+- (void)returnToDefaultFirstResponder;
 - (id)previewColorSpaceForItem:(id)arg1;
 - (void)warnIfPluginsDisabled;
 - (void)warnIfEditingLibrary;
@@ -104,6 +107,7 @@
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
 - (void)libraryControllerDidChange:(id)arg1;
+@property(nonatomic) BOOL pageListCollapsed;
 @property(nonatomic) double pageListHeight;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
@@ -124,13 +128,15 @@
 - (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
+- (BOOL)layerHasHoverStateInCanvas:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
-- (void)refreshLayerListIfNecessary;
-- (void)scheduleLayerListRefresh;
+- (void)refreshInspectorIfNecessary:(id)arg1;
+- (void)refreshLayerListIfNecessary:(id)arg1;
+- (void)scheduleSupplementaryViewRefresh;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
@@ -144,7 +150,6 @@
 - (void)toggleClickThrough:(id)arg1;
 - (BOOL)isInspectorVisible;
 - (BOOL)isLayerListVisible;
-- (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 - (void)windowDidExitVersionBrowser:(id)arg1;
 - (void)windowDidEnterVersionBrowser:(id)arg1;
 - (BOOL)isRulersVisible;
@@ -155,6 +160,7 @@
 - (id)artboards;
 - (id)normalHandler;
 - (id)toggleHandlerClass:(Class)arg1;
+- (void)scheduleReloadInspector;
 - (void)reloadInspector;
 - (void)reloadView;
 - (void)refreshOverlay;
@@ -177,7 +183,6 @@
 - (id)currentHorizontalRulerData;
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
-- (void)documentData:(id)arg1 sharedObjectDidChange:(id)arg2;
 - (void)performPostPageSwitchUpdates;
 - (void)documentData:(id)arg1 didChangeToPage:(id)arg2;
 - (BOOL)inspectorIsMain;
@@ -201,10 +206,10 @@
 - (void)setCurrentArtboard:(id)arg1;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
+- (void)updateHistoryWithSelection;
 - (void)layerSelectionDidChange;
+- (BOOL)hasLayerSelectionChanged;
 - (id)selectedLayers;
-- (void)coalescedSelectionDidChangeNotification:(id)arg1;
-- (void)layerSelectionMightHaveChanged;
 - (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;
 - (void)exportSliceLayers:(id)arg1;
@@ -228,6 +233,7 @@
 - (void)awakeFromNib;
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
+@property(readonly, nonatomic) NSResponder *defaultFirstResponder;
 - (id)contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)notifyIfDocumentResignedCurrent;
@@ -243,12 +249,14 @@
 - (id)window;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
+- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)close;
 - (void)setViewsToNil;
 - (void)setViewControllersToNil;
 - (void)setDelegatesToNil;
 - (void)createActions;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace;
+@property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
 @property(retain, nonatomic) SCKShare *cloudShare;
@@ -257,6 +265,7 @@
 - (id)hudDocumentData;
 - (void)hudSetMonitor:(id)arg1;
 - (id)hudClientName;
+- (void)saveDocumentToURL:(id)arg1 saveMode:(unsigned long long)arg2 context:(id)arg3 callback:(id)arg4;
 - (void)showMessage:(id)arg1;
 - (id)dataForRequest:(id)arg1 ofType:(id)arg2;
 - (void)saveExportRequest:(id)arg1 toFile:(id)arg2;

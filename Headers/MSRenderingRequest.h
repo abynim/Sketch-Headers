@@ -28,7 +28,6 @@
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) long long renderingQuality;
 @property(readonly, nonatomic) BOOL skipLayerInclusionTests;
 @property(readonly, nonatomic) BOOL shouldFlipShadows;
 @property(readonly, nonatomic, getter=isPrinting) BOOL printing;

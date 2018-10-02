@@ -6,23 +6,30 @@
 
 #import <AppKit/NSPopUpButton.h>
 
+#import "NSMenuDelegate-Protocol.h"
+
 @class MSForeignObjectMenuBuilder, MSShareableObjectReference, NSArray, NSDictionary, NSString;
 
-@interface MSShareableObjectPopUpButton : NSPopUpButton
+@interface MSShareableObjectPopUpButton : NSPopUpButton <NSMenuDelegate>
 {
+    BOOL _needsRebuildMenu;
     MSForeignObjectMenuBuilder *_menuBuilder;
     NSArray *_layers;
     MSShareableObjectReference *_selectedObjectReference;
     NSArray *_objectLibraryMapping;
 }
 
+@property(nonatomic) BOOL needsRebuildMenu; // @synthesize needsRebuildMenu=_needsRebuildMenu;
 @property(retain, nonatomic) NSArray *objectLibraryMapping; // @synthesize objectLibraryMapping=_objectLibraryMapping;
 @property(retain, nonatomic) MSShareableObjectReference *selectedObjectReference; // @synthesize selectedObjectReference=_selectedObjectReference;
 @property(nonatomic) __weak NSArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
+- (void)menuNeedsUpdate:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)awakeFromNib;
+- (void)update;
 - (void)updateWithMenuBuilder:(id)arg1 forLayers:(id)arg2;
 - (void)addOriganiseMenu;
 - (void)addCreateNewMenu;
@@ -37,13 +44,17 @@
 - (void)addTitleMenuItem;
 - (BOOL)containsOutOfSyncInstance;
 - (id)masterObjects;
-- (id)localizedTypeString:(id)arg1;
-@property(readonly, nonatomic) NSString *objectTypeName;
 @property(readonly, nonatomic) NSDictionary *menuItemSelectorDictionary;
 @property(readonly, nonatomic) unsigned long long objectType;
 - (id)textStyleMenuItemSelectorDictionary;
 - (id)layerStyleMenuItemSelectorDictionary;
 - (id)symbolMenuItemSelectorDictionary;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

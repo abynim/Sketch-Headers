@@ -4,24 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTextField.h>
+#import "MSTextFieldWithDropDownMenu.h"
 
 @class NSArray;
 
-@interface MSExportFormatNamingTextField : NSTextField
+@interface MSExportFormatNamingTextField : MSTextFieldWithDropDownMenu
 {
     NSArray *_exportFormats;
 }
 
-+ (id)sharedFieldEditor;
 + (Class)cellClass;
 @property(copy, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void).cxx_destruct;
 - (void)applyNamingScheme:(id)arg1;
-- (void)textDidChange:(id)arg1;
-- (void)resetCursorRects;
-- (void)mouseDown:(id)arg1;
-- (struct CGRect)dropDownArrowHitTestRect;
+- (id)popupMenu;
 
 @end
 

@@ -8,22 +8,26 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSBaseGrid, NSColorWell, NSMapTable, NSString;
+@class MSBaseGrid, MSColorWell, NSColor, NSMapTable, NSString;
 
 @interface MSGridSheetBase : CHSheetController <NSWindowDelegate>
 {
     NSMapTable *_originalSettings;
     MSBaseGrid *_templateObject;
-    NSColorWell *_darkColorWell;
-    NSColorWell *_lightColorWell;
+    MSColorWell *_darkColorButton;
+    MSColorWell *_lightColorButton;
 }
 
-@property(retain, nonatomic) NSColorWell *lightColorWell; // @synthesize lightColorWell=_lightColorWell;
-@property(retain, nonatomic) NSColorWell *darkColorWell; // @synthesize darkColorWell=_darkColorWell;
+@property(retain, nonatomic) MSColorWell *lightColorButton; // @synthesize lightColorButton=_lightColorButton;
+@property(retain, nonatomic) MSColorWell *darkColorButton; // @synthesize darkColorButton=_darkColorButton;
 @property(copy, nonatomic) MSBaseGrid *templateObject; // @synthesize templateObject=_templateObject;
 @property(retain, nonatomic) NSMapTable *originalSettings; // @synthesize originalSettings=_originalSettings;
 - (void).cxx_destruct;
-- (void)dealloc;
+- (void)lightColorUpdated:(id)arg1;
+- (void)darkColorUpdated:(id)arg1;
+- (void)prepareColorPickers;
+@property(nonatomic) __weak NSColor *lightColor;
+@property(nonatomic) __weak NSColor *darkColor;
 - (void)confirm:(id)arg1;
 - (void)cancelAction:(id)arg1;
 - (void)turnOffForcedDrawing;
@@ -35,6 +39,7 @@
 - (void)applyTemplateObjectToLayer:(id)arg1;
 - (void)applyObject:(id)arg1 toLayer:(id)arg2;
 - (id)defaultObject;
+- (id)document;
 - (id)baseObjectForRootLayer:(id)arg1;
 
 // Remaining properties

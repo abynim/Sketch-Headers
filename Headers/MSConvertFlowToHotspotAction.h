@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)validate;
 - (void)convertFlowToHotspot:(id)arg1;

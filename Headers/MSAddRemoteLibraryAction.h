@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)startDownloadingLibrary:(id)arg1;
 - (void)addAppcastURL:(id)arg1;

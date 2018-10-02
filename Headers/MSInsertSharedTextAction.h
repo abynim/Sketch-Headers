@@ -17,9 +17,10 @@
 
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
+- (id)tooltip;
 - (id)label;
 - (id)sharedObjectName;
-- (id)imageName;
+- (id)imageForToolbar;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;

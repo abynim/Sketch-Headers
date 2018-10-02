@@ -6,6 +6,8 @@
 
 #import "_MSOverrideValue.h"
 
+@class NSString;
+
 @interface MSOverrideValue : _MSOverrideValue
 {
     BOOL _isInherited;
@@ -17,6 +19,7 @@
 - (void).cxx_destruct;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) NSString *attributeName;
 - (void)addPredecessor:(id)arg1;
 - (id)description;
 - (id)initWithName:(id)arg1 value:(id)arg2;

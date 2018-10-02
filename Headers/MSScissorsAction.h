@@ -11,6 +11,7 @@
 }
 
 - (id)tooltip;
+- (id)label;
 - (BOOL)validate;
 - (void)scissors:(id)arg1;
 

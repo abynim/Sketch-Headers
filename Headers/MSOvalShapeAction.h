@@ -11,6 +11,7 @@
 }
 
 - (id)touchBarImage;
+- (id)label;
 - (id)tooltip;
 - (void)ovalShape:(id)arg1;
 

@@ -9,6 +9,7 @@
 @interface NSBezierPath (CHBezierPathAdditions)
 + (id)bezierCurveFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)bezierPathFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
++ (id)bezierPathWithCGPath_bc:(struct CGPath *)arg1;
 - (void)writeDebugFileNamed:(id)arg1;
 - (BOOL)isClosed;
 - (struct CGRect)safeBounds;
@@ -18,7 +19,6 @@
 - (struct CGPath *)mutableCGPathCopy;
 - (struct CGPath *)createCGPath_bc;
 - (id)outlinePath;
-- (void)applyPropertiesToContext:(struct CGContext *)arg1;
 - (void)clipInBlock:(CDUnknownBlockType)arg1;
 - (void)strokeInside;
 - (void)strokeOutside;

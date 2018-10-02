@@ -26,7 +26,6 @@
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
 - (BOOL)canDuplicate;
-- (id)findSelectedLayer;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
@@ -43,7 +42,6 @@
 - (BOOL)hasSelectedPoint;
 - (BOOL)canInsertPointAtMouse:(struct CGPoint)arg1;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)handleLinesColor;

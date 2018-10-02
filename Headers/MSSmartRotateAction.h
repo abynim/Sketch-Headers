@@ -10,6 +10,7 @@
 {
 }
 
+- (id)tooltip;
 - (id)label;
 - (BOOL)isSelectable;
 - (BOOL)validate;

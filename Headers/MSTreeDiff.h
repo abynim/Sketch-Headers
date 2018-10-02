@@ -10,13 +10,21 @@
 
 @interface MSTreeDiff : NSObject
 {
+    BOOL _allTraitsCompared;
+    BOOL _traitsCalculated;
     MSImmutableDocumentData *_firstDoc;
     MSImmutableDocumentData *_secondDoc;
     NSMutableArray *_mutableDiffs;
     NSMutableArray *_firstObjectAncestorStack;
     NSMutableArray *_secondObjectAncestorStack;
+    unsigned long long _combinedTraits;
+    unsigned long long _allTraits;
 }
 
+@property(nonatomic) BOOL traitsCalculated; // @synthesize traitsCalculated=_traitsCalculated;
+@property(nonatomic) BOOL allTraitsCompared; // @synthesize allTraitsCompared=_allTraitsCompared;
+@property(nonatomic) unsigned long long allTraits; // @synthesize allTraits=_allTraits;
+@property(nonatomic) unsigned long long combinedTraits; // @synthesize combinedTraits=_combinedTraits;
 @property(retain, nonatomic) NSMutableArray *secondObjectAncestorStack; // @synthesize secondObjectAncestorStack=_secondObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *firstObjectAncestorStack; // @synthesize firstObjectAncestorStack=_firstObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *mutableDiffs; // @synthesize mutableDiffs=_mutableDiffs;
@@ -26,9 +34,10 @@
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
+- (void)buildPropertyTraitsIfNeeded;
 - (id)description;
-- (struct CGRect)overlayDirtyDiffRect;
-- (struct CGRect)contentDirtyDiffRect;
+- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
+- (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
 - (void)diffObject:(id)arg1 withObject:(id)arg2;
 - (void)diffObjects:(id)arg1 withObjects:(id)arg2;

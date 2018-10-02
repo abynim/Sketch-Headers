@@ -15,8 +15,10 @@
 {
     id _refreshDelegate;
     MSUpDownController *_upDownController;
+    double _minimumIncrementValue;
 }
 
+@property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
 @property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;

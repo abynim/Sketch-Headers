@@ -24,7 +24,6 @@
 - (void)reset;
 - (void)close;
 - (void)dealloc;
-- (void)finalize;
 
 @end
 

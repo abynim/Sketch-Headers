@@ -52,6 +52,7 @@
 - (BOOL)tableView:(id)arg1 isGroupRow:(long long)arg2;
 - (id)viewForGroupRow:(long long)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
 - (BOOL)validateUserInterfaceItem:(id)arg1;

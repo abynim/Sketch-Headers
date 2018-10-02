@@ -4,35 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSCustomShapeSection.h"
+#import "MSSingleItemInspectorSection.h"
 
-#import "MSInspectorValueAdaptorDelegate-Protocol.h"
-
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSArrayController, NSString;
-
-@interface MSStarShapeSection : MSCustomShapeSection <MSInspectorValueAdaptorDelegate>
+@interface MSStarShapeSection : MSSingleItemInspectorSection
 {
-    NSArrayController *_layersController;
-    MSUpDownTextField *_radiusField;
-    MSUpDownTextField *_pointsField;
-    MSMathInspectorValueAdaptor *_radiusAdaptor;
-    MSMathInspectorValueAdaptor *_pointsAdaptor;
 }
 
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *pointsAdaptor; // @synthesize pointsAdaptor=_pointsAdaptor;
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
-@property(retain, nonatomic) MSUpDownTextField *pointsField; // @synthesize pointsField=_pointsField;
-@property(retain, nonatomic) MSUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
-@property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
-- (void).cxx_destruct;
-- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
-- (void)viewDidLoad;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
++ (Class)itemClass;
 
 @end
 

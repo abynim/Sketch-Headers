@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSTouchBarGroupAction.h"
+#import "MSActionGroup.h"
 
-@interface MSZoomActions : MSTouchBarGroupAction
+@interface MSZoomActions : MSActionGroup
 {
 }
 
+- (id)label;
 - (unsigned long long)touchBarItemSizing;
 - (id)actionNames;
 

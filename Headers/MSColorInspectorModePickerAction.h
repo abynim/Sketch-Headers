@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)isTouchBarItemSelected;
 - (void)doPerformAction:(id)arg1;
 - (unsigned long long)colorInspectorMode;

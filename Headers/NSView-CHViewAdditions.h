@@ -10,6 +10,7 @@
 
 @interface NSView (CHViewAdditions)
 - (id)nestedSubviewWithIdentifier:(id)arg1;
+- (BOOL)isContainedByCollapsedSplitViewSubview;
 - (id)containingAncestorViewOfClass:(Class)arg1;
 @property(readonly, nonatomic) NSArray *allSubviews;
 - (void)beginDragFromEvent:(id)arg1 image:(id)arg2 writersBlock:(CDUnknownBlockType)arg3;

@@ -8,28 +8,36 @@
 
 #import "NSCoding-Protocol.h"
 
-@class NSString;
+@class NSImage, NSString;
+@protocol MSDataSupplierDelegate;
 
 @interface MSDataSupplier : NSObject <NSCoding>
 {
     BOOL _enabled;
+    id <MSDataSupplierDelegate> _delegate;
     NSString *_dataName;
     unsigned long long _dataType;
     NSString *_dataIdentifier;
+    NSImage *_menuItemImage;
 }
 
+@property(retain, nonatomic) NSImage *menuItemImage; // @synthesize menuItemImage=_menuItemImage;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) NSString *dataIdentifier; // @synthesize dataIdentifier=_dataIdentifier;
 @property(readonly, nonatomic) unsigned long long dataType; // @synthesize dataType=_dataType;
-@property(readonly, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;
+@property(copy, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;
+@property(nonatomic) __weak id <MSDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)dataForItem:(id)arg1;
+- (void)resetMenuItemImage;
 @property(readonly, nonatomic) BOOL valid;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToDataSupplier:(id)arg1;
 - (unsigned long long)hash;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataWithCount:(unsigned long long)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)applyDataAtIndex:(unsigned long long)arg1 datum:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)applyDataWithCount:(unsigned long long)arg1 data:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

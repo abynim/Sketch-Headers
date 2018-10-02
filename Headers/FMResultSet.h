@@ -60,7 +60,6 @@
 - (int)columnCount;
 - (void)close;
 - (void)dealloc;
-- (void)finalize;
 
 @end
 

@@ -14,6 +14,7 @@
 }
 
 + (id)defaultStylePartForStyle:(id)arg1;
++ (BOOL)stylesHaveEqualAppearance:(id)arg1;
 - (id)parentLayer;
 - (id)parentStyle;
 - (void)multiplyBy:(double)arg1;
@@ -22,6 +23,8 @@
 - (id)topViewForColorInspector:(id)arg1;
 - (id)blendingViewForColorInspector:(id)arg1;
 - (id)previewImageForSize:(struct CGSize)arg1 colorSpace:(id)arg2;
+- (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL isEnabled;

@@ -10,11 +10,11 @@
 {
 }
 
-- (BOOL)shouldHitTestOnFill:(id)arg1;
 - (BOOL)canFlatten;
 - (void)resetPoints;
 - (struct CGRect)boundsForCursorPreview;
-- (id)inspectorViewControllerNames;
+- (id)inspectorSections;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
 
 @end
 

@@ -6,27 +6,16 @@
 
 #import "MSStylePartInspectorItem.h"
 
-@class NSButton, NSMenuItem, NSPopUpButton;
+@class NSButton;
 
 @interface MSBlurNameInspectorItem : MSStylePartInspectorItem
 {
     NSButton *_enabledButton;
-    NSPopUpButton *_blurPopUp;
-    NSMenuItem *_backgroundBlurMenuItem;
-    NSMenuItem *_multipleBlursMenuItem;
 }
 
-@property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
-@property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
-@property(retain, nonatomic) NSPopUpButton *blurPopUp; // @synthesize blurPopUp=_blurPopUp;
 @property(retain, nonatomic) NSButton *enabledButton; // @synthesize enabledButton=_enabledButton;
 - (void).cxx_destruct;
-- (long long)popUpMenuIndexFromBlurType:(unsigned long long)arg1;
-- (unsigned long long)blurTypeFromPopUpMenuIndex:(long long)arg1;
-- (void)updateDisplayedValues;
 - (void)blurEnabledAction:(id)arg1;
-- (void)blurPopUpAction:(id)arg1;
-- (void)menuNeedsUpdate:(id)arg1;
 - (void)viewDidLoad;
 
 @end

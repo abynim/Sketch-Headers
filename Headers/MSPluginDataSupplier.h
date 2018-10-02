@@ -7,27 +7,25 @@
 #import "MSDataSupplier.h"
 
 @class NSString;
-@protocol MSPluginDataSupplierDelegate;
 
 @interface MSPluginDataSupplier : MSDataSupplier
 {
     BOOL _registered;
-    id <MSPluginDataSupplierDelegate> _delegate;
     NSString *_pluginIdentifier;
     NSString *_commandIdentifier;
     NSString *_dynamicDataKey;
 }
 
-+ (id)identifierWithPluginIdentifier:(id)arg1 commandIdentifier:(id)arg2 dynamicDataKey:(id)arg3 dataName:(id)arg4;
++ (id)identifierWithPluginIdentifier:(id)arg1 commandIdentifier:(id)arg2 dynamicDataKey:(id)arg3;
 @property(nonatomic) BOOL registered; // @synthesize registered=_registered;
 @property(readonly, nonatomic) NSString *dynamicDataKey; // @synthesize dynamicDataKey=_dynamicDataKey;
 @property(readonly, nonatomic) NSString *commandIdentifier; // @synthesize commandIdentifier=_commandIdentifier;
 @property(readonly, nonatomic) NSString *pluginIdentifier; // @synthesize pluginIdentifier=_pluginIdentifier;
-@property(nonatomic) __weak id <MSPluginDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)valid;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataWithCount:(unsigned long long)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithPluginIdentifier:(id)arg1 commandIdentifier:(id)arg2 dataName:(id)arg3 dataTypeStringRepresentation:(id)arg4 dynamicDataKey:(id)arg5;
 - (id)initWithCoder:(id)arg1;

@@ -6,20 +6,20 @@
 
 #import "_MSImmutableShapeGroup.h"
 
+#import "MSImmutableLayerPreviewability-Protocol.h"
+#import "MSImmutablePathLayer-Protocol.h"
 #import "MSShapeGroup-Protocol.h"
 
-@class MSPath;
+@class MSImmutableStyle, NSString;
 
-@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup>
+@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSImmutableLayerPreviewability, MSShapeGroup, MSImmutablePathLayer>
 {
 }
 
 + (unsigned long long)traits;
-+ (void)initialize;
 - (void)encodePropertiesWithCoder:(id)arg1;
-@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
-- (id)calculatePathInBounds;
-- (void)applyPropertiesToBezier:(id)arg1;
+- (BOOL)isLine;
+- (long long)booleanOperationForLayer:(id)arg1;
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)canSkipAdvancedClipForStrokes;
@@ -27,28 +27,43 @@
 - (BOOL)allowsBlur;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasMarkers;
-- (void)objectDidInit;
-- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 cache:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 cache:(id)arg2;
-- (id)defaultValueForOverridePoint:(id)arg1;
-- (BOOL)canOverridePoint:(id)arg1;
-- (id)overridePointsWithParent:(id)arg1;
-- (id)imageFillForOverrides;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (void)migratePropertiesFromV110OrEarlierWithUnarchiver:(id)arg1;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocumentPre108;
 - (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV106OrEarlierWithUnarchiver:(id)arg1;
 - (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 - (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
 - (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
-- (void)addPathDefinitionToDocument:(id)arg1;
-- (id)svgPathAttribute:(id)arg1;
-- (id)pathWithExporter:(id)arg1 border:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (BOOL)requiresPathDefinition:(id)arg1;
 - (id)svgStyle:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) MSImmutableStyle *style;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,19 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
-
 @interface MSRotationGestureInterpreter : NSObject
 {
     double _rotation;
     double _rotationOffset;
-    NSArray *_initialRotations;
     struct CGPoint _centerPoint;
 }
 
-@property(copy, nonatomic) NSArray *initialRotations; // @synthesize initialRotations=_initialRotations;
 @property(nonatomic) struct CGPoint centerPoint; // @synthesize centerPoint=_centerPoint;
-- (void).cxx_destruct;
 - (double)convertRotation:(double)arg1 toLayer:(id)arg2;
 - (double)angleOfPoint:(struct CGPoint)arg1 inLayer:(id)arg2;
 - (double)rotationInDegreesInLayer:(id)arg1;

@@ -10,10 +10,11 @@
 {
 }
 
+- (id)tooltip;
+- (id)label;
 - (BOOL)isTouchBarItemSelected;
 - (BOOL)touchBarItemButtonShouldShowState;
 - (id)touchBarImage;
-- (id)imageName;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;
 - (void)performAction:(id)arg1;

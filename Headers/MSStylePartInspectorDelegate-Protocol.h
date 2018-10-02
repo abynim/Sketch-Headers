@@ -4,15 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import "MSInspectorSectionDelegate-Protocol.h"
 
-@class NSArray, NSString;
-
-@protocol MSStylePartInspectorDelegate <NSObject>
-
-@optional
-- (void)reload;
-- (NSArray *)layers;
-- (id)switchToEventHandlerWithName:(NSString *)arg1;
+@protocol MSStylePartInspectorDelegate <MSInspectorSectionDelegate>
 @end
 

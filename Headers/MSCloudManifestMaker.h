@@ -6,11 +6,15 @@
 
 #import "MSManifestMaker.h"
 
+@class NSString;
+
 @interface MSCloudManifestMaker : MSManifestMaker
 {
     CDUnknownBlockType _imageFileProviderBlock;
+    NSString *_organizationID;
 }
 
+@property(retain, nonatomic) NSString *organizationID; // @synthesize organizationID=_organizationID;
 @property(copy, nonatomic) CDUnknownBlockType imageFileProviderBlock; // @synthesize imageFileProviderBlock=_imageFileProviderBlock;
 - (void).cxx_destruct;
 - (id)fileMetadataForRequest:(id)arg1 id:(id)arg2 manifestScale:(double)arg3;

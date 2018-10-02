@@ -6,17 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class ECLogHandler;
-
 @interface DeprecatedChannelState : NSObject
 {
     BOOL _enabled;
-    ECLogHandler *_handler;
 }
 
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(retain, nonatomic) ECLogHandler *handler; // @synthesize handler=_handler;
-- (void).cxx_destruct;
 
 @end
 

@@ -4,27 +4,46 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSStylePartPreviewButton, MSUpDownTextField, NSPopUpButton;
+#import "MSColorHexStringTransformerDelegate-Protocol.h"
 
-@interface MSFillInspectorViewController : MSStylePartInspectorViewController
+@class MSColorHexStringTransformer, MSMathInspectorValueAdaptor, MSUpDownTextField, NSArrayController, NSPopUpButton, NSString, NSTextField;
+
+@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
 {
-    NSPopUpButton *_blendingPopUpButton;
-    MSStylePartPreviewButton *_colorButton;
     MSUpDownTextField *_opacityField;
+    NSPopUpButton *_fillPropertiesPopUp;
+    NSArrayController *_fills;
     MSMathInspectorValueAdaptor *_opacityAdaptor;
+    NSTextField *_fillTypeLabel;
+    NSTextField *_contextPopUpLabel;
+    NSTextField *_hexField;
+    MSColorHexStringTransformer *_hexTransformer;
 }
 
+@property(retain, nonatomic) MSColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
+@property(retain, nonatomic) NSTextField *hexField; // @synthesize hexField=_hexField;
+@property(retain, nonatomic) NSTextField *contextPopUpLabel; // @synthesize contextPopUpLabel=_contextPopUpLabel;
+@property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
+@property(retain, nonatomic) NSArrayController *fills; // @synthesize fills=_fills;
+@property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
 @property(retain, nonatomic) MSUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
-@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
-@property(retain, nonatomic) NSPopUpButton *blendingPopUpButton; // @synthesize blendingPopUpButton=_blendingPopUpButton;
 - (void).cxx_destruct;
-- (void)dealloc;
-- (void)opacityFieldAction:(id)arg1;
-- (void)prepare;
+- (id)currentColorValueForTransformer:(id)arg1;
+- (void)hexFieldAction:(id)arg1;
+- (void)updateFillPropertyPopUp;
 - (void)viewDidLoad;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)dealloc;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

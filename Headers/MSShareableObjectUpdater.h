@@ -36,8 +36,6 @@
 - (void)performCreateNewStyleAction;
 - (id)localObjectContainer;
 @property(readonly, nonatomic) NSString *menuItemTitleForCreateNewStyleAction;
-- (id)menuItemType;
-- (id)menuItemTypeNameForType:(unsigned long long)arg1;
 
 @end
 

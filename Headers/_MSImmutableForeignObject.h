@@ -12,9 +12,11 @@
 {
     NSString *_libraryID;
     NSString *_sourceLibraryName;
+    BOOL _symbolPrivate;
 }
 
 + (Class)mutableClass;
+@property(nonatomic) BOOL symbolPrivate; // @synthesize symbolPrivate=_symbolPrivate;
 @property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 - (void).cxx_destruct;
@@ -27,7 +29,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

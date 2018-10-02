@@ -11,6 +11,7 @@
 }
 
 - (id)tooltip;
+- (id)label;
 - (id)submenuActionIDs;
 
 @end

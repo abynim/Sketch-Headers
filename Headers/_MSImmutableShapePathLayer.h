@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSImmutableLayer.h"
+#import "MSImmutableStyledLayer.h"
 
 @class NSArray;
 
-@interface _MSImmutableShapePathLayer : MSImmutableLayer
+@interface _MSImmutableShapePathLayer : MSImmutableStyledLayer
 {
     BOOL _edited;
     BOOL _isClosed;
@@ -31,7 +31,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

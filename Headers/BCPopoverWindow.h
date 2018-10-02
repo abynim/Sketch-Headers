@@ -17,6 +17,7 @@
 - (unsigned long long)collectionBehavior;
 - (BOOL)canBecomeKeyWindow;
 - (void)sendEvent:(id)arg1;
+- (void)setFrame:(struct CGRect)arg1 display:(BOOL)arg2 animate:(BOOL)arg3;
 - (void)resignMainWindow;
 - (id)initWithContentRect:(struct CGRect)arg1;
 

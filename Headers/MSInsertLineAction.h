@@ -10,7 +10,7 @@
 {
 }
 
-- (id)imageName;
+- (id)label;
 - (id)tooltip;
 - (BOOL)isSelectable;
 - (Class)eventHandlerClass;

@@ -17,6 +17,7 @@
 + (id)subviewsOfView:(id)arg1;
 + (id)orderedSubviewsOfView:(id)arg1;
 + (id)firstKeyViewForInView:(id)arg1;
++ (id)findNextKeyViewFor:(id)arg1 inView:(id)arg2 alreadyProcessed:(id)arg3;
 + (id)findNextKeyViewFor:(id)arg1 inView:(id)arg2;
 
 @end

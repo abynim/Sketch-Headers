@@ -34,13 +34,13 @@
 @property(readonly, nonatomic) unsigned long long shareableObjectType;
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 @property(readonly, nonatomic) NSString *sharedObjectID;
+@property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 
 @end

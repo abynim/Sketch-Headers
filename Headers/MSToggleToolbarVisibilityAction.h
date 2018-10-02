@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)isFullscreen;
 - (double)toolbarHeight;
 - (void)toggleWithNewScrollOrigin:(struct CGPoint)arg1;

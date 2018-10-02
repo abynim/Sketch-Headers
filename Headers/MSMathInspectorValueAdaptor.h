@@ -8,22 +8,45 @@
 
 #import "MSIncrementDecrementDelegate-Protocol.h"
 
+@class NSNumberFormatter;
+@protocol MSInspectorMathValueAdaptorDelegate;
+
 @interface MSMathInspectorValueAdaptor : MSInspectorValueAdaptor <MSIncrementDecrementDelegate>
 {
+    BOOL _clampsValues;
+    BOOL _adjustIndividually;
+    BOOL _isIncrementing;
     BOOL _forcePrefixMath;
+    NSNumberFormatter *_numberFormatter;
     unsigned long long _operation;
 }
 
 @property(nonatomic) BOOL forcePrefixMath; // @synthesize forcePrefixMath=_forcePrefixMath;
 @property(nonatomic) unsigned long long operation; // @synthesize operation=_operation;
+@property(nonatomic) BOOL isIncrementing; // @synthesize isIncrementing=_isIncrementing;
+@property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
+@property(nonatomic) BOOL adjustIndividually; // @synthesize adjustIndividually=_adjustIndividually;
+@property(nonatomic) BOOL clampsValues; // @synthesize clampsValues=_clampsValues;
+- (void).cxx_destruct;
 - (void)forceRelativeMathForBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)currentAdjustOptions;
 - (id)errorWithUnparsableString:(id)arg1;
+- (id)checkAndAdjustValues:(id)arg1 contexts:(id)arg2 withNumberFormatter:(id)arg3 error:(id *)arg4;
 - (id)valueFromPrefixStrippedString:(id)arg1 forModel:(id)arg2 originalString:(id)arg3 error:(id *)arg4;
-- (id)transformValueString:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
+- (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 - (id)trimValueString:(id)arg1 getMathPrefix:(id *)arg2;
-- (id)transformedValuesFromString:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
+- (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
+- (void)setValue:(id)arg1;
+- (id)value;
+@property(readonly, nonatomic) BOOL allowsFloat;
+@property(readonly, nonatomic) NSNumberFormatter *effectiveNumberFormatter;
+- (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
+- (id)initWithModelsController:(id)arg1 floatValueGetter:(CDUnknownBlockType)arg2 floatValueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
 - (void)incrementBy:(double)arg1;
+- (id)initWithModelsController:(id)arg1 modelKeyPath:(id)arg2 valueTransformer:(id)arg3;
+
+// Remaining properties
+@property(nonatomic) __weak id <MSInspectorMathValueAdaptorDelegate> delegate; // @dynamic delegate;
 
 @end
 

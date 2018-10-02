@@ -106,7 +106,6 @@
 - (struct sqlite3 *)sqliteHandle;
 - (id)databasePath;
 - (void)dealloc;
-- (void)finalize;
 - (id)initWithPath:(id)arg1;
 - (id)init;
 - (BOOL)validateSQL:(id)arg1 error:(id *)arg2;

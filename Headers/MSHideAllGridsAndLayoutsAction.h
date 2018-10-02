@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)hideAllGridsAndLayouts:(id)arg1;
 - (BOOL)validate;

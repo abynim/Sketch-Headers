@@ -10,6 +10,7 @@
 {
 }
 
++ (id)standardPercentFormatterWithoutPercentSign;
 + (id)standardPercentFormatter;
 + (id)standardIntegerFormatter;
 + (id)standardFloatFormatter;

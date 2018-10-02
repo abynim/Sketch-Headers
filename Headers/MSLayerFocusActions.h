@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSTouchBarGroupAction.h"
+#import "MSActionGroup.h"
 
-@interface MSLayerFocusActions : MSTouchBarGroupAction
+@interface MSLayerFocusActions : MSActionGroup
 {
 }
 
+- (id)label;
 - (BOOL)supportsState;
 - (id)actionNames;
 

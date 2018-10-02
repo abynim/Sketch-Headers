@@ -10,9 +10,9 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
-- (BOOL)showInToolbar;
 @property(readonly, nonatomic) long long state;
 - (void)toggleFixToViewport:(id)arg1;
 - (void)doPerformAction:(id)arg1;

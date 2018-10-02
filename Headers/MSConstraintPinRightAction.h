@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)validationKeyPath;
 - (id)actionKeyPath;
 - (void)pinRightAction:(id)arg1;

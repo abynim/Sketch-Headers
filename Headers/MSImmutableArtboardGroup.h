@@ -12,7 +12,7 @@
 #import "MSLayerWithBackgroundColor-Protocol.h"
 #import "MSWebExportableRootLayer-Protocol.h"
 
-@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, MSPath, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
 @interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
@@ -41,10 +41,9 @@
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (void)trackColors:(id)arg1;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (BOOL)shouldDrawBackgroundInContext:(id)arg1 isDrawingAsSymbolInstance:(BOOL)arg2;
+- (BOOL)shouldDrawBackgroundInContext:(id)arg1;
 - (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (id)svgStyle:(id)arg1;
@@ -64,13 +63,10 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
-@property(readonly, nonatomic) MSPath *pathInBounds;
-@property(readonly, nonatomic) MSPath *pathInFrame;
-@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;

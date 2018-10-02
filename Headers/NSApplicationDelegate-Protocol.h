@@ -26,6 +26,7 @@
 - (void)applicationWillHide:(NSNotification *)arg1;
 - (void)applicationDidFinishLaunching:(NSNotification *)arg1;
 - (void)applicationWillFinishLaunching:(NSNotification *)arg1;
+- (BOOL)application:(NSApplication *)arg1 delegateHandlesKey:(NSString *)arg2;
 - (void)application:(NSApplication *)arg1 userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)arg2;
 - (void)application:(NSApplication *)arg1 didUpdateUserActivity:(NSUserActivity *)arg2;
 - (void)application:(NSApplication *)arg1 didFailToContinueUserActivityWithType:(NSString *)arg2 error:(NSError *)arg3;

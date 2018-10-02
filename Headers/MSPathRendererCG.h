@@ -14,8 +14,6 @@
 {
 }
 
-- (long long)shadowStrokeTypeForStyle:(id)arg1;
-- (unsigned long long)shadowDrawingTypeForStyle:(id)arg1;
 - (void)drawInnerShadowsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4;
 - (BOOL)shadowFillShouldClipForStyle:(id)arg1;
 - (void)drawShadowsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4;

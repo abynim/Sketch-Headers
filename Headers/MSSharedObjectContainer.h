@@ -11,19 +11,13 @@
 }
 
 - (id)objectsSortedByName;
-- (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
-- (id)sharedObjectsInLayers:(id)arg1;
-- (id)sharedObjectsInLayer:(id)arg1;
-- (void)unregisterInstance:(struct MSModelObject *)arg1;
-- (void)registerInstance:(struct MSModelObject *)arg1 withSharedObject:(id)arg2;
 - (unsigned long long)numberOfSharedObjects;
 - (long long)indexOfSharedObject:(id)arg1;
 - (id)sharedObjectAtIndex:(unsigned long long)arg1;
 - (id)sharedObjectWithID:(id)arg1;
-- (id)sharedObjectForInstance:(struct MSModelObject *)arg1;
-- (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
-- (id)instancesOf:(id)arg1 inContainer:(id)arg2;
+- (id)objectsReferencing:(id)arg1 inContainer:(id)arg2;
 - (void)removeSharedObject:(id)arg1;
+- (void)removeSharedObjects:(id)arg1;
 - (Class)sharedObjectClass;
 
 @end

@@ -17,12 +17,12 @@
 + (unsigned long long)traits;
 - (void)correctInvalidGamma;
 - (void)resizeToOriginalSize;
+- (struct CGSize)originalSize;
 - (BOOL)isAtOriginalSize;
 - (id)NSImage;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
-- (BOOL)canInsertIntoGroup:(id)arg1;
 - (void)reduceImageSize;
 - (void)replaceImageWithImage:(id)arg1;
 - (id)handlerName;
@@ -31,10 +31,11 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
 - (Class)handlerClass;
-- (id)inspectorViewControllerNames;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
-- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
+- (id)inspectorSections;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
+- (BOOL)canChangeBooleanOperation;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties

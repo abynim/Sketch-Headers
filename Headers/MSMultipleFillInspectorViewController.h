@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSMultipleStylePartInspectorViewController.h"
+#import "MSMultipleColorStylePartInspectorViewController.h"
 
 #import "BCPopoverDelegate-Protocol.h"
+#import "MSInspectorSection-Protocol.h"
 
 @class BCPopover, MSTextLabelForUpDownField, NSButton, NSString;
 
-@interface MSMultipleFillInspectorViewController : MSMultipleStylePartInspectorViewController <BCPopoverDelegate>
+@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <MSInspectorSection, BCPopoverDelegate>
 {
     MSTextLabelForUpDownField *_opacityLabel;
     NSButton *_addStylePartButton;
@@ -28,6 +29,7 @@
 - (void)loadViewControllers;
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;
+- (unsigned long long)traitsForAvancedOptions;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)viewWillDisappear;
 - (BOOL)shouldHideAddStylePartButton;

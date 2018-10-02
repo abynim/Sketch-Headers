@@ -13,12 +13,17 @@
 
 @interface MSAttributedString : NSObject <MSCoding, NSCopying>
 {
-    // Error parsing type: A^v, name: _fontNamesAtomicPointer
     NSSet *_fontNames;
-    NSAttributedString *_attributedString;
-    NSAttributedString *_encodedAttributedString;
-    NSAttributedString *_transformedAttributedString;
+    // Error parsing type: A^v, name: _fontNamesAtomicPointer
     NSSet *_fontDescriptors;
+    // Error parsing type: A^v, name: _fontDescriptorsAtomicPointer
+    NSAttributedString *_attributedString;
+    // Error parsing type: A^v, name: _attributedStringAtomicPointer
+    NSAttributedString *_transformedAttributedString;
+    // Error parsing type: A^v, name: _transformedAttributedStringAtomicPointer
+    NSSet *_unavailableFontNames;
+    // Error parsing type: A^v, name: _unavailableFontNamesAtomicPointer
+    NSAttributedString *_encodedAttributedString;
 }
 
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
@@ -29,11 +34,7 @@
 + (id)refreshFontDescriptorsInDictionary:(id)arg1;
 + (id)decodeAttributesInDictionary:(id)arg1;
 + (id)encodeAttributesInDictionary:(id)arg1;
-@property(copy, nonatomic) NSSet *fontDescriptors; // @synthesize fontDescriptors=_fontDescriptors;
-@property(retain, nonatomic) NSAttributedString *transformedAttributedString; // @synthesize transformedAttributedString=_transformedAttributedString;
-@property(retain, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
-@property(retain, nonatomic) NSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
-@property(copy, nonatomic) NSSet *fontNames; // @synthesize fontNames=_fontNames;
+@property(readonly, copy, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
 - (void).cxx_destruct;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (id)debugDescription;
@@ -41,18 +42,25 @@
 - (id)attributedStringByReplacingFontNames:(id)arg1;
 @property(readonly, nonatomic) BOOL areRequiredFontsAvailable;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
+- (id)calculateUnavailableFontNames;
+@property(readonly, copy, nonatomic) NSSet *fontNames;
+@property(readonly, copy, nonatomic) NSSet *fontDescriptors;
+@property(readonly, nonatomic) NSAttributedString *transformedAttributedString;
+- (id)calculateTransformedAttributedStringFromAtrributedString:(id)arg1;
+@property(readonly, nonatomic) NSAttributedString *attributedString;
+- (id)calculateAttributedString;
 @property(readonly, nonatomic) NSString *string;
 - (unsigned long long)hash;
-- (void)resetComputedProperties;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeAsJSON:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;
-- (id)initWithEncodedAttributedString:(id)arg1;
 - (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2;
 - (id)initWithAttributedString:(id)arg1 colorSpace:(id)arg2 convert:(BOOL)arg3;
+- (id)initWithEncodedAttributedString:(id)arg1;
+- (id)init;
 - (id)treeAsDictionary;
 
 // Remaining properties

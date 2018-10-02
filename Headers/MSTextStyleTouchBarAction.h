@@ -14,6 +14,7 @@
 {
 }
 
+- (id)label;
 - (void)applySharedStyle:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;

@@ -19,6 +19,7 @@
 + (id)identifier;
 @property(readonly, nonatomic) __weak MSPreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
 - (void).cxx_destruct;
+- (void)didSwitchToPane;
 - (void)dismissAlertSheet;
 - (void)dismissAlertWindow:(id)arg1;
 - (id)initWithPreferencesController:(id)arg1;

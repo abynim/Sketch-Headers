@@ -6,14 +6,19 @@
 
 #import "NSObject-Protocol.h"
 
-@class BCTableCellView, NSWindow;
+@class BCOutlineView, BCTableCellView, NSWindow;
 
 @protocol BCTableCellViewDelegate <NSObject>
+- (BCOutlineView *)tableCellOutlineView:(BCTableCellView *)arg1;
 - (NSWindow *)tableCellViewDestinationWindow:(BCTableCellView *)arg1;
+- (void)tableCellViewNodeRequiresRefresh:(BCTableCellView *)arg1;
 - (void)tableCellViewDidBeginEditing:(BCTableCellView *)arg1;
 - (void)tableCellViewMouseExited:(BCTableCellView *)arg1;
 - (void)tableCellViewMouseEntered:(BCTableCellView *)arg1;
 - (void)tableCellViewHandleBadgePressed:(BCTableCellView *)arg1;
+- (BOOL)isTableCellViewNodeLockedOnCanvas:(BCTableCellView *)arg1;
+- (BOOL)isTableCellViewNodeContainedByHiddenAncestorNode:(BCTableCellView *)arg1;
+- (BOOL)isTableCellViewNodeHiddenOnCanvas:(BCTableCellView *)arg1;
 - (BOOL)isTableCellViewNodeSelected:(BCTableCellView *)arg1;
 @end
 

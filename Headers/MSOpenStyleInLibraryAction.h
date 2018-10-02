@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)openLibraryForStyles:(id)arg1;
 
 @end

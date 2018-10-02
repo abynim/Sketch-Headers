@@ -6,27 +6,26 @@
 
 #import <AppKit/NSResponder.h>
 
-#import "MSPopToolbarItemActionObject-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSActionController, NSAttributedString, NSImage, NSString, NSToolbarItem;
+@class MSActionController, NSAttributedString, NSImage, NSMenuItem, NSString, NSToolbarItem;
 
-@interface MSAction : NSResponder <NSMenuDelegate, MSPopToolbarItemActionObject>
+@interface MSAction : NSResponder <NSMenuDelegate>
 {
     BOOL _isSelectable;
     MSActionController *_controller;
     NSToolbarItem *_toolbarItem;
 }
 
++ (id)classNamesToImageNamesDictionary;
++ (id)imageName;
 @property(readonly, nonatomic) BOOL isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak MSActionController *controller; // @synthesize controller=_controller;
 - (void).cxx_destruct;
-- (id)interfaceQueryObject;
 - (void)keyDown:(id)arg1;
 - (BOOL)handlesKeyEvent:(id)arg1;
 @property(readonly, nonatomic) BOOL isActive;
-- (BOOL)toolbarItemShouldDrawWithArrow:(id)arg1;
 @property(readonly, nonatomic) BOOL hasSubMenu;
 - (id)submenuActionIDs;
 - (BOOL)containsActionWithID:(id)arg1;
@@ -43,12 +42,14 @@
 @property(readonly, nonatomic) BOOL hasDynamicTitle;
 @property(readonly, nonatomic) NSAttributedString *badgeTitle;
 @property(readonly, nonatomic) NSString *tooltip;
-@property(readonly, nonatomic) BOOL showInToolbar;
+@property(readonly, nonatomic) BOOL mayShowInToolbar;
 - (id)imageForToolbarCustomisationSheet;
 @property(readonly, nonatomic) NSString *labelForToolbarCustomisationSheet;
+@property(readonly, nonatomic) NSImage *imageForToolbar;
 @property(readonly, nonatomic) NSString *labelForToolbar;
+@property(readonly, nonatomic) NSMenuItem *menuItemForToolbarItem;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
-- (BOOL)validateToolbarItem:(id)arg1;
+- (void)validateToolbarItem;
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

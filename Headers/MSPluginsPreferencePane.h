@@ -41,7 +41,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-+ (void)openWithPluginToHightlight:(id)arg1;
++ (void)openWithPluginToHighlight:(id)arg1;
 @property(retain, nonatomic) NSNib *tableCellViewNib; // @synthesize tableCellViewNib=_tableCellViewNib;
 @property(retain, nonatomic) NSArray *selectedItemIdentifiers; // @synthesize selectedItemIdentifiers=_selectedItemIdentifiers;
 @property(nonatomic) long long originalHeightIncompatiblePlugin; // @synthesize originalHeightIncompatiblePlugin=_originalHeightIncompatiblePlugin;
@@ -64,13 +64,14 @@
 @property(copy, nonatomic) NSPredicate *pluginFilterPredicate; // @synthesize pluginFilterPredicate=_pluginFilterPredicate;
 @property(retain, nonatomic) NSArrayController *pluginsArrayController; // @synthesize pluginsArrayController=_pluginsArrayController;
 - (void).cxx_destruct;
-- (void)updateAndReloadPluginsWithBlock:(CDUnknownBlockType)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (void)installPluginsWithURLArray:(id)arg1;
 - (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (id)draggedURLsFromPasteboard:(id)arg1;
 - (id)draggedTypesForView:(id)arg1;
+- (void)updateAndReloadPluginsWithBlock:(CDUnknownBlockType)arg1;
+- (BOOL)doAnyPluginsSupplyData:(id)arg1;
 - (id)makePluginCellView;
 @property(readonly, nonatomic) MSPluginsPreferenceTableCellView *pluginCellViewForHeightCalculations;
 - (id)attributedStringUpdateAvailableLinkForString:(id)arg1;
@@ -95,6 +96,7 @@
 @property(readonly, copy, nonatomic) NSArray *pluginSortDescriptors;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)highlightPluginWithIdentifier:(id)arg1;
+- (void)didSwitchToPane;
 - (void)viewDocumentation:(id)arg1;
 - (void)editCode:(id)arg1;
 - (void)revealInFinder:(id)arg1;
@@ -110,6 +112,8 @@
 - (void)togglePluginEnabled:(id)arg1;
 - (void)uninstallSelectedPlugins:(id)arg1;
 - (void)uninstallPlugins:(id)arg1;
+- (id)uninstallSheetInfoTextForPlugins:(id)arg1;
+- (id)uninstallSheetMessageTextForPlugins:(id)arg1;
 - (void)uninstallSelectedPlugins;
 - (void)openPluginsFolder:(id)arg1;
 @property(readonly, nonatomic) BOOL updatesAvailable;

@@ -9,6 +9,6 @@
 @interface NSWindow (Chocolat)
 - (void)commitEditedTextRetainingFirstResponder;
 - (BOOL)closePopovers;
-- (struct CGPoint)convertPointFromScreen:(struct CGPoint)arg1;
+- (struct CGPoint)convertPointFromScreen_ch:(struct CGPoint)arg1;
 @end
 

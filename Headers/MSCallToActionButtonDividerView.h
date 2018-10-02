@@ -6,10 +6,15 @@
 
 #import <AppKit/NSView.h>
 
+@class NSGradient;
+
 @interface MSCallToActionButtonDividerView : NSView
 {
+    NSGradient *_dividerGradient;
 }
 
+- (void).cxx_destruct;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

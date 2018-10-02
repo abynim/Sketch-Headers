@@ -18,6 +18,7 @@
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)syncWithRemote:(id)arg1;
+- (void)syncRemoteStyleOverrides:(id)arg1;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;

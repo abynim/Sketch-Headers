@@ -8,10 +8,9 @@
 #import "MSFillRenderer-Protocol.h"
 #import "MSGridRenderer-Protocol.h"
 #import "MSLayerRenderer-Protocol.h"
-#import "MSPageOverlayRenderer-Protocol.h"
 #import "MSPathRenderer-Protocol.h"
 #import "MSShadowRenderer-Protocol.h"
 
-@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSPageOverlayRenderer, MSGridRenderer>
+@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSGridRenderer>
 @end
 

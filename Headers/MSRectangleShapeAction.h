@@ -10,6 +10,8 @@
 {
 }
 
+- (id)label;
+- (id)tooltip;
 - (id)touchBarImage;
 - (void)rectangleShape:(id)arg1;
 

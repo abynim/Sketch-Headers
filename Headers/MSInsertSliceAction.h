@@ -10,6 +10,8 @@
 {
 }
 
+- (id)tooltip;
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;
 - (void)insertSlice:(id)arg1;

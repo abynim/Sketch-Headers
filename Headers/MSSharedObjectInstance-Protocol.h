@@ -6,11 +6,9 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSString;
 @protocol MSSharedObjectInstance;
 
 @protocol MSSharedObjectInstance <NSObject>
-@property(retain, nonatomic) NSString *sharedObjectID;
 - (void)syncWithTemplateInstance:(id <MSSharedObjectInstance>)arg1;
 - (unsigned long long)type;
 @end

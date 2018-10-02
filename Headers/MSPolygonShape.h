@@ -12,7 +12,7 @@
 
 - (BOOL)canFlatten;
 - (void)resetPoints;
-- (id)inspectorViewControllerNames;
+- (id)inspectorSections;
 
 @end
 

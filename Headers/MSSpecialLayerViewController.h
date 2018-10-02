@@ -4,25 +4,37 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MSNestedInspectorSection.h"
 
-#import "MSInspectorSection-Protocol.h"
+#import "MSSymbolInstanceSectionDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class NSArray, NSString;
+@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSString;
 
-@interface MSSpecialLayerViewController : NSViewController <MSInspectorSection, NSMenuDelegate>
+@interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
 {
-    NSArray *_layers;
-    NSArray *_layerInspectorControllers;
+    MSBaseInspectorSection *_textSection;
+    MSSymbolInstanceSection *_symbolInstanceSection;
+    NSArray *_layerInspectorSections;
+    NSCache *_sectionInterfaceCache;
 }
 
-@property(retain, nonatomic) NSArray *layerInspectorControllers; // @synthesize layerInspectorControllers=_layerInspectorControllers;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
++ (id)sectionOrder;
+@property(retain, nonatomic) NSCache *sectionInterfaceCache; // @synthesize sectionInterfaceCache=_sectionInterfaceCache;
+@property(retain, nonatomic) NSArray *layerInspectorSections; // @synthesize layerInspectorSections=_layerInspectorSections;
+@property(retain, nonatomic) MSSymbolInstanceSection *symbolInstanceSection; // @synthesize symbolInstanceSection=_symbolInstanceSection;
+@property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 - (void).cxx_destruct;
+- (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
+- (void)sectionDidResize:(id)arg1;
+- (id)userInterfaceCacheForSection:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)valuesPossiblyChanged;
 - (void)changeTextLayerFont:(id)arg1;
 - (id)views;
+- (id)regularLayerInspectorSections;
+- (id)externalLayerInspectorSections;
+- (void)updateItems;
 - (id)inspectorsWithProperContent;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
 - (void)loadView;

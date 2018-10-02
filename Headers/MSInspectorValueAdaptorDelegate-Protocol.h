@@ -13,7 +13,6 @@
 @optional
 - (void)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 didEncounterError:(NSError *)arg2;
 - (void)inspectorValueAdaptorDidChangeValue:(MSInspectorValueAdaptor *)arg1;
-- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 validateValue:(double)arg2 forModel:(id)arg3 context:(id)arg4;
-- (BOOL)inspectorValueAdaptorAllowFloat:(MSInspectorValueAdaptor *)arg1;
+- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 @end
 

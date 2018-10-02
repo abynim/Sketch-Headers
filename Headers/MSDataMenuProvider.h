@@ -8,34 +8,40 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSDataSupplier, MSDataSupplierManager, NSString;
+@class MSDataSupplierManager, NSString;
 @protocol MSDataMenuProviderDelegate;
 
 @interface MSDataMenuProvider : NSObject <NSMenuDelegate>
 {
-    MSDataSupplier *_lastDataSupplier;
     MSDataSupplierManager *_dataManager;
     id <MSDataMenuProviderDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <MSDataMenuProviderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
-@property(nonatomic) __weak MSDataSupplier *lastDataSupplier; // @synthesize lastDataSupplier=_lastDataSupplier;
 - (void).cxx_destruct;
 - (void)menuNeedsUpdate:(id)arg1;
+- (id)pluginKeysDictionaryFromDataSuppliers:(id)arg1;
+- (id)pluginNameForIdentifier:(id)arg1;
 - (id)sortedMenuItems:(id)arg1;
 - (id)dataSuppliersForDataType:(unsigned long long)arg1;
 - (id)dataSupplierGroupsForDataSuppliers:(id)arg1;
 - (id)menuItemForDataSupplier:(id)arg1 indentationLevel:(long long)arg2;
+- (long long)addCheckMarkToMenuItems:(id)arg1 dataIdentifier:(id)arg2;
 - (id)menuItemsInGroup:(id)arg1 forDataSuppliers:(id)arg2;
 - (id)menuItemsForDataSuppliers:(id)arg1 indentationLevel:(long long)arg2;
+- (id)menuItemsForDataType:(unsigned long long)arg1 indentationLevel:(long long)arg2;
+- (id)menuItemsForPluginDataSuppliers:(id)arg1 indentationLevel:(long long)arg2;
 - (id)menuItemsForGroups:(id)arg1 indentationLevel:(long long)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)menuItemAction:(id)arg1;
-- (id)submenuInMenuItems:(id)arg1 forGroup:(id)arg2;
+- (id)shadowImageFromImage:(id)arg1;
+- (id)addImageToMenuItems:(id)arg1;
 - (BOOL)addDataSuppliersForType:(unsigned long long)arg1 toMenu:(id)arg2 typeTitle:(id)arg3;
 - (void)updateMenu:(id)arg1;
 - (void)updateOverridesMenu:(id)arg1;
+- (id)refreshDataMenuItemsWithOverridesMenu:(BOOL)arg1 displayKeyboardShortcuts:(BOOL)arg2;
+- (id)clearDataMenuItem;
 - (id)overridesMenu;
 - (id)menu;
 - (id)initWithDataManager:(id)arg1;

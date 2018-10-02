@@ -6,28 +6,40 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSNormalEventData, MSShapeGroup, MSSnapper;
+#import "MSAlignmentEngineDelegate-Protocol.h"
 
-@interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler
+@class MSAlignmentEngineResult, MSNormalEventData, MSShapePathLayer, MSSnapper, NSString;
+
+@interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate>
 {
-    MSShapeGroup *_lineShape;
+    MSShapePathLayer *_layer;
     long long _pointIndex;
     MSSnapper *_layerSnapper;
     MSNormalEventData *_eventData;
+    MSAlignmentEngineResult *_snapGuides;
 }
 
+@property(retain, nonatomic) MSAlignmentEngineResult *snapGuides; // @synthesize snapGuides=_snapGuides;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
 @property(nonatomic) long long pointIndex; // @synthesize pointIndex=_pointIndex;
-@property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
+@property(retain, nonatomic) MSShapePathLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
-- (struct CGPoint)roundMouse:(struct CGPoint)arg1;
+- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (id)cursorForRadians:(double)arg1;
 - (void)displayResizeCursor;
+- (void)addSnapTargetsToEngine:(id)arg1;
+- (id)prepareForSnapping;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (struct CGPoint)alignPoint:(struct CGPoint)arg1 withShiftTo:(struct CGPoint)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

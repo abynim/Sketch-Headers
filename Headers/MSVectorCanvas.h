@@ -104,7 +104,9 @@
 - (void)drawHairline;
 - (id)makeWireBezierPathForClosingPath:(BOOL)arg1 indexPathForSelectedHandle:(id)arg2;
 - (void)updateWire;
+- (void)addOtherLayersToSnapper:(id)arg1;
 - (void)includePointForSnapping:(struct CGPoint)arg1 inPathLayer:(id)arg2;
+- (void)addHandlesToSnapperForDragging:(BOOL)arg1;
 - (void)addTargetsToSnapperForDragging:(BOOL)arg1;
 - (void)prepareSnapper;
 - (id)changeContext;

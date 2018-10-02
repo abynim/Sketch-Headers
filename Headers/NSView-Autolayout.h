@@ -8,8 +8,11 @@
 
 @interface NSView (Autolayout)
 - (id)widthConstraint;
+- (id)constraintsWithView:(id)arg1 attributeMatcher:(CDUnknownBlockType)arg2;
 - (id)verticalConstraintsWithView:(id)arg1;
 - (id)verticalConstraintWithView:(id)arg1;
+- (id)horizontalConstraintsWithView:(id)arg1;
+- (id)horizontalConstraintWithView:(id)arg1;
 - (void)showWithWidth:(double)arg1;
 - (void)showWithHeight:(double)arg1;
 - (void)hideWithZeroWidth;

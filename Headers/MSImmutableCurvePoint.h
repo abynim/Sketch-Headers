@@ -14,6 +14,7 @@
 {
 }
 
+@property(readonly, nonatomic) BOOL isEffectivelyStraight;
 @property(readonly, nonatomic) BOOL isRounded;
 @property(readonly, nonatomic) BOOL isStraight;
 

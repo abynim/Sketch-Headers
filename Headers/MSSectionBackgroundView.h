@@ -12,6 +12,7 @@
 
 + (long long)requiredHeightForViews:(id)arg1;
 + (id)separatorBetweenView:(id)arg1 andView:(id)arg2;
++ (id)sectionBackgroundWithController:(id)arg1 wantsSeparatorAfterViews:(BOOL)arg2;
 + (id)sectionBackgroundWithController:(id)arg1;
 - (BOOL)isFlipped;
 - (void)drawWhiteHeader;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)changeFlowAnimationToFromLeftAnimation:(id)arg1;
 - (long long)animationType;
 

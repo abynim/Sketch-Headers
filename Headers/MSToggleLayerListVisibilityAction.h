@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)hide;
 - (void)show;
 - (BOOL)isActive;

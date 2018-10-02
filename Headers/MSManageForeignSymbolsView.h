@@ -34,7 +34,7 @@
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)viewDidAppear;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 - (void)buildSymbolList;
 
 // Remaining properties

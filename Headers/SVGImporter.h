@@ -10,6 +10,7 @@
 
 @interface SVGImporter : NSObject
 {
+    double _scaleValue;
     Class _defaultElementClass;
     NSDictionary *_elementClasses;
     SVGRootElement *_root;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) SVGRootElement *root; // @synthesize root=_root;
 @property(retain, nonatomic) NSDictionary *elementClasses; // @synthesize elementClasses=_elementClasses;
 @property(nonatomic) Class defaultElementClass; // @synthesize defaultElementClass=_defaultElementClass;
+@property(nonatomic) double scaleValue; // @synthesize scaleValue=_scaleValue;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) double documentHeight;
 @property(readonly, nonatomic) double documentWidth;

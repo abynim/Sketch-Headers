@@ -27,6 +27,7 @@
 
 + (id)viewsByAddingColorInspectorSeparators:(id)arg1;
 + (void)refreshColorPickerViewHeight:(id)arg1;
++ (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1 size:(double)arg2 foreColor:(struct CGColor *)arg3 backgroundColor:(struct CGColor *)arg4;
 + (void)initialize;
 @property(retain, nonatomic) NSMapTable *scrubberToAssets; // @synthesize scrubberToAssets=_scrubberToAssets;
 @property(retain, nonatomic) MSAssetPickerView *documentPresetPicker; // @synthesize documentPresetPicker=_documentPresetPicker;

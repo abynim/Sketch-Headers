@@ -10,12 +10,16 @@
 
 @interface BCFilterInfo : NSObject
 {
+    unsigned long long _filterTypeMask;
     NSString *_filterString;
 }
 
 @property(copy, nonatomic) NSString *filterString; // @synthesize filterString=_filterString;
+@property(nonatomic) unsigned long long filterTypeMask; // @synthesize filterTypeMask=_filterTypeMask;
 - (void).cxx_destruct;
 - (BOOL)shouldIncludeNode:(id)arg1;
+- (BOOL)filterTypeMatches:(unsigned long long)arg1;
+@property(readonly, nonatomic) BOOL isActive;
 
 @end
 

@@ -8,22 +8,28 @@
 
 #import "MSFlowContainmentCheck-Protocol.h"
 
-@class BCReadWriteLock, NSArray, NSDictionary;
-@protocol NSCopying;
+@class BCReadWriteLock, MSImmutableSymbolMaster, NSArray, NSDictionary;
 
 @interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
     unsigned long long _masterRefreshCounter;
+    MSImmutableSymbolMaster *_cachedModifiedSymbolMaster;
 }
 
 + (id)defaultName;
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
+@property __weak MSImmutableSymbolMaster *cachedModifiedSymbolMaster; // @synthesize cachedModifiedSymbolMaster=_cachedModifiedSymbolMaster;
 @property(readonly, nonatomic) unsigned long long masterRefreshCounter; // @synthesize masterRefreshCounter=_masterRefreshCounter;
 - (void).cxx_destruct;
+- (id)modifiedMasterInDocument:(id)arg1;
+- (id)prepareModifiedMasterInDocument:(id)arg1;
+- (id)modifiedMasterCacheKey;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (BOOL)shouldCreateModifiedMasterForMaster:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
-@property(readonly, nonatomic) id <NSCopying> modifiedMasterCacheKey;
 - (double)scale;
 - (BOOL)isScaled;
 - (struct CGRect)paddedInfluenceRect:(struct CGRect)arg1 withPaddingsFromMasterInDocument:(id)arg2 visitedSymbols:(id)arg3;
@@ -35,11 +41,15 @@
 - (id)keysDifferingFromObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 - (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
+- (id)overridePreviewImageInDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;
+- (id)overrideMatchingPoint:(id)arg1 inDocument:(id)arg2;
+- (id)overrideInOverrides:(id)arg1 withPath:(id)arg2 andPropertyName:(id)arg3;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;
-- (id)overridePointsWithParent:(id)arg1;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (BOOL)shadowsFollowRotation;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)ensureOverrideValuesAreUnique;
 - (id)updateOverridesDictionary:(id)arg1 withObjectIDMapping:(id)arg2 afterChangingSymbolMasterWithID:(id)arg3 currentID:(id)arg4;
@@ -49,9 +59,8 @@
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)differsFromLayer:(id)arg1;
-- (id)uncachedModifiedSymbolForMaster:(id)arg1 document:(id)arg2;
-- (id)cachedModifiedSymbolForMaster:(id)arg1 document:(id)arg2 cache:(id)arg3;
 - (id)cachedModifiedSymbolForMaster:(id)arg1 inContext:(id)arg2;
+- (void)prepareSymbolCachesInDocument:(id)arg1 withWorkerQueue:(id)arg2;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
 
 @end

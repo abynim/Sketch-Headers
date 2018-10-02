@@ -9,7 +9,7 @@
 #import "MSInspectorValueAdaptorDelegate-Protocol.h"
 #import "MSUpDownTextFieldDelegate-Protocol.h"
 
-@class MSDocument, MSLayerArray, NSArrayController, NSString;
+@class MSDocument, MSLayerArray, NSArrayController, NSMapTable, NSString;
 @protocol MSInspectorItemDelegate;
 
 @interface MSInspectorItem : NSViewController <MSInspectorValueAdaptorDelegate, MSUpDownTextFieldDelegate>
@@ -17,16 +17,23 @@
     id <MSInspectorItemDelegate> _delegate;
     MSLayerArray *_layers;
     NSArrayController *_layersController;
+    NSMapTable *_managedControls;
 }
 
++ (BOOL)canHandleLayer:(id)arg1;
 + (BOOL)canHandleSomeLayersOfSelection:(id)arg1;
 + (id)filterSelection:(id)arg1;
 + (id)itemForSection:(id)arg1;
+@property(retain, nonatomic) NSMapTable *managedControls; // @synthesize managedControls=_managedControls;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak id <MSInspectorItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)cachedUserInterfaceElementForKey:(id)arg1;
+- (void)cacheUserInterfaceElement:(id)arg1 withKey:(id)arg2;
+- (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5;
 @property(readonly, nonatomic) MSDocument *document;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;

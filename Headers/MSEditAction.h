@@ -12,11 +12,12 @@
 
 + (unsigned long long)editableLayerTraits;
 - (BOOL)shouldUseImageForTouchBarItem;
+- (id)label;
 - (id)tooltip;
 - (BOOL)isSelectable;
 - (void)doPerformAction:(id)arg1;
 - (void)edit:(id)arg1;
-- (BOOL)validateToolbarItem:(id)arg1;
+- (void)validateToolbarItem;
 - (id)imageName;
 - (BOOL)validate;
 

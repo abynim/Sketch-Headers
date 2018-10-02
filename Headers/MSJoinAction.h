@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validate;
 - (id)joinPath:(id)arg1 withPath:(id)arg2;
 - (id)historyMomentTitle;

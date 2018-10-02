@@ -6,13 +6,17 @@
 
 #import "_MSImmutableStyledLayer.h"
 
-@class MSImmutableStyle;
+#import "MSImmutableLayerPreviewability-Protocol.h"
+#import "MSStyledLayer-Protocol.h"
 
-@interface MSImmutableStyledLayer : _MSImmutableStyledLayer
+@class NSString;
+
+@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSImmutableLayerPreviewability, MSStyledLayer>
 {
 }
 
 + (unsigned long long)traits;
++ (void)initialize;
 + (id)filledSquareRoundedDecoration;
 + (id)filledSquareDecoration;
 + (id)openSquareDecoration;
@@ -32,26 +36,58 @@
 + (id)bezierPathForEndDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (id)bezierPathForStartDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (struct CGSize)scaleForDecoration:(unsigned long long)arg1 stokeWidth:(double)arg2;
+@property(readonly, nonatomic) BOOL shadowsFollowRotation;
+- (BOOL)hasMarkers;
 @property(readonly, nonatomic) BOOL allowsBlur;
-@property(readonly, nonatomic) MSImmutableStyle *usedStyle;
-- (id)previewFillColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
-- (id)previewBorderColorForDocumentData:(id)arg1 selected:(BOOL)arg2;
+- (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
+- (id)decoratedPathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascade;
+- (void)applyPropertiesToBezier:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
+- (BOOL)shouldBeIncludedInParentPath;
+- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
 - (BOOL)hasSharedStyleInDocumentData:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;
+- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 - (id)bezierPathForEndDecorationOnPath:(id *)arg1;
 - (id)bezierPathForStartDecorationOnPath:(id *)arg1;
 - (unsigned long long)roundDecorationTypeIfNecessary:(unsigned long long)arg1;
+- (void)updateSharedStyleIDFromMigration:(id)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
 - (id)renderBitmapEffects:(id)arg1;
 - (id)strokeStyleForDecoratedPath;
 - (id)fillStyleForDecoratedPath;
-- (id)fillPathWithDecorations:(id)arg1 context:(struct CGContext *)arg2 strokePath:(id *)arg3;
+- (id)fillPathWithDecorations:(id *)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
 @property(readonly, nonatomic) BOOL shouldRasterize;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)addPathDefinitionToDocument:(id)arg1;
+- (id)svgPathAttribute:(id)arg1;
+- (id)pathWithExporter:(id)arg1 border:(id)arg2;
 - (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
 - (void)addGradientsToDocument:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,13 +6,12 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableTextStyle, NSArray, NSString;
+@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableTextStyle, NSArray;
 
 @interface _MSImmutableStyle : MSImmutableModelObject
 {
     unsigned long long _endMarkerType;
     long long _miterLimit;
-    NSString *_sharedObjectID;
     unsigned long long _startMarkerType;
     unsigned long long _windingRule;
     MSImmutableStyleBlur *_blur;
@@ -38,7 +37,6 @@
 @property(retain, nonatomic) MSImmutableStyleBlur *blur; // @synthesize blur=_blur;
 @property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) unsigned long long startMarkerType; // @synthesize startMarkerType=_startMarkerType;
-@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;
 - (void).cxx_destruct;
@@ -51,7 +49,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

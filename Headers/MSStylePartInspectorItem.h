@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *layers;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

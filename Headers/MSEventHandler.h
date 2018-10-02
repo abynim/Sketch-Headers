@@ -45,6 +45,7 @@
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
 - (void).cxx_destruct;
+- (void)willStartExporting;
 - (id)documentWindow;
 - (BOOL)mayShowResizingInspectorView;
 - (void)touchBarTextColorAction:(id)arg1;
@@ -64,11 +65,12 @@
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
-- (BOOL)inspectorShouldShowPositions;
 - (id)inspectorViewController;
 - (unsigned long long)inspectorLocation;
 - (BOOL)shouldShowSharedStyles;
 - (BOOL)shouldShowFlowView;
+- (BOOL)shouldShowResizingView;
+- (id)styleViewControllersForLayers:(id)arg1 fromStyleInspectorSection:(id)arg2;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (void)configureInspector:(id)arg1;
 - (void)layerPositionPossiblyChanged;
@@ -103,6 +105,7 @@
 - (id)toolbarIdentifier;
 @property(readonly) BOOL wantsLayerHighlight;
 @property(readonly) BOOL wantsStandardSelectionControls;
+- (void)selectHitTestResult:(id)arg1 extendSelection:(BOOL)arg2;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;
@@ -112,7 +115,7 @@
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
 - (unsigned long long)hitTestingOptions;
-- (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (id)itemAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)duplicate:(id)arg1;

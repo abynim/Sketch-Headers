@@ -10,7 +10,7 @@
 {
 }
 
-- (id)transformValueString:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
+- (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 - (id)checkAndAdjustValues:(id)arg1 contexts:(id)arg2 withNumberFormatter:(id)arg3 error:(id *)arg4;
 - (id)value;
 - (id)initWithModelsController:(id)arg1;

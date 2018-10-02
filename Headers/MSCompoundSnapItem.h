@@ -18,7 +18,7 @@
 @property(retain, nonatomic) NSArray *relativeRects; // @synthesize relativeRects=_relativeRects;
 - (void).cxx_destruct;
 - (void)setRectForSnapping:(struct CGRect)arg1;
-- (struct CGRect)alignmentRectInLayer:(id)arg1 options:(unsigned long long)arg2;
+- (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (struct CGRect)rectForSnapping;
 - (struct CGRect)boundsRect;
 - (void)concatAncestorsAndSelfTransforms;
@@ -31,7 +31,7 @@
 - (id)topAnchor;
 - (id)rightAnchor;
 - (id)leftAnchor;
-- (id)anchorsForSnapping;
+- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)initWithLayers:(id)arg1;
 
 @end

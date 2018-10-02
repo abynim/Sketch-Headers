@@ -30,6 +30,7 @@
 - (id)readDragNodesFromPasteboard:(id)arg1;
 - (BOOL)dataController:(id)arg1 writeNodes:(id)arg2 toPasteboard:(id)arg3;
 @property(readonly, nonatomic) Class pasteboardWriterClass;
+- (id)layersFromNodeArray:(id)arg1;
 - (id)layerForNode:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (id)initWithDelegate:(id)arg1;

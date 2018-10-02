@@ -11,7 +11,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextDelegate-Protocol.h"
 
-@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSVectorCanvas, NSArray, NSString;
+@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorCanvas, NSArray, NSString;
 
 @interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, NSMenuDelegate, MSGestureRecognizerDelegate>
 {
@@ -21,8 +21,10 @@
     MSVectorCanvas *_canvasHandler;
     MSPathController *_pathController;
     MSShapeEditingBehavior *_editingBehavior;
+    MSStyleInspectorSection *_styleSection;
 }
 
+@property(nonatomic) __weak MSStyleInspectorSection *styleSection; // @synthesize styleSection=_styleSection;
 @property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 @property(readonly, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 @property(readonly, nonatomic) MSVectorCanvas *canvasHandler; // @synthesize canvasHandler=_canvasHandler;
@@ -41,9 +43,9 @@
 - (void)refreshCloseOrOpenPathUI;
 - (void)pathDidOpenOrClose;
 - (id)makeTouchBar;
-- (BOOL)inspectorShouldShowPositions;
 @property(readonly, nonatomic) MSEditShapeInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (unsigned long long)inspectorLocation;
+- (id)styleViewControllersForLayers:(id)arg1 fromStyleInspectorSection:(id)arg2;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;

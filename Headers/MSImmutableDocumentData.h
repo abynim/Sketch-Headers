@@ -14,12 +14,14 @@
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
     NSDictionary *_metadata;
+    NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)loadDocumentDataWithMetadata:(id)arg1 loadBlock:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
+@property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (id)pagesAndArtboardsMetadata;
@@ -33,6 +35,10 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) MSImmutablePage *currentPage;
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
+- (id)layerStyleWithID:(id)arg1;
+- (id)textStyleWithID:(id)arg1;
+- (id)allLayerStyles;
+- (id)allTextStyles;
 - (id)artboardWithID:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
@@ -57,7 +63,6 @@
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
-- (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)containsNoOrOneLayers;
@@ -66,8 +71,6 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (BOOL)canBeContainedByDocument;
-- (BOOL)canBeContainedByGroup;
 - (id)subObjectsForTreeDiff;
 @property(readonly, nonatomic) BOOL containsUnavailableFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
@@ -78,6 +81,7 @@
 - (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
 - (id)colorFinderQueue;
 - (void)findFrequentColorsForUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoreAlpha:(BOOL)arg3 excludeForeignSymbols:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)prepareForRender:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *pages;

@@ -10,8 +10,8 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
-- (BOOL)showInToolbar;
 - (BOOL)validate;
 - (void)addFlowHome:(id)arg1;
 

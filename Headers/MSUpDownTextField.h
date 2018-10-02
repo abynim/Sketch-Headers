@@ -10,7 +10,7 @@
 #import "NSTextViewDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSUpDownController, NSString;
+@class MSUpDownController, NSString, NSView;
 
 @interface MSUpDownTextField : NSTextField <NSTextViewDelegate, MSUpDownProtocol, NSTouchBarDelegate>
 {
@@ -20,17 +20,21 @@
     MSUpDownController *_upDownController;
     double _ownMinimum;
     double _ownMaximum;
+    NSView *_preferredNextKeyView;
+    double _minimumIncrementValue;
     unsigned long long _scrubberCount;
     unsigned long long _scrubberIndex;
 }
 
 @property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
+@property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
+@property(retain, nonatomic) NSView *preferredNextKeyView; // @synthesize preferredNextKeyView=_preferredNextKeyView;
 @property(nonatomic) double ownMaximum; // @synthesize ownMaximum=_ownMaximum;
 @property(nonatomic) double ownMinimum; // @synthesize ownMinimum=_ownMinimum;
 @property(nonatomic) BOOL hasMaximum; // @synthesize hasMaximum=_hasMaximum;
 @property(nonatomic) BOOL hasMinimum; // @synthesize hasMinimum=_hasMinimum;
-@property(readonly, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
+@property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;
 - (id)makeTouchBar;

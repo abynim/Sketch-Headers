@@ -6,9 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocument, NSViewController;
+@class MSDocument, NSString, NSViewController;
 
 @protocol MSInspectorSectionDelegate <NSObject>
+- (void)reloadItemsForSection:(NSViewController *)arg1;
+- (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(NSString *)arg2 reloadTarget:(NSViewController *)arg3;
+- (BOOL)isSectionWithIdentifierCollapsed:(NSString *)arg1 default:(BOOL)arg2;
+- (BOOL)isSectionWithIdentifierCollapsed:(NSString *)arg1;
 - (MSDocument *)documentForInspectorSection:(NSViewController *)arg1;
 - (void)sectionDidResize:(NSViewController *)arg1;
 @end

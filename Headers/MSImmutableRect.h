@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) struct CGRect rect;
+- (id)initWithRect:(struct CGRect)arg1 constrainProportions:(BOOL)arg2;
 - (id)initWithRect:(struct CGRect)arg1;
 
 @end

@@ -10,5 +10,12 @@
 {
 }
 
++ (id)itemForExpansionStateNotification:(id)arg1;
+- (void)refreshRowHeightOfGroupItem:(id)arg1 didExpand:(BOOL)arg2;
+- (void)outlineViewItemDidExpand:(id)arg1;
+- (void)outlineViewItemDidCollapse:(id)arg1;
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
+- (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
+
 @end
 

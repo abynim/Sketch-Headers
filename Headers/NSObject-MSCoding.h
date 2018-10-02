@@ -6,16 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import "MSCoding-Protocol.h"
-
-@class NSString;
-
-@interface NSObject (MSCoding) <MSCoding>
+@interface NSObject (MSCoding)
 - (void)encodeWithArchiver:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
 - (id)initWithUnarchiver:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 @end
 

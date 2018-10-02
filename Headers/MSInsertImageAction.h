@@ -10,6 +10,7 @@
 {
 }
 
+- (id)tooltip;
 - (id)label;
 - (id)touchBarImage;
 - (id)groupForInserting;

@@ -7,6 +7,7 @@
 #import <AppKit/NSBitmapImageRep.h>
 
 @interface NSBitmapImageRep (CHBitmapRepAdditions)
++ (id)bitmapImageRepWithSize:(struct CGSize)arg1 pixelSize:(struct CGSize)arg2 flags:(unsigned long long)arg3 colorSpace:(id)arg4 drawingBlock:(CDUnknownBlockType)arg5;
 + (id)bitmapImageRepWithSize:(struct CGSize)arg1 flags:(unsigned long long)arg2 colorSpace:(id)arg3 drawingBlock:(CDUnknownBlockType)arg4;
 - (BOOL)hasTransparentPixels;
 - (id)bitSafeBitmapImageRep;

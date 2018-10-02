@@ -9,11 +9,9 @@
 @class MSCloudShareUploadController, NSError, NSProgress, SCKShare;
 
 @protocol MSCloudShareUploadControllerDelegate <NSObject>
-- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didUploadShare:(SCKShare *)arg2;
-
-@optional
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 didChangeProgress:(NSProgress *)arg2;
 - (void)cloudShareController:(MSCloudShareUploadController *)arg1 uploadDidFailWithError:(NSError *)arg2;
-- (void)cloudShareController:(MSCloudShareUploadController *)arg1 exportDocumentWithHandler:(void (^)(NSURL *))arg2;
+- (void)cloudShareControllerDidCancelUploading:(MSCloudShareUploadController *)arg1;
+- (void)cloudShareController:(MSCloudShareUploadController *)arg1 didUploadShare:(SCKShare *)arg2;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)addAsLibrary;
 - (void)document:(id)arg1 didSave:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)saveAndAddLibrary;

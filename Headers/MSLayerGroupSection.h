@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSLayerSection.h"
+#import "MSSingleItemInspectorSection.h"
 
-@interface MSLayerGroupSection : MSLayerSection
+@interface MSLayerGroupSection : MSSingleItemInspectorSection
 {
 }
 
-- (id)groups;
-- (id)views;
++ (Class)itemClass;
 
 @end
 

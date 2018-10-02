@@ -17,6 +17,7 @@
     struct CGPoint _mouseEndPoint;
 }
 
++ (id)accumulateSelectionWithPrevious:(id)arg1 draggingRect:(id)arg2 dragMode:(long long)arg3;
 @property(retain, nonatomic) NSBezierPath *selectionBeforeDrag; // @synthesize selectionBeforeDrag=_selectionBeforeDrag;
 @property(nonatomic) struct CGPoint mouseEndPoint; // @synthesize mouseEndPoint=_mouseEndPoint;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;

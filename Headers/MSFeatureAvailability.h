@@ -10,6 +10,12 @@
 {
 }
 
++ (void)setFeature14414Enabled:(BOOL)arg1;
++ (BOOL)feature14414Enabled;
++ (void)setCloudOrganizationsEnabled:(BOOL)arg1;
++ (BOOL)cloudOrganizationsEnabled;
++ (void)setCloudOAuthEnabled:(BOOL)arg1;
++ (BOOL)cloudOAuthEnabled;
 + (void)setCloudDocumentsEnabled:(BOOL)arg1;
 + (BOOL)cloudDocumentsEnabled;
 + (BOOL)builtInRemoteLibrariesEnabled;

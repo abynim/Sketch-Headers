@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validate;
 - (void)duplicate:(id)arg1;
 - (void)doPerformAction:(id)arg1;

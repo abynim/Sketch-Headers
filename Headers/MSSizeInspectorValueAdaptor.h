@@ -11,7 +11,7 @@
 }
 
 - (long long)anchorFromSuffix:(unsigned short)arg1 axis:(unsigned long long)arg2;
-- (id)transformValueString:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
+- (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 
 @end
 

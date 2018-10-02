@@ -21,6 +21,7 @@
     BCPopover *_popover;
 }
 
++ (id)dontReplaceFontLabel;
 @property(nonatomic) __weak BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSViewController *viewController; // @synthesize viewController=_viewController;
 @property(retain, nonatomic) NSMutableArray *fonts; // @synthesize fonts=_fonts;

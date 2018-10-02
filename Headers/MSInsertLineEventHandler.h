@@ -6,26 +6,42 @@
 
 #import "MSEventHandler.h"
 
-@class MSShapeGroup;
+#import "MSAlignmentEngineDelegate-Protocol.h"
 
-@interface MSInsertLineEventHandler : MSEventHandler
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSShapePathLayer, NSString;
+
+@interface MSInsertLineEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
 {
     CDUnknownBlockType _lineShapeCreator;
-    MSShapeGroup *_lineShape;
+    MSShapePathLayer *_lineShape;
+    MSAlignmentEngine *_alignmentEngine;
+    MSAlignmentEngineResult *_snapGuides;
 }
 
-@property(retain, nonatomic) MSShapeGroup *lineShape; // @synthesize lineShape=_lineShape;
+@property(retain, nonatomic) MSAlignmentEngineResult *snapGuides; // @synthesize snapGuides=_snapGuides;
+@property(readonly, nonatomic) MSAlignmentEngine *alignmentEngine; // @synthesize alignmentEngine=_alignmentEngine;
+@property(retain, nonatomic) MSShapePathLayer *lineShape; // @synthesize lineShape=_lineShape;
 @property(copy, nonatomic) CDUnknownBlockType lineShapeCreator; // @synthesize lineShapeCreator=_lineShapeCreator;
 - (void).cxx_destruct;
+- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (id)currentGroup;
 - (double)lineThickness;
 - (id)style;
-- (void)createShapeAtMouse:(struct CGPoint)arg1;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (struct CGPoint)roundMouse:(struct CGPoint)arg1;
+- (void)addSnapTargetsToAlignmentEngine:(id)arg1;
+- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
+- (id)alignEndPoint:(struct CGPoint)arg1 snap:(BOOL)arg2;
+- (void)prepareAlignmentEngineForPoint:(struct CGPoint)arg1 constraint:(id)arg2;
+- (void)createShapeAtLocation:(struct CGPoint)arg1;
+- (void)handleDrag:(id)arg1;
+- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handlerGotFocus;
+- (id)initWithManager:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

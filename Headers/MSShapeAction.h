@@ -10,8 +10,11 @@
 {
 }
 
+- (id)imageForToolbar;
 - (BOOL)hasSubMenu;
+- (long long)tag;
 - (id)tooltip;
+- (id)label;
 - (id)submenuActionIDs;
 - (void)menuNeedsUpdate:(id)arg1;
 

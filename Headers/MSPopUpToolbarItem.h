@@ -4,29 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSToolbarItem.h>
+#import "MSToolbarItem.h"
 
-@class NSMenu;
-@protocol MSPopToolbarItemActionObject;
-
-@interface MSPopUpToolbarItem : NSToolbarItem
+@interface MSPopUpToolbarItem : MSToolbarItem
 {
 }
 
-- (void)validate;
-- (id)toolTip;
-- (void)setToolTip:(id)arg1;
-- (id)image;
-- (void)setImage:(id)arg1;
-- (id)target;
-- (SEL)action;
-- (void)setAction:(SEL)arg1;
-@property(nonatomic) __weak id <MSPopToolbarItemActionObject> actionObject; // @dynamic actionObject;
-- (void)setTarget:(id)arg1;
-@property(retain, nonatomic) NSMenu *menu; // @dynamic menu;
-- (id)popupCell;
-- (id)menuButtonWithSize:(unsigned long long)arg1;
-- (id)initWithItemIdentifier:(id)arg1 size:(unsigned long long)arg2;
+- (id)makeViewForAction:(id)arg1;
 
 @end
 

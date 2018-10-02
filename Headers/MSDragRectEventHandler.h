@@ -8,7 +8,7 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragGestureRecognizer, NSArray, NSCursor, NSString;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragGestureRecognizer, NSCursor, NSString;
 
 @interface MSDragRectEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
 {
@@ -16,11 +16,9 @@
     MSAlignmentEngine *_snapper;
     MSAlignmentEngineResult *_snappingResult;
     NSCursor *_insertionCursor;
-    NSArray *_snapTargets;
     struct CGRect _insertionRect;
 }
 
-@property(retain, nonatomic) NSArray *snapTargets; // @synthesize snapTargets=_snapTargets;
 @property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
 @property(retain, nonatomic) MSAlignmentEngineResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(readonly, nonatomic) MSAlignmentEngine *snapper; // @synthesize snapper=_snapper;
@@ -28,8 +26,7 @@
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)enumeratePossibleSnapTargetLayersInGroup:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)cacheSnapTargets;
+- (void)addSnapTargetsToEngine:(id)arg1;
 - (struct CGPoint)alignmentEngine:(id)arg1 roundPoint:(struct CGPoint)arg2;
 - (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
 - (id)snapAndAlignPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
@@ -40,7 +37,7 @@
 - (void)keyDown:(id)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 @property(readonly) unsigned long long layerSelectionOptionsForInsertingFromExistingLayer;
-- (id)layerAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (id)itemAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (BOOL)wantsLayerHighlight;
 @property(readonly) BOOL allowsInsertLayerFromExistingLayer;
 @property(readonly, nonatomic) NSCursor *cursorForInsertingFromExisting;

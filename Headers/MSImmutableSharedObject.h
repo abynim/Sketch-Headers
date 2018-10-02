@@ -11,6 +11,7 @@
 }
 
 + (id)defaultName;
+- (void)updateSharedStyleIDFromMigration:(id)arg1;
 
 @end
 

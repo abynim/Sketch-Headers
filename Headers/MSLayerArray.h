@@ -36,15 +36,11 @@
 - (BOOL)containsOneLayer;
 - (BOOL)containsLayers;
 - (BOOL)containsNoOrOneLayers;
-- (BOOL)canBeContainedByGroup;
-- (BOOL)canBeContainedByDocument;
-- (BOOL)canContainLayer:(id)arg1;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)filter:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)commonArtboard;
-- (id)layersSuitableForInsertingIntoGroup:(id)arg1;
 - (id)layerToInsertAfter;
 - (id)effectiveArtboard;
 - (id)effectivePage;
@@ -52,6 +48,7 @@
 - (id)parentOfFirstLayer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLayers:(id)arg1;
+- (id)flowConnection;
 - (void)removeUnusedStylePartsOfType:(unsigned long long)arg1;
 - (id)addStylePartsOfType:(unsigned long long)arg1;
 - (unsigned long long)indexOfLayerWithID:(id)arg1;

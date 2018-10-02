@@ -66,6 +66,7 @@
 - (id)contourMadeClockwiseIfNecessary;
 @property(readonly, nonatomic) int direction;
 @property(retain, nonatomic) NSNumber *cachedDirection;
+- (id)contourWithFlatness:(double)arg1;
 - (id)contourWithTransform:(struct CGAffineTransform)arg1;
 - (id)reversedContour;
 @property(readonly, nonatomic) BOOL isClosed;

@@ -6,9 +6,9 @@
 
 #import "MSRenderer-Protocol.h"
 
-@class MSImmutableShapeGroup, MSPath, MSRenderingContext;
+@class MSImmutableStyledLayer, MSPath, MSRenderingContext;
 
 @protocol MSBackgroundBlurRenderer <MSRenderer>
-- (void)renderBackgroundBlurBehindShape:(MSImmutableShapeGroup *)arg1 context:(MSRenderingContext *)arg2 clippedToPath:(MSPath *)arg3;
+- (void)renderBackgroundBlurBehindLayer:(MSImmutableStyledLayer *)arg1 context:(MSRenderingContext *)arg2 clippedToPath:(MSPath *)arg3;
 @end
 

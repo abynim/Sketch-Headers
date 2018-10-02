@@ -24,9 +24,9 @@
 @property(readonly, nonatomic) double maximumAllowedRadius;
 - (void)resetPathsToRect;
 - (void)resetPoints;
-- (BOOL)shouldDrawSelectionStroke;
+- (void)adjustAfterInsert;
 - (id)bezierPathForCursorPreview;
-- (id)inspectorViewControllers;
+- (id)inspectorSections;
 - (void)resetPointsBasedOnUserInteraction;
 @property(readonly, nonatomic) BOOL smoothCornersAllowed;
 @property(nonatomic) BOOL hasSmoothCorners;

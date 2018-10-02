@@ -10,6 +10,7 @@
 {
 }
 
++ (id)ensureAttributes:(id)arg1 areVisibleAgainstColor:(id)arg2;
 + (id)attributedTitleForTextStyle:(id)arg1 colorSpace:(id)arg2;
 + (void)applyTextStylesToMenuItem:(id)arg1 colorSpace:(id)arg2;
 + (id)ensureAttributes:(id)arg1 areVisibleDrawingInMenuItem:(id)arg2;

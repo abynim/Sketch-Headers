@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)followFlow:(id)arg1;
 - (BOOL)validate;

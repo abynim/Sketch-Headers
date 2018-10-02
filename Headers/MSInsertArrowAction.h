@@ -10,9 +10,10 @@
 {
 }
 
+- (id)label;
+- (id)tooltip;
 - (Class)eventHandlerClass;
 - (id)lineShapeFrom:(struct CGPoint)arg1 to:(struct CGPoint)arg2;
-- (id)imageName;
 
 @end
 

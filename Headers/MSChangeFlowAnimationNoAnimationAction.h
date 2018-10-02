@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)changeFlowAnimationToNoAnimation:(id)arg1;
 - (long long)animationType;
 

@@ -9,6 +9,7 @@
 @class MSUpDownController, NSNumber;
 
 @protocol MSUpDownProtocol <NSObject>
+@property(nonatomic) double minimumIncrementValue;
 @property(readonly, nonatomic) MSUpDownController *upDownController;
 - (NSNumber *)maximum;
 - (NSNumber *)minimum;

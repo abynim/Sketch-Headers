@@ -9,12 +9,12 @@
 @interface MSLayoutPosition : MSLayoutAnchor
 {
     BOOL _isFixed;
-    struct _BCLine _fixedLine;
+    CDStruct_b7168832 _fixedLine;
     unsigned long long _snapTag;
 }
 
 + (struct CGPoint)snapPoint:(struct CGPoint)arg1 toLines:(id)arg2 onAxis:(unsigned long long)arg3 margin:(double)arg4;
-+ (id)positionAnchorWithLine:(struct _BCLine)arg1 inLayer:(id)arg2 attribute:(unsigned long long)arg3;
++ (id)positionAnchorWithLine:(CDStruct_b7168832)arg1 inLayer:(id)arg2 attribute:(unsigned long long)arg3;
 @property(nonatomic) unsigned long long snapTag; // @synthesize snapTag=_snapTag;
 - (id)description;
 - (struct CGRect)rectBySnappingToPosition:(double)arg1 oldFrame:(struct CGRect)arg2 mayResize:(BOOL)arg3;

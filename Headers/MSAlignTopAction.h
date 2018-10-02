@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)alignTop:(id)arg1;
 
 @end

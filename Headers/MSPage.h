@@ -9,17 +9,19 @@
 #import "MSRootLayer-Protocol.h"
 
 @class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
-@protocol MSRootLayer;
+@protocol MSLayerCoordinateSpace, MSRootLayer;
 
 @interface MSPage : _MSPage <MSRootLayer>
 {
     NSMutableSet *_selectedLayerIDs;
+    id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     MSArtboardGroup *_currentArtboard;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
     MSLayerArray *_cachedSelectedLayers;
 }
 
++ (id)defaultSymbolsPageName;
 + (id)page;
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
@@ -38,11 +40,9 @@
 - (BOOL)contentIntersectsWithRect:(struct CGRect)arg1;
 - (BOOL)hasClickThrough;
 - (BOOL)limitsSelectionToBounds;
-- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 @property(readonly, nonatomic) MSRulerData *currentVerticalRulerData;
 @property(readonly, nonatomic) MSRulerData *currentHorizontalRulerData;
 - (void)moveLayersToArtboards;
-- (BOOL)canContainLayer:(id)arg1;
 - (void)rectSizeDidChange:(id)arg1;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 - (id)artboardWithID:(id)arg1;
@@ -61,13 +61,14 @@
 @property(readonly, nonatomic) NSArray *exportableLayers;
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
+- (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
 - (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (BOOL)canBeContainedByDocument;
 - (void)dealloc;
-- (void)clearSelectionCache;
+- (BOOL)canContainLayer:(id)arg1;
+- (void)changeSelectionByDeselectingLayers:(id)arg1;
 - (void)changeSelectionBySelectingLayers:(id)arg1;
 - (void)changeSelectionUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)isLayerSelected:(id)arg1;
@@ -82,12 +83,15 @@
 - (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
 - (void)adjustRulerDataToTopLeftInViewBounds;
 - (BOOL)shouldDrawSelection;
-- (BOOL)canBeHovered;
+- (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)displayName;
 - (BOOL)isExportableViaDragAndDrop;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)previewImages;
+- (id)badgeImages;
 - (unsigned long long)displayType;
+- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

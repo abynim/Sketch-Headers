@@ -4,18 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSStylePartPreviewButton, MSUpDownTextField, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSString;
 
-@interface MSShadowInspectorViewController : MSStylePartInspectorViewController
+@interface MSShadowInspectorViewController : MSColorStylePartInspectorViewController
 {
     NSString *_type;
     MSUpDownTextField *_xOffsetField;
     MSUpDownTextField *_yOffsetField;
     MSUpDownTextField *_blurRadiusField;
     MSUpDownTextField *_spreadField;
-    MSStylePartPreviewButton *_colorButton;
     MSMathInspectorValueAdaptor *_xOffsetAdapter;
     MSMathInspectorValueAdaptor *_yOffsetAdapter;
     MSMathInspectorValueAdaptor *_radiusAdapter;
@@ -26,14 +25,12 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *xOffsetAdapter; // @synthesize xOffsetAdapter=_xOffsetAdapter;
-@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 @property(retain, nonatomic) MSUpDownTextField *spreadField; // @synthesize spreadField=_spreadField;
 @property(retain, nonatomic) MSUpDownTextField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
 @property(retain, nonatomic) MSUpDownTextField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;
 @property(retain, nonatomic) MSUpDownTextField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)didGetAddedToInspector;
 - (id)sectionTitle;
 - (id)title;

@@ -10,8 +10,10 @@
 {
 }
 
++ (id)keyPathsForValuesAffectingUserVisibleMotionAngle;
 - (void)multiplyBy:(double)arg1;
 - (double)cropRadius;
+@property(nonatomic) double userVisibleMotionAngle;
 
 @end
 

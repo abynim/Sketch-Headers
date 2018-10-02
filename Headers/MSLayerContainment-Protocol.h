@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSLayer, NSArray;
+@class NSArray;
 
 @protocol MSLayerContainment
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(void (^)(id, char *))arg2;
@@ -15,9 +15,6 @@
 - (BOOL)containsOneLayer;
 - (BOOL)containsLayers;
 - (BOOL)containsNoOrOneLayers;
-- (BOOL)canBeContainedByDocument;
-- (BOOL)canBeContainedByGroup;
-- (BOOL)canContainLayer:(MSLayer *)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)containedLayersCount;

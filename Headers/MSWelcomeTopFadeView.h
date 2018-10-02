@@ -11,6 +11,7 @@
 }
 
 - (void)drawRect:(struct CGRect)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (double)gradientAngle;
 
 @end

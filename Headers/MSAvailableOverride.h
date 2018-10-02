@@ -10,30 +10,33 @@
 
 @interface MSAvailableOverride : NSObject
 {
+    BOOL _isEditable;
     MSAvailableOverride *_parent;
     MSImmutableSymbolMaster *_master;
     MSImmutableLayer *_affectedLayer;
     MSOverridePoint *_overridePoint;
     MSOverrideValue *_internalOverrideValue;
+    id _affectedLayerDefault;
 }
 
 + (void)enumerateOverrides:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
-+ (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 inParent:(id)arg4;
++ (id)flattenAvailableOverrides:(id)arg1;
++ (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 otherOverrides:(id)arg4 inParent:(id)arg5 document:(id)arg6;
+@property(readonly, nonatomic) id affectedLayerDefault; // @synthesize affectedLayerDefault=_affectedLayerDefault;
 @property(readonly, nonatomic) MSOverrideValue *internalOverrideValue; // @synthesize internalOverrideValue=_internalOverrideValue;
+@property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
 @property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
 @property(readonly, nonatomic) MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL isAffectedLayerOrParentHidden;
-@property(readonly, nonatomic) BOOL isAffectedLayerOrParentLocked;
+@property(readonly, nonatomic) BOOL defaultIsItselfAnOverride;
 @property(readonly, nonatomic) BOOL hasOverride;
 @property(readonly, nonatomic) id overrideValue;
 @property(readonly, nonatomic) id defaultValue;
 @property(readonly, nonatomic) id currentValue;
 @property(readonly, nonatomic) NSArray *children;
-- (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 inParent:(id)arg5;
-- (id)createOverrideViewController;
+- (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 otherOverrides:(id)arg5 inParent:(id)arg6 document:(id)arg7 editable:(BOOL)arg8;
 
 @end
 

@@ -16,6 +16,7 @@
 }
 
 + (id)stringAttributesWithFont:(id)arg1 color:(id)arg2 alignment:(unsigned long long)arg3;
++ (id)stringAttributesWithFont:(id)arg1 alignment:(unsigned long long)arg2;
 + (id)stringAttributesWithFont:(id)arg1 color:(id)arg2;
 + (id)stringAttributesWithFont:(id)arg1;
 - (void).cxx_destruct;

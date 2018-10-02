@@ -6,7 +6,7 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-@class MSCloudAvatarView, NSProgressIndicator, NSTextField;
+@class MSCloudAvatarView, NSProgressIndicator, NSTextField, SCKUser;
 
 @interface MSCloudPreferencesAccountViewController : MSCloudPreferencesViewController
 {
@@ -17,8 +17,10 @@
     NSTextField *_emailLabel;
     NSProgressIndicator *_progressIndicator;
     NSTextField *_errorLabel;
+    SCKUser *_user;
 }
 
+@property(retain, nonatomic) SCKUser *user; // @synthesize user=_user;
 @property(nonatomic) BOOL loading; // @synthesize loading=_loading;
 @property(retain, nonatomic) NSTextField *errorLabel; // @synthesize errorLabel=_errorLabel;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;

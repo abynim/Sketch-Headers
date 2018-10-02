@@ -8,7 +8,7 @@
 
 #import "MSSnappable-Protocol.h"
 
-@class MSLayer, MSLayoutAnchor, MSLayoutPosition, NSArray, NSString;
+@class MSLayer, MSLayoutDimension, MSLayoutPosition, NSArray, NSString;
 @protocol MSSnappable;
 
 @interface MSSnapItem : NSObject <MSSnappable>
@@ -17,6 +17,7 @@
     struct CGRect _rectAtInit;
 }
 
++ (id)candidateSpacingsBetweenLayers:(id)arg1 alongAxis:(unsigned long long)arg2;
 + (id)snapItemWithLayers:(id)arg1;
 @property(nonatomic) struct CGRect rectAtInit; // @synthesize rectAtInit=_rectAtInit;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -32,25 +33,28 @@
 - (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
 @property(nonatomic) struct CGRect rectForSnapping;
-- (struct CGRect)alignmentRectInLayer:(id)arg1 options:(unsigned long long)arg2;
+- (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (struct CGRect)boundsRect;
 - (double)rotation;
 @property(readonly, nonatomic) BOOL shouldConstrainProportions;
 @property(readonly, nonatomic) BOOL supportsResizingForSnapping;
 - (id)artboardForSnapping;
+- (BOOL)rect:(struct CGRect)arg1 isOnLineWithRect:(struct CGRect)arg2 inDirection:(unsigned long long)arg3;
+- (id)candidateLayersForSnappingSpacingAlongAxis:(unsigned long long)arg1 order:(unsigned long long)arg2;
 - (id)candidateLayersForSnapping:(unsigned long long)arg1;
 @property(readonly, nonatomic) MSLayer *layer;
 @property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
-@property(readonly, nonatomic) MSLayoutAnchor *heightAnchor;
-@property(readonly, nonatomic) MSLayoutAnchor *widthAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *widthAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *centerYAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *centerXAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *bottomAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *topAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
-@property(readonly, nonatomic) NSArray *anchorsForSnapping;
+- (id)anchorsForSnappingOnAxes:(unsigned long long)arg1;
+- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 - (id)initWithLayers:(id)arg1;

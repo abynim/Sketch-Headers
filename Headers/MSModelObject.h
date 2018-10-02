@@ -9,7 +9,7 @@
 #import "MSModelObject-Protocol.h"
 #import "NSCopying-Protocol.h"
 
-@class MSDocumentData, NSString;
+@class MSDocumentData, MSLayerGroup, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
@@ -23,11 +23,11 @@
 + (BOOL)allowsFaulting;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
+@property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
 - (void)breakConnectionWith:(id)arg1;
-@property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (id)parentGroupRecursive;
-- (id)parentGroup;
+@property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
 - (void)invalidateImmutableObjectAndAncestors;

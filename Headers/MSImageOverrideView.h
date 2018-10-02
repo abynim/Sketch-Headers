@@ -10,19 +10,16 @@
 
 @interface MSImageOverrideView : NSImageView
 {
-    NSImage *_normalImage;
     NSImage *_placeholderImage;
 }
 
++ (Class)cellClass;
 @property(retain, nonatomic) NSImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
-@property(retain, nonatomic) NSImage *normalImage; // @synthesize normalImage=_normalImage;
 - (void).cxx_destruct;
-- (BOOL)displaysPlaceholder;
+- (struct CGSize)intrinsicContentSize;
+@property(readonly, nonatomic) BOOL displaysPlaceholder;
 - (void)removeOverrideImage:(id)arg1;
-- (void)setImage:(id)arg1;
 - (id)menuForEvent:(id)arg1;
-- (void)keyDown:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

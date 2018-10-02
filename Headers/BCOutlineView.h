@@ -6,36 +6,69 @@
 
 #import <AppKit/NSOutlineView.h>
 
-@class BCOutlineViewDataController, NSMutableDictionary, NSMutableSet;
+@class BCOutlineViewDataController;
+@protocol BCOutlineViewDelegate;
 
 @interface BCOutlineView : NSOutlineView
 {
+    BOOL _floatingRowDragged;
+    BOOL _shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened;
+    BOOL _useHighlightedBackgroundColor;
+    BOOL _isUserActivated;
     BCOutlineViewDataController *_dataController;
     id _discloserTriangleClickedItem;
+    BCOutlineView *_counterpartOutlineView;
+    unsigned long long _activeStateScheme;
     SEL _disclosureButtonAction;
-    NSMutableDictionary *_viewCache;
-    NSMutableSet *_registeredViews;
+    long long _floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
 }
 
-@property(retain, nonatomic) NSMutableSet *registeredViews; // @synthesize registeredViews=_registeredViews;
-@property(retain, nonatomic) NSMutableDictionary *viewCache; // @synthesize viewCache=_viewCache;
+@property(nonatomic) long long floatingRowToTakeIntoAccountWhenProcessingMouseEvent; // @synthesize floatingRowToTakeIntoAccountWhenProcessingMouseEvent=_floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
+@property(nonatomic) BOOL isUserActivated; // @synthesize isUserActivated=_isUserActivated;
 @property(nonatomic) SEL disclosureButtonAction; // @synthesize disclosureButtonAction=_disclosureButtonAction;
+@property(nonatomic) BOOL useHighlightedBackgroundColor; // @synthesize useHighlightedBackgroundColor=_useHighlightedBackgroundColor;
+@property(nonatomic) BOOL shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened; // @synthesize shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened=_shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened;
+@property(nonatomic) BOOL floatingRowDragged; // @synthesize floatingRowDragged=_floatingRowDragged;
+@property(nonatomic) unsigned long long activeStateScheme; // @synthesize activeStateScheme=_activeStateScheme;
+@property(nonatomic) __weak BCOutlineView *counterpartOutlineView; // @synthesize counterpartOutlineView=_counterpartOutlineView;
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
-- (void)reloadData;
-- (void)addViewToCache:(id)arg1;
+- (void)refreshSelectedRowViews;
+- (void)refreshAllRowViews;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)setIntercellSpacing:(struct CGSize)arg1;
 - (void)deliberateScrollRowToVisible:(long long)arg1;
 - (void)scrollRowToVisible:(long long)arg1;
 - (id)dragImageForRowsWithIndexes:(id)arg1 tableColumns:(id)arg2 event:(id)arg3 offset:(struct CGPoint *)arg4;
+- (void)applyAppearance;
 - (id)menuForEvent:(id)arg1;
+- (BOOL)validateProposedFirstResponder:(id)arg1 forEvent:(id)arg2;
 - (struct CGRect)frameOfOutlineCellAtRow:(long long)arg1;
 - (id)makeViewWithIdentifier:(id)arg1 owner:(id)arg2;
-- (void)registerView:(id)arg1 withIdentifier:(id)arg2;
 - (void)disclosureTriangleClicked:(id)arg1;
+- (void)yieldToDefaultFirstResponder;
 - (BOOL)becomeFirstResponder;
+- (void)_noteUserDidActivateCounterpartOutlineView;
+- (void)noteUserDidActivateOutlineView;
+@property(readonly, nonatomic) BOOL isActiveOutlineView;
+- (void)setUpCoordinationWithCounterpartOutlineView:(id)arg1;
+- (BOOL)sendRenameNodeActionForRowIfAppropriate:(long long)arg1;
+- (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (id)rowViewAtRowIfAvailable:(long long)arg1;
+- (long long)rowAtPoint:(struct CGPoint)arg1;
+- (long long)rowAtLocationOfMouseEvent:(id)arg1;
+- (long long)rowAtPointTakingFloatingGroupRowIntoAccount:(struct CGPoint)arg1;
+- (struct CGRect)rectOfRow:(long long)arg1;
+- (struct CGRect)rectOfRowIgnoringFloatingState:(long long)arg1;
+- (struct CGRect)rectOfRowTakingFloatingGroupRowIntoAccount:(long long)arg1;
+- (void)processMouseEventTakingFloatingGroupRowIntoAccount:(long long)arg1 withBlock:(CDUnknownBlockType)arg2;
+- (void)processMouseEventTakingFloatingStateOfRowViewIntoAccount:(id)arg1 atRow:(long long)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)awakeFromNib;
+
+// Remaining properties
+@property __weak id <BCOutlineViewDelegate> delegate; // @dynamic delegate;
 
 @end
 

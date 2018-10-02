@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "MSLocalDataSupplierDelegate-Protocol.h"
-#import "MSPluginDataSupplierDelegate-Protocol.h"
+#import "MSDataSupplierDelegate-Protocol.h"
 
 @class NSArray, NSMutableArray, NSMutableDictionary, NSString;
 @protocol MSDataSupplierManagerDelegate;
 
-@interface MSDataSupplierManager : NSObject <MSLocalDataSupplierDelegate, MSPluginDataSupplierDelegate>
+@interface MSDataSupplierManager : NSObject <MSDataSupplierDelegate>
 {
     id <MSDataSupplierManagerDelegate> _delegate;
     NSString *_objectID;
@@ -34,20 +33,16 @@
 @property(readonly, copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) __weak id <MSDataSupplierManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)dataIdentifierFromUserInfoForKey:(id)arg1 onLayer:(id)arg2;
-- (void)setDataIdentifierToUserInfo:(id)arg1 forKey:(id)arg2 toLayer:(id)arg3;
 - (void)loadPluginData;
 - (id)localDataForDefaultsKey:(id)arg1;
 - (void)postDataSupplierChangeNotification;
-- (BOOL)hasDataSupplierWithDataIdentifier:(id)arg1;
-- (BOOL)hasBuiltinDataSupplierWithDataIdentifier:(id)arg1;
 - (BOOL)hasLocalDataSupplierWithDataIdentifier:(id)arg1;
-- (BOOL)hasPluginDataSupplierWithDataIdentifier:(id)arg1;
 - (id)firstPluginDataSupplierWithIdentifier:(id)arg1;
 - (id)firstDataSupplierInArray:(id)arg1 dataIdentifier:(id)arg2;
-- (BOOL)isPluginForDataSupplierEnabled:(id)arg1;
-- (BOOL)isBuiltinDataSupplier:(id)arg1;
-- (void)localDataSupplierDataChanged:(id)arg1;
+- (id)imageForTextLocalDataSupplier:(id)arg1 forSize:(struct CGSize)arg2;
+- (id)imageForImageLocalDataSupplier:(id)arg1;
+- (id)dataSupplierMenuItemImage:(id)arg1;
+- (void)dataSupplierDataChanged:(id)arg1;
 - (void)removePluginDataSuppliersNotIdentifiedWithIdentifiers:(id)arg1;
 - (void)removeLocalDataSupplier:(id)arg1;
 - (void)loadBuiltinData;
@@ -57,10 +52,12 @@
 - (void)resetSketchBuiltinData;
 - (void)loadDataSuppliersWithResetBuiltin:(BOOL)arg1;
 - (id)localDataSuppliers;
+- (id)useableDataSupplierWithIdentifier:(id)arg1;
 - (id)dataSupplierWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *dataSuppliers;
+- (void)supplyData:(id)arg1 atIndex:(id)arg2 forKey:(id)arg3;
 - (void)supplyData:(id)arg1 forKey:(id)arg2;
-- (void)requestDataFromPluginDataSupplier:(id)arg1 numberOfItems:(unsigned long long)arg2 applierBlock:(CDUnknownBlockType)arg3;
+- (void)requestDataFromPluginDataSupplier:(id)arg1 dataContext:(id)arg2 applierBlock:(CDUnknownBlockType)arg3;
 - (void)deregisterDataSuppliersForPluginWithIdentifier:(id)arg1;
 - (void)registerPluginDataSupplier:(id)arg1 withName:(id)arg2 dataType:(id)arg3 pluginIdentifier:(id)arg4 commandIdentifier:(id)arg5;
 - (void)setPluginDataReplyContext:(id)arg1 forDataKey:(id)arg2;

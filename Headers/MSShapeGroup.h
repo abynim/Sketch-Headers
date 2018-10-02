@@ -6,52 +6,43 @@
 
 #import "_MSShapeGroup.h"
 
+#import "MSLayerPreviewability-Protocol.h"
+#import "MSPathLayer-Protocol.h"
 #import "MSShapeGroup-Protocol.h"
 
-@class MSPath;
+@class MSPath, NSString;
 
-@interface MSShapeGroup : _MSShapeGroup <MSShapeGroup>
+@interface MSShapeGroup : _MSShapeGroup <MSLayerPreviewability, MSShapeGroup, MSPathLayer>
 {
 }
 
 + (struct CGRect)groupBoundsForContainer:(id)arg1;
 + (BOOL)groupBoundsShouldBeIntegral;
-+ (id)shapeWithPath:(id)arg1;
 + (id)shapeWithRect:(struct CGRect)arg1;
-+ (id)shapeWithBezierPath:(id)arg1;
-+ (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
-+ (id)keyPathsForValuesAffectingPreviewImages;
++ (id)groupWithLayers:(id)arg1;
++ (id)layerWithPath:(id)arg1;
++ (void)applyStyleForBooleanOperationFrom:(id)arg1 toShapeGroup:(id)arg2;
++ (id)shapeWithBooleanOperation:(long long)arg1 onLayers:(id)arg2;
 - (BOOL)shouldStripShadowsAndInnerShadow;
-- (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
+- (BOOL)canContainLayer:(id)arg1;
 - (BOOL)canRotate;
-- (void)adjustStyleToFitSubPaths;
 - (BOOL)isVerticalLine;
 - (BOOL)isHorizontalLine;
-- (void)makeLinePixelAligned;
-- (BOOL)isLine;
 - (BOOL)hasLines;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 - (void)moveTransformsToChildren;
 - (void)reversePath;
-- (void)flatten;
+- (id)flatten;
 - (void)simplify;
 @property(nonatomic) BOOL isClosed;
-- (void)setEdited:(BOOL)arg1;
-- (BOOL)canContainLayer:(id)arg1;
+@property(nonatomic) BOOL edited; // @dynamic edited;
+- (id)usedStyle;
 - (struct CGRect)safeFrameForBezierPath:(id)arg1;
 @property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 @property(readonly, nonatomic) BOOL hasMarkers;
-@property(readonly, nonatomic) MSPath *decoratedBezierPathInBounds;
-- (void)applyPropertiesToBezier:(id)arg1;
-- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3;
-- (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
-- (BOOL)hitTestMarkers:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)hitTestAsLine:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (void)setStyle:(id)arg1;
 - (id)defaultName;
-- (struct CGRect)boundsRectForAlignment;
 - (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
-- (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (BOOL)shouldDrawSelectionStroke;
@@ -60,49 +51,44 @@
 - (BOOL)shouldFlattenAfterRotate;
 - (Class)handlerClass;
 - (BOOL)handleDoubleClick;
-- (id)lastPoint;
-- (id)firstPoint;
-- (struct CGPoint)rulerBase;
-@property(nonatomic) double length; // @dynamic length;
-@property(nonatomic) double y2; // @dynamic y2;
-@property(nonatomic) double x2; // @dynamic x2;
-@property(nonatomic) double y1; // @dynamic y1;
-@property(nonatomic) double x1; // @dynamic x1;
-- (void)setP2:(struct CGPoint)arg1;
-- (void)setP1:(struct CGPoint)arg1;
-- (struct CGPoint)p2;
-- (struct CGPoint)p1;
-- (id)inspectorViewControllers;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
-- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (BOOL)expandableInLayerList;
-- (BOOL)selectedInLayerList;
-- (void)prepareAsMask;
+- (id)inspectorSections;
 - (BOOL)supportsInnerOuterBorders;
 - (void)changeInnerOuterBordersIfHasOpenPaths;
-- (BOOL)canSplitPaths;
-- (id)splitPathIntoShape:(id)arg1;
-- (id)splitPathsIntoShapes;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
-- (id)fillFromBorder:(id)arg1;
-- (double)lineWidthForOutliningWithBorder:(id)arg1;
-- (id)outlinePathForPath:(id)arg1 withBorder:(id)arg2;
-- (id)outlineShapeFromPath:(id)arg1 withBorder:(id)arg2;
-- (BOOL)canConvertToOutlines;
-- (id)layersByConvertingToOutlines;
-- (BOOL)booleanOperationCanBeReset;
+- (id)interfaceImageIdentifier;
+- (id)cacheOwner;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
+- (id)pathForHoverInBounds;
+- (id)styleForBooleanOperation;
 - (BOOL)canFlatten;
 - (BOOL)canProbablyFlatten;
 - (BOOL)hasFlattenablePath;
 - (BOOL)hasBooleanOperations;
 - (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
-- (void)possiblyFixRectangleBorderBeforeCut;
 - (BOOL)canCutSegments;
-- (void)applyOverride:(id)arg1 toPoint:(id)arg2;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestAsPath;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) unsigned long long badgeType;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 
 @end
 

@@ -19,12 +19,16 @@
 + (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
 + (void)drawGradientFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
 + (void)drawColorFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
++ (void)drawColor:(id)arg1 enabled:(BOOL)arg2 inRect:(struct CGRect)arg3 checkerboardSize:(double)arg4 forDarkAppearance:(BOOL)arg5;
 + (void)drawColor:(id)arg1 enabled:(BOOL)arg2 inRect:(struct CGRect)arg3;
 + (void)drawBasicFill:(id)arg1 colorSpace:(id)arg2 enabled:(BOOL)arg3 inRect:(struct CGRect)arg4;
++ (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1 checkerboardSize:(double)arg2 forDarkAppearance:(BOOL)arg3 backgroundColor:(id)arg4;
 + (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (void)performInitEmptyObject;
 - (id)previewImageOfSize:(struct CGSize)arg1 colorSpace:(id)arg2 clippingAsBorder:(BOOL)arg3 borderWidth:(double)arg4;
+- (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

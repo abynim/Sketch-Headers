@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)rotate90CC:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 

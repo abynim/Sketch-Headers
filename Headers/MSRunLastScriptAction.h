@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)runLastScript:(id)arg1;

@@ -6,14 +6,24 @@
 
 #import "_MSImmutableOverrideValue.h"
 
+@class NSString;
+
 @interface MSImmutableOverrideValue : _MSImmutableOverrideValue
 {
+    NSString *_attributeName;
+    NSString *_path;
 }
 
 + (id)overrideValuesFromDictionary:(id)arg1;
 + (id)dictionaryFromOverrideValues:(id)arg1;
 + (id)overrideValuesFromDictionary:(id)arg1 withPrefix:(id)arg2;
+@property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
+@property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
+- (void).cxx_destruct;
 - (id)description;
+- (void)calculateAttributeNameAndPath;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithName:(id)arg1 value:(id)arg2;
 
 @end

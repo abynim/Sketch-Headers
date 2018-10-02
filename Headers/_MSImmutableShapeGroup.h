@@ -8,13 +8,9 @@
 
 @interface _MSImmutableShapeGroup : MSImmutableLayerGroup
 {
-    long long _clippingMaskMode;
-    BOOL _hasClippingMask;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
-@property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
@@ -24,7 +20,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

@@ -15,6 +15,7 @@
 }
 
 + (id)defaultFillColor;
+- (id)asFill;
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (long long)patternFillType;

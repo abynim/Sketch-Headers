@@ -27,9 +27,10 @@
 @property(readonly, nonatomic) NSMutableDictionary *objectIDMap; // @synthesize objectIDMap=_objectIDMap;
 - (void).cxx_destruct;
 - (void)removeDisconnectedFlowsFromLayers:(id)arg1;
-- (BOOL)propertiesAreEqualBetweenSymbol:(id)arg1 andSymbol:(id)arg2;
+- (BOOL)propertiesAreEqualBetweenPasteboardSymbol:(id)arg1 andSymbol:(id)arg2;
 - (void)addForeignSymbolsToDocument:(id)arg1;
 - (id)pasteSymbol:(id)arg1 fromInstanceReferenceToDocument:(id)arg2;
+- (id)symbolMatching:(id)arg1 inDocument:(id)arg2;
 - (void)addSymbolMastersToDocument:(id)arg1;
 - (void)updateOverrides;
 - (void)ensureSymbolMastersIn:(id)arg1 haveUniqueIDInDocument:(id)arg2;
@@ -37,9 +38,6 @@
 - (id)rightmostArtboardOnPage:(id)arg1 intersectingRect:(struct CGRect)arg2;
 - (struct CGPoint)findFirstAvailablePositionForSize:(struct CGSize)arg1 nextToArtboardsOnPage:(id)arg2 inAllowedRect:(struct CGRect)arg3;
 - (BOOL)wouldArtboardWithRect:(struct CGRect)arg1 intersectOtherArtboardsOnPage:(id)arg2;
-- (id)layersFromLayersWithPathsWrapped:(id)arg1 forParent:(id)arg2;
-- (id)pathsExtractedFromLayers:(id)arg1;
-- (id)layersFromPasteboardSuitedForParent:(id)arg1;
 - (void)fitCombinedRectForLayers:(id)arg1 parent:(id)arg2 viewport:(id)arg3;
 - (void)setCombinedOrigin:(struct CGPoint)arg1 forLayers:(id)arg2;
 - (id)insertPagePasteboardDataIntoDocument:(id)arg1 afterPage:(id)arg2;

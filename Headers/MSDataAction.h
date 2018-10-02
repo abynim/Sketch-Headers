@@ -9,38 +9,44 @@
 #import "MSDataMenuProviderDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSDataMenuProvider, NSMenu, NSString;
+@class MSDataMenuProvider, NSString;
 
 @interface MSDataAction : MSDocumentAction <MSDataMenuProviderDelegate, NSMenuDelegate>
 {
     MSDataMenuProvider *_data;
-    NSMenu *_dataMenu;
 }
 
-@property(retain, nonatomic) NSMenu *dataMenu; // @synthesize dataMenu=_dataMenu;
 @property(retain, nonatomic) MSDataMenuProvider *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-- (id)validDataOverridePointsOnSymbolInstance:(id)arg1 dataManager:(id)arg2;
-- (id)symbolInstancesWithValidDataOverridePointsWithDataManager:(id)arg1;
+- (id)overridesByDataIdentifierWithDataManager:(id)arg1;
 - (id)overridePropertyForDataType:(unsigned long long)arg1;
 - (id)firstOverridePointInOverridePoints:(id)arg1 withProperty:(id)arg2;
+- (id)availableOverrideOnSymbolInstance:(id)arg1 property:(id)arg2;
 - (void)applyDataTo:(id)arg1 withDataMenu:(id)arg2 withDataFrom:(id)arg3;
 - (id)imageReplaceableStyleFillOnLayer:(id)arg1;
+- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toLayer:(id)arg3;
+- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toBitmapLayer:(id)arg3;
+- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toShapeGroup:(id)arg3;
+- (void)applyTextData:(id)arg1 supplierIdentifier:(id)arg2 toTextLayer:(id)arg3;
+- (void)applyDataWithSupplierIdentifer:(id)arg1 toLayer:(id)arg2 applierBlock:(CDUnknownBlockType)arg3;
+- (id)dataIdentifierInLayers:(id)arg1;
+- (id)dataMenuProviderDataIdentifier:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (void)dataMenuProviderApplyMasterDataToInstances:(id)arg1;
+- (void)dataMenuProviderRemoveDataRecord:(id)arg1;
+- (void)dataMenuProviderRefreshMasterData:(id)arg1;
+- (void)dataMenuProviderRefreshData:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
-- (id)dataMenuProviderSelectedLayerDataSupplierIdentifier:(id)arg1;
+- (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
+- (id)label;
 - (BOOL)validate;
 - (unsigned long long)dataTypeForSelection;
 - (unsigned long long)supportedDataTypeForSelection;
 - (unsigned long long)dataTypeForSelectionContainingOnlySymbolInstancesWithOneOverridePerDataType;
-- (id)menu;
 - (BOOL)hasSubMenu;
-- (id)imageName;
-- (BOOL)showInToolbar;
 - (id)initWithDocument:(id)arg1;
 
 // Remaining properties

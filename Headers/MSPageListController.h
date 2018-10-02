@@ -6,12 +6,12 @@
 
 #import "MSSidebarListController.h"
 
-#import "BCOutlineViewDataSource-Protocol.h"
-#import "BCOutlineViewDelegate-Protocol.h"
+#import "BCOutlineViewDataControllerDataSource-Protocol.h"
+#import "BCOutlineViewDataControllerDelegate-Protocol.h"
 
-@class NSArray, NSString;
+@class NSArray, NSString, NSView;
 
-@interface MSPageListController : MSSidebarListController <BCOutlineViewDataSource, BCOutlineViewDelegate>
+@interface MSPageListController : MSSidebarListController <BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate>
 {
     NSArray *_selectedPages;
 }
@@ -19,7 +19,7 @@
 @property(retain, nonatomic) NSArray *selectedPages; // @synthesize selectedPages=_selectedPages;
 - (void).cxx_destruct;
 - (Class)pasteboardWriterClass;
-- (void)dataController:(id)arg1 refreshPreviewsOnNodes:(id)arg2;
+- (void)dataController:(id)arg1 refreshPreviewsOnNode:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)duplicatePages:(id)arg1;
 - (void)removePageWithValidation:(id)arg1;
@@ -32,12 +32,19 @@
 - (BOOL)canCopyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
 - (void)dataController:(id)arg1 removeNodes:(id)arg2;
 - (void)dataController:(id)arg1 updateNode:(id)arg2 expandedState:(unsigned long long)arg3;
+- (BOOL)dataController:(id)arg1 isNodeHighlighted:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeExpandable:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeExpanded:(id)arg2;
 - (void)dataController:(id)arg1 changeSelectionTo:(id)arg2;
+- (BOOL)dataController:(id)arg1 nodeHasSharedStyle:(id)arg2;
+- (BOOL)multipleNodesSelectedForDataController:(id)arg1;
+- (BOOL)dataController:(id)arg1 isNodeLockedOnCanvas:(id)arg2;
+- (BOOL)dataController:(id)arg1 isAncestorOfNodeHiddenOnCanvas:(id)arg2;
+- (BOOL)dataController:(id)arg1 isNodeHiddenOnCanvas:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeSelected:(id)arg2;
 - (id)pageForNode:(id)arg1;
 - (id)dataController:(id)arg1 childrenOfNode:(id)arg2;
+@property(readonly, nonatomic) NSView *defaultFirstResponder;
 - (id)rootObject;
 
 // Remaining properties

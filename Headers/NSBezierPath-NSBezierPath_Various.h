@@ -10,6 +10,7 @@
 + (id)impliedDashPatternFromDashPattern:(id)arg1 paddingToLength:(unsigned long long)arg2;
 + (id)validDashPatternFromProposedDashPattern:(id)arg1 padIfNeeded:(BOOL)arg2;
 + (double)validDashLengthFromProposedDashLength:(double)arg1;
++ (double)validGapLengthFromProposedGapLength:(double)arg1;
 + (id)bezierPathWithSubPaths:(id)arg1;
 + (id)bezierCurveFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)bezierPathFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;

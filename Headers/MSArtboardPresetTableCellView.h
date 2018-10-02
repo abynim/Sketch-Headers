@@ -19,7 +19,6 @@
 - (void).cxx_destruct;
 - (id)hitTest:(struct CGPoint)arg1;
 - (void)setBackgroundStyle:(long long)arg1;
-- (void)awakeFromNib;
 
 @end
 

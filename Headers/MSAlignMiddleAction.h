@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (long long)verticalAlignment;
 - (void)alignMiddle:(id)arg1;
 

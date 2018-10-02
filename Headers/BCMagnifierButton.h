@@ -4,18 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "BCBaseMagnifierButton.h"
+#import "MSInspectorOnStatePushButton.h"
 
+@class BCFlexibleColor;
 @protocol BCMagnifierButtonDelegate;
 
-@interface BCMagnifierButton : BCBaseMagnifierButton
+@interface BCMagnifierButton : MSInspectorOnStatePushButton
 {
     id <BCMagnifierButtonDelegate> _delegate;
+    BCFlexibleColor *_color;
 }
 
-+ (Class)cellClass;
+@property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
 @property(nonatomic) __weak id <BCMagnifierButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
 - (id)documentColorSpace;
 - (id)initWithFrame:(struct CGRect)arg1;
 

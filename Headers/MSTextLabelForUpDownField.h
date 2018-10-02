@@ -24,6 +24,7 @@
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *upDownTextField; // @synthesize upDownTextField=_upDownTextField;
 - (void).cxx_destruct;
 - (BOOL)canScrub;
+- (void)userClickedWithMouseDownEvent:(id)arg1 mouseUpEvent:(id)arg2;
 - (BOOL)trackMouseDraggingWithDownEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (void)mouseDown:(id)arg1;
 - (id)textField;
@@ -34,7 +35,9 @@
 - (void)viewDidMoveToWindow;
 - (void)awakeFromNib;
 - (void)setShouldTrackFlags:(BOOL)arg1;
+- (void)setupTextLabelForUpDownField;
 - (void)dealloc;
+- (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

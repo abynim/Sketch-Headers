@@ -12,6 +12,7 @@
 }
 
 + (id)separatorWithInsets:(struct NSEdgeInsets)arg1;
++ (id)separatorWithInsets:(struct NSEdgeInsets)arg1 width:(double)arg2;
 + (id)separator;
 @property(nonatomic) struct NSEdgeInsets edgeInsets; // @synthesize edgeInsets=_edgeInsets;
 - (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;

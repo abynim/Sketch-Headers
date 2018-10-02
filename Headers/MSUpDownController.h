@@ -17,6 +17,7 @@
     MSIntegratedStepper *_stepper;
 }
 
++ (Class)stepperClass;
 + (void)initialize;
 @property(retain, nonatomic) MSIntegratedStepper *stepper; // @synthesize stepper=_stepper;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *textField; // @synthesize textField=_textField;
@@ -25,16 +26,18 @@
 - (BOOL)isEditable;
 - (BOOL)isEnabled;
 - (BOOL)isEditing;
-- (double)floatValue;
+- (float)floatValue;
 - (double)incrementValueAccountingForModifierFlags;
 - (double)adjustValueForMinimum:(double)arg1;
-- (void)incrementBy:(double)arg1;
+- (BOOL)incrementBy:(double)arg1;
 - (void)decrement;
 - (double)adjustValueForMaximum:(double)arg1;
 - (void)increment;
 - (double)incrementValue;
 - (void)keyUp;
 - (void)setFloatValueAndNotifyBindings:(double)arg1;
+- (void)giveUpFirstResponder;
+- (void)insertNewline:(id)arg1;
 - (void)cancelOperation:(id)arg1;
 - (BOOL)cancelTextEditingForInvalidReplacementString:(id)arg1;
 - (BOOL)doCommandBySelector:(SEL)arg1;
@@ -43,9 +46,10 @@
 - (BOOL)becomeFirstResponder;
 - (BOOL)eventIsInsideView:(id)arg1;
 - (void)mouseMoved:(id)arg1;
-- (void)hideStepper;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (void)hideStepper:(BOOL)arg1;
+- (struct CGRect)stepperRect;
 - (void)makeStepper;
 - (id)initWithTextField:(id)arg1 createStepper:(BOOL)arg2;
 

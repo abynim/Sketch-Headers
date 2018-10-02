@@ -15,10 +15,10 @@
 
 @property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (void).cxx_destruct;
+- (id)label;
 - (id)menuItemsForMenu:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)removeDocumentCloseObserver;
-- (BOOL)showInToolbar;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)hasSubMenu;
 - (BOOL)validateMenuItem:(id)arg1;

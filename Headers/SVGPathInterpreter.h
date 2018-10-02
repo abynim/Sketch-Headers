@@ -18,6 +18,7 @@
 @property(nonatomic) BOOL lastCommand; // @synthesize lastCommand=_lastCommand;
 @property(nonatomic) struct CGPoint lastControl; // @synthesize lastControl=_lastControl;
 @property(nonatomic) struct CGPoint lastPoint; // @synthesize lastPoint=_lastPoint;
+- (void)requiresInitialPointForPath:(id)arg1;
 - (void)appendAComponents:(id)arg1 toBezierPath:(id)arg2;
 - (void)appendaComponents:(id)arg1 toBezierPath:(id)arg2;
 - (void)appendvComponents:(id)arg1 toBezierPath:(id)arg2;

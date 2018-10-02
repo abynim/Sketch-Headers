@@ -30,6 +30,7 @@
 @property(nonatomic) __weak id <BCColorPreviewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+- (struct CGRect)contentBounds;
 - (void)drawCheckerboard;
 - (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (void)drawRect:(struct CGRect)arg1;

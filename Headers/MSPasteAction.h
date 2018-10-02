@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)paste:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 

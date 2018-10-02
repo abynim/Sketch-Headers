@@ -6,15 +6,13 @@
 
 #import "MSInspectorItem.h"
 
-@class MSTextLabelForUpDownField, MSUpDownTextField, NSButton, NSString, NSTextField;
+@class MSInlineUpDownTextField, NSButton, NSString, NSTextField;
 
 @interface MSTwoTextFieldInspectorItem : MSInspectorItem
 {
     NSTextField *_itemLabel;
-    MSUpDownTextField *_textField1;
-    MSUpDownTextField *_textField2;
-    MSTextLabelForUpDownField *_textField1Label;
-    MSTextLabelForUpDownField *_textField2Label;
+    MSInlineUpDownTextField *_textField1;
+    MSInlineUpDownTextField *_textField2;
     NSButton *_interTextFieldButton;
     NSString *_itemTitle;
     NSString *_field1;
@@ -25,16 +23,13 @@
 @property(retain, nonatomic) NSString *field1; // @synthesize field1=_field1;
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
 @property(retain, nonatomic) NSButton *interTextFieldButton; // @synthesize interTextFieldButton=_interTextFieldButton;
-@property(retain, nonatomic) MSTextLabelForUpDownField *textField2Label; // @synthesize textField2Label=_textField2Label;
-@property(retain, nonatomic) MSTextLabelForUpDownField *textField1Label; // @synthesize textField1Label=_textField1Label;
-@property(retain, nonatomic) MSUpDownTextField *textField2; // @synthesize textField2=_textField2;
-@property(retain, nonatomic) MSUpDownTextField *textField1; // @synthesize textField1=_textField1;
+@property(retain, nonatomic) MSInlineUpDownTextField *textField2; // @synthesize textField2=_textField2;
+@property(retain, nonatomic) MSInlineUpDownTextField *textField1; // @synthesize textField1=_textField1;
 @property(retain, nonatomic) NSTextField *itemLabel; // @synthesize itemLabel=_itemLabel;
 - (void).cxx_destruct;
 - (void)interTextFieldButtonAction:(id)arg1;
 - (void)textField2Action:(id)arg1;
 - (void)textField1Action:(id)arg1;
-@property(readonly, nonatomic) BOOL allowFloatValues;
 - (void)setLayers:(id)arg1;
 - (void)setupLabels;
 - (void)viewDidLoad;

@@ -9,6 +9,6 @@
 @class MSColor;
 
 @protocol MSLayerWithMutableBackgroundColor <MSLayerWithBackgroundColor>
-- (MSColor *)backgroundColor;
+@property(retain, nonatomic) MSColor *backgroundColor;
 @end
 

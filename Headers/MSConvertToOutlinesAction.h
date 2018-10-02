@@ -12,7 +12,9 @@
 
 - (BOOL)validate;
 - (id)imageName;
+- (BOOL)isFirstLayerText;
 - (id)historyMomentTitle;
+- (id)tooltip;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)convertToOutlines:(id)arg1;

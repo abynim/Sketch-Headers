@@ -33,7 +33,6 @@
 - (id)toolbarSelectableItemIdentifiers:(id)arg1;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (id)windowWillReturnFieldEditor:(id)arg1 toObject:(id)arg2;
 @property(nonatomic) unsigned long long selectedTabIndex;
 - (void)updateWindowFrame;
 - (id)existingPaneWithIdentifier:(id)arg1;

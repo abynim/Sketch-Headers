@@ -22,6 +22,7 @@
 - (id)localShareID;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
+- (id)initAsOverrideReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;

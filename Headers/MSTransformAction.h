@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)tooltip;
 - (void)doPerformAction:(id)arg1;
 - (void)transform:(id)arg1;

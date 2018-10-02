@@ -7,33 +7,39 @@
 #import <objc/NSObject.h>
 
 @class BCFilterInfo, NSArray, NSPredicate;
-@protocol BCOutlineViewDataSource, BCOutlineViewDelegate;
+@protocol BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate;
 
 @interface BCOutlineViewDataController : NSObject
 {
+    NSObject<BCOutlineViewDataControllerDelegate> *_delegate;
+    NSObject<BCOutlineViewDataControllerDataSource> *_dataSource;
     BCFilterInfo *_filter;
     id _cachedNode;
     NSArray *_cachedNodesChildren;
-    NSObject<BCOutlineViewDelegate> *_delegate;
-    NSObject<BCOutlineViewDataSource> *_dataSource;
 }
 
-@property(readonly, nonatomic) NSObject<BCOutlineViewDataSource> *dataSource; // @synthesize dataSource=_dataSource;
-@property(readonly, nonatomic) NSObject<BCOutlineViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *cachedNodesChildren; // @synthesize cachedNodesChildren=_cachedNodesChildren;
 @property(retain, nonatomic) id cachedNode; // @synthesize cachedNode=_cachedNode;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
+@property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDataSource> *dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) id rootObject;
-- (void)refreshPreviewsOnNodes:(id)arg1;
+- (void)refreshPreviewsOnNode:(id)arg1;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
+- (BOOL)isNodeHighlighted:(id)arg1;
 - (void)hoverNodeDidChangeTo:(id)arg1;
 - (id)menuItemsForSelectedObjects:(id)arg1;
 @property(readonly, nonatomic) BOOL canProvideContextMenuItems;
 @property(readonly, nonatomic) NSArray *dragTypes;
 - (void)updateNode:(id)arg1 expandedState:(unsigned long long)arg2;
 - (BOOL)isNodeExpandable:(id)arg1;
+- (BOOL)multipleNodesSelected;
 - (BOOL)isNodeExpanded:(id)arg1;
+- (BOOL)nodeHasSharedStyle:(id)arg1;
+- (BOOL)isNodeLockedOnCanvas:(id)arg1;
+- (BOOL)isAncestorOfNodeHiddenOnCanvas:(id)arg1;
+- (BOOL)isNodeHiddenOnCanvas:(id)arg1;
 - (BOOL)isNodeSelected:(id)arg1;
 - (void)changeSelectionTo:(id)arg1;
 - (BOOL)handleDragWithPasteboard:(id)arg1 forProposedItem:(id)arg2 proposedChildIndex:(long long)arg3 copying:(BOOL)arg4 validationOnly:(BOOL)arg5;

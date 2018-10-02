@@ -6,11 +6,9 @@
 
 #import "MSTwoTextFieldInspectorItem.h"
 
-#import "MSInspectorValueAdaptorDelegate-Protocol.h"
+@class MSCoordinateInspectorValueAdaptor;
 
-@class MSCoordinateInspectorValueAdaptor, NSString;
-
-@interface MSLineEndpointInspectorItem : MSTwoTextFieldInspectorItem <MSInspectorValueAdaptorDelegate>
+@interface MSLineEndpointInspectorItem : MSTwoTextFieldInspectorItem
 {
     MSCoordinateInspectorValueAdaptor *_xAdaptor;
     MSCoordinateInspectorValueAdaptor *_yAdaptor;
@@ -19,15 +17,8 @@
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
 - (void).cxx_destruct;
-- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3 xPath:(id)arg4 yPath:(id)arg5;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

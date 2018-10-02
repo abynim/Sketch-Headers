@@ -11,7 +11,7 @@
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 
-@class MSBackgroundColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, WKWebView;
+@class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, WKWebView;
 
 @interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 {
@@ -20,7 +20,7 @@
     NSButton *_startpointButton;
     NSButton *_backButton;
     NSToolbarItem *_backToolbarItem;
-    MSBackgroundColorView *_backgroundView;
+    MSColorView *_backgroundView;
     WKWebView *_webView;
 }
 
@@ -28,7 +28,7 @@
 + (void)show;
 + (id)sharedController;
 @property(nonatomic) __weak WKWebView *webView; // @synthesize webView=_webView;
-@property(nonatomic) __weak MSBackgroundColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(nonatomic) __weak MSColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(nonatomic) __weak NSToolbarItem *backToolbarItem; // @synthesize backToolbarItem=_backToolbarItem;
 @property(nonatomic) __weak NSButton *backButton; // @synthesize backButton=_backButton;
 @property(nonatomic) __weak NSButton *startpointButton; // @synthesize startpointButton=_startpointButton;
@@ -52,7 +52,6 @@
 - (void)mouseDown:(id)arg1;
 - (void)rightMouseUp:(id)arg1;
 - (void)relayResponderAction:(SEL)arg1 with:(id)arg2;
-- (BOOL)shouldInterceptResponderActions;
 - (void)showContextualMenuWithEvent:(id)arg1;
 - (void)goWithTheFlow:(id)arg1;
 - (void)goBack:(id)arg1;

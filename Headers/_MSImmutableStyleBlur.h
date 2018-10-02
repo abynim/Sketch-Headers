@@ -11,11 +11,13 @@
     struct CGPoint _center;
     double _motionAngle;
     double _radius;
+    double _saturation;
     unsigned long long _type;
 }
 
 + (Class)mutableClass;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(nonatomic) double saturation; // @synthesize saturation=_saturation;
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
@@ -28,7 +30,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

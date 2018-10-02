@@ -7,13 +7,8 @@
 #import <AppKit/NSColor.h>
 
 @interface NSColor (CHColorExtensions)
-+ (id)colorWithGray:(float)arg1 alpha:(float)arg2;
-+ (id)colorWithGray:(float)arg1;
-- (id)replacementObjectForJSONEncoder:(id)arg1;
-- (id)coderSafeVersion_bc;
-- (id)safeColorUsingColorSpaceName_bc:(id)arg1;
-- (id)safeColorUsingColorSpace_bc:(id)arg1;
-- (id)safeColorForColorSpaceConversion_bc;
++ (id)colorWithGray:(double)arg1 alpha:(double)arg2;
++ (id)colorWithGray:(double)arg1;
 - (BOOL)isWhite;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (struct CGColor *)newCGColor;

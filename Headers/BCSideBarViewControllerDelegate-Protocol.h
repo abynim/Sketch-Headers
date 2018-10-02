@@ -7,6 +7,7 @@
 #import "NSObject-Protocol.h"
 
 @protocol BCSideBarViewControllerDelegate <NSObject>
+@property(nonatomic) BOOL pageListCollapsed;
 @property(nonatomic) double pageListHeight;
 @end
 

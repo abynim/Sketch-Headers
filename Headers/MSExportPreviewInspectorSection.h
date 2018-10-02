@@ -8,23 +8,38 @@
 
 #import "MSInspectorItemDelegate-Protocol.h"
 
-@class MSExportBackgroundColorInspectorItem, MSExportPreviewImagesInspectorItem, MSExportPropertiesInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, NSString;
+@class MSExportInitialHeaderItem, MSExportInspectorViewController, MSExportPreviewHeaderInspectorItem, MSExportPreviewImagesInspectorItem, MSExportSelectedInspectorItem, MSHeader2InspectorItem, MSSliceBackgroundColorInspectorItem, MSSliceExportGroupContentsOnlyInspectorItem, MSSliceTrimTransparencyInspectorItem, NSArray, NSString;
 
 @interface MSExportPreviewInspectorSection : MSBaseInspectorSection <MSInspectorItemDelegate>
 {
     MSExportPreviewImagesInspectorItem *_imagesItem;
-    MSExportBackgroundColorInspectorItem *_backgroundColorItem;
-    MSExportPropertiesInspectorItem *_sliceProperties;
-    MSIncludeBackgroundColorInExportInspectorItem *_includeInExportItem;
-    MSIncludeBackgroundColorInInstancesInspectorItem *_includeInInstancesItem;
+    MSSliceTrimTransparencyInspectorItem *_trimTransparencyItem;
+    MSSliceExportGroupContentsOnlyInspectorItem *_groupContentsItem;
+    MSSliceBackgroundColorInspectorItem *_colorItem;
+    MSExportInitialHeaderItem *_initialHeaderItem;
+    MSExportPreviewHeaderInspectorItem *_headerItem;
+    MSHeader2InspectorItem *_sliceHeader;
+    NSArray *_footerItems;
+    MSExportInspectorViewController *_formatsItem;
+    MSExportSelectedInspectorItem *_exportSelectedItem;
 }
 
-@property(retain, nonatomic) MSIncludeBackgroundColorInInstancesInspectorItem *includeInInstancesItem; // @synthesize includeInInstancesItem=_includeInInstancesItem;
-@property(retain, nonatomic) MSIncludeBackgroundColorInExportInspectorItem *includeInExportItem; // @synthesize includeInExportItem=_includeInExportItem;
-@property(retain, nonatomic) MSExportPropertiesInspectorItem *sliceProperties; // @synthesize sliceProperties=_sliceProperties;
-@property(retain, nonatomic) MSExportBackgroundColorInspectorItem *backgroundColorItem; // @synthesize backgroundColorItem=_backgroundColorItem;
+@property(retain, nonatomic) MSExportSelectedInspectorItem *exportSelectedItem; // @synthesize exportSelectedItem=_exportSelectedItem;
+@property(retain, nonatomic) MSExportInspectorViewController *formatsItem; // @synthesize formatsItem=_formatsItem;
+@property(retain, nonatomic) NSArray *footerItems; // @synthesize footerItems=_footerItems;
+@property(retain, nonatomic) MSHeader2InspectorItem *sliceHeader; // @synthesize sliceHeader=_sliceHeader;
+@property(retain, nonatomic) MSExportPreviewHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+@property(retain, nonatomic) MSExportInitialHeaderItem *initialHeaderItem; // @synthesize initialHeaderItem=_initialHeaderItem;
+@property(retain, nonatomic) MSSliceBackgroundColorInspectorItem *colorItem; // @synthesize colorItem=_colorItem;
+@property(retain, nonatomic) MSSliceExportGroupContentsOnlyInspectorItem *groupContentsItem; // @synthesize groupContentsItem=_groupContentsItem;
+@property(retain, nonatomic) MSSliceTrimTransparencyInspectorItem *trimTransparencyItem; // @synthesize trimTransparencyItem=_trimTransparencyItem;
 @property(retain, nonatomic) MSExportPreviewImagesInspectorItem *imagesItem; // @synthesize imagesItem=_imagesItem;
 - (void).cxx_destruct;
+- (BOOL)wantsSeparatorAfterViews;
+- (id)footerViews;
+- (void)addExportFormat:(id)arg1;
+- (id)views;
+@property(readonly, nonatomic) BOOL hasContent;
 - (void)updateItems;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

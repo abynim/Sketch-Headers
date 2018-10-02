@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSSmallButtonCell.h"
+#import "MSInspectorPushButtonCell.h"
 
-@interface MSDropdownButtonCell : MSSmallButtonCell
+@interface MSDropdownButtonCell : MSInspectorPushButtonCell
 {
-    double _imageRightEdgeInset;
 }
 
-@property(nonatomic) double imageRightEdgeInset; // @synthesize imageRightEdgeInset=_imageRightEdgeInset;
-- (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (void)drawBezelWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
+- (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 
 @end

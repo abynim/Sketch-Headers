@@ -10,7 +10,5 @@
 {
 }
 
-- (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
-
 @end
 

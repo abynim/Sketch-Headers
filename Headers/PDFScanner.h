@@ -275,7 +275,6 @@
 - (void)scanPage:(struct CGPDFPage *)arg1 parser:(id)arg2 isPasted:(BOOL)arg3;
 - (id)addOperator:(CDUnknownFunctionPointerType)arg1 name:(id)arg2 description:(id)arg3;
 - (void)registerAllOperators;
-- (void)logUnusedParametersWithInfo:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

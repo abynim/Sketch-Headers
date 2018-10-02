@@ -14,7 +14,7 @@
 @property(nonatomic) CDStruct_ec0e0888 options; // @synthesize options=_options;
 - (id)duplicateLayers:(id)arg1;
 - (id)makeAllLayers:(id)arg1;
-- (struct CGRect)alignmentRectOfLayer:(id)arg1;
+- (struct CGRect)distributionRectForLayer:(id)arg1;
 - (double)largestDistributionHeightInLayers:(id)arg1;
 - (struct CGSize)sizeForLayer:(id)arg1;
 - (void)makeGridWithLayers:(id)arg1 options:(CDStruct_ec0e0888)arg2;

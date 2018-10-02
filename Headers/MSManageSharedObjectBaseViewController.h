@@ -27,6 +27,7 @@
 - (void)deleteSelectedObjects:(id)arg1;
 @property(readonly, nonatomic) NSArray *sharedObjectsSortedByName;
 - (void)removeSharedObject:(id)arg1;
+- (void)viewDidAppear;
 - (void)awakeFromNib;
 - (id)init;
 

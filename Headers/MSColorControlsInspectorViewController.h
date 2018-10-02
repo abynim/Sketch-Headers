@@ -20,6 +20,7 @@
     MSUpDownTextField *_contrastField;
 }
 
++ (void)setupTextField:(id)arg1 adaptor:(id)arg2 valueTransformer:(id)arg3;
 @property(retain, nonatomic) MSUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
 @property(retain, nonatomic) MSUpDownTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
 @property(retain, nonatomic) MSUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdaptor; // @synthesize saturationAdaptor=_saturationAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *hueAdaptor; // @synthesize hueAdaptor=_hueAdaptor;
 - (void).cxx_destruct;
+- (id)views;
 - (void)reset:(id)arg1;
 - (void)viewDidLoad;
 

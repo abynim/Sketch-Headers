@@ -11,6 +11,7 @@
 }
 
 + (id)defaultName;
+- (BOOL)patternFillHasOpacity;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;

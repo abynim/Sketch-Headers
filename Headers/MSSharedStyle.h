@@ -15,7 +15,7 @@
 {
 }
 
-- (id)newInstance;
+- (id)initWithName:(id)arg1 style:(id)arg2;
 @property(readonly, nonatomic) MSStyle *style;
 - (Class)shareableObjectReferenceClass_bc;
 - (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
@@ -26,6 +26,8 @@
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)updateToMatch:(struct MSModelObject *)arg1;
 - (void)resetReferencingInstances;
+- (id)allInstances;
+- (id)allLayersInstances;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;
 

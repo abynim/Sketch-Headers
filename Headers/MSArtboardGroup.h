@@ -11,17 +11,19 @@
 #import "MSLayerWithMutableBackgroundColor-Protocol.h"
 #import "MSRootLayer-Protocol.h"
 
-@class MSArtboardPreset, MSLayoutGrid, MSPath, MSRulerData, MSSimpleGrid, NSString;
+@class MSArtboardPreset, MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
+@protocol MSLayerCoordinateSpace;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorConvertible>
 {
+    id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
 }
 
 + (unsigned long long)traits;
 + (struct CGRect)artboardRectFromLayersInArray:(id)arg1;
+- (void).cxx_destruct;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
 - (void)convertColorsUsing:(id)arg1;
-- (void)makeChildRectsIntegral;
 - (id)immutableBackgroundColor;
 - (id)closestClippingLayer;
 @property(readonly, nonatomic) struct CGRect contentBounds;
@@ -40,39 +42,45 @@
 - (id)parentRoot;
 - (id)parentArtboard;
 - (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
+- (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
+- (BOOL)constrainProportions;
 - (BOOL)isLocked;
 - (void)setIsLocked:(BOOL)arg1;
 @property(readonly, nonatomic) double rotation;
 - (BOOL)isOpen;
 - (BOOL)canBeTransformed;
-- (BOOL)canBeContainedByGroup;
 - (BOOL)isAutomaticScalingEnabled;
 - (BOOL)hasClickThrough;
 - (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (void)setIsVisible:(BOOL)arg1;
-- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 resultIndex:(unsigned long long *)arg4;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
+- (void)adjustAfterInsert;
 - (BOOL)canBeHidden;
 - (BOOL)shouldRefreshOverlayForFlows;
-- (id)inspectorViewControllerNames;
+- (id)inspectorSections;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
+- (BOOL)canChangeBooleanOperation;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (id)contextualMenuPreviewImage;
-- (id)unselectedPreviewImage;
-- (id)selectedPreviewImage;
+- (id)contextualMenuPreviewTemplateImage;
+- (id)unselectedPreviewTemplateImage;
+- (id)selectedPreviewTemplateImage;
+- (id)badgeImages;
 - (unsigned long long)displayType;
 - (struct CGRect)optimalBoundingBox;
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (BOOL)shouldResizeToFitRect:(struct CGRect)arg1;
 - (void)resizeToFitChildren;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)parentRootForAbsoluteRect;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(retain, nonatomic) MSColor *backgroundColor;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
@@ -85,13 +93,10 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) MSPath *pathForBooleanOperations;
-@property(readonly, nonatomic) MSPath *pathInBounds;
-@property(readonly, nonatomic) MSPath *pathInFrame;
-@property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;

@@ -13,8 +13,6 @@
 - (void)refreshTouchBarItem;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (BOOL)optionKeyPressed;
-- (id)tooltipMoveDescription;
-- (id)tooltip;
 - (BOOL)validate;
 
 @end

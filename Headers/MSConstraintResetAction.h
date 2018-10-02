@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)resetConstraintAction:(id)arg1;

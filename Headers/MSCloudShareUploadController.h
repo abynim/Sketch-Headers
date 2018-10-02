@@ -8,14 +8,16 @@
 
 #import "SCKShareUploadDataSource-Protocol.h"
 
-@class MSWebExporter, NSProgress, NSString, NSURL, SCKShare, SCKShareUploadOperation;
+@class MSWebExporter, NSProgress, NSString, NSURL, SCKOrganization, SCKShare, SCKShareUploadOperation;
 @protocol MSCloudExportableDocument, MSCloudShareUploadControllerDelegate;
 
 @interface MSCloudShareUploadController : NSObject <SCKShareUploadDataSource>
 {
     BOOL _cancelled;
     id <MSCloudShareUploadControllerDelegate> _delegate;
+    MSCloudShareUploadController *_previousUpload;
     SCKShare *_existingShare;
+    SCKOrganization *_organization;
     id <MSCloudExportableDocument> _document;
     NSURL *_localURL;
     NSString *_name;
@@ -29,7 +31,9 @@
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
 @property(nonatomic) __weak id <MSCloudExportableDocument> document; // @synthesize document=_document;
 @property(readonly, nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
+@property(retain, nonatomic) SCKOrganization *organization; // @synthesize organization=_organization;
 @property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
+@property(nonatomic) __weak MSCloudShareUploadController *previousUpload; // @synthesize previousUpload=_previousUpload;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)shareUploadOperation:(id)arg1 exportDocumentWithHandler:(CDUnknownBlockType)arg2;

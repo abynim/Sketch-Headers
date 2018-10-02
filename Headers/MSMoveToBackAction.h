@@ -10,7 +10,8 @@
 {
 }
 
-- (id)tooltipMoveDescription;
+- (id)label;
+- (id)tooltip;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)moveToBack:(id)arg1;

@@ -12,15 +12,15 @@
 {
     BOOL _keepFiringTimer;
     MSUpDownController *_target;
+    long long _highlightMode;
     NSTimer *_timer;
     NSTimer *_initialSlowTimer;
-    long long _highlightMode;
 }
 
 @property(nonatomic) BOOL keepFiringTimer; // @synthesize keepFiringTimer=_keepFiringTimer;
-@property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(retain, nonatomic) NSTimer *initialSlowTimer; // @synthesize initialSlowTimer=_initialSlowTimer;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
+@property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(nonatomic) __weak MSUpDownController *target; // @synthesize target=_target;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;

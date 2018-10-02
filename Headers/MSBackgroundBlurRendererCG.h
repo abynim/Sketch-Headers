@@ -14,7 +14,8 @@
 {
 }
 
-- (void)renderBackgroundBlurBehindShape:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
+- (void)renderDocumentContentUnderLayer:(id)arg1 inContext:(struct CGContext *)arg2 rect:(struct CGRect)arg3 scale:(double)arg4 forRenderingContext:(id)arg5;
+- (void)renderBackgroundBlurBehindLayer:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

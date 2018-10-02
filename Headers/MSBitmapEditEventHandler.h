@@ -6,21 +6,25 @@
 
 #import "MSEventHandler.h"
 
-@class MSBitmapEditInspectorViewController, MSBitmapRectangleEditor, NSBezierPath, NSBitmapImageRep;
+@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, NSBezierPath, NSBitmapImageRep;
 
 @interface MSBitmapEditEventHandler : MSEventHandler
 {
     MSBitmapEditInspectorViewController *_inspectorViewController;
+    long long _currentMode;
     NSBezierPath *_accumulatedSelection;
     MSBitmapRectangleEditor *_rectangleEditor;
+    MSBitmapMagicWandEditor *_magicWandEditor;
     NSBitmapImageRep *_backupImageRep;
     NSBitmapImageRep *_cachedFirstBitmapImageRep;
 }
 
 @property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
+@property(retain, nonatomic) MSBitmapMagicWandEditor *magicWandEditor; // @synthesize magicWandEditor=_magicWandEditor;
 @property(retain, nonatomic) MSBitmapRectangleEditor *rectangleEditor; // @synthesize rectangleEditor=_rectangleEditor;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
+@property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void).cxx_destruct;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
@@ -30,6 +34,9 @@
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;
 - (id)crossHairCursor;
+- (id)magicWandCursorRemove;
+- (id)magicWandCursorAdd;
+- (id)magicWandCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)makeNewBackupImage;
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
@@ -62,6 +69,7 @@
 - (struct CGRect)selectedRect;
 - (struct CGRect)rectFromBitmapToBoundsCoordinates:(struct CGRect)arg1;
 - (struct CGRect)selectionRectInLayerCoordinates;
+- (void)selectionDidLiveUpdateTo:(id)arg1;
 - (void)invertAction:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)handlerWillLoseFocus;

@@ -6,7 +6,7 @@
 
 #import "MSImmutableModelObject.h"
 
-@class MSImmutableExportOptions, MSImmutableFlowConnection, MSImmutableRect, MSPath, NSDictionary, NSObject, NSString;
+@class MSImmutableExportOptions, MSImmutableFlowConnection, MSImmutableRect, NSDictionary, NSString;
 
 @interface _MSImmutableLayer : MSImmutableModelObject
 {
@@ -28,9 +28,6 @@
     MSImmutableExportOptions *_exportOptions;
     MSImmutableFlowConnection *_flow;
     MSImmutableRect *_frame;
-    NSObject *_calculatedPathInBoundsAtomicity;
-    MSPath *_nonatomicCalculatedPathInBounds;
-    // Error parsing type: A^v, name: _atomicCalculatedPathInBoundsPointer
 }
 
 + (Class)mutableClass;
@@ -62,10 +59,8 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (id)calculatePathInBounds;
-@property(readonly, nonatomic) MSPath *pathInBounds;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)initWithMinimalSetup;
 
 @end
 

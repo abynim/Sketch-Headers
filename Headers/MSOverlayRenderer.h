@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@protocol MSOverlayRendererDelegate;
+@protocol MSTiledRendererHostView;
 
 @interface MSOverlayRenderer : NSObject
 {
     BOOL _enabled;
-    id <MSOverlayRendererDelegate> _delegate;
+    id <MSTiledRendererHostView> _hostView;
 }
 
-@property(nonatomic) __weak id <MSOverlayRendererDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSTiledRendererHostView> hostView; // @synthesize hostView=_hostView;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 - (void).cxx_destruct;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;

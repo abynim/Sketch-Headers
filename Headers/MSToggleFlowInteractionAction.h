@@ -11,8 +11,8 @@
 }
 
 - (id)labelForToolbar;
+- (id)tooltip;
 - (id)label;
-- (id)imageName;
 - (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;
 - (void)toggleFlowInteraction:(id)arg1;

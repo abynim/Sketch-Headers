@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)openPanel;
 - (void)applyImage:(id)arg1 tolayer:(id)arg2;
 - (void)replaceImage:(id)arg1;

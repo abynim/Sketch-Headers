@@ -6,51 +6,48 @@
 
 #import <Foundation/NSOperation.h>
 
-#import "CALayerDelegate-Protocol.h"
+@class MSTiledRenderer, NSArray, NSBitmapImageRep, NSColorSpace, NSOperationQueue;
+@protocol MSRenderingContextCacheProvider;
 
-@class MSCGContextPool, MSImmutablePage, MSRenderingContext, MSRenderingDriver, MSRenderingRequest, MSTile, NSString;
-
-@interface MSTileRenderOperation : NSOperation <CALayerDelegate>
+@interface MSTileRenderOperation : NSOperation
 {
-    MSTile *_tile;
-    MSRenderingDriver *_driver;
-    MSRenderingRequest *_renderingRequest;
-    struct CGImage *_image;
-    MSImmutablePage *_pageForContent;
-    MSCGContextPool *_contextPool;
-    MSRenderingContext *_context;
-    struct CGPoint _distanceFromScrollOrigin;
-    struct CGRect _contentBounds;
-    struct CGRect _contentRectNeedingRedraw;
+    BOOL _pixelated;
+    BOOL _isExecuting;
+    BOOL _isFinished;
+    NSBitmapImageRep *_renderedImage;
+    NSArray *_renderPasses;
+    double _backingScaleFactor;
+    unsigned long long _pageOverlayRenderOptions;
+    id <MSRenderingContextCacheProvider> _cacheProvider;
+    NSColorSpace *_canvasColorSpace;
+    MSTiledRenderer *_renderer;
+    NSOperationQueue *_renderPassQueue;
+    struct CGSize _pixelViewSize;
+    struct CGRect _visibleContentRect;
 }
 
-@property(retain) MSRenderingContext *context; // @synthesize context=_context;
-@property(readonly, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
-@property(retain, nonatomic) MSImmutablePage *pageForContent; // @synthesize pageForContent=_pageForContent;
-@property(nonatomic) struct CGPoint distanceFromScrollOrigin; // @synthesize distanceFromScrollOrigin=_distanceFromScrollOrigin;
-@property(nonatomic) struct CGRect contentRectNeedingRedraw; // @synthesize contentRectNeedingRedraw=_contentRectNeedingRedraw;
-@property(readonly, nonatomic) struct CGImage *image; // @synthesize image=_image;
-@property(nonatomic) struct CGRect contentBounds; // @synthesize contentBounds=_contentBounds;
-@property(readonly, nonatomic) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest=_renderingRequest;
-@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
-@property(nonatomic) __weak MSTile *tile; // @synthesize tile=_tile;
++ (id)renderOperationWithPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10;
++ (id)renderOperationWithRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8;
++ (id)bitmapImageFromRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8;
++ (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10;
+@property BOOL isFinished; // @synthesize isFinished=_isFinished;
+@property BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
+@property(retain, nonatomic) NSOperationQueue *renderPassQueue; // @synthesize renderPassQueue=_renderPassQueue;
+@property(retain, nonatomic) MSTiledRenderer *renderer; // @synthesize renderer=_renderer;
+@property(retain, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
+@property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
+@property(nonatomic) unsigned long long pageOverlayRenderOptions; // @synthesize pageOverlayRenderOptions=_pageOverlayRenderOptions;
+@property(nonatomic) BOOL pixelated; // @synthesize pixelated=_pixelated;
+@property(nonatomic) struct CGSize pixelViewSize; // @synthesize pixelViewSize=_pixelViewSize;
+@property(nonatomic) double backingScaleFactor; // @synthesize backingScaleFactor=_backingScaleFactor;
+@property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
+@property(copy, nonatomic) NSArray *renderPasses; // @synthesize renderPasses=_renderPasses;
+@property(retain, nonatomic) NSBitmapImageRep *renderedImage; // @synthesize renderedImage=_renderedImage;
 - (void).cxx_destruct;
-- (void)drawBackgroundInContext:(struct CGContext *)arg1;
-- (id)makeRenderingContextForPage:(id)arg1 rect:(struct CGRect)arg2 scale:(double)arg3 zoom:(double)arg4 context:(struct CGContext *)arg5;
-- (void)drawContentInContext:(struct CGContext *)arg1 clipRect:(struct CGRect)arg2;
-- (void)combineContent:(struct CGContext *)arg1 withBackground:(struct CGContext *)arg2;
-- (void)main;
-- (unsigned long long)_tileIndex;
-- (void)cancelDrawing;
-- (void)dealloc;
-- (id)initWithRenderingRequest:(id)arg1 contextPool:(id)arg2 driver:(id)arg3;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)renderComplete:(id)arg1;
+- (void)start;
+- (void)renderNextPass:(id)arg1 image:(struct CGImage *)arg2;
+- (BOOL)asynchronous;
 
 @end
 

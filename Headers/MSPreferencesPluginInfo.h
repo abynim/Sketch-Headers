@@ -28,6 +28,7 @@
 @property(readonly, nonatomic) BOOL isCompatible;
 @property(readonly, nonatomic) BOOL updateAvailable;
 @property(readonly, copy, nonatomic) NSString *warningString;
+@property(readonly, nonatomic) BOOL suppliesData;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, copy, nonatomic) NSString *pluginDescription;
 @property(readonly, copy, nonatomic) NSString *namePlusAuthor;

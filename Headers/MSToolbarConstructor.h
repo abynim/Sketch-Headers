@@ -14,21 +14,24 @@
 {
     MSDocument *_doc;
     NSArray *_toolbarSelectableIdentifiers;
+    NSArray *_toolbarAllowedItemIdentifiers;
+    NSArray *_toolbarDefaultItemIdentifiers;
     NSToolbar *_toolbar;
 }
 
-+ (id)toolbarForDocument:(id)arg1;
++ (id)toolbarDefaultItemIdentifiers;
++ (id)toolbarAllowedItemIdentifiers;
 @property(retain, nonatomic) NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
+@property(copy, nonatomic) NSArray *toolbarDefaultItemIdentifiers; // @synthesize toolbarDefaultItemIdentifiers=_toolbarDefaultItemIdentifiers;
+@property(copy, nonatomic) NSArray *toolbarAllowedItemIdentifiers; // @synthesize toolbarAllowedItemIdentifiers=_toolbarAllowedItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
-- (void)dealloc;
+- (void)validateToolbarItems;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarSelectableItemIdentifiers:(id)arg1;
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (id)allActions;
-- (id)standardToolbarIdentifiers;
 - (void)constructToolbarForWindow:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 

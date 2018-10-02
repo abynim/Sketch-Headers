@@ -13,6 +13,7 @@
 @optional
 - (BOOL)popoverShouldTrackSuperviewOfAttachedToView:(BCPopover *)arg1;
 - (NSUndoManager *)popoverWillReturnUndoManager:(BCPopover *)arg1;
+- (BOOL)popoverShouldAnimateOnContentFrameDidChange:(NSNotification *)arg1;
 - (BOOL)popoverShouldCauseExistingPopoversToClose:(BCPopover *)arg1;
 - (BOOL)popoverShouldCloseWhenNewPopoverOpens:(BCPopover *)arg1 newPopover:(BCPopover *)arg2;
 - (void)popoverWindowDidMove:(BCPopover *)arg1;
