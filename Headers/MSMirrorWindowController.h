@@ -68,6 +68,7 @@
 - (void)documentDidUpdateNotification:(id)arg1;
 - (void)documentDidChangeNotification:(id)arg1;
 - (id)urlRequest;
+- (void)localizeFrontend;
 - (void)whitelistClientID;
 - (void)startLoading;
 - (BOOL)validateMenuItem:(id)arg1;

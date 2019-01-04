@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MSDocumentData, MSSidebarListController, NSArray, NSColorSpace, NSObject;
+@class MSDocumentData, MSLayer, MSSidebarListController, NSArray, NSColorSpace, NSObject, NSResponder;
 @protocol MSHoverableItem;
 
 @protocol MSSidebarControllerDelegate
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) MSDocumentData *documentData;
+@property(readonly, nonatomic) NSResponder *defaultFirstResponder;
 - (BOOL)layerHasHoverStateInCanvas:(id)arg1;
+- (void)sidebarController:(MSSidebarListController *)arg1 didHandleBadgePressOn:(MSLayer *)arg2;
 - (void)sidebarController:(MSSidebarListController *)arg1 hoveredLayerDidChangeTo:(NSObject<MSHoverableItem> *)arg2;
 - (NSArray *)sidebarControllerContextMenuItemsForCurrentSelection:(MSSidebarListController *)arg1;
 - (void)sidebarController:(MSSidebarListController *)arg1 validateRemovalOfPages:(NSArray *)arg2 withRemovalBlock:(void (^)(void))arg3;

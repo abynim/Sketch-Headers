@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDocument, MSLayerArray, MSNormalInspector, MSPersistentAssetCollection, NSString, NSView;
+@class MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -16,7 +16,6 @@
     BOOL _alignmentBarHidden;
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
-    MSPersistentAssetCollection *_globalAssets;
     MSLayerArray *_selectedLayers;
     NSView *_alignmentView;
     NSView *_alignmentContainerView;
@@ -30,7 +29,6 @@
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
-@property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
 - (void).cxx_destruct;

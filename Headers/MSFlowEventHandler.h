@@ -8,7 +8,7 @@
 
 #import "MSFlowMenuBuilderTarget-Protocol.h"
 
-@class MSArtboardGroup, MSLayerArray;
+@class MSArtboardGroup, MSLayerArray, NSSet;
 
 @interface MSFlowEventHandler : MSEventHandler <MSFlowMenuBuilderTarget>
 {
@@ -34,14 +34,16 @@
 - (void)showOtherPageMenuForLayer:(id)arg1;
 - (void)attachWireToTarget;
 - (void)moveWireToMouse:(struct CGPoint)arg1;
-- (void)drawAreaIndicatorsWithImageNamed:(id)arg1 atOffset:(double)arg2 atEdge:(unsigned long long)arg3;
+- (void)drawAreaIndicatorsWithImage:(id)arg1 atOffset:(double)arg2 atEdge:(unsigned long long)arg3 excludingArtboardsWithFlowType:(long long)arg4;
 - (void)drawOtherPageAreaIndicator;
 - (void)drawBackAreaIndicator;
-- (void)drawFlowPath:(id)arg1 fromLayer:(id)arg2 ofType:(unsigned long long)arg3 context:(id)arg4;
-- (void)drawConnectionToMouseInContext:(id)arg1;
+@property(readonly, nonatomic) NSSet *flowItems;
+- (id)flowItemForFlowInfo:(struct MSFlowInfo)arg1 fromLayer:(id)arg2;
+- (id)flowItemsForConnectionToMouse;
+- (id)flowItemsForConnectionToArtboard;
 - (void)drawConnectionToArtboardInContext:(id)arg1;
-- (void)drawConnectionToOtherPageInContext:(id)arg1;
-- (void)drawConnectionToBackArrowsInContext:(id)arg1;
+- (id)flowItemsForConnectionToOtherPage;
+- (id)flowItemsForConnectionToBackArrows;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

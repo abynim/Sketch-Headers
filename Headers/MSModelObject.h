@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObjectCommon.h"
+#import <SketchModel/MSModelObjectCommon.h>
 
-#import "MSModelObject-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSModelObject-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, NSString;
+@class MSDocumentData, MSLayerGroup, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
@@ -25,9 +25,10 @@
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
+- (BOOL)isDescendantOfObject:(id)arg1;
 - (void)breakConnectionWith:(id)arg1;
 - (id)parentGroupRecursive;
-- (id)parentGroup;
+@property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
 - (void)invalidateImmutableObjectAndAncestors;

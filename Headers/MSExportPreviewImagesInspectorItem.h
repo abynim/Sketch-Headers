@@ -17,6 +17,8 @@
 }
 
 + (void)setFrameOfViewModels:(id)arg1 withInspectorWidth:(double)arg2;
++ (struct CGSize)previewImageSizeForNumColumns:(unsigned long long)arg1;
++ (struct CGSize)previewViewSizeForNumColumns:(unsigned long long)arg1;
 + (void)reloadPreviewsForLayers:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (BOOL)canHandleLayer:(id)arg1;
 @property(nonatomic) long long throttleCount; // @synthesize throttleCount=_throttleCount;

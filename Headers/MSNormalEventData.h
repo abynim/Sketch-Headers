@@ -6,15 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class MSLayer, MSSnapperData;
+@class MSSnapperData;
 
 @interface MSNormalEventData : NSObject
 {
     BOOL _hasMultipleTouches;
     BOOL _didMouseDown;
-    MSLayer *_resizingLayer;
-    long long _resizingHandle;
     long long _dragMode;
+    long long _resizingHandle;
     MSSnapperData *_snapperData;
     struct CGPoint _mouseDown;
     struct CGPoint _midPoint;
@@ -22,15 +21,16 @@
 }
 
 @property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
-@property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(nonatomic) long long resizingHandle; // @synthesize resizingHandle=_resizingHandle;
-@property(retain, nonatomic) MSLayer *resizingLayer; // @synthesize resizingLayer=_resizingLayer;
+@property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(nonatomic) struct CGPoint originalScrollOrigin; // @synthesize originalScrollOrigin=_originalScrollOrigin;
 @property(nonatomic) struct CGPoint midPoint; // @synthesize midPoint=_midPoint;
 @property(nonatomic) struct CGPoint mouseDown; // @synthesize mouseDown=_mouseDown;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(nonatomic) BOOL hasMultipleTouches; // @synthesize hasMultipleTouches=_hasMultipleTouches;
 - (void).cxx_destruct;
+- (void)reset;
+- (id)init;
 
 @end
 

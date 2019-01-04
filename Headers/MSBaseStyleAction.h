@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validate;
 
 @end

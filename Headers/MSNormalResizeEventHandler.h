@@ -6,28 +6,28 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSNormalEventData, MSResizeGestureRecognizer, MSSnappingSession, _TtC17SketchControllers15MSResizeSession;
+@class MSDragGestureRecognizer, MSNormalEventData, MSSnappingSession, _TtC17SketchControllers15MSResizeSession;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
     MSSnappingSession *_snappingSession;
     MSNormalEventData *_eventData;
     _TtC17SketchControllers15MSResizeSession *_resizeSession;
-    MSResizeGestureRecognizer *_resizeGestureRecognizer;
+    MSDragGestureRecognizer *_resizeGestureRecognizer;
 }
 
-@property(readonly, nonatomic) MSResizeGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
+@property(readonly, nonatomic) MSDragGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
 @property(readonly, nonatomic) _TtC17SketchControllers15MSResizeSession *resizeSession; // @synthesize resizeSession=_resizeSession;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnappingSession *snappingSession; // @synthesize snappingSession=_snappingSession;
 - (void).cxx_destruct;
+- (BOOL)updateCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)finishResizing;
 - (long long)oppositeCorner;
 - (void)updateResize:(id)arg1;
-- (BOOL)updateCursor;
-- (void)prepareForResize;
 - (void)resizeLayer:(id)arg1;
+- (void)finishResizing;
+- (void)prepareForResize;
 - (id)initWithManager:(id)arg1;
 
 @end

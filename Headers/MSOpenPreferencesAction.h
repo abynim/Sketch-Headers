@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)openPreferences:(id)arg1;

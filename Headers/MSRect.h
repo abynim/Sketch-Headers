@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSRect.h"
+#import <SketchModel/_MSRect.h>
 
-#import "MSRect-Protocol.h"
+#import <SketchModel/MSRect-Protocol.h>
 
 @interface MSRect : _MSRect <MSRect>
 {
     long long _proportionsTempDisabled;
+    unsigned long long _batchEditsCount;
+    struct CGRect _oldRect;
     double _right;
     double _bottom;
     double _proportions;
@@ -23,6 +25,10 @@
 @property(nonatomic) double bottom; // @synthesize bottom=_bottom;
 @property(nonatomic) double right; // @synthesize right=_right;
 - (BOOL)isIntegral;
+- (void)endEditing;
+- (void)beginEditing;
+- (void)processEditing;
+- (void)editedFromRect:(struct CGRect)arg1;
 - (void)setRectByIgnoringProportions:(struct CGRect)arg1;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;

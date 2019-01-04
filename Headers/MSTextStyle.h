@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSTextStyle.h"
+#import <SketchModel/_MSTextStyle.h>
 
 @class NSDictionary, NSString;
 
@@ -22,7 +22,6 @@
 - (void)updateAttributesWithoutSyncingOwningTextLayer:(id)arg1;
 @property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
-- (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (id)treeAsDictionary;
 
 @end

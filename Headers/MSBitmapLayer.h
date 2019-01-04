@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSBitmapLayer.h"
+#import <SketchModel/_MSBitmapLayer.h>
 
-#import "MSImageOwner-Protocol.h"
+#import <SketchModel/MSImageOwner-Protocol.h>
 
 @class MSImageData;
 
@@ -30,13 +30,8 @@
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
-- (Class)handlerClass;
-- (id)inspectorViewControllerItemClasses;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-- (BOOL)canChangeBooleanOperation;
-- (void)applyOverride:(id)arg1 document:(id)arg2;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) MSImageData *image;

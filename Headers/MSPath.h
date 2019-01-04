@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class NSArray;
 
@@ -15,7 +15,7 @@
     struct MSPathCachedProperties _cachedProperties;
     // Error parsing type: A^^v, name: __contoursAtomic
     // Error parsing type: A^v, name: __cachedPropertiesAtomic
-    struct CGPath *_CGPath;
+    const struct CGPath *_CGPath;
     NSArray *_contours;
 }
 
@@ -27,9 +27,10 @@
 + (id)pathWithEllipseInRect:(struct CGRect)arg1;
 + (id)pathWithRect:(struct CGRect)arg1;
 + (id)pathWithContours:(id)arg1;
++ (id)pathWithSegments:(id)arg1 closed:(BOOL)arg2;
 + (id)pathWithSubpaths:(id)arg1;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
-@property(readonly, nonatomic) struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
+@property(readonly, nonatomic) const struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 - (void).cxx_destruct;
 - (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
 - (BOOL)isEqualToPath:(id)arg1;
@@ -91,26 +92,14 @@
 - (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4;
 - (id)shadowPathWithSpread:(double)arg1;
 - (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2;
-- (double)lineWidthForOutliningWithBorder:(id)arg1;
-- (id)outlinedSubpathWithBorder:(id)arg1 options:(id)arg2;
-- (id)outlinedPathWithBorder:(id)arg1 options:(id)arg2;
 - (id)booleanExclusiveOrWith:(id)arg1;
 - (id)booleanSubtractWith:(id)arg1;
 - (id)booleanIntersectWith:(id)arg1;
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
-- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4 cacheObject:(id)arg5 context:(id)arg6;
-- (id)shadowPathWithSpread:(double)arg1 cacheObject:(id)arg2 context:(id)arg3;
-- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
-- (id)outlinePathWithLineWidth:(double)arg1 borderOptions:(id)arg2;
-- (id)pathByGrowingBy:(double)arg1;
-- (id)insetPathBy:(double)arg1 borderOptions:(id)arg2;
-- (id)insetPathBy:(double)arg1;
-- (id)pathWithOuterPathOfSize:(double)arg1;
-- (id)outerPathWithRect:(struct CGRect)arg1;
-- (id)pathWithDashPattern:(id)arg1;
-- (void)addClipForWindingRule:(unsigned long long)arg1 context:(struct CGContext *)arg2;
-- (void)clipContext:(struct CGContext *)arg1 windingRule:(unsigned long long)arg2 inBlock:(CDUnknownBlockType)arg3;
+- (double)lineWidthForOutliningWithBorder:(id)arg1;
+- (id)outlinedSubpathWithBorder:(id)arg1 options:(id)arg2;
+- (id)outlinedPathWithBorder:(id)arg1 options:(id)arg2;
 
 @end
 

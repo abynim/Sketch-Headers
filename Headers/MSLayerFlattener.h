@@ -18,6 +18,7 @@
 - (struct CGRect)trimmedRectFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
 - (id)imageFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3 includeArtboardBackground:(BOOL)arg4;
 - (id)imageFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
+- (void)flattenLayer:(id)arg1 options:(unsigned long long)arg2;
 - (void)flattenLayers:(id)arg1;
 
 @end

@@ -12,7 +12,7 @@
 {
     BOOL _currentlyTrackingTouch;
     BOOL _didSnapRotation;
-    double _rotation;
+    double _userVisibleRotation;
     double _currentX;
     double _lastTouchTime;
     double _startingRotation;
@@ -30,7 +30,7 @@
 @property(nonatomic) BOOL didSnapRotation; // @synthesize didSnapRotation=_didSnapRotation;
 @property(nonatomic) double currentX; // @synthesize currentX=_currentX;
 @property(nonatomic) BOOL currentlyTrackingTouch; // @synthesize currentlyTrackingTouch=_currentlyTrackingTouch;
-@property(nonatomic) double rotation; // @synthesize rotation=_rotation;
+@property(nonatomic) double userVisibleRotation; // @synthesize userVisibleRotation=_userVisibleRotation;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (BOOL)isFlipped;

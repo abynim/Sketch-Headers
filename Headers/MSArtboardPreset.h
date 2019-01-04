@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class NSDictionary, NSImage, NSString;
 

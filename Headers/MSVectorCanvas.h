@@ -94,7 +94,7 @@
 - (id)indexPathOfHandleAtPoint:(struct CGPoint)arg1;
 - (struct CGRect)overlayDrawingRectForLayer:(id)arg1;
 - (void)setOverlayNeedsDisplay;
-- (struct CGPoint)convertPointToView:(struct CGPoint)arg1 fromPathCoordinatesOfShape:(id)arg2;
+- (struct CGPoint)convertPointToView:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (void)drawHandles;
 - (struct CGRect)drawingRectForInsertionAtPoint:(struct CGPoint)arg1;
 - (void)drawInsertionPoint;
@@ -104,6 +104,7 @@
 - (void)drawHairline;
 - (id)makeWireBezierPathForClosingPath:(BOOL)arg1 indexPathForSelectedHandle:(id)arg2;
 - (void)updateWire;
+- (void)addGuidesToSnapper:(id)arg1;
 - (void)addOtherLayersToSnapper:(id)arg1;
 - (void)includePointForSnapping:(struct CGPoint)arg1 inPathLayer:(id)arg2;
 - (void)addHandlesToSnapperForDragging:(BOOL)arg1;

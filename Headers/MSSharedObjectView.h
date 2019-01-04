@@ -6,7 +6,7 @@
 
 #import <AppKit/NSView.h>
 
-@class MSModelObject, NSColor, NSImage, NSString;
+@class MSModelObject, NSColor, NSColorSpace, NSImage, NSString;
 @protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSSharedObjectView : NSView
@@ -17,6 +17,7 @@
     NSString *_label;
     NSColor *_labelColor;
     NSColor *_labelBackgroundColor;
+    NSColorSpace *_previewColorSpace;
     unsigned long long _borders;
     NSImage *_previewImage;
 }
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) unsigned long long borders; // @synthesize borders=_borders;
+@property(retain, nonatomic) NSColorSpace *previewColorSpace; // @synthesize previewColorSpace=_previewColorSpace;
 @property(retain, nonatomic) NSColor *labelBackgroundColor; // @synthesize labelBackgroundColor=_labelBackgroundColor;
 @property(retain, nonatomic) NSColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;

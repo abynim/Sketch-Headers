@@ -31,14 +31,12 @@
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)dealloc;
-- (void)colorMagnifierAction:(id)arg1;
 - (void)changeBackgroundColorTo:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)backgroundColorAction:(id)arg1;
-- (BOOL)canHandleColorMagnifierAction;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 

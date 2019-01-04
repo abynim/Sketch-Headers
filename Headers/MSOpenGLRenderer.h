@@ -8,7 +8,7 @@
 
 #import "MSGPURenderer-Protocol.h"
 
-@class MSOpenGLLayer, MSOpenGLOffscreenBuffer;
+@class MSOpenGLLayer, MSOpenGLOffscreenBuffer, NSString;
 
 @interface MSOpenGLRenderer : NSObject <MSGPURenderer>
 {
@@ -38,15 +38,22 @@
 - (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(id)arg3;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
-- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1;
-- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_0b1c536a)arg2;
+- (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
+- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 disableOverlappingFragmentBlending:(BOOL)arg2;
+- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
 - (void)_endDrawCall;
 - (void)_beginDrawCall;
-- (void)endFrame;
+- (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)scheduleDrawBlock:(CDUnknownBlockType)arg1;
 - (BOOL)_renderingOffscreen;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

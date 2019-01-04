@@ -37,11 +37,12 @@
 - (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 - (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
 @property(retain, nonatomic) id value;
-- (void)valuesDidChange;
+- (void)updateValues;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
 - (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3;
+- (id)initWithModelsController:(id)arg1 modelKeyPath:(id)arg2 keyPathsToWatch:(id)arg3;
 - (id)initWithModelsController:(id)arg1 modelKeyPath:(id)arg2;
 
 @end

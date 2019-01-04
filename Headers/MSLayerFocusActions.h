@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)supportsState;
 - (id)actionNames;
 

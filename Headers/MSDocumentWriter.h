@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import "MSDocumentPreviewGeneration-Protocol.h"
+@class MSJSONZippedArchiver, NSData, NSDictionary;
 
-@class MSJSONZippedArchiver, NSData, NSDictionary, NSString;
-
-@interface MSDocumentWriter : NSObject <MSDocumentPreviewGeneration>
+@interface MSDocumentWriter : NSObject
 {
     NSDictionary *_UIMetadata;
     CDUnknownBlockType _previewGenerationBlock;
@@ -27,17 +25,9 @@
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (void).cxx_destruct;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
+- (id)createTextPreviewPDFDataForDocumentData:(id)arg1;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
-- (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
-- (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
-- (id)generatePreviewsForDocument:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

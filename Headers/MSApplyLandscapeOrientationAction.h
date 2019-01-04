@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (long long)comparisonResultToTest;
 - (void)applyLandscapeOrientation:(id)arg1;
 

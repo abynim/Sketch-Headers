@@ -8,7 +8,7 @@
 
 #import "MSStylePartInspectorDelegate-Protocol.h"
 
-@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSString;
+@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleColorStylePartInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSNumber, NSString;
 
 @interface MSStyleInspectorSection : MSNestedInspectorSection <MSStylePartInspectorDelegate>
 {
@@ -20,8 +20,12 @@
     MSBlurInspectorViewController *_blurViewController;
     MSColorControlsInspectorViewController *_colorControlsViewController;
     NSArray *_currentControllers;
+    MSMultipleColorStylePartInspectorViewController *_ownerOfPopoverToRestore;
+    NSNumber *_indexOfPopoverToRestore;
 }
 
+@property(retain, nonatomic) NSNumber *indexOfPopoverToRestore; // @synthesize indexOfPopoverToRestore=_indexOfPopoverToRestore;
+@property(retain, nonatomic) MSMultipleColorStylePartInspectorViewController *ownerOfPopoverToRestore; // @synthesize ownerOfPopoverToRestore=_ownerOfPopoverToRestore;
 @property(retain, nonatomic) NSArray *currentControllers; // @synthesize currentControllers=_currentControllers;
 @property(retain, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;
 @property(retain, nonatomic) MSBlurInspectorViewController *blurViewController; // @synthesize blurViewController=_blurViewController;
@@ -35,6 +39,7 @@
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
+- (void)restorePopover;
 - (void)closeAnyColorPopover;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)views;

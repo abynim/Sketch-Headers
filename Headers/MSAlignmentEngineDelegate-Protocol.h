@@ -9,9 +9,9 @@
 @class MSAlignmentEngine;
 
 @protocol MSAlignmentEngineDelegate <NSObject>
-- (struct CGPoint)alignmentEngine:(MSAlignmentEngine *)arg1 alignPoint:(struct CGPoint)arg2;
 
 @optional
 - (struct CGPoint)alignmentEngine:(MSAlignmentEngine *)arg1 roundPoint:(struct CGPoint)arg2;
+- (struct CGPoint)alignmentEngine:(MSAlignmentEngine *)arg1 alignPoint:(struct CGPoint)arg2;
 @end
 

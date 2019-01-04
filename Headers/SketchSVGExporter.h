@@ -52,7 +52,7 @@
 - (id)parentForLayer:(id)arg1;
 - (id)ancestorsForLayer:(id)arg1;
 - (id)radialGradientAttributes:(id)arg1 inRect:(id)arg2;
-- (id)linearGradientAttributes:(id)arg1;
+- (id)linearGradientAttributes:(id)arg1 inRect:(id)arg2;
 - (id)stopsForGradient:(id)arg1;
 - (id)gradientElement:(id)arg1 inRect:(id)arg2;
 - (void)addGradient:(id)arg1 inRect:(id)arg2;

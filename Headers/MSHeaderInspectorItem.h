@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-@class NSButton, NSImage, NSString, NSTextField;
+@class NSArray, NSButton, NSImage, NSLayoutConstraint, NSNumber, NSStackView, NSString, NSTextField, NSView;
 
 @interface MSHeaderInspectorItem : MSInspectorItem
 {
@@ -16,20 +16,30 @@
     NSString *_labelText;
     NSString *_buttonToolTip;
     long long _buttonState;
+    NSArray *_accessoryViews;
+    NSView *_titleView;
     NSTextField *_label;
+    NSLayoutConstraint *_labelLeadingConstraint;
+    NSNumber *_adjustedLabelLeadingMargin;
     NSButton *_headerButton;
     NSImage *_image;
     NSImage *_alternateImage;
     id _target;
     SEL _action;
+    NSStackView *_accessoryStackView;
 }
 
+@property(retain, nonatomic) NSStackView *accessoryStackView; // @synthesize accessoryStackView=_accessoryStackView;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(retain, nonatomic) NSImage *alternateImage; // @synthesize alternateImage=_alternateImage;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) NSButton *headerButton; // @synthesize headerButton=_headerButton;
+@property(retain, nonatomic) NSNumber *adjustedLabelLeadingMargin; // @synthesize adjustedLabelLeadingMargin=_adjustedLabelLeadingMargin;
+@property(retain, nonatomic) NSLayoutConstraint *labelLeadingConstraint; // @synthesize labelLeadingConstraint=_labelLeadingConstraint;
 @property(retain, nonatomic) NSTextField *label; // @synthesize label=_label;
+@property(retain, nonatomic) NSView *titleView; // @synthesize titleView=_titleView;
+@property(retain, nonatomic) NSArray *accessoryViews; // @synthesize accessoryViews=_accessoryViews;
 @property(nonatomic) BOOL wantsSeparatorInset; // @synthesize wantsSeparatorInset=_wantsSeparatorInset;
 @property(nonatomic) BOOL wantsSeparator; // @synthesize wantsSeparator=_wantsSeparator;
 @property(nonatomic) BOOL buttonDisabled; // @synthesize buttonDisabled=_buttonDisabled;
@@ -37,6 +47,8 @@
 @property(retain, nonatomic) NSString *buttonToolTip; // @synthesize buttonToolTip=_buttonToolTip;
 @property(retain, nonatomic) NSString *labelText; // @synthesize labelText=_labelText;
 - (void).cxx_destruct;
+- (void)setLabelLeadingMargin:(unsigned long long)arg1;
+- (void)updateStackView;
 - (void)updateDisplayedValues;
 - (void)setButtonTarget:(id)arg1 action:(SEL)arg2 image:(id)arg3 alternate:(id)arg4;
 - (void)viewDidLoad;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)filteredLayersForStyle;
 - (void)applySharedStyle:(id)arg1;

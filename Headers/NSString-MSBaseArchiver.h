@@ -6,7 +6,7 @@
 
 #import <Foundation/NSString.h>
 
-#import "MSCoding-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
 
 @interface NSString (MSBaseArchiver) <MSCoding>
 - (id)initWithUnarchiver:(id)arg1;

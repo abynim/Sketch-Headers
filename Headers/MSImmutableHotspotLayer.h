@@ -4,11 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableHotspotLayer.h"
+#import <SketchModel/_MSImmutableHotspotLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
-
-@interface MSImmutableHotspotLayer : _MSImmutableHotspotLayer <MSImmutableLayerPreviewability>
+@interface MSImmutableHotspotLayer : _MSImmutableHotspotLayer
 {
 }
 
@@ -18,12 +16,7 @@
 - (void)performInitEmptyObject;
 - (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
-- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
+- (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (id)flowDestination;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 

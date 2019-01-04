@@ -4,19 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSBaseConvertSymbolOrDetachInstancesAction.h"
 
-@interface MSConvertSymbolOrDetachInstancesAction : MSDocumentAction
+@interface MSConvertSymbolOrDetachInstancesAction : MSBaseConvertSymbolOrDetachInstancesAction
 {
 }
 
-- (BOOL)hasDynamicTitle;
-- (void)convertSymbolMastersToArtboards:(id)arg1;
 - (void)doPerformAction:(id)arg1;
-- (BOOL)containsSymbolMasters:(id)arg1;
 - (void)detachSymbolInstances:(id)arg1;
 - (id)label;
-- (BOOL)validate;
 
 @end
 

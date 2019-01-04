@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObject.h"
+#import <SketchModel/MSModelObject.h>
 
-@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSTextStyle, NSArray, NSMutableArray, NSString;
+@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSTextStyle, NSArray, NSMutableArray;
 
 @interface _MSStyle : MSModelObject
 {
     unsigned long long _endMarkerType;
     long long _miterLimit;
-    NSString *_sharedObjectID;
     unsigned long long _startMarkerType;
     unsigned long long _windingRule;
     MSStyleBlur *_blur;
@@ -95,7 +94,6 @@
 @property(retain, nonatomic) MSStyleBlur *blur; // @synthesize blur=_blur;
 @property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) unsigned long long startMarkerType; // @synthesize startMarkerType=_startMarkerType;
-@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;
 - (void)performInitWithImmutableModelObject:(id)arg1;

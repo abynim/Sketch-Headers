@@ -8,7 +8,7 @@
 
 @interface NSView (Separator)
 - (struct NSEdgeInsets)separatorInsetBetweenSelfAndView:(id)arg1;
-- (BOOL)wantsSeparator;
+@property(readonly, nonatomic) BOOL wantsSeparator;
 - (BOOL)wantsSeparatorBetweenSelfAndView:(id)arg1;
 @end
 

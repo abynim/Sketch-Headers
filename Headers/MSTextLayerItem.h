@@ -51,8 +51,6 @@
 - (void).cxx_destruct;
 - (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (void)applyTextColor:(id)arg1;
-- (void)colorMagnifierAction:(id)arg1;
-- (BOOL)canHandleColorMagnifierAction;
 - (id)occurencesOfAttributeWithName:(id)arg1;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
 - (void)updateKerningForFontChangeTo:(id)arg1 string:(id)arg2 range:(struct _NSRange)arg3 effectiveRange:(struct _NSRange)arg4 oldPointSize:(double)arg5;

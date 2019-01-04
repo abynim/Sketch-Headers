@@ -8,22 +8,25 @@
 
 #import "MSPluginLogAction-Protocol.h"
 
-@class NSMutableArray;
+@class NSDictionary, NSMutableDictionary;
 
 @interface MSLogAction : MSAction <MSPluginLogAction>
 {
-    NSMutableArray *_logs;
+    NSMutableDictionary *_logs;
+    NSDictionary *_latestLog;
 }
 
-@property(retain, nonatomic) NSMutableArray *logs; // @synthesize logs=_logs;
+@property(retain, nonatomic) NSDictionary *latestLog; // @synthesize latestLog=_latestLog;
+@property(retain, nonatomic) NSMutableDictionary *logs; // @synthesize logs=_logs;
 - (void).cxx_destruct;
+- (id)label;
 - (id)contextForActionObservers;
 - (id)URLForLogFile;
 - (void)writeToLogFile:(id)arg1;
 - (void)doPerformAction:(id)arg1;
-- (id)logString;
-- (void)clearLog;
-- (void)log:(id)arg1;
+- (id)logStringFor:(id)arg1;
+- (void)clearLogFor:(id)arg1;
+- (void)log:(id)arg1 from:(id)arg2;
 - (id)init;
 
 @end

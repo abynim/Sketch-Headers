@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
+
 @class MSLayer;
 @protocol MSLayerCoordinateSpace, MSRootLayer;
 
-@interface MSRulerCoordinateSpace : NSObject
+@interface MSRulerCoordinateSpace : NSObject <MSLayerCoordinateSpace>
 {
     MSLayer<MSRootLayer> *_layer;
 }

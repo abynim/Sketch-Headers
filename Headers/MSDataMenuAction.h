@@ -13,7 +13,6 @@
 }
 
 - (void)menuNeedsUpdate:(id)arg1;
-- (void)menuWillOpen:(id)arg1;
 - (void)addHeaderToMenu:(id)arg1 withTitle:(id)arg2;
 @property(readonly, nonatomic) MSDataMenuProvider *dataMenuProvider;
 - (BOOL)mayShowInToolbar;

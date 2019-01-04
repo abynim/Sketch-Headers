@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSOverridePoint : NSObject
 {
@@ -26,10 +26,12 @@
 - (void).cxx_destruct;
 - (unsigned long long)distanceToOverridePoint:(id)arg1;
 - (long long)comparisonScoreAgainst:(id)arg1;
+- (BOOL)canAcceptDataOfType:(id)arg1;
 @property(readonly, nonatomic) BOOL isStyleOverride;
 @property(readonly, nonatomic) BOOL isSymbolOverride;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
+@property(readonly, nonatomic) NSArray *pathComponents;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 - (id)initWithLayer:(id)arg1 property:(id)arg2 parent:(id)arg3;
 

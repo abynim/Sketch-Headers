@@ -15,7 +15,7 @@
 + (id)deleteHandle;
 + (id)distributeAlongAxis:(unsigned long long)arg1;
 + (id)alignToKey:(id)arg1;
-+ (void)guessControlPointsForPointAtIndex:(unsigned long long)arg1 shape:(id)arg2;
++ (BOOL)guessControlPointsForPointAtIndex:(unsigned long long)arg1 shape:(id)arg2;
 + (id)changeToCurveMode:(long long)arg1;
 + (id)nudgeWithKey:(unsigned short)arg1 distance:(double)arg2 flags:(unsigned long long)arg3;
 + (id)moveHandle:(id)arg1 toLocation:(double)arg2 onAxis:(unsigned long long)arg3;

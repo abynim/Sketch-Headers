@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableLayer.h"
+#import <SketchModel/MSImmutableLayer.h>
 
-@class MSImmutableStyle;
+@class MSImmutableStyle, NSString;
 
 @interface _MSImmutableStyledLayer : MSImmutableLayer
 {
     long long _clippingMaskMode;
     BOOL _hasClippingMask;
+    NSString *_sharedStyleID;
     MSImmutableStyle *_style;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableStyle *style; // @synthesize style=_style;
+@property(retain, nonatomic) NSString *sharedStyleID; // @synthesize sharedStyleID=_sharedStyleID;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void).cxx_destruct;

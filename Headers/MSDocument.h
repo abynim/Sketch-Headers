@@ -16,7 +16,7 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSString, NSTimer, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSResponder, NSString, NSTimer, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -115,7 +115,7 @@
 - (void)setFileURL:(id)arg1;
 - (void)visitSymbolMasterWithID:(id)arg1;
 - (void)openLibrariesForForeignObjects:(id)arg1;
-- (void)visitArtboardForInstance:(id)arg1;
+- (void)visitSymbolMaster:(id)arg1 withReturnInstance:(id)arg2;
 - (void)removeViewportForArtboard:(id)arg1;
 - (BOOL)canRestoreViewportAfterArtboardEdit:(id)arg1;
 - (void)restoreViewportAfterArtboardEdit:(id)arg1;
@@ -132,6 +132,7 @@
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
+- (void)sidebarController:(id)arg1 didHandleBadgePressOn:(id)arg2;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)refreshInspectorIfNecessary:(id)arg1;
@@ -164,7 +165,6 @@
 - (void)reloadInspector;
 - (void)reloadView;
 - (void)refreshOverlay;
-- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)deleteSymbolMasters:(id)arg1;
 - (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
@@ -224,6 +224,7 @@
 - (BOOL)shouldCreateToolbar;
 - (void)showWindows;
 - (void)windowControllerDidLoadNib:(id)arg1;
+- (BOOL)validateSelectionOfLayer:(id)arg1 proposedIDsOfLayersToSelect:(id)arg2;
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
 - (void)resetDocumentData:(id)arg1;
@@ -233,6 +234,7 @@
 - (void)awakeFromNib;
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
+@property(readonly, nonatomic) NSResponder *defaultFirstResponder;
 - (id)contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)notifyIfDocumentResignedCurrent;
@@ -248,6 +250,7 @@
 - (id)window;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
+- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)close;
 - (void)setViewsToNil;
 - (void)setViewControllersToNil;
@@ -263,15 +266,15 @@
 - (id)hudDocumentData;
 - (void)hudSetMonitor:(id)arg1;
 - (id)hudClientName;
-- (void)saveDocumentToURL:(id)arg1 saveMode:(unsigned long long)arg2 context:(id)arg3 callback:(id)arg4;
+- (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
+- (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (void)showMessage:(id)arg1;
+- (void)saveDocumentToURL:(id)arg1 saveMode:(unsigned long long)arg2 context:(id)arg3 callback:(id)arg4;
 - (id)dataForRequest:(id)arg1 ofType:(id)arg2;
 - (void)saveExportRequest:(id)arg1 toFile:(id)arg2;
 - (id)exportRequestWithName:(id)arg1 rect:(struct CGRect)arg2;
 - (id)exportRequestForArtboardOrSlice:(id)arg1;
 - (void)saveArtboardOrSlice:(id)arg1 toFile:(id)arg2;
-- (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
-- (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (id)pluginContext;
 - (BOOL)askToOpenDocumentRepairingMetadata;
 - (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;

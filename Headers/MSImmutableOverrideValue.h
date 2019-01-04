@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableOverrideValue.h"
+#import <SketchModel/_MSImmutableOverrideValue.h>
 
 @class NSString;
 
@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
 - (void).cxx_destruct;
 - (id)description;
+@property(readonly, nonatomic) BOOL isValid;
 - (void)calculateAttributeNameAndPath;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;

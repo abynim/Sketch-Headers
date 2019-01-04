@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSStyledLayer.h"
+#import <SketchModel/MSStyledLayer.h>
 
-@class NSArray, NSMutableArray, NSString;
+@class MSGroupLayout, NSArray, NSMutableArray, NSString;
 
 @interface _MSLayerGroup : MSStyledLayer
 {
     BOOL _hasClickThrough;
     NSString *_sharedObjectID;
+    MSGroupLayout *_groupLayout;
     NSMutableArray *_layers;
 }
 
@@ -38,6 +39,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+@property(retain, nonatomic) MSGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)performInitWithImmutableModelObject:(id)arg1;

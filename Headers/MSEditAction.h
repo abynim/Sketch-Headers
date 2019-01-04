@@ -17,7 +17,6 @@
 - (BOOL)isSelectable;
 - (void)doPerformAction:(id)arg1;
 - (void)edit:(id)arg1;
-- (void)validateToolbarItem;
 - (id)imageName;
 - (BOOL)validate;
 

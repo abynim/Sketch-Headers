@@ -21,6 +21,8 @@
 @property(readonly, nonatomic) struct CGColor *gridLightColor; // @synthesize gridLightColor=_gridLightColor;
 @property(readonly, nonatomic) unsigned long long layoutGridStyle; // @synthesize layoutGridStyle=_layoutGridStyle;
 - (void)dealloc;
+- (struct CGImage *)createFlowHotspotImage:(double)arg1;
+- (struct CGImage *)createFlowDotImage:(double)arg1;
 - (struct CGColor *)flowColor;
 - (struct CGImage *)flowOtherPageImage;
 - (struct CGImage *)flowBackImage;

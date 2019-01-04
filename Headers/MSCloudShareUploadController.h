@@ -15,23 +15,28 @@
 {
     BOOL _cancelled;
     id <MSCloudShareUploadControllerDelegate> _delegate;
+    MSCloudShareUploadController *_previousUpload;
     SCKShare *_existingShare;
     SCKOrganization *_organization;
     id <MSCloudExportableDocument> _document;
+    SCKShare *_previousShare;
     NSURL *_localURL;
     NSString *_name;
     MSWebExporter *_webExporter;
     SCKShareUploadOperation *_operation;
 }
 
++ (id)operationQueue;
 @property(retain, nonatomic) SCKShareUploadOperation *operation; // @synthesize operation=_operation;
 @property(retain, nonatomic) MSWebExporter *webExporter; // @synthesize webExporter=_webExporter;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *localURL; // @synthesize localURL=_localURL;
+@property(retain, nonatomic) SCKShare *previousShare; // @synthesize previousShare=_previousShare;
 @property(nonatomic) __weak id <MSCloudExportableDocument> document; // @synthesize document=_document;
 @property(readonly, nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) SCKOrganization *organization; // @synthesize organization=_organization;
 @property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
+@property(nonatomic) __weak MSCloudShareUploadController *previousUpload; // @synthesize previousUpload=_previousUpload;
 @property(nonatomic) __weak id <MSCloudShareUploadControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)shareUploadOperation:(id)arg1 exportDocumentWithHandler:(CDUnknownBlockType)arg2;

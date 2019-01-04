@@ -4,27 +4,34 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSSymbolMaster.h"
+#import <SketchModel/_MSSymbolMaster.h>
 
-#import "BCSortable-Protocol.h"
-#import "MSLayerPreviewability-Protocol.h"
-#import "MSPreviewGeneration-Protocol.h"
-#import "MSSharedObjectStyling-Protocol.h"
+#import <SketchModel/BCSortable-Protocol.h>
 
-@class NSArray, NSSet, NSString;
+@class NSArray, NSDictionary, NSMutableDictionary, NSSet, NSString;
 
-@interface MSSymbolMaster : _MSSymbolMaster <MSPreviewGeneration, MSLayerPreviewability, MSSharedObjectStyling, BCSortable>
+@interface MSSymbolMaster : _MSSymbolMaster <BCSortable>
 {
     BOOL _isDirty;
     long long _changeIdentifier;
+    NSMutableDictionary *_internalOverrideProperies;
 }
 
 + (void)copyPropertiesFrom:(id)arg1 to:(id)arg2;
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
+@property(retain, nonatomic) NSMutableDictionary *internalOverrideProperies; // @synthesize internalOverrideProperies=_internalOverrideProperies;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
+- (void).cxx_destruct;
+- (void)updateOverridesWithObjectIDMap:(id)arg1;
+- (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
+- (void)syncOverrideProperties;
+- (void)setOverridePoint:(id)arg1 editable:(BOOL)arg2;
+- (void)internalSetOverridePoint:(id)arg1 editable:(BOOL)arg2;
+@property(readonly, nonatomic) NSDictionary *overrideProperies;
 - (BOOL)limitsSelectionToBounds;
+- (BOOL)propertiesAreEqual:(id)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;
@@ -46,28 +53,22 @@
 - (id)copyWithIDMapping:(id)arg1;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
+- (void)invalidateModifiedSymbolCache;
 - (void)invalidateImmutableObject;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-- (struct CGRect)optimalBoundingBox;
-- (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
-- (Class)shareableObjectReferenceClass_bc;
-- (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
-- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 backingScale:(double)arg3 shadow:(BOOL)arg4 colorSpace:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
-- (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (BOOL)previewShouldIndicateSharedStyle;
 - (void)applyOverrides:(id)arg1 document:(id)arg2;
 @property(readonly, nonatomic) NSArray *availableOverrides;
+- (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)applyBackgroundColorProperties;
+- (void)clearBackgroundBlurCaches;
+- (void)applyResizeToRect:(struct CGRect)arg1;
+- (void)applyScale:(double)arg1;
+- (void)applyOverridesRespectingLayout:(id)arg1 document:(id)arg2;
+- (void)applyOverrides:(id)arg1 scale:(double)arg2 rect:(struct CGRect)arg3 inDocument:(id)arg4;
 
 // Remaining properties
-@property(readonly, nonatomic) unsigned long long badgeType;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

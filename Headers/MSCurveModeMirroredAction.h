@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)touchBarImage;
 - (long long)curveMode;
 

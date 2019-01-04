@@ -6,12 +6,12 @@
 
 #import "MSSidebarListController.h"
 
-#import "BCOutlineViewDataSource-Protocol.h"
-#import "BCOutlineViewDelegate-Protocol.h"
+#import "BCOutlineViewDataControllerDataSource-Protocol.h"
+#import "BCOutlineViewDataControllerDelegate-Protocol.h"
 
-@class NSArray, NSString;
+@class NSArray, NSString, NSView;
 
-@interface MSPageListController : MSSidebarListController <BCOutlineViewDataSource, BCOutlineViewDelegate>
+@interface MSPageListController : MSSidebarListController <BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate>
 {
     NSArray *_selectedPages;
 }
@@ -44,6 +44,7 @@
 - (BOOL)dataController:(id)arg1 isNodeSelected:(id)arg2;
 - (id)pageForNode:(id)arg1;
 - (id)dataController:(id)arg1 childrenOfNode:(id)arg2;
+@property(readonly, nonatomic) NSView *defaultFirstResponder;
 - (id)rootObject;
 
 // Remaining properties

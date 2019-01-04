@@ -4,31 +4,52 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSOverlayRenderer.h"
+#import <objc/NSObject.h>
 
-@class NSArray, NSBezierPath;
+@class MSArcVertexBuffer, MSRenderingDriverSettings, MSTextureVertexBuffer, NSDictionary, NSSet;
+@protocol MSGPURenderer, MSGPUTexture;
 
-@interface MSFlowRenderer : MSOverlayRenderer
+@interface MSFlowRenderer : NSObject
 {
-    BOOL _shouldDrawSourceLayerBounds;
-    NSArray *_flowInfluencingLayerIDs;
-    unsigned long long _flowType;
-    NSBezierPath *_flowPath;
-    NSBezierPath *_flowClipPath;
-    struct CGRect _sourceLayerBounds;
+    id <MSGPURenderer> _lastRenderer;
+    MSRenderingDriverSettings *_lastSettings;
+    id <MSGPUTexture> _flowAnnotationsTexture;
+    MSTextureVertexBuffer *_textureVertexBuffer;
+    MSArcVertexBuffer *_arcVertexBuffer;
+    NSSet *_flowItems;
+    double _flowItemZoomLevel;
+    NSSet *_selectedLayerIDs;
+    NSDictionary *_cachedItemBuffers;
+    NSDictionary *_absoluteRects;
+    NSDictionary *_relativeTextureRects;
+    struct CGRect _flowHotspotTextureCenterRect;
+    struct BCEdgePaddings _flowHotspotTexturePaddings;
 }
 
-@property(retain, nonatomic) NSBezierPath *flowClipPath; // @synthesize flowClipPath=_flowClipPath;
-@property(retain, nonatomic) NSBezierPath *flowPath; // @synthesize flowPath=_flowPath;
-@property(nonatomic) unsigned long long flowType; // @synthesize flowType=_flowType;
-@property(nonatomic) struct CGRect sourceLayerBounds; // @synthesize sourceLayerBounds=_sourceLayerBounds;
-@property(nonatomic) BOOL shouldDrawSourceLayerBounds; // @synthesize shouldDrawSourceLayerBounds=_shouldDrawSourceLayerBounds;
-@property(copy, nonatomic) NSArray *flowInfluencingLayerIDs; // @synthesize flowInfluencingLayerIDs=_flowInfluencingLayerIDs;
+@property(retain, nonatomic) NSDictionary *relativeTextureRects; // @synthesize relativeTextureRects=_relativeTextureRects;
+@property(retain, nonatomic) NSDictionary *absoluteRects; // @synthesize absoluteRects=_absoluteRects;
+@property(retain, nonatomic) NSDictionary *cachedItemBuffers; // @synthesize cachedItemBuffers=_cachedItemBuffers;
+@property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+@property(nonatomic) double flowItemZoomLevel; // @synthesize flowItemZoomLevel=_flowItemZoomLevel;
+@property(retain, nonatomic) NSSet *flowItems; // @synthesize flowItems=_flowItems;
+@property(retain, nonatomic) MSArcVertexBuffer *arcVertexBuffer; // @synthesize arcVertexBuffer=_arcVertexBuffer;
+@property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
+@property(nonatomic) struct BCEdgePaddings flowHotspotTexturePaddings; // @synthesize flowHotspotTexturePaddings=_flowHotspotTexturePaddings;
+@property(nonatomic) struct CGRect flowHotspotTextureCenterRect; // @synthesize flowHotspotTextureCenterRect=_flowHotspotTextureCenterRect;
+@property(retain, nonatomic) id <MSGPUTexture> flowAnnotationsTexture; // @synthesize flowAnnotationsTexture=_flowAnnotationsTexture;
+@property(nonatomic) __weak MSRenderingDriverSettings *lastSettings; // @synthesize lastSettings=_lastSettings;
+@property(nonatomic) __weak id <MSGPURenderer> lastRenderer; // @synthesize lastRenderer=_lastRenderer;
 - (void).cxx_destruct;
-- (void)drawDotInContext:(id)arg1;
-- (void)drawTipInContext:(id)arg1;
-- (void)drawLineAndTipInContext:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1 context:(id)arg2 selectedLayerIDs:(id)arg3;
+- (void)drawDotInForItem:(id)arg1 context:(struct CGContext *)arg2 zoomLevel:(double)arg3 settings:(id)arg4;
+- (void)drawTipInForItem:(id)arg1 segment:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
+- (void)drawLineAndTipForItem:(id)arg1 context:(struct CGContext *)arg2 clipToArtboards:(BOOL)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
+- (void)renderFlowItem:(id)arg1 context:(struct CGContext *)arg2 clipToArtboards:(BOOL)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
+- (void)renderFlowsItems:(id)arg1 selectedLayerIDs:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
+- (void)renderFlowItems:(id)arg1 selectedLayerIDs:(id)arg2 backingScaleFactor:(double)arg3 translation:(struct CGPoint)arg4 zoomLevel:(double)arg5 renderer:(id)arg6 settings:(id)arg7;
+- (id)flowAnnotationsTexture:(double)arg1 renderer:(id)arg2 settings:(id)arg3;
+- (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2;
+- (struct MSTextureVertexQuad)textureVertexQuadWithName:(id)arg1 size:(struct CGSize *)arg2;
+- (id)arcVertexBufferForItems:(id)arg1 selectedLayerIDs:(id)arg2 zoomLevel:(double)arg3;
 
 @end
 

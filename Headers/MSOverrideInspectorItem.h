@@ -8,24 +8,24 @@
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
 
-@class MSAvailableOverride, MSDataMenuProvider, MSDocument, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSSet, NSString, NSTrackingArea, NSView;
+@class MSAvailableOverride, MSDataMenuProvider, MSDocument, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSString, NSTrackingArea, NSView;
 
 @interface MSOverrideInspectorItem : MSInspectorItem <MSDataMenuProviderDelegate>
 {
     BOOL _displaysLabel;
     MSOverrideRepresentation *_overrideRepresentation;
-    NSSet *_allOverrides;
     MSDataMenuProvider *_dataController;
     NSView *_contentView;
     NSLayoutConstraint *_indentationConstraint;
     NSTrackingArea *_trackingArea;
 }
 
++ (BOOL)allOverridesInLayers:(id)arg1 match:(id)arg2;
++ (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
 @property(nonatomic) __weak NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSLayoutConstraint *indentationConstraint; // @synthesize indentationConstraint=_indentationConstraint;
 @property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) MSDataMenuProvider *dataController; // @synthesize dataController=_dataController;
-@property(retain, nonatomic) NSSet *allOverrides; // @synthesize allOverrides=_allOverrides;
 @property(nonatomic) BOOL displaysLabel; // @synthesize displaysLabel=_displaysLabel;
 @property(readonly, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 - (void).cxx_destruct;
@@ -54,7 +54,6 @@
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
 - (void)build;
-- (void)setLayers:(id)arg1;
 - (void)setIndentationLevel:(unsigned long long)arg1;
 - (id)views;
 @property(readonly, nonatomic) MSDocument *document;

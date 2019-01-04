@@ -8,8 +8,8 @@
 
 #import "MSGPURenderer-Protocol.h"
 
-@class CAMetalLayer;
-@protocol CAMetalDrawable, MTLCommandBuffer, MTLCommandQueue, MTLLibrary, MTLRenderPipelineState;
+@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSString;
+@protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
 
 @interface MSMetalRenderer : NSObject <MSGPURenderer>
 {
@@ -22,16 +22,38 @@
     id <MTLRenderPipelineState> _drawTextureState;
     id <MTLRenderPipelineState> _drawTextureNearestState;
     id <MTLRenderPipelineState> _drawColorQuadState;
+    id <MTLRenderPipelineState> _drawArcVertexBufferState;
+    id <MTLRenderPipelineState> _drawTextureVertexBufferState;
+    id <MTLRenderPipelineState> _drawColorQuadWithStencilState;
+    id <MTLDepthStencilState> _disableOverlappingTriangleBlendingState;
+    id <MTLTexture> _stencilTexture;
+    MSArcVertexBuffer *_arcVertexBuffer;
+    MSTextureVertexBuffer *_textureVertexBuffer;
+    id <MTLBuffer> _arcVerticesBuffer;
+    id <MTLBuffer> _arcIndexesBuffer;
+    id <MTLBuffer> _textureVerticesBuffer;
+    id <MTLBuffer> _textureIndexesBuffer;
     CDUnknownBlockType _drawCompletionHandler;
-    CDStruct_5f3a0cd7 _scissorRect;
+    CDStruct_bf95b13b _scissorRect;
     struct _opaque_pthread_mutex_t _textureLock;
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
-@property(nonatomic) CDStruct_5f3a0cd7 scissorRect; // @synthesize scissorRect=_scissorRect;
+@property(retain, nonatomic) id <MTLBuffer> textureIndexesBuffer; // @synthesize textureIndexesBuffer=_textureIndexesBuffer;
+@property(retain, nonatomic) id <MTLBuffer> textureVerticesBuffer; // @synthesize textureVerticesBuffer=_textureVerticesBuffer;
+@property(retain, nonatomic) id <MTLBuffer> arcIndexesBuffer; // @synthesize arcIndexesBuffer=_arcIndexesBuffer;
+@property(retain, nonatomic) id <MTLBuffer> arcVerticesBuffer; // @synthesize arcVerticesBuffer=_arcVerticesBuffer;
+@property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
+@property(retain, nonatomic) MSArcVertexBuffer *arcVertexBuffer; // @synthesize arcVertexBuffer=_arcVertexBuffer;
+@property(nonatomic) CDStruct_bf95b13b scissorRect; // @synthesize scissorRect=_scissorRect;
 @property(nonatomic) BOOL hasScissor; // @synthesize hasScissor=_hasScissor;
+@property(retain, nonatomic) id <MTLTexture> stencilTexture; // @synthesize stencilTexture=_stencilTexture;
+@property(retain, nonatomic) id <MTLDepthStencilState> disableOverlappingTriangleBlendingState; // @synthesize disableOverlappingTriangleBlendingState=_disableOverlappingTriangleBlendingState;
+@property(retain, nonatomic) id <MTLRenderPipelineState> drawColorQuadWithStencilState; // @synthesize drawColorQuadWithStencilState=_drawColorQuadWithStencilState;
+@property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureVertexBufferState; // @synthesize drawTextureVertexBufferState=_drawTextureVertexBufferState;
+@property(retain, nonatomic) id <MTLRenderPipelineState> drawArcVertexBufferState; // @synthesize drawArcVertexBufferState=_drawArcVertexBufferState;
 @property(retain, nonatomic) id <MTLRenderPipelineState> drawColorQuadState; // @synthesize drawColorQuadState=_drawColorQuadState;
 @property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureNearestState; // @synthesize drawTextureNearestState=_drawTextureNearestState;
 @property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureState; // @synthesize drawTextureState=_drawTextureState;
@@ -46,19 +68,31 @@
 - (BOOL)requiresSynchronousRendering;
 - (id)layer;
 - (id)createTextureWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
-- (void)endFrame;
+- (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)resetScissorRect;
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
 - (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(id)arg3;
+- (void)drawTextureVertexBuffer:(id)arg1 sourceTexture:(id)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
+- (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
-- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1;
-- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_0b1c536a)arg2;
+- (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
+-     // Error parsing type: v156@0:8r^{?=^{?}II}16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMesh:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
+- (id)ms_createStencilTextureForColorAttachment:(id)arg1;
+- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
+- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 disableOverlappingFragmentBlending:(BOOL)arg2;
+- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
 - (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
 - (void)scheduleDrawBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

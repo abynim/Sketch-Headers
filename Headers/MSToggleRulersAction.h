@@ -11,6 +11,8 @@
 }
 
 - (id)tooltip;
+- (BOOL)hasDynamicTitle;
+- (id)labelForToolbar;
 - (id)label;
 - (BOOL)validate;
 - (void)hide;

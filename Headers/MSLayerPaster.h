@@ -28,6 +28,7 @@
 - (void).cxx_destruct;
 - (void)removeDisconnectedFlowsFromLayers:(id)arg1;
 - (BOOL)propertiesAreEqualBetweenPasteboardSymbol:(id)arg1 andSymbol:(id)arg2;
+- (void)mapObjectIDsFrom:(id)arg1 to:(id)arg2;
 - (void)addForeignSymbolsToDocument:(id)arg1;
 - (id)pasteSymbol:(id)arg1 fromInstanceReferenceToDocument:(id)arg2;
 - (id)symbolMatching:(id)arg1 inDocument:(id)arg2;

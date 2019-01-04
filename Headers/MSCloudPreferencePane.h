@@ -6,28 +6,27 @@
 
 #import "MSPreferencePane.h"
 
-@class MSCloudPreferencesViewController, NSStoryboard;
+@class MSCloudPreferencesViewController, MSCloudSigninWindowController, NSStoryboard;
 
 @interface MSCloudPreferencePane : MSPreferencePane
 {
     NSStoryboard *_cloudStoryboard;
     MSCloudPreferencesViewController *_currentViewController;
+    MSCloudSigninWindowController *_signinSheet;
 }
 
-+ (long long)cloudLoginOverrideBehavior;
-+ (long long)cloudLoginSwitchPlatformBehavior;
-+ (void)loginWithURLParameters:(id)arg1;
++ (void)showAndSignIn;
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(retain, nonatomic) MSCloudSigninWindowController *signinSheet; // @synthesize signinSheet=_signinSheet;
 @property(retain, nonatomic) MSCloudPreferencesViewController *currentViewController; // @synthesize currentViewController=_currentViewController;
 @property(retain, nonatomic) NSStoryboard *cloudStoryboard; // @synthesize cloudStoryboard=_cloudStoryboard;
 - (void).cxx_destruct;
 - (id)willPresentError:(id)arg1;
-- (void)cloudURLDidOpenNotification:(id)arg1;
-- (void)applicationDidOpenURL:(id)arg1;
 - (void)platformDidChangeNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
+- (void)signIn;
 - (void)fixFirstResponder;
 - (void)updateWindowFrame;
 - (void)showRootViewController;

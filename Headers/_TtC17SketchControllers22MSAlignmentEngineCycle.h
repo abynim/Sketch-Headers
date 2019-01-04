@@ -6,26 +6,22 @@
 
 #import <objc/NSObject.h>
 
-@class _TtC17SketchControllers17MSAlignmentResult;
-@protocol _TtP17SketchControllers30MSAlignmentEngineCycleDelegate_;
-
 @interface _TtC17SketchControllers22MSAlignmentEngineCycle : NSObject
 {
-    // Error parsing type: , name: defaultPoint
-    // Error parsing type: , name: closestTargets
-    // Error parsing type: , name: constraint
-    // Error parsing type: , name: snapDistance
-    // Error parsing type: , name: pointComparator
-    // Error parsing type: , name: delegate
+    // Error parsing type: , name: snapper
 }
 
 - (CDUnknownBlockType).cxx_destruct;
 - (id)init;
-@property(nonatomic) __weak id <_TtP17SketchControllers30MSAlignmentEngineCycleDelegate_> delegate; // @synthesize delegate;
-@property(nonatomic, readonly) _TtC17SketchControllers17MSAlignmentResult *alignmentResult;
-- (void)addOrthogonalTargetsFor:(struct CGPoint)arg1;
-- (id)addTargetWithLine:(struct MSLine)arg1;
-@property(nonatomic, readonly) struct CGPoint defaultPoint; // @synthesize defaultPoint;
+- (id)finishCycle;
+- (void)addTargetAtPoint:(struct CGPoint)arg1 guideInfo:(id)arg2;
+- (void)addAxisAlignedTargetsWithThrough:(struct CGPoint)arg1;
+- (void)addTargetWithLine:(struct BCLine)arg1 guideInfo:(id)arg2;
+- (void)addTargetWithLine:(struct BCLine)arg1 guideInfoProvider:(CDUnknownBlockType)arg2;
+@property(nonatomic, readonly) double snapDistance;
+@property(nonatomic, readonly) struct CGPoint defaultPoint;
+- (id)initWithPoint:(struct CGPoint)arg1 snapDistance:(double)arg2 constraint:(struct BCLine)arg3;
+- (id)initWithPoint:(struct CGPoint)arg1 snapDistance:(double)arg2;
 
 @end
 

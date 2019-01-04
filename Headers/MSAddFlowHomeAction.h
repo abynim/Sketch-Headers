@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validate;
 - (void)addFlowHome:(id)arg1;

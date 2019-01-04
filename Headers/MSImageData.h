@@ -6,9 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import "MSCoding-Protocol.h"
-#import "MSJSONArchiverAlternativeFileReference-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
+#import <SketchModel/MSJSONArchiverAlternativeFileReference-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class BCReadWriteLock, NSData, NSImage, NSString;
 @protocol OS_dispatch_semaphore;
@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (id)ensureMojaveBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1;
 - (struct CGImage *)generateCGImageAtLevelOfDetail:(unsigned long long)arg1;
 - (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1;

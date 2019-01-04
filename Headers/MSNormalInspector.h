@@ -7,13 +7,16 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSInspectorChildController-Protocol.h"
+#import "MSStackViewScrollViewDelegate-Protocol.h"
 #import "MSStylePartInspectorDelegate-Protocol.h"
 
 @class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerArray, MSStandardInspectorViewControllers, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSStackView, NSString;
 
-@interface MSNormalInspector : NSViewController <MSStylePartInspectorDelegate, MSInspectorChildController>
+@interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSStylePartInspectorDelegate, MSInspectorChildController>
 {
     MSExportInspectorViewController *exportViewController;
+    BOOL _hasScheduledNextResponderFixing;
+    BOOL _throttleNextResponderFixing;
     MSInspectorStackView *_stackView;
     MSLayerArray *_layers;
     MSEventHandler *_eventHandler;
@@ -24,6 +27,8 @@
     NSLayoutConstraint *_scrollViewBottomConstraint;
 }
 
+@property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
+@property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
 @property(retain, nonatomic) NSLayoutConstraint *scrollViewBottomConstraint; // @synthesize scrollViewBottomConstraint=_scrollViewBottomConstraint;
 @property(readonly, nonatomic) NSMutableDictionary *storedPreferences; // @synthesize storedPreferences=_storedPreferences;
 @property(readonly, nonatomic) MSStandardInspectorViewControllers *standardInspectors; // @synthesize standardInspectors=_standardInspectors;
@@ -33,6 +38,9 @@
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void).cxx_destruct;
+- (void)fixNextResponder;
+- (void)scheduleNextResponderFixing;
+- (void)stackScrollViewDidScroll:(id)arg1;
 - (void)reloadItemsForSection:(id)arg1;
 - (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
 - (BOOL)isSectionWithIdentifierCollapsed:(id)arg1 default:(BOOL)arg2;

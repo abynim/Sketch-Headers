@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSPolygonShape.h"
+#import <SketchModel/_MSPolygonShape.h>
 
 @interface MSPolygonShape : _MSPolygonShape
 {
@@ -12,7 +12,6 @@
 
 - (BOOL)canFlatten;
 - (void)resetPoints;
-- (id)inspectorViewControllerItemClasses;
 
 @end
 

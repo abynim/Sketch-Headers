@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (id)dataForItem:(id)arg1;
 - (void)resetMenuItemImage;
+@property(readonly, nonatomic) NSString *uttDataType;
 @property(readonly, nonatomic) BOOL valid;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToDataSupplier:(id)arg1;

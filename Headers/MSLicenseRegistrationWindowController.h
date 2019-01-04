@@ -31,6 +31,7 @@
     NSView *_tooManyDevicesButtons;
     NSView *_invalidLicenseButtons;
     NSButton *_registerButton;
+    NSButton *_cloudButton;
     NSDate *_licenseUpdateExpirationDate;
 }
 
@@ -38,6 +39,7 @@
 + (void)showRegistrationWindow;
 + (void)showTrialExpiredModal;
 @property(retain, nonatomic) NSDate *licenseUpdateExpirationDate; // @synthesize licenseUpdateExpirationDate=_licenseUpdateExpirationDate;
+@property(retain, nonatomic) NSButton *cloudButton; // @synthesize cloudButton=_cloudButton;
 @property(retain, nonatomic) NSButton *registerButton; // @synthesize registerButton=_registerButton;
 @property(retain, nonatomic) NSView *invalidLicenseButtons; // @synthesize invalidLicenseButtons=_invalidLicenseButtons;
 @property(retain, nonatomic) NSView *tooManyDevicesButtons; // @synthesize tooManyDevicesButtons=_tooManyDevicesButtons;
@@ -62,6 +64,7 @@
 - (void)renewLicense:(id)arg1;
 - (void)downloadPreviousVersion:(id)arg1;
 - (void)openLicenseRecoveryPage:(id)arg1;
+- (void)signInToCloud:(id)arg1;
 - (void)visitStore:(id)arg1;
 - (void)registerLicense:(id)arg1;
 - (void)didCloseAllDocuments:(id)arg1;
@@ -69,6 +72,7 @@
 - (void)showContentView:(id)arg1;
 - (void)renameButtonsToQuit:(id)arg1;
 - (void)showButtonSet:(id)arg1;
+- (void)showCompletedRegistration;
 - (void)showCopyForActiveLicense;
 - (void)showCopyForTrialExpired;
 - (void)windowWillClose:(id)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "CHSheetController.h"
+#import <Chocolat/CHSheetController.h>
 
 #import "NSWindowDelegate-Protocol.h"
 
@@ -29,7 +29,7 @@
 @property(nonatomic) __weak NSColor *lightColor;
 @property(nonatomic) __weak NSColor *darkColor;
 - (void)confirm:(id)arg1;
-- (void)cancelAction:(id)arg1;
+- (void)cancel:(id)arg1;
 - (void)turnOffForcedDrawing;
 - (void)gridChanged:(id)arg1;
 - (void)refreshCanvas:(id)arg1;

@@ -4,16 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSStyleBlur.h"
+#import <SketchModel/_MSStyleBlur.h>
 
 @interface MSStyleBlur : _MSStyleBlur
 {
 }
 
-+ (id)keyPathsForValuesAffectingUserVisibleMotionAngle;
 - (void)multiplyBy:(double)arg1;
 - (double)cropRadius;
-@property(nonatomic) double userVisibleMotionAngle;
 
 @end
 

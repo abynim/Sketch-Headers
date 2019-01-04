@@ -4,41 +4,45 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableSymbolMaster.h"
+#import <SketchModel/_MSImmutableSymbolMaster.h>
 
-@class BCCache, BCReadWriteLock, NSArray;
+@class BCCache, BCReadWriteLock, NSArray, NSDictionary;
 
 @interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
     long long _changeIdentifier;
+    NSDictionary *_overrideProperies;
     BCCache *_modifiedMasterCache;
 }
 
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 @property(readonly, nonatomic) BCCache *modifiedMasterCache; // @synthesize modifiedMasterCache=_modifiedMasterCache;
+@property(readonly, nonatomic) NSDictionary *overrideProperies; // @synthesize overrideProperies=_overrideProperies;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void).cxx_destruct;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
-- (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (id)modifiedMasterWithOverrides:(id)arg1 scale:(double)arg2 size:(struct CGSize)arg3 inDocument:(id)arg4;
 - (id)modifiedMasterByApplyingInstance:(id)arg1 inDocument:(id)arg2;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
+- (void)convertOverridePropertiesToLocalDictionary:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
-- (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 inDocument:(id)arg3;
+- (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;
+- (id)overrideProperiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;
 - (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
-- (id)svgStyle:(id)arg1;
-- (void)addTransformAttributes:(id)arg1 exporter:(id)arg2;
 
 @end
 

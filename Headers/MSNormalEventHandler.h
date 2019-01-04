@@ -6,36 +6,39 @@
 
 #import "MSNormalBaseEventHandler.h"
 
+#import "MSDragLayerToolUserInterface-Protocol.h"
 #import "MSGestureRecognizerDelegate-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerMeasurementRenderer, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject, NSSet, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerDragController, MSLayerMeasurementRenderer, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject, NSSet, NSString;
 @protocol MSHoverableItem;
 
-@interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate>
+@interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
+    MSNormalEventData *_eventData;
     MSLayerMeasurementRenderer *_measurementRenderer;
     NSObject<MSHoverableItem> *_highlightedItem;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
-    MSNormalEventData *_eventData;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
     NSSet *_duplicatedObjectIDs;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
+    MSLayerDragController *_dragController;
     MSLayer *_activeLayer;
     struct CGVector _duplicateOffset;
 }
 
 @property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
+@property(retain, nonatomic) MSLayerDragController *dragController; // @synthesize dragController=_dragController;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
-@property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSObject<MSHoverableItem> *highlightedItem; // @synthesize highlightedItem=_highlightedItem;
 @property(readonly, nonatomic) MSLayerMeasurementRenderer *measurementRenderer; // @synthesize measurementRenderer=_measurementRenderer;
+@property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
@@ -56,16 +59,14 @@
 - (void)selectAll:(id)arg1;
 - (void)dragToSelect:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
-- (void)moveLayer:(id)arg1 toOffset:(struct CGPoint)arg2 fromPointInAbsoluteCoordinates:(struct CGPoint)arg3;
-- (void)endDuplicateDragging:(BOOL)arg1;
-- (void)beginDuplicateDragging;
-- (void)moveDraggedLayersToOffset:(struct CGPoint)arg1;
+- (void)setUndoActionName:(id)arg1;
+- (void)selectLayers:(id)arg1;
 - (void)layerDragged:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)drawOutlineForShapeChild:(id)arg1;
 - (void)drawSelectedShapePathLayers;
-- (void)drawMultipleSelection;
+- (void)drawMultipleSelection:(id)arg1;
 - (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)drawLayerHighlight:(id)arg1;
 - (void)drawLayerSelection;
@@ -103,10 +104,9 @@
 - (void)selectLayer:(id)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)layerDoubleClicked:(id)arg1;
-- (void)enterMultipleResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 handle:(long long *)arg4 manager:(id)arg5;
-- (void)enterLineResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
-- (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
-- (void)enterResizeModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3 manager:(id)arg4;
+- (void)enterResizeModeForLayers:(id)arg1 handle:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
+- (void)enterResizeModeForLine:(id)arg1 handle:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
+- (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;

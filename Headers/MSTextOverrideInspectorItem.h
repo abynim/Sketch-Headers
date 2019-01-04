@@ -13,6 +13,11 @@
     NSTextField *_overrideTextField;
 }
 
++ (double)textFieldHeightForNumberOfLines:(unsigned long long)arg1;
++ (double)textFieldHeightForOverrideRepresentation:(id)arg1 layers:(id)arg2;
++ (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
++ (unsigned long long)numberOfLinesForOverride:(id)arg1 layers:(id)arg2;
++ (unsigned long long)numberOfLinesForSingleOverride:(id)arg1;
 @property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
 - (void).cxx_destruct;
 - (id)valueFromControlView:(id)arg1;
@@ -21,7 +26,6 @@
 - (void)dataMenuProviderRefreshMasterData:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
 - (unsigned long long)supportedDataProviders;
-- (unsigned long long)numberOfLines;
 
 @end
 

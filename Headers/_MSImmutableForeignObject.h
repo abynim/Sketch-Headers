@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelObject.h"
+#import <SketchModel/MSImmutableModelObject.h>
 
 @class NSString;
 
@@ -12,9 +12,11 @@
 {
     NSString *_libraryID;
     NSString *_sourceLibraryName;
+    BOOL _symbolPrivate;
 }
 
 + (Class)mutableClass;
+@property(nonatomic) BOOL symbolPrivate; // @synthesize symbolPrivate=_symbolPrivate;
 @property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 - (void).cxx_destruct;

@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableOvalShape.h"
+#import <SketchModel/_MSImmutableOvalShape.h>
 
 @interface MSImmutableOvalShape : _MSImmutableOvalShape
 {
 }
 
 + (id)defaultName;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 
 @end
 

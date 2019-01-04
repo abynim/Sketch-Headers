@@ -19,8 +19,12 @@
     BOOL _forcePrefixMath;
     NSNumberFormatter *_numberFormatter;
     unsigned long long _operation;
+    NSNumberFormatter *_cachedFloatNumberFormatter;
+    NSNumberFormatter *_cachedIntegerNumberFormatter;
 }
 
+@property(retain, nonatomic) NSNumberFormatter *cachedIntegerNumberFormatter; // @synthesize cachedIntegerNumberFormatter=_cachedIntegerNumberFormatter;
+@property(retain, nonatomic) NSNumberFormatter *cachedFloatNumberFormatter; // @synthesize cachedFloatNumberFormatter=_cachedFloatNumberFormatter;
 @property(nonatomic) BOOL forcePrefixMath; // @synthesize forcePrefixMath=_forcePrefixMath;
 @property(nonatomic) unsigned long long operation; // @synthesize operation=_operation;
 @property(nonatomic) BOOL isIncrementing; // @synthesize isIncrementing=_isIncrementing;

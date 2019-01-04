@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)makeUppercase:(id)arg1;
 - (unsigned long long)textTransform;
 

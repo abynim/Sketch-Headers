@@ -11,8 +11,10 @@
 }
 
 + (double)strokeWidthForZoomValue:(double)arg1;
-+ (void)drawSelectionHandlesForLayer:(id)arg1 zoomValue:(double)arg2;
 + (void)drawSelectionStrokeForLayer:(id)arg1 zoomValue:(double)arg2;
++ (void)drawSelectionHandlesForLayer:(id)arg1 zoomValue:(double)arg2;
++ (void)drawResizingHandle:(long long)arg1 ofRect:(struct CGRect)arg2 zoomScale:(double)arg3;
++ (void)drawSelectionForLayers:(id)arg1 zoomScale:(double)arg2;
 + (void)drawSelectionForLayer:(id)arg1 zoomValue:(double)arg2;
 
 @end

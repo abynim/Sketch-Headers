@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableShapePathLayer.h"
+#import <SketchModel/_MSImmutableShapePathLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
-#import "MSImmutablePathLayer-Protocol.h"
+#import <SketchModel/MSImmutablePathLayer-Protocol.h>
 
 @class MSImmutableStyle, NSString;
 
-@interface MSImmutableShapePathLayer : _MSImmutableShapePathLayer <MSImmutableLayerPreviewability, MSImmutablePathLayer>
+@interface MSImmutableShapePathLayer : _MSImmutableShapePathLayer <MSImmutablePathLayer>
 {
     BOOL _isEditing;
     MSImmutableStyle *_usedStyle;
@@ -30,23 +29,9 @@
 @property(readonly, nonatomic) BOOL isPolygon;
 @property(readonly, nonatomic) unsigned long long numberOfCurvePoints;
 - (BOOL)isLine;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
 - (void)migrateByTakingStyleFrom:(id)arg1;
 - (void)migratePropertiesFromShapeGroup:(id)arg1;
 - (void)migratePropertiesFromV99OrEarlierWithUnarchiver:(id)arg1;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
-- (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
-- (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (BOOL)requiresPathDefinition:(id)arg1;
-- (id)svgStyle:(id)arg1;
-- (struct CGRect)relativeRectWithExporter:(id)arg1;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableShapeGroup.h"
+#import <SketchModel/_MSImmutableShapeGroup.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
-#import "MSImmutablePathLayer-Protocol.h"
-#import "MSShapeGroup-Protocol.h"
+#import <SketchModel/MSImmutablePathLayer-Protocol.h>
+#import <SketchModel/MSShapeGroup-Protocol.h>
 
 @class MSImmutableStyle, NSString;
 
-@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSImmutableLayerPreviewability, MSShapeGroup, MSImmutablePathLayer>
+@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup, MSImmutablePathLayer>
 {
 }
 
@@ -27,24 +26,12 @@
 - (BOOL)allowsBlur;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasMarkers;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayersPre19511;
 - (void)migratePropertiesFromV110OrEarlierWithUnarchiver:(id)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocumentPre108;
 - (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV106OrEarlierWithUnarchiver:(id)arg1;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
-- (void)addDecorationToParent:(id)arg1 exporter:(id)arg2;
-- (id)addMaskToElement:(id)arg1 exporter:(id)arg2;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (BOOL)requiresPathDefinition:(id)arg1;
-- (id)svgStyle:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

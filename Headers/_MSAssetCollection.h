@@ -4,16 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObject.h"
+#import <SketchModel/MSModelObject.h>
 
 @class MSImageCollection, NSArray, NSMutableArray;
 
 @interface _MSAssetCollection : MSModelObject
 {
     NSArray *_images;
-    NSMutableArray *_colors;
+    NSMutableArray *_colorAssets;
     NSMutableArray *_exportPresets;
-    NSMutableArray *_gradients;
+    NSMutableArray *_gradientAssets;
     MSImageCollection *_imageCollection;
 }
 
@@ -24,18 +24,18 @@
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveGradientIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
-- (void)removeAllGradients;
-- (void)removeGradientsAtIndexes:(id)arg1;
-- (void)removeGradientAtIndex:(unsigned long long)arg1;
-- (void)removeGradient:(id)arg1;
-- (void)insertGradients:(id)arg1 afterGradient:(id)arg2;
-- (void)insertGradient:(id)arg1 afterGradient:(id)arg2;
-- (void)insertGradients:(id)arg1 beforeGradient:(id)arg2;
-- (void)insertGradient:(id)arg1 beforeGradient:(id)arg2;
-- (void)insertGradient:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)addGradients:(id)arg1;
-- (void)addGradient:(id)arg1;
+- (void)moveGradientAssetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllGradientAssets;
+- (void)removeGradientAssetsAtIndexes:(id)arg1;
+- (void)removeGradientAssetAtIndex:(unsigned long long)arg1;
+- (void)removeGradientAsset:(id)arg1;
+- (void)insertGradientAssets:(id)arg1 afterGradientAsset:(id)arg2;
+- (void)insertGradientAsset:(id)arg1 afterGradientAsset:(id)arg2;
+- (void)insertGradientAssets:(id)arg1 beforeGradientAsset:(id)arg2;
+- (void)insertGradientAsset:(id)arg1 beforeGradientAsset:(id)arg2;
+- (void)insertGradientAsset:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addGradientAssets:(id)arg1;
+- (void)addGradientAsset:(id)arg1;
 - (void)moveExportPresetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllExportPresets;
 - (void)removeExportPresetsAtIndexes:(id)arg1;
@@ -48,25 +48,25 @@
 - (void)insertExportPreset:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addExportPresets:(id)arg1;
 - (void)addExportPreset:(id)arg1;
-- (void)moveColorIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
-- (void)removeAllColors;
-- (void)removeColorsAtIndexes:(id)arg1;
-- (void)removeColorAtIndex:(unsigned long long)arg1;
-- (void)removeColor:(id)arg1;
-- (void)insertColors:(id)arg1 afterColor:(id)arg2;
-- (void)insertColor:(id)arg1 afterColor:(id)arg2;
-- (void)insertColors:(id)arg1 beforeColor:(id)arg2;
-- (void)insertColor:(id)arg1 beforeColor:(id)arg2;
-- (void)insertColor:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)addColors:(id)arg1;
-- (void)addColor:(id)arg1;
+- (void)moveColorAssetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllColorAssets;
+- (void)removeColorAssetsAtIndexes:(id)arg1;
+- (void)removeColorAssetAtIndex:(unsigned long long)arg1;
+- (void)removeColorAsset:(id)arg1;
+- (void)insertColorAssets:(id)arg1 afterColorAsset:(id)arg2;
+- (void)insertColorAsset:(id)arg1 afterColorAsset:(id)arg2;
+- (void)insertColorAssets:(id)arg1 beforeColorAsset:(id)arg2;
+- (void)insertColorAsset:(id)arg1 beforeColorAsset:(id)arg2;
+- (void)insertColorAsset:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addColorAssets:(id)arg1;
+- (void)addColorAsset:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
-@property(retain, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
+@property(retain, nonatomic) NSArray *gradientAssets; // @synthesize gradientAssets=_gradientAssets;
 @property(retain, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
-@property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
+@property(retain, nonatomic) NSArray *colorAssets; // @synthesize colorAssets=_colorAssets;
 @property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

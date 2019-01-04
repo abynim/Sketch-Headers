@@ -23,11 +23,12 @@
 - (void)zoomTo25Action:(id)arg1;
 - (id)findZoomPopupButton;
 - (BOOL)validate;
+- (void)menuDidClose:(id)arg1;
 - (id)menu;
 - (BOOL)hasSubMenu;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (id)zoomPopupButtonWithFrame:(struct CGRect)arg1;
-- (id)zoomButtonWithAction:(id)arg1 imageNamed:(id)arg2;
+- (id)zoomButtonWithAction:(id)arg1 imageNamed:(id)arg2 alternateImageName:(id)arg3;
 
 @end
 

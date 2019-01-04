@@ -8,11 +8,11 @@
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
 
-@class MSColorHexStringTransformer, MSMathInspectorValueAdaptor, MSUpDownTextField, NSArrayController, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
 @interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
 {
-    MSUpDownTextField *_opacityField;
+    MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
     NSArrayController *_fills;
     MSMathInspectorValueAdaptor *_opacityAdaptor;
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
 @property(retain, nonatomic) NSArrayController *fills; // @synthesize fills=_fills;
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
-@property(retain, nonatomic) MSUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
 - (void).cxx_destruct;
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)hexFieldAction:(id)arg1;

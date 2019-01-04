@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)touchBarImage;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;

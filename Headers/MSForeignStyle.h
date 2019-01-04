@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSForeignStyle.h"
+#import <SketchModel/_MSForeignStyle.h>
 
-#import "MSSharedStylePasting-Protocol.h"
+#import <SketchModel/MSSharedStylePasting-Protocol.h>
 
 @class NSString;
 
@@ -14,14 +14,18 @@
 {
 }
 
++ (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
 - (void)syncWithRemote:(id)arg1;
 - (id)unlinkFromRemote;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
+- (id)masterFromDocument:(id)arg1 withID:(id)arg2;
+@property(readonly, nonatomic) unsigned long long containerType;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
+- (id)initAsOverrideReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;

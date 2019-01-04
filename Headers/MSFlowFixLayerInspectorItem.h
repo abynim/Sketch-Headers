@@ -18,6 +18,7 @@
 @property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 - (void).cxx_destruct;
 - (void)validateFixLayersToViewportButton;
+- (void)updateDisplayedValues;
 - (void)layerDidChange:(id)arg1;
 - (void)setLayers:(id)arg1;
 - (void)dealloc;

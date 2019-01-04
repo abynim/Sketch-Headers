@@ -17,19 +17,27 @@
     NSArray *_progressImages;
     MSCloudShareUploadController *_upload;
     SCKAPIOperation *_refreshOperation;
+    CDUnknownBlockType _closeAlertUploadDidFinishHandler;
 }
 
-+ (void)addRemoteLibraryWithURL:(id)arg1 parameters:(id)arg2;
-+ (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
++ (void)prepareClosingActions:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
++ (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
++ (BOOL)shouldPrepareForTermination;
++ (id)actionsToPrepareTermination;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
 + (id)cloudError:(id)arg1 addingRecoveryOptionsWithAttempter:(id)arg2;
 + (BOOL)isErrorRecoverable:(id)arg1;
+@property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(retain, nonatomic) MSCloudShareUploadController *upload; // @synthesize upload=_upload;
 @property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
 - (void).cxx_destruct;
+- (void)performCloseSelector:(SEL)arg1 withDelegate:(id)arg2 shouldClose:(BOOL)arg3 contextInfo:(void *)arg4;
+- (void)document:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
+- (void)prepareCloseWithHandler:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) BOOL canCloseImmediately;
 - (void)setCloudPlatform:(id)arg1;
 - (BOOL)validate;
 - (BOOL)validateMenuItem:(id)arg1;
@@ -44,6 +52,7 @@
 - (id)willPresentError:(id)arg1;
 - (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
 - (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
+- (void)cloudShareControllerDidCancelUploading:(id)arg1;
 - (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
 - (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2;

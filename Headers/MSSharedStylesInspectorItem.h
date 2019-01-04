@@ -6,11 +6,12 @@
 
 #import "MSInspectorItem.h"
 
+#import "MSSharedStylesPopUpButtonCellDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
 @class MSForeignObjectMenuBuilder, MSShareableObjectPopUpButton, MSSharedObject, NSString, NSTextField;
 
-@interface MSSharedStylesInspectorItem : MSInspectorItem <NSMenuDelegate>
+@interface MSSharedStylesInspectorItem : MSInspectorItem <MSSharedStylesPopUpButtonCellDelegate, NSMenuDelegate>
 {
     MSShareableObjectPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;
@@ -26,6 +27,8 @@
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
 @property(retain, nonatomic) MSShareableObjectPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
 - (void).cxx_destruct;
+- (id)cachedImageForPopupButtonCell:(id)arg1 withSharedObject:(id)arg2;
+- (void)popupButtonCell:(id)arg1 didCreatePreviewImage:(id)arg2 forSharedObject:(id)arg3;
 - (void)renameSharedObjectAction:(id)arg1;
 - (void)renameSharedObject:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;

@@ -6,10 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import "MSLayerContainment-Protocol.h"
-#import "NSFastEnumeration-Protocol.h"
+#import <SketchModel/MSLayerContainment-Protocol.h>
+#import <SketchModel/NSFastEnumeration-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
 @interface MSLayerArray : NSObject <MSLayerContainment, NSFastEnumeration>
 {
@@ -21,9 +21,9 @@
 + (id)arrayWithLayer:(id)arg1;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)sortedArrayByUsingComparator:(CDUnknownBlockType)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
@@ -48,12 +48,13 @@
 - (id)parentOfFirstLayer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLayers:(id)arg1;
-- (id)flowConnection;
-- (void)removeUnusedStylePartsOfType:(unsigned long long)arg1;
-- (id)addStylePartsOfType:(unsigned long long)arg1;
 - (unsigned long long)indexOfLayerWithID:(id)arg1;
 - (void)updateFlowDestinationsWithMapping:(id)arg1;
 - (id)copyByGivingNewObjectIDs;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) Class superclass;
 
 @end
 

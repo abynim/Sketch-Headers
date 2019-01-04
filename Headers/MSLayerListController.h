@@ -6,12 +6,12 @@
 
 #import "MSSidebarListController.h"
 
-#import "BCOutlineViewDataSource-Protocol.h"
-#import "BCOutlineViewDelegate-Protocol.h"
+#import "BCOutlineViewDataControllerDataSource-Protocol.h"
+#import "BCOutlineViewDataControllerDelegate-Protocol.h"
 
-@class NSMutableSet, NSString;
+@class NSMutableSet, NSString, NSView;
 
-@interface MSLayerListController : MSSidebarListController <BCOutlineViewDataSource, BCOutlineViewDelegate>
+@interface MSLayerListController : MSSidebarListController <BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate>
 {
     NSMutableSet *_layersRequiringPreviewRefresh;
     long long _numberOfLayersRequiringPreviewRefresh;
@@ -40,6 +40,7 @@
 - (id)itemForNode:(id)arg1;
 - (id)layerForNode:(id)arg1;
 - (id)dataController:(id)arg1 childrenOfNode:(id)arg2;
+@property(readonly, nonatomic) NSView *defaultFirstResponder;
 - (id)rootObject;
 
 // Remaining properties

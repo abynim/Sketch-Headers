@@ -13,17 +13,19 @@
     MSImmutableLayerAncestry *_ancestry;
     MSExportRequest *_request;
     NSImage *_previewImage;
+    struct CGSize _imageSize;
 }
 
 + (id)sharedPreviewRenderQueue;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
+@property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 @property(retain, nonatomic) MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSExportPreviewViewModel *previewViewModel;
 - (id)exportingColorSpace;
 - (void)main;
-- (id)initWithAncestry:(id)arg1;
+- (id)initWithAncestry:(id)arg1 imageSize:(struct CGSize)arg2;
 
 @end
 

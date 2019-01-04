@@ -6,25 +6,34 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchModel/NSCopying-Protocol.h>
+
 @class NSSet;
 
-@interface MSBezierSegment : NSObject
+@interface MSBezierSegment : NSObject <NSCopying>
 {
     double _lineLength;
+    // Error parsing type: A^v, name: _lineLengthAtomicPointer
     double _arcLength;
+    // Error parsing type: A^v, name: _arcLengthAtomicPointer
     struct CGRect _bounds;
+    // Error parsing type: A^v, name: _boundsAtomicPointer
     BOOL _looksLikeALine;
-    BOOL _lineLengthCached;
-    BOOL _arcLengthCached;
-    BOOL _boundsCached;
-    BOOL _looksLikeALineCached;
-    unsigned long long _segmentType;
-    NSSet *_xAxisRoots;
-    NSSet *_yAxisRoots;
+    // Error parsing type: A^v, name: _looksLikeALineAtomicPointer
+    double _maximumInset;
+    // Error parsing type: A^v, name: _maximumInsetAtomicPointer
     NSSet *_inflectionOffsets;
+    // Error parsing type: A^v, name: _inflectionOffsetsAtomicPointer
+    NSSet *_xAxisRoots;
+    // Error parsing type: A^v, name: _xAxisRootsAtomicPointer
+    NSSet *_yAxisRoots;
+    // Error parsing type: A^v, name: _yAxisRootsAtomicPointer
     MSBezierSegment *_derivative;
+    // Error parsing type: A^v, name: _derivativeAtomicPointer
+    unsigned long long _segmentType;
     struct CGPoint _endPoint1;
     struct CGPoint _endPoint2;
+    CDStruct_aa84902a _fromRange;
     struct CGPoint _controlPoint1;
     struct CGPoint _controlPoint2;
 }
@@ -32,12 +41,9 @@
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
-@property(retain, nonatomic) MSBezierSegment *derivative; // @synthesize derivative=_derivative;
-@property(retain, nonatomic) NSSet *inflectionOffsets; // @synthesize inflectionOffsets=_inflectionOffsets;
-@property(retain, nonatomic) NSSet *yAxisRoots; // @synthesize yAxisRoots=_yAxisRoots;
-@property(retain, nonatomic) NSSet *xAxisRoots; // @synthesize xAxisRoots=_xAxisRoots;
 @property(readonly, nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
 @property(readonly, nonatomic) struct CGPoint controlPoint1; // @synthesize controlPoint1=_controlPoint1;
+@property(nonatomic) CDStruct_aa84902a fromRange; // @synthesize fromRange=_fromRange;
 @property(readonly, nonatomic) struct CGPoint endPoint2; // @synthesize endPoint2=_endPoint2;
 @property(readonly, nonatomic) struct CGPoint endPoint1; // @synthesize endPoint1=_endPoint1;
 @property(readonly, nonatomic) unsigned long long segmentType; // @synthesize segmentType=_segmentType;
@@ -48,11 +54,22 @@
 - (id)bezierPath;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
 - (struct CGRect)bounds;
+- (id)segmentForJoiningWithC1ContinuityToSegment:(id)arg1;
+- (struct CGRect)controlPointBounds;
+@property(readonly, nonatomic) NSSet *yAxisRoots;
+@property(readonly, nonatomic) NSSet *xAxisRoots;
+- (id)intersectionsWithVerticalLineAt:(double)arg1;
+- (id)intersectionsWithHorizontalLineAt:(double)arg1;
+@property(readonly, nonatomic) NSSet *inflectionOffsets;
 @property(readonly, nonatomic) double flatness;
 - (id)normalizedSegment;
 @property(readonly, nonatomic) double curviness;
+- (id)derivative;
 - (id)reversedSegment;
 - (id)representationUsingType:(unsigned long long)arg1;
+- (id)quadraticApproximation;
+- (id)segmentsBySplittingAtOffsets:(id)arg1;
+- (id)segmentsByClippingToRect:(struct CGRect)arg1;
 - (id)cubicRepresentation;
 - (id)quadraticRepresentation;
 - (id)lineRepresentation;
@@ -61,21 +78,22 @@
 - (id)segmentWithTransform:(struct CGAffineTransform)arg1;
 - (id)segmentByMovingPointAtOffset:(double)arg1 toLocation:(struct CGPoint)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform transformForXAxisAlignment;
+- (id)segmentInRange:(CDStruct_aa84902a)arg1;
 - (id)segmentFromOffset:(double)arg1;
 - (id)segmentToOffset:(double)arg1;
 - (id)intersectionsWithSegment:(id)arg1;
-- (id)offsetsOfIntersectionsWithTangent:(struct MSLine)arg1;
+- (id)offsetsOfIntersectionsWithTangent:(struct BCLine)arg1;
 - (double)offsetForNormalToPoint:(struct CGPoint)arg1;
 - (double)curvatureAtOffset:(double)arg1;
 - (double)curvatureAtEndPoint2;
 - (double)curvatureAtEndPoint1;
 - (double)curvatureFromPoint1:(struct CGPoint)arg1 point2:(struct CGPoint)arg2 point3:(struct CGPoint)arg3;
 - (struct CGPoint)pointAtOffset:(double)arg1;
-- (struct MSLine)tangentAtOffset:(double)arg1;
-- (void)tanget:(struct MSLine *)arg1 andPoint:(struct CGPoint *)arg2 atOffset:(double)arg3;
+- (struct BCLine)tangentAtOffset:(double)arg1;
+- (void)tangent:(struct BCLine *)arg1 andPoint:(struct CGPoint *)arg2 atOffset:(double)arg3;
 - (void)quadraticDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
 - (void)cubicDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
-@property(readonly, nonatomic) struct MSLineSegment lineSegment;
+@property(readonly, nonatomic) struct BCLineSegment lineSegment;
 @property(readonly, nonatomic) BOOL isAPoint;
 @property(readonly, nonatomic) BOOL looksLikeALine;
 @property(readonly, nonatomic) double arcLength;
@@ -84,6 +102,7 @@
 - (id)segmentMirroredAtOffset:(double)arg1;
 - (id)segmentWithEndPoint2:(struct CGPoint)arg1;
 - (id)segmentWithEndPoint1:(struct CGPoint)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;

@@ -14,6 +14,7 @@
 }
 
 - (void).cxx_destruct;
+- (id)label;
 - (void)keyUp:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 

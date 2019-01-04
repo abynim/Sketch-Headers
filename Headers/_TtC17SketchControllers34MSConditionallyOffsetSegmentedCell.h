@@ -8,17 +8,13 @@
 
 @interface _TtC17SketchControllers34MSConditionallyOffsetSegmentedCell : NSSegmentedCell
 {
-    // Error parsing type: , name: _yOffsets
 }
 
-- (CDUnknownBlockType).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initImageCell:(id)arg1;
 - (id)initTextCell:(id)arg1;
 - (id)init;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (void)setYOffset:(double)arg1 forOperatingSystemVersion:(CDStruct_2ec95fd7)arg2 backingScaleFactor:(double)arg3;
-- (double)yOffsetFor:(double)arg1;
 
 @end
 

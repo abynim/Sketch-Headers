@@ -10,6 +10,7 @@
 {
 }
 
+- (id)toolTip;
 - (void)setToolTip:(id)arg1;
 - (void)setImage:(id)arg1;
 - (id)makeViewForAction:(id)arg1;

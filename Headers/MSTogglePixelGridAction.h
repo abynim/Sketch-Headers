@@ -16,6 +16,8 @@
 - (BOOL)isShowingPixelatedView;
 - (void)doPerformAction:(id)arg1;
 - (id)tooltip;
+- (BOOL)hasDynamicTitle;
+- (id)labelForToolbar;
 - (id)label;
 - (void)togglePixelGrid:(id)arg1;
 

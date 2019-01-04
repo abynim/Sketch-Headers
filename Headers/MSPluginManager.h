@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import "COFlowDelegate-Protocol.h"
+
 @class MSPluginManagingState, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSTimer, NSURL;
 @protocol MSPluginLogAction, MSPluginUpdater;
 
-@interface MSPluginManager : NSObject
+@interface MSPluginManager : NSObject <COFlowDelegate>
 {
     NSDictionary *_plugins;
     BOOL _disableAllPlugins;
@@ -99,6 +101,7 @@
 - (void)sortMenu:(id)arg1 recursively:(BOOL)arg2;
 - (void)runHandlerWithKey:(id)arg1 fromCommand:(id)arg2 inPlugin:(id)arg3 withContext:(id)arg4;
 - (void)editBundle:(id)arg1;
+- (void)didClearEventStack:(id)arg1;
 - (void)cleanupFinishedCommands;
 - (void)trackLongRunningCommand:(id)arg1 onComplete:(CDUnknownBlockType)arg2;
 - (id)stopTrackingLongRunningCommandWithSpecifier:(id)arg1;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObject.h"
+#import <SketchModel/MSModelObject.h>
 
 @class NSString;
 
@@ -12,6 +12,7 @@
 {
     NSString *_libraryID;
     NSString *_sourceLibraryName;
+    BOOL _symbolPrivate;
 }
 
 + (BOOL)allowsFaulting;
@@ -24,6 +25,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(nonatomic) BOOL symbolPrivate; // @synthesize symbolPrivate=_symbolPrivate;
 @property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 - (void)performInitWithImmutableModelObject:(id)arg1;

@@ -6,11 +6,11 @@
 
 #import "MSOverrideInspectorItem.h"
 
-@class MSForeignObjectProvider, MSStyleOverridePopupButton, NSLayoutConstraint, NSPopUpButton;
+@class MSForeignObjectProvider, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint;
 
 @interface MSStyleOverrideInspectorItem : MSOverrideInspectorItem
 {
-    NSPopUpButton *_labelView;
+    NSControl *_labelView;
     NSLayoutConstraint *_labelConstraint;
     MSStyleOverridePopupButton *_overrideControl;
     MSForeignObjectProvider *_menuObjectProvider;
@@ -19,7 +19,7 @@
 @property(readonly, nonatomic) MSForeignObjectProvider *menuObjectProvider; // @synthesize menuObjectProvider=_menuObjectProvider;
 @property(retain, nonatomic) MSStyleOverridePopupButton *overrideControl; // @synthesize overrideControl=_overrideControl;
 @property(retain, nonatomic) NSLayoutConstraint *labelConstraint; // @synthesize labelConstraint=_labelConstraint;
-@property(retain, nonatomic) NSPopUpButton *labelView; // @synthesize labelView=_labelView;
+@property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void).cxx_destruct;
 - (void)setDisplaysLabel:(BOOL)arg1;
 - (BOOL)displaysLabel;

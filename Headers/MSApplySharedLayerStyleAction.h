@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)filteredLayersForStyle;
 - (void)applySharedLayerStyle:(id)arg1;
 

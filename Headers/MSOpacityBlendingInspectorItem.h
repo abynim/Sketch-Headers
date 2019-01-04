@@ -8,11 +8,11 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSArrayController, NSPopUpButton, NSString;
+@class MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString;
 
 @interface MSOpacityBlendingInspectorItem : MSInspectorItem <NSMenuDelegate>
 {
-    MSUpDownTextField *_opacityField;
+    MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_blendModePopUp;
     NSArrayController *_arrayController;
     MSMathInspectorValueAdaptor *_opacityAdaptor;
@@ -22,7 +22,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSPopUpButton *blendModePopUp; // @synthesize blendModePopUp=_blendModePopUp;
-@property(retain, nonatomic) MSUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
 - (void).cxx_destruct;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;

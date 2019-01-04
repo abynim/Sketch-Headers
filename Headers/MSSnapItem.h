@@ -6,12 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import "MSSnappable-Protocol.h"
-
 @class MSLayer, MSLayoutDimension, MSLayoutPosition, NSArray, NSString;
 @protocol MSSnappable;
 
-@interface MSSnapItem : NSObject <MSSnappable>
+@interface MSSnapItem : NSObject
 {
     NSArray *_layers;
     struct CGRect _rectAtInit;
@@ -27,7 +25,6 @@
 - (BOOL)isEqual:(id)arg1;
 - (struct CGAffineTransform)textCorrectionTransform;
 - (void)concatAncestorsAndSelfTransforms;
-- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 @property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
 - (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
@@ -54,7 +51,7 @@
 @property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
 - (id)anchorsForSnappingOnAxes:(unsigned long long)arg1;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
 - (id)init;
 - (id)initWithLayers:(id)arg1;

@@ -6,25 +6,18 @@
 
 #import "MSCloudBaseViewController.h"
 
-@class MSCursorButton, NSButton, NSStackView;
+@class MSCursorButton;
 
 @interface MSCloudWelcomeViewController : MSCloudBaseViewController
 {
-    NSButton *_signinButton;
-    NSButton *_signupButton;
     MSCursorButton *_infoButton;
-    NSStackView *_buttonStackView;
 }
 
-@property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
 - (void).cxx_destruct;
 - (void)learnMore:(id)arg1;
 - (void)signIn:(id)arg1;
-- (void)signUp:(id)arg1;
 - (id)actionView;
 @property(readonly, nonatomic) MSCursorButton *infoButton; // @synthesize infoButton=_infoButton;
-@property(readonly, nonatomic) NSButton *signupButton; // @synthesize signupButton=_signupButton;
-@property(readonly, nonatomic) NSButton *signinButton; // @synthesize signinButton=_signinButton;
 - (void)viewDidLoad;
 - (void)loadView;
 - (struct NSEdgeInsets)edgeInsets;

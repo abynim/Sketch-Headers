@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSLayerGroup.h"
+#import <SketchModel/_MSLayerGroup.h>
 
-#import "MSLayerGroup-Protocol.h"
+#import <SketchModel/MSLayerGroup-Protocol.h>
 
 @class NSArray;
 
@@ -16,11 +16,8 @@
     unsigned long long _disableAutomaticScalingCounter;
 }
 
-+ (BOOL)groupBoundsShouldBeIntegral;
-+ (struct CGRect)groupBoundsForContainer:(id)arg1;
 + (id)groupWithLayers:(id)arg1;
 + (id)groupWithLayer:(id)arg1;
-+ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 - (id)candidatesForMasking;
@@ -29,18 +26,23 @@
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (void)resizeChildrenWithOldSize:(struct CGSize)arg1;
 - (struct CGSize)calculateMinimumSize;
+- (id)defaultLayout;
 @property(readonly, nonatomic) BOOL isAutomaticScalingEnabled;
 - (void)disableAutomaticScalingInBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
-- (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
-- (struct CGRect)requiredRect;
+- (void)moveTransformsToChildren;
+- (BOOL)fixGeometryWithOptions:(long long)arg1;
+- (BOOL)groupBoundsShouldBeIntegral;
+@property(nonatomic) BOOL hasInferredLayout;
+- (BOOL)shouldResizeToFitBounds:(struct CGRect)arg1;
+- (struct CGRect)optimalBoundingBox;
+- (struct CGRect)optimalBoundingBoxInParentCoordinates;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
 - (BOOL)isExpanded;
 - (void)deselectLayerAndParent;
-- (void)refreshOverlay;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
@@ -49,23 +51,7 @@
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
-- (BOOL)shouldRefreshOverlayForFlows;
-- (BOOL)handleDoubleClick;
-- (id)inspectorViewControllerItemClasses;
-- (void)prepareAsMaskContainer;
-- (id)pathForHoverInBounds;
-- (id)styleForBooleanOperation;
-- (id)selectedPreviewTemplateImage;
-- (id)unselectedPreviewTemplateImage;
-- (BOOL)expandableInLayerList;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (void)applyTransformsToLayers:(id)arg1;
-- (id)ungroupReturningNextUngroupGroup;
-- (BOOL)hasStyleOrTransform;
-- (void)translateChildrenFrameToLayers:(id)arg1;
-- (id)moveLayersToParent;
-- (void)ungroupSingleChildDescendentGroups;
-- (id)ungroup;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -79,6 +65,14 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
+- (void)applyTransformsToLayers:(id)arg1;
+- (id)ungroupReturningNextUngroupGroup;
+- (BOOL)hasStyleOrTransform;
+- (void)translateChildrenFrameToLayers:(id)arg1;
+- (id)moveLayersToParent;
+- (void)ungroupSingleChildDescendentGroups;
+- (id)ungroup;
+- (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *layers;

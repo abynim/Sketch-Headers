@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayer.h"
+#import <SketchModel/MSLayer.h>
 
-@class MSStyle;
+@class MSStyle, NSString;
 
 @interface _MSStyledLayer : MSLayer
 {
     long long _clippingMaskMode;
     BOOL _hasClippingMask;
+    NSString *_sharedStyleID;
     MSStyle *_style;
 }
 
@@ -26,6 +27,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
+@property(retain, nonatomic) NSString *sharedStyleID; // @synthesize sharedStyleID=_sharedStyleID;
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;

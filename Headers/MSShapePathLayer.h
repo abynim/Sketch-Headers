@@ -4,28 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSShapePathLayer.h"
+#import <SketchModel/_MSShapePathLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
-#import "MSPathLayer-Protocol.h"
+#import <SketchModel/MSPathLayer-Protocol.h>
 
 @class MSCurvePoint, MSPath, NSString;
 
-@interface MSShapePathLayer : _MSShapePathLayer <MSLayerPreviewability, MSPathLayer>
+@interface MSShapePathLayer : _MSShapePathLayer <MSPathLayer>
 {
     BOOL _isEditing;
 }
 
 + (void)performBatchEdits:(CDUnknownBlockType)arg1;
 + (id)shapeWithRect:(struct CGRect)arg1;
++ (id)layerWithShapeGroupSubpath:(id)arg1;
 + (id)layerWithPath:(id)arg1 integralFrame:(BOOL)arg2;
 + (id)layerWithPath:(id)arg1;
-+ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
 - (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
-- (void)didChangeValueForKey:(id)arg1;
-- (void)willChangeValueForKey:(id)arg1;
 - (BOOL)isPolygon;
 - (BOOL)isRectangle;
 - (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2 pathToLayerTransform:(struct CGAffineTransform)arg3;
@@ -33,7 +30,6 @@
 - (void)simplify;
 - (id)pointsAroundIndex:(unsigned long long)arg1;
 - (id)flattenedLayer;
-- (void)flatten;
 @property(readonly, nonatomic) BOOL canFlatten;
 @property(readonly, nonatomic) MSCurvePoint *lastPoint;
 @property(readonly, nonatomic) MSCurvePoint *firstPoint;
@@ -59,14 +55,12 @@
 - (void)resetPoints;
 - (void)setNilValueForKey:(id)arg1;
 - (void)resetPointsBasedOnUserInteraction;
+- (void)setParentObject:(id)arg1;
 - (id)usedStyle;
 - (void)performInitEmptyObject;
-- (void)adjustAfterInsert;
-- (BOOL)shouldDrawSelectionStroke;
-- (BOOL)shouldDrawSelection;
-- (BOOL)canSmartRotate;
-- (Class)handlerClass;
-- (BOOL)handleDoubleClick;
+- (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
+- (double)userVisibleRotation;
+@property(readonly, nonatomic) double slope;
 @property(nonatomic) double length; // @dynamic length;
 @property(nonatomic) double y2; // @dynamic y2;
 @property(nonatomic) double x2; // @dynamic x2;
@@ -76,25 +70,11 @@
 - (struct CGPoint)p2;
 - (void)setP1:(struct CGPoint)arg1;
 - (struct CGPoint)p1;
-- (struct CGRect)boundsForCursorPreview;
-- (id)bezierPathForCursorPreview;
-- (id)insertionCursor;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-- (unsigned long long)shareableObjectType;
-- (id)styleForBooleanOperation;
-- (BOOL)supportsInnerOuterBorders;
-- (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
-- (void)possiblyFixRectangleBorderBeforeCut;
-- (BOOL)canCutSegments;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
 - (BOOL)hitTestAsPath;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-@property(readonly, nonatomic) unsigned long long badgeType;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -6,12 +6,20 @@
 
 #import <AppKit/NSScrollView.h>
 
+@protocol MSStackViewScrollViewDelegate;
+
 @interface MSStackViewScrollView : NSScrollView
 {
+    id <MSStackViewScrollViewDelegate> _delegate;
 }
 
+@property(nonatomic) __weak id <MSStackViewScrollViewDelegate> delegate; // @synthesize delegate=_delegate;
+- (void).cxx_destruct;
+- (void)setScrollerStyle:(long long)arg1;
+- (void)reflectScrolledClipView:(id)arg1;
 - (id)enclosedStackView;
 - (void)setFrame:(struct CGRect)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableStyleFill.h"
+#import <SketchModel/_MSImmutableStyleFill.h>
 
 @interface MSImmutableStyleFill : _MSImmutableStyleFill
 {
@@ -16,16 +16,9 @@
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)updateColorCounter:(id)arg1;
+- (void)migratePropertiesFromV115OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
-- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
-- (id)addNoisePatternLink:(id)arg1;
-- (id)addPatternLink:(id)arg1;
-- (id)addStretchedPattern:(id)arg1 exporter:(id)arg2;
-- (id)addFilledOrFitPattern:(id)arg1 exporter:(id)arg2 type:(long long)arg3;
-- (id)addTiledPattern:(id)arg1 scale:(double)arg2 exporter:(id)arg3;
-- (void)addUseWrapperToPattern:(id)arg1 withImageWrapper:(id)arg2 scaleX:(double)arg3 scaleY:(double)arg4;
-- (id)addImageDefinition:(id)arg1 exporter:(id)arg2;
 
 @end
 

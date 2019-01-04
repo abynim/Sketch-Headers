@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableStyleInnerShadow.h"
+#import <SketchModel/_MSImmutableStyleInnerShadow.h>
 
-#import "MSColorUser-Protocol.h"
+#import <SketchModel/MSColorUser-Protocol.h>
 
 @class NSString;
 
@@ -15,7 +15,6 @@
 }
 
 - (void)updateColorCounter:(id)arg1;
-- (void)addSVGFilterWithParent:(id)arg1 exporter:(id)arg2 index:(unsigned long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

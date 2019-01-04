@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class MSTiledRenderer, NSArray, NSBitmapImageRep, NSColorSpace, NSOperationQueue;
+@class MSOverlayColorSettings, MSTiledRenderer, NSArray, NSBitmapImageRep, NSColorSpace, NSOperationQueue;
 @protocol MSRenderingContextCacheProvider;
 
 @interface MSTileRenderOperation : NSOperation
@@ -22,16 +22,18 @@
     NSColorSpace *_canvasColorSpace;
     MSTiledRenderer *_renderer;
     NSOperationQueue *_renderPassQueue;
+    MSOverlayColorSettings *_colorSettings;
     struct CGSize _pixelViewSize;
     struct CGRect _visibleContentRect;
 }
 
-+ (id)renderOperationWithPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10;
-+ (id)renderOperationWithRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8;
-+ (id)bitmapImageFromRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8;
-+ (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10;
++ (id)renderOperationWithPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10 colorSettings:(id)arg11;
++ (id)renderOperationWithRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8 colorSettings:(id)arg9;
++ (id)bitmapImageFromRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8 colorSettings:(id)arg9;
++ (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pixelated:(BOOL)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 cacheProvider:(id)arg9 canvasColorSpace:(id)arg10 colorSettings:(id)arg11;
 @property BOOL isFinished; // @synthesize isFinished=_isFinished;
 @property BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
+@property(retain, nonatomic) MSOverlayColorSettings *colorSettings; // @synthesize colorSettings=_colorSettings;
 @property(retain, nonatomic) NSOperationQueue *renderPassQueue; // @synthesize renderPassQueue=_renderPassQueue;
 @property(retain, nonatomic) MSTiledRenderer *renderer; // @synthesize renderer=_renderer;
 @property(retain, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;

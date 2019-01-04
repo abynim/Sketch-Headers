@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)openCloudPreferences:(id)arg1;
 

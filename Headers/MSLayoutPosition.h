@@ -18,7 +18,7 @@
 @property(nonatomic) unsigned long long snapTag; // @synthesize snapTag=_snapTag;
 - (id)description;
 - (struct CGRect)rectBySnappingToPosition:(double)arg1 oldFrame:(struct CGRect)arg2 mayResize:(BOOL)arg3;
-- (id)snappingTargetInLayer:(id)arg1;
+- (id)snappingTargetInCoordinateSpace:(id)arg1;
 - (double)positionInLayer:(id)arg1;
 - (unsigned long long)axis;
 - (id)initWithItem:(id)arg1 attribute:(unsigned long long)arg2;

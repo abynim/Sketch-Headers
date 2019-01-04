@@ -26,12 +26,13 @@
 - (void).cxx_destruct;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1;
 - (struct CGPoint)applyDelegateAlignment:(struct CGPoint)arg1 snappedAxes:(unsigned long long)arg2;
-- (struct MSLineSegment)extendGuide:(struct MSLineSegment)arg1 toIncludePoint:(struct CGPoint)arg2;
+- (struct BCLineSegment)extendGuide:(struct BCLineSegment)arg1 toIncludePoint:(struct CGPoint)arg2;
 - (id)makeGuideFromAlignedTarget:(id)arg1 point:(struct CGPoint)arg2;
 @property(readonly, nonatomic) MSAlignmentEngineResult *alignmentResult;
+- (void)addTargetAtPoint:(struct CGPoint)arg1;
 - (void)addTargetsForRect:(struct CGRect)arg1 includeCenter:(BOOL)arg2;
 - (void)addOrthogonalTargetsThroughPoint:(struct CGPoint)arg1;
-- (void)addTargetWithLineSegment:(struct MSLineSegment)arg1;
+- (void)addTargetWithLineSegment:(struct BCLineSegment)arg1;
 - (void)addTargets:(id)arg1;
 - (void)addTarget:(id)arg1;
 - (id)beginCycleWithPoint:(struct CGPoint)arg1 constraint:(id)arg2;

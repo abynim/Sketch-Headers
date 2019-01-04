@@ -4,24 +4,24 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSImmutableModelObject.h"
+#import <SketchModel/MSImmutableModelObject.h>
 
 @class MSImmutableImageCollection, NSArray;
 
 @interface _MSImmutableAssetCollection : MSImmutableModelObject
 {
     NSArray *_images;
-    NSArray *_colors;
+    NSArray *_colorAssets;
     NSArray *_exportPresets;
-    NSArray *_gradients;
+    NSArray *_gradientAssets;
     MSImmutableImageCollection *_imageCollection;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) MSImmutableImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
-@property(retain, nonatomic) NSArray *gradients; // @synthesize gradients=_gradients;
+@property(retain, nonatomic) NSArray *gradientAssets; // @synthesize gradientAssets=_gradientAssets;
 @property(retain, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
-@property(retain, nonatomic) NSArray *colors; // @synthesize colors=_colors;
+@property(retain, nonatomic) NSArray *colorAssets; // @synthesize colorAssets=_colorAssets;
 @property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;

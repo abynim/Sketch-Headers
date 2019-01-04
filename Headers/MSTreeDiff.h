@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSMutableArray;
+@class MSImmutableDocumentData, NSMutableArray, NSSet;
 
 @interface MSTreeDiff : NSObject
 {
     BOOL _allTraitsCompared;
     BOOL _traitsCalculated;
+    NSSet *_keysAffectedByDiff;
     MSImmutableDocumentData *_firstDoc;
     MSImmutableDocumentData *_secondDoc;
     NSMutableArray *_mutableDiffs;
@@ -34,6 +35,7 @@
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
+@property(readonly, nonatomic) NSSet *keysAffectedByDiff; // @synthesize keysAffectedByDiff=_keysAffectedByDiff;
 - (void)buildPropertyTraitsIfNeeded;
 - (id)description;
 - (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;

@@ -23,8 +23,11 @@
 
 + (BOOL)validLocalDataFileSystemURL:(id)arg1;
 + (id)URLForBuiltinDataNamed:(id)arg1;
-+ (id)builtinDataFolder;
-+ (id)sketchBuiltinLocalData;
++ (id)localizedBuiltinDataFolder;
++ (id)builtinDataDefaultLanguageFolder;
++ (id)builtinDataDefaultURL;
++ (id)builtinDataDefaultLanguage;
++ (id)builtinDataDefaultPath;
 + (id)makeObjectID;
 @property(retain, nonatomic) NSMutableDictionary *replyContexts; // @synthesize replyContexts=_replyContexts;
 @property(retain, nonatomic) NSMutableArray *builtinData; // @synthesize builtinData=_builtinData;
@@ -45,7 +48,9 @@
 - (void)dataSupplierDataChanged:(id)arg1;
 - (void)removePluginDataSuppliersNotIdentifiedWithIdentifiers:(id)arg1;
 - (void)removeLocalDataSupplier:(id)arg1;
+- (void)saveBuiltinData;
 - (void)loadBuiltinData;
+- (void)saveLocalData;
 - (void)loadLocalData;
 - (BOOL)hasLocalDataSupplierWithURL:(id)arg1;
 - (void)addLocalData:(id)arg1;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)moveUpHierarchy:(id)arg1;

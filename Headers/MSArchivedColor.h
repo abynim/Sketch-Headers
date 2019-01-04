@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCoding-Protocol.h"
+#import <SketchModel/NSCoding-Protocol.h>
 
 @interface MSArchivedColor : NSObject <NSCoding>
 {

@@ -4,22 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSSharedStyleContainer.h"
+#import <SketchModel/_MSSharedStyleContainer.h>
 
 @interface MSSharedStyleContainer : _MSSharedStyleContainer
 {
 }
 
 - (id)sharedStyles;
-- (void)registerInstance:(id)arg1 withSharedStyle:(id)arg2;
 - (unsigned long long)numberOfSharedStyles;
 - (long long)indexOfSharedStyle:(id)arg1;
 - (id)sharedStyleAtIndex:(unsigned long long)arg1;
 - (id)sharedStyleWithID:(id)arg1;
-- (id)sharedStyleForInstance:(id)arg1;
-- (BOOL)isSharedStyleForInstance:(id)arg1;
 - (void)removeSharedStyle:(id)arg1;
-- (void)enumeratePotentialInstancesInContainer:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void)removeSharedObjects:(id)arg1;
+- (id)objectsReferencing:(id)arg1 inContainer:(id)arg2;
 - (unsigned long long)validStyleType;
 - (Class)sharedObjectClass;
 

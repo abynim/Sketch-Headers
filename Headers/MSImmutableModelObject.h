@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSModelObjectCommon.h"
+#import <SketchModel/MSModelObjectCommon.h>
 
-#import "MSCoding-Protocol.h"
-#import "MSModelObject-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
+#import <SketchModel/MSModelObject-Protocol.h>
 
 @class NSArray, NSString;
 

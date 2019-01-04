@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)openLibraryForForeignSymbols:(id)arg1;
 - (id)foreignObjects;
 

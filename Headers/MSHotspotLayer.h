@@ -4,35 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSHotspotLayer.h"
+#import <SketchModel/_MSHotspotLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
-
-@interface MSHotspotLayer : _MSHotspotLayer <MSLayerPreviewability>
+@interface MSHotspotLayer : _MSHotspotLayer
 {
 }
 
 + (id)hotspotLayerFromLayer:(id)arg1;
-+ (id)keyPathsForValuesAffectingPreviewTemplateImages;
 - (void)resetFlow;
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
 - (void)setFlow:(id)arg1;
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
-- (BOOL)shouldDrawSelectionStroke;
-- (BOOL)canChangeBooleanOperation;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-- (BOOL)isExportableViaDragAndDrop;
-- (BOOL)isActive;
-- (unsigned long long)filterTypeMask;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
-
-// Remaining properties
-@property(readonly, nonatomic) unsigned long long badgeType;
 
 @end
 

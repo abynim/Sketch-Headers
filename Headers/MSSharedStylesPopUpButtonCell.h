@@ -7,15 +7,18 @@
 #import <AppKit/NSPopUpButtonCell.h>
 
 @class MSShareableObjectReference, NSImage;
+@protocol MSSharedStylesPopUpButtonCellDelegate;
 
 @interface MSSharedStylesPopUpButtonCell : NSPopUpButtonCell
 {
     BOOL _localIsOutOfSync;
+    id <MSSharedStylesPopUpButtonCellDelegate> _delegate;
     NSImage *_previewImage;
 }
 
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) BOOL localIsOutOfSync; // @synthesize localIsOutOfSync=_localIsOutOfSync;
+@property(nonatomic) __weak id <MSSharedStylesPopUpButtonCellDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)setMenuItem:(id)arg1;
 - (void)drawImageWithFrame:(struct CGRect)arg1 inView:(id)arg2;

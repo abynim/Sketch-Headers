@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+@class NSArray, NSPointerArray;
 
 @interface MSBaseUnarchiver : NSObject
 {
@@ -14,11 +14,15 @@
     long long _currentVersion;
     long long _archiveVersion;
     NSArray *_actualSymbolIDs;
+    NSPointerArray *_decodedObjectStack;
+    id _currentObject;
 }
 
 + (id)unarchiveObjectWithData:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 + (id)unarchiveObjectWithData:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
 + (id)unarchiveObjectWithData:(id)arg1;
+@property(nonatomic) __weak id currentObject; // @synthesize currentObject=_currentObject;
+@property(retain, nonatomic) NSPointerArray *decodedObjectStack; // @synthesize decodedObjectStack=_decodedObjectStack;
 @property(retain, nonatomic) NSArray *actualSymbolIDs; // @synthesize actualSymbolIDs=_actualSymbolIDs;
 @property(nonatomic) BOOL corruptionDetected; // @synthesize corruptionDetected=_corruptionDetected;
 @property(nonatomic) long long archiveVersion; // @synthesize archiveVersion=_archiveVersion;

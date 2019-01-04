@@ -6,30 +6,54 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSSharedSymbolStylesInspectorItem, NSArray;
+#import "MSInspectorItemProvider-Protocol.h"
+#import "MSInspectorTableViewManagerDelegate-Protocol.h"
 
-@interface MSSymbolInstanceSection : MSBaseInspectorSection
+@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary;
+@protocol MSSymbolInstanceSectionDelegate, MSSymbolOverrideItemDescription;
+
+@interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider>
 {
     NSArray *_selectedOverrides;
     MSSharedSymbolStylesInspectorItem *_sharedStyleItem;
     MSCollapsibleHeaderInspectorItem *_headerItem;
-    NSArray *_overrideInspectorItems;
+    NSMutableArray<MSSymbolOverrideItemDescription> *_overrideItemDescriptions;
+    MSTableContainerInspectorItem *_overrideContainerItem;
+    MSInspectorTableViewManager *_tableViewManager;
+    NSMutableDictionary *_rowHeightCache;
 }
 
-@property(retain, nonatomic) NSArray *overrideInspectorItems; // @synthesize overrideInspectorItems=_overrideInspectorItems;
+@property(retain, nonatomic) NSMutableDictionary *rowHeightCache; // @synthesize rowHeightCache=_rowHeightCache;
+@property(retain, nonatomic) MSInspectorTableViewManager *tableViewManager; // @synthesize tableViewManager=_tableViewManager;
+@property(retain, nonatomic) MSTableContainerInspectorItem *overrideContainerItem; // @synthesize overrideContainerItem=_overrideContainerItem;
+@property(retain, nonatomic) NSMutableArray<MSSymbolOverrideItemDescription> *overrideItemDescriptions; // @synthesize overrideItemDescriptions=_overrideItemDescriptions;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(retain, nonatomic) MSSharedSymbolStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(copy, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void).cxx_destruct;
+- (id)userInterfaceCacheForItem:(id)arg1;
+- (id)parentViewControllerForTableViewManager:(id)arg1;
+- (id)sectionsForTableViewManager:(id)arg1;
+- (BOOL)wantSeparatorAtIndex:(unsigned long long)arg1;
+- (id)rowHeightCacheKeyForOverrideRepresentation:(id)arg1 shouldShowLabel:(BOOL)arg2 indentationLevel:(long long)arg3;
+- (double)getAndCacheHeightForOverrideRepresentation:(id)arg1 shouldShowLabel:(BOOL)arg2 indentationLevel:(long long)arg3;
+- (void)cacheHeight:(id)arg1 forOverrideRepresentation:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(long long)arg4;
+- (double)heightOfItemViewAtIndex:(unsigned long long)arg1;
+- (void)recycleItem:(id)arg1;
+- (BOOL)displaysLabelAtIndex:(unsigned long long)arg1;
+- (id)vendItemAtIndex:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long numberOfItems;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (BOOL)overrideSelectionHasChanged:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;
-- (void)addOverride:(id)arg1 toViewControllers:(id)arg2 after:(id)arg3 atLevel:(unsigned long long)arg4;
-- (BOOL)addOverrides:(id)arg1 toViewControllers:(id)arg2 atLevel:(unsigned long long)arg3;
+- (void)recursivelyGatherOverrideItemsForOverrides:(id)arg1 into:(id)arg2;
 - (void)updateItems;
 - (void)setLayers:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+
+// Remaining properties
+@property(nonatomic) __weak id <MSSymbolInstanceSectionDelegate> delegate; // @dynamic delegate;
 
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)touchBarImage;
 - (unsigned long long)textAlignment;
 - (void)alignJustified:(id)arg1;

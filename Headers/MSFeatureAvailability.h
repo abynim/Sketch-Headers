@@ -10,7 +10,8 @@
 {
 }
 
-+ (void)setFeature14414Enabled:(BOOL)arg1;
++ (void)setInferredLayoutEnabled:(BOOL)arg1;
++ (BOOL)inferredLayoutEnabled;
 + (BOOL)feature14414Enabled;
 + (void)setCloudOrganizationsEnabled:(BOOL)arg1;
 + (BOOL)cloudOrganizationsEnabled;
@@ -22,8 +23,6 @@
 + (void)setBuiltInRemoteLibrariesEnabled:(BOOL)arg1;
 + (void)setIsComponentsPanelEnabled:(BOOL)arg1;
 + (BOOL)isComponentsPanelEnabled;
-+ (void)setDataSuppliersEnabled:(BOOL)arg1;
-+ (BOOL)dataSuppliersEnabled;
 + (void)setLibraryStylesEnabled:(BOOL)arg1;
 + (BOOL)libraryStylesEnabled;
 + (void)setFeature:(id)arg1 enabled:(BOOL)arg2;

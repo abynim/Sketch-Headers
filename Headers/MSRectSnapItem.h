@@ -14,7 +14,6 @@
 
 + (id)rectSnapItemWithLayer:(id)arg1 rect:(struct CGRect)arg2 constrainProportions:(BOOL)arg3;
 - (void)concatAncestorsAndSelfTransforms;
-- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (BOOL)shouldConstrainProportions;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (void)setRectForSnapping:(struct CGRect)arg1;
@@ -28,7 +27,7 @@
 - (id)topAnchor;
 - (id)rightAnchor;
 - (id)leftAnchor;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)snapItemForDrawing;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;
 

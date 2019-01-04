@@ -6,12 +6,11 @@
 
 #import "MSStylePartInspectorItem.h"
 
-#import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 #import "MSInspectorValueAdaptorDelegate-Protocol.h"
 
 @class MSMathInspectorValueAdaptor, MSUpDownTextField, NSMenuItem, NSPopUpButton, NSSlider, NSString;
 
-@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorMathValueAdaptorDelegate, MSInspectorValueAdaptorDelegate>
+@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorValueAdaptorDelegate>
 {
     MSUpDownTextField *_radiusField;
     NSSlider *_radiusSlider;
@@ -28,7 +27,6 @@
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
 - (void).cxx_destruct;
-- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (long long)popUpMenuIndexFromBlurType:(unsigned long long)arg1;
 - (unsigned long long)blurTypeFromPopUpMenuIndex:(long long)arg1;
 - (void)updateDisplayedValues;

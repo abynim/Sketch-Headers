@@ -4,14 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableGraphicsContextSettings.h"
+#import <SketchModel/_MSImmutableGraphicsContextSettings.h>
 
 @interface MSImmutableGraphicsContextSettings : _MSImmutableGraphicsContextSettings
 {
 }
-
-- (int)CGBlendMode;
-- (BOOL)shouldChangeGraphicsContext;
 
 @end
 

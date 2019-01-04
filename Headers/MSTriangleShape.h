@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSTriangleShape.h"
+#import <SketchModel/_MSTriangleShape.h>
 
 @interface MSTriangleShape : _MSTriangleShape
 {
@@ -12,7 +12,6 @@
 
 - (BOOL)canFlatten;
 - (void)resetPoints;
-- (struct CGRect)boundsForCursorPreview;
 
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSForeignSymbol.h"
+#import <SketchModel/_MSForeignSymbol.h>
 
 @class NSString;
 
@@ -14,11 +14,13 @@
 
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
 - (id)collectionInDocument:(id)arg1;
-- (id)masterFromDocument:(id)arg1;
+- (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)syncWithRemote:(id)arg1;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (void)syncRemoteStyleOverrides:(id)arg1;
+- (BOOL)containsNestedSytlesOutOfDateWithLibrary:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;
@@ -27,8 +29,6 @@
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
-- (id)tooltipForObject_MSAssetSyncSheetObject:(struct MSModelObject *)arg1;
-- (unsigned long long)type_MSAssetSyncSheetObject;
 
 @end
 

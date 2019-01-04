@@ -6,25 +6,27 @@
 
 #import <AppKit/NSControl.h>
 
+@class NSShadow;
+
 @interface BCColorPickerBaseView : NSControl
 {
     BOOL _hideSelection;
     id _bc_target;
     SEL _bc_action;
+    NSShadow *_markerShadow;
 }
 
-+ (id)darkShadow;
 + (void)drawFrameInRect:(struct CGRect)arg1 forView:(id)arg2 block:(CDUnknownBlockType)arg3;
-+ (void)drawFrameInRect:(struct CGRect)arg1 outlineWidth:(double)arg2 block:(CDUnknownBlockType)arg3;
++ (void)drawFrameInRect:(struct CGRect)arg1 outlineWidth:(double)arg2 cornerRadius:(double)arg3 block:(CDUnknownBlockType)arg4;
+@property(retain, nonatomic) NSShadow *markerShadow; // @synthesize markerShadow=_markerShadow;
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 @property(nonatomic) BOOL hideSelection; // @synthesize hideSelection=_hideSelection;
 - (void).cxx_destruct;
 - (BOOL)acceptsFirstMouse:(id)arg1;
 - (void)drawMarkerInRect:(struct CGRect)arg1;
-- (id)markerShadow;
 - (void)drawCheckerboardPatternInRect:(struct CGRect)arg1;
-- (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
+- (void)drawBackgroundInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (struct CGRect)contentBounds;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initInBounds:(struct CGRect)arg1;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, MSCGContextPool, MSGPUArtboardShadow, MSMemoryBuffer, MSRenderingDriver, MSTileMipLevel, NSArray, NSString, NSView;
+@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowRenderer, MSGPUArtboardShadow, MSMemoryBuffer, MSRenderingDriver, MSTileMipLevel, NSArray, NSString, NSView;
 @protocol MSGPURenderer, MSGPUTexture, MSOverlayRenderingDelegate, MSRenderingContextCacheProvider, MSTiledRendererHostView;
 
 @interface MSTiledRenderer : NSObject
@@ -25,20 +25,23 @@
     MSMemoryBuffer *_contextMemory;
     MSMemoryBuffer *_overlayMemory;
     id <MSGPUTexture> _overlayTexture;
+    MSFlowRenderer *_flowRenderer;
     MSCGContextPool *_contextPool;
     NSString *_previousPageObjectID;
     unsigned long long _layerCount;
     MSGPUArtboardShadow *_artboardShadow;
-    CDStruct_0b1c536a _artboardBackgroundColor;
+    MSArtboardTitleRenderer *_artboardTitleRenderer;
 }
 
++ (id)preferredAcceleratorClassName;
+@property(readonly, nonatomic) MSArtboardTitleRenderer *artboardTitleRenderer; // @synthesize artboardTitleRenderer=_artboardTitleRenderer;
 @property(readonly, nonatomic) MSGPUArtboardShadow *artboardShadow; // @synthesize artboardShadow=_artboardShadow;
 @property(nonatomic) unsigned long long layerCount; // @synthesize layerCount=_layerCount;
 @property(retain, nonatomic) NSString *previousPageObjectID; // @synthesize previousPageObjectID=_previousPageObjectID;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
-@property(readonly, nonatomic) CDStruct_0b1c536a artboardBackgroundColor; // @synthesize artboardBackgroundColor=_artboardBackgroundColor;
 @property BOOL clearOtherLevels; // @synthesize clearOtherLevels=_clearOtherLevels;
 @property BOOL rasterisationInProgress; // @synthesize rasterisationInProgress=_rasterisationInProgress;
+@property(retain, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
 @property(readonly, nonatomic) id <MSGPUTexture> overlayTexture; // @synthesize overlayTexture=_overlayTexture;
 @property(retain, nonatomic) MSMemoryBuffer *overlayMemory; // @synthesize overlayMemory=_overlayMemory;
 @property(retain, nonatomic) MSMemoryBuffer *contextMemory; // @synthesize contextMemory=_contextMemory;
@@ -56,6 +59,10 @@
 - (void)_scheduleRedraw;
 - (void)_fastZoomExit;
 - (void)_drawOverlayInVisibleRect:(struct CGRect)arg1 backingScaleFactor:(double)arg2 pixelViewSize:(struct CGSize)arg3 zoomValue:(double)arg4 page:(id)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 overlayColors:(id)arg7;
+- (id)flowDotTexture:(double)arg1;
+- (id)flowTipTexture;
+- (id)flowBackTexture;
+- (id)flowOtherPageTexture;
 - (void)_renderPageOverlayElementsForPage:(id)arg1 options:(unsigned long long)arg2 zoomLevel:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 rect:(struct CGRect)arg6 visibleRect:(struct CGRect)arg7 overlayColors:(id)arg8;
 - (void)_drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 zoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
 - (void)updateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 visibleImageRect:(struct CGRect)arg4 backingScaleFactor:(double)arg5 pixelViewSize:(struct CGSize)arg6 zoomValue:(double)arg7 pixelated:(BOOL)arg8 pageOverlayRenderOptions:(unsigned long long)arg9 cacheProvider:(id)arg10 canvasColorSpace:(id)arg11 renderContentSynchronously:(BOOL)arg12 overlayColors:(id)arg13;

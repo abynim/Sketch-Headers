@@ -6,9 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import "MSModelObjectCommon-Protocol.h"
+#import <SketchModel/MSModelObjectCommon-Protocol.h>
 
-@class MSModelObjectCache, MSModelObjectCacheGeneration, NSString;
+@class MSModelObjectCache, MSModelObjectCacheGeneration, NSArray, NSString;
 
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
@@ -42,13 +42,14 @@
 - (id)initWithMinimalSetup;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;
+@property(readonly, nonatomic) NSArray *overridePointAttributeNamesForOverridePropertyMigration;
+- (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)treeAsDictionary;
 - (id)simpleTreeStructure;
 - (id)treeStructure;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
-- (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

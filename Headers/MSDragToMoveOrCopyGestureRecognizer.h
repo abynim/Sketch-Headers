@@ -6,13 +6,13 @@
 
 #import "MSDragGestureRecognizer.h"
 
-@class NSArray;
+@class NSArray, NSNumber;
 
 @interface MSDragToMoveOrCopyGestureRecognizer : MSDragGestureRecognizer
 {
     BOOL _shouldInterpretAlignment;
     unsigned long long _alignModifierMask;
-    unsigned long long _alignmentAxis;
+    NSNumber *_alignmentAxis;
     id _draggedItem;
     NSArray *_originalDraggedItems;
     NSArray *_originalDragPositions;
@@ -25,7 +25,7 @@
 @property(copy, nonatomic) NSArray *originalDragPositions; // @synthesize originalDragPositions=_originalDragPositions;
 @property(copy, nonatomic) NSArray *originalDraggedItems; // @synthesize originalDraggedItems=_originalDraggedItems;
 @property(retain, nonatomic) id draggedItem; // @synthesize draggedItem=_draggedItem;
-@property(readonly, nonatomic) unsigned long long alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
+@property(readonly, nonatomic) NSNumber *alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
 @property(nonatomic) BOOL shouldInterpretAlignment; // @synthesize shouldInterpretAlignment=_shouldInterpretAlignment;
 @property(nonatomic) unsigned long long alignModifierMask; // @synthesize alignModifierMask=_alignModifierMask;
 - (void).cxx_destruct;

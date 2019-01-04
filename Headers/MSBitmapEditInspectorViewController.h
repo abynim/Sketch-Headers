@@ -10,7 +10,7 @@
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSInspectorChildController-Protocol.h"
 
-@class BCPopover, MSBitmapEditEventHandler, NSButton, NSString, NSTextField;
+@class BCPopover, MSBitmapEditEventHandler, MSInlineUpDownTextField, NSButton, NSString, NSTextField;
 
 @interface MSBitmapEditInspectorViewController : NSViewController <BCPopoverDelegate, MSColorInspectorDelegate, MSInspectorChildController>
 {
@@ -22,8 +22,8 @@
     NSButton *_invertButton;
     NSButton *_cropButton;
     NSButton *_fillButton;
-    NSTextField *_widthField;
-    NSTextField *_heightField;
+    MSInlineUpDownTextField *_widthField;
+    MSInlineUpDownTextField *_heightField;
     NSTextField *_invertLabel;
     NSTextField *_cropLabel;
     NSTextField *_fillLabel;
@@ -33,8 +33,8 @@
 @property(retain, nonatomic) NSTextField *fillLabel; // @synthesize fillLabel=_fillLabel;
 @property(retain, nonatomic) NSTextField *cropLabel; // @synthesize cropLabel=_cropLabel;
 @property(retain, nonatomic) NSTextField *invertLabel; // @synthesize invertLabel=_invertLabel;
-@property(retain, nonatomic) NSTextField *heightField; // @synthesize heightField=_heightField;
-@property(retain, nonatomic) NSTextField *widthField; // @synthesize widthField=_widthField;
+@property(retain, nonatomic) MSInlineUpDownTextField *heightField; // @synthesize heightField=_heightField;
+@property(retain, nonatomic) MSInlineUpDownTextField *widthField; // @synthesize widthField=_widthField;
 @property(retain, nonatomic) NSButton *fillButton; // @synthesize fillButton=_fillButton;
 @property(retain, nonatomic) NSButton *cropButton; // @synthesize cropButton=_cropButton;
 @property(retain, nonatomic) NSButton *invertButton; // @synthesize invertButton=_invertButton;

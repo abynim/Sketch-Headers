@@ -30,6 +30,7 @@
 - (id)description;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) struct CGPoint firstAnchorPoint;
 @property(readonly, nonatomic) struct CGRect rect;
 - (id)initWithFirstItem:(id)arg1 attribute:(unsigned long long)arg2 secondAnchor:(id)arg3;
 - (id)initWithItem:(id)arg1 attribute:(unsigned long long)arg2 item:(id)arg3 attribute:(unsigned long long)arg4;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (void)changeFlowAnimationToFromTopAnimation:(id)arg1;
 - (long long)animationType;
 

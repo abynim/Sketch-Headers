@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)shapesWithClippingMask;
 - (void)doPerformAction:(id)arg1;
 - (void)clippingMaskMode:(id)arg1;

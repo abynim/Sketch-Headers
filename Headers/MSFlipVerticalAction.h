@@ -11,6 +11,7 @@
 }
 
 + (id)flipVerticalHistoryTitle;
+- (id)label;
 - (BOOL)isActive;
 - (id)touchBarItem;
 - (BOOL)areAllSelectedLayersFlippedVertically;

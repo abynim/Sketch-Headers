@@ -6,27 +6,37 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSDate, NSString, NSTimer;
 
 @interface BCNetworkTime : NSObject
 {
     int _socket;
-    CDUnknownBlockType _completion;
     NSString *_host;
+    double _timeout;
     struct addrinfo *_allAddressInfo;
     struct addrinfo *_addressInfo;
-    unsigned long long _timeout;
+    NSTimer *_requestTimer;
+    double _networkTime;
+    double _networkTimeUpdateTime;
+    double _startupReferenceTime;
 }
 
-+ (void)requestTimeFromHost:(id)arg1 timeout:(unsigned long long)arg2 completionBlock:(CDUnknownBlockType)arg3;
-@property(nonatomic) unsigned long long timeout; // @synthesize timeout=_timeout;
++ (void)requestTimeFromHost:(id)arg1 timeout:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
++ (id)dispatchQueue;
+@property(readonly, nonatomic) double startupReferenceTime; // @synthesize startupReferenceTime=_startupReferenceTime;
+@property(readonly, nonatomic) double networkTimeUpdateTime; // @synthesize networkTimeUpdateTime=_networkTimeUpdateTime;
+@property(nonatomic) double networkTime; // @synthesize networkTime=_networkTime;
+@property(retain) NSTimer *requestTimer; // @synthesize requestTimer=_requestTimer;
 @property(nonatomic) int socket; // @synthesize socket=_socket;
 @property(nonatomic) struct addrinfo *addressInfo; // @synthesize addressInfo=_addressInfo;
 @property(nonatomic) struct addrinfo *allAddressInfo; // @synthesize allAddressInfo=_allAddressInfo;
+@property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(copy, nonatomic) NSString *host; // @synthesize host=_host;
-@property(copy, nonatomic) CDUnknownBlockType completion; // @synthesize completion=_completion;
 - (void).cxx_destruct;
-- (void)sendCompletion:(id)arg1;
+@property(readonly, nonatomic) NSDate *currentDate;
+@property(readonly) BOOL includesNetworkTime;
+- (double)systemStartupTime;
+- (id)systemDate;
 - (void)requestNTPTime;
 - (void)readResponse;
 - (void)sendRequest;
@@ -34,8 +44,10 @@
 - (void)openSocket;
 @property(readonly, nonatomic) BOOL isSocketOpen;
 - (void)determineHostAddress;
+- (void)startRequest;
 - (void)dealloc;
-- (id)initWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)initWithHost:(id)arg1 timeout:(double)arg2;
+- (id)init;
 
 @end
 

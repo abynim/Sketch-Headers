@@ -4,17 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSStyleColorControls.h"
+#import <SketchModel/_MSStyleColorControls.h>
 
 @interface MSStyleColorControls : _MSStyleColorControls
 {
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
-+ (id)keyPathsForValuesAffectingUserVisibleContrast;
 - (void)resetToDefaultValues;
 - (BOOL)hasDefaultColorControlsValues;
-@property(nonatomic) double userVisibleContrast;
 
 @end
 

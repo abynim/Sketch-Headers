@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableStyleBorderOptions.h"
+#import <SketchModel/_MSImmutableStyleBorderOptions.h>
 
 @interface MSImmutableStyleBorderOptions : _MSImmutableStyleBorderOptions
 {
@@ -13,7 +13,6 @@
 @property(readonly, nonatomic) int CGLineCap;
 @property(readonly, nonatomic) int CGLineJoin;
 @property(readonly, nonatomic) BOOL hasDashPattern;
-- (void)addSVGAttributes:(id)arg1 exporter:(id)arg2;
 
 @end
 

@@ -6,24 +6,28 @@
 
 #import "MSNestedInspectorSection.h"
 
+#import "MSSymbolInstanceSectionDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSBaseInspectorSection, NSArray, NSString;
+@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSString;
 
-@interface MSSpecialLayerViewController : MSNestedInspectorSection <NSMenuDelegate>
+@interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
 {
     MSBaseInspectorSection *_textSection;
+    MSSymbolInstanceSection *_symbolInstanceSection;
     NSArray *_layerInspectorSections;
+    NSCache *_sectionInterfaceCache;
 }
 
-+ (id)layerOrder;
++ (id)sectionOrder;
+@property(retain, nonatomic) NSCache *sectionInterfaceCache; // @synthesize sectionInterfaceCache=_sectionInterfaceCache;
 @property(retain, nonatomic) NSArray *layerInspectorSections; // @synthesize layerInspectorSections=_layerInspectorSections;
+@property(retain, nonatomic) MSSymbolInstanceSection *symbolInstanceSection; // @synthesize symbolInstanceSection=_symbolInstanceSection;
 @property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 - (void).cxx_destruct;
 - (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
 - (void)sectionDidResize:(id)arg1;
-- (void)colorMagnifierAction:(id)arg1;
-- (BOOL)canHandleColorMagnifierAction;
+- (id)userInterfaceCacheForSection:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)valuesPossiblyChanged;
 - (void)changeTextLayerFont:(id)arg1;

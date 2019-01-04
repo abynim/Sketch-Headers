@@ -41,6 +41,7 @@
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
 - (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
+- (id)label;
 - (BOOL)validate;
 - (unsigned long long)dataTypeForSelection;
 - (unsigned long long)supportedDataTypeForSelection;

@@ -38,7 +38,6 @@
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)didGetAddedToInspector;
-- (void)prepareForReuse;
 - (void)prepare;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

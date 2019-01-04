@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSCoding-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
 
 @class NSDictionary, NSString;
 

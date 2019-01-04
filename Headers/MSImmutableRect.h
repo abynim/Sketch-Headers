@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableRect.h"
+#import <SketchModel/_MSImmutableRect.h>
 
-#import "MSRect-Protocol.h"
+#import <SketchModel/MSRect-Protocol.h>
 
 @interface MSImmutableRect : _MSImmutableRect <MSRect>
 {

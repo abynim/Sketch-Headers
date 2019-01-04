@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSFastEnumeration-Protocol.h"
+#import <SketchModel/NSFastEnumeration-Protocol.h>
 
 @class NSArray, NSBezierPath;
 

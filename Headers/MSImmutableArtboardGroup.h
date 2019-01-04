@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableArtboardGroup.h"
+#import <SketchModel/_MSImmutableArtboardGroup.h>
 
-#import "MSArtboardGroup-Protocol.h"
-#import "MSColorUser-Protocol.h"
-#import "MSImmutableRootLayer-Protocol.h"
-#import "MSLayerWithBackgroundColor-Protocol.h"
-#import "MSWebExportableRootLayer-Protocol.h"
+#import <SketchModel/MSArtboardGroup-Protocol.h>
+#import <SketchModel/MSColorUser-Protocol.h>
+#import <SketchModel/MSImmutableRootLayer-Protocol.h>
+#import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSArtboardPreset, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
     struct CGSize _unscaledNameSize;
 }
@@ -31,22 +30,12 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
-@property(readonly, nonatomic) BOOL containsFixedLayers;
-- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
-- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
-@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
-@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-- (void)updateColorCounter:(id)arg1;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
+- (void)updateColorCounter:(id)arg1;
 - (void)trackColors:(id)arg1;
-- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (BOOL)shouldDrawBackgroundInContext:(id)arg1;
-- (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (id)svgStyle:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -61,7 +50,6 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;

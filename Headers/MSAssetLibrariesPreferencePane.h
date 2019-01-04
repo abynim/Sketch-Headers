@@ -29,6 +29,7 @@
     NSWindow *_libraryInstallerAlertWindow;
     NSWindow *_duplicateLibraryAlertWindow;
     NSWindow *_chooseLibraryPanelWindow;
+    NSWindow *_genericAlertWindow;
     NSPredicate *_librariesFilterPredicate;
 }
 
@@ -36,6 +37,7 @@
 + (id)title;
 + (id)identifier;
 @property(copy, nonatomic) NSPredicate *librariesFilterPredicate; // @synthesize librariesFilterPredicate=_librariesFilterPredicate;
+@property(nonatomic) __weak NSWindow *genericAlertWindow; // @synthesize genericAlertWindow=_genericAlertWindow;
 @property(nonatomic) __weak NSWindow *chooseLibraryPanelWindow; // @synthesize chooseLibraryPanelWindow=_chooseLibraryPanelWindow;
 @property(nonatomic) __weak NSWindow *duplicateLibraryAlertWindow; // @synthesize duplicateLibraryAlertWindow=_duplicateLibraryAlertWindow;
 @property(nonatomic) __weak NSWindow *libraryInstallerAlertWindow; // @synthesize libraryInstallerAlertWindow=_libraryInstallerAlertWindow;
@@ -84,8 +86,10 @@
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
 - (void)dismissAlertSheet;
+- (void)displayCloudAlertSheetForError:(id)arg1;
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)displayInstallerAlertSheetForRemoteAssetLibrary;
+- (void)displayGenericAlertSheetWithError:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 cancelButton:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)tableCellForLibrary:(id)arg1;
 - (void)startDownloadForRemoteLibrary:(id)arg1;

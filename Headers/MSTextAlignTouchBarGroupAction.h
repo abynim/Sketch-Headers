@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)touchBarItem;
 - (unsigned long long)touchBarItemSizing;
 - (BOOL)supportsState;

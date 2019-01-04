@@ -10,6 +10,7 @@
 {
 }
 
+- (id)label;
 - (id)validationKeyPath;
 - (id)actionKeyPath;
 - (void)fixWidthAction:(id)arg1;

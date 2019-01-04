@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSImmutableStyledLayer.h"
+#import <SketchModel/_MSImmutableStyledLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
-#import "MSStyledLayer-Protocol.h"
+#import <SketchModel/MSStyledLayer-Protocol.h>
 
 @class NSString;
 
-@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSImmutableLayerPreviewability, MSStyledLayer>
+@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSStyledLayer>
 {
 }
 
@@ -44,31 +43,19 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascade;
 - (void)applyPropertiesToBezier:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;
-- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (BOOL)hasSharedStyleInDocumentData:(id)arg1;
-- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
-- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-- (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;
-- (BOOL)canOverridePoint:(id)arg1;
+- (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (id)bezierPathForEndDecorationOnPath:(id *)arg1;
 - (id)bezierPathForStartDecorationOnPath:(id *)arg1;
 - (unsigned long long)roundDecorationTypeIfNecessary:(unsigned long long)arg1;
 - (void)trackColorsForBasicFill:(id)arg1 tracker:(id)arg2;
 - (void)trackColors:(id)arg1;
-- (id)renderBitmapEffects:(id)arg1;
-- (id)strokeStyleForDecoratedPath;
-- (id)fillStyleForDecoratedPath;
-- (id)fillPathWithDecorations:(id *)arg1;
-- (BOOL)shouldSkipDrawingInContext:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
-@property(readonly, nonatomic) BOOL shouldRasterize;
-- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (void)addPathDefinitionToDocument:(id)arg1;
-- (id)svgPathAttribute:(id)arg1;
-- (id)pathWithExporter:(id)arg1 border:(id)arg2;
-- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (void)addGradientsToDocument:(id)arg1;
+- (void)updateSharedStyleIDFromMigration:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;
+- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

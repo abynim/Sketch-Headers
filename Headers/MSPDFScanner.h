@@ -72,6 +72,7 @@
 - (void)curveTo:(struct CGPoint)arg1 control1:(struct CGPoint)arg2 control2:(struct CGPoint)arg3;
 - (void)lineTo:(struct CGPoint)arg1;
 - (void)moveTo:(struct CGPoint)arg1;
+- (id)makeLayerFromPath:(id)arg1;
 - (void)doClipping;
 - (void)doRestoreState;
 - (void)doSaveState;

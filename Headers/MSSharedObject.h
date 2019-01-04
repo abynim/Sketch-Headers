@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_MSSharedObject.h"
+#import <SketchModel/_MSSharedObject.h>
 
-#import "BCSortable-Protocol.h"
+#import <SketchModel/BCSortable-Protocol.h>
 
 @class NSString;
 
@@ -18,13 +18,7 @@
 - (id)parentGroup;
 - (unsigned long long)type;
 - (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;
-- (struct MSModelObject *)newInstance;
-- (BOOL)isSharedObjectForInstance:(struct MSModelObject *)arg1;
-- (void)unregisterInstance:(struct MSModelObject *)arg1;
-- (void)registerInstance:(struct MSModelObject *)arg1;
-- (void)objectDidInit;
 - (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
-- (id)initWithName:(id)arg1 firstInstance:(struct MSModelObject *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

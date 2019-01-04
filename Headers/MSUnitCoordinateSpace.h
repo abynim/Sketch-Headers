@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
+
 @protocol MSLayerCoordinateSpace;
 
-@interface MSUnitCoordinateSpace : NSObject
+@interface MSUnitCoordinateSpace : NSObject <MSLayerCoordinateSpace>
 {
     id <MSLayerCoordinateSpace> _parentCoordinateSpace;
 }
