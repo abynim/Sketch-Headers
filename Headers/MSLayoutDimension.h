@@ -10,5 +10,7 @@
 {
 }
 
+@property(readonly, nonatomic) double length;
+
 @end
 

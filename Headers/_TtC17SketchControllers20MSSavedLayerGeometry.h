@@ -9,8 +9,6 @@
 @interface _TtC17SketchControllers20MSSavedLayerGeometry : NSObject
 {
     // Error parsing type: , name: layer
-    // Error parsing type: , name: geometry
-    // Error parsing type: , name: integralEdges
     // Error parsing type: , name: _framesByLayerID
 }
 

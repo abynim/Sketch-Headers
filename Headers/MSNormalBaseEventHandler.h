@@ -15,7 +15,7 @@
 - (BOOL)wantsStandardSelectionControls;
 - (void)resizeParentsOfSelectedLayersToFit;
 - (BOOL)canDuplicate;
-- (id)cursorForCorner:(long long)arg1 ofLayer:(id)arg2;
+- (id)cursorForCorner:(long long)arg1 ofCoordinateSpace:(id)arg2;
 
 @end
 

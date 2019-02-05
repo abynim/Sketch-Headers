@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSForeignLayerStyle.h"
+#import <SketchModel/_MSForeignLayerStyle.h>
 
 @interface MSForeignLayerStyle : _MSForeignLayerStyle
 {
 }
 
-- (id)collectionInDocument:(id)arg1;
++ (id)foreignObjectCollectionInDocument:(id)arg1;
++ (unsigned long long)containerType;
+- (void)addToDocument:(id)arg1;
+- (void)removeFromOwningDocument;
 - (id)unlinkFromRemote;
-- (id)masterFromDocument:(id)arg1;
-- (id)tooltipForObject_MSAssetSyncSheetObject:(struct MSModelObject *)arg1;
-- (unsigned long long)type_MSAssetSyncSheetObject;
 
 @end
 

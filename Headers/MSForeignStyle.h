@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSForeignStyle.h"
+#import <SketchModel/_MSForeignStyle.h>
 
-#import "MSSharedStylePasting-Protocol.h"
+#import <SketchModel/MSSharedStylePasting-Protocol.h>
 
 @class NSString;
 
@@ -14,15 +14,24 @@
 {
 }
 
++ (id)addOrReplaceSymbolPrivateStyleWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
++ (id)masterFromDocument:(id)arg1 withID:(id)arg2;
++ (unsigned long long)containerType;
++ (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
+- (id)debugQuickLookObject;
+- (id)findOrCreatePublicVersion;
+- (void)addToDocument:(id)arg1;
+- (void)removeFromOwningDocument;
 - (void)syncWithRemote:(id)arg1;
 - (id)unlinkFromRemote;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
-- (id)initAsOverrideReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
+- (id)initAsPrivateReferenceForSymbol:(id)arg1 withForeignStyle:(id)arg2;
+- (id)initAsPrivateReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;

@@ -12,7 +12,6 @@
 
 @interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
 {
-    NSArray *_internalLibraries;
     NSMutableArray *_userLibraries;
     NSArray *_remoteLibraries;
     NSHashTable *_delegates;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
-@property(retain, nonatomic) NSArray *internalLibraries; // @synthesize internalLibraries=_internalLibraries;
 - (void).cxx_destruct;
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
@@ -45,11 +43,10 @@
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
-- (void)loadInternalLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadRemoteLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;
 - (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;
-- (void)setupInternalLibrariesWithDispatchGroup:(id)arg1;
-- (id)initialInternalLibraries;
+- (void)copyInternalLibraryToApplicationSupport;
 - (id)initialRemoteLibraryDefinitions;
 - (id)loadLibrariesForKey:(id)arg1 dispatchGroup:(id)arg2;
 - (void)assetLibraryEnableStateChanged:(id)arg1;

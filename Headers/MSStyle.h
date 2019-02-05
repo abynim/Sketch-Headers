@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSStyle.h"
+#import <SketchModel/_MSStyle.h>
 
-#import "MSSharedObjectInstance-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSSharedObjectInstance-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class MSTextStyle, NSString;
 
@@ -16,6 +16,7 @@
     NSString *_primitiveSharedObjectID;
 }
 
++ (id)styleWithFillColor:(id)arg1;
 @property(retain, nonatomic) NSString *primitiveSharedObjectID; // @synthesize primitiveSharedObjectID=_primitiveSharedObjectID;
 - (void).cxx_destruct;
 - (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
@@ -51,11 +52,6 @@
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
-- (long long)determineMaskingMode;
-- (void)prepareAsMask;
-- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (void)prepareForPreviewingWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2;
-- (id)shapeForPreviewWithSize:(struct CGSize)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

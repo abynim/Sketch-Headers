@@ -27,6 +27,7 @@
 @property(readonly, copy, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 @property(readonly, nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 - (void).cxx_destruct;
+- (id)description;
 - (id)debugQuickLookObject;
 - (id)intersectionsWithSegment:(id)arg1;
 - (id)contourWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;

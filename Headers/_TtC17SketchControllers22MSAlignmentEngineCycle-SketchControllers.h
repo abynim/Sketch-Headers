@@ -7,8 +7,6 @@
 #import "_TtC17SketchControllers22MSAlignmentEngineCycle.h"
 
 @interface _TtC17SketchControllers22MSAlignmentEngineCycle (SketchControllers)
-@property(nonatomic, readonly) double snapDistance;
-- (id)initWithPoint:(struct CGPoint)arg1 snapDistance:(double)arg2;
-- (id)initWithPoint:(struct CGPoint)arg1 snapDistance:(double)arg2 constraint:(struct MSLine)arg3;
+- (id)debugQuickLookObject;
 @end
 

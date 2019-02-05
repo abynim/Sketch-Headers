@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableLayerGroup.h"
+#import <SketchModel/_MSImmutableLayerGroup.h>
 
-#import "MSFlowContainmentCheck-Protocol.h"
-#import "MSLayerGroup-Protocol.h"
+#import <SketchModel/MSFlowContainmentCheck-Protocol.h>
+#import <SketchModel/MSLayerGroup-Protocol.h>
 
 @class NSArray;
 
@@ -18,6 +18,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
+- (id)defaultLayout;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
@@ -30,9 +31,10 @@
 - (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-@property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
-@property(readonly, nonatomic) double mirrorExportScale;
+- (unsigned long long)axisForInferredLayouts;
+@property(readonly, nonatomic) BOOL hasInferredLayout;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -45,19 +47,14 @@
 - (BOOL)containsNoOrOneLayers;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (id)subObjectsForTreeDiff;
 - (BOOL)shadowsFollowRotation;
 - (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (unsigned long long)constraintForLayer:(id)arg1;
+- (void)migratePropertiesFromV112OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV109OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV90OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
-- (void)prepareSymbolCachesInDocument:(id)arg1 withWorkerQueue:(id)arg2;
-- (id)svgStyle:(id)arg1;
-- (void)addChildrenToElement:(id)arg1 exporter:(id)arg2;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (BOOL)requiresPathDefinition:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *layers;

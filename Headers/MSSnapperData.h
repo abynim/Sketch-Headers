@@ -29,6 +29,7 @@
 - (void)drawSpacingSnap:(id)arg1 zoomScale:(double)arg2 coordinateSpace:(id)arg3;
 - (void)drawDimensionSnap:(id)arg1 zoomScale:(double)arg2;
 - (void)drawSnappedDimension:(id)arg1 zoomScale:(double)arg2;
+- (void)drawEdgeSnap:(id)arg1 inCoordinateSpace:(id)arg2 zoomScale:(double)arg3;
 - (void)drawAccumulator:(id)arg1 inLayer:(id)arg2 zoomScale:(double)arg3;
 - (void)drawForGroup:(id)arg1 zoomScale:(double)arg2;
 - (void)addSpacingMeasurementsForEdgeSnaps;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, MSCGContextPool, MSGPUArtboardShadow, MSMemoryBuffer, MSRenderingDriver, MSTileMipLevel, NSArray, NSString, NSView;
+@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowRenderer, MSGPUArtboardShadow, MSMemoryBuffer, MSRenderingDriver, MSTileMipLevel, NSArray, NSString, NSView;
 @protocol MSGPURenderer, MSGPUTexture, MSOverlayRenderingDelegate, MSRenderingContextCacheProvider, MSTiledRendererHostView;
 
 @interface MSTiledRenderer : NSObject
@@ -25,18 +25,23 @@
     MSMemoryBuffer *_contextMemory;
     MSMemoryBuffer *_overlayMemory;
     id <MSGPUTexture> _overlayTexture;
+    MSFlowRenderer *_flowRenderer;
     MSCGContextPool *_contextPool;
     NSString *_previousPageObjectID;
     unsigned long long _layerCount;
     MSGPUArtboardShadow *_artboardShadow;
+    MSArtboardTitleRenderer *_artboardTitleRenderer;
 }
 
++ (id)preferredAcceleratorClassName;
+@property(readonly, nonatomic) MSArtboardTitleRenderer *artboardTitleRenderer; // @synthesize artboardTitleRenderer=_artboardTitleRenderer;
 @property(readonly, nonatomic) MSGPUArtboardShadow *artboardShadow; // @synthesize artboardShadow=_artboardShadow;
 @property(nonatomic) unsigned long long layerCount; // @synthesize layerCount=_layerCount;
 @property(retain, nonatomic) NSString *previousPageObjectID; // @synthesize previousPageObjectID=_previousPageObjectID;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property BOOL clearOtherLevels; // @synthesize clearOtherLevels=_clearOtherLevels;
 @property BOOL rasterisationInProgress; // @synthesize rasterisationInProgress=_rasterisationInProgress;
+@property(retain, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
 @property(readonly, nonatomic) id <MSGPUTexture> overlayTexture; // @synthesize overlayTexture=_overlayTexture;
 @property(retain, nonatomic) MSMemoryBuffer *overlayMemory; // @synthesize overlayMemory=_overlayMemory;
 @property(retain, nonatomic) MSMemoryBuffer *contextMemory; // @synthesize contextMemory=_contextMemory;

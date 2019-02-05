@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-#import "MSPasteboardReader-Protocol.h"
-#import "MSPasteboardWriter-Protocol.h"
+#import <SketchModel/MSPasteboardReader-Protocol.h>
+#import <SketchModel/MSPasteboardWriter-Protocol.h>
 
 @class NSString;
 

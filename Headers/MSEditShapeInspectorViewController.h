@@ -8,7 +8,7 @@
 
 #import "MSInspectorChildController-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, MSUpDownTextField, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSTextField, NSView;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSTextField, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
@@ -20,8 +20,8 @@
     NSView *_curveModeBackgroundView;
     NSButton *_makeRectSelectionButton;
     NSButton *_closePathButton;
-    MSUpDownTextField *_curvePointXField;
-    MSUpDownTextField *_curvePointYField;
+    MSInlineUpDownTextField *_curvePointXField;
+    MSInlineUpDownTextField *_curvePointYField;
     NSSlider *_cornerRadiusSlider;
     MSMathInspectorValueAdaptor *_xAdapter;
     MSMathInspectorValueAdaptor *_yAdapter;
@@ -34,8 +34,8 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yAdapter; // @synthesize yAdapter=_yAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *xAdapter; // @synthesize xAdapter=_xAdapter;
 @property(retain, nonatomic) NSSlider *cornerRadiusSlider; // @synthesize cornerRadiusSlider=_cornerRadiusSlider;
-@property(retain, nonatomic) MSUpDownTextField *curvePointYField; // @synthesize curvePointYField=_curvePointYField;
-@property(retain, nonatomic) MSUpDownTextField *curvePointXField; // @synthesize curvePointXField=_curvePointXField;
+@property(retain, nonatomic) MSInlineUpDownTextField *curvePointYField; // @synthesize curvePointYField=_curvePointYField;
+@property(retain, nonatomic) MSInlineUpDownTextField *curvePointXField; // @synthesize curvePointXField=_curvePointXField;
 @property(retain, nonatomic) NSButton *closePathButton; // @synthesize closePathButton=_closePathButton;
 @property(retain, nonatomic) NSButton *makeRectSelectionButton; // @synthesize makeRectSelectionButton=_makeRectSelectionButton;
 @property(retain, nonatomic) NSView *curveModeBackgroundView; // @synthesize curveModeBackgroundView=_curveModeBackgroundView;

@@ -26,6 +26,7 @@
 - (void).cxx_destruct;
 - (unsigned long long)distanceToOverridePoint:(id)arg1;
 - (long long)comparisonScoreAgainst:(id)arg1;
+- (BOOL)canAcceptDataOfType:(id)arg1;
 @property(readonly, nonatomic) BOOL isStyleOverride;
 @property(readonly, nonatomic) BOOL isSymbolOverride;
 - (BOOL)isEqual:(id)arg1;

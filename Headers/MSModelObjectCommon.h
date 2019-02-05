@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "MSModelObjectCommon-Protocol.h"
+#import <SketchModel/MSModelObjectCommon-Protocol.h>
 
-@class MSModelObjectCache, MSModelObjectCacheGeneration, NSString;
+@class MSModelObjectCache, NSArray, NSString;
 
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
-    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     NSString *_objectID;
     MSModelObjectCache *_cache;
 }
@@ -21,8 +20,6 @@
 + (id)generateObjectID;
 + (id)defaultName;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL hasModelObjectCacheGeneration;
-@property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (unsigned long long)traits;
 - (id)primitiveObjectID;
@@ -42,13 +39,14 @@
 - (id)initWithMinimalSetup;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (id)init;
+@property(readonly, nonatomic) NSArray *overridePointAttributeNamesForOverridePropertyMigration;
+- (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (id)treeAsDictionary;
 - (id)simpleTreeStructure;
 - (id)treeStructure;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
-- (BOOL)isContainedByInstanceOfForeignSymbol:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

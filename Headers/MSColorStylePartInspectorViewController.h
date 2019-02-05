@@ -11,17 +11,19 @@
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
 
-@class BCPopover, MSInspectorValueAdaptor, MSStylePartPreviewButton, NSString;
+@class BCPopover, MSColorInspector, MSInspectorValueAdaptor, MSStylePartPreviewButton, NSString;
 
 @interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
     BCPopover *_popover;
+    MSColorInspector *_colorInspector;
     MSInspectorValueAdaptor *_stylePartAdaptor;
 }
 
 + (id)fillTypeStringForFillType:(unsigned long long)arg1;
 @property(retain, nonatomic) MSInspectorValueAdaptor *stylePartAdaptor; // @synthesize stylePartAdaptor=_stylePartAdaptor;
+@property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 - (void).cxx_destruct;
@@ -34,7 +36,7 @@
 - (void)updateColorInActiveInspector;
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
-- (void)closePopover;
+- (void)closePopoverImmediately:(BOOL)arg1;
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)previewCellAction:(id)arg1;
 - (void)didGetAddedToInspector;

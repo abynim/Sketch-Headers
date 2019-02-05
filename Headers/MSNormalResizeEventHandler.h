@@ -21,13 +21,13 @@
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(retain, nonatomic) MSSnappingSession *snappingSession; // @synthesize snappingSession=_snappingSession;
 - (void).cxx_destruct;
+- (BOOL)updateCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)finishResizing;
 - (long long)oppositeCorner;
 - (void)updateResize:(id)arg1;
-- (BOOL)updateCursor;
-- (void)prepareForResize;
 - (void)resizeLayer:(id)arg1;
+- (void)finishResizing;
+- (void)prepareForResize;
 - (id)initWithManager:(id)arg1;
 
 @end

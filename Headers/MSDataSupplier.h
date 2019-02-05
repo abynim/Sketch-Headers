@@ -30,6 +30,9 @@
 - (void).cxx_destruct;
 - (id)dataForItem:(id)arg1;
 - (void)resetMenuItemImage;
+@property(readonly, nonatomic) NSString *uttDataType;
+@property(readonly, nonatomic) BOOL isUsableDataSupplier;
+@property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) BOOL valid;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToDataSupplier:(id)arg1;
@@ -42,9 +45,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDataIdentifier:(id)arg1 dataName:(id)arg2 dataType:(unsigned long long)arg3;
-- (BOOL)inAGroup;
-- (id)dataNameWithoutGroup;
-- (BOOL)inGroupWithName:(id)arg1;
 
 @end
 

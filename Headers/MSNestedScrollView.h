@@ -10,6 +10,8 @@
 {
 }
 
+- (long long)scrollerStyle;
+- (void)setScrollerStyle:(long long)arg1;
 - (void)scrollWheel:(id)arg1;
 - (void)updateDocumentView;
 - (void)viewDidMoveToWindow;

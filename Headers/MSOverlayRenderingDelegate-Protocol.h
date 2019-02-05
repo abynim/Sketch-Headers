@@ -4,7 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+@class NSSet;
+
 @protocol MSOverlayRenderingDelegate
+- (NSSet *)flowItems:(unsigned long long)arg1;
 - (void)renderOverlayInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 pageOverlayRenderOptions:(unsigned long long)arg3;
 @end
 

@@ -39,7 +39,7 @@
 - (id)clipPath;
 - (struct CGRect)drawingBounds;
 - (BOOL)shouldDrawBorderForColor:(id)arg1;
-- (id)initWithAssetAtIndex:(unsigned long long)arg1 amongAssets:(id)arg2 canvasColorSpace:(id)arg3 tailPadding:(double)arg4;
+- (id)initWithAsset:(id)arg1 canvasColorSpace:(id)arg2 isFirst:(BOOL)arg3 isLast:(BOOL)arg4 tailPadding:(double)arg5;
 
 @end
 

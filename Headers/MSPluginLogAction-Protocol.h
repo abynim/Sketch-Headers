@@ -7,8 +7,8 @@
 @class NSDictionary, NSString;
 
 @protocol MSPluginLogAction
-- (NSString *)logString;
-- (void)clearLog;
-- (void)log:(NSDictionary *)arg1;
+- (NSString *)logStringFor:(NSString *)arg1;
+- (void)clearLogFor:(NSString *)arg1;
+- (void)log:(NSDictionary *)arg1 from:(NSString *)arg2;
 @end
 

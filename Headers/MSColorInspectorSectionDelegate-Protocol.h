@@ -6,11 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSPersistentAssetCollection, NSTouchBar;
+@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, NSTouchBar;
 @protocol MSAsset;
 
 @protocol MSColorInspectorSectionDelegate <NSObject>
 @property(readonly, nonatomic) MSDocument *document;
+- (void)revertToDefaultFirstResponder;
+- (MSLibraryAssetCollectionsController *)libraryAssetsController;
 - (NSTouchBar *)touchBar;
 - (void)didRemoveAssetOfType:(unsigned long long)arg1;
 - (void)didAddAsset:(id <MSAsset>)arg1;

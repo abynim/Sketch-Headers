@@ -36,7 +36,7 @@
 - (void)dataMenuProviderRefreshMasterData:(id)arg1;
 - (void)dataMenuProviderRefreshData:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
 - (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;

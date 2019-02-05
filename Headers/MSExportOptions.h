@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSExportOptions.h"
+#import <SketchModel/_MSExportOptions.h>
 
-#import "MSExportFormatContainer-Protocol.h"
+#import <SketchModel/MSExportFormatContainer-Protocol.h>
 
 @interface MSExportOptions : _MSExportOptions <MSExportFormatContainer>
 {

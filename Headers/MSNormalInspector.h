@@ -24,12 +24,14 @@
     NSStackView *_footerView;
     MSStandardInspectorViewControllers *_standardInspectors;
     NSMutableDictionary *_storedPreferences;
+    NSLayoutConstraint *_scrollViewTopConstraint;
     NSLayoutConstraint *_scrollViewBottomConstraint;
 }
 
 @property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
 @property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
 @property(retain, nonatomic) NSLayoutConstraint *scrollViewBottomConstraint; // @synthesize scrollViewBottomConstraint=_scrollViewBottomConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *scrollViewTopConstraint; // @synthesize scrollViewTopConstraint=_scrollViewTopConstraint;
 @property(readonly, nonatomic) NSMutableDictionary *storedPreferences; // @synthesize storedPreferences=_storedPreferences;
 @property(readonly, nonatomic) MSStandardInspectorViewControllers *standardInspectors; // @synthesize standardInspectors=_standardInspectors;
 @property(retain, nonatomic) NSStackView *footerView; // @synthesize footerView=_footerView;

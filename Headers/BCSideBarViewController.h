@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "NSSplitViewDelegate-Protocol.h"
+#import <BCLayerList/NSSplitViewDelegate-Protocol.h>
 
 @class BCLayerListFilterViewController, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, NSButton, NSObject, NSPopUpButton, NSSplitView, NSString, NSView;
 @protocol BCOutlineViewNode, BCSideBarViewControllerDelegate;
@@ -76,6 +76,7 @@
 - (void)embedView:(id)arg1 inView:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageListDataSource:(id)arg1 delegate:(id)arg2 layerListDataSource:(id)arg3 delegate:(id)arg4;
+- (BOOL)isNodeExpanded:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,15 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableTextLayer.h"
+#import <SketchModel/_MSImmutableTextLayer.h>
 
-#import "MSColorUser-Protocol.h"
-#import "MSFirstLineTypesetterDelegate-Protocol.h"
-#import "NSLayoutManagerDelegate-Protocol.h"
+#import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
+#import <SketchModel/NSLayoutManagerDelegate-Protocol.h>
 
 @class MSTextLayout, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
 {
     MSTextLayout *_textLayout;
     // Error parsing type: A^v, name: _textLayoutAtomicPointer
@@ -39,9 +38,12 @@
 - (id)font;
 @property(readonly, nonatomic) double fontSize;
 @property(readonly, nonatomic) unsigned long long textAlignment;
+- (BOOL)containsUnsafeFonts;
 - (id)usedFontNames;
 - (double)startingPositionOnPath:(id)arg1;
+- (id)pathsWithColorsFromGlyphsInBoundsWithParentGroupSplitByColorAttribute:(id)arg1 layoutManager:(id)arg2;
 - (id)bezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;
+- (void)generateBezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2 appendContentBlock:(CDUnknownBlockType)arg3 appendDecorationBlock:(CDUnknownBlockType)arg4;
 - (id)firstUnderlyingShapePathWithParentGroup:(id)arg1;
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
@@ -53,31 +55,15 @@
 - (BOOL)shouldBeIncludedInParentPath;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
-- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (id)overridePreviewImageInDocument:(id)arg1;
-- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
-- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
-- (void)updateColorCounter:(id)arg1;
+- (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (void)migratePropertiesFromV97OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV76OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithUnarchiver:(id)arg1;
-- (void)trackColors:(id)arg1;
-- (id)textStoragePoolInCache:(id)arg1;
-- (BOOL)shouldSkipDrawingInContext:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
-- (void)addDefaultFillAttributes:(id)arg1 exporter:(id)arg2;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (void)addPathDefinitionToDocument:(id)arg1;
-- (void)addContentToTextElement:(id)arg1 exporter:(id)arg2 textStorage:(id)arg3;
-- (struct CGPoint)originForCharacterAttributes:(id)arg1 exporter:(id)arg2 layoutManager:(id)arg3;
-- (id)elementForSpan:(id)arg1 origin:(struct CGPoint)arg2 exporter:(id)arg3 text:(id)arg4;
-- (id)spanInfoForRun:(struct _NSRange)arg1 charAttributes:(id)arg2 text:(id)arg3 layoutManager:(id)arg4;
-- (void)addSVGAttributes:(id)arg1 forCharacterAttributes:(id)arg2 exporter:(id)arg3;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (id)svgStyle:(id)arg1;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,21 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSExportPreset.h"
+#import <SketchModel/_MSExportPreset.h>
 
-#import "MSExportFormatContainer-Protocol.h"
+#import <SketchModel/MSExportFormatContainer-Protocol.h>
+
+@class NSString;
 
 @interface MSExportPreset : _MSExportPreset <MSExportFormatContainer>
 {
 }
 
-+ (void)ensureDefaultExportPresetIsSet;
-+ (id)allExportPresets;
+@property(readonly, nonatomic) NSString *displayName;
 - (id)containingLayer;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 - (id)initWithName:(id)arg1 formats:(id)arg2;
-@property BOOL shouldAutoApply;
 
 @end
 

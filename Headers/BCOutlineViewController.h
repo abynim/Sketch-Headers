@@ -6,12 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "BCOutlineViewDelegate-Protocol.h"
-#import "BCTableCellViewDelegate-Protocol.h"
-#import "BCTableRowViewDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
-#import "NSOutlineViewDataSource-Protocol.h"
-#import "NSTextFieldDelegate-Protocol.h"
+#import <BCLayerList/BCOutlineViewDelegate-Protocol.h>
+#import <BCLayerList/BCTableCellViewDelegate-Protocol.h>
+#import <BCLayerList/BCTableRowViewDelegate-Protocol.h>
+#import <BCLayerList/NSMenuDelegate-Protocol.h>
+#import <BCLayerList/NSOutlineViewDataSource-Protocol.h>
+#import <BCLayerList/NSTextFieldDelegate-Protocol.h>
 
 @class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
 
@@ -103,6 +103,9 @@
 - (id)outlineView:(id)arg1 namesOfPromisedFilesDroppedAtDestination:(id)arg2 forDraggedItems:(id)arg3;
 - (void)outlineView:(id)arg1 draggingSession:(id)arg2 endedAtPoint:(struct CGPoint)arg3 operation:(unsigned long long)arg4;
 - (void)outlineView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItems:(id)arg4;
+- (void)enableGroupRowFloatingIfNeeded;
+- (void)temporarilyDisableGroupRowFloating;
+- (BOOL)rowIsFloatingAndHasBeenScrolledUp:(long long)arg1;
 @property(retain, nonatomic) BCFilterInfo *filter;
 - (void)outlineViewSelectionIsChanging:(id)arg1;
 - (void)outlineViewSelectionDidChange:(id)arg1;

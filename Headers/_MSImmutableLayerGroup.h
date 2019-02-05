@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSImmutableStyledLayer.h"
+#import <SketchModel/MSImmutableStyledLayer.h>
 
-@class NSArray, NSString;
+@class MSImmutableGroupLayout, NSArray, NSString;
 
 @interface _MSImmutableLayerGroup : MSImmutableStyledLayer
 {
     BOOL _hasClickThrough;
     NSString *_sharedObjectID;
+    MSImmutableGroupLayout *_groupLayout;
     NSArray *_layers;
 }
 
 + (Class)mutableClass;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+@property(retain, nonatomic) MSImmutableGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void).cxx_destruct;

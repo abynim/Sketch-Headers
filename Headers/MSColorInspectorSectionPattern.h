@@ -6,37 +6,69 @@
 
 #import "MSColorInspectorSection.h"
 
-@class NSButton, NSImageView, NSPopUpButton;
+#import "MSFrequentImagesControllerDelegate-Protocol.h"
 
-@interface MSColorInspectorSectionPattern : MSColorInspectorSection
+@class MSColorHeaderInspectorItem, MSFrequentImagesController, MSGenericButtonController, MSMouseTracker, MSPatternImageCell, MSTileScaleViewController, NSArray, NSArrayController, NSButton, NSImageView, NSPopUpButton, NSString, NSViewController;
+
+@interface MSColorInspectorSectionPattern : MSColorInspectorSection <MSFrequentImagesControllerDelegate>
 {
+    NSArray *_frequentImages;
     NSImageView *_patternWell;
+    MSPatternImageCell *_imageCell;
     NSButton *_choosePatternButton;
-    NSPopUpButton *_patternTilButton;
+    NSPopUpButton *_patternTileButton;
+    NSArrayController *_stylesController;
+    MSGenericButtonController *_frequentImagesButton;
+    MSColorHeaderInspectorItem *_mainViewHeader;
+    MSMouseTracker *_mouseTracker;
+    MSFrequentImagesController *_frequentImagesController;
+    NSViewController *_noPatternController;
+    MSTileScaleViewController *_scaleController;
 }
 
-@property(retain, nonatomic) NSPopUpButton *patternTilButton; // @synthesize patternTilButton=_patternTilButton;
++ (id)presetPickerVisibilityDefaultsKey;
+@property(retain, nonatomic) MSTileScaleViewController *scaleController; // @synthesize scaleController=_scaleController;
+@property(retain, nonatomic) NSViewController *noPatternController; // @synthesize noPatternController=_noPatternController;
+@property(retain, nonatomic) MSFrequentImagesController *frequentImagesController; // @synthesize frequentImagesController=_frequentImagesController;
+@property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
+@property(retain, nonatomic) MSColorHeaderInspectorItem *mainViewHeader; // @synthesize mainViewHeader=_mainViewHeader;
+@property(retain, nonatomic) MSGenericButtonController *frequentImagesButton; // @synthesize frequentImagesButton=_frequentImagesButton;
+@property(retain, nonatomic) NSArrayController *stylesController; // @synthesize stylesController=_stylesController;
+@property(retain, nonatomic) NSPopUpButton *patternTileButton; // @synthesize patternTileButton=_patternTileButton;
 @property(retain, nonatomic) NSButton *choosePatternButton; // @synthesize choosePatternButton=_choosePatternButton;
+@property(retain, nonatomic) MSPatternImageCell *imageCell; // @synthesize imageCell=_imageCell;
 @property(retain, nonatomic) NSImageView *patternWell; // @synthesize patternWell=_patternWell;
+@property(retain, nonatomic) NSArray *frequentImages; // @synthesize frequentImages=_frequentImages;
 - (void).cxx_destruct;
+- (void)frequentColorsControllerMenuDidClose:(id)arg1;
+- (void)frequentImagesController:(id)arg1 didChooseImage:(id)arg2;
+- (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
+- (BOOL)allowAlternativeDisplayModesForAssetPickerController:(id)arg1;
 - (unsigned long long)assetType;
 - (void)updatePatternWellImage;
-- (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
-- (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
-- (BOOL)pickerView:(id)arg1 didDragPresetAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
-- (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
-- (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
+- (id)createPresetFromCurrentSelection;
+- (void)controlDidSelectAsset:(id)arg1;
+- (void)fillModeAction:(id)arg1;
 - (void)patternWellAction:(id)arg1;
 - (void)choosePatternImage:(id)arg1;
+- (void)setFillImage:(id)arg1;
 - (void)validate;
-- (long long)fillType;
+- (BOOL)isTiled;
+- (unsigned long long)fillType;
 - (void)enableSectionButtonAction:(id)arg1;
-- (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
-- (void)viewDidAppear;
-- (void)awakeFromNib;
-- (id)initWithDelegate:(id)arg1;
+- (id)assetPickerDataSources;
+- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
+- (void)updateChooseImageButton;
+- (void)mouseAction:(id)arg1;
+- (void)showFrequentImages:(id)arg1;
+- (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

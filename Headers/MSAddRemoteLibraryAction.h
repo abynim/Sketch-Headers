@@ -14,6 +14,7 @@
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)startDownloadingLibrary:(id)arg1;
 - (void)addAppcastURL:(id)arg1;
+- (void)addCloudLibraryWithID:(id)arg1;
 
 @end
 

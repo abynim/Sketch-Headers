@@ -33,7 +33,7 @@
 - (void)openPublicURL:(id)arg1;
 - (void)update:(id)arg1;
 - (void)upload:(id)arg1;
-- (void)userDidChangeNotification:(id)arg1;
+- (void)documentDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) BOOL canUpdateShare;
 - (void)reloadTitleLabel;
 - (void)scheduledTimeLabelUpdateFired:(id)arg1;

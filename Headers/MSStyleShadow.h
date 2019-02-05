@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSStyleShadow.h"
+#import <SketchModel/_MSStyleShadow.h>
 
-#import "MSColorConvertible-Protocol.h"
+#import <SketchModel/MSColorConvertible-Protocol.h>
 
 @class NSString;
 
@@ -18,9 +18,6 @@
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)performInitEmptyObject;
-- (id)blendingViewForColorInspector:(id)arg1;
-- (void)configureFillForPreview:(id)arg1;
-- (BOOL)hasEqualAppearance:(id)arg1;
 - (id)CSSAttributeString;
 
 // Remaining properties

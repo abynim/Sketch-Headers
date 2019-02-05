@@ -4,22 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSLayer.h"
+#import <SketchModel/_MSLayer.h>
 
-#import "MSHoverableItem-Protocol.h"
-#import "MSInterfaceImageOwner-Protocol.h"
-#import "MSLayer-Protocol.h"
-#import "MSLayerContainment-Protocol.h"
-#import "MSLayerListLayerExtensions-Protocol.h"
-#import "MSLayerPreviewability-Protocol.h"
-#import "MSRectDelegate-Protocol.h"
-#import "MSSnappable-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSLayer-Protocol.h>
+#import <SketchModel/MSLayerContainment-Protocol.h>
+#import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
+#import <SketchModel/MSRectDelegate-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
-@class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSLayerBadgeImages, MSLayoutDimension, MSLayoutPosition, MSModelObject, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSHashTable, NSString;
-@protocol BCSortable><MSSharedObjectStyling, MSLayerCoordinateSpace, MSSnappable;
+@class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSHashTable, NSString;
+@protocol MSLayerCoordinateSpace;
 
-@interface MSLayer : _MSLayer <MSInterfaceImageOwner, MSLayerPreviewability, MSHoverableItem, MSSnappable, MSLayerListLayerExtensions, MSLayerContainment, MSLayer, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayer, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
@@ -31,14 +27,10 @@
 + (id)defaultName;
 + (unsigned long long)traits;
 + (id)layerWithPath:(id)arg1;
-+ (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
-+ (struct CGRect)alignmentRectForLayers:(id)arg1;
-+ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
-+ (id)keyPathsForValuesAffectingBadgeMap;
-+ (id)keyPathsForValuesAffectingNodeName;
 + (id)keyPathsForValuesAffectingUserVisibleRotation;
 + (double)rotationForUserVisibleRotation:(double)arg1;
 + (double)userVisibleRotationForRotation:(double)arg1;
++ (double)normalizeUserVisibleRotation:(double)arg1;
 @property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 - (void).cxx_destruct;
@@ -53,6 +45,8 @@
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)layerWithID:(id)arg1;
+- (void)endEditingFrame;
+- (void)beginEditingFrame;
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
 @property(nonatomic) struct CGPoint center;
@@ -95,19 +89,19 @@
 - (double)rotationDirection;
 @property(nonatomic) struct CGPoint absoluteCenter;
 @property(nonatomic) struct CGPoint absolutePosition;
+- (id)pathInCoordinateSpace:(id)arg1;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, copy, nonatomic) MSPath *pathInFrame;
 @property(readonly, nonatomic) MSPath *pathInBounds;
 - (struct CGRect)frameForAlignmentRect:(struct CGRect)arg1;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
-- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasTransforms;
-- (void)refreshOverlayWithAbsoluteMargins:(struct CGSize)arg1;
 - (void)refreshOverlay;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)absoluteInfluenceRect;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (struct CGSize)calculateMinimumSize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)layerDidEndResize;
@@ -142,99 +136,10 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
-- (void)adjustAfterInsert;
-- (BOOL)canBeHidden;
-- (long long)cornerRectType;
-- (BOOL)shouldRefreshOverlayForFlows;
-- (BOOL)shouldDrawSelectionStroke;
-- (BOOL)shouldDrawSelection;
-- (BOOL)canSmartRotate;
-- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
-- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
-- (id)duplicate;
-- (BOOL)shouldFlattenAfterRotate;
-- (Class)handlerClass;
-- (BOOL)handleDoubleClick;
-- (id)inspectorSections;
-- (void)writeBitmapImageToFile:(id)arg1;
-- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
-- (id)parentForInsertingLayers;
-- (id)displayName;
-- (void)changeColor:(id)arg1;
-- (BOOL)supportsMultipleShadows;
-- (BOOL)supportsInnerOuterBorders;
-@property(readonly, nonatomic) BOOL canChangeBooleanOperation;
-@property(readonly, nonatomic) __weak id cacheOwner;
-@property(readonly, nonatomic) NSString *interfaceImageIdentifier;
-- (struct CGRect)minimumAdjustedRectForValue:(double)arg1 axis:(unsigned long long)arg2 anchor:(long long)arg3;
-- (struct CGRect)boundsOfParentLayer;
-- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
-- (id)contextualMenuPreviewTemplateImage;
-- (id)cachedImageForKey:(id)arg1;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-@property(readonly, nonatomic) unsigned long long badgeType;
-@property(readonly, nonatomic) MSLayer *hoveredLayer;
-- (BOOL)canBeHoveredOnPage:(id)arg1;
-- (id)pathForHoverInBounds;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
-- (BOOL)canConvertToOutlines;
-- (id)layersByConvertingToOutlines;
-@property(readonly, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *sharedMaster;
-@property(readonly, nonatomic) unsigned long long shareableObjectType;
-- (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
-- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
-@property(readonly, nonatomic) MSLayer *coordinateSpace;
-- (struct CGRect)boundsRect;
-@property(readonly, nonatomic) struct CGRect rectForSnapping;
-- (struct CGAffineTransform)textCorrectionTransform;
-@property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
-@property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
-@property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
-@property(readonly, nonatomic) MSLayoutDimension *widthAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *centerYAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *centerXAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *bottomAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *topAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
-@property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
-- (id)anchorsForSnappingOnAxes:(unsigned long long)arg1;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (Class)snapItemClass;
-- (id)styleForBooleanOperation;
-- (id)hudDescription;
-- (id)replaceWithInstanceOfSymbol:(id)arg1;
-- (void)cutBezierSegmentAtIndex:(unsigned long long)arg1;
-- (void)possiblyFixRectangleBorderBeforeCut;
-- (BOOL)canCutSegments;
-- (id)childrenForLayerList;
-@property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
-- (id)cloneDictionaryReplacingImages:(id)arg1;
-- (void)addMastersForInstancesToDocument:(id)arg1;
-- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (BOOL)isMasked;
-- (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)handleBadgeClickWithAltState:(BOOL)arg1;
-- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
-@property(readonly, nonatomic) BOOL lockedOnCanvas;
-@property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
-@property(readonly, nonatomic) BOOL hiddenOnCanvas;
-@property(readonly, nonatomic) BOOL selectedInLayerList;
-@property(readonly, nonatomic) BOOL expandableInLayerList;
-- (BOOL)validateNodeName:(id *)arg1 error:(id *)arg2;
-@property(retain, nonatomic) NSString *nodeName;
-- (id)badgeMenuConfigurator;
-- (id)maskIconWithState:(unsigned long long)arg1;
-- (id)previewIconWithState:(unsigned long long)arg1;
-@property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
-@property(readonly, nonatomic) MSLayerBadgeImages *badgeImages;
-@property(readonly, nonatomic) BOOL hasBadgedIcon;
-@property(readonly, nonatomic) BOOL isEditableInLayerList;
-@property(readonly, nonatomic) BOOL isActive;
-@property(readonly, nonatomic) unsigned long long filterTypeMask;
-@property(readonly, nonatomic) unsigned long long displayType;
+- (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
+- (void)applyRotation:(double)arg1 explicitRotationCenter:(id)arg2;
+@property(readonly, nonatomic) double userVisibleRotation;
+- (long long)layoutDirection;
 - (id)lastLayer;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
@@ -248,12 +153,17 @@
 - (BOOL)containsNoOrOneLayers;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (void)setIsVisible:(BOOL)arg1;
-- (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (id)closestClippingLayer;
-- (id)candidatesForMasking;
-- (BOOL)isPartOfClippingMask;
-- (BOOL)hasClippingMask;
+- (id)setupWithLayerBuilderDictionary:(id)arg1;
+- (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
+- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3;
+- (BOOL)containsPointAsPath:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
+- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestAsPath;
+- (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
+- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (void)resetConstraints;
 - (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasFixedEdges;
@@ -272,21 +182,17 @@
 @property(readonly, nonatomic) BOOL canFixRight;
 @property(readonly, nonatomic) BOOL canFixLeft;
 - (id)resizingConstraintKeys;
-- (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
-- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3;
-- (BOOL)containsPointAsPath:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
-- (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
-- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
-- (BOOL)hitTestAsPath;
-- (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
-- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
-- (id)parentRootForAbsoluteRect;
-- (void)replaceFonts:(id)arg1;
-- (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
-- (void)applyRotation:(double)arg1 explicitRotationCenter:(id)arg2;
-@property(readonly, nonatomic) double userVisibleRotation;
+- (id)CSSAttributes;
+- (id)CSSRotationString;
+- (id)CSSAttributeString;
+- (id)sharedStylesReferencedInDocument:(id)arg1;
+- (void)setIsVisible:(BOOL)arg1;
+- (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)closestClippingLayer;
+- (id)candidatesForMasking;
+- (BOOL)isPartOfClippingMask;
+- (BOOL)hasClippingMask;
+- (id)enumeratorWithOptions:(unsigned long long)arg1;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
@@ -300,18 +206,12 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
-- (id)enumeratorWithOptions:(unsigned long long)arg1;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 - (void)applyOverrides:(id)arg1 document:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 @property(retain, nonatomic) NSString *dataSupplierIdentifier;
-- (id)sharedStylesReferencedInDocument:(id)arg1;
-- (id)CSSAttributes;
-- (id)CSSRotationString;
-- (id)CSSAttributeString;
-- (long long)layoutDirection;
-- (id)setupWithLayerBuilderDictionary:(id)arg1;
-- (void)configureBackgroundOfRequest:(id)arg1;
+- (void)replaceFonts:(id)arg1;
+- (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
@@ -320,8 +220,6 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isVisible;
-@property(nonatomic) long long layerListExpandedType;
-@property(readonly, nonatomic) NSString *name;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;
 @property(readonly) Class superclass;

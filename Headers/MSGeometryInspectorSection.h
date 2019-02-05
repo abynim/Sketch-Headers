@@ -39,7 +39,7 @@
 - (void).cxx_destruct;
 - (struct NSEdgeInsets)separatorInsets;
 - (void)valuesPossiblyChanged:(id)arg1;
-- (void)valuesPossiblyChanged;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)refreshBindingsOnPath:(id)arg1;
 - (BOOL)hasSliceLayer;
 - (BOOL)hasArtboardLayer;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableBitmapLayer.h"
+#import <SketchModel/_MSImmutableBitmapLayer.h>
 
 @class MSImageData;
 
@@ -17,21 +17,11 @@
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
-- (Class)overrideViewControllerClassForOverridePoint:(id)arg1;
-- (id)overridePreviewImageInDocument:(id)arg1;
-- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
-- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
-- (id)addGroupContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (id)addContentToElement:(id)arg1 attributes:(id)arg2 exporter:(id)arg3;
-- (void)addPathDefinitionToDocument:(id)arg1;
-- (id)imageElementWithAttributes:(id)arg1 exporter:(id)arg2;
-- (void)addImageElementAttributes:(id)arg1 exporter:(id)arg2;
-- (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
-- (BOOL)requiresPathDefinition:(id)arg1;
-- (id)svgStyle:(id)arg1;
+- (id)overridePointAttributeNamesForOverridePropertyMigration;
+- (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 
 // Remaining properties
 @property(nonatomic) BOOL fillReplacesImage; // @dynamic fillReplacesImage;

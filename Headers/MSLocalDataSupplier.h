@@ -11,12 +11,12 @@
 @interface MSLocalDataSupplier : MSDataSupplier
 {
     NSURL *_dataSource;
-    BOOL _builtin;
-    MSFolderMonitor *_folderMonitor;
     NSArray *_data;
+    MSFolderMonitor *_folderMonitor;
 }
 
 + (id)validImageFileUTIs;
++ (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
 + (id)textDataFromFileURL:(id)arg1;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
@@ -34,10 +34,10 @@
 - (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
-@property(readonly, nonatomic) BOOL isBuiltin;
+- (void)setEnabled:(BOOL)arg1;
 - (BOOL)valid;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFileSystemURL:(id)arg1 isBuiltin:(BOOL)arg2;
+- (id)initWithFileSystemURL:(id)arg1;
 
 @end
 

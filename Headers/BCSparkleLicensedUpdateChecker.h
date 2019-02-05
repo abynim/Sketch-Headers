@@ -28,6 +28,7 @@
     NSString *_buildNumber;
 }
 
++ (id)systemVersionString;
 + (id)sparkleCheckerWithLicenseExpirationDate:(id)arg1 buildNumber:(id)arg2 appcastResults:(id)arg3;
 @property(readonly, nonatomic) NSString *buildNumber; // @synthesize buildNumber=_buildNumber;
 @property(readonly, nonatomic) NSDate *expiryDate; // @synthesize expiryDate=_expiryDate;

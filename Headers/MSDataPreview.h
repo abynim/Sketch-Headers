@@ -23,12 +23,11 @@
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
 - (id)centeredThumbFromImage:(id)arg1;
-- (id)generatePluginTextDataPreview;
 - (id)generateLocalTextDataPreview;
-- (id)generateTextDataPreview;
-- (id)generatePluginImageDataPreview;
+- (id)generatePluginDataPreview;
 - (id)generateLocalImageDataPreview;
-- (id)generateImageDataPreview;
+- (id)generateLocalDataPreview;
+- (id)generateBuiltinDataPreview;
 - (void)generatePreview;
 - (id)placeHolderImage;
 - (void)drawRect:(struct CGRect)arg1;

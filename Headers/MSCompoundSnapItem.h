@@ -24,14 +24,14 @@
 - (void)concatAncestorsAndSelfTransforms;
 - (double)rotation;
 - (BOOL)shouldConstrainProportions;
-- (id)candidateLayersForSnapping;
+- (id)candidateLayersForSnapping:(unsigned long long)arg1;
 - (id)centerYAnchor;
 - (id)centerXAnchor;
 - (id)bottomAnchor;
 - (id)topAnchor;
 - (id)rightAnchor;
 - (id)leftAnchor;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)initWithLayers:(id)arg1;
 
 @end

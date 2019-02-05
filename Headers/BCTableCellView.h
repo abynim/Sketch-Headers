@@ -6,7 +6,7 @@
 
 #import <AppKit/NSTableCellView.h>
 
-#import "NSMenuDelegate-Protocol.h"
+#import <BCLayerList/NSMenuDelegate-Protocol.h>
 
 @class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, NSButton, NSDictionary, NSLayoutConstraint, NSPopUpButton, NSString, NSWindow;
 @protocol BCOutlineViewNode, BCOutlineViewPopupConfigurator, BCTableCellViewDelegate;

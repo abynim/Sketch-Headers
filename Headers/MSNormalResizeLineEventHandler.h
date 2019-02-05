@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (BOOL)wantsStandardSelectionControls;
 - (id)cursorForRadians:(double)arg1;
 - (void)displayResizeCursor;
 - (void)addSnapTargetsToEngine:(id)arg1;
@@ -34,6 +35,7 @@
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (void)handlerWillLoseFocus;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

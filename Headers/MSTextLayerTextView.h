@@ -6,19 +6,15 @@
 
 #import <AppKit/NSTextView.h>
 
-@class MSHangingGlyphView, NSDictionary, NSTimer;
+@class MSHangingGlyphView;
 @protocol MSTextLayerTextViewDelegate;
 
 @interface MSTextLayerTextView : NSTextView
 {
     MSHangingGlyphView *_hangingGlyphView;
     id <MSTextLayerTextViewDelegate> _textLayerTextViewDelegate;
-    NSTimer *_hideSelectionTimer;
-    NSDictionary *_selectedTextAttributesBackup;
 }
 
-@property(copy, nonatomic) NSDictionary *selectedTextAttributesBackup; // @synthesize selectedTextAttributesBackup=_selectedTextAttributesBackup;
-@property(retain, nonatomic) NSTimer *hideSelectionTimer; // @synthesize hideSelectionTimer=_hideSelectionTimer;
 @property(nonatomic) __weak id <MSTextLayerTextViewDelegate> textLayerTextViewDelegate; // @synthesize textLayerTextViewDelegate=_textLayerTextViewDelegate;
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
@@ -26,8 +22,6 @@
 - (struct CGRect)rectForSelectedRange;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
 - (void)selectSimilar:(id)arg1;
-- (void)hideSelectionTimerFired:(id)arg1;
-- (id)makeHideSelectionTimer;
 - (BOOL)writeSelectionToPasteboard:(id)arg1 type:(id)arg2;
 - (id)writablePasteboardTypes;
 - (void)pasteWithOptions:(unsigned long long)arg1;
@@ -35,7 +29,6 @@
 - (void)paste:(id)arg1;
 - (id)readablePasteboardTypes;
 - (BOOL)readSelectionFromPasteboard:(id)arg1;
-- (void)hideSelectionTemporarily;
 - (void)mouseDown:(id)arg1;
 - (BOOL)hitTestFromEvent:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
@@ -44,7 +37,6 @@
 - (void)changeColorWithColor:(id)arg1;
 - (id)canvasColorSpace;
 - (id)documentColorSpace;
-- (void)viewWillMoveToSuperview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 textContainer:(id)arg2;
 
 @end

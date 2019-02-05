@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSFlowConnection.h"
+#import <SketchModel/_MSFlowConnection.h>
 
 @class MSArtboardGroup, MSLayer;
 
@@ -16,7 +16,6 @@
 + (id)flowConnectionBack;
 + (id)flowConnectionTo:(id)arg1 ofType:(long long)arg2;
 @property(readonly, nonatomic) BOOL isValidFlowConnection;
-- (id)bezierPathForRenderingFlowAtZoomLevel:(double)arg1;
 @property(readonly, nonatomic) __weak MSArtboardGroup *destinationArtboard;
 @property(readonly, nonatomic) __weak MSLayer *sendingLayer;
 @property(nonatomic) BOOL isBackAction;

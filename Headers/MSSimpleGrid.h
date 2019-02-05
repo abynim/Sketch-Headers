@@ -4,14 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSSimpleGrid.h"
+#import <SketchModel/_MSSimpleGrid.h>
 
 @interface MSSimpleGrid : _MSSimpleGrid
 {
 }
-
-- (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 
 @end
 

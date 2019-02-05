@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSSharedObject.h"
+#import <SketchModel/_MSSharedObject.h>
 
-#import "BCSortable-Protocol.h"
+#import <SketchModel/BCSortable-Protocol.h>
 
 @class NSString;
 

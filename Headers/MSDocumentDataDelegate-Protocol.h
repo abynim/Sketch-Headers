@@ -6,13 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocumentData, MSModelObject, MSPage, NSArray, NSString;
+@class MSDocumentData, MSLayer, MSModelObject, MSPage, NSArray, NSMutableSet, NSString;
 
 @protocol MSDocumentDataDelegate <NSObject>
+- (BOOL)validateSelectionOfLayer:(MSLayer *)arg1 proposedIDsOfLayersToSelect:(NSMutableSet *)arg2;
 - (struct CGRect)visibleCanvasRectForDocumentData:(MSDocumentData *)arg1;
 - (void)determineCurrentArtboard;
 - (void)refreshOverlay;
-- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)layerTreeLayoutDidChange;
 - (id)documentData:(MSDocumentData *)arg1 metadataForKey:(NSString *)arg2 object:(MSModelObject *)arg3;
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;

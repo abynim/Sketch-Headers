@@ -6,12 +6,15 @@
 
 #import "MSShareableObjectReference.h"
 
+@class MSStyle;
+
 @interface MSSharedStyleReference : MSShareableObjectReference
 {
 }
 
 - (id)localLocationPath;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) MSStyle *style;
 - (id)sharedObjectID;
 
 @end

@@ -16,6 +16,7 @@
     double _brightness;
 }
 
++ (void)drawFrameInRect:(struct CGRect)arg1 forView:(id)arg2 block:(CDUnknownBlockType)arg3;
 @property(nonatomic, getter=isGroupingUndo) BOOL groupingUndo; // @synthesize groupingUndo=_groupingUndo;
 @property(nonatomic) BOOL handlingHistoryCoalescing; // @synthesize handlingHistoryCoalescing=_handlingHistoryCoalescing;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
@@ -26,7 +27,9 @@
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (struct CGRect)pickerRect;
-- (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
+- (struct CGRect)contentBounds;
+- (struct CGRect)activeRect;
+- (void)drawBackgroundInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (id)initInBounds:(struct CGRect)arg1;
 
 @end

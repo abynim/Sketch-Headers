@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class NSArray, NSPopUpButton, NSSegmentedControl, NSSet, NSTextField;
+@class MSAutoSelectingArrayController, NSArray, NSPopUpButton, NSSegmentedControl, NSSet, NSTextField;
 
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
@@ -19,8 +19,10 @@
     NSArray *_filteredLayers;
     NSSet *_startMarkerTypes;
     NSSet *_endMarkerTypes;
+    MSAutoSelectingArrayController *_bordersController;
 }
 
+@property(retain, nonatomic) MSAutoSelectingArrayController *bordersController; // @synthesize bordersController=_bordersController;
 @property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
 @property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;

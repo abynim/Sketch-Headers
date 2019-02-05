@@ -6,11 +6,12 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSAltButton;
+@class MSAltButton, NSString;
 
 @protocol MSAltButtonTarget <NSObject>
 
 @optional
+- (NSString *)toolTipForAltButton:(MSAltButton *)arg1 alternate:(BOOL)arg2;
 - (BOOL)altButtonCanShowAltImage:(MSAltButton *)arg1;
 @end
 

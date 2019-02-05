@@ -8,6 +8,7 @@
 
 @protocol MSTiledRendererHostView
 - (MSRenderingDriver *)driver;
+- (BOOL)hasUserFocus;
 - (void)scheduleRedraw;
 @end
 

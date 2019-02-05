@@ -22,6 +22,7 @@
 @property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
 - (void).cxx_destruct;
+- (void)relayoutNow;
 @property(readonly, nonatomic) BCOutlineView *outlineView;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
@@ -41,6 +42,7 @@
 - (BOOL)drawsTopBorder;
 - (void)refreshSelectionState:(id)arg1;
 - (void)viewWillDraw;
+- (void)refreshBadges;
 - (void)refreshSelectionState;
 - (void)viewDidMoveToWindow;
 - (void)refreshBackgroundStyle;

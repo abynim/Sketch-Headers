@@ -11,7 +11,9 @@
 }
 
 - (id)label;
+- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
+- (id)affectedOverrideRepresentations;
 - (void)removeAllOverridesFromSelection:(id)arg1;
 
 @end

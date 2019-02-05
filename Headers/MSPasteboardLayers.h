@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSLayerTraits-Protocol.h"
+#import <SketchModel/MSLayerTraits-Protocol.h>
 
 @class MSLayerArray, NSArray, NSDictionary, NSString;
 

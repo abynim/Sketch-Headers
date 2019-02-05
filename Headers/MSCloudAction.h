@@ -24,8 +24,6 @@
 + (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
 + (BOOL)shouldPrepareForTermination;
 + (id)actionsToPrepareTermination;
-+ (void)addRemoteLibraryWithURL:(id)arg1 parameters:(id)arg2;
-+ (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;

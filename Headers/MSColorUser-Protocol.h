@@ -6,9 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSColorCounter;
-
 @protocol MSColorUser <NSObject>
-- (void)updateColorCounter:(MSColorCounter *)arg1;
+@property(readonly, nonatomic) unsigned long long colorUserColorUse;
 @end
 

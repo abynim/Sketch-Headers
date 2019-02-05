@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableRectangleShape.h"
+#import <SketchModel/_MSImmutableRectangleShape.h>
 
 @interface MSImmutableRectangleShape : _MSImmutableRectangleShape
 {
@@ -12,8 +12,6 @@
 
 + (id)defaultName;
 - (BOOL)canSkipAdvancedClipForStrokes;
-- (BOOL)isSVGRectangle;
-- (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
 
 @end
 

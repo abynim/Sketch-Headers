@@ -7,9 +7,10 @@
 @protocol MSLayerCoordinateSpace;
 
 @protocol MSLayerCoordinateSpace
-@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
-@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
-@property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
+@property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
+@property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
+@property(readonly, nonatomic) id <MSLayerCoordinateSpace> parentCoordinateSpace;
+@property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1;
 - (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;
@@ -18,6 +19,5 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;
-@property(nonatomic, readonly) struct CGRect bounds;
 @end
 

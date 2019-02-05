@@ -16,7 +16,8 @@
 
 + (void)setIndexOfLastSelectedCategory:(unsigned long long)arg1;
 + (unsigned long long)indexOfLastSelectedCategory;
-+ (id)systemPresetsURL;
++ (void)setSystemCategories:(id)arg1;
++ (id)systemCategories;
 @property(readonly, nonatomic) MSArtboardPresetsCategory *customPresetsCategory; // @synthesize customPresetsCategory=_customPresetsCategory;
 @property(readonly, nonatomic) NSArray *categories; // @synthesize categories=_categories;
 - (void).cxx_destruct;
@@ -28,7 +29,6 @@
 - (BOOL)removePreset:(id)arg1 error:(id *)arg2;
 - (BOOL)savePreset:(id)arg1 error:(id *)arg2;
 - (void)loadUserPresets;
-- (id)systemCategories;
 - (id)resizablePresetMatchingSize:(struct CGSize)arg1 preferredCategory:(id)arg2;
 - (id)presetWithSize:(struct CGSize)arg1 preferredCategory:(id)arg2;
 - (BOOL)enumeratePresetsInCategory:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

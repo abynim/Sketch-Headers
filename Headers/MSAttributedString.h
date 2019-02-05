@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-#import "MSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class NSAttributedString, NSSet, NSString;
 

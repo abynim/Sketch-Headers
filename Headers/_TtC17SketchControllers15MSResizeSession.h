@@ -6,39 +6,26 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+@class NSArray, _TtC17SketchControllers9MSResizer;
 
 @interface _TtC17SketchControllers15MSResizeSession : NSObject
 {
     // Error parsing type: , name: layers
-    // Error parsing type: , name: box
-    // Error parsing type: , name: handle
+    // Error parsing type: , name: resizer
     // Error parsing type: , name: snappingSession
     // Error parsing type: , name: _isValid
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: visibleRect
-    // Error parsing type: , name: resizesAboutCenter
-    // Error parsing type: , name: alwaysRound
-    // Error parsing type: , name: snappingEnabled
-    // Error parsing type: , name: snapsToLayerCenters
-    // Error parsing type: , name: wantsConstrainProportions
     // Error parsing type: , name: _mouseLocation
-    // Error parsing type: , name: originalLocationOfOppositeHandle
-    // Error parsing type: , name: originalCenter
+    // Error parsing type: , name: options
 }
 
 - (CDUnknownBlockType).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) struct CGPoint originalCenter; // @synthesize originalCenter;
-@property(nonatomic, readonly) struct CGPoint originalLocationOfOppositeHandle; // @synthesize originalLocationOfOppositeHandle;
 - (id)updateModel;
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
 - (void)updateWithPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)updateWithDragRecognizer:(id)arg1;
-@property(nonatomic) BOOL wantsConstrainProportions; // @synthesize wantsConstrainProportions;
-@property(nonatomic) BOOL snappingEnabled; // @synthesize snappingEnabled;
-@property(nonatomic) BOOL alwaysRound; // @synthesize alwaysRound;
-@property(nonatomic) BOOL resizesAboutCenter; // @synthesize resizesAboutCenter;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
 - (void)dealloc;
@@ -46,7 +33,7 @@
 - (id)initWithSnappingSession:(id)arg1;
 - (id)initWithLayers:(id)arg1 handle:(long long)arg2 session:(id)arg3;
 - (id)initWithLayer:(id)arg1 handle:(long long)arg2 session:(id)arg3;
-@property(nonatomic, readonly) long long handle; // @synthesize handle;
+@property(nonatomic, readonly) _TtC17SketchControllers9MSResizer *resizer; // @synthesize resizer;
 @property(nonatomic, readonly) NSArray *layers; // @synthesize layers;
 
 @end

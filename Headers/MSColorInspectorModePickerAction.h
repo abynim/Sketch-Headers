@@ -14,7 +14,7 @@
 - (BOOL)isTouchBarItemSelected;
 - (void)doPerformAction:(id)arg1;
 - (unsigned long long)colorInspectorMode;
-- (id)colorInspector;
+- (id)colorModePickerController;
 - (void)switchToColorTabAtIndex:(unsigned long long)arg1;
 
 @end

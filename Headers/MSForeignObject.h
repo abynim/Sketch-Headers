@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSForeignObject.h"
+#import <SketchModel/_MSForeignObject.h>
 
 @class MSModelObject, NSString;
 
@@ -12,8 +12,8 @@
 {
 }
 
-- (id)masterFromDocument:(id)arg1;
-- (id)collectionInDocument:(id)arg1;
++ (id)masterFromDocument:(id)arg1 withID:(id)arg2;
++ (id)foreignObjectCollectionInDocument:(id)arg1;
 - (id)unlinkFromRemote;
 @property(readonly, nonatomic) NSString *remoteShareID;
 - (void)setLocalShareID:(id)arg1;
@@ -25,8 +25,10 @@
 - (BOOL)isLocalToDocument:(id)arg1;
 - (id)matchingForeignObjectInDocument:(id)arg1;
 - (void)syncWithRemote:(id)arg1;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+- (void)correctInvalidGamma;
 
 @end
 

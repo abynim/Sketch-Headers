@@ -69,8 +69,10 @@
 - (id)alertMessageTextForRemovingDataSuppliers:(id)arg1;
 - (void)removeDataAction:(id)arg1;
 - (void)importLocalData:(id)arg1;
-- (void)displayAddLocalDataErrorWithMessage:(id)arg1 info:(id)arg2;
-- (id)dataSupplierForURL:(id)arg1;
+- (void)showAddLocalDataErrorWithMessage:(id)arg1 info:(id)arg2;
+- (void)showFailedToAddDataSupplierFromURL:(id)arg1;
+- (void)showDataSupplierGroupAlreadyAddedMessage:(id)arg1;
+- (void)removeLocalDataSupplierGroupsContainedByURL:(id)arg1;
 - (void)addLocalDataFromURLs:(id)arg1;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
@@ -80,7 +82,7 @@
 - (void)activateSearchField:(id)arg1;
 @property(readonly, nonatomic) NSArray *selectedData;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

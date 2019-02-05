@@ -9,13 +9,14 @@
 #import "MSAlignmentEngineDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSRotationGestureInterpreter, NSArray, NSString;
+@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSNormalEventData, MSRotationGestureInterpreter, NSArray, NSString;
 
 @interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
     BOOL _exitOnMouseUp;
     BOOL _disableMoving;
+    MSNormalEventData *_eventData;
     NSArray *_rotationItems;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSRotationGestureInterpreter *_cursorRotationInterpreter;
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) NSArray *rotationItems; // @synthesize rotationItems=_rotationItems;
 @property(nonatomic) struct CGPoint rotationCenterPoint; // @synthesize rotationCenterPoint=_rotationCenterPoint;
+@property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
 - (void).cxx_destruct;

@@ -6,7 +6,7 @@
 
 #import <AppKit/NSParagraphStyle.h>
 
-#import "BCJSONEncoding-Protocol.h"
+#import <SketchModel/BCJSONEncoding-Protocol.h>
 
 @class NSString;
 

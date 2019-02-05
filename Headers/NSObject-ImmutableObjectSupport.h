@@ -10,6 +10,6 @@
 + (Class)immutableClass;
 + (Class)mutableClass;
 - (id)newMutableCounterpart;
-- (id)immutableModelObject;
+@property(readonly, nonatomic) id immutableModelObject;
 @end
 

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSOverrideRepresentationBase.h"
+#import <SketchModel/MSOverrideRepresentationBase.h>
 
 @class MSImmutableSymbolInstance, NSArray;
 
@@ -23,7 +23,9 @@
 - (id)modifiedMasterForInstanceInMaster:(id)arg1;
 - (id)children;
 - (id)initWithInstance:(id)arg1;
-@property(readonly, nonatomic) NSArray *selectedOverrides;
+
+// Remaining properties
+@property(readonly, nonatomic) NSArray *selectedOverrides; // @dynamic selectedOverrides;
 
 @end
 

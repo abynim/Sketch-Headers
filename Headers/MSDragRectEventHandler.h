@@ -26,9 +26,8 @@
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
-- (void)addSnapTargetsToEngine:(id)arg1;
+- (void)addTargetsToEngine:(id)arg1 snappingDisabled:(BOOL)arg2;
 - (struct CGPoint)alignmentEngine:(id)arg1 roundPoint:(struct CGPoint)arg2;
-- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
 - (id)snapAndAlignPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)drawRectPreview;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;

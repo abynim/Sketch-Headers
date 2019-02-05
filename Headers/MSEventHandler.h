@@ -85,7 +85,6 @@
 - (struct CGRect)rulerGuidesRectAroundPoint:(struct CGPoint)arg1;
 - (id)horizontalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (id)verticalRulerGuidesForGridAlign:(struct CGPoint)arg1;
-- (struct CGPoint)alignPointToGrid:(struct CGPoint)arg1;
 - (void)currentPageDidChange;
 - (void)layerRulerOriginChanged;
 - (void)selectionDidChangeTo:(id)arg1;
@@ -105,7 +104,6 @@
 - (id)toolbarIdentifier;
 @property(readonly) BOOL wantsLayerHighlight;
 @property(readonly) BOOL wantsStandardSelectionControls;
-- (void)selectHitTestResult:(id)arg1 extendSelection:(BOOL)arg2;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)changeColor:(id)arg1;

@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "BCColorPickerBaseView.h"
+#import "BCColorPickerSliderView.h"
 
 @class MSGradient;
 @protocol MSGradientBarViewDelegate;
 
-@interface MSGradientBarView : BCColorPickerBaseView
+@interface MSGradientBarView : BCColorPickerSliderView
 {
     id <MSGradientBarViewDelegate> _delegate;
     MSGradient *_gradient;
@@ -42,14 +42,17 @@
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (void)keyDown:(id)arg1;
-- (void)drawSelectedMarkerInRect:(struct CGRect)arg1 color:(id)arg2;
-- (void)drawContentInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
-- (double)stopPositionForEvent:(id)arg1;
+- (void)drawHighlightedSelectionMarkerAtPosition:(double)arg1;
+- (void)drawSelectionMarkerAtIndex:(unsigned long long)arg1;
+- (void)drawForeground;
+- (void)drawBackgroundInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (void)mouseDragged:(id)arg1;
 - (unsigned long long)stopIndexForEvent:(id)arg1;
 - (void)mouseDown:(id)arg1;
-- (struct CGRect)normaliseRect:(struct CGRect)arg1;
+- (struct CGRect)activeBounds;
+- (struct CGRect)contentBounds;
 - (struct CGRect)rectForMarkerAtIndex:(unsigned long long)arg1;
+- (double)positionForIndex:(unsigned long long)arg1;
 - (void)awakeFromNib;
 - (BOOL)canBeKeyView;
 

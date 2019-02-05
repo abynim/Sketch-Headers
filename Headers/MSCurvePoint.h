@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSCurvePoint.h"
+#import <SketchModel/_MSCurvePoint.h>
 
-#import "MSCurvePoint-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSCurvePoint-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class NSString;
 

@@ -14,7 +14,7 @@
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (id)valueFromPrefixStrippedString:(id)arg1 forModel:(id)arg2 originalString:(id)arg3 error:(id *)arg4;
 - (id)initWithLayerController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 layerKeyPathsToWatch:(id)arg4 axis:(unsigned long long)arg5;
-- (id)initWithLayerController:(id)arg1 layerKeyPath:(id)arg2 axis:(unsigned long long)arg3;
+- (id)initWithLayerController:(id)arg1 layerKeyPath:(id)arg2 keyPathsToWatch:(id)arg3 axis:(unsigned long long)arg4;
 
 @end
 

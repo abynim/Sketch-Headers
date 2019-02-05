@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class BCFilterInfo, NSArray, NSPredicate;
+@class BCCache, BCFilterInfo, NSArray;
 @protocol BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate;
 
 @interface BCOutlineViewDataController : NSObject
@@ -14,12 +14,10 @@
     NSObject<BCOutlineViewDataControllerDelegate> *_delegate;
     NSObject<BCOutlineViewDataControllerDataSource> *_dataSource;
     BCFilterInfo *_filter;
-    id _cachedNode;
-    NSArray *_cachedNodesChildren;
+    BCCache *_cachedChildrenOfNodesByFilterCacheGeneration;
 }
 
-@property(retain, nonatomic) NSArray *cachedNodesChildren; // @synthesize cachedNodesChildren=_cachedNodesChildren;
-@property(retain, nonatomic) id cachedNode; // @synthesize cachedNode=_cachedNode;
+@property(readonly, nonatomic) BCCache *cachedChildrenOfNodesByFilterCacheGeneration; // @synthesize cachedChildrenOfNodesByFilterCacheGeneration=_cachedChildrenOfNodesByFilterCacheGeneration;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDelegate> *delegate; // @synthesize delegate=_delegate;
@@ -49,8 +47,9 @@
 - (id)childOfNode:(id)arg1 atIndex:(long long)arg2;
 - (unsigned long long)numberOfChildrenOfNode:(id)arg1;
 - (id)childrenOfNode:(id)arg1;
-@property(readonly, nonatomic) NSPredicate *nodeFilterPredicate;
+- (id)keyForCachingChildrenOfNode:(id)arg1;
 - (BOOL)nodeOrChildMatchesFilter:(id)arg1;
+- (void)willReloadNodes;
 - (id)initWithDataSource:(id)arg1 delegate:(id)arg2;
 - (id)init;
 

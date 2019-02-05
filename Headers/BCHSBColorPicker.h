@@ -9,7 +9,7 @@
 #import "BCColorPreviewDelegate-Protocol.h"
 #import "BCMagnifierButtonDelegate-Protocol.h"
 
-@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSColor, MSColorInspectorSeparatorView, NSString, NSTextField;
+@class BCAlphaColorPicker, BCColorPreview, BCHueColorPicker, BCMagnifierButton, BCSaturationBrightnessColorPicker, MSFlexibleColor, NSString;
 @protocol BCHSBColorPickerDelegate;
 
 @interface BCHSBColorPicker : NSControl <BCColorPreviewDelegate, BCMagnifierButtonDelegate>
@@ -17,20 +17,11 @@
     long long ignoreColorActionsCounter;
     BOOL _displaysMultipleValues;
     id <BCHSBColorPickerDelegate> _delegate;
-    NSTextField *_hexValueTextField;
-    NSTextField *_alphaComponentTextField;
-    MSColorInspectorSeparatorView *_separatorView;
     BCSaturationBrightnessColorPicker *_sbPickerView;
     BCHueColorPicker *_hPickerView;
     BCAlphaColorPicker *_aPickerView;
     BCColorPreview *_colorPreviewView;
     BCMagnifierButton *_magnifierButton;
-    NSTextField *_redComponentTextField;
-    NSTextField *_greenComponentTextField;
-    NSTextField *_blueComponentTextField;
-    NSTextField *_hueComponentTextField;
-    NSTextField *_satComponentTextField;
-    NSTextField *_ligComponentTextField;
     id _bc_target;
     SEL _bc_action;
 }
@@ -38,39 +29,20 @@
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 @property(nonatomic) BOOL displaysMultipleValues; // @synthesize displaysMultipleValues=_displaysMultipleValues;
-@property(retain, nonatomic) NSTextField *ligComponentTextField; // @synthesize ligComponentTextField=_ligComponentTextField;
-@property(retain, nonatomic) NSTextField *satComponentTextField; // @synthesize satComponentTextField=_satComponentTextField;
-@property(retain, nonatomic) NSTextField *hueComponentTextField; // @synthesize hueComponentTextField=_hueComponentTextField;
-@property(retain, nonatomic) NSTextField *blueComponentTextField; // @synthesize blueComponentTextField=_blueComponentTextField;
-@property(retain, nonatomic) NSTextField *greenComponentTextField; // @synthesize greenComponentTextField=_greenComponentTextField;
-@property(retain, nonatomic) NSTextField *redComponentTextField; // @synthesize redComponentTextField=_redComponentTextField;
 @property(retain, nonatomic) BCMagnifierButton *magnifierButton; // @synthesize magnifierButton=_magnifierButton;
 @property(retain, nonatomic) BCColorPreview *colorPreviewView; // @synthesize colorPreviewView=_colorPreviewView;
 @property(retain, nonatomic) BCAlphaColorPicker *aPickerView; // @synthesize aPickerView=_aPickerView;
 @property(retain, nonatomic) BCHueColorPicker *hPickerView; // @synthesize hPickerView=_hPickerView;
 @property(retain, nonatomic) BCSaturationBrightnessColorPicker *sbPickerView; // @synthesize sbPickerView=_sbPickerView;
-@property(retain, nonatomic) MSColorInspectorSeparatorView *separatorView; // @synthesize separatorView=_separatorView;
-@property(retain, nonatomic) NSTextField *alphaComponentTextField; // @synthesize alphaComponentTextField=_alphaComponentTextField;
-@property(retain, nonatomic) NSTextField *hexValueTextField; // @synthesize hexValueTextField=_hexValueTextField;
 @property(nonatomic) __weak id <BCHSBColorPickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (void)setFrequentColors:(id)arg1;
-- (void)frequentColorPicked:(id)arg1;
-- (void)hexValueFieldChanged:(id)arg1;
-- (void)rgbComponentFieldsChanged:(id)arg1;
-- (void)hslComponentFieldsChanged:(id)arg1;
-- (long long)lightDisplayValueForColor:(id)arg1;
-- (long long)satDisplayValueForColor:(id)arg1;
-- (long long)hueDisplayValueForColor:(id)arg1;
-- (void)setMultiTextFieldValues;
-- (void)setTextFieldValuesWithColor:(id)arg1 ignoringFields:(id)arg2;
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
-@property(copy, nonatomic) MSColor *color; // @dynamic color;
+@property(copy, nonatomic) MSFlexibleColor *color; // @dynamic color;
 - (id)flexibleColor;
-- (id)magnifierButtonDocumentColorSpace:(id)arg1;
-- (id)colorPreviewColorSpace:(id)arg1;
+- (id)documentColorSpaceForClient:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
 - (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)updateColorPreviewView;

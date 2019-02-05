@@ -4,10 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class CALayer, MSGPUArtboardShadow, NSColor;
+#import "NSObject-Protocol.h"
+
+@class CALayer, MSArcVertexBuffer, MSGPUArtboardShadow, MSTextureVertexBuffer, NSColor;
 @protocol MSGPUTexture;
 
-@protocol MSGPURenderer
+@protocol MSGPURenderer <NSObject>
++ (BOOL)isCompatibleWithAvailableGPUs;
 - (void)unlockTextures;
 - (void)lockTextures;
 - (BOOL)requiresSynchronousRendering;
@@ -18,10 +21,17 @@
 - (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(MSGPUArtboardShadow *)arg3;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id <MSGPUTexture>)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id <MSGPUTexture>)arg2 bilinearFilter:(BOOL)arg3;
-- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1;
+- (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id <MSGPUTexture>)arg2;
+- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 disableOverlappingFragmentBlending:(BOOL)arg2;
 - (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
-- (void)endFrame;
+- (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(NSColor *)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)scheduleDrawBlock:(void (^)(void))arg1;
+
+@optional
+- (CDStruct_ffe6b7c1)maximumTextureSize;
+- (void)drawTextureVertexBuffer:(MSTextureVertexBuffer *)arg1 sourceTexture:(id <MSGPUTexture>)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
+- (void)drawArcVertexBuffer:(MSArcVertexBuffer *)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
+- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2;
 @end
 

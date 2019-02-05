@@ -10,14 +10,14 @@
 
 @interface MSAlignmentEngineResultGuide : NSObject <NSCopying>
 {
-    struct MSLineSegment _lineSegment;
+    struct BCLineSegment _lineSegment;
 }
 
-@property(readonly, nonatomic) struct MSLineSegment lineSegment; // @synthesize lineSegment=_lineSegment;
+@property(readonly, nonatomic) struct BCLineSegment lineSegment; // @synthesize lineSegment=_lineSegment;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawWithLineWidth:(double)arg1;
 - (id)bezierPath;
-- (id)initWithLineSegment:(struct MSLineSegment)arg1;
+- (id)initWithLineSegment:(struct BCLineSegment)arg1;
 
 @end
 

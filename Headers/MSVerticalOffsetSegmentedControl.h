@@ -8,9 +8,15 @@
 
 @interface MSVerticalOffsetSegmentedControl : NSSegmentedControl
 {
+    // Error parsing type: , name: _yOffsets
 }
 
 + (Class)cellClass;
+- (CDUnknownBlockType).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)setYOffset:(double)arg1 forOperatingSystemVersion:(CDStruct_2ec95fd7)arg2 backingScaleFactor:(double)arg3;
+- (double)yOffsetFor:(double)arg1;
 
 @end
 

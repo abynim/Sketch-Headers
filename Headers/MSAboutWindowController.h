@@ -40,7 +40,8 @@
 @property(nonatomic) __weak NSTextField *buildNumberTextField; // @synthesize buildNumberTextField=_buildNumberTextField;
 @property(nonatomic) __weak MSThemeImageView *backgroundImageView; // @synthesize backgroundImageView=_backgroundImageView;
 - (void).cxx_destruct;
-- (void)fetchRemoteUpdateExpiratonDate;
+- (BOOL)unregisterWithPrompt;
+- (void)fetchRemoteUpdateExpirationDate;
 - (void)unlinkDevice:(id)arg1;
 - (void)registerLicense:(id)arg1;
 - (void)showRenewLicensePage:(id)arg1;

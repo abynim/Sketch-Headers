@@ -6,9 +6,9 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "NSMenuDelegate-Protocol.h"
-#import "NSSearchFieldDelegate-Protocol.h"
-#import "NSTextViewDelegate-Protocol.h"
+#import <BCLayerList/NSMenuDelegate-Protocol.h>
+#import <BCLayerList/NSSearchFieldDelegate-Protocol.h>
+#import <BCLayerList/NSTextViewDelegate-Protocol.h>
 
 @class BCFilterInfo, NSButton, NSDictionary, NSMenu, NSMutableDictionary, NSSearchField, NSString, NSView;
 

@@ -4,24 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableDocumentData.h"
+#import <SketchModel/_MSImmutableDocumentData.h>
 
-#import "MSDocumentData-Protocol.h"
-#import "MSLayerContainment-Protocol.h"
+#import <SketchModel/MSDocumentData-Protocol.h>
+#import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class MSImmutablePage, NSArray, NSDictionary, NSSet;
+@class MSImmutablePage, NSArray, NSData, NSDictionary, NSSet, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
 {
     NSDictionary *_metadata;
+    NSData *_textPreviewData;
     NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
-+ (id)loadDocumentDataWithMetadata:(id)arg1 loadBlock:(CDUnknownBlockType)arg2;
++ (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 loadBlock:(CDUnknownBlockType)arg3;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
+@property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (id)pagesAndArtboardsMetadata;
@@ -30,6 +32,7 @@
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
+- (id)textLayersWithUnsafeFonts;
 - (id)usedFontNames;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
@@ -43,9 +46,11 @@
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
+- (void)prepareSymbolDictionary;
 - (id)defaultPagesArray;
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
 - (id)newPageForMigratedSymbols:(id)arg1;
 - (void)arrangeMigratedSymbolsInGrid:(id)arg1;
 - (void)stripRedundantOverridesFromInstances:(id)arg1 ofSymbol:(id)arg2;
@@ -58,7 +63,7 @@
 - (void)migratePropertiesFromV62OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV60OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV54OrEarlierWithUnarchiver:(id)arg1;
-- (BOOL)symbolsChangedSincePreviousDocument:(id)arg1;
+- (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -71,20 +76,19 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (id)subObjectsForTreeDiff;
+- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
+- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 @property(readonly, nonatomic) BOOL containsUnavailableFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
-- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
-- (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
-- (void)trackColors:(id)arg1 withinHierarchyOf:(id)arg2 excludeForeignSymbols:(BOOL)arg3;
-- (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
-- (id)colorFinderQueue;
-- (void)findFrequentColorsForUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoreAlpha:(BOOL)arg3 excludeForeignSymbols:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (void)prepareForRender:(id)arg1;
+- (BOOL)symbolsChangedSincePreviousDocument:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSArray *pages;
+@property(readonly) Class superclass;
 
 @end
 

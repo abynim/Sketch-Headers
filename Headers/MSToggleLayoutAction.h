@@ -12,10 +12,11 @@
 
 - (BOOL)validate;
 - (id)tooltip;
+- (id)labelForToolbar;
 - (id)label;
-- (void)setGrid:(id)arg1;
-- (id)grid;
-- (id)prepareNewGrid;
+- (void)setGrid:(id)arg1 forLayer:(id)arg2;
+- (id)gridForLayer:(id)arg1;
+- (id)prepareNewGrid:(id)arg1;
 - (void)toggleLayout:(id)arg1;
 
 @end

@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableSliceLayer.h"
+#import <SketchModel/_MSImmutableSliceLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
-#import "MSLayerWithBackgroundColor-Protocol.h"
+#import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
 
 @class NSString;
 
-@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSImmutableLayerPreviewability, MSLayerWithBackgroundColor>
+@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSLayerWithBackgroundColor>
 {
 }
 
@@ -21,12 +20,6 @@
 - (id)immutableBackgroundColor;
 - (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
-- (id)interfaceImageIdentifier;
-- (id)cacheOwner;
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
-- (void)configureBackgroundOfRequest:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSStyleFill.h"
+#import <SketchModel/_MSStyleFill.h>
 
-#import "MSImageOwner-Protocol.h"
+#import <SketchModel/MSImageOwner-Protocol.h>
 
 @class MSImageData;
 
@@ -16,7 +16,6 @@
 
 + (id)defaultStylePartForStyle:(id)arg1;
 + (id)defaultFillColor;
-+ (id)keyPathsForValuesAffectingInterfaceOpacity;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
@@ -25,11 +24,7 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
-- (id)topViewForColorInspector:(id)arg1;
-- (id)parentStyle;
-@property(nonatomic) double interfaceOpacity;
-- (void)configureFillForPreview:(id)arg1;
-- (BOOL)hasEqualAppearance:(id)arg1;
+- (void)correctInvalidGamma;
 - (id)CSSAttributeString;
 
 // Remaining properties

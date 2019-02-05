@@ -6,23 +6,24 @@
 
 #import "MSOverrideInspectorItem.h"
 
-@class MSForeignObjectMenuBuilder, MSSymbolInstance, MSSymbolMaster, NSPopUpButton, NSString, NSTextField;
+@class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
 @interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem
 {
-    NSTextField *_labelField;
-    NSPopUpButton *_popupButton;
+    NSControl *_labelView;
+    NSButton *_navigateToMasterButton;
     MSSymbolMaster *_originalMaster;
-    NSPopUpButton *_popup;
+    MSInspectorPopUpButton *_popupButton;
     MSForeignObjectMenuBuilder *_menuBuilder;
 }
 
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-@property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
+@property(retain, nonatomic) MSInspectorPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(readonly, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
-@property(retain, nonatomic) NSPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
-@property(retain, nonatomic) NSTextField *labelField; // @synthesize labelField=_labelField;
+@property(retain, nonatomic) NSButton *navigateToMasterButton; // @synthesize navigateToMasterButton=_navigateToMasterButton;
+@property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void).cxx_destruct;
+- (void)navigateToOverridesMaster:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)viewWillAppear;
 - (BOOL)validateMenuItem:(id)arg1;
@@ -33,10 +34,13 @@
 - (id)symbolMenuItems;
 - (id)menuItemsForSymbolMasterRefs:(id)arg1;
 - (id)nameOfCurrentNestedSymbol;
-- (id)controlViewForEditingOverride;
+- (void)build;
+- (void)updateNavigateButton;
+- (id)libraryController;
 @property(readonly, nonatomic) MSSymbolInstance *firstInstance;
 @property(readonly, nonatomic) NSString *originalMasterID;
 @property(readonly, nonatomic) NSString *currentMasterID;
+- (id)initWithPrimaryOverrideRepresentation:(id)arg1;
 
 @end
 

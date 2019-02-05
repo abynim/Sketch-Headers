@@ -55,7 +55,7 @@
 - (void)addExportFormat:(id)arg1;
 - (void)commitExportPresetName:(id)arg1;
 - (id)uniqueNonEmptyName:(id)arg1 forPreset:(id)arg2;
-- (id)presetWithName:(id)arg1;
+- (id)presetWithDisplayName:(id)arg1;
 - (void)pickDefaultExportPreset:(id)arg1;
 - (void)removeExportPreset:(id)arg1;
 - (void)addExportPreset:(id)arg1;

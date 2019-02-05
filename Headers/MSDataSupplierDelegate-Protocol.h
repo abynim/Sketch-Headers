@@ -6,10 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDataSupplier, MSLocalDataSupplier, NSImage;
+@class MSDataSupplier, MSDataSupplierGroup, MSLocalDataSupplierGroup, NSImage, NSString;
 
 @protocol MSDataSupplierDelegate <NSObject>
-- (void)dataSupplierDataChanged:(MSLocalDataSupplier *)arg1;
+- (NSString *)groupNameForPluginGroupIdentifier:(NSString *)arg1;
+- (void)replaceLocalDataSupplierGroup:(MSLocalDataSupplierGroup *)arg1 withLocalGroup:(MSLocalDataSupplierGroup *)arg2;
+- (void)dataSupplierGroupDidChange:(MSDataSupplierGroup *)arg1;
+- (void)dataSupplierDataDidChange:(MSDataSupplier *)arg1;
 - (NSImage *)dataSupplierMenuItemImage:(MSDataSupplier *)arg1;
 @end
 

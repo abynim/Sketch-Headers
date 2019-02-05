@@ -6,43 +6,28 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-#import "MSCloudLoginWindowControllerDelegate-Protocol.h"
+@class NSButton, NSProgressIndicator, NSTextField;
 
-@class NSButton, NSProgressIndicator, NSString, NSTextField;
-
-@interface MSCloudPreferencesIntroViewController : MSCloudPreferencesViewController <MSCloudLoginWindowControllerDelegate>
+@interface MSCloudPreferencesIntroViewController : MSCloudPreferencesViewController
 {
     NSTextField *_titleLabel;
     NSTextField *_descriptionLabel;
     NSButton *_learnMoreButton;
     NSProgressIndicator *_progressIndicator;
-    NSButton *_loginButton;
+    NSButton *_startButton;
 }
 
-@property(retain, nonatomic) NSButton *loginButton; // @synthesize loginButton=_loginButton;
+@property(retain, nonatomic) NSButton *startButton; // @synthesize startButton=_startButton;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
 - (void).cxx_destruct;
-- (void)cloudLoginControllerDidSignIn:(id)arg1;
-- (void)cloudLoginControllerDidCancel:(id)arg1;
-- (void)cloudLoginControllerDidOpenBrowser:(id)arg1;
 - (void)cloudEnvironmentDidChangeNotification:(id)arg1;
 - (void)updateTitleLabelValue;
 - (void)learnMore:(id)arg1;
-- (void)dismissLoginWindowController:(id)arg1;
-- (void)login:(id)arg1;
-- (void)loginToBrowser:(id)arg1;
-- (void)signup:(id)arg1;
-- (void)dealloc;
+- (void)signIn:(id)arg1;
 - (void)viewDidLoad;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

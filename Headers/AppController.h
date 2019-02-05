@@ -13,7 +13,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPersistentAssetCollection, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
@@ -45,7 +45,6 @@
     double _creationTime;
     double _launchStartTime;
     double _launchEndTime;
-    MSPersistentAssetCollection *_globalAssets;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     MSHUDWindowController *_hud;
@@ -57,6 +56,7 @@
 }
 
 + (id)sharedInstance;
++ (void)initialize;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
 @property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
@@ -68,7 +68,6 @@
 @property(nonatomic) BOOL canCreateDocuments; // @synthesize canCreateDocuments=_canCreateDocuments;
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
 @property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
-@property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
@@ -125,7 +124,7 @@
 - (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
 - (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
@@ -173,8 +172,7 @@
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
 - (id)init;
-- (void)openCloudUploadURL:(id)arg1 parameters:(id)arg2;
-- (void)openCloudURL:(id)arg1;
+- (void)openDocumentAtPath:(id)arg1 withParameters:(id)arg2;
 - (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;
 - (void)didOpenURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;

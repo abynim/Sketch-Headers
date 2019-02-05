@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSPage.h"
+#import <SketchModel/_MSPage.h>
 
-#import "MSRootLayer-Protocol.h"
+#import <SketchModel/MSRootLayer-Protocol.h>
 
 @class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
 @protocol MSLayerCoordinateSpace, MSRootLayer;
@@ -52,10 +52,9 @@
 - (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
-- (BOOL)resizeToFitChildrenWithOption:(long long)arg1;
+- (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
-- (BOOL)tryToMoveLayerToArtboard:(id)arg1;
 - (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
 - (BOOL)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 @property(readonly, nonatomic) NSArray *exportableLayers;
@@ -63,7 +62,6 @@
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 - (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
-- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)dealloc;
@@ -80,16 +78,6 @@
 - (void)objectDidInit;
 - (void)resetSelectedLayerIDs:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
-- (void)adjustRulerDataToTopLeftInViewBounds;
-- (BOOL)shouldDrawSelection;
-- (BOOL)canBeHoveredOnPage:(id)arg1;
-- (id)displayName;
-- (BOOL)isExportableViaDragAndDrop;
-- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (id)previewImages;
-- (id)badgeImages;
-- (unsigned long long)displayType;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 

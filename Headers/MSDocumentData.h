@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSDocumentData.h"
+#import <SketchModel/_MSDocumentData.h>
 
-#import "MSDocumentData-Protocol.h"
-#import "MSLayerContainment-Protocol.h"
+#import <SketchModel/MSDocumentData-Protocol.h>
+#import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSFontList, MSPage, NSArray, NSDictionary;
+@class BCCache, MSFontList, MSPage, NSArray, NSData, NSDictionary, NSString;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
@@ -20,11 +20,13 @@
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
+    NSData *_textPreviewData;
     MSFontList *_fontList;
 }
 
 + (void)initialize;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
+@property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
@@ -32,7 +34,6 @@
 - (void).cxx_destruct;
 - (void)determineCurrentArtboard;
 - (void)refreshOverlay;
-- (void)refreshOverlayInRect:(struct CGRect)arg1;
 - (void)immediatelyShowSelectionForAllLayers;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
@@ -85,12 +86,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)convertToColorSpace:(unsigned long long)arg1;
-- (void)assignColorSpace:(unsigned long long)arg1;
-- (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlphaOfOriginalColor:(BOOL)arg4;
-- (void)enumerateColorConvertiblesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
-- (void)replaceFonts:(id)arg1;
-- (void)invalidateFonts;
+- (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
@@ -103,12 +99,18 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)replaceFonts:(id)arg1;
+- (void)invalidateFonts;
 - (id)metadataForKey:(id)arg1 object:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 object:(id)arg3;
 - (id)UIMetadataKey;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSArray *pages;
+@property(readonly) Class superclass;
 
 @end
 

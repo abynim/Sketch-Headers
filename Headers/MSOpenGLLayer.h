@@ -6,14 +6,19 @@
 
 #import <AppKit/NSOpenGLLayer.h>
 
+@class NSOpenGLContext;
+
 @interface MSOpenGLLayer : NSOpenGLLayer
 {
     CDUnknownBlockType _renderBlock;
+    NSOpenGLContext *_shareContext;
 }
 
+@property(retain, nonatomic) NSOpenGLContext *shareContext; // @synthesize shareContext=_shareContext;
 @property(copy, nonatomic) CDUnknownBlockType renderBlock; // @synthesize renderBlock=_renderBlock;
 - (void).cxx_destruct;
-- (void)drawInCGLContext:(struct _CGLContextObject *)arg1 pixelFormat:(struct _CGLPixelFormatObject *)arg2 forLayerTime:(double)arg3 displayTime:(const CDStruct_e50ab651 *)arg4;
+- (id)openGLContextForPixelFormat:(id)arg1;
+- (void)drawInOpenGLContext:(id)arg1 pixelFormat:(id)arg2 forLayerTime:(double)arg3 displayTime:(const CDStruct_e50ab651 *)arg4;
 
 @end
 

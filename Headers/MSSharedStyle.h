@@ -4,38 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSSharedStyle.h"
+#import <SketchModel/_MSSharedStyle.h>
 
-#import "MSSharedObjectStyling-Protocol.h"
-#import "MSSharedStylePasting-Protocol.h"
+#import <SketchModel/MSSharedStylePasting-Protocol.h>
 
 @class MSStyle, NSString;
 
-@interface MSSharedStyle : _MSSharedStyle <MSSharedObjectStyling, MSSharedStylePasting>
+@interface MSSharedStyle : _MSSharedStyle <MSSharedStylePasting>
 {
 }
 
 - (id)initWithName:(id)arg1 style:(id)arg2;
 @property(readonly, nonatomic) MSStyle *style;
-- (Class)shareableObjectReferenceClass_bc;
-- (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (void)generateTextPreviewForSyncSheettWithSize:(struct CGSize)arg1 backingScale:(double)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
-- (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
-- (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
-- (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
-- (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)correctInvalidGamma;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+- (id)handlePasteIntoDocument:(id)arg1;
 - (void)updateToMatch:(struct MSModelObject *)arg1;
 - (void)resetReferencingInstances;
 - (id)allInstances;
 - (id)allLayersInstances;
-@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
-- (id)handlePasteIntoDocument:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

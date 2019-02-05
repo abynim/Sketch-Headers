@@ -19,8 +19,10 @@
     NSMenu *_symbolInstanceMenu;
     NSMenu *_artboardMenu;
     NSMenu *_sliceMenu;
+    NSMenu *_overidesMenu;
 }
 
+@property(retain, nonatomic) NSMenu *overidesMenu; // @synthesize overidesMenu=_overidesMenu;
 @property(retain, nonatomic) NSMenu *sliceMenu; // @synthesize sliceMenu=_sliceMenu;
 @property(retain, nonatomic) NSMenu *artboardMenu; // @synthesize artboardMenu=_artboardMenu;
 @property(retain, nonatomic) NSMenu *symbolInstanceMenu; // @synthesize symbolInstanceMenu=_symbolInstanceMenu;
@@ -31,6 +33,7 @@
 @property(retain, nonatomic) NSMenu *textLayerMenu; // @synthesize textLayerMenu=_textLayerMenu;
 @property(retain, nonatomic) NSMenu *standardLayerMenu; // @synthesize standardLayerMenu=_standardLayerMenu;
 - (void).cxx_destruct;
+- (id)overrideMenuItems;
 - (id)symbolInstanceOnlyItems;
 - (id)symbolItems;
 - (id)groupOnlyItems;
@@ -45,14 +48,14 @@
 - (id)groupRenameItems;
 - (id)pasteCopyStyleItems;
 - (id)moveForwardBackwardItems;
-- (id)pickLayerItems;
 - (id)cutCopyPasteItems;
 - (id)replaceWithSymbolItems;
 - (id)menuWithItemGroups:(id)arg1;
 - (id)dataFeedsItems;
 - (id)standardMenuItemGroups;
 - (void)constructMenus;
-- (id)menuForLayers:(id)arg1;
+- (id)menuForLayers:(id)arg1 inContext:(unsigned long long)arg2;
+- (id)init;
 
 @end
 

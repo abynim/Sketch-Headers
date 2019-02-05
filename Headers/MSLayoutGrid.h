@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSLayoutGrid.h"
+#import <SketchModel/_MSLayoutGrid.h>
 
 @interface MSLayoutGrid : _MSLayoutGrid
 {
@@ -18,8 +18,6 @@
 - (void)setNumberOfColumns:(double)arg1;
 - (void)determineAppropriateColumnWidth;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (id)verticalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
-- (id)horizontalGuidesForRulerData:(id)arg1 inRect:(struct CGRect)arg2;
 
 @end
 

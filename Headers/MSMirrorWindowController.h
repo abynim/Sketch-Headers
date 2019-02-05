@@ -7,16 +7,18 @@
 #import <AppKit/NSWindowController.h>
 
 #import "MSMirrorWindowControllerContent-Protocol.h"
+#import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 
 @class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, WKWebView;
 
-@interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler>
+@interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler, NSToolbarDelegate>
 {
     NSToolbarItem *_artboardToolbarItem;
     NSPopUpButton *_artboardButton;
+    NSToolbarItem *_startpointToolbarItem;
     NSButton *_startpointButton;
     NSButton *_backButton;
     NSToolbarItem *_backToolbarItem;
@@ -27,17 +29,21 @@
 + (void)close;
 + (void)show;
 + (id)sharedController;
-@property(nonatomic) __weak WKWebView *webView; // @synthesize webView=_webView;
-@property(nonatomic) __weak MSColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(nonatomic) __weak NSToolbarItem *backToolbarItem; // @synthesize backToolbarItem=_backToolbarItem;
-@property(nonatomic) __weak NSButton *backButton; // @synthesize backButton=_backButton;
-@property(nonatomic) __weak NSButton *startpointButton; // @synthesize startpointButton=_startpointButton;
-@property(nonatomic) __weak NSPopUpButton *artboardButton; // @synthesize artboardButton=_artboardButton;
-@property(nonatomic) __weak NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
+@property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
+@property(retain, nonatomic) MSColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) NSToolbarItem *backToolbarItem; // @synthesize backToolbarItem=_backToolbarItem;
+@property(retain, nonatomic) NSButton *backButton; // @synthesize backButton=_backButton;
+@property(retain, nonatomic) NSButton *startpointButton; // @synthesize startpointButton=_startpointButton;
+@property(retain, nonatomic) NSToolbarItem *startpointToolbarItem; // @synthesize startpointToolbarItem=_startpointToolbarItem;
+@property(retain, nonatomic) NSPopUpButton *artboardButton; // @synthesize artboardButton=_artboardButton;
+@property(retain, nonatomic) NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
 - (void).cxx_destruct;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
+- (id)toolbarDefaultItemIdentifiers:(id)arg1;
+- (id)toolbarAllowedItemIdentifiers:(id)arg1;
+- (id)toolbarItemIdentifiers;
 - (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidChangeBackingProperties:(id)arg1;
@@ -68,6 +74,7 @@
 - (void)documentDidUpdateNotification:(id)arg1;
 - (void)documentDidChangeNotification:(id)arg1;
 - (id)urlRequest;
+- (void)localizeFrontend;
 - (void)whitelistClientID;
 - (void)startLoading;
 - (BOOL)validateMenuItem:(id)arg1;

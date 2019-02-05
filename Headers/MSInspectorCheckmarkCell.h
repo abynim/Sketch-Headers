@@ -8,11 +8,15 @@
 
 @interface MSInspectorCheckmarkCell : MSInspectorButtonCell
 {
+    double _checkboxToTextSpacingOffset;
 }
 
+@property(nonatomic) double checkboxToTextSpacingOffset; // @synthesize checkboxToTextSpacingOffset=_checkboxToTextSpacingOffset;
+- (id)initWithCoder:(id)arg1;
 - (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (void)drawBezelWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 - (id)mixedImage;
 - (id)onImage;

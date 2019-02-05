@@ -27,6 +27,7 @@
 - (void)addDistanceMeasurement:(id)arg1;
 - (void)removeAllDimensionSnaps;
 - (void)addDimensionMeasurement:(id)arg1;
+- (void)addSpacingMeasurementsForEdgeSnapsToOppositeAxis:(id)arg1;
 - (void)removeAllEdgeSnaps;
 - (void)addLineRelationship:(id)arg1;
 - (id)initWithAxis:(unsigned long long)arg1;

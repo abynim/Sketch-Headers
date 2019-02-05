@@ -4,57 +4,66 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSColorInspectorSection.h"
+#import "MSColorInspectorSectionWithPicker.h"
 
 #import "MSGradientBarViewDelegate-Protocol.h"
 #import "MSGradientEventHandlerDelegate-Protocol.h"
 
-@class MSGradientBarView, MSGradientEventHandler, NSButton, NSString, NSView;
+@class MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
 
-@interface MSColorInspectorSectionGradient : MSColorInspectorSection <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
+@interface MSColorInspectorSectionGradient : MSColorInspectorSectionWithPicker <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
-    NSView *_gradientBarParentView;
     MSGradientBarView *_gradientBarView;
+    MSGradientEventHandler *_gradientHandler;
+    MSAssetPickerController *_secondaryAssetPickerController;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
-    MSGradientEventHandler *_gradientHandler;
 }
 
-@property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
++ (BOOL)canHandleStylePart:(id)arg1;
++ (id)filterSelection:(id)arg1;
++ (id)presetPickerVisibilityDefaultsKey;
 @property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
+@property(retain, nonatomic) MSAssetPickerController *secondaryAssetPickerController; // @synthesize secondaryAssetPickerController=_secondaryAssetPickerController;
+@property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
 @property(nonatomic) __weak MSGradientBarView *gradientBarView; // @synthesize gradientBarView=_gradientBarView;
-@property(nonatomic) __weak NSView *gradientBarParentView; // @synthesize gradientBarParentView=_gradientBarParentView;
 - (void).cxx_destruct;
+- (id)toolTipForAltButton:(id)arg1 alternate:(BOOL)arg2;
+- (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
 - (unsigned long long)assetType;
 - (void)dealloc;
 - (void)closeGradientHandler;
 - (void)popoverWillClose;
 - (id)gradients;
+- (void)flipGradient:(id)arg1;
 - (void)rotateGradientAction:(id)arg1;
 - (void)refreshAction:(id)arg1;
-- (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 colorSpace:(id)arg3;
 - (void)updateOtherGradientsToReflectChanges;
 - (void)gradientHandlerDidChangeGradient:(id)arg1;
 - (void)gradientHandlerWillLoseFocus:(id)arg1;
 - (void)gradientHandlerDidChangeCurrentPoint:(id)arg1;
 - (void)colorPickerChangedTo:(id)arg1;
+- (id)currentlySelectedColor;
 - (void)switchToGradientHandler;
-- (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
-- (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
-- (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
-- (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
+- (void)assetPickerController:(id)arg1 didSelectDataSource:(id)arg2;
+- (void)controlDidSelectAsset:(id)arg1;
+- (id)createPresetFromCurrentSelection;
+- (void)setStyleParts:(id)arg1;
+- (void)highlightCurrentGradient;
+- (void)assetDataSourcesMighHaveChanged;
 - (void)gradientBarAction:(id)arg1;
-- (long long)fillType;
+- (unsigned long long)fillType;
 - (void)switchToGradientHandlerIfNecessary;
 - (void)validate;
-- (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
+- (id)allSecondaryAssetPickerDataSources;
+- (id)secondaryAssetPickerDataSources;
+- (id)assetPickerDataSources;
+- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
 - (id)gradientBarViewPreviewColorSpace:(id)arg1;
 - (void)gradientBarChanged:(id)arg1;
-- (void)awakeFromNib;
-- (id)initWithDelegate:(id)arg1;
+- (void)updateUIAfterGradientChange;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

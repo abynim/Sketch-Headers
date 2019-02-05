@@ -16,6 +16,7 @@
 - (void)drawTextLayerAsPath:(id)arg1 withTextStorage:(id)arg2 inBounds:(struct CGRect)arg3 context:(id)arg4;
 - (void)drawTextLayerInsideBoundsTransform:(id)arg1 context:(id)arg2;
 - (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
+- (BOOL)renderLayerWithUnavailableFonts:(id)arg1 context:(id)arg2;
 
 @end
 

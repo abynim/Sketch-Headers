@@ -16,19 +16,17 @@
 }
 
 @property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
-@property(readonly, nonatomic) MSSymbolInstance *instance; // @synthesize instance=_instance;
+@property(readonly, nonatomic) __weak MSSymbolInstance *instance; // @synthesize instance=_instance;
 @property(retain, nonatomic) NSArray *children; // @synthesize children=_children;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *flattenedChildren;
+- (void)enumerate:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) NSArray *selectedOverrides;
 - (void)updateAfterSelectingChild;
 @property(readonly, nonatomic) NSAffineTransform *transformForConvertingToInstance;
 - (id)modifiedMasterForInstanceInMaster:(id)arg1;
 - (void)syncChildrenWithOverrides:(id)arg1;
 - (id)initWithInstance:(id)arg1;
-- (BOOL)selfOrChildrenSelected;
-@property(readonly, nonatomic) BOOL isExpanded;
-- (BOOL)layerListExpandedType;
-- (id)childrenForLayerList;
-- (id)selectedOverrides;
 
 @end
 

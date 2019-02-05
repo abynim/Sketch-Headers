@@ -21,19 +21,19 @@
     unsigned long long _status;
     MSDocumentData *_document;
     NSString *_name;
+    NSString *_libraryID;
     id <MSAssetLibraryDelegate> _delegate;
     unsigned long long _libraryType;
     NSDictionary *_propertyListDictionaryRepresentation;
-    NSString *_libraryID;
 }
 
 + (id)URLForTemplateLibraryNamed:(id)arg1;
 + (id)keyPathsForValuesAffectingValid;
 + (unsigned long long)assetLibraryStatusForDocumentErrorCode:(unsigned long long)arg1;
-@property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 @property(readonly, nonatomic) NSDictionary *propertyListDictionaryRepresentation; // @synthesize propertyListDictionaryRepresentation=_propertyListDictionaryRepresentation;
 @property(readonly, nonatomic) unsigned long long libraryType; // @synthesize libraryType=_libraryType;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;

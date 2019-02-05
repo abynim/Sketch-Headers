@@ -6,18 +6,18 @@
 
 #import "MSBaseBlurInspectorItem.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSSlider;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSSlider;
 
 @interface MSBackgroundBlurInspectorItem : MSBaseBlurInspectorItem
 {
-    MSUpDownTextField *_saturationField;
+    MSInlineUpDownTextField *_saturationField;
     NSSlider *_saturationSlider;
     MSMathInspectorValueAdaptor *_saturationAdapter;
 }
 
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdapter; // @synthesize saturationAdapter=_saturationAdapter;
 @property(retain, nonatomic) NSSlider *saturationSlider; // @synthesize saturationSlider=_saturationSlider;
-@property(retain, nonatomic) MSUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
+@property(retain, nonatomic) MSInlineUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
 - (void).cxx_destruct;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

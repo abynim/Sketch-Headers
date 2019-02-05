@@ -6,18 +6,19 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSLayerBadgeImages, NSImage, NSString;
+@class MSTintedImages, NSImage, NSString;
 @protocol BCOutlineViewPopupConfigurator;
 
 @protocol BCOutlineViewNode <NSObject>
 @property(readonly, nonatomic) BOOL isExpanded;
-@property(readonly, nonatomic) MSLayerBadgeImages *badgeImages;
+@property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
 @property(readonly, nonatomic) BOOL isEditableInLayerList;
 @property(readonly, nonatomic) BOOL isActive;
 @property(retain, nonatomic) NSString *nodeName;
 @property(readonly, nonatomic) unsigned long long filterTypeMask;
 @property(readonly, nonatomic) unsigned long long displayType;
+@property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
 - (id <BCOutlineViewPopupConfigurator>)badgeMenuConfigurator;
 - (NSImage *)maskIconWithState:(unsigned long long)arg1;
 - (NSImage *)previewIconWithState:(unsigned long long)arg1;

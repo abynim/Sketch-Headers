@@ -16,7 +16,6 @@
 @property(retain, nonatomic) NSArray *allSlices; // @synthesize allSlices=_allSlices;
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;
-- (struct CGPoint)alignPointToGrid:(struct CGPoint)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (id)cursorForInsertingFromExisting;
 - (unsigned long long)layerSelectionOptionsForInsertingFromExistingLayer;

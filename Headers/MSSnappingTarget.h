@@ -22,12 +22,12 @@
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)targetByApplyingTransform:(struct CGAffineTransform)arg1;
-@property(readonly, nonatomic) struct MSLineSegment lineSegment;
-@property(readonly, nonatomic) struct MSLine line;
+@property(readonly, nonatomic) struct BCLineSegment lineSegment;
+@property(readonly, nonatomic) struct BCLine line;
 - (id)initWithPoint:(struct CGPoint)arg1 directionVector:(struct CGVector)arg2 guideType:(unsigned long long)arg3;
 - (id)initWithPoint:(struct CGPoint)arg1 axis:(unsigned long long)arg2 wantsGuide:(BOOL)arg3 length:(double)arg4;
 - (id)initWithPosition:(double)arg1 onAxis:(unsigned long long)arg2;
-- (id)initWithGuideLine:(struct MSLineSegment)arg1;
+- (id)initWithGuideLine:(struct BCLineSegment)arg1;
 
 @end
 

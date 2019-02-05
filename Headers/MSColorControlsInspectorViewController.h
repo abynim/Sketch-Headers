@@ -6,7 +6,7 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField;
+@class MSInlineUpDownNanoTextField, MSInlineUpDownTextField, MSMathInspectorValueAdaptor;
 
 @interface MSColorControlsInspectorViewController : MSStylePartInspectorViewController
 {
@@ -14,17 +14,17 @@
     MSMathInspectorValueAdaptor *_saturationAdaptor;
     MSMathInspectorValueAdaptor *_brightnessAdaptor;
     MSMathInspectorValueAdaptor *_contrastAdaptor;
-    MSUpDownTextField *_hueField;
-    MSUpDownTextField *_saturationField;
-    MSUpDownTextField *_brightnessField;
-    MSUpDownTextField *_contrastField;
+    MSInlineUpDownNanoTextField *_hueField;
+    MSInlineUpDownNanoTextField *_saturationField;
+    MSInlineUpDownNanoTextField *_brightnessField;
+    MSInlineUpDownTextField *_contrastField;
 }
 
 + (void)setupTextField:(id)arg1 adaptor:(id)arg2 valueTransformer:(id)arg3;
-@property(retain, nonatomic) MSUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
-@property(retain, nonatomic) MSUpDownTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
-@property(retain, nonatomic) MSUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
-@property(retain, nonatomic) MSUpDownTextField *hueField; // @synthesize hueField=_hueField;
+@property(retain, nonatomic) MSInlineUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *saturationField; // @synthesize saturationField=_saturationField;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *hueField; // @synthesize hueField=_hueField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *contrastAdaptor; // @synthesize contrastAdaptor=_contrastAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *brightnessAdaptor; // @synthesize brightnessAdaptor=_brightnessAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdaptor; // @synthesize saturationAdaptor=_saturationAdaptor;

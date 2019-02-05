@@ -15,7 +15,7 @@
 @property(readonly, nonatomic) BOOL lockedOnCanvas;
 @property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
 @property(readonly, nonatomic) BOOL hiddenOnCanvas;
-@property(readonly, nonatomic) BOOL selectedInLayerList;
+@property(readonly, nonatomic) BOOL isSelectedInLayerList;
 @property(readonly, nonatomic) BOOL expandableInLayerList;
 - (NSArray *)childrenForLayerList;
 - (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(void (^)(void))arg1;

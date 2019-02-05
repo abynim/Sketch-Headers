@@ -4,12 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableAssetCollection.h"
+#import <SketchModel/_MSImmutableAssetCollection.h>
 
 @interface MSImmutableAssetCollection : _MSImmutableAssetCollection
 {
 }
 
+- (void)encodePropertiesWithCoder:(id)arg1;
+- (void)migratePropertiesFromV114OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
 
 @end

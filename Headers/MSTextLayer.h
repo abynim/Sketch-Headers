@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSTextLayer.h"
+#import <SketchModel/_MSTextLayer.h>
 
-#import "MSColorConvertible-Protocol.h"
-#import "MSFirstLineTypesetterDelegate-Protocol.h"
+#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
 @class MSColor, NSAttributedString, NSDictionary, NSNumber, NSString;
 @protocol MSTextLayerEditingDelegate;
@@ -21,19 +21,9 @@
 }
 
 + (id)defaultValue;
-+ (long long)menuItemStateForTest:(CDUnknownBlockType)arg1 forLayers:(id)arg2;
-+ (long long)menuItemStateForAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
-+ (void)setTextAlignment:(unsigned long long)arg1 forLayers:(id)arg2;
-+ (BOOL)canSetTextAlignmentForLayers:(id)arg1;
-+ (long long)menuItemStateForTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
-+ (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
-+ (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
-+ (id)keyPathsForValuesAffectingTextBehaviourLabelString;
-+ (id)keyPathsForValuesAffectingTextBehaviourSegmentTag;
-+ (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
++ (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
-+ (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
@@ -78,7 +68,7 @@
 - (id)paragraphStyle;
 - (void)setKerning:(float)arg1;
 - (float)kerning;
-- (void)refreshOverlay;
+- (id)pathsWithColorsFromGlyphsInBoundsWithParentGroupSplitByColorAttribute;
 - (id)bezierPathFromGlyphsInBounds;
 - (struct CGPoint)drawingPointForText;
 - (double)startingPositionOnPath:(id)arg1;
@@ -109,48 +99,22 @@
 - (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(id)arg3 type:(long long)arg4;
 - (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2 maxWidth:(double)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)PDFPreview;
-- (BOOL)shouldStorePDFPreviews;
-- (long long)cornerRectType;
-- (BOOL)shouldDrawSelectionStroke;
-- (BOOL)shouldDrawSelection;
-- (Class)handlerClass;
-- (id)inspectorSections;
-- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
-- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
-- (void)copyStylePropertiesToShape:(id)arg1;
-- (void)copyTextPropertiesToShape:(id)arg1;
-- (BOOL)canConvertToOutlines;
-- (id)layersByConvertingToOutlines;
-- (unsigned long long)shareableObjectType;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (Class)snapItemClass;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
-- (void)changeTextColorTo:(id)arg1;
-- (void)changeColor:(id)arg1;
-- (void)setTextBehaviourSegmentTag:(long long)arg1;
-- (id)textBehaviourLabelString;
-- (long long)textBehaviourSegmentTag;
-@property(readonly, nonatomic) BOOL supportsVerticalAlignment;
-- (BOOL)supportsInnerOuterBorders;
+- (long long)layoutDirection;
+- (id)setupWithLayerBuilderDictionary:(id)arg1;
+- (void)embedInTransformedGroup;
+- (long long)cornerForBaselineMaintaining;
+- (unsigned long long)resizingConstraint;
+- (BOOL)canFixHeight;
+- (id)CSSAttributes;
+- (void)writeStyleToPasteboard:(id)arg1;
+- (void)invalidateFonts;
+- (void)replaceFonts:(id)arg1;
 - (void)resetSharedStyle;
 - (void)setSharedStyle:(id)arg1;
 - (id)foreignSharedStyles;
 - (id)styleContainer;
 - (void)reapplyPreviousAttributesFromString:(id)arg1;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
-- (unsigned long long)resizingConstraint;
-- (BOOL)canFixHeight;
-- (void)invalidateFonts;
-- (void)replaceFonts:(id)arg1;
-- (void)embedInTransformedGroup;
-- (long long)cornerForBaselineMaintaining;
-- (void)writeStyleToPasteboard:(id)arg1;
-- (id)CSSAttributes;
-- (long long)layoutDirection;
-- (id)setupWithLayerBuilderDictionary:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

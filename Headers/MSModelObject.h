@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSModelObjectCommon.h"
+#import <SketchModel/MSModelObjectCommon.h>
 
-#import "MSModelObject-Protocol.h"
-#import "NSCopying-Protocol.h"
+#import <SketchModel/MSModelObject-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, MSLayerGroup, NSString;
+@class MSDocumentData, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
     id _cachedImmutableModelObject;
     BOOL _isFault;
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObject *_parentObject;
     MSDocumentData *_documentData;
 }
@@ -25,6 +26,7 @@
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
+- (BOOL)isDescendantOfObject:(id)arg1;
 - (void)breakConnectionWith:(id)arg1;
 - (id)parentGroupRecursive;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
@@ -34,12 +36,15 @@
 - (void)invalidateImmutableObject;
 - (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
+- (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
 - (void)fireFaultIfNecessary;
 - (void)fireFault;
+@property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (void)correctInvalidGamma;
 - (void)clearCachedValueForKey:(id)arg1;
 - (void)clearCache;
 - (void)updateCachedValue:(id)arg1 forKey:(id)arg2;

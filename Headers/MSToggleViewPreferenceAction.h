@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)hasDynamicTitle;
 - (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)isActive;

@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_MSImmutableStyleBlur.h"
+#import <SketchModel/_MSImmutableStyleBlur.h>
 
 @interface MSImmutableStyleBlur : _MSImmutableStyleBlur
 {
@@ -12,9 +12,6 @@
 
 - (double)cropRadius;
 - (void)migratePropertiesFromV106OrEarlierWithUnarchiver:(id)arg1;
-- (id)renderBitmapEffects:(id)arg1 bounds:(struct CGRect)arg2 parentCoordinateTransform:(struct CGAffineTransform)arg3;
-- (BOOL)shouldUseCoreImageForEffect;
-- (void)addFilterWithExporter:(id)arg1;
 
 @end
 

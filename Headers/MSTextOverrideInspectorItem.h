@@ -25,7 +25,6 @@
 - (id)dataOverrides;
 - (void)dataMenuProviderRefreshMasterData:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (unsigned long long)supportedDataProviders;
 
 @end
 

@@ -29,7 +29,7 @@
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
 - (void)updateDisplayedValues;
-- (void)closePopover;
+- (void)closePopoverImmediately:(BOOL)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
 @property(readonly, nonatomic) NSArray *layers;

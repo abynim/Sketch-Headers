@@ -22,6 +22,9 @@
 @property(readonly, nonatomic) NSString *commandIdentifier; // @synthesize commandIdentifier=_commandIdentifier;
 @property(readonly, nonatomic) NSString *pluginIdentifier; // @synthesize pluginIdentifier=_pluginIdentifier;
 - (void).cxx_destruct;
+- (id)splitString;
+- (id)displayName;
+@property(readonly, nonatomic) NSString *subgroupName;
 - (BOOL)valid;
 - (id)imageFileURLForDataItem:(id)arg1;
 - (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;

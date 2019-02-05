@@ -4,36 +4,31 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSColorInspectorSection.h"
+#import "MSColorInspectorSectionWithPicker.h"
 
 @class MSColor;
 
-@interface MSColorInspectorSectionColor : MSColorInspectorSection
+@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithPicker
 {
     MSColor *_pickedColor;
 }
 
++ (id)presetPickerVisibilityDefaultsKey;
 @property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
 - (void).cxx_destruct;
-- (unsigned long long)assetType;
-- (void)removeAssetAtIndex:(unsigned long long)arg1 forPickerView:(id)arg2;
-- (void)pickerView:(id)arg1 didPickPresetAtIndex:(unsigned long long)arg2;
-- (BOOL)pickerView:(id)arg1 insertPresetFromDragRepresentation:(id)arg2 atIndex:(unsigned long long)arg3;
-- (id)pickerView:(id)arg1 dragRepresentationForItemAtIndex:(unsigned long long)arg2;
-- (void)addPresetForPickerView:(id)arg1;
-- (void)drawContentForCellInPickerView:(id)arg1 withFrame:(BOOL)arg2 atIndex:(unsigned long long)arg3 inRect:(struct CGRect)arg4;
-- (id)pickerView:(id)arg1 tooltipForPresetButtonAtIndex:(unsigned long long)arg2;
+- (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
+- (void)controlDidSelectAsset:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
+- (id)createPresetFromCurrentSelection;
 - (void)colorPickerChangedTo:(id)arg1;
 - (BOOL)hasAdvancedSettingsNib;
-- (long long)fillType;
-- (void)validate;
+- (unsigned long long)assetType;
+- (unsigned long long)fillType;
 - (void)setStyleParts:(id)arg1;
-- (void)highlightCurrentColor:(id)arg1 forPicker:(id)arg2;
+- (void)selectColorInAssetPicker:(id)arg1;
 - (void)highlightCurrentColor;
-- (void)reloadPresetPicker;
-- (id)assetPickerViewKeys;
-- (id)viewsWithColorPickerView:(id)arg1 blendingView:(id)arg2 topViewIsEmpty:(BOOL)arg3;
-- (id)initWithDelegate:(id)arg1;
+- (id)assetPickerDataSources;
+- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
 
 @end
 

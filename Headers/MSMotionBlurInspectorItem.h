@@ -6,16 +6,16 @@
 
 #import "MSBaseBlurInspectorItem.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSSlider;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSSlider;
 
 @interface MSMotionBlurInspectorItem : MSBaseBlurInspectorItem
 {
     NSSlider *_angleSlider;
     MSMathInspectorValueAdaptor *_angleAdapter;
-    MSUpDownTextField *_angleTextField;
+    MSInlineUpDownTextField *_angleTextField;
 }
 
-@property(retain, nonatomic) MSUpDownTextField *angleTextField; // @synthesize angleTextField=_angleTextField;
+@property(retain, nonatomic) MSInlineUpDownTextField *angleTextField; // @synthesize angleTextField=_angleTextField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *angleAdapter; // @synthesize angleAdapter=_angleAdapter;
 @property(retain, nonatomic) NSSlider *angleSlider; // @synthesize angleSlider=_angleSlider;
 - (void).cxx_destruct;

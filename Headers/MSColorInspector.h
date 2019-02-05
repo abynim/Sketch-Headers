@@ -6,62 +6,49 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "BCHSBColorPickerDelegate-Protocol.h"
 #import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorSectionDelegate-Protocol.h"
-#import "MSModeModePickerDelegate-Protocol.h"
+#import "MSColorModePickerControllerDelegate-Protocol.h"
+#import "MSColorPickerViewControllerDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCHSBColorPicker, MSAlternatingView, MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionNoise, MSColorInspectorSectionPattern, MSDocument, MSEventHandlerManager, MSModePickerView, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, NSView;
+@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorModePickerController, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField;
 @protocol MSColorInspectorDelegate;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, MSModeModePickerDelegate, BCPopoverDelegate, NSTouchBarDelegate, BCHSBColorPickerDelegate, MSStylePartPreviewButtonDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
 {
     BOOL _displayingDiverseStyles;
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
-    MSAlternatingView *_rgbFieldsView;
-    MSAlternatingView *_hsbFieldsView;
-    MSModePickerView *_borderColorTypePicker;
-    MSModePickerView *_fillColorTypePicker;
-    BCHSBColorPicker *_colorPicker;
-    NSView *_emptyTopView;
-    NSView *_colorPickerView;
-    NSView *_shadowBlendingView;
-    NSView *_borderBlendingOpacityView;
+    MSColorModePickerController *_colorModePickerController;
     MSColorInspectorSectionColor *_colorSection;
     MSColorInspectorSectionGradient *_gradientSection;
     MSColorInspectorSectionPattern *_patternSection;
-    MSColorInspectorSectionNoise *_noiseSection;
     MSEventHandlerManager *_eventHandlerManager;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
     MSStackView *_stackView;
+    MSLibraryAssetCollectionsController *_libraryAssetsController;
+    MSColorPickerViewController *_colorPickerController;
     NSTextField *_textFieldToContinueEditing;
 }
 
-+ (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 colorInspectorSetupHandler:(CDUnknownBlockType)arg5;
-+ (id)presentColorInspectorPopoverForViewController:(id)arg1 inspectorController:(id)arg2 relativeToView:(id)arg3 colorInspectorSetupHandler:(CDUnknownBlockType)arg4;
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 delegate:(id)arg2 document:(id)arg3 globalAssets:(id)arg4 relativeToView:(id)arg5 setupHandler:(CDUnknownBlockType)arg6;
++ (id)presentColorInspectorPopoverWithDelegate:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
+@property(retain, nonatomic) MSColorPickerViewController *colorPickerController; // @synthesize colorPickerController=_colorPickerController;
+@property(retain, nonatomic) MSLibraryAssetCollectionsController *libraryAssetsController; // @synthesize libraryAssetsController=_libraryAssetsController;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) BOOL displayingDiverseStyles; // @synthesize displayingDiverseStyles=_displayingDiverseStyles;
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
-@property(retain, nonatomic) MSColorInspectorSectionNoise *noiseSection; // @synthesize noiseSection=_noiseSection;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;
 @property(retain, nonatomic) MSColorInspectorSectionGradient *gradientSection; // @synthesize gradientSection=_gradientSection;
 @property(retain, nonatomic) MSColorInspectorSectionColor *colorSection; // @synthesize colorSection=_colorSection;
-@property(retain, nonatomic) NSView *borderBlendingOpacityView; // @synthesize borderBlendingOpacityView=_borderBlendingOpacityView;
-@property(retain, nonatomic) NSView *shadowBlendingView; // @synthesize shadowBlendingView=_shadowBlendingView;
-@property(retain, nonatomic) NSView *colorPickerView; // @synthesize colorPickerView=_colorPickerView;
-@property(retain, nonatomic) NSView *emptyTopView; // @synthesize emptyTopView=_emptyTopView;
-@property(retain, nonatomic) BCHSBColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
-@property(retain, nonatomic) MSModePickerView *fillColorTypePicker; // @synthesize fillColorTypePicker=_fillColorTypePicker;
-@property(retain, nonatomic) MSModePickerView *borderColorTypePicker; // @synthesize borderColorTypePicker=_borderColorTypePicker;
-@property(nonatomic) __weak MSAlternatingView *hsbFieldsView; // @synthesize hsbFieldsView=_hsbFieldsView;
-@property(nonatomic) __weak MSAlternatingView *rgbFieldsView; // @synthesize rgbFieldsView=_rgbFieldsView;
+@property(retain, nonatomic) MSColorModePickerController *colorModePickerController; // @synthesize colorModePickerController=_colorModePickerController;
 @property(nonatomic) __weak id <MSColorInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
@@ -77,27 +64,28 @@
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
-- (void)dealloc;
 - (void)colorMagnifierAction:(id)arg1;
-- (void)setColorTabIndex:(unsigned long long)arg1;
-- (unsigned long long)colorTabIndex;
-- (void)switchToColorTabAtIndex:(unsigned long long)arg1;
+- (BOOL)acceptsFirstResponder;
+- (void)modeDidChangeToFillType:(unsigned long long)arg1 gradientType:(long long)arg2;
 - (void)reloadTouchBarsAfterSelectionChange:(id)arg1;
 - (void)reloadTouchBars;
+- (void)revertToDefaultFirstResponder;
+- (void)adjustFirstResponder;
 - (void)refreshTabbingCycle;
-- (void)pickerViewChanged:(id)arg1;
-- (void)pickerViewWillChange:(id)arg1;
-- (id)pickerView:(id)arg1 labelForMode:(long long)arg2;
+- (void)colorPickerController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (id)filteredStyleParts:(id)arg1;
+- (void)reflectEffectiveStyleParts;
 - (void)close;
 - (void)refreshAction:(id)arg1;
 - (void)colorChangedTo:(id)arg1;
-- (void)colorPickerAction:(id)arg1;
+- (void)subviewsChangedInColorPickerController:(id)arg1;
+- (id)documentColorSpaceForClient:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
+- (void)colorPickerController:(id)arg1 colorDidChange:(id)arg2;
+- (void)setColorWithoutNotifying:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
-- (id)hsbColorPickerDocumentColorSpace:(id)arg1;
-- (id)hsbColorPickerPreviewColorSpace:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;
@@ -108,22 +96,23 @@
 - (void)validateEnableButtons;
 - (id)currentSection;
 - (long long)colorTypePickerModeForStyle:(id)arg1;
-- (long long)currentColorTypePickerMode;
-- (long long)initialColorTypePickerMode;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
+- (void)findFrequentImages;
 - (void)findFrequentColors;
+- (void)findFrequentObjects;
 - (void)prepareForDisplay;
 - (void)setInitialColor:(id)arg1;
-- (id)currentModePicker;
 - (void)inspectorSectionDidUpdate:(id)arg1;
 - (id)documentAssets;
 - (void)didRemoveAssetOfType:(unsigned long long)arg1;
 - (void)didAddAsset:(id)arg1;
+- (void)setModePickerInitialMode;
+- (void)updateModePickerForCurrentStyles;
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
-- (void)colorModeViewDidChange:(id)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;
 
 // Remaining properties

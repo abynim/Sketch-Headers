@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSModelObjectCommon.h"
+#import <SketchModel/MSModelObjectCommon.h>
 
-#import "MSCoding-Protocol.h"
-#import "MSModelObject-Protocol.h"
+#import <SketchModel/MSCoding-Protocol.h>
+#import <SketchModel/MSModelObject-Protocol.h>
 
-@class NSArray, NSString;
+@class MSModelObjectCacheGeneration, NSArray, NSString;
 
 @interface MSImmutableModelObject : MSModelObjectCommon <MSModelObject, MSCoding>
 {
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (Class)mutableClass;
+- (void).cxx_destruct;
 - (id)migrationsInList:(SEL *)arg1;
 - (SEL *)migrationListForClass:(Class)arg1;
 - (SEL *)allocateMigrationListForClass:(Class)arg1;
@@ -35,9 +37,11 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
+- (id)initWithMinimalSetup;
 - (id)newMutableCounterpart;
 - (BOOL)shouldDiffSubObjectsForDifferingObject:(id)arg1;
 - (BOOL)differsFromObject:(id)arg1;

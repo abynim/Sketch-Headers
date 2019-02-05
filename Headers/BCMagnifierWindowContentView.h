@@ -6,15 +6,15 @@
 
 #import <AppKit/NSView.h>
 
-@class BCFlexibleColor, BCScreenGrab;
+@class BCScreenGrab, MSFlexibleColor;
 
 @interface BCMagnifierWindowContentView : NSView
 {
     BCScreenGrab *_screenGrab;
-    BCFlexibleColor *_currentColor;
+    MSFlexibleColor *_currentColor;
 }
 
-@property(retain, nonatomic) BCFlexibleColor *currentColor; // @synthesize currentColor=_currentColor;
+@property(retain, nonatomic) MSFlexibleColor *currentColor; // @synthesize currentColor=_currentColor;
 @property(retain, nonatomic) BCScreenGrab *screenGrab; // @synthesize screenGrab=_screenGrab;
 - (void).cxx_destruct;
 - (void)drawMiddlePixel;

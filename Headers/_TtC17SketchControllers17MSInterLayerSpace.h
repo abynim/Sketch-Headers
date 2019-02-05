@@ -7,11 +7,12 @@
 #import <objc/NSObject.h>
 
 @class MSLayer, MSLayoutDimension;
+@protocol MSSnappable;
 
 @interface _TtC17SketchControllers17MSInterLayerSpace : NSObject
 {
-    // Error parsing type: , name: firstLayer
-    // Error parsing type: , name: secondLayer
+    // Error parsing type: , name: firstItem
+    // Error parsing type: , name: secondItem
     // Error parsing type: , name: axis
     // Error parsing type: , name: widthAnchor.storage
     // Error parsing type: , name: heightAnchor.storage
@@ -21,10 +22,10 @@
 - (id)init;
 @property(nonatomic, retain) MSLayoutDimension *heightAnchor;
 @property(nonatomic, retain) MSLayoutDimension *widthAnchor;
-- (id)initWithLayer:(id)arg1 layer:(id)arg2 axis:(unsigned long long)arg3;
+- (id)initWithItem:(id)arg1 item:(id)arg2 axis:(unsigned long long)arg3;
 @property(nonatomic, readonly) unsigned long long axis; // @synthesize axis;
-@property(nonatomic, readonly) MSLayer *secondLayer; // @synthesize secondLayer;
-@property(nonatomic, readonly) MSLayer *firstLayer; // @synthesize firstLayer;
+@property(nonatomic, readonly) MSLayer *secondItem; // @synthesize secondItem;
+@property(nonatomic, readonly) id <MSSnappable> firstItem; // @synthesize firstItem;
 
 @end
 

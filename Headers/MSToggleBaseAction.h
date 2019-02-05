@@ -10,11 +10,14 @@
 {
 }
 
+- (long long)validationStatus;
 - (BOOL)isActive;
-- (id)root;
-- (void)setGrid:(id)arg1;
-- (id)grid;
-- (id)prepareNewGrid;
+- (BOOL)hasDynamicTitle;
+- (id)currentRoots;
+- (id)grids;
+- (void)setGrid:(id)arg1 forLayer:(id)arg2;
+- (id)gridForLayer:(id)arg1;
+- (id)prepareNewGrid:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 
 @end

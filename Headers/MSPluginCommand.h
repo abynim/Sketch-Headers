@@ -85,7 +85,7 @@
 - (void)tearDownSession;
 - (void)setUpSessionWithContext:(id)arg1;
 - (void)newSessionForURL:(id)arg1 shouldReload:(BOOL)arg2;
-- (void)loadAPISupport;
+- (void)loadJSGlobals;
 - (id)flattenedHandlerIndexWithHandlers:(id)arg1;
 - (void)dealloc;
 - (id)initWithScript:(id)arg1 identifier:(id)arg2 name:(id)arg3 handlers:(id)arg4 shortcut:(id)arg5 scope:(unsigned long long)arg6;

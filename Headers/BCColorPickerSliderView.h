@@ -10,11 +10,21 @@
 {
     BOOL _handlingHistoryCoalescing;
     BOOL _groupingUndo;
+    double _value;
 }
 
 @property(nonatomic, getter=isGroupingUndo) BOOL groupingUndo; // @synthesize groupingUndo=_groupingUndo;
 @property(nonatomic) BOOL handlingHistoryCoalescing; // @synthesize handlingHistoryCoalescing=_handlingHistoryCoalescing;
+@property(nonatomic) double value; // @synthesize value=_value;
+- (double)valueForEvent:(id)arg1;
+- (double)valueForXPosition:(double)arg1;
+- (double)xPositionForValue:(double)arg1;
+- (struct CGRect)activeBounds;
 - (void)drawSelectionMarkerAtPosition:(long long)arg1;
+- (struct CGRect)markerRectAtPosition:(double)arg1;
+- (struct CGRect)markerRectForValue:(double)arg1;
+- (void)drawForeground;
+- (void)drawRect:(struct CGRect)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 

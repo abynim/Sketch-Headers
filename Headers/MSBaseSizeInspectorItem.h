@@ -26,7 +26,6 @@
 @property(retain, nonatomic) MSSizeInspectorValueAdaptor *widthAdapter; // @synthesize widthAdapter=_widthAdapter;
 - (void).cxx_destruct;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
-- (void)showSizeAlertForValue:(double)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;

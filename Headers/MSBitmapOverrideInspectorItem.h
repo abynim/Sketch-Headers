@@ -21,7 +21,6 @@
 - (id)dataOverrides;
 - (void)dataMenuProviderRefreshMasterData:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (unsigned long long)supportedDataProviders;
 - (id)overrideImage;
 - (id)NSImage;
 - (id)valueFromControlView:(id)arg1;

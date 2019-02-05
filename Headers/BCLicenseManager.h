@@ -6,62 +6,61 @@
 
 #import <objc/NSObject.h>
 
-@class BCLicense, NSDate, NSString, NSURL, NSURLSession;
+@class NSDate, NSString, NSURL;
+@protocol BCLicense;
 
 @interface BCLicenseManager : NSObject
 {
     BOOL _completedLoadingLicense;
-    BCLicense *_license;
-    NSString *_applicationID;
-    NSString *_publicCertificate;
+    id <BCLicense> _license;
     NSURL *_licenseURL;
-    NSURLSession *_urlSession;
     NSDate *_applicationBuildDate;
     NSString *_applicationVariant;
 }
 
++ (void)enableCloud;
++ (BOOL)cloudEnabled;
++ (void)load;
 @property(retain, nonatomic) NSString *applicationVariant; // @synthesize applicationVariant=_applicationVariant;
 @property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
-@property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(retain, nonatomic) NSURL *licenseURL; // @synthesize licenseURL=_licenseURL;
-@property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
-@property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
-@property(retain, nonatomic) BCLicense *license; // @synthesize license=_license;
+@property(readonly, nonatomic) id <BCLicense> license; // @synthesize license=_license;
 - (void).cxx_destruct;
-- (id)apiURLForMethod:(id)arg1 queryItems:(id)arg2;
-- (id)apiURL;
-- (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
-- (id)metadataAPIURL;
 - (id)websiteAvailableVersionsURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
-- (id)currentVersion;
-- (void)processURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)performUnregisterCall:(id)arg1;
-- (void)unregister;
-- (void)unregisterWithPrompt;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
-- (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)requestTrialLicenseWithHandler:(CDUnknownBlockType)arg1;
 - (void)fallbackToTrial:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)processLicenseRefreshResult:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)tryToRefreshLicense:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (long long)numberOfDaysLeftInTrialMode;
 - (BOOL)canRenewLicense;
 - (BOOL)canInstallUpdates;
 - (id)updateExpirationDate;
 - (id)registeredEmailAddress;
+- (id)currentLicenseIdentifier;
+- (id)currentLicenseProvider;
+- (id)currentLicenseState;
 - (long long)currentLicenseType;
 - (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
+- (BOOL)applyLicense:(id)arg1;
+- (void)networkTimeDidChangeNotification:(id)arg1;
+- (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
+- (void)unregister;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)tryToRefreshLicense:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshLicenseIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (BOOL)obtainCloudLicenseIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)obtainCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)obtainFallbackCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)obtainFallbackTrialLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4 applicationVariant:(id)arg5;
 @property(readonly, nonatomic) BOOL canUseCloud;
 

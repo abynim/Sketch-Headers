@@ -4,13 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import "NSStackViewDelegate-Protocol.h"
 
 @class MSModePickerView, NSString;
 
-@protocol MSModeModePickerDelegate <NSObject>
+@protocol MSModeModePickerDelegate <NSStackViewDelegate>
 - (NSString *)pickerView:(MSModePickerView *)arg1 labelForMode:(long long)arg2;
-- (void)pickerViewChanged:(MSModePickerView *)arg1;
-- (void)pickerViewWillChange:(MSModePickerView *)arg1;
+- (void)pickerViewDidChangeMode:(MSModePickerView *)arg1;
 @end
 
