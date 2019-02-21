@@ -33,14 +33,14 @@
 - (void).cxx_destruct;
 - (id)parentShapeInAncestors:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatDoNotCascade;
+- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 @property(readonly, nonatomic) BOOL hasCalculatedInfluenceRectForBounds;
 - (id)pathInFrameWithTransformsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
 - (id)pathInFrameInDocument:(id)arg1 asSubpath:(BOOL)arg2;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
-- (id)pathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
+- (id)pathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;

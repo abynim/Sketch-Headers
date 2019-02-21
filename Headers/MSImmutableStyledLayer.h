@@ -41,7 +41,7 @@
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)decoratedPathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascade;
+- (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
 - (void)applyPropertiesToBezier:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;

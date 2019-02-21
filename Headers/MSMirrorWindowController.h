@@ -12,7 +12,7 @@
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 
-@class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, WKWebView;
+@class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, NSURL, WKWebView;
 
 @interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler, NSToolbarDelegate>
 {
@@ -77,6 +77,7 @@
 - (void)localizeFrontend;
 - (void)whitelistClientID;
 - (void)startLoading;
+@property(readonly, nonatomic) NSURL *currentURL;
 - (BOOL)validateMenuItem:(id)arg1;
 @property(readonly, nonatomic) struct CGRect fittingWindowFrame;
 @property(readonly, nonatomic) struct CGRect viewPort; // @dynamic viewPort;

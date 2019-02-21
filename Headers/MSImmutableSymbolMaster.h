@@ -33,6 +33,7 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)convertOverridePropertiesToLocalDictionary:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
+- (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;

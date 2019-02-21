@@ -24,7 +24,7 @@
 + (id)defaultName;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;
 - (id)keysDifferingFromObject:(id)arg1;

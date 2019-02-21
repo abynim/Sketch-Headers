@@ -29,7 +29,7 @@
 - (id)modifiedMasterInDocument:(id)arg1;
 - (id)prepareModifiedMasterInDocument:(id)arg1;
 - (id)modifiedMasterCacheKeyInDocument:(id)arg1;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (BOOL)shouldCreateModifiedMasterForMaster:(id)arg1 inDocument:(id)arg2;
 - (id)availableOverrideValuesWithDocument:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
@@ -37,6 +37,7 @@
 - (BOOL)isScaled;
 - (struct CGRect)paddedInfluenceRect:(struct CGRect)arg1 withPaddingsFromMasterInDocument:(id)arg2 visitedSymbols:(id)arg3;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (id)overridesFromGroupForMigration:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)initWithMinimalSetup;
