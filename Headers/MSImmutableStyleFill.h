@@ -15,7 +15,6 @@
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
-- (void)updateColorCounter:(id)arg1;
 - (void)migratePropertiesFromV115OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;

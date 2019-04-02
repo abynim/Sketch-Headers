@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSGridRenderer-Protocol.h"
+#import <SketchRendering/MSGridRenderer-Protocol.h>
 
 @class NSString;
 

@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-#import "BCSortable-Protocol.h"
-#import "MSSharedObjectStyling-Protocol.h"
+#import <SketchControllers/BCSortable-Protocol.h>
+#import <SketchControllers/MSSharedObjectStyling-Protocol.h>
 
 @class MSAssetLibrary, MSModelObject, NSString;
 @protocol BCSortable><MSSharedObjectStyling;

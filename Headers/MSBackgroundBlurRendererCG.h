@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSBackgroundBlurRenderer-Protocol.h"
+#import <SketchRendering/MSBackgroundBlurRenderer-Protocol.h>
 
 @class NSString;
 

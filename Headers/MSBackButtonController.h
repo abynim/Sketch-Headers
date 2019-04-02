@@ -16,6 +16,7 @@
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
 - (void)hide;
+- (void)show;
 - (void)attachToView:(id)arg1;
 - (void)backButtonAction:(id)arg1;
 

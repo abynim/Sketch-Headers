@@ -6,26 +6,24 @@
 
 #import "MSCloudPreferencesViewController.h"
 
-@class MSCloudAvatarView, NSProgressIndicator, NSTextField, SCKUser;
+@class MSCloudAvatarView, NSProgressIndicator, NSStackView, NSTextField;
 
 @interface MSCloudPreferencesAccountViewController : MSCloudPreferencesViewController
 {
-    BOOL _loading;
     NSTextField *_introLabel;
     MSCloudAvatarView *_avatarView;
+    NSStackView *_metadataStackView;
     NSTextField *_nameLabel;
     NSTextField *_emailLabel;
     NSProgressIndicator *_progressIndicator;
     NSTextField *_errorLabel;
-    SCKUser *_user;
 }
 
-@property(retain, nonatomic) SCKUser *user; // @synthesize user=_user;
-@property(nonatomic) BOOL loading; // @synthesize loading=_loading;
 @property(retain, nonatomic) NSTextField *errorLabel; // @synthesize errorLabel=_errorLabel;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSTextField *emailLabel; // @synthesize emailLabel=_emailLabel;
 @property(retain, nonatomic) NSTextField *nameLabel; // @synthesize nameLabel=_nameLabel;
+@property(retain, nonatomic) NSStackView *metadataStackView; // @synthesize metadataStackView=_metadataStackView;
 @property(retain, nonatomic) MSCloudAvatarView *avatarView; // @synthesize avatarView=_avatarView;
 @property(retain, nonatomic) NSTextField *introLabel; // @synthesize introLabel=_introLabel;
 - (void).cxx_destruct;
@@ -33,13 +31,14 @@
 - (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (id)willPresentError:(id)arg1;
 - (void)logout:(id)arg1;
-- (void)updateUserData;
+- (void)showError:(id)arg1;
+- (void)showUser:(id)arg1;
+- (void)updateIntroLabel;
 - (void)loadUser;
-- (void)platformDidChangeNotification:(id)arg1;
+- (void)environmentDidChangeNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
 - (void)applicationDidBecomeActiveNotification:(id)arg1;
 - (void)dealloc;
-- (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 

@@ -35,6 +35,7 @@
 @property(retain, nonatomic) MSSliceTrimTransparencyInspectorItem *trimTransparencyItem; // @synthesize trimTransparencyItem=_trimTransparencyItem;
 @property(retain, nonatomic) MSExportPreviewImagesInspectorItem *imagesItem; // @synthesize imagesItem=_imagesItem;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (BOOL)wantsSeparatorAfterViews;
 - (id)footerViews;
 - (void)addExportFormat:(id)arg1;

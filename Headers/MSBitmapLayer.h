@@ -15,7 +15,7 @@
 }
 
 + (unsigned long long)traits;
-- (void)correctInvalidGamma;
+- (double)scale;
 - (void)resizeToOriginalSize;
 - (struct CGSize)originalSize;
 - (BOOL)isAtOriginalSize;
@@ -30,6 +30,7 @@
 - (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
+- (void)correctInvalidGamma;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 

@@ -52,6 +52,7 @@
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;

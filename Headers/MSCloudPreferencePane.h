@@ -26,6 +26,7 @@
 - (id)willPresentError:(id)arg1;
 - (void)platformDidChangeNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
+- (void)userDidSignIn;
 - (void)signIn;
 - (void)fixFirstResponder;
 - (void)updateWindowFrame;

@@ -6,6 +6,7 @@
 
 #import <objc/NSObject.h>
 
+__attribute__((visibility("hidden")))
 @interface _TtC17SketchControllers20MSSavedLayerGeometry : NSObject
 {
     // Error parsing type: , name: layer

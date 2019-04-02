@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCollectionViewDataSource-Protocol.h"
+#import <SketchControllers/NSCollectionViewDataSource-Protocol.h>
 
 @class MSAssetCollection, NSIndexSet, NSString;
 @protocol MSAsset, MSAssetCollectionViewSourceDelegate, MSAssetCollectionViewSourceItemProvider;
@@ -15,6 +15,7 @@
 {
     BOOL _isLibrary;
     unsigned long long _assetType;
+    NSString *_identifier;
     NSString *_name;
     NSString *_title;
     id <MSAssetCollectionViewSourceDelegate> _delegate;
@@ -34,6 +35,7 @@
 @property(nonatomic) BOOL isLibrary; // @synthesize isLibrary=_isLibrary;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
 - (void).cxx_destruct;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
@@ -47,14 +49,14 @@
 - (void)deleteAssetAtIndexPath:(id)arg1;
 - (id)nameOfAssetAtIndexPath:(id)arg1;
 - (void)setName:(id)arg1 ofAssetAtIndexPath:(id)arg2;
-- (id)addAsset:(id)arg1;
+- (id)addAsset:(id)arg1 withName:(id)arg2;
 - (id)assetAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfAssets;
 - (void)prepareCollectionView:(id)arg1;
 - (void)collectionDidMutate;
 - (id)pasteboardRepresentationForIndexPath:(id)arg1;
 - (void)registerDraggedTypesForCollectionView:(id)arg1;
-- (id)initWithAssetCollection:(id)arg1 assetType:(unsigned long long)arg2 name:(id)arg3 title:(id)arg4 isLibrary:(BOOL)arg5 delegate:(id)arg6;
+- (id)initWithAssetCollection:(id)arg1 assetType:(unsigned long long)arg2 identifier:(id)arg3 name:(id)arg4 title:(id)arg5 isLibrary:(BOOL)arg6 delegate:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

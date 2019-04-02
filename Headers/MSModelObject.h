@@ -9,12 +9,13 @@
 #import <SketchModel/MSModelObject-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, MSLayerGroup, NSString;
+@class MSDocumentData, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
     id _cachedImmutableModelObject;
     BOOL _isFault;
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObject *_parentObject;
     MSDocumentData *_documentData;
 }
@@ -35,12 +36,15 @@
 - (void)invalidateImmutableObject;
 - (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
+- (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
 - (void)fireFaultIfNecessary;
 - (void)fireFault;
+@property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (void)correctInvalidGamma;
 - (void)clearCachedValueForKey:(id)arg1;
 - (void)clearCache;
 - (void)updateCachedValue:(id)arg1 forKey:(id)arg2;

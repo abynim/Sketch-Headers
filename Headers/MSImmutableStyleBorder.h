@@ -11,7 +11,6 @@
 }
 
 + (id)defaultName;
-- (void)updateColorCounter:(id)arg1;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class _TtC17SketchControllers12MSLayerMover;
+@class MSLayerPositioningTool;
 
 @interface MSLayerDraggingSnapTargetGenerator : NSObject
 {
@@ -21,7 +21,7 @@
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
 @property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible;
-@property(nonatomic, readonly) _TtC17SketchControllers12MSLayerMover *tool; // @synthesize tool;
+@property(nonatomic, readonly) MSLayerPositioningTool *tool; // @synthesize tool;
 - (id)initWithTool:(id)arg1;
 
 @end

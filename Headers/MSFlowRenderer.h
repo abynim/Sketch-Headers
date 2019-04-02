@@ -47,8 +47,8 @@
 - (void)renderFlowsItems:(id)arg1 selectedLayerIDs:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
 - (void)renderFlowItems:(id)arg1 selectedLayerIDs:(id)arg2 backingScaleFactor:(double)arg3 translation:(struct CGPoint)arg4 zoomLevel:(double)arg5 renderer:(id)arg6 settings:(id)arg7;
 - (id)flowAnnotationsTexture:(double)arg1 renderer:(id)arg2 settings:(id)arg3;
-- (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2;
-- (struct MSTextureVertexQuad)textureVertexQuadWithName:(id)arg1 size:(struct CGSize *)arg2;
+- (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2 backingScaleFactor:(double)arg3;
+- (struct MSTextureVertexQuad)textureVertexQuadWithName:(id)arg1 scaledToWidth:(double)arg2 size:(struct CGSize *)arg3 backingScaleFactor:(double)arg4;
 - (id)arcVertexBufferForItems:(id)arg1 selectedLayerIDs:(id)arg2 zoomLevel:(double)arg3;
 
 @end

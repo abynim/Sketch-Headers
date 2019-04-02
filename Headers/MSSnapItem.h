@@ -6,16 +6,17 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/MSSnappable-Protocol.h>
+
 @class MSLayer, MSLayoutDimension, MSLayoutPosition, NSArray, NSString;
 @protocol MSSnappable;
 
-@interface MSSnapItem : NSObject
+@interface MSSnapItem : NSObject <MSSnappable>
 {
     NSArray *_layers;
     struct CGRect _rectAtInit;
 }
 
-+ (id)candidateSpacingsBetweenLayers:(id)arg1 alongAxis:(unsigned long long)arg2;
 + (id)snapItemWithLayers:(id)arg1;
 @property(nonatomic) struct CGRect rectAtInit; // @synthesize rectAtInit=_rectAtInit;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
@@ -27,7 +28,6 @@
 - (void)concatAncestorsAndSelfTransforms;
 - (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 @property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
-- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
 @property(nonatomic) struct CGRect rectForSnapping;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;

@@ -8,11 +8,10 @@
 
 #import <SketchModel/MSModelObjectCommon-Protocol.h>
 
-@class MSModelObjectCache, MSModelObjectCacheGeneration, NSArray, NSString;
+@class MSModelObjectCache, NSArray, NSString;
 
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
-    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     NSString *_objectID;
     MSModelObjectCache *_cache;
 }
@@ -21,9 +20,7 @@
 + (id)generateObjectID;
 + (id)defaultName;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL hasModelObjectCacheGeneration;
-@property(readonly) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (unsigned long long)traits;
 - (id)primitiveObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;

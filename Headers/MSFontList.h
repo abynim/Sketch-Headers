@@ -13,15 +13,15 @@
     unsigned long long _cachingIndex;
     NSArray *_documentFontFamilyNames;
     MSDocumentData *_documentData;
-    NSArray *_systemFonts;
-    NSArray *_allFonts;
-    NSArray *_filterFonts;
+    NSArray *_systemFontFamilyNames;
+    NSArray *_allFontFamilyNames;
+    NSArray *_filteredFontFamilyNames;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) NSArray *filterFonts; // @synthesize filterFonts=_filterFonts;
-@property(retain, nonatomic) NSArray *allFonts; // @synthesize allFonts=_allFonts;
-@property(retain, nonatomic) NSArray *systemFonts; // @synthesize systemFonts=_systemFonts;
+@property(retain, nonatomic) NSArray *filteredFontFamilyNames; // @synthesize filteredFontFamilyNames=_filteredFontFamilyNames;
+@property(retain, nonatomic) NSArray *allFontFamilyNames; // @synthesize allFontFamilyNames=_allFontFamilyNames;
+@property(retain, nonatomic) NSArray *systemFontFamilyNames; // @synthesize systemFontFamilyNames=_systemFontFamilyNames;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(copy, nonatomic) NSArray *documentFontFamilyNames; // @synthesize documentFontFamilyNames=_documentFontFamilyNames;
 - (void).cxx_destruct;
@@ -29,12 +29,14 @@
 - (void)stopCachingFonts;
 - (void)dispatchStartCachingFonts;
 - (void)startCachingFonts;
+- (id)localizedFontNameSortDescriptor;
 - (void)clearFilter;
 - (void)filter:(id)arg1;
 - (id)fontForFontFamilyAtIndex:(unsigned long long)arg1;
 - (id)nameOfFontFamilyAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfFontFamilies;
 - (void)findCommonFontsInDocument:(id)arg1;
+- (id)localizeFontNames:(id)arg1;
 - (void)findSystemFonts;
 - (void)reloadFonts;
 - (id)initWithDocumentData:(id)arg1;

@@ -11,13 +11,13 @@
 #import "MSFrequentColorsControllerDelegate-Protocol.h"
 #import "MSKeyViewProvider-Protocol.h"
 
-@class BCHSBColorPicker, MSColor, MSColorComponentsController, MSFrequentColorsController, MSGenericButtonController, NSString, NSView;
+@class BCHSBColorPicker, MSColor, MSColorComponentsController, MSFlexibleColor, MSFrequentColorsController, MSGenericButtonController, NSString, NSView;
 @protocol MSColorPickerViewControllerDelegate;
 
 @interface MSColorPickerViewController : NSViewController <BCHSBColorPickerDelegate, MSColorComponentsControllerDelegate, MSFrequentColorsControllerDelegate, MSKeyViewProvider>
 {
     BOOL _multipleValues;
-    MSColor *_color;
+    BOOL _connectedToColorPanel;
     BCHSBColorPicker *_colorPicker;
     id <MSColorPickerViewControllerDelegate> _delegate;
     MSColorComponentsController *_componentsController;
@@ -25,8 +25,11 @@
     MSFrequentColorsController *_frequentColorsController;
     MSGenericButtonController *_frequentColorsButton;
     long long _colorModel;
+    MSFlexibleColor *_flexibleColor;
 }
 
+@property(nonatomic) BOOL connectedToColorPanel; // @synthesize connectedToColorPanel=_connectedToColorPanel;
+@property(retain, nonatomic) MSFlexibleColor *flexibleColor; // @synthesize flexibleColor=_flexibleColor;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 @property(nonatomic) BOOL multipleValues; // @synthesize multipleValues=_multipleValues;
 @property(retain, nonatomic) MSGenericButtonController *frequentColorsButton; // @synthesize frequentColorsButton=_frequentColorsButton;
@@ -35,8 +38,10 @@
 @property(retain, nonatomic) MSColorComponentsController *componentsController; // @synthesize componentsController=_componentsController;
 @property(nonatomic) __weak id <MSColorPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCHSBColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
-@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+- (void)systemColorPanelDidChangeColor:(id)arg1;
+- (void)disconnectFromColorPanel;
+- (void)connectToColorPanel;
 @property(readonly, nonatomic) NSView *preferredFirstResponder;
 @property(readonly, nonatomic) NSView *lastKeyView;
 @property(readonly, nonatomic) NSView *firstKeyView;
@@ -47,11 +52,15 @@
 - (void)frequentColorsControllerMenuDidClose:(id)arg1;
 - (void)frequentColorsController:(id)arg1 didChooseColor:(id)arg2;
 - (void)showFrequentColors:(id)arg1;
+- (void)colorPickerAction:(id)arg1;
 - (id)sectionHeaderAccessoryViewControllers;
 - (void)setFrequentColors:(id)arg1;
 - (void)updateChildControllers;
+- (void)setFlexibleColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
-- (void)colorPickerAction:(id)arg1;
+@property(retain, nonatomic) MSColor *color;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithDelegate:(id)arg1;

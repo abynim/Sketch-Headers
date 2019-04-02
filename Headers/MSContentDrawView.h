@@ -10,7 +10,7 @@
 #import "MSOverlayRenderingDelegate-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSCacheManager, MSContentDrawViewParent, MSDocument, MSEventHandlerManager, MSFlowItemCollector, MSImmutableDocumentData, MSMouseTracker, MSOverlayColorSettings, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledRenderer, MSViewPort, MSZoomTool, NSDictionary, NSNumberFormatter, NSString;
+@class MSCacheManager, MSContentDrawViewParent, MSDocument, MSEventHandlerManager, MSFlowItemCollector, MSImmutableDocumentData, MSMouseTracker, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledRenderer, MSViewPort, MSVisualSettings, MSZoomTool, NSDictionary, NSNumberFormatter, NSString;
 @protocol MSContentDrawViewDelegate;
 
 @interface MSContentDrawView : NSView <MSOverlayRenderingDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
@@ -27,7 +27,6 @@
     BOOL _didMouseDown;
     BOOL _needsUpdateCursor;
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
-    BOOL _redrawPending;
     BOOL _isMagnifying;
     BOOL _didMouseDragged;
     BOOL _refreshAfterSettingsChangeScheduled;
@@ -39,6 +38,7 @@
     MSRulerView *_verticalRuler;
     MSDocument *_document;
     MSRenderMonitor *_pendingMonitor;
+    MSRenderingDriver *_driver;
     MSCacheManager *_cacheManager;
     MSMouseTracker *_mouseTracker;
     unsigned long long _handToolState;
@@ -47,10 +47,9 @@
     MSImmutableDocumentData *_previouslyRenderedDoc;
     NSNumberFormatter *_measurementLabelNumberFormatter;
     MSRenderMonitor *_performanceMonitor;
-    MSRenderingDriver *_normalDriver;
-    MSRenderingDriver *_debugDriver;
     MSFlowItemCollector *_flowCollector;
     NSDictionary *_cachedFlows;
+    MSVisualSettings *_visualSettings;
     NSString *_acceleratorClassName;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
@@ -62,16 +61,14 @@
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
 @property(retain, nonatomic) NSString *acceleratorClassName; // @synthesize acceleratorClassName=_acceleratorClassName;
+@property(retain, nonatomic) MSVisualSettings *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
 @property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
-@property(retain, nonatomic) MSRenderingDriver *debugDriver; // @synthesize debugDriver=_debugDriver;
-@property(retain, nonatomic) MSRenderingDriver *normalDriver; // @synthesize normalDriver=_normalDriver;
 @property(nonatomic) BOOL refreshAfterSettingsChangeScheduled; // @synthesize refreshAfterSettingsChangeScheduled=_refreshAfterSettingsChangeScheduled;
 @property(nonatomic) BOOL didMouseDragged; // @synthesize didMouseDragged=_didMouseDragged;
 @property(retain, nonatomic) MSRenderMonitor *performanceMonitor; // @synthesize performanceMonitor=_performanceMonitor;
 @property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
-@property(nonatomic) BOOL redrawPending; // @synthesize redrawPending=_redrawPending;
 @property(nonatomic) BOOL haveStoredMostRecentFullScaleScrollOrigin; // @synthesize haveStoredMostRecentFullScaleScrollOrigin=_haveStoredMostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint mostRecentFullScaleScrollOrigin; // @synthesize mostRecentFullScaleScrollOrigin=_mostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
@@ -84,6 +81,7 @@
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
+@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(retain, nonatomic) MSRenderMonitor *pendingMonitor; // @synthesize pendingMonitor=_pendingMonitor;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
@@ -167,8 +165,8 @@
 - (struct CGRect)transformRectToViewCoords:(struct CGRect)arg1;
 - (struct CGSize)_viewSizeInPixels;
 - (void)redrawContentImmediately;
-@property(readonly, nonatomic) MSOverlayColorSettings *rendererColorSettings;
 - (void)scheduleRedraw;
+- (void)windowDidChange;
 - (BOOL)hasUserFocus;
 - (void)refreshRulers;
 - (struct CGPoint)mouseInView;
@@ -208,10 +206,9 @@
 - (void)placeOriginInTopLeft;
 - (void)centerDocumentAndPlaceScrollOriginInTopLeft;
 - (void)centerInBounds;
-- (void)pageDidChange:(id)arg1;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
-- (void)visualSettingChanged:(id)arg1;
+- (void)userDefaultsChanged:(id)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
 - (void)prepare;
 - (void)pixelGridDidChange;
@@ -223,12 +220,10 @@
 - (void)viewDidMoveToWindow;
 - (void)removeObserversForNotifications;
 - (void)addObserversForNotifications;
-@property(readonly, nonatomic) MSRenderingDriver *driver;
-- (BOOL)useDebugDriver;
 - (void)endImporting;
 - (void)beginImporting;
 - (void)initTiledRenderer;
-- (void)initDrivers;
+- (void)initDriver;
 - (void)dealloc;
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;

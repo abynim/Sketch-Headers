@@ -17,7 +17,7 @@
 - (void)addTargetAtPoint:(struct CGPoint)arg1 guideInfo:(id)arg2;
 - (void)addAxisAlignedTargetsWithThrough:(struct CGPoint)arg1;
 - (void)addTargetWithLine:(struct BCLine)arg1 guideInfo:(id)arg2;
-- (void)addTargetWithLine:(struct BCLine)arg1 guideInfoProvider:(CDUnknownBlockType)arg2;
+- (void)addTargetWithLine:(struct BCLine)arg1 infoProvider:(CDUnknownBlockType)arg2;
 @property(nonatomic, readonly) double snapDistance;
 @property(nonatomic, readonly) struct CGPoint defaultPoint;
 - (id)initWithPoint:(struct CGPoint)arg1 snapDistance:(double)arg2 constraint:(struct BCLine)arg3;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSGPURenderer-Protocol.h"
+#import <SketchRendering/MSGPURenderer-Protocol.h>
 
 @class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSString;
 @protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
@@ -39,6 +39,7 @@
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
++ (BOOL)isCompatibleWithAvailableGPUs;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
 @property(retain, nonatomic) id <MTLBuffer> textureIndexesBuffer; // @synthesize textureIndexesBuffer=_textureIndexesBuffer;
@@ -63,6 +64,7 @@
 @property(retain, nonatomic) id <MTLCommandBuffer> currentCommands; // @synthesize currentCommands=_currentCommands;
 @property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
 - (void).cxx_destruct;
+- (CDStruct_ffe6b7c1)maximumTextureSize;
 - (void)unlockTextures;
 - (void)lockTextures;
 - (BOOL)requiresSynchronousRendering;
@@ -74,7 +76,7 @@
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
 - (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(id)arg3;
 - (void)drawTextureVertexBuffer:(id)arg1 sourceTexture:(id)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
-- (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
+- (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
 - (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;

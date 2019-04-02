@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSColorConverter-Protocol.h"
+#import <SketchControllers/MSColorConverter-Protocol.h>
 
 @class NSColorSpace, NSString;
 

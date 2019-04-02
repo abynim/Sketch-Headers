@@ -13,7 +13,7 @@
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (long long)booleanOperation;
-- (BOOL)hasShapePartsSelected;
+- (id)selectedLayersPartakingInBooleanOp;
 - (BOOL)validate;
 
 @end

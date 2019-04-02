@@ -9,14 +9,16 @@
 #import <SketchModel/MSCoding-Protocol.h>
 #import <SketchModel/MSModelObject-Protocol.h>
 
-@class NSArray, NSString;
+@class MSModelObjectCacheGeneration, NSArray, NSString;
 
 @interface MSImmutableModelObject : MSModelObjectCommon <MSModelObject, MSCoding>
 {
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (Class)mutableClass;
+- (void).cxx_destruct;
 - (id)migrationsInList:(SEL *)arg1;
 - (SEL *)migrationListForClass:(Class)arg1;
 - (SEL *)allocateMigrationListForClass:(Class)arg1;
@@ -35,15 +37,18 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;
+- (id)initWithMinimalSetup;
 - (id)newMutableCounterpart;
 - (BOOL)shouldDiffSubObjectsForDifferingObject:(id)arg1;
 - (BOOL)differsFromObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)lightweightCopy_Detach;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

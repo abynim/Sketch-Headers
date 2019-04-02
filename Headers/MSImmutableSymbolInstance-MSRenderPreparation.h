@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableSymbolInstance.h>
 
 @interface MSImmutableSymbolInstance (MSRenderPreparation)
-- (void)prepareSymbolCachesInDocument:(id)arg1 withWorkerQueue:(id)arg2 visitedSymbols:(id)arg3;
+- (void)prepareForRender:(id)arg1;
 @end
 

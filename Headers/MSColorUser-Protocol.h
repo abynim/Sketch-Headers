@@ -4,11 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SketchModel/NSObject-Protocol.h>
-
-@class MSColorCounter;
+#import <SketchControllers/NSObject-Protocol.h>
 
 @protocol MSColorUser <NSObject>
-- (void)updateColorCounter:(MSColorCounter *)arg1;
+@property(readonly, nonatomic) unsigned long long colorUserColorUse;
 @end
 

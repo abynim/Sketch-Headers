@@ -6,14 +6,14 @@
 
 #import "BCColorPickerSliderView.h"
 
-@class BCFlexibleColor;
+@class MSFlexibleColor;
 
 @interface BCAlphaColorPicker : BCColorPickerSliderView
 {
-    BCFlexibleColor *_color;
+    MSFlexibleColor *_color;
 }
 
-@property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;

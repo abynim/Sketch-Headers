@@ -18,6 +18,8 @@
 @property(readonly, nonatomic) double maximumAllowedRadius;
 - (void)resetPathsToRect;
 - (void)resetPoints;
+- (id)CSSAttributes;
+- (id)CSSAttributeString;
 
 @end
 

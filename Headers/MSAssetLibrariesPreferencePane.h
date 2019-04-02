@@ -112,7 +112,7 @@
 - (void)activateSearchField:(id)arg1;
 - (void)syncLibraryItems;
 @property(readonly, nonatomic) MSAssetLibraryController *assetLibraryController;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

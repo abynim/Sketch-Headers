@@ -15,8 +15,8 @@
 
 @property(retain, nonatomic) NSNumber *currentPopoverIndex; // @synthesize currentPopoverIndex=_currentPopoverIndex;
 - (void).cxx_destruct;
-- (void)closeAnyColorPopover;
-- (void)openPopoverAtIndex:(unsigned long long)arg1;
+- (void)closePopoverImmediately:(BOOL)arg1;
+- (void)openPopoverAtIndex:(unsigned long long)arg1 preferringNative:(BOOL)arg2;
 
 @end
 

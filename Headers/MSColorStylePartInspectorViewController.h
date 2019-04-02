@@ -7,26 +7,35 @@
 #import "MSStylePartInspectorViewController.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSColorSpaceProvider-Protocol.h"
+#import "MSNativeColorPanelPresenterDelegate-Protocol.h"
+#import "MSReorderingViewDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
 
-@class BCPopover, MSInspectorValueAdaptor, MSStylePartPreviewButton, NSString;
+@class BCPopover, MSColorInspector, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSString;
 
-@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate>
+@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
     BCPopover *_popover;
+    MSColorInspector *_colorInspector;
+    MSNativeColorPanelPresenter *_colorPanelPresenter;
     MSInspectorValueAdaptor *_stylePartAdaptor;
 }
 
 + (id)fillTypeStringForFillType:(unsigned long long)arg1;
 @property(retain, nonatomic) MSInspectorValueAdaptor *stylePartAdaptor; // @synthesize stylePartAdaptor=_stylePartAdaptor;
+@property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
+@property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 - (void).cxx_destruct;
+- (BOOL)reorderingView:(id)arg1 shouldDeleteItemForDragPosition:(struct CGPoint)arg2;
 - (void)setBlendMode:(long long)arg1 forPreviewButton:(id)arg2;
-- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)documentColorSpaceForClient:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
 - (void)refreshAction:(id)arg1;
 - (void)updateBlendMode;
 - (void)colorInspectorDidChange:(id)arg1;
@@ -34,9 +43,17 @@
 - (void)updateColorInActiveInspector;
 - (void)checkBoxAction:(id)arg1;
 - (void)dismissViewController:(id)arg1;
-- (void)closePopover;
+- (void)closePopoverImmediately:(BOOL)arg1;
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)previewCellAction:(id)arg1;
+- (void)openColorPanelPreferringNative;
+- (id)companionPopoverForColorPanelPresenter:(id)arg1;
+- (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;
+- (BOOL)currentStylePartsContainGradient;
+- (void)setFirstColorForCurrentStyleParts:(id)arg1;
+- (id)getFirstColorFromCurrentStyleParts;
+- (BOOL)showNativeColorPanelIfSuitable;
+- (void)togglePopover;
 - (void)didGetAddedToInspector;
 - (void)prepare;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

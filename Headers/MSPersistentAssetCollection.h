@@ -10,16 +10,19 @@
 
 @interface MSPersistentAssetCollection : MSAssetCollection
 {
+    BOOL _isDirty;
     MSVersionedArchive *_archive;
 }
 
 + (id)assetCollectionFromCurrentBundleWithName:(id)arg1;
 + (Class)immutableClass;
++ (id)assetCollectionWithURL:(id)arg1;
 + (id)assetCollectionWithName:(id)arg1;
 + (id)sharedGlobalAssets;
 + (id)assetCollectionByMigratingPresetsFromSources:(id)arg1;
 + (id)defaultMigrationArchiveForPresetNamed:(id)arg1;
 + (id)defaultMigrationSources;
+@property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
 - (void).cxx_destruct;
 - (void)addNoiseImagesIfNeededForVersion:(long long)arg1 withName:(id)arg2;
@@ -27,6 +30,8 @@
 - (id)resourceNeedingMigration;
 - (void)cleanupAfterTesting;
 - (void)save;
+- (void)saveIfNeeded;
+- (void)invalidateImmutableObject;
 
 @end
 

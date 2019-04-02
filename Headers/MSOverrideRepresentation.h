@@ -34,9 +34,11 @@
 @property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedParentMaster;
 - (id)modifiedMasterForInstanceInMaster:(id)arg1;
 @property(readonly, nonatomic) BOOL isEditable;
+- (void)syncChildrenWithOverridesIfNeeded;
 - (void)dealloc;
 - (id)initWithParent:(id)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1;
+- (id)copyAffectedLayerForPasteboard;
 
 @end
 

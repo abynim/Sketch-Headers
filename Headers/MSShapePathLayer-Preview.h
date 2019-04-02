@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSShapePathLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSShapePathLayer (Preview) <MSLayerPreviewability>
 - (id)unselectedPreviewTemplateImage;

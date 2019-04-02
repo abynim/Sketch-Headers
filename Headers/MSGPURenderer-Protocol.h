@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import <SketchRendering/NSObject-Protocol.h>
 
 @class CALayer, MSArcVertexBuffer, MSGPUArtboardShadow, MSTextureVertexBuffer, NSColor;
 @protocol MSGPUTexture;
 
 @protocol MSGPURenderer <NSObject>
++ (BOOL)isCompatibleWithAvailableGPUs;
 - (void)unlockTextures;
 - (void)lockTextures;
 - (BOOL)requiresSynchronousRendering;
@@ -28,8 +29,9 @@
 - (void)scheduleDrawBlock:(void (^)(void))arg1;
 
 @optional
+- (CDStruct_ffe6b7c1)maximumTextureSize;
 - (void)drawTextureVertexBuffer:(MSTextureVertexBuffer *)arg1 sourceTexture:(id <MSGPUTexture>)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
-- (void)drawArcVertexBuffer:(MSArcVertexBuffer *)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
+- (void)drawArcVertexBuffer:(MSArcVertexBuffer *)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
 - (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchControllers/NSCopying-Protocol.h>
 
 @class NSArray;
 

@@ -10,19 +10,23 @@
 
 @interface MSBooleanOperationChain : NSObject
 {
+    unsigned long long _maximumElementCount;
     MSPath *_subjectPath;
     MSPath *_resultPath;
     NSMutableArray *_steps;
+    unsigned long long _elementCount;
 }
 
 + (id)booleanOperationChainWithSubjectPath:(id)arg1;
+@property(nonatomic) unsigned long long elementCount; // @synthesize elementCount=_elementCount;
 @property(retain, nonatomic) NSMutableArray *steps; // @synthesize steps=_steps;
 @property(retain, nonatomic) MSPath *resultPath; // @synthesize resultPath=_resultPath;
 @property(retain, nonatomic) MSPath *subjectPath; // @synthesize subjectPath=_subjectPath;
+@property(readonly, nonatomic) unsigned long long maximumElementCount; // @synthesize maximumElementCount=_maximumElementCount;
 - (void).cxx_destruct;
 - (id)calculateResultPath;
-- (void)addClippingPath:(id)arg1 forBooleanOperation:(long long)arg2;
-- (id)initWithSubjectPath:(id)arg1;
+- (long long)addClippingPath:(id)arg1 forBooleanOperation:(long long)arg2;
+- (id)initWithSubjectPath:(id)arg1 maximumElementCount:(unsigned long long)arg2;
 
 @end
 

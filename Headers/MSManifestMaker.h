@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MSCacheManager, MSImmutableDocumentData, NSString, NSURL;
+@class MSImmutableDocumentData, NSString, NSURL;
 
 @interface MSManifestMaker : NSObject
 {
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
     MSImmutableDocumentData *_documentData;
-    MSCacheManager *_cacheManager;
     NSString *_name;
     NSURL *_fileURL;
 }
@@ -24,7 +23,6 @@
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (id)metadataForFlow:(id)arg1;

@@ -16,18 +16,17 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSMutableSet, NSResponder, NSString, NSTimer, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
-    BOOL _supplementaryViewRefreshIsScheduled;
-    BOOL _temporarilyDisableSelectionHiding;
+    BOOL _layerSelectionChangeScheduled;
     BOOL _cacheFlushInProgress;
-    BOOL _hasScheduledDocumentDidChange;
     BOOL _hasScheduledInspectorReload;
     NSArray *_exportableLayerSelection;
+    MSTreeDiff *_treeDiffForSupplementaryViews;
     NSWindow *_documentWindow;
     NSView *_messageView;
     MSMainSplitViewController *_splitViewController;
@@ -46,13 +45,12 @@
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
     MSImmutableDocumentData *_documentDataUsedForSupplementaryViews;
-    NSMutableSet *_layersWithHiddenSelectionHandles;
-    NSTimer *_resetHiddenSelectionHandlesTimer;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
     MSLayerArray *_previousSelectedLayers;
+    MSArtboardGroup *_focusedArtboard;
 }
 
 + (id)currentDocument;
@@ -61,18 +59,15 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+@property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
 @property(nonatomic) BOOL hasScheduledInspectorReload; // @synthesize hasScheduledInspectorReload=_hasScheduledInspectorReload;
-@property(nonatomic) BOOL hasScheduledDocumentDidChange; // @synthesize hasScheduledDocumentDidChange=_hasScheduledDocumentDidChange;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
 @property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
-@property(retain, nonatomic) NSTimer *resetHiddenSelectionHandlesTimer; // @synthesize resetHiddenSelectionHandlesTimer=_resetHiddenSelectionHandlesTimer;
-@property(retain, nonatomic) NSMutableSet *layersWithHiddenSelectionHandles; // @synthesize layersWithHiddenSelectionHandles=_layersWithHiddenSelectionHandles;
-@property(nonatomic) BOOL temporarilyDisableSelectionHiding; // @synthesize temporarilyDisableSelectionHiding=_temporarilyDisableSelectionHiding;
-@property(nonatomic) BOOL supplementaryViewRefreshIsScheduled; // @synthesize supplementaryViewRefreshIsScheduled=_supplementaryViewRefreshIsScheduled;
+@property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForSupplementaryViews; // @synthesize documentDataUsedForSupplementaryViews=_documentDataUsedForSupplementaryViews;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
@@ -94,6 +89,8 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
+- (void)coalescedDetermineArtboardNotification:(id)arg1;
+- (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
 - (void)returnToDefaultFirstResponder;
 - (id)previewColorSpaceForItem:(id)arg1;
@@ -109,6 +106,7 @@
 - (void)libraryControllerDidChange:(id)arg1;
 @property(nonatomic) BOOL pageListCollapsed;
 @property(nonatomic) double pageListHeight;
+@property(readonly, nonatomic) MSAssetLibraryController *libraryController;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
 @property(retain, nonatomic) NSDictionary *UIMetadata;
@@ -121,31 +119,27 @@
 - (void)restoreViewportAfterArtboardEdit:(id)arg1;
 - (void)storeViewport:(id)arg1 andInstance:(id)arg2 forArtboard:(id)arg3;
 - (BOOL)isShowingMeasurements;
-- (void)resetHiddenSelectionHandles;
-- (void)documentDataImmediatelyShowSelectionForAllLayers:(id)arg1;
-- (void)documentData:(id)arg1 immediatelyShowSelectionForLayer:(id)arg2;
 - (void)documentData:(id)arg1 temporarilyHideSelectionForLayers:(id)arg2;
-- (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
-- (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
 - (BOOL)layerHasHoverStateInCanvas:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
-- (void)sidebarController:(id)arg1 didHandleBadgePressOn:(id)arg2;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
-- (void)refreshInspectorIfNecessary:(id)arg1;
-- (void)refreshLayerListIfNecessary:(id)arg1;
-- (void)scheduleSupplementaryViewRefresh;
+- (void)scheduleSelectionChangedUpdatesIfNecessary;
+- (void)prepareToDrawEventHandlers:(id)arg1;
+- (void)refreshLayerListIfNecessary;
+- (void)refreshSupplementaryViews;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
+- (void)renderStartedIn:(id)arg1;
+- (void)contentDrawViewWillDraw:(id)arg1;
+@property(readonly, nonatomic) MSTreeDiff *treeDiffForSupplementaryViews; // @synthesize treeDiffForSupplementaryViews=_treeDiffForSupplementaryViews;
+- (void)documentDidChange:(id)arg1;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
-- (void)determineCurrentArtboard;
-- (void)pageTreeLayoutDidChange;
 - (void)layerTreeLayoutDidChange;
-- (void)currentArtboardDidChange;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -173,7 +167,6 @@
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
 - (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
-- (void)documentDidChange:(id)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
 - (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
@@ -183,8 +176,7 @@
 - (id)currentHorizontalRulerData;
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
-- (void)performPostPageSwitchUpdates;
-- (void)documentData:(id)arg1 didChangeToPage:(id)arg2;
+- (void)performPageSwitchUpdates;
 - (BOOL)inspectorIsMain;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (id)closestVisibleIdentifierInToolbarForIdentifier:(id)arg1;
@@ -198,17 +190,9 @@
 - (void)validateMenuItemTitleAndState:(id)arg1;
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
-- (BOOL)layerWouldOverlapExistingLayer:(id)arg1 inGroup:(id)arg2;
-- (void)offsetLayerIfNecessary:(id)arg1 forInsertingInGroup:(id)arg2;
-- (void)addLayer:(id)arg1 changeName:(BOOL)arg2;
-- (void)addLayer:(id)arg1;
-- (id)findCurrentArtboardGroup;
-- (void)setCurrentArtboard:(id)arg1;
-- (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
-- (void)updateHistoryWithSelection;
-- (void)layerSelectionDidChange;
-- (BOOL)hasLayerSelectionChanged;
+- (void)updateHistory;
+- (void)performSelectionChangedUpdates;
 - (id)selectedLayers;
 - (id)duplicateAndReturnError:(id *)arg1;
 - (id)currentPage;

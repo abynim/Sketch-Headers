@@ -4,11 +4,8 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import "MSPreviewColorSpaceProvider-Protocol.h"
 
-@class MSStylePartPreviewButton, NSColorSpace;
-
-@protocol MSStylePartPreviewButtonDelegate <NSObject>
-- (NSColorSpace *)stylePartPreviewButtonPreviewColorSpace:(MSStylePartPreviewButton *)arg1;
+@protocol MSStylePartPreviewButtonDelegate <MSPreviewColorSpaceProvider>
 @end
 

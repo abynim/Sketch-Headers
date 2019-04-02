@@ -6,13 +6,13 @@
 
 #import <SketchModel/NSObject-Protocol.h>
 
-@class NSArray;
+@class MSLayer, NSArray;
 
 @protocol MSLayerContainment <NSObject>
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(void (^)(id, char *))arg2;
 - (void)enumerateLayers:(void (^)(id))arg1;
 - (unsigned long long)indexOfLayer:(id)arg1;
-- (id)layerAtIndex:(unsigned long long)arg1;
+- (MSLayer *)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)containsMultipleLayers;
 - (BOOL)containsOneLayer;
 - (BOOL)containsLayers;

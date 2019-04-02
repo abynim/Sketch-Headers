@@ -7,13 +7,14 @@
 #import "MSInspectorItem.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSComboBoxDataSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class BCPopover, MSStylePartPreviewButton, MSUpDownTextField, NSButton, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSInspectorSegmentedControl, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSUpDownTextField, NSButton, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 
-@interface MSTextLayerItem : MSInspectorItem <NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate>
+@interface MSTextLayerItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate>
 {
     NSView *_basicView;
     NSButton *_fontFamilyButton;
@@ -26,17 +27,23 @@
     NSSegmentedControl *_alignmentButton;
     NSSegmentedControl *_verticalAlignmentButton;
     NSTextField *_sizingLabel;
+    MSInspectorSegmentedControl *_sizingSegmentedControl;
     BCPopover *_popover;
+    MSNativeColorPanelPresenter *_colorPanelPresenter;
     NSSet *_fontPostscriptNames;
     NSSet *_fontFamilyNames;
+    NSSet *_localizedFontFamilyNames;
     NSSet *_fontPointSizes;
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
 @property(copy, nonatomic) NSSet *fontPointSizes; // @synthesize fontPointSizes=_fontPointSizes;
+@property(copy, nonatomic) NSSet *localizedFontFamilyNames; // @synthesize localizedFontFamilyNames=_localizedFontFamilyNames;
 @property(copy, nonatomic) NSSet *fontFamilyNames; // @synthesize fontFamilyNames=_fontFamilyNames;
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
+@property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(nonatomic) __weak MSInspectorSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
 @property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
 @property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
@@ -49,7 +56,7 @@
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 - (void).cxx_destruct;
-- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
 - (void)applyTextColor:(id)arg1;
 - (id)occurencesOfAttributeWithName:(id)arg1;
 - (id)firstOccurrenceOfAttributeWithName:(id)arg1;
@@ -79,12 +86,16 @@
 - (void)maintainTextLayerBaselinesInBlock:(CDUnknownBlockType)arg1;
 - (void)kerningAction:(id)arg1;
 - (void)putFocusOnTextView;
+- (id)companionPopoverForColorPanelPresenter:(id)arg1;
+- (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;
 - (void)colorInspectorWillClose:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)showColorPickerAction:(id)arg1;
+- (void)togglePopover;
+- (void)showNativeColorPanel;
 - (void)showParagraphStylingAction:(id)arg1;
 - (void)fontSizeAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;
@@ -99,6 +110,8 @@
 - (void)reloadKerningField;
 - (void)reloadVerticalAlignmentButton;
 - (void)reloadData;
+- (void)limitedReload;
+- (void)updateDisplayedValues;
 - (void)storeCurrentFontNamesAndSizes;
 - (id)fontDescriptorsForSelection;
 - (void)textViewDidChange:(id)arg1;

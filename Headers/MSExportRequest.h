@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchRendering/NSCopying-Protocol.h>
 
 @class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString;
 
@@ -21,7 +21,7 @@
     unsigned long long _options;
     NSSet *_includedLayerIDs;
     double _scale;
-    MSImmutableColor *_backgroundColor;
+    MSImmutableColor *_exportBackgroundColor;
     MSImmutableLayer *_rootLayer;
     MSImmutableDocumentData *_immutableDocument;
     NSString *_format;
@@ -48,7 +48,7 @@
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocument; // @synthesize immutableDocument=_immutableDocument;
 @property(retain, nonatomic) MSImmutableLayer *rootLayer; // @synthesize rootLayer=_rootLayer;
-@property(copy, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
+@property(copy, nonatomic) MSImmutableColor *exportBackgroundColor; // @synthesize exportBackgroundColor=_exportBackgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(copy, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
@@ -61,8 +61,6 @@
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
-- (void)readSettingsFromDefaults;
-@property(readonly, nonatomic) NSString *pasteboardType;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

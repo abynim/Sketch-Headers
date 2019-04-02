@@ -7,16 +7,17 @@
 #import "MSNormalBaseEventHandler.h"
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
+#import "MSRotationBarDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSNormalEventData, MSRotationGestureInterpreter, NSArray, NSString;
+@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSNormalEventHandler, MSRotationGestureInterpreter, NSArray, NSString;
 
-@interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, NSTouchBarDelegate>
+@interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, MSRotationBarDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
     BOOL _exitOnMouseUp;
     BOOL _disableMoving;
-    MSNormalEventData *_eventData;
+    MSNormalEventHandler *_normalEventHandler;
     NSArray *_rotationItems;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSRotationGestureInterpreter *_cursorRotationInterpreter;
@@ -34,10 +35,11 @@
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) NSArray *rotationItems; // @synthesize rotationItems=_rotationItems;
 @property(nonatomic) struct CGPoint rotationCenterPoint; // @synthesize rotationCenterPoint=_rotationCenterPoint;
-@property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
+@property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
 - (void).cxx_destruct;
+- (id)documentForRotationBar:(id)arg1;
 - (void)refreshTouchBarItemWithIdentifier:(id)arg1;
 - (void)rotationBarAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;

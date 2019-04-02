@@ -22,6 +22,7 @@
 - (struct CGRect)activeBounds;
 - (void)drawSelectionMarkerAtPosition:(long long)arg1;
 - (struct CGRect)markerRectAtPosition:(double)arg1;
+- (struct CGRect)markerRectForValue:(double)arg1;
 - (void)drawForeground;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)mouseUp:(id)arg1;

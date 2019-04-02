@@ -10,9 +10,11 @@
 {
 }
 
-- (id)collectionInDocument:(id)arg1;
++ (id)foreignObjectCollectionInDocument:(id)arg1;
++ (unsigned long long)containerType;
+- (void)addToDocument:(id)arg1;
+- (void)removeFromOwningDocument;
 - (id)unlinkFromRemote;
-- (unsigned long long)containerType;
 
 @end
 

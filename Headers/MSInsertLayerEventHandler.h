@@ -21,8 +21,8 @@
 - (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
-- (id)currentGroup;
-- (void)insertNewLayerInCurrentGroup:(id)arg1;
+- (id)group;
+- (void)insertNewLayer:(id)arg1;
 - (id)insertAsNewLayer:(struct CGRect)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (id)pathForPrototypeLayer;

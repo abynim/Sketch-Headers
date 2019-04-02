@@ -22,6 +22,9 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) MSImmutableLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToImmutableLayerAncestry:(id)arg1;
+@property(readonly, nonatomic) unsigned long long hash;
 - (struct CGRect)absoluteRect;
 @property(readonly, nonatomic) MSImmutableArtboardGroup *artboard;
 @property(readonly, nonatomic) MSImmutableLayerGroup *parentGroup;

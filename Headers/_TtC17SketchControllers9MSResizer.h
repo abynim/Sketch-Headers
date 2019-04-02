@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_TtC17SketchControllers6MSTool.h"
+#import <SketchControllers/_TtC17SketchControllers6MSTool.h>
 
 @protocol MSLayerCoordinateSpace;
 
@@ -17,17 +17,20 @@
     // Error parsing type: , name: flippedHorizontally
     // Error parsing type: , name: flippedVertically
     // Error parsing type: , name: rotation
+    // Error parsing type: , name: unitCoordinateSpace.storage
     // Error parsing type: , name: alignmentSettings
     // Error parsing type: , name: roundingIncrement
-    // Error parsing type: , name: snaps
+    // Error parsing type: , name: snappingResult
 }
 
 - (CDUnknownBlockType).cxx_destruct;
 - (id)init;
+@property(nonatomic, retain) id <MSLayerCoordinateSpace> unitCoordinateSpace;
 @property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
 @property(nonatomic) BOOL flippedVertically; // @synthesize flippedVertically;
 @property(nonatomic) BOOL flippedHorizontally; // @synthesize flippedHorizontally;
 @property(nonatomic, readonly) struct CGRect bounds;
+@property(nonatomic, readonly) struct CGPoint position;
 @property(nonatomic) long long handle; // @synthesize handle;
 
 @end

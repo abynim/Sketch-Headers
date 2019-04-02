@@ -21,6 +21,7 @@
     BCNetworkTime *_networkTime;
 }
 
++ (long long)provider;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
 @property(nonatomic) long long signatureStatus; // @synthesize signatureStatus=_signatureStatus;
 @property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
@@ -36,8 +37,8 @@
 @property(readonly, nonatomic) NSString *licenseID;
 @property(readonly, nonatomic) BOOL requiresRefresh;
 @property(readonly, nonatomic) BOOL shouldRefresh;
-- (id)expiryDate;
-@property(readonly, nonatomic) long long remainingDays;
+- (id)validityInterval;
+@property(readonly, nonatomic) double remainingTimeInterval;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) NSString *deviceID;
 @property(readonly, nonatomic) NSString *email;

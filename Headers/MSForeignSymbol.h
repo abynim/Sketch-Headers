@@ -12,14 +12,15 @@
 {
 }
 
++ (id)foreignObjectCollectionInDocument:(id)arg1;
++ (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
-- (id)collectionInDocument:(id)arg1;
-- (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)syncWithRemote:(id)arg1;
+- (void)syncSymbolPrivateStylesWithRemote:(id)arg1;
 - (void)syncRemoteStyleOverrides:(id)arg1;
-- (BOOL)containsNestedSytlesOutOfDateWithLibrary:(id)arg1;
+- (BOOL)containsNestedStylesOutOfDateWithLibrary:(id)arg1;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
@@ -29,6 +30,7 @@
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+- (void)correctInvalidGamma;
 
 @end
 

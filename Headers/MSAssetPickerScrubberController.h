@@ -23,7 +23,7 @@
 
 @property(retain, nonatomic) NSScrubber *scrubber; // @synthesize scrubber=_scrubber;
 @property(retain, nonatomic) NSTouchBarItem *item; // @synthesize item=_item;
-@property(retain, nonatomic) id <MSAssetPickerScrubberControllerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSAssetPickerScrubberControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSAssetCollectionViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;

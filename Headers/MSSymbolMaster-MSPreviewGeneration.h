@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSSymbolMaster.h>
 
-#import "MSPreviewGeneration-Protocol.h"
+#import <SketchControllers/MSPreviewGeneration-Protocol.h>
 
 @class NSString;
 

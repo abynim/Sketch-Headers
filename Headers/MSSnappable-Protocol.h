@@ -4,33 +4,32 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import <SketchControllers/NSObject-Protocol.h>
 
 @class MSLayer, MSLayoutDimension, MSLayoutPosition, NSArray, NSString;
 @protocol MSLayerCoordinateSpace, MSSnappable;
 
 @protocol MSSnappable <NSObject>
-@property(nonatomic, readonly) NSString *name;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
+@property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *widthAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *centerYAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *centerXAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *bottomAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *topAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
+@property(readonly, nonatomic) MSLayer *coordinateSpace;
+@property(readonly, nonatomic) struct CGRect rectForSnapping;
 - (struct CGAffineTransform)textCorrectionTransform;
 - (void)concatAncestorsAndSelfTransforms;
 - (BOOL)shouldDrawDistanceOnSnapTo:(id <MSSnappable>)arg1;
-@property(nonatomic, readonly) id <MSSnappable> snapItemForDrawing;
-- (struct CGRect)distanceRectangleToItem:(id <MSSnappable>)arg1 axis:(unsigned long long)arg2;
-@property(nonatomic, readonly) MSLayoutPosition *midXHeightAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *baselineAnchor;
-@property(nonatomic, readonly) MSLayoutDimension *heightAnchor;
-@property(nonatomic, readonly) MSLayoutDimension *widthAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *centerYAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *centerXAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *bottomAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *topAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *rightAnchor;
-@property(nonatomic, readonly) MSLayoutPosition *leftAnchor;
 - (NSArray *)anchorsForSnappingOnAxes:(unsigned long long)arg1;
 - (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(void (^)(MSLayoutPosition *))arg3;
-@property(nonatomic, readonly) MSLayer *coordinateSpace;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1 options:(unsigned long long)arg2;
 - (struct CGRect)boundsRect;
-@property(nonatomic, readonly) struct CGRect rectForSnapping;
 @end
 

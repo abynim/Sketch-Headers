@@ -32,7 +32,7 @@
 - (unsigned long long)traitsForAvancedOptions;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)viewWillDisappear;
-- (BOOL)shouldHideAddStylePartButton;
+- (BOOL)shouldDisableAddStylePartButton;
 - (void)prepare;
 - (void)showAdvancedOptionsAction:(id)arg1;
 

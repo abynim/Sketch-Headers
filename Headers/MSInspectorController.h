@@ -14,6 +14,7 @@
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
 {
     BOOL _alignmentBarHidden;
+    BOOL _layerSelectionChangeScheduled;
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     MSLayerArray *_selectedLayers;
@@ -23,6 +24,7 @@
     MSNormalInspector *_normalInspector;
 }
 
+@property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
@@ -36,9 +38,8 @@
 - (void)reloadTouchBars;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
-- (void)closeAnyColorPopover;
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
-- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (id)inspectorController;
 - (void)recursivelyDismissAllPresentedViewControllersOfViewController:(id)arg1;
 - (void)viewWillDisappear;
@@ -48,7 +49,6 @@
 - (void)focusOnTextFieldWithIdentifier:(id)arg1;
 - (id)findFirstTextFieldInView:(id)arg1;
 - (void)focusOnFirstTextField;
-- (void)refreshIfNecessary:(id)arg1;
 - (void)reload;
 - (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
 - (void)refreshCurrentController;
@@ -59,7 +59,11 @@
 - (void)changeColor:(id)arg1;
 - (void)currentHandlerChanged;
 - (void)layerPositionPossiblyChanged;
-- (void)selectionDidChangeTo:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
+- (void)scheduleSelectionChangedUpdates;
+- (void)updateOnPageChange;
+- (void)updateAfterDocumentModelReverted;
+- (void)performSelectionChangedUpdates;
 - (void)viewDidResize;
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;

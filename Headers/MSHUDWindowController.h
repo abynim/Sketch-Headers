@@ -6,7 +6,7 @@
 
 #import <AppKit/NSWindowController.h>
 
-#import "NSWindowDelegate-Protocol.h"
+#import <SketchControllers/NSWindowDelegate-Protocol.h>
 
 @class MSHUDViewController, NSString, NSView;
 

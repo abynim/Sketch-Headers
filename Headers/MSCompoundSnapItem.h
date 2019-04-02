@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSSnapItem.h"
+#import <SketchControllers/MSSnapItem.h>
 
 @class NSArray;
 
@@ -25,12 +25,6 @@
 - (double)rotation;
 - (BOOL)shouldConstrainProportions;
 - (id)candidateLayersForSnapping:(unsigned long long)arg1;
-- (id)centerYAnchor;
-- (id)centerXAnchor;
-- (id)bottomAnchor;
-- (id)topAnchor;
-- (id)rightAnchor;
-- (id)leftAnchor;
 - (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)initWithLayers:(id)arg1;
 

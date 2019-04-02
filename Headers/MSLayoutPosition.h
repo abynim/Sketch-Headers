@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayoutAnchor.h"
+#import <SketchControllers/MSLayoutAnchor.h>
 
 @interface MSLayoutPosition : MSLayoutAnchor
 {
@@ -13,7 +13,6 @@
     unsigned long long _snapTag;
 }
 
-+ (struct CGPoint)snapPoint:(struct CGPoint)arg1 toLines:(id)arg2 onAxis:(unsigned long long)arg3 margin:(double)arg4;
 + (id)positionAnchorWithLine:(CDStruct_b7168832)arg1 inLayer:(id)arg2 attribute:(unsigned long long)arg3;
 @property(nonatomic) unsigned long long snapTag; // @synthesize snapTag=_snapTag;
 - (id)description;

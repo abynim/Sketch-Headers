@@ -7,21 +7,19 @@
 #import <SketchModel/_MSImmutableArtboardGroup.h>
 
 #import <SketchModel/MSArtboardGroup-Protocol.h>
-#import <SketchModel/MSColorUser-Protocol.h>
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
+#import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSColorUser, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
-    struct CGSize _unscaledNameSize;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(readonly, nonatomic) struct CGSize unscaledNameSize; // @synthesize unscaledNameSize=_unscaledNameSize;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
@@ -30,12 +28,15 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) BOOL containsFixedLayers;
+- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
+- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
+@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
-- (void)updateColorCounter:(id)arg1;
-- (void)trackColors:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
@@ -50,6 +51,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;

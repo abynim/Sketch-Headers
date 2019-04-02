@@ -22,7 +22,6 @@
 - (void)doPerformAction:(id)arg1;
 - (BOOL)hasSubMenu;
 - (BOOL)validateMenuItem:(id)arg1;
-- (BOOL)validate;
 - (SEL)preferredMenuAction;
 - (void)replaceWithSymbol:(id)arg1;
 

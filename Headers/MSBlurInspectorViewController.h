@@ -42,7 +42,6 @@
 - (id)blurKinds;
 - (id)views;
 - (id)items;
-- (void)prepareLayersForBackgroundBlur:(id)arg1;
 - (void)reloadInspectorStack:(id)arg1;
 - (void)viewDidLoad;
 

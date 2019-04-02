@@ -6,11 +6,10 @@
 
 #import <objc/NSObject.h>
 
-@class BCReadWriteLock, NSMapTable;
+@class NSMapTable;
 
 @interface MSTextPreviewData : NSObject
 {
-    BCReadWriteLock *_tableLock;
     NSMapTable *_table;
 }
 

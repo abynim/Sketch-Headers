@@ -18,7 +18,7 @@
 
 @property(retain, nonatomic) MSDataMenuProvider *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-- (id)overridesByDataIdentifierWithDataManager:(id)arg1;
+- (id)overridesByDataIdentifierWithDataManager:(id)arg1 canStop:(BOOL)arg2;
 - (id)overridePropertyForDataType:(unsigned long long)arg1;
 - (id)firstOverridePointInOverridePoints:(id)arg1 withProperty:(id)arg2;
 - (id)availableOverrideOnSymbolInstance:(id)arg1 property:(id)arg2;
@@ -36,7 +36,7 @@
 - (void)dataMenuProviderRefreshMasterData:(id)arg1;
 - (void)dataMenuProviderRefreshData:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
 - (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;

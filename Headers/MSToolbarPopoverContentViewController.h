@@ -27,7 +27,9 @@
 @property(readonly, nonatomic) NSView *actionView; // @synthesize actionView=_actionView;
 @property(readonly, nonatomic) NSTextField *descriptionLabel; // @synthesize descriptionLabel=_descriptionLabel;
 @property(readonly, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
-- (id)newActionButtonWithTitle:(id)arg1 action:(SEL)arg2;
+- (id)makePopupButtonWithTitle:(id)arg1 action:(SEL)arg2;
+- (id)makeActionButtonWithTitle:(id)arg1 action:(SEL)arg2;
+- (id)makeButtonWithTitle:(id)arg1 action:(SEL)arg2;
 - (id)newLabel;
 @property(readonly, nonatomic) NSImageView *imageView; // @synthesize imageView=_imageView;
 - (void)loadView;

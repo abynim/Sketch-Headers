@@ -4,12 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import <SketchControllers/NSObject-Protocol.h>
 
-@class MSDataSupplier, MSLocalDataSupplier, NSImage;
+@class MSDataSupplier, MSDataSupplierGroup, MSLocalDataSupplierGroup, NSImage, NSString;
 
 @protocol MSDataSupplierDelegate <NSObject>
-- (void)dataSupplierDataChanged:(MSLocalDataSupplier *)arg1;
+- (NSString *)groupNameForPluginGroupIdentifier:(NSString *)arg1;
+- (void)replaceLocalDataSupplierGroup:(MSLocalDataSupplierGroup *)arg1 withLocalGroup:(MSLocalDataSupplierGroup *)arg2;
+- (void)dataSupplierGroupDidChange:(MSDataSupplierGroup *)arg1;
+- (void)dataSupplierDataDidChange:(MSDataSupplier *)arg1;
 - (NSImage *)dataSupplierMenuItemImage:(MSDataSupplier *)arg1;
 @end
 

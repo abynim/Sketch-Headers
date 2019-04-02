@@ -55,6 +55,7 @@
     id _lastRunPlugin;
 }
 
++ (id)licenseAlertDateComponentsFormatter;
 + (id)sharedInstance;
 + (void)initialize;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
@@ -96,15 +97,14 @@
 - (void)applyAppearanceToAllWindows:(id)arg1;
 - (void)toggleDarkMode:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
-- (void)waitForResourceMigrationToFinish;
-- (void)migrateResources:(id)arg1;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshDocumentWindowBadges;
 - (void)refreshDocuments;
 - (void)refreshCurrentDocument;
 - (void)currentDocumentDidChange;
-- (void)showLicenseAlert:(long long)arg1 remainingDays:(unsigned long long)arg2;
+- (void)showLicenseAlert:(long long)arg1 remainingTimeInterval:(double)arg2;
+- (void)licenseDidBecomeInvalidNotification:(id)arg1;
 - (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
@@ -124,7 +124,7 @@
 - (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
 - (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
 - (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;

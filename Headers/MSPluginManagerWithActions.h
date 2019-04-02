@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSPluginManager.h"
+#import <SketchPluginManager/MSPluginManager.h>
 
 #import "MSActionObserver-Protocol.h"
 
@@ -31,6 +31,8 @@
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 - (void)sendToCommandActionsForPlugin:(id)arg1 withID:(id)arg2 context:(id)arg3;
 - (void)sendToInterestedCommandsActionWithID:(id)arg1 context:(id)arg2;
+- (void)runHandlerWithKey:(id)arg1 fromCommand:(id)arg2 inPlugin:(id)arg3 withContext:(id)arg4;
+- (void)runCommand:(id)arg1 handlerKey:(id)arg2 withContext:(id)arg3;
 - (id)contextForActionWithID:(id)arg1 context:(id)arg2;
 - (void)buildHandlerIndex;
 - (void)applicationWillTerminate:(id)arg1;

@@ -6,19 +6,17 @@
 
 #import <SketchModel/MSOverrideRepresentation.h>
 
-#import "BCOutlineViewNode-Protocol.h"
-#import "MSInterfaceImageOwner-Protocol.h"
-#import "MSLayerListLayerExtensions-Protocol.h"
+#import <SketchControllers/BCOutlineViewNode-Protocol.h>
+#import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 
 @class MSTintedImages, NSString;
 
-@interface MSOverrideRepresentation (LayerList) <BCOutlineViewNode, MSLayerListLayerExtensions, MSInterfaceImageOwner>
+@interface MSOverrideRepresentation (LayerList) <BCOutlineViewNode, MSLayerListLayerExtensions>
 - (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (void)addMastersForInstancesToDocument:(id)arg1;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 @property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
@@ -39,8 +37,6 @@
 @property(readonly, nonatomic) unsigned long long filterTypeMask;
 @property(readonly, nonatomic) unsigned long long displayType;
 @property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
-@property(readonly, nonatomic) NSString *interfaceImageIdentifier;
-@property(readonly, nonatomic) __weak id cacheOwner;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSSymbolMaster.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSSymbolMaster (Preview) <MSLayerPreviewability>
 - (id)unselectedPreviewTemplateImage;

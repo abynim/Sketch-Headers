@@ -17,7 +17,6 @@
 {
     NSData *_sha1;
     NSData *_data;
-    struct CGImage *_cgImages[8];
     NSImage *_image;
     NSObject<OS_dispatch_semaphore> *_dataLock;
     BCReadWriteLock *_imageLock;
@@ -30,11 +29,12 @@
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
 - (id)ensureMojaveBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
-- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1;
+- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 cache:(id)arg2 owner:(id)arg3;
 - (struct CGImage *)generateCGImageAtLevelOfDetail:(unsigned long long)arg1;
-- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1;
-@property(readonly, nonatomic) struct CGImage *cgImage;
+- (struct CGImage *)CGImageInCache:(id)arg1 owner:(id)arg2;
+- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 cache:(id)arg2 owner:(id)arg3;
 - (void)correctInvalidGamma;
+- (id)imageDataByCorrectingInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
@@ -55,7 +55,6 @@
 @property(readonly, nonatomic) NSData *sha1;
 @property(readonly, nonatomic) NSData *data;
 - (void)waitForDataLock;
-- (void)dealloc;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;

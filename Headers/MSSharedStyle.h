@@ -16,6 +16,7 @@
 
 - (id)initWithName:(id)arg1 style:(id)arg2;
 @property(readonly, nonatomic) MSStyle *style;
+- (void)correctInvalidGamma;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;
 - (void)updateToMatch:(struct MSModelObject *)arg1;

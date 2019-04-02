@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class MSDataSupplier, MSDataTableCellView, MSLocalDataSupplier, MSPluginBundle, MSPluginDataSupplier, NSColor, NSImage, NSString;
+@class MSBuiltinDataSupplierGroup, MSDataSupplierGroup, MSDataTableCellView, MSLocalDataSupplierGroup, MSPluginBundle, MSPluginDataSupplierGroup, NSColor, NSImage, NSString;
 
 @interface MSDataPreferenceItem : NSObject
 {
-    MSDataSupplier *_data;
+    MSDataSupplierGroup *_dataGroup;
     NSImage *_preview;
     MSDataTableCellView *_cellView;
     NSString *_modificationDate;
@@ -25,7 +25,7 @@
 @property(readonly, nonatomic) NSString *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(nonatomic) __weak MSDataTableCellView *cellView; // @synthesize cellView=_cellView;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
-@property(readonly, nonatomic) MSDataSupplier *data; // @synthesize data=_data;
+@property(readonly, nonatomic) MSDataSupplierGroup *dataGroup; // @synthesize dataGroup=_dataGroup;
 - (void).cxx_destruct;
 - (id)dataTypeString;
 @property(readonly, nonatomic) NSColor *secondaryTextFieldColor;
@@ -33,12 +33,15 @@
 @property(readonly, nonatomic) NSImage *pluginBundleIcon;
 @property(readonly, nonatomic) MSPluginBundle *pluginBundle;
 @property(readonly, nonatomic) BOOL canRevealInFinder;
+- (id)commaSeperatedListOfDataSupplierNames:(id)arg1;
 @property(readonly, nonatomic) NSString *namePlusPluginName;
+@property(readonly) BOOL canBeDeleted;
 @property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) BOOL valid;
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) MSPluginDataSupplier *pluginData;
-@property(readonly, nonatomic) MSLocalDataSupplier *localData;
+@property(readonly, nonatomic) MSBuiltinDataSupplierGroup *builtinDataGroup;
+@property(readonly, nonatomic) MSPluginDataSupplierGroup *pluginDataGroup;
+@property(readonly, nonatomic) MSLocalDataSupplierGroup *localDataGroup;
 - (id)initWithData:(id)arg1;
 
 @end

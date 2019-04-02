@@ -9,6 +9,7 @@
 @class MSAssetCollectionViewDataSource, MSAssetCollectionViewItem, NSString;
 
 @protocol MSAssetCollectionViewItemDelegate <MSPreviewColorSpaceProvider>
+- (void)assetItemDidEndRenaming:(MSAssetCollectionViewItem *)arg1;
 - (void)assetItem:(MSAssetCollectionViewItem *)arg1 wantsRenameTo:(NSString *)arg2;
 - (void)assetItemWantsStartRenaming:(MSAssetCollectionViewItem *)arg1;
 - (void)deleteAssetItem:(MSAssetCollectionViewItem *)arg1;

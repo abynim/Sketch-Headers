@@ -41,7 +41,7 @@
 - (void)showFillOptionsAction:(id)arg1;
 - (void)restorePopover;
 - (void)closeAnyColorPopover;
-- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (id)views;
 @property(readonly, nonatomic) BOOL hasContent;
 - (void)valuesPossiblyChanged;

@@ -13,6 +13,7 @@
 - (void)drawAssetView:(id)arg1 dirtyRect:(struct CGRect)arg2;
 - (id)defaultAssetName;
 - (id)gradient;
+- (void)loadView;
 
 @end
 

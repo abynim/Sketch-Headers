@@ -19,6 +19,7 @@
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
 {
     BOOL _displayingDiverseStyles;
+    BOOL _isStacking;
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
     MSColorModePickerController *_colorModePickerController;
@@ -39,6 +40,7 @@
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSColorPickerViewController *colorPickerController; // @synthesize colorPickerController=_colorPickerController;
+@property(nonatomic) BOOL isStacking; // @synthesize isStacking=_isStacking;
 @property(retain, nonatomic) MSLibraryAssetCollectionsController *libraryAssetsController; // @synthesize libraryAssetsController=_libraryAssetsController;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) BOOL displayingDiverseStyles; // @synthesize displayingDiverseStyles=_displayingDiverseStyles;
@@ -64,15 +66,17 @@
 - (void)popoverWindowSizeDidChange:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
-- (void)dealloc;
 - (void)colorMagnifierAction:(id)arg1;
 - (BOOL)acceptsFirstResponder;
 - (void)modeDidChangeToFillType:(unsigned long long)arg1 gradientType:(long long)arg2;
 - (void)reloadTouchBarsAfterSelectionChange:(id)arg1;
 - (void)reloadTouchBars;
+- (void)revertToDefaultFirstResponder;
+- (void)adjustFirstResponder;
 - (void)refreshTabbingCycle;
 - (void)colorPickerController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (id)filteredStyleParts:(id)arg1;
+- (void)reflectEffectiveStyleParts;
 - (void)close;
 - (void)refreshAction:(id)arg1;
 - (void)colorChangedTo:(id)arg1;
@@ -96,7 +100,9 @@
 - (long long)colorTypePickerModeForStyle:(id)arg1;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;
+- (void)findFrequentImages;
 - (void)findFrequentColors;
+- (void)findFrequentObjects;
 - (void)prepareForDisplay;
 - (void)setInitialColor:(id)arg1;
 - (void)inspectorSectionDidUpdate:(id)arg1;
@@ -108,6 +114,7 @@
 - (void)colorDidChangeTo:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;
 
 // Remaining properties

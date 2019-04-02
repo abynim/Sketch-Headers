@@ -6,13 +6,14 @@
 
 #import <SketchModel/MSLayer.h>
 
+#import <SketchControllers/MSSnappable-Protocol.h>
+
 @class MSLayoutDimension, MSLayoutPosition, NSString;
 @protocol MSSnappable;
 
-@interface MSLayer (SnapSupport)
+@interface MSLayer (SnapSupport) <MSSnappable>
 - (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 - (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
-- (struct CGRect)distanceRectangleToItem:(id)arg1 axis:(unsigned long long)arg2;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
 - (struct CGRect)boundsRect;
 @property(readonly, nonatomic) struct CGRect rectForSnapping;

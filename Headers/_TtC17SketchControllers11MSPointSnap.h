@@ -10,8 +10,7 @@
 
 @interface _TtC17SketchControllers11MSPointSnap : NSObject
 {
-    // Error parsing type: , name: geometry
-    // Error parsing type: , name: priority
+    // Error parsing type: , name: target
     // Error parsing type: , name: guideInfo
 }
 

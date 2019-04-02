@@ -24,6 +24,7 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)performInitEmptyObject;
+- (void)correctInvalidGamma;
 - (id)CSSAttributeString;
 
 // Remaining properties

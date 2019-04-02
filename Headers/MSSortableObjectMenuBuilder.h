@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSMenuDelegate-Protocol.h"
+#import <SketchControllers/NSMenuDelegate-Protocol.h>
 
 @class NSMapTable, NSString;
 @protocol MSMenuBuilderDelegate;

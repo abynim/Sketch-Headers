@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "BCOutlineViewNode-Protocol.h"
+#import <SketchControllers/BCOutlineViewNode-Protocol.h>
 
 @class MSLayer, NSArray;
 
@@ -20,7 +20,6 @@
 - (NSArray *)childrenForLayerList;
 - (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(void (^)(void))arg1;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
-- (void)addMastersForInstancesToDocument:(NSArray *)arg1;
 - (void)moveToLayer:(MSLayer *)arg1 beforeLayer:(MSLayer *)arg2;
 - (BOOL)canCopyToLayer:(MSLayer *)arg1 beforeLayer:(MSLayer *)arg2;
 - (BOOL)canMoveToLayer:(MSLayer *)arg1 beforeLayer:(MSLayer *)arg2;

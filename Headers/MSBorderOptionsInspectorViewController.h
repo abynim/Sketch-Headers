@@ -10,6 +10,7 @@
 
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
+    BOOL _hasOpenPathLayer;
     NSPopUpButton *_startDecorationButton;
     NSPopUpButton *_endDecorationButton;
     NSTextField *_dashField1;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
 @property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
+@property(nonatomic) BOOL hasOpenPathLayer; // @synthesize hasOpenPathLayer=_hasOpenPathLayer;
 @property(retain, nonatomic) NSSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
 @property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
 @property(retain, nonatomic) NSTextField *dashField2; // @synthesize dashField2=_dashField2;
@@ -33,6 +35,8 @@
 @property(retain, nonatomic) NSPopUpButton *endDecorationButton; // @synthesize endDecorationButton=_endDecorationButton;
 @property(retain, nonatomic) NSPopUpButton *startDecorationButton; // @synthesize startDecorationButton=_startDecorationButton;
 - (void).cxx_destruct;
+- (id)impliedDashPatternFromDashPattern:(id)arg1 paddingToLength:(unsigned long long)arg2;
+- (id)validDashPatternFromProposedDashPattern:(id)arg1 padIfNeeded:(BOOL)arg2;
 - (id)dashFields;
 - (void)fillDashPlaceholderFields;
 - (void)fillDashFields;
@@ -42,6 +46,7 @@
 - (void)evaluateCapJoinButtons;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)prepareDecorationButtons;
+- (void)updateArrowButtons;
 - (void)setStyleParts:(id)arg1;
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;

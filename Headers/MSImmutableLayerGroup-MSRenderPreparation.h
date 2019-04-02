@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableLayerGroup.h>
 
 @interface MSImmutableLayerGroup (MSRenderPreparation)
-- (void)prepareSymbolCachesInDocument:(id)arg1 withWorkerQueue:(id)arg2 visitedSymbols:(id)arg3;
+- (void)gatherForRenderPreparation:(id)arg1;
 @end
 

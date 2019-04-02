@@ -6,12 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSCacheManager, MSDocumentData, NSDictionary, NSString, SCKShare;
+@class MSDocumentData, NSDictionary, NSString, SCKShare;
 
 @protocol MSCloudExportableDocument <NSObject>
 @property(readonly, nonatomic) NSString *cloudName;
 @property(retain, nonatomic) SCKShare *cloudShare;
-@property(readonly, nonatomic) MSCacheManager *cacheManager;
 @property(readonly, nonatomic) NSDictionary *UIMetadata;
 @property(readonly, nonatomic) MSDocumentData *documentData;
 @end

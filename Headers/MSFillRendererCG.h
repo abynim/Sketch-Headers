@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSFillRenderer-Protocol.h"
+#import <SketchRendering/MSFillRenderer-Protocol.h>
 
 @class NSString;
 

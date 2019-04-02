@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSSliceLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSSliceLayer (Preview) <MSLayerPreviewability>
 - (id)unselectedPreviewTemplateImage;

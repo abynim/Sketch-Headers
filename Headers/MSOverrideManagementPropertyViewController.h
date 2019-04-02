@@ -6,18 +6,20 @@
 
 #import "MSOverrideManagementViewController.h"
 
-@class MSOverrideManagementPropertyItem, NSString;
+@class MSOverrideManagementPropertyItem, NSButton, NSString;
 
 @interface MSOverrideManagementPropertyViewController : MSOverrideManagementViewController
 {
-    MSOverrideManagementPropertyItem *_propertyItem;
     NSString *_propertyName;
+    NSButton *_checkButton;
 }
 
+@property(retain, nonatomic) NSButton *checkButton; // @synthesize checkButton=_checkButton;
 @property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
-@property(retain, nonatomic) MSOverrideManagementPropertyItem *propertyItem; // @synthesize propertyItem=_propertyItem;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL canOverride;
+- (void)setManagementItem:(id)arg1;
+@property(readonly, nonatomic) MSOverrideManagementPropertyItem *propertyItem;
 
 @end
 

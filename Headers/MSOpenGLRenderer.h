@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSGPURenderer-Protocol.h"
+#import <SketchRendering/MSGPURenderer-Protocol.h>
 
 @class MSOpenGLLayer, MSOpenGLOffscreenBuffer, NSString;
 
@@ -21,6 +21,7 @@
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
++ (BOOL)isCompatibleWithAvailableGPUs;
 @property(retain, nonatomic) MSOpenGLOffscreenBuffer *offscreenBuffer; // @synthesize offscreenBuffer=_offscreenBuffer;
 @property(nonatomic) int drawableHeight; // @synthesize drawableHeight=_drawableHeight;
 @property(nonatomic) int drawableWidth; // @synthesize drawableWidth=_drawableWidth;
@@ -28,6 +29,7 @@
 @property(nonatomic) CDStruct_bf95b13b scissorRect; // @synthesize scissorRect=_scissorRect;
 @property(retain, nonatomic) MSOpenGLLayer *openGLLayer; // @synthesize openGLLayer=_openGLLayer;
 - (void).cxx_destruct;
+- (CDStruct_ffe6b7c1)maximumTextureSize;
 - (void)unlockTextures;
 - (void)lockTextures;
 - (BOOL)requiresSynchronousRendering;

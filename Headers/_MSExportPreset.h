@@ -19,7 +19,7 @@
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)syncPropertiesFromObject:(id)arg1;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)moveExportFormatIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;

@@ -6,21 +6,23 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchControllers/NSCopying-Protocol.h>
 
 @interface MSAlignmentEngineConstraint : NSObject <NSCopying>
 {
     struct CGPoint _sourcePoint;
-    struct BCLine _line;
+    struct CGVector _direction;
 }
 
-+ (id)orthogonalOrDiagonalConstraintFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
++ (id)axisAlignedOrDiagonalConstraintFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 + (id)constraintWithSourcePoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
-@property(readonly, nonatomic) struct BCLine line; // @synthesize line=_line;
+@property(readonly, nonatomic) struct CGVector direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) struct CGPoint sourcePoint; // @synthesize sourcePoint=_sourcePoint;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithPoint:(struct CGPoint)arg1 line:(struct BCLine)arg2;
+@property(readonly, nonatomic) struct BCLine line;
+- (id)constraintByApplyingTransform:(struct CGAffineTransform)arg1;
+- (id)initWithPoint:(struct CGPoint)arg1 direction:(struct CGVector)arg2;
 
 @end
 

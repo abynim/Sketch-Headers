@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle; // @synthesize usedStyle=_usedStyle;
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void).cxx_destruct;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 @property(readonly, nonatomic) BOOL isRectangle;
 @property(readonly, nonatomic) BOOL isPolyline;

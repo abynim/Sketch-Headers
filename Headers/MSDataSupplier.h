@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCoding-Protocol.h"
+#import <SketchControllers/NSCoding-Protocol.h>
 
 @class NSImage, NSString;
 @protocol MSDataSupplierDelegate;
@@ -31,21 +31,20 @@
 - (id)dataForItem:(id)arg1;
 - (void)resetMenuItemImage;
 @property(readonly, nonatomic) NSString *uttDataType;
+@property(readonly, nonatomic) BOOL isUsableDataSupplier;
+@property(readonly, nonatomic) NSString *displayName;
 @property(readonly, nonatomic) BOOL valid;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToDataSupplier:(id)arg1;
 - (unsigned long long)hash;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
-- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)applyDataAtIndex:(unsigned long long)arg1 datum:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)applyDataWithCount:(unsigned long long)arg1 data:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDataIdentifier:(id)arg1 dataName:(id)arg2 dataType:(unsigned long long)arg3;
-- (BOOL)inAGroup;
-- (id)dataNameWithoutGroup;
-- (BOOL)inGroupWithName:(id)arg1;
 
 @end
 

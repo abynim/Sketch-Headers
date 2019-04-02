@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-#import "NSPasteboardReading-Protocol.h"
-#import "NSPasteboardWriting-Protocol.h"
+#import <SketchControllers/NSPasteboardReading-Protocol.h>
+#import <SketchControllers/NSPasteboardWriting-Protocol.h>
 
 @class NSString, NSURL;
 

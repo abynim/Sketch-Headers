@@ -29,9 +29,11 @@
 + (id)pathWithContours:(id)arg1;
 + (id)pathWithSegments:(id)arg1 closed:(BOOL)arg2;
 + (id)pathWithSubpaths:(id)arg1;
++ (id)pathWithFBBezierGraph:(id)arg1;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 @property(readonly, nonatomic) const struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
 - (void).cxx_destruct;
+- (id)description;
 - (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
 - (BOOL)isEqualToPath:(id)arg1;
 - (CDStruct_ab7f5933)elementAtIndex:(unsigned long long)arg1;
@@ -97,9 +99,7 @@
 - (id)booleanIntersectWith:(id)arg1;
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
-- (double)lineWidthForOutliningWithBorder:(id)arg1;
-- (id)outlinedSubpathWithBorder:(id)arg1 options:(id)arg2;
-- (id)outlinedPathWithBorder:(id)arg1 options:(id)arg2;
+- (id)FBBezierGraph;
 
 @end
 

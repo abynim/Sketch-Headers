@@ -7,10 +7,11 @@
 #import <SketchModel/_MSImmutablePage.h>
 
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
+#import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
-@class MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
 
-@interface MSImmutablePage : _MSImmutablePage <MSImmutableRootLayer>
+@interface MSImmutablePage : _MSImmutablePage <MSWebExportableRootLayer, MSImmutableRootLayer>
 {
     NSSet *_selectedLayerIDs;
 }
@@ -27,6 +28,13 @@
 - (struct CGPoint)rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(readonly, nonatomic) BOOL containsFixedLayers;
+@property(readonly, nonatomic) MSArtboardPreset *preset;
+- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
+- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL isFlowHome;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
+@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 

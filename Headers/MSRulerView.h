@@ -67,6 +67,7 @@
 - (void)dragRulerBaseWithMouse:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
 - (unsigned long long)indexOfGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)addNewGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)mouseDown:(id)arg1;

@@ -9,6 +9,7 @@
 @class BCNetworkTime, NSArray, NSDate, NSString, NSURL;
 
 @protocol BCLicense <NSObject>
++ (long long)provider;
 @property(readonly, nonatomic) NSArray *variants;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;
 @property(readonly, nonatomic) NSDate *updateExpirationDate;
@@ -16,7 +17,7 @@
 @property(readonly, nonatomic) BOOL shouldTryToRequestNewTrialLicense;
 @property(readonly, nonatomic) BOOL requiresRefresh;
 @property(readonly, nonatomic) BOOL shouldRefresh;
-@property(readonly, nonatomic) long long remainingDays;
+@property(readonly, nonatomic) double remainingTimeInterval;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) BOOL isValid;
 @property(readonly, nonatomic) BCNetworkTime *networkTime;

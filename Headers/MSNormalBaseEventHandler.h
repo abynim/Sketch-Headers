@@ -10,12 +10,12 @@
 {
 }
 
++ (id)cursorForCorner:(long long)arg1 ofCoordinateSpace:(id)arg2;
 - (BOOL)mayShowResizingInspectorView;
 - (void)configureInspector:(id)arg1;
 - (BOOL)wantsStandardSelectionControls;
 - (void)resizeParentsOfSelectedLayersToFit;
 - (BOOL)canDuplicate;
-- (id)cursorForCorner:(long long)arg1 ofCoordinateSpace:(id)arg2;
 
 @end
 

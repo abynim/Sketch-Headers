@@ -18,7 +18,8 @@
 + (struct NSEdgeInsets)sectionInsetsForItemSizeMode:(unsigned long long)arg1 displayMode:(unsigned long long)arg2;
 + (double)lineSpacingForItemSizeMode:(unsigned long long)arg1 displayMode:(unsigned long long)arg2;
 + (double)interItemSpacingForItemSizeMode:(unsigned long long)arg1;
-+ (struct CGSize)itemSizeForItemSizeMode:(unsigned long long)arg1 displayMode:(unsigned long long)arg2 collectionViewWidth:(double)arg3 sectionInsets:(struct NSEdgeInsets)arg4;
++ (struct CGSize)itemSizeForItemSizeMode:(unsigned long long)arg1 displayMode:(unsigned long long)arg2 collectionViewWidth:(double)arg3;
++ (Class)layoutAttributesClass;
 @property(nonatomic) unsigned long long itemSizeMode; // @synthesize itemSizeMode=_itemSizeMode;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(retain, nonatomic) NSIndexSet *updatedIndexes; // @synthesize updatedIndexes=_updatedIndexes;

@@ -20,6 +20,8 @@
     // Error parsing type: A^v, name: _boundsAtomicPointer
     BOOL _looksLikeALine;
     // Error parsing type: A^v, name: _looksLikeALineAtomicPointer
+    BOOL _isAPoint;
+    // Error parsing type: A^v, name: _isAPointAtomicPointer
     double _maximumInset;
     // Error parsing type: A^v, name: _maximumInsetAtomicPointer
     NSSet *_inflectionOffsets;
@@ -41,6 +43,7 @@
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
++ (id)segmentWithFBBezierCurve:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
 @property(readonly, nonatomic) struct CGPoint controlPoint1; // @synthesize controlPoint1=_controlPoint1;
 @property(nonatomic) CDStruct_aa84902a fromRange; // @synthesize fromRange=_fromRange;
@@ -107,6 +110,7 @@
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
 - (id)segmentBySmoothingEndPoints:(double)arg1 decay:(double)arg2;
+- (id)FBBezierCurve;
 
 @end
 

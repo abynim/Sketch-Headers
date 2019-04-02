@@ -10,7 +10,7 @@
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSInspectorChildController-Protocol.h"
 
-@class BCPopover, MSBitmapEditEventHandler, MSInlineUpDownTextField, NSButton, NSString, NSTextField;
+@class BCPopover, MSBitmapEditEventHandler, MSInlineUpDownTextField, NSButton, NSColor, NSString, NSTextField;
 
 @interface MSBitmapEditInspectorViewController : NSViewController <BCPopoverDelegate, MSColorInspectorDelegate, MSInspectorChildController>
 {
@@ -27,9 +27,11 @@
     NSTextField *_invertLabel;
     NSTextField *_cropLabel;
     NSTextField *_fillLabel;
+    NSColor *_previouslySelectedColor;
     struct CGSize _selectionSize;
 }
 
+@property(retain, nonatomic) NSColor *previouslySelectedColor; // @synthesize previouslySelectedColor=_previouslySelectedColor;
 @property(retain, nonatomic) NSTextField *fillLabel; // @synthesize fillLabel=_fillLabel;
 @property(retain, nonatomic) NSTextField *cropLabel; // @synthesize cropLabel=_cropLabel;
 @property(retain, nonatomic) NSTextField *invertLabel; // @synthesize invertLabel=_invertLabel;

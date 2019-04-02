@@ -78,10 +78,6 @@
 - (id)containedLayers;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
-- (void)trackColors:(id)arg1 withinHierarchyOf:(id)arg2 excludeForeignSymbols:(BOOL)arg3;
-- (void)trackColors:(id)arg1 excludeForeignSymbols:(BOOL)arg2;
-- (id)colorFinderQueue;
-- (void)findFrequentColorsForUse:(unsigned long long)arg1 maximumColorCount:(unsigned long long)arg2 ignoreAlpha:(BOOL)arg3 excludeForeignSymbols:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
 @property(readonly, nonatomic) BOOL containsUnavailableFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;

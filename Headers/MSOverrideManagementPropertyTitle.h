@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSOverrideManagementItem.h"
+#import <SketchControllers/MSOverrideManagementItem.h>
 
-@class NSImage;
+@class NSImage, NSString;
 
 @interface MSOverrideManagementPropertyTitle : MSOverrideManagementItem
 {
@@ -14,9 +14,8 @@
 
 @property(readonly, nonatomic) NSImage *previewIcon;
 - (id)description;
-- (id)title;
-- (id)newController;
-- (double)rowHeight;
+@property(readonly, nonatomic) NSString *title;
+- (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
 
 @end
 

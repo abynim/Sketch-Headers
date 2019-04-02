@@ -34,9 +34,8 @@
 - (void)resetSizeToMaster;
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
 - (void)resizeInstanceToFitSymbol:(id)arg1;
-- (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachByReplacingWithGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 visitedSymbols:(id)arg3;
-- (id)detachByReplacingWithGroupRecursively:(BOOL)arg1;
+- (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1;
 - (unsigned long long)numberOfVisibleCells;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;

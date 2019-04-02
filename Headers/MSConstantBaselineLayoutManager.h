@@ -6,15 +6,10 @@
 
 #import <AppKit/NSLayoutManager.h>
 
-@class MSConstantBaselineTypesetter;
-
 @interface MSConstantBaselineLayoutManager : NSLayoutManager
 {
-    MSConstantBaselineTypesetter *_constantBaselineTypesetter;
 }
 
-@property(retain, nonatomic) MSConstantBaselineTypesetter *constantBaselineTypesetter; // @synthesize constantBaselineTypesetter=_constantBaselineTypesetter;
-- (void).cxx_destruct;
 - (void)processEditingForTextStorage:(id)arg1 edited:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4 invalidatedRange:(struct _NSRange)arg5;
 - (void)setTypesetter:(id)arg1;
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSPathRenderer-Protocol.h"
+#import <SketchRendering/MSPathRenderer-Protocol.h>
 
 @class NSString;
 

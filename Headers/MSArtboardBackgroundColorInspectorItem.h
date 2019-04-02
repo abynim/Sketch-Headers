@@ -8,15 +8,17 @@
 
 #import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 
-@class BCPopover, MSInspectorValueAdaptor, MSStylePartPreviewButton, NSButton, NSString;
+@class BCPopover, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSButton, NSString;
 
-@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget>
+@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate>
 {
     MSStylePartPreviewButton *_backgroundColorButton;
     BCPopover *_popover;
+    MSNativeColorPanelPresenter *_colorPanelPresenter;
     MSInspectorValueAdaptor *_colorAdaptor;
     NSButton *_colorCheckbox;
 }
@@ -24,10 +26,11 @@
 + (BOOL)canHandleLayer:(id)arg1;
 @property(retain, nonatomic) NSButton *colorCheckbox; // @synthesize colorCheckbox=_colorCheckbox;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdaptor; // @synthesize colorAdaptor=_colorAdaptor;
+@property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *backgroundColorButton; // @synthesize backgroundColorButton=_backgroundColorButton;
 - (void).cxx_destruct;
-- (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)dealloc;
@@ -37,6 +40,10 @@
 - (void)dismissViewController:(id)arg1;
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
 - (void)backgroundColorAction:(id)arg1;
+- (void)togglePopover;
+- (void)showNativeColorPanel;
+- (id)companionPopoverForColorPanelPresenter:(id)arg1;
+- (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 

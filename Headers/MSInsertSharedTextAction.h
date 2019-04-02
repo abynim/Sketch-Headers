@@ -19,7 +19,9 @@
 - (void).cxx_destruct;
 - (id)tooltip;
 - (id)label;
+- (id)pluralizedSharedObjectName;
 - (id)sharedObjectName;
+- (id)imageName;
 - (id)imageForToolbar;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (BOOL)validate;

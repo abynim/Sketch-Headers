@@ -30,12 +30,14 @@
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
+- (id)prepareContextForLog:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *environment;
 @property(readonly, nonatomic) NSArray *items;
 - (id)appSupportURL;
 @property(readonly, nonatomic) NSURL *environmentURL;
 @property(readonly, nonatomic) NSURL *logURL;
 - (void)setEnvironmentValue:(id)arg1 forKey:(id)arg2;
+- (void)clearEnvironment;
 - (void)log:(id)arg1;
 - (id)init;
 

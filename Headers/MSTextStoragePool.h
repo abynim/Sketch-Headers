@@ -6,7 +6,7 @@
 
 #import <BCFoundation/BCObjectPool.h>
 
-#import "MSFirstLineTypesetterDelegate-Protocol.h"
+#import <SketchRendering/MSFirstLineTypesetterDelegate-Protocol.h>
 
 @class NSString;
 
@@ -17,6 +17,7 @@
 
 @property(nonatomic) double baselineAdjustmentForLayoutManager; // @synthesize baselineAdjustmentForLayoutManager=_baselineAdjustmentForLayoutManager;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
+- (id)removeAllObjects;
 - (void)recycleTextStorage:(id)arg1;
 - (id)vendTextStorage;
 - (id)initWithTextLayer:(id)arg1;

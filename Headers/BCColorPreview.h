@@ -8,17 +8,17 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class BCFlexibleColor, NSString;
+@class MSFlexibleColor, NSString;
 @protocol BCColorPreviewDelegate;
 
 @interface BCColorPreview : NSPopUpButton <NSMenuDelegate>
 {
-    BCFlexibleColor *_color;
+    MSFlexibleColor *_color;
     id <BCColorPreviewDelegate> _delegate;
 }
 
 @property(nonatomic) __weak id <BCColorPreviewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 - (void)drawCheckerboard;
 - (void)drawRect:(struct CGRect)arg1;

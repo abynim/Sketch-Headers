@@ -14,6 +14,7 @@
 
 - (id)init;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
+@property(nonatomic) unsigned long long mask; // @synthesize mask;
 
 @end
 

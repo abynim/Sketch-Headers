@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-#import "MSRenderingContextCacheProvider-Protocol.h"
+#import <SketchControllers/MSRenderingContextCacheProvider-Protocol.h>
 
 @class BCCache, MSImmutableLayerAncestry, NSColorSpace, NSString;
 

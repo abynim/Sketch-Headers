@@ -6,16 +6,16 @@
 
 #import <SketchModel/_MSLayer.h>
 
+#import <SketchModel/MSEnumerableLayer-Protocol.h>
 #import <SketchModel/MSLayer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
-#import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSHashTable, NSString;
 @protocol MSLayerCoordinateSpace;
 
-@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayer, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <MSLayerContainment, MSEnumerableLayer, MSLayer, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
@@ -101,12 +101,12 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)absoluteInfluenceRect;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (struct CGSize)calculateMinimumSize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
-- (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
 @property(readonly, nonatomic) MSStyle *usedStyle;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
 - (BOOL)limitsSelectionToBounds;
@@ -119,6 +119,8 @@
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
 - (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
+- (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
 - (void)setName:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 @property(nonatomic) double proportions;
@@ -182,7 +184,7 @@
 @property(readonly, nonatomic) BOOL canFixLeft;
 - (id)resizingConstraintKeys;
 - (id)CSSAttributes;
-- (id)CSSRotationString;
+- (id)CSSTransformString;
 - (id)CSSAttributeString;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;

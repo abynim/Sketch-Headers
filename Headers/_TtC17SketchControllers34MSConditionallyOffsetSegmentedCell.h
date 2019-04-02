@@ -14,7 +14,7 @@
 - (id)initImageCell:(id)arg1;
 - (id)initTextCell:(id)arg1;
 - (id)init;
-- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (void)drawSegment:(long long)arg1 inFrame:(struct CGRect)arg2 withView:(id)arg3;
 
 @end
 

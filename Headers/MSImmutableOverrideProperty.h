@@ -8,7 +8,10 @@
 
 @interface MSImmutableOverrideProperty : _MSImmutableOverrideProperty
 {
+    unsigned long long _displayOrder;
 }
+
+@property(nonatomic) unsigned long long displayOrder; // @synthesize displayOrder=_displayOrder;
 
 @end
 

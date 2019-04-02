@@ -6,13 +6,12 @@
 
 #import <SketchModel/_MSImmutableTextLayer.h>
 
-#import <SketchModel/MSColorUser-Protocol.h>
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 #import <SketchModel/NSLayoutManagerDelegate-Protocol.h>
 
 @class MSTextLayout, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSColorUser, NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
 {
     MSTextLayout *_textLayout;
     // Error parsing type: A^v, name: _textLayoutAtomicPointer
@@ -25,7 +24,7 @@
 + (id)defaultName;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;
 - (id)keysDifferingFromObject:(id)arg1;
@@ -57,13 +56,12 @@
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
-- (void)updateColorCounter:(id)arg1;
-- (void)trackColors:(id)arg1;
 - (void)migratePropertiesFromV97OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV76OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithUnarchiver:(id)arg1;
+- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;

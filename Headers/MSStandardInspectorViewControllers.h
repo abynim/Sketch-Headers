@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MSAppearanceInspectorSection, MSExportPreviewInspectorSection, MSFlowInspectorSection, MSGeometryInspectorSection, MSResizeInspectorSection, MSSpecialLayerViewController, MSStyleInspectorSection;
+@class MSAppearanceInspectorSection, MSExportPreviewInspectorSection, MSFlowInspectorSection, MSGeometryInspectorSection, MSLayoutInspectorSection, MSResizeInspectorSection, MSSpecialLayerViewController, MSStyleInspectorSection;
 
 @interface MSStandardInspectorViewControllers : NSObject
 {
     MSGeometryInspectorSection *_geometryViewController;
     MSResizeInspectorSection *_resizeSection;
+    MSLayoutInspectorSection *_layoutSection;
     MSStyleInspectorSection *_styleSection;
     MSFlowInspectorSection *_flowInspectorViewController;
     MSAppearanceInspectorSection *_appearanceInspectorSection;
@@ -24,6 +25,7 @@
 @property(readonly, nonatomic) MSAppearanceInspectorSection *appearanceInspectorSection; // @synthesize appearanceInspectorSection=_appearanceInspectorSection;
 @property(readonly, nonatomic) MSFlowInspectorSection *flowInspectorViewController; // @synthesize flowInspectorViewController=_flowInspectorViewController;
 @property(readonly, nonatomic) MSStyleInspectorSection *styleSection; // @synthesize styleSection=_styleSection;
+@property(readonly, nonatomic) MSLayoutInspectorSection *layoutSection; // @synthesize layoutSection=_layoutSection;
 @property(readonly, nonatomic) MSResizeInspectorSection *resizeSection; // @synthesize resizeSection=_resizeSection;
 @property(readonly, nonatomic) MSGeometryInspectorSection *geometryViewController; // @synthesize geometryViewController=_geometryViewController;
 - (void).cxx_destruct;

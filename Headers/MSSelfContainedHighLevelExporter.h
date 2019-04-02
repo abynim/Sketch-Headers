@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSHighLevelExporter.h"
+#import <SketchRendering/MSHighLevelExporter.h>
 
-#import "MSHighLevelExportDelegate-Protocol.h"
+#import <SketchRendering/MSHighLevelExportDelegate-Protocol.h>
 
 @class NSDictionary, NSMutableArray, NSMutableDictionary, NSMutableString, NSString;
 

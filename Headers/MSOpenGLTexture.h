@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSGPUTexture-Protocol.h"
+#import <SketchRendering/MSGPUTexture-Protocol.h>
 
 @interface MSOpenGLTexture : NSObject <MSGPUTexture>
 {

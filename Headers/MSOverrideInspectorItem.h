@@ -47,9 +47,8 @@
 - (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
 - (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
 - (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProviderIsInspectorPopupMenu:(id)arg1;
+- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
 - (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
-- (unsigned long long)supportedDataProviders;
 - (id)labelView;
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;

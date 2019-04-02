@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSInspectorValueAdaptor.h"
+#import <SketchControllers/MSInspectorValueAdaptor.h>
 
-#import "MSIncrementDecrementDelegate-Protocol.h"
+#import <SketchControllers/MSIncrementDecrementDelegate-Protocol.h>
 
 @class NSNumberFormatter;
 @protocol MSInspectorMathValueAdaptorDelegate;

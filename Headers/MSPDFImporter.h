@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSImporter-Protocol.h"
+#import <SketchControllers/MSImporter-Protocol.h>
 
 @class MSPDFScanner, NSString;
 @protocol PDFParser;

@@ -30,9 +30,6 @@
 - (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
 - (unsigned long long)validate;
 - (BOOL)open:(id *)arg1;
-- (BOOL)checkNeedsMigration:(id *)arg1;
-- (BOOL)migrateUsingXPC:(id *)arg1;
-- (BOOL)validateMigration;
 - (BOOL)containsPreviewImage;
 - (void)dealloc;
 - (id)initWithFileURL:(id)arg1;

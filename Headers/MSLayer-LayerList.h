@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSLayer.h>
 
-#import "MSLayerListLayerExtensions-Protocol.h"
+#import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 
 @class MSTintedImages, NSString;
 
@@ -16,7 +16,6 @@
 - (id)childrenForLayerList;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 - (id)cloneDictionaryReplacingImages:(id)arg1;
-- (void)addMastersForInstancesToDocument:(id)arg1;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isMasked;
 - (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(CDUnknownBlockType)arg1;

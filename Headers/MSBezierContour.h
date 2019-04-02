@@ -24,9 +24,11 @@
 
 + (id)contourWithPolygonAtPoint:(struct CGPoint)arg1 radius:(double)arg2 sides:(unsigned long long)arg3;
 + (id)contourWithRect:(struct CGRect)arg1;
++ (id)contourWithFBBezierContour:(id)arg1;
 @property(readonly, copy, nonatomic) NSArray *segments; // @synthesize segments=_segments;
 @property(readonly, nonatomic, getter=isClosed) BOOL closed; // @synthesize closed=_closed;
 - (void).cxx_destruct;
+- (id)description;
 - (id)debugQuickLookObject;
 - (id)intersectionsWithSegment:(id)arg1;
 - (id)contourWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
@@ -53,6 +55,7 @@
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGRect)calculateBounds;
 - (id)initWithSegments:(id)arg1 closed:(BOOL)arg2;
+- (id)FBBezierContour;
 
 @end
 

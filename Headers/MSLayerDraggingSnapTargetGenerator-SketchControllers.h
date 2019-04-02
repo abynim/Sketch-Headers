@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSLayerDraggingSnapTargetGenerator.h"
+#import <SketchControllers/MSLayerDraggingSnapTargetGenerator.h>
 
 @interface MSLayerDraggingSnapTargetGenerator (SketchControllers)
-- (void)provideSnapTargetsTo:(id)arg1;
+- (void)provideTargetsToSnapper:(id)arg1;
 @end
 

@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "MSAssetLibraryDelegate-Protocol.h"
+#import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
 
 @class MSAssetLibraryUpdater, NSArray, NSHashTable, NSMutableArray, NSString;
 
 @interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
 {
-    NSArray *_internalLibraries;
     NSMutableArray *_userLibraries;
     NSArray *_remoteLibraries;
     NSHashTable *_delegates;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
-@property(retain, nonatomic) NSArray *internalLibraries; // @synthesize internalLibraries=_internalLibraries;
 - (void).cxx_destruct;
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
@@ -45,11 +43,10 @@
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
-- (void)loadInternalLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)loadRemoteLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;
 - (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;
-- (void)setupInternalLibrariesWithDispatchGroup:(id)arg1;
-- (id)initialInternalLibraries;
+- (void)copyInternalLibraryToApplicationSupport;
 - (id)initialRemoteLibraryDefinitions;
 - (id)loadLibrariesForKey:(id)arg1 dispatchGroup:(id)arg2;
 - (void)assetLibraryEnableStateChanged:(id)arg1;
@@ -62,10 +59,10 @@
 - (void)saveLibraries:(id)arg1 withLibrariesKey:(id)arg2;
 - (void)removeAssetLibrary:(id)arg1;
 - (long long)addAssetLibraryAtURL:(id)arg1;
+- (id)existingLibraryForDocumentAtURL:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;
-- (void)addRemoteLibraryFromAppcastURL:(id)arg1 context:(id)arg2 callback:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

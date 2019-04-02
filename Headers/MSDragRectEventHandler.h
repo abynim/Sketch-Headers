@@ -8,7 +8,7 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragGestureRecognizer, NSCursor, NSString;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragGestureRecognizer, MSDragInsertionTool, MSLayerGroup, NSCursor, NSString;
 
 @interface MSDragRectEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
 {
@@ -16,9 +16,11 @@
     MSAlignmentEngine *_snapper;
     MSAlignmentEngineResult *_snappingResult;
     NSCursor *_insertionCursor;
+    MSDragInsertionTool *_tool;
     struct CGRect _insertionRect;
 }
 
+@property(retain, nonatomic) MSDragInsertionTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
 @property(retain, nonatomic) MSAlignmentEngineResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(readonly, nonatomic) MSAlignmentEngine *snapper; // @synthesize snapper=_snapper;
@@ -27,11 +29,12 @@
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)addTargetsToEngine:(id)arg1 snappingDisabled:(BOOL)arg2;
-- (struct CGPoint)alignmentEngine:(id)arg1 roundPoint:(struct CGPoint)arg2;
-- (id)snapAndAlignPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
+- (struct CGPoint)roundPoint:(struct CGPoint)arg1;
+- (id)snapAndAlignPoint:(struct CGPoint)arg1 constraint:(id)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)drawRectPreview;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (id)currentGroup;
+@property(readonly, nonatomic) MSLayerGroup *group;
 - (BOOL)handlesHandToolItself;
 - (void)keyDown:(id)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
@@ -41,11 +44,7 @@
 @property(readonly) BOOL allowsInsertLayerFromExistingLayer;
 @property(readonly, nonatomic) NSCursor *cursorForInsertingFromExisting;
 - (void)trackMouse:(id)arg1;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handleDrag:(id)arg1;
-- (struct CGRect)drawingRectForInsertionRect:(struct CGRect)arg1;
-- (struct CGVector)makeDiagonalTranslation:(struct CGVector)arg1;
-- (struct CGRect)calculateInsertionRect:(id)arg1;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

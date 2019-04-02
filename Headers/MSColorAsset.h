@@ -6,10 +6,13 @@
 
 #import <SketchModel/_MSColorAsset.h>
 
+@class NSString;
+
 @interface MSColorAsset : _MSColorAsset
 {
 }
 
+@property(readonly, nonatomic) NSString *displayName;
 - (void)setAsset:(id)arg1;
 - (id)asset;
 

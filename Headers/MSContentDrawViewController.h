@@ -35,7 +35,6 @@
 - (void).cxx_destruct;
 - (void)prepareForDealloc;
 - (void)changeToPage:(id)arg1;
-- (void)currentArtboardDidChange;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (void)awakeFromNib;

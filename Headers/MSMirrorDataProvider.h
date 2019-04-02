@@ -46,7 +46,7 @@
 - (void)setNeedsUpdateMetadata;
 - (void)setNeedsUpdate;
 @property(copy, nonatomic) NSString *currentArtboardID; // @synthesize currentArtboardID=_currentArtboardID;
-- (id)createManifestContent;
+- (id)createManifestContent:(id)arg1;
 - (void)documentDidResignCurrentNotification:(id)arg1;
 - (void)documentDidBecomeCurrentNotification:(id)arg1;
 - (void)mirrorConnectionsDidChangeNotification:(id)arg1;

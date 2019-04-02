@@ -31,7 +31,7 @@
 - (void)drawTitlesForArtboards:(id)arg1 titleColor:(struct CGColor *)arg2 symbolTitleColor:(struct CGColor *)arg3 zoom:(double)arg4 backingScaleFactor:(double)arg5 baseOrigin:(struct CGPoint)arg6;
 - (BOOL)ms_needsToRecreateTitlesForArtboards:(id)arg1 zoom:(double)arg2 backingScaleFactor:(double)arg3;
 - (void)ms_drawTitles:(id)arg1 zoom:(double)arg2 backingScaleFactor:(double)arg3 baseOrigin:(struct CGPoint)arg4;
-- (id)ms_findExistingItemForArtboard:(id)arg1;
+- (id)ms_findExistingItemForArtboard:(id)arg1 zoom:(double)arg2 backingScaleFactor:(double)arg3;
 - (void)ms_drawTitlesToTexture:(id)arg1 backingScaleFactor:(double)arg2;
 - (void)ms_recreateTextureForWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (void)ms_createTextureForArtboards:(id)arg1 zoom:(double)arg2 backingScaleFactor:(double)arg3 titleColor:(id)arg4 symbolTitleColor:(id)arg5;

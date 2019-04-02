@@ -23,6 +23,7 @@
 - (unsigned long long)writingOptionsForType:(id)arg1 pasteboard:(id)arg2;
 - (id)writableTypesForPasteboard:(id)arg1;
 - (void)beginDragWithEvent:(id)arg1;
+- (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (struct CGRect)imageDrawRect;

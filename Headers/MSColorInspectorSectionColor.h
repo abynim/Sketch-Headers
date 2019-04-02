@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSColorInspectorSectionWithPicker.h"
+#import "MSColorInspectorSectionWithColorPicker.h"
 
 @class MSColor;
 
-@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithPicker
+@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker
 {
     MSColor *_pickedColor;
 }
@@ -27,9 +27,8 @@
 - (void)setStyleParts:(id)arg1;
 - (void)selectColorInAssetPicker:(id)arg1;
 - (void)highlightCurrentColor;
-- (id)foreignAssetPickerDataSources;
 - (id)assetPickerDataSources;
-- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
+- (id)scrollableViews;
 
 @end
 

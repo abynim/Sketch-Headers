@@ -25,6 +25,7 @@
 @property(retain, nonatomic) MSExportRequest *cachedExportRequest; // @synthesize cachedExportRequest=_cachedExportRequest;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 - (void).cxx_destruct;
+- (void)exportDataInFormat:(id)arg1 toURL:(id)arg2;
 - (id)imageDataInFormat:(id)arg1;
 - (id)initWithPreviewImage:(id)arg1 cachedExportRequest:(id)arg2 ancestry:(id)arg3;
 

@@ -6,9 +6,11 @@
 
 #import "MSOverrideInspectorItem.h"
 
+#import "NSMenuDelegate-Protocol.h"
+
 @class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem
+@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -24,16 +26,14 @@
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void).cxx_destruct;
 - (void)navigateToOverridesMaster:(id)arg1;
-- (void)navigateToForeignSymbolInLibrary:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)viewWillAppear;
+- (void)overrideValueAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)applyOverrideToSelectedLayers:(id)arg1;
-- (id)valueFromSymbolMasterReference:(id)arg1;
-- (id)valueFromControlView:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (void)reloadMenu;
-- (id)symbolMenuItems;
-- (id)menuItemsForSymbolMasterRefs:(id)arg1;
+- (id)currentSelectionMenuItem;
 - (id)nameOfCurrentNestedSymbol;
 - (void)build;
 - (void)updateNavigateButton;
@@ -42,6 +42,12 @@
 @property(readonly, nonatomic) NSString *originalMasterID;
 @property(readonly, nonatomic) NSString *currentMasterID;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

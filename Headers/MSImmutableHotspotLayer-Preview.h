@@ -6,11 +6,11 @@
 
 #import <SketchModel/MSImmutableHotspotLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSImmutableLayerPreviewability-Protocol.h>
 
 @interface MSImmutableHotspotLayer (Preview) <MSImmutableLayerPreviewability>
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (void)drawPreviewInRect:(struct CGRect)arg1 documentData:(id)arg2 selected:(BOOL)arg3 bezier:(id)arg4;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2 bezier:(id)arg3;
 @end
 

@@ -6,17 +6,17 @@
 
 #import "MSInspectorButton.h"
 
-@class BCFlexibleColor;
+@class MSFlexibleColor;
 @protocol BCMagnifierButtonDelegate;
 
 @interface BCMagnifierButton : MSInspectorButton
 {
     id <BCMagnifierButtonDelegate> _delegate;
-    BCFlexibleColor *_color;
+    MSFlexibleColor *_color;
 }
 
 + (Class)cellClass;
-@property(retain, nonatomic) BCFlexibleColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 @property(nonatomic) __weak id <BCMagnifierButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)sendAction:(SEL)arg1 to:(id)arg2;

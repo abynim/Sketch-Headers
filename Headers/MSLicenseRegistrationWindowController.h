@@ -13,6 +13,7 @@
 @interface MSLicenseRegistrationWindowController : NSWindowController <NSWindowDelegate>
 {
     BOOL _shouldQuitOnWindowClose;
+    BOOL _isQuitting;
     BOOL _checkForAvailableUpdates;
     BOOL _runningAsModal;
     NSTextField *_titleTextField;
@@ -58,6 +59,7 @@
 @property(retain, nonatomic) NSTextField *titleTextField; // @synthesize titleTextField=_titleTextField;
 @property(readonly, nonatomic) BOOL runningAsModal; // @synthesize runningAsModal=_runningAsModal;
 @property(nonatomic) BOOL checkForAvailableUpdates; // @synthesize checkForAvailableUpdates=_checkForAvailableUpdates;
+@property(nonatomic) BOOL isQuitting; // @synthesize isQuitting=_isQuitting;
 @property(nonatomic) BOOL shouldQuitOnWindowClose; // @synthesize shouldQuitOnWindowClose=_shouldQuitOnWindowClose;
 - (void).cxx_destruct;
 - (void)openLicenseManager:(id)arg1;
@@ -76,6 +78,7 @@
 - (void)showCopyForActiveLicense;
 - (void)showCopyForTrialExpired;
 - (void)windowWillClose:(id)arg1;
+- (BOOL)windowShouldClose:(id)arg1;
 - (void)loadInitialView;
 - (void)windowDidLoad;
 - (void)licenseChanged:(id)arg1;

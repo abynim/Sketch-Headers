@@ -10,7 +10,7 @@
 #import "MSColorModelPickerDelegate-Protocol.h"
 #import "MSKeyViewProvider-Protocol.h"
 
-@class MSAutoSelectingArrayController, MSColor, MSColorHexStringTransformer, MSColorModelPicker, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, NSString, NSTextField, NSView;
+@class MSAutoSelectingArrayController, MSColorModelPicker, MSFlexibleColor, MSFlexibleColorHexStringTransformer, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, NSString, NSTextField, NSUndoManager, NSView;
 @protocol MSColorComponentsControllerDelegate;
 
 @interface MSColorComponentsController : NSViewController <MSColorComponentAdaptorDelegate, MSColorModelPickerDelegate, MSKeyViewProvider>
@@ -31,18 +31,20 @@
     MSMathInspectorValueAdaptor *_component3Adaptor;
     MSMathInspectorValueAdaptor *_component4Adaptor;
     NSTextField *_hexField;
-    MSColorHexStringTransformer *_hexTransformer;
+    MSFlexibleColorHexStringTransformer *_hexTransformer;
     MSInspectorValueAdaptor *_hexAdaptor;
     MSColorModelPicker *_modelPicker;
     NSView *_modelPickerContainer;
+    NSUndoManager *_localUndoManager;
 }
 
 + (double)displayScaleValueForComponentIndex:(unsigned long long)arg1 colorModel:(long long)arg2;
+@property(retain, nonatomic) NSUndoManager *localUndoManager; // @synthesize localUndoManager=_localUndoManager;
 @property(nonatomic) BOOL multipleColors; // @synthesize multipleColors=_multipleColors;
 @property(retain, nonatomic) NSView *modelPickerContainer; // @synthesize modelPickerContainer=_modelPickerContainer;
 @property(retain, nonatomic) MSColorModelPicker *modelPicker; // @synthesize modelPicker=_modelPicker;
 @property(retain, nonatomic) MSInspectorValueAdaptor *hexAdaptor; // @synthesize hexAdaptor=_hexAdaptor;
-@property(retain, nonatomic) MSColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
+@property(retain, nonatomic) MSFlexibleColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
 @property(retain, nonatomic) NSTextField *hexField; // @synthesize hexField=_hexField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *component4Adaptor; // @synthesize component4Adaptor=_component4Adaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *component3Adaptor; // @synthesize component3Adaptor=_component3Adaptor;
@@ -59,6 +61,13 @@
 @property(nonatomic) __weak id <MSColorComponentsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 - (void).cxx_destruct;
+- (id)undoManager;
+- (void)cancelOperation:(id)arg1;
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (id)textFieldEligibleForAction:(SEL)arg1;
+- (id)textFields;
 @property(readonly, nonatomic) NSView *preferredFirstResponder;
 @property(readonly, nonatomic) NSView *lastKeyView;
 @property(readonly, nonatomic) NSView *firstKeyView;
@@ -70,7 +79,7 @@
 - (id)colorBySettingComponentDisplayValue:(double)arg1 atIndex:(long long)arg2 forColor:(id)arg3;
 - (double)componentDisplayValueAt:(long long)arg1 forColor:(id)arg2;
 - (void)viewDidLoad;
-@property(readonly, nonatomic) MSColor *color;
+@property(readonly, nonatomic) MSFlexibleColor *color;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (id)createAndSetupValueAdaptorForComponentIndex:(unsigned long long)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class MSColor;
+@class MSFlexibleColor;
 
 @interface MSColorWrapper : NSObject
 {
-    MSColor *_color;
+    MSFlexibleColor *_color;
 }
 
 + (id)wrapperWithColor:(id)arg1;
-@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 
 @end

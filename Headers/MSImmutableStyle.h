@@ -18,7 +18,6 @@
 - (struct CGRect)boundsForPath:(id)arg1;
 - (id)_shadowWithGreatestSpread:(id)arg1;
 - (struct CGRect)_boundsForShadow:(id)arg1 path:(id)arg2;
-- (void)applyPropertiesToBezier:(id)arg1;
 @property(readonly, nonatomic) NSArray *enabledInnerShadows;
 @property(readonly, nonatomic) NSArray *enabledShadows;
 @property(readonly, nonatomic) NSArray *enabledBorders;

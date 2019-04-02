@@ -12,8 +12,8 @@
 {
 }
 
-- (id)masterFromDocument:(id)arg1 withID:(id)arg2;
-- (id)collectionInDocument:(id)arg1;
++ (id)masterFromDocument:(id)arg1 withID:(id)arg2;
++ (id)foreignObjectCollectionInDocument:(id)arg1;
 - (id)unlinkFromRemote;
 @property(readonly, nonatomic) NSString *remoteShareID;
 - (void)setLocalShareID:(id)arg1;
@@ -28,6 +28,7 @@
 - (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+- (void)correctInvalidGamma;
 
 @end
 

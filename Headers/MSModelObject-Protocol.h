@@ -6,6 +6,9 @@
 
 #import <SketchModel/MSModelObjectCommon-Protocol.h>
 
+@class MSModelObjectCacheGeneration;
+
 @protocol MSModelObject <MSModelObjectCommon>
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 @end
 

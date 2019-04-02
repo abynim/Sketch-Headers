@@ -43,7 +43,6 @@
 - (void)performInitEmptyObject;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
 - (BOOL)hitTestAsPath;
-- (id)CSSAttributes;
 - (id)CSSAttributeString;
 
 // Remaining properties

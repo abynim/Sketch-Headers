@@ -5,10 +5,9 @@
 //
 
 @class MSImmutableDocumentData;
-@protocol MSInterfaceImageOwner;
 
 @protocol MSImmutableLayerPreviewability
-- (void)refreshPreviewImagesWithDocumentData:(MSImmutableDocumentData *)arg1 forOwner:(id <MSInterfaceImageOwner>)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(MSImmutableDocumentData *)arg1 forOwner:(id <MSInterfaceImageOwner>)arg2;
+- (void)refreshPreviewImagesWithDocumentData:(MSImmutableDocumentData *)arg1;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(MSImmutableDocumentData *)arg1;
 @end
 

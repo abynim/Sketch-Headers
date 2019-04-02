@@ -6,13 +6,14 @@
 
 #import <Chocolat/CHWindowController.h>
 
+#import "MSCloudSharesControllerDelegate-Protocol.h"
 #import "MSWelcomeCollectionViewDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class MSCallToActionButton, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
 
-@interface MSWelcomeWindowController : CHWindowController <NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
+@interface MSWelcomeWindowController : CHWindowController <MSCloudSharesControllerDelegate, NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
 {
     NSButton *_closeButton;
     NSCollectionView *_collectionView;

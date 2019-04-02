@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSLayerRenderer-Protocol.h"
+#import <SketchRendering/MSLayerRenderer-Protocol.h>
 
 @class NSString;
 

@@ -17,6 +17,7 @@
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) MSSymbolMaster *master; // @synthesize master=_master;
 - (void).cxx_destruct;
+- (BOOL)isOverridePoint:(id)arg1 configurableIn:(id)arg2;
 
 @end
 

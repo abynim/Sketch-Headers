@@ -9,17 +9,21 @@
 #import "MSDragLayerToolUserInterface-Protocol.h"
 #import "MSGestureRecognizerDelegate-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSLayer, MSLayerDragController, MSLayerMeasurementRenderer, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, NSObject, NSSet, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSSelectionOverlayController, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
     MSNormalEventData *_eventData;
-    MSLayerMeasurementRenderer *_measurementRenderer;
+    long long _dragMode;
+    MSSelectionOverlayController *_selectionOverlayController;
+    MSLayerMeasuringController *_measuringController;
+    MSSnapOverlayController *_snapsController;
     NSObject<MSHoverableItem> *_highlightedItem;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
+    MSHitTestResult *_mouseDownHitTest;
     NSSet *_duplicatedObjectIDs;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
@@ -34,10 +38,14 @@
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
 @property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
+@property(retain, nonatomic) MSHitTestResult *mouseDownHitTest; // @synthesize mouseDownHitTest=_mouseDownHitTest;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSObject<MSHoverableItem> *highlightedItem; // @synthesize highlightedItem=_highlightedItem;
-@property(readonly, nonatomic) MSLayerMeasurementRenderer *measurementRenderer; // @synthesize measurementRenderer=_measurementRenderer;
+@property(readonly, nonatomic) MSSnapOverlayController *snapsController; // @synthesize snapsController=_snapsController;
+@property(readonly, nonatomic) MSLayerMeasuringController *measuringController; // @synthesize measuringController=_measuringController;
+@property(readonly, nonatomic) MSSelectionOverlayController *selectionOverlayController; // @synthesize selectionOverlayController=_selectionOverlayController;
+@property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
@@ -56,6 +64,8 @@
 - (void)delete:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 - (id)menu;
+@property(readonly, nonatomic) NSMenu *menuForLayerList;
+- (id)menuForCanvas;
 - (void)selectAll:(id)arg1;
 - (void)dragToSelect:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
@@ -66,22 +76,16 @@
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)drawOutlineForShapeChild:(id)arg1;
 - (void)drawSelectedShapePathLayers;
-- (void)drawMultipleSelection:(id)arg1;
-- (BOOL)shouldDrawSelectionForLayer:(id)arg1;
 - (void)drawLayerHighlight:(id)arg1;
-- (void)drawLayerSelection;
+- (void)drawOverrides;
+- (void)prepareToDraw:(id)arg1;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
 - (void)keyDownMoveCanvas:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (void)flashSnapsForLayer:(id)arg1;
+- (void)flashSnaps:(id)arg1;
 - (void)opacityShortcutRecognized:(id)arg1;
 - (void)keyDownResizeLayers:(unsigned short)arg1 flags:(unsigned long long)arg2;
-- (BOOL)layersAreNotIntersectingTheirArtboards:(id)arg1;
-- (void)moveLayersFromArtboardToParentPage:(id)arg1;
-- (void)moveLayers:(id)arg1 toArtboard:(id)arg2;
-- (id)parentArtboardWeCanMoveLayersTo:(id)arg1;
-- (void)moveLayersOnOrOffArtboard:(id)arg1;
 - (void)keyDownMoveLayers:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)cancelOperation:(id)arg1;
 - (id)artboardsInReadingOrder;
@@ -94,20 +98,20 @@
 - (void)keyDown:(id)arg1;
 - (void)trackMouse:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
-- (BOOL)isMouseHoveringMultipleSelectedLayerCorner:(struct CGPoint)arg1;
-- (long long)multipleSelectedLayerCornerAtPoint:(struct CGPoint)arg1;
-- (BOOL)isMouse:(struct CGPoint)arg1 hoveringCornerOfLayer:(id)arg2 modiferFlags:(unsigned long long)arg3;
-- (BOOL)isMouseHoveringLayerCorner:(struct CGPoint)arg1;
+- (BOOL)isMouseHoveringResizeHandle:(struct CGPoint)arg1;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseExited;
 - (void)selectLayer:(id)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)layerDoubleClicked:(id)arg1;
-- (void)enterResizeModeForLayers:(id)arg1 handle:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
-- (void)enterResizeModeForLine:(id)arg1 handle:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
+- (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
+- (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (BOOL)startResizingOrRotatingAtPoint:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (void)selectHitTestResult:(id)arg1 extendSelection:(BOOL)arg2;
+- (void)dragModeDidReset;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)toolbarIdentifier;

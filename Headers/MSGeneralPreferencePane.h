@@ -6,24 +6,43 @@
 
 #import "MSPreferencePane.h"
 
-@class NSPopUpButton, NSTextField;
+@class NSImageView, NSPopUpButton, NSTextField, NSView;
 
 @interface MSGeneralPreferencePane : MSPreferencePane
 {
     NSTextField *_defaultColorSpaceDescriptionLabel;
     NSPopUpButton *_defaultColorSpacePopUpButton;
+    NSImageView *_appearancePreview;
+    NSPopUpButton *_appAppearanceButton;
+    NSPopUpButton *_canvasAppearanceButton;
+    NSTextField *_appAppearanceLabel;
+    NSTextField *_canvasAppearanceLabel;
+    NSView *_mainContainerView;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(nonatomic) __weak NSView *mainContainerView; // @synthesize mainContainerView=_mainContainerView;
+@property(nonatomic) __weak NSTextField *canvasAppearanceLabel; // @synthesize canvasAppearanceLabel=_canvasAppearanceLabel;
+@property(nonatomic) __weak NSTextField *appAppearanceLabel; // @synthesize appAppearanceLabel=_appAppearanceLabel;
+@property(nonatomic) __weak NSPopUpButton *canvasAppearanceButton; // @synthesize canvasAppearanceButton=_canvasAppearanceButton;
+@property(nonatomic) __weak NSPopUpButton *appAppearanceButton; // @synthesize appAppearanceButton=_appAppearanceButton;
+@property(nonatomic) __weak NSImageView *appearancePreview; // @synthesize appearancePreview=_appearancePreview;
 @property(nonatomic) __weak NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
 @property(nonatomic) __weak NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
 - (void).cxx_destruct;
+- (void)canvasColorAction:(id)arg1;
+- (void)appearanceColorAction:(id)arg1;
+- (void)refreshPreviewImage;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)setupAppearanceControls;
+- (void)watchAppearanceChanges;
 - (void)pickDefaultColorSpace:(id)arg1;
 - (void)refreshColorSpaceDescription;
 - (void)analyticsAction:(id)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
 
 @end
 

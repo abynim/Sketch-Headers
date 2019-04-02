@@ -13,6 +13,8 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)drawAssetView:(id)arg1 dirtyRect:(struct CGRect)arg2;
 - (id)imageData;
+- (void)layoutBackgroundView:(id)arg1;
+- (void)loadView;
 
 @end
 
