@@ -25,8 +25,11 @@
 - (BOOL)updaterShouldRelaunchApplication:(SUUpdater *)arg1;
 - (BOOL)updater:(SUUpdater *)arg1 shouldPostponeRelaunchForUpdate:(SUAppcastItem *)arg2 untilInvoking:(NSInvocation *)arg3;
 - (void)updater:(SUUpdater *)arg1 willInstallUpdate:(SUAppcastItem *)arg2;
+- (void)updater:(SUUpdater *)arg1 didExtractUpdate:(SUAppcastItem *)arg2;
+- (void)updater:(SUUpdater *)arg1 willExtractUpdate:(SUAppcastItem *)arg2;
 - (void)userDidCancelDownload:(SUUpdater *)arg1;
 - (void)updater:(SUUpdater *)arg1 failedToDownloadUpdate:(SUAppcastItem *)arg2 error:(NSError *)arg3;
+- (void)updater:(SUUpdater *)arg1 didDownloadUpdate:(SUAppcastItem *)arg2;
 - (void)updater:(SUUpdater *)arg1 willDownloadUpdate:(SUAppcastItem *)arg2 withRequest:(NSMutableURLRequest *)arg3;
 - (void)updaterDidNotFindUpdate:(SUUpdater *)arg1;
 - (void)updater:(SUUpdater *)arg1 didFindValidUpdate:(SUAppcastItem *)arg2;

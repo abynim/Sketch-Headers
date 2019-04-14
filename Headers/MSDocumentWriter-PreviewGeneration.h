@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSDocumentWriter.h>
 
-#import "MSDocumentPreviewGeneration-Protocol.h"
+#import <SketchRendering/MSDocumentPreviewGeneration-Protocol.h>
 
 @class NSString;
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSShadowRenderer-Protocol.h"
+#import <SketchRendering/MSShadowRenderer-Protocol.h>
 
 @class NSString;
 

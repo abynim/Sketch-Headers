@@ -26,6 +26,7 @@
 @property(retain, nonatomic) NSColor *pageBackgroundColor; // @synthesize pageBackgroundColor=_pageBackgroundColor;
 @property(retain, nonatomic) NSColor *canvasBackgroundColor; // @synthesize canvasBackgroundColor=_canvasBackgroundColor;
 - (void).cxx_destruct;
+- (BOOL)isEqualToColorSettings:(id)arg1;
 
 @end
 

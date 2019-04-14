@@ -9,9 +9,11 @@
 #import "NSDraggingSource-Protocol.h"
 
 @class NSString;
+@protocol MSReorderingViewDelegate;
 
 @interface MSReorderingView : NSView <NSDraggingSource>
 {
+    id <MSReorderingViewDelegate> _delegate;
     SEL _deleteAction;
     SEL _duplicateAction;
     id _target;
@@ -22,6 +24,7 @@
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(nonatomic) SEL duplicateAction; // @synthesize duplicateAction=_duplicateAction;
 @property(nonatomic) SEL deleteAction; // @synthesize deleteAction=_deleteAction;
+@property(nonatomic) __weak id <MSReorderingViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)wantsSeparator;
 - (id)menuForEvent:(id)arg1;

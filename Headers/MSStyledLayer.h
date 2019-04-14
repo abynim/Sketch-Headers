@@ -22,12 +22,11 @@
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
 - (void)setStyle:(id)arg1;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)hasMarkers;
 - (id)usedStyle;
 - (BOOL)hasEnabledBackgroundBlur;
 - (void)multiplyBy:(double)arg1;
-- (void)applyPropertiesToBezier:(id)arg1;
 - (void)layerStyleDidChange;
 - (id)sharedObject;
 - (void)correctInvalidGamma;

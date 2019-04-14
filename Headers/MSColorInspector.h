@@ -19,6 +19,7 @@
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
 {
     BOOL _displayingDiverseStyles;
+    BOOL _isStacking;
     NSArray *_styleParts;
     id <MSColorInspectorDelegate> _delegate;
     MSColorModePickerController *_colorModePickerController;
@@ -39,6 +40,7 @@
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSColorPickerViewController *colorPickerController; // @synthesize colorPickerController=_colorPickerController;
+@property(nonatomic) BOOL isStacking; // @synthesize isStacking=_isStacking;
 @property(retain, nonatomic) MSLibraryAssetCollectionsController *libraryAssetsController; // @synthesize libraryAssetsController=_libraryAssetsController;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
 @property(nonatomic) BOOL displayingDiverseStyles; // @synthesize displayingDiverseStyles=_displayingDiverseStyles;

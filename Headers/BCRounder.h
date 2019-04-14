@@ -12,6 +12,8 @@
 }
 
 @property(nonatomic) double roundingIncrement; // @synthesize roundingIncrement=_roundingIncrement;
+- (struct CGVector)roundVector:(struct CGVector)arg1 mask:(unsigned long long)arg2;
+- (struct CGVector)roundVector:(struct CGVector)arg1;
 - (struct CGSize)roundSize:(struct CGSize)arg1 mask:(unsigned long long)arg2;
 - (struct CGSize)roundSize:(struct CGSize)arg1;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1 mask:(unsigned long long)arg2;

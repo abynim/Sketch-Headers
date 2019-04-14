@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSPasteboardWriter-Protocol.h"
+#import <SketchControllers/MSPasteboardWriter-Protocol.h>
 
 @class NSString;
 
@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)includeArtboardBackgroundForLayers:(id)arg1;
 - (id)includedObjectIDsForLayers:(id)arg1;
 - (BOOL)containsSingleArtboard:(id)arg1;
 - (struct CGRect)bitmapRectForLayers:(id)arg1;

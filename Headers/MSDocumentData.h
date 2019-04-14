@@ -32,9 +32,7 @@
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
-- (void)determineCurrentArtboard;
 - (void)refreshOverlay;
-- (void)immediatelyShowSelectionForAllLayers;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
@@ -55,9 +53,7 @@
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (void)invalidateAffectedSymbolInstances;
-- (id)addCopyOfInstanceMasterToDocumentIfNecessary:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
-- (id)addCopyOfMasterToDocumentIfNecessary:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;
 - (id)allForeignObjects;

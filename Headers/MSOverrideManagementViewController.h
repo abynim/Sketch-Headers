@@ -6,17 +6,19 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSLayoutConstraint;
+@class MSOverrideManagementItem, NSLayoutConstraint;
 
 @interface MSOverrideManagementViewController : NSViewController
 {
+    MSOverrideManagementItem *_managementItem;
     NSLayoutConstraint *_indentConstraint;
 }
 
 + (double)rowHeight;
 @property(retain, nonatomic) NSLayoutConstraint *indentConstraint; // @synthesize indentConstraint=_indentConstraint;
+@property(retain, nonatomic) MSOverrideManagementItem *managementItem; // @synthesize managementItem=_managementItem;
 - (void).cxx_destruct;
-- (void)updateIndentForItem:(id)arg1;
+- (void)updateIndent;
 
 @end
 

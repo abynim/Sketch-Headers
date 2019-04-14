@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchPluginManager/NSCopying-Protocol.h>
 
 @class NSString;
 

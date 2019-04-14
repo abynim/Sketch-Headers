@@ -13,7 +13,7 @@
 #import <BCLayerList/NSOutlineViewDataSource-Protocol.h>
 #import <BCLayerList/NSTextFieldDelegate-Protocol.h>
 
-@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
+@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCRowViewVisuals, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
 
 @interface BCOutlineViewController : NSViewController <NSMenuDelegate, NSTextFieldDelegate, BCTableCellViewDelegate, BCTableRowViewDelegate, NSOutlineViewDataSource, BCOutlineViewDelegate>
 {
@@ -32,9 +32,11 @@
     NSMutableSet *_referencedNodes;
     unsigned long long _refreshMask;
     NSArray *_postRefreshBlocks;
+    BCRowViewVisuals *_rowViewVisuals;
 }
 
 + (BOOL)itemRowCanFloat:(id)arg1;
+@property(retain, nonatomic) BCRowViewVisuals *rowViewVisuals; // @synthesize rowViewVisuals=_rowViewVisuals;
 @property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
 @property(nonatomic) BOOL viewHasAppearedBefore; // @synthesize viewHasAppearedBefore=_viewHasAppearedBefore;
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
@@ -51,6 +53,8 @@
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
+- (void)updateVisualStateOfRowView:(id)arg1;
+- (void)resetRowViewVisuals;
 - (id)tableCellOutlineView:(id)arg1;
 - (id)tableCellViewDestinationWindow:(id)arg1;
 - (unsigned long long)tableRowView:(id)arg1 displayTypeOfRowAtIndex:(long long)arg2;
@@ -59,7 +63,7 @@
 - (BOOL)isNodeExpandedInTableRowView:(id)arg1;
 - (BOOL)multipleNodesSelected;
 - (BOOL)isNodeSelectedOnRow:(long long)arg1;
-- (BOOL)isNodeSelectedInTableRowView:(id)arg1;
+- (BOOL)isNodeOfTableRowViewSelected:(id)arg1;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
@@ -78,6 +82,7 @@
 - (void)flagsChangedNotification;
 - (id)tableCellViewForNode:(id)arg1;
 - (void)updateDisplayStateOnView:(id)arg1;
+- (BOOL)isNodeOfTableRowViewHovered:(id)arg1;
 - (void)setCurrentlyHoveredNode:(id)arg1 notifyDelegate:(BOOL)arg2;
 - (void)setCurrentlyHoveredView:(id)arg1 notifyDelegate:(BOOL)arg2;
 @property(readonly, nonatomic) __weak BCTableCellView *currentlyHoveredView;
@@ -132,7 +137,10 @@
 - (id)childrenForItem:(id)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) double preferredHeight;
+- (void)applyAppearance;
 - (void)viewDidAppear;
+- (void)outlineViewDidResize:(id)arg1;
+- (void)viewDidLoad;
 - (void)awakeFromNib;
 - (id)initWithDataController:(id)arg1;
 

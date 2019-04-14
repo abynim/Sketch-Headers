@@ -17,6 +17,7 @@
     BCNetworkTime *_networkTime;
 }
 
++ (long long)provider;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
 @property(readonly, copy, nonatomic) SCKJWT *jwt; // @synthesize jwt=_jwt;
 - (void).cxx_destruct;
@@ -27,7 +28,7 @@
 @property(readonly, nonatomic) BOOL shouldTryToRequestNewTrialLicense;
 @property(readonly, nonatomic) BOOL requiresRefresh;
 @property(readonly, nonatomic) BOOL shouldRefresh;
-@property(readonly, nonatomic) long long remainingDays;
+@property(readonly, nonatomic) double remainingTimeInterval;
 @property(readonly, nonatomic) long long type;
 @property(readonly, nonatomic) BOOL isValid;
 @property(readonly, nonatomic) NSString *deviceID;

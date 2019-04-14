@@ -4,11 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC17SketchControllers9MSResizer.h"
+#import <SketchControllers/_TtC17SketchControllers9MSResizer.h>
 
-@class NSArray;
+@protocol MSLayerCoordinateSpace, MSSnappable;
 
 @interface _TtC17SketchControllers9MSResizer (SketchControllers)
-@property(nonatomic, readonly) NSArray *layers;
+@property(nonatomic, readonly) id <MSSnappable> snapItemForDrawing;
+- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
+- (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
+@property(nonatomic, readonly) id <MSLayerCoordinateSpace> coordinateSpaceForSnapping;
 @end
 

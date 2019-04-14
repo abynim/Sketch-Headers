@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "COFlowDelegate-Protocol.h"
+#import <SketchPluginManager/COFlowDelegate-Protocol.h>
 
 @class MSPluginManagingState, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSTimer, NSURL;
 @protocol MSPluginLogAction, MSPluginUpdater;

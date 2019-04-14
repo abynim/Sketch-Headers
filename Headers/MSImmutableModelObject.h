@@ -48,6 +48,7 @@
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)lightweightCopy_Detach;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

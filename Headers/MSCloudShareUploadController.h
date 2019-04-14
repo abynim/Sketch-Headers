@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "SCKShareUploadDataSource-Protocol.h"
+#import <SketchControllers/SCKShareUploadDataSource-Protocol.h>
 
 @class MSWebExporter, NSProgress, NSString, NSURL, SCKOrganization, SCKShare, SCKShareUploadOperation;
 @protocol MSCloudExportableDocument, MSCloudShareUploadControllerDelegate;

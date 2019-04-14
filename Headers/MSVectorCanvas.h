@@ -60,7 +60,7 @@
 @property(nonatomic) MSContentDrawView *view; // @synthesize view=_view;
 @property(nonatomic) __weak MSShapeEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void).cxx_destruct;
-- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
+- (struct CGPoint)alignmentEngine:(id)arg1 roundPoint:(struct CGPoint)arg2;
 - (BOOL)gestureRecognizerShouldDelaySelectionUntilMouseUp:(id)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)setNeedsUpdateCursor;

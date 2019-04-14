@@ -9,11 +9,13 @@
 @class BCTableRowView;
 
 @protocol BCTableRowViewDelegate <NSObject>
+- (void)updateVisualStateOfRowView:(BCTableRowView *)arg1;
 - (unsigned long long)tableRowView:(BCTableRowView *)arg1 displayTypeOfRowAtIndex:(long long)arg2;
 - (long long)indexOfTableRowView:(BCTableRowView *)arg1;
 - (BOOL)isNodeExpandedInTableRowView:(BCTableRowView *)arg1;
 - (BOOL)multipleNodesSelected;
+- (BOOL)isNodeOfTableRowViewHovered:(BCTableRowView *)arg1;
 - (BOOL)isNodeSelectedOnRow:(long long)arg1;
-- (BOOL)isNodeSelectedInTableRowView:(BCTableRowView *)arg1;
+- (BOOL)isNodeOfTableRowViewSelected:(BCTableRowView *)arg1;
 @end
 

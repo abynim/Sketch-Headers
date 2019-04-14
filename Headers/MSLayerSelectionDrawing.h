@@ -12,13 +12,7 @@
 
 + (double)strokeWidthForZoomValue:(double)arg1;
 + (void)drawBorderWithRect:(struct CGRect)arg1 zoomValue:(double)arg2;
-+ (void)drawSelectionHandlesForLayer:(id)arg1 zoomValue:(double)arg2;
-+ (void)drawResizingHandle:(long long)arg1 ofRect:(struct CGRect)arg2 zoomScale:(double)arg3;
-+ (void)drawHandlesWithRect:(struct CGRect)arg1 zoomScale:(double)arg2;
-+ (struct CGRect)drawFramesForLayers:(id)arg1 zoomScale:(double)arg2;
-+ (void)drawSelectionForLayers:(id)arg1 zoomScale:(double)arg2;
-+ (void)drawFramesForLayer:(id)arg1 zoomScale:(double)arg2;
-+ (void)drawSelectionForLayer:(id)arg1 hideHandles:(BOOL)arg2 zoomValue:(double)arg3;
++ (void)drawOverridesForLayers:(id)arg1 zoomScale:(double)arg2;
 
 @end
 

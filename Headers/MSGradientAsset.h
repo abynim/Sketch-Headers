@@ -6,10 +6,13 @@
 
 #import <SketchModel/_MSGradientAsset.h>
 
+@class NSString;
+
 @interface MSGradientAsset : _MSGradientAsset
 {
 }
 
+@property(readonly, nonatomic) NSString *displayName;
 - (void)setAsset:(id)arg1;
 - (id)asset;
 

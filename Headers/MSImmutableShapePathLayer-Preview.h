@@ -6,10 +6,10 @@
 
 #import <SketchModel/MSImmutableShapePathLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSImmutableLayerPreviewability-Protocol.h>
 
 @interface MSImmutableShapePathLayer (Preview) <MSImmutableLayerPreviewability>
-- (void)refreshPreviewImagesWithDocumentData:(id)arg1 forOwner:(id)arg2;
-- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1 forOwner:(id)arg2;
+- (void)refreshPreviewImagesWithDocumentData:(id)arg1;
+- (BOOL)previewImagesRequireRefreshWithDocumentData:(id)arg1;
 @end
 

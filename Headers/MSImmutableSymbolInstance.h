@@ -56,6 +56,7 @@
 - (void)migratePropertiesFromV96OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
+- (id)detachedMasterInDocument:(id)arg1 withCache:(id)arg2;
 - (id)overrideMatchingPoint:(id)arg1 inDocument:(id)arg2;
 - (id)overrideInOverrides:(id)arg1 withPath:(id)arg2 andPropertyName:(id)arg3;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;

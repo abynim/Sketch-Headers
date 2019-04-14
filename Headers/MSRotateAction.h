@@ -6,10 +6,13 @@
 
 #import "MSEventHandlerAction.h"
 
-@interface MSRotateAction : MSEventHandlerAction
+#import "MSRotationBarDelegate-Protocol.h"
+
+@interface MSRotateAction : MSEventHandlerAction <MSRotationBarDelegate>
 {
 }
 
+- (id)documentForRotationBar:(id)arg1;
 - (id)label;
 - (id)tooltip;
 - (void)rotationBarAction:(id)arg1;

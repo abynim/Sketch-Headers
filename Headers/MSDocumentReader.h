@@ -4,17 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <SketchModel/MSArchiveReader.h>
 
 @class NSArray, NSDictionary, NSError, NSImage;
 
-@interface MSDocumentReader : NSObject
+@interface MSDocumentReader : MSArchiveReader
 {
     NSError *_error;
 }
 
 + (id)readerForDocumentAtURL:(id)arg1;
-+ (unsigned int)first4bytesOfFileAtURL:(id)arg1;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 - (void).cxx_destruct;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;

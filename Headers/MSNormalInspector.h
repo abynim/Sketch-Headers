@@ -66,7 +66,7 @@
 - (void)layerPositionPossiblyChanged;
 - (void)prepareViewControllers;
 - (void)reloadInspectorStack:(id)arg1;
-- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (id)init;

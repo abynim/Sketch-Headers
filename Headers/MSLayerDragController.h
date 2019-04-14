@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSToolController.h"
+#import <SketchControllers/MSToolController.h>
 
-@class MSSnapperData, NSArray, NSCursor, NSNumber, _TtC17SketchControllers12MSLayerMover;
+@class MSLayerPositioningTool, NSArray, NSCursor, NSNumber, _TtC17SketchControllers21MSLayerSnappingResult;
 @protocol MSDragLayerToolUserInterface;
 
 @interface MSLayerDragController : MSToolController
@@ -14,17 +14,17 @@
     BOOL _duplicating;
     BOOL _snappingEnabled;
     BOOL _rulersAreVisible;
-    _TtC17SketchControllers12MSLayerMover *_layerMover;
+    MSLayerPositioningTool *_positioningTool;
     NSArray *_originalLayers;
     double _zoomScale;
     NSNumber *_alignmentAxis;
-    MSSnapperData *_snapperData;
+    _TtC17SketchControllers21MSLayerSnappingResult *_snappingResult;
     id <MSDragLayerToolUserInterface> _userInterface;
     struct CGRect _visibleRect;
 }
 
 @property(nonatomic) __weak id <MSDragLayerToolUserInterface> userInterface; // @synthesize userInterface=_userInterface;
-@property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
+@property(retain, nonatomic) _TtC17SketchControllers21MSLayerSnappingResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(retain, nonatomic) NSNumber *alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
 @property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible=_rulersAreVisible;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect=_visibleRect;
@@ -32,9 +32,9 @@
 @property(nonatomic) BOOL snappingEnabled; // @synthesize snappingEnabled=_snappingEnabled;
 @property(readonly, copy, nonatomic) NSArray *originalLayers; // @synthesize originalLayers=_originalLayers;
 @property(readonly, nonatomic, getter=isDuplicating) BOOL duplicating; // @synthesize duplicating=_duplicating;
-@property(readonly, nonatomic) _TtC17SketchControllers12MSLayerMover *layerMover; // @synthesize layerMover=_layerMover;
+@property(readonly, nonatomic) MSLayerPositioningTool *positioningTool; // @synthesize positioningTool=_positioningTool;
 - (void).cxx_destruct;
-- (void)layerMover:(id)arg1 provideTargetsToSnapper:(id)arg2;
+- (void)layerPositioningTool:(id)arg1 provideTargetsToSnapper:(id)arg2;
 @property(readonly, nonatomic) NSCursor *cursor;
 - (void)endDuplicating:(BOOL)arg1;
 - (void)beginDuplicating;

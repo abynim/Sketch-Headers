@@ -14,7 +14,7 @@
     NSMutableDictionary *_downloadTasks;
 }
 
-+ (id)downloadManagerSessionConfiguration;
++ (id)appcastForURL:(id)arg1;
 @property(retain, nonatomic) NSMutableDictionary *downloadTasks; // @synthesize downloadTasks=_downloadTasks;
 @property(retain, nonatomic) BCDownloadManager *downloadManager; // @synthesize downloadManager=_downloadManager;
 - (void).cxx_destruct;

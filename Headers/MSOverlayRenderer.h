@@ -10,12 +10,12 @@
 
 @interface MSOverlayRenderer : NSObject
 {
-    BOOL _enabled;
+    BOOL _hidden;
     id <MSTiledRendererHostView> _hostView;
 }
 
 @property(nonatomic) __weak id <MSTiledRendererHostView> hostView; // @synthesize hostView=_hostView;
-@property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
+@property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1 context:(id)arg2;

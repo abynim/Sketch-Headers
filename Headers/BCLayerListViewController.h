@@ -9,15 +9,23 @@
 @interface BCLayerListViewController : BCOutlineViewController
 {
     id _floatingGroupRowItemToScrollToAfterCollapse;
+    id _currentlyCollapsingItem;
+    id _currentlyExpandingItem;
 }
 
 + (id)itemForExpansionStateNotification:(id)arg1;
+@property(retain, nonatomic) id currentlyExpandingItem; // @synthesize currentlyExpandingItem=_currentlyExpandingItem;
+@property(retain, nonatomic) id currentlyCollapsingItem; // @synthesize currentlyCollapsingItem=_currentlyCollapsingItem;
 @property(retain, nonatomic) id floatingGroupRowItemToScrollToAfterCollapse; // @synthesize floatingGroupRowItemToScrollToAfterCollapse=_floatingGroupRowItemToScrollToAfterCollapse;
 - (void).cxx_destruct;
 - (void)refreshRowHeightOfGroupItem:(id)arg1 didExpand:(BOOL)arg2;
+- (long long)nextSiblingRowFromRow:(long long)arg1;
+- (void)noteExpansionTransitionState:(unsigned long long)arg1 forItem:(id)arg2;
 - (void)outlineViewItemDidExpand:(id)arg1;
+- (void)outlineViewItemWillExpand:(id)arg1;
 - (void)outlineViewItemDidCollapse:(id)arg1;
 - (void)outlineViewItemWillCollapse:(id)arg1;
+- (void)outlineView:(id)arg1 disclosureTriangleClickedForItem:(id)arg2;
 - (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
 

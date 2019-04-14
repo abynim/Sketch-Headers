@@ -36,7 +36,6 @@
 @property(retain, nonatomic) BCSaturationBrightnessColorPicker *sbPickerView; // @synthesize sbPickerView=_sbPickerView;
 @property(nonatomic) __weak id <BCHSBColorPickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 @property(copy, nonatomic) MSFlexibleColor *color; // @dynamic color;
@@ -50,8 +49,6 @@
 - (void)alphaChanged:(id)arg1;
 - (void)hueChanged:(id)arg1;
 - (void)magnifierAction:(id)arg1;
-- (void)systemColorPanelDidChangeColor:(id)arg1;
-- (void)awakeFromNib;
 - (void)constructSubviews;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

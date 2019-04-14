@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchRendering/NSCopying-Protocol.h>
 
 @class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString;
 
@@ -61,8 +61,6 @@
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 - (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
-- (void)readSettingsFromDefaults;
-@property(readonly, nonatomic) NSString *pasteboardType;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSGPURenderer-Protocol.h"
+#import <SketchRendering/MSGPURenderer-Protocol.h>
 
 @class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSString;
 @protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;

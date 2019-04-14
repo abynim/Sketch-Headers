@@ -6,22 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
 @protocol MSLayerCoordinateSpace;
 
 @interface _TtC17SketchControllers6MSTool : NSObject
 {
-    // Error parsing type: , name: unitCoordinateSpace.storage
 }
 
-- (CDUnknownBlockType).cxx_destruct;
 - (id)init;
-@property(nonatomic, retain) id <MSLayerCoordinateSpace> unitCoordinateSpace;
 @property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
 @property(nonatomic, readonly) struct CGRect frame;
 @property(nonatomic, readonly) struct CGRect bounds;
-- (struct CGPoint)locationIn:(id)arg1;
-@property(nonatomic, readonly) NSArray *layers;
+@property(nonatomic, readonly) struct CGPoint position;
 
 @end
 

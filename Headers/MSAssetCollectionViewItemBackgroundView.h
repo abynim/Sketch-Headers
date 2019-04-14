@@ -15,6 +15,7 @@
 
 @property(nonatomic) __weak MSAssetCollectionViewItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+- (void)layout;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

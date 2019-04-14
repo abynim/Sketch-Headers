@@ -4,34 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSEventHandler.h"
+#import "MSInsertLayerEventHandler.h"
 
 @class MSTextLayer;
 
-@interface MSInsertTextEventHandler : MSEventHandler
+@interface MSInsertTextEventHandler : MSInsertLayerEventHandler
 {
-    struct CGPoint mouseDownPoint;
-    struct CGPoint mouseDraggedPoint;
     MSTextLayer *_textLayer;
-    CDUnknownBlockType _completionBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 - (void).cxx_destruct;
+- (void)drawRectPreview;
 - (BOOL)allowsSwitchToInsertAction;
 - (id)toolbarIdentifier;
-- (struct CGRect)rectForInsertingDirectly:(struct CGPoint)arg1;
+- (struct CGRect)rectForInsertingTextLayerAtPoint:(struct CGPoint)arg1;
 - (void)selectTextLayerAndEdit:(id)arg1;
 - (id)textLayerAtPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (BOOL)tryToEditExistingTextLayer:(struct CGPoint)arg1 zoomValue:(double)arg2;
-- (id)groupForInserting;
-- (id)textLayerWithRect:(struct CGRect)arg1 type:(long long)arg2;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (void)handlerWillLoseFocus;
+- (BOOL)tryToEditExistingTextLayerAtPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (id)textLayerWithRect:(struct CGRect)arg1 behavior:(long long)arg2;
+- (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
+- (void)handleDrag:(id)arg1;
 - (void)handlerGotFocus;
 
 @end

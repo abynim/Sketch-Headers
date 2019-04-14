@@ -8,6 +8,7 @@
 
 @protocol MSLayerCoordinateSpace;
 
+__attribute__((visibility("hidden")))
 @interface _TtC17SketchControllers26MSTemporaryCoordinateSpace : NSObject
 {
     // Error parsing type: , name: bounds

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSRenderingContextCacheProvider-Protocol.h"
+#import <SketchRendering/MSRenderingContextCacheProvider-Protocol.h>
 
 @class BCCache, MSExportRequest, MSRenderingDriver, NSColorSpace, NSString;
 

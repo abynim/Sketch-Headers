@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSLayer (Preview) <MSLayerPreviewability>
 - (id)contextualMenuPreviewTemplateImage;

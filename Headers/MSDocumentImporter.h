@@ -33,6 +33,7 @@
 - (void)close;
 - (void)collapseSinglePage;
 - (BOOL)expandPages;
+- (id)defaultLocalizedImportedLayersPageName;
 - (void)run;
 
 @end

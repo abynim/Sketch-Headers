@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSUserInterfaceItemSearching-Protocol.h"
+#import <SketchControllers/NSUserInterfaceItemSearching-Protocol.h>
 
 @class NSArray, NSOperationQueue, NSString;
 

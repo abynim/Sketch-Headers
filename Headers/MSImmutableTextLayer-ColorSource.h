@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableTextLayer.h>
 
-#import "MSColorUser-Protocol.h"
+#import <SketchControllers/MSColorUser-Protocol.h>
 
 @class NSString;
 

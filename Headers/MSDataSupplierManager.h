@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSDataSupplierDelegate-Protocol.h"
+#import <SketchControllers/MSDataSupplierDelegate-Protocol.h>
 
 @class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString;
 @protocol MSDataSupplierManagerDelegate;
@@ -57,6 +57,7 @@
 - (id)dataSupplierMenuItemImage:(id)arg1;
 - (void)dataSupplierGroupDidChange:(id)arg1;
 - (void)dataSupplierDataDidChange:(id)arg1;
+- (BOOL)removePluginDataSupplierGroupsWithNoAssociatedPlugin:(id)arg1;
 - (void)removePluginDataSuppliersNotIdentifiedWithIdentifiers:(id)arg1;
 - (void)removeLocalDataSuppliers:(id)arg1;
 - (void)removeLocalDataSupplierGroup:(id)arg1;
@@ -84,9 +85,10 @@
 - (id)usableDataSupplierWithIdentifier:(id)arg1;
 - (id)dataSupplierWithIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *dataSuppliers;
+- (void)removeAndFinalizeReplyContextWithKey:(id)arg1;
 - (void)supplyData:(id)arg1 atIndex:(id)arg2 forKey:(id)arg3;
 - (void)supplyData:(id)arg1 forKey:(id)arg2;
-- (void)requestDataFromPluginDataSupplier:(id)arg1 dataContext:(id)arg2 applierBlock:(CDUnknownBlockType)arg3;
+- (void)requestDataFromPluginDataSupplier:(id)arg1 dataContext:(id)arg2 applierBlock:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)deregisterDataSuppliersForPluginWithIdentifier:(id)arg1;
 - (id)pluginDataSupplierGroupForPluginIdentifier:(id)arg1;
 - (id)pluginDataSuppliersWithPluginIdentifier:(id)arg1;

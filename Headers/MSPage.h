@@ -14,8 +14,8 @@
 @interface MSPage : _MSPage <MSRootLayer>
 {
     NSMutableSet *_selectedLayerIDs;
-    id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     MSArtboardGroup *_currentArtboard;
+    id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
     MSLayerArray *_cachedSelectedLayers;
@@ -26,7 +26,6 @@
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
-@property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (void).cxx_destruct;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)isLocked;
@@ -64,7 +63,7 @@
 @property(nonatomic) struct CGPoint rulerBase;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)dealloc;
+@property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (BOOL)canContainLayer:(id)arg1;
 - (void)changeSelectionByDeselectingLayers:(id)arg1;
 - (void)changeSelectionBySelectingLayers:(id)arg1;

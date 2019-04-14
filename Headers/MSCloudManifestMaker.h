@@ -4,20 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSManifestMaker.h"
+#import <SketchModel/MSManifestMaker.h>
 
 @class NSString;
+@protocol MSCloudManifestMakerDelegate;
 
 @interface MSCloudManifestMaker : MSManifestMaker
 {
-    CDUnknownBlockType _imageFileProviderBlock;
+    id <MSCloudManifestMakerDelegate> _delegate;
     NSString *_organizationID;
 }
 
 @property(retain, nonatomic) NSString *organizationID; // @synthesize organizationID=_organizationID;
-@property(copy, nonatomic) CDUnknownBlockType imageFileProviderBlock; // @synthesize imageFileProviderBlock=_imageFileProviderBlock;
+@property(retain, nonatomic) id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)fileMetadataForRequest:(id)arg1 id:(id)arg2 manifestScale:(double)arg3;
 - (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)createManifest;

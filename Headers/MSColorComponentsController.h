@@ -10,7 +10,7 @@
 #import "MSColorModelPickerDelegate-Protocol.h"
 #import "MSKeyViewProvider-Protocol.h"
 
-@class MSAutoSelectingArrayController, MSColorModelPicker, MSFlexibleColor, MSFlexibleColorHexStringTransformer, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, NSString, NSTextField, NSView;
+@class MSAutoSelectingArrayController, MSColorModelPicker, MSFlexibleColor, MSFlexibleColorHexStringTransformer, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, NSString, NSTextField, NSUndoManager, NSView;
 @protocol MSColorComponentsControllerDelegate;
 
 @interface MSColorComponentsController : NSViewController <MSColorComponentAdaptorDelegate, MSColorModelPickerDelegate, MSKeyViewProvider>
@@ -35,9 +35,11 @@
     MSInspectorValueAdaptor *_hexAdaptor;
     MSColorModelPicker *_modelPicker;
     NSView *_modelPickerContainer;
+    NSUndoManager *_localUndoManager;
 }
 
 + (double)displayScaleValueForComponentIndex:(unsigned long long)arg1 colorModel:(long long)arg2;
+@property(retain, nonatomic) NSUndoManager *localUndoManager; // @synthesize localUndoManager=_localUndoManager;
 @property(nonatomic) BOOL multipleColors; // @synthesize multipleColors=_multipleColors;
 @property(retain, nonatomic) NSView *modelPickerContainer; // @synthesize modelPickerContainer=_modelPickerContainer;
 @property(retain, nonatomic) MSColorModelPicker *modelPicker; // @synthesize modelPicker=_modelPicker;
@@ -59,6 +61,13 @@
 @property(nonatomic) __weak id <MSColorComponentsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 - (void).cxx_destruct;
+- (id)undoManager;
+- (void)cancelOperation:(id)arg1;
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
+- (BOOL)respondsToSelector:(SEL)arg1;
+- (id)textFieldEligibleForAction:(SEL)arg1;
+- (id)textFields;
 @property(readonly, nonatomic) NSView *preferredFirstResponder;
 @property(readonly, nonatomic) NSView *lastKeyView;
 @property(readonly, nonatomic) NSView *firstKeyView;

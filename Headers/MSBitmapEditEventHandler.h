@@ -31,6 +31,7 @@
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (void)configureInspector:(id)arg1;
 - (void)updateMeasurementLabel;
+- (struct CGRect)displayRectForSelectionRect:(struct CGRect)arg1;
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;
 - (id)crossHairCursor;
@@ -68,6 +69,7 @@
 - (void)cropAction:(id)arg1;
 - (struct CGRect)selectedRect;
 - (struct CGRect)rectFromBitmapToBoundsCoordinates:(struct CGRect)arg1;
+- (struct CGRect)layerRectFromSelectionRect:(struct CGRect)arg1;
 - (struct CGRect)selectionRectInLayerCoordinates;
 - (void)selectionDidLiveUpdateTo:(id)arg1;
 - (void)invertAction:(id)arg1;

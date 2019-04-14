@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSShapeGroup.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSShapeGroup (Preview) <MSLayerPreviewability>
 - (id)unselectedPreviewTemplateImage;

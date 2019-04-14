@@ -11,6 +11,7 @@
 }
 
 - (BOOL)isTouchBarItemSelected;
+- (id)imageName;
 - (id)touchBarImage;
 - (BOOL)isSelectable;
 - (id)tooltip;

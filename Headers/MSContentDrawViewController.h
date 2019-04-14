@@ -34,8 +34,6 @@
 @property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;
 - (void)prepareForDealloc;
-- (void)changeToPage:(id)arg1;
-- (void)currentArtboardDidChange;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (void)awakeFromNib;

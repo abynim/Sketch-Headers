@@ -15,6 +15,7 @@
 
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
+- (id)pluralizedSharedObjectName;
 - (id)sharedObjectName;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (id)initWithDocument:(id)arg1;

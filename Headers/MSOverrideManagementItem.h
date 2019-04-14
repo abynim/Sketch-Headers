@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSAvailableOverride, MSSymbolMaster, NSString;
+@class MSAvailableOverride, MSSymbolMaster;
 
 @interface MSOverrideManagementItem : NSObject
 {
@@ -19,8 +19,9 @@
 @property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(nonatomic) unsigned long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *title;
+- (id)title;
 - (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
+- (id)initWithMaster:(id)arg1;
 
 @end
 

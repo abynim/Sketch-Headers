@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDataSupplier.h"
+#import <SketchControllers/MSDataSupplier.h>
 
 @class MSFolderMonitor, NSArray, NSURL;
 
@@ -28,11 +28,11 @@
 - (void)makeTextDataFileSystemMonitor;
 - (void)makeImageDataFileSystemMonitor;
 - (void)makeFolderMonitor;
-- (void)generateDataForCount:(unsigned long long)arg1 dataApplier:(CDUnknownBlockType)arg2;
+- (void)generateDataForCount:(unsigned long long)arg1 dataApplier:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSURL *dataSource;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
-- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
+- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (BOOL)valid;

@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSColor-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSImmutableColor : _MSImmutableColor <MSColor>
 {
@@ -27,7 +27,7 @@
 + (id)colorWithSVGString:(id)arg1;
 + (id)namedColor:(id)arg1;
 + (id)staticColorDictionary;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @property(readonly, copy) NSString *debugDescription;
 - (id)colorWithAlphaComponent:(double)arg1;
 - (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
@@ -47,6 +47,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (id)treeAsDictionary;
+@property(readonly, nonatomic) NSArray *manifestComponents;
 - (id)svgRepresentation;
 
 // Remaining properties

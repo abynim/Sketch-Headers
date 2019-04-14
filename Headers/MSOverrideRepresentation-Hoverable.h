@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSOverrideRepresentation.h>
 
-#import "MSHoverableItem-Protocol.h"
+#import <SketchControllers/MSHoverableItem-Protocol.h>
 
 @class MSLayer;
 

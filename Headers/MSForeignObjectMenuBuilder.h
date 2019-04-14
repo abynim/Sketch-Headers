@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSSortableObjectMenuBuilder.h"
+#import <SketchControllers/MSSortableObjectMenuBuilder.h>
 
 @class MSForeignObjectCollector;
 
@@ -26,6 +26,8 @@
 - (id)gatherSymbolsForMenus;
 - (id)initWithProvider:(id)arg1 delegate:(id)arg2;
 - (id)initWithCollector:(id)arg1 delegate:(id)arg2;
+- (void)addStyleOverridesToMenu:(id)arg1 withTarget:(id)arg2 action:(SEL)arg3 forOverride:(id)arg4 inDocument:(id)arg5;
+- (void)addStyleResetToMenu:(id)arg1 withPrimaryOverride:(id)arg2 document:(id)arg3 target:(id)arg4 action:(SEL)arg5;
 
 @end
 

@@ -20,6 +20,7 @@
     NSMapTable *_managedControls;
 }
 
++ (BOOL)adjustLayerHierarchyAfterEditingLayers:(id)arg1;
 + (BOOL)canHandleLayer:(id)arg1;
 + (BOOL)canHandleSomeLayersOfSelection:(id)arg1;
 + (id)filterSelection:(id)arg1;

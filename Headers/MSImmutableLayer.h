@@ -6,6 +6,7 @@
 
 #import <SketchModel/_MSImmutableLayer.h>
 
+#import <SketchModel/MSEnumerableLayer-Protocol.h>
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
 #import <SketchModel/MSLayer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
@@ -13,7 +14,7 @@
 
 @class MSPath, NSAffineTransform, NSObject, NSSet, NSString;
 
-@interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSLayer, MSLayerTraits>
+@interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSEnumerableLayer, MSLayer, MSLayerTraits>
 {
     struct CGRect _calculatedInfluenceRectForBounds;
     // Error parsing type: A^v, name: _calculatedInfluenceRectForBoundsAtomicPointer
@@ -94,6 +95,8 @@
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
+- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)enumeratorWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;

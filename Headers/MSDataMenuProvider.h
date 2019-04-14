@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSMenuDelegate-Protocol.h"
+#import <SketchControllers/NSMenuDelegate-Protocol.h>
 
 @class MSDataSupplierManager, NSString;
 @protocol MSDataMenuProviderDelegate;
@@ -25,6 +25,7 @@
 - (id)pluginNameForIdentifier:(id)arg1;
 - (id)sortedMenuItems:(id)arg1;
 - (id)dataSuppliersForDataType:(unsigned long long)arg1;
+- (id)menuItemsForDataType:(unsigned long long)arg1;
 - (id)menuItemsForDataType:(unsigned long long)arg1 indentationLevel:(long long)arg2;
 - (id)menuItemsForGroups:(id)arg1 indentationLevel:(long long)arg2;
 - (BOOL)validateMenuItem:(id)arg1;

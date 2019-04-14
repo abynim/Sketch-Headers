@@ -25,6 +25,7 @@
 - (void)updateAfterSelectingChild;
 @property(readonly, nonatomic) NSAffineTransform *transformForConvertingToInstance;
 - (id)modifiedMasterForInstanceInMaster:(id)arg1;
+- (void)syncChildrenWithOverridesIfNeeded;
 - (void)syncChildrenWithOverrides:(id)arg1;
 - (id)initWithInstance:(id)arg1;
 

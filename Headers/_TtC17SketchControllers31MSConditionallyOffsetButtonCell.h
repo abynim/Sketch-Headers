@@ -6,6 +6,7 @@
 
 #import <AppKit/NSButtonCell.h>
 
+__attribute__((visibility("hidden")))
 @interface _TtC17SketchControllers31MSConditionallyOffsetButtonCell : NSButtonCell
 {
 }

@@ -17,6 +17,7 @@
 @interface MSColorPickerViewController : NSViewController <BCHSBColorPickerDelegate, MSColorComponentsControllerDelegate, MSFrequentColorsControllerDelegate, MSKeyViewProvider>
 {
     BOOL _multipleValues;
+    BOOL _connectedToColorPanel;
     BCHSBColorPicker *_colorPicker;
     id <MSColorPickerViewControllerDelegate> _delegate;
     MSColorComponentsController *_componentsController;
@@ -27,6 +28,7 @@
     MSFlexibleColor *_flexibleColor;
 }
 
+@property(nonatomic) BOOL connectedToColorPanel; // @synthesize connectedToColorPanel=_connectedToColorPanel;
 @property(retain, nonatomic) MSFlexibleColor *flexibleColor; // @synthesize flexibleColor=_flexibleColor;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 @property(nonatomic) BOOL multipleValues; // @synthesize multipleValues=_multipleValues;
@@ -37,6 +39,9 @@
 @property(nonatomic) __weak id <MSColorPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCHSBColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
 - (void).cxx_destruct;
+- (void)systemColorPanelDidChangeColor:(id)arg1;
+- (void)disconnectFromColorPanel;
+- (void)connectToColorPanel;
 @property(readonly, nonatomic) NSView *preferredFirstResponder;
 @property(readonly, nonatomic) NSView *lastKeyView;
 @property(readonly, nonatomic) NSView *firstKeyView;
@@ -54,6 +59,8 @@
 - (void)setFlexibleColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 @property(retain, nonatomic) MSColor *color;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithDelegate:(id)arg1;

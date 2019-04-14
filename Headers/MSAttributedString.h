@@ -36,7 +36,7 @@
 + (id)encodeAttributesInDictionary:(id)arg1;
 @property(readonly, copy, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
 - (void).cxx_destruct;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (id)debugDescription;
 - (id)immutableModelObject;
 - (id)attributedStringByReplacingFontNames:(id)arg1;

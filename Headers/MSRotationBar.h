@@ -6,31 +6,44 @@
 
 #import <AppKit/NSControl.h>
 
-@class NSTimer;
+@class MSAutoSelectingArrayController, MSMathInspectorValueAdaptor, NSArray, NSTimer;
+@protocol MSRotationBarDelegate;
 
 @interface MSRotationBar : NSControl
 {
     BOOL _currentlyTrackingTouch;
     BOOL _didSnapRotation;
-    double _userVisibleRotation;
-    double _currentX;
-    double _lastTouchTime;
+    BOOL _multipleValues;
+    NSArray *_layers;
+    id <MSRotationBarDelegate> _delegate;
     double _startingRotation;
-    double _startingX;
+    double _startX;
+    double _currentX;
+    double _previousX;
+    double _lastTouchTime;
+    double _displayValue;
     NSTimer *_inertialTimer;
     double _inertialSpeed;
+    MSMathInspectorValueAdaptor *_rotationAdaptor;
+    MSAutoSelectingArrayController *_layersController;
 }
 
 + (BOOL)shouldContinueInertialScrollingAtSpeed:(double)arg1;
+@property(retain, nonatomic) MSAutoSelectingArrayController *layersController; // @synthesize layersController=_layersController;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdaptor; // @synthesize rotationAdaptor=_rotationAdaptor;
 @property(nonatomic) double inertialSpeed; // @synthesize inertialSpeed=_inertialSpeed;
 @property(retain, nonatomic) NSTimer *inertialTimer; // @synthesize inertialTimer=_inertialTimer;
-@property(nonatomic) double startingX; // @synthesize startingX=_startingX;
-@property(nonatomic) double startingRotation; // @synthesize startingRotation=_startingRotation;
+@property(nonatomic) BOOL multipleValues; // @synthesize multipleValues=_multipleValues;
+@property(nonatomic) double displayValue; // @synthesize displayValue=_displayValue;
 @property(nonatomic) double lastTouchTime; // @synthesize lastTouchTime=_lastTouchTime;
 @property(nonatomic) BOOL didSnapRotation; // @synthesize didSnapRotation=_didSnapRotation;
+@property(nonatomic) double previousX; // @synthesize previousX=_previousX;
 @property(nonatomic) double currentX; // @synthesize currentX=_currentX;
+@property(nonatomic) double startX; // @synthesize startX=_startX;
+@property(nonatomic) double startingRotation; // @synthesize startingRotation=_startingRotation;
 @property(nonatomic) BOOL currentlyTrackingTouch; // @synthesize currentlyTrackingTouch=_currentlyTrackingTouch;
-@property(nonatomic) double userVisibleRotation; // @synthesize userVisibleRotation=_userVisibleRotation;
+@property(nonatomic) __weak id <MSRotationBarDelegate> delegate; // @synthesize delegate=_delegate;
+@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (BOOL)isFlipped;
@@ -46,6 +59,7 @@
 - (void)startTrackingTouch:(id)arg1;
 - (void)setUpGestureRecognizer;
 - (unsigned long long)allowedTouchTypes;
+- (id)adaptorValueIsMultipleValuesMarker:(char *)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

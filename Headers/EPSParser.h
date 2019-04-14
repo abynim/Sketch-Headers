@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "PDFParser-Protocol.h"
+#import <SketchPDF/PDFParser-Protocol.h>
 
 @class NSString, PDFParser;
 

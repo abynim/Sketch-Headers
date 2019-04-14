@@ -28,7 +28,7 @@
 - (id)views;
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
-- (BOOL)shouldHideAddStylePartButton;
+- (BOOL)shouldDisableAddStylePartButton;
 - (void)prepare;
 - (unsigned long long)stylePartType;
 

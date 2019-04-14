@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSSidebarListController.h"
+#import <SketchControllers/MSSidebarListController.h>
 
-#import "BCOutlineViewDataControllerDataSource-Protocol.h"
-#import "BCOutlineViewDataControllerDelegate-Protocol.h"
+#import <SketchControllers/BCOutlineViewDataControllerDataSource-Protocol.h>
+#import <SketchControllers/BCOutlineViewDataControllerDelegate-Protocol.h>
 
 @class NSMutableSet, NSString, NSView;
 

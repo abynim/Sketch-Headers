@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC17SketchControllers26MSTemporaryCoordinateSpace.h"
+#import <SketchControllers/_TtC17SketchControllers26MSTemporaryCoordinateSpace.h>
 
 @interface _TtC17SketchControllers26MSTemporaryCoordinateSpace (SketchControllers)
 - (id)initWithLayer:(id)arg1;

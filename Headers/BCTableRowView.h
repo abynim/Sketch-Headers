@@ -6,18 +6,22 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class BCOutlineView, BCTableCellView, NSColor, NSObject;
+@class BCOutlineView, BCTableCellView, NSObject;
 @protocol BCOutlineViewNode, BCTableRowViewDelegate;
 
 @interface BCTableRowView : NSTableRowView
 {
-    BOOL _isDrawingHighlight;
+    unsigned long long _expansionTransitionState;
+    BOOL _highlighted;
+    BOOL _didLastDisplayAsHighlighted;
     NSObject<BCOutlineViewNode> *_node;
     NSObject<BCTableRowViewDelegate> *_delegate;
     unsigned long long _expansionState;
 }
 
-@property(nonatomic) BOOL isDrawingHighlight; // @synthesize isDrawingHighlight=_isDrawingHighlight;
+@property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
+@property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) unsigned long long expansionTransitionState; // @synthesize expansionTransitionState=_expansionTransitionState;
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
 @property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
@@ -26,18 +30,12 @@
 @property(readonly, nonatomic) BCOutlineView *outlineView;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
+- (void)setTargetForDropOperation:(BOOL)arg1;
 - (void)drawDraggingDestinationFeedbackInRect:(struct CGRect)arg1;
-- (void)doDrawHighlight;
-- (void)drawHighlight;
-- (void)drawSelectionInRect:(struct CGRect)arg1;
-- (void)drawBackgroundInRect:(struct CGRect)arg1;
 - (BOOL)isOpaque;
-- (void)fillSelectionInRect:(struct CGRect)arg1;
-- (struct CGRect)selectionDrawingRect;
 - (BOOL)hasBottomPaddingApplied;
 - (BOOL)hasTopPaddingApplied;
 - (BOOL)isArtboardRow;
-- (void)drawArtboardItemBordersIfNeeded;
 - (BOOL)drawsBottomBorder;
 - (BOOL)drawsTopBorder;
 - (void)refreshSelectionState:(id)arg1;
@@ -46,18 +44,25 @@
 - (void)refreshSelectionState;
 - (void)viewDidMoveToWindow;
 - (void)refreshBackgroundStyle;
-- (void)fillBackgroundInRect:(struct CGRect)arg1;
+- (void)updateLayer;
+- (void)setFloating:(BOOL)arg1;
+- (BOOL)wantsUpdateLayer;
 @property(readonly, nonatomic) long long backgroundStyle;
 @property(readonly, nonatomic) BCTableCellView *tableCellView;
-- (id)backgroundColor;
 - (void)setSelected:(BOOL)arg1;
-@property(readonly, nonatomic) NSColor *selectedBackgroundColor;
-@property(readonly, nonatomic) NSColor *highlightColor;
 @property(readonly, nonatomic) unsigned long long displayType;
-@property(readonly, nonatomic) BOOL highlighted;
+- (BOOL)shouldDisplayAsHighlighted;
+- (BOOL)isHighlighted;
 - (void)highlightDidChange:(id)arg1;
+@property(readonly, nonatomic) BOOL isCurrentlyExpanding;
+@property(readonly, nonatomic) BOOL isCurrentlyCollapsing;
 @property(readonly, nonatomic, getter=isNodeExpanded) BOOL nodeExpanded;
+- (BOOL)isNextNodeSelected;
+- (BOOL)isPreviousNodeSelected;
+- (BOOL)isHovered;
+- (BOOL)isNodeSubselected;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;
+- (BOOL)isInActiveOutlineView;
 - (void)didAddSubview:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 

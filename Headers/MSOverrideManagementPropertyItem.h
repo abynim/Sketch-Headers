@@ -4,19 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSOverrideManagementItem.h"
+#import <SketchControllers/MSOverrideManagementItem.h>
+
+@class NSString;
 
 @interface MSOverrideManagementPropertyItem : MSOverrideManagementItem
 {
     BOOL _canOverride;
+    BOOL _enabled;
 }
 
+@property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) BOOL canOverride; // @synthesize canOverride=_canOverride;
 - (id)description;
-- (id)title;
+@property(readonly, nonatomic) NSString *title;
 - (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
-- (id)newController;
-- (double)rowHeight;
 
 @end
 

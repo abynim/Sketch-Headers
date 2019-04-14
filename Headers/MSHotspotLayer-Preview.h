@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSHotspotLayer.h>
 
-#import "MSLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSLayerPreviewability-Protocol.h>
 
 @interface MSHotspotLayer (Preview) <MSLayerPreviewability>
 - (id)unselectedPreviewTemplateImage;

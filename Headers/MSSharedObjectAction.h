@@ -17,6 +17,7 @@
 - (BOOL)hasSubMenu;
 - (id)noSharedObjectMenuItemForMenu:(id)arg1;
 - (id)noSharedObjectsView;
+@property(readonly, nonatomic) NSString *pluralizedSharedObjectName;
 @property(readonly, nonatomic) NSString *sharedObjectName;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (id)menuItemsForMenu:(id)arg1;

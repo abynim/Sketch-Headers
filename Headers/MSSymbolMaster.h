@@ -28,10 +28,11 @@
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
 - (void)syncOverrideProperties;
 - (void)setOverridePoint:(id)arg1 editable:(BOOL)arg2;
-- (void)internalSetOverridePoint:(id)arg1 editable:(BOOL)arg2;
+- (id)internalSetOverridePoint:(id)arg1 editable:(BOOL)arg2;
 @property(readonly, nonatomic) NSDictionary *overrideProperies;
 - (BOOL)limitsSelectionToBounds;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
+- (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;

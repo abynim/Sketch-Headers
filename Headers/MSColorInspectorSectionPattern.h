@@ -6,22 +6,26 @@
 
 #import "MSColorInspectorSection.h"
 
+#import "MSColorInspectorImageDataControllerDelegate-Protocol.h"
 #import "MSFrequentImagesControllerDelegate-Protocol.h"
 
-@class MSColorHeaderInspectorItem, MSFrequentImagesController, MSGenericButtonController, MSMouseTracker, MSPatternImageCell, MSTileScaleViewController, NSArray, NSArrayController, NSButton, NSImageView, NSPopUpButton, NSString, NSViewController;
+@class MSColorHeaderInspectorItem, MSColorInspectorImageDataController, MSDataSupplierManager, MSFrequentImagesController, MSGenericButtonController, MSMouseTracker, MSPatternImageCell, MSTileScaleViewController, NSArray, NSArrayController, NSButton, NSImageView, NSPopUpButton, NSString, NSViewController;
 
-@interface MSColorInspectorSectionPattern : MSColorInspectorSection <MSFrequentImagesControllerDelegate>
+@interface MSColorInspectorSectionPattern : MSColorInspectorSection <MSFrequentImagesControllerDelegate, MSColorInspectorImageDataControllerDelegate>
 {
+    MSGenericButtonController *_frequentImagesButton;
+    MSGenericButtonController *_dataImagesButton;
+    MSGenericButtonController *_refreshDataButton;
     NSArray *_frequentImages;
     NSImageView *_patternWell;
     MSPatternImageCell *_imageCell;
     NSButton *_choosePatternButton;
     NSPopUpButton *_patternTileButton;
     NSArrayController *_stylesController;
-    MSGenericButtonController *_frequentImagesButton;
     MSColorHeaderInspectorItem *_mainViewHeader;
     MSMouseTracker *_mouseTracker;
     MSFrequentImagesController *_frequentImagesController;
+    MSColorInspectorImageDataController *_imageDataController;
     NSViewController *_noPatternController;
     MSTileScaleViewController *_scaleController;
 }
@@ -29,10 +33,10 @@
 + (id)presetPickerVisibilityDefaultsKey;
 @property(retain, nonatomic) MSTileScaleViewController *scaleController; // @synthesize scaleController=_scaleController;
 @property(retain, nonatomic) NSViewController *noPatternController; // @synthesize noPatternController=_noPatternController;
+@property(retain, nonatomic) MSColorInspectorImageDataController *imageDataController; // @synthesize imageDataController=_imageDataController;
 @property(retain, nonatomic) MSFrequentImagesController *frequentImagesController; // @synthesize frequentImagesController=_frequentImagesController;
 @property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(retain, nonatomic) MSColorHeaderInspectorItem *mainViewHeader; // @synthesize mainViewHeader=_mainViewHeader;
-@property(retain, nonatomic) MSGenericButtonController *frequentImagesButton; // @synthesize frequentImagesButton=_frequentImagesButton;
 @property(retain, nonatomic) NSArrayController *stylesController; // @synthesize stylesController=_stylesController;
 @property(retain, nonatomic) NSPopUpButton *patternTileButton; // @synthesize patternTileButton=_patternTileButton;
 @property(retain, nonatomic) NSButton *choosePatternButton; // @synthesize choosePatternButton=_choosePatternButton;
@@ -40,6 +44,11 @@
 @property(retain, nonatomic) NSImageView *patternWell; // @synthesize patternWell=_patternWell;
 @property(retain, nonatomic) NSArray *frequentImages; // @synthesize frequentImages=_frequentImages;
 - (void).cxx_destruct;
+- (id)usableSupplierIdentifiers;
+- (void)imageDataControllerMenuDidClose:(id)arg1;
+- (void)imageDataControllerDidClearData:(id)arg1;
+- (void)imageDataControllerDidRefreshData:(id)arg1;
+- (void)imageDataController:(id)arg1 didChooseDataSupplier:(id)arg2;
 - (void)frequentColorsControllerMenuDidClose:(id)arg1;
 - (void)frequentImagesController:(id)arg1 didChooseImage:(id)arg2;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
@@ -58,10 +67,22 @@
 - (unsigned long long)fillType;
 - (void)enableSectionButtonAction:(id)arg1;
 - (id)assetPickerDataSources;
-- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
+- (id)assetPickerHeaderAccessoryViews;
+- (id)scrollableViews;
 - (void)updateChooseImageButton;
 - (void)mouseAction:(id)arg1;
+@property(readonly) MSDataSupplierManager *dataSupplierManager;
+- (id)parentLayer;
+- (BOOL)doLayersHaveSameDataSupplier:(id)arg1;
+- (id)styleFillForLayer:(id)arg1;
+@property(readonly, nonatomic) NSArray *layersWithData;
+@property(readonly, nonatomic) BOOL canRefreshData;
+- (void)refreshData:(id)arg1;
+- (void)showData:(id)arg1;
 - (void)showFrequentImages:(id)arg1;
+@property(readonly, nonatomic) MSGenericButtonController *refreshDataButton;
+@property(readonly, nonatomic) MSGenericButtonController *dataImagesButton;
+@property(readonly, nonatomic) MSGenericButtonController *frequentImagesButton;
 - (void)viewDidLoad;
 
 // Remaining properties

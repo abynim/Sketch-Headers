@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableArtboardGroup.h>
 
-#import "MSColorUser-Protocol.h"
+#import <SketchControllers/MSColorUser-Protocol.h>
 
 @class NSString;
 

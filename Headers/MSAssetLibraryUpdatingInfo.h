@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCoding-Protocol.h"
+#import <SketchControllers/NSCoding-Protocol.h>
 
 @class MSFolderMonitor, NSString, NSURL;
 

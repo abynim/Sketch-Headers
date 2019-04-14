@@ -12,10 +12,11 @@
 {
     // Error parsing type: , name: layers
     // Error parsing type: , name: resizer
-    // Error parsing type: , name: snappingSession
+    // Error parsing type: , name: snapItem
     // Error parsing type: , name: _isValid
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: visibleRect
+    // Error parsing type: , name: rulersAreVisible
     // Error parsing type: , name: _mouseLocation
     // Error parsing type: , name: options
 }
@@ -26,13 +27,13 @@
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
 - (void)updateWithPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)updateWithDragRecognizer:(id)arg1;
+@property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
 - (void)dealloc;
 - (void)finish;
-- (id)initWithSnappingSession:(id)arg1;
-- (id)initWithLayers:(id)arg1 handle:(long long)arg2 session:(id)arg3;
-- (id)initWithLayer:(id)arg1 handle:(long long)arg2 session:(id)arg3;
+- (id)initWithLayers:(id)arg1 handle:(long long)arg2 snapItem:(id)arg3;
+- (id)initWithLayer:(id)arg1 handle:(long long)arg2 snapItem:(id)arg3;
 @property(nonatomic, readonly) _TtC17SketchControllers9MSResizer *resizer; // @synthesize resizer;
 @property(nonatomic, readonly) NSArray *layers; // @synthesize layers;
 

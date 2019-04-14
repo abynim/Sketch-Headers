@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "BCOutlineViewPopupConfigurator-Protocol.h"
-#import "MSInterfaceImageOwner-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
+#import <SketchControllers/BCOutlineViewPopupConfigurator-Protocol.h>
+#import <SketchControllers/NSMenuDelegate-Protocol.h>
 
 @class MSLayer, NSPopUpButton, NSString;
 
-@interface MSLayerListBadgeConfigurator : NSObject <MSInterfaceImageOwner, NSMenuDelegate, BCOutlineViewPopupConfigurator>
+@interface MSLayerListBadgeConfigurator : NSObject <NSMenuDelegate, BCOutlineViewPopupConfigurator>
 {
     BOOL _isOpen;
     MSLayer *_layer;
@@ -25,8 +24,6 @@
 @property(nonatomic) __weak NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(nonatomic) __weak MSLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *interfaceImageIdentifier;
-@property(readonly, nonatomic) __weak id cacheOwner;
 - (void)onBooleanOperation:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menu:(id)arg1 willHighlightItem:(id)arg2;

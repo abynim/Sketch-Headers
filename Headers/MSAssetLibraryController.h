@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "MSAssetLibraryDelegate-Protocol.h"
+#import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
 
 @class MSAssetLibraryUpdater, NSArray, NSHashTable, NSMutableArray, NSString;
 
@@ -59,10 +59,10 @@
 - (void)saveLibraries:(id)arg1 withLibrariesKey:(id)arg2;
 - (void)removeAssetLibrary:(id)arg1;
 - (long long)addAssetLibraryAtURL:(id)arg1;
+- (id)existingLibraryForDocumentAtURL:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;
-- (void)addRemoteLibraryFromAppcastURL:(id)arg1 context:(id)arg2 callback:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

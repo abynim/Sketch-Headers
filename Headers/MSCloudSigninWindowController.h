@@ -36,12 +36,10 @@
 @property(retain, nonatomic) SCKAPIEnvironment *environment;
 - (void)updateEnvironmentMenuItems;
 - (void)cancel:(id)arg1;
-- (void)signinWithLegacyAPI;
 - (void)handleAuthenticationWithUserInfo:(id)arg1;
-- (void)signinWithOAuthAPI;
+- (void)signIn:(id)arg1;
 - (void)resetPassword:(id)arg1;
 - (void)signUp:(id)arg1;
-- (void)signIn:(id)arg1;
 - (void)windowDidLoad;
 - (void)dismissWithResult:(long long)arg1;
 - (id)init;

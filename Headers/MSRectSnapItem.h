@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSSnapItem.h"
+#import <SketchControllers/MSSnapItem.h>
 
 @interface MSRectSnapItem : MSSnapItem
 {
@@ -21,12 +21,6 @@
 - (struct CGRect)boundsRect;
 - (double)rotation;
 - (BOOL)supportsResizingForSnapping;
-- (id)centerYAnchor;
-- (id)centerXAnchor;
-- (id)bottomAnchor;
-- (id)topAnchor;
-- (id)rightAnchor;
-- (id)leftAnchor;
 - (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)snapItemForDrawing;
 - (void)snapInBlock:(CDUnknownBlockType)arg1;

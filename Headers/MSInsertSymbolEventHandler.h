@@ -6,42 +6,36 @@
 
 #import "MSEventHandler.h"
 
-@class MSSnapperData, MSSymbolMasterReference, NSMutableDictionary, NSOperationQueue;
+@class MSSymbolInsertionTool, MSSymbolMasterReference, NSMutableDictionary, NSOperationQueue;
 
 @interface MSInsertSymbolEventHandler : MSEventHandler
 {
-    BOOL _isMakingPreview;
-    MSSymbolMasterReference *_symbolReference;
     NSMutableDictionary *_previewImages;
+    MSSymbolMasterReference *_masterReference;
+    MSSymbolInsertionTool *_tool;
     NSOperationQueue *_renderQueue;
-    MSSnapperData *_snapperData;
-    struct CGPoint _mouseLocation;
 }
 
-@property(retain, nonatomic) MSSnapperData *snapperData; // @synthesize snapperData=_snapperData;
 @property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
-@property(retain, nonatomic) NSMutableDictionary *previewImages; // @synthesize previewImages=_previewImages;
-@property(nonatomic) BOOL isMakingPreview; // @synthesize isMakingPreview=_isMakingPreview;
-@property(nonatomic) struct CGPoint mouseLocation; // @synthesize mouseLocation=_mouseLocation;
-@property(retain, nonatomic) MSSymbolMasterReference *symbolReference; // @synthesize symbolReference=_symbolReference;
+@property(readonly, nonatomic) MSSymbolInsertionTool *tool; // @synthesize tool=_tool;
+@property(retain, nonatomic) MSSymbolMasterReference *masterReference; // @synthesize masterReference=_masterReference;
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
+- (void)setPreviewImage:(id)arg1 forZoomScale:(double)arg2;
+- (id)previewImageForZoomScale:(double)arg1;
+- (id)previewImage;
 - (BOOL)pasteboardContainsSymbolInfo:(id)arg1;
 - (void)draggingExited:(id)arg1;
 - (void)updateDraggingItemsForDrag:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
-- (id)previewImage;
-- (struct CGRect)rectAroundMouseFromBoundsCoordinates:(struct CGRect)arg1;
-- (struct CGPoint)originForInserting;
+- (void)updateWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (struct CGRect)previewRectForInserting;
-- (void)refresh;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (BOOL)insertSymbolAtCurrentMouseLocation;
+- (BOOL)performInsert;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)trackMouse:(id)arg1;
 - (id)initWithManager:(id)arg1;
 
 @end

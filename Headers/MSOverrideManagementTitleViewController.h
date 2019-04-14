@@ -12,16 +12,16 @@
 
 @interface MSOverrideManagementTitleViewController : MSOverrideManagementViewController <MSThemeImageViewDelegate>
 {
-    MSOverrideManagementPropertyTitle *_propertyTitle;
     MSThemeImageView *_previewView;
     NSString *_overrideName;
 }
 
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
 @property(retain, nonatomic) MSThemeImageView *previewView; // @synthesize previewView=_previewView;
-@property(retain, nonatomic) MSOverrideManagementPropertyTitle *propertyTitle; // @synthesize propertyTitle=_propertyTitle;
 - (void).cxx_destruct;
 - (id)imageForThemeImageView:(id)arg1;
+- (void)setManagementItem:(id)arg1;
+@property(readonly, nonatomic) MSOverrideManagementPropertyTitle *propertyTitle;
 
 @end
 

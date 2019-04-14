@@ -18,6 +18,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
++ (id)createDetachedGroupFromMaster:(id)arg1 forInstance:(id)arg2 inDocument:(id)arg3;
 - (id)defaultLayout;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
@@ -34,6 +35,8 @@
 - (unsigned long long)axisForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+@property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
+@property(readonly, nonatomic) double mirrorExportScale;
 - (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
@@ -55,6 +58,8 @@
 - (void)migratePropertiesFromV109OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV90OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
+- (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
+- (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSArray *layers;

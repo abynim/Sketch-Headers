@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableLayer.h>
 
 @interface MSImmutableLayer (ExportFormatRequestBackground)
-- (void)configureBackgroundOfRequest:(id)arg1;
+- (void)configureBackgroundOfRequest:(id)arg1 isContainedInGroup:(BOOL)arg2;
 @end
 

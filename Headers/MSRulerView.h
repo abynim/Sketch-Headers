@@ -15,7 +15,6 @@
     double previousBase;
     NSNumberFormatter *metricsFormatter;
     BOOL _mouseDidDrag;
-    MSRulerData *_rulerData;
     MSDocument *_document;
     MSContentDrawView *_contentView;
     unsigned long long _axis;
@@ -34,7 +33,6 @@
 @property(nonatomic) BOOL mouseDidDrag; // @synthesize mouseDidDrag=_mouseDidDrag;
 @property(nonatomic) __weak MSContentDrawView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-@property(retain, nonatomic) MSRulerData *rulerData; // @synthesize rulerData=_rulerData;
 - (void).cxx_destruct;
 - (long long)rulerHeight;
 - (long long)rulerLength;
@@ -67,6 +65,7 @@
 - (void)dragRulerBaseWithMouse:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
 - (unsigned long long)indexOfGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)addNewGuideAtMousePoint:(struct CGPoint)arg1;
 - (void)mouseDown:(id)arg1;
@@ -74,6 +73,7 @@
 - (double)relevantAxisForPoint:(struct CGPoint)arg1;
 - (void)refreshGuide:(double)arg1;
 - (void)refreshTemporaryRulerGuide;
+@property(readonly, nonatomic) MSRulerData *rulerData;
 - (void)mouseMoved:(id)arg1;
 - (BOOL)isEventInView:(id)arg1;
 - (void)removeAllGuides:(id)arg1;

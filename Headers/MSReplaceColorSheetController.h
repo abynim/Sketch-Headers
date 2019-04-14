@@ -6,45 +6,39 @@
 
 #import <Chocolat/CHSheetController.h>
 
-#import "MSColorInspectorDelegate-Protocol.h"
+#import "MSColorWellDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCPopover, MSPopoverDismisserView, MSStylePartPreviewButton, NSButton, NSMenu, NSString;
+@class MSColorWell, MSStylePartPreviewButton, NSButton, NSMenu, NSString;
 
-@interface MSReplaceColorSheetController : CHSheetController <NSWindowDelegate, NSMenuDelegate, MSColorInspectorDelegate>
+@interface MSReplaceColorSheetController : CHSheetController <MSColorWellDelegate, NSWindowDelegate, NSMenuDelegate>
 {
     NSButton *_cancelButton;
     NSButton *_ignoreAlphaWhenMatchingOriginalColorButton;
     MSStylePartPreviewButton *_originalColorButton;
-    MSStylePartPreviewButton *_replacementColorButton;
+    MSColorWell *_replacementColorButton;
     NSButton *_keepAlphaOfOriginalColorButton;
-    MSPopoverDismisserView *_replacementColorPopoverDismissingView;
     NSButton *_replaceButton;
     NSMenu *_frequentColorsMenu;
-    BCPopover *_popover;
 }
 
-@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSMenu *frequentColorsMenu; // @synthesize frequentColorsMenu=_frequentColorsMenu;
 @property(nonatomic) __weak NSButton *replaceButton; // @synthesize replaceButton=_replaceButton;
-@property(nonatomic) __weak MSPopoverDismisserView *replacementColorPopoverDismissingView; // @synthesize replacementColorPopoverDismissingView=_replacementColorPopoverDismissingView;
 @property(nonatomic) __weak NSButton *keepAlphaOfOriginalColorButton; // @synthesize keepAlphaOfOriginalColorButton=_keepAlphaOfOriginalColorButton;
-@property(nonatomic) __weak MSStylePartPreviewButton *replacementColorButton; // @synthesize replacementColorButton=_replacementColorButton;
+@property(nonatomic) __weak MSColorWell *replacementColorButton; // @synthesize replacementColorButton=_replacementColorButton;
 @property(nonatomic) __weak MSStylePartPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
 @property(nonatomic) __weak NSButton *ignoreAlphaWhenMatchingOriginalColorButton; // @synthesize ignoreAlphaWhenMatchingOriginalColorButton=_ignoreAlphaWhenMatchingOriginalColorButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 - (void).cxx_destruct;
+- (id)documentColorSpaceForClient:(id)arg1;
+- (id)previewColorSpaceForClient:(id)arg1;
+- (id)initialColorPickerColorForColorWell:(id)arg1;
 - (void)confirm:(id)arg1;
 - (void)disableUI;
 - (void)validateUI;
-- (void)windowDidBecomeKey:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)validateReplaceButton;
-- (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
-- (void)pickReplacementColor:(id)arg1;
-- (BOOL)dismissReplacementColorPopover;
+- (void)replacementColorAction:(id)arg1;
 - (void)validateReplacementColorButton;
 - (void)setOriginalColor:(id)arg1;
 - (void)commitOriginalColor:(id)arg1;

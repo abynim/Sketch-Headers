@@ -22,7 +22,7 @@
 + (id)layerWithPath:(id)arg1;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
-- (long long)adjustmentHandleAtPoint:(struct CGPoint)arg1 zoomScale:(double)arg2 resizing:(BOOL)arg3;
+- (long long)cornerForLinePointAtIndex:(unsigned long long)arg1;
 - (BOOL)isPolygon;
 - (BOOL)isRectangle;
 - (BOOL)attemptToSimplifyBetweenPoint:(id)arg1 andPoint:(id)arg2 pathToLayerTransform:(struct CGAffineTransform)arg3;

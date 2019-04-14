@@ -23,9 +23,7 @@
 - (void).cxx_destruct;
 - (void)setDisplaysLabel:(BOOL)arg1;
 - (BOOL)displaysLabel;
-- (void)applyOverrideToSelectedLayers:(id)arg1;
-- (id)valueFromControlView:(id)arg1;
-- (void)buildMenu;
+- (void)overrideValueAction:(id)arg1;
 - (void)build;
 - (void)viewWillAppear;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;

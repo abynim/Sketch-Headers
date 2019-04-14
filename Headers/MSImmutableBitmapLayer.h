@@ -22,6 +22,7 @@
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 
 // Remaining properties
 @property(nonatomic) BOOL fillReplacesImage; // @dynamic fillReplacesImage;

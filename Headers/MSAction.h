@@ -6,7 +6,7 @@
 
 #import <AppKit/NSResponder.h>
 
-#import "NSMenuDelegate-Protocol.h"
+#import <SketchControllers/NSMenuDelegate-Protocol.h>
 
 @class MSActionController, NSAttributedString, NSImage, NSMenuItem, NSString, NSToolbarItem;
 

@@ -7,6 +7,6 @@
 #import <SketchModel/MSLayer.h>
 
 @interface MSLayer (LayerSelectionDrawing)
-- (void)drawOverrideSelectionAt:(double)arg1 requiresTransform:(BOOL)arg2;
+- (void)drawOverrideSelectionAt:(double)arg1;
 @end
 

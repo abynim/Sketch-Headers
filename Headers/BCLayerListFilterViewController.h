@@ -10,7 +10,7 @@
 #import <BCLayerList/NSSearchFieldDelegate-Protocol.h>
 #import <BCLayerList/NSTextViewDelegate-Protocol.h>
 
-@class BCFilterInfo, NSButton, NSDictionary, NSMenu, NSMutableDictionary, NSSearchField, NSString, NSView;
+@class BCFilterInfo, NSButton, NSDictionary, NSMenu, NSSearchField, NSString, NSView;
 
 @interface BCLayerListFilterViewController : NSViewController <NSMenuDelegate, NSSearchFieldDelegate, NSTextViewDelegate>
 {
@@ -22,10 +22,8 @@
     NSDictionary *_filterMenuItemTemplateImages;
     NSSearchField *_filterStringTextField;
     NSView *_filterTokensView;
-    NSMutableDictionary *_namedImageOwners;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *namedImageOwners; // @synthesize namedImageOwners=_namedImageOwners;
 @property(nonatomic) __weak NSView *filterTokensView; // @synthesize filterTokensView=_filterTokensView;
 @property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
 @property(retain, nonatomic) NSDictionary *filterMenuItemTemplateImages; // @synthesize filterMenuItemTemplateImages=_filterMenuItemTemplateImages;

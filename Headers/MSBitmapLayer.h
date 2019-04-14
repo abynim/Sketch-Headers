@@ -15,6 +15,7 @@
 }
 
 + (unsigned long long)traits;
+- (double)scale;
 - (void)resizeToOriginalSize;
 - (struct CGSize)originalSize;
 - (BOOL)isAtOriginalSize;

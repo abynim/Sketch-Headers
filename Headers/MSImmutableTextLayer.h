@@ -61,6 +61,7 @@
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV76OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithUnarchiver:(id)arg1;
+- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;

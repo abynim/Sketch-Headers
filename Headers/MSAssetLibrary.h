@@ -6,15 +6,14 @@
 
 #import <objc/NSObject.h>
 
-#import "BCSortable-Protocol.h"
-#import "MSLibraryObject-Protocol.h"
-#import "NSCoding-Protocol.h"
-#import "QLPreviewItem-Protocol.h"
+#import <SketchControllers/BCSortable-Protocol.h>
+#import <SketchControllers/MSLibraryObject-Protocol.h>
+#import <SketchControllers/NSCoding-Protocol.h>
 
 @class MSDocumentData, NSDate, NSDictionary, NSString, NSURL;
 @protocol MSAssetLibraryDelegate;
 
-@interface MSAssetLibrary : NSObject <QLPreviewItem, BCSortable, NSCoding, MSLibraryObject>
+@interface MSAssetLibrary : NSObject <BCSortable, NSCoding, MSLibraryObject>
 {
     NSURL *_locationOnDisk;
     BOOL _enabled;
@@ -55,14 +54,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithName:(id)arg1;
 - (id)initWithDocumentAtURL:(id)arg1;
-@property(readonly) NSString *previewItemTitle;
-@property(readonly) NSURL *previewItemURL;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly) id previewItemDisplayState;
 @property(readonly) Class superclass;
 
 @end

@@ -6,7 +6,7 @@
 
 #import <AppKit/NSPopUpButton.h>
 
-#import "NSMenuDelegate-Protocol.h"
+#import <SketchControllers/NSMenuDelegate-Protocol.h>
 
 @class MSForeignObjectMenuBuilder, MSShareableObjectReference, NSArray, NSDictionary, NSString;
 

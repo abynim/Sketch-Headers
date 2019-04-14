@@ -34,8 +34,6 @@
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
-- (void)refreshSelectedRowViews;
-- (void)refreshAllRowViews;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)setIntercellSpacing:(struct CGSize)arg1;
 - (void)deliberateScrollRowToVisible:(long long)arg1;
@@ -66,6 +64,9 @@
 - (void)processMouseEventTakingFloatingGroupRowIntoAccount:(long long)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)processMouseEventTakingFloatingStateOfRowViewIntoAccount:(id)arg1 atRow:(long long)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)awakeFromNib;
+- (void)refreshSelectedRowViews;
+- (void)refreshGroupRowViews;
+- (void)refreshAllRowViews;
 
 // Remaining properties
 @property __weak id <BCOutlineViewDelegate> delegate; // @dynamic delegate;

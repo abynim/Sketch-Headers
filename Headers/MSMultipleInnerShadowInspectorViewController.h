@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib;
 - (id)nibName;
-- (BOOL)shouldHideAddStylePartButton;
+- (BOOL)shouldDisableAddStylePartButton;
 - (unsigned long long)stylePartType;
 
 @end

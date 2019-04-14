@@ -30,6 +30,7 @@
 - (id)websiteAvailableVersionsURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
+- (void)licenseDidBecomeInvalid;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
 - (void)fallbackToTrial:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -41,13 +42,13 @@
 - (id)updateExpirationDate;
 - (id)registeredEmailAddress;
 - (id)currentLicenseIdentifier;
-- (id)currentLicenseProvider;
-- (id)currentLicenseState;
+- (long long)currentLicenseProvider;
 - (long long)currentLicenseType;
 - (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (BOOL)applyLicense:(id)arg1;
 - (void)networkTimeDidChangeNotification:(id)arg1;
+- (void)cloudAuthenticationSessionDidChangeNotification:(id)arg1;
 - (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
 - (void)unregister;

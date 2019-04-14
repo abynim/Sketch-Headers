@@ -6,28 +6,28 @@
 
 #import "MSCloudBaseViewController.h"
 
-@class NSArray, NSButton, NSPopUpButton, NSStackView;
+@class NSButton, NSLayoutConstraint, NSPopUpButton, NSStackView;
 
 @interface MSCloudInitialViewController : MSCloudBaseViewController
 {
-    NSArray *_organizations;
     NSStackView *_actionStackView;
-    NSStackView *_organizationStackView;
     NSButton *_uploadButton;
+    NSLayoutConstraint *_uploadButtonWidthConstraint;
     NSPopUpButton *_organizationButton;
 }
 
 @property(retain, nonatomic) NSPopUpButton *organizationButton; // @synthesize organizationButton=_organizationButton;
+@property(retain, nonatomic) NSLayoutConstraint *uploadButtonWidthConstraint; // @synthesize uploadButtonWidthConstraint=_uploadButtonWidthConstraint;
 @property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
-@property(retain, nonatomic) NSStackView *organizationStackView; // @synthesize organizationStackView=_organizationStackView;
 @property(retain, nonatomic) NSStackView *actionStackView; // @synthesize actionStackView=_actionStackView;
-@property(retain, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 - (void).cxx_destruct;
 - (void)upload:(id)arg1;
-- (void)updateOrganizationButton;
+- (void)updateFootnote:(id)arg1;
+- (id)selectedOrganization;
+- (void)didCompleteLoadingOrganizations:(id)arg1;
+- (void)reloadOrganizations;
 - (void)viewDidLoad;
 - (void)loadView;
-- (void)reloadOrganizations;
 
 @end
 

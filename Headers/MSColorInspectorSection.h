@@ -6,36 +6,30 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "MSAssetCollectionViewSourceDelegate-Protocol.h"
-#import "MSAssetPickerControllerDelegate-Protocol.h"
-#import "MSAssetPickerScrubberControllerDelegate-Protocol.h"
-#import "MSCollapsibleHeaderInspectorItemTarget-Protocol.h"
-#import "MSPreviewColorSpaceProvider-Protocol.h"
-#import "NSTouchBarDelegate-Protocol.h"
-
-@class MSAssetPickerController, MSAssetPickerScrubberController, MSCollapsibleHeaderInspectorItem, NSArray, NSString;
+@class MSAssetPickerController, MSAssetPickerScrubberController, MSCollapsibleHeaderInspectorItem, MSGenericButtonController, NSArray;
 @protocol MSColorInspectorSectionDelegate;
 
-@interface MSColorInspectorSection : NSViewController <MSPreviewColorSpaceProvider, MSAssetPickerControllerDelegate, MSAssetCollectionViewSourceDelegate, MSCollapsibleHeaderInspectorItemTarget, MSAssetPickerScrubberControllerDelegate, NSTouchBarDelegate>
+@interface MSColorInspectorSection : NSViewController
 {
-    id <MSColorInspectorSectionDelegate> _delegate;
     NSArray *_styleParts;
     MSCollapsibleHeaderInspectorItem *_assetPickerHeaderItem;
-    MSAssetPickerController *_assetPickerController;
-    NSViewController *_noContentController;
     MSAssetPickerScrubberController *_assetPickerScrubberController;
+    MSAssetPickerController *_assetPickerController;
+    MSGenericButtonController *_addButtonController;
+    NSViewController *_noContentController;
+    id <MSColorInspectorSectionDelegate> _delegate;
 }
 
-+ (void)refreshColorPickerViewHeight:(id)arg1;
 + (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1 size:(double)arg2 foreColor:(struct CGColor *)arg3 backgroundColor:(struct CGColor *)arg4;
 + (id)presetPickerVisibilityDefaultsKey;
 + (void)initialize;
-@property(retain, nonatomic) MSAssetPickerScrubberController *assetPickerScrubberController; // @synthesize assetPickerScrubberController=_assetPickerScrubberController;
+@property(nonatomic) __weak id <MSColorInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSViewController *noContentController; // @synthesize noContentController=_noContentController;
+@property(retain, nonatomic) MSGenericButtonController *addButtonController; // @synthesize addButtonController=_addButtonController;
 @property(retain, nonatomic) MSAssetPickerController *assetPickerController; // @synthesize assetPickerController=_assetPickerController;
+@property(retain, nonatomic) MSAssetPickerScrubberController *assetPickerScrubberController; // @synthesize assetPickerScrubberController=_assetPickerScrubberController;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *assetPickerHeaderItem; // @synthesize assetPickerHeaderItem=_assetPickerHeaderItem;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
-@property(nonatomic) __weak id <MSColorInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)assetPickerScrubberController:(id)arg1 didSelectAsset:(id)arg2;
 - (id)makeTouchBarItemForIdentifier:(id)arg1;
@@ -44,17 +38,23 @@
 - (void)adjustFirstResponder:(id)arg1;
 - (void)assetPickerController:(id)arg1 didSelectDataSource:(id)arg2;
 - (void)layoutChangedForAssetPickerCollection:(id)arg1;
-- (id)createNewAssetForAssetPickerController:(id)arg1;
 - (void)assetPickerController:(id)arg1 didSelectAsset:(id)arg2;
+- (void)addAsset:(id)arg1;
 - (id)globalAssetPickerDataSourceWithAssetType:(unsigned long long)arg1 name:(id)arg2 title:(id)arg3;
 - (id)documentAssetPickerDataSourceWithAssetType:(unsigned long long)arg1 name:(id)arg2 title:(id)arg3;
 - (void)controlDidSelectAsset:(id)arg1;
+- (id)addAssetButton;
+- (id)assetPickerHeaderAccessoryViews;
 - (id)allAssetPickerDataSources;
 - (id)foreignAssetPickerDataSources;
 - (id)assetPickerDataSources;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (BOOL)isAssetPickerCollapsed;
+- (void)setAssetPickerCollapsed:(BOOL)arg1;
 - (unsigned long long)assetType;
-- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
+- (id)views;
+- (id)scrollableViews;
+- (id)headerViews;
 - (void)refreshAction:(id)arg1;
 - (void)dealloc;
 - (id)createPresetFromCurrentSelection;
@@ -70,12 +70,6 @@
 - (void)assetDataSourcesMighHaveChanged;
 - (void)didMoveThroughHistory:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

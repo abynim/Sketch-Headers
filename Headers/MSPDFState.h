@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
+#import <SketchPDF/NSCopying-Protocol.h>
 
 @class MSPDFScanner, MSPDFTextState, NSAffineTransform, NSArray, NSBezierPath, NSColor, NSColorSpace, NSMutableArray, PDFFunction, PDFPattern;
 

@@ -38,6 +38,7 @@
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
+- (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;
 - (id)overrideProperiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;

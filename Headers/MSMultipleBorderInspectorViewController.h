@@ -21,13 +21,14 @@
 @property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
 @property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (void).cxx_destruct;
+- (void)updateDisplayedValues;
 - (void)dealloc;
 - (id)views;
 - (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (BOOL)advancedOptionsApplicable;
 - (BOOL)shouldShowAdvancedOptionsButton;
-- (BOOL)shouldHideAddStylePartButton;
+- (BOOL)shouldDisableAddStylePartButton;
 - (void)styleDidEnableOrDisable;
 - (void)showAdvancedOptionsAction:(id)arg1;
 - (void)prepare;

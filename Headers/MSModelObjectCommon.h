@@ -20,7 +20,7 @@
 + (id)generateObjectID;
 + (id)defaultName;
 - (void).cxx_destruct;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (unsigned long long)traits;
 - (id)primitiveObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;

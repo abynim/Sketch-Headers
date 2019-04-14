@@ -10,6 +10,7 @@
 
 @interface _MSSymbolMaster : MSArtboardGroup
 {
+    BOOL _allowsOverrides;
     BOOL _includeBackgroundColorInInstance;
     NSString *_symbolID;
 }
@@ -18,7 +19,7 @@
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)syncPropertiesFromObject:(id)arg1;
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
@@ -26,6 +27,7 @@
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
+@property(nonatomic) BOOL allowsOverrides; // @synthesize allowsOverrides=_allowsOverrides;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

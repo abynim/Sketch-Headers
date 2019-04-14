@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCollectionViewDataSource-Protocol.h"
+#import <SketchControllers/NSCollectionViewDataSource-Protocol.h>
 
 @class MSAssetCollection, NSIndexSet, NSString;
 @protocol MSAsset, MSAssetCollectionViewSourceDelegate, MSAssetCollectionViewSourceItemProvider;
@@ -49,7 +49,7 @@
 - (void)deleteAssetAtIndexPath:(id)arg1;
 - (id)nameOfAssetAtIndexPath:(id)arg1;
 - (void)setName:(id)arg1 ofAssetAtIndexPath:(id)arg2;
-- (id)addAsset:(id)arg1;
+- (id)addAsset:(id)arg1 withName:(id)arg2;
 - (id)assetAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfAssets;
 - (void)prepareCollectionView:(id)arg1;

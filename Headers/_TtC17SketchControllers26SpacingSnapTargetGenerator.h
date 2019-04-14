@@ -13,6 +13,7 @@
     // Error parsing type: , name: spacingCandidates.storage
     // Error parsing type: , name: anchorPointForResizing
     // Error parsing type: , name: visibleRect
+    // Error parsing type: , name: coordinateSpace
 }
 
 @end

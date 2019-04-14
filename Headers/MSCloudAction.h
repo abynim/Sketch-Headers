@@ -26,6 +26,7 @@
 + (id)actionsToPrepareTermination;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
++ (id)userController;
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
 + (id)cloudError:(id)arg1 addingRecoveryOptionsWithAttempter:(id)arg2;
 + (BOOL)isErrorRecoverable:(id)arg1;

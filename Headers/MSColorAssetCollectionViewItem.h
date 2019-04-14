@@ -16,6 +16,8 @@
 - (void)drawAssetView:(id)arg1 dirtyRect:(struct CGRect)arg2;
 - (id)nsColor;
 - (id)color;
+- (id)menuItemCopy;
+- (void)loadView;
 
 @end
 

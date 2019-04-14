@@ -8,20 +8,18 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 
-@class MSAlignmentEngineResult, MSNormalEventData, MSShapePathLayer, MSSnapper, NSString;
+@class MSAlignmentEngineResult, MSNormalEventHandler, MSShapePathLayer, NSString;
 
 @interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate>
 {
     MSShapePathLayer *_layer;
     long long _pointIndex;
-    MSSnapper *_layerSnapper;
-    MSNormalEventData *_eventData;
+    MSNormalEventHandler *_normalEventHandler;
     MSAlignmentEngineResult *_snapGuides;
 }
 
 @property(retain, nonatomic) MSAlignmentEngineResult *snapGuides; // @synthesize snapGuides=_snapGuides;
-@property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
-@property(retain, nonatomic) MSSnapper *layerSnapper; // @synthesize layerSnapper=_layerSnapper;
+@property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) long long pointIndex; // @synthesize pointIndex=_pointIndex;
 @property(retain, nonatomic) MSShapePathLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;

@@ -26,6 +26,8 @@
 @property(nonatomic) __weak id <MSEventHandlerManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (void)prepareToDraw:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
 - (void)recordEvent:(id)arg1;
 - (void)sendMouseMovedEvent:(id)arg1;
 - (void)sendMouseUpEvent:(id)arg1;

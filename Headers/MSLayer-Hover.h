@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSLayer.h>
 
-#import "MSHoverableItem-Protocol.h"
+#import <SketchControllers/MSHoverableItem-Protocol.h>
 
 @interface MSLayer (Hover) <MSHoverableItem>
 @property(readonly, nonatomic) MSLayer *hoveredLayer;

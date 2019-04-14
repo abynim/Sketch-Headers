@@ -7,6 +7,6 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (ModelSyncSupport)
-- (BOOL)propertiesAreEqual:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @end
 

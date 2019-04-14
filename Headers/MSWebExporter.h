@@ -6,17 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MSCacheManager, MSDocumentData, NSString, NSURL, SCKOrganization;
+#import <SketchRendering/MSCloudManifestMakerDelegate-Protocol.h>
+
+@class MSDocumentData, NSString, NSURL, SCKOrganization;
 @protocol OS_dispatch_queue;
 
-@interface MSWebExporter : NSObject
+@interface MSWebExporter : NSObject <MSCloudManifestMakerDelegate>
 {
     BOOL _selectiveExport;
     BOOL _cancelled;
     MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
-    MSCacheManager *_cacheManager;
     SCKOrganization *_cloudOrganization;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
@@ -31,20 +32,27 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
-@property(retain, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
+- (id)cloudManifestMaker:(id)arg1 fileMetadataForRootLayer:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;
-- (id)exportedImageDataForRequest:(id)arg1;
+- (id)exportImageMetadataForRequest:(id)arg1 manifestScale:(double)arg2;
 - (id)metadataForDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long documentFileSize;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (BOOL)exportArtboardsIncludingManifest:(BOOL)arg1 error:(id *)arg2;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

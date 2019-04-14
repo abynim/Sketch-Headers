@@ -9,10 +9,11 @@
 #import <SketchModel/MSArtboardGroup-Protocol.h>
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
+#import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
 {
 }
 
@@ -27,6 +28,11 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) BOOL containsFixedLayers;
+- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
+- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
+@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
@@ -45,6 +51,7 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;

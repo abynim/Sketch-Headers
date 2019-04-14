@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSSymbolMaster.h>
 
-#import "MSSharedObjectStyling-Protocol.h"
+#import <SketchControllers/MSSharedObjectStyling-Protocol.h>
 
 @class NSString;
 

@@ -69,6 +69,7 @@
 - (unsigned long long)inspectorLocation;
 - (BOOL)shouldShowSharedStyles;
 - (BOOL)shouldShowFlowView;
+- (BOOL)shouldShowLayoutView;
 - (BOOL)shouldShowResizingView;
 - (id)styleViewControllersForLayers:(id)arg1 fromStyleInspectorSection:(id)arg2;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
@@ -106,6 +107,7 @@
 @property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
+- (void)prepareToDraw:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)drawHandles;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;

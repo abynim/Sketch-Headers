@@ -46,8 +46,8 @@
 @property(readonly, nonatomic) BOOL startIsInsideContour1;
 - (void)calculateContour2StartStopInsides;
 - (void)calculateContour1StartStopInsides;
-- (struct FBEdgeOverlapRunTestPoints *)contour2TestPoints;
-- (struct FBEdgeOverlapRunTestPoints *)contour1TestPoints;
+- (struct FBEdgeOverlapRunTestPoints *)contour2TestPointsForIeration:(unsigned long long)arg1;
+- (struct FBEdgeOverlapRunTestPoints *)contour1TestPointsForIeration:(unsigned long long)arg1;
 - (id)init;
 
 @end

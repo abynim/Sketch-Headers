@@ -7,36 +7,47 @@
 #import "MSStylePartPreviewButton.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 
-@class BCPopover, MSDocument, NSColor, NSString;
+@class BCPopover, MSDocument, MSNativeColorPanelPresenter, NSColor, NSString;
+@protocol MSColorWellDelegate;
 
-@interface MSColorWell : MSStylePartPreviewButton <MSColorInspectorDelegate>
+@interface MSColorWell : MSStylePartPreviewButton <MSColorInspectorDelegate, MSNativeColorPanelPresenterDelegate>
 {
     BOOL _canDisplayPopover;
     NSColor *_initialColor;
     SEL _colorChangedAction;
     id _colorChangedTarget;
     BCPopover *_colorPopover;
+    MSNativeColorPanelPresenter *_colorPanelPresenter;
     MSDocument *_document;
 }
 
 @property(nonatomic) BOOL canDisplayPopover; // @synthesize canDisplayPopover=_canDisplayPopover;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *colorPopover; // @synthesize colorPopover=_colorPopover;
 @property(nonatomic) __weak id colorChangedTarget; // @synthesize colorChangedTarget=_colorChangedTarget;
 @property(nonatomic) SEL colorChangedAction; // @synthesize colorChangedAction=_colorChangedAction;
 @property(readonly, nonatomic) NSColor *initialColor; // @synthesize initialColor=_initialColor;
 - (void).cxx_destruct;
+- (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
+- (id)companionPopoverForColorPanelPresenter:(id)arg1;
+- (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;
 - (void)mouseDown:(id)arg1;
 - (void)dismissColorPicker;
+- (void)presentColorPopover;
+- (void)closeNativeColorPanel;
+- (void)showNativeColorPanel;
 - (void)presentColorPicker:(id)arg1;
 - (void)prepareWithDocument:(id)arg1 initialColor:(id)arg2;
 - (void)awakeFromNib;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(nonatomic) __weak id <MSColorWellDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

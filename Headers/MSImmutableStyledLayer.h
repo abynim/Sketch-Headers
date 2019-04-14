@@ -42,7 +42,6 @@
 - (id)decoratedPathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
-- (void)applyPropertiesToBezier:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
@@ -50,6 +49,7 @@
 - (id)bezierPathForStartDecorationOnPath:(id *)arg1;
 - (unsigned long long)roundDecorationTypeIfNecessary:(unsigned long long)arg1;
 - (void)updateSharedStyleIDFromMigration:(id)arg1;
+- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;

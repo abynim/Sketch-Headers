@@ -54,9 +54,9 @@
 - (id)pageListToggleButtonTooltip;
 - (void)onTogglePageList:(id)arg1;
 @property(readonly, nonatomic) BOOL isSplitViewCollapsed;
-- (void)showPagePopUpButton;
+- (BOOL)showPagePopUpButton;
 - (void)showPageView;
-- (void)hidePagePopUpButton;
+- (BOOL)hidePagePopUpButton;
 - (void)hidePageView;
 - (void)flagsChangedNotification;
 - (void)renamePage;

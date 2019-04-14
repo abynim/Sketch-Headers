@@ -6,7 +6,7 @@
 
 #import <BCFoundation/BCObjectPool.h>
 
-#import "MSFirstLineTypesetterDelegate-Protocol.h"
+#import <SketchRendering/MSFirstLineTypesetterDelegate-Protocol.h>
 
 @class NSString;
 

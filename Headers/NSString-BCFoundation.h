@@ -8,7 +8,6 @@
 
 @interface NSString (BCFoundation)
 + (id)stringWithPrefix:(id)arg1 number:(long long)arg2;
-+ (id)stringRepresentationForSeconds:(unsigned long long)arg1;
 - (id)safeSubstringWithRange_ms:(struct _NSRange)arg1;
 - (id)safeSubstringFromIndex_ms:(unsigned long long)arg1;
 - (id)safeSubstringToIndex_ms:(unsigned long long)arg1;

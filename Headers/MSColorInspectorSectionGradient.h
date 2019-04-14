@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSColorInspectorSectionWithPicker.h"
+#import "MSColorInspectorSectionWithColorPicker.h"
 
 #import "MSGradientBarViewDelegate-Protocol.h"
 #import "MSGradientEventHandlerDelegate-Protocol.h"
 
 @class MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
 
-@interface MSColorInspectorSectionGradient : MSColorInspectorSectionWithPicker <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
+@interface MSColorInspectorSectionGradient : MSColorInspectorSectionWithColorPicker <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
     MSGradientBarView *_gradientBarView;
     MSGradientEventHandler *_gradientHandler;
@@ -59,7 +59,8 @@
 - (id)allSecondaryAssetPickerDataSources;
 - (id)secondaryAssetPickerDataSources;
 - (id)assetPickerDataSources;
-- (id)viewsWithColorPickerView:(id)arg1 headerAccessories:(id)arg2;
+- (id)scrollableViews;
+- (id)headerViews;
 - (id)gradientBarViewPreviewColorSpace:(id)arg1;
 - (void)gradientBarChanged:(id)arg1;
 - (void)updateUIAfterGradientChange;

@@ -10,6 +10,7 @@
 
 @interface _MSImmutableSymbolMaster : MSImmutableArtboardGroup
 {
+    BOOL _allowsOverrides;
     BOOL _includeBackgroundColorInInstance;
     NSString *_symbolID;
 }
@@ -17,6 +18,7 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
+@property(nonatomic) BOOL allowsOverrides; // @synthesize allowsOverrides=_allowsOverrides;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

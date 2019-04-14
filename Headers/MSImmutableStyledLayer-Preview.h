@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableStyledLayer.h>
 
-#import "MSImmutableLayerPreviewability-Protocol.h"
+#import <SketchControllers/MSImmutableLayerPreviewability-Protocol.h>
 
 @interface MSImmutableStyledLayer (Preview) <MSImmutableLayerPreviewability>
 - (BOOL)hasSharedStyleInDocumentData:(id)arg1;
