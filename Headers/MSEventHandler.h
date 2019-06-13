@@ -62,6 +62,7 @@
 - (id)noSelectionTouchbarIdentifiers;
 - (id)makeTouchBar;
 - (BOOL)allowsSwitchToInsertAction;
+- (unsigned long long)defaultSnapMask;
 - (BOOL)shouldFitToPixelBounds;
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;

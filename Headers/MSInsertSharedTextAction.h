@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)tooltip;
 - (id)label;
-- (id)pluralizedSharedObjectName;
+- (id)noSharedObjectMenuItemTitle;
 - (id)sharedObjectName;
 - (id)imageName;
 - (id)imageForToolbar;

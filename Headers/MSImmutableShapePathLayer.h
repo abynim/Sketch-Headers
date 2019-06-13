@@ -31,6 +31,7 @@
 - (BOOL)isLine;
 - (void)migrateByTakingStyleFrom:(id)arg1;
 - (void)migratePropertiesFromShapeGroup:(id)arg1;
+- (void)migratePropertiesFromV118OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV99OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties

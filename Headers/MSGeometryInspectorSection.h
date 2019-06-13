@@ -6,7 +6,7 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSArtboardPositionInspectorItem, MSArtboardPresetInspectorItem, MSArtboardSizeInspectorItem, MSBitmapResizeToOriginalItem, MSLineEndpointInspectorItem1, MSLineEndpointInspectorItem2, MSLineTransformInspectorItem, MSPaddingInspectorItem, MSPositionInspectorItem, MSSizeInspectorItem;
+@class MSArtboardPositionInspectorItem, MSArtboardPresetInspectorItem, MSArtboardSizeInspectorItem, MSBitmapResizeToOriginalItem, MSLineEndpointInspectorItem1, MSLineEndpointInspectorItem2, MSLineTransformInspectorItem, MSPaddingInspectorItem, MSPositionInspectorItem, MSSizeInspectorItem, _TtC6Sketch22MSSpacingInspectorItem;
 
 @interface MSGeometryInspectorSection : MSBaseInspectorSection
 {
@@ -19,15 +19,17 @@
     MSLineTransformInspectorItem *_lineTransformItem;
     MSLineEndpointInspectorItem1 *_lineEndItem1;
     MSLineEndpointInspectorItem2 *_lineEndItem2;
+    MSBitmapResizeToOriginalItem *_imageOriginalSizeItem;
+    _TtC6Sketch22MSSpacingInspectorItem *_layerSpacingItem;
     MSPaddingInspectorItem *_paddingItem1;
     MSPaddingInspectorItem *_paddingItem2;
-    MSBitmapResizeToOriginalItem *_imageOriginalSizeItem;
 }
 
 @property(nonatomic) BOOL insetSeparator; // @synthesize insetSeparator=_insetSeparator;
-@property(retain, nonatomic) MSBitmapResizeToOriginalItem *imageOriginalSizeItem; // @synthesize imageOriginalSizeItem=_imageOriginalSizeItem;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem2; // @synthesize paddingItem2=_paddingItem2;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem1; // @synthesize paddingItem1=_paddingItem1;
+@property(readonly, nonatomic) _TtC6Sketch22MSSpacingInspectorItem *layerSpacingItem; // @synthesize layerSpacingItem=_layerSpacingItem;
+@property(retain, nonatomic) MSBitmapResizeToOriginalItem *imageOriginalSizeItem; // @synthesize imageOriginalSizeItem=_imageOriginalSizeItem;
 @property(retain, nonatomic) MSLineEndpointInspectorItem2 *lineEndItem2; // @synthesize lineEndItem2=_lineEndItem2;
 @property(retain, nonatomic) MSLineEndpointInspectorItem1 *lineEndItem1; // @synthesize lineEndItem1=_lineEndItem1;
 @property(retain, nonatomic) MSLineTransformInspectorItem *lineTransformItem; // @synthesize lineTransformItem=_lineTransformItem;

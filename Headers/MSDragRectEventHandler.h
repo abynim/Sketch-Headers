@@ -8,11 +8,11 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragGestureRecognizer, MSDragInsertionTool, MSLayerGroup, NSCursor, NSString;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragInsertionTool, MSDragRectGestureRecognizer, MSLayerGroup, NSCursor, NSString;
 
 @interface MSDragRectEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
 {
-    MSDragGestureRecognizer *_dragGestureRecognizer;
+    MSDragRectGestureRecognizer *_dragGestureRecognizer;
     MSAlignmentEngine *_snapper;
     MSAlignmentEngineResult *_snappingResult;
     NSCursor *_insertionCursor;
@@ -24,7 +24,7 @@
 @property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
 @property(retain, nonatomic) MSAlignmentEngineResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(readonly, nonatomic) MSAlignmentEngine *snapper; // @synthesize snapper=_snapper;
-@property(readonly, nonatomic) MSDragGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
+@property(readonly, nonatomic) MSDragRectGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
 - (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;

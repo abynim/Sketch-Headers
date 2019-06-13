@@ -40,9 +40,6 @@
 - (void)rotateGradientAction:(id)arg1;
 - (void)refreshAction:(id)arg1;
 - (void)updateOtherGradientsToReflectChanges;
-- (void)gradientHandlerDidChangeGradient:(id)arg1;
-- (void)gradientHandlerWillLoseFocus:(id)arg1;
-- (void)gradientHandlerDidChangeCurrentPoint:(id)arg1;
 - (void)colorPickerChangedTo:(id)arg1;
 - (id)currentlySelectedColor;
 - (void)switchToGradientHandler;
@@ -52,7 +49,11 @@
 - (void)setStyleParts:(id)arg1;
 - (void)highlightCurrentGradient;
 - (void)assetDataSourcesMighHaveChanged;
-- (void)gradientBarAction:(id)arg1;
+- (void)gradientHandlerDidChangeGradient:(id)arg1;
+- (void)gradientHandlerWillLoseFocus:(id)arg1;
+- (void)gradientHandlerDidChangeCurrentPoint:(id)arg1;
+- (void)gradientBarChanged:(id)arg1;
+- (void)gradientBarDidChangeSelectedStop:(id)arg1;
 - (unsigned long long)fillType;
 - (void)switchToGradientHandlerIfNecessary;
 - (void)validate;
@@ -62,9 +63,10 @@
 - (id)scrollableViews;
 - (id)headerViews;
 - (id)gradientBarViewPreviewColorSpace:(id)arg1;
-- (void)gradientBarChanged:(id)arg1;
 - (void)updateUIAfterGradientChange;
 - (void)viewDidLoad;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

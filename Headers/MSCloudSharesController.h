@@ -15,7 +15,7 @@
     // Error parsing type: , name: delegate
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (void)startLoadingAdditionalShares;
 @property(nonatomic, readonly) BOOL canLoadAdditionalShares;
 - (void)startLoadingShares;

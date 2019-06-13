@@ -10,6 +10,7 @@
 {
 }
 
+- (long long)validationStatus;
 - (BOOL)validate;
 - (id)tooltip;
 - (id)labelForToolbar;

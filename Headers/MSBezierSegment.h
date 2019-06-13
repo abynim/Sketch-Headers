@@ -56,6 +56,7 @@
 - (id)repr;
 - (id)bezierPath;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
+- (void)appendToCGPath:(struct CGPath *)arg1 orBezierPath:(id)arg2;
 - (struct CGRect)bounds;
 - (id)segmentForJoiningWithC1ContinuityToSegment:(id)arg1;
 - (struct CGRect)controlPointBounds;

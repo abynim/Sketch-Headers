@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/MSSnapItem.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface MSTextSnapItem : MSSnapItem
+@interface _TtC17SketchControllers12StackElement : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: frame
+    // Error parsing type: , name: layer
 }
-
-- (BOOL)supportsResizingForSnapping;
 
 @end
 

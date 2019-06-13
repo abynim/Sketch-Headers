@@ -23,8 +23,8 @@
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
 - (id)dataOverrides;
-- (void)dataMenuProviderRefreshMasterData:(id)arg1;
-- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
+- (void)refreshDataOnCurrentSelection:(id)arg1;
+- (void)applyDataToCurrentSelection:(id)arg1;
 
 @end
 

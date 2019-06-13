@@ -14,7 +14,7 @@
     // Error parsing type: , name: snaps
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) NSArray *snaps; // @synthesize snaps;
 @property(nonatomic, readonly) struct CGPoint point;

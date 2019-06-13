@@ -4,17 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSDataMenuBaseAction.h"
 
-@class MSDataMenuProvider;
-
-@interface MSDataMenuAction : MSDocumentAction
+@interface MSDataMenuAction : MSDataMenuBaseAction
 {
 }
 
-- (void)menuNeedsUpdate:(id)arg1;
-- (void)addHeaderToMenu:(id)arg1 withTitle:(id)arg2;
-@property(readonly, nonatomic) MSDataMenuProvider *dataMenuProvider;
+- (long long)presentationContext;
 - (BOOL)mayShowInToolbar;
 - (BOOL)isSelectable;
 - (id)label;

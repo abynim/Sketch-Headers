@@ -72,6 +72,8 @@
 @property(nonatomic) double currentPageHeight;
 - (void)applyAppearance;
 - (void)refreshAfterAppearanceChange;
+- (void)updateActiveList;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)awakeFromNib;
 - (void)embedView:(id)arg1 inView:(id)arg2;
 - (void)dealloc;

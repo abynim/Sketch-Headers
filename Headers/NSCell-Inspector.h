@@ -7,6 +7,7 @@
 #import <AppKit/NSCell.h>
 
 @interface NSCell (Inspector)
++ (void)drawEnabled:(BOOL)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (void)drawInspectorButtonImage:(id)arg1 centeredInRect:(struct CGRect)arg2 withColor:(id)arg3;
 + (id)inspectorAccentIconColorForCellHighlighted:(BOOL)arg1;
 + (id)inspectorAccentColorForCellHighlighted:(BOOL)arg1;

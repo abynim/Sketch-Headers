@@ -6,17 +6,16 @@
 
 #import <objc/NSObject.h>
 
-#import "MSDataMenuProviderDelegate-Protocol.h"
 #import "MSDataSupplierManagerDelegate-Protocol.h"
 #import "NSApplicationDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataMenuProvider, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataMenuProviderDelegate, MSDataSupplierManagerDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
@@ -29,13 +28,12 @@
     NSMenuItem *_debugMenuItem;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
-    NSMenuItem *_dataFeedMenuItem;
     NSMenuItem *_cloudEnvironmentMenuItem;
     NSTimer *_updateTimer;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
-    MSDataMenuProvider *_dataFeedProvider;
+    MSDataSupplierManager *_dataSupplierManager;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
     BCLicenseManager *_licenseManager;
@@ -78,13 +76,12 @@
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
-@property(readonly, nonatomic) MSDataMenuProvider *dataFeedProvider; // @synthesize dataFeedProvider=_dataFeedProvider;
+@property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager; // @synthesize dataSupplierManager=_dataSupplierManager;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
-@property(retain, nonatomic) NSMenuItem *dataFeedMenuItem; // @synthesize dataFeedMenuItem=_dataFeedMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
@@ -116,18 +113,6 @@
 - (id)pluginIconForIdentifier:(id)arg1;
 - (BOOL)isThereAPluginForDataSupplier:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
-- (id)dataAction;
-- (id)dataMenuProviderDataIdentifier:(id)arg1;
-- (void)dataMenuProviderRemoveDataRecord:(id)arg1;
-- (void)dataMenuProviderRefreshMasterData:(id)arg1;
-- (void)dataMenuProviderRefreshData:(id)arg1;
-- (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
-- (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
-- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
-- (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
-- (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
 - (id)templateLibraryPath;
@@ -145,7 +130,6 @@
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;
-@property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)checkForAssetLibraryUpdates;
 - (void)createActions;

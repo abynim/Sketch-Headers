@@ -28,7 +28,8 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
-- (id)ensureMojaveBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
+- (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
+- (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 cache:(id)arg2 owner:(id)arg3;
 - (struct CGImage *)generateCGImageAtLevelOfDetail:(unsigned long long)arg1;
 - (struct CGImage *)CGImageInCache:(id)arg1 owner:(id)arg2;

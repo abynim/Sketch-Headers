@@ -31,6 +31,7 @@
     NSTextField *_menuDisabledTextField;
     NSMutableSet *_referencedNodes;
     unsigned long long _refreshMask;
+    double _refreshNotificationTime;
     NSArray *_postRefreshBlocks;
     BCRowViewVisuals *_rowViewVisuals;
 }
@@ -38,6 +39,7 @@
 + (BOOL)itemRowCanFloat:(id)arg1;
 @property(retain, nonatomic) BCRowViewVisuals *rowViewVisuals; // @synthesize rowViewVisuals=_rowViewVisuals;
 @property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
+@property(nonatomic) double refreshNotificationTime; // @synthesize refreshNotificationTime=_refreshNotificationTime;
 @property(nonatomic) BOOL viewHasAppearedBefore; // @synthesize viewHasAppearedBefore=_viewHasAppearedBefore;
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
 @property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
@@ -61,22 +63,23 @@
 - (void)tableCellViewNodeRequiresRefresh:(id)arg1;
 - (long long)indexOfTableRowView:(id)arg1;
 - (BOOL)isNodeExpandedInTableRowView:(id)arg1;
-- (BOOL)multipleNodesSelected;
+- (id)selectedNodes;
 - (BOOL)isNodeSelectedOnRow:(long long)arg1;
 - (BOOL)isNodeOfTableRowViewSelected:(id)arg1;
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
 - (void)queueRefreshIfRequired;
-@property(nonatomic) BOOL isLayoutDirty;
-@property(nonatomic) BOOL arePreviewImagesDirty;
-@property(nonatomic) BOOL isExpansionDirty;
-@property(nonatomic) BOOL isSelectionDirty;
+- (void)resetLayoutDirtyFlag;
+@property(readonly, nonatomic) BOOL isLayoutDirty;
+- (void)resetPreviewImagesDirtyFlag;
+@property(readonly, nonatomic) BOOL arePreviewImagesDirty;
+@property(readonly, nonatomic) BOOL isExpansionDirty;
+- (void)resetSelectionDirtyFlag;
+@property(readonly, nonatomic) BOOL isSelectionDirty;
 - (void)refreshWithMask:(unsigned long long)arg1;
-- (void)refreshPreviewImages;
 - (void)internalRefreshPreviewImages;
 - (void)executeAfterRefreshCompleted:(CDUnknownBlockType)arg1;
-- (void)refresh;
 - (void)internalRefresh;
 - (void)renameNode;
 - (void)flagsChangedNotification;
@@ -126,7 +129,6 @@
 - (unsigned long long)determineExpansionStateForNode:(id)arg1;
 - (void)notifyExpansionStateChanged:(unsigned long long)arg1 forNode:(id)arg2;
 - (void)updateExpansionStateForNodesUnder:(id)arg1;
-- (void)updateSelectionAndExpansion;
 - (void)modifyExpansionInBlock:(CDUnknownBlockType)arg1;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;

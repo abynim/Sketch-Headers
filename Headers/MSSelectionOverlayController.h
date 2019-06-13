@@ -7,17 +7,22 @@
 #import <objc/NSObject.h>
 
 @class MSSelectionRenderer, NSArray;
+@protocol _TtP6Sketch36MSSelectionOverlayControllerDelegate_;
 
 @interface MSSelectionOverlayController : NSObject
 {
     // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: durationForTemporarilyHidingSelection
     // Error parsing type: , name: timerForRestoringTemporarilyHiddenSelection
-    // Error parsing type: , name: model
+    // Error parsing type: , name: stack
+    // Error parsing type: , name: spacingTool
     // Error parsing type: , name: renderer
+    // Error parsing type: , name: visibilityModel
+    // Error parsing type: , name: delegate
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
+@property(nonatomic) __weak id <_TtP6Sketch36MSSelectionOverlayControllerDelegate_> delegate; // @synthesize delegate;
 @property(nonatomic, readonly) MSSelectionRenderer *renderer; // @synthesize renderer;
 - (void)restoreShowingSelection;
 - (void)temporarilyHideSelection;

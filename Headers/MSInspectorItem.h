@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (id)cachedUserInterfaceElementForKey:(id)arg1;
 - (void)cacheUserInterfaceElement:(id)arg1 withKey:(id)arg2;
+- (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5 bindingOptions:(id)arg6;
 - (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5;
 @property(readonly, nonatomic) MSDocument *document;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;

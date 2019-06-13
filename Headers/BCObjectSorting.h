@@ -10,6 +10,7 @@
 {
 }
 
++ (void)applyPrefixToList:(id)arg1 prefix:(id)arg2;
 + (id)consolidateGroups:(id)arg1;
 + (void)recursiveSplitByPrefix:(id)arg1;
 + (id)splitByPrefix:(id)arg1;

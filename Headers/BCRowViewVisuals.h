@@ -45,7 +45,7 @@
     // Error parsing type: , name: subselectedInactiveRegularRowImageWithRoundBottomCorners.storage
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (void)updateVisualStateOfRowView:(id)arg1;
 - (id)initWithWidth:(double)arg1 regularRowHeight:(double)arg2 scale:(double)arg3;

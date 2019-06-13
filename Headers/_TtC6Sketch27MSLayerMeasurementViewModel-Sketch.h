@@ -6,7 +6,10 @@
 
 #import "_TtC6Sketch27MSLayerMeasurementViewModel.h"
 
+@protocol MSLayerCoordinateSpace;
+
 @interface _TtC6Sketch27MSLayerMeasurementViewModel (Sketch)
+@property(nonatomic, readonly) id <MSLayerCoordinateSpace> coordinateSpace;
 @property(nonatomic, readonly) struct CGRect targetRect;
 @end
 

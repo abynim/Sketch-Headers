@@ -14,8 +14,8 @@
     struct CGVector _direction;
 }
 
-+ (id)axisAlignedOrDiagonalConstraintFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 + (id)constraintWithSourcePoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
++ (id)axisAlignedOrDiagonalConstraintFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
 @property(readonly, nonatomic) struct CGVector direction; // @synthesize direction=_direction;
 @property(readonly, nonatomic) struct CGPoint sourcePoint; // @synthesize sourcePoint=_sourcePoint;
 - (id)description;

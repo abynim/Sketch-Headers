@@ -8,6 +8,5 @@
 
 @interface MSTextLayer (MSSnappable)
 - (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (Class)snapItemClass;
 @end
 

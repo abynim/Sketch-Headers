@@ -13,7 +13,7 @@
     // Error parsing type: , name: wantOppositeMeasurements
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

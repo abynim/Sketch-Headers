@@ -18,7 +18,7 @@
     // Error parsing type: , name: renderer
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 @property(nonatomic, readonly) MSSpecRenderer *renderer; // @synthesize renderer;
 @property(nonatomic) struct CGVector duplicationOffset; // @synthesize duplicationOffset;
 - (void)clear;

@@ -6,16 +6,9 @@
 
 #import "MSSnapOverlayController.h"
 
-#import "MSSpecRendererLayoutDelegate-Protocol.h"
+#import "MSSpecRendererDelegate-Protocol.h"
 
-@interface MSSnapOverlayController (Sketch1) <MSSpecRendererLayoutDelegate>
-- (id)specRenderer:(id)arg1 textForMeasurement:(long long)arg2 vector:(struct CGVector)arg3;
-- (BOOL)specRenderer:(id)arg1 shouldHideItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
-- (struct CGRect)specRenderer:(id)arg1 rectForEndOfItemAtIndex:(long long)arg2;
-- (struct CGRect)specRenderer:(id)arg1 rectForStartOfItemAtIndex:(long long)arg2;
-- (struct CGRect)specRenderer:(id)arg1 spaceRectForMeasurementAt:(long long)arg2;
-- (struct CGPoint)specRenderer:(id)arg1 endpointForItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3;
-- (struct CGPoint)specRenderer:(id)arg1 startpointForItemAtIndex:(long long)arg2;
-- (BOOL)specRenderer:(id)arg1 isSnapAtIndex:(long long)arg2;
+@interface MSSnapOverlayController (Sketch1) <MSSpecRendererDelegate>
+- (void)specRenderer:(id)arg1 willDrawIn:(struct CGContext *)arg2;
 @end
 

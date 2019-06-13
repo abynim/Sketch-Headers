@@ -4,13 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <AppKit/NSTextView.h>
 
-@interface SketchRenderingLocalizedStringHelper : NSObject
-{
-}
-
-+ (id)bundle;
-
+@interface NSTextView (TextLayerUndo)
+- (void)ms_registerUndoWithRuns:(id)arg1;
+- (void)ms_undoWithAttributeRuns:(id)arg1;
 @end
 

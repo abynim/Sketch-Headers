@@ -14,7 +14,7 @@
     // Error parsing type: , name: tracking
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)viewDidChangeEffectiveAppearance;

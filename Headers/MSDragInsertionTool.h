@@ -19,12 +19,12 @@
     // Error parsing type: , name: isAboutCenter
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic) BOOL insertAboutCenter; // @synthesize insertAboutCenter=isAboutCenter;
 @property(nonatomic) struct CGPoint position; // @synthesize position;
 @property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
-- (void)updateWithLocation:(struct CGPoint)arg1 alignedAxes:(unsigned long long)arg2;
+- (void)updateWithLocation:(struct CGPoint)arg1 lockSize:(BOOL)arg2 alignedAxes:(unsigned long long)arg3;
 - (struct CGPoint)locationIn:(id)arg1;
 - (void)beginDragging;
 - (void)beginDraggingWithLocation:(struct CGPoint)arg1;

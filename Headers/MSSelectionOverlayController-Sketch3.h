@@ -9,10 +9,10 @@
 #import "_TtP6Sketch31SelectionRendererLayoutDelegate_-Protocol.h"
 
 @interface MSSelectionOverlayController (Sketch3) <_TtP6Sketch31SelectionRendererLayoutDelegate_>
-- (unsigned long long)collectionRenderer:(id)arg1 resizeHandlesMaskForItemAt:(long long)arg2;
-- (BOOL)collectionRenderer:(id)arg1 layout:(id)arg2 shouldHideHandleOfKind:(id)arg3 forElementOfSize:(struct CGSize)arg4 itemIndex:(long long)arg5;
-- (BOOL)collectionRenderer:(id)arg1 layout:(id)arg2 shouldHideFrameForItemAt:(long long)arg3;
-- (struct CGAffineTransform)collectionRenderer:(id)arg1 layout:(id)arg2 transformForItemAt:(long long)arg3;
-- (struct CGSize)collectionRenderer:(id)arg1 layout:(id)arg2 sizeForItemAt:(long long)arg3;
+- (unsigned long long)collectionRenderer:(id)arg1 resizeHandlesMaskForItemAt:(id)arg2;
+- (BOOL)collectionRenderer:(id)arg1 layout:(id)arg2 shouldHideHandleOfKind:(id)arg3 forElementOfSize:(struct CGSize)arg4 at:(id)arg5;
+- (BOOL)collectionRenderer:(id)arg1 layout:(id)arg2 shouldHideItemAt:(id)arg3;
+- (struct CGAffineTransform)collectionRenderer:(id)arg1 layout:(id)arg2 transformForItemAt:(id)arg3;
+- (struct CGSize)collectionRenderer:(id)arg1 layout:(id)arg2 sizeForItemAt:(id)arg3;
 @end
 

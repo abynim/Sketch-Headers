@@ -58,7 +58,7 @@
 - (void)removeContoursThatDontContain:(id)arg1;
 - (void)removeContourCrossings:(id)arg1 thatDontAppearIn:(id)arg2;
 - (id)contoursFromCrossings:(id)arg1;
-- (BOOL)eliminateContainers:(id)arg1 thatDontContainContour:(id)arg2 usingRay:(id)arg3;
+- (BOOL)eliminateContainers:(id)arg1 thatDontContainContour:(id)arg2 usingRayWithVector:(id)arg3;
 - (unsigned long long)numberOfTimesContour:(id)arg1 appearsInCrossings:(id)arg2;
 - (BOOL)findCrossingsOnContainers:(id)arg1 onRay:(id)arg2 beforeMinimum:(struct CGPoint)arg3 afterMaximum:(struct CGPoint)arg4 crossingsBefore:(id)arg5 crossingsAfter:(id)arg6;
 - (BOOL)findBoundsOfContour:(id)arg1 onRay:(id)arg2 minimum:(struct CGPoint *)arg3 maximum:(struct CGPoint *)arg4;

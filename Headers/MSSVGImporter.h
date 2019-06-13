@@ -28,6 +28,7 @@
 - (void)scale:(double)arg1 rootGroup:(id)arg2;
 - (id)importAsLayer;
 - (void)importIntoPage:(id)arg1 name:(id)arg2 progress:(CDUnknownBlockType)arg3;
+- (unsigned long long)prepareToImportFromXMLString:(id)arg1;
 - (unsigned long long)prepareToImportFromData:(id)arg1;
 - (unsigned long long)prepareToImportFromURL:(id)arg1;
 

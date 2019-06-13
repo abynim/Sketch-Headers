@@ -11,16 +11,15 @@
 @interface MSLayerDraggingSnapTargetGenerator : NSObject
 {
     // Error parsing type: , name: tool
-    // Error parsing type: , name: rulersAreVisible
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: visibleRect
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
-@property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible;
+@property(nonatomic) unsigned long long snapMask;
 @property(nonatomic, readonly) MSLayerPositioningTool *tool; // @synthesize tool;
 - (id)initWithTool:(id)arg1;
 

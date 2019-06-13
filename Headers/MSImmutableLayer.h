@@ -17,8 +17,7 @@
 @interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSEnumerableLayer, MSLayer, MSLayerTraits>
 {
     struct CGRect _calculatedInfluenceRectForBounds;
-    // Error parsing type: A^v, name: _calculatedInfluenceRectForBoundsAtomicPointer
-    NSObject *_calculatedInfluenceRectForBoundsAtomicity;
+    struct BCLazyVar *_calculatedInfluenceRectLazyVar;
     MSPath *_pathInDocument;
     // Error parsing type: A^v, name: _pathInDocumentAtomicPointer
     NSObject *_calculatePathInDocumentAtomicity;
@@ -74,6 +73,7 @@
 - (id)layerWithID:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (void)objectDidInit;
+- (void)dealloc;
 - (id)initWithMinimalSetup;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
@@ -93,6 +93,7 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
+- (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)modifiedVersionByReplacingChildrenIn:(id)arg1;

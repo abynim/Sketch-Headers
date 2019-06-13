@@ -12,12 +12,14 @@
 
 @interface MSSharedObjectAction : MSDocumentAction <NSMenuDelegate>
 {
+    NSString *_noSharedObjectMenuItemTitle;
 }
 
+@property(readonly, nonatomic) NSString *noSharedObjectMenuItemTitle; // @synthesize noSharedObjectMenuItemTitle=_noSharedObjectMenuItemTitle;
+- (void).cxx_destruct;
 - (BOOL)hasSubMenu;
 - (id)noSharedObjectMenuItemForMenu:(id)arg1;
 - (id)noSharedObjectsView;
-@property(readonly, nonatomic) NSString *pluralizedSharedObjectName;
 @property(readonly, nonatomic) NSString *sharedObjectName;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (id)menuItemsForMenu:(id)arg1;

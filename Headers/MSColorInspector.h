@@ -116,6 +116,8 @@
 - (void)viewDidLoad;
 - (void)dealloc;
 - (id)initWithSender:(id)arg1 document:(id)arg2 handlerManager:(id)arg3 globalAssets:(id)arg4;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

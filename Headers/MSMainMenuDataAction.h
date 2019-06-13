@@ -4,9 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/_TtC17SketchControllers9MSResizer.h>
+#import "MSDataMenuBaseAction.h"
 
-@interface _TtC17SketchControllers9MSResizer (SketchControllers2)
-- (id)debugQuickLookObject;
+@interface MSMainMenuDataAction : MSDataMenuBaseAction
+{
+}
+
+- (long long)presentationContext;
+
 @end
 

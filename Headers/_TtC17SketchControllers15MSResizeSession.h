@@ -6,35 +6,33 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, _TtC17SketchControllers9MSResizer;
+@class NSArray, _TtC17SketchControllers12MSResizeTool;
 
 @interface _TtC17SketchControllers15MSResizeSession : NSObject
 {
     // Error parsing type: , name: layers
-    // Error parsing type: , name: resizer
-    // Error parsing type: , name: snapItem
+    // Error parsing type: , name: tool
     // Error parsing type: , name: _isValid
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: visibleRect
-    // Error parsing type: , name: rulersAreVisible
     // Error parsing type: , name: _mouseLocation
     // Error parsing type: , name: options
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (id)updateModel;
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
 - (void)updateWithPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)updateWithDragRecognizer:(id)arg1;
-@property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible;
+@property(nonatomic) unsigned long long snapMask;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
 - (void)dealloc;
 - (void)finish;
-- (id)initWithLayers:(id)arg1 handle:(long long)arg2 snapItem:(id)arg3;
-- (id)initWithLayer:(id)arg1 handle:(long long)arg2 snapItem:(id)arg3;
-@property(nonatomic, readonly) _TtC17SketchControllers9MSResizer *resizer; // @synthesize resizer;
+- (id)initWithLayers:(id)arg1 handle:(long long)arg2;
+- (id)initWithLayer:(id)arg1 handle:(long long)arg2;
+@property(nonatomic, readonly) _TtC17SketchControllers12MSResizeTool *tool; // @synthesize tool;
 @property(nonatomic, readonly) NSArray *layers; // @synthesize layers;
 
 @end

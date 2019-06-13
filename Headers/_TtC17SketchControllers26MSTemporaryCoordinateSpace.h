@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
     // Error parsing type: , name: unitCoordinateSpace.storage
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, retain) id <MSLayerCoordinateSpace> unitCoordinateSpace;
 @property(nonatomic, retain) id <MSLayerCoordinateSpace> parentCoordinateSpace; // @synthesize parentCoordinateSpace;

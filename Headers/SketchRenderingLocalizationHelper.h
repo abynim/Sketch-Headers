@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface SketchModelLocalizedStringHelper : NSObject
+@interface SketchRenderingLocalizationHelper : NSObject
 {
 }
 

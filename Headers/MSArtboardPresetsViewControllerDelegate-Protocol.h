@@ -12,7 +12,7 @@
 - (void)artboardPresetsViewController:(MSArtboardPresetsViewController *)arg1 didSelectPreset:(MSArtboardPreset *)arg2;
 
 @optional
-- (void)showCustomPresetSheet:(MSArtboardPresetsViewController *)arg1;
+- (void)showCustomPresetSheet:(MSArtboardPresetsViewController *)arg1 preset:(MSArtboardPreset *)arg2;
 - (void)artboardPresetsViewController:(MSArtboardPresetsViewController *)arg1 didSelectOrientation:(long long)arg2;
 @end
 

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+@class NSIndexPath;
+
 @interface _TtC17SketchControllers36MSCollectionRendererLayoutAttributes : NSObject
 {
-    // Error parsing type: , name: itemIndex
+    // Error parsing type: , name: indexPath
     // Error parsing type: , name: representedElementCategory
     // Error parsing type: , name: representedElementKind
     // Error parsing type: , name: bounds
@@ -16,16 +18,16 @@
     // Error parsing type: , name: isHidden
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic) BOOL isHidden; // @synthesize isHidden;
 @property(nonatomic) struct CGPoint center; // @synthesize center;
 @property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds;
 @property(nonatomic) struct CGRect frame;
-@property(nonatomic) long long itemIndex; // @synthesize itemIndex;
-- (id)initForSupplementaryOfKind:(id)arg1 at:(long long)arg2;
-- (id)initForItemAt:(long long)arg1;
+@property(nonatomic, copy) NSIndexPath *indexPath; // @synthesize indexPath;
+- (id)initForSupplementaryOfKind:(id)arg1 at:(id)arg2;
+- (id)initForItemAt:(id)arg1;
 
 @end
 

@@ -6,17 +6,14 @@
 
 #import "MSMultipleStylePartInspectorViewController.h"
 
-@class NSNumber;
-
 @interface MSMultipleColorStylePartInspectorViewController : MSMultipleStylePartInspectorViewController
 {
-    NSNumber *_currentPopoverIndex;
 }
 
-@property(retain, nonatomic) NSNumber *currentPopoverIndex; // @synthesize currentPopoverIndex=_currentPopoverIndex;
-- (void).cxx_destruct;
 - (void)closePopoverImmediately:(BOOL)arg1;
 - (void)openPopoverAtIndex:(unsigned long long)arg1 preferringNative:(BOOL)arg2;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 
 @end
 

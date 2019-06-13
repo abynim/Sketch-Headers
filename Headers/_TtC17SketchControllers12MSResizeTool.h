@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/_TtC17SketchControllers6MSTool.h>
+#import <objc/NSObject.h>
 
 @protocol MSLayerCoordinateSpace;
 
-@interface _TtC17SketchControllers9MSResizer : _TtC17SketchControllers6MSTool
+@interface _TtC17SketchControllers12MSResizeTool : NSObject
 {
     // Error parsing type: , name: items
     // Error parsing type: , name: handle
@@ -17,20 +17,19 @@
     // Error parsing type: , name: flippedHorizontally
     // Error parsing type: , name: flippedVertically
     // Error parsing type: , name: rotation
+    // Error parsing type: , name: coordinateSpace.storage
     // Error parsing type: , name: unitCoordinateSpace.storage
     // Error parsing type: , name: alignmentSettings
     // Error parsing type: , name: roundingIncrement
     // Error parsing type: , name: snappingResult
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, retain) id <MSLayerCoordinateSpace> unitCoordinateSpace;
-@property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
+@property(nonatomic, retain) id <MSLayerCoordinateSpace> coordinateSpace;
 @property(nonatomic) BOOL flippedVertically; // @synthesize flippedVertically;
 @property(nonatomic) BOOL flippedHorizontally; // @synthesize flippedHorizontally;
-@property(nonatomic, readonly) struct CGRect bounds;
-@property(nonatomic, readonly) struct CGPoint position;
 @property(nonatomic) long long handle; // @synthesize handle;
 
 @end

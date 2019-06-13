@@ -13,7 +13,8 @@
 {
     // Error parsing type: , name: items
     // Error parsing type: , name: size
-    // Error parsing type: , name: anchorPoint
+    // Error parsing type: , name: dragOffset
+    // Error parsing type: , name: transform
     // Error parsing type: , name: _location
     // Error parsing type: , name: originalLocation
     // Error parsing type: , name: alignmentRectInsets
@@ -25,7 +26,7 @@
     // Error parsing type: , name: layerHierarchyHasChanged
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (void)reset;
 - (void)cancel;
@@ -40,6 +41,8 @@
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
 @property(nonatomic) struct CGPoint originalLocation; // @synthesize originalLocation;
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
+@property(nonatomic) struct CGVector dragOffset; // @synthesize dragOffset;
+- (struct CGPoint)positionFromLocation:(struct CGPoint)arg1;
 @property(nonatomic, readonly) struct CGPoint position;
 @property(nonatomic, copy) NSArray *items; // @synthesize items;
 

@@ -8,7 +8,7 @@
 
 #import "MSStylePartInspectorDelegate-Protocol.h"
 
-@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleColorStylePartInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSNumber, NSString;
+@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSDictionary, NSString;
 
 @interface MSStyleInspectorSection : MSNestedInspectorSection <MSStylePartInspectorDelegate>
 {
@@ -20,12 +20,10 @@
     MSBlurInspectorViewController *_blurViewController;
     MSColorControlsInspectorViewController *_colorControlsViewController;
     NSArray *_currentControllers;
-    MSMultipleColorStylePartInspectorViewController *_ownerOfPopoverToRestore;
-    NSNumber *_indexOfPopoverToRestore;
+    NSDictionary *_restorationInfo;
 }
 
-@property(retain, nonatomic) NSNumber *indexOfPopoverToRestore; // @synthesize indexOfPopoverToRestore=_indexOfPopoverToRestore;
-@property(retain, nonatomic) MSMultipleColorStylePartInspectorViewController *ownerOfPopoverToRestore; // @synthesize ownerOfPopoverToRestore=_ownerOfPopoverToRestore;
+@property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) NSArray *currentControllers; // @synthesize currentControllers=_currentControllers;
 @property(retain, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;
 @property(retain, nonatomic) MSBlurInspectorViewController *blurViewController; // @synthesize blurViewController=_blurViewController;
@@ -35,11 +33,13 @@
 @property(retain, nonatomic) MSMultipleFillInspectorViewController *fillViewController; // @synthesize fillViewController=_fillViewController;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
 - (void)restorePopover;
+- (void)closeAnyColorPopoverImmediately:(BOOL)arg1;
 - (void)closeAnyColorPopover;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (id)views;
@@ -47,6 +47,8 @@
 - (void)valuesPossiblyChanged;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

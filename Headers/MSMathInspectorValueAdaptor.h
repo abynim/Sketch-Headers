@@ -15,6 +15,7 @@
 {
     BOOL _clampsValues;
     BOOL _adjustIndividually;
+    BOOL _useNSNullForNilValues;
     BOOL _isIncrementing;
     BOOL _forcePrefixMath;
     NSNumberFormatter *_numberFormatter;
@@ -28,6 +29,7 @@
 @property(nonatomic) BOOL forcePrefixMath; // @synthesize forcePrefixMath=_forcePrefixMath;
 @property(nonatomic) unsigned long long operation; // @synthesize operation=_operation;
 @property(nonatomic) BOOL isIncrementing; // @synthesize isIncrementing=_isIncrementing;
+@property(nonatomic) BOOL useNSNullForNilValues; // @synthesize useNSNullForNilValues=_useNSNullForNilValues;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) BOOL adjustIndividually; // @synthesize adjustIndividually=_adjustIndividually;
 @property(nonatomic) BOOL clampsValues; // @synthesize clampsValues=_clampsValues;
@@ -39,6 +41,7 @@
 - (id)valueFromPrefixStrippedString:(id)arg1 forModel:(id)arg2 originalString:(id)arg3 error:(id *)arg4;
 - (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 - (id)trimValueString:(id)arg1 getMathPrefix:(id *)arg2;
+- (BOOL)valueStringShouldProduceNullResult:(id)arg1;
 - (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
 - (void)setValue:(id)arg1;
 - (id)value;
@@ -46,7 +49,7 @@
 @property(readonly, nonatomic) NSNumberFormatter *effectiveNumberFormatter;
 - (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
 - (id)initWithModelsController:(id)arg1 floatValueGetter:(CDUnknownBlockType)arg2 floatValueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
-- (void)incrementBy:(double)arg1;
+- (void)incrementBy:(double)arg1 sender:(id)arg2;
 - (id)initWithModelsController:(id)arg1 modelKeyPath:(id)arg2 valueTransformer:(id)arg3;
 
 // Remaining properties

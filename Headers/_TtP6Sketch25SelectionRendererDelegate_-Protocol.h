@@ -4,11 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class _TtC17SketchControllers20MSCollectionRenderer;
+@class MSSelectionRenderer, NSCursor, NSIndexPath, NSString, _TtC17SketchControllers20MSCollectionRenderer;
 
 @protocol _TtP6Sketch25SelectionRendererDelegate_
+- (void)collectionRenderer:(MSSelectionRenderer *)arg1 trackedMouse:(struct CGPoint)arg2;
+- (NSCursor *)collectionRenderer:(MSSelectionRenderer *)arg1 cursorForResizeHandleOfKind:(NSString *)arg2 at:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
 
 @optional
-- (long long)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 dotRectTypeForItemAt:(long long)arg2;
+- (void)spacingRendererWithDidFinishAdjusting:(_TtC17SketchControllers20MSCollectionRenderer *)arg1;
+- (void)spacingRenderer:(MSSelectionRenderer *)arg1 willBeginAdjustingSpaceAt:(NSIndexPath *)arg2;
+- (void)spacingRenderer:(MSSelectionRenderer *)arg1 adjustSpacingAt:(NSIndexPath *)arg2 to:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
+- (long long)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 dotRectTypeForItemAt:(NSIndexPath *)arg2;
 @end
 

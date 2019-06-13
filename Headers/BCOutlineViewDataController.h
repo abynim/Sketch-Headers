@@ -32,7 +32,7 @@
 @property(readonly, nonatomic) NSArray *dragTypes;
 - (void)updateNode:(id)arg1 expandedState:(unsigned long long)arg2;
 - (BOOL)isNodeExpandable:(id)arg1;
-- (BOOL)multipleNodesSelected;
+- (id)selectedNodes;
 - (BOOL)isNodeExpanded:(id)arg1;
 - (BOOL)nodeHasSharedStyle:(id)arg1;
 - (BOOL)isNodeLockedOnCanvas:(id)arg1;

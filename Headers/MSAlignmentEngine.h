@@ -38,7 +38,6 @@
 - (id)beginCycleWithPoint:(struct CGPoint)arg1 constraint:(id)arg2;
 - (BOOL)canSnapOnAxis:(unsigned long long)arg1;
 - (id)initWithCycle:(id)arg1;
-- (void)includeRulerGuideTargetsForPage:(id)arg1 zoomScale:(double)arg2;
 
 @end
 

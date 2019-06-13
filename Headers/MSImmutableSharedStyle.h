@@ -6,11 +6,14 @@
 
 #import <SketchModel/_MSImmutableSharedStyle.h>
 
+@class MSImmutableStyle;
+
 @interface MSImmutableSharedStyle : _MSImmutableSharedStyle
 {
 }
 
 + (id)defaultName;
+@property(readonly, nonatomic) MSImmutableStyle *style;
 
 @end
 

@@ -21,6 +21,8 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (id)treeAsDictionary;
+- (id)fontName;
+- (BOOL)isFontAvailable;
 
 @end
 

@@ -47,7 +47,7 @@
 - (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
 @property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 - (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
-- (struct CGRect)boundsOfPathIntegral:(BOOL)arg1;
+- (struct CGRect)optimalBoundingBoxIntegral:(BOOL)arg1;
 - (void)adjustFrameAfterEditIntegral:(BOOL)arg1 fixAncestors:(BOOL)arg2;
 - (void)applyAffineTransformToPath:(struct CGAffineTransform)arg1;
 - (void)reversePath;

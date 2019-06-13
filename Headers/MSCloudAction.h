@@ -24,6 +24,7 @@
 + (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
 + (BOOL)shouldPrepareForTermination;
 + (id)actionsToPrepareTermination;
++ (void)requestCloudUser;
 + (Class)popoverClass;
 + (BOOL)cloudEnabled;
 + (id)userController;

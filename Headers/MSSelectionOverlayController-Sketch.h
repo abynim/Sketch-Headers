@@ -9,6 +9,5 @@
 @interface MSSelectionOverlayController (Sketch)
 @property(nonatomic, readonly) BOOL canRotate;
 - (long long)indexOfLinePointForHandleOfKind:(id)arg1;
-- (id)cursorForHandleAt:(struct CGPoint)arg1 wantRotate:(BOOL)arg2;
 @end
 

@@ -24,7 +24,6 @@
     BOOL _hasOpenedImageFile;
     BOOL _layerSelectionChangeScheduled;
     BOOL _cacheFlushInProgress;
-    BOOL _hasScheduledInspectorReload;
     NSArray *_exportableLayerSelection;
     MSTreeDiff *_treeDiffForSupplementaryViews;
     NSWindow *_documentWindow;
@@ -61,7 +60,6 @@
 + (BOOL)autosavesInPlace;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
-@property(nonatomic) BOOL hasScheduledInspectorReload; // @synthesize hasScheduledInspectorReload=_hasScheduledInspectorReload;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
@@ -139,7 +137,6 @@
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
-- (void)layerTreeLayoutDidChange;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -155,7 +152,6 @@
 - (id)artboards;
 - (id)normalHandler;
 - (id)toggleHandlerClass:(Class)arg1;
-- (void)scheduleReloadInspector;
 - (void)reloadInspector;
 - (void)reloadView;
 - (void)refreshOverlay;

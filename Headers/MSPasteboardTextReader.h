@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)isSVGString:(id)arg1;
 - (id)pasteboardDataFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 sender:(id)arg4;
 - (id)attributedStringFromPasteboard:(id)arg1 options:(unsigned long long)arg2;
 - (id)supportedPasteboardTypes;

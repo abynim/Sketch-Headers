@@ -49,6 +49,8 @@
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
+- (void)selectionOverlayControllerDidEndAdjustingSpacing:(id)arg1;
+- (void)selectionOverlayController:(id)arg1 showSpacingMeasurement:(id)arg2;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)currentPageDidChange;
@@ -79,6 +81,7 @@
 - (void)drawLayerHighlight:(id)arg1;
 - (void)drawOverrides;
 - (void)prepareToDraw:(id)arg1;
+- (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;

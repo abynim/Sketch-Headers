@@ -53,6 +53,8 @@
     NSString *_acceleratorClassName;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
+    struct CGPoint _momentumScrollOrigin;
+    struct CGVector _momentumScrollAccumulatedDelta;
     struct CGRect _scrollOriginRelativeContentRedrawRect;
 }
 
@@ -61,6 +63,8 @@
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
 @property(retain, nonatomic) NSString *acceleratorClassName; // @synthesize acceleratorClassName=_acceleratorClassName;
+@property(nonatomic) struct CGVector momentumScrollAccumulatedDelta; // @synthesize momentumScrollAccumulatedDelta=_momentumScrollAccumulatedDelta;
+@property(nonatomic) struct CGPoint momentumScrollOrigin; // @synthesize momentumScrollOrigin=_momentumScrollOrigin;
 @property(retain, nonatomic) MSVisualSettings *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
 @property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
@@ -222,7 +226,7 @@
 - (void)addObserversForNotifications;
 - (void)endImporting;
 - (void)beginImporting;
-- (void)initTiledRenderer;
+- (void)initTiledRendererAndSyncFirstFrame:(BOOL)arg1;
 - (void)initDriver;
 - (void)dealloc;
 - (void)commonInit;

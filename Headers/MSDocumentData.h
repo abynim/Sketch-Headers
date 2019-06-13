@@ -64,7 +64,6 @@
 - (id)layersByObjectID;
 - (id)artboardWithID:(id)arg1;
 - (id)layerWithID:(id)arg1;
-- (void)layerTreeLayoutDidChange;
 - (id)selectedLayers;
 - (BOOL)documentIsEmpty;
 - (id)nameForNewPage;

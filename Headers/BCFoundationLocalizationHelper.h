@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface BCFoundationLocalizedStringHelper : NSObject
+@interface BCFoundationLocalizationHelper : NSObject
 {
 }
 

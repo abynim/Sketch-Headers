@@ -12,20 +12,17 @@
 @interface MSSpecRenderer : _TtC17SketchControllers20MSCollectionRenderer
 {
     // Error parsing type: , name: measurementColor
-    // Error parsing type: , name: textColor
-    // Error parsing type: , name: fontSize
-    // Error parsing type: , name: fontWeight
-    // Error parsing type: , name: transform
+    // Error parsing type: , name: coordinateSpaceTransform
     // Error parsing type: , name: delegate
     // Error parsing type: , name: guideColor
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 @property(nonatomic, retain) NSColor *guideColor; // @synthesize guideColor;
+- (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
 @property(nonatomic) __weak id <MSSpecRendererLayoutDelegate> delegate; // @synthesize delegate;
-@property(nonatomic) struct CGAffineTransform transform; // @synthesize transform;
+@property(nonatomic) struct CGAffineTransform coordinateSpaceTransform; // @synthesize coordinateSpaceTransform;
 - (void)bindColorsToUserDefaults;
-@property(nonatomic, retain) NSColor *textColor; // @synthesize textColor;
 @property(nonatomic, retain) NSColor *measurementColor; // @synthesize measurementColor;
 - (void)dealloc;
 - (id)init;

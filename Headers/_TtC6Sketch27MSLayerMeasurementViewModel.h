@@ -20,7 +20,7 @@
     // Error parsing type: , name: measurementOptions
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) NSArray *targetLines;
 @property(nonatomic, readonly) NSArray *targetLayers;

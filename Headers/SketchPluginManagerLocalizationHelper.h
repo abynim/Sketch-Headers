@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface BCLayerListLocalizedStringHelper : NSObject
+@interface SketchPluginManagerLocalizationHelper : NSObject
 {
 }
 

@@ -26,6 +26,7 @@
     unsigned long long _scrubberIndex;
 }
 
++ (id)multipleValuesPlaceholderString;
 @property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
 @property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;

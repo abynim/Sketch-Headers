@@ -9,6 +9,11 @@
 #import "_TtP6Sketch25SelectionRendererDelegate_-Protocol.h"
 
 @interface MSSelectionOverlayController (Sketch2) <_TtP6Sketch25SelectionRendererDelegate_>
-- (long long)collectionRenderer:(id)arg1 dotRectTypeForItemAt:(long long)arg2;
+- (void)spacingRendererWithDidFinishAdjusting:(id)arg1;
+- (void)spacingRenderer:(id)arg1 willBeginAdjustingSpaceAt:(id)arg2;
+- (void)spacingRenderer:(id)arg1 adjustSpacingAt:(id)arg2 to:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
+- (void)collectionRenderer:(id)arg1 trackedMouse:(struct CGPoint)arg2;
+- (id)collectionRenderer:(id)arg1 cursorForResizeHandleOfKind:(id)arg2 at:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
+- (long long)collectionRenderer:(id)arg1 dotRectTypeForItemAt:(id)arg2;
 @end
 

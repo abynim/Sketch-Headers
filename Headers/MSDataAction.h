@@ -6,54 +6,16 @@
 
 #import "MSDocumentAction.h"
 
-#import "MSDataMenuProviderDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
+@class MSDataMenuHelper, MSDataSupplierManager;
 
-@class MSDataMenuProvider, NSString;
-
-@interface MSDataAction : MSDocumentAction <MSDataMenuProviderDelegate, NSMenuDelegate>
+@interface MSDataAction : MSDocumentAction
 {
-    MSDataMenuProvider *_data;
+    MSDataMenuHelper *_helper;
 }
 
-@property(retain, nonatomic) MSDataMenuProvider *data; // @synthesize data=_data;
 - (void).cxx_destruct;
-- (id)overridesByDataIdentifierWithDataManager:(id)arg1 canStop:(BOOL)arg2;
-- (id)overridePropertyForDataType:(unsigned long long)arg1;
-- (id)firstOverridePointInOverridePoints:(id)arg1 withProperty:(id)arg2;
-- (id)availableOverrideOnSymbolInstance:(id)arg1 property:(id)arg2;
-- (void)applyDataTo:(id)arg1 withDataMenu:(id)arg2 withDataFrom:(id)arg3;
-- (id)imageReplaceableStyleFillOnLayer:(id)arg1;
-- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toLayer:(id)arg3;
-- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toBitmapLayer:(id)arg3;
-- (void)applyImageData:(id)arg1 supplierIdentifier:(id)arg2 toShapeGroup:(id)arg3;
-- (void)applyTextData:(id)arg1 supplierIdentifier:(id)arg2 toTextLayer:(id)arg3;
-- (void)applyDataWithSupplierIdentifer:(id)arg1 toLayer:(id)arg2 applierBlock:(CDUnknownBlockType)arg3;
-- (id)dataIdentifierInLayers:(id)arg1;
-- (id)dataMenuProviderDataIdentifier:(id)arg1;
-- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (void)dataMenuProviderRemoveDataRecord:(id)arg1;
-- (void)dataMenuProviderRefreshMasterData:(id)arg1;
-- (void)dataMenuProviderRefreshData:(id)arg1;
-- (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
-- (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
-- (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
-- (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
-- (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
-- (id)label;
-- (BOOL)validate;
-- (unsigned long long)dataTypeForSelection;
-- (unsigned long long)supportedDataTypeForSelection;
-- (unsigned long long)dataTypeForSelectionContainingOnlySymbolInstancesWithOneOverridePerDataType;
-- (BOOL)hasSubMenu;
-- (id)initWithDocument:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+@property(readonly, nonatomic) MSDataMenuHelper *helper; // @synthesize helper=_helper;
+@property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager;
 
 @end
 

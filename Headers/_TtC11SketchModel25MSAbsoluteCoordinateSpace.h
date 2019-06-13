@@ -12,7 +12,7 @@
 
 + (void)setSharedCoordinateSpace:(id)arg1;
 + (id)sharedCoordinateSpace;
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 
 @end

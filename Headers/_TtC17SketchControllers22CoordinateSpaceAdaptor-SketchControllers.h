@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/_TtC17SketchControllers9MSResizer.h>
+#import <SketchControllers/_TtC17SketchControllers22CoordinateSpaceAdaptor.h>
 
-@interface _TtC17SketchControllers9MSResizer (SketchControllers1)
+#import <SketchControllers/MSLayerCoordinateSpace-Protocol.h>
+
+@interface _TtC17SketchControllers22CoordinateSpaceAdaptor (SketchControllers) <MSLayerCoordinateSpace>
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
@@ -17,5 +19,6 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
+@property(nonatomic, readonly) struct CGRect bounds;
 @end
 

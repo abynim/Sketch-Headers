@@ -16,6 +16,7 @@
     BOOL _inFastZoom;
     BOOL _rasterisationInProgress;
     BOOL _clearOtherLevels;
+    BOOL _forceSyncFirstFrame;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
     id <MSOverlayRenderingDelegate> _overlayRenderingDelegate;
     NSView<MSTiledRendererHostView> *_hostView;
@@ -34,6 +35,7 @@
 }
 
 + (id)preferredAcceleratorClassName;
+@property(nonatomic) BOOL forceSyncFirstFrame; // @synthesize forceSyncFirstFrame=_forceSyncFirstFrame;
 @property(readonly, nonatomic) MSArtboardTitleRenderer *artboardTitleRenderer; // @synthesize artboardTitleRenderer=_artboardTitleRenderer;
 @property(readonly, nonatomic) MSGPUArtboardShadow *artboardShadow; // @synthesize artboardShadow=_artboardShadow;
 @property(nonatomic) unsigned long long layerCount; // @synthesize layerCount=_layerCount;
@@ -80,6 +82,7 @@
 - (CDStruct_75f85af1 *)_renderTileLevelWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 tiles:(id)arg4 inRegion:(const CDStruct_75f85af1 *)arg5;
 @property(readonly, nonatomic) MSRenderingDriver *driver;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 syncFirstFrame:(BOOL)arg2;
 
 @end
 

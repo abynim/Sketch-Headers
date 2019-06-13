@@ -4,6 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@protocol _TtPs15_ShadowProtocol_
+@class MSSpecRenderer;
+
+@protocol MSSpecRendererDelegate
+
+@optional
+- (void)specRenderer:(MSSpecRenderer *)arg1 willDrawIn:(struct CGContext *)arg2;
 @end
 

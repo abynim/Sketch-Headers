@@ -16,11 +16,12 @@
     // Error parsing type: , name: dataSource
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)reloadData;
 @property(nonatomic) __weak id <_TtP17SketchControllers30MSCollectionRendererDataSource_> dataSource; // @synthesize dataSource;
-@property(nonatomic, readonly) long long numberOfItems;
+- (long long)numberOfItemsIn:(long long)arg1;
+@property(nonatomic, readonly) long long numberOfSections;
 @property(nonatomic, readonly) _TtC17SketchControllers26MSCollectionRendererLayout *layout; // @synthesize layout;
 - (id)init;
 

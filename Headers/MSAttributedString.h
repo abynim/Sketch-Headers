@@ -26,7 +26,9 @@
     NSAttributedString *_encodedAttributedString;
 }
 
++ (id)replacementFontDescriptorWithFaceName:(id)arg1 size:(double)arg2;
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
++ (id)fontNameInDictionary:(id)arg1;
 + (id)fontDescriptorInDictionary:(id)arg1;
 + (id)attributedStringWithRefreshedFontDescriptors:(id)arg1;
 + (id)decodeAttributedString:(id)arg1;

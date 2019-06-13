@@ -7,6 +7,7 @@
 #import "MSSelectionOverlayController.h"
 
 @interface MSSelectionOverlayController (Sketch1)
-- (long long)numberOfItemsInCollectionRenderer:(id)arg1;
+- (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionRenderer:(id)arg1;
 @end
 

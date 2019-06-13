@@ -59,8 +59,6 @@
 - (void)setFlexibleColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 @property(retain, nonatomic) MSColor *color;
-- (void)viewWillDisappear;
-- (void)viewDidAppear;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (id)initWithDelegate:(id)arg1;

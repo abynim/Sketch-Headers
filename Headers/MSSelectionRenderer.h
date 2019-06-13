@@ -4,19 +4,35 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_$S17SketchControllers20MSCollectionRendererCN.h"
+#import "_$s17SketchControllers20MSCollectionRendererCN.h"
 
+@class MSDragGestureRecognizer, NSColor;
 @protocol _TtP6Sketch25SelectionRendererDelegate_><_TtP6Sketch31SelectionRendererLayoutDelegate_;
 
-@interface MSSelectionRenderer : _$S17SketchControllers20MSCollectionRendererCN
+@interface MSSelectionRenderer : _$s17SketchControllers20MSCollectionRendererCN
 {
+    // Error parsing type: , name: minimumSpaceHitTargetSize
+    // Error parsing type: , name: formatter.storage
+    // Error parsing type: , name: spaceColor
+    // Error parsing type: , name: alignmentSettings
+    // Error parsing type: , name: draggedIndexPath
+    // Error parsing type: , name: resizeGestureRecognizer.storage
     // Error parsing type: , name: delegate
 }
 
 + (long long)cornerForHandleOfKind:(id)arg1;
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <_TtP6Sketch25SelectionRendererDelegate_><_TtP6Sketch31SelectionRendererLayoutDelegate_> delegate; // @synthesize delegate;
+- (long long)cornerAtPoint:(struct CGPoint)arg1;
+- (id)cursorForHandleAt:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (id)indexPathForSpacingHandleAtPoint:(struct CGPoint)arg1;
+- (void)trackMouseWithLocation:(struct CGPoint)arg1;
 - (id)kindOfHandleAt:(struct CGPoint)arg1;
+- (void)handleDrag:(id)arg1;
+@property(nonatomic, retain) MSDragGestureRecognizer *resizeGestureRecognizer;
+@property(nonatomic, retain) NSColor *spaceColor; // @synthesize spaceColor;
+- (void)dealloc;
 
 @end
 

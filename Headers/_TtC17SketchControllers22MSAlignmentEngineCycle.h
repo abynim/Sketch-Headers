@@ -11,7 +11,7 @@
     // Error parsing type: , name: snapper
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (id)finishCycle;
 - (void)addTargetAtPoint:(struct CGPoint)arg1 guideInfo:(id)arg2;

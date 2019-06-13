@@ -19,6 +19,8 @@
 - (void).cxx_destruct;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
+- (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (void)trackMouseWithLocation:(struct CGPoint)arg1;
 
 @end
 

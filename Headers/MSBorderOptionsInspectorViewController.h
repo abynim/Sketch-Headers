@@ -11,6 +11,7 @@
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
     BOOL _hasOpenPathLayer;
+    BOOL _hasPathWithAdjustableCaps;
     NSPopUpButton *_startDecorationButton;
     NSPopUpButton *_endDecorationButton;
     NSTextField *_dashField1;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
 @property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
+@property(nonatomic) BOOL hasPathWithAdjustableCaps; // @synthesize hasPathWithAdjustableCaps=_hasPathWithAdjustableCaps;
 @property(nonatomic) BOOL hasOpenPathLayer; // @synthesize hasOpenPathLayer=_hasOpenPathLayer;
 @property(retain, nonatomic) NSSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
 @property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;

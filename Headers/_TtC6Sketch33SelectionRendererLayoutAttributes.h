@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_$S17SketchControllers36MSCollectionRendererLayoutAttributesCN.h"
+#import "_$s17SketchControllers36MSCollectionRendererLayoutAttributesCN.h"
 
-@interface _TtC6Sketch33SelectionRendererLayoutAttributes : _$S17SketchControllers36MSCollectionRendererLayoutAttributesCN
+@interface _TtC6Sketch33SelectionRendererLayoutAttributes : _$s17SketchControllers36MSCollectionRendererLayoutAttributesCN
 {
     // Error parsing type: , name: itemTransform
     // Error parsing type: , name: overrideIndex

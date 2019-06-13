@@ -8,23 +8,28 @@
 
 #import "MSTextHeaderInspectorItemDelegate-Protocol.h"
 
-@class MSMissingFontItem, MSParagraphStyleItem, MSTextHeaderInspectorItem, MSTextLayerItem, NSString;
+@class MSAdvancedTextLayerInspectorItem, MSMissingFontItem, MSRateLimiter, MSTextHeaderInspectorItem, MSTextLayerInspectorItem, NSString;
 
 @interface MSTextInspectorSection : MSBaseInspectorSection <MSTextHeaderInspectorItemDelegate>
 {
     MSTextHeaderInspectorItem *_headerItem;
-    MSTextLayerItem *_textItem;
+    MSTextLayerInspectorItem *_textItem;
     MSMissingFontItem *_missingFontItem;
-    MSParagraphStyleItem *_paragraphStyleItem;
+    MSAdvancedTextLayerInspectorItem *_advancedTextItem;
+    MSRateLimiter *_updateLimiter;
 }
 
-@property(retain, nonatomic) MSParagraphStyleItem *paragraphStyleItem; // @synthesize paragraphStyleItem=_paragraphStyleItem;
+@property(retain, nonatomic) MSRateLimiter *updateLimiter; // @synthesize updateLimiter=_updateLimiter;
+@property(retain, nonatomic) MSAdvancedTextLayerInspectorItem *advancedTextItem; // @synthesize advancedTextItem=_advancedTextItem;
 @property(retain, nonatomic) MSMissingFontItem *missingFontItem; // @synthesize missingFontItem=_missingFontItem;
-@property(retain, nonatomic) MSTextLayerItem *textItem; // @synthesize textItem=_textItem;
+@property(retain, nonatomic) MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
 @property(retain, nonatomic) MSTextHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 - (void).cxx_destruct;
 - (void)itemWantsToggleDetailSettings:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)refreshIfNecessary:(id)arg1;
+- (void)doUpdateDisplayedValues:(id)arg1;
+- (void)valuesPossiblyChanged:(id)arg1;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
@@ -33,6 +38,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(nonatomic) BOOL valuesPossiblyDirty; // @dynamic valuesPossiblyDirty;
 
 @end
 
