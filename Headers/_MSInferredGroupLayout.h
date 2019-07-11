@@ -8,7 +8,8 @@
 
 @interface _MSInferredGroupLayout : MSGroupLayout
 {
-    long long _axis;
+    unsigned long long _axis;
+    unsigned long long _layoutAnchor;
 }
 
 + (BOOL)allowsFaulting;
@@ -20,7 +21,8 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) long long axis; // @synthesize axis=_axis;
+@property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
+@property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

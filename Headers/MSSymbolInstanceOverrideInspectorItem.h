@@ -8,19 +8,21 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
+@class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
 @interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
     MSSymbolMaster *_originalMaster;
+    MSInspectorPopoverButton *_popoverButton;
     MSInspectorPopUpButton *_popupButton;
     MSForeignObjectMenuBuilder *_menuBuilder;
 }
 
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) MSInspectorPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
+@property(retain, nonatomic) MSInspectorPopoverButton *popoverButton; // @synthesize popoverButton=_popoverButton;
 @property(readonly, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
 @property(retain, nonatomic) NSButton *navigateToMasterButton; // @synthesize navigateToMasterButton=_navigateToMasterButton;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
@@ -29,6 +31,8 @@
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
+- (void)pickSymbol:(id)arg1;
+- (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;

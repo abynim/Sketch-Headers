@@ -6,11 +6,16 @@
 
 #import <AppKit/NSCollectionView.h>
 
-@interface MSWelcomeCollectionView : NSCollectionView
+#import "MSWelcomeCollectionViewSelectionDrawing-Protocol.h"
+
+@interface MSWelcomeCollectionView : NSCollectionView <MSWelcomeCollectionViewSelectionDrawing>
 {
 }
 
-- (id)newItemForRepresentedObject:(id)arg1;
+- (void)setNeedsDisplaySelection;
+- (BOOL)becomeFirstResponder;
+- (BOOL)resignFirstResponder;
+- (void)layout;
 
 @end
 

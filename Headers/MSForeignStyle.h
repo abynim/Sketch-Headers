@@ -14,17 +14,18 @@
 {
 }
 
-+ (id)addOrReplaceSymbolPrivateStyleWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
++ (id)symbolPrivateStyleWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (unsigned long long)containerType;
 + (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
 - (id)debugQuickLookObject;
 - (id)findOrCreatePublicVersion;
+- (void)addOrReplaceInDocument:(id)arg1;
 - (void)addToDocument:(id)arg1;
 - (void)removeFromOwningDocument;
 - (void)syncWithRemote:(id)arg1;
 - (id)unlinkFromRemote;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;

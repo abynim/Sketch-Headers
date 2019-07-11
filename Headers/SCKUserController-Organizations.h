@@ -6,7 +6,16 @@
 
 #import <SketchCloudKit/SCKUserController.h>
 
+@class SCKOrganization;
+
 @interface SCKUserController (Organizations)
-- (id)organizationMenuWithTarget:(id)arg1;
+- (void)selectOrganization:(id)arg1;
+- (void)configureOrganizationButton:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
+- (id)organizationMenuWithTarget:(id)arg1 action:(SEL)arg2;
+@property(retain, nonatomic) SCKOrganization *defaultOrganization;
+@property(readonly, nonatomic) BOOL shouldShowOrganizationMenu;
+@property(readonly, nonatomic) BOOL isPersonalContributor;
+@property(readonly, nonatomic) BOOL isOrganizationContributor;
+- (id)contributeableOrganizations;
 @end
 

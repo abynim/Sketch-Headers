@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SketchRendering/MSOverlayRenderer.h>
+#import <SketchControllers/MSOverlayRenderer.h>
 
 @class _TtC17SketchControllers26MSCollectionRendererLayout;
 @protocol _TtP17SketchControllers30MSCollectionRendererDataSource_;
@@ -14,13 +14,17 @@
     // Error parsing type: , name: layout
     // Error parsing type: , name: layoutIsPrepared
     // Error parsing type: , name: dataSource
+    // Error parsing type: , name: cachedOverlayItems
 }
 
-- (CDUnknownBlockType).cxx_destruct;
-- (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
+- (void).cxx_destruct;
+- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (void)draw:(struct CGRect)arg1 context:(id)arg2;
 - (void)reloadData;
 @property(nonatomic) __weak id <_TtP17SketchControllers30MSCollectionRendererDataSource_> dataSource; // @synthesize dataSource;
-@property(nonatomic, readonly) long long numberOfItems;
+- (long long)numberOfItemsIn:(long long)arg1;
+@property(nonatomic, readonly) long long numberOfSections;
 @property(nonatomic, readonly) _TtC17SketchControllers26MSCollectionRendererLayout *layout; // @synthesize layout;
 - (id)init;
 

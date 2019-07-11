@@ -20,6 +20,7 @@
     NSArray *_touchBarItems;
 }
 
++ (id)managerWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 bindingOptions:(id)arg7;
 + (id)managerWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6;
 @property(nonatomic) BOOL resetPointsOnEdit; // @synthesize resetPointsOnEdit=_resetPointsOnEdit;
 @property(nonatomic) BOOL hideSelectionOnEdit; // @synthesize hideSelectionOnEdit=_hideSelectionOnEdit;
@@ -30,8 +31,8 @@
 - (void).cxx_destruct;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)handleValueDidChange;
-- (id)initWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6;
-- (id)initWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 hideSelectionOnEdit:(BOOL)arg7 resetPointsOnEdit:(BOOL)arg8;
+- (id)initWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 bindingOptions:(id)arg7;
+- (id)initWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 hideSelectionOnEdit:(BOOL)arg7 resetPointsOnEdit:(BOOL)arg8 bindingOptions:(id)arg9;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

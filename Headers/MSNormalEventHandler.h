@@ -9,7 +9,7 @@
 #import "MSDragLayerToolUserInterface-Protocol.h"
 #import "MSGestureRecognizerDelegate-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSSelectionOverlayController, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
@@ -17,7 +17,7 @@
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
     MSNormalEventData *_eventData;
     long long _dragMode;
-    MSSelectionOverlayController *_selectionOverlayController;
+    _TtC6Sketch28MSSelectionOverlayController *_selectionOverlayController;
     MSLayerMeasuringController *_measuringController;
     MSSnapOverlayController *_snapsController;
     NSObject<MSHoverableItem> *_highlightedItem;
@@ -44,11 +44,13 @@
 @property(retain, nonatomic) NSObject<MSHoverableItem> *highlightedItem; // @synthesize highlightedItem=_highlightedItem;
 @property(readonly, nonatomic) MSSnapOverlayController *snapsController; // @synthesize snapsController=_snapsController;
 @property(readonly, nonatomic) MSLayerMeasuringController *measuringController; // @synthesize measuringController=_measuringController;
-@property(readonly, nonatomic) MSSelectionOverlayController *selectionOverlayController; // @synthesize selectionOverlayController=_selectionOverlayController;
+@property(readonly, nonatomic) _TtC6Sketch28MSSelectionOverlayController *selectionOverlayController; // @synthesize selectionOverlayController=_selectionOverlayController;
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
+- (void)selectionOverlayControllerDidEndAdjustingSpacing:(id)arg1;
+- (void)selectionOverlayController:(id)arg1 showSpacingMeasurement:(id)arg2;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)currentPageDidChange;
@@ -73,12 +75,13 @@
 - (void)selectLayers:(id)arg1;
 - (void)layerDragged:(id)arg1;
 - (void)flagsChanged:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (void)drawOutlineForShapeChild:(id)arg1;
-- (void)drawSelectedShapePathLayers;
-- (void)drawLayerHighlight:(id)arg1;
-- (void)drawOverrides;
+- (id)siblingsOfSelectedShapePathLayers;
+- (id)overlayItemsForSelectedShapePathLayers;
+- (id)overlayLayerHighlightItems;
+- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)prepareToDraw:(id)arg1;
+- (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;
@@ -111,6 +114,7 @@
 - (BOOL)startResizingOrRotatingAtPoint:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)selectHitTestResult:(id)arg1 extendSelection:(BOOL)arg2;
+- (void)handleSymbolInstanceDoubleClick:(id)arg1 gestureRecognizer:(id)arg2;
 - (void)dragModeDidReset;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;

@@ -12,6 +12,7 @@
 
 + (void)setDefaultTextStyle:(id)arg1;
 + (id)defaultTextStyle;
++ (id)textStyleFromLayer:(id)arg1;
 + (void)recordTextStyleForLayer:(id)arg1;
 - (Class)defaultClass;
 - (id)filename;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <swiftCore/SwiftObject.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC11BCLayerList22DefaultRowViewRenderer : SwiftObject
+@interface _TtC11BCLayerList22DefaultRowViewRenderer : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: borderColor
     // Error parsing type: , name: borderLineWidth

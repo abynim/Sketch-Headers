@@ -10,6 +10,7 @@
 {
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 - (BOOL)isInferredLayout;
 
 @end

@@ -20,15 +20,14 @@
 @property(readonly, nonatomic) MSSpecRenderer *renderer; // @synthesize renderer=_renderer;
 - (void).cxx_destruct;
 - (void)layerMeasurementUpdated;
-- (id)specRenderer:(id)arg1 textForMeasurement:(long long)arg2 vector:(struct CGVector)arg3;
-- (BOOL)specRenderer:(id)arg1 shouldHideItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
-- (BOOL)specRenderer:(id)arg1 layout:(id)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndex:(long long)arg4;
-- (struct CGRect)specRenderer:(id)arg1 rectForEndOfItemAtIndex:(long long)arg2;
-- (struct CGRect)specRenderer:(id)arg1 rectForStartOfItemAtIndex:(long long)arg2;
-- (unsigned int)startEdgeForItemAtIndex:(long long)arg1;
-- (struct CGPoint)specRenderer:(id)arg1 endpointForItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3;
-- (struct CGPoint)specRenderer:(id)arg1 startpointForItemAtIndex:(long long)arg2;
-- (long long)numberOfItemsInCollectionRenderer:(id)arg1;
+- (id)specRenderer:(id)arg1 textForMeasurement:(id)arg2 vector:(struct CGVector)arg3;
+- (BOOL)specRenderer:(id)arg1 shouldHideItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
+- (BOOL)specRenderer:(id)arg1 layout:(id)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndexPath:(id)arg4;
+- (struct CGRect)specRenderer:(id)arg1 rectForEndOfItemAtIndexPath:(id)arg2;
+- (struct CGRect)specRenderer:(id)arg1 rectForStartOfItemAtIndexPath:(id)arg2;
+- (struct CGPoint)specRenderer:(id)arg1 endpointForItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3;
+- (struct CGPoint)specRenderer:(id)arg1 startpointForItemAtIndexPath:(id)arg2;
+- (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)init;
 
 // Remaining properties

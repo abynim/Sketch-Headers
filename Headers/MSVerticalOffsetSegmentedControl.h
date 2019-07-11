@@ -11,7 +11,7 @@
     // Error parsing type: , name: _contentEdgeInsets
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)setContentEdgeInsets:(struct NSEdgeInsets)arg1 forOperatingSystemVersion:(CDStruct_2ec95fd7)arg2 backingScaleFactor:(double)arg3;

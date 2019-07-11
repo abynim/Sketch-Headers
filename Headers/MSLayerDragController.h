@@ -13,10 +13,10 @@
 {
     BOOL _duplicating;
     BOOL _snappingEnabled;
-    BOOL _rulersAreVisible;
     MSLayerPositioningTool *_positioningTool;
     NSArray *_originalLayers;
     double _zoomScale;
+    unsigned long long _snapMask;
     NSNumber *_alignmentAxis;
     _TtC17SketchControllers21MSLayerSnappingResult *_snappingResult;
     id <MSDragLayerToolUserInterface> _userInterface;
@@ -26,7 +26,7 @@
 @property(nonatomic) __weak id <MSDragLayerToolUserInterface> userInterface; // @synthesize userInterface=_userInterface;
 @property(retain, nonatomic) _TtC17SketchControllers21MSLayerSnappingResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(retain, nonatomic) NSNumber *alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
-@property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible=_rulersAreVisible;
+@property(nonatomic) unsigned long long snapMask; // @synthesize snapMask=_snapMask;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect=_visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale=_zoomScale;
 @property(nonatomic) BOOL snappingEnabled; // @synthesize snappingEnabled=_snappingEnabled;

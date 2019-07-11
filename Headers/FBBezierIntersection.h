@@ -38,10 +38,14 @@
 - (void)computeCurve1;
 @property(readonly, nonatomic, getter=isAtEndPointOfCurve) BOOL atEndPointOfCurve;
 @property(readonly, nonatomic, getter=isAtEndPointOfCurve2) BOOL atEndPointOfCurve2;
+- (BOOL)isAtStopOfCurve2WithThreshold:(double)arg1;
 @property(readonly, nonatomic, getter=isAtStopOfCurve2) BOOL atStopOfCurve2;
+- (BOOL)isAtStartOfCurve2WithThreshold:(double)arg1;
 @property(readonly, nonatomic, getter=isAtStartOfCurve2) BOOL atStartOfCurve2;
 @property(readonly, nonatomic, getter=isAtEndPointOfCurve1) BOOL atEndPointOfCurve1;
+- (BOOL)isAtStopOfCurve1WithThreshold:(double)arg1;
 @property(readonly, nonatomic, getter=isAtStopOfCurve1) BOOL atStopOfCurve1;
+- (BOOL)isAtStartOfCurve1WithThreshold:(double)arg1;
 @property(readonly, nonatomic, getter=isAtStartOfCurve1) BOOL atStartOfCurve1;
 - (double)curve2Threshold;
 - (double)curve1Threshold;

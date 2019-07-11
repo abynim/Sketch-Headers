@@ -6,7 +6,7 @@
 
 #import <SketchModel/_MSSymbolInstance.h>
 
-@class MSImmutableSymbolMaster, MSOverrideRepresentationContainer, NSArray, NSDictionary, NSSet;
+@class MSImmutableSymbolMaster, MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
@@ -19,11 +19,14 @@
 - (void)removeShareableObjectsFromOverrides:(id)arg1;
 - (void)applyOverrides:(id)arg1 document:(id)arg2;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
-- (void)prepareOverrideMappingForPoint:(id)arg1 withSymbolMapTable:(id)arg2 attributeMapTable:(id)arg3;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (void)mapOverrides:(id)arg1 forOverridePoint:(id)arg2;
-- (void)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2;
-- (id)availableOverridesUnderPoint:(id)arg1;
+- (void)mapOverrides:(id)arg1 forOverridePoint:(id)arg2 symbols:(BOOL)arg3;
+- (void)mapExistingSymbolOverridesFrom:(id)arg1 forOverridePoint:(id)arg2;
+- (void)didResizeToFitContentsWithMaster:(id)arg1 oldRect:(struct CGRect)arg2;
+- (void)resizeToFitContentsIfNeededWithDocument:(id)arg1;
+- (void)resizeToFitContentsIfNeeded;
+- (id)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2 document:(id)arg3;
+- (id)availableOverridesIn:(id)arg1 underPoint:(id)arg2;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 @property(readonly, nonatomic) NSSet *influencingSymbolIDs;
 - (BOOL)canScale;
@@ -42,7 +45,7 @@
 - (id)symbolID;
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedMaster;
-- (id)symbolMaster;
+@property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
 @property(copy, nonatomic) NSDictionary *overrides;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;

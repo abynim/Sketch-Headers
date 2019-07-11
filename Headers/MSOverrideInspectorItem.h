@@ -7,10 +7,11 @@
 #import "MSInspectorItem.h"
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@class MSAvailableOverride, MSDataMenuProvider, MSDocument, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSString, NSTrackingArea, NSView;
+@class MSAvailableOverride, MSDataMenuProvider, MSDocument, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSPopUpButton, NSString, NSTrackingArea, NSView;
 
-@interface MSOverrideInspectorItem : MSInspectorItem <MSDataMenuProviderDelegate>
+@interface MSOverrideInspectorItem : MSInspectorItem <NSMenuDelegate, MSDataMenuProviderDelegate>
 {
     BOOL _displaysLabel;
     MSOverrideRepresentation *_overrideRepresentation;
@@ -18,10 +19,12 @@
     NSView *_contentView;
     NSLayoutConstraint *_indentationConstraint;
     NSTrackingArea *_trackingArea;
+    NSPopUpButton *_popup;
 }
 
 + (BOOL)allOverridesInLayers:(id)arg1 match:(id)arg2;
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
+@property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(nonatomic) __weak NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSLayoutConstraint *indentationConstraint; // @synthesize indentationConstraint=_indentationConstraint;
 @property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
@@ -38,17 +41,8 @@
 @property(readonly, nonatomic) BOOL hasSingleOverride;
 - (void)applyOverrideToSelectedLayers:(id)arg1;
 - (void)overrideValueAction:(id)arg1;
-- (void)dataMenuProviderRefreshMasterData:(id)arg1;
-- (void)dataMenuProviderRefreshData:(id)arg1;
-- (id)dataMenuProviderDataIdentifier:(id)arg1;
-- (void)dataMenuProviderRemoveDataRecord:(id)arg1;
-- (BOOL)dataMenuProviderCanRefreshData:(id)arg1;
-- (BOOL)dataMenuProviderCanApplyMasterDataToInstances:(id)arg1;
-- (id)dataMenuProviderSelectedLayersWithAppliedData:(id)arg1;
-- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
-- (unsigned long long)dataMenuProviderDataTypeForMenuBuilding:(id)arg1;
-- (BOOL)dataMenuProviderIsOverrideMenu:(id)arg1;
-- (BOOL)dataMenuProvider:(id)arg1 canChooseDataOfType:(unsigned long long)arg2;
+- (void)refreshDataOnCurrentSelection:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 - (id)labelView;
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
@@ -59,6 +53,7 @@
 @property(readonly, nonatomic) MSDocumentData *documentData;
 @property(readonly, nonatomic) MSAvailableOverride *primaryOverride;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;
+@property(retain) MSAvailableOverride *overrideItemForInspector;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

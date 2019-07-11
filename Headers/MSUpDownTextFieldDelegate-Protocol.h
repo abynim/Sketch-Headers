@@ -6,13 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSTextField;
-@protocol MSUpDownProtocol;
-
 @protocol MSUpDownTextFieldDelegate <NSObject>
 - (void)refreshAction:(id)arg1;
-
-@optional
-- (double)valueForUpDownTextField:(NSTextField<MSUpDownProtocol> *)arg1;
 @end
 

@@ -20,6 +20,7 @@
     id _affectedLayerDefault;
 }
 
++ (id)overrideInOverrides:(id)arg1 withPath:(id)arg2 andPropertyName:(id)arg3;
 + (void)enumerateOverrides:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)flattenAvailableOverrides:(id)arg1;
 + (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 otherOverrides:(id)arg4 overrideProperties:(id)arg5 inParent:(id)arg6 document:(id)arg7;
@@ -28,8 +29,8 @@
 @property(readonly, nonatomic) BOOL isVisible; // @synthesize isVisible=_isVisible;
 @property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
 @property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
-@property(readonly, nonatomic) MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
-@property(readonly, nonatomic) MSImmutableSymbolMaster *master; // @synthesize master=_master;
+@property(readonly, nonatomic) __weak MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
+@property(readonly, nonatomic) __weak MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL allowsOverrides;
@@ -40,6 +41,8 @@
 @property(readonly, nonatomic) id currentValue;
 @property(readonly, nonatomic) NSArray *children;
 - (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 otherOverrides:(id)arg5 inParent:(id)arg6 document:(id)arg7 visible:(BOOL)arg8 editable:(BOOL)arg9;
+- (BOOL)isComplimentaryTo:(id)arg1;
+@property(nonatomic, readonly) long long ancestorCount;
 
 @end
 

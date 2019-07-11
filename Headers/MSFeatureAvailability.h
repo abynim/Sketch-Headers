@@ -10,15 +10,21 @@
 {
 }
 
++ (BOOL)isComponentsPaneDoubleInspectorEnabled;
++ (void)setIsComponentsPaneEnabled:(BOOL)arg1;
++ (BOOL)isComponentsPanePreferenceUnset;
++ (BOOL)isComponentsPaneEnabled;
 + (void)setInferredLayoutEnabled:(BOOL)arg1;
 + (BOOL)inferredLayoutEnabled;
 + (BOOL)feature14414Enabled;
++ (void)setCloudXPCUploadEnabled:(BOOL)arg1;
++ (BOOL)cloudXPCUploadEnabled;
++ (void)setCloudLicensingEnabled:(BOOL)arg1;
++ (BOOL)cloudLicensingEnabled;
 + (void)setCloudDocumentsEnabled:(BOOL)arg1;
 + (BOOL)cloudDocumentsEnabled;
 + (BOOL)builtInRemoteLibrariesEnabled;
 + (void)setBuiltInRemoteLibrariesEnabled:(BOOL)arg1;
-+ (void)setIsComponentsPanelEnabled:(BOOL)arg1;
-+ (BOOL)isComponentsPanelEnabled;
 + (void)setLibraryStylesEnabled:(BOOL)arg1;
 + (BOOL)libraryStylesEnabled;
 + (void)setFeature:(id)arg1 enabled:(BOOL)arg2;

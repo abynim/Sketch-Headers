@@ -25,7 +25,7 @@
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeExpanded:(id)arg2;
 - (void)dataController:(BCOutlineViewDataController *)arg1 changeSelectionTo:(NSArray *)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 nodeHasSharedStyle:(id)arg2;
-- (BOOL)multipleNodesSelectedForDataController:(BCOutlineViewDataController *)arg1;
+- (NSArray *)selectedNodesForDataController:(BCOutlineViewDataController *)arg1;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeLockedOnCanvas:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isAncestorOfNodeHiddenOnCanvas:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeHiddenOnCanvas:(id)arg2;

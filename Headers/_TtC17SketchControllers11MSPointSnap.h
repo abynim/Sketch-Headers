@@ -14,7 +14,7 @@
     // Error parsing type: , name: guideInfo
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (BOOL)isEqual:(id)arg1;
 @property(nonatomic, readonly) NSArray *guideInfo; // @synthesize guideInfo;

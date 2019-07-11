@@ -11,7 +11,7 @@
     // Error parsing type: , name: _yOffsets
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (void)setYOffset:(double)arg1 forOperatingSystemVersion:(CDStruct_2ec95fd7)arg2 backingScaleFactor:(double)arg3;
 - (double)yOffsetFor:(double)arg1;
 - (id)initWithCoder:(id)arg1;

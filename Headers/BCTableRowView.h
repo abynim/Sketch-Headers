@@ -11,6 +11,7 @@
 
 @interface BCTableRowView : NSTableRowView
 {
+    unsigned long long _expansionTransitionState;
     BOOL _highlighted;
     BOOL _didLastDisplayAsHighlighted;
     NSObject<BCOutlineViewNode> *_node;
@@ -20,6 +21,7 @@
 
 @property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
 @property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) unsigned long long expansionTransitionState; // @synthesize expansionTransitionState=_expansionTransitionState;
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
 @property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
@@ -47,12 +49,13 @@
 - (BOOL)wantsUpdateLayer;
 @property(readonly, nonatomic) long long backgroundStyle;
 @property(readonly, nonatomic) BCTableCellView *tableCellView;
-- (id)backgroundColor;
 - (void)setSelected:(BOOL)arg1;
 @property(readonly, nonatomic) unsigned long long displayType;
 - (BOOL)shouldDisplayAsHighlighted;
 - (BOOL)isHighlighted;
 - (void)highlightDidChange:(id)arg1;
+@property(readonly, nonatomic) BOOL isCurrentlyExpanding;
+@property(readonly, nonatomic) BOOL isCurrentlyCollapsing;
 @property(readonly, nonatomic, getter=isNodeExpanded) BOOL nodeExpanded;
 - (BOOL)isNextNodeSelected;
 - (BOOL)isPreviousNodeSelected;

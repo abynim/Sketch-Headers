@@ -17,8 +17,9 @@
 + (id)labelWithImage:(id)arg1;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDown:(id)arg1;
 - (struct NSEdgeInsets)alignmentRectInsets;
-- (void)userClickedWithMouseDownEvent:(id)arg1 mouseUpEvent:(id)arg2;
 
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (void)refreshWithMask:(unsigned long long)arg1;
 - (void)awakeFromNib;
 
 @end

@@ -32,7 +32,7 @@
 - (BOOL)dataController:(id)arg1 isNodeExpanded:(id)arg2;
 - (void)dataController:(id)arg1 changeSelectionTo:(id)arg2;
 - (BOOL)dataController:(id)arg1 nodeHasSharedStyle:(id)arg2;
-- (BOOL)multipleNodesSelectedForDataController:(id)arg1;
+- (id)selectedNodesForDataController:(id)arg1;
 - (BOOL)dataController:(id)arg1 isNodeLockedOnCanvas:(id)arg2;
 - (BOOL)dataController:(id)arg1 isAncestorOfNodeHiddenOnCanvas:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeHiddenOnCanvas:(id)arg2;

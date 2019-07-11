@@ -16,6 +16,7 @@
 }
 
 + (id)providerForLayers:(id)arg1 inDocument:(id)arg2;
++ (unsigned long long)shareableObjectTypeForLayers:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (BOOL)masterIsOutOfSyncWithInstance:(id)arg1;

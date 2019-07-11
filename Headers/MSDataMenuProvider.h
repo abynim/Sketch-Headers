@@ -15,8 +15,10 @@
 {
     MSDataSupplierManager *_dataManager;
     id <MSDataMenuProviderDelegate> _delegate;
+    long long _presentationContext;
 }
 
+@property(readonly, nonatomic) long long presentationContext; // @synthesize presentationContext=_presentationContext;
 @property(nonatomic) __weak id <MSDataMenuProviderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
 - (void).cxx_destruct;
@@ -26,21 +28,13 @@
 - (id)sortedMenuItems:(id)arg1;
 - (id)dataSuppliersForDataType:(unsigned long long)arg1;
 - (id)menuItemsForDataType:(unsigned long long)arg1;
-- (id)menuItemsForDataType:(unsigned long long)arg1 indentationLevel:(long long)arg2;
-- (id)menuItemsForGroups:(id)arg1 indentationLevel:(long long)arg2;
-- (BOOL)validateMenuItem:(id)arg1;
-- (void)menuItemAction:(id)arg1;
 - (id)shadowImageFromImage:(id)arg1;
 - (id)addImageToMenuItems:(id)arg1;
 - (BOOL)addDataSuppliersForType:(unsigned long long)arg1 toMenu:(id)arg2 typeTitle:(id)arg3;
-- (void)updateMenu:(id)arg1;
 - (void)addMenusForMultipleTypesToMenu:(id)arg1;
-- (void)updateOverridesMenu:(id)arg1;
-- (id)refreshDataMenuItemsWithOverridesMenu:(BOOL)arg1 displayKeyboardShortcuts:(BOOL)arg2;
+- (id)refreshDataMenuItem;
 - (id)clearDataMenuItem;
-- (id)overridesMenu;
-- (id)menu;
-- (id)initWithDataManager:(id)arg1;
+- (id)initWithDataManager:(id)arg1 presentationContext:(long long)arg2;
 - (id)init;
 
 // Remaining properties

@@ -82,8 +82,9 @@
 - (id)startEdgeSkipHorizontals:(BOOL)arg1 skipInflectionPoints:(BOOL)arg2;
 - (id)startEdge;
 - (void)intersectionsWithRay:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
-- (id)intersectionsWithRay:(id)arg1;
 - (unsigned long long)numberOfIntersectionsWithRay:(id)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1 usingRay:(id)arg2 isAmbiguous:(char *)arg3;
+- (BOOL)containsPoint:(struct CGPoint)arg1 usingRayWithVector:(struct CGPoint)arg2 isAmbiguous:(char *)arg3;
 - (BOOL)containsPoint:(struct CGPoint)arg1 isAmbiguous:(char *)arg2;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) struct CGPoint firstPoint;

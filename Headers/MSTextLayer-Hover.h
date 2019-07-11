@@ -7,6 +7,6 @@
 #import <SketchModel/MSTextLayer.h>
 
 @interface MSTextLayer (Hover)
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
+- (id)hoverItemsWithColor:(struct CGColor *)arg1;
 @end
 

@@ -10,6 +10,8 @@
 {
 }
 
+- (id)defaultType;
+- (BOOL)allowsAutomaticShareMenu;
 - (void)noteNewRecentDocumentURL:(id)arg1;
 - (void)noteNewRecentDocument:(id)arg1;
 - (BOOL)shoudNoteRecentDocumentForType:(id)arg1;

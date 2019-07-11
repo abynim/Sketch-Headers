@@ -18,6 +18,8 @@
 @property(nonatomic) __weak id <MSTextLayerTextViewDelegate> textLayerTextViewDelegate; // @synthesize textLayerTextViewDelegate=_textLayerTextViewDelegate;
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (void)drawRect:(struct CGRect)arg1;
 - (id)makeTouchBar;
 - (struct CGRect)rectForSelectedRange;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1 avoidAdditionalLayout:(BOOL)arg2;
@@ -29,8 +31,7 @@
 - (void)paste:(id)arg1;
 - (id)readablePasteboardTypes;
 - (BOOL)readSelectionFromPasteboard:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (BOOL)hitTestFromEvent:(id)arg1;
+- (id)hitTest:(struct CGPoint)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (BOOL)shouldIgnoreAlreadyApplicableColor:(id)arg1;
 - (void)changeColor:(id)arg1;

@@ -27,8 +27,8 @@
 - (void)upload:(id)arg1;
 - (void)updateFootnote:(id)arg1;
 - (id)selectedOrganization;
-- (void)didCompleteLoadingOrganizations:(id)arg1;
 - (void)reloadOrganizations;
+- (void)requestOrganizations;
 - (void)viewDidLoad;
 - (void)loadView;
 

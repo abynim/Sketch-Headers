@@ -26,6 +26,7 @@
 @property(readonly, nonatomic) unsigned long long shadowType;
 - (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
 @property(readonly, nonatomic) double outerPaddingForBiggestShadowSpread;
+@property(readonly, nonatomic) double outerPaddingForSmallestStroke;
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) double thickestStroke;

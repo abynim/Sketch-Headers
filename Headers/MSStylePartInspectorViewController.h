@@ -21,6 +21,7 @@
     unsigned long long _index;
 }
 
++ (unsigned long long)supportedActionsForLayers:(id)arg1;
 + (id)reusableControllerArray;
 + (id)stylePartViewController;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) NSArray *layers;
 - (BOOL)hasEnabledStyle;
 - (void)prepare;
-- (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (void)awakeFromNib;
 - (id)initWithDelegate:(id)arg1;
 - (void)prepareForReuse;

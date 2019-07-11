@@ -7,11 +7,8 @@
 #import <SketchControllers/MSLayerPositioningTool.h>
 
 @class NSArray;
-@protocol MSSnappable;
 
 @interface MSLayerPositioningTool (SketchControllers)
-@property(nonatomic, readonly) id <MSSnappable> snapItemForDrawing;
-- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 @property(nonatomic, readonly) NSArray *layers;
 @end

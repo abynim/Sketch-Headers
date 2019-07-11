@@ -10,6 +10,8 @@
 {
 }
 
+- (id)menuTitlePaste;
+- (id)menuTitleCopy;
 - (void)awakeFromNib;
 - (id)nibName;
 - (BOOL)shouldDisableAddStylePartButton;

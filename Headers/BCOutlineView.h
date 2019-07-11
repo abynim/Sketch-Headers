@@ -11,26 +11,22 @@
 
 @interface BCOutlineView : NSOutlineView
 {
+    BOOL _isActiveOutlineView;
     BOOL _floatingRowDragged;
     BOOL _shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened;
     BOOL _useHighlightedBackgroundColor;
-    BOOL _isUserActivated;
     BCOutlineViewDataController *_dataController;
     id _discloserTriangleClickedItem;
-    BCOutlineView *_counterpartOutlineView;
-    unsigned long long _activeStateScheme;
     SEL _disclosureButtonAction;
     long long _floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
 }
 
 @property(nonatomic) long long floatingRowToTakeIntoAccountWhenProcessingMouseEvent; // @synthesize floatingRowToTakeIntoAccountWhenProcessingMouseEvent=_floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
-@property(nonatomic) BOOL isUserActivated; // @synthesize isUserActivated=_isUserActivated;
 @property(nonatomic) SEL disclosureButtonAction; // @synthesize disclosureButtonAction=_disclosureButtonAction;
 @property(nonatomic) BOOL useHighlightedBackgroundColor; // @synthesize useHighlightedBackgroundColor=_useHighlightedBackgroundColor;
 @property(nonatomic) BOOL shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened; // @synthesize shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened=_shouldIgnorePendingNodeRenameRequestIfDraggingSessionIntervened;
 @property(nonatomic) BOOL floatingRowDragged; // @synthesize floatingRowDragged=_floatingRowDragged;
-@property(nonatomic) unsigned long long activeStateScheme; // @synthesize activeStateScheme=_activeStateScheme;
-@property(nonatomic) __weak BCOutlineView *counterpartOutlineView; // @synthesize counterpartOutlineView=_counterpartOutlineView;
+@property(nonatomic) BOOL isActiveOutlineView; // @synthesize isActiveOutlineView=_isActiveOutlineView;
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void).cxx_destruct;
@@ -47,10 +43,6 @@
 - (void)disclosureTriangleClicked:(id)arg1;
 - (void)yieldToDefaultFirstResponder;
 - (BOOL)becomeFirstResponder;
-- (void)_noteUserDidActivateCounterpartOutlineView;
-- (void)noteUserDidActivateOutlineView;
-@property(readonly, nonatomic) BOOL isActiveOutlineView;
-- (void)setUpCoordinationWithCounterpartOutlineView:(id)arg1;
 - (BOOL)sendRenameNodeActionForRowIfAppropriate:(long long)arg1;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;

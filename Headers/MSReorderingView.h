@@ -15,19 +15,16 @@
 {
     id <MSReorderingViewDelegate> _delegate;
     SEL _deleteAction;
-    SEL _duplicateAction;
     id _target;
     long long _reorderingTag;
 }
 
 @property(nonatomic) long long reorderingTag; // @synthesize reorderingTag=_reorderingTag;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-@property(nonatomic) SEL duplicateAction; // @synthesize duplicateAction=_duplicateAction;
 @property(nonatomic) SEL deleteAction; // @synthesize deleteAction=_deleteAction;
 @property(nonatomic) __weak id <MSReorderingViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)wantsSeparator;
-- (id)menuForEvent:(id)arg1;
 - (void)draggingSession:(id)arg1 endedAtPoint:(struct CGPoint)arg2 operation:(unsigned long long)arg3;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (void)startDragWithEvent:(id)arg1;

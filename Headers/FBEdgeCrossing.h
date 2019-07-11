@@ -37,6 +37,8 @@
 - (BOOL)isEqualToEdgeCrossing:(id)arg1;
 - (BOOL)isCoincidentWith:(id)arg1;
 @property(readonly, nonatomic, getter=isFromCrossingOverlap) BOOL fromCrossingOverlap;
+@property(readonly, nonatomic, getter=isCloseToEnd) BOOL closeToEnd;
+@property(readonly, nonatomic, getter=isCloseToStart) BOOL closeToStart;
 @property(readonly, nonatomic, getter=isAtEnd) BOOL atEnd;
 @property(readonly, nonatomic, getter=isAtStart) BOOL atStart;
 @property(readonly, nonatomic) __weak FBBezierCurve *rightCurve;

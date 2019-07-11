@@ -56,6 +56,7 @@
 - (id)repr;
 - (id)bezierPath;
 - (BOOL)isEqualToBezierSegment:(id)arg1;
+- (void)appendToCGPath:(struct CGPath *)arg1 orBezierPath:(id)arg2;
 - (struct CGRect)bounds;
 - (id)segmentForJoiningWithC1ContinuityToSegment:(id)arg1;
 - (struct CGRect)controlPointBounds;
@@ -93,6 +94,7 @@
 - (double)curvatureFromPoint1:(struct CGPoint)arg1 point2:(struct CGPoint)arg2 point3:(struct CGPoint)arg3;
 - (struct CGPoint)pointAtOffset:(double)arg1;
 - (struct BCLine)tangentAtOffset:(double)arg1;
+- (void)enumeratePoints:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)tangent:(struct BCLine *)arg1 andPoint:(struct CGPoint *)arg2 atOffset:(double)arg3;
 - (void)quadraticDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;
 - (void)cubicDeCasteljauAt:(double)arg1 points:(struct CGPoint *)arg2;

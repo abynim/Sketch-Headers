@@ -14,6 +14,7 @@
     // Error parsing type: , name: renderer
     // Error parsing type: , name: groupRowBoundsWithBottomBorder.storage
     // Error parsing type: , name: groupRowBoundsWithTopAndBottomBorders.storage
+    // Error parsing type: , name: plainGroupRowImageWithTopBorder.storage
     // Error parsing type: , name: plainGroupRowImageWithBottomBorder.storage
     // Error parsing type: , name: plainGroupRowImageWithTopAndBottomBorders.storage
     // Error parsing type: , name: highlightedActiveGroupRowImageWithBottomBorder.storage
@@ -45,7 +46,7 @@
     // Error parsing type: , name: subselectedInactiveRegularRowImageWithRoundBottomCorners.storage
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (void)updateVisualStateOfRowView:(id)arg1;
 - (id)initWithWidth:(double)arg1 regularRowHeight:(double)arg2 scale:(double)arg3;

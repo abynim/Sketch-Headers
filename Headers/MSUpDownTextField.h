@@ -17,15 +17,17 @@
     BOOL _hasMinimum;
     BOOL _hasMaximum;
     id _refreshDelegate;
-    MSUpDownController *_upDownController;
     double _ownMinimum;
     double _ownMaximum;
     NSView *_preferredNextKeyView;
     double _minimumIncrementValue;
     unsigned long long _scrubberCount;
     unsigned long long _scrubberIndex;
+    MSUpDownController *_upDownController;
 }
 
++ (id)multipleValuesPlaceholderString;
+@property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
 @property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
@@ -34,7 +36,6 @@
 @property(nonatomic) double ownMinimum; // @synthesize ownMinimum=_ownMinimum;
 @property(nonatomic) BOOL hasMaximum; // @synthesize hasMaximum=_hasMaximum;
 @property(nonatomic) BOOL hasMinimum; // @synthesize hasMinimum=_hasMinimum;
-@property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
 - (void).cxx_destruct;
 - (id)makeTouchBar;
@@ -47,7 +48,7 @@
 - (id)maximum;
 - (id)minimum;
 - (double)incrementValue;
-- (void)awakeFromNib;
+- (id)createUpDownController;
 - (void)connectToValueAdapter:(id)arg1 bindingOptions:(id)arg2;
 - (void)connectToValueAdapter:(id)arg1;
 

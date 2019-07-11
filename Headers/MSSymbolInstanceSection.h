@@ -9,13 +9,14 @@
 #import "MSInspectorItemProvider-Protocol.h"
 #import "MSInspectorTableViewManagerDelegate-Protocol.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary;
+@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, _TtC6Sketch29MSSymbolInstanceInspectorItem;
 @protocol MSSymbolInstanceSectionDelegate, MSSymbolOverrideItemDescription;
 
 @interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider>
 {
     NSArray *_selectedOverrides;
     MSSharedSymbolStylesInspectorItem *_sharedStyleItem;
+    _TtC6Sketch29MSSymbolInstanceInspectorItem *_symbolItem;
     MSCollapsibleHeaderInspectorItem *_headerItem;
     NSMutableArray<MSSymbolOverrideItemDescription> *_overrideItemDescriptions;
     MSTableContainerInspectorItem *_overrideContainerItem;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) MSTableContainerInspectorItem *overrideContainerItem; // @synthesize overrideContainerItem=_overrideContainerItem;
 @property(retain, nonatomic) NSMutableArray<MSSymbolOverrideItemDescription> *overrideItemDescriptions; // @synthesize overrideItemDescriptions=_overrideItemDescriptions;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+@property(retain, nonatomic) _TtC6Sketch29MSSymbolInstanceInspectorItem *symbolItem; // @synthesize symbolItem=_symbolItem;
 @property(retain, nonatomic) MSSharedSymbolStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(copy, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void).cxx_destruct;

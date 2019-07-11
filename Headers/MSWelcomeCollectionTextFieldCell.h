@@ -11,7 +11,10 @@
 }
 
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (id)selectionColor;
 - (id)textColor;
+- (BOOL)isSelected;
+- (BOOL)isEmphasized;
 
 @end
 

@@ -6,10 +6,22 @@
 
 #import <AppKit/NSSegmentedControl.h>
 
+@class MSInspectorSegmentedControlTagBinder;
+
 @interface MSInspectorSegmentedControl : NSSegmentedControl
 {
+    MSInspectorSegmentedControlTagBinder *_tagBinder;
 }
 
+@property(retain, nonatomic) MSInspectorSegmentedControlTagBinder *tagBinder; // @synthesize tagBinder=_tagBinder;
+- (void).cxx_destruct;
+- (void)viewDidMoveToWindow;
+- (void)setToolTip:(id)arg1 forSegment:(long long)arg2;
+- (void)setWidth:(double)arg1 forSegment:(long long)arg2;
+- (void)updateTooltips;
+- (BOOL)hasSegmentTooltips;
+- (id)view:(id)arg1 stringForToolTip:(long long)arg2 point:(struct CGPoint)arg3 userData:(void *)arg4;
+- (void)bindTagsToObject:(id)arg1 keyPath:(id)arg2;
 - (struct NSEdgeInsets)alignmentRectInsets;
 
 @end

@@ -20,6 +20,7 @@
 @property(retain, nonatomic) NSArray *children; // @synthesize children=_children;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *flattenedChildren;
+- (id)firstOverridePassingTest:(CDUnknownBlockType)arg1;
 - (void)enumerate:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSArray *selectedOverrides;
 - (void)updateAfterSelectingChild;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSPage, MSSymbolMasterReference, NSBezierPath;
+@class MSPage, MSSymbolMasterReference;
 
 @interface MSSymbolInsertionTool : NSObject
 {
@@ -16,20 +16,19 @@
     // Error parsing type: , name: location
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: visibleRect
-    // Error parsing type: , name: rulersAreVisible
     // Error parsing type: , name: alignmentSettings
     // Error parsing type: , name: snappingEnabled
     // Error parsing type: , name: snappingResult
+    // Error parsing type: , name: meshSnapMask
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) NSBezierPath *snapGuidesPath;
 @property(nonatomic) BOOL snappingEnabled; // @synthesize snappingEnabled;
-@property(nonatomic) BOOL rulersAreVisible; // @synthesize rulersAreVisible;
+@property(nonatomic) unsigned long long snapMask;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
-- (void)updateWithPoint:(struct CGPoint)arg1;
+- (id)updateWithPoint:(struct CGPoint)arg1;
 - (struct CGPoint)locationIn:(id)arg1;
 @property(nonatomic, readonly) struct CGSize size; // @synthesize size;
 @property(nonatomic, readonly) MSPage *page; // @synthesize page;

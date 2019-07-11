@@ -19,8 +19,8 @@
 @interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
-    BCPopover *_popover;
     MSColorInspector *_colorInspector;
+    BCPopover *_popover;
     MSNativeColorPanelPresenter *_colorPanelPresenter;
     MSInspectorValueAdaptor *_stylePartAdaptor;
 }
@@ -28,14 +28,15 @@
 + (id)fillTypeStringForFillType:(unsigned long long)arg1;
 @property(retain, nonatomic) MSInspectorValueAdaptor *stylePartAdaptor; // @synthesize stylePartAdaptor=_stylePartAdaptor;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
-@property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 - (void).cxx_destruct;
 - (BOOL)reorderingView:(id)arg1 shouldDeleteItemForDragPosition:(struct CGPoint)arg2;
 - (void)setBlendMode:(long long)arg1 forPreviewButton:(id)arg2;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
+- (void)updateDisplayedValues;
 - (void)refreshAction:(id)arg1;
 - (void)updateBlendMode;
 - (void)colorInspectorDidChange:(id)arg1;
@@ -59,6 +60,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

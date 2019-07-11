@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSString, _TtC17SketchControllers20MSCollectionRenderer, _TtC17SketchControllers26MSCollectionRendererLayout;
+@class MSSelectionRenderer, NSIndexPath, NSString, _TtC17SketchControllers26MSCollectionRendererLayout;
 
 @protocol _TtP6Sketch31SelectionRendererLayoutDelegate_
-- (struct CGAffineTransform)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 transformForItemAt:(long long)arg3;
-- (struct CGSize)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 sizeForItemAt:(long long)arg3;
+- (struct CGAffineTransform)collectionRenderer:(MSSelectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 transformForItemAt:(NSIndexPath *)arg3;
+- (struct CGSize)collectionRenderer:(MSSelectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 sizeForItemAt:(NSIndexPath *)arg3;
 
 @optional
-- (unsigned long long)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 resizeHandlesMaskForItemAt:(long long)arg2;
-- (BOOL)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 shouldHideHandleOfKind:(NSString *)arg3 forElementOfSize:(struct CGSize)arg4 itemIndex:(long long)arg5;
-- (BOOL)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 shouldHideFrameForItemAt:(long long)arg3;
+- (unsigned long long)collectionRenderer:(MSSelectionRenderer *)arg1 resizeHandlesMaskForItemAt:(NSIndexPath *)arg2;
+- (BOOL)collectionRenderer:(MSSelectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 shouldHideHandleOfKind:(NSString *)arg3 forElementOfSize:(struct CGSize)arg4 at:(NSIndexPath *)arg5;
+- (BOOL)collectionRenderer:(MSSelectionRenderer *)arg1 layout:(_TtC17SketchControllers26MSCollectionRendererLayout *)arg2 shouldHideItemAt:(NSIndexPath *)arg3;
 @end
 

@@ -38,6 +38,7 @@
 - (void)presentError:(id)arg1;
 - (id)transformAdaptorValue:(id)arg1 forModel:(id)arg2 context:(id *)arg3 error:(id *)arg4;
 - (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
+- (void)doSetValue:(id)arg1;
 @property(retain, nonatomic) id value;
 - (void)updateValues;
 - (void)triggerValuesDidChange;

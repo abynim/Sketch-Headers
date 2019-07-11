@@ -12,12 +12,16 @@
 {
 }
 
+- (BOOL)isChangingLayout;
+- (unsigned long long)adjustConstraintForResizingSubLayer:(unsigned long long)arg1;
 - (id)layersToConsiderForGroupBounds;
 - (id)desiredGroupLayerOrder;
 - (void)setOriginsOfContainedLayers:(id)arg1;
 - (id)originsOfContainedLayers;
 - (BOOL)shouldResizeToFitBounds:(struct CGRect)arg1;
+- (BOOL)fixGeometryWithOptions:(long long)arg1 allowedAxes:(unsigned long long)arg2;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
+- (void)postLayoutChangeCleanup;
 - (void)didChangeLayout:(long long)arg1 info:(id)arg2;
 - (id)willChangeLayout:(long long)arg1;
 - (void)changeLayout:(long long)arg1 inBlock:(CDUnknownBlockType)arg2;

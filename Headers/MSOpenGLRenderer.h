@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSGPURenderer-Protocol.h>
 
-@class MSOpenGLLayer, MSOpenGLOffscreenBuffer, NSString;
+@class MSOpenGLLayer, MSOpenGLOffscreenBuffer, NSOperationQueue, NSString;
 
 @interface MSOpenGLRenderer : NSObject <MSGPURenderer>
 {
@@ -17,11 +17,13 @@
     int _drawableHeight;
     MSOpenGLLayer *_openGLLayer;
     MSOpenGLOffscreenBuffer *_offscreenBuffer;
+    NSOperationQueue *_renderQueue;
     CDStruct_bf95b13b _scissorRect;
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (BOOL)isCompatibleWithAvailableGPUs;
+@property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(retain, nonatomic) MSOpenGLOffscreenBuffer *offscreenBuffer; // @synthesize offscreenBuffer=_offscreenBuffer;
 @property(nonatomic) int drawableHeight; // @synthesize drawableHeight=_drawableHeight;
 @property(nonatomic) int drawableWidth; // @synthesize drawableWidth=_drawableWidth;
@@ -47,7 +49,8 @@
 - (void)_beginDrawCall;
 - (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
-- (void)scheduleDrawBlock:(CDUnknownBlockType)arg1;
+- (BOOL)isDrawing;
+- (void)scheduleDrawBlock:(CDUnknownBlockType)arg1 drawableSize:(struct CGSize)arg2;
 - (BOOL)_renderingOffscreen;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 

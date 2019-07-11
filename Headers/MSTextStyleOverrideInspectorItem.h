@@ -10,6 +10,9 @@
 {
 }
 
+- (void)pickStyle:(id)arg1;
+- (id)currentTextStyleReference;
+- (id)currentStyle;
 - (id)menuObjectProvider;
 
 @end

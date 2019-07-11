@@ -10,5 +10,8 @@
 
 @protocol BCOutlineViewDelegate <NSOutlineViewDelegate>
 - (BOOL)isOutlineViewShowingContextMenu:(BCOutlineView *)arg1;
+
+@optional
+- (void)outlineView:(BCOutlineView *)arg1 disclosureTriangleClickedForItem:(id)arg2;
 @end
 

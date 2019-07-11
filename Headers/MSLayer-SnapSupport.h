@@ -9,16 +9,10 @@
 #import <SketchControllers/MSSnappable-Protocol.h>
 
 @class MSLayoutDimension, MSLayoutPosition, NSString;
-@protocol MSSnappable;
 
 @interface MSLayer (SnapSupport) <MSSnappable>
-- (BOOL)shouldDrawDistanceOnSnapTo:(id)arg1;
 - (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
-- (struct CGRect)boundsRect;
-@property(readonly, nonatomic) struct CGRect rectForSnapping;
-- (struct CGAffineTransform)textCorrectionTransform;
-@property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
 @property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
 @property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
@@ -29,9 +23,7 @@
 @property(readonly, nonatomic) MSLayoutPosition *topAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
-- (id)anchorsForSnappingOnAxes:(unsigned long long)arg1;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (Class)snapItemClass;
+- (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

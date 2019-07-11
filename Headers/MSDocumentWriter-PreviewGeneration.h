@@ -11,9 +11,9 @@
 @class NSString;
 
 @interface MSDocumentWriter (PreviewGeneration) <MSDocumentPreviewGeneration>
-- (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
-- (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
-- (id)generatePreviewsForDocument:(id)arg1;
++ (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
++ (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
++ (id)generatePreviewsForDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -6,18 +6,20 @@
 
 #import "MSEventHandler.h"
 
-@class MSSymbolInsertionTool, MSSymbolMasterReference, NSMutableDictionary, NSOperationQueue;
+@class MSSnapOverlayController, MSSymbolInsertionTool, MSSymbolMasterReference, NSMutableDictionary, NSOperationQueue;
 
 @interface MSInsertSymbolEventHandler : MSEventHandler
 {
     NSMutableDictionary *_previewImages;
     MSSymbolMasterReference *_masterReference;
+    MSSnapOverlayController *_snapOverlayController;
     MSSymbolInsertionTool *_tool;
     NSOperationQueue *_renderQueue;
 }
 
 @property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(readonly, nonatomic) MSSymbolInsertionTool *tool; // @synthesize tool=_tool;
+@property(retain, nonatomic) MSSnapOverlayController *snapOverlayController; // @synthesize snapOverlayController=_snapOverlayController;
 @property(retain, nonatomic) MSSymbolMasterReference *masterReference; // @synthesize masterReference=_masterReference;
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
@@ -36,6 +38,8 @@
 - (BOOL)performInsert;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)trackMouse:(id)arg1;
+- (void)handlerWillLoseFocus;
+- (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 
 @end

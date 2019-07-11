@@ -22,11 +22,12 @@
 @property(retain, nonatomic) NSImage *inlineImage; // @synthesize inlineImage=_inlineImage;
 @property(retain, nonatomic) NSString *inlineLabel; // @synthesize inlineLabel=_inlineLabel;
 - (void).cxx_destruct;
-- (void)updateCursor;
 - (struct CGSize)intrinsicContentSize;
 - (void)resetCursorRects;
 @property(readonly, nonatomic) double inlineFieldWidth;
 - (void)updateUpDownLabel;
+- (id)createUpDownController;
+- (void)setEnabled:(BOOL)arg1;
 - (void)awakeFromNib;
 
 // Remaining properties

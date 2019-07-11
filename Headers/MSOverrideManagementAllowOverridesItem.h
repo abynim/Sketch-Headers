@@ -6,12 +6,18 @@
 
 #import <SketchControllers/MSOverrideManagementItem.h>
 
+@class MSBatchedSymbolMasters;
+
 @interface MSOverrideManagementAllowOverridesItem : MSOverrideManagementItem
 {
+    MSBatchedSymbolMasters *_masters;
 }
 
-@property(nonatomic) BOOL allowsOverrides;
-- (id)initWithMaster:(id)arg1;
+@property(retain, nonatomic) MSBatchedSymbolMasters *masters; // @synthesize masters=_masters;
+- (void).cxx_destruct;
+- (void)highlightItem:(BOOL)arg1;
+@property(nonatomic) long long allowsOverrides;
+- (id)initWithBatchedMasters:(id)arg1;
 
 @end
 

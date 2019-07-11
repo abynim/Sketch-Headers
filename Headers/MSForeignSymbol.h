@@ -19,9 +19,10 @@
 - (id)unlinkFromRemote;
 - (void)syncWithRemote:(id)arg1;
 - (void)syncSymbolPrivateStylesWithRemote:(id)arg1;
-- (void)syncRemoteStyleOverrides:(id)arg1;
+- (void)enumerateSharedStyleItemsForMaster:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (BOOL)doesStyleOfClass:(Class)arg1 withID:(id)arg2 differInRemoteDocument:(id)arg3;
 - (BOOL)containsNestedStylesOutOfDateWithLibrary:(id)arg1;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
+- (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;

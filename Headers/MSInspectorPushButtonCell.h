@@ -14,11 +14,13 @@
 }
 
 @property(nonatomic) BOOL fakeReturnButtonLook; // @synthesize fakeReturnButtonLook=_fakeReturnButtonLook;
+- (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (long long)interiorBackgroundStyle;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (void)drawBezelWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (BOOL)drawAsReturnButton;
 @property(readonly, nonatomic) NSColor *buttonHighlightedColor;
 @property(readonly, nonatomic) NSColor *buttonOnColor;

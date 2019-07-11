@@ -107,6 +107,7 @@
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
+- (unsigned long long)adjustedResizingConstraint;
 @property(readonly, nonatomic) MSStyle *usedStyle;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
 - (BOOL)limitsSelectionToBounds;

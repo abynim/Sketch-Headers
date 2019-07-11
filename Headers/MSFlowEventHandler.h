@@ -34,17 +34,12 @@
 - (void)showOtherPageMenuForLayer:(id)arg1;
 - (void)attachWireToTarget;
 - (void)moveWireToMouse:(struct CGPoint)arg1;
-- (void)drawAreaIndicatorsWithImage:(id)arg1 atOffset:(double)arg2 atEdge:(unsigned long long)arg3 excludingArtboardsWithFlowType:(long long)arg4;
-- (void)drawOtherPageAreaIndicator;
-- (void)drawBackAreaIndicator;
 @property(readonly, nonatomic) NSSet *flowItems;
 - (id)flowItemForFlowInfo:(struct MSFlowInfo)arg1 fromLayer:(id)arg2;
 - (id)flowItemsForConnectionToMouse;
 - (id)flowItemsForConnectionToArtboard;
-- (void)drawConnectionToArtboardInContext:(id)arg1;
 - (id)flowItemsForConnectionToOtherPage;
 - (id)flowItemsForConnectionToBackArrows;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

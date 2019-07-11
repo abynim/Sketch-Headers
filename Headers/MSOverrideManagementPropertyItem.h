@@ -10,15 +10,15 @@
 
 @interface MSOverrideManagementPropertyItem : MSOverrideManagementItem
 {
-    BOOL _canOverride;
     BOOL _enabled;
 }
 
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-@property(nonatomic) BOOL canOverride; // @synthesize canOverride=_canOverride;
 - (id)description;
+- (unsigned long long)indentationLevel;
+@property(nonatomic) long long canOverride;
 @property(readonly, nonatomic) NSString *title;
-- (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
+- (id)initWithComplimentaryOverrides:(id)arg1;
 
 @end
 

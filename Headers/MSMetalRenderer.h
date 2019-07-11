@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSGPURenderer-Protocol.h>
 
-@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSString;
+@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSOperationQueue, NSString;
 @protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
 
 @interface MSMetalRenderer : NSObject <MSGPURenderer>
@@ -34,6 +34,7 @@
     id <MTLBuffer> _textureVerticesBuffer;
     id <MTLBuffer> _textureIndexesBuffer;
     CDUnknownBlockType _drawCompletionHandler;
+    NSOperationQueue *_renderQueue;
     CDStruct_bf95b13b _scissorRect;
     struct _opaque_pthread_mutex_t _textureLock;
 }
@@ -41,6 +42,7 @@
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (BOOL)isCompatibleWithAvailableGPUs;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
+@property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
 @property(retain, nonatomic) id <MTLBuffer> textureIndexesBuffer; // @synthesize textureIndexesBuffer=_textureIndexesBuffer;
 @property(retain, nonatomic) id <MTLBuffer> textureVerticesBuffer; // @synthesize textureVerticesBuffer=_textureVerticesBuffer;
@@ -86,7 +88,8 @@
 - (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 disableOverlappingFragmentBlending:(BOOL)arg2;
 - (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
 - (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
-- (void)scheduleDrawBlock:(CDUnknownBlockType)arg1;
+- (BOOL)isDrawing;
+- (void)scheduleDrawBlock:(CDUnknownBlockType)arg1 drawableSize:(struct CGSize)arg2;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
 

@@ -7,6 +7,9 @@
 @class _TtC17SketchControllers20MSCollectionRenderer;
 
 @protocol _TtP17SketchControllers30MSCollectionRendererDataSource_
-- (long long)numberOfItemsInCollectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1;
+- (long long)collectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1 numberOfItemsInSection:(long long)arg2;
+
+@optional
+- (long long)numberOfSectionsInCollectionRenderer:(_TtC17SketchControllers20MSCollectionRenderer *)arg1;
 @end
 

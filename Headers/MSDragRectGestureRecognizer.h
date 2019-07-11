@@ -8,8 +8,10 @@
 
 @interface MSDragRectGestureRecognizer : MSDragGestureRecognizer
 {
+    BOOL _lockSize;
 }
 
+@property(readonly, nonatomic) BOOL lockSize; // @synthesize lockSize=_lockSize;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
 @property(readonly) BOOL constrainProportions;

@@ -6,23 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray;
+@class NSArray, NSString, SCKOrganization;
 @protocol MSCloudSharesControllerDelegate;
 
 @interface MSCloudSharesController : NSObject
 {
     // Error parsing type: , name: paginationController
     // Error parsing type: , name: delegate
+    // Error parsing type: , name: organization
+    // Error parsing type: , name: searchText
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (void)startLoadingAdditionalShares;
 @property(nonatomic, readonly) BOOL canLoadAdditionalShares;
-- (void)startLoadingShares;
+- (void)startLoadingInitialShares;
 @property(nonatomic, readonly) BOOL isCurrentlyLoading;
 @property(nonatomic, readonly) BOOL shouldLoadInitialShares;
 @property(nonatomic, readonly) NSArray *shares;
+- (id)initWithOrganization:(id)arg1;
 - (id)init;
+@property(nonatomic, copy) NSString *searchText; // @synthesize searchText;
+@property(nonatomic, readonly) SCKOrganization *organization; // @synthesize organization;
 @property(nonatomic) __weak id <MSCloudSharesControllerDelegate> delegate; // @synthesize delegate;
 
 @end

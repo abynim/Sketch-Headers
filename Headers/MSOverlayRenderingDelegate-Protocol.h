@@ -4,10 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
+#import "MSOverlayItemDataSource-Protocol.h"
+
 @class NSSet;
 
-@protocol MSOverlayRenderingDelegate
+@protocol MSOverlayRenderingDelegate <MSOverlayItemDataSource>
 - (NSSet *)flowItems:(unsigned long long)arg1;
-- (void)renderOverlayInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 pageOverlayRenderOptions:(unsigned long long)arg3;
+- (void)renderLegacyOverlayInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 pageOverlayRenderOptions:(unsigned long long)arg3;
+- (BOOL)requiresLegacyOverlayRendering;
 @end
 

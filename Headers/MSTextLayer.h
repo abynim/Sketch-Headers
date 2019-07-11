@@ -80,9 +80,11 @@
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
 - (void)updateStyleInBlock:(CDUnknownBlockType)arg1;
+- (BOOL)shouldMaintainBaseLineOnStyleChange;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)adjustFrameToFit;
+- (unsigned long long)assumedAlignment;
 - (void)finishEditing;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;

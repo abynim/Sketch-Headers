@@ -8,16 +8,15 @@
 
 @interface MSSpecRendererLayout : _TtC17SketchControllers26MSCollectionRendererLayout
 {
-    // Error parsing type: , name: pillLayoutAttributes
-    // Error parsing type: , name: otherLayoutAttributes
+    // Error parsing type: , name: cache
 }
 
 + (struct CGRect)spacingRectFromRect:(struct CGRect)arg1 toRect:(struct CGRect)arg2 axis:(unsigned long long)arg3;
 + (struct CGPoint)endpointWithRect:(struct CGRect)arg1 startpoint:(struct CGPoint)arg2 edge:(unsigned int)arg3;
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (BOOL)shouldInvalidateLayoutForZoomScaleChange:(double)arg1;
-- (id)layoutAttributesForItemAt:(long long)arg1;
+- (id)layoutAttributesForItemAt:(id)arg1;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 - (void)prepareLayout;
 

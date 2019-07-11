@@ -8,7 +8,7 @@
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
 
-@class MSImageOverrideView, NSString;
+@class MSAvailableOverride, MSImageOverrideView, NSString;
 
 @interface MSBitmapOverrideInspectorItem : MSOverrideInspectorItem <MSDataMenuProviderDelegate>
 {
@@ -19,8 +19,8 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGRect controlRect;
 - (id)dataOverrides;
-- (void)dataMenuProviderRefreshMasterData:(id)arg1;
-- (void)dataMenuProvider:(id)arg1 didChooseData:(id)arg2;
+- (void)refreshDataOnCurrentSelection:(id)arg1;
+- (void)applyDataToCurrentSelection:(id)arg1;
 - (id)overrideImage;
 - (id)NSImage;
 - (id)valueFromControlView:(id)arg1;
@@ -31,6 +31,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain) MSAvailableOverride *overrideItemForInspector;
 @property(readonly) Class superclass;
 
 @end

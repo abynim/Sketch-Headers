@@ -6,17 +6,19 @@
 
 #import "MSOverrideInspectorItem.h"
 
-@class MSForeignObjectProvider, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint;
+@class MSForeignObjectProvider, MSInspectorPopoverButton, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint;
 
 @interface MSStyleOverrideInspectorItem : MSOverrideInspectorItem
 {
     NSControl *_labelView;
     NSLayoutConstraint *_labelConstraint;
     MSStyleOverridePopupButton *_overrideControl;
+    MSInspectorPopoverButton *_popoverButton;
     MSForeignObjectProvider *_menuObjectProvider;
 }
 
 @property(readonly, nonatomic) MSForeignObjectProvider *menuObjectProvider; // @synthesize menuObjectProvider=_menuObjectProvider;
+@property(retain, nonatomic) MSInspectorPopoverButton *popoverButton; // @synthesize popoverButton=_popoverButton;
 @property(retain, nonatomic) MSStyleOverridePopupButton *overrideControl; // @synthesize overrideControl=_overrideControl;
 @property(retain, nonatomic) NSLayoutConstraint *labelConstraint; // @synthesize labelConstraint=_labelConstraint;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
@@ -24,6 +26,10 @@
 - (void)setDisplaysLabel:(BOOL)arg1;
 - (BOOL)displaysLabel;
 - (void)overrideValueAction:(id)arg1;
+- (id)replaceStyleAction;
+- (void)pickStyle:(id)arg1;
+- (id)currentStyleReference;
+- (id)currentStyle;
 - (void)build;
 - (void)viewWillAppear;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;

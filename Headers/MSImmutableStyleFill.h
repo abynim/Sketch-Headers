@@ -11,6 +11,7 @@
 }
 
 + (id)defaultName;
++ (id)stylePartPasteboardType;
 - (BOOL)patternFillHasOpacity;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)NSImage;

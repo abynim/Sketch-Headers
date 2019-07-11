@@ -12,9 +12,11 @@
 {
     long long _base;
     NSArray *_guides;
+    double _temporaryGuide;
 }
 
 + (Class)mutableClass;
+@property(nonatomic) double temporaryGuide; // @synthesize temporaryGuide=_temporaryGuide;
 @property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void).cxx_destruct;

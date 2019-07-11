@@ -25,7 +25,6 @@
 - (BOOL)isLocalToDocument:(id)arg1;
 - (id)matchingForeignObjectInDocument:(id)arg1;
 - (void)syncWithRemote:(id)arg1;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1 includePrivate:(BOOL)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;

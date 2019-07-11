@@ -8,61 +8,91 @@
 
 #import "MSCloudSharesControllerDelegate-Protocol.h"
 #import "MSWelcomeCollectionViewDelegate-Protocol.h"
+#import "NSCollectionViewDataSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSCallToActionButton, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSScrollView, NSSegmentedControl, NSString, NSTextField, NSView;
+@class MSCallToActionButton, MSCloudShareCollectionItem, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSProgressIndicator, NSScrollView, NSSearchField, NSSegmentedControl, NSString, NSTextField;
 
-@interface MSWelcomeWindowController : CHWindowController <MSCloudSharesControllerDelegate, NSMenuDelegate, NSWindowDelegate, MSWelcomeCollectionViewDelegate>
+@interface MSWelcomeWindowController : CHWindowController <NSCollectionViewDataSource, MSWelcomeCollectionViewDelegate, MSCloudSharesControllerDelegate, NSMenuDelegate, NSWindowDelegate>
 {
     NSButton *_closeButton;
     NSCollectionView *_collectionView;
     NSScrollView *_collectionScrollView;
-    NSView *_collectionStaticContainerView;
     NSSegmentedControl *_collectionsSegmentedControl;
     NSLayoutConstraint *_collectionsWidthConstraint;
     NSButton *_confirmButton;
     NSButton *_doNotShowAgainButton;
+    NSButton *_openButton;
     MSCallToActionButton *_newsletterButton;
     MSCallToActionButton *_pluginsButton;
     NSMenu *_recentDocumentsContextMenu;
     NSMenu *_templatesContextMenu;
     NSTextField *_versionTextField;
+    NSSearchField *_searchField;
+    NSTextField *_errorLabel;
+    NSProgressIndicator *_progressIndicator;
     unsigned long long _collectionToShow;
     MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
+    MSCloudShareCollectionItem *_selectedLocalCloudItem;
     MSCloudSharesController *_cloudSharesController;
 }
 
++ (BOOL)cloudCollectionEnabled;
 + (id)templateURLsAtDirectoryURL:(id)arg1;
 + (BOOL)hideWelcomeWindowIfNeeded;
++ (void)showWelcomeWindowSelectingShare:(id)arg1;
 + (BOOL)showWelcomeWindowIfAppropriate;
 + (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
 @property(retain, nonatomic) MSCloudSharesController *cloudSharesController; // @synthesize cloudSharesController=_cloudSharesController;
+@property(retain, nonatomic) MSCloudShareCollectionItem *selectedLocalCloudItem; // @synthesize selectedLocalCloudItem=_selectedLocalCloudItem;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) unsigned long long collectionToShow; // @synthesize collectionToShow=_collectionToShow;
+@property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
+@property(retain, nonatomic) NSTextField *errorLabel; // @synthesize errorLabel=_errorLabel;
+@property(retain, nonatomic) NSSearchField *searchField; // @synthesize searchField=_searchField;
 @property(retain, nonatomic) NSTextField *versionTextField; // @synthesize versionTextField=_versionTextField;
 @property(retain, nonatomic) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu=_templatesContextMenu;
 @property(retain, nonatomic) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu=_recentDocumentsContextMenu;
 @property(retain, nonatomic) MSCallToActionButton *pluginsButton; // @synthesize pluginsButton=_pluginsButton;
 @property(retain, nonatomic) MSCallToActionButton *newsletterButton; // @synthesize newsletterButton=_newsletterButton;
+@property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
 @property(retain, nonatomic) NSButton *doNotShowAgainButton; // @synthesize doNotShowAgainButton=_doNotShowAgainButton;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) NSLayoutConstraint *collectionsWidthConstraint; // @synthesize collectionsWidthConstraint=_collectionsWidthConstraint;
 @property(retain, nonatomic) NSSegmentedControl *collectionsSegmentedControl; // @synthesize collectionsSegmentedControl=_collectionsSegmentedControl;
-@property(retain, nonatomic) NSView *collectionStaticContainerView; // @synthesize collectionStaticContainerView=_collectionStaticContainerView;
 @property(retain, nonatomic) NSScrollView *collectionScrollView; // @synthesize collectionScrollView=_collectionScrollView;
 @property(retain, nonatomic) NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) NSButton *closeButton; // @synthesize closeButton=_closeButton;
 - (void).cxx_destruct;
-- (void)scrollViewDidScrollNotification:(id)arg1;
 - (void)cloudSharesController:(id)arg1 didFailLoadingWithError:(id)arg2;
 - (void)cloudSharesController:(id)arg1 didFinishLoadingShares:(id)arg2;
-- (id)collectionView:(id)arg1 newItemForRepresentedObject:(id)arg2;
-- (id)collectionItems;
+- (void)cloudSharesControllerWillStartLoading:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldLoadAdditionalCloudItems;
+- (void)updateCloudErrorState:(id)arg1;
+- (void)updateCloudLoadingState;
+- (void)performCloudSearch:(id)arg1;
+- (void)selectCollectionItemWithCloudShare:(id)arg1;
+- (id)cloudOrganization;
+- (void)changeCloudOrganization:(id)arg1;
+- (id)cloudSharesControllerWithOrganization:(id)arg1;
+- (void)requestCloudItemsForOrganization:(id)arg1;
+- (void)requestCloudOrganizations;
+- (void)documentDefaultDidChange:(id)arg1;
+- (void)cloudUserDidChange:(id)arg1;
+- (void)collectionView:(id)arg1 didDeselectItemsAtIndexPaths:(id)arg2;
+- (void)collectionView:(id)arg1 didSelectItemsAtIndexPaths:(id)arg2;
+- (id)collectionView:(id)arg1 shouldSelectItemsAtIndexPaths:(id)arg2;
+- (void)collectionViewDidLayout:(id)arg1;
+- (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionView:(id)arg1;
+@property(readonly, nonatomic) NSArray *collectionItems;
 - (id)cloudItems;
 - (id)templateItems;
 - (id)recentDocumentItems;
@@ -71,6 +101,9 @@
 - (void)revealDocumentInFinder:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 @property(readonly, nonatomic) long long numberOfDocuments;
+- (void)updateItemSelectionStates;
+- (void)selectCollectionItem:(id)arg1;
+- (id)willPresentError:(id)arg1;
 - (void)openTemplateAtURL:(id)arg1;
 - (void)openDocumentAtURL:(id)arg1;
 - (void)requestCloudItems;
@@ -80,16 +113,18 @@
 - (void)visitPluginsPage:(id)arg1;
 - (void)visitLearnPage:(id)arg1;
 - (void)close:(id)arg1;
+- (void)openLatestCloudDocumentVersionWithCollectionItem:(id)arg1;
+- (void)openNewDocumentWithActionID:(id)arg1;
+- (void)openNewCloudDocument;
+- (void)openNewLocalDocument;
+- (void)openNewDocument;
+- (void)openDocumentWithCollectionItem:(id)arg1;
 - (void)confirm:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)openDocument:(id)arg1;
-- (void)refreshScrollability;
-- (BOOL)shouldEnableCollectionViewScrolling;
 - (void)showCollection:(unsigned long long)arg1;
 - (void)pickCollection:(id)arg1;
 - (void)togglePluginsButton:(BOOL)arg1;
-- (void)cloudUserDidChange:(id)arg1;
-- (void)windowDidResize:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)clearCaches;
 - (void)centerWindowIfAppropriate;

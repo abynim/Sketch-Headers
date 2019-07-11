@@ -25,6 +25,7 @@
     NSButton *_headerButton;
 }
 
++ (Class)stylePartInspectorClass;
 @property(retain, nonatomic) NSButton *headerButton; // @synthesize headerButton=_headerButton;
 @property(retain, nonatomic) NSButton *showAdvancedOptionsButton; // @synthesize showAdvancedOptionsButton=_showAdvancedOptionsButton;
 @property(retain, nonatomic) NSButton *removeDisabledStylesButton; // @synthesize removeDisabledStylesButton=_removeDisabledStylesButton;
@@ -36,8 +37,14 @@
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)updateDisplayedValues;
 - (BOOL)shouldShowAdvancedOptionsButton;
+@property(readonly, nonatomic) NSString *menuTitleRemove;
+@property(readonly, nonatomic) NSString *menuTitleDuplicate;
+@property(readonly, nonatomic) NSString *menuTitlePaste;
+@property(readonly, nonatomic) NSString *menuTitleCopy;
+- (id)contextMenuForSupportedActions:(unsigned long long)arg1 atIndex:(long long)arg2;
 - (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
 - (BOOL)hasEnabledStyle;
 - (void)dealloc;
@@ -45,9 +52,14 @@
 - (void)containerBackground:(id)arg1 dragDidReorderChildAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (unsigned long long)stylePartType;
 - (void)deleteUnusedStylePartsAction:(id)arg1;
+- (id)stylePartsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)tagFromSender:(id)arg1;
+- (void)insertStylePart:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)duplicateStylePartAction:(id)arg1;
 - (void)deleteStylePartAction:(id)arg1;
+- (Class)stylePartClass;
+- (void)pasteStylePartAction:(id)arg1;
+- (void)copyStylePartAction:(id)arg1;
 - (id)addStylePartsForSelection;
 - (BOOL)hasPopOver;
 - (id)lastEnabledStylePartController;

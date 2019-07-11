@@ -9,6 +9,6 @@
 @class MSImmutableDocumentData, NSDictionary;
 
 @protocol MSDocumentPreviewGeneration <NSObject>
-- (NSDictionary *)generatePreviewsForDocument:(MSImmutableDocumentData *)arg1;
++ (NSDictionary *)generatePreviewsForDocument:(MSImmutableDocumentData *)arg1;
 @end
 

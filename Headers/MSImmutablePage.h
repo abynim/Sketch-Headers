@@ -9,10 +9,12 @@
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayerGroup, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSSet, NSString;
+@protocol MSImmutableRootLayer;
 
 @interface MSImmutablePage : _MSImmutablePage <MSWebExportableRootLayer, MSImmutableRootLayer>
 {
+    MSImmutableLayerGroup<MSImmutableRootLayer> *_currentRoot;
     NSSet *_selectedLayerIDs;
 }
 
@@ -25,8 +27,9 @@
 @property(readonly, nonatomic) BOOL hasArtboards;
 @property(readonly, nonatomic) NSArray *artboards;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
-- (struct CGPoint)rulerBase;
+@property(readonly, nonatomic) struct CGPoint rulerBase;
 - (id)archiveReferenceIdentifier_bc;
+@property(readonly, nonatomic) MSImmutableLayerGroup<MSImmutableRootLayer> *currentRoot;
 - (void)performInitWithMutableModelObject:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 @property(readonly, nonatomic) MSArtboardPreset *preset;

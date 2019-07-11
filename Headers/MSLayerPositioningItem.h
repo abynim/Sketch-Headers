@@ -14,7 +14,7 @@
     // Error parsing type: , name: offset
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (id)initWithLayer:(id)arg1 offset:(struct CGVector)arg2;
 @property(nonatomic, readonly) struct CGVector offset; // @synthesize offset;

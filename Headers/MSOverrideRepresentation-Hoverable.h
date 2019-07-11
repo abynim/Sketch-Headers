@@ -6,14 +6,13 @@
 
 #import <SketchModel/MSOverrideRepresentation.h>
 
-#import <SketchControllers/MSHoverableItem-Protocol.h>
-
 @class MSLayer;
 
-@interface MSOverrideRepresentation (Hoverable) <MSHoverableItem>
+@interface MSOverrideRepresentation (Hoverable)
+- (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (void)refreshOverlay;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
+- (id)hoverItemsWithColor:(struct CGColor *)arg1;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 @end
 

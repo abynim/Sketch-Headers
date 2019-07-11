@@ -4,22 +4,29 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "_$S17SketchControllers26MSCollectionRendererLayoutCN.h"
+#import "_$s17SketchControllers26MSCollectionRendererLayoutCN.h"
 
-@interface _TtC6Sketch23SelectionRendererLayout : _$S17SketchControllers26MSCollectionRendererLayoutCN
+@interface _TtC6Sketch23SelectionRendererLayout : _$s17SketchControllers26MSCollectionRendererLayoutCN
 {
     // Error parsing type: , name: handleSize
     // Error parsing type: , name: maximumNumberOfItemsToShowDuringMultipleSelection
+    // Error parsing type: , name: spacing
+    // Error parsing type: , name: indexPathForMeasurement
     // Error parsing type: , name: itemLayoutAttributes
     // Error parsing type: , name: multipleSelectionFrameLayoutAttributes
-    // Error parsing type: , name: handleLayoutAttributes
+    // Error parsing type: , name: handlesState
+    // Error parsing type: , name: measurementLayoutAttributes
+    // Error parsing type: , name: minSpacingHandleInset
+    // Error parsing type: , name: minSpacingHandleLength
+    // Error parsing type: , name: maxSpacingHandleLength
+    // Error parsing type: , name: spacingHandleThickness
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (BOOL)shouldInvalidateLayoutForZoomScaleChange:(double)arg1;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 at:(long long)arg2;
-- (id)layoutAttributesForItemAt:(long long)arg1;
+- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 at:(id)arg2;
+- (id)layoutAttributesForItemAt:(id)arg1;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 - (void)prepareLayout;
 @property(nonatomic) long long maximumNumberOfItemsToShowDuringMultipleSelection; // @synthesize maximumNumberOfItemsToShowDuringMultipleSelection;

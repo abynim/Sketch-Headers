@@ -7,11 +7,10 @@
 #import <AppKit/NSView.h>
 
 #import "NSDraggingSource-Protocol.h"
-#import "NSPasteboardWriting-Protocol.h"
 
 @class MSExportPreviewViewModel, NSString;
 
-@interface MSExportPreviewView : NSView <NSDraggingSource, NSPasteboardWriting>
+@interface MSExportPreviewView : NSView <NSDraggingSource>
 {
     MSExportPreviewViewModel *_viewModel;
 }

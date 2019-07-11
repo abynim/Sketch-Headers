@@ -70,6 +70,7 @@
 - (void)print:(id)arg1;
 - (id)logString;
 - (void)log:(id)arg1 atLevel:(id)arg2;
+- (void)scriptEncounteredException:(id)arg1;
 @property(nonatomic) BOOL stayRunning;
 - (id)executeScript:(id)arg1;
 - (BOOL)hasRunHandler;

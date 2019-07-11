@@ -12,10 +12,10 @@
     // Error parsing type: , name: zoomScale
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
-- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 at:(long long)arg2;
-- (id)layoutAttributesForItemAt:(long long)arg1;
+- (id)layoutAttributesForSupplementaryElementOfKind:(id)arg1 at:(id)arg2;
+- (id)layoutAttributesForItemAt:(id)arg1;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 - (void)prepareLayout;
 

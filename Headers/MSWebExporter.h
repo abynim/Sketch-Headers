@@ -42,9 +42,10 @@
 - (id)metadataForDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long documentFileSize;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
+- (BOOL)exportDocumentPreviews;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (BOOL)exportArtboardsIncludingManifest:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)exportArtboardsAndManifestWithError:(id *)arg1;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

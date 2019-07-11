@@ -32,6 +32,7 @@
 - (void).cxx_destruct;
 - (id)cachedUserInterfaceElementForKey:(id)arg1;
 - (void)cacheUserInterfaceElement:(id)arg1 withKey:(id)arg2;
+- (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5 bindingOptions:(id)arg6;
 - (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5;
 @property(readonly, nonatomic) MSDocument *document;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
@@ -39,6 +40,7 @@
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg4;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)refreshAction:(id)arg1;
 

@@ -10,6 +10,9 @@
 {
 }
 
+- (void)pickStyle:(id)arg1;
+- (id)currentLayerStyleReference;
+- (id)currentStyle;
 - (id)menuObjectProvider;
 
 @end

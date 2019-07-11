@@ -15,7 +15,7 @@
     // Error parsing type: , name: initialRotation
 }
 
-- (CDUnknownBlockType).cxx_destruct;
+- (void).cxx_destruct;
 - (id)init;
 - (void)setAnchorPointWithLocation:(struct CGPoint)arg1 inLayer:(id)arg2;
 - (id)initWithLayer:(id)arg1;

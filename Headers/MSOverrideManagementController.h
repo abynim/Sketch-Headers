@@ -6,18 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class MSSymbolMaster, NSMutableArray;
+@class MSBatchedSymbolMasters, NSMutableArray;
 
 @interface MSOverrideManagementController : NSObject
 {
-    MSSymbolMaster *_master;
+    MSBatchedSymbolMasters *_masters;
     NSMutableArray *_items;
 }
 
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
-@property(retain, nonatomic) MSSymbolMaster *master; // @synthesize master=_master;
+@property(retain, nonatomic) MSBatchedSymbolMasters *masters; // @synthesize masters=_masters;
 - (void).cxx_destruct;
-- (BOOL)isOverridePoint:(id)arg1 configurableIn:(id)arg2;
 
 @end
 

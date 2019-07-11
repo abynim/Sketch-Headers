@@ -16,7 +16,7 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -24,7 +24,6 @@
     BOOL _hasOpenedImageFile;
     BOOL _layerSelectionChangeScheduled;
     BOOL _cacheFlushInProgress;
-    BOOL _hasScheduledInspectorReload;
     NSArray *_exportableLayerSelection;
     MSTreeDiff *_treeDiffForSupplementaryViews;
     NSWindow *_documentWindow;
@@ -41,6 +40,7 @@
     MSHistoryMaker *_historyMaker;
     MSInspectorController *_inspectorController;
     BCSideBarViewController *_sidebarController;
+    MSComponentsPaneController *_componentsPaneController;
     MSContentDrawViewController *_currentContentViewController;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
@@ -55,13 +55,17 @@
 
 + (id)currentDocument;
 + (id)windowForSheet;
++ (id)documentWithCloudShareID:(id)arg1;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
++ (void)prepareClosingDocuments:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
++ (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
++ (BOOL)shouldPrepareForTermination;
++ (id)documentsToPrepareTermination;
 + (BOOL)autosavesInPlace;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
-@property(nonatomic) BOOL hasScheduledInspectorReload; // @synthesize hasScheduledInspectorReload=_hasScheduledInspectorReload;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
@@ -74,6 +78,7 @@
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
+@property(retain, nonatomic) MSComponentsPaneController *componentsPaneController; // @synthesize componentsPaneController=_componentsPaneController;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSHistoryMaker *historyMaker; // @synthesize historyMaker=_historyMaker;
@@ -106,6 +111,10 @@
 - (void)libraryControllerDidChange:(id)arg1;
 @property(nonatomic) BOOL pageListCollapsed;
 @property(nonatomic) double pageListHeight;
+@property(readonly, nonatomic) NSColor *inactiveSelectedTabIndicatorColor;
+@property(readonly, nonatomic) NSColor *activeSelectedTabIndicatorColor;
+- (id)sidebarViewController:(id)arg1 viewControllerForSidebarTabIdentifier:(id)arg2;
+- (id)tabConfigurationsForSidebarViewController:(id)arg1;
 @property(readonly, nonatomic) MSAssetLibraryController *libraryController;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
@@ -119,6 +128,8 @@
 - (void)restoreViewportAfterArtboardEdit:(id)arg1;
 - (void)storeViewport:(id)arg1 andInstance:(id)arg2 forArtboard:(id)arg3;
 - (BOOL)isShowingMeasurements;
+- (void)highlightHoverableItem:(id)arg1;
+- (void)hoveredItemDidChange:(id)arg1;
 - (void)documentData:(id)arg1 temporarilyHideSelectionForLayers:(id)arg2;
 - (void)flagsChangedNotification:(id)arg1;
 - (BOOL)layerHasHoverStateInCanvas:(id)arg1;
@@ -139,7 +150,6 @@
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
-- (void)layerTreeLayoutDidChange;
 - (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
@@ -151,11 +161,11 @@
 - (id)pages;
 - (id)layerStyles;
 - (void)removePage:(id)arg1;
+- (void)renamePage;
 - (void)setCurrentPage:(id)arg1;
 - (id)artboards;
 - (id)normalHandler;
 - (id)toggleHandlerClass:(Class)arg1;
-- (void)scheduleReloadInspector;
 - (void)reloadInspector;
 - (void)reloadView;
 - (void)refreshOverlay;
@@ -172,8 +182,6 @@
 - (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
 - (void)commitHistoryIfNecessary:(id)arg1;
 - (void)flushCachesIfNecessary;
-- (id)currentVerticalRulerData;
-- (id)currentHorizontalRulerData;
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
 - (void)performPageSwitchUpdates;
@@ -219,11 +227,13 @@
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
 @property(readonly, nonatomic) NSResponder *defaultFirstResponder;
-- (id)contentDrawView;
+@property(readonly, nonatomic) MSContentDrawView *contentDrawView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)notifyIfDocumentResignedCurrent;
 - (void)notifyIfDocumentBecameCurrent;
+@property(readonly, nonatomic) BOOL isCloudDoc;
 @property(readonly, nonatomic) BOOL isCurrent;
+- (void)updateFileMenuForDocument;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;
@@ -234,7 +244,6 @@
 - (id)window;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)close;
 - (void)setViewsToNil;
 - (void)setViewControllersToNil;
@@ -271,6 +280,7 @@
 - (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
 - (void)migrateUIMetadataWithDocumentData:(id)arg1;
 - (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+- (void)reportMigrationNoLongerAvailable;
 - (BOOL)validateDocument:(id)arg1 error:(id *)arg2;
 - (BOOL)readDocumentFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (BOOL)revertToContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
@@ -278,6 +288,12 @@
 - (BOOL)readPDFFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
+- (void)prepareCloseWithHandler:(CDUnknownBlockType)arg1;
+- (void)performCloseSelector:(SEL)arg1 withDelegate:(id)arg2 shouldClose:(BOOL)arg3 contextInfo:(void *)arg4;
+- (void)document_ms:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
+- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
+- (BOOL)canCloseAfterFileDialog;
+- (BOOL)canCloseImmediately;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
@@ -288,6 +304,7 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSURL *fileURL;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

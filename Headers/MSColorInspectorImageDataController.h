@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "MSDataMenuProviderDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class NSMenu, NSString;
+@class MSAvailableOverride, NSMenu, NSString;
 @protocol MSColorInspectorImageDataControllerDelegate;
 
-@interface MSColorInspectorImageDataController : NSObject <NSMenuDelegate>
+@interface MSColorInspectorImageDataController : NSObject <NSMenuDelegate, MSDataMenuProviderDelegate>
 {
     NSMenu *_menu;
     id <MSColorInspectorImageDataControllerDelegate> delegate;
@@ -21,9 +22,10 @@
 - (void).cxx_destruct;
 - (void)menuDidClose:(id)arg1;
 - (void)showMenuAtLocation:(struct CGPoint)arg1 inView:(id)arg2;
-- (void)clearDataMenuItemAction:(id)arg1;
-- (void)refreshDataMenuItemAction:(id)arg1;
-- (void)menuItemAction:(id)arg1;
+- (void)clearDataRecordFromCurrentSelection:(id)arg1;
+- (void)applyDataToCurrentSelection:(id)arg1;
+- (void)refreshDataOnCurrentSelection:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 - (id)menu;
 - (void)dataSupplierSelected:(id)arg1;
 
@@ -31,6 +33,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain) MSAvailableOverride *overrideItemForInspector;
 @property(readonly) Class superclass;
 
 @end

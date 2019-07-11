@@ -6,22 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class MSAvailableOverride, MSSymbolMaster;
+@class MSComplimentaryOverrides;
 
 @interface MSOverrideManagementItem : NSObject
 {
     unsigned long long _indentationLevel;
-    MSSymbolMaster *_symbolMaster;
-    MSAvailableOverride *_availableOverride;
+    MSComplimentaryOverrides *_complimentaryOverrides;
 }
 
-@property(retain, nonatomic) MSAvailableOverride *availableOverride; // @synthesize availableOverride=_availableOverride;
-@property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
+@property(retain, nonatomic) MSComplimentaryOverrides *complimentaryOverrides; // @synthesize complimentaryOverrides=_complimentaryOverrides;
 @property(nonatomic) unsigned long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
 - (void).cxx_destruct;
+- (void)highlightItem:(BOOL)arg1;
 - (id)title;
-- (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
-- (id)initWithMaster:(id)arg1;
 
 @end
 

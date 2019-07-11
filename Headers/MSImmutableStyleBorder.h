@@ -11,6 +11,7 @@
 }
 
 + (id)defaultName;
++ (id)stylePartPasteboardType;
 
 @end
 

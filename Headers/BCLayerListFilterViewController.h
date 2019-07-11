@@ -6,13 +6,14 @@
 
 #import <AppKit/NSViewController.h>
 
+#import <BCLayerList/BCFilterTextFieldDelegate-Protocol.h>
 #import <BCLayerList/NSMenuDelegate-Protocol.h>
 #import <BCLayerList/NSSearchFieldDelegate-Protocol.h>
 #import <BCLayerList/NSTextViewDelegate-Protocol.h>
 
 @class BCFilterInfo, NSButton, NSDictionary, NSMenu, NSSearchField, NSString, NSView;
 
-@interface BCLayerListFilterViewController : NSViewController <NSMenuDelegate, NSSearchFieldDelegate, NSTextViewDelegate>
+@interface BCLayerListFilterViewController : NSViewController <NSMenuDelegate, NSSearchFieldDelegate, NSTextViewDelegate, BCFilterTextFieldDelegate>
 {
     BCFilterInfo *_filter;
     NSButton *_clearButton;
@@ -55,6 +56,7 @@
 - (void)controlTextDidEndEditing:(id)arg1;
 - (BOOL)control:(id)arg1 textShouldEndEditing:(id)arg2;
 - (void)searchFieldSelectionChanged:(id)arg1;
+- (void)filterTextField:(id)arg1 willUseFieldEditor:(id)arg2;
 - (BOOL)control:(id)arg1 textShouldBeginEditing:(id)arg2;
 - (void)stopObservingFilterTextSelection:(id)arg1;
 - (void)observeFilterTextSelection:(id)arg1;

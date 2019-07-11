@@ -6,18 +6,23 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSOverrideManagementItem, NSLayoutConstraint;
+@class MSOverrideManagementItem, NSLayoutConstraint, NSTrackingArea;
 
 @interface MSOverrideManagementViewController : NSViewController
 {
     MSOverrideManagementItem *_managementItem;
     NSLayoutConstraint *_indentConstraint;
+    NSTrackingArea *_trackingArea;
 }
 
 + (double)rowHeight;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSLayoutConstraint *indentConstraint; // @synthesize indentConstraint=_indentConstraint;
 @property(retain, nonatomic) MSOverrideManagementItem *managementItem; // @synthesize managementItem=_managementItem;
 - (void).cxx_destruct;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)viewDidLoad;
 - (void)updateIndent;
 
 @end

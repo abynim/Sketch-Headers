@@ -14,6 +14,7 @@
     MSLayoutInspectorItem *_layoutItem;
 }
 
++ (id)createLayoutInspectorHeaderForSection:(id)arg1;
 @property(retain, nonatomic) MSLayoutInspectorItem *layoutItem; // @synthesize layoutItem=_layoutItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeader; // @synthesize layoutHeader=_layoutHeader;
 - (void).cxx_destruct;

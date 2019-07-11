@@ -29,7 +29,7 @@
 @property(nonatomic) BOOL shouldInterpretAlignment; // @synthesize shouldInterpretAlignment=_shouldInterpretAlignment;
 @property(nonatomic) unsigned long long alignModifierMask; // @synthesize alignModifierMask=_alignModifierMask;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL align;
+@property(readonly, nonatomic, getter=isAligned) BOOL aligned;
 - (void)reset;
 - (void)setState:(long long)arg1;
 @property(readonly, nonatomic) BOOL shouldSnap;

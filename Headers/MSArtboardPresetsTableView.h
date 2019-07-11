@@ -10,6 +10,7 @@
 {
 }
 
+- (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 
 @end

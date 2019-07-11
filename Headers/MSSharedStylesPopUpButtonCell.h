@@ -28,7 +28,6 @@
 - (struct CGRect)drawSharedObjectTitleWithFrame:(struct CGRect)arg1;
 - (struct CGRect)drawSharedObjectSecondaryTitle:(struct CGRect)arg1;
 - (struct CGRect)drawSharedObjectMainTitle:(struct CGRect)arg1;
-- (void)attachPopUpWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawBorderAndBackgroundWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 @property(readonly, nonatomic) MSShareableObjectReference *sharedObject;
 

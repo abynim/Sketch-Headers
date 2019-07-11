@@ -6,12 +6,11 @@
 
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class MSLayer, MSLayoutDimension, MSLayoutPosition, NSArray, NSString;
-@protocol MSLayerCoordinateSpace, MSSnappable;
+@class MSLayer, MSLayoutDimension, MSLayoutPosition, NSString;
+@protocol MSLayerCoordinateSpace;
 
 @protocol MSSnappable <NSObject>
 @property(readonly, nonatomic) NSString *name;
-@property(readonly, nonatomic) id <MSSnappable> snapItemForDrawing;
 @property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
 @property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
@@ -23,13 +22,6 @@
 @property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
-@property(readonly, nonatomic) struct CGRect rectForSnapping;
-- (struct CGAffineTransform)textCorrectionTransform;
-- (void)concatAncestorsAndSelfTransforms;
-- (BOOL)shouldDrawDistanceOnSnapTo:(id <MSSnappable>)arg1;
-- (NSArray *)anchorsForSnappingOnAxes:(unsigned long long)arg1;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(void (^)(MSLayoutPosition *))arg3;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1 options:(unsigned long long)arg2;
-- (struct CGRect)boundsRect;
 @end
 

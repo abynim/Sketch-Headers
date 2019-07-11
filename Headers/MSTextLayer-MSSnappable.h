@@ -7,7 +7,6 @@
 #import <SketchModel/MSTextLayer.h>
 
 @interface MSTextLayer (MSSnappable)
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
-- (Class)snapItemClass;
+- (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @end
 

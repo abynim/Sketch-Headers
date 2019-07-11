@@ -12,8 +12,6 @@
 {
     NSMutableArray *_overlaps;
     unsigned long long _crossingType;
-    struct FBEdgeOverlapRunTestPoints _contour1TestPoints;
-    struct FBEdgeOverlapRunTestPoints _contour2TestPoints;
     struct FBEdgeOverlapRunStartStopInsides _contour1StartStopInsides;
     struct FBEdgeOverlapRunStartStopInsides _contour2StartStopInsides;
 }
@@ -31,23 +29,22 @@
 - (void)addStartCrossing;
 - (void)addMiddleCrossing;
 - (void)removeCrossings;
-- (BOOL)isCrossingUsingNonZeroWindingRule;
 - (BOOL)isCrossing;
-- (BOOL)isCrossingWithOutsetLines;
-- (BOOL)isCrossingWithTangentsOnly;
+- (BOOL)isCrossingWithTangentsOnly:(id *)arg1 iterator2Out:(id *)arg2;
+- (id)edge2TangentIterator;
+- (id)edge1TangentIterator;
 - (BOOL)doesContainParameter:(double)arg1 onEdge:(id)arg2;
 @property(readonly, nonatomic) unsigned long long crossingType;
 - (BOOL)doesContainCrossing:(id)arg1;
 - (BOOL)isComplete;
 - (BOOL)insertOverlap:(id)arg1;
+- (struct FBEdgeOverlapRunStartStopInsides)calculateContour2StartStopInsides:(id)arg1;
+- (struct FBEdgeOverlapRunStartStopInsides)calculateContour1StartStopInsides:(id)arg1;
+- (struct FBEdgeOverlapRunStartStopInsides)calculateStartStopInsidesForContour:(id)arg1 iterator:(id)arg2;
 @property(readonly, nonatomic) BOOL stopIsInsideContour2;
 @property(readonly, nonatomic) BOOL stopIsInsideContour1;
 @property(readonly, nonatomic) BOOL startIsInsideContour2;
 @property(readonly, nonatomic) BOOL startIsInsideContour1;
-- (void)calculateContour2StartStopInsides;
-- (void)calculateContour1StartStopInsides;
-- (struct FBEdgeOverlapRunTestPoints *)contour2TestPointsForIeration:(unsigned long long)arg1;
-- (struct FBEdgeOverlapRunTestPoints *)contour1TestPointsForIeration:(unsigned long long)arg1;
 - (id)init;
 
 @end

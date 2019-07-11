@@ -4,20 +4,22 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class MSSpecRenderer, MSSpecRendererLayout, NSString;
+#import <SketchControllers/MSSpecRendererDelegate-Protocol.h>
 
-@protocol MSSpecRendererLayoutDelegate
-- (struct CGPoint)specRenderer:(MSSpecRenderer *)arg1 endpointForItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3;
-- (struct CGPoint)specRenderer:(MSSpecRenderer *)arg1 startpointForItemAtIndex:(long long)arg2;
+@class MSSpecRenderer, MSSpecRendererLayout, NSIndexPath, NSString;
+
+@protocol MSSpecRendererLayoutDelegate <MSSpecRendererDelegate>
+- (struct CGPoint)specRenderer:(MSSpecRenderer *)arg1 endpointForItemAtIndexPath:(NSIndexPath *)arg2 startpoint:(struct CGPoint)arg3;
+- (struct CGPoint)specRenderer:(MSSpecRenderer *)arg1 startpointForItemAtIndexPath:(NSIndexPath *)arg2;
 
 @optional
-- (struct CGColor *)specRenderer:(MSSpecRenderer *)arg1 labelColorForMeasurement:(long long)arg2;
-- (NSString *)specRenderer:(MSSpecRenderer *)arg1 textForMeasurement:(long long)arg2 vector:(struct CGVector)arg3;
-- (BOOL)specRenderer:(MSSpecRenderer *)arg1 shouldHideItemAtIndex:(long long)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
-- (BOOL)specRenderer:(MSSpecRenderer *)arg1 layout:(MSSpecRendererLayout *)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndex:(long long)arg4;
-- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 spaceRectForMeasurementAt:(long long)arg2;
-- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 rectForEndOfItemAtIndex:(long long)arg2;
-- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 rectForStartOfItemAtIndex:(long long)arg2;
-- (BOOL)specRenderer:(MSSpecRenderer *)arg1 isSnapAtIndex:(long long)arg2;
+- (struct CGColor *)specRenderer:(MSSpecRenderer *)arg1 labelColorForMeasurement:(NSIndexPath *)arg2;
+- (NSString *)specRenderer:(MSSpecRenderer *)arg1 textForMeasurement:(NSIndexPath *)arg2 vector:(struct CGVector)arg3;
+- (BOOL)specRenderer:(MSSpecRenderer *)arg1 shouldHideItemAtIndexPath:(NSIndexPath *)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
+- (BOOL)specRenderer:(MSSpecRenderer *)arg1 layout:(MSSpecRendererLayout *)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndexPath:(NSIndexPath *)arg4;
+- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 spaceRectForMeasurementAt:(NSIndexPath *)arg2;
+- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 rectForEndOfItemAtIndexPath:(NSIndexPath *)arg2;
+- (struct CGRect)specRenderer:(MSSpecRenderer *)arg1 rectForStartOfItemAtIndexPath:(NSIndexPath *)arg2;
+- (BOOL)specRenderer:(MSSpecRenderer *)arg1 isSnapAtIndexPath:(NSIndexPath *)arg2;
 @end
 

@@ -5,6 +5,6 @@
 //
 
 @protocol MSIncrementDecrementDelegate
-- (void)incrementBy:(double)arg1;
+- (void)incrementBy:(double)arg1 sender:(id)arg2;
 @end
 
