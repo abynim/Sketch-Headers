@@ -6,22 +6,22 @@
 
 #import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSSegmentedControl, NSTextField;
+@class MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSUpDownTextField, NSTextField;
 
 @interface MSBorderInspectorViewController : MSColorStylePartInspectorViewController
 {
-    NSSegmentedControl *_positionControl;
     MSUpDownTextField *_thicknessField;
     MSMathInspectorValueAdaptor *_thicknessAdaptor;
     NSTextField *_fillTypeLabel;
     NSTextField *_borderPositionLabel;
+    MSInspectorSegmentedControl *_positionControl;
 }
 
+@property(retain, nonatomic) MSInspectorSegmentedControl *positionControl; // @synthesize positionControl=_positionControl;
 @property(retain, nonatomic) NSTextField *borderPositionLabel; // @synthesize borderPositionLabel=_borderPositionLabel;
 @property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *thicknessAdaptor; // @synthesize thicknessAdaptor=_thicknessAdaptor;
 @property(retain, nonatomic) MSUpDownTextField *thicknessField; // @synthesize thicknessField=_thicknessField;
-@property(retain, nonatomic) NSSegmentedControl *positionControl; // @synthesize positionControl=_positionControl;
 - (void).cxx_destruct;
 - (void)updateUI;
 - (void)enableAction:(id)arg1;

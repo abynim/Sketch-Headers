@@ -6,25 +6,25 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
-#import "BCPopoverDelegate-Protocol.h"
-
 @class MSBorderOptionsInspectorViewController, MSTextLabelForUpDownField, NSButton, NSString;
 
-@interface MSMultipleBorderInspectorViewController : MSMultipleColorStylePartInspectorViewController <BCPopoverDelegate>
+@interface MSMultipleBorderInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
     MSBorderOptionsInspectorViewController *_borderOptionsController;
     MSTextLabelForUpDownField *_thicknessLabel;
     NSButton *_addStylePartButton;
 }
 
++ (Class)stylePartInspectorClass;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
 @property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (void).cxx_destruct;
+- (id)menuTitlePaste;
+- (id)menuTitleCopy;
 - (void)updateDisplayedValues;
 - (void)dealloc;
 - (id)views;
-- (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (BOOL)advancedOptionsApplicable;
 - (BOOL)shouldShowAdvancedOptionsButton;

@@ -6,26 +6,22 @@
 
 #import "MSPopoverAction.h"
 
-#import "MSCloudShareUploadControllerDelegate-Protocol.h"
+#import "MSCloudUploadProviderDelegate-Protocol.h"
 
-@class MSCloudShareUploadController, NSArray, NSString, NSViewController, SCKAPIOperation;
-@protocol MSCloudExportableDocument;
+@class NSArray, NSString, NSViewController, SCKAPIOperation;
+@protocol MSCloudExportableDocument, MSCloudUploadProvider;
 
-@interface MSCloudAction : MSPopoverAction <MSCloudShareUploadControllerDelegate>
+@interface MSCloudAction : MSPopoverAction <MSCloudUploadProviderDelegate>
 {
     NSViewController *_popoverViewController;
     NSArray *_progressImages;
-    MSCloudShareUploadController *_upload;
+    id <MSCloudUploadProvider> _upload;
     SCKAPIOperation *_refreshOperation;
     CDUnknownBlockType _closeAlertUploadDidFinishHandler;
 }
 
-+ (void)prepareClosingActions:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-+ (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
-+ (BOOL)shouldPrepareForTermination;
-+ (id)actionsToPrepareTermination;
 + (void)requestCloudUser;
-+ (Class)popoverClass;
++ (void)signIn;
 + (BOOL)cloudEnabled;
 + (id)userController;
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
@@ -33,31 +29,42 @@
 + (BOOL)isErrorRecoverable:(id)arg1;
 @property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
-@property(retain, nonatomic) MSCloudShareUploadController *upload; // @synthesize upload=_upload;
+@property(readonly, nonatomic) id <MSCloudUploadProvider> upload; // @synthesize upload=_upload;
 @property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
 - (void).cxx_destruct;
-- (void)performCloseSelector:(SEL)arg1 withDelegate:(id)arg2 shouldClose:(BOOL)arg3 contextInfo:(void *)arg4;
-- (void)document:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
-- (void)prepareCloseWithHandler:(CDUnknownBlockType)arg1;
-@property(readonly, nonatomic) BOOL canCloseImmediately;
+- (void)menuNeedsUpdate:(id)arg1;
+- (id)menu;
+- (void)doPerformAction:(id)arg1;
 - (void)setCloudPlatform:(id)arg1;
 - (BOOL)validate;
 - (BOOL)validateMenuItem:(id)arg1;
 @property(readonly, nonatomic) NSArray *progressImages; // @synthesize progressImages=_progressImages;
 - (void)updateProgressImage;
 - (id)image;
+- (id)submenuActionIDs;
+- (BOOL)isSelectable;
+- (BOOL)hasSubMenu;
 - (BOOL)popoverShouldAnimateOnContentFrameDidChange:(id)arg1;
 - (id)label;
 - (id)tooltip;
 - (BOOL)mayShowInToolbar;
+@property(readonly, nonatomic) BOOL isCloudDocument;
+- (void)progressDidChangeNotification:(id)arg1;
+- (void)applyUpload;
+- (void)restoreUpload;
+- (id)initWithDocument:(id)arg1;
+- (void)authenticationDidChangeNotification:(id)arg1;
+- (void)setUpload:(id)arg1;
 - (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (id)willPresentError:(id)arg1;
-- (void)cloudShareController:(id)arg1 didChangeProgress:(id)arg2;
-- (void)cloudShareController:(id)arg1 uploadDidFailWithError:(id)arg2;
-- (void)cloudShareControllerDidCancelUploading:(id)arg1;
-- (void)cloudShareController:(id)arg1 didUploadShare:(id)arg2;
+- (void)uploadProvider:(id)arg1 didChangeProgress:(id)arg2;
+- (void)uploadProvider:(id)arg1 uploadDidFailWithError:(id)arg2;
+- (void)uploadProviderDidCancelUploading:(id)arg1;
+- (void)uploadProvider:(id)arg1 didUploadShare:(id)arg2;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
+- (void)resumeUploadIfNeeded;
 - (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2;
+- (id)uploadProviderUpdating:(id)arg1 ownedByOrganization:(id)arg2;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
 
 // Remaining properties

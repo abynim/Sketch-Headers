@@ -19,7 +19,7 @@
 }
 
 + (id)toolbarDefaultItemIdentifiers;
-+ (id)toolbarAllowedItemIdentifiers;
++ (id)toolbarAllowedSketchDocumentItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarDefaultItemIdentifiers; // @synthesize toolbarDefaultItemIdentifiers=_toolbarDefaultItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarAllowedItemIdentifiers; // @synthesize toolbarAllowedItemIdentifiers=_toolbarAllowedItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;

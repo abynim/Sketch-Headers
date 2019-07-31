@@ -11,7 +11,8 @@
     // Error parsing type: , name: coordinateSpaceTransform
     // Error parsing type: , name: startpoint
     // Error parsing type: , name: endpoint
-    // Error parsing type: , name: titleEdgeInsets
+    // Error parsing type: , name: displacement
+    // Error parsing type: , name: anchorPoint
 }
 
 @end

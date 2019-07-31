@@ -6,9 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchPluginManager/CODebugController-Protocol.h>
+#import <SketchPluginManager/CODebugControllerDelegate-Protocol.h>
 
-@interface MSPluginDebugController : NSObject <CODebugController>
+@interface MSPluginDebugController : NSObject <CODebugControllerDelegate>
 {
 }
 

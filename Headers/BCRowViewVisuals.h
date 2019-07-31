@@ -14,6 +14,7 @@
     // Error parsing type: , name: renderer
     // Error parsing type: , name: groupRowBoundsWithBottomBorder.storage
     // Error parsing type: , name: groupRowBoundsWithTopAndBottomBorders.storage
+    // Error parsing type: , name: plainGroupRowImageWithTopBorder.storage
     // Error parsing type: , name: plainGroupRowImageWithBottomBorder.storage
     // Error parsing type: , name: plainGroupRowImageWithTopAndBottomBorders.storage
     // Error parsing type: , name: highlightedActiveGroupRowImageWithBottomBorder.storage

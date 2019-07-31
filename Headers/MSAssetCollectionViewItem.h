@@ -7,12 +7,11 @@
 #import <AppKit/NSCollectionViewItem.h>
 
 #import "NSMenuDelegate-Protocol.h"
-#import "NSTextFieldDelegate-Protocol.h"
 
 @class NSArray, NSLayoutConstraint, NSMenuItem, NSString, NSTextField, NSView;
 @protocol MSAsset, MSAssetCollectionViewItemDelegate;
 
-@interface MSAssetCollectionViewItem : NSCollectionViewItem <NSTextFieldDelegate, NSMenuDelegate>
+@interface MSAssetCollectionViewItem : NSCollectionViewItem <NSMenuDelegate>
 {
     BOOL _assetHighlighted;
     id <MSAssetCollectionViewItemDelegate> _delegate;

@@ -6,12 +6,11 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
-#import "BCPopoverDelegate-Protocol.h"
 #import "MSInspectorSection-Protocol.h"
 
 @class BCPopover, MSTextLabelForUpDownField, NSButton, NSString;
 
-@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <MSInspectorSection, BCPopoverDelegate>
+@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <MSInspectorSection>
 {
     MSTextLabelForUpDownField *_opacityLabel;
     NSButton *_addStylePartButton;
@@ -19,13 +18,15 @@
     BCPopover *_popover;
 }
 
++ (Class)stylePartInspectorClass;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) MSTextLabelForUpDownField *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
 - (void).cxx_destruct;
+- (id)menuTitlePaste;
+- (id)menuTitleCopy;
 - (id)views;
-- (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;

@@ -9,7 +9,7 @@
 @interface MSOverrideRepresentationBase (LayerList)
 - (BOOL)selfOrChildrenSelected;
 @property(readonly, nonatomic) BOOL isExpanded;
-- (BOOL)layerListExpandedType;
+- (long long)layerListExpandedType;
 - (id)childrenForLayerList;
 @end
 

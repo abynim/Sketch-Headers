@@ -11,6 +11,9 @@
     // Error parsing type: , name: tool
     // Error parsing type: , name: horizontalSpacing
     // Error parsing type: , name: verticalSpacing
+    // Error parsing type: , name: minimumHorizontalSpacing
+    // Error parsing type: , name: minimumVerticalSpacing
+    // Error parsing type: , name: isTidyEnabled
 }
 
 - (void).cxx_destruct;

@@ -18,13 +18,15 @@
     // Error parsing type: , name: hoveredLayer
     // Error parsing type: , name: hoveredGuides
     // Error parsing type: , name: measurementOptions
+    // Error parsing type: , name: measurements
+    // Error parsing type: , name: needsRebuildMeasurements
 }
 
 - (void).cxx_destruct;
 - (id)init;
+- (void)rebuildMeasurementsIfNeeded;
 @property(nonatomic, readonly) NSArray *targetLines;
-@property(nonatomic, readonly) NSArray *targetLayers;
-@property(nonatomic, readonly) struct CGRect sourceRect;
+- (struct CGRect)sourceRectIn:(id)arg1;
 @property(nonatomic, readonly) NSArray *sourceLayers;
 @property(nonatomic, readonly) BOOL scenarioIsValid;
 - (void)refreshIfNecessary:(id)arg1;

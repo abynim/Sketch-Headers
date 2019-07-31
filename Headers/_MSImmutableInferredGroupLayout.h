@@ -8,11 +8,13 @@
 
 @interface _MSImmutableInferredGroupLayout : MSImmutableGroupLayout
 {
-    long long _axis;
+    unsigned long long _axis;
+    unsigned long long _layoutAnchor;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) long long axis; // @synthesize axis=_axis;
+@property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
+@property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

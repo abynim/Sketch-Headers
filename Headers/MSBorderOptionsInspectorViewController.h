@@ -6,36 +6,36 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSAutoSelectingArrayController, NSArray, NSPopUpButton, NSSegmentedControl, NSSet, NSTextField;
+@class MSAutoSelectingArrayController, MSInspectorSegmentedControl, NSArray, NSPopUpButton, NSSet, NSTextField;
 
 @interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
 {
     BOOL _hasOpenPathLayer;
     BOOL _hasPathWithAdjustableCaps;
-    NSPopUpButton *_startDecorationButton;
-    NSPopUpButton *_endDecorationButton;
-    NSTextField *_dashField1;
-    NSTextField *_dashField2;
-    NSSegmentedControl *_capSegmentedControl;
-    NSSegmentedControl *_joinSegmentedControl;
     NSArray *_filteredLayers;
     NSSet *_startMarkerTypes;
     NSSet *_endMarkerTypes;
     MSAutoSelectingArrayController *_bordersController;
+    MSInspectorSegmentedControl *_capSegmentedControl;
+    MSInspectorSegmentedControl *_joinSegmentedControl;
+    NSPopUpButton *_startDecorationButton;
+    NSPopUpButton *_endDecorationButton;
+    NSTextField *_dashField1;
+    NSTextField *_dashField2;
 }
 
-@property(retain, nonatomic) MSAutoSelectingArrayController *bordersController; // @synthesize bordersController=_bordersController;
-@property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
-@property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
-@property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
 @property(nonatomic) BOOL hasPathWithAdjustableCaps; // @synthesize hasPathWithAdjustableCaps=_hasPathWithAdjustableCaps;
 @property(nonatomic) BOOL hasOpenPathLayer; // @synthesize hasOpenPathLayer=_hasOpenPathLayer;
-@property(retain, nonatomic) NSSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
-@property(retain, nonatomic) NSSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
 @property(retain, nonatomic) NSTextField *dashField2; // @synthesize dashField2=_dashField2;
 @property(retain, nonatomic) NSTextField *dashField1; // @synthesize dashField1=_dashField1;
 @property(retain, nonatomic) NSPopUpButton *endDecorationButton; // @synthesize endDecorationButton=_endDecorationButton;
 @property(retain, nonatomic) NSPopUpButton *startDecorationButton; // @synthesize startDecorationButton=_startDecorationButton;
+@property(retain, nonatomic) MSInspectorSegmentedControl *joinSegmentedControl; // @synthesize joinSegmentedControl=_joinSegmentedControl;
+@property(retain, nonatomic) MSInspectorSegmentedControl *capSegmentedControl; // @synthesize capSegmentedControl=_capSegmentedControl;
+@property(retain, nonatomic) MSAutoSelectingArrayController *bordersController; // @synthesize bordersController=_bordersController;
+@property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
+@property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
+@property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
 - (void).cxx_destruct;
 - (id)impliedDashPatternFromDashPattern:(id)arg1 paddingToLength:(unsigned long long)arg2;
 - (id)validDashPatternFromProposedDashPattern:(id)arg1 padIfNeeded:(BOOL)arg2;
@@ -43,9 +43,6 @@
 - (void)fillDashPlaceholderFields;
 - (void)fillDashFields;
 - (void)dashPatternAction:(id)arg1;
-- (void)joinAction:(id)arg1;
-- (void)capAction:(id)arg1;
-- (void)evaluateCapJoinButtons;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)prepareDecorationButtons;
 - (void)updateArrowButtons;
@@ -53,7 +50,7 @@
 - (void)endDecorationAction:(id)arg1;
 - (void)startDecorationAction:(id)arg1;
 - (void)reloadData;
-- (void)awakeFromNib;
+- (void)viewDidLoad;
 
 @end
 

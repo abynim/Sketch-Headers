@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSComponentsPanelController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, NSTimer, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
@@ -22,14 +22,13 @@
     BOOL _canCreateDocuments;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
-    NSMenu *_templatesMenu;
     NSMenu *_printMenu;
-    NSMenuItem *_prototypingMenuItem;
+    NSMenuItem *_aboutMenuItem;
     NSMenuItem *_debugMenuItem;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenuItem *_cloudEnvironmentMenuItem;
-    NSTimer *_updateTimer;
+    NSMenu *_fileMenu;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
@@ -48,7 +47,6 @@
     MSHUDWindowController *_hud;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
-    MSComponentsPanelController *_componentsPanelController;
     MSFontWatcher *_fontWatcher;
     id _lastRunPlugin;
 }
@@ -58,7 +56,6 @@
 + (void)initialize;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
-@property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
@@ -80,14 +77,13 @@
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
-@property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
+@property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
-@property(nonatomic) __weak NSMenuItem *prototypingMenuItem; // @synthesize prototypingMenuItem=_prototypingMenuItem;
+@property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
-@property(nonatomic) __weak NSMenu *templatesMenu; // @synthesize templatesMenu=_templatesMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
 @property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
@@ -118,10 +114,15 @@
 - (id)templateLibraryPath;
 - (void)updateTemplateMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
+- (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
+- (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
+- (void)setupNewMenuItems:(id)arg1;
+- (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)openTemplateAtPath:(id)arg1;
 - (void)openTemplateFile:(id)arg1;
 - (void)checkImageTemplates;
+@property(nonatomic) BOOL cloudAsDefault;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
 - (long long)periodWithInitialValue:(long long)arg1 defaultsKey:(id)arg2;
@@ -155,6 +156,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
+- (void)setupMenuItems;
 - (id)init;
 - (void)openDocumentAtPath:(id)arg1 withParameters:(id)arg2;
 - (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;

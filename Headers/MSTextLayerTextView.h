@@ -31,8 +31,7 @@
 - (void)paste:(id)arg1;
 - (id)readablePasteboardTypes;
 - (BOOL)readSelectionFromPasteboard:(id)arg1;
-- (void)mouseDown:(id)arg1;
-- (BOOL)hitTestFromEvent:(id)arg1;
+- (id)hitTest:(struct CGPoint)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (BOOL)shouldIgnoreAlreadyApplicableColor:(id)arg1;
 - (void)changeColor:(id)arg1;

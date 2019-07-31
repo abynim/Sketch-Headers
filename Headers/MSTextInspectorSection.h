@@ -7,10 +7,11 @@
 #import "MSBaseInspectorSection.h"
 
 #import "MSTextHeaderInspectorItemDelegate-Protocol.h"
+#import "MSTextLayerItemDelegate-Protocol.h"
 
 @class MSAdvancedTextLayerInspectorItem, MSMissingFontItem, MSRateLimiter, MSTextHeaderInspectorItem, MSTextLayerInspectorItem, NSString;
 
-@interface MSTextInspectorSection : MSBaseInspectorSection <MSTextHeaderInspectorItemDelegate>
+@interface MSTextInspectorSection : MSBaseInspectorSection <MSTextHeaderInspectorItemDelegate, MSTextLayerItemDelegate>
 {
     MSTextHeaderInspectorItem *_headerItem;
     MSTextLayerInspectorItem *_textItem;
@@ -25,11 +26,14 @@
 @property(retain, nonatomic) MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
 @property(retain, nonatomic) MSTextHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 - (void).cxx_destruct;
+- (BOOL)isShowingAdvancedItem:(id)arg1;
 - (void)itemWantsToggleDetailSettings:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)doUpdateDisplayedValues:(id)arg1;
 - (void)valuesPossiblyChanged:(id)arg1;
+- (void)textViewDidChange:(id)arg1;
+- (BOOL)isShowingAdvancedItem;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

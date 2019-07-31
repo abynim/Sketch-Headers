@@ -11,6 +11,7 @@
 }
 
 + (id)applicationKeys;
++ (id)metadataForBundle:(id)arg1;
 + (id)metadata;
 
 @end

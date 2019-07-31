@@ -37,7 +37,7 @@
 - (void)syncChildrenWithOverridesIfNeeded;
 - (void)dealloc;
 - (id)initWithParent:(id)arg1;
-- (id)selectionHitTest:(struct CGPoint)arg1;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2;
 - (id)copyAffectedLayerForPasteboard;
 
 @end

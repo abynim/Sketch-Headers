@@ -10,6 +10,8 @@
 {
     struct CGColor *_gridLightColor;
     struct CGColor *_gridDarkColor;
+    struct CGColor *_guideColor;
+    struct CGColor *_temporaryGuideColor;
     struct CGColor *_flowColor;
     struct CGImage *_flowTipImage;
     struct CGImage *_flowBackImage;
@@ -24,11 +26,13 @@
 - (struct CGImage *)createFlowHotspotImage:(double)arg1;
 - (struct CGImage *)createFlowDotImage:(double)arg1;
 - (struct CGColor *)flowColor;
+@property(readonly, nonatomic) struct CGColor *temporaryGuideColor;
+@property(readonly, nonatomic) struct CGColor *guideColor;
 - (struct CGImage *)flowOtherPageImage;
 - (struct CGImage *)flowBackImage;
 - (struct CGImage *)flowTipImage;
 - (struct CGImage *)createTintedImageFromImage:(struct CGImage *)arg1;
-- (id)initWithGridLightColor:(struct CGColor *)arg1 gridDarkColor:(struct CGColor *)arg2 layoutGridStyle:(unsigned long long)arg3 flowColor:(struct CGColor *)arg4 flowTipImage:(struct CGImage *)arg5 flowBackImage:(struct CGImage *)arg6 flowOtherPageImage:(struct CGImage *)arg7;
+- (id)initWithGridLightColor:(struct CGColor *)arg1 gridDarkColor:(struct CGColor *)arg2 guideColor:(struct CGColor *)arg3 layoutGridStyle:(unsigned long long)arg4 flowColor:(struct CGColor *)arg5 flowTipImage:(struct CGImage *)arg6 flowBackImage:(struct CGImage *)arg7 flowOtherPageImage:(struct CGImage *)arg8;
 - (id)init;
 
 @end

@@ -40,6 +40,7 @@
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg4;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)refreshAction:(id)arg1;
 

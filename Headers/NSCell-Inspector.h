@@ -11,7 +11,7 @@
 + (void)drawInspectorButtonImage:(id)arg1 centeredInRect:(struct CGRect)arg2 withColor:(id)arg3;
 + (id)inspectorAccentIconColorForCellHighlighted:(BOOL)arg1;
 + (id)inspectorAccentColorForCellHighlighted:(BOOL)arg1;
-+ (id)inspectorIconColorForCellEnabled:(BOOL)arg1 highlighted:(BOOL)arg2;
++ (id)inspectorIconColorForCellHighlighted:(BOOL)arg1;
 - (struct CGRect)inspectorFocusRingMaskBoundsForFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawInspectorFocusRingMaskWithWithPath:(id)arg1;
 - (void)drawInspectorTextFieldBackgroundWithPath:(id)arg1;

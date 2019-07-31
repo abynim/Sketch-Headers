@@ -25,7 +25,6 @@
 - (BOOL)specRenderer:(id)arg1 layout:(id)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndexPath:(id)arg4;
 - (struct CGRect)specRenderer:(id)arg1 rectForEndOfItemAtIndexPath:(id)arg2;
 - (struct CGRect)specRenderer:(id)arg1 rectForStartOfItemAtIndexPath:(id)arg2;
-- (unsigned int)startEdgeForItemAtIndexPath:(id)arg1;
 - (struct CGPoint)specRenderer:(id)arg1 endpointForItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3;
 - (struct CGPoint)specRenderer:(id)arg1 startpointForItemAtIndexPath:(id)arg2;
 - (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;

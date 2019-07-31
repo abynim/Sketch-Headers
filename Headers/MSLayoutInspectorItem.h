@@ -6,27 +6,29 @@
 
 #import "MSInspectorItem.h"
 
-@class MSInspectorButton, NSButton;
+@class MSInspectorSegmentedControl, NSTextField;
 
 @interface MSLayoutInspectorItem : MSInspectorItem
 {
-    MSInspectorButton *_defaultLayout;
-    MSInspectorButton *_verticalLayout;
-    MSInspectorButton *_horizontalLayout;
-    NSButton *_applyToSubGroupsButton;
+    NSTextField *_directionLabel;
+    MSInspectorSegmentedControl *_directionSegmentedControl;
+    MSInspectorSegmentedControl *_axisSegmentedControl;
 }
 
-@property(retain, nonatomic) NSButton *applyToSubGroupsButton; // @synthesize applyToSubGroupsButton=_applyToSubGroupsButton;
-@property(retain, nonatomic) MSInspectorButton *horizontalLayout; // @synthesize horizontalLayout=_horizontalLayout;
-@property(retain, nonatomic) MSInspectorButton *verticalLayout; // @synthesize verticalLayout=_verticalLayout;
-@property(retain, nonatomic) MSInspectorButton *defaultLayout; // @synthesize defaultLayout=_defaultLayout;
+@property(retain, nonatomic) MSInspectorSegmentedControl *axisSegmentedControl; // @synthesize axisSegmentedControl=_axisSegmentedControl;
+@property(retain, nonatomic) MSInspectorSegmentedControl *directionSegmentedControl; // @synthesize directionSegmentedControl=_directionSegmentedControl;
+@property(retain, nonatomic) NSTextField *directionLabel; // @synthesize directionLabel=_directionLabel;
 - (void).cxx_destruct;
-- (void)applyToSubGroupsAction:(id)arg1;
-- (void)horizontalLayoutAction:(id)arg1;
-- (void)verticalLayoutAction:(id)arg1;
-- (void)defaultLayoutAction:(id)arg1;
+- (void)layoutDirectionAction:(id)arg1;
+- (void)layoutAxisAction:(id)arg1;
+- (void)updateLayoutDirectionForSelectedGroupsTo:(unsigned long long)arg1;
 - (void)enumerateSelectedGroups:(CDUnknownBlockType)arg1;
 - (void)updateDisplayedValues;
+- (void)updateDirectionIconsForLayoutAxis:(unsigned long long)arg1;
+- (void)updateDirectionLabelForLayoutAxis:(unsigned long long)arg1 anchor:(unsigned long long)arg2;
+- (void)resetDirectionLabel;
+- (long long)findSegmentIndexForFirstLayoutDirection;
+- (long long)findLayoutAnchorForFirstLayoutDirection;
 - (unsigned long long)findFirstInferredLayoutAxis;
 - (Class)findCommonLayoutClass;
 

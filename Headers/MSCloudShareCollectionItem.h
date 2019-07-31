@@ -17,9 +17,11 @@
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 - (void).cxx_destruct;
+- (void)downloadDocument:(CDUnknownBlockType)arg1;
 - (void)downloadLatestDocument:(CDUnknownBlockType)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)providesPreviewImage;
+- (BOOL)isEqual:(id)arg1;
 - (id)URL;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;

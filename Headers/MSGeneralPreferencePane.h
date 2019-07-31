@@ -18,11 +18,15 @@
     NSTextField *_appAppearanceLabel;
     NSTextField *_canvasAppearanceLabel;
     NSView *_mainContainerView;
+    NSView *_documentDefaultView;
+    NSPopUpButton *_documentDefaultButton;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(nonatomic) __weak NSPopUpButton *documentDefaultButton; // @synthesize documentDefaultButton=_documentDefaultButton;
+@property(nonatomic) __weak NSView *documentDefaultView; // @synthesize documentDefaultView=_documentDefaultView;
 @property(nonatomic) __weak NSView *mainContainerView; // @synthesize mainContainerView=_mainContainerView;
 @property(nonatomic) __weak NSTextField *canvasAppearanceLabel; // @synthesize canvasAppearanceLabel=_canvasAppearanceLabel;
 @property(nonatomic) __weak NSTextField *appAppearanceLabel; // @synthesize appAppearanceLabel=_appAppearanceLabel;
@@ -36,10 +40,11 @@
 - (void)appearanceColorAction:(id)arg1;
 - (void)refreshPreviewImage;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)didSwitchToPane;
+- (void)setupDocumentDefaultView;
 - (void)setupAppearanceControls;
 - (void)watchAppearanceChanges;
-- (void)pickDefaultColorSpace:(id)arg1;
-- (void)refreshColorSpaceDescription;
+- (void)selectDocumentDefault:(id)arg1;
 - (void)analyticsAction:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

@@ -6,9 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocumentData, MSLayer, MSModelObject, NSArray, NSMutableSet, NSString;
+@class MSDocumentData, MSLayer, MSModelObject, NSArray, NSMutableSet, NSObject, NSString;
+@protocol MSHoverableItem;
 
 @protocol MSDocumentDataDelegate <NSObject>
+- (void)hoveredItemDidChange:(NSObject<MSHoverableItem> *)arg1;
 - (BOOL)validateSelectionOfLayer:(MSLayer *)arg1 proposedIDsOfLayersToSelect:(NSMutableSet *)arg2;
 - (struct CGRect)visibleCanvasRectForDocumentData:(MSDocumentData *)arg1;
 - (void)refreshOverlay;

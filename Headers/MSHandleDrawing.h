@@ -19,6 +19,7 @@
 + (id)shadowForHover:(BOOL)arg1;
 + (void)drawBezier:(id)arg1;
 + (void)drawRectAtPoint:(struct CGPoint)arg1 ofType:(long long)arg2;
++ (struct CGSize)handleImageSize;
 + (void)drawGradientHandleAtPoint:(struct CGPoint)arg1 color:(id)arg2 selected:(BOOL)arg3;
 + (void)drawAtPoint:(struct CGPoint)arg1 ofType:(long long)arg2 state:(unsigned long long)arg3;
 + (double)dotSizeForType:(long long)arg1;

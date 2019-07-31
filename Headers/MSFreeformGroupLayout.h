@@ -10,7 +10,5 @@
 {
 }
 
-- (void)groupDidResizeFromSize:(struct CGSize)arg1;
-
 @end
 

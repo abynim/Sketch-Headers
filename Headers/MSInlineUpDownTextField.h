@@ -26,6 +26,7 @@
 - (void)resetCursorRects;
 @property(readonly, nonatomic) double inlineFieldWidth;
 - (void)updateUpDownLabel;
+- (id)createUpDownController;
 - (void)setEnabled:(BOOL)arg1;
 - (void)awakeFromNib;
 

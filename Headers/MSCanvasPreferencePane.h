@@ -6,10 +6,12 @@
 
 #import "MSPreferencePane.h"
 
-@class NSColorWell, NSTextField;
+@class NSColorWell, NSPopUpButton, NSTextField;
 
 @interface MSCanvasPreferencePane : MSPreferencePane
 {
+    NSTextField *_defaultColorSpaceDescriptionLabel;
+    NSPopUpButton *_defaultColorSpacePopUpButton;
     NSColorWell *_flowColorWell;
     NSTextField *_flowColorLabel;
 }
@@ -19,10 +21,15 @@
 + (id)identifier;
 @property(nonatomic) __weak NSTextField *flowColorLabel; // @synthesize flowColorLabel=_flowColorLabel;
 @property(nonatomic) __weak NSColorWell *flowColorWell; // @synthesize flowColorWell=_flowColorWell;
+@property(nonatomic) __weak NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
+@property(nonatomic) __weak NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
 - (void).cxx_destruct;
+- (void)pickDefaultColorSpace:(id)arg1;
+- (void)refreshColorSpaceDescription;
 - (void)refreshOpenDocuments;
 - (void)adjustFlowColorAction:(id)arg1;
 - (void)adjustSnapColorAction:(id)arg1;
+- (void)viewDidLoad;
 
 @end
 

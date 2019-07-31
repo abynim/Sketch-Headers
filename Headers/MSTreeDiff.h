@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSMutableArray, NSSet;
+@class MSImmutableDocumentData, NSArray, NSMutableArray, NSSet;
 
 @interface MSTreeDiff : NSObject
 {
@@ -45,7 +45,7 @@
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
 - (void)diffObject:(id)arg1 withObject:(id)arg2;
 - (void)diffObjects:(id)arg1 withObjects:(id)arg2;
-- (id)diffs;
+@property(readonly, nonatomic) NSArray *diffs;
 - (id)init;
 - (id)initWithFirstDocument:(id)arg1 secondDocument:(id)arg2;
 - (BOOL)subTreeRootContainsSymbolChange:(id)arg1;

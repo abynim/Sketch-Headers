@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class MSDocument, MSEventHandler, MSNormalEventHandler;
+#import "MSOverlayItemDataSource-Protocol.h"
+
+@class MSDocument, MSEventHandler, MSNormalEventHandler, NSString;
 @protocol MSEventHandlerManagerDelegate;
 
-@interface MSEventHandlerManager : NSObject
+@interface MSEventHandlerManager : NSObject <MSOverlayItemDataSource>
 {
     MSDocument *_document;
     id <MSEventHandlerManagerDelegate> _delegate;
@@ -17,15 +19,20 @@
     MSNormalEventHandler *_normalHandler;
     long long _lastMouseDownClickCount;
     unsigned long long _lastEventType;
+    struct CGPoint _lastEventLocationInWindow;
 }
 
 @property(nonatomic) unsigned long long lastEventType; // @synthesize lastEventType=_lastEventType;
 @property(nonatomic) long long lastMouseDownClickCount; // @synthesize lastMouseDownClickCount=_lastMouseDownClickCount;
+@property(nonatomic) struct CGPoint lastEventLocationInWindow; // @synthesize lastEventLocationInWindow=_lastEventLocationInWindow;
 @property(retain, nonatomic) MSNormalEventHandler *normalHandler; // @synthesize normalHandler=_normalHandler;
 @property(retain, nonatomic) MSEventHandler *currentHandler; // @synthesize currentHandler=_currentHandler;
 @property(nonatomic) __weak id <MSEventHandlerManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
+- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (void)documentChanged:(id)arg1;
 - (void)prepareToDraw:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)recordEvent:(id)arg1;
@@ -34,11 +41,18 @@
 - (void)sendMouseDraggedEvent:(id)arg1;
 - (void)sendMouseDownEvent:(id)arg1;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (BOOL)requiresLegacyOverlayRendering;
 - (void)setCurrentHandler:(id)arg1 force:(BOOL)arg2;
 - (id)switchToEventHandlerClass:(Class)arg1;
 - (id)toggleHandlerClass:(Class)arg1;
 - (id)handlerForClass:(Class)arg1;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -29,6 +29,7 @@
 - (void)beginEditing;
 - (void)processEditing;
 - (void)editedFromRect:(struct CGRect)arg1;
+- (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
 - (void)setRectByIgnoringProportions:(struct CGRect)arg1;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
@@ -45,6 +46,8 @@
 @property(nonatomic) double minY;
 @property(nonatomic) double maxX;
 @property(nonatomic) double minX;
+- (void)setMin:(double)arg1 forAxis:(unsigned long long)arg2;
+- (double)minForAxis:(unsigned long long)arg1;
 @property(nonatomic) double top;
 @property(nonatomic) double left;
 @property(nonatomic) struct CGPoint origin;

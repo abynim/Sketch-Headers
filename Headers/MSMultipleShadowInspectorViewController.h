@@ -18,6 +18,7 @@
     NSLayoutConstraint *_buttonsTrailingConstraint;
 }
 
++ (Class)stylePartInspectorClass;
 @property(retain, nonatomic) NSLayoutConstraint *buttonsTrailingConstraint; // @synthesize buttonsTrailingConstraint=_buttonsTrailingConstraint;
 @property(retain, nonatomic) MSTextLabelForUpDownField *spreadField; // @synthesize spreadField=_spreadField;
 @property(retain, nonatomic) MSTextLabelForUpDownField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
@@ -25,8 +26,9 @@
 @property(retain, nonatomic) MSTextLabelForUpDownField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 - (void).cxx_destruct;
+- (id)menuTitlePaste;
+- (id)menuTitleCopy;
 - (id)views;
-- (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)loadViewControllers;
 - (BOOL)shouldDisableAddStylePartButton;
 - (void)prepare;

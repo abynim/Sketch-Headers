@@ -9,11 +9,10 @@
 #import "MSDropableViewDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
-#import "NSTextFieldDelegate-Protocol.h"
 
 @class MSDataSupplierManager, MSDataTableView, NSArray, NSArrayController, NSButton, NSMenu, NSPredicate, NSSearchField, NSString, NSWindow;
 
-@interface MSDataPreferencePane : MSPreferencePane <MSDropableViewDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
+@interface MSDataPreferencePane : MSPreferencePane <MSDropableViewDelegate, NSTableViewDelegate, NSTableViewDataSource>
 {
     BOOL _shouldEnableCogMenu;
     BOOL _enableShowInFinder;

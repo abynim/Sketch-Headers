@@ -32,7 +32,7 @@
 - (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
-- (unsigned long long)axisForInferredLayouts;
+- (unsigned long long)axesForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;

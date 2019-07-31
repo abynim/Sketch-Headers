@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class BCCache, MSLayer, MSPage, NSColor;
+@class MSLayer, MSPage, NSArray;
 
 @protocol MSHoverableItem
-@property(readonly, nonatomic) MSLayer *hoveredLayer;
+@property(nonatomic, readonly) MSLayer *hoveredLayer;
 - (void)refreshOverlay;
+- (BOOL)matchesLayerListNode:(id)arg1;
 - (BOOL)canBeHoveredOnPage:(MSPage *)arg1;
-- (void)drawHoverWithZoom:(double)arg1 color:(NSColor *)arg2 cache:(BCCache *)arg3;
+- (NSArray *)hoverItemsWithColor:(struct CGColor *)arg1;
 @end
 

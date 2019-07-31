@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSPage, MSSymbolMasterReference, NSBezierPath;
+@class MSPage, MSSymbolMasterReference;
 
 @interface MSSymbolInsertionTool : NSObject
 {
@@ -24,12 +24,11 @@
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) NSBezierPath *snapGuidesPath;
 @property(nonatomic) BOOL snappingEnabled; // @synthesize snappingEnabled;
 @property(nonatomic) unsigned long long snapMask;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect;
 @property(nonatomic) double zoomScale; // @synthesize zoomScale;
-- (void)updateWithPoint:(struct CGPoint)arg1;
+- (id)updateWithPoint:(struct CGPoint)arg1;
 - (struct CGPoint)locationIn:(id)arg1;
 @property(nonatomic, readonly) struct CGSize size; // @synthesize size;
 @property(nonatomic, readonly) MSPage *page; // @synthesize page;

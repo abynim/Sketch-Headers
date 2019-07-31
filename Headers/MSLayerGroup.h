@@ -32,6 +32,7 @@
 - (void)multiplyBy:(double)arg1;
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
 - (void)moveTransformsToChildren;
+- (BOOL)fixGeometryWithOptions:(long long)arg1 allowedAxes:(unsigned long long)arg2;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)groupBoundsShouldBeIntegral;
 @property(nonatomic) BOOL hasInferredLayout;

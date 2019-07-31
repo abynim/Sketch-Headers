@@ -6,16 +6,24 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSOpacityBlendingInspectorItem, MSSharedStylesInspectorItem;
+@class MSCollapsibleHeaderInspectorItem, MSInsetSeparatorInspectorItem, MSOpacityBlendingInspectorItem, MSPaddingInspectorItem, MSSharedStylesInspectorItem, _TtC6Sketch24MSTextStyleInspectorItem, _TtC6Sketch25MSLayerStyleInspectorItem;
 
 @interface MSAppearanceInspectorSection : MSBaseInspectorSection
 {
     MSCollapsibleHeaderInspectorItem *_headerItem;
     MSSharedStylesInspectorItem *_sharedStyleItem;
+    _TtC6Sketch25MSLayerStyleInspectorItem *_layerStyleItem;
+    _TtC6Sketch24MSTextStyleInspectorItem *_textStyleItem;
+    MSPaddingInspectorItem *_paddingItem;
     MSOpacityBlendingInspectorItem *_opacityItem;
+    MSInsetSeparatorInspectorItem *_opacitySeparatorItem;
 }
 
+@property(retain, nonatomic) MSInsetSeparatorInspectorItem *opacitySeparatorItem; // @synthesize opacitySeparatorItem=_opacitySeparatorItem;
 @property(retain, nonatomic) MSOpacityBlendingInspectorItem *opacityItem; // @synthesize opacityItem=_opacityItem;
+@property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
+@property(retain, nonatomic) _TtC6Sketch24MSTextStyleInspectorItem *textStyleItem; // @synthesize textStyleItem=_textStyleItem;
+@property(retain, nonatomic) _TtC6Sketch25MSLayerStyleInspectorItem *layerStyleItem; // @synthesize layerStyleItem=_layerStyleItem;
 @property(retain, nonatomic) MSSharedStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 - (void).cxx_destruct;
@@ -23,6 +31,8 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)updateItems;
+- (BOOL)enableComponentStyleItem;
+- (BOOL)enableLegacyStyleItem;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

@@ -8,12 +8,11 @@
 
 #import "MSContentDrawViewDelegate-Protocol.h"
 
-@class MSContentDrawView, MSContentDrawViewParent, MSDocument, MSFlashController, MSRulerView, NSLayoutConstraint, NSString, NSView;
+@class MSContentDrawView, MSDocument, MSFlashController, MSRulerView, NSLayoutConstraint, NSString, NSView;
 
 @interface MSContentDrawViewController : NSViewController <MSContentDrawViewDelegate>
 {
     MSContentDrawView *_contentDrawView;
-    MSContentDrawViewParent *_contentDrawViewParent;
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     NSView *_rulerCornerView;
@@ -30,7 +29,6 @@
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
 @property(retain, nonatomic) MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(retain, nonatomic) MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
-@property(retain, nonatomic) MSContentDrawViewParent *contentDrawViewParent; // @synthesize contentDrawViewParent=_contentDrawViewParent;
 @property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;
 - (void)prepareForDealloc;

@@ -13,19 +13,22 @@
 #import "NSComboBoxDataSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class BCPopover, MSAutoSelectingArrayController, MSImmutableColor, MSInlineUpDownTextField, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, NSButton, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSArrayController, NSButton, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@protocol MSTextLayerItemDelegate;
 
 @interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate>
 {
+    NSMenu *_fontSizeMenu;
+    MSTextInspectorItemDataSource *_dataSource;
     NSView *_basicView;
     NSButton *_fontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
-    MSInlineUpDownTextField *_fontSizeField;
+    MSInlineUpDownTextFieldWithMenu *_fontSizeField;
     MSStylePartPreviewButton *_colorPickerButton;
     MSInlineUpDownTextField *_kerningField;
     MSInlineUpDownTextField *_lineHeightField;
     MSInlineUpDownTextField *_paragraphHeightField;
-    NSSegmentedControl *_alignmentButton;
+    MSInspectorSegmentedControl *_alignmentButton;
     NSSegmentedControl *_verticalAlignmentButton;
     NSTextField *_sizingLabel;
     MSInspectorSegmentedControl *_sizingSegmentedControl;
@@ -33,15 +36,12 @@
     MSNativeColorPanelPresenter *_colorPanelPresenter;
     NSSet *_fontPostscriptNames;
     MSImmutableColor *_textColor;
-    MSAutoSelectingArrayController *_fontsController;
+    NSArrayController *_layersController;
     MSMathInspectorValueAdaptor *_fontSizeAdaptor;
-    MSAutoSelectingArrayController *_kerningController;
     MSMathInspectorValueAdaptor *_kerningAdaptor;
-    MSAutoSelectingArrayController *_paragraphStylesController;
     MSMathInspectorValueAdaptor *_paragraphSpacingAdaptor;
     MSInspectorValueAdaptor *_alignmentAdaptor;
     MSMathInspectorValueAdaptor *_lineHeightAdaptor;
-    MSAutoSelectingArrayController *_colorController;
     MSInspectorValueAdaptor *_colorAdapor;
     MSTextAttributeEditingContext *_editingContext;
 }
@@ -50,15 +50,12 @@
 + (BOOL)canHandleLayer:(id)arg1;
 @property(retain, nonatomic) MSTextAttributeEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdapor; // @synthesize colorAdapor=_colorAdapor;
-@property(retain, nonatomic) MSAutoSelectingArrayController *colorController; // @synthesize colorController=_colorController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *lineHeightAdaptor; // @synthesize lineHeightAdaptor=_lineHeightAdaptor;
 @property(retain, nonatomic) MSInspectorValueAdaptor *alignmentAdaptor; // @synthesize alignmentAdaptor=_alignmentAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *paragraphSpacingAdaptor; // @synthesize paragraphSpacingAdaptor=_paragraphSpacingAdaptor;
-@property(retain, nonatomic) MSAutoSelectingArrayController *paragraphStylesController; // @synthesize paragraphStylesController=_paragraphStylesController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *kerningAdaptor; // @synthesize kerningAdaptor=_kerningAdaptor;
-@property(retain, nonatomic) MSAutoSelectingArrayController *kerningController; // @synthesize kerningController=_kerningController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *fontSizeAdaptor; // @synthesize fontSizeAdaptor=_fontSizeAdaptor;
-@property(retain, nonatomic) MSAutoSelectingArrayController *fontsController; // @synthesize fontsController=_fontsController;
+@property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSImmutableColor *textColor; // @synthesize textColor=_textColor;
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
@@ -66,15 +63,16 @@
 @property(nonatomic) __weak MSInspectorSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
 @property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
-@property(retain, nonatomic) NSSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
+@property(retain, nonatomic) MSInspectorSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) MSInlineUpDownTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
 @property(retain, nonatomic) MSInlineUpDownTextField *lineHeightField; // @synthesize lineHeightField=_lineHeightField;
 @property(retain, nonatomic) MSInlineUpDownTextField *kerningField; // @synthesize kerningField=_kerningField;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
-@property(retain, nonatomic) MSInlineUpDownTextField *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
+@property(retain, nonatomic) MSInlineUpDownTextFieldWithMenu *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
+@property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
@@ -107,6 +105,7 @@
 - (void)showColorPickerAction:(id)arg1;
 - (void)togglePopover;
 - (void)showNativeColorPanel;
+- (void)fontSizeMenuAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
 - (void)commitHistory;
@@ -116,15 +115,15 @@
 - (double)defaultLineHeight;
 - (void)reloadVerticalAlignmentButton;
 - (void)updateDisplayedValues;
-- (void)reloadModelControllers;
-- (id)selectedTextViewParagraphs;
 - (void)textViewDidChange:(id)arg1;
 - (void)viewDidLoad;
+- (id)fontSizeMenu;
 - (void)writeRun:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(nonatomic) __weak id <MSTextLayerItemDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;

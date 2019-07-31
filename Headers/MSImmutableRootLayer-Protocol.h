@@ -9,6 +9,7 @@
 @class MSImmutableDocumentData, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
 
 @protocol MSImmutableRootLayer <MSLayerTraits>
+@property(readonly, nonatomic) struct CGPoint rulerBase;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;

@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSSelectionOverlayController, NSString;
+@class NSString, _TtC6Sketch28MSSelectionOverlayController;
 
 @protocol _TtP6Sketch36MSSelectionOverlayControllerDelegate_
-- (void)selectionOverlayControllerDidEndAdjustingSpacing:(MSSelectionOverlayController *)arg1;
-- (void)selectionOverlayController:(MSSelectionOverlayController *)arg1 showSpacingMeasurement:(NSString *)arg2;
+- (void)selectionOverlayControllerDidEndAdjustingSpacing:(_TtC6Sketch28MSSelectionOverlayController *)arg1;
+- (void)selectionOverlayController:(_TtC6Sketch28MSSelectionOverlayController *)arg1 showSpacingMeasurement:(NSString *)arg2;
 @end
 

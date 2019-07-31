@@ -36,7 +36,7 @@
 - (id)nameOfFontFamilyAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfFontFamilies;
 - (void)findCommonFontsInDocument:(id)arg1;
-- (id)localizeFontNames:(id)arg1;
+- (id)localizeFontDescriptors:(id)arg1;
 - (void)findSystemFonts;
 - (void)reloadFonts;
 - (id)initWithDocumentData:(id)arg1;

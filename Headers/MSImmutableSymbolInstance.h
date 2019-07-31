@@ -25,7 +25,9 @@
 @property __weak MSImmutableSymbolMaster *cachedModifiedSymbolMaster; // @synthesize cachedModifiedSymbolMaster=_cachedModifiedSymbolMaster;
 - (void).cxx_destruct;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
-- (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 visitedSymbols:(id)arg3;
+- (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 skipCache:(BOOL)arg6;
+- (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 symbol:(id)arg6;
+- (id)detachedGroupCacheKeyInDocument:(id)arg1 detachRecursively:(BOOL)arg2;
 - (id)modifiedMasterInDocument:(id)arg1;
 - (id)prepareModifiedMasterInDocument:(id)arg1;
 - (id)modifiedMasterCacheKeyInDocument:(id)arg1;
@@ -58,7 +60,6 @@
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
 - (id)detachedMasterInDocument:(id)arg1 withCache:(id)arg2;
 - (id)overrideMatchingPoint:(id)arg1 inDocument:(id)arg2;
-- (id)overrideInOverrides:(id)arg1 withPath:(id)arg2 andPropertyName:(id)arg3;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;

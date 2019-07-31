@@ -6,17 +6,22 @@
 
 #import <objc/NSObject.h>
 
-@class MSStack;
+@class NSArray;
 
 @interface MSSpacingTool : NSObject
 {
-    // Error parsing type: , name: stack
+    // Error parsing type: , name: layers
+    // Error parsing type: , name: primaryStack
+    // Error parsing type: , name: horizontalStacks
+    // Error parsing type: , name: verticalStacks
     // Error parsing type: , name: inspector
 }
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, retain) MSStack *stack; // @synthesize stack;
+@property(nonatomic, copy) NSArray *verticalStacks; // @synthesize verticalStacks;
+@property(nonatomic, copy) NSArray *horizontalStacks; // @synthesize horizontalStacks;
+@property(nonatomic, copy) NSArray *layers; // @synthesize layers;
 
 @end
 

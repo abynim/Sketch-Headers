@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) double layerNamePlaceholderWidth; // @synthesize layerNamePlaceholderWidth=_layerNamePlaceholderWidth;
+- (void)setObjectValue:(id)arg1;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (struct CGRect)drawingRectForBounds:(struct CGRect)arg1;

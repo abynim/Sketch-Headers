@@ -14,6 +14,7 @@
 - (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
 - (id)initWithModelsController:(id)arg1 floatValueGetter:(CDUnknownBlockType)arg2 floatValueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;
 @property(nonatomic, retain) id value;
+- (void)incrementBy:(double)arg1 sender:(id)arg2;
 
 @end
 

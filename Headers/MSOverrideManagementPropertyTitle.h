@@ -12,10 +12,11 @@
 {
 }
 
+- (unsigned long long)indentationLevel;
 @property(readonly, nonatomic) NSImage *previewIcon;
 - (id)description;
 @property(readonly, nonatomic) NSString *title;
-- (id)initWithAvailableOverride:(id)arg1 onMaster:(id)arg2;
+- (id)initWithComplimentaryOverrides:(id)arg1;
 
 @end
 

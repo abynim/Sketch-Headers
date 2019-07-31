@@ -139,9 +139,10 @@
 - (id)childrenForItem:(id)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) double preferredHeight;
+- (void)outlineViewDidResize:(id)arg1;
+- (void)documentWindowBackingPropertiesDidChange:(id)arg1;
 - (void)applyAppearance;
 - (void)viewDidAppear;
-- (void)outlineViewDidResize:(id)arg1;
 - (void)viewDidLoad;
 - (void)awakeFromNib;
 - (id)initWithDataController:(id)arg1;

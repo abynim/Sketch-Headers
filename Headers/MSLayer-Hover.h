@@ -6,12 +6,11 @@
 
 #import <SketchModel/MSLayer.h>
 
-#import <SketchControllers/MSHoverableItem-Protocol.h>
-
-@interface MSLayer (Hover) <MSHoverableItem>
+@interface MSLayer (Hover)
+- (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)pathForHoverInBounds;
-- (void)drawHoverWithZoom:(double)arg1 color:(id)arg2 cache:(id)arg3;
+- (id)hoverItemsWithColor:(struct CGColor *)arg1;
 @end
 

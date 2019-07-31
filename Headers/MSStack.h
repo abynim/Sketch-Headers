@@ -4,18 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <SketchControllers/MSLayoutElement.h>
 
-@interface MSStack : NSObject
+@interface MSStack : MSLayoutElement
 {
     // Error parsing type: , name: axis
     // Error parsing type: , name: spacing
-    // Error parsing type: , name: isUniform
-    // Error parsing type: , name: elements
 }
 
-- (void).cxx_destruct;
-- (id)init;
 @property(nonatomic) double spacing; // @synthesize spacing;
 
 @end

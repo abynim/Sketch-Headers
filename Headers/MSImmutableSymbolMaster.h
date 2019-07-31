@@ -15,10 +15,12 @@
     long long _changeIdentifier;
     NSDictionary *_overrideProperies;
     BCCache *_modifiedMasterCache;
+    BCCache *_detachedGroupCache;
 }
 
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
+@property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
 @property(readonly, nonatomic) BCCache *modifiedMasterCache; // @synthesize modifiedMasterCache=_modifiedMasterCache;
 @property(readonly, nonatomic) NSDictionary *overrideProperies; // @synthesize overrideProperies=_overrideProperies;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;

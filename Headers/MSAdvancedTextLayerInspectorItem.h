@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-@class MSAutoSelectingArrayController, MSTextLayerInspectorItem, NSMenuItem, NSNumber, NSPopUpButton, NSSegmentedControl;
+@class MSTextLayerInspectorItem, NSMenuItem, NSNumber, NSPopUpButton, NSSegmentedControl;
 
 @interface MSAdvancedTextLayerInspectorItem : MSInspectorItem
 {
@@ -14,18 +14,12 @@
     NSPopUpButton *_decorationButton;
     NSSegmentedControl *_transformControl;
     NSMenuItem *_titleItem;
-    MSAutoSelectingArrayController *_strikethroughController;
-    MSAutoSelectingArrayController *_underlineController;
-    MSAutoSelectingArrayController *_transformController;
     NSNumber *_underlineValue;
     NSNumber *_strikethroughValue;
 }
 
 @property(retain, nonatomic) NSNumber *strikethroughValue; // @synthesize strikethroughValue=_strikethroughValue;
 @property(retain, nonatomic) NSNumber *underlineValue; // @synthesize underlineValue=_underlineValue;
-@property(retain, nonatomic) MSAutoSelectingArrayController *transformController; // @synthesize transformController=_transformController;
-@property(retain, nonatomic) MSAutoSelectingArrayController *underlineController; // @synthesize underlineController=_underlineController;
-@property(retain, nonatomic) MSAutoSelectingArrayController *strikethroughController; // @synthesize strikethroughController=_strikethroughController;
 @property(retain, nonatomic) NSMenuItem *titleItem; // @synthesize titleItem=_titleItem;
 @property(retain, nonatomic) NSSegmentedControl *transformControl; // @synthesize transformControl=_transformControl;
 @property(retain, nonatomic) NSPopUpButton *decorationButton; // @synthesize decorationButton=_decorationButton;
@@ -36,11 +30,9 @@
 - (void)decorationButtonAction:(id)arg1;
 - (void)prepareDecorationButtonWithUnderlineValue:(id)arg1 strikeValue:(id)arg2;
 - (void)updateDecorationButtonIfNecessary;
-- (void)reloadModelControllers;
 - (void)updateDisplayedValues;
 - (void)dealloc;
 - (void)viewDidLoad;
-- (id)init;
 
 @end
 

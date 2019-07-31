@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
-- (struct CGPoint)rulerBase;
+@property(readonly, nonatomic) struct CGPoint rulerBase;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
 - (void)objectDidInit;

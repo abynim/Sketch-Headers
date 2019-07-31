@@ -7,6 +7,6 @@
 #import <SketchModel/MSSymbolInstance.h>
 
 @interface MSSymbolInstance (LayerSelectionDrawing)
-- (void)drawOverrideSelectionAt:(double)arg1;
+- (id)overrideSelectionPathItems;
 @end
 

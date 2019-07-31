@@ -26,7 +26,8 @@
 - (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
 - (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(NSColor *)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
-- (void)scheduleDrawBlock:(void (^)(void))arg1;
+- (BOOL)isDrawing;
+- (void)scheduleDrawBlock:(void (^)(void))arg1 drawableSize:(struct CGSize)arg2;
 
 @optional
 - (CDStruct_ffe6b7c1)maximumTextureSize;

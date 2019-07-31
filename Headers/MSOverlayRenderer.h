@@ -6,9 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/MSOverlayItemDataSource-Protocol.h>
+
+@class NSString;
 @protocol MSTiledRendererHostView;
 
-@interface MSOverlayRenderer : NSObject
+@interface MSOverlayRenderer : NSObject <MSOverlayItemDataSource>
 {
     BOOL _hidden;
     id <MSTiledRendererHostView> _hostView;
@@ -17,10 +20,17 @@
 @property(nonatomic) __weak id <MSTiledRendererHostView> hostView; // @synthesize hostView=_hostView;
 @property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
-- (void)setNeedsDisplayInRect:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (void)setNeedsDisplay;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)trackMouseWithLocation:(struct CGPoint)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

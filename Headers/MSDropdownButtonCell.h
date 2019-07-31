@@ -11,7 +11,6 @@
 }
 
 - (void)drawBezelWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 

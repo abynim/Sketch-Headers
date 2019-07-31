@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (NSProcessInfo)
-- (BOOL)runningSierra_bc;
+- (BOOL)runningHighSierra_bc;
 - (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
 @end
 

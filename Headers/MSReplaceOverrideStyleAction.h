@@ -17,7 +17,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)applyStyleOverride:(id)arg1 fromMenuItem:(id)arg2;
+- (void)applyStyleOverride:(id)arg1 styleReference:(id)arg2;
 - (void)replaceOverrideWithStyleAction:(id)arg1;
 - (void)buildMenu:(id)arg1;
 @property(readonly, nonatomic) MSForeignObjectMenuBuilder *textStyleMenuBuilder; // @synthesize textStyleMenuBuilder=_textStyleMenuBuilder;

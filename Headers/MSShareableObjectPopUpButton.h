@@ -25,6 +25,7 @@
 @property(nonatomic) __weak NSArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
+- (void)setTitle:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;

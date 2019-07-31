@@ -8,8 +8,7 @@
 
 @interface MSSpecRendererLayout : _TtC17SketchControllers26MSCollectionRendererLayout
 {
-    // Error parsing type: , name: pillLayoutAttributes
-    // Error parsing type: , name: otherLayoutAttributes
+    // Error parsing type: , name: cache
 }
 
 + (struct CGRect)spacingRectFromRect:(struct CGRect)arg1 toRect:(struct CGRect)arg2 axis:(unsigned long long)arg3;

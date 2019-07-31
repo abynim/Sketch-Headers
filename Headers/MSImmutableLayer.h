@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;
+- (id)maskingLayerForChild:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;

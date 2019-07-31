@@ -7,13 +7,21 @@
 #import <SketchModel/_MSImmutableStylePart.h>
 
 #import <SketchModel/MSStylePart-Protocol.h>
+#import <SketchModel/MSStylePartPasteboardReadWritable-Protocol.h>
 
-@interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePart>
+@interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePartPasteboardReadWritable, MSStylePart>
 {
 }
 
++ (id)readableTypesForPasteboard:(id)arg1;
++ (id)stylePartPasteboardType;
+- (id)initWithPasteboardPropertyList:(id)arg1 ofType:(id)arg2;
+- (id)pasteboardPropertyListForType:(id)arg1;
+- (id)writableTypesForPasteboard:(id)arg1;
+- (id)pasteboardReaderWriter;
 
 // Remaining properties
 @property(readonly, nonatomic) BOOL isEnabled;
+
 @end
 

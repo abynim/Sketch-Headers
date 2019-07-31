@@ -9,17 +9,17 @@
 #import "MSArtboardPresetsViewControllerDelegate-Protocol.h"
 #import "MSEditArtboardPresetViewControllerDelegate-Protocol.h"
 
-@class MSArtboardPresetButton, MSArtboardPresetStore, MSArtboardPresetsViewController, NSString;
+@class MSArtboardPresetStore, MSArtboardPresetsViewController, MSInspectorPopoverButton, NSString;
 
 @interface MSArtboardPresetInspectorItem : MSInspectorItem <MSArtboardPresetsViewControllerDelegate, MSEditArtboardPresetViewControllerDelegate>
 {
     MSArtboardPresetsViewController *_presetsViewController;
     MSArtboardPresetStore *_presetStore;
-    MSArtboardPresetButton *_presetButton;
+    MSInspectorPopoverButton *_presetButton;
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
-@property(retain, nonatomic) MSArtboardPresetButton *presetButton; // @synthesize presetButton=_presetButton;
+@property(retain, nonatomic) MSInspectorPopoverButton *presetButton; // @synthesize presetButton=_presetButton;
 @property(readonly, nonatomic) MSArtboardPresetStore *presetStore; // @synthesize presetStore=_presetStore;
 @property(retain, nonatomic) MSArtboardPresetsViewController *presetsViewController; // @synthesize presetsViewController=_presetsViewController;
 - (void).cxx_destruct;

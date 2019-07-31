@@ -39,6 +39,7 @@
 - (id)libraryForShareableObject:(id)arg1;
 - (void)enumerateForeignObjects:(id)arg1 inDocument:(id)arg2 includeDisabled:(BOOL)arg3 block:(CDUnknownBlockType)arg4;
 - (void)syncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importShareableObjectReference:(id)arg1 intoDocument:(id)arg2;
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;

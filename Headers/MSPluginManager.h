@@ -35,6 +35,7 @@
     NSDictionary *_incompatiblePluginVersions;
 }
 
++ (BOOL)isPluginAtURL:(id)arg1 newerThanPluginAtURL:(id)arg2;
 + (id)warehousePluginFolderForIdentifier:(id)arg1 withVersion:(id)arg2;
 + (id)pluginsWarehouseURL;
 + (id)pluginsURLs;

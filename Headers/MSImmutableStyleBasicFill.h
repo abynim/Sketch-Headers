@@ -6,11 +6,23 @@
 
 #import <SketchModel/_MSImmutableStyleBasicFill.h>
 
-@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill
+#import <SketchModel/NSPasteboardReading-Protocol.h>
+#import <SketchModel/NSPasteboardWriting-Protocol.h>
+
+@class NSString;
+
+@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill <NSPasteboardWriting, NSPasteboardReading>
 {
 }
 
 @property(readonly, nonatomic) BOOL hasOpacity;
+- (id)pasteboardReaderWriter;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSCloudManifestMakerDelegate-Protocol.h>
 
-@class MSDocumentData, NSString, NSURL, SCKOrganization;
+@class MSDocumentData, NSBundle, NSString, NSURL, SCKOrganization;
 @protocol OS_dispatch_queue;
 
 @interface MSWebExporter : NSObject <MSCloudManifestMakerDelegate>
@@ -19,6 +19,7 @@
     NSURL *_destinationURL;
     NSString *_name;
     SCKOrganization *_cloudOrganization;
+    NSBundle *_clientBundle;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
@@ -30,6 +31,7 @@
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
+@property(retain, nonatomic) NSBundle *clientBundle; // @synthesize clientBundle=_clientBundle;
 @property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
@@ -42,9 +44,10 @@
 - (id)metadataForDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long documentFileSize;
 - (void)callCompletionBlock:(CDUnknownBlockType)arg1 withDidExport:(BOOL)arg2 error:(id)arg3;
+- (BOOL)exportDocumentPreviews;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (BOOL)exportArtboardsIncludingManifest:(BOOL)arg1 error:(id *)arg2;
+- (BOOL)exportArtboardsAndManifestWithError:(id *)arg1;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

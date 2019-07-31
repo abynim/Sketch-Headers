@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) MSLayoutPosition *topAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
 @property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
-- (void)enumerateAnchorsForSnappingOnAxes:(unsigned long long)arg1 includingCenter:(BOOL)arg2 usingBlock:(CDUnknownBlockType)arg3;
+- (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

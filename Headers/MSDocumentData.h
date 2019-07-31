@@ -35,6 +35,7 @@
 - (void)refreshOverlay;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
+- (void)updateForeignSymbolsPreservingOverridesInBlock:(CDUnknownBlockType)arg1;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
 - (id)images;
 - (id)layerStyleWithID:(id)arg1;
@@ -66,6 +67,7 @@
 - (id)layerWithID:(id)arg1;
 - (id)selectedLayers;
 - (BOOL)documentIsEmpty;
+- (void)fixDuplicateArtboardObjectIDs;
 - (id)nameForNewPage;
 - (id)symbolsPageOrCreateIfNecessary;
 - (id)symbolsPage;

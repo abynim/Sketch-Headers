@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)providesPreviewImage;
 - (id)title;

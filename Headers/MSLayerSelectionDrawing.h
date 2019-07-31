@@ -11,8 +11,7 @@
 }
 
 + (double)strokeWidthForZoomValue:(double)arg1;
-+ (void)drawBorderWithRect:(struct CGRect)arg1 zoomValue:(double)arg2;
-+ (void)drawOverridesForLayers:(id)arg1 zoomScale:(double)arg2;
++ (id)overrideItemsForLayers:(id)arg1;
 
 @end
 

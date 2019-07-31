@@ -6,7 +6,6 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorSectionDelegate-Protocol.h"
 #import "MSColorModePickerControllerDelegate-Protocol.h"
 #import "MSColorPickerViewControllerDelegate-Protocol.h"
@@ -16,7 +15,7 @@
 @class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorModePickerController, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField;
 @protocol MSColorInspectorDelegate;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
 {
     BOOL _displayingDiverseStyles;
     BOOL _isStacking;

@@ -13,6 +13,9 @@
 }
 
 + (id)exportableFilenameForLayerName:(id)arg1 exportFormat:(id)arg2;
++ (id)cleanLayerNameForUseInPath:(id)arg1 shouldRecurse:(BOOL)arg2;
++ (id)cleanLayerNamePrefix:(id)arg1 shouldRecurse:(BOOL)arg2;
++ (id)sanitizeLayerName:(id)arg1;
 + (id)exportableFilenameBodyForLayerName:(id)arg1 exportFormat:(id)arg2;
 + (id)validFormats;
 + (id)formatWithScale:(double)arg1 name:(id)arg2 fileFormat:(id)arg3 absoluteSize:(double)arg4 namingScheme:(long long)arg5;

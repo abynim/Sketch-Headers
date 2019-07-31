@@ -6,11 +6,12 @@
 
 #import <AppKit/NSCollectionViewItem.h>
 
+#import "MSWelcomeCollectionViewSelectionDrawing-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
 @class MSWelcomeCollectionItem, MSWelcomeProgressView, NSString;
 
-@interface MSWelcomeCollectionViewItem : NSCollectionViewItem <NSMenuDelegate>
+@interface MSWelcomeCollectionViewItem : NSCollectionViewItem <NSMenuDelegate, MSWelcomeCollectionViewSelectionDrawing>
 {
     struct CGSize _designedImageViewSize;
     MSWelcomeProgressView *_progressView;
@@ -24,6 +25,7 @@
 - (void)fetchPreviewImage;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSWelcomeCollectionItem *collectionItem;
+- (void)setNeedsDisplaySelection;
 - (void)setSelected:(BOOL)arg1;
 - (void)viewDidLoad;
 

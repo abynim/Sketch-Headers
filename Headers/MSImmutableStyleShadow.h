@@ -6,9 +6,23 @@
 
 #import <SketchModel/_MSImmutableStyleShadow.h>
 
-@interface MSImmutableStyleShadow : _MSImmutableStyleShadow
+#import <SketchModel/NSPasteboardReading-Protocol.h>
+#import <SketchModel/NSPasteboardWriting-Protocol.h>
+
+@class NSString;
+
+@interface MSImmutableStyleShadow : _MSImmutableStyleShadow <NSPasteboardWriting, NSPasteboardReading>
 {
 }
+
++ (id)stylePartPasteboardType;
+- (id)pasteboardReaderWriter;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

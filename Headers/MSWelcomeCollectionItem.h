@@ -23,6 +23,7 @@
 @property(nonatomic) __weak MSWelcomeWindowController *welcomeWindowController; // @synthesize welcomeWindowController=_welcomeWindowController;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
 - (id)initWithController:(id)arg1;

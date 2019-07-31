@@ -12,6 +12,7 @@
 {
     unsigned long long _width;
     unsigned long long _height;
+    unsigned long long _bytesPerRow;
     int _tolerance;
     struct BCPixel _reference;
     NSBitmapImageRep *_bitmap;

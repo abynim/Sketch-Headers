@@ -11,8 +11,9 @@
 @class NSString;
 
 @interface MSSharedStyle (MSSharedObjectStyling) <MSSharedObjectStyling>
+- (void)generatePreviewImageAtSize:(struct CGSize)arg1 backingScale:(double)arg2 colorSpace:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
-- (void)generateTextPreviewForSyncSheettWithSize:(struct CGSize)arg1 backingScale:(double)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void)generateTextPreviewWithSize:(struct CGSize)arg1 backingScale:(double)arg2 colorSpace:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
 - (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;

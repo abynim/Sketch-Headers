@@ -10,12 +10,10 @@
 {
     // Error parsing type: , name: handleSize
     // Error parsing type: , name: maximumNumberOfItemsToShowDuringMultipleSelection
-    // Error parsing type: , name: spacing
-    // Error parsing type: , name: stackAxis
     // Error parsing type: , name: indexPathForMeasurement
     // Error parsing type: , name: itemLayoutAttributes
     // Error parsing type: , name: multipleSelectionFrameLayoutAttributes
-    // Error parsing type: , name: handleLayoutAttributes
+    // Error parsing type: , name: handlesState
     // Error parsing type: , name: measurementLayoutAttributes
     // Error parsing type: , name: minSpacingHandleInset
     // Error parsing type: , name: minSpacingHandleLength

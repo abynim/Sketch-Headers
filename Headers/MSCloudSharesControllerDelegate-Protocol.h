@@ -9,5 +9,6 @@
 @protocol MSCloudSharesControllerDelegate
 - (void)cloudSharesController:(MSCloudSharesController *)arg1 didFailLoadingWithError:(NSError *)arg2;
 - (void)cloudSharesController:(MSCloudSharesController *)arg1 didFinishLoadingShares:(NSArray *)arg2;
+- (void)cloudSharesControllerWillStartLoading:(MSCloudSharesController *)arg1;
 @end
 

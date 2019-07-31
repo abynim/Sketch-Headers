@@ -6,18 +6,19 @@
 
 #import <AppKit/NSResponder.h>
 
+#import "MSEventHandlerLegacyOverlayRendering-Protocol.h"
+#import "MSOverlayItemDataSource-Protocol.h"
 #import "NSDraggingDestination-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSArray, NSCursor, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSEventHandlerOverlayItemImageCache, NSArray, NSCursor, NSDictionary, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
 
-@interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate>
+@interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate, MSEventHandlerLegacyOverlayRendering, MSOverlayItemDataSource>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;
     NSMutableArray *_gestureRecognizers;
     BOOL _mouseIsDown;
-    NSMutableArray *_overlayRenderers;
     MSEventHandlerManager *_manager;
     MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
@@ -25,14 +26,16 @@
     NSTouchBar *_selectionTouchBar;
     NSCursor *_cursor;
     NSString *_measurementText;
+    NSArray *_overlayRenderers;
     NSArray *_activeGestureRecognizers;
-    struct CGPoint _viewCoordinateMouse;
-    struct CGSize _measurementLabelSize;
+    NSDictionary *_measurementLabelAttributes;
+    MSEventHandlerOverlayItemImageCache *_overlayItemImageCache;
     struct CGRect _selectionRect;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
-@property(nonatomic) struct CGSize measurementLabelSize; // @synthesize measurementLabelSize=_measurementLabelSize;
+@property(retain, nonatomic) MSEventHandlerOverlayItemImageCache *overlayItemImageCache; // @synthesize overlayItemImageCache=_overlayItemImageCache;
+@property(copy, nonatomic) NSDictionary *measurementLabelAttributes; // @synthesize measurementLabelAttributes=_measurementLabelAttributes;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
 @property(readonly, nonatomic) NSArray *overlayRenderers; // @synthesize overlayRenderers=_overlayRenderers;
@@ -40,7 +43,6 @@
 @property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
 @property(retain, nonatomic) NSTouchBar *noSelectionTouchBar; // @synthesize noSelectionTouchBar=_noSelectionTouchBar;
-@property(nonatomic) struct CGPoint viewCoordinateMouse; // @synthesize viewCoordinateMouse=_viewCoordinateMouse;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
@@ -108,6 +110,7 @@
 @property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
+- (void)documentChanged:(id)arg1;
 - (void)prepareToDraw:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)drawHandles;
@@ -148,14 +151,13 @@
 - (void)zoomToArtboard;
 - (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
-- (void)commitPendingEdits;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
 @property(readonly, nonatomic) NSString *applicableActionItemIdentifier;
 @property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
-- (void)drawDragSelection;
+- (id)dragSelectionItems;
 - (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
@@ -164,15 +166,11 @@
 - (void)cancelOperation:(id)arg1;
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
-- (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
-- (void)drawMeasurementLabel;
-- (void)drawGuidesAndMeasurementsInRect:(struct CGRect)arg1;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)measurementLabelItems;
+- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)addOverlayRenderer:(id)arg1;
 - (void)setMeasurementLabelNeedsDisplay;
-@property(readonly, nonatomic) struct CGRect measurementBackgroundRect;
-- (struct CGPoint)locationForMeasurementLabel;
-- (id)measurementLabelAttributes;
 - (void)setMeasurementTextWithDegrees:(long long)arg1;
 - (void)setMeasurementTextWithSize:(struct CGSize)arg1;
 - (void)addGestureRecognizer:(id)arg1;
@@ -186,11 +184,13 @@
 - (void)rightMouseDown:(id)arg1;
 - (void)setNeedsUpdateCursor;
 - (BOOL)updateCursor;
+@property(readonly, nonatomic) struct CGPoint mousePageCoordinate;
 - (void)trackMouse:(id)arg1;
 - (BOOL)mouseMovedEvent:(id)arg1;
 - (BOOL)mouseUpEvent:(id)arg1;
 - (BOOL)mouseDraggedEvent:(id)arg1;
 - (BOOL)mouseDownEvent:(id)arg1;
+- (struct CGPoint)pageCoordinateFromLocationInWindow:(struct CGPoint)arg1;
 @property(nonatomic) struct CGPoint scrollOrigin; // @dynamic scrollOrigin;
 - (id)parentForInsertingLayer:(id)arg1;
 - (id)currentGroup;

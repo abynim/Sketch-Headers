@@ -6,9 +6,9 @@
 
 #import "NSCollectionViewDelegate-Protocol.h"
 
-@class NSCollectionView, NSCollectionViewItem;
+@class NSCollectionView;
 
 @protocol MSWelcomeCollectionViewDelegate <NSCollectionViewDelegate>
-- (NSCollectionViewItem *)collectionView:(NSCollectionView *)arg1 newItemForRepresentedObject:(id)arg2;
+- (void)collectionViewDidLayout:(NSCollectionView *)arg1;
 @end
 

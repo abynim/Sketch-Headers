@@ -11,13 +11,15 @@
 
 @interface _MSImmutableOverrideValue : MSImmutableModelObject
 {
+    BOOL _isEditing;
     NSString *_overrideName;
     NSObject<NSCopying> *_value;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
+@property(copy, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
+@property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void).cxx_destruct;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

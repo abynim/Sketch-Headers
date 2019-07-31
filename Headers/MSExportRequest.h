@@ -17,6 +17,7 @@
     BOOL _progressive;
     BOOL _interlaced;
     BOOL _includeArtboardBackground;
+    BOOL _renderSymbolMasterAsInstances;
     NSString *_name;
     unsigned long long _options;
     NSSet *_includedLayerIDs;
@@ -29,6 +30,7 @@
     struct CGRect _rect;
 }
 
++ (id)exportRequestFromLayerAncestry:(id)arg1 exportFormat:(id)arg2 inRect:(struct CGRect)arg3 renderingSymbolMasterAsInstances:(BOOL)arg4;
 + (id)exportRequestFromLayerAncestry:(id)arg1 exportFormat:(id)arg2 inRect:(struct CGRect)arg3;
 + (id)exportRequestsFromLayerAncestry:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3;
 + (id)exportRequestsFromLayerAncestry:(id)arg1 exportFormats:(id)arg2;
@@ -40,6 +42,7 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 useIDForName:(BOOL)arg3;
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
+@property(nonatomic) BOOL renderSymbolMasterAsInstances; // @synthesize renderSymbolMasterAsInstances=_renderSymbolMasterAsInstances;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL interlaced; // @synthesize interlaced=_interlaced;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;

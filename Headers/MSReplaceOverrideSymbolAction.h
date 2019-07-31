@@ -16,7 +16,7 @@
 }
 
 - (void).cxx_destruct;
-- (void)applySymbolOverride:(id)arg1 fromMenuItem:(id)arg2;
+- (void)applySymbolOverride:(id)arg1 symbolMasterReference:(id)arg2;
 - (void)replaceOverrideWithSymbolAction:(id)arg1;
 - (void)buildMenu:(id)arg1;
 @property(readonly, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
