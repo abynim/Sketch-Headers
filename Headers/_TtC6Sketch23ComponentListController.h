@@ -6,13 +6,17 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSOutlineView;
+@class NSOutlineView, NSSegmentedControl, NSTextField;
 
 @interface _TtC6Sketch23ComponentListController : NSViewController
 {
+    // Error parsing type: , name: componentKindSegmentedControl
     // Error parsing type: , name: outlineView
-    // Error parsing type: , name: tree
+    // Error parsing type: , name: noComponentsToShowTextField
     // Error parsing type: , name: componentsPaneController
+    // Error parsing type: , name: tree
+    // Error parsing type: , name: includeHideSymbolItem
+    // Error parsing type: , name: hideSymbolViewItem
     // Error parsing type: , name: filterString
     // Error parsing type: , name: shouldScrollSelectionToVisible
     // Error parsing type: , name: cachedRowViewRenderer
@@ -22,12 +26,16 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)pickComponentKind:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
+@property(nonatomic) __weak NSTextField *noComponentsToShowTextField; // @synthesize noComponentsToShowTextField;
 @property(nonatomic) __weak NSOutlineView *outlineView; // @synthesize outlineView;
+@property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
 - (BOOL)outlineView:(id)arg1 acceptDrop:(id)arg2 item:(id)arg3 childIndex:(long long)arg4;
 - (unsigned long long)outlineView:(id)arg1 validateDrop:(id)arg2 proposedItem:(id)arg3 proposedChildIndex:(long long)arg4;
 - (id)outlineView:(id)arg1 pasteboardWriterForItem:(id)arg2;
+- (void)outlineView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItems:(id)arg4;
 - (BOOL)outlineView:(id)arg1 shouldExpandItem:(id)arg2;
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;

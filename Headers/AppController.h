@@ -8,14 +8,13 @@
 
 #import "MSDataSupplierManagerDelegate-Protocol.h"
 #import "NSApplicationDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
@@ -52,6 +51,7 @@
 }
 
 + (id)licenseAlertDateComponentsFormatter;
++ (id)templateLibraryURL;
 + (id)sharedInstance;
 + (void)initialize;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
@@ -110,8 +110,7 @@
 - (BOOL)isThereAPluginForDataSupplier:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
-- (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
-- (id)templateLibraryPath;
+- (void)addTemplatesAtURL:(id)arg1 toMenu:(id)arg2;
 - (void)updateTemplateMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
@@ -119,7 +118,7 @@
 - (void)setupNewMenuItems:(id)arg1;
 - (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
-- (void)openTemplateAtPath:(id)arg1;
+- (void)openTemplateAtURL:(id)arg1;
 - (void)openTemplateFile:(id)arg1;
 - (void)checkImageTemplates;
 @property(nonatomic) BOOL cloudAsDefault;

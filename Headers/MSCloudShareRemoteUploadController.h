@@ -14,6 +14,7 @@
 @interface MSCloudShareRemoteUploadController : NSObject <MSCloudUploadProvider>
 {
     BOOL _cancelled;
+    BOOL _delegateInformedSketchUploadStarted;
     SCKUploadStatus *_status;
     id <MSCloudUploadProviderDelegate> _delegate;
     id <MSCloudExportableDocument> _document;
@@ -25,9 +26,10 @@
 
 + (BOOL)documentIsPendingUpload:(id)arg1;
 + (id)existingUploadForDocument:(id)arg1;
+@property(nonatomic) BOOL delegateInformedSketchUploadStarted; // @synthesize delegateInformedSketchUploadStarted=_delegateInformedSketchUploadStarted;
 @property(retain, nonatomic) NSTimer *uploaderPollTimer; // @synthesize uploaderPollTimer=_uploaderPollTimer;
 @property(retain, nonatomic) MSFileMonitor *statusMonitor; // @synthesize statusMonitor=_statusMonitor;
-@property(retain, nonatomic) NSURL *statusFileURL; // @synthesize statusFileURL=_statusFileURL;
+@property(retain) NSURL *statusFileURL; // @synthesize statusFileURL=_statusFileURL;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) SCKShare *previousShare; // @synthesize previousShare=_previousShare;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> document; // @synthesize document=_document;
@@ -40,9 +42,11 @@
 @property(readonly, nonatomic) SCKShare *newShare;
 - (void)cancel;
 - (void)clear;
+- (void)clearMonitorAndTimer;
 - (void)finish;
 - (BOOL)isUploaderRunning;
 - (void)ensureUploaderRunning;
+- (void)ensureDelegateInformedUploadStarted;
 - (void)observeUploadResult;
 - (void)resumeUpload;
 @property(readonly, nonatomic) BOOL shouldResume;

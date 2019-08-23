@@ -6,42 +6,22 @@
 
 #import "MSEventHandler.h"
 
-#import "MSAlignmentEngineDelegate-Protocol.h"
+@class _TtC6Sketch19MSLineInsertionTool;
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSShapePathLayer, NSString;
-
-@interface MSInsertLineEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
+@interface MSInsertLineEventHandler : MSEventHandler
 {
-    CDUnknownBlockType _lineShapeCreator;
-    MSShapePathLayer *_lineShape;
-    MSAlignmentEngine *_alignmentEngine;
-    MSAlignmentEngineResult *_snapGuides;
+    _TtC6Sketch19MSLineInsertionTool *_tool;
 }
 
-@property(retain, nonatomic) MSAlignmentEngineResult *snapGuides; // @synthesize snapGuides=_snapGuides;
-@property(readonly, nonatomic) MSAlignmentEngine *alignmentEngine; // @synthesize alignmentEngine=_alignmentEngine;
-@property(retain, nonatomic) MSShapePathLayer *lineShape; // @synthesize lineShape=_lineShape;
-@property(copy, nonatomic) CDUnknownBlockType lineShapeCreator; // @synthesize lineShapeCreator=_lineShapeCreator;
+@property(readonly, nonatomic) _TtC6Sketch19MSLineInsertionTool *tool; // @synthesize tool=_tool;
 - (void).cxx_destruct;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (id)currentGroup;
-- (double)lineThickness;
-- (id)style;
-- (void)addSnapTargetsToAlignmentEngine:(id)arg1;
-- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
-- (id)alignEndPoint:(struct CGPoint)arg1 snap:(BOOL)arg2;
-- (void)prepareAlignmentEngineForPoint:(struct CGPoint)arg1 constraint:(id)arg2;
-- (void)createShapeAtLocation:(struct CGPoint)arg1;
+- (id)updateToolWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)handleDrag:(id)arg1;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

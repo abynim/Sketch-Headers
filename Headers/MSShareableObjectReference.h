@@ -9,7 +9,7 @@
 #import <SketchControllers/BCSortable-Protocol.h>
 #import <SketchControllers/MSSharedObjectStyling-Protocol.h>
 
-@class MSAssetLibrary, MSModelObject, NSString;
+@class MSAssetLibrary, MSModelObject, MSShareableObjectReferenceDescriptor, NSString;
 @protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSShareableObjectReference : NSObject <BCSortable, MSSharedObjectStyling>
@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) NSString *sharedObjectID;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) MSShareableObjectReferenceDescriptor *descriptor;
 - (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 
 // Remaining properties

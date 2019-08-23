@@ -9,7 +9,7 @@
 #import "MSGradientBarViewDelegate-Protocol.h"
 #import "MSGradientEventHandlerDelegate-Protocol.h"
 
-@class MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
+@class MSAssetPickerCollectionHeaderController, MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
 
 @interface MSColorInspectorSectionGradient : MSColorInspectorSectionWithColorPicker <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
@@ -18,11 +18,15 @@
     MSAssetPickerController *_secondaryAssetPickerController;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
+    MSAssetPickerCollectionHeaderController *_gradientHeader;
+    MSAssetPickerCollectionHeaderController *_colorHeader;
 }
 
 + (BOOL)canHandleStylePart:(id)arg1;
 + (id)filterSelection:(id)arg1;
 + (id)presetPickerVisibilityDefaultsKey;
+@property(retain, nonatomic) MSAssetPickerCollectionHeaderController *colorHeader; // @synthesize colorHeader=_colorHeader;
+@property(retain, nonatomic) MSAssetPickerCollectionHeaderController *gradientHeader; // @synthesize gradientHeader=_gradientHeader;
 @property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
 @property(retain, nonatomic) MSAssetPickerController *secondaryAssetPickerController; // @synthesize secondaryAssetPickerController=_secondaryAssetPickerController;

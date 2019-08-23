@@ -6,11 +6,9 @@
 
 #import "MSInspectorItem.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString;
 
-@interface MSOpacityBlendingInspectorItem : MSInspectorItem <NSMenuDelegate>
+@interface MSOpacityBlendingInspectorItem : MSInspectorItem
 {
     MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_blendModePopUp;

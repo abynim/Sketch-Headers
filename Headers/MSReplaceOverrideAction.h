@@ -6,12 +6,10 @@
 
 #import "MSOverrideAction.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSReplaceOverrideStyleAction, MSReplaceOverrideSymbolAction, NSObject, NSString;
 @protocol MSReplaceOverride;
 
-@interface MSReplaceOverrideAction : MSOverrideAction <NSMenuDelegate>
+@interface MSReplaceOverrideAction : MSOverrideAction
 {
     MSReplaceOverrideSymbolAction *_symbolAction;
     MSReplaceOverrideStyleAction *_styleAction;

@@ -6,9 +6,9 @@
 
 #import "MSSnapOverlayController.h"
 
-#import "_TtP17SketchControllers30MSCollectionRendererDataSource_-Protocol.h"
+#import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@interface MSSnapOverlayController (Sketch) <_TtP17SketchControllers30MSCollectionRendererDataSource_>
-- (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;
+@interface MSSnapOverlayController (Sketch) <_TtP17SketchControllers29MSCollectionOverlayDataSource_>
+- (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
 @end
 

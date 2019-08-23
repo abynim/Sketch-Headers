@@ -10,7 +10,7 @@
 {
 }
 
-- (id)createOverlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)createOverlayItemImagesForColorSpace:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 
 @end
 

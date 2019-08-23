@@ -78,6 +78,7 @@
 - (id)containedLayers;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)initWithMutableDocumentDataMetadataCopy:(id)arg1;
 @property(readonly, nonatomic) BOOL containsUnavailableFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;

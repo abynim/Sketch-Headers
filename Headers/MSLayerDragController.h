@@ -6,7 +6,7 @@
 
 #import <SketchControllers/MSToolController.h>
 
-@class MSLayerPositioningTool, NSArray, NSCursor, NSNumber, _TtC17SketchControllers21MSLayerSnappingResult;
+@class MSLayerPositioningTool, NSArray, NSNumber, _TtC17SketchControllers21MSLayerSnappingResult;
 @protocol MSDragLayerToolUserInterface;
 
 @interface MSLayerDragController : MSToolController
@@ -35,7 +35,6 @@
 @property(readonly, nonatomic) MSLayerPositioningTool *positioningTool; // @synthesize positioningTool=_positioningTool;
 - (void).cxx_destruct;
 - (void)layerPositioningTool:(id)arg1 provideTargetsToSnapper:(id)arg2;
-@property(readonly, nonatomic) NSCursor *cursor;
 - (void)endDuplicating:(BOOL)arg1;
 - (void)beginDuplicating;
 - (void)reset;

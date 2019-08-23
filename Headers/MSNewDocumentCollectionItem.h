@@ -12,6 +12,7 @@
 
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)providesPreviewImage;
+- (id)toolTip;
 - (id)title;
 - (id)placeholderImage;
 

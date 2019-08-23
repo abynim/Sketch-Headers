@@ -10,8 +10,8 @@
 
 @interface _TtC6Sketch20ComponentListRowView : NSTableRowView
 {
+    // Error parsing type: , name: delegate
     // Error parsing type: , name: outlineView
-    // Error parsing type: , name: renderer
     // Error parsing type: , name: borderRenderingScheme
 }
 

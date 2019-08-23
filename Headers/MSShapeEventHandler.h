@@ -8,12 +8,11 @@
 
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "MSVectorCanvasDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSTextDelegate-Protocol.h"
 
 @class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorCanvas, NSArray, NSString;
 
-@interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, NSMenuDelegate, MSGestureRecognizerDelegate>
+@interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, MSGestureRecognizerDelegate>
 {
     unsigned long long _ignoreSelectionChangesCount;
     MSEditShapeInspectorViewController *_inspectorViewController;

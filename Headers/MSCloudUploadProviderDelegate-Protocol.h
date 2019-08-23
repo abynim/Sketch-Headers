@@ -6,10 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSError, NSProgress, SCKShare;
+@class NSError, NSProgress, SCKShare, SCKUploadStatus;
 @protocol MSCloudUploadProvider;
 
 @protocol MSCloudUploadProviderDelegate <NSObject>
+- (void)uploadProvider:(id <MSCloudUploadProvider>)arg1 uploadStartedWithStatus:(SCKUploadStatus *)arg2;
 - (void)uploadProvider:(id <MSCloudUploadProvider>)arg1 didChangeProgress:(NSProgress *)arg2;
 - (void)uploadProvider:(id <MSCloudUploadProvider>)arg1 uploadDidFailWithError:(NSError *)arg2;
 - (void)uploadProviderDidCancelUploading:(id <MSCloudUploadProvider>)arg1;

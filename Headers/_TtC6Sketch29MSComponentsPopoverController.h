@@ -22,7 +22,7 @@
 - (id)initWithCoder:(id)arg1;
 - (void)pickTextStyleWithRelativeToView:(id)arg1 preselectingTextStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)pickLayerStyleWithRelativeToView:(id)arg1 preselectingLayerStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)pickSymbolMasterWithRelativeToView:(id)arg1 preselectingSymbol:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)pickSymbolMasterWithRelativeToView:(id)arg1 preselectingSymbol:(id)arg2 enableHideSymbolItem:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, readonly) MSDocument *document; // @synthesize document;
 

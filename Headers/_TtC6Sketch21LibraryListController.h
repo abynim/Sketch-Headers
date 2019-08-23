@@ -21,6 +21,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)availableLibrariesDidChange:(id)arg1;
+- (void)dealloc;
 - (void)viewDidLoad;
 @property(nonatomic) __weak NSOutlineView *outlineView; // @synthesize outlineView;
 

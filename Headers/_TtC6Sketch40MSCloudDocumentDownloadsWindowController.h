@@ -15,6 +15,8 @@
 }
 
 + (void)showDownloadWindow:(id)arg1 share:(id)arg2 displayAfterDownload:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
++ (BOOL)isDownloadingShare:(id)arg1;
++ (void)showDownloadWindow:(id)arg1;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;

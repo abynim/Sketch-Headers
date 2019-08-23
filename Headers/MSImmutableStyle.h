@@ -10,8 +10,34 @@
 
 @interface MSImmutableStyle : _MSImmutableStyle
 {
+    BOOL _hasMarkers;
+    BOOL _hasMoreThanOneEnabledFill;
+    BOOL _hasEnabledShadow;
+    BOOL _hasEnabledInnerShadow;
+    BOOL _hasEnabledBorder;
+    BOOL _hasEnabledFill;
+    BOOL _hasBlending;
+    BOOL _hasEnabledBackgroundBlur;
+    double _thickestStroke;
+    double _thickestInnerStroke;
+    double _outerPaddingForBiggestStroke;
+    double _outerPaddingForSmallestStroke;
+    double _outerPaddingForBiggestShadowSpread;
 }
 
+@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur; // @synthesize hasEnabledBackgroundBlur=_hasEnabledBackgroundBlur;
+@property(readonly, nonatomic) double outerPaddingForBiggestShadowSpread; // @synthesize outerPaddingForBiggestShadowSpread=_outerPaddingForBiggestShadowSpread;
+@property(readonly, nonatomic) double outerPaddingForSmallestStroke; // @synthesize outerPaddingForSmallestStroke=_outerPaddingForSmallestStroke;
+@property(readonly, nonatomic) double outerPaddingForBiggestStroke; // @synthesize outerPaddingForBiggestStroke=_outerPaddingForBiggestStroke;
+@property(readonly, nonatomic) double thickestInnerStroke; // @synthesize thickestInnerStroke=_thickestInnerStroke;
+@property(readonly, nonatomic) double thickestStroke; // @synthesize thickestStroke=_thickestStroke;
+@property(readonly, nonatomic) BOOL hasBlending; // @synthesize hasBlending=_hasBlending;
+@property(readonly, nonatomic) BOOL hasEnabledFill; // @synthesize hasEnabledFill=_hasEnabledFill;
+@property(readonly, nonatomic) BOOL hasEnabledBorder; // @synthesize hasEnabledBorder=_hasEnabledBorder;
+@property(readonly, nonatomic) BOOL hasEnabledInnerShadow; // @synthesize hasEnabledInnerShadow=_hasEnabledInnerShadow;
+@property(readonly, nonatomic) BOOL hasEnabledShadow; // @synthesize hasEnabledShadow=_hasEnabledShadow;
+@property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill; // @synthesize hasMoreThanOneEnabledFill=_hasMoreThanOneEnabledFill;
+@property(readonly, nonatomic) BOOL hasMarkers; // @synthesize hasMarkers=_hasMarkers;
 - (void)migratePropertiesFromV104OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
@@ -25,23 +51,17 @@
 @property(readonly, nonatomic) long long shadowStrokeType;
 @property(readonly, nonatomic) unsigned long long shadowType;
 - (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
-@property(readonly, nonatomic) double outerPaddingForBiggestShadowSpread;
-@property(readonly, nonatomic) double outerPaddingForSmallestStroke;
-@property(readonly, nonatomic) double outerPaddingForBiggestStroke;
-@property(readonly, nonatomic) double thickestInnerStroke;
-@property(readonly, nonatomic) double thickestStroke;
-@property(readonly, nonatomic) BOOL hasBlending;
-@property(readonly, nonatomic) BOOL hasEnabledFill;
-@property(readonly, nonatomic) BOOL hasEnabledBorder;
-@property(readonly, nonatomic) BOOL hasEnabledInnerShadow;
-@property(readonly, nonatomic) BOOL hasEnabledShadow;
+- (double)calculateOuterPaddingForBiggestShadowSpread;
+- (double)calculateOuterPaddingForSmallestStroke;
+- (double)calculateOuterPaddingForBiggestStroke;
+- (double)calculateThickestInnerStroke;
+- (double)calculateThickestStroke;
+- (BOOL)calculateHasBlending;
 @property(readonly, nonatomic) MSImmutableStyleBorder *firstEnabledBorder;
 @property(readonly, nonatomic) MSImmutableStyleFill *firstEnabledFill;
 @property(readonly, nonatomic) MSImmutableStyleInnerShadow *firstEnabledInnerShadow;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
-@property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
-@property(readonly, nonatomic) BOOL hasMarkers;
-@property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
+- (void)objectDidInit;
 - (void)migratePropertiesFromV111OrEarlierWithUnarchiver:(id)arg1;
 - (void)clearTextStyle;
 

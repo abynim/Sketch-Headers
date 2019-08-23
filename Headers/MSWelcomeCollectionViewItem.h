@@ -7,11 +7,10 @@
 #import <AppKit/NSCollectionViewItem.h>
 
 #import "MSWelcomeCollectionViewSelectionDrawing-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 
 @class MSWelcomeCollectionItem, MSWelcomeProgressView, NSString;
 
-@interface MSWelcomeCollectionViewItem : NSCollectionViewItem <NSMenuDelegate, MSWelcomeCollectionViewSelectionDrawing>
+@interface MSWelcomeCollectionViewItem : NSCollectionViewItem <MSWelcomeCollectionViewSelectionDrawing>
 {
     struct CGSize _designedImageViewSize;
     MSWelcomeProgressView *_progressView;

@@ -41,6 +41,7 @@
 @property(readonly, nonatomic) id currentValue;
 @property(readonly, nonatomic) NSArray *children;
 - (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 otherOverrides:(id)arg5 inParent:(id)arg6 document:(id)arg7 visible:(BOOL)arg8 editable:(BOOL)arg9;
+- (BOOL)affectsSameLayerAs:(id)arg1;
 - (BOOL)isComplimentaryTo:(id)arg1;
 @property(nonatomic, readonly) long long ancestorCount;
 

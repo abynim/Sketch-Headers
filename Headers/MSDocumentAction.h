@@ -6,12 +6,11 @@
 
 #import <SketchControllers/MSAction.h>
 
-#import "NSMenuDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
 @class MSDocument, NSEvent, NSString, NSTouchBarItem;
 
-@interface MSDocumentAction : MSAction <NSMenuDelegate, NSTouchBarDelegate>
+@interface MSDocumentAction : MSAction <NSTouchBarDelegate>
 {
     MSDocument *_document;
     NSTouchBarItem *_cachedTouchedBarItem;

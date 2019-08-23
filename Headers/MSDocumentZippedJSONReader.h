@@ -16,6 +16,8 @@
 }
 
 + (long long)maximumPixelSizeForImageSource:(struct CGImageSource *)arg1 maximumSize:(struct CGSize)arg2;
++ (long long)documentCompatibilityVersion;
++ (long long)documentVersion;
 @property(retain, nonatomic) MSJSONZippedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
 - (id)metadata;
 - (id)UIMetadata;

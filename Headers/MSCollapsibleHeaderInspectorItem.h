@@ -20,6 +20,7 @@
 - (void)toggleCollapsed:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)init;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end
 

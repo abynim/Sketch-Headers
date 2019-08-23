@@ -27,6 +27,7 @@
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;
 - (void).cxx_destruct;
+- (void)windowWillClose:(id)arg1;
 - (void)dismissAnyAlertSheet;
 - (BOOL)validateToolbarItem:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;

@@ -34,6 +34,7 @@
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
+- (void)addLayoutItemsToItemArray:(id)arg1;
 - (id)symbolMasters;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
 @property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeaderItem; // @synthesize layoutHeaderItem=_layoutHeaderItem;

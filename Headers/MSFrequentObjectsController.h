@@ -6,12 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class NSArray, NSMenu, NSString;
 @protocol MSFrequentObjectsControllerDelegate;
 
-@interface MSFrequentObjectsController : NSObject <NSMenuDelegate>
+@interface MSFrequentObjectsController : NSObject
 {
     NSArray *_frequentObjects;
     id <MSFrequentObjectsControllerDelegate> _delegate;

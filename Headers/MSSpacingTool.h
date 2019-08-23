@@ -11,16 +11,16 @@
 @interface MSSpacingTool : NSObject
 {
     // Error parsing type: , name: layers
+    // Error parsing type: , name: group
     // Error parsing type: , name: primaryStack
-    // Error parsing type: , name: horizontalStacks
-    // Error parsing type: , name: verticalStacks
+    // Error parsing type: , name: stacksAreEditable
     // Error parsing type: , name: inspector
 }
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, copy) NSArray *verticalStacks; // @synthesize verticalStacks;
-@property(nonatomic, copy) NSArray *horizontalStacks; // @synthesize horizontalStacks;
+@property(nonatomic, readonly) NSArray *verticalStacks;
+@property(nonatomic, readonly) NSArray *horizontalStacks;
 @property(nonatomic, copy) NSArray *layers; // @synthesize layers;
 
 @end

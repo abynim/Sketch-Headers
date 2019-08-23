@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: snappingResult
     // Error parsing type: , name: items
-    // Error parsing type: , name: toolRect
     // Error parsing type: , name: sizeMeasurementOutset
     // Error parsing type: , name: formatter.storage
 }

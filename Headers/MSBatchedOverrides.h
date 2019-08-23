@@ -21,6 +21,8 @@
 - (id)init;
 - (BOOL)setPropertiesForOverride:(id)arg1 atIndex:(long long)arg2;
 - (id)initWithBatchedMasters:(id)arg1 overrides:(id)arg2;
+@property(nonatomic, readonly) BOOL affectsSingleOverride;
+@property(nonatomic) long long canOverrideDescendants;
 @property(nonatomic) long long canOverride;
 @property(nonatomic) BOOL enabled; // @synthesize enabled;
 @property(nonatomic, copy) NSString *affectedLayerName; // @synthesize affectedLayerName;

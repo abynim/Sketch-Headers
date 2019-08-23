@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentData-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSFontList, MSPage, NSArray, NSData, NSDictionary, NSString;
+@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
@@ -96,6 +96,7 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+@property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentDataMetadataCopy;
 - (void)replaceFonts:(id)arg1;
 - (void)invalidateFonts;
 - (id)metadataForKey:(id)arg1 object:(id)arg2;

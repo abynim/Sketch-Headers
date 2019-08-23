@@ -7,11 +7,10 @@
 #import "MSNestedInspectorSection.h"
 
 #import "MSSymbolInstanceSectionDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 
 @class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSString;
 
-@interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
+@interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate>
 {
     MSBaseInspectorSection *_textSection;
     MSSymbolInstanceSection *_symbolInstanceSection;

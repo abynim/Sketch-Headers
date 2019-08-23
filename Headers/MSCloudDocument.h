@@ -13,12 +13,16 @@
     NSValue *_documentChangeCount;
     NSTimer *_cloudAutosaveTimer;
     NSURL *_autosaveFileURL;
+    long long _numberOfUploadsNotCompleted;
 }
 
 + (id)autosaveURLFromCloudDocumentURL:(id)arg1;
++ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
++ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (BOOL)autosavesInPlace;
 + (id)makeTemporaryFolder;
 + (id)makeTemporaryFileURL;
+@property(nonatomic) long long numberOfUploadsNotCompleted; // @synthesize numberOfUploadsNotCompleted=_numberOfUploadsNotCompleted;
 @property(retain, nonatomic) NSURL *autosaveFileURL; // @synthesize autosaveFileURL=_autosaveFileURL;
 @property(nonatomic) __weak NSTimer *cloudAutosaveTimer; // @synthesize cloudAutosaveTimer=_cloudAutosaveTimer;
 @property(retain, nonatomic) NSValue *documentChangeCount; // @synthesize documentChangeCount=_documentChangeCount;
@@ -42,6 +46,7 @@
 - (id)defaultDraftName;
 - (id)fileType;
 - (id)initWithContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
+- (id)initForURL:(id)arg1 withContentsOfURL:(id)arg2 ofType:(id)arg3 error:(id *)arg4;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)ensureValidAutosaveURL;
 - (void)saveCloudDocumentOnApplicationTermination;

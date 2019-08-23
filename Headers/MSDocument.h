@@ -12,13 +12,12 @@
 #import "MSEventHandlerManagerDelegate-Protocol.h"
 #import "MSMenuBuilderDelegate-Protocol.h"
 #import "MSSidebarControllerDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
@@ -103,9 +102,11 @@
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
-- (id)symbolReferenceForRecipe:(id)arg1;
+- (id)shareableObjectReferenceForDescriptor:(id)arg1;
 - (id)localObjectForObjectReference:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
+- (void)componentsPaneWillBeginDraggingSession:(id)arg1;
+- (void)componentsPane:(id)arg1 didSelectComponent:(id)arg2;
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
 - (void)libraryControllerDidChange:(id)arg1;

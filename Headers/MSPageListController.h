@@ -19,7 +19,6 @@
 @property(retain, nonatomic) NSArray *selectedPages; // @synthesize selectedPages=_selectedPages;
 - (void).cxx_destruct;
 - (Class)pasteboardWriterClass;
-- (void)dataController:(id)arg1 refreshPreviewsOnNode:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)duplicatePages:(id)arg1;
 - (void)removePageWithValidation:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSSpecRenderer, NSArray, _TtC17SketchControllers21MSLayerSnappingResult;
+@class MSSpecOverlay, NSArray, _TtC17SketchControllers21MSLayerSnappingResult;
 
 @interface MSSnapOverlayController : NSObject
 {
@@ -15,11 +15,11 @@
     // Error parsing type: , name: model
     // Error parsing type: , name: needsRebuildModel
     // Error parsing type: , name: duplicationOffset
-    // Error parsing type: , name: renderer
+    // Error parsing type: , name: overlay
 }
 
 - (void).cxx_destruct;
-@property(nonatomic, readonly) MSSpecRenderer *renderer; // @synthesize renderer;
+@property(nonatomic, readonly) MSSpecOverlay *overlay; // @synthesize overlay;
 @property(nonatomic) struct CGVector duplicationOffset; // @synthesize duplicationOffset;
 - (void)clear;
 @property(nonatomic, copy) NSArray *originalLayers; // @synthesize originalLayers;

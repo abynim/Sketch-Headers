@@ -6,31 +6,29 @@
 
 #import <objc/NSObject.h>
 
-@class MSSelectionRenderer, MSSpacingTool, NSArray;
-@protocol _TtP6Sketch36MSSelectionOverlayControllerDelegate_;
+@class MSNormalEventHandler, MSSelectionOverlay, MSSpacingTool;
 
 @interface _TtC6Sketch28MSSelectionOverlayController : NSObject
 {
     // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: durationForTemporarilyHidingSelection
     // Error parsing type: , name: timerForRestoringTemporarilyHiddenSelection
-    // Error parsing type: , name: horizontalSpaces
-    // Error parsing type: , name: verticalSpaces
     // Error parsing type: , name: state
     // Error parsing type: , name: spacingTool
-    // Error parsing type: , name: renderer
+    // Error parsing type: , name: horizontalSpaces
+    // Error parsing type: , name: verticalSpaces
+    // Error parsing type: , name: overlay
     // Error parsing type: , name: visibilityModel
-    // Error parsing type: , name: delegate
+    // Error parsing type: , name: eventHandler
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <_TtP6Sketch36MSSelectionOverlayControllerDelegate_> delegate; // @synthesize delegate;
-@property(nonatomic, readonly) MSSelectionRenderer *renderer; // @synthesize renderer;
+@property(nonatomic) __weak MSNormalEventHandler *eventHandler; // @synthesize eventHandler;
+@property(nonatomic, readonly) MSSelectionOverlay *overlay; // @synthesize overlay;
 @property(nonatomic, readonly) MSSpacingTool *spacingTool; // @synthesize spacingTool;
 - (void)restoreShowingSelection;
 - (void)temporarilyHideSelection;
 - (void)refreshIfNecessary:(id)arg1;
-@property(nonatomic, copy) NSArray *selectedLayers; // @synthesize selectedLayers;
 - (void)dealloc;
 - (id)init;
 

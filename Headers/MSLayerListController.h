@@ -9,19 +9,13 @@
 #import <SketchControllers/BCOutlineViewDataControllerDataSource-Protocol.h>
 #import <SketchControllers/BCOutlineViewDataControllerDelegate-Protocol.h>
 
-@class NSMutableSet, NSString, NSView;
+@class NSString, NSView;
 
 @interface MSLayerListController : MSSidebarListController <BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate>
 {
-    NSMutableSet *_layersRequiringPreviewRefresh;
-    long long _numberOfLayersRequiringPreviewRefresh;
 }
 
-@property long long numberOfLayersRequiringPreviewRefresh; // @synthesize numberOfLayersRequiringPreviewRefresh=_numberOfLayersRequiringPreviewRefresh;
-@property(retain, nonatomic) NSMutableSet *layersRequiringPreviewRefresh; // @synthesize layersRequiringPreviewRefresh=_layersRequiringPreviewRefresh;
-- (void).cxx_destruct;
 - (Class)pasteboardWriterClass;
-- (void)dataController:(id)arg1 refreshPreviewsOnNode:(id)arg2;
 - (void)dataController:(id)arg1 hoverNodeDidChangeTo:(id)arg2;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)dataController:(id)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;

@@ -11,7 +11,6 @@
 @protocol BCTableCellViewDelegate <NSObject>
 - (BCOutlineView *)tableCellOutlineView:(BCTableCellView *)arg1;
 - (NSWindow *)tableCellViewDestinationWindow:(BCTableCellView *)arg1;
-- (void)tableCellViewNodeRequiresRefresh:(BCTableCellView *)arg1;
 - (void)tableCellViewDidBeginEditing:(BCTableCellView *)arg1;
 - (void)tableCellViewMouseExited:(BCTableCellView *)arg1;
 - (void)tableCellViewMouseEntered:(BCTableCellView *)arg1;

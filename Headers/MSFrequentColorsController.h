@@ -6,12 +6,10 @@
 
 #import "MSFrequentObjectsController.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSColor, NSString;
 @protocol MSFrequentColorsControllerDelegate;
 
-@interface MSFrequentColorsController : MSFrequentObjectsController <NSMenuDelegate>
+@interface MSFrequentColorsController : MSFrequentObjectsController
 {
     MSColor *_color;
     long long _colorModel;

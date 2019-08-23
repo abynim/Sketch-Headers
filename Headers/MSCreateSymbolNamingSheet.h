@@ -14,12 +14,14 @@
     NSButton *_confirmButton;
     NSTextField *_symbolNameField;
     NSTextField *_symbolPageField;
+    NSTextField *_symbolLayoutExplanationField;
     NSPopUpButton *_symbolLayoutPopUpButton;
     CDUnknownBlockType _completionBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) NSPopUpButton *symbolLayoutPopUpButton; // @synthesize symbolLayoutPopUpButton=_symbolLayoutPopUpButton;
+@property(retain, nonatomic) NSTextField *symbolLayoutExplanationField; // @synthesize symbolLayoutExplanationField=_symbolLayoutExplanationField;
 @property(retain, nonatomic) NSTextField *symbolPageField; // @synthesize symbolPageField=_symbolPageField;
 @property(retain, nonatomic) NSTextField *symbolNameField; // @synthesize symbolNameField=_symbolNameField;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;

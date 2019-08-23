@@ -8,7 +8,7 @@
 
 #import "MSCloudUploadProviderDelegate-Protocol.h"
 
-@class NSArray, NSString, NSViewController, SCKAPIOperation;
+@class NSArray, NSString, NSTimer, NSViewController, SCKAPIOperation;
 @protocol MSCloudExportableDocument, MSCloudUploadProvider;
 
 @interface MSCloudAction : MSPopoverAction <MSCloudUploadProviderDelegate>
@@ -18,6 +18,8 @@
     id <MSCloudUploadProvider> _upload;
     SCKAPIOperation *_refreshOperation;
     CDUnknownBlockType _closeAlertUploadDidFinishHandler;
+    NSTimer *_displayErrorSheetTimer;
+    id <MSCloudUploadProvider> _lastFailedUploadProvider;
 }
 
 + (void)requestCloudUser;
@@ -27,6 +29,8 @@
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
 + (id)cloudError:(id)arg1 addingRecoveryOptionsWithAttempter:(id)arg2;
 + (BOOL)isErrorRecoverable:(id)arg1;
+@property(retain, nonatomic) id <MSCloudUploadProvider> lastFailedUploadProvider; // @synthesize lastFailedUploadProvider=_lastFailedUploadProvider;
+@property(retain, nonatomic) NSTimer *displayErrorSheetTimer; // @synthesize displayErrorSheetTimer=_displayErrorSheetTimer;
 @property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(readonly, nonatomic) id <MSCloudUploadProvider> upload; // @synthesize upload=_upload;
@@ -59,11 +63,18 @@
 - (id)willPresentError:(id)arg1;
 - (void)uploadProvider:(id)arg1 didChangeProgress:(id)arg2;
 - (void)uploadProvider:(id)arg1 uploadDidFailWithError:(id)arg2;
+- (void)uploadProvider:(id)arg1 uploadStartedWithStatus:(id)arg2;
 - (void)uploadProviderDidCancelUploading:(id)arg1;
 - (void)uploadProvider:(id)arg1 didUploadShare:(id)arg2;
+- (void)displayUploadFailedSheet;
+- (double)displayErrorSheetPeriod;
+- (void)clearErrorSheetTimer:(id)arg1;
+- (void)setupDisplayErrorSheetTimer;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
 - (void)resumeUploadIfNeeded;
 - (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2;
+- (long long)incompleteCloudDocumentUploads;
+- (void)setIncompleteCloudDocumentUploads:(long long)arg1;
 - (id)uploadProviderUpdating:(id)arg1 ownedByOrganization:(id)arg2;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
 

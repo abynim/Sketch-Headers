@@ -53,6 +53,7 @@
 - (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
 - (void)unregister;
 - (void)validateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)tryToMigrateToCloudWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)tryToRefreshLicense:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)refreshLicenseIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;

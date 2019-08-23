@@ -18,6 +18,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)providesPreviewImage;
+- (id)toolTip;
 - (id)title;
 - (id)initWithController:(id)arg1 URL:(id)arg2;
 

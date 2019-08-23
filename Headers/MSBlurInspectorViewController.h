@@ -7,11 +7,10 @@
 #import "MSStylePartInspectorViewController.h"
 
 #import "MSStylePartInspectorItemDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 
 @class MSBackgroundBlurInspectorItem, MSBlurNameInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
 
-@interface MSBlurInspectorViewController : MSStylePartInspectorViewController <MSStylePartInspectorItemDelegate, NSMenuDelegate>
+@interface MSBlurInspectorViewController : MSStylePartInspectorViewController <MSStylePartInspectorItemDelegate>
 {
     NSMenuItem *_backgroundBlurMenuItem;
     NSMenuItem *_multipleBlursMenuItem;

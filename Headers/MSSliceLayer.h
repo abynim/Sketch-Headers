@@ -15,6 +15,7 @@
 {
 }
 
+- (void)changeColor:(id)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;

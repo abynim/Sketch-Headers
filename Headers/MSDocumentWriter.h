@@ -10,6 +10,7 @@
 
 @interface MSDocumentWriter : NSObject
 {
+    BOOL _preserveMetadata;
     NSDictionary *_UIMetadata;
     CDUnknownBlockType _previewGenerationBlock;
     MSJSONZippedArchiver *_archiver;
@@ -21,6 +22,7 @@
 @property(retain, nonatomic) NSData *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
 @property(retain, nonatomic) NSData *previewData; // @synthesize previewData=_previewData;
 @property(retain, nonatomic) MSJSONZippedArchiver *archiver; // @synthesize archiver=_archiver;
+@property(nonatomic) BOOL preserveMetadata; // @synthesize preserveMetadata=_preserveMetadata;
 @property(copy, nonatomic) CDUnknownBlockType previewGenerationBlock; // @synthesize previewGenerationBlock=_previewGenerationBlock;
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (void).cxx_destruct;

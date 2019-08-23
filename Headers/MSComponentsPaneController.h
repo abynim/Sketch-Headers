@@ -7,7 +7,7 @@
 #import <AppKit/NSViewController.h>
 
 @class MSDocument;
-@protocol _TtP6Sketch22ComponentsPaneDelegate_;
+@protocol MSComponentsPaneDelegate;
 
 @interface MSComponentsPaneController : NSViewController
 {
@@ -18,6 +18,7 @@
     // Error parsing type: , name: componentListController
     // Error parsing type: , name: previewController
     // Error parsing type: , name: filterBarController
+    // Error parsing type: , name: appearanceObserver.storage
     // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
     // Error parsing type: , name: allowEditing
@@ -25,8 +26,11 @@
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: filterBarPosition
     // Error parsing type: , name: enableLibraryList
+    // Error parsing type: , name: enableComponentKindControl
     // Error parsing type: , name: componentPreviewPosition
     // Error parsing type: , name: librariesNeedReloading
+    // Error parsing type: , name: componentsNeedReloading
+    // Error parsing type: , name: lastComponentPaneModifiedDocument
 }
 
 - (void).cxx_destruct;
@@ -36,7 +40,8 @@
 - (void)applyAppearance;
 - (void)viewWillAppear;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
-@property(nonatomic) __weak id <_TtP6Sketch22ComponentsPaneDelegate_> delegate; // @synthesize delegate;
+- (void)viewDidLoad;
+@property(nonatomic) __weak id <MSComponentsPaneDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document;
 
 @end

@@ -6,11 +6,9 @@
 
 #import "MSOverrideInspectorItem.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate>
+@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;

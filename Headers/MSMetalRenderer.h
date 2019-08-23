@@ -71,6 +71,7 @@
 - (void)lockTextures;
 - (BOOL)requiresSynchronousRendering;
 - (id)layer;
+- (id)createBufferWithBytes:(const void *)arg1 length:(unsigned long long)arg2 count:(unsigned long long)arg3;
 - (id)createTextureWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (void)endFrameAndWaitForFrame:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
@@ -82,10 +83,11 @@
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
 - (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
+-     // Error parsing type: v156@0:8@16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMeshFromBuffer:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
 -     // Error parsing type: v156@0:8r^{?=^{?}II}16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMesh:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
 - (id)ms_createStencilTextureForColorAttachment:(id)arg1;
+- (void)drawColorTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
 - (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
-- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 disableOverlappingFragmentBlending:(BOOL)arg2;
 - (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
 - (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
 - (BOOL)isDrawing;

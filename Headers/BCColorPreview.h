@@ -6,12 +6,10 @@
 
 #import <AppKit/NSPopUpButton.h>
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSFlexibleColor, NSString;
 @protocol BCColorPreviewDelegate;
 
-@interface BCColorPreview : NSPopUpButton <NSMenuDelegate>
+@interface BCColorPreview : NSPopUpButton
 {
     MSFlexibleColor *_color;
     id <BCColorPreviewDelegate> _delegate;

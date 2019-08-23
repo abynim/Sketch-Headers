@@ -13,6 +13,7 @@
 @interface MSWelcomeCollectionItem : NSObject <MSWelcomeCollectionItemPreviewImageLoading>
 {
     NSString *_title;
+    NSString *_toolTip;
     MSWelcomeWindowController *_welcomeWindowController;
     NSImage *_cachedPreviewImage;
 }
@@ -21,6 +22,7 @@
 + (id)bundledTemplatesDirectoryURL;
 @property(retain, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 @property(nonatomic) __weak MSWelcomeWindowController *welcomeWindowController; // @synthesize welcomeWindowController=_welcomeWindowController;
+@property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;

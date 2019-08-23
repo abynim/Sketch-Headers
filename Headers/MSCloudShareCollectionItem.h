@@ -6,19 +6,23 @@
 
 #import "MSExistingDocumentCollectionItem.h"
 
-@class NSProgress, SCKCloudDocument, SCKShare;
+@class NSOperation, NSProgress, SCKCloudDocument, SCKShare;
 
 @interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem
 {
     SCKShare *_cloudShare;
     NSProgress *_downloadProgress;
+    NSOperation *_updateShareOperation;
+    NSOperation *_downloadDocumentOperation;
 }
 
+@property(retain, nonatomic) NSOperation *downloadDocumentOperation; // @synthesize downloadDocumentOperation=_downloadDocumentOperation;
+@property(retain, nonatomic) NSOperation *updateShareOperation; // @synthesize updateShareOperation=_updateShareOperation;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 - (void).cxx_destruct;
-- (void)downloadDocument:(CDUnknownBlockType)arg1;
-- (void)downloadLatestDocument:(CDUnknownBlockType)arg1;
+- (void)dealloc;
+- (void)cancelDocumentDownload;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;

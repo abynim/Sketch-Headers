@@ -8,7 +8,7 @@
 
 #import <BCLayerList/NSMenuDelegate-Protocol.h>
 
-@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, NSButton, NSDictionary, NSLayoutConstraint, NSPopUpButton, NSString, NSWindow;
+@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, NSButton, NSLayoutConstraint, NSPopUpButton, NSString, NSWindow;
 @protocol BCOutlineViewNode, BCOutlineViewPopupConfigurator, BCTableCellViewDelegate;
 
 @interface BCTableCellView : NSTableCellView <NSMenuDelegate>
@@ -21,9 +21,10 @@
     NSButton *_lockHideButton;
     NSPopUpButton *_booleanOpPopUpButton;
     id <BCOutlineViewPopupConfigurator> _badgeConfigurator;
-    unsigned long long _lastUpdatedPreviewState;
+    unsigned long long _lastUpdateSelectionState;
+    long long _lastUpdatedPreviewState;
+    id _previewImmutable;
     BCSidebarPreviewImageView *_previewView;
-    NSDictionary *_previewImages;
     BCSidebarPreviewImageView *_maskPreviewView;
     double _designedTextFieldTopPadding;
 }
@@ -31,10 +32,11 @@
 @property(nonatomic) BOOL isShowingImages; // @synthesize isShowingImages=_isShowingImages;
 @property(readonly, nonatomic) double designedTextFieldTopPadding; // @synthesize designedTextFieldTopPadding=_designedTextFieldTopPadding;
 @property(nonatomic) __weak BCSidebarPreviewImageView *maskPreviewView; // @synthesize maskPreviewView=_maskPreviewView;
-@property(retain, nonatomic) NSDictionary *previewImages; // @synthesize previewImages=_previewImages;
 @property(nonatomic) __weak BCSidebarPreviewImageView *previewView; // @synthesize previewView=_previewView;
 @property(nonatomic) BOOL lastUpdatedTextWasEditing; // @synthesize lastUpdatedTextWasEditing=_lastUpdatedTextWasEditing;
-@property(nonatomic) unsigned long long lastUpdatedPreviewState; // @synthesize lastUpdatedPreviewState=_lastUpdatedPreviewState;
+@property(nonatomic) __weak id previewImmutable; // @synthesize previewImmutable=_previewImmutable;
+@property(nonatomic) long long lastUpdatedPreviewState; // @synthesize lastUpdatedPreviewState=_lastUpdatedPreviewState;
+@property(nonatomic) unsigned long long lastUpdateSelectionState; // @synthesize lastUpdateSelectionState=_lastUpdateSelectionState;
 @property(retain, nonatomic) id <BCOutlineViewPopupConfigurator> badgeConfigurator; // @synthesize badgeConfigurator=_badgeConfigurator;
 @property(nonatomic) __weak NSPopUpButton *booleanOpPopUpButton; // @synthesize booleanOpPopUpButton=_booleanOpPopUpButton;
 @property(nonatomic) __weak NSButton *lockHideButton; // @synthesize lockHideButton=_lockHideButton;
@@ -49,7 +51,7 @@
 @property(readonly, nonatomic) BOOL isTextFieldEditing;
 - (void)updateConstraints;
 - (void)updateMaskIcon;
-- (void)updatePreviewIcon;
+- (void)updatePreviewIconIfRequired;
 - (unsigned long long)currentPreviewState;
 - (BOOL)shouldDrawAsActive;
 @property(readonly, nonatomic) BCTableRowView *rowView;
