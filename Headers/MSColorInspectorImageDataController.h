@@ -7,12 +7,11 @@
 #import <objc/NSObject.h>
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 
 @class MSAvailableOverride, NSMenu, NSString;
 @protocol MSColorInspectorImageDataControllerDelegate;
 
-@interface MSColorInspectorImageDataController : NSObject <NSMenuDelegate, MSDataMenuProviderDelegate>
+@interface MSColorInspectorImageDataController : NSObject <MSDataMenuProviderDelegate>
 {
     NSMenu *_menu;
     id <MSColorInspectorImageDataControllerDelegate> delegate;

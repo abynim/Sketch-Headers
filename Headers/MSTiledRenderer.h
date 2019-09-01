@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSRenderingDriver, MSTileMipLevel, NSArray, NSOperationQueue, NSString, NSView;
+@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSRenderPassState, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSOperationQueue, NSString, NSView;
 @protocol MSGPURenderer, MSGPUTexture, MSOverlayRenderingDelegate, MSRenderingContextCacheProvider, MSTiledRendererHostView;
 
 @interface MSTiledRenderer : NSObject
@@ -27,6 +27,8 @@
     MSMemoryBuffer *_contextMemory;
     MSMemoryBuffer *_overlayMemory;
     id <MSGPUTexture> _overlayTexture;
+    MSRenderingCache *_renderingCache;
+    MSRenderPassState *_lastPassState;
     MSFlowRenderer *_flowRenderer;
     MSCGContextPool *_contextPool;
     NSString *_previousPageObjectID;
@@ -49,6 +51,8 @@
 @property BOOL clearOtherLevels; // @synthesize clearOtherLevels=_clearOtherLevels;
 @property BOOL rasterisationInProgress; // @synthesize rasterisationInProgress=_rasterisationInProgress;
 @property(retain, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
+@property(retain, nonatomic) MSRenderPassState *lastPassState; // @synthesize lastPassState=_lastPassState;
+@property(retain, nonatomic) MSRenderingCache *renderingCache; // @synthesize renderingCache=_renderingCache;
 @property(retain, nonatomic) id <MSGPUTexture> overlayTexture; // @synthesize overlayTexture=_overlayTexture;
 @property(retain, nonatomic) MSMemoryBuffer *overlayMemory; // @synthesize overlayMemory=_overlayMemory;
 @property(retain, nonatomic) MSMemoryBuffer *contextMemory; // @synthesize contextMemory=_contextMemory;
@@ -68,19 +72,20 @@
 - (void)beginFastZooming;
 - (void)_scheduleRedraw;
 - (void)_fastZoomExit;
-- (void)_drawOverlayInVisibleRect:(struct CGRect)arg1 backingScaleFactor:(double)arg2 zoomValue:(double)arg3 page:(id)arg4 pageOverlayRenderOptions:(unsigned long long)arg5 overlayColors:(id)arg6 overlayImageBuffer:(id)arg7 flowItems:(id)arg8;
-- (void)_drawAcceleratedOverlayElementsInVisibleRect:(struct CGRect)arg1 backingScaleFactor:(double)arg2 zoomValue:(double)arg3 page:(id)arg4 pageOverlayRenderOptions:(unsigned long long)arg5 overlayColors:(id)arg6 flowItems:(id)arg7;
+- (void)_drawOverlayForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pageOverlayRenderOptions:(unsigned long long)arg3 overlayColors:(id)arg4 canvasColorSpace:(id)arg5 overlayImageBuffer:(id)arg6 flowItems:(id)arg7;
+- (void)_drawAcceleratedOverlayElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pageOverlayRenderOptions:(unsigned long long)arg3 overlayColors:(id)arg4 canvasColorSpace:(struct CGColorSpace *)arg5 flowItems:(id)arg6;
 - (id)_prepareOverlayImageBufferForPixelViewSize:(struct CGSize)arg1;
-- (id)_beginOverlayForPage:(id)arg1 visibleImageRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 zoomValue:(double)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 overlayColors:(id)arg7 flowItems:(id)arg8;
+- (id)_beginOverlayForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pixelViewSize:(struct CGSize)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 overlayColors:(id)arg5 flowItems:(id)arg6;
 - (BOOL)_requiresCPUFlowRendering:(unsigned long long)arg1 flowItems:(id)arg2;
 - (void)_rasteriseLegacyOverlayIntoContext:(struct CGContext *)arg1 visibleRect:(struct CGRect)arg2 zoomValue:(double)arg3 pageOverlayRenderOptions:(unsigned long long)arg4;
-- (void)_rasteriseSlicesIntoContext:(struct CGContext *)arg1 visibleRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 zoomValue:(double)arg4 page:(id)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 overlayColors:(id)arg7;
+- (void)_renderSlicesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pageOverlayRenderOptions:(unsigned long long)arg3 overlayColors:(id)arg4 canvasColorSpace:(struct CGColorSpace *)arg5;
 - (void)_drawOverlayTextureFromBuffer:(id)arg1;
-- (void)_renderPageOverlayElementsForPage:(id)arg1 options:(unsigned long long)arg2 zoomLevel:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 rect:(struct CGRect)arg6 visibleRect:(struct CGRect)arg7 overlayColors:(id)arg8;
-- (void)_drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 zoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
-- (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 zoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
-- (void)updateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 visibleImageRect:(struct CGRect)arg4 backingScaleFactor:(double)arg5 pixelViewSize:(struct CGSize)arg6 zoomValue:(double)arg7 pixelated:(BOOL)arg8 pageOverlayRenderOptions:(unsigned long long)arg9 cacheProvider:(id)arg10 canvasColorSpace:(id)arg11 renderContentSynchronously:(BOOL)arg12 overlayColors:(id)arg13;
-- (void)_doUpdateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 visibleImageRect:(struct CGRect)arg4 backingScaleFactor:(double)arg5 pixelViewSize:(struct CGSize)arg6 zoomValue:(double)arg7 pixelated:(BOOL)arg8 pageOverlayRenderOptions:(unsigned long long)arg9 cacheProvider:(id)arg10 canvasColorSpace:(id)arg11 renderContentSynchronously:(BOOL)arg12 overlayColors:(id)arg13 overlayImageBuffer:(id)arg14 flowItems:(id)arg15 overlayItems:(id)arg16 overlayItemImages:(id)arg17 hasUserFocus:(BOOL)arg18;
+- (void)_renderPageOverlayElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 options:(unsigned long long)arg3 baseOrigin:(struct CGPoint)arg4 rect:(struct CGRect)arg5 overlayColors:(id)arg6;
+- (void)_drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
+- (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
+- (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
+- (void)updateContentForPage:(id)arg1 document:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8 renderContentSynchronously:(BOOL)arg9 overlayColors:(id)arg10 dirtyRectBlock:(CDUnknownBlockType)arg11;
+- (void)_doUpdateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4 pixelViewSize:(struct CGSize)arg5 pixelated:(BOOL)arg6 pageOverlayRenderOptions:(unsigned long long)arg7 cacheProvider:(id)arg8 canvasColorSpace:(id)arg9 renderContentSynchronously:(BOOL)arg10 overlayColors:(id)arg11 overlayImageBuffer:(id)arg12 flowItems:(id)arg13 overlayItems:(id)arg14 overlayItemImages:(id)arg15 hasUserFocus:(BOOL)arg16;
 - (BOOL)_requiresCPUOverlayBufferForPage:(id)arg1 pageOverlayRenderOptions:(unsigned long long)arg2 overlayItems:(id)arg3 flowItems:(id)arg4;
 - (void)_uniteDirtyRect:(struct CGRect)arg1;
 - (id)_createDocumentColorSpaceWithCanvasColorSpace:(id)arg1 document:(id)arg2;
@@ -92,8 +97,8 @@
 - (void)_rasterisationFinishedForTileLevel:(id)arg1 page:(id)arg2 document:(id)arg3;
 - (void)_tileFlatteningWorker:(CDStruct_3b01f0aa *)arg1 zoomValue:(double)arg2 backingScaleFactor:(double)arg3 forPage:(id)arg4 document:(id)arg5 cacheProvider:(id)arg6 tiles:(id)arg7 contentsScale:(double)arg8 documentColorSpace:(struct CGColorSpace *)arg9;
 - (void)_drawArtboardShadowsForPage:(id)arg1 visibleRect:(struct CGRect)arg2 zoom:(double)arg3;
-- (void)_drawPageBackgroundElementsForPage:(id)arg1 visibleRect:(struct CGRect)arg2 zoom:(double)arg3;
-- (void)_drawTilesInVisibleRect:(struct CGRect)arg1 hasArtboards:(BOOL)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 zoomValue:(double)arg5 displayPixels:(BOOL)arg6 page:(id)arg7 pageOverlayRenderOptions:(unsigned long long)arg8 tiles:(id)arg9 overlayColors:(id)arg10 canvasColorSpace:(id)arg11 overlayImageBuffer:(id)arg12 flowItems:(id)arg13 hasUserFocus:(BOOL)arg14;
+- (void)_drawPageBackgroundElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 totalZoom:(double)arg3;
+- (void)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 pixelViewSize:(struct CGSize)arg4 displayPixels:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 tiles:(id)arg7 overlayColors:(id)arg8 canvasColorSpace:(id)arg9 overlayImageBuffer:(id)arg10 flowItems:(id)arg11 hasUserFocus:(BOOL)arg12;
 - (void)_renderTilesWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 pixelViewSize:(struct CGSize)arg4 tiles:(id)arg5;
 - (CDStruct_75f85af1 *)_renderTileLevelWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 tiles:(id)arg4 inRegion:(const CDStruct_75f85af1 *)arg5;
 @property(readonly, nonatomic) MSRenderingDriver *driver;

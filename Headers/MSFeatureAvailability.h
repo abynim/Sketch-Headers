@@ -6,30 +6,40 @@
 
 #import <objc/NSObject.h>
 
+@class _TtC11SketchModel11FeatureFlag;
+
 @interface MSFeatureAvailability : NSObject
 {
+    // Error parsing type: , name: libraryStyles
+    // Error parsing type: , name: cloudLicensing
+    // Error parsing type: , name: cloudDocuments
+    // Error parsing type: , name: feature14414
+    // Error parsing type: , name: inferredLayout
+    // Error parsing type: , name: componentsPane
+    // Error parsing type: , name: componentsPaneDoubleInspector
+    // Error parsing type: , name: builtInRemoteLibraries
+    // Error parsing type: , name: cloudDocumentsAsDefaultModal
+    // Error parsing type: , name: saveOmitsDefaultValues
+    // Error parsing type: , name: maintainScrollPositionAfterClick
+    // Error parsing type: , name: designLinting
 }
 
-+ (BOOL)isComponentsPaneDoubleInspectorEnabled;
-+ (void)setIsComponentsPaneEnabled:(BOOL)arg1;
-+ (BOOL)isComponentsPanePreferenceUnset;
-+ (BOOL)isComponentsPaneEnabled;
-+ (void)setInferredLayoutEnabled:(BOOL)arg1;
-+ (BOOL)inferredLayoutEnabled;
-+ (BOOL)feature14414Enabled;
-+ (void)setCloudXPCUploadEnabled:(BOOL)arg1;
-+ (BOOL)cloudXPCUploadEnabled;
-+ (void)setCloudLicensingEnabled:(BOOL)arg1;
-+ (BOOL)cloudLicensingEnabled;
-+ (void)setCloudDocumentsEnabled:(BOOL)arg1;
-+ (BOOL)cloudDocumentsEnabled;
-+ (BOOL)builtInRemoteLibrariesEnabled;
-+ (void)setBuiltInRemoteLibrariesEnabled:(BOOL)arg1;
-+ (void)setLibraryStylesEnabled:(BOOL)arg1;
-+ (BOOL)libraryStylesEnabled;
-+ (void)setFeature:(id)arg1 enabled:(BOOL)arg2;
-+ (BOOL)isFeatureEnabled:(id)arg1;
-+ (void)enableFeatureAvailability;
++ (void)setShared:(id)arg1;
++ (id)shared;
+- (void).cxx_destruct;
+- (id)init;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *saveOmitsDefaultValues; // @synthesize saveOmitsDefaultValues;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocumentsAsDefaultModal; // @synthesize cloudDocumentsAsDefaultModal;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *builtInRemoteLibraries; // @synthesize builtInRemoteLibraries;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPaneDoubleInspector; // @synthesize componentsPaneDoubleInspector;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPane; // @synthesize componentsPane;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *inferredLayout; // @synthesize inferredLayout;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *feature14414; // @synthesize feature14414;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocuments; // @synthesize cloudDocuments;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudLicensing; // @synthesize cloudLicensing;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *libraryStyles; // @synthesize libraryStyles;
 
 @end
 

@@ -18,7 +18,6 @@
 @property(readonly, nonatomic) BOOL isSelectedInLayerList;
 @property(readonly, nonatomic) BOOL expandableInLayerList;
 - (NSArray *)childrenForLayerList;
-- (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(void (^)(void))arg1;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (void)moveToLayer:(MSLayer *)arg1 beforeLayer:(MSLayer *)arg2;
 - (BOOL)canCopyToLayer:(MSLayer *)arg1 beforeLayer:(MSLayer *)arg2;

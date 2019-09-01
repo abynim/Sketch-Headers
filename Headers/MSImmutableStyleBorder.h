@@ -12,6 +12,7 @@
 
 + (id)defaultName;
 + (id)stylePartPasteboardType;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 
 @end
 

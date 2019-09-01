@@ -10,6 +10,7 @@
 {
 }
 
+- (void)paste:(id)arg1;
 - (void)concludeDragOperation:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
 - (id)webpURLFromDragData:(id)arg1;

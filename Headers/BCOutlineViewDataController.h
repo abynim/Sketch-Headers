@@ -23,7 +23,6 @@
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) id rootObject;
-- (void)refreshPreviewsOnNode:(id)arg1;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
 - (BOOL)isNodeHighlighted:(id)arg1;
 - (void)hoverNodeDidChangeTo:(id)arg1;

@@ -6,19 +6,32 @@
 
 #import <AppKit/NSSplitViewController.h>
 
+@class NSSplitViewItem;
+
 @interface _TtC6Sketch33ComponentsPaneSplitViewController : NSSplitViewController
 {
     // Error parsing type: , name: componentsPaneController
+    // Error parsing type: , name: libraryListSplitItem
+    // Error parsing type: , name: filterBarSplitItem
+    // Error parsing type: , name: previewSplitItem
+    // Error parsing type: , name: libraryItemCollapseObserver.storage
     // Error parsing type: , name: configured
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
+- (struct CGRect)splitView:(id)arg1 effectiveRect:(struct CGRect)arg2 forDrawnRect:(struct CGRect)arg3 ofDividerAtIndex:(long long)arg4;
+- (BOOL)splitView:(id)arg1 shouldHideDividerAtIndex:(long long)arg2;
 - (void)splitViewDidResizeSubviews:(id)arg1;
+- (void)reflectCurrentLibraryState;
 - (void)applyAppearance;
+- (void)viewWillDisappear;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
+@property(nonatomic, retain) NSSplitViewItem *previewSplitItem; // @synthesize previewSplitItem;
+@property(nonatomic, retain) NSSplitViewItem *filterBarSplitItem; // @synthesize filterBarSplitItem;
+@property(nonatomic, retain) NSSplitViewItem *libraryListSplitItem; // @synthesize libraryListSplitItem;
 
 @end
 

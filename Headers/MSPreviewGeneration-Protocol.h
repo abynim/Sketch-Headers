@@ -9,6 +9,7 @@
 @class NSColorSpace;
 
 @protocol MSPreviewGeneration <NSObject>
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(NSColorSpace *)arg3 backingScale:(double)arg4 concurrentCancelBlock:(BOOL (^)(void))arg5 completionBlock:(void (^)(NSImage *))arg6;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(NSColorSpace *)arg3 backingScale:(double)arg4 completionBlock:(void (^)(NSImage *))arg5;
 @end
 

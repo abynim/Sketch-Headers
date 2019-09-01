@@ -6,7 +6,7 @@
 
 #import "MSPreferencePane.h"
 
-@class NSImageView, NSPopUpButton, NSTextField, NSView;
+@class NSImageView, NSLayoutConstraint, NSPopUpButton, NSTextField, NSView;
 
 @interface MSGeneralPreferencePane : MSPreferencePane
 {
@@ -20,11 +20,15 @@
     NSView *_mainContainerView;
     NSView *_documentDefaultView;
     NSPopUpButton *_documentDefaultButton;
+    NSLayoutConstraint *_cloudDocumentSectionCollapseConstraint;
+    NSLayoutConstraint *_canvasAppearanceTopConstraint;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+@property(retain, nonatomic) NSLayoutConstraint *canvasAppearanceTopConstraint; // @synthesize canvasAppearanceTopConstraint=_canvasAppearanceTopConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *cloudDocumentSectionCollapseConstraint; // @synthesize cloudDocumentSectionCollapseConstraint=_cloudDocumentSectionCollapseConstraint;
 @property(nonatomic) __weak NSPopUpButton *documentDefaultButton; // @synthesize documentDefaultButton=_documentDefaultButton;
 @property(nonatomic) __weak NSView *documentDefaultView; // @synthesize documentDefaultView=_documentDefaultView;
 @property(nonatomic) __weak NSView *mainContainerView; // @synthesize mainContainerView=_mainContainerView;
@@ -45,10 +49,10 @@
 - (void)setupAppearanceControls;
 - (void)watchAppearanceChanges;
 - (void)selectDocumentDefault:(id)arg1;
-- (void)pickDefaultColorSpace:(id)arg1;
-- (void)refreshColorSpaceDescription;
 - (void)analyticsAction:(id)arg1;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
+- (void)awakeFromNib;
 - (void)dealloc;
 
 @end

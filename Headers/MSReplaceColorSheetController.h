@@ -7,12 +7,11 @@
 #import <Chocolat/CHSheetController.h>
 
 #import "MSColorWellDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class MSColorWell, MSStylePartPreviewButton, NSButton, NSMenu, NSString;
 
-@interface MSReplaceColorSheetController : CHSheetController <MSColorWellDelegate, NSWindowDelegate, NSMenuDelegate>
+@interface MSReplaceColorSheetController : CHSheetController <MSColorWellDelegate, NSWindowDelegate>
 {
     NSButton *_cancelButton;
     NSButton *_ignoreAlphaWhenMatchingOriginalColorButton;

@@ -14,6 +14,7 @@
 {
     MSImmutableLayerAncestry *_symbolAncestry;
     NSColorSpace *_colorSpace;
+    CDUnknownBlockType _shouldCancelBlock;
     CDUnknownBlockType _imageBlock;
     BCCache *_renderingCache;
     struct CGSize _size;
@@ -21,6 +22,7 @@
 
 @property(retain, nonatomic) BCCache *renderingCache; // @synthesize renderingCache=_renderingCache;
 @property(copy, nonatomic) CDUnknownBlockType imageBlock; // @synthesize imageBlock=_imageBlock;
+@property(copy, nonatomic) CDUnknownBlockType shouldCancelBlock; // @synthesize shouldCancelBlock=_shouldCancelBlock;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;

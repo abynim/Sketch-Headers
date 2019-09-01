@@ -11,6 +11,9 @@
 }
 
 + (id)defaultName;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+- (BOOL)hasDefaultCurvePoints;
+- (id)defaultCurvePoints;
 
 @end
 

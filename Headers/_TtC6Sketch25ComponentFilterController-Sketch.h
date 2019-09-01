@@ -9,6 +9,7 @@
 #import "NSSearchFieldDelegate-Protocol.h"
 
 @interface _TtC6Sketch25ComponentFilterController (Sketch) <NSSearchFieldDelegate>
+- (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)controlTextDidChange:(id)arg1;
 @end
 

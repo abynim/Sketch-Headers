@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSString, NSURL;
+@class MSImmutableDocumentData, NSDictionary, NSString, NSURL;
 
 @interface MSManifestMaker : NSObject
 {
@@ -15,10 +15,12 @@
     MSImmutableDocumentData *_documentData;
     NSString *_name;
     NSURL *_fileURL;
+    NSDictionary *_applicationMetadata;
 }
 
 + (id)keyForFlowAnimationType:(long long)arg1;
 + (id)manifestValueForColorSpace:(unsigned long long)arg1;
+@property(copy, nonatomic) NSDictionary *applicationMetadata; // @synthesize applicationMetadata=_applicationMetadata;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;

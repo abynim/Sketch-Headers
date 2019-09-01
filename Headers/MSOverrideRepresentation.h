@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) __weak MSOverrideRepresentationBase *parent; // @synthesize parent=_parent;
 @property(retain, nonatomic) MSAvailableOverride *availableOverride; // @synthesize availableOverride=_availableOverride;
 - (void).cxx_destruct;
+- (BOOL)isOpen;
 @property(readonly, nonatomic) BOOL isSelected;
 @property(readonly, nonatomic) NSString *selectionID;
 - (void)updateExpandedStateAfterSelection;

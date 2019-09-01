@@ -10,17 +10,13 @@
 {
     BOOL _hollow;
     struct CGSize _size;
-    struct CGSize _inset;
-    struct BCEdgePaddings _edgePaddings;
     struct CGAffineTransform _transform;
 }
 
 @property(readonly, nonatomic, getter=isHollow) BOOL hollow; // @synthesize hollow=_hollow;
-@property(readonly, nonatomic) struct BCEdgePaddings edgePaddings; // @synthesize edgePaddings=_edgePaddings;
 @property(readonly, nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
-@property(readonly, nonatomic) struct CGSize inset; // @synthesize inset=_inset;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
-- (id)initWithImageID:(id)arg1 position:(struct CGPoint)arg2 size:(struct CGSize)arg3 transform:(struct CGAffineTransform)arg4 inset:(struct CGSize)arg5 edgePaddings:(struct BCEdgePaddings)arg6 hollow:(BOOL)arg7;
+- (id)initWithImageID:(id)arg1 position:(struct CGPoint)arg2 size:(struct CGSize)arg3 transform:(struct CGAffineTransform)arg4 hollow:(BOOL)arg5;
 
 @end
 

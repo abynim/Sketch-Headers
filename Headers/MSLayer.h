@@ -134,6 +134,7 @@
 - (void)makeNameUniqueInRoot:(id)arg1 withOptions:(long long)arg2;
 - (void)makeNameUniqueWithOptions:(long long)arg1;
 - (BOOL)isLine;
+- (id)name;
 - (unsigned long long)traits;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;

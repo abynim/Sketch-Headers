@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: axis
     // Error parsing type: , name: spacing
-    // Error parsing type: , name: isUniform
 }
 
 @property(nonatomic) double spacing; // @synthesize spacing;

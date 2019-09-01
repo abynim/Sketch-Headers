@@ -6,7 +6,7 @@
 
 #import <SketchControllers/MSShareableObjectReference.h>
 
-@class MSSymbolMaster, MSSymbolMasterReferenceDescriptor;
+@class MSSymbolMaster;
 
 @interface MSSymbolMasterReference : MSShareableObjectReference
 {
@@ -16,7 +16,6 @@
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 - (unsigned long long)shareableObjectType;
 - (id)sharedObjectID;
-@property(readonly, nonatomic) MSSymbolMasterReferenceDescriptor *descriptor;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;

@@ -8,7 +8,7 @@
 
 #import "MSCollapsibleHeaderInspectorItemTarget-Protocol.h"
 
-@class MSFlowFixLayerInspectorItem, MSFlowHeaderInspectorItem, MSFlowInspectorItem, MSHeaderInspectorItem;
+@class MSFlowFixLayerInspectorItem, MSFlowHeaderInspectorItem, MSFlowInspectorItem, MSHeaderInspectorItem, _TtC6Sketch33MSFlowScrollPositionInspectorItem;
 
 @interface MSFlowInspectorSection : MSBaseInspectorSection <MSCollapsibleHeaderInspectorItemTarget>
 {
@@ -16,15 +16,17 @@
     MSFlowHeaderInspectorItem *_headerItem;
     MSFlowInspectorItem *_flowItem;
     MSFlowFixLayerInspectorItem *_fixedLayerItem;
+    _TtC6Sketch33MSFlowScrollPositionInspectorItem *_scrollPositionItem;
 }
 
+@property(retain, nonatomic) _TtC6Sketch33MSFlowScrollPositionInspectorItem *scrollPositionItem; // @synthesize scrollPositionItem=_scrollPositionItem;
 @property(retain, nonatomic) MSFlowFixLayerInspectorItem *fixedLayerItem; // @synthesize fixedLayerItem=_fixedLayerItem;
 @property(retain, nonatomic) MSFlowInspectorItem *flowItem; // @synthesize flowItem=_flowItem;
 @property(retain, nonatomic) MSFlowHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(retain, nonatomic) MSHeaderInspectorItem *initialHeaderItem; // @synthesize initialHeaderItem=_initialHeaderItem;
 - (void).cxx_destruct;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
-- (BOOL)shouldShowFixedLayerView;
+- (BOOL)hasLayerWithParentArtboard;
 - (BOOL)isInFlowEventHandler;
 - (void)updateItems;
 - (void)addFlowAction:(id)arg1;

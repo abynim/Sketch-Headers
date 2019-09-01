@@ -47,7 +47,6 @@
     struct __CFRunLoopSource *_redrawSourceRef;
     unsigned long long _previouslyRenderedColorSpace;
     NSNumberFormatter *_measurementLabelNumberFormatter;
-    MSRenderMonitor *_performanceMonitor;
     MSFlowItemCollector *_flowCollector;
     NSDictionary *_cachedFlows;
     MSVisualSettings *_visualSettings;
@@ -73,7 +72,6 @@
 @property BOOL needsRedrawOnNextDisplayRefresh; // @synthesize needsRedrawOnNextDisplayRefresh=_needsRedrawOnNextDisplayRefresh;
 @property(nonatomic) BOOL refreshAfterSettingsChangeScheduled; // @synthesize refreshAfterSettingsChangeScheduled=_refreshAfterSettingsChangeScheduled;
 @property(nonatomic) BOOL didMouseDragged; // @synthesize didMouseDragged=_didMouseDragged;
-@property(retain, nonatomic) MSRenderMonitor *performanceMonitor; // @synthesize performanceMonitor=_performanceMonitor;
 @property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic) BOOL isMagnifying; // @synthesize isMagnifying=_isMagnifying;
 @property(nonatomic) BOOL haveStoredMostRecentFullScaleScrollOrigin; // @synthesize haveStoredMostRecentFullScaleScrollOrigin=_haveStoredMostRecentFullScaleScrollOrigin;
@@ -169,7 +167,8 @@
 - (void)mouseEntered:(id)arg1;
 - (struct CGRect)transformRectToViewCoords:(struct CGRect)arg1;
 - (struct CGSize)_viewSizeInPixels;
-- (BOOL)_redrawContentImmediately;
+- (void)_redrawContentImmediately;
+@property(readonly, nonatomic) BOOL isReadyToRender;
 - (void)scheduleRedraw;
 - (void)windowDidChange;
 - (BOOL)hasUserFocus;
@@ -201,9 +200,8 @@
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
 - (void)refreshAfterSettingsChange;
-- (void)queuePendingMonitor;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)flowItems:(unsigned long long)arg1;
 - (void)renderLegacyOverlayInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 pageOverlayRenderOptions:(unsigned long long)arg3;
 - (BOOL)requiresLegacyOverlayRendering;

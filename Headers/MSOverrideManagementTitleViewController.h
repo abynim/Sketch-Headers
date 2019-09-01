@@ -20,8 +20,12 @@
 @property(retain, nonatomic) MSThemeImageView *previewView; // @synthesize previewView=_previewView;
 - (void).cxx_destruct;
 - (id)imageForThemeImageView:(id)arg1;
+- (id)contextMenuForCurrentItem;
 - (void)setManagementItem:(id)arg1;
 @property(readonly, nonatomic) MSOverrideManagementPropertyTitle *propertyTitle;
+- (void)disableAllOverridesWithEvent:(id)arg1;
+- (void)enableAllOverridesWithEvent:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 
 @end
 

@@ -10,7 +10,6 @@
 
 @protocol BCOutlineViewDataControllerDelegate <NSObject>
 @property(readonly, nonatomic) NSView *defaultFirstResponder;
-- (void)dataController:(BCOutlineViewDataController *)arg1 refreshPreviewsOnNode:(id)arg2;
 - (void)dataController:(BCOutlineViewDataController *)arg1 handleBadgePressedOnNode:(id)arg2 withAltState:(BOOL)arg3;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 copyFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 moveFromPasteboard:(NSPasteboard *)arg2 toParent:(id)arg3 after:(id)arg4;

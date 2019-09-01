@@ -20,7 +20,7 @@
 @property(nonatomic) double cachedBackingScale; // @synthesize cachedBackingScale=_cachedBackingScale;
 - (void).cxx_destruct;
 - (void)removeAllCachedImages;
-- (id)createOverlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)createOverlayItemImagesForColorSpace:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)dealloc;
 

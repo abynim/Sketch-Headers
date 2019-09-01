@@ -7,7 +7,7 @@
 #import <AppKit/NSViewController.h>
 
 @class MSDocument;
-@protocol _TtP6Sketch22ComponentsPaneDelegate_;
+@protocol MSComponentsPaneDelegate;
 
 @interface MSComponentsPaneController : NSViewController
 {
@@ -18,25 +18,39 @@
     // Error parsing type: , name: componentListController
     // Error parsing type: , name: previewController
     // Error parsing type: , name: filterBarController
+    // Error parsing type: , name: appearanceObserver.storage
     // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
     // Error parsing type: , name: allowEditing
     // Error parsing type: , name: selectionScheme
-    // Error parsing type: , name: componentKind
     // Error parsing type: , name: filterBarPosition
     // Error parsing type: , name: enableLibraryList
+    // Error parsing type: , name: enableComponentKindControl
     // Error parsing type: , name: componentPreviewPosition
     // Error parsing type: , name: librariesNeedReloading
+    // Error parsing type: , name: componentsNeedReloading
+    // Error parsing type: , name: lastDirectlyModifiedDocument
 }
 
++ (void)confirmSymbolMasterDeletionOnDocumentWindow:(id)arg1 inPlural:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)refreshIfNeededForTreeDiff:(id)arg1;
+- (void)deleteSelectedGroupsAndComponents;
+@property(nonatomic, readonly) BOOL canDeleteSelectedGroupsAndComponents;
+- (void)renameSelectedGroupOrComponent;
+@property(nonatomic, readonly) BOOL canRenameGroupOrComponent;
+- (void)enterSelectedGroup;
+- (void)collapseComponentListGroups;
+- (void)navigateToPreviousItem;
+- (void)navigateToNextItem;
 - (void)applyAppearance;
 - (void)viewWillAppear;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
-@property(nonatomic) __weak id <_TtP6Sketch22ComponentsPaneDelegate_> delegate; // @synthesize delegate;
+- (void)viewWillDisappear;
+- (void)viewDidLoad;
+@property(nonatomic) __weak id <MSComponentsPaneDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document;
 
 @end

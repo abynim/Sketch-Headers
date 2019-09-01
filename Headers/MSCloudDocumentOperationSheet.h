@@ -6,7 +6,7 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class MSCloudDocument, NSPopUpButton, NSString, NSTextField, NSView, SCKOrganization;
+@class MSCloudDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKOrganization;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
@@ -18,9 +18,11 @@
     NSView *_nameInputView;
     NSView *_organizationInputView;
     NSPopUpButton *_organizationButton;
+    NSButton *_deleteButton;
 }
 
 + (id)runForDocument:(id)arg1 performingOperation:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(retain, nonatomic) NSPopUpButton *organizationButton; // @synthesize organizationButton=_organizationButton;
 @property(retain, nonatomic) NSView *organizationInputView; // @synthesize organizationInputView=_organizationInputView;
 @property(retain, nonatomic) NSView *nameInputView; // @synthesize nameInputView=_nameInputView;
@@ -30,12 +32,13 @@
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 - (void).cxx_destruct;
+- (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
 @property(readonly, nonatomic) SCKOrganization *organization;
 - (void)selectOrganization:(id)arg1;
 - (void)reloadOrganizations;
-- (void)updateHeader;
+- (void)updateView;
 @property(readonly, nonatomic) MSCloudDocument *cloudDocument;
 - (void)awakeFromNib;
 

@@ -6,13 +6,16 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSImageView, NSTextField;
+@class NSTextField, _TtC6Sketch25ComponentPreviewImageView;
 
 @interface _TtC6Sketch26ComponentPreviewController : NSViewController
 {
+    // Error parsing type: , name: state
+    // Error parsing type: , name: currentImageGenerationToken
     // Error parsing type: , name: componentsPaneController
     // Error parsing type: , name: imageView
     // Error parsing type: , name: textField
+    // Error parsing type: , name: placeholderField
     // Error parsing type: , name: expandedPreviewHeight
 }
 
@@ -20,8 +23,9 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidLoad;
+@property(nonatomic, retain) NSTextField *placeholderField; // @synthesize placeholderField;
 @property(nonatomic) __weak NSTextField *textField; // @synthesize textField;
-@property(nonatomic) __weak NSImageView *imageView; // @synthesize imageView;
+@property(nonatomic) __weak _TtC6Sketch25ComponentPreviewImageView *imageView; // @synthesize imageView;
 
 @end
 

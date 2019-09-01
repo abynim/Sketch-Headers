@@ -7,7 +7,7 @@
 #import "_TtC6Sketch28MSSelectionOverlayController.h"
 
 @interface _TtC6Sketch28MSSelectionOverlayController (Sketch1)
-- (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (long long)numberOfSectionsInCollectionRenderer:(id)arg1;
+- (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionOverlay:(id)arg1;
 @end
 

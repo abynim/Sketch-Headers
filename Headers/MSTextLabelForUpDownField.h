@@ -38,6 +38,7 @@
 - (void)setShouldTrackFlags:(BOOL)arg1;
 - (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeWithEvent:(id)arg2;
 - (void)dealloc;
+- (struct CGRect)visibleRect;
 - (void)setupTextLabelForUpDownField;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

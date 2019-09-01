@@ -12,15 +12,13 @@
 }
 
 @property(nonatomic) BOOL useDefaultImageDrawing; // @synthesize useDefaultImageDrawing=_useDefaultImageDrawing;
+- (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
-- (struct CGRect)drawSecondaryTitleWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (struct CGRect)drawMainTitleWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
-- (struct CGRect)secondaryTitleRectWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (struct CGRect)mainTitleRectWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (double)imageLeftMargin;
 - (id)arrowImage;
 - (struct CGRect)arrowRectForBounds:(struct CGRect)arg1;
+- (double)arrowRightMargin;
 - (BOOL)isHighlighted;
 - (void)setHighlighted:(BOOL)arg1;
 - (void)drawBezelWithFrame:(struct CGRect)arg1 inView:(id)arg2;

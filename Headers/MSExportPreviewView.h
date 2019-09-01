@@ -6,11 +6,9 @@
 
 #import <AppKit/NSView.h>
 
-#import "NSDraggingSource-Protocol.h"
-
 @class MSExportPreviewViewModel, NSString;
 
-@interface MSExportPreviewView : NSView <NSDraggingSource>
+@interface MSExportPreviewView : NSView
 {
     MSExportPreviewViewModel *_viewModel;
 }

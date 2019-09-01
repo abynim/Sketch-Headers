@@ -7,6 +7,6 @@
 #import <SketchControllers/MSRulerSnapTargetGenerator.h>
 
 @interface MSRulerSnapTargetGenerator (SketchControllers)
-- (void)generateTargetsForPage:(id)arg1 output:(id)arg2;
+- (void)provideTargetsForPage:(id)arg1 toOutput:(id)arg2;
 @end
 

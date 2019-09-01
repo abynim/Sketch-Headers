@@ -12,16 +12,18 @@
 #import "MSEventHandlerManagerDelegate-Protocol.h"
 #import "MSMenuBuilderDelegate-Protocol.h"
 #import "MSSidebarControllerDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
+    BOOL _isSidebarVisible;
+    BOOL _isLayerListVisible;
+    BOOL _isComponentPaneVisible;
     BOOL _layerSelectionChangeScheduled;
     BOOL _cacheFlushInProgress;
     NSArray *_exportableLayerSelection;
@@ -44,6 +46,7 @@
     MSContentDrawViewController *_currentContentViewController;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
+    MSLintService *_lintService;
     MSImmutableDocumentData *_documentDataUsedForSupplementaryViews;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -73,6 +76,10 @@
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
 @property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForSupplementaryViews; // @synthesize documentDataUsedForSupplementaryViews=_documentDataUsedForSupplementaryViews;
+@property(nonatomic) BOOL isComponentPaneVisible; // @synthesize isComponentPaneVisible=_isComponentPaneVisible;
+@property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
+@property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
+@property(retain, nonatomic) MSLintService *lintService; // @synthesize lintService=_lintService;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
@@ -103,9 +110,11 @@
 - (void)warnIfEditingLibrary;
 - (BOOL)isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
-- (id)symbolReferenceForRecipe:(id)arg1;
+- (id)shareableObjectReferenceForDescriptor:(id)arg1;
 - (id)localObjectForObjectReference:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
+- (void)componentsPaneWillBeginDraggingSession:(id)arg1;
+- (void)componentsPane:(id)arg1 didSelectComponent:(id)arg2;
 - (void)refreshWindowBadge;
 - (void)reloadTouchBars;
 - (void)libraryControllerDidChange:(id)arg1;
@@ -143,8 +152,8 @@
 - (void)refreshLayerListIfNecessary;
 - (void)refreshSupplementaryViews;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
-- (void)renderStartedIn:(id)arg1;
-- (void)contentDrawViewWillDraw:(id)arg1;
+- (void)updateDocumentPostRender;
+- (void)updateDocumentPreRender;
 @property(readonly, nonatomic) MSTreeDiff *treeDiffForSupplementaryViews; // @synthesize treeDiffForSupplementaryViews=_treeDiffForSupplementaryViews;
 - (void)documentDidChange:(id)arg1;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
@@ -154,7 +163,6 @@
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
 - (BOOL)isInspectorVisible;
-- (BOOL)isLayerListVisible;
 - (void)windowDidExitVersionBrowser:(id)arg1;
 - (void)windowDidEnterVersionBrowser:(id)arg1;
 - (BOOL)isRulersVisible;
@@ -233,7 +241,6 @@
 - (void)notifyIfDocumentBecameCurrent;
 @property(readonly, nonatomic) BOOL isCloudDoc;
 @property(readonly, nonatomic) BOOL isCurrent;
-- (void)updateFileMenuForDocument;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;
@@ -253,6 +260,7 @@
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
+- (void)applyCloudShareUpdateStatusWithOnSave:(BOOL)arg1;
 @property(retain, nonatomic) SCKShare *cloudShare;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;

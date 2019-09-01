@@ -12,6 +12,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEditedByDefault;
 @property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

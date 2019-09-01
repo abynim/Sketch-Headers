@@ -8,14 +8,13 @@
 
 #import "MSDataSupplierManagerDelegate-Protocol.h"
 #import "NSApplicationDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
@@ -28,11 +27,8 @@
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenuItem *_cloudEnvironmentMenuItem;
-    NSMenu *_localDefaultLocalDocumentFileMenu;
-    NSMenu *_localDefaultCloudDocumentFileMenu;
-    NSMenu *_cloudDefaultLocalDocumentFileMenu;
-    NSMenu *_cloudDefaultCloudDocumentFileMenu;
-    NSMenu *_preCloudFileMenu;
+    NSMenu *_fileMenu;
+    NSMenu *_viewMenu;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
@@ -56,6 +52,7 @@
 }
 
 + (id)licenseAlertDateComponentsFormatter;
++ (id)templateLibraryURL;
 + (id)sharedInstance;
 + (void)initialize;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
@@ -81,11 +78,8 @@
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
-@property(retain, nonatomic) NSMenu *preCloudFileMenu; // @synthesize preCloudFileMenu=_preCloudFileMenu;
-@property(retain, nonatomic) NSMenu *cloudDefaultCloudDocumentFileMenu; // @synthesize cloudDefaultCloudDocumentFileMenu=_cloudDefaultCloudDocumentFileMenu;
-@property(retain, nonatomic) NSMenu *cloudDefaultLocalDocumentFileMenu; // @synthesize cloudDefaultLocalDocumentFileMenu=_cloudDefaultLocalDocumentFileMenu;
-@property(retain, nonatomic) NSMenu *localDefaultCloudDocumentFileMenu; // @synthesize localDefaultCloudDocumentFileMenu=_localDefaultCloudDocumentFileMenu;
-@property(retain, nonatomic) NSMenu *localDefaultLocalDocumentFileMenu; // @synthesize localDefaultLocalDocumentFileMenu=_localDefaultLocalDocumentFileMenu;
+@property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
+@property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
@@ -100,7 +94,6 @@
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)setCloudFileMenu:(id)arg1;
 - (void)refreshDocumentWindowBadges;
 - (void)refreshDocuments;
 - (void)refreshCurrentDocument;
@@ -113,20 +106,22 @@
 - (void)buy:(id)arg1;
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
-- (void)cloudSessionStateDidChangeNotification:(id)arg1;
-- (void)documentDidResignCurrentNotification:(id)arg1;
 - (void)documentWillClose:(id)arg1;
 - (id)pluginNameForIdentifier:(id)arg1;
 - (id)pluginIconForIdentifier:(id)arg1;
 - (BOOL)isThereAPluginForDataSupplier:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
-- (void)addTemplatesAtPath:(id)arg1 toMenu:(id)arg2;
-- (id)templateLibraryPath;
+- (void)addTemplatesAtURL:(id)arg1 toMenu:(id)arg2;
 - (void)updateTemplateMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
+- (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
+- (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
+- (void)tweakSidebarSubmenuIfNeeded:(id)arg1;
+- (void)setupNewMenuItems:(id)arg1;
+- (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
-- (void)openTemplateAtPath:(id)arg1;
+- (void)openTemplateAtURL:(id)arg1;
 - (void)openTemplateFile:(id)arg1;
 - (void)checkImageTemplates;
 @property(nonatomic) BOOL cloudAsDefault;
@@ -138,7 +133,6 @@
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;
-- (void)updateCloudMenu;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)checkForAssetLibraryUpdates;
 - (void)createActions;

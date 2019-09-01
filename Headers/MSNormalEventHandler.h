@@ -48,9 +48,9 @@
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
-- (BOOL)gestureRecognizer:(id)arg1 shouldAttemptToRecognizeAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
-- (void)selectionOverlayControllerDidEndAdjustingSpacing:(id)arg1;
-- (void)selectionOverlayController:(id)arg1 showSpacingMeasurement:(id)arg2;
+- (void)endAdjustingHandle;
+- (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
+- (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)currentPageDidChange;
@@ -73,12 +73,14 @@
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)setUndoActionName:(id)arg1;
 - (void)selectLayers:(id)arg1;
+- (void)updateDragWithGestureRecognizer:(id)arg1;
+- (void)startDraggingAtPoint:(struct CGPoint)arg1;
 - (void)layerDragged:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (id)siblingsOfSelectedShapePathLayers;
 - (id)overlayItemsForSelectedShapePathLayers;
 - (id)overlayLayerHighlightItems;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)prepareToDraw:(id)arg1;
 - (BOOL)updateCursor;
@@ -111,7 +113,7 @@
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
-- (BOOL)startResizingOrRotatingAtPoint:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
+- (BOOL)startResizingOrRotatingHandle:(id)arg1 atPoint:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)selectHitTestResult:(id)arg1 extendSelection:(BOOL)arg2;
 - (void)handleSymbolInstanceDoubleClick:(id)arg1 gestureRecognizer:(id)arg2;

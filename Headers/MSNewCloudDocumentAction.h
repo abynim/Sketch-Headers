@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validateMenuItem:(id)arg1;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)newCloudDocument:(id)arg1;

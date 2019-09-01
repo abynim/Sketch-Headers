@@ -10,13 +10,12 @@
 {
 }
 
++ (id)defaultPointsWithRadius:(double)arg1;
++ (void)applyRadius:(double)arg1 toPoints:(id)arg2;
 + (id)shapeWithRect:(struct CGRect)arg1 fillColor:(id)arg2;
 - (BOOL)canFlatten;
 - (void)multiplyBy:(double)arg1;
-- (void)resetPointsIfNecessary;
-- (void)resetPathsToRoundedRect;
 @property(readonly, nonatomic) double maximumAllowedRadius;
-- (void)resetPathsToRect;
 - (void)resetPoints;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;

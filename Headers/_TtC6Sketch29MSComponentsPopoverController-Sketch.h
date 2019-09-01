@@ -7,6 +7,7 @@
 #import "_TtC6Sketch29MSComponentsPopoverController.h"
 
 @interface _TtC6Sketch29MSComponentsPopoverController (Sketch)
+- (void)componentsPaneWillBeginDraggingSession:(id)arg1;
 - (void)componentsPane:(id)arg1 didSelectComponent:(id)arg2;
 @end
 

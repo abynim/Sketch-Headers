@@ -26,7 +26,7 @@
     NSTouchBar *_selectionTouchBar;
     NSCursor *_cursor;
     NSString *_measurementText;
-    NSArray *_overlayRenderers;
+    NSArray *_overlays;
     NSArray *_activeGestureRecognizers;
     NSDictionary *_measurementLabelAttributes;
     MSEventHandlerOverlayItemImageCache *_overlayItemImageCache;
@@ -38,7 +38,7 @@
 @property(copy, nonatomic) NSDictionary *measurementLabelAttributes; // @synthesize measurementLabelAttributes=_measurementLabelAttributes;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
 @property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
-@property(readonly, nonatomic) NSArray *overlayRenderers; // @synthesize overlayRenderers=_overlayRenderers;
+@property(readonly, nonatomic) NSArray *overlays; // @synthesize overlays=_overlays;
 @property(copy, nonatomic) NSString *measurementText; // @synthesize measurementText=_measurementText;
 @property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
@@ -167,9 +167,9 @@
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
 - (id)measurementLabelItems;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
-- (void)addOverlayRenderer:(id)arg1;
+- (void)addOverlay:(id)arg1;
 - (void)setMeasurementLabelNeedsDisplay;
 - (void)setMeasurementTextWithDegrees:(long long)arg1;
 - (void)setMeasurementTextWithSize:(struct CGSize)arg1;

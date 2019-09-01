@@ -18,7 +18,6 @@
 - (id)cloneDictionaryReplacingImages:(id)arg1;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)isMasked;
-- (void)updateLayerListPreviewIfRequiredWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -32,7 +31,9 @@
 @property(retain, nonatomic) NSString *nodeName;
 - (id)badgeMenuConfigurator;
 - (id)maskIconWithState:(unsigned long long)arg1;
+- (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)previewIconWithState:(unsigned long long)arg1;
+- (long long)previewIconCacheFlagsForState:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
 @property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
@@ -40,6 +41,7 @@
 @property(readonly, nonatomic) BOOL isActive;
 @property(readonly, nonatomic) unsigned long long filterTypeMask;
 @property(readonly, nonatomic) unsigned long long displayType;
+@property(readonly, nonatomic) id layerListImmutable;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -11,6 +11,7 @@
 }
 
 - (id)label;
+- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)collapseAllGroups:(id)arg1;
 

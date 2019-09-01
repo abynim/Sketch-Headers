@@ -7,11 +7,10 @@
 #import "MSInspectorItem.h"
 
 #import "MSSharedStylesPopUpButtonCellDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 
 @class MSForeignObjectMenuBuilder, MSShareableObjectPopUpButton, MSSharedObject, NSString, NSTextField;
 
-@interface MSSharedStylesInspectorItem : MSInspectorItem <MSSharedStylesPopUpButtonCellDelegate, NSMenuDelegate>
+@interface MSSharedStylesInspectorItem : MSInspectorItem <MSSharedStylesPopUpButtonCellDelegate>
 {
     MSShareableObjectPopUpButton *_sharedObjectsPopUpButton;
     NSTextField *_editNameField;

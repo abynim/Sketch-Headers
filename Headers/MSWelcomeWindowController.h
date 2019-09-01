@@ -9,12 +9,11 @@
 #import "MSCloudSharesControllerDelegate-Protocol.h"
 #import "MSWelcomeCollectionViewDelegate-Protocol.h"
 #import "NSCollectionViewDataSource-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSCallToActionButton, MSCloudShareCollectionItem, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSLayoutConstraint, NSMenu, NSProgressIndicator, NSScrollView, NSSearchField, NSSegmentedControl, NSString, NSTextField;
+@class MSCallToActionButton, MSCloudShareCollectionItem, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSCountedSet, NSLayoutConstraint, NSMenu, NSProgressIndicator, NSScrollView, NSSearchField, NSSegmentedControl, NSString, NSTextField;
 
-@interface MSWelcomeWindowController : CHWindowController <NSCollectionViewDataSource, MSWelcomeCollectionViewDelegate, MSCloudSharesControllerDelegate, NSMenuDelegate, NSWindowDelegate>
+@interface MSWelcomeWindowController : CHWindowController <NSCollectionViewDataSource, MSWelcomeCollectionViewDelegate, MSCloudSharesControllerDelegate, NSWindowDelegate>
 {
     NSButton *_closeButton;
     NSCollectionView *_collectionView;
@@ -36,18 +35,21 @@
     MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
+    NSCountedSet *_downloadingItems;
     MSCloudShareCollectionItem *_selectedLocalCloudItem;
     MSCloudSharesController *_cloudSharesController;
 }
 
 + (BOOL)cloudCollectionEnabled;
 + (id)templateURLsAtDirectoryURL:(id)arg1;
++ (void)clearWelcomeWindowRecentItemsCache;
 + (BOOL)hideWelcomeWindowIfNeeded;
 + (void)showWelcomeWindowSelectingShare:(id)arg1;
 + (BOOL)showWelcomeWindowIfAppropriate;
 + (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
 @property(retain, nonatomic) MSCloudSharesController *cloudSharesController; // @synthesize cloudSharesController=_cloudSharesController;
 @property(retain, nonatomic) MSCloudShareCollectionItem *selectedLocalCloudItem; // @synthesize selectedLocalCloudItem=_selectedLocalCloudItem;
+@property(retain, nonatomic) NSCountedSet *downloadingItems; // @synthesize downloadingItems=_downloadingItems;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
@@ -105,7 +107,7 @@
 - (void)selectCollectionItem:(id)arg1;
 - (id)willPresentError:(id)arg1;
 - (void)openTemplateAtURL:(id)arg1;
-- (void)openDocumentAtURL:(id)arg1;
+- (void)openDocumentAtURL:(id)arg1 isDownloadedCloudDocument:(BOOL)arg2;
 - (void)requestCloudItems;
 - (void)joinSketchCloud:(id)arg1;
 - (void)visitSketchMirrorPage:(id)arg1;
@@ -124,8 +126,10 @@
 - (void)openDocument:(id)arg1;
 - (void)showCollection:(unsigned long long)arg1;
 - (void)pickCollection:(id)arg1;
+- (void)clearRecentItemsCache;
 - (void)togglePluginsButton:(BOOL)arg1;
 - (void)windowWillClose:(id)arg1;
+- (void)stopCloudDownloads;
 - (void)clearCaches;
 - (void)centerWindowIfAppropriate;
 - (void)updateCollectionSegments;

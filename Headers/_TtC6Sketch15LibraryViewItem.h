@@ -9,6 +9,8 @@
 @interface _TtC6Sketch15LibraryViewItem : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: library
+    // Error parsing type: , name: isSelectable
+    // Error parsing type: , name: expansionState
     // Error parsing type: , name: children
 }
 

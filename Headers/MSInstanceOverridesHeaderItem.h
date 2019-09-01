@@ -10,12 +10,16 @@
 
 @interface MSInstanceOverridesHeaderItem : MSInspectorItem
 {
+    NSButton *_sizeToFitButton;
     NSButton *_trash;
 }
 
 @property(retain, nonatomic) NSButton *trash; // @synthesize trash=_trash;
+@property(retain, nonatomic) NSButton *sizeToFitButton; // @synthesize sizeToFitButton=_sizeToFitButton;
 - (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)sizeToFitAction:(id)arg1;
+- (void)updateSizeToFitIcon;
 - (void)updateTrashIcon;
 - (void)viewWillAppear;
 

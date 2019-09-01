@@ -24,7 +24,7 @@
 + (id)defaultName;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
+- (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;
 - (id)keysDifferingFromObject:(id)arg1;
@@ -56,6 +56,7 @@
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV97OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV80OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;

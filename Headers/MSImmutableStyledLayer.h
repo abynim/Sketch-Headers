@@ -39,7 +39,7 @@
 - (BOOL)hasMarkers;
 @property(readonly, nonatomic) BOOL allowsBlur;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
-- (id)decoratedPathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
+- (id)decoratedPathInBoundsInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;

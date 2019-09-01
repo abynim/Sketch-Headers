@@ -12,10 +12,12 @@
 {
     struct CGRect _bounds;
     BOOL _clockwise;
+    BOOL _isLinear;
     BOOL _isRectangular;
     MSPath *_path;
     // Error parsing type: A^^v, name: __boundsAtomic
     // Error parsing type: A^^v, name: __clockwiseAtomic
+    // Error parsing type: A^^v, name: __isLinearAtomic
     // Error parsing type: A^^v, name: __isRectangularAtomic
     // Error parsing type: A^^v, name: __pathAtomic
     BOOL _closed;
@@ -51,6 +53,8 @@
 @property(readonly, nonatomic) MSPath *path;
 - (id)createPath;
 @property(readonly, nonatomic) BOOL isRectangular;
+@property(readonly, nonatomic) BOOL isLinear;
+- (BOOL)_calculateIsLinear;
 - (BOOL)doSegmentsFormARectangle:(id)arg1 closed:(BOOL)arg2;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGRect)calculateBounds;

@@ -10,5 +10,7 @@
 {
 }
 
+- (id)initWithManager:(id)arg1;
+
 @end
 

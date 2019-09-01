@@ -6,40 +6,29 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-#import "MSAlignmentEngineDelegate-Protocol.h"
+@class MSNormalEventHandler, MSShapePathLayer, _TtC6Sketch16MSLineResizeTool;
 
-@class MSAlignmentEngineResult, MSNormalEventHandler, MSShapePathLayer, NSString;
-
-@interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate>
+@interface MSNormalResizeLineEventHandler : MSNormalBaseEventHandler
 {
     MSShapePathLayer *_layer;
     long long _pointIndex;
     MSNormalEventHandler *_normalEventHandler;
-    MSAlignmentEngineResult *_snapGuides;
+    _TtC6Sketch16MSLineResizeTool *_tool;
 }
 
-@property(retain, nonatomic) MSAlignmentEngineResult *snapGuides; // @synthesize snapGuides=_snapGuides;
+@property(readonly, nonatomic) _TtC6Sketch16MSLineResizeTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) long long pointIndex; // @synthesize pointIndex=_pointIndex;
 @property(retain, nonatomic) MSShapePathLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
-- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
-- (BOOL)wantsStandardSelectionControls;
 - (id)cursorForRadians:(double)arg1;
-- (void)displayResizeCursor;
-- (void)addSnapTargetsToEngine:(id)arg1;
-- (id)prepareForSnapping;
+- (BOOL)updateCursor;
+- (void)updateVisibleHandle;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)handlerWillLoseFocus;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithManager:(id)arg1;
 
 @end
 

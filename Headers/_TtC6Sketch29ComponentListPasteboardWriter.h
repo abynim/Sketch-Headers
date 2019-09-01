@@ -10,7 +10,7 @@
 
 @interface _TtC6Sketch29ComponentListPasteboardWriter : NSObject <NSPasteboardWriting>
 {
-    // Error parsing type: , name: sharedObjectReference
+    // Error parsing type: , name: componentReference
     // Error parsing type: , name: groupPath
 }
 

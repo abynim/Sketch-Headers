@@ -12,6 +12,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEnabledByDefault;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

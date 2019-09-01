@@ -33,7 +33,10 @@
 - (void)setHighlighted:(BOOL)arg1;
 - (void)drawSegment:(long long)arg1 inFrame:(struct CGRect)arg2 withView:(id)arg3;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (long long)segmentForX:(double)arg1 frame:(struct CGRect)arg2;
+- (id)segmentWidthsForFrame:(struct CGRect)arg1 total:(double *)arg2;
 - (struct CGRect)drawingRectForBounds:(struct CGRect)arg1;
+- (void)stopTracking:(struct CGPoint)arg1 at:(struct CGPoint)arg2 inView:(id)arg3 mouseIsUp:(BOOL)arg4;
 
 @end
 

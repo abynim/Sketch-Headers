@@ -11,13 +11,15 @@
 }
 
 - (id)defaultType;
-- (BOOL)allowsAutomaticShareMenu;
 - (void)noteNewRecentDocumentURL:(id)arg1;
 - (void)noteNewRecentDocument:(id)arg1;
 - (BOOL)shoudNoteRecentDocumentForType:(id)arg1;
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)openLocalDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)typeForContentsOfURL:(id)arg1 error:(id *)arg2;
+- (id)cloudDocumentURLsInFolder:(id)arg1 shouldEnumerateSubDirectories:(BOOL)arg2;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 context:(id)arg3 callback:(id)arg4;
 
 @end

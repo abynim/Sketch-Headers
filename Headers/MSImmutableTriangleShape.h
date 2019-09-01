@@ -11,6 +11,8 @@
 }
 
 + (id)defaultName;
+- (BOOL)hasDefaultCurvePoints;
+- (id)defaultCurvePoints;
 
 @end
 

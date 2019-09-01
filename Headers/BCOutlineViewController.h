@@ -60,7 +60,6 @@
 - (id)tableCellOutlineView:(id)arg1;
 - (id)tableCellViewDestinationWindow:(id)arg1;
 - (unsigned long long)tableRowView:(id)arg1 displayTypeOfRowAtIndex:(long long)arg2;
-- (void)tableCellViewNodeRequiresRefresh:(id)arg1;
 - (long long)indexOfTableRowView:(id)arg1;
 - (BOOL)isNodeExpandedInTableRowView:(id)arg1;
 - (id)selectedNodes;

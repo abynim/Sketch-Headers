@@ -8,11 +8,14 @@
 
 @interface _TtC6Sketch13ComponentTree : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: document
     // Error parsing type: , name: libraries
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: unfilteredTopLevelViewItems
+    // Error parsing type: , name: containment
+    // Error parsing type: , name: rawTopLevelViewItems
     // Error parsing type: , name: filter
     // Error parsing type: , name: filteredTopLevelViewItems
+    // Error parsing type: , name: expandedPaths
 }
 
 @end

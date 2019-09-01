@@ -11,6 +11,7 @@
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
+- (BOOL)hasDefaultValues;
 - (BOOL)isInferredLayout;
 
 @end

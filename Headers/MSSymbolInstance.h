@@ -22,8 +22,10 @@
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)mapOverrides:(id)arg1 forOverridePoint:(id)arg2 symbols:(BOOL)arg3;
 - (void)mapExistingSymbolOverridesFrom:(id)arg1 forOverridePoint:(id)arg2;
+- (BOOL)shouldResizeRespectOwnLayoutDirection:(id)arg1;
 - (void)didResizeToFitContentsWithMaster:(id)arg1 oldRect:(struct CGRect)arg2;
-- (void)resizeToFitContentsIfNeededWithDocument:(id)arg1;
+- (void)resizeToFitContentsIfNeededWithDocument:(id)arg1 skipCache:(BOOL)arg2;
+- (void)resizeToFitContentsIfNeededNoCache;
 - (void)resizeToFitContentsIfNeeded;
 - (id)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2 document:(id)arg3;
 - (id)availableOverridesIn:(id)arg1 underPoint:(id)arg2;

@@ -11,7 +11,10 @@
 }
 
 - (id)label;
+- (void)openNewLocalDocument;
+- (void)showEnableNewCloudDocumentsWindow:(id)arg1;
 - (void)doPerformAction:(id)arg1;
+- (BOOL)shouldShowCloudDocumentsChoice;
 - (void)newLocalDocument:(id)arg1;
 
 @end

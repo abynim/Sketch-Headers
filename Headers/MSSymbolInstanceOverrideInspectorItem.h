@@ -6,11 +6,9 @@
 
 #import "MSOverrideInspectorItem.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
 @class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate>
+@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -29,8 +27,10 @@
 - (void).cxx_destruct;
 - (void)navigateToOverridesMaster:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
+- (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
+- (void)closeComponentsPopoverIfNecessary;
 - (void)pickSymbol:(id)arg1;
 - (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;

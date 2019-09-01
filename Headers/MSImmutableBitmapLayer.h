@@ -17,6 +17,7 @@
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;

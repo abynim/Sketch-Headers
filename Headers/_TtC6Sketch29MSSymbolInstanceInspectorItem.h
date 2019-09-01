@@ -17,9 +17,9 @@
 }
 
 - (void).cxx_destruct;
+- (void)editLocalSymbolMaster:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)editLocalSymbolMaster:(id)arg1;
 @property(nonatomic) __weak MSInspectorPushButton *editForeignMasterButton; // @synthesize editForeignMasterButton;
 @property(nonatomic) __weak MSInspectorPushButton *editLocalMasterButton; // @synthesize editLocalMasterButton;
 @property(nonatomic) __weak MSInspectorPushButton *detachButton; // @synthesize detachButton;

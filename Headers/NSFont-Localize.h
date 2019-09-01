@@ -7,6 +7,8 @@
 #import <AppKit/NSFont.h>
 
 @interface NSFont (Localize)
+- (id)typeName;
+- (id)localizedTypeName;
 - (id)localizedFamilyName;
 @end
 

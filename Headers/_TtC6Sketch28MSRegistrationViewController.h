@@ -20,6 +20,7 @@
     // Error parsing type: , name: succesImageView
     // Error parsing type: , name: segmentedControl
     // Error parsing type: , name: contentContainerView
+    // Error parsing type: , name: currentBadgeDecorationView
     // Error parsing type: , name: delegate
     // Error parsing type: , name: contentViewController
     // Error parsing type: , name: registrationType

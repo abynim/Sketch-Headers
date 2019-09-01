@@ -11,6 +11,7 @@
 @interface MSHeaderInspectorItem : MSInspectorItem
 {
     BOOL _buttonDisabled;
+    BOOL _constrainActiveButtonAreaToImage;
     BOOL _wantsSeparator;
     BOOL _wantsSeparatorInset;
     NSString *_labelText;
@@ -42,6 +43,7 @@
 @property(retain, nonatomic) NSArray *accessoryViews; // @synthesize accessoryViews=_accessoryViews;
 @property(nonatomic) BOOL wantsSeparatorInset; // @synthesize wantsSeparatorInset=_wantsSeparatorInset;
 @property(nonatomic) BOOL wantsSeparator; // @synthesize wantsSeparator=_wantsSeparator;
+@property(nonatomic) BOOL constrainActiveButtonAreaToImage; // @synthesize constrainActiveButtonAreaToImage=_constrainActiveButtonAreaToImage;
 @property(nonatomic) BOOL buttonDisabled; // @synthesize buttonDisabled=_buttonDisabled;
 @property(nonatomic) long long buttonState; // @synthesize buttonState=_buttonState;
 @property(retain, nonatomic) NSString *buttonToolTip; // @synthesize buttonToolTip=_buttonToolTip;

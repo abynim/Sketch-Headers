@@ -11,6 +11,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEditedByDefault;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

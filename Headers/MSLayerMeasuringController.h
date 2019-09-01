@@ -6,28 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class MSSpecRenderer, NSNumberFormatter, NSString, _TtC6Sketch27MSLayerMeasurementViewModel;
+@class MSSpecOverlay, NSNumberFormatter, NSString, _TtC6Sketch27MSLayerMeasurementViewModel;
 
 @interface MSLayerMeasuringController : NSObject
 {
-    MSSpecRenderer *_renderer;
+    MSSpecOverlay *_overlay;
     _TtC6Sketch27MSLayerMeasurementViewModel *_viewModel;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(readonly, nonatomic) _TtC6Sketch27MSLayerMeasurementViewModel *viewModel; // @synthesize viewModel=_viewModel;
-@property(readonly, nonatomic) MSSpecRenderer *renderer; // @synthesize renderer=_renderer;
+@property(readonly, nonatomic) MSSpecOverlay *overlay; // @synthesize overlay=_overlay;
 - (void).cxx_destruct;
 - (void)layerMeasurementUpdated;
-- (id)specRenderer:(id)arg1 textForMeasurement:(id)arg2 vector:(struct CGVector)arg3;
-- (BOOL)specRenderer:(id)arg1 shouldHideItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
-- (BOOL)specRenderer:(id)arg1 layout:(id)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndexPath:(id)arg4;
-- (struct CGRect)specRenderer:(id)arg1 rectForEndOfItemAtIndexPath:(id)arg2;
-- (struct CGRect)specRenderer:(id)arg1 rectForStartOfItemAtIndexPath:(id)arg2;
-- (struct CGPoint)specRenderer:(id)arg1 endpointForItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3;
-- (struct CGPoint)specRenderer:(id)arg1 startpointForItemAtIndexPath:(id)arg2;
-- (long long)collectionRenderer:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (id)specOverlay:(id)arg1 textForMeasurement:(id)arg2 vector:(struct CGVector)arg3;
+- (BOOL)specOverlay:(id)arg1 shouldHideItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;
+- (BOOL)specOverlay:(id)arg1 layout:(id)arg2 shouldShowEndRect:(struct CGRect)arg3 forItemAtIndexPath:(id)arg4;
+- (struct CGRect)specOverlay:(id)arg1 rectForEndOfItemAtIndexPath:(id)arg2;
+- (struct CGRect)specOverlay:(id)arg1 rectForStartOfItemAtIndexPath:(id)arg2;
+- (struct CGPoint)specOverlay:(id)arg1 endpointForItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3;
+- (struct CGPoint)specOverlay:(id)arg1 startpointForItemAtIndexPath:(id)arg2;
+- (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)init;
 
 // Remaining properties

@@ -23,7 +23,6 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithPreferencesController:(id)arg1;
 - (void)viewDidLoad;
-- (struct CGSize)preferredSize;
 @property(nonatomic, retain) NSStackView *stackView; // @synthesize stackView;
 
 @end

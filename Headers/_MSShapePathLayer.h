@@ -18,6 +18,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (BOOL)isEditedByDefault;
 - (void).cxx_destruct;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

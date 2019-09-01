@@ -11,7 +11,6 @@
 - (id)shadowPathWithSpread:(double)arg1 cacheObject:(id)arg2 context:(id)arg3;
 - (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
 - (id)pathWithDashPattern:(id)arg1;
-- (id)pathByGrowingBy:(double)arg1;
 - (id)insetPathBy:(double)arg1;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;

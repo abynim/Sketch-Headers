@@ -8,12 +8,11 @@
 
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "MSVectorCanvasDelegate-Protocol.h"
-#import "NSMenuDelegate-Protocol.h"
 #import "NSTextDelegate-Protocol.h"
 
 @class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorCanvas, NSArray, NSString;
 
-@interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, NSMenuDelegate, MSGestureRecognizerDelegate>
+@interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, MSGestureRecognizerDelegate>
 {
     unsigned long long _ignoreSelectionChangesCount;
     MSEditShapeInspectorViewController *_inspectorViewController;
@@ -49,7 +48,7 @@
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;

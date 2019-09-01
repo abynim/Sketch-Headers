@@ -13,12 +13,10 @@
     MSImmutablePage *_page;
     MSImmutableDocumentData *_documentData;
     double _zoomValue;
-    struct CGRect _dirtyRect;
 }
 
-+ (id)tileRenderPassWithPage:(id)arg1 inDocument:(id)arg2 dirtyRect:(struct CGRect)arg3 zoomValue:(double)arg4;
++ (id)tileRenderPassWithPage:(id)arg1 inDocument:(id)arg2 zoomValue:(double)arg3;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
-@property(nonatomic) struct CGRect dirtyRect; // @synthesize dirtyRect=_dirtyRect;
 @property(retain, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
 - (void).cxx_destruct;

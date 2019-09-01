@@ -11,6 +11,7 @@
 
 @protocol BCOutlineViewNode <NSObject>
 @property(readonly, nonatomic) BOOL isExpanded;
+@property(readonly, nonatomic) id layerListImmutable;
 @property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
 @property(readonly, nonatomic) BOOL isEditableInLayerList;
@@ -21,6 +22,8 @@
 @property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
 - (id <BCOutlineViewPopupConfigurator>)badgeMenuConfigurator;
 - (NSImage *)maskIconWithState:(unsigned long long)arg1;
+- (long long)previewIconCacheFlagsForState:(unsigned long long)arg1;
+- (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(void (^)(NSImage *))arg2;
 - (NSImage *)previewIconWithState:(unsigned long long)arg1;
 @end
 

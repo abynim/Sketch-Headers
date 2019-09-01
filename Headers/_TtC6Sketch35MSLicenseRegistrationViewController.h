@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSImage, NSString, NSTextField;
+@class NSButton, NSImage, NSString, NSTextField, NSView;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @interface _TtC6Sketch35MSLicenseRegistrationViewController : NSViewController
@@ -16,6 +16,7 @@
     // Error parsing type: , name: headerLinkTitle
     // Error parsing type: , name: headerBackgroundImage
     // Error parsing type: , name: headerImage
+    // Error parsing type: , name: headerBadgeDecorationView
     // Error parsing type: , name: allowCancellation
     // Error parsing type: , name: wantsLicense
     // Error parsing type: , name: licenseUpdateExpirationDate
@@ -52,6 +53,7 @@
 @property(nonatomic) __weak id <_TtP6Sketch35MSRegistrationWindowContentDelegate_> delegate; // @synthesize delegate;
 @property(nonatomic, readonly) BOOL wantsLicense; // @synthesize wantsLicense;
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
+@property(nonatomic, retain) NSView *headerBadgeDecorationView; // @synthesize headerBadgeDecorationView;
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
 @property(nonatomic, readonly) NSImage *headerBackgroundImage; // @synthesize headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle; // @synthesize headerLinkTitle;

@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)maskingLayerForChild:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
@@ -38,10 +39,10 @@
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 @property(readonly, nonatomic) BOOL hasCalculatedInfluenceRectForBounds;
-- (id)pathInFrameWithTransformsInDocument:(id)arg1 asSubpath:(BOOL)arg2;
-- (id)pathInFrameInDocument:(id)arg1 asSubpath:(BOOL)arg2;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
-- (id)pathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
+- (id)pathInFrameWithTransformsInDocument:(id)arg1;
+- (id)pathInFrameInDocument:(id)arg1;
+- (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (id)pathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;

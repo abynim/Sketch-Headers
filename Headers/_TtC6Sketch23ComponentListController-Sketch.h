@@ -9,11 +9,13 @@
 #import "NSOutlineViewDelegate-Protocol.h"
 
 @interface _TtC6Sketch23ComponentListController (Sketch) <NSOutlineViewDelegate>
-- (BOOL)outlineView:(id)arg1 shouldShowOutlineCellForItem:(id)arg2;
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
 - (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (void)outlineViewSelectionDidChange:(id)arg1;
 - (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
+- (void)outlineViewItemDidCollapse:(id)arg1;
+- (void)outlineViewItemDidExpand:(id)arg1;
+- (BOOL)outlineView:(id)arg1 shouldExpandItem:(id)arg2;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
 @end

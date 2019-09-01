@@ -9,6 +9,9 @@
 @interface _TtC17SketchControllers21MSLayerSnappingResult : NSObject
 {
     // Error parsing type: , name: result
+    // Error parsing type: , name: alignmentRect
+    // Error parsing type: , name: coordinateSpace
+    // Error parsing type: , name: layers
     // Error parsing type: , name: tool
     // Error parsing type: , name: wantOppositeMeasurements
 }

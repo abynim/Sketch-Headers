@@ -11,7 +11,11 @@
 }
 
 + (id)defaultName;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+- (void)encodePropertiesWithCoder:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
+- (BOOL)hasDefaultCurvePoints;
+- (id)defaultCurvePoints;
 
 @end
 

@@ -12,6 +12,7 @@
 {
     BOOL _isEditable;
     BOOL _isVisible;
+    BOOL _appearsOnCanvas;
     MSAvailableOverride *_parent;
     MSImmutableSymbolMaster *_master;
     MSImmutableLayer *_affectedLayer;
@@ -26,6 +27,7 @@
 + (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 otherOverrides:(id)arg4 overrideProperties:(id)arg5 inParent:(id)arg6 document:(id)arg7;
 @property(readonly, nonatomic) id affectedLayerDefault; // @synthesize affectedLayerDefault=_affectedLayerDefault;
 @property(readonly, nonatomic) MSOverrideValue *internalOverrideValue; // @synthesize internalOverrideValue=_internalOverrideValue;
+@property(nonatomic) BOOL appearsOnCanvas; // @synthesize appearsOnCanvas=_appearsOnCanvas;
 @property(readonly, nonatomic) BOOL isVisible; // @synthesize isVisible=_isVisible;
 @property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
 @property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
@@ -33,6 +35,7 @@
 @property(readonly, nonatomic) __weak MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
+- (void)calculateAppearsOnCanvasWithAncestors:(id)arg1;
 @property(readonly, nonatomic) BOOL allowsOverrides;
 @property(readonly, nonatomic) BOOL defaultIsItselfAnOverride;
 @property(readonly, nonatomic) BOOL hasOverride;
@@ -40,7 +43,8 @@
 @property(readonly, nonatomic) id defaultValue;
 @property(readonly, nonatomic) id currentValue;
 @property(readonly, nonatomic) NSArray *children;
-- (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 otherOverrides:(id)arg5 inParent:(id)arg6 document:(id)arg7 visible:(BOOL)arg8 editable:(BOOL)arg9;
+- (id)initWithOverridePoint:(id)arg1 master:(id)arg2 affectedLayer:(id)arg3 overrideValue:(id)arg4 otherOverrides:(id)arg5 inParent:(id)arg6 document:(id)arg7;
+- (BOOL)affectsSameLayerAs:(id)arg1;
 - (BOOL)isComplimentaryTo:(id)arg1;
 @property(nonatomic, readonly) long long ancestorCount;
 

@@ -6,14 +6,17 @@
 
 #import "_TtC6Sketch28MSSelectionOverlayController.h"
 
-#import "_TtP6Sketch25SelectionRendererDelegate_-Protocol.h"
+@class NSArray;
 
-@interface _TtC6Sketch28MSSelectionOverlayController (Sketch2) <_TtP6Sketch25SelectionRendererDelegate_>
-- (void)spacingRendererWithDidFinishAdjusting:(id)arg1;
-- (void)spacingRenderer:(id)arg1 willBeginAdjustingSpaceAt:(id)arg2;
-- (void)spacingRenderer:(id)arg1 adjustSpacingAt:(id)arg2 to:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
-- (void)collectionRenderer:(id)arg1 trackedMouse:(struct CGPoint)arg2;
-- (id)collectionRenderer:(id)arg1 cursorForResizeHandleOfKind:(id)arg2 at:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
-- (long long)collectionRenderer:(id)arg1 dotRectTypeForItemAt:(id)arg2;
+@interface _TtC6Sketch28MSSelectionOverlayController (Sketch2)
+@property(nonatomic, readonly) BOOL shouldShowSelectedOverrides;
+@property(nonatomic) BOOL preferencesWantSelection;
+@property(nonatomic) BOOL currentEventHandlerWantsStandardSelectionControls;
+- (void)beginToolWithHandleOfKind:(id)arg1;
+- (void)beginToolWithHandle:(long long)arg1;
+- (void)beginToolWithHiddenHandles;
+- (void)resetMode;
+- (BOOL)isStackSpacingHandleAtPoint:(struct CGPoint)arg1;
+@property(nonatomic, copy) NSArray *selectedLayers;
 @end
 
