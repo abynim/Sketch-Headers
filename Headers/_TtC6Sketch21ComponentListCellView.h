@@ -9,11 +9,14 @@
 @interface _TtC6Sketch21ComponentListCellView : NSTableCellView
 {
     // Error parsing type: , name: componentListController
+    // Error parsing type: , name: previewToken
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)prepareForReuse;
+- (void)updateConstraints;
 @property(nonatomic, copy) id objectValue;
 
 @end

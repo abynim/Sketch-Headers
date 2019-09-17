@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableDocumentData.h>
 
 @interface MSImmutableDocumentData (MSRenderPreparation)
-- (void)prepareForRender:(id)arg1;
+- (CDUnknownBlockType)prepareForRender:(id)arg1;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shouldDrawAtZoom:(double)arg1;
 
 @end

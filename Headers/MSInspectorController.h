@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -17,6 +17,7 @@
     BOOL _layerSelectionChangeScheduled;
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
+    BCCache *_previewImageCache;
     _TtC6Sketch29MSComponentsPopoverController *_componentsPopoverController;
     MSLayerArray *_selectedLayers;
     NSView *_alignmentView;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
 @property(retain, nonatomic) _TtC6Sketch29MSComponentsPopoverController *componentsPopoverController; // @synthesize componentsPopoverController=_componentsPopoverController;
+@property(retain, nonatomic) BCCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
 - (void).cxx_destruct;

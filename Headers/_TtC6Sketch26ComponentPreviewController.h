@@ -11,6 +11,7 @@
 @interface _TtC6Sketch26ComponentPreviewController : NSViewController
 {
     // Error parsing type: , name: state
+    // Error parsing type: , name: currentImageGenerationToken
     // Error parsing type: , name: componentsPaneController
     // Error parsing type: , name: imageView
     // Error parsing type: , name: textField

@@ -48,7 +48,7 @@
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;

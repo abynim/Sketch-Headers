@@ -14,7 +14,7 @@
 }
 
 + (id)bezierPathFromPoints:(id)arg1;
-+ (id)bezierPathFromCommands:(id)arg1 isPathClosed:(char *)arg2;
++ (id)bezierPathFromCommands:(id)arg1;
 @property(nonatomic) BOOL lastCommand; // @synthesize lastCommand=_lastCommand;
 @property(nonatomic) struct CGPoint lastControl; // @synthesize lastControl=_lastControl;
 @property(nonatomic) struct CGPoint lastPoint; // @synthesize lastPoint=_lastPoint;
@@ -44,7 +44,7 @@
 - (void)appendmComponents:(id)arg1 toBezierPath:(id)arg2;
 - (void)appendLComponents:(id)arg1 toBezierPath:(id)arg2;
 - (void)appendMComponents:(id)arg1 toBezierPath:(id)arg2;
-- (id)bezierPathFromCommands:(id)arg1 isPathClosed:(char *)arg2;
+- (id)bezierPathFromCommands:(id)arg1;
 - (id)bezierPathFromPoints:(id)arg1;
 
 @end

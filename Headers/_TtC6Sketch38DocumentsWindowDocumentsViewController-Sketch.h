@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/MSLayerDraggingSnapTargetGenerator.h>
+#import "_TtC6Sketch38DocumentsWindowDocumentsViewController.h"
 
-@interface MSLayerDraggingSnapTargetGenerator (SketchControllers)
-- (void)provideTargetsToSnapper:(id)arg1;
+@interface _TtC6Sketch38DocumentsWindowDocumentsViewController (Sketch)
+- (void)menuNeedsUpdate:(id)arg1;
 @end
 

@@ -6,7 +6,7 @@
 
 #import "MSToggleVisibilityAction.h"
 
-@interface MSToggleLayerListVisibilityAction : MSToggleVisibilityAction
+@interface MSToggleSidebarVisibilityAction : MSToggleVisibilityAction
 {
 }
 
@@ -14,7 +14,7 @@
 - (void)hide;
 - (void)show;
 - (BOOL)isActive;
-- (void)toggleLayerListVisibility:(id)arg1;
+- (void)toggleSidebarVisibility:(id)arg1;
 
 @end
 

@@ -14,6 +14,7 @@
 {
 }
 
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) BOOL isEffectivelyStraight;
 @property(readonly, nonatomic) BOOL isRounded;
 @property(readonly, nonatomic) BOOL isStraight;

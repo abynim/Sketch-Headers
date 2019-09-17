@@ -16,7 +16,6 @@
 - (id)tooltip;
 - (id)label;
 - (void)createSymbolFromLayers:(id)arg1;
-- (void)doCreateSymbolsFromArtboards:(id)arg1;
 - (void)createSymbolsFromArtboards:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (BOOL)canCreateSymbolsFromArtboards:(id)arg1;

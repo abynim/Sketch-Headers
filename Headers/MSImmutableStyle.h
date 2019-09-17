@@ -38,6 +38,7 @@
 @property(readonly, nonatomic) BOOL hasEnabledShadow; // @synthesize hasEnabledShadow=_hasEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill; // @synthesize hasMoreThanOneEnabledFill=_hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasMarkers; // @synthesize hasMarkers=_hasMarkers;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV104OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;

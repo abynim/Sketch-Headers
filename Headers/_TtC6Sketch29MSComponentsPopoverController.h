@@ -12,17 +12,19 @@
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: componentsPane.storage
-    // Error parsing type: , name: currentPopover
-    // Error parsing type: , name: pickHandler
+    // Error parsing type: , name: currentSession
 }
 
 - (void).cxx_destruct;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (BOOL)restoreWithRestorationInfo:(id)arg1 owner:(id)arg2 relativeTo:(id)arg3 selectingComponent:(id)arg4 pickHandler:(CDUnknownBlockType)arg5;
+- (id)hidePopoverAndReturnRestorationInfoFor:(id)arg1;
+- (void)closeComponentPopoverFor:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (void)pickTextStyleWithRelativeToView:(id)arg1 preselectingTextStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)pickLayerStyleWithRelativeToView:(id)arg1 preselectingLayerStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)pickSymbolMasterWithRelativeToView:(id)arg1 preselectingSymbol:(id)arg2 enableHideSymbolItem:(BOOL)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)pickTextStyleWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingTextStyle:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)pickLayerStyleWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingLayerStyle:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)pickSymbolMasterWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingSymbol:(id)arg3 enableHideSymbolItem:(BOOL)arg4 completion:(CDUnknownBlockType)arg5;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, readonly) MSDocument *document; // @synthesize document;
 

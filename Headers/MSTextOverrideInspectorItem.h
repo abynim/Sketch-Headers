@@ -6,10 +6,11 @@
 
 #import "MSOverrideInspectorItem.h"
 
-@class NSTextField;
+@class NSString, NSTextField;
 
 @interface MSTextOverrideInspectorItem : MSOverrideInspectorItem
 {
+    BOOL _hasPendingChanges;
     NSTextField *_overrideTextField;
 }
 
@@ -18,13 +19,24 @@
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
 + (unsigned long long)numberOfLinesForOverride:(id)arg1 layers:(id)arg2;
 + (unsigned long long)numberOfLinesForSingleOverride:(id)arg1;
+@property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
 - (void).cxx_destruct;
+- (void)controlTextDidChange:(id)arg1;
+- (void)controlTextDidBeginEditing:(id)arg1;
 - (id)valueFromControlView:(id)arg1;
+- (void)overrideValueAction:(id)arg1;
 - (id)controlViewForEditingOverride;
 - (id)dataOverrides;
 - (void)refreshDataOnCurrentSelection:(id)arg1;
 - (void)applyDataToCurrentSelection:(id)arg1;
+- (void)generateDataWithSupplier:(id)arg1 dataManager:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch21LibraryListController.h"
 
-#import "NSOutlineViewDataSource-Protocol.h"
-
-@interface _TtC6Sketch21LibraryListController (Sketch) <NSOutlineViewDataSource>
+@interface _TtC6Sketch21LibraryListController (Sketch)
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;

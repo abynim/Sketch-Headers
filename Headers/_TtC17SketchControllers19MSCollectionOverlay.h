@@ -17,7 +17,7 @@
 }
 
 - (void).cxx_destruct;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)reloadData;
 @property(nonatomic) __weak id <_TtP17SketchControllers29MSCollectionOverlayDataSource_> dataSource; // @synthesize dataSource;

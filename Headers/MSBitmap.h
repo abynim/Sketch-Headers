@@ -6,12 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@interface MSImage : NSObject
+@interface MSBitmap : NSObject
 {
     struct CGImage *_CGImage;
     struct CGSize _size;
+    struct BCEdgePaddings _edgePaddings;
 }
 
++ (id)bitmapWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 edgePaddings:(struct BCEdgePaddings)arg3 colorspace:(struct CGColorSpace *)arg4 drawingBlock:(CDUnknownBlockType)arg5;
++ (id)rectangularBitmapWithStrokeWidth:(double)arg1 cornerRadius:(double)arg2 strokeColor:(struct CGColor *)arg3 fillColor:(struct CGColor *)arg4 colorspace:(struct CGColorSpace *)arg5 backingScale:(double)arg6;
+@property(readonly, nonatomic) struct BCEdgePaddings edgePaddings; // @synthesize edgePaddings=_edgePaddings;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
 - (id)imageWithTransform:(struct CGAffineTransform)arg1;
@@ -20,6 +24,7 @@
 @property(readonly, nonatomic) struct CGColorSpace *colorspace;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1;
+- (id)initWithCGImage:(struct CGImage *)arg1 edgePaddings:(struct BCEdgePaddings)arg2;
 
 @end
 

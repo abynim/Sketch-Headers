@@ -6,24 +6,24 @@
 
 #import <objc/NSObject.h>
 
+@class MSTextureAtlas;
 @protocol MSGPURenderer, MSGPUTexture;
 
 @interface MSGPUArtboardShadow : NSObject
 {
-    id <MSGPURenderer> _renderer;
-    struct CGImage *_image;
-    struct CGImage *_selectedImage;
     id <MSGPUTexture> _texture;
-    id <MSGPUTexture> _selectedTexture;
+    MSTextureAtlas *_textureAtlas;
+    id <MSGPURenderer> _renderer;
 }
 
+@property(nonatomic) __weak id <MSGPURenderer> renderer; // @synthesize renderer=_renderer;
+@property(readonly, nonatomic) MSTextureAtlas *textureAtlas; // @synthesize textureAtlas=_textureAtlas;
 - (void).cxx_destruct;
+- (void)getArtboardShadowTextureRects:(struct CGRect *)arg1 innerRect:(struct CGRect *)arg2;
 - (double)cornerSourceSize;
 - (double)cornerSize;
 - (double)minimumArtboardSizeForDrawingShadow;
-@property(readonly, nonatomic) id <MSGPUTexture> selectedTexture;
-@property(readonly, nonatomic) id <MSGPUTexture> texture;
-- (void)dealloc;
+@property(readonly, nonatomic) id <MSGPUTexture> texture; // @synthesize texture=_texture;
 - (id)initWithRenderer:(id)arg1;
 
 @end

@@ -13,7 +13,6 @@
 @optional
 @property(retain) MSAvailableOverride *overrideItemForInspector;
 - (void)clearDataRecordFromCurrentSelection:(id)arg1;
-- (void)applyDataToCurrentSelectionRoot:(id)arg1;
 - (void)applyDataToCurrentSelection:(id)arg1;
 - (void)refreshDataOnCurrentSelection:(id)arg1;
 @end

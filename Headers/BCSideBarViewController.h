@@ -85,6 +85,7 @@
 - (void)refreshAfterAppearanceChange;
 - (id)tabViewControllerForIdentifier:(id)arg1;
 - (void)switchToTabWithIdentifier:(id)arg1;
+@property(readonly, nonatomic) NSString *currentTabIdentifier;
 - (void)applyTabConfiguration:(id)arg1;
 - (void)updateActiveList;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

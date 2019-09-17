@@ -15,6 +15,7 @@
 
 + (id)readableTypesForPasteboard:(id)arg1;
 + (id)stylePartPasteboardType;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)initWithPasteboardPropertyList:(id)arg1 ofType:(id)arg2;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (id)writableTypesForPasteboard:(id)arg1;

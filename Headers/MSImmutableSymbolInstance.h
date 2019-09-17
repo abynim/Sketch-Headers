@@ -24,7 +24,7 @@
 + (unsigned long long)traits;
 @property __weak MSImmutableSymbolMaster *cachedModifiedSymbolMaster; // @synthesize cachedModifiedSymbolMaster=_cachedModifiedSymbolMaster;
 - (void).cxx_destruct;
-- (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2;
+- (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 skipCache:(BOOL)arg6;
 - (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 symbol:(id)arg6;
@@ -32,7 +32,7 @@
 - (id)modifiedMasterInDocument:(id)arg1;
 - (id)prepareModifiedMasterInDocument:(id)arg1;
 - (id)modifiedMasterCacheKeyInDocument:(id)arg1;
-- (id)calculatePathInBoundsInDocument:(id)arg1 asSubpath:(BOOL)arg2 visitedSymbols:(id)arg3;
+- (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)shouldCreateModifiedMasterForMaster:(id)arg1 inDocument:(id)arg2;
 - (id)availableOverrideValuesWithDocument:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
@@ -56,6 +56,7 @@
 - (id)updateOverridesDictionary:(id)arg1 withObjectIDMapping:(id)arg2 afterChangingSymbolMasterWithID:(id)arg3 currentID:(id)arg4;
 - (void)updateOverridesWithObjectIDMapping:(id)arg1 afterChangingSymbolMasterWithID:(id)arg2;
 - (id)overridesWithGridIndexRemoved:(id)arg1;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV96OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;

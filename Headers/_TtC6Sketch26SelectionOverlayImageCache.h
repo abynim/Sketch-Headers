@@ -10,10 +10,6 @@
 
 @interface _TtC6Sketch26SelectionOverlayImageCache : MSOverlayItemImageCache
 {
-    // Error parsing type: , name: horizontalSpaceEdgePaddings
-    // Error parsing type: , name: verticalSpaceEdgePaddings
-    // Error parsing type: , name: subselectionHighlightEdgePaddings
-    // Error parsing type: , name: selectionEdgePaddings
     // Error parsing type: , name: spaceColor
 }
 

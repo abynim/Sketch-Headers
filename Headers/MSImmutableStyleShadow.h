@@ -16,6 +16,7 @@
 }
 
 + (id)stylePartPasteboardType;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)pasteboardReaderWriter;
 
 // Remaining properties

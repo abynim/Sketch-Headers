@@ -167,7 +167,7 @@
 - (void)keyUp:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDown:(id)arg1;
 - (id)measurementLabelItems;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)addOverlay:(id)arg1;
 - (void)setMeasurementLabelNeedsDisplay;

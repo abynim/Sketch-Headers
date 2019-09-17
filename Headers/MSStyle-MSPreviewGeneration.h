@@ -8,6 +8,7 @@
 
 @interface MSStyle (MSPreviewGeneration)
 - (id)debugQuickLookObject;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 concurrentCancelBlock:(CDUnknownBlockType)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)prepareForPreviewingWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2;
 - (id)shapeForPreviewWithSize:(struct CGSize)arg1;

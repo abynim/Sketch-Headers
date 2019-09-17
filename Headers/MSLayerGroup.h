@@ -20,6 +20,8 @@
 + (id)groupWithLayer:(id)arg1;
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
+- (void)setInferredLayoutOnAxis:(unsigned long long)arg1 direction:(unsigned long long)arg2;
+- (BOOL)shouldGrowSizeOfGroupForInferredLayout;
 - (id)candidatesForMasking;
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;

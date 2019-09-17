@@ -13,6 +13,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEditedByDefault;
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
 - (id)keysDifferingFromObject:(id)arg1;

@@ -10,7 +10,6 @@
 {
 }
 
-- (unsigned long long)hitTestForEvent:(id)arg1 inRect:(struct CGRect)arg2 ofView:(id)arg3;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 
 @end

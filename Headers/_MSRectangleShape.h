@@ -9,7 +9,7 @@
 @interface _MSRectangleShape : MSShapePathLayer
 {
     double _fixedRadius;
-    BOOL _hasConvertedToNewRoundCorners;
+    BOOL _needsConvertionToNewRoundCorners;
 }
 
 + (BOOL)allowsFaulting;
@@ -21,7 +21,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) BOOL hasConvertedToNewRoundCorners; // @synthesize hasConvertedToNewRoundCorners=_hasConvertedToNewRoundCorners;
+@property(nonatomic) BOOL needsConvertionToNewRoundCorners; // @synthesize needsConvertionToNewRoundCorners=_needsConvertionToNewRoundCorners;
 @property(nonatomic) double fixedRadius; // @synthesize fixedRadius=_fixedRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

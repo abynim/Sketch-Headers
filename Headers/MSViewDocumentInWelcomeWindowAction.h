@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)viewDocumentInWelcomeWindow:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (id)label;

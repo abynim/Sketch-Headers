@@ -77,11 +77,11 @@
 - (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)resetScissorRect;
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
-- (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(id)arg3;
 - (void)drawTextureVertexBuffer:(id)arg1 sourceTexture:(id)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
 - (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
+- (void)drawTexturedTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 sourceTexture:(id)arg3;
 - (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
 -     // Error parsing type: v156@0:8@16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMeshFromBuffer:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
 -     // Error parsing type: v156@0:8r^{?=^{?}II}16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMesh:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:

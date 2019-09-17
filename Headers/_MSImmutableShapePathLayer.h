@@ -17,6 +17,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEditedByDefault;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;

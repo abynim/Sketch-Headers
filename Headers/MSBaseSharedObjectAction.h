@@ -6,21 +6,29 @@
 
 #import "MSDocumentAction.h"
 
-@class MSShareableObjectUpdater;
+#import "MSShareableObjectUpdaterDelegate-Protocol.h"
 
-@interface MSBaseSharedObjectAction : MSDocumentAction
+@class MSShareableObjectUpdater, NSString;
+
+@interface MSBaseSharedObjectAction : MSDocumentAction <MSShareableObjectUpdaterDelegate>
 {
     MSShareableObjectUpdater *_updater;
 }
 
 - (void).cxx_destruct;
+- (id)selectedLayersForSharableObjectUpdater:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 @property(readonly, nonatomic) BOOL needsRenameAfterAction;
 - (void)performSharedObjectAction;
 - (long long)validationStatus;
-- (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)hasDynamicTitle;
 @property(readonly, nonatomic) MSShareableObjectUpdater *updater; // @synthesize updater=_updater;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -11,6 +11,6 @@
 @protocol MSImmutablePathLayer <MSLayer>
 @property(readonly, nonatomic) MSImmutableStyle *style;
 @property(readonly, nonatomic) BOOL hasMarkers;
-- (MSPath *)decoratedPathInBoundsInDocument:(MSImmutableDocumentData *)arg1 asSubpath:(BOOL)arg2;
+- (MSPath *)decoratedPathInBoundsInDocument:(MSImmutableDocumentData *)arg1;
 @end
 

@@ -27,8 +27,10 @@
 - (void).cxx_destruct;
 - (void)navigateToOverridesMaster:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
+- (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
+- (void)closeComponentsPopoverIfNecessary;
 - (void)pickSymbol:(id)arg1;
 - (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;

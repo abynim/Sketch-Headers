@@ -8,7 +8,7 @@
 
 #import "MSFlowMenuBuilderTarget-Protocol.h"
 
-@class MSArtboardGroup, MSLayerArray, NSSet;
+@class MSArtboardGroup, MSFlowEventHandlerImageCache, MSLayerArray, NSSet;
 
 @interface MSFlowEventHandler : MSEventHandler <MSFlowMenuBuilderTarget>
 {
@@ -16,9 +16,11 @@
     MSLayerArray *_layers;
     unsigned long long _hoverType;
     MSArtboardGroup *_targetArtboard;
+    MSFlowEventHandlerImageCache *_imageCache;
     struct CGPoint _lastMouse;
 }
 
+@property(retain, nonatomic) MSFlowEventHandlerImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(nonatomic) BOOL didDragMouse; // @synthesize didDragMouse=_didDragMouse;
 @property(nonatomic) struct CGPoint lastMouse; // @synthesize lastMouse=_lastMouse;
 @property(retain, nonatomic) MSArtboardGroup *targetArtboard; // @synthesize targetArtboard=_targetArtboard;
@@ -40,6 +42,8 @@
 - (id)flowItemsForConnectionToArtboard;
 - (id)flowItemsForConnectionToOtherPage;
 - (id)flowItemsForConnectionToBackArrows;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
@@ -47,6 +51,7 @@
 - (void)findMouseAndDisconnectFromTarget;
 - (void)handlerDidLoseFocus;
 - (void)handlerGotFocus;
+- (id)initWithManager:(id)arg1;
 
 @end
 

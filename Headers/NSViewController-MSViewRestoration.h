@@ -6,11 +6,9 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "MSViewRestoration-Protocol.h"
-
 @class NSString;
 
-@interface NSViewController (MSViewRestoration) <MSViewRestoration>
+@interface NSViewController (MSViewRestoration)
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
 

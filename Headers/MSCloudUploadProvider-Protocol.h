@@ -6,13 +6,14 @@
 
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class NSProgress, SCKOrganization, SCKShare;
+@class NSProgress, SCKOrganization, SCKProject, SCKShare;
 @protocol MSCloudUploadProviderDelegate;
 
 @protocol MSCloudUploadProvider <NSObject>
 @property(readonly, nonatomic) NSProgress *progress;
 @property(readonly, nonatomic) BOOL isResumeable;
 @property(readonly, nonatomic) BOOL cancelled;
+@property(readonly, nonatomic) SCKProject *project;
 @property(readonly, nonatomic) SCKOrganization *organization;
 @property(readonly, nonatomic) SCKShare *newShare;
 @property(readonly, nonatomic) SCKShare *previousShare;

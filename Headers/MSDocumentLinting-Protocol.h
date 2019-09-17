@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTextView.h>
+@class NSURL;
 
-@interface BCTableCellTitleFieldEditor : NSTextView
-{
-}
-
-- (struct CGPoint)textContainerOrigin;
-
+@protocol MSDocumentLinting
+- (void)lintDocumentAt:(NSURL *)arg1 configFile:(NSURL *)arg2 completionHandler:(void (^)(_TtC15DocumentLinting10LintResult *, NSError *))arg3;
 @end
 

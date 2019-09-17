@@ -21,14 +21,12 @@
 - (BOOL)layer:(id)arg1 isPinnedMaxOnAxis:(unsigned long long)arg2;
 - (BOOL)layer:(id)arg1 isPinnedMinOnAxis:(unsigned long long)arg2;
 - (BOOL)layer:(id)arg1 isFixedOnAxis:(unsigned long long)arg2;
-- (BOOL)layerHasChanged:(id)arg1;
-- (double)sizeChangeForLayer:(id)arg1;
 - (struct CGRect)originalRectOfLayer:(id)arg1;
 - (unsigned long long)layoutAnchor;
 - (unsigned long long)axis;
 - (void)adjustGroupBoundsWithChange:(double)arg1;
-- (unsigned long long)layoutChangeForLayer:(id)arg1 becauseOfChangedLayer:(id)arg2;
-- (void)applyInferredLayoutToLayer:(id)arg1 becauseOfChange:(double)arg2 ofLayer:(id)arg3;
+- (unsigned long long)layoutChangeForLayer:(id)arg1 becauseOfChangeInRegion:(id)arg2;
+- (void)applyInferredLayoutToLayer:(id)arg1 becauseOfChangeInRegion:(id)arg2;
 - (id)changedLayers;
 - (void)applyInferredLayoutRules;
 - (id)initWithGroup:(id)arg1 recordedState:(id)arg2;

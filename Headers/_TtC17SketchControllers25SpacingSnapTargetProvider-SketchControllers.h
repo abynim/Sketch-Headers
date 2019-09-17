@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/_TtC17SketchControllers26SpacingSnapTargetGenerator.h>
+#import <SketchControllers/_TtC17SketchControllers25SpacingSnapTargetProvider.h>
 
-@interface _TtC17SketchControllers26SpacingSnapTargetGenerator (SketchControllers)
+@interface _TtC17SketchControllers25SpacingSnapTargetProvider (SketchControllers)
 - (id)debugQuickLookObject;
 @end
 

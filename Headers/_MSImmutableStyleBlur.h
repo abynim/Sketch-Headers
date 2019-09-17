@@ -16,6 +16,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEnabledByDefault;
 @property(nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) double saturation; // @synthesize saturation=_saturation;
 @property(nonatomic) double radius; // @synthesize radius=_radius;

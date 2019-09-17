@@ -27,6 +27,7 @@
 }
 
 + (id)replacementFontDescriptorWithFaceName:(id)arg1 size:(double)arg2;
++ (BOOL)isFontAvailable:(id)arg1;
 + (BOOL)isRequiredFontAvailableInDictionary:(id)arg1;
 + (id)fontNameInDictionary:(id)arg1;
 + (id)fontDescriptorInDictionary:(id)arg1;

@@ -4,9 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/MSLayerDraggingSnapTargetGenerator.h>
+#import <objc/NSObject.h>
 
-@interface MSLayerDraggingSnapTargetGenerator (SketchControllers1)
-- (id)debugQuickLookObject;
+@interface MSLog : NSObject
+{
+}
+
++ (void)setCloud:(id)arg1;
++ (id)cloud;
+- (void).cxx_destruct;
+- (id)init;
+
 @end
 

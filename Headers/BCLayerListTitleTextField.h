@@ -4,15 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTextField.h>
+#import <Chocolat/BCTableCellTitleTextField.h>
 
-@interface BCTableCellTitleTextField : NSTextField
+@interface BCLayerListTitleTextField : BCTableCellTitleTextField
 {
 }
 
 - (BOOL)validateProposedFirstResponder:(id)arg1 forEvent:(id)arg2;
-- (void)addCursorRect:(struct CGRect)arg1 cursor:(id)arg2;
-- (struct NSEdgeInsets)alignmentRectInsets;
 - (BOOL)acceptsFirstResponder;
 - (void)textDidEndEditing:(id)arg1;
 - (BOOL)processLeftMouseDownEvent:(id)arg1 withinFloatingRowView:(id)arg2;

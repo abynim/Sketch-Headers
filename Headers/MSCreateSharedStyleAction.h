@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (long long)validationStatus;
 - (id)label;
 - (BOOL)needsRenameAfterAction;

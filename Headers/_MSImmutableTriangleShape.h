@@ -12,6 +12,7 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEditedByDefault;
 @property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

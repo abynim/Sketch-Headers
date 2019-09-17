@@ -11,6 +11,7 @@
 @class NSString;
 
 @interface MSSymbolMaster (MSPreviewGeneration) <MSPreviewGeneration>
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 concurrentCancelBlock:(CDUnknownBlockType)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
 
 // Remaining properties

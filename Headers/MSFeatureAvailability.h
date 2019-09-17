@@ -19,12 +19,20 @@
     // Error parsing type: , name: componentsPaneDoubleInspector
     // Error parsing type: , name: builtInRemoteLibraries
     // Error parsing type: , name: cloudDocumentsAsDefaultModal
+    // Error parsing type: , name: saveOmitsDefaultValues
+    // Error parsing type: , name: maintainScrollPositionAfterClick
+    // Error parsing type: , name: newDocumentsWindow
+    // Error parsing type: , name: designLinting
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *newDocumentsWindow; // @synthesize newDocumentsWindow;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *saveOmitsDefaultValues; // @synthesize saveOmitsDefaultValues;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocumentsAsDefaultModal; // @synthesize cloudDocumentsAsDefaultModal;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *builtInRemoteLibraries; // @synthesize builtInRemoteLibraries;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPaneDoubleInspector; // @synthesize componentsPaneDoubleInspector;

@@ -16,6 +16,7 @@
     // Error parsing type: , name: iconImage
     // Error parsing type: , name: parent
     // Error parsing type: , name: modelObjectIdentifier
+    // Error parsing type: , name: isSelectable
     // Error parsing type: , name: isEditable
 }
 

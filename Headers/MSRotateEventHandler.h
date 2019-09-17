@@ -6,13 +6,12 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-#import "MSAlignmentEngineDelegate-Protocol.h"
 #import "MSRotationBarDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSAlignmentEngineResult, MSDragToMoveOrCopyGestureRecognizer, MSNormalEventHandler, MSRotationGestureInterpreter, NSArray, NSString;
+@class MSDragToMoveOrCopyGestureRecognizer, MSNormalEventHandler, MSRotationGestureInterpreter, NSArray, NSString, _TtC6Sketch34MSRotationCenterPointPlacementTool;
 
-@interface MSRotateEventHandler : MSNormalBaseEventHandler <MSAlignmentEngineDelegate, MSRotationBarDelegate, NSTouchBarDelegate>
+@interface MSRotateEventHandler : MSNormalBaseEventHandler <MSRotationBarDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
     BOOL _exitOnMouseUp;
@@ -23,12 +22,12 @@
     MSRotationGestureInterpreter *_cursorRotationInterpreter;
     MSRotationGestureInterpreter *_dragRotationInterpreter;
     unsigned long long _draggedComponent;
-    MSAlignmentEngineResult *_centerPointSnaps;
+    _TtC6Sketch34MSRotationCenterPointPlacementTool *_centerPointTool;
     struct CGPoint _rotationCenterPoint;
 }
 
 + (id)cursorForDegrees:(long long)arg1;
-@property(retain, nonatomic) MSAlignmentEngineResult *centerPointSnaps; // @synthesize centerPointSnaps=_centerPointSnaps;
+@property(readonly, nonatomic) _TtC6Sketch34MSRotationCenterPointPlacementTool *centerPointTool; // @synthesize centerPointTool=_centerPointTool;
 @property(nonatomic) unsigned long long draggedComponent; // @synthesize draggedComponent=_draggedComponent;
 @property(readonly, nonatomic) MSRotationGestureInterpreter *dragRotationInterpreter; // @synthesize dragRotationInterpreter=_dragRotationInterpreter;
 @property(readonly, nonatomic) MSRotationGestureInterpreter *cursorRotationInterpreter; // @synthesize cursorRotationInterpreter=_cursorRotationInterpreter;
@@ -44,8 +43,8 @@
 - (void)rotationBarAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
-- (void)drawRotationCenterAtZoomScale:(double)arg1;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (double)alignDegreesTo15Angles:(double)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -56,9 +55,9 @@
 - (void)handleDrag:(id)arg1;
 - (void)handleRotation:(id)arg1;
 - (unsigned long long)componentAtPoint:(struct CGPoint)arg1;
-- (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
 - (struct CGPoint)rotationCenterPointForAnchorPoint:(struct CGPoint)arg1 layer:(id)arg2;
 - (void)setRotationCenterPoint:(struct CGPoint)arg1 updateAnchorPoints:(BOOL)arg2;
+@property(readonly, nonatomic) NSArray *layers;
 - (void)resetWithSelection:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)handlerWillLoseFocus;

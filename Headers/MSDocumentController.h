@@ -10,8 +10,6 @@
 {
 }
 
-- (void)saveAndUploadCloudDocuments;
-- (void)reviewUnsavedDocumentsWithAlertTitle:(id)arg1 cancellable:(BOOL)arg2 delegate:(id)arg3 didReviewAllSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (id)defaultType;
 - (void)noteNewRecentDocumentURL:(id)arg1;
 - (void)noteNewRecentDocument:(id)arg1;
@@ -22,12 +20,8 @@
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)typeForContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)cloudDocumentURLsInFolder:(id)arg1 shouldEnumerateSubDirectories:(BOOL)arg2;
-- (BOOL)alreadyHaveDocumentWithAutosaveURL:(id)arg1;
-- (void)openAutosavedCloudDocuments;
-- (void)openTemporaryAutosavedCloudDocuments;
-- (void)didFinishRestoringWindowNotification:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)init;
+- (void)documentControllerWithDocController:(id)arg1 didReviewAll:(BOOL)arg2 contextInfo:(void *)arg3;
+- (void)reviewUnsavedDocumentsWithAlertTitle:(id)arg1 cancellable:(BOOL)arg2 delegate:(id)arg3 didReviewAllSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 context:(id)arg3 callback:(id)arg4;
 
 @end

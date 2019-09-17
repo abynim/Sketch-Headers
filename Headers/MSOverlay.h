@@ -22,7 +22,7 @@
 @property(nonatomic) __weak id <MSTiledRendererHostView> hostView; // @synthesize hostView=_hostView;
 @property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)setNeedsDisplay;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;

@@ -80,7 +80,7 @@
 - (id)siblingsOfSelectedShapePathLayers;
 - (id)overlayItemsForSelectedShapePathLayers;
 - (id)overlayLayerHighlightItems;
-- (id)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)prepareToDraw:(id)arg1;
 - (BOOL)updateCursor;

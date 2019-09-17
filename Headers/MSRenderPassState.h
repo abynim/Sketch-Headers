@@ -10,30 +10,26 @@
 
 @interface MSRenderPassState : NSObject
 {
-    double _zoomLevel;
-    double _backingScale;
     void *_document;
     NSString *_pageID;
     NSSet *_selectedLayerIDs;
     unsigned long long _overlayRenderOptions;
     NSColorSpace *_canvasColorSpace;
     MSOverlayColorSettings *_colors;
-    struct CGRect _visibleImageRect;
+    struct MSRenderingParameters _renderingParameters;
 }
 
-+ (id)stateWithPage:(id)arg1 document:(id)arg2 visibleImageRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 zoomValue:(double)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 canvasColorSpace:(id)arg7 overlayColors:(id)arg8;
++ (id)stateWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 canvasColorSpace:(id)arg5 overlayColors:(id)arg6;
 @property(readonly, nonatomic) MSOverlayColorSettings *colors; // @synthesize colors=_colors;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(readonly, nonatomic) unsigned long long overlayRenderOptions; // @synthesize overlayRenderOptions=_overlayRenderOptions;
 @property(readonly, copy, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(readonly, copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
 @property(readonly, nonatomic) void *document; // @synthesize document=_document;
-@property(readonly, nonatomic) double backingScale; // @synthesize backingScale=_backingScale;
-@property(readonly, nonatomic) struct CGRect visibleImageRect; // @synthesize visibleImageRect=_visibleImageRect;
-@property(readonly, nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
+@property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 - (void).cxx_destruct;
 - (unsigned long long)traitsDifferingFromState:(id)arg1;
-- (id)initWithPage:(id)arg1 document:(id)arg2 visibleImageRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 zoomValue:(double)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 canvasColorSpace:(id)arg7 overlayColors:(id)arg8;
+- (id)initWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 canvasColorSpace:(id)arg5 overlayColors:(id)arg6;
 
 @end
 

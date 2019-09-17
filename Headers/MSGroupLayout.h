@@ -10,9 +10,18 @@
 
 @interface MSGroupLayout : _MSGroupLayout
 {
+    BOOL _changingLayout;
 }
 
+- (id)inferredLayoutParentOrNil;
+- (BOOL)isInferredLayoutOrInherits;
+@property(readonly, nonatomic) BOOL isInferredLayout;
+- (unsigned long long)layoutAnchorByResolvingPossibleConflictWithParent:(unsigned long long)arg1;
+- (unsigned long long)layoutAnchor;
+- (unsigned long long)usedLayoutAnchor;
+- (unsigned long long)axis;
 - (BOOL)isChangingLayout;
+- (void)postLayoutChangeCleanup;
 - (unsigned long long)adjustConstraintForResizingSubLayer:(unsigned long long)arg1;
 - (id)layersToConsiderForGroupBounds;
 - (id)desiredGroupLayerOrder;
@@ -21,12 +30,10 @@
 - (BOOL)shouldResizeToFitBounds:(struct CGRect)arg1;
 - (BOOL)fixGeometryWithOptions:(long long)arg1 allowedAxes:(unsigned long long)arg2;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
-- (void)postLayoutChangeCleanup;
 - (void)didChangeLayout:(long long)arg1 info:(id)arg2;
 - (id)willChangeLayout:(long long)arg1;
 - (void)changeLayout:(long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)groupDidResizeFromSize:(struct CGSize)arg1;
-@property(readonly, nonatomic) BOOL isInferredLayout;
 @property(readonly, nonatomic) MSLayerGroup *group;
 
 @end

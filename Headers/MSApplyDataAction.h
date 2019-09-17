@@ -6,16 +6,18 @@
 
 #import "MSDataAction.h"
 
-@interface MSApplyDataAction : MSDataAction
+#import "MSDataMenuApplyDataAction-Protocol.h"
+
+@interface MSApplyDataAction : MSDataAction <MSDataMenuApplyDataAction>
 {
 }
 
-- (void)applyDataToCurrentSelectionRoot:(id)arg1;
+- (void)doApplyDataToCurrentSelectionRoot:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validateRootMenuItem:(id)arg1;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
-- (void)applyDataToCurrentSelection:(id)arg1;
+- (void)doApplyDataToCurrentSelection:(id)arg1;
 
 @end
 

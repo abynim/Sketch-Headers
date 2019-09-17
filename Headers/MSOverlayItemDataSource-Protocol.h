@@ -9,7 +9,7 @@
 @class MSOverlayItemContainer, NSDictionary;
 
 @protocol MSOverlayItemDataSource <NSObject>
-- (MSOverlayItemContainer *)overlayItems:(unsigned long long)arg1 zoomScale:(double)arg2;
+- (MSOverlayItemContainer *)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (NSDictionary *)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 @end
 

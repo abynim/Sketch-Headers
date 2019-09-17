@@ -49,6 +49,7 @@
 - (id)minimum;
 - (double)incrementValue;
 - (id)createUpDownController;
+- (void)awakeFromNib;
 - (void)connectToValueAdapter:(id)arg1 bindingOptions:(id)arg2;
 - (void)connectToValueAdapter:(id)arg1;
 

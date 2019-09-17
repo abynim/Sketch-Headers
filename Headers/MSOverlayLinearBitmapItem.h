@@ -8,21 +8,17 @@
 
 @interface MSOverlayLinearBitmapItem : MSOverlayBitmapItem
 {
-    double _startCapHeight;
-    double _endCapHeight;
     struct CGPoint _endPoint;
     struct CGVector _startDisplacement;
     struct CGVector _endDisplacement;
 }
 
-@property(readonly, nonatomic) double endCapHeight; // @synthesize endCapHeight=_endCapHeight;
-@property(readonly, nonatomic) double startCapHeight; // @synthesize startCapHeight=_startCapHeight;
 @property(readonly, nonatomic) struct CGVector endDisplacement; // @synthesize endDisplacement=_endDisplacement;
 @property(readonly, nonatomic) struct CGVector startDisplacement; // @synthesize startDisplacement=_startDisplacement;
 @property(readonly, nonatomic) struct CGPoint endPoint; // @synthesize endPoint=_endPoint;
 @property(readonly, nonatomic) struct CGPoint startPoint;
-- (id)initWithImageID:(id)arg1 startPoint:(struct CGPoint)arg2 endPoint:(struct CGPoint)arg3 startDisplacement:(struct CGVector)arg4 endDisplacement:(struct CGVector)arg5 startCapHeight:(double)arg6 endCapHeight:(double)arg7;
-- (id)initWithImageID:(id)arg1 startPoint:(struct CGPoint)arg2 endPoint:(struct CGPoint)arg3 startCapHeight:(double)arg4 endCapHeight:(double)arg5;
+- (id)initWithImageID:(id)arg1 startPoint:(struct CGPoint)arg2 endPoint:(struct CGPoint)arg3 startDisplacement:(struct CGVector)arg4 endDisplacement:(struct CGVector)arg5;
+- (id)initWithImageID:(id)arg1 startPoint:(struct CGPoint)arg2 endPoint:(struct CGPoint)arg3;
 
 @end
 

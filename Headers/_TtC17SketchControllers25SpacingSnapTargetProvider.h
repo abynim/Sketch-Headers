@@ -6,7 +6,7 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC17SketchControllers26SpacingSnapTargetGenerator : _TtCs12_SwiftObject
+@interface _TtC17SketchControllers25SpacingSnapTargetProvider : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: tool
     // Error parsing type: , name: center

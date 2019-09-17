@@ -9,11 +9,12 @@
 @interface _MSImmutableRectangleShape : MSImmutableShapePathLayer
 {
     double _fixedRadius;
-    BOOL _hasConvertedToNewRoundCorners;
+    BOOL _needsConvertionToNewRoundCorners;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) BOOL hasConvertedToNewRoundCorners; // @synthesize hasConvertedToNewRoundCorners=_hasConvertedToNewRoundCorners;
++ (BOOL)isEditedByDefault;
+@property(nonatomic) BOOL needsConvertionToNewRoundCorners; // @synthesize needsConvertionToNewRoundCorners=_needsConvertionToNewRoundCorners;
 @property(nonatomic) double fixedRadius; // @synthesize fixedRadius=_fixedRadius;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

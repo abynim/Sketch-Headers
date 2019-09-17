@@ -8,7 +8,7 @@
 
 #import <SketchControllers/MSCloudUploadProvider-Protocol.h>
 
-@class MSFileMonitor, NSProgress, NSString, NSTimer, NSURL, SCKOrganization, SCKShare, SCKUploadStatus;
+@class MSFileMonitor, NSProgress, NSString, NSTimer, NSURL, SCKOrganization, SCKProject, SCKShare, SCKUploadStatus;
 @protocol MSCloudExportableDocument, MSCloudUploadProviderDelegate;
 
 @interface MSCloudShareRemoteUploadController : NSObject <MSCloudUploadProvider>
@@ -36,6 +36,7 @@
 @property(nonatomic) __weak id <MSCloudUploadProviderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) SCKUploadStatus *status; // @synthesize status=_status;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SCKProject *project;
 @property(readonly, nonatomic) SCKOrganization *organization;
 @property(readonly, nonatomic) SCKShare *existingShare;
 @property(readonly, nonatomic) NSProgress *progress;
@@ -55,7 +56,7 @@
 - (void)startUpload;
 - (void)dealloc;
 - (id)initWithDocument:(id)arg1 uploadStatus:(id)arg2 contentsOnDisk:(id)arg3;
-- (id)initWithDocument:(id)arg1 uploadUpdatingShare:(id)arg2 ownedByOrganization:(id)arg3;
+- (id)initWithDocument:(id)arg1 uploadUpdatingShare:(id)arg2 ownedByOrganization:(id)arg3 project:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -67,14 +67,17 @@
 - (id)pathByRemovingSubsequentMoveToComponents;
 - (id)pathWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
 - (id)pathWithInset:(double)arg1;
+- (id)closedPath;
 - (id)reversedPath;
 - (id)debugQuickLookObject;
 - (id)transformedPathUsingMapBlock:(CDUnknownBlockType)arg1;
+- (id)cleanedPath;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 - (id)createContours;
 @property(readonly, nonatomic) unsigned long long elementCount;
 @property(readonly, nonatomic) BOOL isEmpty;
 @property(readonly, nonatomic) BOOL isRectangular;
+@property(readonly, nonatomic) BOOL isLinear;
 @property(readonly, nonatomic) struct CGRect controlPointBounds;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect safeBounds;

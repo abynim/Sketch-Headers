@@ -16,6 +16,7 @@
 
 + (id)defaultName;
 + (unsigned long long)traits;
+- (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)immutableBackgroundColor;
 - (BOOL)shouldBeIncludedInParentPath;

@@ -12,6 +12,7 @@
 
 @interface MSBezierSegment : NSObject <NSCopying>
 {
+    struct BCBezierSegment _segmentData;
     double _lineLength;
     // Error parsing type: A^v, name: _lineLengthAtomicPointer
     double _arcLength;
@@ -32,24 +33,14 @@
     // Error parsing type: A^v, name: _yAxisRootsAtomicPointer
     MSBezierSegment *_derivative;
     // Error parsing type: A^v, name: _derivativeAtomicPointer
-    unsigned long long _segmentType;
-    struct CGPoint _endPoint1;
-    struct CGPoint _endPoint2;
     CDStruct_aa84902a _fromRange;
-    struct CGPoint _controlPoint1;
-    struct CGPoint _controlPoint2;
 }
 
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
 + (id)segmentWithFBBezierCurve:(id)arg1;
-@property(readonly, nonatomic) struct CGPoint controlPoint2; // @synthesize controlPoint2=_controlPoint2;
-@property(readonly, nonatomic) struct CGPoint controlPoint1; // @synthesize controlPoint1=_controlPoint1;
 @property(nonatomic) CDStruct_aa84902a fromRange; // @synthesize fromRange=_fromRange;
-@property(readonly, nonatomic) struct CGPoint endPoint2; // @synthesize endPoint2=_endPoint2;
-@property(readonly, nonatomic) struct CGPoint endPoint1; // @synthesize endPoint1=_endPoint1;
-@property(readonly, nonatomic) unsigned long long segmentType; // @synthesize segmentType=_segmentType;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (id)description;
@@ -70,7 +61,7 @@
 @property(readonly, nonatomic) double curviness;
 - (id)derivative;
 - (id)reversedSegment;
-- (id)representationUsingType:(unsigned long long)arg1;
+- (id)representationUsingType:(int)arg1;
 - (id)quadraticApproximation;
 - (id)segmentsBySplittingAtOffsets:(id)arg1;
 - (id)segmentsByClippingToRect:(struct CGRect)arg1;
@@ -108,9 +99,16 @@
 - (id)segmentWithEndPoint2:(struct CGPoint)arg1;
 - (id)segmentWithEndPoint1:(struct CGPoint)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) struct CGPoint controlPoint2;
+@property(readonly, nonatomic) struct CGPoint controlPoint1;
+@property(readonly, nonatomic) struct CGPoint endPoint2;
+@property(readonly, nonatomic) struct CGPoint endPoint1;
+@property(readonly, nonatomic) int segmentType;
+@property(readonly, nonatomic) struct BCBezierSegment segmentData;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
+- (id)initWithSegmentData:(struct BCBezierSegment)arg1;
 - (id)segmentBySmoothingEndPoints:(double)arg1 decay:(double)arg2;
 - (id)FBBezierCurve;
 

@@ -8,7 +8,7 @@
 
 @class MSLayerPositioningTool;
 
-@interface MSLayerDraggingSnapTargetGenerator : NSObject
+@interface MSLayerDraggingSnapTargetManager : NSObject
 {
     // Error parsing type: , name: tool
     // Error parsing type: , name: zoomScale

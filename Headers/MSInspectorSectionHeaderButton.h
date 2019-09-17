@@ -12,6 +12,7 @@
 }
 
 @property(nonatomic) BOOL constrainActiveAreaToImage; // @synthesize constrainActiveAreaToImage=_constrainActiveAreaToImage;
+- (id)hitTest:(struct CGPoint)arg1;
 
 @end
 
