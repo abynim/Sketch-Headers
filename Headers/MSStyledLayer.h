@@ -46,7 +46,7 @@
 - (void)resetSharedStyle;
 @property(readonly, nonatomic) BOOL isSharedStyleOutOfSync;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
-- (void)applyOverrides:(id)arg1 document:(id)arg2;
+- (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 
 // Remaining properties

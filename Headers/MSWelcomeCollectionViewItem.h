@@ -6,17 +6,18 @@
 
 #import <AppKit/NSCollectionViewItem.h>
 
-#import "MSWelcomeCollectionViewSelectionDrawing-Protocol.h"
-
 @class MSWelcomeCollectionItem, MSWelcomeProgressView, NSString;
+@protocol MSWelcomeCollectionViewItemDelegate;
 
-@interface MSWelcomeCollectionViewItem : NSCollectionViewItem <MSWelcomeCollectionViewSelectionDrawing>
+@interface MSWelcomeCollectionViewItem : NSCollectionViewItem
 {
     struct CGSize _designedImageViewSize;
+    id <MSWelcomeCollectionViewItemDelegate> _delegate;
     MSWelcomeProgressView *_progressView;
 }
 
 @property(nonatomic) __weak MSWelcomeProgressView *progressView; // @synthesize progressView=_progressView;
+@property(nonatomic) id <MSWelcomeCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (BOOL)validateRevealInCloudMenuItem:(id)arg1;
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;

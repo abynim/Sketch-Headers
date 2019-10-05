@@ -10,6 +10,7 @@
 {
 }
 
+- (long long)validationStatus;
 - (id)label;
 - (void)syncLocalSharedStyle:(id)arg1;
 

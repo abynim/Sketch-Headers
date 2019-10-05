@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <SketchModel/MSShapePathLayer.h>
+#import <AppKit/NSFont.h>
 
-@interface MSShapePathLayer (Scissors)
-- (void)possiblyFixRectangleBorderBeforeCut;
+@interface NSFont (OpenType)
+- (id)currentOpenTypeAttributes;
+- (id)openTypeFeatures;
 @end
 

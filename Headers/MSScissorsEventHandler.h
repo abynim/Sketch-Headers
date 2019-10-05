@@ -6,24 +6,26 @@
 
 #import "MSEventHandler.h"
 
-@class NSIndexPath;
+@class MSOverlayItemContainer, NSIndexPath;
 
 @interface MSScissorsEventHandler : MSEventHandler
 {
     BOOL _didCutOnMouseDown;
-    NSIndexPath *_hoveringSegment;
+    NSIndexPath *_hoveringSegmentIndexPath;
+    double _containerZoomLevel;
+    MSOverlayItemContainer *_overlayItemContainer;
 }
 
+@property(retain, nonatomic) MSOverlayItemContainer *overlayItemContainer; // @synthesize overlayItemContainer=_overlayItemContainer;
+@property(nonatomic) double containerZoomLevel; // @synthesize containerZoomLevel=_containerZoomLevel;
 @property(nonatomic) BOOL didCutOnMouseDown; // @synthesize didCutOnMouseDown=_didCutOnMouseDown;
-@property(retain, nonatomic) NSIndexPath *hoveringSegment; // @synthesize hoveringSegment=_hoveringSegment;
+@property(retain, nonatomic) NSIndexPath *hoveringSegmentIndexPath; // @synthesize hoveringSegmentIndexPath=_hoveringSegmentIndexPath;
 - (void).cxx_destruct;
 - (id)toolbarIdentifier;
 - (id)imageName;
-- (void)strokePath:(id)arg1 isHovering:(BOOL)arg2;
-- (id)trimPathOnBothSides:(id)arg1;
-- (void)drawThinStrokeBezierSegments:(id)arg1 hoverIndex:(unsigned long long)arg2;
-- (void)drawThickStrokeBezierPath:(id)arg1;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)thinStrokePathItems:(id)arg1 hoverIndex:(id)arg2 parameters:(struct MSRenderingParameters)arg3;
+- (id)thickStrokePathItems:(id)arg1;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)hoverSegmentForMouse:(struct CGPoint)arg1;
 - (id)shapeForIndexPath:(id)arg1;
 - (void)cut;

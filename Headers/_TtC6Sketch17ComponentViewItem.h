@@ -15,7 +15,7 @@
     // Error parsing type: , name: path
     // Error parsing type: , name: componentReference
     // Error parsing type: , name: componentListPreviewImageCachingKey
-    // Error parsing type: , name: cachedPreviewPanePreviewImage
+    // Error parsing type: , name: componentListLargePreviewImageCachingKey
 }
 
 @end

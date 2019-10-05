@@ -6,7 +6,7 @@
 
 #import "MSEventHandler.h"
 
-@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, NSBezierPath, NSBitmapImageRep;
+@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, MSOverlayItemImageCache, NSBezierPath, NSBitmapImageRep;
 
 @interface MSBitmapEditEventHandler : MSEventHandler
 {
@@ -17,8 +17,10 @@
     MSBitmapMagicWandEditor *_magicWandEditor;
     NSBitmapImageRep *_backupImageRep;
     NSBitmapImageRep *_cachedFirstBitmapImageRep;
+    MSOverlayItemImageCache *_imageCache;
 }
 
+@property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
 @property(retain, nonatomic) MSBitmapMagicWandEditor *magicWandEditor; // @synthesize magicWandEditor=_magicWandEditor;
@@ -43,8 +45,8 @@
 - (void)setImage:(id)arg1 forBitmapLayer:(id)arg2;
 - (id)bitmapEditableLayer;
 - (id)coordinateTransformMatrix;
-- (void)drawBorderAroundBounds;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)selectionBezierForFlippingCoordinates;
 - (struct CGRect)imageBounds;
 - (struct CGSize)imageSize;
@@ -78,6 +80,7 @@
 - (void)handlerGotFocus;
 - (id)toolbarIdentifier;
 - (void)dealloc;
+- (id)initWithManager:(id)arg1;
 
 @end
 

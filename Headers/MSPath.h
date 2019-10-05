@@ -37,13 +37,10 @@
 - (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
 - (BOOL)isEqualToPath:(id)arg1;
 - (CDStruct_ab7f5933)elementAtIndex:(unsigned long long)arg1;
-- (id)pathByRearrangingSubPathsIfNecessary;
-- (id)pathByReplacingMoveToByLineToComponents;
 - (id)pointsInRect:(struct CGRect)arg1;
 - (id)pathByApplyingModifierBlock:(CDUnknownBlockType)arg1;
 - (struct MSPathCachedProperties)_initCachedProperties;
 - (struct MSPathCachedProperties)_calculateCachedProperies;
-- (unsigned long long)bezierIndexForPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
 - (id)pathFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (struct CGPoint)endPoint;
 - (struct CGPoint)startPoint;
@@ -60,11 +57,10 @@
 - (id)outlinePathWithWidth:(double)arg1;
 - (id)_pathByScalingToBounds:(struct CGRect)arg1;
 - (id)pathByScalingToBounds:(struct CGRect)arg1;
-- (id)pathByCuttingBeforeIndex:(unsigned long long)arg1;
 - (id)pathByJoiningWithPath:(id)arg1;
-- (id)pathByReplacingElementAtIndexWithMoveTo:(long long)arg1;
-- (id)pathByReplacingClosePathByLineToComponents;
-- (id)pathByRemovingSubsequentMoveToComponents;
+- (id)pathByRemovingSegmentAtIndexPath:(id)arg1;
+- (id)segmentAtIndexPath:(id)arg1;
+- (id)segmentIndexPathForPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
 - (id)pathWithInset:(double)arg1 joinStrategy:(unsigned long long)arg2;
 - (id)pathWithInset:(double)arg1;
 - (id)closedPath;
@@ -72,6 +68,7 @@
 - (id)debugQuickLookObject;
 - (id)transformedPathUsingMapBlock:(CDUnknownBlockType)arg1;
 - (id)cleanedPath;
+- (id)simplifiedPath;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 - (id)createContours;
 @property(readonly, nonatomic) unsigned long long elementCount;

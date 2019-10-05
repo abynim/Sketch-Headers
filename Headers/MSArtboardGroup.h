@@ -21,6 +21,7 @@
 
 + (unsigned long long)traits;
 - (void).cxx_destruct;
+- (BOOL)shouldGrowSizeOfGroupForInferredLayout;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
 - (void)convertColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;

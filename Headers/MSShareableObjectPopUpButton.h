@@ -8,22 +8,20 @@
 
 #import <SketchControllers/NSMenuDelegate-Protocol.h>
 
-@class MSForeignObjectMenuBuilder, MSShareableObjectReference, NSArray, NSDictionary, NSString;
+@class MSForeignObjectMenuBuilder, MSShareableObjectActionsController, NSArray, NSDictionary, NSString;
 
 @interface MSShareableObjectPopUpButton : NSPopUpButton <NSMenuDelegate>
 {
     BOOL _needsRebuildMenu;
+    MSShareableObjectActionsController *_actionsController;
     MSForeignObjectMenuBuilder *_menuBuilder;
-    NSArray *_layers;
-    MSShareableObjectReference *_selectedObjectReference;
     NSArray *_objectLibraryMapping;
 }
 
 @property(nonatomic) BOOL needsRebuildMenu; // @synthesize needsRebuildMenu=_needsRebuildMenu;
 @property(retain, nonatomic) NSArray *objectLibraryMapping; // @synthesize objectLibraryMapping=_objectLibraryMapping;
-@property(retain, nonatomic) MSShareableObjectReference *selectedObjectReference; // @synthesize selectedObjectReference=_selectedObjectReference;
-@property(nonatomic) __weak NSArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
+@property(retain, nonatomic) MSShareableObjectActionsController *actionsController; // @synthesize actionsController=_actionsController;
 - (void).cxx_destruct;
 - (void)setTitle:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -43,10 +41,11 @@
 - (void)addObjectsAtSameLevelToMenu;
 - (void)addDetachMenuItem;
 - (void)addTitleMenuItem;
-- (BOOL)containsOutOfSyncInstance;
+- (unsigned long long)objectType;
 - (id)masterObjects;
+- (id)layers;
+- (id)selectedObjectReference;
 @property(readonly, nonatomic) NSDictionary *menuItemSelectorDictionary;
-@property(readonly, nonatomic) unsigned long long objectType;
 - (id)textStyleMenuItemSelectorDictionary;
 - (id)layerStyleMenuItemSelectorDictionary;
 - (id)symbolMenuItemSelectorDictionary;

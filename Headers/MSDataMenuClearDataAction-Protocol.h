@@ -4,14 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <AppKit/NSButton.h>
-
-@interface BCFilterTokenButton : NSButton
-{
-}
-
-- (void)keyDown:(id)arg1;
-- (BOOL)resignFirstResponder;
-
+@protocol MSDataMenuClearDataAction
+- (void)doClearDataRecordFromCurrentSelection:(id)arg1;
 @end
 

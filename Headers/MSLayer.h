@@ -210,7 +210,7 @@
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
-- (void)applyOverrides:(id)arg1 document:(id)arg2;
+- (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 @property(retain, nonatomic) NSString *dataSupplierIdentifier;
 - (void)replaceFonts:(id)arg1;

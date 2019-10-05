@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/MSOverlayItemDataSource-Protocol.h>
 #import <SketchControllers/NSCopying-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
-@interface MSAlignmentEngineResult : NSObject <NSCopying>
+@interface MSAlignmentEngineResult : NSObject <NSCopying, MSOverlayItemDataSource>
 {
     NSArray *_guides;
     unsigned long long _snappedAxes;
@@ -22,10 +23,17 @@
 @property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)drawAtZoomValue:(double)arg1;
 - (id)initWithPoint:(struct CGPoint)arg1 guides:(id)arg2 snappedAxes:(unsigned long long)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

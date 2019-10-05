@@ -6,7 +6,7 @@
 
 #import "MSEventHandler.h"
 
-@class NSArray;
+@class MSSmartRotateImageCache, NSArray;
 
 @interface MSSmartRotateEventHandler : MSEventHandler
 {
@@ -15,8 +15,10 @@
     unsigned long long _numberOfRepetitions;
     NSArray *_shapeLayers;
     NSArray *_shapeLayersCopies;
+    MSSmartRotateImageCache *_imageCache;
 }
 
+@property(retain, nonatomic) MSSmartRotateImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(copy, nonatomic) NSArray *shapeLayersCopies; // @synthesize shapeLayersCopies=_shapeLayersCopies;
 @property(copy, nonatomic) NSArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
 @property(nonatomic) unsigned long long numberOfRepetitions; // @synthesize numberOfRepetitions=_numberOfRepetitions;
@@ -27,9 +29,9 @@
 - (void)willMoveThroughHistory:(id)arg1;
 - (void)unregisterObservers;
 - (void)registerObservers;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;
-- (void)drawControlPoints;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (struct CGPoint)tryToSnapPoint:(struct CGPoint)arg1 toMid:(struct CGPoint)arg2;
 - (void)rotateCopies;

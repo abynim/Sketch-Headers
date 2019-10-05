@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface MSDocumentChangeCounter : NSObject
+@interface _TtC6Sketch23MSDocumentChangeCounter : NSObject
 {
     // Error parsing type: , name: count
     // Error parsing type: , name: synchronizable

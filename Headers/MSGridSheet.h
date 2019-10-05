@@ -10,7 +10,7 @@
 {
 }
 
-- (void)setAsDefault:(id)arg1;
+- (void)saveCurrentSettingsAsDefault;
 - (void)applyObject:(id)arg1 toLayer:(id)arg2;
 - (id)defaultObject;
 - (id)baseObjectForRootLayer:(id)arg1;

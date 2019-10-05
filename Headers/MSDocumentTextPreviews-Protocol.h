@@ -9,6 +9,7 @@
 @class MSImmutableDocumentData, NSData, NSSet;
 
 @protocol MSDocumentTextPreviews <NSObject>
+- (NSData *)createPreviewMetadataForTextLayers:(NSSet *)arg1 document:(MSImmutableDocumentData *)arg2;
 - (NSData *)createPreviewPDFDataForTextLayers:(NSSet *)arg1 document:(MSImmutableDocumentData *)arg2;
 @end
 

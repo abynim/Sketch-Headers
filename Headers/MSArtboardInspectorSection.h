@@ -6,7 +6,7 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, NSArrayController;
+@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, NSArrayController, NSString;
 
 @interface MSArtboardInspectorSection : MSBaseInspectorSection
 {
@@ -31,6 +31,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setLayers:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+@property(readonly, nonatomic) NSString *name;
 
 @end
 

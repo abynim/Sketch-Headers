@@ -6,16 +6,14 @@
 
 #import <objc/NSObject.h>
 
-#import "MSDocumentLinting-Protocol.h"
-
-@interface MSLintService : NSObject <MSDocumentLinting>
+@interface MSLintService : NSObject
 {
     // Error parsing type: , name: xpcConnection
     // Error parsing type: , name: linter
 }
 
 - (void).cxx_destruct;
-- (void)lintDocumentAt:(id)arg1 configFile:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)lintDocumentAt:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)init;
 - (void)dealloc;
 

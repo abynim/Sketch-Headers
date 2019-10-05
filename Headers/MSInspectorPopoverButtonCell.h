@@ -15,6 +15,7 @@
 - (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 - (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
+- (id)effectiveImage;
 - (double)imageLeftMargin;
 - (id)arrowImage;
 - (struct CGRect)arrowRectForBounds:(struct CGRect)arg1;

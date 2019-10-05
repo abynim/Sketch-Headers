@@ -8,27 +8,25 @@
 
 #import "MSWelcomeCollectionItemPreviewImageLoading-Protocol.h"
 
-@class MSWelcomeWindowController, NSImage, NSString, NSURL;
+@class NSImage, NSString, NSURL;
 
 @interface MSWelcomeCollectionItem : NSObject <MSWelcomeCollectionItemPreviewImageLoading>
 {
+    NSImage *_cachedPreviewImage;
     NSString *_title;
     NSString *_toolTip;
-    MSWelcomeWindowController *_welcomeWindowController;
-    NSImage *_cachedPreviewImage;
 }
 
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
-@property(retain, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
-@property(nonatomic) __weak MSWelcomeWindowController *welcomeWindowController; // @synthesize welcomeWindowController=_welcomeWindowController;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
-- (id)initWithController:(id)arg1;
+- (id)init;
 
 // Remaining properties
 @property(readonly, nonatomic) NSURL *URL;

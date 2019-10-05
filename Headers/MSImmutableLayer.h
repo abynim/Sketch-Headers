@@ -28,6 +28,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
++ (BOOL)persistsObjectID;
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;

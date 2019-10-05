@@ -6,9 +6,7 @@
 
 #import <AppKit/NSCollectionView.h>
 
-#import "MSWelcomeCollectionViewSelectionDrawing-Protocol.h"
-
-@interface MSWelcomeCollectionView : NSCollectionView <MSWelcomeCollectionViewSelectionDrawing>
+@interface MSWelcomeCollectionView : NSCollectionView
 {
 }
 

@@ -6,8 +6,6 @@
 
 #import "_TtC6Sketch27MSLayerMeasurementViewModel.h"
 
-@protocol MSLayerCoordinateSpace;
-
 @interface _TtC6Sketch27MSLayerMeasurementViewModel (Sketch)
 - (BOOL)shouldShowTargetRectForMeasurementAtIndex:(long long)arg1;
 - (struct CGRect)endRectForMeasurementAtIndex:(long long)arg1;
@@ -15,7 +13,6 @@
 - (struct CGPoint)endpointForMeasurementAtIndex:(long long)arg1;
 - (struct CGPoint)startpointForMeasurementAtIndex:(long long)arg1;
 @property(nonatomic, readonly) long long numberOfMeasurements;
-@property(nonatomic, readonly) id <MSLayerCoordinateSpace> coordinateSpace;
 - (struct CGRect)targetRectAtIndex:(long long)arg1;
 @property(nonatomic, readonly) long long numberOfTargetRects;
 @end

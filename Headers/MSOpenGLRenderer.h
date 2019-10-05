@@ -40,9 +40,9 @@
 - (id)createTextureWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (void)resetScissorRect;
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
-- (void)drawShadowForArtboardInRect:(struct CGRect)arg1 selected:(BOOL)arg2 shadow:(id)arg3;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
+- (void)drawTexturedTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 sourceTexture:(id)arg3;
 - (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
 - (void)drawColorTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
 - (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;

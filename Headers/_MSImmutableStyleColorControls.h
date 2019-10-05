@@ -15,10 +15,12 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)isEnabledByDefault;
 @property(nonatomic) double saturation; // @synthesize saturation=_saturation;
 @property(nonatomic) double hue; // @synthesize hue=_hue;
 @property(nonatomic) double contrast; // @synthesize contrast=_contrast;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

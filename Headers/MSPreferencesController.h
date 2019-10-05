@@ -6,12 +6,11 @@
 
 #import <AppKit/NSWindowController.h>
 
-#import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
 
-@interface MSPreferencesController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
+@interface MSPreferencesController : NSWindowController <NSWindowDelegate>
 {
     MSPreferencePane *_currentPreferencePane;
     NSArray *_toolbarItemIdentifiers;

@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
 @property(nonatomic) BOOL canOverride; // @synthesize canOverride=_canOverride;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

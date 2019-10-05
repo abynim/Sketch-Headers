@@ -6,7 +6,7 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class MSCloudDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKOrganization;
+@class MSCloudDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
@@ -18,11 +18,19 @@
     NSView *_nameInputView;
     NSView *_organizationInputView;
     NSPopUpButton *_organizationButton;
+    NSView *_projectInputView;
+    NSPopUpButton *_projectButton;
     NSButton *_deleteButton;
+    SCKAPIOperation *_projectsRequest;
+    SCKUser *_userWithProjects;
 }
 
 + (id)runForDocument:(id)arg1 performingOperation:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
+@property(retain, nonatomic) SCKAPIOperation *projectsRequest; // @synthesize projectsRequest=_projectsRequest;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
+@property(retain, nonatomic) NSPopUpButton *projectButton; // @synthesize projectButton=_projectButton;
+@property(retain, nonatomic) NSView *projectInputView; // @synthesize projectInputView=_projectInputView;
 @property(retain, nonatomic) NSPopUpButton *organizationButton; // @synthesize organizationButton=_organizationButton;
 @property(retain, nonatomic) NSView *organizationInputView; // @synthesize organizationInputView=_organizationInputView;
 @property(retain, nonatomic) NSView *nameInputView; // @synthesize nameInputView=_nameInputView;
@@ -35,7 +43,13 @@
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
+@property(readonly, nonatomic) SCKProject *project;
+- (id)projectsMenu;
+- (void)updateProjectsMenu;
+- (id)projects;
+- (void)requestProjects;
 @property(readonly, nonatomic) SCKOrganization *organization;
+- (void)selectProject:(id)arg1;
 - (void)selectOrganization:(id)arg1;
 - (void)reloadOrganizations;
 - (void)updateView;

@@ -6,14 +6,16 @@
 
 #import "MSDataAction.h"
 
-@interface MSClearDataRecordAction : MSDataAction
+#import "MSDataMenuClearDataAction-Protocol.h"
+
+@interface MSClearDataRecordAction : MSDataAction <MSDataMenuClearDataAction>
 {
 }
 
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
-- (void)clearDataRecordFromCurrentSelection:(id)arg1;
+- (void)doClearDataRecordFromCurrentSelection:(id)arg1;
 
 @end
 

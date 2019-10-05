@@ -34,6 +34,7 @@
 - (id)makeGroupIdentifier;
 @property(readonly, nonatomic) NSString *groupName;
 @property(readonly, nonatomic) MSDataSupplier *anyDataSupplier;
+- (unsigned long long)countOfUsableDataSuppliersForDataType:(unsigned long long)arg1;
 - (id)dataSupplierMenuItemForDataType:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *dataSuppliers;
 @property(readonly, nonatomic) BOOL valid;

@@ -170,7 +170,6 @@
 - (void)_redrawContentImmediately;
 @property(readonly, nonatomic) BOOL isReadyToRender;
 - (void)scheduleRedraw;
-- (void)windowDidChange;
 - (BOOL)hasUserFocus;
 - (void)refreshRulers;
 - (struct CGPoint)mouseInView;

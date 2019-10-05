@@ -43,6 +43,7 @@
 @property(readonly, nonatomic) MSTableContainerInspectorItem *overrideManagementContainer; // @synthesize overrideManagementContainer=_overrideManagementContainer;
 @property(readonly, nonatomic) MSInspectorTableViewManager *tableViewManager; // @synthesize tableViewManager=_tableViewManager;
 @property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+- (id)name;
 
 @end
 

@@ -8,7 +8,6 @@
 
 @interface NSAttributedString (MSAttributedStringInternalSupport)
 - (id)initWithString:(id)arg1 attributedStringAttributes:(id)arg2;
-- (id)attributedStringAttributes;
 - (id)attributedStringByApplyingBlock:(CDUnknownBlockType)arg1;
 @end
 

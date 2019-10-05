@@ -23,13 +23,14 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)cancelDocumentDownload;
-- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;
-- (id)initWithController:(id)arg1 cloudShare:(id)arg2;
+- (id)cachedPreviewImage;
+- (id)initWithCloudShare:(id)arg1;
 
 @end
 

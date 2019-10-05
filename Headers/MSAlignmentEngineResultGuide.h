@@ -8,12 +8,17 @@
 
 #import <SketchControllers/NSCopying-Protocol.h>
 
+@class MSOverlayPathItem;
+
 @interface MSAlignmentEngineResultGuide : NSObject <NSCopying>
 {
+    MSOverlayPathItem *_overlayPathItem;
     struct BCLineSegment _lineSegment;
 }
 
+@property(retain, nonatomic) MSOverlayPathItem *overlayPathItem; // @synthesize overlayPathItem=_overlayPathItem;
 @property(readonly, nonatomic) struct BCLineSegment lineSegment; // @synthesize lineSegment=_lineSegment;
+- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawWithLineWidth:(double)arg1;
 - (id)bezierPath;

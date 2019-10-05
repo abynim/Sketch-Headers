@@ -21,11 +21,13 @@
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
     NSData *_textPreviewData;
+    NSData *_textPreviewMetadata;
     MSFontList *_fontList;
 }
 
 + (void)initialize;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
+@property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;

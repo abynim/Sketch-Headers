@@ -13,7 +13,7 @@
     unsigned long long _width;
     unsigned long long _height;
     unsigned long long _bytesPerRow;
-    int _tolerance;
+    unsigned char _tolerance;
     struct BCPixel _reference;
     NSBitmapImageRep *_bitmap;
     CDUnknownBlockType _wandCompletionBlock;
@@ -37,7 +37,7 @@
 @property(retain, nonatomic) NSBitmapImageRep *maskImage; // @synthesize maskImage=_maskImage;
 @property(copy, nonatomic) CDUnknownBlockType wandCompletionBlock; // @synthesize wandCompletionBlock=_wandCompletionBlock;
 @property(retain, nonatomic) NSBitmapImageRep *bitmap; // @synthesize bitmap=_bitmap;
-@property(nonatomic) int tolerance; // @synthesize tolerance=_tolerance;
+@property(nonatomic) unsigned char tolerance; // @synthesize tolerance=_tolerance;
 @property(nonatomic) struct CGPoint startPoint; // @synthesize startPoint=_startPoint;
 - (void).cxx_destruct;
 - (struct CGPoint)nextUnvisitedPoint;

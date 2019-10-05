@@ -26,7 +26,7 @@
 - (id)insertAsNewLayer:(struct CGRect)arg1;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (id)pathForPrototypeLayer;
-- (void)drawRectPreview;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)setInsertionRect:(struct CGRect)arg1;
 - (id)imageName;
 - (void)handlerWillLoseFocus;

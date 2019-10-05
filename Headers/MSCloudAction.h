@@ -8,7 +8,7 @@
 
 #import "MSCloudUploadProviderDelegate-Protocol.h"
 
-@class NSArray, NSString, NSTimer, NSViewController, SCKAPIOperation;
+@class NSArray, NSString, NSTimer, NSViewController, SCKAPIOperation, SCKProject;
 @protocol MSCloudExportableDocument, MSCloudUploadProvider;
 
 @interface MSCloudAction : MSPopoverAction <MSCloudUploadProviderDelegate>
@@ -17,11 +17,14 @@
     NSArray *_progressImages;
     id <MSCloudUploadProvider> _upload;
     SCKAPIOperation *_refreshOperation;
+    SCKProject *_projectToAssign;
+    long long _numberOfUploadAttemptsSinceLastSuccessfulUpload;
     CDUnknownBlockType _closeAlertUploadDidFinishHandler;
     NSTimer *_displayErrorSheetTimer;
-    id <MSCloudUploadProvider> _lastFailedUploadProvider;
 }
 
++ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
++ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (void)openCloudDocumentWithApplicationURL:(id)arg1;
 + (void)openApplicationURL:(id)arg1;
 + (void)requestCloudUser;
@@ -31,9 +34,10 @@
 + (void)attemptRecoveryFromCloudError:(id)arg1 optionIndex:(unsigned long long)arg2;
 + (id)cloudError:(id)arg1 addingRecoveryOptionsWithAttempter:(id)arg2;
 + (BOOL)isErrorRecoverable:(id)arg1;
-@property(retain, nonatomic) id <MSCloudUploadProvider> lastFailedUploadProvider; // @synthesize lastFailedUploadProvider=_lastFailedUploadProvider;
 @property(retain, nonatomic) NSTimer *displayErrorSheetTimer; // @synthesize displayErrorSheetTimer=_displayErrorSheetTimer;
 @property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
+@property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload; // @synthesize numberOfUploadAttemptsSinceLastSuccessfulUpload=_numberOfUploadAttemptsSinceLastSuccessfulUpload;
+@property(retain, nonatomic) SCKProject *projectToAssign; // @synthesize projectToAssign=_projectToAssign;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(readonly, nonatomic) id <MSCloudUploadProvider> upload; // @synthesize upload=_upload;
 @property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
@@ -56,9 +60,8 @@
 - (BOOL)mayShowInToolbar;
 @property(readonly, nonatomic) BOOL isCloudDocument;
 - (void)progressDidChangeNotification:(id)arg1;
-- (void)applyUpload;
-- (void)restoreUpload;
 - (id)initWithDocument:(id)arg1;
+@property(readonly, nonatomic) BOOL needsUploading;
 - (void)authenticationDidChangeNotification:(id)arg1;
 - (void)setUpload:(id)arg1;
 - (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;
@@ -73,11 +76,8 @@
 - (void)clearErrorSheetTimer:(id)arg1;
 - (void)setupDisplayErrorSheetTimer;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
-- (void)resumeUploadIfNeeded;
-- (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2;
-- (long long)incompleteCloudDocumentUploads;
-- (void)setIncompleteCloudDocumentUploads:(long long)arg1;
-- (id)uploadProviderUpdating:(id)arg1 ownedByOrganization:(id)arg2;
+- (void)startUploadUpdating:(id)arg1 ownedByOrganization:(id)arg2 project:(id)arg3;
+- (id)uploadProviderUpdating:(id)arg1 ownedByOrganization:(id)arg2 project:(id)arg3;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
 
 // Remaining properties

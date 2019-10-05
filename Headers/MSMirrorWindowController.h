@@ -7,14 +7,13 @@
 #import <AppKit/NSWindowController.h>
 
 #import "MSMirrorWindowControllerContent-Protocol.h"
-#import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 
 @class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, NSURL, WKWebView;
 
-@interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler, NSToolbarDelegate>
+@interface MSMirrorWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler>
 {
     NSToolbarItem *_artboardToolbarItem;
     NSPopUpButton *_artboardButton;

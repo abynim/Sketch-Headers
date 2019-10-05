@@ -10,9 +10,8 @@
 {
 }
 
-- (void)viewWillDisappear;
+- (void)restorePopoverWithRestorationInfo:(id)arg1;
 - (void)pickStyle:(id)arg1;
-- (void)closeComponentsPopoverIfNecessary;
 - (id)currentLayerStyleReference;
 - (id)currentStyle;
 - (id)menuObjectProvider;

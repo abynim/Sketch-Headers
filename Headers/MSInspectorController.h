@@ -72,6 +72,7 @@
 - (void)viewDidResize;
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
+- (void)refreshAfterAppearanceChange;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (void)awakeFromNib;

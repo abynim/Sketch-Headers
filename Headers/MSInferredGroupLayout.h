@@ -8,13 +8,10 @@
 
 @interface MSInferredGroupLayout : _MSInferredGroupLayout
 {
-    BOOL _changingLayout;
 }
 
-- (BOOL)isChangingLayout;
-- (void)postLayoutChangeCleanup;
-- (void)didChangeLayout:(long long)arg1 info:(id)arg2;
-- (id)willChangeLayout:(long long)arg1;
+- (unsigned long long)usedLayoutAnchor;
+- (id)inferredLayoutParentOrNil;
 - (BOOL)isInferredLayout;
 
 @end

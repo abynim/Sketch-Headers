@@ -6,9 +6,10 @@
 
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class NSString, NSURL, SCKShare, SCKShareUploadOperation;
+@class NSString, NSURL, SCKProject, SCKShare, SCKShareUploadOperation;
 
 @protocol SCKShareUploadDataSource <NSObject>
+- (SCKProject *)projectForShareUploadOperation:(SCKShareUploadOperation *)arg1;
 - (void)shareUploadOperation:(SCKShareUploadOperation *)arg1 exportDocumentWithHandler:(void (^)(NSURL *))arg2;
 - (void)shareUploadOperation:(SCKShareUploadOperation *)arg1 willStartUploadingShare:(SCKShare *)arg2;
 - (NSURL *)shareUploadOperation:(SCKShareUploadOperation *)arg1 fileURLForItemWithHash:(NSString *)arg2;

@@ -23,6 +23,7 @@
 - (id)init;
 @property(nonatomic, readonly) long long hash;
 - (BOOL)isEqual:(id)arg1;
+@property(nonatomic, readonly) BOOL isDebugUIEnabled;
 
 @end
 

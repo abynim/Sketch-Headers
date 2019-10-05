@@ -6,14 +6,12 @@
 
 #import <Chocolat/CHWindowController.h>
 
-#import "MSCloudSharesControllerDelegate-Protocol.h"
 #import "MSWelcomeCollectionViewDelegate-Protocol.h"
-#import "NSCollectionViewDataSource-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class MSCallToActionButton, MSCloudShareCollectionItem, MSCloudSharesController, MSPreviewImageCache, NSArray, NSButton, NSCollectionView, NSCountedSet, NSLayoutConstraint, NSMenu, NSProgressIndicator, NSScrollView, NSSearchField, NSSegmentedControl, NSString, NSTextField;
 
-@interface MSWelcomeWindowController : CHWindowController <NSCollectionViewDataSource, MSWelcomeCollectionViewDelegate, MSCloudSharesControllerDelegate, NSWindowDelegate>
+@interface MSWelcomeWindowController : CHWindowController <MSWelcomeCollectionViewDelegate, NSWindowDelegate>
 {
     NSButton *_closeButton;
     NSCollectionView *_collectionView;
@@ -31,7 +29,7 @@
     NSSearchField *_searchField;
     NSTextField *_errorLabel;
     NSProgressIndicator *_progressIndicator;
-    unsigned long long _collectionToShow;
+    long long _collectionToShow;
     MSPreviewImageCache *_previewImageCache;
     NSArray *_cachedRecentDocumentItems;
     NSArray *_cachedTemplateItems;
@@ -46,14 +44,14 @@
 + (BOOL)hideWelcomeWindowIfNeeded;
 + (void)showWelcomeWindowSelectingShare:(id)arg1;
 + (BOOL)showWelcomeWindowIfAppropriate;
-+ (void)showWelcomeWindowCollection:(unsigned long long)arg1 isLaunching:(BOOL)arg2;
++ (void)showWelcomeWindowCollection:(long long)arg1 isLaunching:(BOOL)arg2;
 @property(retain, nonatomic) MSCloudSharesController *cloudSharesController; // @synthesize cloudSharesController=_cloudSharesController;
 @property(retain, nonatomic) MSCloudShareCollectionItem *selectedLocalCloudItem; // @synthesize selectedLocalCloudItem=_selectedLocalCloudItem;
 @property(retain, nonatomic) NSCountedSet *downloadingItems; // @synthesize downloadingItems=_downloadingItems;
 @property(retain, nonatomic) NSArray *cachedTemplateItems; // @synthesize cachedTemplateItems=_cachedTemplateItems;
 @property(retain, nonatomic) NSArray *cachedRecentDocumentItems; // @synthesize cachedRecentDocumentItems=_cachedRecentDocumentItems;
 @property(readonly, nonatomic) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
-@property(nonatomic) unsigned long long collectionToShow; // @synthesize collectionToShow=_collectionToShow;
+@property(nonatomic) long long collectionToShow; // @synthesize collectionToShow=_collectionToShow;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSTextField *errorLabel; // @synthesize errorLabel=_errorLabel;
 @property(retain, nonatomic) NSSearchField *searchField; // @synthesize searchField=_searchField;
@@ -87,6 +85,9 @@
 - (void)requestCloudOrganizations;
 - (void)documentDefaultDidChange:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
+- (id)previewImageCacheFor:(id)arg1;
+- (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
+- (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;
 - (void)collectionView:(id)arg1 didDeselectItemsAtIndexPaths:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemsAtIndexPaths:(id)arg2;
 - (id)collectionView:(id)arg1 shouldSelectItemsAtIndexPaths:(id)arg2;
@@ -124,7 +125,7 @@
 - (void)confirm:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)openDocument:(id)arg1;
-- (void)showCollection:(unsigned long long)arg1;
+- (void)showCollection:(long long)arg1;
 - (void)pickCollection:(id)arg1;
 - (void)clearRecentItemsCache;
 - (void)togglePluginsButton:(BOOL)arg1;

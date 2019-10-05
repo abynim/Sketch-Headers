@@ -9,7 +9,6 @@
 #import "NSMenuDelegate-Protocol.h"
 
 @interface _TtC6Sketch23ComponentListController (Sketch2) <NSMenuDelegate>
-- (void)reveal:(id)arg1;
-- (void)rename:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 @end
 

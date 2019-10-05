@@ -6,7 +6,7 @@
 
 #import "MSEventHandler.h"
 
-@class MSComponentInsertionTool, MSDocumentData, MSLayer, MSSnapOverlayController, NSArray, NSMutableDictionary, NSOperationQueue;
+@class MSComponentInsertionTool, MSDocumentData, MSLayer, MSSnapOverlayController, NSArray, NSDictionary, NSMutableDictionary, NSOperationQueue;
 
 @interface MSInsertComponentEventHandler : MSEventHandler
 {
@@ -17,8 +17,12 @@
     MSLayer *_previewLayer;
     MSDocumentData *_temporaryPreviewDocument;
     NSOperationQueue *_renderQueue;
+    NSDictionary *_storedDragImageProviders;
 }
 
++ (id)makeLayerForComponentReference:(id)arg1 forInserting:(BOOL)arg2 intoDocument:(id)arg3 isForeign:(BOOL)arg4;
++ (id)makeLayerForComponentReference:(id)arg1 forInserting:(BOOL)arg2 intoDocument:(id)arg3;
+@property(retain, nonatomic) NSDictionary *storedDragImageProviders; // @synthesize storedDragImageProviders=_storedDragImageProviders;
 @property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(retain, nonatomic) MSDocumentData *temporaryPreviewDocument; // @synthesize temporaryPreviewDocument=_temporaryPreviewDocument;
 @property(retain, nonatomic) MSLayer *previewLayer; // @synthesize previewLayer=_previewLayer;
@@ -28,7 +32,7 @@
 - (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
 - (void)setPreviewImage:(id)arg1 forZoomScale:(double)arg2;
-- (id)previewImageForZoomScale:(double)arg1;
+- (id)previewBitmapForZoomScale:(double)arg1;
 - (id)previewImage;
 - (BOOL)pasteboardContainsComponent:(id)arg1;
 - (void)draggingExited:(id)arg1;
@@ -36,10 +40,12 @@
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
-- (id)makeLayerForComponentReference:(id)arg1 forInserting:(BOOL)arg2;
+- (id)layersForInserting;
+- (void)readReferencesFromPasteboard:(id)arg1;
 - (void)updateWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (struct CGRect)previewRectForInserting;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (BOOL)performInsert;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)trackMouse:(id)arg1;

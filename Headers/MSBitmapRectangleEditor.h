@@ -26,7 +26,7 @@
 - (void).cxx_destruct;
 - (struct CGRect)rectFromDraggingPoints;
 - (struct CGRect)rectForLabel;
-- (void)draw;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)resetDraggingPoints;
 - (void)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDragged:(struct CGPoint)arg1;

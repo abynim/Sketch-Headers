@@ -12,12 +12,13 @@
 {
     struct CGPDFDocument *_document;
     NSDictionary *_objectIDToPageNumberDictionary;
+    NSDictionary *_attributedStringToPageNumberDictionary;
 }
 
 - (void).cxx_destruct;
-- (struct CGPDFPage *)findPageWithTitle:(id)arg1;
+- (struct CGPDFPage *)findPageForLayer:(id)arg1;
 - (void)dealloc;
-- (id)initWithPDFData:(id)arg1;
+- (id)initWithPDFData:(id)arg1 metadata:(id)arg2;
 
 @end
 

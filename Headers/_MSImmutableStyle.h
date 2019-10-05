@@ -40,6 +40,7 @@
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

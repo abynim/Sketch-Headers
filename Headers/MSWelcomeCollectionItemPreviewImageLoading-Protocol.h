@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSURL;
+@class MSPreviewImageCache, NSURL;
 
 @protocol MSWelcomeCollectionItemPreviewImageLoading
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 
 @optional
 @property(readonly, nonatomic) NSURL *URL;
-- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 completionHandler:(void (^)(NSImage *, NSError *))arg2;
+- (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(MSPreviewImageCache *)arg2 completionHandler:(void (^)(NSImage *, NSError *))arg3;
 @end
 

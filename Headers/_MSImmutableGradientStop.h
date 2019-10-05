@@ -18,6 +18,7 @@
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(nonatomic) double position; // @synthesize position=_position;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

@@ -16,7 +16,7 @@
 + (void)moveToTopOfHierarchy:(id)arg1;
 + (BOOL)canMoveLayerToTopOfHierarchy:(id)arg1;
 + (void)moveLayer:(id)arg1 withParent:(id)arg2 toNewParent:(id)arg3 forceTop:(BOOL)arg4;
-+ (void)moveUpHierarchy:(id)arg1;
++ (void)moveLayersUpHierarchy:(id)arg1;
 + (BOOL)canMoveLayerUpHierarchy:(id)arg1;
 + (BOOL)canMoveLayersBackward:(id)arg1;
 + (BOOL)canMoveLayersForward:(id)arg1;

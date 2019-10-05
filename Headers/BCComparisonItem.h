@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) long long type;
 - (id)addChangeForPropertyNamed:(id)arg1;
 @property(readonly, nonatomic) NSString *fullPath;
+- (id)internalFullPath;
 - (id)initWithObject:(id)arg1 parent:(id)arg2;
 - (id)init;
 

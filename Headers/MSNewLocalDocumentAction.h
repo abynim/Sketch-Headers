@@ -11,6 +11,7 @@
 }
 
 - (id)label;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)openNewLocalDocument;
 - (void)showEnableNewCloudDocumentsWindow:(id)arg1;
 - (void)doPerformAction:(id)arg1;

@@ -30,6 +30,7 @@
 - (void)setupSelectedOverride;
 - (id)toolbarIdentifier;
 - (id)defaultTextStyle;
+- (id)styleOverrideRepresentation;
 - (id)stringValue;
 - (id)attributedStringValue;
 - (struct CGRect)absoluteFrameForRect;

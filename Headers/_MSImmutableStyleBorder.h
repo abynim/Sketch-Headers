@@ -15,6 +15,7 @@
 + (Class)mutableClass;
 @property(nonatomic) double thickness; // @synthesize thickness=_thickness;
 @property(nonatomic) long long position; // @synthesize position=_position;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

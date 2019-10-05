@@ -6,17 +6,21 @@
 
 #import "_TtC6Sketch34ComponentPaneOutlineViewController.h"
 
-@class NSSegmentedControl, NSTextField;
+@class NSLayoutConstraint, NSSegmentedControl, NSTextField;
 
 @interface _TtC6Sketch23ComponentListController : _TtC6Sketch34ComponentPaneOutlineViewController
 {
+    // Error parsing type: , name: userInterfaceCache
     // Error parsing type: , name: componentKindSegmentedControl
     // Error parsing type: , name: noComponentsToShowTextField
+    // Error parsing type: , name: heightConstraint
+    // Error parsing type: , name: delegate
+    // Error parsing type: , name: currentlyPreviewedViewItem
     // Error parsing type: , name: tree
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: includeHideSymbolItem
-    // Error parsing type: , name: hideSymbolViewItem
-    // Error parsing type: , name: filterString
+    // Error parsing type: , name: useCase
+    // Error parsing type: , name: filterSetting
+    // Error parsing type: , name: deferringHeightChangeNotifications
     // Error parsing type: , name: shouldScrollSelectionToVisible
     // Error parsing type: , name: cachedRowViewRenderer
     // Error parsing type: , name: skipNotifyingDelegateAboutSelectionChange
@@ -29,6 +33,7 @@
 - (void)documentWillSave:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
+@property(nonatomic, retain) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint;
 @property(nonatomic) __weak NSTextField *noComponentsToShowTextField; // @synthesize noComponentsToShowTextField;
 @property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
 - (BOOL)outlineView:(id)arg1 acceptDrop:(id)arg2 item:(id)arg3 childIndex:(long long)arg4;

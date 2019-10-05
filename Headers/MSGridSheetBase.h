@@ -8,21 +8,24 @@
 
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSBaseGrid, MSColorWell, NSColor, NSMapTable, NSString;
+@class MSBaseGrid, MSColorWell, MSImmutableBaseGrid, NSColor, NSMapTable, NSString;
 
 @interface MSGridSheetBase : CHSheetController <NSWindowDelegate>
 {
     NSMapTable *_originalSettings;
     MSBaseGrid *_templateObject;
+    MSImmutableBaseGrid *_templateImmutable;
     MSColorWell *_darkColorButton;
     MSColorWell *_lightColorButton;
 }
 
 @property(retain, nonatomic) MSColorWell *lightColorButton; // @synthesize lightColorButton=_lightColorButton;
 @property(retain, nonatomic) MSColorWell *darkColorButton; // @synthesize darkColorButton=_darkColorButton;
+@property(retain, nonatomic) MSImmutableBaseGrid *templateImmutable; // @synthesize templateImmutable=_templateImmutable;
 @property(copy, nonatomic) MSBaseGrid *templateObject; // @synthesize templateObject=_templateObject;
 @property(retain, nonatomic) NSMapTable *originalSettings; // @synthesize originalSettings=_originalSettings;
 - (void).cxx_destruct;
+- (void)saveCurrentSettingsAsDefault;
 - (void)lightColorUpdated:(id)arg1;
 - (void)darkColorUpdated:(id)arg1;
 - (void)prepareColorPickers;
@@ -33,10 +36,12 @@
 - (void)turnOffForcedDrawing;
 - (void)gridChanged:(id)arg1;
 - (void)refreshCanvas:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
 - (void)refreshView;
 - (id)buildApplicableRootLayerList;
 - (void)awakeFromNib;
 - (void)applyTemplateObjectToLayer:(id)arg1;
+@property(nonatomic) BOOL shouldSaveDefaults;
 - (void)applyObject:(id)arg1 toLayer:(id)arg2;
 - (id)defaultObject;
 - (id)document;

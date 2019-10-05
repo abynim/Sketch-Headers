@@ -18,6 +18,8 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)outlineViewDidResizeWithNote:(id)arg1;
+- (void)viewDidLoad;
 @property(nonatomic) __weak _TtC6Sketch24ComponentPaneOutlineView *outlineView; // @synthesize outlineView;
 
 @end

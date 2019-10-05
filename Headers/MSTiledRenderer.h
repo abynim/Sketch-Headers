@@ -96,7 +96,9 @@
 - (void)_flattenTilesInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 document:(id)arg3 backingScaleFactor:(double)arg4 zoomValue:(double)arg5 cacheProvider:(id)arg6 tiles:(id)arg7 documentColorSpace:(struct CGColorSpace *)arg8 renderContentSynchronously:(BOOL)arg9 timeout:(unsigned long long)arg10;
 - (void)_rasterisationFinishedForTileLevel:(id)arg1 page:(id)arg2 document:(id)arg3;
 - (void)_tileFlatteningWorker:(CDStruct_3b01f0aa *)arg1 zoomValue:(double)arg2 backingScaleFactor:(double)arg3 forPage:(id)arg4 document:(id)arg5 cacheProvider:(id)arg6 tiles:(id)arg7 contentsScale:(double)arg8 documentColorSpace:(struct CGColorSpace *)arg9;
-- (void)_drawArtboardShadowsForPage:(id)arg1 visibleRect:(struct CGRect)arg2 zoom:(double)arg3;
+- (id)_createArtboardShadowBufferForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
+- (void)_drawArtboardShadowsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
+- (id)_createPageBackgroundBufferForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
 - (void)_drawPageBackgroundElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 totalZoom:(double)arg3;
 - (void)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 pixelViewSize:(struct CGSize)arg4 displayPixels:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 tiles:(id)arg7 overlayColors:(id)arg8 canvasColorSpace:(id)arg9 overlayImageBuffer:(id)arg10 flowItems:(id)arg11 hasUserFocus:(BOOL)arg12;
 - (void)_renderTilesWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 pixelViewSize:(struct CGSize)arg4 tiles:(id)arg5;

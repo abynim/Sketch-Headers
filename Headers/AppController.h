@@ -118,6 +118,7 @@
 - (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (void)tweakSidebarSubmenuIfNeeded:(id)arg1;
+- (void)setupKeyEquivalents:(id)arg1 defaultMenuItem:(id)arg2 secondaryMenuItem:(id)arg3 unusedMenuItem:(id)arg4;
 - (void)setupNewMenuItems:(id)arg1;
 - (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -166,6 +167,8 @@
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;
 - (id)actionClasses;
+- (void)kickMenu:(id)arg1;
+- (void)applySubmenuShortcutFix;
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 handler:(id)arg2 name:(id)arg3 withPreprocess:(BOOL)arg4;

@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "MSOverrideInspectorItem.h"
+#import "MSComponentOverrideInspectorItem.h"
 
 @class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem
+@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -27,10 +27,9 @@
 - (void).cxx_destruct;
 - (void)navigateToOverridesMaster:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
-- (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
-- (void)closeComponentsPopoverIfNecessary;
+- (void)restorePopoverWithRestorationInfo:(id)arg1;
 - (void)pickSymbol:(id)arg1;
 - (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;

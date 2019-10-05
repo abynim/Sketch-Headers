@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class MSLayer, NSArray;
-@protocol _TtP6Sketch27MSLayerMeasurementPresenter_;
+@protocol MSLayerCoordinateSpace, _TtP6Sketch27MSLayerMeasurementPresenter_;
 
 @interface _TtC6Sketch27MSLayerMeasurementViewModel : NSObject
 {
@@ -18,6 +18,7 @@
     // Error parsing type: , name: hoveredLayer
     // Error parsing type: , name: hoveredGuides
     // Error parsing type: , name: measurementOptions
+    // Error parsing type: , name: coordinateSpace
     // Error parsing type: , name: measurements
     // Error parsing type: , name: needsRebuildMeasurements
 }
@@ -28,6 +29,7 @@
 @property(nonatomic, readonly) NSArray *targetLines;
 - (struct CGRect)sourceRectIn:(id)arg1;
 @property(nonatomic, readonly) NSArray *sourceLayers;
+@property(nonatomic, retain) id <MSLayerCoordinateSpace> coordinateSpace; // @synthesize coordinateSpace;
 @property(nonatomic, readonly) BOOL scenarioIsValid;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)clear;

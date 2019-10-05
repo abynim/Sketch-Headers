@@ -6,14 +6,16 @@
 
 #import "MSDataAction.h"
 
-@interface MSRefreshDataAction : MSDataAction
+#import "MSDataMenuRefreshDataAction-Protocol.h"
+
+@interface MSRefreshDataAction : MSDataAction <MSDataMenuRefreshDataAction>
 {
 }
 
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
-- (void)refreshDataOnCurrentSelection:(id)arg1;
+- (void)doRefreshDataOnCurrentSelection:(id)arg1;
 
 @end
 

@@ -8,18 +8,18 @@
 
 #import <SketchRendering/MSCloudManifestMakerDelegate-Protocol.h>
 
-@class MSDocumentData, NSBundle, NSString, NSURL, SCKOrganization;
+@class MSImmutableDocumentData, NSBundle, NSString, NSURL, SCKOrganization;
 @protocol OS_dispatch_queue;
 
 @interface MSWebExporter : NSObject <MSCloudManifestMakerDelegate>
 {
     BOOL _selectiveExport;
     BOOL _cancelled;
-    MSDocumentData *_documentData;
     NSURL *_destinationURL;
     NSString *_name;
     SCKOrganization *_cloudOrganization;
     NSBundle *_clientBundle;
+    MSImmutableDocumentData *_immutableDocumentData;
     NSObject<OS_dispatch_queue> *_exportingQueue;
 }
 
@@ -31,12 +31,12 @@
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
+@property(retain, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
 @property(retain, nonatomic) NSBundle *clientBundle; // @synthesize clientBundle=_clientBundle;
 @property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
-@property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
 - (id)cloudManifestMaker:(id)arg1 fileMetadataForRootLayer:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;

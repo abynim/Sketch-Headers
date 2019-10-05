@@ -18,6 +18,7 @@
 @property(nonatomic) long long operation; // @synthesize operation=_operation;
 @property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) long long effectiveOperation;
 
 @end
 

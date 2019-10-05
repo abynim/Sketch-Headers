@@ -8,14 +8,14 @@
 
 #import "MSInspectorChildController-Protocol.h"
 
-@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSTextField, NSView;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSView;
 
 @interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
 {
     BOOL _isMakingRectSelection;
     MSPathController *_pathController;
     MSShapeEventHandler *_shapeEventHandler;
-    NSTextField *_cornerRadiusField;
+    MSInlineUpDownTextField *_cornerRadiusField;
     NSPopUpButton *_roundingPopUpButton;
     NSView *_curveModeBackgroundView;
     NSButton *_makeRectSelectionButton;
@@ -40,7 +40,7 @@
 @property(retain, nonatomic) NSButton *makeRectSelectionButton; // @synthesize makeRectSelectionButton=_makeRectSelectionButton;
 @property(retain, nonatomic) NSView *curveModeBackgroundView; // @synthesize curveModeBackgroundView=_curveModeBackgroundView;
 @property(retain, nonatomic) NSPopUpButton *roundingPopUpButton; // @synthesize roundingPopUpButton=_roundingPopUpButton;
-@property(retain, nonatomic) NSTextField *cornerRadiusField; // @synthesize cornerRadiusField=_cornerRadiusField;
+@property(retain, nonatomic) MSInlineUpDownTextField *cornerRadiusField; // @synthesize cornerRadiusField=_cornerRadiusField;
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;

@@ -10,5 +10,7 @@
 {
 }
 
++ (BOOL)persistsObjectID;
+
 @end
 

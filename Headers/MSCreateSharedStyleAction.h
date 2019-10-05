@@ -12,6 +12,7 @@
 
 - (BOOL)validate;
 - (long long)validationStatus;
+- (id)historyMomentTitle;
 - (id)label;
 - (BOOL)needsRenameAfterAction;
 - (void)performSharedObjectAction;

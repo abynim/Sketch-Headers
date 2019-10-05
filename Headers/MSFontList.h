@@ -32,6 +32,7 @@
 - (id)localizedFontNameSortDescriptor;
 - (void)clearFilter;
 - (void)filter:(id)arg1;
+- (unsigned long long)indexOfFont:(id)arg1;
 - (id)fontForFontFamilyAtIndex:(unsigned long long)arg1;
 - (id)nameOfFontFamilyAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfFontFamilies;
