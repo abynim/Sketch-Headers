@@ -12,7 +12,6 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)layout;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 

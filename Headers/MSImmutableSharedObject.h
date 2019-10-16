@@ -11,6 +11,7 @@
 }
 
 + (id)defaultName;
++ (BOOL)persistsObjectID;
 - (void)updateSharedStyleIDFromMigration:(id)arg1;
 
 @end

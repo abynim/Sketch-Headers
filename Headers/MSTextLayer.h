@@ -9,7 +9,7 @@
 #import <SketchModel/MSColorConvertible-Protocol.h>
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
-@class MSColor, NSAttributedString, NSDictionary, NSNumber, NSString;
+@class MSColor, NSAttributedString, NSDictionary, NSFont, NSNumber, NSString;
 @protocol MSTextLayerEditingDelegate;
 
 @interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
@@ -59,7 +59,7 @@
 - (double)baseLineHeight;
 @property(retain, nonatomic) NSNumber *characterSpacing;
 @property(retain, nonatomic) NSString *fontPostscriptName;
-- (void)setFont:(id)arg1;
+@property(copy, nonatomic) NSFont *font;
 @property(nonatomic) double fontSize;
 @property(nonatomic) long long verticalAlignment;
 @property(nonatomic) unsigned long long textAlignment;
@@ -73,7 +73,6 @@
 - (struct CGPoint)drawingPointForText;
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
-- (id)font;
 - (void)changeFont:(id)arg1;
 - (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (id)shapeToUseForTextOnPath;

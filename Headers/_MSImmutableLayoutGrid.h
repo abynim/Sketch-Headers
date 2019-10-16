@@ -33,6 +33,7 @@
 @property(nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
 @property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
 @property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

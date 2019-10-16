@@ -14,7 +14,7 @@
 #import "MSSidebarControllerDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -55,16 +55,13 @@
     MSArtboardGroup *_focusedArtboard;
 }
 
++ (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
 + (id)currentDocument;
 + (id)windowForSheet;
 + (id)documentWithCloudShareID:(id)arg1;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
-+ (void)prepareClosingDocuments:(id)arg1 withHandler:(CDUnknownBlockType)arg2;
-+ (void)prepareTerminationWithHandler:(CDUnknownBlockType)arg1;
-+ (BOOL)shouldPrepareForTermination;
-+ (id)documentsToPrepareTermination;
 + (BOOL)autosavesInPlace;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
@@ -111,6 +108,7 @@
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
 - (id)shareableObjectReferenceForDescriptor:(id)arg1;
 - (id)localObjectForObjectReference:(id)arg1;
+- (BOOL)isSharableObjectReferenceForeign:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)componentsPaneWillBeginDraggingSession:(id)arg1;
 - (void)componentsPane:(id)arg1 didSelectComponent:(id)arg2;
@@ -128,6 +126,8 @@
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
 @property(retain, nonatomic) NSDictionary *UIMetadata;
 - (void)setFileURL:(id)arg1;
+- (void)visitTextStyleWithID:(id)arg1;
+- (void)visitLayerStyleWithID:(id)arg1;
 - (void)visitSymbolMasterWithID:(id)arg1;
 - (void)openLibrariesForForeignObjects:(id)arg1;
 - (void)visitSymbolMaster:(id)arg1 withReturnInstance:(id)arg2;
@@ -148,6 +148,7 @@
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)scheduleSelectionChangedUpdatesIfNecessary;
 - (void)prepareToDrawEventHandlers:(id)arg1;
+- (void)refreshComponentPane;
 - (void)refreshLayerListIfNecessary;
 - (void)refreshSupplementaryViews;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
@@ -184,6 +185,7 @@
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
 - (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
+- (void)updateChangeCount:(unsigned long long)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
 - (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
@@ -222,9 +224,14 @@
 - (id)toolbar;
 - (BOOL)shouldCreateToolbar;
 - (void)showWindows;
+- (void)refreshAfterAppearanceChange;
 - (void)windowControllerDidLoadNib:(id)arg1;
 - (BOOL)validateSelectionOfLayer:(id)arg1 proposedIDsOfLayersToSelect:(id)arg2;
 - (void)loadLayerListPanel;
+- (id)swiftCompatibleComponentsPaneController;
+- (void)cancelAllUploads;
+@property(readonly, nonatomic) BOOL hasPendingCloudDocumentUploadRequest;
+@property(retain, nonatomic) MSImmutableDocumentData *exportableImmutableData;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
 - (void)resetDocumentData:(id)arg1;
 - (void)loadInspectorPanel;
@@ -259,8 +266,10 @@
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
-- (void)applyCloudShareUpdateStatusWithOnSave:(BOOL)arg1;
+- (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
+- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 @property(retain, nonatomic) SCKShare *cloudShare;
+@property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;
 - (id)hudDocumentData;
@@ -295,12 +304,9 @@
 - (BOOL)readPDFFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
-- (void)prepareCloseWithHandler:(CDUnknownBlockType)arg1;
-- (void)performCloseSelector:(SEL)arg1 withDelegate:(id)arg2 shouldClose:(BOOL)arg3 contextInfo:(void *)arg4;
-- (void)document_ms:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
-- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
-- (BOOL)canCloseAfterFileDialog;
-- (BOOL)canCloseImmediately;
+- (void)revealShareableObject:(struct MSModelObject *)arg1;
+- (void)revealComponentsOfType:(unsigned long long)arg1;
+- (void)revealComponentPane;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;

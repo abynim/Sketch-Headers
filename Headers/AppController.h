@@ -18,7 +18,6 @@
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
-    BOOL _canCreateDocuments;
     id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_printMenu;
@@ -62,7 +61,6 @@
 @property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
-@property(nonatomic) BOOL canCreateDocuments; // @synthesize canCreateDocuments=_canCreateDocuments;
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
 @property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
@@ -118,6 +116,7 @@
 - (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (void)tweakSidebarSubmenuIfNeeded:(id)arg1;
+- (void)setupKeyEquivalents:(id)arg1 defaultMenuItem:(id)arg2 secondaryMenuItem:(id)arg3 unusedMenuItem:(id)arg4;
 - (void)setupNewMenuItems:(id)arg1;
 - (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
@@ -160,12 +159,15 @@
 - (void)addObserversForVisualSettings;
 - (void)setupMenuItems;
 - (id)init;
+- (unsigned long long)handleTerminationRequest:(id)arg1;
 - (void)openDocumentAtPath:(id)arg1 withParameters:(id)arg2;
 - (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;
 - (void)didOpenURL:(id)arg1;
 - (void)handleURLEvent:(id)arg1 withReplyEvent:(id)arg2;
 - (void)registerURLScheme;
 - (id)actionClasses;
+- (void)kickMenu:(id)arg1;
+- (void)applySubmenuShortcutFix;
 - (void)scriptingMenuAction:(id)arg1;
 - (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 handler:(id)arg2 name:(id)arg3 withPreprocess:(BOOL)arg4;

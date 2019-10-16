@@ -18,6 +18,7 @@
     // Error parsing type: , name: componentListController
     // Error parsing type: , name: previewController
     // Error parsing type: , name: filterBarController
+    // Error parsing type: , name: hideSymbolViewController
     // Error parsing type: , name: appearanceObserver.storage
     // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
@@ -29,7 +30,7 @@
     // Error parsing type: , name: componentPreviewPosition
     // Error parsing type: , name: librariesNeedReloading
     // Error parsing type: , name: componentsNeedReloading
-    // Error parsing type: , name: lastDirectlyModifiedDocument
+    // Error parsing type: , name: directlyModifiedDocumentToIgnoreOnce
 }
 
 + (void)confirmSymbolMasterDeletionOnDocumentWindow:(id)arg1 inPlural:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
@@ -37,16 +38,17 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)refreshIfNeededForTreeDiff:(id)arg1;
-- (void)deleteSelectedGroupsAndComponents;
 @property(nonatomic, readonly) BOOL canDeleteSelectedGroupsAndComponents;
-- (void)renameSelectedGroupOrComponent;
-@property(nonatomic, readonly) BOOL canRenameGroupOrComponent;
 - (void)enterSelectedGroup;
 - (void)collapseComponentListGroups;
 - (void)navigateToPreviousItem;
 - (void)navigateToNextItem;
+- (void)makeFilteringSearchFieldKey;
 - (void)applyAppearance;
 - (void)viewWillAppear;
+- (void)selectComponentByReference:(id)arg1 collapsingOtherTopLevelAncestors:(BOOL)arg2 allowChangingLibraryAndKind:(BOOL)arg3;
+- (void)ensureSelectionIncludesComponentLibraryForAssetLibrary:(id)arg1;
+- (void)showComponentsOfKind:(unsigned long long)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
 - (void)viewWillDisappear;
 - (void)viewDidLoad;

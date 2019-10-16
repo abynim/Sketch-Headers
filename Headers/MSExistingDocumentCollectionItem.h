@@ -20,6 +20,7 @@
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
 - (id)title;
+- (id)cachedPreviewImage;
 - (id)initWithURL:(id)arg1;
 
 @end

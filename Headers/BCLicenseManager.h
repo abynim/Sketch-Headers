@@ -44,6 +44,7 @@
 - (id)currentLicenseIdentifier;
 - (long long)currentLicenseProvider;
 - (long long)currentLicenseType;
+@property(readonly, nonatomic) BOOL licenseIsSupported;
 - (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (BOOL)applyLicense:(id)arg1;

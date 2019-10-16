@@ -13,8 +13,11 @@
     double _cachedBackingScale;
     struct CGColorSpace *_cachedColorspace;
     NSDictionary *_cachedImages;
+    CDUnknownBlockType _createImageBlock;
 }
 
++ (id)cacheWithCreateImageBlock:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) CDUnknownBlockType createImageBlock; // @synthesize createImageBlock=_createImageBlock;
 @property(retain, nonatomic) NSDictionary *cachedImages; // @synthesize cachedImages=_cachedImages;
 @property(nonatomic) struct CGColorSpace *cachedColorspace; // @synthesize cachedColorspace=_cachedColorspace;
 @property(nonatomic) double cachedBackingScale; // @synthesize cachedBackingScale=_cachedBackingScale;
@@ -23,6 +26,8 @@
 - (id)createOverlayItemImagesForColorSpace:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)dealloc;
+- (id)init;
+- (id)initWithCreateImageBlock:(CDUnknownBlockType)arg1;
 
 @end
 

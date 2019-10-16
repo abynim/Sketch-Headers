@@ -6,13 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocumentData, NSDictionary, NSString, NSURL, SCKShare;
+@class MSImmutableDocumentData, NSDictionary, NSString, NSURL, SCKShare;
 
 @protocol MSCloudExportableDocument <NSObject>
 @property(readonly, nonatomic) NSString *cloudName;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) NSDictionary *UIMetadata;
-@property(readonly, nonatomic) MSDocumentData *documentData;
+@property(readonly, nonatomic) MSImmutableDocumentData *exportableImmutableData;
 @property(readonly, nonatomic) NSURL *fileURL;
 @end
 

@@ -6,7 +6,8 @@
 
 #import <Foundation/NSAttributedString.h>
 
-@interface NSAttributedString (ColorSpaceConversion)
+@interface NSAttributedString (MSAttributedStringSupport)
+- (id)attributedStringAttributes;
 - (id)translatedToColorSpace:(id)arg1;
 - (id)convertedToColorSpace:(id)arg1;
 - (id)attributedStringWithDocumentColorSpace:(id)arg1 convert:(BOOL)arg2;

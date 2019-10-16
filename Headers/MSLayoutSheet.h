@@ -6,18 +6,23 @@
 
 #import "MSGridSheetBase.h"
 
-@class NSButton;
+@class MSLayoutGrid, NSButton;
 
 @interface MSLayoutSheet : MSGridSheetBase
 {
     NSButton *_centerGridButton;
 }
 
++ (id)keyPathsForValuesAffectingColumnWidth;
++ (id)keyPathsForValuesAffectingGutterWidth;
 @property(retain, nonatomic) NSButton *centerGridButton; // @synthesize centerGridButton=_centerGridButton;
 - (void).cxx_destruct;
+@property(nonatomic) double columnWidth;
+@property(nonatomic) double gutterWidth;
+@property(readonly, nonatomic) MSLayoutGrid *layoutGrid;
 - (void)offsetChanged:(id)arg1;
 - (void)centerGrid:(id)arg1;
-- (void)setAsDefault:(id)arg1;
+- (void)saveCurrentSettingsAsDefault;
 - (void)awakeFromNib;
 - (void)applyObject:(id)arg1 toLayer:(id)arg2;
 - (id)defaultObject;

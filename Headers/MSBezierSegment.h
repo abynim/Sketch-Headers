@@ -78,6 +78,7 @@
 - (id)segmentToOffset:(double)arg1;
 - (id)intersectionsWithSegment:(id)arg1;
 - (id)offsetsOfIntersectionsWithTangent:(struct BCLine)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
 - (double)offsetForNormalToPoint:(struct CGPoint)arg1;
 - (double)curvatureAtOffset:(double)arg1;
 - (double)curvatureAtEndPoint2;

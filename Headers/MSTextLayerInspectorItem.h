@@ -10,18 +10,20 @@
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
+#import "MSVariableFontsInspectorDelegate-Protocol.h"
 #import "NSComboBoxDataSource-Protocol.h"
 
-@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSArrayController, NSButton, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, MSVariableFontsInspector, NSArrayController, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 @protocol MSTextLayerItemDelegate;
 
-@interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate>
+@interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate, MSVariableFontsInspectorDelegate>
 {
     NSMenu *_fontSizeMenu;
     MSTextInspectorItemDataSource *_dataSource;
     NSView *_basicView;
     NSButton *_fontFamilyButton;
     NSPopUpButton *_fontWeightPopUpButton;
+    NSButton *_variableFontsButton;
     MSInlineUpDownTextFieldWithMenu *_fontSizeField;
     MSStylePartPreviewButton *_colorPickerButton;
     MSInlineUpDownTextField *_kerningField;
@@ -31,6 +33,7 @@
     NSSegmentedControl *_verticalAlignmentButton;
     NSTextField *_sizingLabel;
     MSInspectorSegmentedControl *_sizingSegmentedControl;
+    NSLayoutConstraint *_fontWeightPopUpButtonTrailingConstraint;
     BCPopover *_popover;
     MSNativeColorPanelPresenter *_colorPanelPresenter;
     NSSet *_fontPostscriptNames;
@@ -43,10 +46,12 @@
     MSMathInspectorValueAdaptor *_lineHeightAdaptor;
     MSInspectorValueAdaptor *_colorAdapor;
     MSTextAttributeEditingContext *_editingContext;
+    MSVariableFontsInspector *_variableFontsController;
 }
 
 + (void)initialize;
 + (BOOL)canHandleLayer:(id)arg1;
+@property(retain, nonatomic) MSVariableFontsInspector *variableFontsController; // @synthesize variableFontsController=_variableFontsController;
 @property(retain, nonatomic) MSTextAttributeEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdapor; // @synthesize colorAdapor=_colorAdapor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *lineHeightAdaptor; // @synthesize lineHeightAdaptor=_lineHeightAdaptor;
@@ -59,6 +64,7 @@
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(retain, nonatomic) NSLayoutConstraint *fontWeightPopUpButtonTrailingConstraint; // @synthesize fontWeightPopUpButtonTrailingConstraint=_fontWeightPopUpButtonTrailingConstraint;
 @property(nonatomic) __weak MSInspectorSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
 @property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
@@ -68,11 +74,16 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *kerningField; // @synthesize kerningField=_kerningField;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorPickerButton; // @synthesize colorPickerButton=_colorPickerButton;
 @property(retain, nonatomic) MSInlineUpDownTextFieldWithMenu *fontSizeField; // @synthesize fontSizeField=_fontSizeField;
+@property(retain, nonatomic) NSButton *variableFontsButton; // @synthesize variableFontsButton=_variableFontsButton;
 @property(retain, nonatomic) NSPopUpButton *fontWeightPopUpButton; // @synthesize fontWeightPopUpButton=_fontWeightPopUpButton;
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)variableFontsWindowController:(id)arg1 didUpdateToFont:(id)arg2;
+- (void)popoverWillClose:(id)arg1;
+- (void)togglePopoverWithBlock:(CDUnknownBlockType)arg1;
+- (void)showVariableFontsPopover:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)updateColorButton;
@@ -84,6 +95,7 @@
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)colorInspectorUndoManager:(id)arg1;
 - (void)dismissViewController:(id)arg1;
+- (void)validateVariableFontButton;
 - (void)reloadFontWeightPopUp;
 - (void)reloadFontWeightPopUpIfNecessary;
 - (id)firstColor;
@@ -102,7 +114,7 @@
 - (id)canvasColorSpace;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)showColorPickerAction:(id)arg1;
-- (void)togglePopover;
+- (void)toggleColorPopover;
 - (void)showNativeColorPanel;
 - (void)fontSizeMenuAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;

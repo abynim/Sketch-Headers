@@ -19,7 +19,6 @@
 @property(retain, nonatomic) id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
-- (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)createManifest;
 
 @end

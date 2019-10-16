@@ -4,9 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSShapePathLayer.h>
+#import "MSInlineUpDownMiniTextField.h"
 
-@interface MSShapePathLayer (Scissors)
-- (void)possiblyFixRectangleBorderBeforeCut;
+@interface MSCancellingTextView : MSInlineUpDownMiniTextField
+{
+}
+
+- (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
+- (void)awakeFromNib;
+
 @end
 

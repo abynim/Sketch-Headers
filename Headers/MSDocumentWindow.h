@@ -18,7 +18,7 @@
 @property(retain, nonatomic) BCWindowBadge *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 - (void).cxx_destruct;
 - (void)setAppearance:(id)arg1;
-- (void)refreshAppearanceDependentViews;
+- (void)refreshAfterAppearanceChange;
 - (id)touchBar;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)mouseDown:(id)arg1;

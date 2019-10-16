@@ -32,8 +32,8 @@
 - (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1;
 - (id)snapAndAlignPoint:(struct CGPoint)arg1 constraint:(id)arg2 modifierFlags:(unsigned long long)arg3;
-- (void)drawRectPreview;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 @property(readonly, nonatomic) MSLayerGroup *group;
 - (BOOL)handlesHandToolItself;
 - (void)keyDown:(id)arg1;

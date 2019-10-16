@@ -17,7 +17,8 @@
 + (id)layersTrailingLayer:(id)arg1 inDirection:(long long)arg2;
 + (void)applyTrailingLayerInfo:(id)arg1 toLayer:(id)arg2;
 + (id)trailingLayerInfoForLayer:(id)arg1;
-+ (void)changeFrameForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (void)unusedChangeFrameForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
++ (void)deprecated_changeFrameForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 
 @end
 

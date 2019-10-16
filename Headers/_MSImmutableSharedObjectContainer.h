@@ -16,6 +16,7 @@
 + (Class)mutableClass;
 @property(retain, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

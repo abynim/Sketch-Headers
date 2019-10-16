@@ -8,7 +8,7 @@
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
 
-@class MSAvailableOverride, MSDataMenuProvider, MSDocument, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSPopUpButton, NSString, NSTrackingArea, NSView;
+@class MSAvailableOverride, MSDataMenuProvider, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSPopUpButton, NSString, NSTrackingArea, NSView;
 
 @interface MSOverrideInspectorItem : MSInspectorItem <MSDataMenuProviderDelegate>
 {
@@ -31,6 +31,7 @@
 @property(nonatomic) BOOL displaysLabel; // @synthesize displaysLabel=_displaysLabel;
 @property(readonly, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 - (void).cxx_destruct;
+- (void)addObserverForMSDataSupplierManagerDataChangedNotification;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)viewWillDisappear;
@@ -42,13 +43,17 @@
 - (void)overrideValueAction:(id)arg1;
 - (void)refreshDataOnCurrentSelection:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)updatePopup;
+- (id)toolTipString;
+- (id)cellImage;
+- (BOOL)hasAnyUsableDataProviders;
+- (BOOL)hasDataSupplier;
 - (id)labelView;
 - (id)valueFromControlView:(id)arg1;
 - (id)controlViewForEditingOverride;
 - (void)build;
 - (void)setIndentationLevel:(unsigned long long)arg1;
 - (id)views;
-@property(readonly, nonatomic) MSDocument *document;
 @property(readonly, nonatomic) MSDocumentData *documentData;
 @property(readonly, nonatomic) MSAvailableOverride *primaryOverride;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;

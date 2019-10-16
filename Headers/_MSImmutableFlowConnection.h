@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSString *destinationArtboardID; // @synthesize destinationArtboardID=_destinationArtboardID;
 @property(nonatomic) long long animationType; // @synthesize animationType=_animationType;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

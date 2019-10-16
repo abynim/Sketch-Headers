@@ -12,6 +12,8 @@
 {
 }
 
+- (BOOL)validate;
+- (long long)validationStatus;
 @property(readonly, nonatomic) NSSet *foreignObjects;
 - (void)doPerformAction:(id)arg1;
 

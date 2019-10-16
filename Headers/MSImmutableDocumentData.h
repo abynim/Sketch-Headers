@@ -15,20 +15,23 @@
 {
     NSDictionary *_metadata;
     NSData *_textPreviewData;
+    NSData *_textPreviewMetadata;
     NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
-+ (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 loadBlock:(CDUnknownBlockType)arg3;
++ (BOOL)persistsObjectID;
++ (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
+@property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
 - (id)pagesAndArtboardsMetadata;
-- (id)allSymbols;
-- (id)localSymbols;
+@property(readonly, nonatomic) NSArray *allSymbols;
+@property(readonly, nonatomic) NSArray *localSymbols;
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
@@ -51,6 +54,8 @@
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
+- (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)newPageForMigratedSymbols:(id)arg1;
 - (void)arrangeMigratedSymbolsInGrid:(id)arg1;
 - (void)stripRedundantOverridesFromInstances:(id)arg1 ofSymbol:(id)arg2;

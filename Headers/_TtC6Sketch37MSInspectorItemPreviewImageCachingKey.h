@@ -12,6 +12,8 @@
 {
     // Error parsing type: , name: key
     // Error parsing type: , name: size
+    // Error parsing type: , name: maxSize
+    // Error parsing type: , name: scale
 }
 
 - (void).cxx_destruct;

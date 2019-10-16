@@ -11,6 +11,7 @@
 }
 
 - (id)label;
+- (long long)validationStatus;
 - (void)performSharedObjectAction;
 - (void)resetSharedStyle:(id)arg1;
 

@@ -129,6 +129,7 @@
 - (id)layersSeparatedByGroups:(id)arg1;
 - (id)duplicateSelectedLayersWithOffset:(struct CGVector)arg1;
 - (struct CGPoint)currentMousePointInCanvasCoordinates;
+- (void)doPasteLayersAtCurrentPosition:(id)arg1;
 - (void)pasteHere:(id)arg1;
 - (void)pasteOverSelection:(id)arg1;
 - (void)pasteWithOptions:(unsigned long long)arg1;
@@ -139,6 +140,7 @@
 - (void)doCut:(id)arg1;
 - (void)cut:(id)arg1;
 - (id)pastingViewPort;
+- (void)insertPasteboardLayers:(id)arg1;
 - (void)readFromPasteboard:(id)arg1 options:(unsigned long long)arg2;
 - (id)currentPage;
 - (void)writeLayers:(id)arg1 toPasteboard:(id)arg2;

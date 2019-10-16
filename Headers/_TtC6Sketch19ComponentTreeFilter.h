@@ -8,8 +8,8 @@
 
 @interface _TtC6Sketch19ComponentTreeFilter : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: anythingMatches
-    // Error parsing type: , name: filterString
+    // Error parsing type: , name: primaryPredicate
+    // Error parsing type: , name: secondaryPredicate
 }
 
 @end

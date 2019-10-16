@@ -10,6 +10,7 @@
 {
 }
 
++ (void)showSidebarForDocument:(id)arg1;
 - (id)label;
 - (void)hide;
 - (void)show;

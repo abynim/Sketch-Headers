@@ -6,27 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class NSDictionary, NSMutableArray, NSString;
+@class NSArray, NSDictionary, NSMutableArray, NSString;
 @protocol BCSortable;
 
 @interface BCSortableTreeItem : NSObject
 {
     id <BCSortable> _object;
     NSString *_name;
-    NSMutableArray *_children;
+    NSMutableArray *_internalChildren;
+    NSDictionary *_descriptionDictionary;
 }
 
-+ (id)descriptionsForItems:(id)arg1;
 + (void)compressNestingWithTreeItems:(id)arg1;
 + (void)sortAndCombineTreeItems:(id)arg1;
 + (id)sortableTreeItemForObject:(id)arg1;
 + (id)sortableTreeItemsForSortableObjects:(id)arg1;
-@property(retain, nonatomic) NSMutableArray *children; // @synthesize children=_children;
+@property(readonly, nonatomic) NSDictionary *descriptionDictionary; // @synthesize descriptionDictionary=_descriptionDictionary;
+@property(retain, nonatomic) NSMutableArray *internalChildren; // @synthesize internalChildren=_internalChildren;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) id <BCSortable> object; // @synthesize object=_object;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSDictionary *descriptionDictionary;
 - (void)compressNesting;
+@property(readonly, nonatomic) NSArray *children;
 - (id)initWithObject:(id)arg1 parent:(id)arg2 name:(id)arg3;
 
 @end

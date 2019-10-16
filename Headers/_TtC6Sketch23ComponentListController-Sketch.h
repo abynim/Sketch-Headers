@@ -10,6 +10,7 @@
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
 - (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (void)outlineViewSelectionDidChange:(id)arg1;
+- (BOOL)selectionShouldChangeInOutlineView:(id)arg1;
 - (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
 - (void)outlineViewItemDidCollapse:(id)arg1;
 - (void)outlineViewItemDidExpand:(id)arg1;

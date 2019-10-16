@@ -28,8 +28,8 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (void)reset;
 - (void)cancel;
+- (void)finish;
 - (id)moveByOffset:(struct CGVector)arg1;
 - (id)performMoveToLocation:(struct CGPoint)arg1;
 - (void)beginWithLayers:(id)arg1 location:(struct CGPoint)arg2;
@@ -44,6 +44,7 @@
 @property(nonatomic) struct CGVector dragOffset; // @synthesize dragOffset;
 - (struct CGPoint)positionFromLocation:(struct CGPoint)arg1;
 @property(nonatomic, readonly) struct CGPoint position;
+- (void)reset;
 @property(nonatomic, copy) NSArray *items; // @synthesize items;
 
 @end

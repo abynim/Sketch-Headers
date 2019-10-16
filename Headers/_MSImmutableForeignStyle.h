@@ -18,6 +18,7 @@
 @property(retain, nonatomic) MSImmutableSharedStyle *localSharedStyle; // @synthesize localSharedStyle=_localSharedStyle;
 @property(retain, nonatomic) NSString *remoteStyleID; // @synthesize remoteStyleID=_remoteStyleID;
 - (void).cxx_destruct;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

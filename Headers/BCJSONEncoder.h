@@ -15,6 +15,7 @@
 }
 
 + (void)initialize;
++ (void)setAliasName:(id)arg1 forClassName:(id)arg2;
 + (void)setAliasName:(id)arg1 forClass:(Class)arg2;
 + (id)encodeObjectAsData:(id)arg1 error:(id *)arg2;
 + (id)encoderForWritingToMutableData:(id)arg1;

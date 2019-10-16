@@ -12,16 +12,16 @@
 
 @interface MSWelcomeCollectionItem : NSObject <MSWelcomeCollectionItemPreviewImageLoading>
 {
+    NSImage *_cachedPreviewImage;
     NSString *_title;
     NSString *_toolTip;
-    NSImage *_cachedPreviewImage;
 }
 
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
-@property(retain, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 - (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) BOOL providesPreviewImage;

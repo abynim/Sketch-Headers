@@ -17,6 +17,7 @@
 }
 
 + (unsigned long long)traits;
++ (BOOL)persistsObjectID;
 + (id)generateObjectID;
 + (id)defaultName;
 - (void).cxx_destruct;
@@ -24,7 +25,6 @@
 - (unsigned long long)traits;
 - (id)primitiveObjectID;
 @property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
-- (BOOL)hasObjectID;
 - (id)recursivelyGenerateObjectID;
 - (id)generateObjectID;
 - (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;

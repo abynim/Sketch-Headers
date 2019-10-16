@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSButton.h>
+#import "NSObject-Protocol.h"
 
-@interface BCFilterTokenButton : NSButton
-{
-}
+@protocol BCFilterTokenButtonDelegate <NSObject>
 
-- (void)keyDown:(id)arg1;
-- (BOOL)resignFirstResponder;
-
+@optional
+- (void)editFilterString;
+- (void)toggleFilter:(id)arg1;
 @end
 

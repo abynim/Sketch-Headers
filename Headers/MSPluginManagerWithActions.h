@@ -36,6 +36,7 @@
 - (void)runCommand:(id)arg1 handlerKey:(id)arg2 withContext:(id)arg3;
 - (id)contextForActionWithID:(id)arg1 context:(id)arg2;
 - (void)buildHandlerIndex;
+- (void)document:(id)arg1 didChangeFrom:(id)arg2;
 - (void)applicationWillTerminate:(id)arg1;
 - (void)setPlugins:(id)arg1;
 - (id)initWithPluginsFolderURLs:(id)arg1 updater:(id)arg2 pluginStateManager:(id)arg3;

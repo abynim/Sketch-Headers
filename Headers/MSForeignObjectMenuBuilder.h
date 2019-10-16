@@ -15,6 +15,7 @@
     MSForeignObjectCollector *_collector;
 }
 
++ (CDUnknownBlockType)symbolFilterForOverride:(id)arg1 inDocument:(id)arg2 restrictToMatchingSize:(BOOL)arg3;
 + (CDUnknownBlockType)filterForReplacingSymbolInstances:(id)arg1;
 @property(retain, nonatomic) MSForeignObjectCollector *collector; // @synthesize collector=_collector;
 @property(nonatomic) BOOL requiresLocalSubmenu; // @synthesize requiresLocalSubmenu=_requiresLocalSubmenu;

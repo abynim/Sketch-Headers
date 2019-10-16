@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class MSOverlayColorSettings, NSColorSpace, NSSet, NSString;
+@class MSModelObjectCacheGeneration, MSOverlayColorSettings, NSColorSpace, NSSet;
 
 @interface MSRenderPassState : NSObject
 {
     void *_document;
-    NSString *_pageID;
+    MSModelObjectCacheGeneration *_pageCacheGeneration;
     NSSet *_selectedLayerIDs;
     unsigned long long _overlayRenderOptions;
     NSColorSpace *_canvasColorSpace;
@@ -24,7 +24,7 @@
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(readonly, nonatomic) unsigned long long overlayRenderOptions; // @synthesize overlayRenderOptions=_overlayRenderOptions;
 @property(readonly, copy, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
-@property(readonly, copy, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
+@property(readonly, copy, nonatomic) MSModelObjectCacheGeneration *pageCacheGeneration; // @synthesize pageCacheGeneration=_pageCacheGeneration;
 @property(readonly, nonatomic) void *document; // @synthesize document=_document;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 - (void).cxx_destruct;

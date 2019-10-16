@@ -49,6 +49,7 @@
 - (id)projects;
 - (void)requestProjects;
 @property(readonly, nonatomic) SCKOrganization *organization;
+- (void)selectProject:(id)arg1;
 - (void)selectOrganization:(id)arg1;
 - (void)reloadOrganizations;
 - (void)updateView;

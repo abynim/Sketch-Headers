@@ -23,7 +23,6 @@
 - (void)showSavePanelToExportIndividualSlice:(id)arg1;
 - (id)openPanelForRequests:(id)arg1;
 - (void)showSaveToFolderPanelToExportSlices:(id)arg1;
-- (void)displayNoSlicesWarning;
 - (id)destinationForRequest:(id)arg1 inFolder:(id)arg2;
 - (void)warnBeforeOverwritingAndSaveSlices:(id)arg1 toFolder:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)saveSlices:(id)arg1 toFolder:(id)arg2;

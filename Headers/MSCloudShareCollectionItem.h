@@ -29,6 +29,7 @@
 - (id)URL;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;
+- (id)cachedPreviewImage;
 - (id)initWithCloudShare:(id)arg1;
 
 @end

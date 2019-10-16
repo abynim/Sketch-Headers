@@ -14,6 +14,7 @@
 + (struct CGRect)safeRectForLayerAncestry:(id)arg1;
 + (id)exportRequestFromLayerAncestry:(id)arg1;
 + (struct CGRect)_trimmedRectFromLayerAncestry:(id)arg1;
++ (struct CGRect)rectForLayerAncestry:(id)arg1 withTrimming:(BOOL)arg2;
 + (struct CGRect)trimmedRectForLayerAncestry:(id)arg1;
 + (void)trimSlice:(id)arg1;
 

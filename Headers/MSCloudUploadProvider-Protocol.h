@@ -11,7 +11,7 @@
 
 @protocol MSCloudUploadProvider <NSObject>
 @property(readonly, nonatomic) NSProgress *progress;
-@property(readonly, nonatomic) BOOL isResumeable;
+@property(readonly, nonatomic) BOOL finalized;
 @property(readonly, nonatomic) BOOL cancelled;
 @property(readonly, nonatomic) SCKProject *project;
 @property(readonly, nonatomic) SCKOrganization *organization;

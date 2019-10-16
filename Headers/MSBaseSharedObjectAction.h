@@ -20,6 +20,7 @@
 - (void)doPerformAction:(id)arg1;
 @property(readonly, nonatomic) BOOL needsRenameAfterAction;
 - (void)performSharedObjectAction;
+- (BOOL)validate;
 - (long long)validationStatus;
 - (BOOL)hasDynamicTitle;
 @property(readonly, nonatomic) MSShareableObjectUpdater *updater; // @synthesize updater=_updater;

@@ -54,7 +54,7 @@
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
-- (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1;
+- (BOOL)addOrRemoveLayerFromArtboardIfNecessary:(id)arg1 options:(unsigned long long)arg2;
 - (BOOL)tryToMoveLayer:(id)arg1 toArtboards:(id)arg2;
 @property(readonly, nonatomic) NSArray *exportableLayers;
 - (id)symbolLayersInGroup:(id)arg1;
@@ -73,6 +73,7 @@
 - (id)layersByObjectID;
 - (id)selectedLayers;
 @property(retain, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+- (void)ensureSelectedLayersAreStillValid;
 - (id)parentGroup;
 - (void)objectDidInit;
 - (void)resetSelectedLayerIDs:(id)arg1;

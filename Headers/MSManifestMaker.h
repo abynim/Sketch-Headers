@@ -12,7 +12,7 @@
 {
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
-    MSImmutableDocumentData *_documentData;
+    MSImmutableDocumentData *_immutableDocumentData;
     NSString *_name;
     NSURL *_fileURL;
     NSDictionary *_applicationMetadata;
@@ -25,7 +25,7 @@
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-@property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
 - (void).cxx_destruct;
 - (id)metadataForFlow:(id)arg1;
 - (id)dictForRect:(struct CGRect)arg1 inRootLayer:(id)arg2;
@@ -37,6 +37,7 @@
 - (id)metadataForLayersInRootLayer:(id)arg1 ancestors:(id)arg2;
 - (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
+- (id)formatAsInteger:(double)arg1;
 - (BOOL)shouldExportLayerGroup:(id)arg1;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;

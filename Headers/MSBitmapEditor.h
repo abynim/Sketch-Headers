@@ -6,20 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class MSBitmapEditEventHandler, MSLayer, NSBezierPath;
+#import "MSOverlayItemDataSource-Protocol.h"
+
+@class MSBitmapEditEventHandler, MSLayer, NSBezierPath, NSString;
 @protocol MSBitmapEditable;
 
-@interface MSBitmapEditor : NSObject
+@interface MSBitmapEditor : NSObject <MSOverlayItemDataSource>
 {
     MSBitmapEditEventHandler *_eventHandler;
 }
 
 @property(nonatomic) __weak MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void).cxx_destruct;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (struct CGAffineTransform)transformForConvertingFromImageToPage;
 - (struct CGRect)imageBounds;
 - (struct CGSize)imageSize;
 - (double)zoomValue;
-- (void)drawMarchingAntsForPath:(id)arg1;
+- (id)overlayItemsForMarchingAntsForPath:(id)arg1;
 - (struct CGPoint)pointInBitmapLayer:(struct CGPoint)arg1;
 - (void)refreshRectInBitmapCoordinates:(struct CGRect)arg1;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @dynamic accumulatedSelection;
@@ -27,7 +32,12 @@
 - (void)mouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseDragged:(struct CGPoint)arg1;
 - (void)mouseDown:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)draw;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

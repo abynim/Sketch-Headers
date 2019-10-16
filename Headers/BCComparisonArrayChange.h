@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) BOOL isInsertion; // @synthesize isInsertion=_isInsertion;
 - (void).cxx_destruct;
 - (long long)type;
-- (id)fullPath;
+- (id)internalFullPath;
 @property(readonly, nonatomic) BOOL isMove;
 @property(readonly, nonatomic) BOOL isRemoval;
 - (id)description;

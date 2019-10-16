@@ -8,7 +8,6 @@
 
 @interface MSStyledLayer (Scissors)
 - (BOOL)canCutSegments;
-- (id)layerWithBezierSegmentCutAtIndex:(unsigned long long)arg1;
-- (void)possiblyFixRectangleBorderBeforeCut;
+- (id)layerByRemovingSegmentAtIndexPath:(id)arg1;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)persistsObjectID;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)migratePropertiesFromV114OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV74OrEarlierWithUnarchiver:(id)arg1;

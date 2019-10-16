@@ -16,7 +16,7 @@
 @property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 - (void).cxx_destruct;
 - (long long)type;
-- (id)fullPath;
+- (id)internalFullPath;
 
 @end
 

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSURL;
+@class MSLintConfiguration, NSURL;
 
 @protocol MSDocumentLinting
-- (void)lintDocumentAt:(NSURL *)arg1 configFile:(NSURL *)arg2 completionHandler:(void (^)(_TtC15DocumentLinting10LintResult *, NSError *))arg3;
+- (void)lintDocumentAt:(NSURL *)arg1 config:(MSLintConfiguration *)arg2 completionHandler:(void (^)(_TtC15DocumentLinting10LintResult *, NSError *))arg3;
 @end
 

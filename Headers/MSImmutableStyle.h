@@ -25,6 +25,7 @@
     double _outerPaddingForBiggestShadowSpread;
 }
 
++ (BOOL)persistsObjectID;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur; // @synthesize hasEnabledBackgroundBlur=_hasEnabledBackgroundBlur;
 @property(readonly, nonatomic) double outerPaddingForBiggestShadowSpread; // @synthesize outerPaddingForBiggestShadowSpread=_outerPaddingForBiggestShadowSpread;
 @property(readonly, nonatomic) double outerPaddingForSmallestStroke; // @synthesize outerPaddingForSmallestStroke=_outerPaddingForSmallestStroke;

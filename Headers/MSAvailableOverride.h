@@ -38,6 +38,7 @@
 - (void)calculateAppearsOnCanvasWithAncestors:(id)arg1;
 @property(readonly, nonatomic) BOOL allowsOverrides;
 @property(readonly, nonatomic) BOOL defaultIsItselfAnOverride;
+@property(readonly, nonatomic) BOOL isHidden;
 @property(readonly, nonatomic) BOOL hasOverride;
 @property(readonly, nonatomic) id overrideValue;
 @property(readonly, nonatomic) id defaultValue;

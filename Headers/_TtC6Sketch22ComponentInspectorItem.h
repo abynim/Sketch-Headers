@@ -18,6 +18,7 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewWillDisappear;
+- (void)libraryControllerDidChange:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

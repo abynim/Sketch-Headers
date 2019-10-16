@@ -7,6 +7,8 @@
 #import <Foundation/NSDictionary.h>
 
 @interface NSDictionary (BCFoundation)
+- (id)dictionaryByTurningNumberKeysIntoStrings;
+- (id)dictionaryByTurningStringKeysInToNumbers;
 - (id)dictionaryByReverseMappingKeys_bc:(id)arg1;
 - (id)dictionaryByMappingKeys_bc:(id)arg1;
 - (id)dictionaryByReplacing:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

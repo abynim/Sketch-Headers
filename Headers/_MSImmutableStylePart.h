@@ -14,6 +14,7 @@
 + (Class)mutableClass;
 + (BOOL)isEnabledByDefault;
 @property(nonatomic) BOOL isEnabled; // @synthesize isEnabled=_isEnabled;
+- (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
