@@ -6,9 +6,13 @@
 
 #import "MSSnapOverlayController.h"
 
+#import "_TtP17SketchControllers27MSCollectionOverlayDelegate_-Protocol.h"
 #import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@interface MSSnapOverlayController (Sketch) <_TtP17SketchControllers29MSCollectionOverlayDataSource_>
+@interface MSSnapOverlayController (Sketch) <_TtP17SketchControllers29MSCollectionOverlayDataSource_, _TtP17SketchControllers27MSCollectionOverlayDelegate_>
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForItemAtIndexPath:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (id)collectionOverlay:(id)arg1 overlayItemImagesForColorSpace:(struct CGColorSpace *)arg2 backingScale:(double)arg3;
 - (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
 @end
 

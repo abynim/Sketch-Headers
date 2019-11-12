@@ -33,7 +33,6 @@
 - (struct CGRect)adjustScroll:(struct CGRect)arg1;
 - (double)refreshMaximumHeightFromSubviews;
 - (void)stack:(id)arg1;
-- (void)cancelOperation:(id)arg1;
 - (void)awakeFromNib;
 
 @end

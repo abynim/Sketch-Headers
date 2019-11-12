@@ -15,6 +15,7 @@
 - (id)historyMomentTitle;
 - (id)label;
 - (BOOL)needsRenameAfterAction;
+- (void)trySelectComponentForStyle:(id)arg1;
 - (void)performSharedObjectAction;
 - (void)createSharedStyle:(id)arg1;
 

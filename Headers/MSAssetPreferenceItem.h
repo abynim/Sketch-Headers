@@ -6,10 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class MSAssetLibrary, MSRemoteAssetLibrary, NSImage, NSString;
+#import "MSAssetPreferenceRowItem-Protocol.h"
+
+@class MSAssetLibrary, MSRemoteAssetLibrary, NSColor, NSImage, NSString;
 @protocol MSAssetPreferenceItemDelegate;
 
-@interface MSAssetPreferenceItem : NSObject
+@interface MSAssetPreferenceItem : NSObject <MSAssetPreferenceRowItem>
 {
     long long _updatingStatus;
     id <MSAssetPreferenceItemDelegate> _delegate;
@@ -18,10 +20,16 @@
     NSString *_secondaryTitle;
     unsigned long long _fileSize;
     unsigned long long _downloadedSoFar;
+    NSColor *_secondaryTitleColor;
+    unsigned long long _originalLibraryType;
+    NSString *_downloadButtonTitle;
 }
 
 + (id)keyPathsForValuesAffectingUpdateAvailable;
 + (id)preferenceItemForLibrary:(id)arg1;
+@property(retain, nonatomic) NSString *downloadButtonTitle; // @synthesize downloadButtonTitle=_downloadButtonTitle;
+@property(nonatomic) unsigned long long originalLibraryType; // @synthesize originalLibraryType=_originalLibraryType;
+@property(retain, nonatomic) NSColor *secondaryTitleColor; // @synthesize secondaryTitleColor=_secondaryTitleColor;
 @property(nonatomic) unsigned long long downloadedSoFar; // @synthesize downloadedSoFar=_downloadedSoFar;
 @property(nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
@@ -30,11 +38,21 @@
 @property(nonatomic) __weak id <MSAssetPreferenceItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long updatingStatus; // @synthesize updatingStatus=_updatingStatus;
 - (void).cxx_destruct;
+- (id)tableRowViewForTableView:(id)arg1;
+@property(readonly, nonatomic) double preferredViewHeight;
 @property(readonly, nonatomic) BOOL missingRemoteLibraryWithNoInternet;
 @property(readonly, nonatomic) MSRemoteAssetLibrary *remoteLibrary;
-- (void)evaluateSecondaryTitle;
-- (id)updatingRelatedSecondaryTitle;
-- (id)secondaryTitleStringWhenUpdateAvailable;
+@property(readonly, nonatomic) BOOL canViewLibraryWithQuicklook;
+- (void)updateSecondaryLabel;
+- (void)updateUI;
+- (void)updateDownloadButton;
+- (void)updateSecondaryTitleFromStatus;
+- (id)secondaryTitleErrorColor;
+- (id)standardSecondaryTitleColor;
+- (id)availableUpdateColor;
+- (id)downloadToAddString;
+- (id)updateAvailableString;
+- (id)downloadSizeStringWithMessage:(id)arg1;
 - (id)downloadProgress;
 @property(readonly, nonatomic) NSString *modificationDate;
 - (id)infoText;
@@ -45,7 +63,10 @@
 - (BOOL)valid;
 @property(nonatomic) BOOL enabled;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSString *viewIdentifier;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)libraryControllerDidChange:(id)arg1;
+- (void)checkUpdateStatus;
 - (void)dealloc;
 - (void)setupObservers;
 - (id)initWithLibrary:(id)arg1;

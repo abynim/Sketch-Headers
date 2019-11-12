@@ -11,16 +11,12 @@
 @interface MSFeatureAvailability : NSObject
 {
     // Error parsing type: , name: cloudLicensing
-    // Error parsing type: , name: cloudDocuments
-    // Error parsing type: , name: inferredLayout
     // Error parsing type: , name: componentsPane
     // Error parsing type: , name: componentsPaneDoubleInspector
     // Error parsing type: , name: builtInRemoteLibraries
     // Error parsing type: , name: cloudDocumentsAsDefaultModal
     // Error parsing type: , name: saveOmitsDefaultValues
     // Error parsing type: , name: maintainScrollPositionAfterClick
-    // Error parsing type: , name: autoReparentGroupedLayers
-    // Error parsing type: , name: newDocumentsWindow
     // Error parsing type: , name: designLinting
 }
 
@@ -29,16 +25,12 @@
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *newDocumentsWindow; // @synthesize newDocumentsWindow;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *autoReparentGroupedLayers; // @synthesize autoReparentGroupedLayers;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *saveOmitsDefaultValues; // @synthesize saveOmitsDefaultValues;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocumentsAsDefaultModal; // @synthesize cloudDocumentsAsDefaultModal;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *builtInRemoteLibraries; // @synthesize builtInRemoteLibraries;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPaneDoubleInspector; // @synthesize componentsPaneDoubleInspector;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPane; // @synthesize componentsPane;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *inferredLayout; // @synthesize inferredLayout;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocuments; // @synthesize cloudDocuments;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudLicensing; // @synthesize cloudLicensing;
 
 @end

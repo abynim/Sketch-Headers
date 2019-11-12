@@ -14,6 +14,7 @@
 {
 }
 
++ (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)defaultName;
 + (unsigned long long)traits;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;

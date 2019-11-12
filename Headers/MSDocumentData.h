@@ -25,6 +25,7 @@
     MSFontList *_fontList;
 }
 
++ (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;

@@ -34,6 +34,7 @@
 @property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 - (void).cxx_destruct;
+- (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)notifyChangeObservers;
 - (void)removeChangeObserver:(id)arg1;
 - (void)addChangeObserver:(id)arg1;

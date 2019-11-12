@@ -14,6 +14,7 @@
 - (void).cxx_destruct;
 - (id)init;
 - (id)finishCycle;
+- (void)addTargetWithLineSegment:(struct BCLineSegment)arg1 guideInfo:(id)arg2;
 - (void)addTargetAtPoint:(struct CGPoint)arg1 guideInfo:(id)arg2;
 - (void)addAxisAlignedTargetsWithThrough:(struct CGPoint)arg1;
 - (void)addTargetWithLine:(struct BCLine)arg1 guideInfo:(id)arg2;

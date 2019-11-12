@@ -61,6 +61,7 @@
 - (id)previewPanel:(id)arg1 previewItemAtIndex:(long long)arg2;
 - (long long)numberOfPreviewItemsInPreviewPanel:(id)arg1;
 - (void)toggleQLPreview:(id)arg1;
+@property(readonly, nonatomic) NSArray *previewableItems;
 - (BOOL)tableView:(id)arg1 shouldTypeSelectForEvent:(id)arg2 withCurrentSearchString:(id)arg3;
 - (id)menuForEvent:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
@@ -69,6 +70,7 @@
 - (BOOL)canLocateLibrary:(id)arg1;
 - (BOOL)validateOpenInSketchMenuItem:(id)arg1;
 - (void)openInSketchAction:(id)arg1;
+- (void)doubleClickOpenAction:(id)arg1;
 - (BOOL)validateRemoveLibraryMenuItem:(id)arg1;
 - (void)removeLibraryAction:(id)arg1;
 - (BOOL)availableUserLibrariesFromLibraries:(id)arg1;
@@ -92,7 +94,6 @@
 - (id)displayAlertSheetWithMessageText:(id)arg1 informativeText:(id)arg2 buttonTitle:(id)arg3 cancelButton:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (id)tableCellForLibrary:(id)arg1;
 - (void)startDownloadForRemoteLibrary:(id)arg1;
-- (void)updateAvailableForRemoteLibrary:(id)arg1;
 - (void)reloadSelectingLibrary:(id)arg1;
 - (void)preferenceItemHasUpdated:(id)arg1;
 - (void)showContextMenu:(id)arg1;
@@ -106,10 +107,14 @@
 - (void)controlTextDidEndEditing:(id)arg1;
 - (BOOL)doesNewPredicateGiveDifferentResult:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;
+- (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
+- (double)tableView:(id)arg1 heightOfRow:(long long)arg2;
+- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (void)activateSearchField:(id)arg1;
 - (void)syncLibraryItems;
+- (id)teamNameForLibrary:(id)arg1;
 @property(readonly, nonatomic) MSAssetLibraryController *assetLibraryController;
 - (void)viewDidLoad;
 

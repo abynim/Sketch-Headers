@@ -15,6 +15,7 @@
     // Error parsing type: , name: delegate
     // Error parsing type: , name: sections
     // Error parsing type: , name: user
+    // Error parsing type: , name: lastSourcesLoadDate
 }
 
 - (void).cxx_destruct;
@@ -23,6 +24,7 @@
 - (void)contentViewDidChangeBounds:(id)arg1;
 - (void)openExistingDocument:(id)arg1;
 - (void)openWidget:(id)arg1;
+- (void)windowDidBecomeKey:(id)arg1;
 - (void)sourceDidChange:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
 - (void)currentAPISessionDidChange:(id)arg1;

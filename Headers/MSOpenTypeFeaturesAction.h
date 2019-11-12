@@ -8,19 +8,22 @@
 
 #import "MSOpenTypeFeaturesMenuControllerDelegate-Protocol.h"
 
-@class MSOpenTypeFeaturesMenuController, NSString;
+@class MSOpenTypeFeaturesMenuController, NSArray, NSString;
 
 @interface MSOpenTypeFeaturesAction : MSDocumentAction <MSOpenTypeFeaturesMenuControllerDelegate>
 {
     MSOpenTypeFeaturesMenuController *_openTypeFeatures;
+    NSArray *_attributeRuns;
 }
 
+@property(retain, nonatomic) NSArray *attributeRuns; // @synthesize attributeRuns=_attributeRuns;
 @property(retain, nonatomic) MSOpenTypeFeaturesMenuController *openTypeFeatures; // @synthesize openTypeFeatures=_openTypeFeatures;
 - (void).cxx_destruct;
 - (void)openTypeFeatures:(id)arg1 didModifyFont:(id)arg2;
 - (id)currentFontForOpenTypeFeatures:(id)arg1;
 - (id)font;
 - (BOOL)validateMenuItem:(id)arg1;
+- (void)gatherAttributeRuns;
 - (void)menuWillOpen:(id)arg1;
 - (void)openTypeFeatures:(id)arg1;
 - (id)initWithDocument:(id)arg1;

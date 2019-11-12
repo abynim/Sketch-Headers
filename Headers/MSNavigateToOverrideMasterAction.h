@@ -15,7 +15,6 @@
 - (BOOL)canNavigateToMaster:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)navigateToMasterForOverride:(id)arg1 fromInstance:(id)arg2;
-- (void)navigateToForeignSymbolInLibrary:(id)arg1;
 - (void)navigateToSelectedOverrideMaster:(id)arg1;
 
 @end

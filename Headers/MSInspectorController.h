@@ -8,13 +8,12 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSSet, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
 {
     BOOL _alignmentBarHidden;
-    BOOL _layerSelectionChangeScheduled;
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     BCCache *_previewImageCache;
@@ -24,10 +23,11 @@
     NSView *_alignmentContainerView;
     NSView *_contentContainerView;
     MSNormalInspector *_normalInspector;
+    NSSet *_keysAffectingLayerPosition;
 }
 
 + (BOOL)isComponentsPopoverEnabled;
-@property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
+@property(readonly, nonatomic) NSSet *keysAffectingLayerPosition; // @synthesize keysAffectingLayerPosition=_keysAffectingLayerPosition;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
@@ -51,6 +51,7 @@
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;
 - (id)handlerManager;
+- (void)cancelOperation:(id)arg1;
 - (void)focusOnTextFieldWithIdentifier:(id)arg1;
 - (id)findFirstTextFieldInView:(id)arg1;
 - (void)focusOnFirstTextField;
@@ -63,11 +64,8 @@
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)currentHandlerChanged;
-- (void)layerPositionPossiblyChanged;
 - (void)refreshIfNecessary:(id)arg1;
-- (void)scheduleSelectionChangedUpdates;
 - (void)updateOnPageChange;
-- (void)updateAfterDocumentModelReverted;
 - (void)performSelectionChangedUpdates;
 - (void)viewDidResize;
 - (void)validateAlignmentButtons;

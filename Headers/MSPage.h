@@ -27,6 +27,7 @@
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 - (void).cxx_destruct;
+- (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)isLocked;
 - (void)setIsVisible:(BOOL)arg1;

@@ -87,6 +87,7 @@
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
+- (void)cancelOperation:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;

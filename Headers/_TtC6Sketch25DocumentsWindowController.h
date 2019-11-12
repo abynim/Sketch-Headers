@@ -16,8 +16,8 @@
     // Error parsing type: , name: cloudIntroViewController
 }
 
-+ (void)clearDocumentsWindowRecentItemsCache;
-+ (BOOL)hideDocumentsWindowIfNeeded;
++ (void)clearRecentItemsCache;
++ (BOOL)hideWindowIfNeeded;
 + (void)showWindowSelectingShare:(id)arg1;
 + (void)showWindowWithCollection:(long long)arg1;
 + (void)showWindow;

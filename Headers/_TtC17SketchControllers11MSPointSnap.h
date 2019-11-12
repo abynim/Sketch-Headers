@@ -16,7 +16,6 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (BOOL)isEqual:(id)arg1;
 @property(nonatomic, readonly) NSArray *guideInfo; // @synthesize guideInfo;
 @property(nonatomic, readonly) struct BCLine line;
 

@@ -12,6 +12,7 @@
     // Error parsing type: , name: libraries
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: containment
+    // Error parsing type: , name: defaultExpansionState
     // Error parsing type: , name: rawTopLevelViewItems
     // Error parsing type: , name: filter
     // Error parsing type: , name: filteredTopLevelViewItems

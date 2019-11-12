@@ -17,6 +17,7 @@
     // Error parsing type: , name: hideSymbolItem
     // Error parsing type: , name: includeHideSymbolView
     // Error parsing type: , name: libraryItemCollapseObserver.storage
+    // Error parsing type: , name: previewItemCollapseObserver
     // Error parsing type: , name: configured
 }
 
@@ -26,6 +27,7 @@
 - (struct CGRect)splitView:(id)arg1 effectiveRect:(struct CGRect)arg2 forDrawnRect:(struct CGRect)arg3 ofDividerAtIndex:(long long)arg4;
 - (BOOL)splitView:(id)arg1 shouldHideDividerAtIndex:(long long)arg2;
 - (void)splitViewDidResizeSubviews:(id)arg1;
+- (void)reflectCurrentPreviewState;
 - (void)reflectCurrentLibraryState;
 - (void)applyAppearance;
 - (void)viewWillDisappear;

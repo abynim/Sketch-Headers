@@ -69,7 +69,6 @@
 - (void)setKerning:(float)arg1;
 - (float)kerning;
 - (id)pathsWithColorsFromGlyphsInBoundsWithParentGroupSplitByColorAttribute;
-- (id)bezierPathFromGlyphsInBounds;
 - (struct CGPoint)drawingPointForText;
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
@@ -114,7 +113,7 @@
 - (void)setSharedStyle:(id)arg1;
 - (id)foreignSharedStyles;
 - (id)styleContainer;
-- (void)reapplyPreviousAttributesFromString:(id)arg1;
+- (void)reapplyPreviousAttributesFromString:(id)arg1 document:(id)arg2;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 
 // Remaining properties

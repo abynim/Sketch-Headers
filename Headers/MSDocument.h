@@ -14,7 +14,7 @@
 #import "MSSidebarControllerDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -53,6 +53,7 @@
     NSMutableDictionary *_originalViewportsForEditedSymbols;
     MSLayerArray *_previousSelectedLayers;
     MSArtboardGroup *_focusedArtboard;
+    MSDocumentChangeNotifier *_changeNotifier;
 }
 
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
@@ -63,6 +64,7 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+@property(readonly, nonatomic) MSDocumentChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
@@ -126,10 +128,8 @@
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
 @property(retain, nonatomic) NSDictionary *UIMetadata;
 - (void)setFileURL:(id)arg1;
-- (void)visitTextStyleWithID:(id)arg1;
-- (void)visitLayerStyleWithID:(id)arg1;
-- (void)visitSymbolMasterWithID:(id)arg1;
 - (void)openLibrariesForForeignObjects:(id)arg1;
+- (void)visitSymbolMasterWithID:(id)arg1;
 - (void)visitSymbolMaster:(id)arg1 withReturnInstance:(id)arg2;
 - (void)removeViewportForArtboard:(id)arg1;
 - (BOOL)canRestoreViewportAfterArtboardEdit:(id)arg1;
@@ -159,7 +159,6 @@
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
-- (void)layerPositionPossiblyChanged;
 - (id)addBlankPage;
 - (void)toggleClickThrough:(id)arg1;
 - (BOOL)isInspectorVisible;
@@ -194,16 +193,9 @@
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
 - (void)performPageSwitchUpdates;
-- (BOOL)inspectorIsMain;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (id)closestVisibleIdentifierInToolbarForIdentifier:(id)arg1;
-- (BOOL)isSeparatorIdentifier:(id)arg1;
-- (void)flagsChanged:(id)arg1;
 - (void)windowDidResize:(id)arg1;
-- (id)currentHandlerKey;
-- (id)currentHandler;
-- (void)updateFilterSettings;
-- (void)onFilterChanged:(id)arg1;
 - (void)validateMenuItemTitleAndState:(id)arg1;
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
@@ -218,11 +210,11 @@
 - (id)allExportableLayers;
 - (void)returnToNormalHandler;
 - (void)currentHandlerChanged;
+- (id)currentHandler;
 - (id)windowNibName;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (id)toolbar;
-- (BOOL)shouldCreateToolbar;
 - (void)showWindows;
 - (void)refreshAfterAppearanceChange;
 - (void)windowControllerDidLoadNib:(id)arg1;
@@ -245,14 +237,11 @@
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)notifyIfDocumentResignedCurrent;
 - (void)notifyIfDocumentBecameCurrent;
-@property(readonly, nonatomic) BOOL isCloudDoc;
 @property(readonly, nonatomic) BOOL isCurrent;
+@property(readonly, nonatomic) BOOL isCloudDoc;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;
-- (void)windowDidResignKey:(id)arg1;
-- (void)windowDidBecomeKey:(id)arg1;
-- (void)windowDidEndSheet:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
 - (id)window;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -272,9 +261,6 @@
 @property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;
-- (id)hudDocumentData;
-- (void)hudSetMonitor:(id)arg1;
-- (id)hudClientName;
 - (id)askForUserInput:(id)arg1 ofType:(long long)arg2 initialValue:(id)arg3;
 - (id)askForUserInput:(id)arg1 initialValue:(id)arg2;
 - (void)showMessage:(id)arg1;
@@ -304,9 +290,21 @@
 - (BOOL)readPDFFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
+- (void)selectShareableObjectsIfVisible:(id)arg1;
 - (void)revealShareableObject:(struct MSModelObject *)arg1;
 - (void)revealComponentsOfType:(unsigned long long)arg1;
 - (void)revealComponentPane;
+- (void)handleGoToForeignSymbolInLibrary:(id)arg1;
+- (BOOL)canGoToForeignSymbolInLibrary:(id)arg1;
+- (void)handleEditForeignSymbol:(id)arg1 withInstance:(id)arg2;
+- (void)handleEditForeignSymbol:(id)arg1;
+- (void)handleForeignSymbolInstanceDoubleClick:(id)arg1;
+- (void)handleUnlinkForeignSymbol:(id)arg1 withInstance:(id)arg2;
+- (void)handleOpenLibraryButtonForForeignSymbol:(id)arg1;
+- (id)editForeignSymbolButtonsForLibrary:(id)arg1;
+- (id)editForeignSymbolInfoTextForForeignSymbol:(id)arg1 inLibrary:(id)arg2;
+- (id)editForeignSymbolMessageForLibrary:(id)arg1;
+- (long long)availabilityForLibrary:(id)arg1;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;

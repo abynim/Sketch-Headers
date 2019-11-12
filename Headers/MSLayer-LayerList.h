@@ -33,7 +33,7 @@
 - (id)maskIconWithState:(unsigned long long)arg1;
 - (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)previewIconWithState:(unsigned long long)arg1;
-- (long long)previewIconCacheFlagsForState:(unsigned long long)arg1;
+- (long long)previewIconTraitsForState:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
 @property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;

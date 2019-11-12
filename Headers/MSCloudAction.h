@@ -25,8 +25,8 @@
 
 + (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
 + (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
-+ (void)openCloudDocumentWithApplicationURL:(id)arg1;
-+ (void)openApplicationURL:(id)arg1;
++ (void)openCloudDocumentWithApplicationURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)openCloudShareURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)requestCloudUser;
 + (void)signIn;
 + (BOOL)cloudEnabled;

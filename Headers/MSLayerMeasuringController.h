@@ -27,6 +27,8 @@
 - (struct CGRect)specOverlay:(id)arg1 rectForStartOfItemAtIndexPath:(id)arg2;
 - (struct CGPoint)specOverlay:(id)arg1 endpointForItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3;
 - (struct CGPoint)specOverlay:(id)arg1 startpointForItemAtIndexPath:(id)arg2;
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForItemAtIndexPath:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)init;
 

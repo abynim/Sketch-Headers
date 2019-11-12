@@ -62,7 +62,6 @@
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 - (void).cxx_destruct;
 - (id)undoManager;
-- (void)cancelOperation:(id)arg1;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;

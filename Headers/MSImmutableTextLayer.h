@@ -42,7 +42,7 @@
 - (id)usedFontNames;
 - (double)startingPositionOnPath:(id)arg1;
 - (id)pathsWithColorsFromGlyphsInBoundsWithParentGroupSplitByColorAttribute:(id)arg1 layoutManager:(id)arg2;
-- (id)bezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;
+- (id)pathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;
 - (void)generateBezierPathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2 appendContentBlock:(CDUnknownBlockType)arg3 appendDecorationBlock:(CDUnknownBlockType)arg4;
 - (id)firstUnderlyingShapePathWithParentGroup:(id)arg1;
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;

@@ -40,6 +40,7 @@
 }
 
 + (id)preferredAcceleratorClassName;
++ (BOOL)performRendererAvailabilityChecks;
 @property(nonatomic) BOOL forceSyncFirstFrame; // @synthesize forceSyncFirstFrame=_forceSyncFirstFrame;
 @property(retain) NSString *renderedPageID; // @synthesize renderedPageID=_renderedPageID;
 @property(readonly, nonatomic) NSOperationQueue *rasterisationQueue; // @synthesize rasterisationQueue=_rasterisationQueue;

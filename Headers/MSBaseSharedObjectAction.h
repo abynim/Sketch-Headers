@@ -22,6 +22,7 @@
 - (void)performSharedObjectAction;
 - (BOOL)validate;
 - (long long)validationStatus;
+- (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)hasDynamicTitle;
 @property(readonly, nonatomic) MSShareableObjectUpdater *updater; // @synthesize updater=_updater;
 

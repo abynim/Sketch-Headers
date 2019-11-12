@@ -34,6 +34,9 @@
 - (BOOL)allowsDocumentSharing;
 - (BOOL)window:(id)arg1 shouldDragDocumentWithEvent:(id)arg2 from:(struct CGPoint)arg3 withPasteboard:(id)arg4;
 - (BOOL)window:(id)arg1 shouldPopUpDocumentPathMenu:(id)arg2;
+- (void)rename:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)moveToURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)requestDocumentOpenStrategy:(CDUnknownBlockType)arg1;
 - (id)displayName;
 - (void)moveCloudDocumentWithCompletionHandler:(CDUnknownBlockType)arg1;

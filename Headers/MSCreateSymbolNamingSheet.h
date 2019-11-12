@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) NSButton *moveSymbolToPageCheckbox; // @synthesize moveSymbolToPageCheckbox=_moveSymbolToPageCheckbox;
 - (void).cxx_destruct;
+- (id)validatedSymbolName;
 - (void)validateConfirmButton;
 - (void)controlTextDidChange:(id)arg1;
 - (void)setShouldShowMoveCheckbox:(BOOL)arg1;

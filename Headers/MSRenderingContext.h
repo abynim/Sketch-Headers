@@ -11,7 +11,6 @@
 @interface MSRenderingContext : NSObject
 {
     BOOL _cancelled;
-    BOOL _shouldRenderSymbolsAsDetachedGroups;
     int _internalBlendMode;
     MSRenderingRequest *_renderingRequest;
     MSRenderingDriver *_driver;
@@ -31,7 +30,6 @@
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(nonatomic) double alphaValue; // @synthesize alphaValue=_alphaValue;
-@property(readonly, nonatomic) BOOL shouldRenderSymbolsAsDetachedGroups; // @synthesize shouldRenderSymbolsAsDetachedGroups=_shouldRenderSymbolsAsDetachedGroups;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;

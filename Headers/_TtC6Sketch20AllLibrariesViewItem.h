@@ -11,5 +11,8 @@
     // Error parsing type: , name: libraries
 }
 
+@property(nonatomic, readonly) long long hash;
+- (BOOL)isEqual:(id)arg1;
+
 @end
 

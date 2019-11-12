@@ -12,6 +12,7 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic) long long backgroundStyle;
 @property(nonatomic, copy) id objectValue;
 
 @end

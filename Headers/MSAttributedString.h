@@ -42,6 +42,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (id)debugDescription;
 - (id)immutableModelObject;
+- (id)encodedAttributesAtIndex:(unsigned long long)arg1;
 - (id)attributedStringByReplacingFontNames:(id)arg1;
 @property(readonly, nonatomic) BOOL areRequiredFontsAvailable;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;

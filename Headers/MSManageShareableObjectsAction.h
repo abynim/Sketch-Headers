@@ -11,6 +11,8 @@
 }
 
 - (id)label;
+- (BOOL)validate;
+- (long long)validationStatus;
 - (void)showOrganiserSheet:(id)arg1;
 - (void)showSheetWithTabIndex:(unsigned long long)arg1;
 

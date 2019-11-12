@@ -24,6 +24,7 @@
 + (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 + (id)colorWithRGBADictionary:(id)arg1;
 - (id)colorWithAlphaComponent:(double)arg1;
+- (BOOL)hexIsEqual:(id)arg1;
 - (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1 precision:(double)arg2;
 - (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1;
 - (BOOL)fuzzyIsEqual:(id)arg1 precision:(double)arg2;

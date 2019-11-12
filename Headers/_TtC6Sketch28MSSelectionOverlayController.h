@@ -11,6 +11,7 @@
 @interface _TtC6Sketch28MSSelectionOverlayController : NSObject
 {
     // Error parsing type: , name: selectedLayers
+    // Error parsing type: , name: hidesBoundingBoxForSelectedArtboards
     // Error parsing type: , name: durationForTemporarilyHidingSelection
     // Error parsing type: , name: timerForRestoringTemporarilyHiddenSelection
     // Error parsing type: , name: state
@@ -29,6 +30,7 @@
 - (void)restoreShowingSelection;
 - (void)temporarilyHideSelection;
 - (void)refreshIfNecessary:(id)arg1;
+@property(nonatomic) BOOL hidesBoundingBoxForSelectedArtboards; // @synthesize hidesBoundingBoxForSelectedArtboards;
 - (void)dealloc;
 - (id)init;
 

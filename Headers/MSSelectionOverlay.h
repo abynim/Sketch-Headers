@@ -16,14 +16,14 @@
     // Error parsing type: , name: indexPathForSubselection
     // Error parsing type: , name: imageCache
     // Error parsing type: , name: alignmentSettings
-    // Error parsing type: , name: delegate
 }
 
 + (long long)cornerForHandleOfKind:(id)arg1;
 - (void).cxx_destruct;
-- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)initWithLayout:(id)arg1;
 - (long long)cornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
 @property(nonatomic, copy) NSIndexPath *indexPathForSubselection; // @synthesize indexPathForSubselection;
 - (void)trackMouseWithLocation:(struct CGPoint)arg1;
 - (id)kindOfHandleAt:(struct CGPoint)arg1;

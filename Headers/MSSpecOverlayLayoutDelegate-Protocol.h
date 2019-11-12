@@ -4,9 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
+#import <SketchControllers/_TtP17SketchControllers27MSCollectionOverlayDelegate_-Protocol.h>
+
 @class MSSpecOverlay, MSSpecOverlayLayout, NSIndexPath, NSString;
 
-@protocol MSSpecOverlayLayoutDelegate
+@protocol MSSpecOverlayLayoutDelegate <_TtP17SketchControllers27MSCollectionOverlayDelegate_>
 - (struct CGPoint)specOverlay:(MSSpecOverlay *)arg1 endpointForItemAtIndexPath:(NSIndexPath *)arg2 startpoint:(struct CGPoint)arg3;
 - (struct CGPoint)specOverlay:(MSSpecOverlay *)arg1 startpointForItemAtIndexPath:(NSIndexPath *)arg2;
 

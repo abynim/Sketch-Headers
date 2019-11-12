@@ -11,7 +11,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSHUDWindowController, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
@@ -43,22 +43,22 @@
     double _launchEndTime;
     NSString *_scriptPath;
     NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
-    MSHUDWindowController *_hud;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
     MSFontWatcher *_fontWatcher;
     id _lastRunPlugin;
+    SCKUserNotificationsController *_cloudNotificationsController;
 }
 
 + (id)licenseAlertDateComponentsFormatter;
 + (id)templateLibraryURL;
 + (id)sharedInstance;
 + (void)initialize;
+@property(retain, nonatomic) SCKUserNotificationsController *cloudNotificationsController; // @synthesize cloudNotificationsController=_cloudNotificationsController;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
-@property(retain, nonatomic) MSHUDWindowController *hud; // @synthesize hud=_hud;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
@@ -127,13 +127,11 @@
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
 - (long long)periodWithInitialValue:(long long)arg1 defaultsKey:(id)arg2;
-@property(readonly, nonatomic) long long checkForLibraryUpdatesPeriod;
 @property(readonly, nonatomic) long long checkForUpdatesPeriod;
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;
 - (void)applicationDidFinishLaunching:(id)arg1;
-- (void)checkForAssetLibraryUpdates;
 - (void)createActions;
 - (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;
 - (void)userNotificationCenter:(id)arg1 didDeliverNotification:(id)arg2;
@@ -148,10 +146,9 @@
 - (void)storePluginList:(id)arg1 inCrashLogKey:(id)arg2;
 - (void)storePluginsForCrashReport;
 - (void)setupPluginManager;
-- (void)reloadAssetLibraryPreferencesTableView;
 - (void)applicationWillFinishLaunching:(id)arg1;
 - (void)awakeFromNib;
-@property(readonly, nonatomic) BOOL canShowWelcomeWindowForUserAction;
+@property(readonly, nonatomic) BOOL canShowDocumentsWindowForUserAction;
 - (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

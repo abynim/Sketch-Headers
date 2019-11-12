@@ -10,10 +10,8 @@
 {
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: displayAtTop
     // Error parsing type: , name: isSelectable
     // Error parsing type: , name: expansionState
-    // Error parsing type: , name: modelObjectIdentifier
     // Error parsing type: , name: path
     // Error parsing type: , name: parent
     // Error parsing type: , name: children

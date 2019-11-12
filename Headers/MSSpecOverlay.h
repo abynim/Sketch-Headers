@@ -6,27 +6,25 @@
 
 #import <SketchControllers/_TtC17SketchControllers19MSCollectionOverlay.h>
 
-@class NSColor;
-@protocol MSSpecOverlayLayoutDelegate;
+@class MSSpecOverlayItemCache, NSColor;
 
 @interface MSSpecOverlay : _TtC17SketchControllers19MSCollectionOverlay
 {
-    // Error parsing type: , name: imageCache
+    // Error parsing type: , name: itemCache
     // Error parsing type: , name: textColor
     // Error parsing type: , name: coordinateSpaceTransform
-    // Error parsing type: , name: delegate
     // Error parsing type: , name: fontSize
     // Error parsing type: , name: fontWeight
     // Error parsing type: , name: guideColor
 }
 
 - (void).cxx_destruct;
-- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)initWithLayout:(id)arg1;
 @property(nonatomic, retain) NSColor *guideColor; // @synthesize guideColor;
-@property(nonatomic) __weak id <MSSpecOverlayLayoutDelegate> delegate; // @synthesize delegate;
 @property(nonatomic) struct CGAffineTransform coordinateSpaceTransform; // @synthesize coordinateSpaceTransform;
 - (void)bindColorsToUserDefaults;
 @property(nonatomic, retain) NSColor *textColor; // @synthesize textColor;
+@property(nonatomic, readonly) MSSpecOverlayItemCache *itemCache; // @synthesize itemCache;
 - (void)dealloc;
 - (id)init;
 
