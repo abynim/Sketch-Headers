@@ -4,10 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSBezierPath.h>
+#import <SketchModel/MSLayerGroup.h>
 
-@interface NSBezierPath (EPS)
-+ (id)bezierPathFromEPSString:(id)arg1;
-+ (id)epsStringByTrimmingHeaderAndFooter:(id)arg1;
+@interface MSLayerGroup (DataApplicable)
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
 @end
 

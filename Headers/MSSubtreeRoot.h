@@ -21,7 +21,6 @@
 @property(retain, nonatomic) MSImmutableModelObject *object; // @synthesize object=_object;
 - (void).cxx_destruct;
 - (id)page;
-- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSWebExportableRootLayer> *webExportableRootLayer;
 

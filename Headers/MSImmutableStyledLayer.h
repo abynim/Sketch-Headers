@@ -35,6 +35,7 @@
 + (id)bezierPathForEndDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (id)bezierPathForStartDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (struct CGSize)scaleForDecoration:(unsigned long long)arg1 stokeWidth:(double)arg2;
+- (BOOL)hasEnabledFill;
 @property(readonly, nonatomic) BOOL shadowsFollowRotation;
 - (BOOL)hasMarkers;
 @property(readonly, nonatomic) BOOL allowsBlur;

@@ -6,12 +6,13 @@
 
 #import "_$s17SketchControllers25MSCollectionOverlayLayoutCN.h"
 
-@class MSPath;
+@class NSArray;
 
-@interface MSPointSelectionOverlayLayout : _$s17SketchControllers25MSCollectionOverlayLayoutCN
+@interface MSHandleOverlayLayout : _$s17SketchControllers25MSCollectionOverlayLayoutCN
 {
+    // Error parsing type: , name: handleSize
     // Error parsing type: , name: points
-    // Error parsing type: , name: pathForConnectingHandles
+    // Error parsing type: , name: connectingPaths
 }
 
 - (void).cxx_destruct;
@@ -21,7 +22,8 @@
 - (id)layoutAttributesForItemAt:(id)arg1;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 - (void)prepareLayout;
-@property(nonatomic, retain) MSPath *pathForConnectingHandles; // @synthesize pathForConnectingHandles;
+@property(nonatomic, copy) NSArray *connectingPaths; // @synthesize connectingPaths;
+@property(nonatomic) struct CGSize handleSize; // @synthesize handleSize;
 
 @end
 

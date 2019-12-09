@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSRenderPassState, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSOperationQueue, NSString, NSView;
-@protocol MSGPURenderer, MSGPUTexture, MSOverlayRenderingDelegate, MSRenderingContextCacheProvider, MSTiledRendererHostView;
+@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowItemCollector, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSOverlayItemContainer, MSRenderPassState, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
+@protocol MSGPURenderer, MSGPUTexture, MSOverlayItemDataSource, MSRenderingContextCacheProvider, MSTiledRendererHostView;
 
 @interface MSTiledRenderer : NSObject
 {
@@ -18,9 +18,10 @@
     BOOL _clearOtherLevels;
     BOOL _forceSyncFirstFrame;
     id <MSRenderingContextCacheProvider> _renderingCacheProvider;
-    id <MSOverlayRenderingDelegate> _overlayRenderingDelegate;
+    id <MSOverlayItemDataSource> _overlayRenderingDelegate;
     NSView<MSTiledRendererHostView> *_hostView;
     MSImmutableDocumentData *_renderedDocument;
+    MSOverlayItemContainer *_overlayContainer;
     id <MSGPURenderer> _renderer;
     NSArray *_tileLevels;
     MSTileMipLevel *_previousLevel;
@@ -37,10 +38,14 @@
     MSArtboardTitleRenderer *_artboardTitleRenderer;
     NSOperationQueue *_rasterisationQueue;
     NSString *_renderedPageID;
+    MSFlowItemCollector *_flowCollector;
+    NSDictionary *_cachedFlows;
 }
 
 + (id)preferredAcceleratorClassName;
 + (BOOL)performRendererAvailabilityChecks;
+@property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
+@property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
 @property(nonatomic) BOOL forceSyncFirstFrame; // @synthesize forceSyncFirstFrame=_forceSyncFirstFrame;
 @property(retain) NSString *renderedPageID; // @synthesize renderedPageID=_renderedPageID;
 @property(readonly, nonatomic) NSOperationQueue *rasterisationQueue; // @synthesize rasterisationQueue=_rasterisationQueue;
@@ -61,10 +66,11 @@
 @property(nonatomic) __weak MSTileMipLevel *previousLevel; // @synthesize previousLevel=_previousLevel;
 @property(readonly, nonatomic) NSArray *tileLevels; // @synthesize tileLevels=_tileLevels;
 @property(readonly, nonatomic) id <MSGPURenderer> renderer; // @synthesize renderer=_renderer;
+@property(retain) MSOverlayItemContainer *overlayContainer; // @synthesize overlayContainer=_overlayContainer;
 @property(retain) MSImmutableDocumentData *renderedDocument; // @synthesize renderedDocument=_renderedDocument;
 @property(nonatomic) BOOL hideOverlay; // @synthesize hideOverlay=_hideOverlay;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView=_hostView;
-@property(nonatomic) __weak id <MSOverlayRenderingDelegate> overlayRenderingDelegate; // @synthesize overlayRenderingDelegate=_overlayRenderingDelegate;
+@property(nonatomic) __weak id <MSOverlayItemDataSource> overlayRenderingDelegate; // @synthesize overlayRenderingDelegate=_overlayRenderingDelegate;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> renderingCacheProvider; // @synthesize renderingCacheProvider=_renderingCacheProvider;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) CALayer *layer;
@@ -78,7 +84,6 @@
 - (id)_prepareOverlayImageBufferForPixelViewSize:(struct CGSize)arg1;
 - (id)_beginOverlayForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pixelViewSize:(struct CGSize)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 overlayColors:(id)arg5 flowItems:(id)arg6;
 - (BOOL)_requiresCPUFlowRendering:(unsigned long long)arg1 flowItems:(id)arg2;
-- (void)_rasteriseLegacyOverlayIntoContext:(struct CGContext *)arg1 visibleRect:(struct CGRect)arg2 zoomValue:(double)arg3 pageOverlayRenderOptions:(unsigned long long)arg4;
 - (void)_renderSlicesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 pageOverlayRenderOptions:(unsigned long long)arg3 overlayColors:(id)arg4 canvasColorSpace:(struct CGColorSpace *)arg5;
 - (void)_drawOverlayTextureFromBuffer:(id)arg1;
 - (void)_renderPageOverlayElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 options:(unsigned long long)arg3 baseOrigin:(struct CGPoint)arg4 rect:(struct CGRect)arg5 overlayColors:(id)arg6;
@@ -86,7 +91,8 @@
 - (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
 - (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
 - (void)updateContentForPage:(id)arg1 document:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 pixelViewSize:(struct CGSize)arg4 pixelated:(BOOL)arg5 pageOverlayRenderOptions:(unsigned long long)arg6 cacheProvider:(id)arg7 canvasColorSpace:(id)arg8 renderContentSynchronously:(BOOL)arg9 overlayColors:(id)arg10 dirtyRectBlock:(CDUnknownBlockType)arg11;
-- (void)_doUpdateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4 pixelViewSize:(struct CGSize)arg5 pixelated:(BOOL)arg6 pageOverlayRenderOptions:(unsigned long long)arg7 cacheProvider:(id)arg8 canvasColorSpace:(id)arg9 renderContentSynchronously:(BOOL)arg10 overlayColors:(id)arg11 overlayImageBuffer:(id)arg12 flowItems:(id)arg13 overlayItems:(id)arg14 overlayItemImages:(id)arg15 hasUserFocus:(BOOL)arg16;
+- (id)flowItems:(unsigned long long)arg1 onPage:(id)arg2;
+- (void)_doUpdateContentInRect:(struct CGRect)arg1 forPage:(id)arg2 document:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4 pixelViewSize:(struct CGSize)arg5 pixelated:(BOOL)arg6 pageOverlayRenderOptions:(unsigned long long)arg7 cacheProvider:(id)arg8 canvasColorSpace:(id)arg9 renderContentSynchronously:(BOOL)arg10 overlayColors:(id)arg11 overlayItemImages:(id)arg12 hasUserFocus:(BOOL)arg13;
 - (BOOL)_requiresCPUOverlayBufferForPage:(id)arg1 pageOverlayRenderOptions:(unsigned long long)arg2 overlayItems:(id)arg3 flowItems:(id)arg4;
 - (void)_uniteDirtyRect:(struct CGRect)arg1;
 - (id)_createDocumentColorSpaceWithCanvasColorSpace:(id)arg1 document:(id)arg2;

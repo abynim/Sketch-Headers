@@ -19,11 +19,14 @@
 - (void).cxx_destruct;
 - (id)firstFourDataImages;
 - (id)firstThreeDataTextItems;
+- (id)contentsOfDataTextItems;
 @property(readonly) struct CGSize imageSize;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
 - (id)centeredThumbFromImage:(id)arg1;
+- (id)generateLocalTextDataPreviewFromText:(id)arg1;
 - (id)generateLocalTextDataPreview;
+- (id)generateLocalStructuredDataPreview;
 - (id)generatePluginDataPreview;
 - (id)generateLocalImageDataPreview;
 - (id)generateLocalDataPreview;

@@ -24,6 +24,7 @@
 - (void)setStyle:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)hasMarkers;
+- (BOOL)hasEnabledFill;
 - (id)usedStyle;
 - (BOOL)hasEnabledBackgroundBlur;
 - (void)multiplyBy:(double)arg1;

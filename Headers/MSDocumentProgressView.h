@@ -6,21 +6,30 @@
 
 #import <AppKit/NSView.h>
 
-@class MSCloudShareCollectionItem, NSColor, NSProgressIndicator;
+@class MSDocumentsCollectionItem, NSButton, NSColor, NSImageView, NSProgressIndicator, NSTrackingArea;
 
 @interface MSDocumentProgressView : NSView
 {
     NSColor *_backgroundColor;
-    MSCloudShareCollectionItem *_collectionItem;
+    MSDocumentsCollectionItem *_collectionItem;
     NSProgressIndicator *_progressIndicator;
+    NSImageView *_progressIndicatorBackground;
+    NSButton *_cancelButton;
+    NSTrackingArea *_trackingArea;
 }
 
-@property(nonatomic) __weak NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
-@property(nonatomic) __weak MSCloudShareCollectionItem *collectionItem; // @synthesize collectionItem=_collectionItem;
+@property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
+@property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+@property(retain, nonatomic) NSImageView *progressIndicatorBackground; // @synthesize progressIndicatorBackground=_progressIndicatorBackground;
+@property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
+@property(nonatomic) __weak MSDocumentsCollectionItem *collectionItem; // @synthesize collectionItem=_collectionItem;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
-- (void)drawRect:(struct CGRect)arg1;
+- (void)updateTrackingAreas;
+- (void)mouseExited:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)cancelButtonClicked:(id)arg1;
 - (void)dealloc;
 
 @end

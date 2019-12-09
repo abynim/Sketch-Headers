@@ -7,14 +7,13 @@
 #import "MSInspectorItem.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
-#import "MSLayerChangeObserver-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 
 @class BCPopover, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSString;
 
-@interface MSSliceBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSLayerChangeObserver, MSNativeColorPanelPresenterDelegate>
+@interface MSSliceBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate>
 {
     MSStylePartPreviewButton *_backgroundColorButton;
     BCPopover *_popover;
@@ -39,9 +38,8 @@
 - (void)showNativeColorPanel;
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
-- (void)layerDidChange:(id)arg1;
-- (void)setLayers:(id)arg1;
 - (void)dealloc;
 
 // Remaining properties

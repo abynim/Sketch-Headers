@@ -6,29 +6,16 @@
 
 #import "MSDocument.h"
 
-@class MSImmutableDocumentData, NSURL, NSValue, _TtC6Sketch23MSDocumentChangeCounter;
+@class MSImmutableDocumentData, NSURL;
 
 @interface MSCloudDocument : MSDocument
 {
-    BOOL _wasEdited;
-    BOOL _wasRevertedWhenClosing;
-    NSValue *_documentChangeCount;
-    _TtC6Sketch23MSDocumentChangeCounter *_documentChangeCounter;
     MSImmutableDocumentData *_privateExportableData;
 }
 
 + (BOOL)autosavesInPlace;
 @property(retain, nonatomic) MSImmutableDocumentData *privateExportableData; // @synthesize privateExportableData=_privateExportableData;
-@property(nonatomic) BOOL wasRevertedWhenClosing; // @synthesize wasRevertedWhenClosing=_wasRevertedWhenClosing;
-@property(nonatomic) BOOL wasEdited; // @synthesize wasEdited=_wasEdited;
-@property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
-@property(retain, nonatomic) NSValue *documentChangeCount; // @synthesize documentChangeCount=_documentChangeCount;
 - (void).cxx_destruct;
-- (id)changeCountTokenForSaveOperation:(unsigned long long)arg1;
-- (void)updateChangeCountWithToken:(id)arg1 forSaveOperation:(unsigned long long)arg2;
-- (void)updateChangeCount:(unsigned long long)arg1;
-- (void)restoreStateWithCoder:(id)arg1;
-- (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)close;
 - (BOOL)validateUserInterfaceItem:(id)arg1;
 - (BOOL)allowsDocumentSharing;
@@ -42,7 +29,7 @@
 - (void)moveCloudDocumentWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)cloudShareDidChangeNotification:(id)arg1;
 @property(readonly, nonatomic) NSURL *shareIDFolder;
-- (BOOL)isCloudDoc;
+- (BOOL)isMatchToLibrary:(id)arg1;
 - (id)init;
 - (BOOL)hasPendingCloudDocumentUploadRequest;
 - (void)setExportableImmutableData:(id)arg1;
@@ -50,20 +37,7 @@
 - (id)defaultDraftName;
 - (id)fileType;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
-- (void)deleteUploadsIfNeeded;
-- (BOOL)shouldDeleteDocumentAtUrl:(id)arg1;
-- (BOOL)isExpectedEmptyDocumentDirectory:(id)arg1;
-- (id)urlForSketchDocumentInDirectory:(id)arg1;
-- (void)removeOldSketchFilesFrom:(id)arg1 skippingDirectories:(id)arg2;
-- (void)cleanCloudDirectories;
-- (void)showSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)saveDraftAs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)runModalSaveDraftCloudDocPanelForOperationType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (BOOL)revertToContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
-- (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 delegate:(id)arg2 didSaveSelector:(SEL)arg3 contextInfo:(void *)arg4;
-- (void)makeUploadRequest;
-- (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)makeLocalFromCloudDocument:(id)arg1;
 
 @end

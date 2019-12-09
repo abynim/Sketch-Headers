@@ -17,7 +17,6 @@
 + (void)drawShadowForHover:(BOOL)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)gradient;
 + (id)shadowForHover:(BOOL)arg1;
-+ (void)drawBezier:(id)arg1;
 + (void)drawRectAtPoint:(struct CGPoint)arg1 ofType:(long long)arg2;
 + (struct CGSize)handleImageSize;
 + (id)overlayItemsForColorHandleAtPoint:(struct CGPoint)arg1 swatchID:(id)arg2 selected:(BOOL)arg3;

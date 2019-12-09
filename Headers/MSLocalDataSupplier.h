@@ -18,7 +18,7 @@
 + (id)validImageFileUTIs;
 + (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
-+ (id)textDataFromFileURL:(id)arg1;
++ (id)dataFromFileURL:(id)arg1;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
 - (void).cxx_destruct;
@@ -28,11 +28,9 @@
 - (void)makeTextDataFileSystemMonitor;
 - (void)makeImageDataFileSystemMonitor;
 - (void)makeFolderMonitor;
-- (void)generateDataForCount:(unsigned long long)arg1 dataApplier:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)generateDataForObjects:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSURL *dataSource;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)encodeWithCoder:(id)arg1;
 - (void)setEnabled:(BOOL)arg1;
 - (BOOL)valid;

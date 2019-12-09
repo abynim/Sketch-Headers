@@ -7,11 +7,10 @@
 #import <objc/NSObject.h>
 
 #import <SketchControllers/MSOverlayItemDataSource-Protocol.h>
-#import <SketchControllers/NSCopying-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface MSAlignmentEngineResult : NSObject <NSCopying, MSOverlayItemDataSource>
+@interface MSAlignmentEngineResult : NSObject <MSOverlayItemDataSource>
 {
     NSArray *_guides;
     unsigned long long _snappedAxes;

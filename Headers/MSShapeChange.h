@@ -21,7 +21,7 @@
 + (id)moveHandle:(id)arg1 toLocation:(double)arg2 onAxis:(unsigned long long)arg3;
 + (id)moveToLocation:(double)arg1 onAxis:(unsigned long long)arg2;
 + (id)moveByOffset:(struct CGSize)arg1 options:(long long)arg2;
-+ (void)moveHandle:(unsigned long long)arg1 ofCurvePoint:(id)arg2 toLocation:(struct CGPoint)arg3 options:(long long)arg4;
++ (void)moveHandle:(long long)arg1 ofCurvePoint:(id)arg2 toLocation:(struct CGPoint)arg3 options:(long long)arg4;
 + (id)moveToPoint:(struct CGPoint)arg1 options:(long long)arg2;
 - (void).cxx_destruct;
 - (void)executeWithContext:(id)arg1;

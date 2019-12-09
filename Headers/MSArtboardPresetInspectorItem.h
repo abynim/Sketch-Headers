@@ -44,6 +44,7 @@
 - (void)refreshPresetButtonAndPopover;
 - (void)showPresets:(id)arg1;
 - (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 

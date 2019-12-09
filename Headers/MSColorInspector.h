@@ -59,7 +59,6 @@
 - (id)makeTouchBar;
 - (double)minimumPopoverContentViewHeight:(id)arg1;
 - (id)popoverWillReturnUndoManager:(id)arg1;
-- (BOOL)popoverShouldTrackSuperviewOfAttachedToView:(id)arg1;
 - (void)adjustInspectorToColorPopoverIfNeeded:(id)arg1;
 - (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWindowSizeDidChange:(id)arg1;

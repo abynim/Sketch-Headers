@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/NSObject-Protocol.h>
+#import <SketchControllers/NSObject-Protocol.h>
 
 @class NSAffineTransform, NSArray, NSString;
 
@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isVisible;
+- (BOOL)hasEnabledFill;
 - (NSArray *)childrenIncludingSelf:(BOOL)arg1;
 - (NSArray *)children;
 - (id)layerWithID:(NSString *)arg1;

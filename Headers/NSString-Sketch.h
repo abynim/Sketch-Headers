@@ -7,6 +7,8 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (Sketch)
-+ (id)MSSelectionOverlaySpacingHandle;
++ (id)MSSupplementaryElementKindInsertionPoint;
++ (id)MSSupplementaryElementKindCurveFromHandle;
++ (id)MSSupplementaryElementKindCurveToHandle;
 @end
 

@@ -14,7 +14,6 @@
 
 @interface MSBaseInspectorSection : NSViewController <MSInspectorSection, MSInspectorItemDelegate>
 {
-    BOOL _valuesPossiblyDirty;
     MSLayerArray *_layers;
     id <MSInspectorSectionDelegate> _delegate;
     NSArray *_items;
@@ -22,14 +21,11 @@
 
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) BOOL valuesPossiblyDirty; // @synthesize valuesPossiblyDirty=_valuesPossiblyDirty;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)documentForInspectorItem:(id)arg1;
-- (void)valuesPossiblyChanged:(id)arg1;
 - (void)itemDidResize:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
-- (void)valuesPossiblyChanged;
 - (struct NSEdgeInsets)separatorInset;
 - (BOOL)wantsSeparatorAfterViews;
 - (void)assignItemLayers;

@@ -12,16 +12,19 @@
 {
     struct CGPoint _location;
     BOOL _waitingForMouseUpToDeselect;
+    unsigned long long _multipleSelectionMask;
     unsigned long long _modifierFlags;
 }
 
 @property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
+@property(nonatomic) unsigned long long multipleSelectionMask; // @synthesize multipleSelectionMask=_multipleSelectionMask;
 - (void)reset;
 - (void)mouseUp:(id)arg1 location:(struct CGPoint)arg2;
 - (void)mouseDragged:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 modifierFlags:(unsigned long long)arg3;
 @property(readonly, nonatomic) BOOL toggleSelection;
 - (struct CGPoint)locationInLayer:(id)arg1;
+- (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 
 // Remaining properties
 @property(nonatomic) __weak id <MSSelectHandleGestureRecognizerDelegate> delegate; // @dynamic delegate;

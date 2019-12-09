@@ -24,6 +24,7 @@
 - (void)updateLayoutDirectionForSelectedGroupsTo:(unsigned long long)arg1;
 - (void)enumerateSelectedGroups:(CDUnknownBlockType)arg1;
 - (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateImage:(id)arg1 toolTip:(id)arg2 ifNecessaryForSegment:(long long)arg3 inControl:(id)arg4;
 - (void)updateDirectionIconsForLayoutAxis:(unsigned long long)arg1;
 - (void)updateDirectionLabelForLayoutAxis:(unsigned long long)arg1 anchor:(unsigned long long)arg2;

@@ -19,6 +19,7 @@
     NSToolbar *_toolbar;
 }
 
++ (void)hideWindowIfNeeded;
 + (id)sharedController;
 @property(nonatomic) __weak NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(retain, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;

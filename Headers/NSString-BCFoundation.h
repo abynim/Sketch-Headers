@@ -26,9 +26,7 @@
 - (BOOL)containsSubstring:(id)arg1;
 - (id)trimmedString;
 - (id)stringWithFirstCharacterLowercase;
-- (BOOL)endsWith:(id)arg1 options:(unsigned long long)arg2;
-- (BOOL)endsWith:(id)arg1;
-- (BOOL)startsWith:(id)arg1;
+- (BOOL)hasSuffix_bc:(id)arg1 options:(unsigned long long)arg2;
 - (id)stringByAppendingPathComponents:(id)arg1;
 - (id)stringByStrippingStrings:(id)arg1;
 - (id)stringByDeletingSuffix:(id)arg1;

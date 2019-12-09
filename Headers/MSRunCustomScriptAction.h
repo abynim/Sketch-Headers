@@ -10,6 +10,7 @@
 {
 }
 
++ (id)existingSheet;
 - (id)label;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;

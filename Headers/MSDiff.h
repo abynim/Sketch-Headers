@@ -18,7 +18,6 @@
 @property(retain, nonatomic) MSSubtreeRoot *firstObjectRoot; // @synthesize firstObjectRoot=_firstObjectRoot;
 - (void).cxx_destruct;
 - (id)description;
-- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (id)init;
 - (id)initWithFirstObjectRoot:(id)arg1 secondObjectRoot:(id)arg2;

@@ -44,6 +44,7 @@
 - (id)companionPopoverForColorPanelPresenter:(id)arg1;
 - (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;
 - (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;
 
 // Remaining properties

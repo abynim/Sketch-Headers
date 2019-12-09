@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
-
 @class MSOverlayPathItem;
 
-@interface MSAlignmentEngineResultGuide : NSObject <NSCopying>
+@interface MSAlignmentEngineResultGuide : NSObject
 {
     MSOverlayPathItem *_overlayPathItem;
     struct BCLineSegment _lineSegment;

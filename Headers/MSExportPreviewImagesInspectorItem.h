@@ -6,11 +6,9 @@
 
 #import "MSInspectorItem.h"
 
-#import "MSLayerChangeObserver-Protocol.h"
+@class NSArray;
 
-@class NSArray, NSString;
-
-@interface MSExportPreviewImagesInspectorItem : MSInspectorItem <MSLayerChangeObserver>
+@interface MSExportPreviewImagesInspectorItem : MSInspectorItem
 {
     NSArray *_previewViews;
     long long _throttleCount;
@@ -24,20 +22,12 @@
 @property(nonatomic) long long throttleCount; // @synthesize throttleCount=_throttleCount;
 @property(retain, nonatomic) NSArray *previewViews; // @synthesize previewViews=_previewViews;
 - (void).cxx_destruct;
-- (void)dealloc;
 - (void)setPreviewsWithViewModels:(id)arg1;
 - (void)reloadPreviewViews;
 - (void)removeAllPreviewViews;
 - (void)schedulePreviewViewReload;
-- (void)layerDidChange:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
-- (void)setLayers:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

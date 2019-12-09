@@ -13,7 +13,7 @@
 }
 
 - (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
-- (struct CGPoint)pointSelectionOverlay:(id)arg1 layout:(id)arg2 locationOfHandleAtIndexPath:(id)arg3;
+- (struct CGPoint)handleOverlay:(id)arg1 layout:(id)arg2 locationOfHandleAtIndexPath:(id)arg3;
 - (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionOverlay:(id)arg1;
 - (void)setEllipsePoint:(struct CGPoint)arg1;

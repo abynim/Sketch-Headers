@@ -12,7 +12,7 @@
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSHashTable, NSString;
+@class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString;
 @protocol MSLayerCoordinateSpace;
 
 @interface MSLayer : _MSLayer <MSLayerContainment, MSEnumerableLayer, MSLayer, NSCopying, MSRectDelegate>
@@ -20,7 +20,6 @@
     long long skipDrawingSelectionCounter;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
     MSAbsoluteRect *_absoluteRect;
-    NSHashTable *_changeObservers;
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
@@ -31,13 +30,10 @@
 + (double)rotationForUserVisibleRotation:(double)arg1;
 + (double)userVisibleRotationForRotation:(double)arg1;
 + (double)normalizeUserVisibleRotation:(double)arg1;
-@property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 - (void).cxx_destruct;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
-- (void)notifyChangeObservers;
-- (void)removeChangeObserver:(id)arg1;
-- (void)addChangeObserver:(id)arg1;
+- (BOOL)hasEnabledFill;
 - (void)resetFlow;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (id)allSymbolInstancesInChildren;
@@ -101,7 +97,6 @@
 - (void)refreshOverlay;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)absoluteInfluenceRect;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (struct CGSize)calculateMinimumSize;
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;

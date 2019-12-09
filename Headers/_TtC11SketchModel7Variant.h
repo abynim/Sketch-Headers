@@ -11,6 +11,7 @@
     // Error parsing type: , name: rawValue
 }
 
++ (id)testing;
 + (id)private;
 + (id)experimental;
 + (id)internal;

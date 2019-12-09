@@ -28,7 +28,7 @@
 @property(copy, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;
 @property(nonatomic) __weak id <MSDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (id)dataForItem:(id)arg1;
+- (id)dataForItem:(id)arg1 ofType:(unsigned long long)arg2;
 - (void)resetMenuItemImage;
 @property(readonly, nonatomic) NSString *uttDataType;
 @property(readonly, nonatomic) BOOL isUsableDataSupplier;
@@ -38,8 +38,7 @@
 - (BOOL)isEqualToDataSupplier:(id)arg1;
 - (unsigned long long)hash;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)generateDataForObjects:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)applyDataAtIndex:(unsigned long long)arg1 datum:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)applyDataWithCount:(unsigned long long)arg1 data:(id)arg2 dataApplier:(CDUnknownBlockType)arg3;
 - (void)encodeWithCoder:(id)arg1;

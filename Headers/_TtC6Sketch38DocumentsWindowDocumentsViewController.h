@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSCollectionView, NSMenu, NSProgressIndicator, NSScrollView, NSTextField;
+@class NSButton, NSMenu, NSProgressIndicator, NSScrollView, NSTextField, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch38DocumentsWindowDocumentsViewController : NSViewController
 {
@@ -50,7 +50,7 @@
 @property(nonatomic, retain) NSButton *createFirstDocumentButton; // @synthesize createFirstDocumentButton;
 @property(nonatomic, retain) NSTextField *emptyStateLabel; // @synthesize emptyStateLabel;
 @property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;
-@property(nonatomic, retain) NSCollectionView *collectionView; // @synthesize collectionView;
+@property(nonatomic, retain) _TtC6Sketch23DocumentsCollectionView *collectionView; // @synthesize collectionView;
 
 @end
 

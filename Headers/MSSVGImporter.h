@@ -30,7 +30,7 @@
 - (void)importIntoPage:(id)arg1 name:(id)arg2 progress:(CDUnknownBlockType)arg3;
 - (unsigned long long)prepareToImportFromXMLString:(id)arg1;
 - (unsigned long long)prepareToImportFromData:(id)arg1;
-- (unsigned long long)prepareToImportFromURL:(id)arg1;
+- (unsigned long long)prepareToImportFromURL:(id)arg1 error:(id *)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

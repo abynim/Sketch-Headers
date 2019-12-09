@@ -6,7 +6,7 @@
 
 #import <AppKit/NSCollectionViewItem.h>
 
-@class MSDocumentProgressView, MSDocumentsCollectionItem, NSString;
+@class MSDocumentProgressView, MSDocumentsCollectionItem, NSImageView, NSString, NSTextField;
 @protocol MSDocumentsCollectionViewItemDelegate;
 
 @interface MSDocumentsCollectionViewItem : NSCollectionViewItem
@@ -14,14 +14,19 @@
     struct CGSize _designedImageViewSize;
     id <MSDocumentsCollectionViewItemDelegate> _delegate;
     MSDocumentProgressView *_progressView;
+    NSImageView *_errorView;
+    NSTextField *_subtextField;
 }
 
-@property(nonatomic) __weak MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
+@property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
+@property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;
+@property(retain, nonatomic) MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) id <MSDocumentsCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (BOOL)validateRevealInCloudMenuItem:(id)arg1;
+- (BOOL)validateCloudMenuItem:(id)arg1;
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (void)fetchPreviewImage;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSDocumentsCollectionItem *collectionItem;

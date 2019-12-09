@@ -7,17 +7,17 @@
 #import "MSEventHandler.h"
 
 #import "MSGestureRecognizerDelegate-Protocol.h"
-#import "MSVectorCanvasDelegate-Protocol.h"
+#import "MSVectorOverlayControllerDelegate-Protocol.h"
 #import "NSTextDelegate-Protocol.h"
 
-@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorCanvas, NSArray, NSString;
+@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorOverlayController, NSArray, NSString;
 
-@interface MSShapeEventHandler : MSEventHandler <MSVectorCanvasDelegate, NSTextDelegate, MSGestureRecognizerDelegate>
+@interface MSShapeEventHandler : MSEventHandler <MSVectorOverlayControllerDelegate, NSTextDelegate, MSGestureRecognizerDelegate>
 {
     unsigned long long _ignoreSelectionChangesCount;
     MSEditShapeInspectorViewController *_inspectorViewController;
     NSArray *_layers;
-    MSVectorCanvas *_canvasHandler;
+    MSVectorOverlayController *_overlayController;
     MSPathController *_pathController;
     MSShapeEditingBehavior *_editingBehavior;
     MSStyleInspectorSection *_styleSection;
@@ -26,16 +26,16 @@
 @property(nonatomic) __weak MSStyleInspectorSection *styleSection; // @synthesize styleSection=_styleSection;
 @property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 @property(readonly, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
-@property(readonly, nonatomic) MSVectorCanvas *canvasHandler; // @synthesize canvasHandler=_canvasHandler;
+@property(readonly, nonatomic) MSVectorOverlayController *overlayController; // @synthesize overlayController=_overlayController;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
-- (void)vectorCanvasDidEditPoints:(id)arg1;
-- (void)vectorCanvas:(id)arg1 didSelectLayers:(id)arg2;
-- (void)vectorCanvasDidFinishInteractiveSelection:(id)arg1;
-- (void)vectorCanvas:(id)arg1 didDeselectHandlesAtIndexPaths:(id)arg2;
-- (void)vectorCanvas:(id)arg1 didSelectHandlesAtIndexPaths:(id)arg2;
-- (void)vectorCanvas:(id)arg1 didUnhighlightHandleAtIndexPath:(id)arg2;
-- (void)vectorCanvas:(id)arg1 didHighlightHandleAtIndexPath:(id)arg2;
+- (void)vectorOverlayControllerDidEditPoints:(id)arg1;
+- (void)vectorOverlayController:(id)arg1 didSelectLayers:(id)arg2;
+- (void)vectorOverlayControllerDidFinishInteractiveSelection:(id)arg1;
+- (void)vectorOverlayController:(id)arg1 didDeselectHandles:(id)arg2;
+- (void)vectorOverlayController:(id)arg1 didSelectHandles:(id)arg2;
+- (void)vectorOverlayController:(id)arg1 didUnhighlightHandle:(id)arg2;
+- (void)vectorOverlayController:(id)arg1 didHighlightHandle:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)performPathControllerUpdate:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL ignorePathController;
@@ -49,7 +49,6 @@
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;
 - (long long)curveModeForPressedKey:(long long)arg1;
@@ -63,7 +62,6 @@
 - (BOOL)updateCursor;
 - (void)trackMouse:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (id)parentGroupForInserting;
 - (void)insertNewShapeForEditingAtPoint:(struct CGPoint)arg1;
 - (BOOL)mouseDownEvent:(id)arg1;

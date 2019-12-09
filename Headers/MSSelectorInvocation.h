@@ -10,6 +10,7 @@
 {
 }
 
++ (void)performSelector:(SEL)arg1 target:(id)arg2 value:(BOOL)arg3 contextInfo:(void *)arg4;
 + (void)performSelector:(SEL)arg1 target:(id)arg2 withObject:(id)arg3 value:(BOOL)arg4 contextInfo:(void *)arg5;
 
 @end

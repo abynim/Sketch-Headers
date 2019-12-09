@@ -33,7 +33,7 @@
 - (id)artboardRectsIntersectingSegmentBounds:(struct CGRect)arg1 excludingArtboards:(id)arg2;
 - (id)collectFlows:(id)arg1;
 - (BOOL)shouldInvalidateCollectedFlowsWithDiff:(id)arg1;
-- (id)initWithLayers:(id)arg1 onPage:(id)arg2 document:(id)arg3;
+- (id)initWithPage:(id)arg1 document:(id)arg2;
 
 @end
 

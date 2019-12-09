@@ -6,7 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@interface MSZoomTool : NSObject
+#import "MSOverlayItemDataSource-Protocol.h"
+
+@class NSString;
+
+@interface MSZoomTool : NSObject <MSOverlayItemDataSource>
 {
     struct CGPoint _startPoint;
     struct CGPoint _endPoint;
@@ -21,7 +25,8 @@
 - (double)zoomValueAfterZoomOut;
 - (double)zoomValueAfterZoomInUnCapped;
 - (double)zoomValueAfterZoomIn;
-- (void)drawWithScrollOrigin:(struct CGPoint)arg1;
+- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (BOOL)shouldZoomIntoRect;
 - (void)mouseUp:(id)arg1 inView:(id)arg2;
 - (struct CGRect)zoomRect;
@@ -34,6 +39,12 @@
 - (void)endZoomToolModeInView:(id)arg1;
 - (void)beginZoomToolModeActivatedByKey:(BOOL)arg1;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

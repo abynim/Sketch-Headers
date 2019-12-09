@@ -18,6 +18,7 @@
 @property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
 - (void).cxx_destruct;
 - (void)updateButtonState:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateUI;
 - (void)updateDisplayedValues;
 

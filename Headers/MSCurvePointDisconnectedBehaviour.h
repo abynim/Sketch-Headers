@@ -12,7 +12,7 @@
 
 + (void)curveToChangedInPoint:(id)arg1;
 + (void)curveFromChangedInPoint:(id)arg1;
-+ (void)didAssignBehaviorToHandle:(unsigned long long)arg1 ofPoint:(id)arg2 previousMode:(long long)arg3;
++ (void)didAssignBehaviorToHandle:(long long)arg1 ofPoint:(id)arg2 previousMode:(long long)arg3;
 
 @end
 

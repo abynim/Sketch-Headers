@@ -34,7 +34,7 @@
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
 - (void).cxx_destruct;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
-- (void)valuesPossiblyChanged:(id)arg1;
+- (void)blurStyleChanged:(id)arg1;
 - (id)stylePartInspectorItemDocument:(id)arg1;
 - (id)layers;
 - (void)setStyleParts:(id)arg1;

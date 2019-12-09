@@ -4,12 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSIndexPath, _TtC17SketchControllers19MSCollectionOverlay;
+@class NSIndexPath, NSSet, _TtC17SketchControllers19MSCollectionOverlay;
 
 @protocol _TtP17SketchControllers27MSCollectionOverlayDelegate_
 
 @optional
+- (BOOL)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 shouldDeferSelectionAtIndexPath:(NSIndexPath *)arg2;
 - (void)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 didDeselectItemAtIndexPath:(NSIndexPath *)arg2;
+- (BOOL)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 shouldDeselectItemsAtIndexPaths:(NSSet *)arg2;
 - (void)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 didSelectItemAtIndexPath:(NSIndexPath *)arg2;
+- (BOOL)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 selectItemAtPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 @end
 

@@ -14,7 +14,7 @@
 #import "MSSidebarControllerDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC6Sketch23MSDocumentChangeCounter;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -36,6 +36,7 @@
     MSActionController *_actionsController;
     MSBadgeController *_badgeController;
     MSDocumentData *_documentData;
+    _TtC6Sketch23MSDocumentChangeCounter *_documentChangeCounter;
     MSEventHandlerManager *_eventHandlerManager;
     MSCacheManager *_cacheManager;
     MSHistoryMaker *_historyMaker;
@@ -89,6 +90,7 @@
 @property(retain, nonatomic) MSHistoryMaker *historyMaker; // @synthesize historyMaker=_historyMaker;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
+@property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
@@ -111,6 +113,7 @@
 - (id)shareableObjectReferenceForDescriptor:(id)arg1;
 - (id)localObjectForObjectReference:(id)arg1;
 - (BOOL)isSharableObjectReferenceForeign:(id)arg1;
+- (BOOL)isMatchToLibrary:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)componentsPaneWillBeginDraggingSession:(id)arg1;
 - (void)componentsPane:(id)arg1 didSelectComponent:(id)arg2;
@@ -146,16 +149,17 @@
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
-- (void)scheduleSelectionChangedUpdatesIfNecessary;
-- (void)prepareToDrawEventHandlers:(id)arg1;
-- (void)refreshComponentPane;
-- (void)refreshLayerListIfNecessary;
-- (void)refreshSupplementaryViews;
+- (void)scheduleSelectionChangedUpdatesIfNecessary:(id)arg1;
+- (void)notifyEventHandlersOfChange:(id)arg1;
+- (void)refreshComponentPane:(id)arg1;
+- (void)refreshLayerListIfNecessary:(id)arg1;
+- (void)refreshSupplementaryViews:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (void)updateDocumentPostRender;
 - (void)updateDocumentPreRender;
+- (void)invalidateTreeDiffForSupplementaryViews;
 @property(readonly, nonatomic) MSTreeDiff *treeDiffForSupplementaryViews; // @synthesize treeDiffForSupplementaryViews=_treeDiffForSupplementaryViews;
-- (void)documentDidChange:(id)arg1;
+- (void)documentData:(id)arg1 didChange:(id)arg2;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
@@ -184,6 +188,8 @@
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
 - (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
+- (id)changeCountTokenForSaveOperation:(unsigned long long)arg1;
+- (void)updateChangeCountWithToken:(id)arg1 forSaveOperation:(unsigned long long)arg2;
 - (void)updateChangeCount:(unsigned long long)arg1;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
@@ -211,6 +217,8 @@
 - (void)returnToNormalHandler;
 - (void)currentHandlerChanged;
 - (id)currentHandler;
+- (void)restoreStateWithCoder:(id)arg1;
+- (void)encodeRestorableStateWithCoder:(id)arg1;
 - (id)windowNibName;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
@@ -255,6 +263,8 @@
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
+- (void)cleanCloudDirectories;
+- (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldClose:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 @property(retain, nonatomic) SCKShare *cloudShare;
@@ -305,9 +315,14 @@
 - (id)editForeignSymbolInfoTextForForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 - (id)editForeignSymbolMessageForLibrary:(id)arg1;
 - (long long)availabilityForLibrary:(id)arg1;
+- (void)showCloudSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
+- (void)saveCloudDocumentDraftAs:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)runModalSaveDraftCloudDocPanelForOperationType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)lintDocumentAt:(id)arg1;
+- (void)makeUploadRequest;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)prepareForSaveOperation:(unsigned long long)arg1;
 - (id)actionClasses;

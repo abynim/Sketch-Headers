@@ -13,7 +13,7 @@
 #import "MSVariableFontsInspectorDelegate-Protocol.h"
 #import "NSComboBoxDataSource-Protocol.h"
 
-@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, MSVariableFontsInspector, NSArrayController, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSArrayController, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 @protocol MSTextLayerItemDelegate;
 
 @interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate, MSVariableFontsInspectorDelegate>
@@ -32,7 +32,7 @@
     MSInspectorSegmentedControl *_alignmentButton;
     NSSegmentedControl *_verticalAlignmentButton;
     NSTextField *_sizingLabel;
-    MSInspectorSegmentedControl *_sizingSegmentedControl;
+    NSSegmentedControl *_sizingSegmentedControl;
     NSLayoutConstraint *_fontWeightPopUpButtonTrailingConstraint;
     BCPopover *_popover;
     MSNativeColorPanelPresenter *_colorPanelPresenter;
@@ -46,12 +46,10 @@
     MSMathInspectorValueAdaptor *_lineHeightAdaptor;
     MSInspectorValueAdaptor *_colorAdapor;
     MSTextAttributeEditingContext *_editingContext;
-    MSVariableFontsInspector *_variableFontsController;
 }
 
 + (void)initialize;
 + (BOOL)canHandleLayer:(id)arg1;
-@property(retain, nonatomic) MSVariableFontsInspector *variableFontsController; // @synthesize variableFontsController=_variableFontsController;
 @property(retain, nonatomic) MSTextAttributeEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdapor; // @synthesize colorAdapor=_colorAdapor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *lineHeightAdaptor; // @synthesize lineHeightAdaptor=_lineHeightAdaptor;
@@ -65,7 +63,7 @@
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) NSLayoutConstraint *fontWeightPopUpButtonTrailingConstraint; // @synthesize fontWeightPopUpButtonTrailingConstraint=_fontWeightPopUpButtonTrailingConstraint;
-@property(nonatomic) __weak MSInspectorSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
+@property(nonatomic) __weak NSSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
 @property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
 @property(retain, nonatomic) MSInspectorSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
@@ -80,9 +78,13 @@
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)textBehaviourButtonAction:(id)arg1;
+- (void)updateTextBehaviour;
+- (id)textBehaviourLabelString;
+- (long long)textBehaviourSegmentTag;
 - (void)variableFontsWindowController:(id)arg1 didUpdateToFont:(id)arg2;
 - (void)popoverWillClose:(id)arg1;
-- (void)togglePopoverWithBlock:(CDUnknownBlockType)arg1;
+- (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)showVariableFontsPopover:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
@@ -103,7 +105,6 @@
 - (id)textEventHandler;
 - (id)textView;
 - (void)verticalAlignmentAction:(id)arg1;
-- (void)textBehaviourButtonAction:(id)arg1;
 - (id)contentDrawView;
 - (void)putFocusOnTextView;
 - (id)companionPopoverForColorPanelPresenter:(id)arg1;
@@ -120,13 +121,13 @@
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
 - (void)commitHistory;
-- (void)closeExistingPopoverOrShowNewOneWithContentClass:(Class)arg1 sender:(id)arg2 viewCreatorBlock:(CDUnknownBlockType)arg3;
 - (void)viewWillDisappear;
 - (void)dealloc;
 - (double)defaultLineHeight;
 - (void)reloadVerticalAlignmentButton;
 - (void)updateDisplayedValues;
 - (void)textViewDidChange:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;
 - (id)fontSizeMenu;
 - (void)writeRun:(id)arg1;

@@ -30,8 +30,8 @@
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (void)updateDisplayedValues;
-- (void)interTextFieldButtonAction:(id)arg1;
 - (void)setupAccessoryButton;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateUI;
 @property(readonly, nonatomic) unsigned long long accessory;
 - (BOOL)allowFloatValues;

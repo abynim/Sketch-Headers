@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;
+- (BOOL)hasEnabledFill;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)maskingLayerForChild:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;

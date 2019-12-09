@@ -7,6 +7,6 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (Sketch1)
-+ (id)MSRadialGradientEllipse;
++ (id)MSSelectionOverlaySpacingHandle;
 @end
 

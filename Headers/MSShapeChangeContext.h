@@ -6,29 +6,27 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
-
 @class NSArray;
 
-@interface MSShapeChangeContext : NSObject <NSCopying>
+@interface MSShapeChangeContext : NSObject
 {
     NSArray *_layers;
-    NSArray *_handleIndexPaths;
+    NSArray *_componentSpecifiers;
 }
 
-@property(readonly, copy, nonatomic) NSArray *handleIndexPaths; // @synthesize handleIndexPaths=_handleIndexPaths;
+@property(readonly, copy, nonatomic) NSArray *componentSpecifiers; // @synthesize componentSpecifiers=_componentSpecifiers;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct CGRect)rectOfSelectedPoints;
 - (id)selectedHandlesSortedByAxis:(unsigned long long)arg1;
-- (void)setLocation:(struct CGPoint)arg1 ofHandleAtIndexPath:(id)arg2;
-- (struct CGPoint)locationOfHandleAtIndexPath:(id)arg1 inCoordinateSpace:(id)arg2;
+- (void)setLocation:(struct CGPoint)arg1 ofHandle:(id)arg2;
+- (struct CGPoint)locationOfHandle:(id)arg1 inCoordinateSpace:(id)arg2;
 - (id)curvePointAtIndexPath:(id)arg1;
 - (void)enumerateCurvePointsUsingBlock:(CDUnknownBlockType)arg1;
-@property(readonly, copy, nonatomic) NSArray *orderedHandleIndexPaths;
-- (id)initWithLayers:(id)arg1 handleIndexPaths:(id)arg2;
+@property(readonly, copy, nonatomic) NSArray *orderedComponentSpecifiers;
+- (id)initWithLayers:(id)arg1 components:(id)arg2;
 
 @end
 

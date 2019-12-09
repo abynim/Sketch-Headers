@@ -21,6 +21,7 @@
 - (id)name;
 - (void)parsePastedDocument;
 - (void)parseWithProgress:(CDUnknownBlockType)arg1;
+- (BOOL)isLocked;
 - (unsigned long long)pageCount;
 - (void)loadDocumentFromData:(id)arg1;
 - (void)loadDocumentFromURL:(id)arg1;
