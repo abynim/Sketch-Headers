@@ -7,12 +7,10 @@
 #import <Chocolat/CHSheetController.h>
 
 #import "NSSplitViewDelegate-Protocol.h"
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
 
 @class MSDocument, MSSharedObjectView, NSArray, NSSplitView, NSString;
 
-@interface MSAssetSyncSheet : CHSheetController <NSTableViewDataSource, NSTableViewDelegate, NSSplitViewDelegate>
+@interface MSAssetSyncSheet : CHSheetController <NSSplitViewDelegate>
 {
     BOOL _hasSyncableItems;
     NSArray *_tableViewData;

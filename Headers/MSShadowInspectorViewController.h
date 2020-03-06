@@ -21,7 +21,6 @@
     MSMathInspectorValueAdaptor *_spreadAdapter;
 }
 
-+ (unsigned long long)supportedActionsForLayers:(id)arg1;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *spreadAdapter; // @synthesize spreadAdapter=_spreadAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;

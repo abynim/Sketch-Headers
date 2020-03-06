@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchRendering/NSCopying-Protocol.h>
+
 @class NSColor;
 
-@interface MSOverlayColorSettings : NSObject
+@interface MSOverlayColorSettings : NSObject <NSCopying>
 {
     NSColor *_canvasBackgroundColor;
     NSColor *_pageBackgroundColor;
@@ -26,6 +28,7 @@
 @property(retain, nonatomic) NSColor *pageBackgroundColor; // @synthesize pageBackgroundColor=_pageBackgroundColor;
 @property(retain, nonatomic) NSColor *canvasBackgroundColor; // @synthesize canvasBackgroundColor=_canvasBackgroundColor;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqualToColorSettings:(id)arg1;
 
 @end

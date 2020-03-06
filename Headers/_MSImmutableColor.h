@@ -19,6 +19,9 @@
 @property(nonatomic) double green; // @synthesize green=_green;
 @property(nonatomic) double blue; // @synthesize blue=_blue;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

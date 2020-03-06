@@ -6,24 +6,33 @@
 
 #import <objc/NSObject.h>
 
-#import "BITCrashManagerDelegate-Protocol.h"
-#import "BITHockeyManagerDelegate-Protocol.h"
 #import "MSActionObserver-Protocol.h"
+#import "MSCrashesDelegate-Protocol.h"
 
-@class BCReadWriteLock, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSURL;
+@class BCReadWriteLock, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSURL;
 
-@interface MSCrashLogManager : NSObject <MSActionObserver, BITHockeyManagerDelegate, BITCrashManagerDelegate>
+@interface MSCrashLogManager : NSObject <MSActionObserver, MSCrashesDelegate>
 {
     BCReadWriteLock *_environmentLock;
     NSMutableDictionary *_environment;
     BCReadWriteLock *_itemsLock;
     NSMutableArray *_items;
     NSString *_text;
+    NSString *_attachmentText;
+    NSTextField *_header;
+    NSTextField *_emailField;
+    NSTextField *_commentsField;
 }
 
+@property(nonatomic) __weak NSTextField *commentsField; // @synthesize commentsField=_commentsField;
+@property(nonatomic) __weak NSTextField *emailField; // @synthesize emailField=_emailField;
+@property(nonatomic) __weak NSTextField *header; // @synthesize header=_header;
+@property(retain, nonatomic) NSString *attachmentText; // @synthesize attachmentText=_attachmentText;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
-- (id)applicationLogForCrashManager:(id)arg1;
+- (void)send:(id)arg1;
+- (void)cancel:(id)arg1;
+- (id)attachmentsWithCrashes:(id)arg1 forErrorReport:(id)arg2;
 - (BOOL)setup;
 - (id)environmentText;
 - (id)logText;

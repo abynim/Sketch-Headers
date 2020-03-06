@@ -24,7 +24,7 @@
 @property(retain, nonatomic) MSSymbolInstance *instance; // @synthesize instance=_instance;
 - (void).cxx_destruct;
 - (void)textDidChange:(id)arg1;
-- (void)documentChangedAndStartedRendering:(id)arg1;
+- (void)documentDidChange:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (void)setupSelectedOverride;

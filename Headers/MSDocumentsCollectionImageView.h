@@ -10,11 +10,15 @@
 {
     BOOL _selected;
     BOOL _overlayEnabled;
+    BOOL _showLibraryIcon;
+    BOOL _showPublicShareIcon;
     SEL _doubleClickAction;
     unsigned long long _imageInterpolation;
 }
 
 + (Class)cellClass;
+@property(nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
+@property(nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
 @property(nonatomic) unsigned long long imageInterpolation; // @synthesize imageInterpolation=_imageInterpolation;
 @property(nonatomic) SEL doubleClickAction; // @synthesize doubleClickAction=_doubleClickAction;

@@ -10,21 +10,25 @@
 
 @interface MSRulerView : NSView
 {
-    unsigned long long dragIndex;
-    double baseOffset;
-    double previousBase;
-    NSNumberFormatter *metricsFormatter;
     BOOL _mouseDidDrag;
     MSDocument *_document;
     MSContentDrawView *_contentView;
     unsigned long long _axis;
     MSRulerViewLayer *_rulerViewLayer;
+    unsigned long long _dragIndex;
+    double _baseOffset;
+    double _previousBase;
+    NSNumberFormatter *_metricsFormatter;
     struct CGPoint _mouseDownPoint;
 }
 
 + (BOOL)rulerDraggingLocked;
 + (void)setRulerDraggingLocked:(BOOL)arg1;
 + (void)initialize;
+@property(retain, nonatomic) NSNumberFormatter *metricsFormatter; // @synthesize metricsFormatter=_metricsFormatter;
+@property(nonatomic) double previousBase; // @synthesize previousBase=_previousBase;
+@property(nonatomic) double baseOffset; // @synthesize baseOffset=_baseOffset;
+@property(nonatomic) unsigned long long dragIndex; // @synthesize dragIndex=_dragIndex;
 @property(retain, nonatomic) MSRulerViewLayer *rulerViewLayer; // @synthesize rulerViewLayer=_rulerViewLayer;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
@@ -41,10 +45,6 @@
 - (double)baseLineIncludingScrollOrigin:(BOOL)arg1;
 - (double)baseLine;
 - (struct CGPoint)mouseEventToPoint:(id)arg1;
-- (void)refreshGuidesForGrid:(id)arg1;
-- (void)refreshAllGuidesInDrawView;
-- (void)refreshGuideInDrawViewAtPosition:(double)arg1;
-- (void)refreshGuideInDrawViewAtIndex:(unsigned long long)arg1;
 - (void)turnAlignmentGuidesBackOn;
 - (void)mouseUp:(id)arg1;
 - (struct CGRect)rulerBasedRectForLayer:(id)arg1;
@@ -76,6 +76,9 @@
 - (void)addAction:(id)arg1 toMenu:(id)arg2;
 - (id)titleForRemoveAllGuidesMenuItem;
 - (id)menuForEvent:(id)arg1;
+- (void)didMoveThroughHistory:(id)arg1;
+- (void)unregisterObservers;
+- (void)registerObservers;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)guides;
 - (struct CGRect)occupiedRegion;

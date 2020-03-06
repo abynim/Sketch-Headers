@@ -17,11 +17,11 @@
 }
 
 + (id)styleWithFillColor:(id)arg1;
++ (Class)immutableStylePartClassOfType:(unsigned long long)arg1;
++ (Class)stylePartClassOfType:(unsigned long long)arg1;
 @property(retain, nonatomic) NSString *primitiveSharedObjectID; // @synthesize primitiveSharedObjectID=_primitiveSharedObjectID;
 - (void).cxx_destruct;
 - (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
-- (id)addStylePartOfType:(unsigned long long)arg1;
-- (id)stylePartsOfType:(unsigned long long)arg1;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) double thickestStroke;
@@ -52,6 +52,13 @@
 @property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
+- (void)moveStylePartOfType:(unsigned long long)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
+- (void)addStylePart:(id)arg1;
+- (void)insertStylePart:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)duplicateStylePartOfType:(unsigned long long)arg1 atIndex:(long long)arg2;
+- (void)deleteStylePartOfType:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
+- (id)addStylePartOfType:(unsigned long long)arg1;
+- (id)stylePartsOfType:(unsigned long long)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

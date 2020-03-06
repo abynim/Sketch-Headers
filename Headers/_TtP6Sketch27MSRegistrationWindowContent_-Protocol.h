@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSImage, NSString, NSView;
+@class NSImage, NSString;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @protocol _TtP6Sketch27MSRegistrationWindowContent_
@@ -13,7 +13,6 @@
 @property(nonatomic) __weak id <_TtP6Sketch35MSRegistrationWindowContentDelegate_> delegate;
 @property(nonatomic, readonly) BOOL wantsLicense;
 @property(nonatomic) BOOL allowCancellation;
-@property(nonatomic, readonly) NSView *headerBadgeDecorationView;
 @property(nonatomic, readonly) NSImage *headerImage;
 @property(nonatomic, readonly) NSImage *headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;

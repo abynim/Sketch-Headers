@@ -7,21 +7,27 @@
 #import <objc/NSObject.h>
 
 @class MSMoment, NSMutableArray;
+@protocol MSHistoryDelegate;
 
 @interface MSHistory : NSObject
 {
     BOOL _allowsCoalescingOfMomentsCloseInTime;
+    id <MSHistoryDelegate> _delegate;
+    double _timestampCoalesingThreshold;
     NSMutableArray *_moments;
     long long _indexOfCurrentMoment;
 }
 
 @property(nonatomic) long long indexOfCurrentMoment; // @synthesize indexOfCurrentMoment=_indexOfCurrentMoment;
 @property(retain, nonatomic) NSMutableArray *moments; // @synthesize moments=_moments;
+@property(nonatomic) double timestampCoalesingThreshold; // @synthesize timestampCoalesingThreshold=_timestampCoalesingThreshold;
 @property(nonatomic) BOOL allowsCoalescingOfMomentsCloseInTime; // @synthesize allowsCoalescingOfMomentsCloseInTime=_allowsCoalescingOfMomentsCloseInTime;
+@property(nonatomic) __weak id <MSHistoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long numberOfMoments;
 @property(readonly, nonatomic) BOOL canProgressToNextMoment;
 - (BOOL)progressToNextMoment;
+- (void)notifyDidCommitMoment:(id)arg1;
 - (void)commitCurrentMoment;
 @property(readonly, nonatomic) BOOL canRevertToPreviousMoment;
 - (BOOL)revertToPreviousMoment;

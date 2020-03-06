@@ -23,6 +23,8 @@
 @property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
+- (void)documentTypeDidChange;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)validateToolbarItems;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
@@ -30,6 +32,7 @@
 - (id)toolbarAllowedItemIdentifiers:(id)arg1;
 @property(readonly, nonatomic) NSToolbar *toolbar;
 - (void)constructToolbarForWindow:(id)arg1;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1;
 
 // Remaining properties

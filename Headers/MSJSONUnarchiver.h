@@ -18,6 +18,7 @@
 
 + (id)unarchiverFromCoder:(id)arg1;
 + (void)defineReplacementClasses;
++ (void)registerGenericClass:(Class)arg1;
 + (void)load;
 @property(retain, nonatomic) NSSet *allowedClasses; // @synthesize allowedClasses=_allowedClasses;
 @property(retain, nonatomic) NSMutableDictionary *references; // @synthesize references=_references;

@@ -71,6 +71,7 @@
 - (unsigned long long)inspectorLocation;
 - (BOOL)shouldShowSharedStyles;
 - (BOOL)shouldShowFlowView;
+- (BOOL)shouldManageOverridesView;
 - (BOOL)shouldShowLayoutView;
 - (BOOL)shouldShowResizingView;
 - (id)styleViewControllersForLayers:(id)arg1 fromStyleInspectorSection:(id)arg2;
@@ -107,7 +108,6 @@
 @property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
-- (void)documentChangedAndStartedRendering:(id)arg1;
 - (void)documentDidChange:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)drawHandles;
@@ -150,6 +150,8 @@
 - (void)zoomToArtboard;
 - (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
+- (void)unregisterObservers;
+- (void)registerObservers;
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)willMoveThroughHistory:(id)arg1;
 @property(readonly, nonatomic) NSString *applicableActionItemIdentifier;

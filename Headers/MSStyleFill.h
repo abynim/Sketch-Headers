@@ -16,6 +16,7 @@
 
 + (id)defaultStylePartForStyle:(id)arg1;
 + (id)defaultFillColor;
+- (unsigned long long)styleType;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;

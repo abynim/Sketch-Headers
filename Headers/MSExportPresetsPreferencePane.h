@@ -6,12 +6,9 @@
 
 #import "MSPreferencePane.h"
 
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
-
 @class MSExportFormatViewController, MSExportPreset, NSArray, NSButton, NSLayoutConstraint, NSStackView, NSString, NSTableView, NSTextField, NSView;
 
-@interface MSExportPresetsPreferencePane : MSPreferencePane <NSTableViewDataSource, NSTableViewDelegate>
+@interface MSExportPresetsPreferencePane : MSPreferencePane
 {
     NSButton *_addButton;
     NSButton *_addFormatButton;

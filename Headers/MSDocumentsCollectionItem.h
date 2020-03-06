@@ -12,6 +12,8 @@
 
 @interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
 {
+    BOOL _showLibraryIcon;
+    BOOL _showPublicShareIcon;
     NSString *_title;
     NSString *_status;
     NSString *_statusColor;
@@ -24,6 +26,8 @@
 + (id)keyPathsForValuesAffectingStatus;
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
+@property(readonly, nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
+@property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
@@ -33,14 +37,13 @@
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
-- (void)downloadChangedNotificationHandler:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)getStatusColor;
 - (id)getStatus;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
-- (id)init;
 
 // Remaining properties
 @property(readonly, nonatomic) NSURL *URL;

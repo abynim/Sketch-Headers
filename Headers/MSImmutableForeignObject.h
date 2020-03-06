@@ -6,11 +6,14 @@
 
 #import <SketchModel/_MSImmutableForeignObject.h>
 
+@class MSImmutableModelObject;
+
 @interface MSImmutableForeignObject : _MSImmutableForeignObject
 {
 }
 
 + (BOOL)persistsObjectID;
+@property(readonly, nonatomic) MSImmutableModelObject *localObject;
 
 @end
 

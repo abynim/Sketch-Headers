@@ -22,6 +22,7 @@
 @property(retain, nonatomic) MSDocumentChangeIntervalNotifier *instantNotifier; // @synthesize instantNotifier=_instantNotifier;
 - (void).cxx_destruct;
 - (void)processDocumentUpdate:(id)arg1;
+- (void)unregisterAllObservers;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1 withFrequency:(unsigned long long)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (id)init;

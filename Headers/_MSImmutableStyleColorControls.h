@@ -20,6 +20,9 @@
 @property(nonatomic) double hue; // @synthesize hue=_hue;
 @property(nonatomic) double contrast; // @synthesize contrast=_contrast;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
