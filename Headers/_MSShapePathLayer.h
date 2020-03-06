@@ -25,7 +25,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveCurvePointIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveCurvePointFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllCurvePoints;
 - (void)removeCurvePointsAtIndexes:(id)arg1;
 - (void)removeCurvePointAtIndex:(unsigned long long)arg1;

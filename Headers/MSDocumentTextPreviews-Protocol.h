@@ -6,10 +6,10 @@
 
 #import <SketchRendering/NSObject-Protocol.h>
 
-@class MSImmutableDocumentData, NSData, NSSet;
+@class MSImmutableDocumentData, NSData, NSDictionary, NSMutableDictionary;
 
 @protocol MSDocumentTextPreviews <NSObject>
-- (NSData *)createPreviewMetadataForTextLayers:(NSSet *)arg1 document:(MSImmutableDocumentData *)arg2;
-- (NSData *)createPreviewPDFDataForTextLayers:(NSSet *)arg1 document:(MSImmutableDocumentData *)arg2;
+- (NSData *)createPreviewMetadataForTextLayers:(NSDictionary *)arg1 pageMapping:(NSDictionary *)arg2;
+- (NSData *)createPreviewPDFDataForTextLayers:(NSDictionary *)arg1 document:(MSImmutableDocumentData *)arg2 pageMapping:(NSMutableDictionary *)arg3;
 @end
 

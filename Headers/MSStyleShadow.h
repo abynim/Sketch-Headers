@@ -14,6 +14,7 @@
 {
 }
 
+- (unsigned long long)styleType;
 - (void)convertColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;

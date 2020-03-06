@@ -17,21 +17,20 @@
     NSArray *_stylePartViewControllers;
     id <MSStylePartInspectorDelegate> _delegate;
     MSReorderingContainerView *_reorderingContainer;
-    NSTextField *_nameField;
-    NSTextField *_nameFieldShadow;
     NSView *_nameView;
-    NSButton *_removeDisabledStylesButton;
+    NSTextField *_nameField;
+    NSButton *_addStylePartButton;
+    NSButton *_addStylePartHeaderButton;
+    NSButton *_removeDisabledStylePartsButton;
     NSButton *_showAdvancedOptionsButton;
-    NSButton *_headerButton;
 }
 
-+ (Class)stylePartInspectorClass;
-@property(retain, nonatomic) NSButton *headerButton; // @synthesize headerButton=_headerButton;
 @property(retain, nonatomic) NSButton *showAdvancedOptionsButton; // @synthesize showAdvancedOptionsButton=_showAdvancedOptionsButton;
-@property(retain, nonatomic) NSButton *removeDisabledStylesButton; // @synthesize removeDisabledStylesButton=_removeDisabledStylesButton;
-@property(retain, nonatomic) NSView *nameView; // @synthesize nameView=_nameView;
-@property(retain, nonatomic) NSTextField *nameFieldShadow; // @synthesize nameFieldShadow=_nameFieldShadow;
+@property(retain, nonatomic) NSButton *removeDisabledStylePartsButton; // @synthesize removeDisabledStylePartsButton=_removeDisabledStylePartsButton;
+@property(retain, nonatomic) NSButton *addStylePartHeaderButton; // @synthesize addStylePartHeaderButton=_addStylePartHeaderButton;
+@property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) NSTextField *nameField; // @synthesize nameField=_nameField;
+@property(retain, nonatomic) NSView *nameView; // @synthesize nameView=_nameView;
 @property(retain, nonatomic) MSReorderingContainerView *reorderingContainer; // @synthesize reorderingContainer=_reorderingContainer;
 @property(nonatomic) __weak id <MSStylePartInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
@@ -39,7 +38,6 @@
 - (void).cxx_destruct;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)updateDisplayedValues;
-- (BOOL)shouldShowAdvancedOptionsButton;
 @property(readonly, nonatomic) NSString *menuTitleRemove;
 @property(readonly, nonatomic) NSString *menuTitleDuplicate;
 @property(readonly, nonatomic) NSString *menuTitlePaste;
@@ -51,16 +49,16 @@
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
 - (void)containerBackground:(id)arg1 dragDidReorderChildAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (unsigned long long)stylePartType;
+- (void)showAdvancedOptionsAction:(id)arg1;
 - (void)deleteUnusedStylePartsAction:(id)arg1;
 - (id)stylePartsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)tagFromSender:(id)arg1;
 - (void)insertStylePart:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)duplicateStylePartAction:(id)arg1;
 - (void)deleteStylePartAction:(id)arg1;
-- (Class)stylePartClass;
 - (void)pasteStylePartAction:(id)arg1;
 - (void)copyStylePartAction:(id)arg1;
-- (id)addStylePartsForSelection;
+- (void)addStylePartsForSelection;
 - (BOOL)hasPopOver;
 - (id)lastEnabledStylePartController;
 - (void)addStylePartAction:(id)arg1;
@@ -68,16 +66,22 @@
 - (void)closePopovers;
 - (id)rotatedStyleParts;
 - (void)validateSpecialButtons;
+- (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (void)prepare;
 - (void)prepareForReuse;
 - (id)viewForStyleAtOffset:(long long)arg1 index:(unsigned long long)arg2;
+- (BOOL)shouldShowDisabledStylesButton;
+- (BOOL)shouldShowAdvancedOptionsButton;
+- (BOOL)shouldEnableAddStylePartButton;
 - (void)styleDidEnableOrDisable;
+- (id)views;
 - (void)resizeViewToFit;
-- (id)inspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
+- (Class)inspectorClassForStyleParts:(id)arg1;
+- (id)createInspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)validateAdvancedOptionsButton;
-- (void)validateRemoveDisabledStylesButton;
 - (void)loadViewControllers;
-- (void)awakeFromNib;
+- (id)title;
+- (id)nibName;
 - (id)init;
 
 // Remaining properties

@@ -24,6 +24,7 @@
 - (void)sendUpdateToObservers;
 - (void)coalesceDocumentUpdate;
 - (void)processDocumentUpdate:(id)arg1;
+- (void)unregisterAllObservers;
 - (void)unregisterObserver:(id)arg1;
 - (void)registerObserver:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)initWithUpdateFrequency:(unsigned long long)arg1;

@@ -28,6 +28,7 @@
     NSMenuItem *_cloudEnvironmentMenuItem;
     NSMenu *_fileMenu;
     NSMenu *_viewMenu;
+    NSMenuItem *_assistantMenuItem;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
@@ -76,6 +77,7 @@
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
+@property(retain, nonatomic) NSMenuItem *assistantMenuItem; // @synthesize assistantMenuItem=_assistantMenuItem;
 @property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
@@ -91,8 +93,7 @@
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
 - (void)refreshDocumentWindowBadges;
-- (void)refreshDocuments;
-- (void)refreshCurrentDocument;
+- (void)refreshDocumentColors;
 - (void)currentDocumentDidChange;
 - (void)showLicenseAlert:(long long)arg1 remainingTimeInterval:(double)arg2;
 - (void)licenseDidBecomeInvalidNotification:(id)arg1;
@@ -114,8 +115,8 @@
 - (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (void)tweakSidebarSubmenuIfNeeded:(id)arg1;
-- (void)setupKeyEquivalents:(id)arg1 defaultMenuItem:(id)arg2 secondaryMenuItem:(id)arg3 unusedMenuItem:(id)arg4;
-- (void)setupNewMenuItems:(id)arg1;
+- (void)setKeyEquivalent:(id)arg1 isAlternate:(BOOL)arg2 onEnabledMenuItem:(id)arg3;
+- (void)setUnusedMenuItem:(id)arg1;
 - (void)setupOpenMenuItems:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)openTemplateAtURL:(id)arg1;
@@ -152,6 +153,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
+- (void)updateAssistantMenuState:(BOOL)arg1;
+- (void)setupAssistantMenu;
 - (void)setupMenuItems;
 - (id)init;
 - (unsigned long long)handleTerminationRequest:(id)arg1;

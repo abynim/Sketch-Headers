@@ -12,6 +12,7 @@
 {
     long long _animationType;
     NSString *_destinationArtboardID;
+    BOOL _maintainScrollPosition;
 }
 
 + (BOOL)allowsFaulting;
@@ -25,6 +26,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(nonatomic) BOOL maintainScrollPosition; // @synthesize maintainScrollPosition=_maintainScrollPosition;
 @property(retain, nonatomic) NSString *destinationArtboardID; // @synthesize destinationArtboardID=_destinationArtboardID;
 @property(nonatomic) long long animationType; // @synthesize animationType=_animationType;
 - (void)performInitWithImmutableModelObject:(id)arg1;

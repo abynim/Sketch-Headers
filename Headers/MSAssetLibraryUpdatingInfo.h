@@ -28,7 +28,7 @@
 @property(readonly, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
 @property(readonly, nonatomic) NSString *libraryName; // @synthesize libraryName=_libraryName;
 @property(readonly, nonatomic) unsigned long long downloadSize; // @synthesize downloadSize=_downloadSize;
-@property(readonly, nonatomic) NSString *versionNumberForUpdate; // @synthesize versionNumberForUpdate=_versionNumberForUpdate;
+@property(retain, nonatomic) NSString *versionNumberForUpdate; // @synthesize versionNumberForUpdate=_versionNumberForUpdate;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 - (void).cxx_destruct;
 - (BOOL)isHigherVersionThan:(id)arg1;

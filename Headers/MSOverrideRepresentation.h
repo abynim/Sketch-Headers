@@ -33,7 +33,6 @@
 - (id)transformForConvertingToInstance;
 - (void)calculateTransformAndPath;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedParentMaster;
-- (id)modifiedMasterForInstanceInMaster:(id)arg1;
 @property(readonly, nonatomic) BOOL isEditable;
 - (void)syncChildrenWithOverridesIfNeeded;
 - (void)dealloc;

@@ -6,14 +6,23 @@
 
 #import <SketchModel/_MSImmutableSharedStyle.h>
 
-@class MSImmutableStyle;
+#import <SketchModel/BCSortable-Protocol.h>
 
-@interface MSImmutableSharedStyle : _MSImmutableSharedStyle
+@class MSImmutableStyle, NSString;
+
+@interface MSImmutableSharedStyle : _MSImmutableSharedStyle <BCSortable>
 {
 }
 
 + (id)defaultName;
 @property(readonly, nonatomic) MSImmutableStyle *style;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly) Class superclass;
 
 @end
 

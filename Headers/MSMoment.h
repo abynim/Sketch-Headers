@@ -25,7 +25,9 @@
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+- (BOOL)commit;
 - (id)init;
+- (id)initWithTitle:(id)arg1 documentData:(id)arg2 adaptability:(unsigned long long)arg3;
 - (id)initWithTitle:(id)arg1 documentData:(id)arg2;
 
 @end

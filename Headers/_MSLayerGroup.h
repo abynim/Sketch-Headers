@@ -24,7 +24,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveLayerIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveLayerFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllLayers;
 - (void)removeLayersAtIndexes:(id)arg1;
 - (void)removeLayerAtIndex:(unsigned long long)arg1;

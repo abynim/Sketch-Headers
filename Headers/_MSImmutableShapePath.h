@@ -20,6 +20,9 @@
 @property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 - (void).cxx_destruct;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

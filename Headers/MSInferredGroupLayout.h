@@ -10,6 +10,8 @@
 {
 }
 
+- (void)setMaxSize:(double)arg1;
+- (void)setMinSize:(double)arg1;
 - (unsigned long long)usedLayoutAnchor;
 - (id)inferredLayoutParentOrNil;
 - (BOOL)isInferredLayout;

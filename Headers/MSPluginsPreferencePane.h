@@ -7,11 +7,10 @@
 #import "MSPreferencePane.h"
 
 #import "MSDropableViewDelegate-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
 
 @class BCKeyEventActionTableView, MSPluginManager, MSPluginsPreferenceTableCellView, NSArray, NSArrayController, NSButton, NSCache, NSControl, NSFont, NSImage, NSImageView, NSMenu, NSNib, NSPredicate, NSSearchField, NSString;
 
-@interface MSPluginsPreferencePane : MSPreferencePane <NSTableViewDelegate, MSDropableViewDelegate>
+@interface MSPluginsPreferencePane : MSPreferencePane <MSDropableViewDelegate>
 {
     MSPluginsPreferenceTableCellView *_pluginCellViewForHeightCalculations;
     BOOL _enableUpdateAllButton;

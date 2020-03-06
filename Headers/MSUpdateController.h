@@ -20,7 +20,6 @@
 @property(nonatomic) BOOL updateInProgress; // @synthesize updateInProgress=_updateInProgress;
 @property(nonatomic) BOOL hasAvailableUpdates; // @synthesize hasAvailableUpdates=_hasAvailableUpdates;
 @property(nonatomic) unsigned long long unavailableUpdateCount; // @synthesize unavailableUpdateCount=_unavailableUpdateCount;
-- (id)feedParametersForUpdater:(id)arg1 sendingSystemProfile:(BOOL)arg2;
 - (id)bestValidUpdateInAppcast:(id)arg1 forUpdater:(id)arg2;
 - (id)checkerWithAppcast:(id)arg1;
 - (void)parseAppcast:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

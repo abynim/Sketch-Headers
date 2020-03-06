@@ -6,34 +6,25 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
-#import "MSInspectorSection-Protocol.h"
+@class BCPopover, NSString;
 
-@class BCPopover, MSTextLabelForUpDownField, NSButton, NSString;
-
-@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <MSInspectorSection>
+@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
-    MSTextLabelForUpDownField *_opacityLabel;
-    NSButton *_addStylePartButton;
-    NSButton *_advancedOptionsButton;
     BCPopover *_popover;
 }
 
-+ (Class)stylePartInspectorClass;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
-@property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
-@property(retain, nonatomic) MSTextLabelForUpDownField *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
 - (void).cxx_destruct;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (id)views;
-- (void)loadViewControllers;
+- (Class)inspectorClassForStyleParts:(id)arg1;
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;
 - (unsigned long long)traitsForAvancedOptions;
 - (BOOL)shouldShowAdvancedOptionsButton;
 - (void)viewWillDisappear;
-- (BOOL)shouldDisableAddStylePartButton;
+- (id)title;
+- (BOOL)shouldEnableAddStylePartButton;
 - (void)prepare;
 - (void)showAdvancedOptionsAction:(id)arg1;
 

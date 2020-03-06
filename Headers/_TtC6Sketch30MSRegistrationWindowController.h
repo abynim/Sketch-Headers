@@ -17,7 +17,6 @@
 + (void)showRegistrationWindow:(id)arg1 licenseKey:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)showTrialExpiredWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)showCloudSigninWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-+ (void)showEnableNewCloudDocumentsWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;

@@ -23,6 +23,9 @@
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
 @property(nonatomic) BOOL edited; // @synthesize edited=_edited;
 - (void).cxx_destruct;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

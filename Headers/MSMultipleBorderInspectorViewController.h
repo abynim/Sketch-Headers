@@ -6,18 +6,13 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
-@class MSBorderOptionsInspectorViewController, MSTextLabelForUpDownField, NSButton, NSString;
+@class MSBorderOptionsInspectorViewController, NSString;
 
 @interface MSMultipleBorderInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
     MSBorderOptionsInspectorViewController *_borderOptionsController;
-    MSTextLabelForUpDownField *_thicknessLabel;
-    NSButton *_addStylePartButton;
 }
 
-+ (Class)stylePartInspectorClass;
-@property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
-@property(retain, nonatomic) MSTextLabelForUpDownField *thicknessLabel; // @synthesize thicknessLabel=_thicknessLabel;
 @property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (void).cxx_destruct;
 - (id)menuTitlePaste;
@@ -25,11 +20,11 @@
 - (void)updateDisplayedValues;
 - (void)dealloc;
 - (id)views;
-- (void)loadViewControllers;
-- (BOOL)advancedOptionsApplicable;
+- (Class)inspectorClassForStyleParts:(id)arg1;
 - (BOOL)shouldShowAdvancedOptionsButton;
-- (BOOL)shouldDisableAddStylePartButton;
+- (BOOL)shouldEnableAddStylePartButton;
 - (void)styleDidEnableOrDisable;
+- (id)title;
 - (void)showAdvancedOptionsAction:(id)arg1;
 - (void)prepare;
 - (unsigned long long)stylePartType;

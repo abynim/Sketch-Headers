@@ -6,12 +6,9 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
-
 @class MSFontList, NSArray, NSSearchField, NSString, NSTableView;
 
-@interface MSFontFamilyPickerViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
+@interface MSFontFamilyPickerViewController : NSViewController
 {
     BOOL _ignoreSelectionNotifications;
     CDUnknownBlockType _completionBlock;

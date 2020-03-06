@@ -16,9 +16,11 @@
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 - (void).cxx_destruct;
 - (void)cancelDocumentDownload;
+- (void)updateCloudStatus;
 - (void)updateDownloadProgress;
-- (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (BOOL)showLibraryIcon;
+- (BOOL)showPublicShareIcon;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
