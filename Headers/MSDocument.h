@@ -14,7 +14,7 @@
 #import "MSSidebarControllerDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC6Sketch23MSDocumentChangeCounter;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintService, MSMainSplitViewController, MSToolbarConstructor, MSTreeDiff, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC11SketchModel19MSChangeCoordinator, _TtC6Sketch23MSDocumentChangeCounter;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
@@ -47,6 +47,7 @@
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
     MSLintService *_lintService;
+    _TtC11SketchModel19MSChangeCoordinator *_changeCoordinator;
     MSImmutableDocumentData *_documentDataUsedForSupplementaryViews;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -75,6 +76,7 @@
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
 @property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
 @property(retain, nonatomic) MSImmutableDocumentData *documentDataUsedForSupplementaryViews; // @synthesize documentDataUsedForSupplementaryViews=_documentDataUsedForSupplementaryViews;
+@property(readonly, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
 @property(nonatomic) BOOL isComponentPaneVisible; // @synthesize isComponentPaneVisible=_isComponentPaneVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
@@ -91,7 +93,7 @@
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
-@property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(readonly, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
@@ -233,7 +235,7 @@
 @property(readonly, nonatomic) BOOL hasPendingCloudDocumentUploadRequest;
 @property(retain, nonatomic) MSImmutableDocumentData *exportableImmutableData;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
-- (void)resetDocumentData:(id)arg1;
+- (void)setDocumentData:(id)arg1 reset:(BOOL)arg2;
 - (void)loadInspectorPanel;
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;

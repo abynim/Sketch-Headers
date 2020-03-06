@@ -13,6 +13,7 @@
 
 @optional
 - (NSUndoManager *)colorInspectorUndoManager:(MSColorInspector *)arg1;
+- (BOOL)colorInspectorShouldAdjustInspectorToPopover:(MSColorInspector *)arg1;
 - (void)colorInspectorWillClose:(MSColorInspector *)arg1;
 - (void)colorInspectorDidChange:(MSColorInspector *)arg1;
 - (void)inspectorDidChangeType:(MSColorInspector *)arg1;

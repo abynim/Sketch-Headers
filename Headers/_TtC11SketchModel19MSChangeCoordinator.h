@@ -21,9 +21,8 @@
 @property(nonatomic, retain) MSTreeDiff *treeDiff; // @synthesize treeDiff;
 - (BOOL)processPendingChanges;
 - (void)documentDataChanged;
-- (void)close;
-@property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData;
-- (id)initWithDocumentData:(id)arg1;
+- (void)setDocumentData:(id)arg1 treatAsChange:(BOOL)arg2;
+@property(nonatomic, retain) MSDocumentData *documentData; // @synthesize documentData;
 
 @end
 

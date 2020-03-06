@@ -35,7 +35,7 @@
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
-@property(readonly, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
+@property(retain, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
 - (void).cxx_destruct;
 - (void)prepareForChangeProcessing;
 - (void)refreshOverlay;
