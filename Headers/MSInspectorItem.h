@@ -6,13 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "MSInspectorValueAdaptorDelegate-Protocol.h"
 #import "MSUpDownTextFieldDelegate-Protocol.h"
 
 @class MSDocument, MSLayerArray, NSArrayController, NSMapTable, NSString;
 @protocol MSInspectorItemDelegate;
 
-@interface MSInspectorItem : NSViewController <MSInspectorValueAdaptorDelegate, MSUpDownTextFieldDelegate>
+@interface MSInspectorItem : NSViewController <MSUpDownTextFieldDelegate>
 {
     id <MSInspectorItemDelegate> _delegate;
     MSLayerArray *_layers;
@@ -36,12 +35,12 @@
 - (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5;
 @property(readonly, nonatomic) MSDocument *document;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 maximumSizeWithDecorations:(struct CGSize)arg4 scale:(double)arg5 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg6;
-- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)refreshAction:(id)arg1;
 
 // Remaining properties

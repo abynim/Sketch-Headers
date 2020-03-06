@@ -55,6 +55,7 @@
 @property(readonly, nonatomic) NSSet *xAxisRoots;
 - (id)intersectionsWithVerticalLineAt:(double)arg1;
 - (id)intersectionsWithHorizontalLineAt:(double)arg1;
+- (id)setFromOffsets:(double *)arg1 count:(unsigned long long)arg2;
 @property(readonly, nonatomic) NSSet *inflectionOffsets;
 @property(readonly, nonatomic) double flatness;
 - (id)normalizedSegment;

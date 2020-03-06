@@ -9,11 +9,13 @@
 @interface MSDocumentsCollectionImageView : NSImageView
 {
     BOOL _selected;
+    BOOL _overlayEnabled;
     SEL _doubleClickAction;
     unsigned long long _imageInterpolation;
 }
 
 + (Class)cellClass;
+@property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
 @property(nonatomic) unsigned long long imageInterpolation; // @synthesize imageInterpolation=_imageInterpolation;
 @property(nonatomic) SEL doubleClickAction; // @synthesize doubleClickAction=_doubleClickAction;
 @property(nonatomic, getter=isSelected) BOOL selected;

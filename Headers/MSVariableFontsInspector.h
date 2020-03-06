@@ -7,11 +7,12 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSVariableFontAxisViewControllerDelegate-Protocol.h"
+#import "NSCollectionViewDelegate-Protocol.h"
 
 @class NSArray, NSCollectionView, NSFont, NSString, NSView;
 @protocol MSVariableFontsInspectorDelegate;
 
-@interface MSVariableFontsInspector : NSViewController <MSVariableFontAxisViewControllerDelegate>
+@interface MSVariableFontsInspector : NSViewController <MSVariableFontAxisViewControllerDelegate, NSCollectionViewDelegate>
 {
     id <MSVariableFontsInspectorDelegate> _delegate;
     NSFont *_font;
@@ -28,6 +29,8 @@
 @property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
 @property(nonatomic) __weak id <MSVariableFontsInspectorDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)fixKeyViewLoop;
+- (void)collectionView:(id)arg1 willDisplayItem:(id)arg2 forRepresentedObjectAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (long long)numberOfSectionsInCollectionView:(id)arg1;

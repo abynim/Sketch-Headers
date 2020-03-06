@@ -20,7 +20,7 @@
 - (BOOL)encodeRootObject:(id)arg1 error:(id *)arg2;
 - (void)finishWriting;
 - (void)writeData:(const void *)arg1 length:(unsigned long long)arg2;
-- (void)decalloc;
+- (void)dealloc;
 - (id)initWithFile:(id)arg1;
 
 @end

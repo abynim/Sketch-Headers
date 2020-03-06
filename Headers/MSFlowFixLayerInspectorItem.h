@@ -6,11 +6,9 @@
 
 #import "MSInspectorItem.h"
 
-#import "MSLayerChangeObserver-Protocol.h"
+@class NSButton;
 
-@class NSButton, NSString;
-
-@interface MSFlowFixLayerInspectorItem : MSInspectorItem <MSLayerChangeObserver>
+@interface MSFlowFixLayerInspectorItem : MSInspectorItem
 {
     NSButton *_fixToViewportButton;
 }
@@ -18,16 +16,9 @@
 @property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 - (void).cxx_destruct;
 - (void)validateFixLayersToViewportButton;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
-- (void)layerDidChange:(id)arg1;
 - (void)setLayers:(id)arg1;
-- (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

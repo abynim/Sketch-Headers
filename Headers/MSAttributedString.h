@@ -61,7 +61,6 @@
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;
-- (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2;
 - (id)initWithAttributedString:(id)arg1 colorSpace:(id)arg2 convert:(BOOL)arg3;
 - (id)initWithEncodedAttributedString:(id)arg1;
 - (id)init;

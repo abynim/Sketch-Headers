@@ -49,7 +49,6 @@
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)findMouseAndDisconnectFromTarget;
-- (void)handlerDidLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;
 

@@ -10,8 +10,5 @@
 - (void)refreshIfNecessary:(MSTreeDiff *)arg1;
 - (void)selectionDidChangeTo:(NSArray *)arg1;
 - (void)prepareForDisplay;
-
-@optional
-- (void)layerPositionPossiblyChanged;
 @end
 

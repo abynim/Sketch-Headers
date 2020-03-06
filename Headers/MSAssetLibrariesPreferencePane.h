@@ -49,6 +49,7 @@
 @property(retain, nonatomic) NSArrayController *librariesArrayController; // @synthesize librariesArrayController=_librariesArrayController;
 @property(nonatomic) __weak MSAssetLibraryTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
+- (void)duplicateLibraryDisabled:(id)arg1;
 - (void)libraryControllerDidChange:(id)arg1;
 - (void)learnMoreAboutLibraries:(id)arg1;
 - (void)updateQLPreview;

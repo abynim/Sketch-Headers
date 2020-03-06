@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSRateLimiter, NSArray, NSArrayController, NSHashTable, NSView;
+@class NSArray, NSArrayController, NSHashTable, NSSet, NSView;
 @protocol MSInspectorValueAdaptorDelegate;
 
 @interface MSInspectorValueAdaptor : NSObject
@@ -19,10 +19,10 @@
     CDUnknownBlockType _valueSetter;
     NSArray *_keyPathsToWatch;
     NSHashTable *_changeObservers;
-    MSRateLimiter *_rateLimiter;
+    NSSet *_diffKeysAffectingValue;
 }
 
-@property(retain, nonatomic) MSRateLimiter *rateLimiter; // @synthesize rateLimiter=_rateLimiter;
+@property(readonly, nonatomic) NSSet *diffKeysAffectingValue; // @synthesize diffKeysAffectingValue=_diffKeysAffectingValue;
 @property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) NSArray *keyPathsToWatch; // @synthesize keyPathsToWatch=_keyPathsToWatch;
 @property(copy, nonatomic) CDUnknownBlockType valueSetter; // @synthesize valueSetter=_valueSetter;
@@ -41,9 +41,9 @@
 - (void)doSetValue:(id)arg1;
 @property(retain, nonatomic) id value;
 - (void)updateValues;
-- (void)triggerValuesDidChange;
-- (void)valuesDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)refreshIfNecessary:(id)arg1;
+- (void)updateOnDiffAffectedByKeys:(id)arg1;
 - (void)dealloc;
 - (void)removeKVOObservers;
 - (id)initWithModelsController:(id)arg1 valueGetter:(CDUnknownBlockType)arg2 valueSetter:(CDUnknownBlockType)arg3 modelKeyPathsToWatch:(id)arg4;

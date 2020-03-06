@@ -15,6 +15,7 @@
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
+    BOOL _isLayerPastedFromLayerList;
     MSNormalEventData *_eventData;
     long long _dragMode;
     _TtC6Sketch28MSSelectionOverlayController *_selectionOverlayController;
@@ -36,6 +37,7 @@
 @property(retain, nonatomic) MSLayerDragController *dragController; // @synthesize dragController=_dragController;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
+@property(nonatomic) BOOL isLayerPastedFromLayerList; // @synthesize isLayerPastedFromLayerList=_isLayerPastedFromLayerList;
 @property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
 @property(retain, nonatomic) MSHitTestResult *mouseDownHitTest; // @synthesize mouseDownHitTest=_mouseDownHitTest;
@@ -77,12 +79,13 @@
 - (void)updateDragWithGestureRecognizer:(id)arg1;
 - (void)startDraggingAtPoint:(struct CGPoint)arg1;
 - (void)layerDragged:(id)arg1;
+- (unsigned long long)draggingEntered:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (id)siblingsOfSelectedShapePathLayers;
 - (id)overlayItemsForSelectedShapePathLayers;
 - (id)overlayLayerHighlightItems;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
-- (void)prepareToDraw:(id)arg1;
+- (void)documentDidChange:(id)arg1;
 - (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;

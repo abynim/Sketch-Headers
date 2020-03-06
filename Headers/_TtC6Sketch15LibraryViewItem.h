@@ -11,6 +11,7 @@
     // Error parsing type: , name: library
     // Error parsing type: , name: isSelectable
     // Error parsing type: , name: expansionState
+    // Error parsing type: , name: isVariableHeight
     // Error parsing type: , name: children
 }
 

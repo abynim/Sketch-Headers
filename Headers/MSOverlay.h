@@ -8,23 +8,24 @@
 
 #import <SketchControllers/MSOverlayItemDataSource-Protocol.h>
 
-@class NSString;
+@class NSString, NSView;
 @protocol MSTiledRendererHostView;
 
 @interface MSOverlay : NSObject <MSOverlayItemDataSource>
 {
     BOOL _hidden;
-    id <MSTiledRendererHostView> _hostView;
+    NSView<MSTiledRendererHostView> *_hostView;
     struct CGRect _visibleRect;
 }
 
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect=_visibleRect;
-@property(nonatomic) __weak id <MSTiledRendererHostView> hostView; // @synthesize hostView=_hostView;
+@property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView=_hostView;
 @property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
 - (void).cxx_destruct;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)setNeedsDisplay;
+- (void)mouseDownAtPoint:(struct CGPoint)arg1 clickCount:(long long)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)trackMouseWithLocation:(struct CGPoint)arg1;
 - (id)init;

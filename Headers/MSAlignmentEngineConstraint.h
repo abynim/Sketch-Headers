@@ -6,9 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
-
-@interface MSAlignmentEngineConstraint : NSObject <NSCopying>
+@interface MSAlignmentEngineConstraint : NSObject
 {
     struct CGPoint _sourcePoint;
     struct CGVector _direction;

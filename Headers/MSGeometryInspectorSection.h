@@ -40,9 +40,6 @@
 @property(retain, nonatomic) MSPositionInspectorItem *positionItem; // @synthesize positionItem=_positionItem;
 - (void).cxx_destruct;
 - (struct NSEdgeInsets)separatorInsets;
-- (void)valuesPossiblyChanged:(id)arg1;
-- (void)refreshIfNecessary:(id)arg1;
-- (void)refreshBindingsOnPath:(id)arg1;
 - (BOOL)hasSliceLayer;
 - (BOOL)hasArtboardLayer;
 - (BOOL)hasOnlyImageLayers;

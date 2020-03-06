@@ -7,14 +7,9 @@
 #import <SketchModel/MSTextLayer.h>
 
 @interface MSTextLayer (UISupport)
-+ (id)keyPathsForValuesAffectingTextBehaviourLabelString;
-+ (id)keyPathsForValuesAffectingTextBehaviourSegmentTag;
 + (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (void)setTextBehaviourSegmentTag:(long long)arg1;
-- (id)textBehaviourLabelString;
-- (long long)textBehaviourSegmentTag;
 @property(readonly, nonatomic) BOOL supportsVerticalAlignment;
 - (BOOL)supportsInnerOuterBorders;
 @end

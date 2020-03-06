@@ -28,6 +28,7 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *lengthField; // @synthesize lengthField=_lengthField;
 - (void).cxx_destruct;
 - (void)updateButtonState:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

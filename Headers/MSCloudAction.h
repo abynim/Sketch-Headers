@@ -71,7 +71,7 @@
 - (void)uploadProvider:(id)arg1 uploadStartedWithStatus:(id)arg2;
 - (void)uploadProviderDidCancelUploading:(id)arg1;
 - (void)uploadProvider:(id)arg1 didUploadShare:(id)arg2;
-- (void)displayUploadFailedSheet;
+- (void)displayUploadFailedError:(id)arg1;
 - (double)displayErrorSheetPeriod;
 - (void)clearErrorSheetTimer:(id)arg1;
 - (void)setupDisplayErrorSheetTimer;

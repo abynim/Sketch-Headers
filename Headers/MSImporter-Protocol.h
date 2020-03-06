@@ -16,7 +16,7 @@
 - (NSString *)firstPhaseSubtitle;
 - (void)finishImporting;
 - (void)importIntoPage:(MSPage *)arg1 name:(NSString *)arg2 progress:(void (^)(void))arg3;
-- (unsigned long long)prepareToImportFromURL:(NSURL *)arg1;
+- (unsigned long long)prepareToImportFromURL:(NSURL *)arg1 error:(id *)arg2;
 - (unsigned long long)prepareToImportFromData:(NSData *)arg1;
 @end
 

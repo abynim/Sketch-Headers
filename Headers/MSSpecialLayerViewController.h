@@ -33,7 +33,6 @@
 - (void)sectionDidResize:(id)arg1;
 - (id)userInterfaceCacheForSection:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
-- (void)valuesPossiblyChanged;
 - (void)changeTextLayerFont:(id)arg1;
 - (id)views;
 - (id)regularLayerInspectorSections;

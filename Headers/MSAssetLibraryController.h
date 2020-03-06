@@ -69,6 +69,8 @@
 - (void)saveLibraries:(id)arg1 withLibrariesKey:(id)arg2;
 - (void)removeAssetLibrary:(id)arg1;
 - (long long)addAssetLibraryAtURL:(id)arg1;
+- (BOOL)disableLibrariesMatchingLibrary:(id)arg1 afterAdding:(BOOL)arg2;
+- (id)existingLibraryMatchingLibrary:(id)arg1;
 - (void)cloudLibrariesDidFinishUpdate;
 - (void)cloudLibrariesWillUpdate;
 - (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;

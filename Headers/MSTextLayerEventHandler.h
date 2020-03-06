@@ -20,7 +20,6 @@
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 - (void).cxx_destruct;
 - (void)setListType:(id)arg1;
-- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)viewDidScroll:(id)arg1;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;

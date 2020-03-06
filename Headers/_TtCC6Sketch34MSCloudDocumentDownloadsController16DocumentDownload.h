@@ -6,12 +6,14 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtCC6Sketch40MSCloudDocumentDownloadsWindowController16DocumentDownload : _TtCs12_SwiftObject
+@interface _TtCC6Sketch34MSCloudDocumentDownloadsController16DocumentDownload : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: operation
     // Error parsing type: , name: displayAfterDownload
     // Error parsing type: , name: document
     // Error parsing type: , name: updatedShare
+    // Error parsing type: , name: error
+    // Error parsing type: , name: saveLocation
     // Error parsing type: , name: openCompletionHandlers
 }
 

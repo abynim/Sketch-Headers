@@ -24,7 +24,9 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
+- (void)cloudUserDidChange:(id)arg1;
 - (id)willPresentError:(id)arg1;
+- (void)copyLinkToCloudDocument:(id)arg1;
 - (void)revealDocumentInCloud:(id)arg1;
 - (void)revealDocumentInFinder:(id)arg1;
 - (void)newCloudDocument:(id)arg1;

@@ -9,6 +9,7 @@
 @class NSData, NSString, NSURL, PDFScanner;
 
 @protocol PDFParser <NSObject>
+- (BOOL)isLocked;
 - (NSString *)name;
 - (unsigned long long)pageCount;
 - (void)parsePastedDocument;

@@ -30,6 +30,7 @@
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (BOOL)allowFloatValues;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

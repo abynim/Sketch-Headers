@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/MSDataApplicable-Protocol.h>
+
 @class MSAvailableOverride, MSImmutableStyledLayer, MSSymbolInstance, NSString;
 
-@interface MSDataOverride : NSObject
+@interface MSDataOverride : NSObject <MSDataApplicable>
 {
     MSAvailableOverride *_availableOverride;
     MSSymbolInstance *_symbolInstance;
@@ -17,10 +19,16 @@
 @property(readonly, nonatomic) MSSymbolInstance *symbolInstance; // @synthesize symbolInstance=_symbolInstance;
 @property(readonly, nonatomic) MSAvailableOverride *availableOverride; // @synthesize availableOverride=_availableOverride;
 - (void).cxx_destruct;
-- (id)description;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSString *overrideIdentifier;
 @property(readonly, nonatomic) MSImmutableStyledLayer *affectedLayer;
 - (id)initWithOverride:(id)arg1 symbolInstance:(id)arg2;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -10,6 +10,7 @@
 + (id)arrayByMergingArrays:(id)arg1;
 + (id)arrayWithCapacity:(unsigned long long)arg1 fill:(CDUnknownBlockType)arg2;
 + (id)flattenedArrays:(id)arg1;
+- (id)loopingEnumerator;
 - (unsigned long long)indexOfSubArray:(id)arg1;
 - (id)rotateTwoDimensionalArray;
 - (id)uniqueObjects;

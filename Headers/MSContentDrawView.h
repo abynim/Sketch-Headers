@@ -8,13 +8,13 @@
 
 #import "CALayerDelegate-Protocol.h"
 #import "MSEventHandlerManagerDelegate-Protocol.h"
-#import "MSOverlayRenderingDelegate-Protocol.h"
+#import "MSOverlayItemDataSource-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSCacheManager, MSDocument, MSEventHandlerManager, MSFlowItemCollector, MSMouseTracker, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledRenderer, MSViewPort, MSVisualSettings, MSZoomTool, NSDictionary, NSNumberFormatter, NSString;
+@class MSCacheManager, MSDocument, MSEventHandlerManager, MSMouseTracker, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSTiledRenderer, MSViewPort, MSVisualSettings, MSZoomTool, NSNumberFormatter, NSString, _TtC6Sketch18MSScrollRecognizer;
 @protocol MSContentDrawViewDelegate;
 
-@interface MSContentDrawView : NSView <MSOverlayRenderingDelegate, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
+@interface MSContentDrawView : NSView <MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
 {
     BOOL handToolIsActive;
     struct CGPoint handToolOriginalPoint;
@@ -47,15 +47,12 @@
     struct __CFRunLoopSource *_redrawSourceRef;
     unsigned long long _previouslyRenderedColorSpace;
     NSNumberFormatter *_measurementLabelNumberFormatter;
-    MSFlowItemCollector *_flowCollector;
-    NSDictionary *_cachedFlows;
     MSVisualSettings *_visualSettings;
+    _TtC6Sketch18MSScrollRecognizer *_scrollRecognizer;
     struct __CVDisplayLink *_displayLink;
     NSString *_acceleratorClassName;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
-    struct CGPoint _momentumScrollOrigin;
-    struct CGVector _momentumScrollAccumulatedDelta;
 }
 
 + (struct CGPoint)absoluteCoordinatesFromViewCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
@@ -64,11 +61,8 @@
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
 @property(retain, nonatomic) NSString *acceleratorClassName; // @synthesize acceleratorClassName=_acceleratorClassName;
 @property(nonatomic) struct __CVDisplayLink *displayLink; // @synthesize displayLink=_displayLink;
-@property(nonatomic) struct CGVector momentumScrollAccumulatedDelta; // @synthesize momentumScrollAccumulatedDelta=_momentumScrollAccumulatedDelta;
-@property(nonatomic) struct CGPoint momentumScrollOrigin; // @synthesize momentumScrollOrigin=_momentumScrollOrigin;
+@property(readonly, nonatomic) _TtC6Sketch18MSScrollRecognizer *scrollRecognizer; // @synthesize scrollRecognizer=_scrollRecognizer;
 @property(retain, nonatomic) MSVisualSettings *visualSettings; // @synthesize visualSettings=_visualSettings;
-@property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
-@property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
 @property BOOL needsRedrawOnNextDisplayRefresh; // @synthesize needsRedrawOnNextDisplayRefresh=_needsRedrawOnNextDisplayRefresh;
 @property(nonatomic) BOOL refreshAfterSettingsChangeScheduled; // @synthesize refreshAfterSettingsChangeScheduled=_refreshAfterSettingsChangeScheduled;
 @property(nonatomic) BOOL didMouseDragged; // @synthesize didMouseDragged=_didMouseDragged;
@@ -98,7 +92,7 @@
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
 - (struct CGPoint)convertPointFromPage:(struct CGPoint)arg1;
-- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)returnToDefaultHandlerIfNeededForResize;
 - (void)windowDidResize:(id)arg1;
@@ -146,7 +140,7 @@
 - (void)displayPropertiesDidChange;
 - (void)completeMagnifyWithFactor;
 - (void)magnifyByFactor:(double)arg1 centerOnMouse:(BOOL)arg2;
-- (void)scrollWheelScroll:(id)arg1;
+- (void)scroll:(id)arg1;
 - (void)scrollWheel:(id)arg1;
 - (void)magnifyWithEvent:(id)arg1;
 - (void)centerSelectionInVisibleArea;
@@ -200,9 +194,6 @@
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)flowItems:(unsigned long long)arg1;
-- (void)renderLegacyOverlayInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2 pageOverlayRenderOptions:(unsigned long long)arg3;
-- (BOOL)requiresLegacyOverlayRendering;
-@property(readonly, nonatomic) BOOL hasFlowCollector;
 - (unsigned long long)overlayOptionsForPage:(id)arg1 zoom:(double)arg2 fullScreen:(BOOL)arg3;
 - (void)scrollBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;

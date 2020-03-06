@@ -7,11 +7,10 @@
 #import "MSCustomShapeItem.h"
 
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
-#import "MSLayerChangeObserver-Protocol.h"
 
 @class MSCornerRadiusInspectorValueAdaptor, MSInlineUpDownTextField, NSPopUpButton, NSSlider, NSString;
 
-@interface MSRectangleShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate, MSLayerChangeObserver>
+@interface MSRectangleShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
 {
     MSInlineUpDownTextField *_radiusField;
     NSSlider *_radiusSlider;
@@ -25,11 +24,12 @@
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
 - (void).cxx_destruct;
-- (void)layerDidChange:(id)arg1;
-- (void)setLayers:(id)arg1;
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
+- (void)updateRadiusAdaptor;
+- (void)updateCurvaturePopupTitle;
 - (void)sliderAction:(id)arg1;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

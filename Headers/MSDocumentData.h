@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentData-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString;
+@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel19MSChangeCoordinator;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
@@ -17,6 +17,7 @@
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
     NSArray *_selectedOverrides;
+    _TtC11SketchModel19MSChangeCoordinator *_changeCoordinator;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -34,7 +35,9 @@
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
+@property(readonly, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
 - (void).cxx_destruct;
+- (void)prepareForChangeProcessing;
 - (void)refreshOverlay;
 - (void)temporarilyHideSelectionForLayers:(id)arg1;
 - (void)replaceExistingCreationMetadata;
@@ -56,6 +59,7 @@
 - (id)symbolsReferencedByInstances:(id)arg1;
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
+- (id)symbolInstancesNestedInsideMasters:(id)arg1;
 - (void)invalidateAffectedSymbolInstances;
 - (void)addSymbolMaster:(id)arg1;
 - (id)symbolWithID:(id)arg1;

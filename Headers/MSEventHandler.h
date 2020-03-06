@@ -6,14 +6,13 @@
 
 #import <AppKit/NSResponder.h>
 
-#import "MSEventHandlerLegacyOverlayRendering-Protocol.h"
 #import "MSOverlayItemDataSource-Protocol.h"
 #import "NSDraggingDestination-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
 @class MSDuplicateOffsetTracker, MSEventHandlerManager, MSEventHandlerOverlayItemImageCache, NSArray, NSCursor, NSDictionary, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
 
-@interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate, MSEventHandlerLegacyOverlayRendering, MSOverlayItemDataSource>
+@interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate, MSOverlayItemDataSource>
 {
     BOOL didDrag;
     struct CGPoint mouseAtTimeOfMenu;
@@ -108,8 +107,8 @@
 @property(readonly) BOOL wantsStandardSelectionControls;
 - (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
-- (void)documentChanged:(id)arg1;
-- (void)prepareToDraw:(id)arg1;
+- (void)documentChangedAndStartedRendering:(id)arg1;
+- (void)documentDidChange:(id)arg1;
 - (void)changeColor:(id)arg1;
 - (void)drawHandles;
 - (BOOL)arrowKeyIsPressed:(unsigned short)arg1;

@@ -31,7 +31,6 @@
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)doUpdateDisplayedValues:(id)arg1;
-- (void)valuesPossiblyChanged:(id)arg1;
 - (void)textViewDidChange:(id)arg1;
 - (BOOL)isShowingAdvancedItem;
 - (void)updateItems;
@@ -42,7 +41,6 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
-@property(nonatomic) BOOL valuesPossiblyDirty; // @dynamic valuesPossiblyDirty;
 
 @end
 

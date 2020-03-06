@@ -6,9 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
-
-@interface MSSnappingTarget : NSObject <NSCopying>
+@interface MSSnappingTarget : NSObject
 {
     unsigned long long _guideType;
     struct CGPoint _point;

@@ -10,7 +10,7 @@
 
 @interface MSPathController : NSObject
 {
-    NSMutableArray *_selectedHandles;
+    NSMutableArray *_selectedComponents;
     MSShapeChangeContext *_changeContext;
     NSArray *_content;
 }
@@ -29,8 +29,8 @@
 - (void)runChange:(id)arg1;
 @property(readonly, nonatomic) NSArray *selectedObjects;
 - (void)didChangeSelection;
-- (void)setSelectionIndexPath:(id)arg1;
-@property(copy, nonatomic) NSArray *selectionIndexPaths;
+- (void)setSelectionComponent:(id)arg1;
+@property(copy, nonatomic) NSArray *selectionComponents;
 - (id)init;
 
 @end

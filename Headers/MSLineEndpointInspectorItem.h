@@ -17,6 +17,7 @@
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithTitle:(id)arg1 field1Label:(id)arg2 field2Label:(id)arg3 xPath:(id)arg4 yPath:(id)arg5;
 

@@ -29,8 +29,8 @@
 @property(retain, nonatomic) NSMutableArray *secondObjectAncestorStack; // @synthesize secondObjectAncestorStack=_secondObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *firstObjectAncestorStack; // @synthesize firstObjectAncestorStack=_firstObjectAncestorStack;
 @property(retain, nonatomic) NSMutableArray *mutableDiffs; // @synthesize mutableDiffs=_mutableDiffs;
-@property(retain, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
-@property(retain, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
+@property(readonly, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
+@property(readonly, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL haveComponentsChanged;
 @property(readonly, nonatomic) BOOL haveSharedTextStylesChanged;
@@ -41,10 +41,11 @@
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
+- (BOOL)affectsAnyKeyIn:(id)arg1;
+- (BOOL)affectsKey:(id)arg1;
 @property(readonly, nonatomic) NSSet *keysAffectedByDiff; // @synthesize keysAffectedByDiff=_keysAffectedByDiff;
 - (void)buildPropertyTraitsIfNeeded;
 - (id)description;
-- (struct CGRect)overlayDirtyDiffRectForPage:(id)arg1;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
 - (void)diffObject:(id)arg1 withObject:(id)arg2;

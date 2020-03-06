@@ -4,11 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "NSObject-Protocol.h"
+#import <Foundation/NSString.h>
 
-@class MSLayer;
-
-@protocol MSLayerChangeObserver <NSObject>
-- (void)layerDidChange:(MSLayer *)arg1;
+@interface NSString (Sketch3)
++ (id)MSRadialGradientEllipse;
 @end
 

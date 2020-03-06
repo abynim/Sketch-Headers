@@ -6,7 +6,7 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class MSCloudDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
+@class MSDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
@@ -53,7 +53,7 @@
 - (void)selectOrganization:(id)arg1;
 - (void)reloadOrganizations;
 - (void)updateView;
-@property(readonly, nonatomic) MSCloudDocument *cloudDocument;
+@property(readonly, nonatomic) MSDocument *targetDocument;
 - (void)awakeFromNib;
 
 @end

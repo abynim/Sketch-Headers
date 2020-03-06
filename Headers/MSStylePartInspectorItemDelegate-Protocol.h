@@ -9,7 +9,7 @@
 @class MSDocument, NSViewController;
 
 @protocol MSStylePartInspectorItemDelegate <NSObject>
-- (void)valuesPossiblyChanged:(NSViewController *)arg1;
+- (void)blurStyleChanged:(NSViewController *)arg1;
 - (MSDocument *)stylePartInspectorItemDocument:(NSViewController *)arg1;
 @end
 

@@ -10,13 +10,15 @@
 {
 }
 
+- (void)closeAllDocumentsWithDelegate:(id)arg1 cancellingSheets:(BOOL)arg2 didCloseAllSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (id)defaultType;
 - (void)noteNewRecentDocumentURL:(id)arg1;
 - (void)noteNewRecentDocument:(id)arg1;
 - (BOOL)shoudNoteRecentDocumentForType:(id)arg1;
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openLocalDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)makeDocumentWithContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (id)makeUntitledDocumentOfType:(id)arg1 error:(id *)arg2;

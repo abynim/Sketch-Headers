@@ -6,15 +6,16 @@
 
 #import <AppKit/NSTextFieldCell.h>
 
-@interface MSDocumentsCollectionTextFieldCell : NSTextFieldCell
+@class NSColor;
+
+@interface _TtC6Sketch32DocumentsCollectionTextFieldCell : NSTextFieldCell
 {
 }
 
+- (id)initWithCoder:(id)arg1;
+- (id)initTextCell:(id)arg1;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-- (id)selectionColor;
-- (id)textColor;
-- (BOOL)isSelected;
-- (BOOL)isEmphasized;
+@property(nonatomic, retain) NSColor *textColor;
 
 @end
 

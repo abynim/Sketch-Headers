@@ -9,7 +9,7 @@
 @interface _TtC6Sketch21LibraryListController : _TtC6Sketch34ComponentPaneOutlineViewController
 {
     // Error parsing type: , name: cachedAllLibrariesViewItem
-    // Error parsing type: , name: documentViewItem
+    // Error parsing type: , name: documentViewItem.storage
     // Error parsing type: , name: foreignLibraryViewItems
 }
 

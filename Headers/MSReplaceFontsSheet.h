@@ -26,8 +26,6 @@
 @property(retain, nonatomic) NSMutableArray *fonts; // @synthesize fonts=_fonts;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
-- (BOOL)popoverShouldCauseExistingPopoversToClose:(id)arg1;
-- (BOOL)popoverShouldCloseWhenNewPopoverOpens:(id)arg1 newPopover:(id)arg2;
 - (BOOL)closePopover;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;

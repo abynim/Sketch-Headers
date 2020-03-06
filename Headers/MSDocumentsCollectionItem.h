@@ -8,20 +8,36 @@
 
 #import "MSDocumentsCollectionItemPreviewImageLoading-Protocol.h"
 
-@class NSImage, NSString, NSURL;
+@class NSError, NSImage, NSProgress, NSString, NSURL;
 
 @interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
 {
     NSString *_title;
+    NSString *_status;
+    NSString *_statusColor;
     NSString *_toolTip;
+    NSProgress *_downloadProgress;
+    NSError *_downloadError;
 }
 
++ (id)keyPathsForValuesAffectingStatusColor;
++ (id)keyPathsForValuesAffectingStatus;
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
+@property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
+@property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
+@property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
+@property(retain, nonatomic) NSString *status; // @synthesize status=_status;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)cancelDocumentDownload;
+- (void)downloadChangedNotificationHandler:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
+- (id)getStatusColor;
+- (id)getStatus;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
 - (id)init;

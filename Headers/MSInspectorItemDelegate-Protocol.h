@@ -11,7 +11,6 @@
 @protocol MSInspectorItemDelegate <NSObject>
 - (MSDocument *)documentForInspectorItem:(NSViewController *)arg1;
 - (void)itemDidResize:(NSViewController *)arg1;
-- (void)valuesPossiblyChanged:(NSViewController *)arg1;
 
 @optional
 - (NSCache *)userInterfaceCacheForItem:(NSViewController *)arg1;

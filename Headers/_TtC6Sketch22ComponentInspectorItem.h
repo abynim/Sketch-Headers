@@ -15,7 +15,6 @@
 
 - (void).cxx_destruct;
 - (void)pickComponent:(id)arg1;
-- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewWillDisappear;
 - (void)libraryControllerDidChange:(id)arg1;

@@ -88,10 +88,8 @@
 @property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
 - (void)applyAppearanceToAllWindows:(id)arg1;
-- (void)toggleDarkMode:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshDocumentWindowBadges;
 - (void)refreshDocuments;
 - (void)refreshCurrentDocument;

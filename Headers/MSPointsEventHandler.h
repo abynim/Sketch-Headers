@@ -6,20 +6,18 @@
 
 #import "MSEventHandler.h"
 
-@class MSAlignmentEngineResult, MSClickGestureRecognizer, MSLayer, MSPointSelectionOverlay, MSStyledLayer;
+@class MSAlignmentEngineResult, MSHandleOverlay, MSLayer, MSStyledLayer;
 
 @interface MSPointsEventHandler : MSEventHandler
 {
     MSStyledLayer *_layer;
     long long _indexForSelectedPoint;
-    MSPointSelectionOverlay *_handlesOverlay;
-    MSClickGestureRecognizer *_endEditingGestureRecognizer;
+    MSHandleOverlay *_handlesOverlay;
     MSAlignmentEngineResult *_alignmentResult;
 }
 
 @property(retain, nonatomic) MSAlignmentEngineResult *alignmentResult; // @synthesize alignmentResult=_alignmentResult;
-@property(readonly, nonatomic) MSClickGestureRecognizer *endEditingGestureRecognizer; // @synthesize endEditingGestureRecognizer=_endEditingGestureRecognizer;
-@property(readonly, nonatomic) MSPointSelectionOverlay *handlesOverlay; // @synthesize handlesOverlay=_handlesOverlay;
+@property(readonly, nonatomic) MSHandleOverlay *handlesOverlay; // @synthesize handlesOverlay=_handlesOverlay;
 @property(nonatomic) long long indexForSelectedPoint; // @synthesize indexForSelectedPoint=_indexForSelectedPoint;
 @property(retain, nonatomic) MSStyledLayer *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
@@ -27,7 +25,7 @@
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1 toPoints:(id)arg2;
 - (id)pointsToSnap;
 - (BOOL)useSnaps;
-- (struct CGPoint)pointSelectionOverlay:(id)arg1 layout:(id)arg2 locationOfHandleAtIndexPath:(id)arg3;
+- (struct CGPoint)handleOverlay:(id)arg1 layout:(id)arg2 locationOfHandleAtIndexPath:(id)arg3;
 - (id)collectionOverlay:(id)arg1 overlayItemImagesForColorSpace:(struct CGColorSpace *)arg2 backingScale:(double)arg3;
 - (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (id)collectionOverlay:(id)arg1 overlayItemContainerForItemAtIndexPath:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
@@ -35,8 +33,8 @@
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)keyDown:(id)arg1;
 - (BOOL)shouldReturnToDefaultHandlerInCurrentState;
-- (void)pointSelectionOverlay:(id)arg1 didFinishDraggingHandleAtIndexPath:(id)arg2;
-- (void)pointSelectionOverlay:(id)arg1 moveHandleAtIndexPath:(id)arg2 toPoint:(struct CGPoint)arg3 modifierFlags:(unsigned long long)arg4;
+- (void)handleOverlayDidFinishDrag:(id)arg1;
+- (void)handleOverlay:(id)arg1 updateDragWithLocation:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)movePointAtIndex:(long long)arg1 toLocation:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
@@ -46,7 +44,7 @@
 - (void)collectionOverlay:(id)arg1 didSelectItemAtIndexPath:(id)arg2;
 - (struct CGRect)bounds;
 - (id)points;
-- (void)maybeEndEditing:(id)arg1;
+- (void)handleOverlay:(id)arg1 didClickAtPoint:(struct CGPoint)arg2;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)findSelectedLayer;

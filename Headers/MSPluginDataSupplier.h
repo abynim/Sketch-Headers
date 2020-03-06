@@ -27,8 +27,7 @@
 @property(readonly, nonatomic) NSString *subgroupName;
 - (BOOL)valid;
 - (id)imageFileURLForDataItem:(id)arg1;
-- (void)generateDataForOverrides:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)generateDataForLayers:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)generateDataForObjects:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithPluginIdentifier:(id)arg1 commandIdentifier:(id)arg2 dataName:(id)arg3 dataTypeStringRepresentation:(id)arg4 dynamicDataKey:(id)arg5;
 - (id)initWithCoder:(id)arg1;

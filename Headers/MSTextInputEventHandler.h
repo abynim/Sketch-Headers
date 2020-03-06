@@ -46,7 +46,6 @@
 - (void)makeUppercase:(id)arg1;
 - (void)applyTextTransform:(id)arg1;
 - (void)removeTextView;
-- (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (BOOL)handlesHistoryCoalescing;
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;

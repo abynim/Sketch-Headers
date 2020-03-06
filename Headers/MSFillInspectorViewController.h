@@ -7,10 +7,11 @@
 #import "MSColorStylePartInspectorViewController.h"
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
+#import "MSDropableViewDelegate-Protocol.h"
 
 @class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
-@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
+@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, MSDropableViewDelegate>
 {
     MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
@@ -36,6 +37,8 @@
 - (void)updateDisplayedValues;
 - (void)hexFieldAction:(id)arg1;
 - (void)updateFillPropertyPopUp;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (id)draggedTypesForView:(id)arg1;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

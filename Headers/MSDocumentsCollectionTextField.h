@@ -8,11 +8,15 @@
 
 @interface MSDocumentsCollectionTextField : NSTextField
 {
-    BOOL _selected;
+    // Error parsing type: , name: isSelected
 }
 
++ (void)setCellClass:(Class)arg1;
 + (Class)cellClass;
-@property(nonatomic, getter=isSelected) BOOL selected; // @synthesize selected=_selected;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic, readonly) struct CGSize intrinsicContentSize;
+@property(nonatomic) BOOL isSelected; // @synthesize isSelected;
 
 @end
 

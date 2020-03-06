@@ -34,7 +34,7 @@
 - (void)importIntoPage:(id)arg1 name:(id)arg2 progress:(CDUnknownBlockType)arg3;
 - (id)name;
 - (unsigned long long)prepareToImportFromData:(id)arg1;
-- (unsigned long long)prepareToImportFromURL:(id)arg1;
+- (unsigned long long)prepareToImportFromURL:(id)arg1 error:(id *)arg2;
 - (id)init;
 
 // Remaining properties

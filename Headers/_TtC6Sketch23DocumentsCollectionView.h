@@ -8,10 +8,13 @@
 
 @interface _TtC6Sketch23DocumentsCollectionView : NSCollectionView
 {
+    // Error parsing type: , name: keyEventsDelegate
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)keyDown:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 

@@ -30,7 +30,6 @@
 - (void)processEditing;
 - (void)editedFromRect:(struct CGRect)arg1;
 - (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
-- (void)setRectByIgnoringProportions:(struct CGRect)arg1;
 - (void)setConstrainProportions:(BOOL)arg1;
 - (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
@@ -55,11 +54,11 @@
 - (void)makeRectIntegral;
 - (void)makeOriginIntegral;
 @property(nonatomic) struct CGRect rect;
+- (id)delegate;
 - (void)setY:(double)arg1;
 - (void)setX:(double)arg1;
-- (void)setHeight:(double)arg1;
-- (id)delegate;
-- (void)setWidth:(double)arg1;
+@property(nonatomic) double height; // @dynamic height;
+@property(nonatomic) double width; // @dynamic width;
 - (BOOL)shouldConstrainProportions;
 - (void)performUpdatesWithUnconstrainedProportions:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;

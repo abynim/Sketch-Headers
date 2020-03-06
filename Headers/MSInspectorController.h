@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSSet, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -23,11 +23,9 @@
     NSView *_alignmentContainerView;
     NSView *_contentContainerView;
     MSNormalInspector *_normalInspector;
-    NSSet *_keysAffectingLayerPosition;
 }
 
 + (BOOL)isComponentsPopoverEnabled;
-@property(readonly, nonatomic) NSSet *keysAffectingLayerPosition; // @synthesize keysAffectingLayerPosition=_keysAffectingLayerPosition;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
@@ -59,7 +57,6 @@
 - (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
 - (void)refreshCurrentController;
 - (void)layoutContentView;
-- (void)reloadSharedObjectsSection;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
