@@ -18,7 +18,6 @@
 - (void)convertColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
-- (void)performInitEmptyObject;
 - (id)CSSAttributeString;
 
 // Remaining properties

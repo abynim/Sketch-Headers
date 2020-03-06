@@ -11,7 +11,6 @@
 }
 
 - (BOOL)validate;
-- (long long)validationStatus;
 - (id)label;
 - (void)showImportedSymbolsOrganizerSheet:(id)arg1;
 

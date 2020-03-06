@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSModelObject.h>
 
-@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSStyleTint, MSTextStyle, NSArray, NSMutableArray;
+@class MSGraphicsContextSettings, MSStyleBlur, MSStyleBorderOptions, MSStyleColorControls, MSTextStyle, NSArray, NSMutableArray;
 
 @interface _MSStyle : MSModelObject
 {
@@ -23,13 +23,11 @@
     NSMutableArray *_innerShadows;
     NSMutableArray *_shadows;
     MSTextStyle *_textStyle;
-    MSStyleTint *_tint;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)setRaw_tint:(id)arg1;
 - (void)setRaw_textStyle:(id)arg1;
 - (void)setRaw_shadows:(id)arg1;
 - (void)setRaw_innerShadows:(id)arg1;
@@ -100,7 +98,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(retain, nonatomic) MSStyleTint *tint; // @synthesize tint=_tint;
 @property(retain, nonatomic) MSTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;

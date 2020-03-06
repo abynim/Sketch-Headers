@@ -10,25 +10,28 @@
 
 @interface MSCanvasPreferencePane : MSPreferencePane
 {
+    NSColorWell *_guidesColorWell;
+    NSColorWell *_measuringColorWell;
+    NSColorWell *_prototypingColorWell;
     NSTextField *_defaultColorSpaceDescriptionLabel;
     NSPopUpButton *_defaultColorSpacePopUpButton;
-    NSColorWell *_flowColorWell;
-    NSTextField *_flowColorLabel;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(nonatomic) __weak NSTextField *flowColorLabel; // @synthesize flowColorLabel=_flowColorLabel;
-@property(nonatomic) __weak NSColorWell *flowColorWell; // @synthesize flowColorWell=_flowColorWell;
-@property(nonatomic) __weak NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
-@property(nonatomic) __weak NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
+@property(retain, nonatomic) NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
+@property(retain, nonatomic) NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
+@property(retain, nonatomic) NSColorWell *prototypingColorWell; // @synthesize prototypingColorWell=_prototypingColorWell;
+@property(retain, nonatomic) NSColorWell *measuringColorWell; // @synthesize measuringColorWell=_measuringColorWell;
+@property(retain, nonatomic) NSColorWell *guidesColorWell; // @synthesize guidesColorWell=_guidesColorWell;
 - (void).cxx_destruct;
 - (void)pickDefaultColorSpace:(id)arg1;
 - (void)refreshColorSpaceDescription;
 - (void)refreshOpenDocuments;
 - (void)adjustFlowColorAction:(id)arg1;
 - (void)adjustSnapColorAction:(id)arg1;
+- (void)createBindings;
 - (void)viewDidLoad;
 
 @end

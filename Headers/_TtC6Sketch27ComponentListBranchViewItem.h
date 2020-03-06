@@ -11,11 +11,14 @@
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: isVariableHeight
+    // Error parsing type: , name: containment
+    // Error parsing type: , name: treeStructure
+    // Error parsing type: , name: treeContainsMultipleLibraries
     // Error parsing type: , name: expansionState
-    // Error parsing type: , name: path
+    // Error parsing type: , name: modelPath
     // Error parsing type: , name: parent
     // Error parsing type: , name: children
-    // Error parsing type: , name: filteredChildren
+    // Error parsing type: , name: cachedFilteredChildren
     // Error parsing type: , name: lastFilter
 }
 

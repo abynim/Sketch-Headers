@@ -4,11 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <swiftCore/_TtCs12_SwiftObject.h>
+#import <AppKit/NSSearchField.h>
 
-@interface _TtC11SketchModel37ComponentsPaneDoubleInspectorOverride : _TtCs12_SwiftObject
+@interface _TtC6Sketch20ComponentSearchField : NSSearchField
 {
 }
+
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

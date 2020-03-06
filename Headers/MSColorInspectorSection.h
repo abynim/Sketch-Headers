@@ -55,7 +55,6 @@
 - (id)views;
 - (id)scrollableViews;
 - (id)headerViews;
-- (void)refreshAction:(id)arg1;
 - (void)dealloc;
 - (id)createPresetFromCurrentSelection;
 - (id)previewColorSpaceForClient:(id)arg1;

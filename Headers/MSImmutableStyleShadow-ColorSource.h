@@ -11,7 +11,7 @@
 @class NSString;
 
 @interface MSImmutableStyleShadow (ColorSource) <MSColorUser>
-@property(readonly, nonatomic) unsigned long long colorUserColorUse;
+- (unsigned long long)useOfColorWithOwner:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

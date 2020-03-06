@@ -64,6 +64,7 @@
 - (id)overrideMatchingPoint:(id)arg1 inDocument:(id)arg2;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;
+- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 
 @end

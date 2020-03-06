@@ -36,8 +36,6 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)updateItems;
-- (BOOL)enableComponentStyleItem;
-- (BOOL)enableLegacyStyleItem;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

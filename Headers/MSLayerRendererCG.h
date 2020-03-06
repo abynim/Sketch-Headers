@@ -17,7 +17,6 @@
 - (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 - (void)drawCachedImage:(id)arg1 layer:(id)arg2 context:(id)arg3;
 - (id)cachedImageForLayer:(id)arg1 inContext:(id)arg2;
-- (BOOL)shouldDrawLayer:(id)arg1 context:(id)arg2;
 - (void)renderLayer:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 // Remaining properties

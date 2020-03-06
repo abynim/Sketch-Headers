@@ -50,7 +50,6 @@
     _TtC6Sketch18MSScrollRecognizer *_scrollRecognizer;
     struct __CFRunLoopObserver *_displayRunLoopObserver;
     struct __CVDisplayLink *_displayLink;
-    NSString *_acceleratorClassName;
     MSRenderInstruction *_renderInstruction;
     struct CGPoint _scalingCenterInViewCoordinates;
     struct CGPoint _mostRecentFullScaleScrollOrigin;
@@ -62,7 +61,6 @@
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
 @property(readonly, nonatomic) BOOL needsUpdateOverlayModel; // @synthesize needsUpdateOverlayModel=_needsUpdateOverlayModel;
 @property(retain) MSRenderInstruction *renderInstruction; // @synthesize renderInstruction=_renderInstruction;
-@property(retain, nonatomic) NSString *acceleratorClassName; // @synthesize acceleratorClassName=_acceleratorClassName;
 @property(nonatomic) struct __CVDisplayLink *displayLink; // @synthesize displayLink=_displayLink;
 @property(readonly, nonatomic) struct __CFRunLoopObserver *displayRunLoopObserver; // @synthesize displayRunLoopObserver=_displayRunLoopObserver;
 @property(readonly, nonatomic) _TtC6Sketch18MSScrollRecognizer *scrollRecognizer; // @synthesize scrollRecognizer=_scrollRecognizer;

@@ -30,6 +30,7 @@
 - (id)addStylePartButonTooltip;
 - (id)title;
 - (long long)addStylePartButtonState;
+- (BOOL)isDisplayingTint;
 - (void)prepare;
 - (void)advancedOptionsButtonAction:(id)arg1;
 

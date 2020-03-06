@@ -7,6 +7,6 @@
 #import <SketchControllers/NSObject-Protocol.h>
 
 @protocol MSColorUser <NSObject>
-@property(readonly, nonatomic) unsigned long long colorUserColorUse;
+- (unsigned long long)useOfColorWithOwner:(id)arg1;
 @end
 

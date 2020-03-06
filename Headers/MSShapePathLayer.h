@@ -57,7 +57,8 @@
 - (void)resetPointsBasedOnUserInteraction;
 - (void)setParentObject:(id)arg1;
 - (id)usedStyle;
-- (void)performInitEmptyObject;
+- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)defaultCurvePoints;
 - (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
 - (double)userVisibleRotation;
 @property(readonly, nonatomic) double slope;

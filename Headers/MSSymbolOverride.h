@@ -15,6 +15,7 @@
 
 @property(readonly, nonatomic) NSArray *internalChildren; // @synthesize internalChildren=_internalChildren;
 - (void).cxx_destruct;
+- (id)containedPropertyID;
 - (void)calculateAppearsOnCanvasWithAncestors:(id)arg1;
 - (void)addChild:(id)arg1;
 - (id)children;

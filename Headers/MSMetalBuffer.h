@@ -6,12 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchRendering/MSGPUBuffer-Protocol.h>
-
-@class NSString;
 @protocol MTLBuffer;
 
-@interface MSMetalBuffer : NSObject <MSGPUBuffer>
+@interface MSMetalBuffer : NSObject
 {
     unsigned long long _count;
     id <MTLBuffer> _metalBuffer;
@@ -22,12 +19,6 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long length;
 - (id)initWithBuffer:(id)arg1 count:(unsigned long long)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -27,7 +27,6 @@
 - (void)replaceImageWithImage:(id)arg1;
 - (id)handlerName;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
-- (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
 - (void)correctInvalidGamma;

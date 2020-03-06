@@ -18,6 +18,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultFillColor;
 - (void).cxx_destruct;
 - (void)setRaw_gradient:(id)arg1;
 - (void)setRaw_contextSettings:(id)arg1;
@@ -39,6 +40,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultFillColor;
 
 @end
 

@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class NSFont, NSMutableDictionary;
-@protocol MSGPURenderer, MSGPUTexture;
+@class MSMetalRenderer, MSMetalTexture, NSFont, NSMutableDictionary;
 
 @interface MSArtboardTitleRenderer : NSObject
 {
-    id <MSGPURenderer> _renderer;
-    id <MSGPUTexture> _texture;
+    MSMetalRenderer *_renderer;
+    MSMetalTexture *_texture;
     double _backingScaleFactor;
     struct CGContext *_context;
     void *_textureBytes;
@@ -25,8 +24,8 @@
 @property(nonatomic) void *textureBytes; // @synthesize textureBytes=_textureBytes;
 @property(nonatomic) struct CGContext *context; // @synthesize context=_context;
 @property(nonatomic) double backingScaleFactor; // @synthesize backingScaleFactor=_backingScaleFactor;
-@property(retain, nonatomic) id <MSGPUTexture> texture; // @synthesize texture=_texture;
-@property(readonly, nonatomic) __weak id <MSGPURenderer> renderer; // @synthesize renderer=_renderer;
+@property(retain, nonatomic) MSMetalTexture *texture; // @synthesize texture=_texture;
+@property(readonly, nonatomic) __weak MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
 - (void).cxx_destruct;
 - (void)drawTitlesForArtboards:(id)arg1 titleColor:(struct CGColor *)arg2 symbolTitleColor:(struct CGColor *)arg3 zoom:(double)arg4 backingScaleFactor:(double)arg5 baseOrigin:(struct CGPoint)arg6;
 - (BOOL)ms_needsToRecreateTitlesForArtboards:(id)arg1 zoom:(double)arg2 backingScaleFactor:(double)arg3;

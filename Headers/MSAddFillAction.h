@@ -11,6 +11,8 @@
 }
 
 - (id)label;
+- (BOOL)hasDynamicTitle;
+- (unsigned long long)supportedTraits;
 - (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 - (void)addFill:(id)arg1;

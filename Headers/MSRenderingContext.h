@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableLayerGroup, MSRenderingDriver, MSRenderingRequest, NSMutableArray, NSString;
+@class MSImmutableColor, MSImmutableLayerGroup, MSRenderingDriver, MSRenderingRequest, NSMutableArray, NSString;
 
 @interface MSRenderingContext : NSObject
 {
@@ -15,6 +15,7 @@
     MSRenderingRequest *_renderingRequest;
     MSRenderingDriver *_driver;
     NSString *_name;
+    MSImmutableColor *_tintColor;
     double _alphaValue;
     NSMutableArray *_parentGroupStack;
     NSMutableArray *_symbolMasterStack;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) NSMutableArray *parentGroupStack; // @synthesize parentGroupStack=_parentGroupStack;
 @property(nonatomic) int internalBlendMode; // @synthesize internalBlendMode=_internalBlendMode;
 @property(nonatomic) double alphaValue; // @synthesize alphaValue=_alphaValue;
+@property(retain, nonatomic) MSImmutableColor *tintColor; // @synthesize tintColor=_tintColor;
 @property(nonatomic) struct CGAffineTransform rotateFlipTransform; // @synthesize rotateFlipTransform=_rotateFlipTransform;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
@@ -39,6 +41,7 @@
 - (void).cxx_destruct;
 - (BOOL)shouldLog;
 - (void)applyShadow:(id)arg1;
+- (id)colorByTintingIfNecessary:(id)arg1;
 - (void)applyStrokeColor:(id)arg1;
 - (void)applyFillColor:(id)arg1;
 - (BOOL)shouldSkipDrawingShadow:(id)arg1;

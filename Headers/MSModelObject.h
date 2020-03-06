@@ -23,11 +23,11 @@
 + (Class)immutableClass;
 + (BOOL)allowsFaulting;
 + (BOOL)persistsObjectID;
-@property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
 - (BOOL)isDescendantOfObject:(id)arg1;
+@property(readonly, nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void)breakConnectionWith:(id)arg1;
 - (id)parentGroupRecursive;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
@@ -36,7 +36,6 @@
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
 - (void)invalidateImmutableObjectAndAncestors;
 - (void)invalidateImmutableObject;
-- (void)invaliateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;

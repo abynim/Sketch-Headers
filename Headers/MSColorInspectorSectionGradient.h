@@ -42,7 +42,6 @@
 - (id)gradients;
 - (void)flipGradient:(id)arg1;
 - (void)rotateGradientAction:(id)arg1;
-- (void)refreshAction:(id)arg1;
 - (void)updateOtherGradientsToReflectChanges;
 - (void)colorPickerChangedTo:(id)arg1;
 - (id)currentlySelectedColor;

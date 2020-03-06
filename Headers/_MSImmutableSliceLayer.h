@@ -15,6 +15,7 @@
 }
 
 + (Class)mutableClass;
++ (id)defaultBackgroundColor;
 @property(retain, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void).cxx_destruct;
@@ -32,6 +33,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultBackgroundColor;
 
 @end
 

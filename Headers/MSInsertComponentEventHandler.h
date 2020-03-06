@@ -42,7 +42,7 @@
 - (unsigned long long)draggingEntered:(id)arg1;
 - (id)layersForInserting;
 - (void)readReferencesFromPasteboard:(id)arg1;
-- (void)updateWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
+- (void)updateWithLocation:(struct CGPoint)arg1 disableSnapping:(BOOL)arg2;
 - (struct CGRect)previewRectForInserting;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;

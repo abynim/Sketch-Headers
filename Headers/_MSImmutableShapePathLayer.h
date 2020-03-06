@@ -37,6 +37,8 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) NSArray *defaultCurvePoints;
+@property(nonatomic, readonly) BOOL hasDefaultCurvePoints;
 
 @end
 

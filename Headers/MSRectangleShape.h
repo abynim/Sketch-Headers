@@ -17,6 +17,7 @@
 - (void)multiplyBy:(double)arg1;
 @property(readonly, nonatomic) double maximumAllowedRadius;
 - (void)resetPoints;
+- (id)defaultCurvePoints;
 - (id)CSSAttributes;
 - (id)CSSAttributeString;
 

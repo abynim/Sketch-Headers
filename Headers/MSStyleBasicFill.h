@@ -14,7 +14,6 @@
 {
 }
 
-+ (id)defaultFillColor;
 @property(copy, nonatomic) NSString *hexColor;
 - (void)convertColorsUsing:(id)arg1;
 - (void)performInitEmptyObject;

@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchRendering/MSGPUTexture-Protocol.h>
-
 @protocol MTLTexture;
 
-@interface MSMetalTexture : NSObject <MSGPUTexture>
+@interface MSMetalTexture : NSObject
 {
     id <MTLTexture> _metalTexture;
 }

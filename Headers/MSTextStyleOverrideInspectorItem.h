@@ -10,7 +10,6 @@
 {
 }
 
-- (void)restorePopoverWithRestorationInfo:(id)arg1;
 - (void)pickStyle:(id)arg1;
 - (id)currentTextStyleReference;
 - (id)currentStyle;

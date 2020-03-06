@@ -26,7 +26,6 @@
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
-- (void)objectDidInit;
 - (void)performInitWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 - (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;

@@ -32,6 +32,10 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultFrame;
++ (BOOL)shouldBreakMaskChainDefault;
++ (id)defaultFlow;
++ (long long)defaultLayerListExpandedType;
 - (void).cxx_destruct;
 - (void)setRaw_frame:(id)arg1;
 - (void)setRaw_flow:(id)arg1;
@@ -81,6 +85,8 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (BOOL)hasDefaultFrame;
+@property(nonatomic, readonly) BOOL hasDefaultFlow;
 
 @end
 

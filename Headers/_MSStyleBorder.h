@@ -14,6 +14,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultFillColor;
 - (void)setRaw_thickness:(double)arg1;
 - (void)setRaw_position:(long long)arg1;
 - (id)collaborationPatchableObjectWithID:(id)arg1;

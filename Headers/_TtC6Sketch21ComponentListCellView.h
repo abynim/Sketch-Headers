@@ -11,18 +11,16 @@
 @interface _TtC6Sketch21ComponentListCellView : NSTableCellView
 {
     // Error parsing type: , name: componentListController
-    // Error parsing type: , name: textFieldConstraint
-    // Error parsing type: , name: previewToken
+    // Error parsing type: , name: textFieldTopConstraint
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(nonatomic) long long backgroundStyle;
 - (void)prepareForReuse;
 - (void)updateConstraints;
 @property(nonatomic, copy) id objectValue;
-@property(nonatomic, retain) NSLayoutConstraint *textFieldConstraint; // @synthesize textFieldConstraint;
+@property(nonatomic, retain) NSLayoutConstraint *textFieldTopConstraint; // @synthesize textFieldTopConstraint;
 
 @end
 

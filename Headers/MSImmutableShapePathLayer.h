@@ -33,7 +33,7 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) BOOL hasDefaultCurvePoints;
-- (id)defaultCurvePoints;
+- (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migrateByTakingStyleFrom:(id)arg1;
 - (void)migratePropertiesFromShapeGroup:(id)arg1;

@@ -9,7 +9,7 @@
 #import "MSHandleOverlayLayoutDelegate-Protocol.h"
 #import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@class MSAlignmentEngineResult, MSHandleOverlay, MSLayer, MSStyledLayer;
+@class MSAlignmentEngineResult, MSHandleOverlay, MSLayer, MSOverlayItemImageCache, MSStyledLayer;
 
 @interface MSPointsEventHandler : MSEventHandler <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSHandleOverlayLayoutDelegate>
 {
@@ -17,8 +17,10 @@
     long long _indexForSelectedPoint;
     MSHandleOverlay *_handlesOverlay;
     MSAlignmentEngineResult *_alignmentResult;
+    MSOverlayItemImageCache *_imageCache;
 }
 
+@property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) MSAlignmentEngineResult *alignmentResult; // @synthesize alignmentResult=_alignmentResult;
 @property(readonly, nonatomic) MSHandleOverlay *handlesOverlay; // @synthesize handlesOverlay=_handlesOverlay;
 @property(nonatomic) long long indexForSelectedPoint; // @synthesize indexForSelectedPoint=_indexForSelectedPoint;

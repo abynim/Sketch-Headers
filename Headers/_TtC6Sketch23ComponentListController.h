@@ -6,21 +6,26 @@
 
 #import "_TtC6Sketch34ComponentPaneOutlineViewController.h"
 
-@class NSLayoutConstraint, NSSegmentedControl, NSTextField;
+@class NSButton, NSLayoutConstraint, NSSegmentedControl, NSTextField;
 
 @interface _TtC6Sketch23ComponentListController : _TtC6Sketch34ComponentPaneOutlineViewController
 {
-    // Error parsing type: , name: userInterfaceCache
     // Error parsing type: , name: componentKindSegmentedControl
+    // Error parsing type: , name: componentKindLabel
+    // Error parsing type: , name: treeStructureButton
+    // Error parsing type: , name: treeStructureLabel
     // Error parsing type: , name: noComponentsToShowTextField
     // Error parsing type: , name: heightConstraint
     // Error parsing type: , name: delegate
     // Error parsing type: , name: currentlyPreviewedViewItem
     // Error parsing type: , name: selectionToPersist
-    // Error parsing type: , name: tree
+    // Error parsing type: , name: $__lazy_storage_$_previewImageCache
+    // Error parsing type: , name: navigationTree
+    // Error parsing type: , name: searchResultTree
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: useCase
     // Error parsing type: , name: filterSetting
+    // Error parsing type: , name: parentModelPathToFocusOn
     // Error parsing type: , name: deferringHeightChangeNotifications
     // Error parsing type: , name: shouldScrollSelectionToVisible
     // Error parsing type: , name: cachedRowViewRenderer
@@ -32,11 +37,13 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)pickComponentKind:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint;
 @property(nonatomic) __weak NSTextField *noComponentsToShowTextField; // @synthesize noComponentsToShowTextField;
+@property(nonatomic) __weak NSTextField *treeStructureLabel; // @synthesize treeStructureLabel;
+@property(nonatomic) __weak NSButton *treeStructureButton; // @synthesize treeStructureButton;
+@property(nonatomic) __weak NSTextField *componentKindLabel; // @synthesize componentKindLabel;
 @property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
 
 @end

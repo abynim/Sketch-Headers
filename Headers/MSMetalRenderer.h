@@ -6,12 +6,10 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchRendering/MSGPURenderer-Protocol.h>
-
-@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSOperationQueue, NSString;
+@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSOperationQueue;
 @protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
 
-@interface MSMetalRenderer : NSObject <MSGPURenderer>
+@interface MSMetalRenderer : NSObject
 {
     BOOL _hasScissor;
     CAMetalLayer *_metalLayer;
@@ -40,7 +38,6 @@
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (BOOL)isCompatibleWithAvailableGPUs;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
 @property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
@@ -94,12 +91,6 @@
 - (void)scheduleDrawBlock:(CDUnknownBlockType)arg1 drawableSize:(struct CGSize)arg2;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

@@ -10,7 +10,7 @@
 @protocol NSDraggingInfo;
 
 @protocol MSPasteboardReader <NSObject>
-- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 colorSpace:(NSColorSpace *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4;
+- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 colorSpace:(NSColorSpace *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4 convertColorSpace:(BOOL)arg5;
 - (NSArray *)supportedPasteboardTypes;
 @end
 

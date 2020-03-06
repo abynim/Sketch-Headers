@@ -6,8 +6,10 @@
 
 #import <Foundation/NSString.h>
 
-@interface NSString (BCFoundation)
+@interface NSString (SHA1)
 + (id)stringWithPrefix:(id)arg1 number:(long long)arg2;
+@property(readonly, nonatomic) NSString *sha1String_bc;
+- (id)sha1;
 - (id)safeSubstringWithRange_ms:(struct _NSRange)arg1;
 - (id)safeSubstringFromIndex_ms:(unsigned long long)arg1;
 - (id)safeSubstringToIndex_ms:(unsigned long long)arg1;

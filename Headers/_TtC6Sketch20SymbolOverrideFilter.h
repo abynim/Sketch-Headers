@@ -6,10 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch19ComponentTreeFilter : _TtCs12_SwiftObject
+@interface _TtC6Sketch20SymbolOverrideFilter : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: primaryPredicate
-    // Error parsing type: , name: secondaryPredicate
+    // Error parsing type: , name: symbolFilter
+    // Error parsing type: , name: override
 }
 
 @end

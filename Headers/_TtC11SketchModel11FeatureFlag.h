@@ -20,7 +20,9 @@
 - (void).cxx_destruct;
 - (id)init;
 - (void)toggle;
+- (BOOL)validateMenuItem:(id)arg1;
 @property(nonatomic, readonly) NSString *debugDescription;
+@property(nonatomic, readonly) BOOL isAvailable;
 @property(nonatomic) BOOL isEnabled;
 
 @end

@@ -8,10 +8,11 @@
 
 #import <SketchModel/MSStyledLayer-Protocol.h>
 
-@class NSString;
+@class MSColor, MSImmutableStyleFill, NSString;
 
 @interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSStyledLayer>
 {
+    MSImmutableStyleFill *_firstFill;
 }
 
 + (unsigned long long)traits;
@@ -35,6 +36,9 @@
 + (id)bezierPathForEndDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (id)bezierPathForStartDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (struct CGSize)scaleForDecoration:(unsigned long long)arg1 stokeWidth:(double)arg2;
+@property(readonly, nonatomic) MSImmutableStyleFill *firstFill; // @synthesize firstFill=_firstFill;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) MSColor *fillColor;
 - (BOOL)hasEnabledFill;
 @property(readonly, nonatomic) BOOL shadowsFollowRotation;
 - (BOOL)hasMarkers;

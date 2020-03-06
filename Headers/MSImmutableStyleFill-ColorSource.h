@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableStyleFill.h>
 
 @interface MSImmutableStyleFill (ColorSource)
-- (unsigned long long)colorUserColorUse;
+- (unsigned long long)useOfColorWithOwner:(id)arg1;
 @end
 

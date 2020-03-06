@@ -21,9 +21,9 @@
 - (void)registerReader:(id)arg1;
 - (void)registerWriter:(id)arg1;
 - (void)writePasteboardLayers:(id)arg1 toPasteboard:(id)arg2;
-- (id)readPasteboardLayersFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 sender:(id)arg4;
-- (id)readPasteboardLayersFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3;
-- (id)readPasteboardLayersFromDrag:(id)arg1 colorSpace:(id)arg2;
+- (id)readPasteboardLayersFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 sender:(id)arg4 convertColorSpace:(BOOL)arg5;
+- (id)readPasteboardLayersFromPasteboard:(id)arg1 colorSpace:(id)arg2 options:(unsigned long long)arg3 convertColorSpace:(BOOL)arg4;
+- (id)readPasteboardLayersFromDrag:(id)arg1 colorSpace:(id)arg2 convertColorSpace:(BOOL)arg3;
 - (id)init;
 
 @end

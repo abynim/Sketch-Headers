@@ -4,11 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/_MSImmutableStyleTint.h>
+#import "_TtC6Sketch17ComponentMenuItem.h"
 
-@interface MSImmutableStyleTint : _MSImmutableStyleTint
+@interface _TtC6Sketch19PlaceholderMenuItem : _TtC6Sketch17ComponentMenuItem
 {
 }
+
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -13,6 +13,7 @@
 + (id)defaultCurvePointsWithNumberOfPoints:(long long)arg1 radius:(double)arg2;
 - (BOOL)canFlatten;
 - (void)resetPoints;
+- (id)defaultCurvePoints;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
 
 @end

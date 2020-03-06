@@ -4,10 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSStyleTint.h>
+#import <objc/NSObject.h>
 
-@interface MSStyleTint (Previewing)
-- (void)configureFillForPreview:(id)arg1;
-- (BOOL)hasEqualAppearance:(id)arg1;
+@interface MSGPUOverlayOverride : NSObject
+{
+}
+
++ (void)installSharedOverride;
+- (id)init;
+
 @end
 

@@ -9,8 +9,9 @@
 @interface _TtC11BCLayerList22DefaultRowViewRenderer : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: borderColor
-    // Error parsing type: , name: borderLineWidth
-    // Error parsing type: , name: groupRowBackgroundColor
+    // Error parsing type: , name: topBorderWidth
+    // Error parsing type: , name: bottomBorderWidth
+    // Error parsing type: , name: sectionRowBackgroundColor
     // Error parsing type: , name: selectedBorderColor
     // Error parsing type: , name: selectedInactiveBorderColor
     // Error parsing type: , name: activeHighlightColor
@@ -21,7 +22,9 @@
     // Error parsing type: , name: inactiveSubselectionColor
     // Error parsing type: , name: highlightLineWidth
     // Error parsing type: , name: roundCornerRadius
-    // Error parsing type: , name: regularRowSelectionInset
+    // Error parsing type: , name: groupRowTopBorderIndent
+    // Error parsing type: , name: groupEmphasisInsets
+    // Error parsing type: , name: regularEmphasisInsets
 }
 
 @end

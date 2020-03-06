@@ -17,8 +17,8 @@
 - (void).cxx_destruct;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;
 - (id)filePathsInSubpath:(id)arg1 error:(id *)arg2;
-- (id)unarchiveRawDataAtSubpath:(id)arg1 error:(id *)arg2;
-- (id)unarchiveObjectAtSubpath:(id)arg1 error:(id *)arg2;
+- (id)unarchivedRawDataAtSubpath:(id)arg1 error:(id *)arg2;
+- (id)unarchivedObjectAtSubpath:(id)arg1 error:(id *)arg2;
 - (BOOL)containsFileAtSubpath:(id)arg1;
 - (id)decoder;
 - (id)initWithURL:(id)arg1;

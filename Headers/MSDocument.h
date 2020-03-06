@@ -98,7 +98,7 @@
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
-@property(nonatomic) BOOL attemptingToClose; // @synthesize attemptingToClose=_attemptingToClose;
+@property(nonatomic, getter=isAttemptingToClose) BOOL attemptingToClose; // @synthesize attemptingToClose=_attemptingToClose;
 @property(readonly, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
 @property(retain, nonatomic) MSLintConfigurationPackage *lintConfiguration; // @synthesize lintConfiguration=_lintConfiguration;
@@ -153,7 +153,7 @@
 - (BOOL)isShowingMeasurements;
 - (void)highlightHoverableItem:(id)arg1;
 - (void)hoveredItemDidChange:(id)arg1;
-- (void)documentData:(id)arg1 temporarilyHideSelectionForLayers:(id)arg2;
+- (void)temporarilyHideDocumentDataSelection:(id)arg1;
 - (void)flagsChangedNotification:(id)arg1;
 - (BOOL)layerHasHoverStateInCanvas:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
@@ -279,7 +279,7 @@
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
 - (void)cleanCloudDirectories;
-- (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldClose:(SEL)arg3 contextInfo:(void *)arg4;
+- (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (id)duplicateAndReturnError:(id *)arg1;

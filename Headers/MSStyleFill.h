@@ -15,7 +15,6 @@
 }
 
 + (id)defaultStylePartForStyle:(id)arg1;
-+ (id)defaultFillColor;
 - (unsigned long long)styleType;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
@@ -24,7 +23,6 @@
 - (void)setOpacity:(double)arg1;
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
-- (void)performInitEmptyObject;
 - (void)correctInvalidGamma;
 - (id)CSSAttributeString;
 

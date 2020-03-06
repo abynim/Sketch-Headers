@@ -8,8 +8,8 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowItemCollector, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSRenderPassState, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
-@protocol MSGPURenderer, MSGPUTexture, MSTiledRendererHostView;
+@class CALayer, MSArtboardTitleRenderer, MSCGContextPool, MSFlowItemCollector, MSFlowRenderer, MSGPUArtboardShadow, MSImmutableDocumentData, MSMemoryBuffer, MSMetalRenderer, MSMetalTexture, MSRenderPassState, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
+@protocol MSTiledRendererHostView;
 
 @interface MSTiledRenderer : NSObject <MSTilingSystemProvider>
 {
@@ -20,13 +20,13 @@
     BOOL _clearOtherLevels;
     BOOL _forceSyncFirstFrame;
     NSView<MSTiledRendererHostView> *hostView;
-    id <MSGPURenderer> _renderer;
+    MSMetalRenderer *_renderer;
     NSArray *_tileLevels;
     MSTileMipLevel *_previousLevel;
     MSMemoryBuffer *_contextMemory;
     MSMemoryBuffer *_overlayMemory;
-    id <MSGPUTexture> _quartzOverlayTexture;
-    id <MSGPUTexture> _ekranoplanOverlayTexture;
+    MSMetalTexture *_quartzOverlayTexture;
+    MSMetalTexture *_ekranoplanOverlayTexture;
     MSRenderingCache *_renderingCache;
     MSRenderPassState *_lastPassState;
     MSFlowRenderer *_flowRenderer;
@@ -42,7 +42,6 @@
     NSDictionary *_cachedFlows;
 }
 
-+ (id)preferredAcceleratorClassName;
 + (BOOL)performRendererAvailabilityChecks;
 @property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
 @property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
@@ -60,14 +59,14 @@
 @property(retain, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
 @property(retain, nonatomic) MSRenderPassState *lastPassState; // @synthesize lastPassState=_lastPassState;
 @property(retain, nonatomic) MSRenderingCache *renderingCache; // @synthesize renderingCache=_renderingCache;
-@property(retain, nonatomic) id <MSGPUTexture> ekranoplanOverlayTexture; // @synthesize ekranoplanOverlayTexture=_ekranoplanOverlayTexture;
-@property(retain, nonatomic) id <MSGPUTexture> quartzOverlayTexture; // @synthesize quartzOverlayTexture=_quartzOverlayTexture;
+@property(retain, nonatomic) MSMetalTexture *ekranoplanOverlayTexture; // @synthesize ekranoplanOverlayTexture=_ekranoplanOverlayTexture;
+@property(retain, nonatomic) MSMetalTexture *quartzOverlayTexture; // @synthesize quartzOverlayTexture=_quartzOverlayTexture;
 @property(retain, nonatomic) MSMemoryBuffer *overlayMemory; // @synthesize overlayMemory=_overlayMemory;
 @property(retain, nonatomic) MSMemoryBuffer *contextMemory; // @synthesize contextMemory=_contextMemory;
 @property(nonatomic) BOOL inFastZoom; // @synthesize inFastZoom=_inFastZoom;
 @property(nonatomic) __weak MSTileMipLevel *previousLevel; // @synthesize previousLevel=_previousLevel;
 @property(readonly, nonatomic) NSArray *tileLevels; // @synthesize tileLevels=_tileLevels;
-@property(readonly, nonatomic) id <MSGPURenderer> renderer; // @synthesize renderer=_renderer;
+@property(readonly, nonatomic) MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 @property(nonatomic) BOOL hideOverlay; // @synthesize hideOverlay;
 - (void).cxx_destruct;

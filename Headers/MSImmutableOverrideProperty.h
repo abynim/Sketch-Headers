@@ -13,7 +13,6 @@
 
 @property(nonatomic) unsigned long long displayOrder; // @synthesize displayOrder=_displayOrder;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
-- (BOOL)hasDefaultValues;
 
 @end
 

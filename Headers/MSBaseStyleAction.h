@@ -10,6 +10,7 @@
 {
 }
 
+- (unsigned long long)supportedTraits;
 - (id)label;
 - (BOOL)validate;
 

@@ -19,8 +19,8 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
-- (void)documentDidResignCurrentWithNotificaion:(id)arg1;
-- (void)documentDidBecomeCurrentWithNotificaion:(id)arg1;
+- (void)documentDidResignCurrentWithNotification:(id)arg1;
+- (void)documentDidBecomeCurrentWithNotification:(id)arg1;
 - (void)displayResultForDocument:(id)arg1;
 - (void)windowDidLoad;
 - (void)dealloc;

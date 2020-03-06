@@ -39,7 +39,7 @@
 - (void).cxx_destruct;
 - (void)prepareForChangeProcessing;
 - (void)refreshOverlay;
-- (void)temporarilyHideSelectionForLayers:(id)arg1;
+- (void)temporarilyHideSelection;
 - (void)replaceExistingCreationMetadata;
 - (void)updateForeignSymbolsPreservingOverridesInBlock:(CDUnknownBlockType)arg1;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;

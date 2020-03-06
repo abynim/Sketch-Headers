@@ -29,7 +29,9 @@
 - (void)handlerGotFocus;
 - (void)setupSelectedOverride;
 - (id)toolbarIdentifier;
+- (double)accumulatedScale;
 - (id)defaultTextStyle;
+- (id)unmodifiedDefaultTextStyle;
 - (id)styleOverrideRepresentation;
 - (id)stringValue;
 - (id)attributedStringValue;

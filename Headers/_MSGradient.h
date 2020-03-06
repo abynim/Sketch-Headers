@@ -19,6 +19,8 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultGradientStops;
++ (id)mutableDefaultGradientStops;
 - (void).cxx_destruct;
 - (void)setRaw_stops:(id)arg1;
 - (void)setRaw_to:(struct CGPoint)arg1;
@@ -54,6 +56,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultGradientStops;
 
 @end
 
