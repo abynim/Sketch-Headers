@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
-@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableTextStyle, NSArray;
+@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableStyleTint, MSImmutableTextStyle, NSArray;
 
 @interface _MSImmutableStyle : MSImmutableModelObject
 {
@@ -23,9 +23,11 @@
     NSArray *_innerShadows;
     NSArray *_shadows;
     MSImmutableTextStyle *_textStyle;
+    MSImmutableStyleTint *_tint;
 }
 
 + (Class)mutableClass;
+@property(retain, nonatomic) MSImmutableStyleTint *tint; // @synthesize tint=_tint;
 @property(retain, nonatomic) MSImmutableTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;
@@ -40,6 +42,9 @@
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;
 - (void).cxx_destruct;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

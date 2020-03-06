@@ -11,7 +11,6 @@
 @interface MSOverrideRepresentation (Hoverable)
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
-- (void)refreshOverlay;
 - (id)hoverItemsWithColor:(struct CGColor *)arg1;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 @end

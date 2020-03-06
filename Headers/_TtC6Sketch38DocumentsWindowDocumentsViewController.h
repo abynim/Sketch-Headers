@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSMenu, NSProgressIndicator, NSScrollView, NSTextField, _TtC6Sketch23DocumentsCollectionView;
+@class NSButton, NSMenu, NSScrollView, NSTextField, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch38DocumentsWindowDocumentsViewController : NSViewController
 {
@@ -14,11 +14,11 @@
     // Error parsing type: , name: collectionScrollView
     // Error parsing type: , name: emptyStateLabel
     // Error parsing type: , name: createFirstDocumentButton
-    // Error parsing type: , name: progressIndicator
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: cachedRecentDocumentItems
     // Error parsing type: , name: cachedTemplateItems
+    // Error parsing type: , name: cachedCloudItems
     // Error parsing type: , name: previewImageCache.storage
     // Error parsing type: , name: cloudSharesController
     // Error parsing type: , name: source
@@ -34,6 +34,7 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)cloudUserDidChange:(id)arg1;
 - (id)willPresentError:(id)arg1;
+- (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)cloudAsDefaultDidChange:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)clearRecentDocuments:(id)arg1;
@@ -46,7 +47,6 @@
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;
-@property(nonatomic, retain) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator;
 @property(nonatomic, retain) NSButton *createFirstDocumentButton; // @synthesize createFirstDocumentButton;
 @property(nonatomic, retain) NSTextField *emptyStateLabel; // @synthesize emptyStateLabel;
 @property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;

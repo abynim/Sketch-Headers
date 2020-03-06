@@ -10,6 +10,7 @@
 {
 }
 
+- (unsigned long long)styleType;
 - (BOOL)colorEqualApproximately;
 - (void)performInitEmptyObject;
 - (id)CSSAttributeString;

@@ -6,9 +6,13 @@
 
 #import <SketchModel/_MSImmutableSharedStyleContainer.h>
 
+@class NSArray;
+
 @interface MSImmutableSharedStyleContainer : _MSImmutableSharedStyleContainer
 {
 }
+
+@property(readonly, nonatomic) NSArray *styles;
 
 @end
 

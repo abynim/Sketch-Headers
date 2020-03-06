@@ -25,6 +25,7 @@
 
 + (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
 + (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
++ (void)finishOpenCloudDocument:(id)arg1 displayingShare:(id)arg2 wasAlreadyOpen:(BOOL)arg3 withError:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)openCloudDocumentWithApplicationURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)openCloudShareURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)requestCloudUser;
@@ -42,6 +43,7 @@
 @property(readonly, nonatomic) id <MSCloudUploadProvider> upload; // @synthesize upload=_upload;
 @property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
 - (void).cxx_destruct;
+- (void)deeplinkCloudDocumentWithShare:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)menu;
 - (void)doPerformAction:(id)arg1;

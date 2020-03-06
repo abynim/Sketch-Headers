@@ -15,11 +15,12 @@
 
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+- (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
 - (void)updateDownloadProgress;
-- (void)downloadChangedNotificationHandler:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (BOOL)matchesURL:(id)arg1;
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
 - (id)title;

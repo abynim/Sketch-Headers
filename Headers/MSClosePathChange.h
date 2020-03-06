@@ -13,7 +13,7 @@
 + (id)toggleClosePath;
 - (id)titleForContext:(id)arg1;
 - (BOOL)validateWithContext:(id)arg1;
-- (id)pathByOpeningOrClosingPath:(id)arg1 close:(BOOL)arg2;
+- (void)closePathWithCurveIfNecessary:(id)arg1;
 - (void)executeWithContext:(id)arg1;
 
 @end

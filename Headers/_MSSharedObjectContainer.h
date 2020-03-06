@@ -21,7 +21,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveSharedObjectIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveSharedObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllSharedObjects;
 - (void)removeSharedObjectsAtIndexes:(id)arg1;
 - (void)removeSharedObjectAtIndex:(unsigned long long)arg1;

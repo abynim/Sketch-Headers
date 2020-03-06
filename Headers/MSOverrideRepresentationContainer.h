@@ -20,7 +20,6 @@
 - (BOOL)isEditable;
 - (id)description;
 - (id)transformForConvertingToInstance;
-- (id)modifiedMasterForInstanceInMaster:(id)arg1;
 - (id)children;
 - (void)syncChildrenWithOverridesIfNeeded;
 - (id)initWithInstance:(id)arg1;

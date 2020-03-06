@@ -16,6 +16,9 @@
 + (BOOL)isEditedByDefault;
 @property(nonatomic) double radius; // @synthesize radius=_radius;
 @property(nonatomic) long long numberOfPoints; // @synthesize numberOfPoints=_numberOfPoints;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

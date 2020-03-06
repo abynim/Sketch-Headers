@@ -43,6 +43,9 @@
 - (id)initWithMutableModelObject:(id)arg1;
 - (id)initWithMinimalSetup;
 - (id)newMutableCounterpart;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (BOOL)shouldDiffSubObjectsForDifferingObject:(id)arg1;
 - (BOOL)differsFromObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;

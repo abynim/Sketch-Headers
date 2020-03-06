@@ -25,7 +25,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveGradientAssetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveGradientAssetFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllGradientAssets;
 - (void)removeGradientAssetsAtIndexes:(id)arg1;
 - (void)removeGradientAssetAtIndex:(unsigned long long)arg1;
@@ -37,7 +37,7 @@
 - (void)insertGradientAsset:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addGradientAssets:(id)arg1;
 - (void)addGradientAsset:(id)arg1;
-- (void)moveExportPresetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveExportPresetFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllExportPresets;
 - (void)removeExportPresetsAtIndexes:(id)arg1;
 - (void)removeExportPresetAtIndex:(unsigned long long)arg1;
@@ -49,7 +49,7 @@
 - (void)insertExportPreset:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addExportPresets:(id)arg1;
 - (void)addExportPreset:(id)arg1;
-- (void)moveColorAssetIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveColorAssetFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllColorAssets;
 - (void)removeColorAssetsAtIndexes:(id)arg1;
 - (void)removeColorAssetAtIndex:(unsigned long long)arg1;

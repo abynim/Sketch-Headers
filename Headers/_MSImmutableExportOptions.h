@@ -22,6 +22,9 @@
 @property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
 @property(retain, nonatomic) NSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (void).cxx_destruct;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

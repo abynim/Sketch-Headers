@@ -6,22 +6,32 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchModel/BCJSONEncoding-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSAttributedString;
+@class MSAttributedString, NSString;
 
-@interface MSAttributedStringKey : NSObject <NSCopying>
+@interface MSAttributedStringKey : NSObject <NSCopying, BCJSONEncoding>
 {
     MSAttributedString *_attributedString;
+    struct CGSize _size;
 }
 
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void).cxx_destruct;
-- (id)debugDescription;
+- (id)initWithJSONDecoder:(id)arg1;
+- (void)encodeAsJSON:(id)arg1;
+@property(readonly, copy) NSString *debugDescription;
 - (BOOL)isEqual:(id)arg1;
-- (unsigned long long)hash;
+@property(readonly) unsigned long long hash;
+- (id)dictionaryRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithAttributedString:(id)arg1;
+- (id)initWithAttributedString:(id)arg1 size:(struct CGSize)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *description;
+@property(readonly) Class superclass;
 
 @end
 

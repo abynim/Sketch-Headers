@@ -32,7 +32,6 @@
 - (void).cxx_destruct;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
-- (void)documentChangedAndStartedRendering:(id)arg1;
 - (void)documentDidChange:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)recordEvent:(id)arg1;

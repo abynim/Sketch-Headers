@@ -17,7 +17,6 @@
     BOOL _isLocked;
     BOOL _isVisible;
     long long _layerListExpandedType;
-    BOOL _maintainScrollPosition;
     NSString *_name;
     BOOL _nameIsFixed;
     NSString *_originalObjectID;
@@ -43,7 +42,6 @@
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-@property(nonatomic) BOOL maintainScrollPosition; // @synthesize maintainScrollPosition=_maintainScrollPosition;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;
 @property(nonatomic) BOOL isVisible; // @synthesize isVisible=_isVisible;
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;
@@ -52,6 +50,9 @@
 @property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void).cxx_destruct;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

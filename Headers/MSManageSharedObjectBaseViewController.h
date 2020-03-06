@@ -6,12 +6,9 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
-
 @class MSDocument, NSArray, NSString, NSTableView;
 
-@interface MSManageSharedObjectBaseViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
+@interface MSManageSharedObjectBaseViewController : NSViewController
 {
     NSTableView *_tableView;
     MSDocument *_document;

@@ -8,17 +8,6 @@
 
 @interface _TtC6Sketch14DocumentChange : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: treeDiff
-    // Error parsing type: , name: diff
-    // Error parsing type: , name: newObject
-    // Error parsing type: , name: oldObject
-    // Error parsing type: , name: documentData
-    // Error parsing type: , name: relevantAffectedKeysAlreadyEvaluated
-    // Error parsing type: , name: cachedRelevantAffectedKeys
-    // Error parsing type: , name: cachedNewComponents
-    // Error parsing type: , name: newComponentsAlreadyEvaluated
-    // Error parsing type: , name: cachedOldComponents
-    // Error parsing type: , name: oldComponentsAlreadyEvaluated
 }
 
 @end
