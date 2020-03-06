@@ -38,13 +38,6 @@
 @property(nonatomic, retain) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint;
 @property(nonatomic) __weak NSTextField *noComponentsToShowTextField; // @synthesize noComponentsToShowTextField;
 @property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
-- (BOOL)outlineView:(id)arg1 acceptDrop:(id)arg2 item:(id)arg3 childIndex:(long long)arg4;
-- (unsigned long long)outlineView:(id)arg1 validateDrop:(id)arg2 proposedItem:(id)arg3 proposedChildIndex:(long long)arg4;
-- (id)outlineView:(id)arg1 pasteboardWriterForItem:(id)arg2;
-- (void)outlineView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItems:(id)arg4;
-- (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
-- (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
-- (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 
 @end
 

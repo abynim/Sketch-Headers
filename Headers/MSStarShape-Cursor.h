@@ -8,5 +8,6 @@
 
 @interface MSStarShape (Cursor)
 - (struct CGRect)boundsForCursorPreview;
+- (id)inspectorSections;
 @end
 

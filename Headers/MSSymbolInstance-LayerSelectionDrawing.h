@@ -8,5 +8,7 @@
 
 @interface MSSymbolInstance (LayerSelectionDrawing)
 - (id)overrideSelectionPathItems;
+- (BOOL)shouldRefreshOverlayForFlows;
+- (id)inspectorSections;
 @end
 

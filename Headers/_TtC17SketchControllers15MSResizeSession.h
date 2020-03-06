@@ -33,7 +33,7 @@
 - (id)initWithLayers:(id)arg1 handle:(long long)arg2;
 - (id)initWithLayer:(id)arg1 handle:(long long)arg2;
 @property(nonatomic, readonly) _TtC17SketchControllers12MSResizeTool *tool; // @synthesize tool;
-@property(nonatomic, readonly) NSArray *layers; // @synthesize layers;
+@property(nonatomic, readonly) NSArray *layers;
 
 @end
 

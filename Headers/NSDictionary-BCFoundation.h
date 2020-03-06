@@ -22,5 +22,6 @@
 - (id)dictionaryForKey_bc:(id)arg1;
 - (id)arrayForKey_bc:(id)arg1;
 - (id)stringForKey_bc:(id)arg1;
+- (void)encodeAsRAWArchive:(id)arg1;
 @end
 

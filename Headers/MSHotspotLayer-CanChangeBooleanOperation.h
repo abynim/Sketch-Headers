@@ -8,5 +8,8 @@
 
 @interface MSHotspotLayer (CanChangeBooleanOperation)
 - (BOOL)canChangeBooleanOperation;
+- (BOOL)isExportableViaDragAndDrop;
+- (BOOL)isActive;
+- (unsigned long long)filterTypeMask;
 @end
 

@@ -8,5 +8,6 @@
 
 @interface NSMutableParagraphStyle (Striping)
 - (void)removeUnsupportedAttributes;
+@property(nonatomic) double fixedLineHeight_ms;
 @end
 

@@ -8,5 +8,6 @@
 
 @interface MSStyleShadow (Previewing)
 - (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 @end
 

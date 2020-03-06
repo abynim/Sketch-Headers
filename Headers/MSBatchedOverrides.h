@@ -25,8 +25,8 @@
 @property(nonatomic) long long canOverrideDescendants;
 @property(nonatomic) long long canOverride;
 @property(nonatomic) BOOL enabled; // @synthesize enabled;
-@property(nonatomic, copy) NSString *affectedLayerName; // @synthesize affectedLayerName;
-@property(nonatomic, readonly) NSArray *overrides; // @synthesize overrides;
+@property(nonatomic, copy) NSString *affectedLayerName;
+@property(nonatomic, readonly) NSArray *overrides;
 @property(nonatomic, readonly) MSBatchedSymbolMasters *batchedMasters; // @synthesize batchedMasters;
 @property(nonatomic, readonly) NSArray *masters;
 

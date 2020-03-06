@@ -25,7 +25,7 @@
 @property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds;
 @property(nonatomic) struct CGRect frame;
-@property(nonatomic, copy) NSIndexPath *indexPath; // @synthesize indexPath;
+@property(nonatomic, copy) NSIndexPath *indexPath;
 - (id)initForSupplementaryOfKind:(id)arg1 at:(id)arg2;
 - (id)initForItemAt:(id)arg1;
 

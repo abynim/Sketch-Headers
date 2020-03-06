@@ -20,7 +20,7 @@
 @property(nonatomic, readonly) NSString *description;
 - (id)runsForAttribute:(id)arg1;
 - (void)writeToSourceWithContext:(id)arg1;
-@property(nonatomic, copy) id value; // @synthesize value;
+@property(nonatomic, copy) id value;
 
 @end
 

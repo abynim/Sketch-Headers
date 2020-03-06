@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import "NSToolbarDelegate-Protocol.h"
+
 @class MSDocument, NSArray, NSString, NSToolbar;
 
-@interface MSToolbarConstructor : NSObject
+@interface MSToolbarConstructor : NSObject <NSToolbarDelegate>
 {
     MSDocument *_doc;
     NSArray *_toolbarSelectableIdentifiers;

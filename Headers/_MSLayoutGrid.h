@@ -23,6 +23,18 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)setRaw_totalWidth:(double)arg1;
+- (void)setRaw_rowHeightMultiplication:(double)arg1;
+- (void)setRaw_numberOfColumns:(double)arg1;
+- (void)setRaw_horizontalOffset:(double)arg1;
+- (void)setRaw_guttersOutside:(BOOL)arg1;
+- (void)setRaw_gutterWidth:(double)arg1;
+- (void)setRaw_gutterHeight:(double)arg1;
+- (void)setRaw_drawVertical:(BOOL)arg1;
+- (void)setRaw_drawHorizontalLines:(BOOL)arg1;
+- (void)setRaw_drawHorizontal:(BOOL)arg1;
+- (void)setRaw_columnWidth:(double)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

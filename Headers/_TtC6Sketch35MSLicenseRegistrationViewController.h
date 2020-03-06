@@ -40,7 +40,7 @@
 - (void)visitStore:(id)arg1;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 - (void)viewWillAppear;
-@property(nonatomic, copy) NSString *licenseKey; // @synthesize licenseKey;
+@property(nonatomic, copy) NSString *licenseKey;
 @property(nonatomic, retain) NSButton *downloadButton; // @synthesize downloadButton;
 @property(nonatomic, retain) NSButton *storeButton; // @synthesize storeButton;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
@@ -51,9 +51,9 @@
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
 @property(nonatomic, readonly) NSImage *headerBackgroundImage; // @synthesize headerBackgroundImage;
-@property(nonatomic, readonly) NSString *headerLinkTitle; // @synthesize headerLinkTitle;
-@property(nonatomic, copy) NSString *headerDescription; // @synthesize headerDescription;
-@property(nonatomic, copy) NSString *headerTitle; // @synthesize headerTitle;
+@property(nonatomic, readonly) NSString *headerLinkTitle;
+@property(nonatomic, copy) NSString *headerDescription;
+@property(nonatomic, copy) NSString *headerTitle;
 
 @end
 

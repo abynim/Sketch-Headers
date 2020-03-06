@@ -7,6 +7,7 @@
 #import <Foundation/NSURL.h>
 
 @interface NSURL (BCFoundation)
+- (BOOL)isSubURLOf:(id)arg1;
 - (BOOL)isEqualToFileURL_bc:(id)arg1;
 @property(readonly, nonatomic) BOOL isInTrash_bc;
 - (id)URLByResolvingSymlinksAndAliases;

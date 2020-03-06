@@ -10,5 +10,6 @@
 
 @interface MSExportRequest (Pasteboard)
 @property(readonly, nonatomic) NSString *pasteboardType;
+- (void)readSettingsFromDefaults;
 @end
 

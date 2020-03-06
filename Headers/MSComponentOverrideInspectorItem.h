@@ -6,9 +6,12 @@
 
 #import "MSOverrideInspectorItem.h"
 
+#import "MSViewRestoration-Protocol.h"
+#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
+
 @class NSString, _TtC6Sketch29MSComponentsPopoverController;
 
-@interface MSComponentOverrideInspectorItem : MSOverrideInspectorItem
+@interface MSComponentOverrideInspectorItem : MSOverrideInspectorItem <MSViewRestoration, _TtP6Sketch24MSComponentsPopoverOwner_>
 {
 }
 

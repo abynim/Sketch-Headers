@@ -6,7 +6,115 @@
 
 #import <SketchModel/MSLayer.h>
 
-@interface MSLayer (ReplaceWithSymbol)
+#import <SketchControllers/MSDataApplicable-Protocol.h>
+#import <SketchControllers/MSHoverableItem-Protocol.h>
+#import <SketchControllers/MSLayerDataType-Protocol.h>
+#import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
+#import <SketchControllers/MSSnappable-Protocol.h>
+
+@class MSLayoutDimension, MSLayoutPosition, MSModelObject, MSTintedImages, NSString;
+@protocol BCSortable><MSSharedObjectStyling;
+
+@interface MSLayer (ReplaceWithSymbol) <MSHoverableItem, MSSnappable, MSDataApplicable, MSLayerDataType, MSLayerListLayerExtensions>
++ (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
++ (struct CGRect)alignmentRectForLayers:(id)arg1;
++ (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)keyPathsForValuesAffectingBadgeMap;
++ (id)keyPathsForValuesAffectingNodeName;
 - (id)replaceWithInstanceOfSymbol:(id)arg1;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
+- (BOOL)matchesLayerListNode:(id)arg1;
+@property(readonly, nonatomic) MSLayer *hoveredLayer;
+- (BOOL)canBeHoveredOnPage:(id)arg1;
+- (id)pathForHoverInBounds;
+- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+- (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
+@property(readonly, nonatomic) MSLayer *coordinateSpace;
+@property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *baselineAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *heightAnchor;
+@property(readonly, nonatomic) MSLayoutDimension *widthAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *centerYAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *centerXAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *bottomAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *topAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *rightAnchor;
+@property(readonly, nonatomic) MSLayoutPosition *leftAnchor;
+- (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *sharedMaster;
+@property(readonly, nonatomic) unsigned long long shareableObjectType;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+@property(readonly, nonatomic) BOOL isActivePartInBooleanOperation;
+@property(readonly, nonatomic) BOOL canChangeBooleanOperation;
+- (id)parentForInsertingLayers;
+- (id)displayName;
+- (void)changeColor:(id)arg1;
+- (BOOL)supportsMultipleShadows;
+- (BOOL)supportsInnerOuterBorders;
+- (BOOL)hasRefreshableDataWithDataManager:(id)arg1;
+- (unsigned long long)applicableDataTypes;
+@property(readonly, nonatomic) unsigned long long dataType;
+- (id)contextualMenuPreviewTemplateImage;
+- (void)calculateLayerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)tintColorForTraits:(long long)arg1;
+- (id)cachedPreviewIconWithState:(unsigned long long)arg1;
+- (id)layerListPreviewCacheKeyForTraits:(long long)arg1;
+- (long long)calculatePreviewIconTraitsForState:(unsigned long long)arg1;
+@property(readonly, nonatomic) unsigned long long badgeType;
+- (id)childrenForLayerList;
+@property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
+- (id)cloneDictionaryReplacingImages:(id)arg1;
+- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)isMasked;
+- (void)handleBadgeClickWithAltState:(BOOL)arg1;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL lockedOnCanvas;
+@property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
+@property(readonly, nonatomic) BOOL hiddenOnCanvas;
+@property(readonly, nonatomic) BOOL isSelectedInLayerList;
+@property(readonly, nonatomic) BOOL expandableInLayerList;
+@property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
+- (BOOL)validateNodeName:(id *)arg1 error:(id *)arg2;
+@property(retain, nonatomic) NSString *nodeName;
+- (id)badgeMenuConfigurator;
+- (id)maskIconWithState:(unsigned long long)arg1;
+- (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)previewIconWithState:(unsigned long long)arg1;
+- (long long)previewIconTraitsForState:(unsigned long long)arg1;
+@property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
+@property(readonly, nonatomic) MSTintedImages *badgeImages;
+@property(readonly, nonatomic) BOOL hasBadgedIcon;
+@property(readonly, nonatomic) BOOL isEditableInLayerList;
+@property(readonly, nonatomic) BOOL isActive;
+@property(readonly, nonatomic) unsigned long long filterTypeMask;
+@property(readonly, nonatomic) unsigned long long displayType;
+@property(readonly, nonatomic) id layerListImmutable;
+- (struct CGRect)minimumAdjustedRectForValue:(double)arg1 axis:(unsigned long long)arg2 anchor:(long long)arg3;
+- (struct CGRect)boundsOfParentLayer;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
+- (id)styleForBooleanOperation;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isExpanded;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) NSString *name;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 @end
 

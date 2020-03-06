@@ -6,12 +6,52 @@
 
 #import <SketchModel/MSOverrideRepresentation.h>
 
-@class MSLayer;
+#import <SketchControllers/BCOutlineViewNode-Protocol.h>
+#import <SketchControllers/MSHoverableItem-Protocol.h>
+#import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 
-@interface MSOverrideRepresentation (Hoverable)
+@class MSLayer, MSTintedImages, NSString;
+
+@interface MSOverrideRepresentation (Hoverable) <MSHoverableItem, BCOutlineViewNode, MSLayerListLayerExtensions>
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (id)hoverItemsWithColor:(struct CGColor *)arg1;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
+- (BOOL)canApplyDataToSelfInDocument:(id)arg1;
+- (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (void)handleBadgeClickWithAltState:(BOOL)arg1;
+- (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
+@property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
+@property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
+@property(readonly, nonatomic) BOOL lockedOnCanvas;
+@property(readonly, nonatomic) BOOL hiddenOnCanvas;
+@property(readonly, nonatomic) BOOL isSelectedInLayerList;
+- (BOOL)selfOrChildrenSelected;
+@property(readonly, nonatomic) BOOL expandableInLayerList;
+- (id)badgeMenuConfigurator;
+- (id)maskIconWithState:(unsigned long long)arg1;
+- (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)previewIconWithState:(unsigned long long)arg1;
+- (long long)previewIconTraitsForState:(unsigned long long)arg1;
+@property(readonly, nonatomic) MSTintedImages *badgeImages;
+@property(readonly, nonatomic) BOOL hasBadgedIcon;
+- (BOOL)hasHighlight;
+@property(readonly, nonatomic) BOOL isEditableInLayerList;
+@property(readonly, nonatomic) BOOL isActive;
+@property(retain, nonatomic) NSString *nodeName;
+@property(readonly, nonatomic) unsigned long long filterTypeMask;
+@property(readonly, nonatomic) unsigned long long displayType;
+@property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
+@property(readonly, nonatomic) id layerListImmutable;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isExpanded;
+@property(nonatomic) long long layerListExpandedType;
+@property(readonly) Class superclass;
 @end
 

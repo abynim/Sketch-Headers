@@ -8,5 +8,8 @@
 
 @interface MSImmutableHotspotLayer (MSOverrideRepresentationPreview)
 - (id)overridePreviewImageInDocument:(id)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 bezier:(id)arg2;
+- (BOOL)hasDynamicPreview;
+- (id)previewImageForOverrideManagement;
 @end
 

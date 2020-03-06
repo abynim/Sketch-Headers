@@ -70,7 +70,6 @@
 - (id)willPresentError:(id)arg1;
 - (void)uploadProvider:(id)arg1 didChangeProgress:(id)arg2;
 - (void)uploadProvider:(id)arg1 uploadDidFailWithError:(id)arg2;
-- (void)uploadProvider:(id)arg1 uploadStartedWithStatus:(id)arg2;
 - (void)uploadProviderDidCancelUploading:(id)arg1;
 - (void)uploadProvider:(id)arg1 didUploadShare:(id)arg2;
 - (void)displayUploadFailedError:(id)arg1;

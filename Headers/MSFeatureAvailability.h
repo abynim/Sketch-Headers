@@ -19,14 +19,20 @@
     // Error parsing type: , name: maintainScrollPositionAfterClick
     // Error parsing type: , name: designLinting
     // Error parsing type: , name: structuredData
+    // Error parsing type: , name: renderfarmUploads
     // Error parsing type: , name: sharedEditing
+    // Error parsing type: , name: tintingEnabled
+    // Error parsing type: , name: gpuOverlay
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *gpuOverlay; // @synthesize gpuOverlay;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *tintingEnabled; // @synthesize tintingEnabled;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sharedEditing; // @synthesize sharedEditing;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *renderfarmUploads; // @synthesize renderfarmUploads;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *structuredData; // @synthesize structuredData;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;

@@ -6,7 +6,20 @@
 
 #import <SketchModel/MSImmutableArtboardGroup.h>
 
-@interface MSImmutableArtboardGroup (LayerList)
+#import <SketchControllers/FrequentColorEnumeration-Protocol.h>
+#import <SketchControllers/MSColorUser-Protocol.h>
+
+@class NSString;
+
+@interface MSImmutableArtboardGroup (LayerList) <MSColorUser, FrequentColorEnumeration>
 - (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+@property(readonly, nonatomic) unsigned long long colorUserColorUse;
+- (void)enumerateColors:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

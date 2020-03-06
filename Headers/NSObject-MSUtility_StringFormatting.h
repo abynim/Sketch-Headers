@@ -13,6 +13,7 @@
 + (id)transmissionTargetTokenFrom:(id)arg1;
 + (id)appSecretFrom:(id)arg1;
 + (id)sha256:(id)arg1;
++ (id)validateProperties:(id)arg1 forLogName:(id)arg2 type:(id)arg3;
 - (id)obfuscateString:(id)arg1 searchingForPattern:(id)arg2 toReplaceWithTemplate:(id)arg3;
 @end
 

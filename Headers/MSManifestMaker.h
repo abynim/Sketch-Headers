@@ -12,6 +12,7 @@
 {
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
+    BOOL _ignoreMirrorExportScale;
     MSImmutableDocumentData *_immutableDocumentData;
     NSString *_name;
     NSURL *_fileURL;
@@ -20,6 +21,7 @@
 
 + (id)keyForFlowAnimationType:(long long)arg1;
 + (id)manifestValueForColorSpace:(unsigned long long)arg1;
+@property(nonatomic) BOOL ignoreMirrorExportScale; // @synthesize ignoreMirrorExportScale=_ignoreMirrorExportScale;
 @property(copy, nonatomic) NSDictionary *applicationMetadata; // @synthesize applicationMetadata=_applicationMetadata;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;

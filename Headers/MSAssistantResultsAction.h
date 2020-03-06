@@ -4,17 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import <SketchControllers/MSAction.h>
 
 @class NSString;
 
-@interface MSAssistantResultsAction : MSDocumentAction
+@interface MSAssistantResultsAction : MSAction
 {
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)init;
-- (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) SEL preferredMenuAction;
+- (void)assistantToggleResultsPanel:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) BOOL hasDynamicTitle;

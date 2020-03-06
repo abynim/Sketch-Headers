@@ -8,5 +8,6 @@
 
 @interface NSTextField (NextKeyViewSupport)
 - (BOOL)canBeKeyView;
+- (BOOL)clickShouldDismissPopover:(id)arg1;
 @end
 

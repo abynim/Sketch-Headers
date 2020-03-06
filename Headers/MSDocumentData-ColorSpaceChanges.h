@@ -9,5 +9,7 @@
 @interface MSDocumentData (ColorSpaceChanges)
 - (void)convertToColorSpace:(unsigned long long)arg1;
 - (void)assignColorSpace:(unsigned long long)arg1;
+- (void)replaceInstancesOfColor:(id)arg1 withColor:(id)arg2 ignoreAlphaWhenMatching:(BOOL)arg3 replaceAlphaOfOriginalColor:(BOOL)arg4;
+- (void)enumerateColorConvertiblesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
 @end
 

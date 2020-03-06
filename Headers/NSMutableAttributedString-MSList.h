@@ -17,5 +17,6 @@
 - (id)listTabStops;
 - (void)updateListFrom:(id)arg1 toList:(id)arg2;
 - (void)updateListStyle:(id)arg1;
+- (void)removeUnsupportedAttributes;
 @end
 

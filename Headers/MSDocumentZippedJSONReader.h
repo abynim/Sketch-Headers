@@ -12,6 +12,7 @@
 {
     NSDictionary *_UIMetadata;
     NSDictionary *_metadata;
+    NSDictionary *_workspaceItems;
     MSJSONZippedUnarchiver *_unarchiver;
 }
 
@@ -19,6 +20,7 @@
 + (long long)documentCompatibilityVersion;
 + (long long)documentVersion;
 @property(retain, nonatomic) MSJSONZippedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
+- (id)workspaceItems;
 - (id)metadata;
 - (id)UIMetadata;
 - (void).cxx_destruct;

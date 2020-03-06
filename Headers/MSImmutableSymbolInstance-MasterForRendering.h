@@ -8,5 +8,6 @@
 
 @interface MSImmutableSymbolInstance (MasterForRendering)
 - (id)cachedModifiedSymbolForMaster:(id)arg1 inContext:(id)arg2;
+- (void)prepareForRender:(id)arg1;
 @end
 

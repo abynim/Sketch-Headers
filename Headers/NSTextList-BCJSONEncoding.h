@@ -9,5 +9,7 @@
 @interface NSTextList (BCJSONEncoding)
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
+- (id)treeAsDictionary;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @end
 

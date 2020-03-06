@@ -6,7 +6,11 @@
 
 #import <AppKit/NSColor.h>
 
+@class NSArray;
+
 @interface NSColor (TreeAsDictionarySupport)
 - (id)treeAsDictionary;
+- (id)colorTranslatedToColorSpace:(id)arg1;
+@property(readonly, nonatomic) NSArray *manifestComponents;
 @end
 

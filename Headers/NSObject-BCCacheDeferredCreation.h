@@ -9,5 +9,16 @@
 @interface NSObject (BCCacheDeferredCreation)
 @property(readonly, nonatomic) NSObject *BCCache_unblockingSelfOrDeferredObject;
 @property(readonly, nonatomic) NSObject *BCCache_selfOrDeferredObject;
+- (BOOL)runningHighSierra_bc;
+- (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
+- (id)mutableCopyDeep;
+- (void)encodeAsKey:(id)arg1;
+- (void)finishEncodingObject:(id)arg1;
+- (void)startEncodingObject:(id)arg1;
+- (void)encodeClassInfoForJSON:(id)arg1;
+- (id)replacementObjectForJSONEncoder:(id)arg1;
+- (void)encodeAsRAWArchive:(id)arg1;
+- (void)executeAsBlock;
+- (void)changeKey:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @end
 

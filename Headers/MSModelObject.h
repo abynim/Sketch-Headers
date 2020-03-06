@@ -9,7 +9,7 @@
 #import <SketchModel/MSModelObject-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
+@class MSDocumentData, MSForeignObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
 - (id)rootModelObject;
+@property(readonly, nonatomic) BOOL hasBeenInvalidated;
 - (void)invalidateImmutableObjectAndAncestors;
 - (void)invalidateImmutableObject;
 - (void)invaliateImmutableObject;
@@ -52,13 +53,15 @@
 - (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
 - (id)cachedValueForKey:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;
-@property(readonly, nonatomic) MSModelObject *foreignObject;
+@property(readonly, nonatomic) MSForeignObject *foreignObject;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (BOOL)collaborationDiffRemoveChild:(id)arg1 moving:(BOOL)arg2;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (id)metadataForKey:(id)arg1;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) NSString *UIMetadataKey;

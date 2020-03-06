@@ -13,7 +13,7 @@
     // Error parsing type: , name: isFinalized
     // Error parsing type: , name: layerEditStringMap
     // Error parsing type: , name: textViewEditMap
-    // Error parsing type: , name: defaultTextStyle.storage
+    // Error parsing type: , name: $__lazy_storage_$_defaultTextStyle
 }
 
 - (void).cxx_destruct;

@@ -22,7 +22,7 @@
 - (id)layoutAttributesForItemAt:(id)arg1;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 - (void)prepareLayout;
-@property(nonatomic, copy) NSArray *connectingPaths; // @synthesize connectingPaths;
+@property(nonatomic, copy) NSArray *connectingPaths;
 @property(nonatomic) struct CGSize handleSize; // @synthesize handleSize;
 
 @end

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/MSHoverableItem-Protocol.h>
+
 @class MSLayer, MSOverridePoint, MSSymbolMaster;
 
-@interface MSOverrideHoverContainer : NSObject
+@interface MSOverrideHoverContainer : NSObject <MSHoverableItem>
 {
     MSSymbolMaster *_master;
     MSOverridePoint *_overridePoint;

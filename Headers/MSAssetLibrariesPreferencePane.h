@@ -8,12 +8,15 @@
 
 #import "MSAssetPreferenceItemDelegate-Protocol.h"
 #import "MSDropableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 #import "QLPreviewPanelDataSource-Protocol.h"
 #import "QLPreviewPanelDelegate-Protocol.h"
 
 @class MSAssetLibraryController, MSAssetLibraryTableView, NSArray, NSArrayController, NSButton, NSMenu, NSPredicate, NSSearchField, NSString, NSWindow;
 
-@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
+@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
 {
     BOOL _hasAssets;
     BOOL _shouldEnableCogMenu;

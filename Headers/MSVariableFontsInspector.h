@@ -7,12 +7,13 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSVariableFontAxisViewControllerDelegate-Protocol.h"
+#import "NSCollectionViewDataSource-Protocol.h"
 #import "NSCollectionViewDelegate-Protocol.h"
 
 @class NSArray, NSCollectionView, NSFont, NSString, NSView;
 @protocol MSVariableFontsInspectorDelegate;
 
-@interface MSVariableFontsInspector : NSViewController <MSVariableFontAxisViewControllerDelegate, NSCollectionViewDelegate>
+@interface MSVariableFontsInspector : NSViewController <MSVariableFontAxisViewControllerDelegate, NSCollectionViewDataSource, NSCollectionViewDelegate>
 {
     id <MSVariableFontsInspectorDelegate> _delegate;
     NSFont *_font;

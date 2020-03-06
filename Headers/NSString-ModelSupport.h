@@ -6,7 +6,18 @@
 
 #import <Foundation/NSString.h>
 
-@interface NSString (ModelSupport)
+#import <SketchModel/MSCoding-Protocol.h>
+
+@interface NSString (ModelSupport) <MSCoding>
 - (BOOL)hasDefaultValues;
+- (id)initWithUnarchiver:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
+- (id)uniqueSlugUsingEarlierSlugs:(id)arg1 atIndex:(long long)arg2;
+- (id)uniqueSlugUsingEarlierSlugs:(id)arg1;
+@property(readonly) NSString *slug;
+- (id)treeAsDictionary;
+
+// Remaining properties
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 @end
 

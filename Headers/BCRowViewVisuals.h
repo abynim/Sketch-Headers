@@ -14,38 +14,38 @@
     // Error parsing type: , name: topAndBottomBorderHeight
     // Error parsing type: , name: scale
     // Error parsing type: , name: renderer
-    // Error parsing type: , name: groupRowBoundsWithBottomBorder.storage
-    // Error parsing type: , name: groupRowBoundsWithTopAndBottomBorders.storage
-    // Error parsing type: , name: plainGroupRowImageWithTopBorder.storage
-    // Error parsing type: , name: plainGroupRowImageWithBottomBorder.storage
-    // Error parsing type: , name: plainGroupRowImageWithTopAndBottomBorders.storage
-    // Error parsing type: , name: highlightedActiveGroupRowImageWithBottomBorder.storage
-    // Error parsing type: , name: highlightedInactiveGroupRowImageWithBottomBorder.storage
-    // Error parsing type: , name: highlightedActiveGroupRowImageWithTopAndBottomBorders.storage
-    // Error parsing type: , name: highlightedInactiveGroupRowImageWithTopAndBottomBorders.storage
-    // Error parsing type: , name: selectedActiveGroupRowImageWithBottomBorder.storage
-    // Error parsing type: , name: selectedInactiveGroupRowImageWithBottomBorder.storage
-    // Error parsing type: , name: selectedActiveGroupRowImageWithTopAndBottomBorders.storage
-    // Error parsing type: , name: selectedInactiveGroupRowImageWithTopAndBottomBorders.storage
-    // Error parsing type: , name: regularRowBounds.storage
-    // Error parsing type: , name: highlightedActiveRegularRowImage.storage
-    // Error parsing type: , name: highlightedInactiveRegularRowImage.storage
-    // Error parsing type: , name: selectedActiveRegularRowImageWithBlockyCorners.storage
-    // Error parsing type: , name: selectedInactiveRegularRowImageWithBlockyCorners.storage
-    // Error parsing type: , name: selectedActiveRegularRowImageWithRoundCorners.storage
-    // Error parsing type: , name: selectedInactiveRegularRowImageWithRoundCorners.storage
-    // Error parsing type: , name: selectedActiveRegularRowImageWithRoundTopCorners.storage
-    // Error parsing type: , name: selectedInactiveRegularRowImageWithRoundTopCorners.storage
-    // Error parsing type: , name: selectedActiveRegularRowImageWithRoundBottomCorners.storage
-    // Error parsing type: , name: selectedInactiveRegularRowImageWithRoundBottomCorners.storage
-    // Error parsing type: , name: subselectedActiveRegularRowImageWithBlockyCorners.storage
-    // Error parsing type: , name: subselectedInactiveRegularRowImageWithBlockyCorners.storage
-    // Error parsing type: , name: subselectedActiveRegularRowImageWithRoundCorners.storage
-    // Error parsing type: , name: subselectedInactiveRegularRowImageWithRoundCorners.storage
-    // Error parsing type: , name: subselectedActiveRegularRowImageWithRoundTopCorners.storage
-    // Error parsing type: , name: subselectedInactiveRegularRowImageWithRoundTopCorners.storage
-    // Error parsing type: , name: subselectedActiveRegularRowImageWithRoundBottomCorners.storage
-    // Error parsing type: , name: subselectedInactiveRegularRowImageWithRoundBottomCorners.storage
+    // Error parsing type: , name: $__lazy_storage_$_groupRowBoundsWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_groupRowBoundsWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithTopBorder
+    // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_regularRowBounds
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveRegularRowImage
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveRegularRowImage
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveRegularRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveRegularRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveRegularRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveRegularRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveRegularRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveRegularRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveRegularRowImageWithRoundBottomCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveRegularRowImageWithRoundBottomCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedActiveRegularRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedInactiveRegularRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedActiveRegularRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedInactiveRegularRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedActiveRegularRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedInactiveRegularRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedActiveRegularRowImageWithRoundBottomCorners
+    // Error parsing type: , name: $__lazy_storage_$_subselectedInactiveRegularRowImageWithRoundBottomCorners
 }
 
 - (void).cxx_destruct;

@@ -6,9 +6,11 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchControllers/NSCopying-Protocol.h>
+
 @class NSArray;
 
-@interface MSShapeChangeContext : NSObject
+@interface MSShapeChangeContext : NSObject <NSCopying>
 {
     NSArray *_layers;
     NSArray *_componentSpecifiers;

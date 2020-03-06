@@ -6,7 +6,9 @@
 
 #import <SketchModel/MSImmutableStyledLayer.h>
 
-@interface MSImmutableStyledLayer (FrequentColors)
+#import <SketchControllers/FrequentColorEnumeration-Protocol.h>
+
+@interface MSImmutableStyledLayer (FrequentColors) <FrequentColorEnumeration>
 - (void)trackColorsForBasicFill:(id)arg1 enumeratorBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateColors:(CDUnknownBlockType)arg1;
 @end

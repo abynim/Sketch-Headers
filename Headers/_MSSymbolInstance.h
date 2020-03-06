@@ -20,6 +20,12 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)setRaw_overrideValues:(id)arg1;
+- (void)setRaw_verticalSpacing:(double)arg1;
+- (void)setRaw_symbolID:(id)arg1;
+- (void)setRaw_scale:(double)arg1;
+- (void)setRaw_horizontalSpacing:(double)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

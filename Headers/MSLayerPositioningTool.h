@@ -45,7 +45,7 @@
 - (struct CGPoint)positionFromLocation:(struct CGPoint)arg1;
 @property(nonatomic, readonly) struct CGPoint position;
 - (void)reset;
-@property(nonatomic, copy) NSArray *items; // @synthesize items;
+@property(nonatomic, copy) NSArray *items;
 
 @end
 

@@ -10,21 +10,22 @@
 #import "NSWindowDelegate-Protocol.h"
 
 @class NSArray, NSArrayController, NSString, NSView;
-@protocol MSStylePartInspectorDelegate;
+@protocol MSInspectorSectionDelegate;
 
 @interface MSStylePartInspectorViewController : NSViewController <MSInspectorSection, NSWindowDelegate>
 {
     NSView *nameView;
     NSArray *_styleParts;
     NSArrayController *_arrayController;
-    id <MSStylePartInspectorDelegate> _delegate;
+    id <MSInspectorSectionDelegate> _delegate;
     unsigned long long _index;
 }
 
++ (unsigned long long)supportedActionsForLayers:(id)arg1;
 + (id)reusableControllerArray;
 + (id)stylePartViewController;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
-@property(nonatomic) __weak id <MSStylePartInspectorDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
@@ -36,7 +37,6 @@
 - (BOOL)hasEnabledStyle;
 - (void)prepare;
 - (void)awakeFromNib;
-- (id)initWithDelegate:(id)arg1;
 - (void)prepareForReuse;
 
 // Remaining properties

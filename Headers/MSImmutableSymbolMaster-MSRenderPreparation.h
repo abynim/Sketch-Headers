@@ -8,5 +8,7 @@
 
 @interface MSImmutableSymbolMaster (MSRenderPreparation)
 - (void)gatherForRenderPreparation:(id)arg1;
+- (void)configureBackgroundOfRequest:(id)arg1 isContainedInGroup:(BOOL)arg2;
+- (BOOL)shouldDrawBackgroundInContext:(id)arg1;
 @end
 

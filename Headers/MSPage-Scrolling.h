@@ -9,5 +9,6 @@
 @interface MSPage (Scrolling)
 - (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
 - (void)adjustRulerDataToTopLeftInViewBounds;
+- (BOOL)shouldDrawSelection;
 @end
 

@@ -27,7 +27,7 @@
 @property(nonatomic, readonly) BOOL isCurrentlyLoading;
 @property(nonatomic, readonly) BOOL shouldLoadInitialShares;
 @property(nonatomic, readonly) NSArray *shares;
-@property(nonatomic, copy) NSString *searchText; // @synthesize searchText;
+@property(nonatomic, copy) NSString *searchText;
 @property(nonatomic, readonly) SCKProject *project; // @synthesize project;
 @property(nonatomic, readonly) SCKOrganization *organization; // @synthesize organization;
 @property(nonatomic) __weak id <MSCloudSharesControllerDelegate> delegate; // @synthesize delegate;

@@ -18,7 +18,7 @@
     // Error parsing type: , name: symbolSwapPreferenceItem
     // Error parsing type: , name: includeHideSymbolView
     // Error parsing type: , name: includeSymbolSwapView
-    // Error parsing type: , name: libraryItemCollapseObserver.storage
+    // Error parsing type: , name: $__lazy_storage_$_libraryItemCollapseObserver
     // Error parsing type: , name: previewItemCollapseObserver
     // Error parsing type: , name: configured
 }

@@ -6,9 +6,12 @@
 
 #import "MSEventHandler.h"
 
+#import "MSHandleOverlayLayoutDelegate-Protocol.h"
+#import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
+
 @class MSAlignmentEngineResult, MSHandleOverlay, MSLayer, MSStyledLayer;
 
-@interface MSPointsEventHandler : MSEventHandler
+@interface MSPointsEventHandler : MSEventHandler <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSHandleOverlayLayoutDelegate>
 {
     MSStyledLayer *_layer;
     long long _indexForSelectedPoint;

@@ -14,6 +14,7 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic, readonly) double dividerThickness;
 @property(nonatomic, readonly) NSColor *dividerColor;
 
 @end

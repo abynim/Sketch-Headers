@@ -9,5 +9,6 @@
 @interface NSTextTab (BCJSONEncoding)
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
+- (id)treeAsDictionary;
 @end
 

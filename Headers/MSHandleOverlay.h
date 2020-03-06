@@ -12,8 +12,8 @@
 {
     // Error parsing type: , name: state
     // Error parsing type: , name: draggedIndexPaths
-    // Error parsing type: , name: dragGestureRecognizer.storage
-    // Error parsing type: , name: clickGestureRecognizer.storage
+    // Error parsing type: , name: $__lazy_storage_$_dragGestureRecognizer
+    // Error parsing type: , name: $__lazy_storage_$_clickGestureRecognizer
 }
 
 - (void).cxx_destruct;
@@ -22,7 +22,7 @@
 @property(nonatomic, retain) MSClickGestureRecognizer *clickGestureRecognizer;
 - (void)dragHandle:(id)arg1;
 @property(nonatomic, retain) MSDragHandleGestureRecognizer *dragGestureRecognizer;
-@property(nonatomic, copy) NSSet *draggedIndexPaths; // @synthesize draggedIndexPaths;
+@property(nonatomic, copy) NSSet *draggedIndexPaths;
 
 @end
 

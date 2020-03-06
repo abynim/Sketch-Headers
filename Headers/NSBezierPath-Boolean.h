@@ -7,9 +7,50 @@
 #import <AppKit/NSBezierPath.h>
 
 @interface NSBezierPath (Boolean)
++ (id)bezierPathWithSubPaths:(id)arg1;
++ (id)bezierCurveFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
++ (id)bezierPathFromPoint:(struct CGPoint)arg1 toPoint:(struct CGPoint)arg2;
++ (id)bezierPathWithJSONString_ms:(id)arg1;
++ (id)bezierPathWithJSON_ms:(id)arg1;
++ (id)bezierPathWithPath:(id)arg1;
 - (id)fb_xor:(id)arg1;
 - (id)fb_difference:(id)arg1;
 - (id)fb_intersect:(id)arg1;
 - (id)fb_union:(id)arg1;
+- (id)booleanExclusiveOrWith:(id)arg1;
+- (id)booleanSubtractWith:(id)arg1;
+- (id)booleanIntersectWith:(id)arg1;
+- (id)booleanUnionWith:(id)arg1;
+- (id)booleanOp:(long long)arg1 withPath:(id)arg2;
+- (void)strokeWithWidth:(double)arg1;
+- (void)debugWriteToFileNamed:(id)arg1;
+- (id)subPaths;
+- (id)scaleBy:(double)arg1;
+- (id)animatedGIFRepresentation_ms;
+- (id)JSONDescription_ms;
+- (id)JSONRepresetation_ms;
+- (void)appendArrowAtPoint_ms:(struct CGPoint)arg1 tangent:(struct BCLine)arg2 size:(double)arg3 scale:(double)arg4;
+- (void)appendCircleAtPoint_ms:(struct CGPoint)arg1 radius:(double)arg2 scale:(double)arg3;
+- (void)appendSquareAtPoint_ms:(struct CGPoint)arg1 size:(double)arg2 scale:(double)arg3;
+- (double)debugScale_ms;
+- (id)subDivideAtPoint:(struct CGPoint)arg1;
+- (id)bezierPathBySmootheningSubPath:(double)arg1;
+- (struct CGPoint)pointAtIndex:(long long)arg1;
+- (void)appendBezierPathByRemovingMoveToPoint:(id)arg1;
+- (double)lengthWithMaximumError:(double)arg1;
+- (double)length;
+- (id)bezierPathByTrimmingToLength:(double)arg1 withMaximumError:(double)arg2;
+- (id)bezierPathByTrimmingToLength:(double)arg1;
+- (struct CGPoint)pointOnPathAtLength:(double)arg1 slope:(double *)arg2;
+- (struct CGPoint)pointOnPathAtLength:(double)arg1;
+- (double)slopeOnPathAtLength:(double)arg1;
+- (struct CGPoint)firstPoint;
+- (struct CGPoint)lastPoint;
+- (BOOL)customIsEqual:(id)arg1;
+- (void)appendBezierPathItem:(id)arg1;
+- (id)lastItem;
+- (id)itemAtIndex:(long long)arg1;
+- (id)reverseEnumerator;
+- (id)enumerator;
 @end
 

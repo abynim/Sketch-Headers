@@ -10,5 +10,7 @@
 @property(readonly, nonatomic) BOOL isAtRootLevel;
 - (id)overrideRepresentation;
 - (id)placeholderIdentifier;
+- (double)overrideViewControllerHeightWithLayers:(id)arg1 shouldShowLabel:(BOOL)arg2 indentationLevel:(unsigned long long)arg3;
+- (id)createOverrideViewController;
 @end
 

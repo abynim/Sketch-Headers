@@ -6,9 +6,11 @@
 
 #import "MSDocumentAction.h"
 
+#import "BCPopoverDelegate-Protocol.h"
+
 @class BCPopover, NSString, NSViewController;
 
-@interface MSPopoverAction : MSDocumentAction
+@interface MSPopoverAction : MSDocumentAction <BCPopoverDelegate>
 {
     BCPopover *_popover;
 }

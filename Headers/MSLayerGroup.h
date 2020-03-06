@@ -70,6 +70,7 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
+- (void)applyOverride:(id)arg1 document:(id)arg2;
 - (void)applyTransformsToLayers:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;
 - (BOOL)hasStyleOrTransform;

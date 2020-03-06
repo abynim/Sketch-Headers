@@ -10,17 +10,16 @@
 
 @interface _TtCC6Sketch30AssistantResultsViewControllerP33_F0F493B0DAD4BCFBFEB48C5489AA52FD14ResultRowValue : NSObject
 {
-    // Error parsing type: , name: document
-    // Error parsing type: , name: layer
     // Error parsing type: , name: violation
+    // Error parsing type: , name: document
 }
 
 - (void).cxx_destruct;
 - (id)init;
-- (void)onRevealLayerClikedWithSender:(id)arg1;
+- (void)onRevealClickedWithSender:(id)arg1;
 @property(nonatomic, readonly) NSString *message;
 @property(nonatomic, readonly) NSString *rule;
-@property(nonatomic, readonly) NSString *layerName;
+@property(nonatomic, readonly) NSString *displayName;
 @property(nonatomic, readonly) NSNumber *severity;
 
 @end

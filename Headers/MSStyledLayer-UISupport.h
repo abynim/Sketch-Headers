@@ -7,6 +7,20 @@
 #import <SketchModel/MSStyledLayer.h>
 
 @interface MSStyledLayer (UISupport)
++ (id)layerWithImage:(id)arg1;
++ (id)layerWithImageFromFileURL:(id)arg1;
++ (id)layerWithImageFromPasteboard:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (struct MSModelObject *)sharedMaster;
+- (unsigned long long)shareableObjectType;
+- (id)imageReplaceableStyleFill;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+- (BOOL)canCutSegments;
+- (id)layerByRemovingSegmentAtIndexPath:(id)arg1;
+- (id)outlineShapeFromPath:(id)arg1 withBorder:(id)arg2;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
+- (void)prepareAsMask;
+- (BOOL)previewShouldIndicateSharedStyle;
 @end
 

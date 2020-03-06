@@ -48,5 +48,12 @@
 - (id)compactMap:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)front;
+- (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2;
+- (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2 withBlock:(CDUnknownBlockType)arg3;
+- (void)finishEncodingObject:(id)arg1;
+- (void)startEncodingObject:(id)arg1;
+- (void)encodeAsJSON:(id)arg1;
+- (unsigned long long)applyBlockConcurrentlyAndCountSuccess:(CDUnknownBlockType)arg1;
+- (void)mapWithMaxConcurrencyCount:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2 completionBlock:(CDUnknownBlockType)arg3;
 @end
 

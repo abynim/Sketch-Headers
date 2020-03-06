@@ -7,6 +7,9 @@
 #import <SketchModel/MSStyleFill.h>
 
 @interface MSStyleFill (BlendingView)
++ (id)keyPathsForValuesAffectingInterfaceOpacity;
 - (BOOL)wantsColorModePicker;
+- (id)parentStyle;
+@property(nonatomic) double interfaceOpacity;
 @end
 

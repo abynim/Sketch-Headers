@@ -7,10 +7,11 @@
 #import "MSInspectorItem.h"
 
 #import "MSDataMenuProviderDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class MSAvailableOverride, MSDataMenuProvider, MSDocumentData, MSOverrideRepresentation, NSLayoutConstraint, NSPopUpButton, NSString, NSTrackingArea, NSView;
 
-@interface MSOverrideInspectorItem : MSInspectorItem <MSDataMenuProviderDelegate>
+@interface MSOverrideInspectorItem : MSInspectorItem <NSMenuDelegate, MSDataMenuProviderDelegate>
 {
     BOOL _displaysLabel;
     MSOverrideRepresentation *_overrideRepresentation;

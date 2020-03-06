@@ -14,8 +14,8 @@
     // Error parsing type: , name: immutableMasters
     // Error parsing type: , name: allMastersHaveVisibleOverrides
     // Error parsing type: , name: _allowOverrides
-    // Error parsing type: , name: haveMatchingOverrideCounts.storage
-    // Error parsing type: , name: flattenedConfigurableOverrides.storage
+    // Error parsing type: , name: $__lazy_storage_$_haveMatchingOverrideCounts
+    // Error parsing type: , name: $__lazy_storage_$_flattenedConfigurableOverrides
 }
 
 - (void).cxx_destruct;
@@ -27,7 +27,7 @@
 - (id)initWithMasters:(id)arg1;
 @property(nonatomic) long long allowOverrides;
 @property(nonatomic, readonly) BOOL allMastersHaveVisibleOverrides; // @synthesize allMastersHaveVisibleOverrides;
-@property(nonatomic, readonly) NSArray *masters; // @synthesize masters;
+@property(nonatomic, readonly) NSArray *masters;
 
 @end
 

@@ -21,6 +21,13 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)setRaw_visibleScaleType:(long long)arg1;
+- (void)setRaw_scale:(double)arg1;
+- (void)setRaw_namingScheme:(long long)arg1;
+- (void)setRaw_name:(id)arg1;
+- (void)setRaw_fileFormat:(id)arg1;
+- (void)setRaw_absoluteSize:(double)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

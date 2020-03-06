@@ -14,11 +14,11 @@
     // Error parsing type: , name: document
     // Error parsing type: , name: results
     // Error parsing type: , name: currentOverlayController
-    // Error parsing type: , name: assistantStoryboard.storage
-    // Error parsing type: , name: noDocumentOverlayViewController.storage
-    // Error parsing type: , name: noErrorsOverlayViewController.storage
-    // Error parsing type: , name: noConfigurationOverlayViewController.storage
-    // Error parsing type: , name: noResultsOverlayViewController.storage
+    // Error parsing type: , name: $__lazy_storage_$_assistantStoryboard
+    // Error parsing type: , name: $__lazy_storage_$_noDocumentOverlayViewController
+    // Error parsing type: , name: $__lazy_storage_$_noErrorsOverlayViewController
+    // Error parsing type: , name: $__lazy_storage_$_noConfigurationOverlayViewController
+    // Error parsing type: , name: $__lazy_storage_$_noResultsOverlayViewController
 }
 
 - (void).cxx_destruct;

@@ -10,16 +10,16 @@
 @protocol MSCloudUploadProviderDelegate;
 
 @protocol MSCloudUploadProvider <NSObject>
-@property(readonly, nonatomic) NSProgress *progress;
-@property(readonly, nonatomic) BOOL finalized;
-@property(readonly, nonatomic) BOOL cancelled;
-@property(readonly, nonatomic) SCKProject *project;
-@property(readonly, nonatomic) SCKOrganization *organization;
-@property(readonly, nonatomic) SCKShare *newShare;
-@property(readonly, nonatomic) SCKShare *previousShare;
-@property(readonly, nonatomic) SCKShare *existingShare;
-@property(nonatomic) __weak id <MSCloudUploadProviderDelegate> delegate;
+@property(nonatomic, readonly) NSProgress *progress;
 - (void)cancel;
+@property(nonatomic, readonly) BOOL finalized;
+@property(nonatomic, readonly) BOOL cancelled;
+@property(nonatomic, readonly) SCKProject *project;
+@property(nonatomic, readonly) SCKOrganization *organization;
+@property(nonatomic, readonly) SCKShare *createdShare;
+@property(nonatomic, readonly) SCKShare *previousShare;
+@property(nonatomic, readonly) SCKShare *existingShare;
 - (void)startUpload;
+@property(nonatomic) __weak id <MSCloudUploadProviderDelegate> delegate;
 @end
 

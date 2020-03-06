@@ -29,7 +29,7 @@
 - (void)windowDidLoad;
 - (void)run:(CDUnknownBlockType)arg1;
 - (id)init:(id)arg1;
-@property(nonatomic, copy) CDUnknownBlockType completionHandler; // @synthesize completionHandler;
+@property(nonatomic, copy) CDUnknownBlockType completionHandler;
 @property(nonatomic, readonly) NSString *windowNibName;
 @property(nonatomic, retain) NSButton *discardButton; // @synthesize discardButton;
 @property(nonatomic, retain) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator;

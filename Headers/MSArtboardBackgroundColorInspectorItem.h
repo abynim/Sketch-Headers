@@ -6,6 +6,7 @@
 
 #import "MSInspectorItem.h"
 
+#import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
@@ -13,7 +14,7 @@
 
 @class BCPopover, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSButton, NSString;
 
-@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate>
+@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate>
 {
     MSStylePartPreviewButton *_backgroundColorButton;
     BCPopover *_popover;

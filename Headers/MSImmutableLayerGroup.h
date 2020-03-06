@@ -58,6 +58,8 @@
 - (void)migratePropertiesFromV109OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV90OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
+- (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
+- (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
 - (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
 

@@ -8,5 +8,12 @@
 
 @interface MSAvailableOverride (DataType)
 @property(readonly, nonatomic) unsigned long long dataType;
+- (id)currentSharedStyle:(id)arg1 libraryController:(id)arg2;
+- (id)importableDefaultSharedStyle:(id)arg1 libraryController:(id)arg2;
+- (id)symbolDefaultSharedStyle:(id)arg1 libraryController:(id)arg2;
+- (id)originalSharedStyle:(id)arg1 libraryController:(id)arg2;
+- (id)libraryForStyleWithID:(id)arg1 inDocument:(id)arg2 libraryController:(id)arg3;
+- (id)libraryForOwningSymbolIn:(id)arg1 libraryController:(id)arg2;
+- (id)sharedStyleWithID:(id)arg1 inDocument:(id)arg2;
 @end
 

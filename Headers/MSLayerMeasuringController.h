@@ -6,9 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "MSSpecOverlayLayoutDelegate-Protocol.h"
+#import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
+#import "_TtP6Sketch27MSLayerMeasurementPresenter_-Protocol.h"
+
 @class MSSpecOverlay, NSNumberFormatter, NSString, _TtC6Sketch27MSLayerMeasurementViewModel;
 
-@interface MSLayerMeasuringController : NSObject
+@interface MSLayerMeasuringController : NSObject <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSSpecOverlayLayoutDelegate, _TtP6Sketch27MSLayerMeasurementPresenter_>
 {
     MSSpecOverlay *_overlay;
     _TtC6Sketch27MSLayerMeasurementViewModel *_viewModel;

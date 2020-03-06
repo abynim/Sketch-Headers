@@ -11,7 +11,7 @@
 @interface _TtC6Sketch19MSLineInsertionTool : NSObject
 {
     // Error parsing type: , name: state
-    // Error parsing type: , name: style.storage
+    // Error parsing type: , name: $__lazy_storage_$_style
     // Error parsing type: , name: location
     // Error parsing type: , name: targetGroup
     // Error parsing type: , name: selectedLayers
@@ -27,7 +27,7 @@
 @property(nonatomic) double snapDistance; // @synthesize snapDistance;
 @property(nonatomic) BOOL isSnappingEnabled; // @synthesize isSnappingEnabled;
 @property(nonatomic) BOOL constrainToBeAxisAlignedOrDiagonal; // @synthesize constrainToBeAxisAlignedOrDiagonal;
-@property(nonatomic, copy) NSArray *selectedLayers; // @synthesize selectedLayers;
+@property(nonatomic, copy) NSArray *selectedLayers;
 @property(nonatomic, retain) MSLayerGroup *targetGroup; // @synthesize targetGroup;
 @property(nonatomic, readonly) struct CGPoint startpoint;
 @property(nonatomic) struct CGPoint location; // @synthesize location;

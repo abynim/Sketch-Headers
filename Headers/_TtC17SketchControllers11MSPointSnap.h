@@ -16,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) NSArray *guideInfo; // @synthesize guideInfo;
+@property(nonatomic, readonly) NSArray *guideInfo;
 @property(nonatomic, readonly) struct BCLine line;
 
 @end

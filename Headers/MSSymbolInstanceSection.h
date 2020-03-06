@@ -8,11 +8,12 @@
 
 #import "MSInspectorItemProvider-Protocol.h"
 #import "MSInspectorTableViewManagerDelegate-Protocol.h"
+#import "MSViewRestoration-Protocol.h"
 
 @class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _TtC6Sketch29MSSymbolInstanceInspectorItem;
 @protocol MSSymbolInstanceSectionDelegate, MSSymbolOverrideItemDescription;
 
-@interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider>
+@interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider, MSViewRestoration>
 {
     NSArray *_selectedOverrides;
     MSSharedSymbolStylesInspectorItem *_sharedStyleItem;

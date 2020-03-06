@@ -8,5 +8,7 @@
 
 @interface NSEPSImageRep (Alpha)
 - (BOOL)repSupportsAlpha;
+- (id)dataForArchiving;
+- (BOOL)hasEPSRepresentation;
 @end
 

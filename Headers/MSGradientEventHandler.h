@@ -27,7 +27,6 @@
 - (void).cxx_destruct;
 - (BOOL)canDuplicate;
 - (void)selectionDidChangeTo:(id)arg1;
-- (void)setValue:(id)arg1 forKeyPath:(id)arg2;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)useSnaps;
 - (BOOL)shouldDisplayMessageForSelectedStop;

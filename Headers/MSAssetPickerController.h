@@ -10,11 +10,12 @@
 #import "MSAssetCollectionViewSourceItemProvider-Protocol.h"
 #import "MSAssetPickerCollectionViewDelegate-Protocol.h"
 #import "NSCollectionViewDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
 @class MSAssetCollectionLayout, MSAssetCollectionViewDataSource, MSGenericButtonController, NSArray, NSCollectionView, NSCollectionViewItem, NSIndexPath, NSString, NSView;
 @protocol MSAsset, MSAssetPickerControllerDelegate;
 
-@interface MSAssetPickerController : NSViewController <MSAssetCollectionViewSourceItemProvider, MSAssetCollectionViewItemDelegate, MSAssetPickerCollectionViewDelegate, NSCollectionViewDelegate>
+@interface MSAssetPickerController : NSViewController <MSAssetCollectionViewSourceItemProvider, MSAssetCollectionViewItemDelegate, MSAssetPickerCollectionViewDelegate, NSCollectionViewDelegate, NSMenuDelegate>
 {
     id <MSAssetPickerControllerDelegate> _delegate;
     NSArray *_dataSources;

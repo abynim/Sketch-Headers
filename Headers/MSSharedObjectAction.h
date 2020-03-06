@@ -6,9 +6,11 @@
 
 #import "MSDocumentAction.h"
 
+#import "NSMenuDelegate-Protocol.h"
+
 @class NSString;
 
-@interface MSSharedObjectAction : MSDocumentAction
+@interface MSSharedObjectAction : MSDocumentAction <NSMenuDelegate>
 {
     NSString *_noSharedObjectMenuItemTitle;
 }

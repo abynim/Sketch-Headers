@@ -6,11 +6,12 @@
 
 #import <SketchModel/MSSymbolMaster.h>
 
+#import <SketchControllers/MSPreviewGeneration-Protocol.h>
 #import <SketchControllers/MSSharedObjectStyling-Protocol.h>
 
 @class NSString;
 
-@interface MSSymbolMaster (MSSharedObjectStyling) <MSSharedObjectStyling>
+@interface MSSymbolMaster (MSSharedObjectStyling) <MSSharedObjectStyling, MSPreviewGeneration>
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 backingScale:(double)arg3 shadow:(BOOL)arg4 colorSpace:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;
@@ -18,6 +19,12 @@
 - (id)generatePreviewForManageSheetWithBackingScale:(double)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (struct CGRect)optimalBoundingBox;
+- (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 concurrentCancelBlock:(CDUnknownBlockType)arg5 completionBlock:(CDUnknownBlockType)arg6;
+- (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 colorSpace:(id)arg3 backingScale:(double)arg4 completionBlock:(CDUnknownBlockType)arg5;
+- (BOOL)previewShouldIndicateSharedStyle;
+- (Class)shareableObjectReferenceClass_bc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

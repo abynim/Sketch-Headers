@@ -6,10 +6,13 @@
 
 #import <AppKit/NSCollectionViewItem.h>
 
+#import "MSDocumentsCollectionViewSelectionDrawing-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+
 @class MSDocumentProgressView, MSDocumentsCollectionItem, NSImageView, NSString, NSTextField;
 @protocol MSDocumentsCollectionViewItemDelegate;
 
-@interface MSDocumentsCollectionViewItem : NSCollectionViewItem
+@interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
 {
     struct CGSize _designedImageViewSize;
     id <MSDocumentsCollectionViewItemDelegate> _delegate;

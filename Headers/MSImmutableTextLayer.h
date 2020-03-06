@@ -37,7 +37,7 @@
 - (double)defaultLineHeight:(id)arg1;
 - (id)font;
 @property(readonly, nonatomic) double fontSize;
-@property(readonly, nonatomic) unsigned long long textAlignment;
+@property(readonly, nonatomic) long long textAlignment;
 - (BOOL)containsUnsafeFonts;
 - (id)usedFontNames;
 - (double)startingPositionOnPath:(id)arg1;

@@ -63,7 +63,7 @@
 @property(copy, nonatomic) NSFont *font;
 @property(nonatomic) double fontSize;
 @property(nonatomic) long long verticalAlignment;
-@property(nonatomic) unsigned long long textAlignment;
+@property(nonatomic) long long textAlignment;
 - (void)setLeading:(double)arg1;
 - (double)leading;
 - (id)paragraphStyle;
@@ -85,7 +85,7 @@
 - (void)fixParentGeometryIfNotAlreadyChangingLayout;
 - (void)adjustFrameToFitWithUnavilableFontsRectCalculationBlock:(CDUnknownBlockType)arg1;
 - (void)adjustFrameToFit;
-- (unsigned long long)assumedAlignment;
+- (long long)assumedAlignment;
 - (void)finishEditing;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;

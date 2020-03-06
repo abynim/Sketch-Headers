@@ -8,5 +8,22 @@
 
 @interface MSLayer (AdjustAfterInsert)
 - (void)adjustAfterInsert;
+- (BOOL)canBeHidden;
+- (long long)cornerRectType;
+- (id)overrideSelectionPathItems;
+- (BOOL)shouldRefreshOverlayForFlows;
+- (BOOL)shouldDrawSelectionStroke;
+- (BOOL)shouldDrawSelection;
+- (BOOL)canSmartRotate;
+- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
+- (void)select:(BOOL)arg1 byExpandingSelection:(BOOL)arg2;
+- (id)duplicate;
+- (BOOL)shouldFlattenAfterRotate;
+- (Class)handlerClass;
+- (BOOL)handleDoubleClick;
+- (id)inspectorSections;
+- (void)writeBitmapImageToFile:(id)arg1;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
+- (id)debugQuickLookObject;
 @end
 

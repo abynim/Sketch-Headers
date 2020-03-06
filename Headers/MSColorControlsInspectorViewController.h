@@ -4,35 +4,35 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSMultipleColorStylePartInspectorViewController.h"
 
-@class MSInlineUpDownNanoTextField, MSInlineUpDownTextField, MSMathInspectorValueAdaptor;
+@class MSColorControlsInspectorItem;
 
-@interface MSColorControlsInspectorViewController : MSStylePartInspectorViewController
+@interface MSColorControlsInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
-    MSMathInspectorValueAdaptor *_hueAdaptor;
-    MSMathInspectorValueAdaptor *_saturationAdaptor;
-    MSMathInspectorValueAdaptor *_brightnessAdaptor;
-    MSMathInspectorValueAdaptor *_contrastAdaptor;
-    MSInlineUpDownNanoTextField *_hueField;
-    MSInlineUpDownNanoTextField *_saturationField;
-    MSInlineUpDownNanoTextField *_brightnessField;
-    MSInlineUpDownTextField *_contrastField;
+    MSColorControlsInspectorItem *_inspectorItem;
 }
 
-+ (void)setupTextField:(id)arg1 adaptor:(id)arg2 valueTransformer:(id)arg3;
-@property(retain, nonatomic) MSInlineUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *saturationField; // @synthesize saturationField=_saturationField;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *hueField; // @synthesize hueField=_hueField;
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *contrastAdaptor; // @synthesize contrastAdaptor=_contrastAdaptor;
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *brightnessAdaptor; // @synthesize brightnessAdaptor=_brightnessAdaptor;
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdaptor; // @synthesize saturationAdaptor=_saturationAdaptor;
-@property(retain, nonatomic) MSMathInspectorValueAdaptor *hueAdaptor; // @synthesize hueAdaptor=_hueAdaptor;
+@property(retain, nonatomic) MSColorControlsInspectorItem *inspectorItem; // @synthesize inspectorItem=_inspectorItem;
 - (void).cxx_destruct;
-- (id)views;
-- (void)reset:(id)arg1;
-- (void)viewDidLoad;
+- (id)disabledStylePartsButtonTooltip;
+- (id)addStylePartButonTooltip;
+- (void)setLayers:(id)arg1;
+- (BOOL)hasEnabledColorControls;
+- (id)contentViews;
+- (id)styleParts;
+- (long long)advancedOptionsButtonState;
+- (void)resetStylePartsButtonAction:(id)arg1;
+- (long long)resetStylePartsButtonState;
+- (void)disabledStylePartsButtonAction:(id)arg1;
+- (long long)disabledStylePartsButtonState;
+- (void)addStylePartHeaderWideAction:(id)arg1;
+- (long long)addStylePartHeaderWideButtonState;
+- (void)addStylePartButtonAction:(id)arg1;
+- (long long)addStylePartButtonState;
+- (unsigned long long)stylePartType;
+- (id)title;
+- (id)init;
 
 @end
 

@@ -24,7 +24,7 @@
 @property(nonatomic, readonly) long long propertyIndentation;
 @property(nonatomic) long long titleIndentation; // @synthesize titleIndentation;
 @property(nonatomic, retain) MSImmutableLayer *layerForPreview; // @synthesize layerForPreview;
-@property(nonatomic, copy) NSString *overrideProperty; // @synthesize overrideProperty;
+@property(nonatomic, copy) NSString *overrideProperty;
 @property(nonatomic) BOOL newAffectedLayer; // @synthesize newAffectedLayer;
 
 @end

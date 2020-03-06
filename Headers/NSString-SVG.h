@@ -11,6 +11,8 @@
 + (id)svgStringWithPercentageValue:(double)arg1;
 + (id)svgStringWithNumberValue:(double)arg1;
 + (id)svgStringWithPixelValue:(double)arg1;
++ (id)stringWithInt:(long long)arg1 suffix:(id)arg2;
 - (id)svgURL;
+- (id)transformTrimmedName;
 @end
 

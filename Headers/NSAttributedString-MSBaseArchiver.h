@@ -13,6 +13,16 @@
 @interface NSAttributedString (MSBaseArchiver) <MSCoding>
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
+- (id)attributeForKey:(id)arg1;
+- (id)currentListStyle;
+- (id)treeAsDictionary;
+- (id)attributedStringAttributes;
+- (id)translatedToColorSpace:(id)arg1;
+- (id)convertedToColorSpace:(id)arg1;
+- (id)attributedStringWithDocumentColorSpace:(id)arg1 convert:(BOOL)arg2;
+- (id)standardAttributedStringWithDocumentColorSpace:(id)arg1;
+- (id)initWithString:(id)arg1 attributedStringAttributes:(id)arg2;
+- (id)attributedStringByApplyingBlock:(CDUnknownBlockType)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

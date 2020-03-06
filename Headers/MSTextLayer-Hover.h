@@ -7,6 +7,27 @@
 #import <SketchModel/MSTextLayer.h>
 
 @interface MSTextLayer (Hover)
++ (long long)menuItemStateForTest:(CDUnknownBlockType)arg1 forLayers:(id)arg2;
++ (long long)menuItemStateForAlignment:(long long)arg1 forLayers:(id)arg2;
++ (void)setTextAlignment:(long long)arg1 forLayers:(id)arg2;
++ (BOOL)canSetTextAlignmentForLayers:(id)arg1;
++ (long long)menuItemStateForTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
++ (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
++ (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
 - (id)hoverItemsWithColor:(struct CGColor *)arg1;
+- (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (unsigned long long)shareableObjectType;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+- (void)changeTextColorTo:(id)arg1;
+- (void)changeColor:(id)arg1;
+@property(readonly, nonatomic) BOOL supportsVerticalAlignment;
+- (BOOL)supportsInnerOuterBorders;
+- (void)copyStylePropertiesToShape:(id)arg1 shapeName:(id)arg2;
+- (void)copyTextPropertiesToShape:(id)arg1 color:(id)arg2;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
+- (BOOL)hasMultipleTextColors;
+- (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @end
 

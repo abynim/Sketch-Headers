@@ -7,12 +7,12 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSInspectorChildController-Protocol.h"
+#import "MSInspectorSectionDelegate-Protocol.h"
 #import "MSStackViewScrollViewDelegate-Protocol.h"
-#import "MSStylePartInspectorDelegate-Protocol.h"
 
 @class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerArray, MSStandardInspectorViewControllers, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSStackView, NSString;
 
-@interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSStylePartInspectorDelegate, MSInspectorChildController>
+@interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSInspectorSectionDelegate, MSInspectorChildController>
 {
     MSExportInspectorViewController *exportViewController;
     BOOL _hasScheduledNextResponderFixing;

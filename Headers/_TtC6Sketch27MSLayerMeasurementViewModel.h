@@ -34,9 +34,9 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (void)clear;
 @property(nonatomic) unsigned long long measurementOptions; // @synthesize measurementOptions;
-@property(nonatomic, copy) NSArray *hoveredGuides; // @synthesize hoveredGuides;
+@property(nonatomic, copy) NSArray *hoveredGuides;
 @property(nonatomic, retain) MSLayer *hoveredLayer; // @synthesize hoveredLayer;
-@property(nonatomic, copy) NSArray *selectedLayers; // @synthesize selectedLayers;
+@property(nonatomic, copy) NSArray *selectedLayers;
 @property(nonatomic) BOOL isUsingTool; // @synthesize isUsingTool;
 @property(nonatomic) BOOL wantMeasurements; // @synthesize wantMeasurements;
 @property(nonatomic) __weak id <_TtP6Sketch27MSLayerMeasurementPresenter_> presenter; // @synthesize presenter;

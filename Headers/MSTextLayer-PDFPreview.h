@@ -9,5 +9,11 @@
 @interface MSTextLayer (PDFPreview)
 - (id)PDFPreview;
 - (BOOL)shouldStorePDFPreviews;
+- (long long)cornerRectType;
+- (BOOL)shouldDrawSelectionStroke;
+- (BOOL)shouldDrawSelection;
+- (Class)handlerClass;
+- (id)inspectorSections;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
 @end
 

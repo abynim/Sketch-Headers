@@ -6,7 +6,11 @@
 
 #import <SketchModel/MSImmutableStyle.h>
 
+@class NSArray;
+
 @interface MSImmutableStyle (CoreImageEffects)
 - (id)renderBitmapEffects:(id)arg1 bounds:(struct CGRect)arg2 parentCoordinateTransform:(struct CGAffineTransform)arg3;
+@property(readonly, nonatomic) NSArray *renderableFills;
+@property(readonly, nonatomic) BOOL hasEnabledOpaqueFill;
 @end
 

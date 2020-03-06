@@ -8,5 +8,9 @@
 
 @interface MSArtboardGroup (AdjustAfterInsert)
 - (void)adjustAfterInsert;
+- (BOOL)canBeHidden;
+- (BOOL)shouldRefreshOverlayForFlows;
+- (id)inspectorSections;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
 @end
 

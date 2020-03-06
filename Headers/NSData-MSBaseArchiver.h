@@ -13,6 +13,7 @@
 @interface NSData (MSBaseArchiver) <MSCoding>
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
+- (id)treeAsDictionary;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

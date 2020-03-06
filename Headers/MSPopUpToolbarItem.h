@@ -6,10 +6,17 @@
 
 #import <SketchControllers/MSToolbarItem.h>
 
+@class NSColor;
+
 @interface MSPopUpToolbarItem : MSToolbarItem
 {
+    BOOL _badgeHidden;
+    NSColor *_badgeColor;
 }
 
+@property(retain, nonatomic) NSColor *badgeColor; // @synthesize badgeColor=_badgeColor;
+@property(nonatomic) BOOL badgeHidden; // @synthesize badgeHidden=_badgeHidden;
+- (void).cxx_destruct;
 - (id)makeViewForAction:(id)arg1;
 
 @end

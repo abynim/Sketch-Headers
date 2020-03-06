@@ -6,12 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSInspectorChildController-Protocol.h"
 
 @class BCPopover, MSBitmapEditEventHandler, MSInlineUpDownTextField, NSButton, NSColor, NSString, NSTextField;
 
-@interface MSBitmapEditInspectorViewController : NSViewController <MSColorInspectorDelegate, MSInspectorChildController>
+@interface MSBitmapEditInspectorViewController : NSViewController <BCPopoverDelegate, MSColorInspectorDelegate, MSInspectorChildController>
 {
     long long _currentMode;
     MSBitmapEditEventHandler *_eventHandler;

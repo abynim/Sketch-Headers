@@ -6,9 +6,11 @@
 
 #import "MSOverrideInspectorItem.h"
 
+#import "NSTextFieldDelegate-Protocol.h"
+
 @class NSString, NSTextField;
 
-@interface MSTextOverrideInspectorItem : MSOverrideInspectorItem
+@interface MSTextOverrideInspectorItem : MSOverrideInspectorItem <NSTextFieldDelegate>
 {
     BOOL _hasPendingChanges;
     NSTextField *_overrideTextField;

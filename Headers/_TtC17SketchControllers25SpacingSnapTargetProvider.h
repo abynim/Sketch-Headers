@@ -10,7 +10,7 @@
 {
     // Error parsing type: , name: tool
     // Error parsing type: , name: center
-    // Error parsing type: , name: spacingParticipants.storage
+    // Error parsing type: , name: $__lazy_storage_$_spacingParticipants
     // Error parsing type: , name: anchorPointForResizing
     // Error parsing type: , name: visibleRect
     // Error parsing type: , name: coordinateSpace

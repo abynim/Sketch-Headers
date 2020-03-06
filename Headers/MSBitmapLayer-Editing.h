@@ -8,5 +8,6 @@
 
 @interface MSBitmapLayer (Editing)
 - (Class)handlerClass;
+- (id)inspectorSections;
 @end
 

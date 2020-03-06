@@ -8,5 +8,14 @@
 
 @interface MSShapePathLayer (Sketch)
 - (id)kindOfHandleAtIndex:(unsigned long long)arg1;
+- (void)adjustAfterInsert;
+- (BOOL)shouldDrawSelectionStroke;
+- (BOOL)shouldDrawSelection;
+- (BOOL)canSmartRotate;
+- (Class)handlerClass;
+- (BOOL)handleDoubleClick;
+- (struct CGRect)boundsForCursorPreview;
+- (id)bezierPathForCursorPreview;
+- (id)insertionCursor;
 @end
 

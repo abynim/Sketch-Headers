@@ -18,7 +18,7 @@ __attribute__((visibility("hidden")))
     // Error parsing type: , name: flippedHorizontally
     // Error parsing type: , name: flippedVertically
     // Error parsing type: , name: parentCoordinateSpace
-    // Error parsing type: , name: unitCoordinateSpace.storage
+    // Error parsing type: , name: $__lazy_storage_$_unitCoordinateSpace
 }
 
 - (void).cxx_destruct;

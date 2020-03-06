@@ -8,5 +8,6 @@
 
 @interface MSSliceLayer (ShouldDrawSelection)
 - (BOOL)shouldDrawSelectionStroke;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
 @end
 

@@ -9,30 +9,32 @@
 #import "MSReorderingContainerDelegate-Protocol.h"
 
 @class MSReorderingContainerView, NSArray, NSButton, NSString, NSTextField, NSView;
-@protocol MSStylePartInspectorDelegate;
+@protocol MSInspectorSectionDelegate;
 
 @interface MSMultipleStylePartInspectorViewController : NSViewController <MSReorderingContainerDelegate>
 {
     NSArray *_layers;
     NSArray *_stylePartViewControllers;
-    id <MSStylePartInspectorDelegate> _delegate;
+    id <MSInspectorSectionDelegate> _delegate;
     MSReorderingContainerView *_reorderingContainer;
     NSView *_nameView;
     NSTextField *_nameField;
     NSButton *_addStylePartButton;
-    NSButton *_addStylePartHeaderButton;
-    NSButton *_removeDisabledStylePartsButton;
-    NSButton *_showAdvancedOptionsButton;
+    NSButton *_addStylePartHeaderWideButton;
+    NSButton *_advancedOptionsButton;
+    NSButton *_disabledStylePartsButton;
+    NSButton *_resetStylePartsButton;
 }
 
-@property(retain, nonatomic) NSButton *showAdvancedOptionsButton; // @synthesize showAdvancedOptionsButton=_showAdvancedOptionsButton;
-@property(retain, nonatomic) NSButton *removeDisabledStylePartsButton; // @synthesize removeDisabledStylePartsButton=_removeDisabledStylePartsButton;
-@property(retain, nonatomic) NSButton *addStylePartHeaderButton; // @synthesize addStylePartHeaderButton=_addStylePartHeaderButton;
+@property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
+@property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
+@property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
+@property(retain, nonatomic) NSButton *addStylePartHeaderWideButton; // @synthesize addStylePartHeaderWideButton=_addStylePartHeaderWideButton;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) NSTextField *nameField; // @synthesize nameField=_nameField;
 @property(retain, nonatomic) NSView *nameView; // @synthesize nameView=_nameView;
 @property(retain, nonatomic) MSReorderingContainerView *reorderingContainer; // @synthesize reorderingContainer=_reorderingContainer;
-@property(nonatomic) __weak id <MSStylePartInspectorDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
@@ -49,8 +51,10 @@
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
 - (void)containerBackground:(id)arg1 dragDidReorderChildAtIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
 - (unsigned long long)stylePartType;
-- (void)showAdvancedOptionsAction:(id)arg1;
-- (void)deleteUnusedStylePartsAction:(id)arg1;
+- (void)resetStylePartsButtonAction:(id)arg1;
+- (long long)resetStylePartsButtonState;
+- (void)advancedOptionsButtonAction:(id)arg1;
+- (void)disabledStylePartsButtonAction:(id)arg1;
 - (id)stylePartsAtIndex:(unsigned long long)arg1;
 - (unsigned long long)tagFromSender:(id)arg1;
 - (void)insertStylePart:(id)arg1 atIndex:(unsigned long long)arg2;
@@ -60,25 +64,31 @@
 - (void)copyStylePartAction:(id)arg1;
 - (void)addStylePartsForSelection;
 - (BOOL)hasPopOver;
-- (id)lastEnabledStylePartController;
-- (void)addStylePartAction:(id)arg1;
+- (void)addStylePartHeaderWideAction:(id)arg1;
+- (void)addStylePartButtonAction:(id)arg1;
 - (void)addNewStylePart;
+- (void)reloadInspectorStack;
 - (void)closePopovers;
 - (id)rotatedStyleParts;
+- (void)setStatus:(long long)arg1 forButton:(id)arg2;
 - (void)validateSpecialButtons;
 - (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (void)prepare;
 - (void)prepareForReuse;
 - (id)viewForStyleAtOffset:(long long)arg1 index:(unsigned long long)arg2;
-- (BOOL)shouldShowDisabledStylesButton;
-- (BOOL)shouldShowAdvancedOptionsButton;
-- (BOOL)shouldEnableAddStylePartButton;
+- (long long)disabledStylePartsButtonState;
+- (long long)advancedOptionsButtonState;
+- (long long)addStylePartHeaderWideButtonState;
+- (id)disabledStylePartsButtonTooltip;
+- (id)advancedOptionsButtonTooltip;
+- (id)addStylePartButonTooltip;
+- (long long)addStylePartButtonState;
 - (void)styleDidEnableOrDisable;
+- (id)contentViews;
 - (id)views;
 - (void)resizeViewToFit;
 - (Class)inspectorClassForStyleParts:(id)arg1;
 - (id)createInspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
-- (void)validateAdvancedOptionsButton;
 - (void)loadViewControllers;
 - (id)title;
 - (id)nibName;

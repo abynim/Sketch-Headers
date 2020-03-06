@@ -6,7 +6,21 @@
 
 #import <SketchModel/MSImmutableTextLayer.h>
 
-@interface MSImmutableTextLayer (LayerList)
+#import <SketchControllers/MSColorUser-Protocol.h>
+
+@class NSString;
+
+@interface MSImmutableTextLayer (LayerList) <MSColorUser>
 - (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)overridePreviewImageInDocument:(id)arg1;
+- (id)previewImageForOverrideManagement;
+@property(readonly, nonatomic) unsigned long long colorUserColorUse;
+- (void)enumerateColors:(CDUnknownBlockType)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 
