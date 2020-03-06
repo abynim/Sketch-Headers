@@ -17,8 +17,8 @@
     // Error parsing type: , name: flippedHorizontally
     // Error parsing type: , name: flippedVertically
     // Error parsing type: , name: rotation
-    // Error parsing type: , name: coordinateSpace.storage
-    // Error parsing type: , name: unitCoordinateSpace.storage
+    // Error parsing type: , name: $__lazy_storage_$_coordinateSpace
+    // Error parsing type: , name: $__lazy_storage_$_unitCoordinateSpace
     // Error parsing type: , name: alignmentSettings
     // Error parsing type: , name: roundingIncrement
     // Error parsing type: , name: snappingResult

@@ -11,5 +11,8 @@
 - (id)setMinusSet:(id)arg1;
 - (id)sortedArrayUsingKey:(id)arg1;
 - (BOOL)isEquivalentToArray_bc:(id)arg1;
+- (BOOL)containsObjectPassingTest:(CDUnknownBlockType)arg1;
+- (id)map:(CDUnknownBlockType)arg1;
+- (void)each:(CDUnknownBlockType)arg1;
 @end
 

@@ -54,7 +54,7 @@
 - (id)shareUploadOperation:(id)arg1 fileURLForItemWithHash:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, nonatomic) BOOL finalized;
-@property(readonly, nonatomic) SCKShare *newShare;
+@property(readonly, nonatomic) SCKShare *createdShare;
 - (void)cancel;
 - (id)loadManifest;
 - (void)createShare;

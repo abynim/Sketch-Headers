@@ -10,5 +10,12 @@
 - (id)variableFontAxes;
 - (BOOL)hasVariableFontAxesConfigured;
 - (BOOL)hasVariableFontAxesSettings;
+- (id)typeName;
+- (id)localizedTypeName;
+- (id)localizedFamilyName;
+- (id)currentOpenTypeAttributes;
+- (id)openTypeFeatures;
+- (id)treeAsDictionary;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @end
 

@@ -6,8 +6,31 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
+
 @interface NSObject (ModelSupport)
++ (Class)immutableClass;
++ (Class)mutableClass;
 - (BOOL)propertiesAreEqual:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
+- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
+- (id)replacementObjectForCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithJSONDecoder:(id)arg1;
+@property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
+- (void)updateSharedStyleIDFromMigration:(id)arg1;
+- (void)encodeWithArchiver:(id)arg1;
+- (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
+- (id)initWithUnarchiver:(id)arg1;
+- (id)treeAsDictionary;
+- (BOOL)hasDefaultValues;
+- (void)breakConnectionWith:(id)arg1;
+- (void)setParentObject:(id)arg1;
+- (id)parentObject;
+- (id)mapTreeWithLeafTransformBlock:(CDUnknownBlockType)arg1;
+- (id)newMutableCounterpart;
+@property(readonly, nonatomic) id immutableModelObject;
+- (id)copyWithOptions:(unsigned long long)arg1;
+- (id)initWithCoder:(id)arg1;
 @end
 

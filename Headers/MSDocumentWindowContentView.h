@@ -11,6 +11,7 @@
 }
 
 - (void)viewDidChangeEffectiveAppearance;
+- (void)mouseDown:(id)arg1;
 
 @end
 

@@ -8,5 +8,12 @@
 
 @interface MSImmutableLayer (CoreImageEffects)
 - (id)renderBitmapEffects:(id)arg1;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
+- (unsigned long long)transparencyLayerUseRectCondition;
+- (BOOL)shouldRenderInTransparencyLayer;
+- (void)prepareForRender:(id)arg1;
+- (void)gatherForRenderPreparation:(id)arg1;
+- (void)configureBackgroundOfRequest:(id)arg1 isContainedInGroup:(BOOL)arg2;
+- (void)renderToCanvas:(struct EKRasterCanvasStruct *)arg1;
 @end
 

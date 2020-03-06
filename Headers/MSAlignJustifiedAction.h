@@ -12,7 +12,7 @@
 
 - (id)label;
 - (id)touchBarImage;
-- (unsigned long long)textAlignment;
+- (long long)textAlignment;
 - (void)alignJustified:(id)arg1;
 
 @end

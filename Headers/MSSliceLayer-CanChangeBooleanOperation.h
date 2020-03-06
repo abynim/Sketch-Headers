@@ -8,5 +8,7 @@
 
 @interface MSSliceLayer (CanChangeBooleanOperation)
 - (BOOL)canChangeBooleanOperation;
+- (BOOL)isActive;
+- (unsigned long long)filterTypeMask;
 @end
 

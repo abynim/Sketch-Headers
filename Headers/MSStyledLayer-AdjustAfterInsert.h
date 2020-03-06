@@ -8,5 +8,7 @@
 
 @interface MSStyledLayer (AdjustAfterInsert)
 - (void)adjustAfterInsert;
+- (id)stylesForColorAdjustingWithPreferredName:(id)arg1;
+- (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;
 @end
 

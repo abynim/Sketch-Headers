@@ -10,11 +10,12 @@
 {
 }
 
+- (id)disabledStylePartsButtonTooltip;
+- (id)addStylePartButonTooltip;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
 - (id)title;
-- (void)awakeFromNib;
-- (BOOL)shouldEnableAddStylePartButton;
+- (long long)addStylePartButtonState;
 - (unsigned long long)stylePartType;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSImmutableDocumentData, NSView;
+@class CALayer, CAMetalLayer, MSImmutableDocumentData, NSView;
 @protocol MSTiledRendererHostView;
 
 @interface MSEkranoplanRenderer : NSObject <MSTilingSystemProvider>
@@ -17,13 +17,15 @@
     NSView<MSTiledRendererHostView> *hostView;
     CALayer *layer;
     MSImmutableDocumentData *renderedDocument;
+    CAMetalLayer *_metalLayer;
 }
 
+@property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
 @property(readonly) MSImmutableDocumentData *renderedDocument; // @synthesize renderedDocument;
-@property(readonly, nonatomic) CALayer *layer; // @synthesize layer;
 @property(nonatomic) BOOL hideOverlay; // @synthesize hideOverlay;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) CALayer *layer; // @synthesize layer;
 - (BOOL)isDrawing;
 - (void)endFastZooming;
 - (void)beginFastZooming;

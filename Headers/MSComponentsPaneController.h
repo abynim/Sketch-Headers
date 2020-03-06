@@ -20,7 +20,7 @@
     // Error parsing type: , name: filterBarController
     // Error parsing type: , name: hideSymbolViewController
     // Error parsing type: , name: symbolSwapPreferenceViewController
-    // Error parsing type: , name: appearanceObserver.storage
+    // Error parsing type: , name: $__lazy_storage_$_appearanceObserver
     // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
     // Error parsing type: , name: allowEditing

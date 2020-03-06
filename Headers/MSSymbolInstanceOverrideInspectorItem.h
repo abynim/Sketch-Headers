@@ -6,9 +6,12 @@
 
 #import "MSComponentOverrideInspectorItem.h"
 
+#import "NSMenuDelegate-Protocol.h"
+#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
+
 @class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem
+@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem <NSMenuDelegate, _TtP6Sketch24MSComponentsPopoverOwner_>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;

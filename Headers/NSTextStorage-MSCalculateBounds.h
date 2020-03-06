@@ -8,10 +8,10 @@
 
 @interface NSTextStorage (MSCalculateBounds)
 - (struct CGRect)computeFlexibleLayout;
-- (struct CGRect)calculateFlexibleBounds:(struct CGRect)arg1 alignment:(unsigned long long)arg2;
+- (struct CGRect)calculateFlexibleBounds:(struct CGRect)arg1 alignment:(long long)arg2;
 - (struct CGRect)computeFixedLayout;
 - (struct CGRect)calculateFixedBounds:(struct CGRect)arg1;
 - (struct CGRect)glyphBounds;
-- (struct CGRect)boundsForTextBehaviour:(long long)arg1 alignment:(unsigned long long)arg2 original:(struct CGRect)arg3;
+- (struct CGRect)boundsForTextBehaviour:(long long)arg1 alignment:(long long)arg2 original:(struct CGRect)arg3;
 @end
 

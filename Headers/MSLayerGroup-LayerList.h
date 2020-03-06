@@ -9,5 +9,9 @@
 @interface MSLayerGroup (LayerList)
 - (long long)calculatePreviewIconTraitsForState:(unsigned long long)arg1;
 - (BOOL)expandableInLayerList;
+- (id)pathForHoverInBounds;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+- (void)prepareAsMaskContainer;
+- (id)styleForBooleanOperation;
 @end
 

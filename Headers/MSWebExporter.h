@@ -47,7 +47,7 @@
 - (BOOL)exportDocumentPreviews;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (BOOL)exportArtboardsAndManifestWithError:(id *)arg1;
+- (BOOL)exportArtboardsAndManifestWithError:(id *)arg1 forSketchToolCloudExport:(BOOL)arg2;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

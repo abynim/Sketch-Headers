@@ -16,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, copy) NSIndexPath *insertionIndexPath; // @synthesize insertionIndexPath;
+@property(nonatomic, copy) NSIndexPath *insertionIndexPath;
 @property(nonatomic) struct CGSize curveAdjustmentHandleSize; // @synthesize curveAdjustmentHandleSize;
 - (id)layoutAttributesForElementsIn:(struct CGRect)arg1;
 

@@ -8,5 +8,7 @@
 
 @interface MSLayerGroup (Flow)
 - (BOOL)shouldRefreshOverlayForFlows;
+- (BOOL)handleDoubleClick;
+- (id)inspectorSections;
 @end
 

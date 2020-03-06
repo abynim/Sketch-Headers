@@ -8,5 +8,12 @@
 
 @interface MSImmutableStyledLayer (BlurEffect)
 - (id)renderBitmapEffects:(id)arg1;
+- (id)strokeStyleForDecoratedPath;
+- (id)fillStyleForDecoratedPath;
+- (id)fillPathWithDecorations:(id *)arg1;
+- (BOOL)shouldSkipDrawingInContext:(id)arg1;
+- (BOOL)shouldRenderInTransparencyLayer;
+@property(readonly, nonatomic) BOOL shouldRasterize;
+- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @end
 

@@ -22,7 +22,7 @@
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)hoverItemsWithColor:(struct CGColor *)arg1;
 - (id)initWithBatchedOverrides:(id)arg1;
-@property(nonatomic, readonly) NSArray *hoverContainers; // @synthesize hoverContainers;
+@property(nonatomic, readonly) NSArray *hoverContainers;
 
 @end
 

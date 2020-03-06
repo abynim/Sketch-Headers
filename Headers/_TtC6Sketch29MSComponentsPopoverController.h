@@ -11,7 +11,7 @@
 @interface _TtC6Sketch29MSComponentsPopoverController : NSViewController
 {
     // Error parsing type: , name: document
-    // Error parsing type: , name: componentsPane.storage
+    // Error parsing type: , name: $__lazy_storage_$_componentsPane
     // Error parsing type: , name: currentSession
 }
 

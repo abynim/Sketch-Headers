@@ -20,6 +20,12 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)setRaw_imageCollection:(id)arg1;
+- (void)setRaw_gradientAssets:(id)arg1;
+- (void)setRaw_exportPresets:(id)arg1;
+- (void)setRaw_colorAssets:(id)arg1;
+- (void)setRaw_images:(id)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

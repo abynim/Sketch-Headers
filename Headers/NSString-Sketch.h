@@ -10,5 +10,8 @@
 + (id)MSSupplementaryElementKindInsertionPoint;
 + (id)MSSupplementaryElementKindCurveFromHandle;
 + (id)MSSupplementaryElementKindCurveToHandle;
++ (id)MSSelectionOverlaySpacingHandle;
++ (id)pointsOutline;
++ (id)MSRadialGradientEllipse;
 @end
 

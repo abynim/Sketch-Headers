@@ -8,5 +8,8 @@
 
 @interface NSImageRep (Alpha)
 - (BOOL)repSupportsAlpha;
+- (id)dataForArchiving;
+- (BOOL)hasEPSRepresentation;
+- (BOOL)hasPDFRepresentation;
 @end
 

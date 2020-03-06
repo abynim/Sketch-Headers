@@ -21,6 +21,7 @@
 - (void)encodeReferenceObject:(id)arg1;
 - (BOOL)finishEncodingError:(id *)arg1;
 - (BOOL)encodeRawData:(id)arg1 toSubpath:(id)arg2 error:(id *)arg3;
+- (BOOL)encodeRawDataWithCompression:(id)arg1 toSubpath:(id)arg2 error:(id *)arg3;
 - (BOOL)encodeObject:(id)arg1 toSubpath:(id)arg2 error:(id *)arg3;
 - (id)initWithURL:(id)arg1;
 

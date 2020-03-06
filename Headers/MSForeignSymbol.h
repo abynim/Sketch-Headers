@@ -17,6 +17,7 @@
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
+- (void)updateAfterPatching;
 - (void)syncWithRemote:(id)arg1;
 - (void)syncSymbolPrivateStylesWithRemote:(id)arg1;
 - (void)enumerateSharedStyleItemsForMaster:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;

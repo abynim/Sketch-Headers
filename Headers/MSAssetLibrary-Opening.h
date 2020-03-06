@@ -6,8 +6,21 @@
 
 #import <SketchControllers/MSAssetLibrary.h>
 
-@interface MSAssetLibrary (Opening)
+#import "QLPreviewItem-Protocol.h"
+
+@class NSString, NSURL;
+
+@interface MSAssetLibrary (Opening) <QLPreviewItem>
 - (void)openWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL canOpen;
+@property(readonly) NSString *previewItemTitle;
+@property(readonly) NSURL *previewItemURL;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) id previewItemDisplayState;
+@property(readonly) Class superclass;
 @end
 

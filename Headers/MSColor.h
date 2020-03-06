@@ -16,6 +16,7 @@
 }
 
 + (id)rgbColorRed:(long long)arg1 green:(long long)arg2 blue:(long long)arg3;
++ (id)colorWithHex:(id)arg1 alpha:(double)arg2;
 + (id)colorWithNSColor:(id)arg1;
 + (id)colorWithHue:(double)arg1 saturation:(double)arg2 lightness:(double)arg3 alpha:(double)arg4;
 + (id)colorWithHue:(double)arg1 saturation:(double)arg2 brightness:(double)arg3 alpha:(double)arg4;

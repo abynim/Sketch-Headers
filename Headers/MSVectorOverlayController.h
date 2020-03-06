@@ -8,11 +8,13 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 #import "MSGestureRecognizerDelegate-Protocol.h"
+#import "MSVectorOverlayLayoutDelegate-Protocol.h"
+#import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
 @class MSAlignmentEngine, MSAlignmentEngineResult, MSContentDrawView, MSDragToSelectGestureRecognizer, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
 @protocol MSVectorOverlayControllerDelegate;
 
-@interface MSVectorOverlayController : NSObject <MSGestureRecognizerDelegate, MSAlignmentEngineDelegate>
+@interface MSVectorOverlayController : NSObject <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSVectorOverlayLayoutDelegate, MSGestureRecognizerDelegate, MSAlignmentEngineDelegate>
 {
     MSShapeEventHandler *_eventHandler;
     MSVectorOverlay *_overlay;

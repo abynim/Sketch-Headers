@@ -11,6 +11,9 @@
 }
 
 + (id)defaultTintColor;
+- (id)hexColor;
+- (void)setHexColor:(id)arg1;
+- (unsigned long long)styleType;
 - (void)performInitEmptyObject;
 
 @end

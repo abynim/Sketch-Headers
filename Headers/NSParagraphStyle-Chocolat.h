@@ -14,6 +14,10 @@
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
 - (id)propertiesToArchive;
+- (id)treeAsDictionary;
+- (id)propertiesDictionary;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
+@property(readonly, nonatomic) double fixedLineHeight_ms;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

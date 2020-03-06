@@ -7,6 +7,16 @@
 #import <AppKit/NSImage.h>
 
 @interface NSImage (Alpha)
++ (id)imageFromDataArchive:(id)arg1;
 - (BOOL)imageHasAlpha;
+- (BOOL)isAssetEqual:(id)arg1;
+- (unsigned long long)assetType;
+- (id)PDFImageRep;
+- (id)EPSImageRep;
+- (BOOL)hasEPSData;
+- (id)bitmapData;
+- (BOOL)hasPDFData;
+- (id)dataForArchiving;
+- (id)treeAsDictionary;
 @end
 

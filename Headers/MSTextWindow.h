@@ -14,9 +14,9 @@
     NSTextView *_textView;
 }
 
-+ (struct CGRect)adjustFrameWidth:(struct CGRect)arg1 alignment:(unsigned long long)arg2;
++ (struct CGRect)adjustFrameWidth:(struct CGRect)arg1 alignment:(long long)arg2;
 + (struct CGRect)adjustFrameHeight:(struct CGRect)arg1;
-+ (struct CGRect)makeBiggerRect:(struct CGRect)arg1 withBehaviour:(long long)arg2 alignment:(unsigned long long)arg3;
++ (struct CGRect)makeBiggerRect:(struct CGRect)arg1 withBehaviour:(long long)arg2 alignment:(long long)arg3;
 @property(retain, nonatomic) NSTextView *textView; // @synthesize textView=_textView;
 @property(retain, nonatomic) MSContentDrawView *contentDrawView; // @synthesize contentDrawView=_contentDrawView;
 - (void).cxx_destruct;

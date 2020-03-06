@@ -6,11 +6,18 @@
 
 #import <AppKit/NSMenuItem.h>
 
-@class NSArray;
+@class MSDataMenuProvider, MSDataSupplier, NSArray;
 
 @interface NSMenuItem (SharedObjects)
 - (BOOL)generatePreviewWithColorSpace:(id)arg1 backingScale:(double)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(retain, nonatomic) NSArray *shareableObjectReferences;
 @property(readonly, nonatomic) NSArray *symbolMasterReferences;
+@property(nonatomic) unsigned long long dataSupplierType;
+@property(retain, nonatomic) MSDataSupplier *dataSupplier;
+- (void)setDataSupplierManager:(id)arg1;
+- (id)dataSupplierManager;
+@property(retain, nonatomic) MSDataMenuProvider *dataMenuProvider;
+- (id)getDataObjectForKey:(id)arg1;
+- (void)setDataObject:(id)arg1 forKey:(id)arg2;
 @end
 

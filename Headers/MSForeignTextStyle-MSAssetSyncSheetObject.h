@@ -9,5 +9,6 @@
 @interface MSForeignTextStyle (MSAssetSyncSheetObject)
 - (id)tooltipForObject_MSAssetSyncSheetObject:(id)arg1;
 - (unsigned long long)type_MSAssetSyncSheetObject;
+- (void)visitInDocument:(id)arg1;
 @end
 

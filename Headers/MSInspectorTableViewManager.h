@@ -6,10 +6,13 @@
 
 #import <objc/NSObject.h>
 
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
+
 @class NSString;
 @protocol MSInspectorTableViewManagerDelegate;
 
-@interface MSInspectorTableViewManager : NSObject
+@interface MSInspectorTableViewManager : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 {
     id <MSInspectorTableViewManagerDelegate> _delegate;
 }

@@ -6,9 +6,11 @@
 
 #import "MSSharedObjectAction.h"
 
+#import "NSMenuDelegate-Protocol.h"
+
 @class MSForeignObjectMenuBuilder, NSString;
 
-@interface MSInsertSharedTextAction : MSSharedObjectAction
+@interface MSInsertSharedTextAction : MSSharedObjectAction <NSMenuDelegate>
 {
     MSForeignObjectMenuBuilder *_menuBuilder;
 }

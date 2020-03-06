@@ -22,7 +22,7 @@
 - (id)specifierWithComponent:(long long)arg1;
 @property(nonatomic, readonly) long long handle;
 @property(nonatomic, readonly) long long component; // @synthesize component;
-@property(nonatomic, readonly) NSIndexPath *indexPath; // @synthesize indexPath;
+@property(nonatomic, readonly) NSIndexPath *indexPath;
 - (id)initWithComponent:(long long)arg1 indexPath:(id)arg2;
 
 @end

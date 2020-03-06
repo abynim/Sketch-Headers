@@ -6,10 +6,12 @@
 
 #import <SketchControllers/MSToolController.h>
 
+#import <SketchControllers/_TtP17SketchControllers36MSLayerPositioningSnapTargetProvider_-Protocol.h>
+
 @class MSLayerPositioningTool, NSArray, NSNumber, _TtC17SketchControllers21MSLayerSnappingResult;
 @protocol MSDragLayerToolUserInterface;
 
-@interface MSLayerDragController : MSToolController
+@interface MSLayerDragController : MSToolController <_TtP17SketchControllers36MSLayerPositioningSnapTargetProvider_>
 {
     BOOL _duplicating;
     BOOL _snappingEnabled;

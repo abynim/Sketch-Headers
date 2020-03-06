@@ -8,5 +8,6 @@
 
 @interface MSBitmapLayer (DataApplicable)
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+- (BOOL)canChangeBooleanOperation;
 @end
 

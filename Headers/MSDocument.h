@@ -8,16 +8,19 @@
 
 #import "BCSideBarViewControllerDelegate-Protocol.h"
 #import "MSCloudExportableDocument-Protocol.h"
+#import "MSComponentsPaneDelegate-Protocol.h"
 #import "MSDocumentDataDelegate-Protocol.h"
 #import "MSEventHandlerManagerDelegate-Protocol.h"
 #import "MSHistoryMakerDelegate-Protocol.h"
 #import "MSMenuBuilderDelegate-Protocol.h"
 #import "MSSidebarControllerDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
+#import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLayerArray, MSLintConfiguration, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC11SketchModel19MSChangeCoordinator, _TtC15DocumentLinting10LintResult, _TtC6Sketch23MSDocumentChangeCounter;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLintConfigurationPackage, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC11SketchModel19MSChangeCoordinator, _TtC15DocumentLinting10LintResult, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSHistoryMakerDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPaneDelegate, MSHistoryMakerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _attemptingToClose;
     BOOL _nextReadFromURLIsReload;
@@ -25,7 +28,6 @@
     BOOL _isSidebarVisible;
     BOOL _isLayerListVisible;
     BOOL _isComponentPaneVisible;
-    BOOL _layerSelectionChangeScheduled;
     BOOL _cacheFlushInProgress;
     NSArray *_exportableLayerSelection;
     MSImmutableDocumentData *_exportableImmutableData;
@@ -37,7 +39,8 @@
     MSToolbarConstructor *_toolbarConstructor;
     MSActionController *_actionsController;
     MSBadgeController *_badgeController;
-    MSLintConfiguration *_lintConfiguration;
+    MSLintConfigurationPackage *_lintConfiguration;
+    NSDictionary *_workspaceItems;
     MSDocumentData *_documentData;
     _TtC6Sketch23MSDocumentChangeCounter *_documentChangeCounter;
     MSEventHandlerManager *_eventHandlerManager;
@@ -50,12 +53,13 @@
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
     _TtC15DocumentLinting10LintResult *_lintResult;
+    _TtC6Sketch24MSDocumentEditController *_editController;
     _TtC11SketchModel19MSChangeCoordinator *_changeCoordinator;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonController *_backButtonController;
     NSMutableDictionary *_originalViewportsForEditedSymbols;
-    MSLayerArray *_previousSelectedLayers;
+    NSArray *_previousSelectedLayers;
     MSArtboardGroup *_focusedArtboard;
     MSDocumentChangeNotifier *_changeNotifier;
 }
@@ -70,17 +74,17 @@
 + (BOOL)autosavesInPlace;
 @property(readonly, nonatomic) MSDocumentChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
-@property(copy, nonatomic) MSLayerArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
+@property(copy, nonatomic) NSArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
 @property(retain, nonatomic) NSMutableDictionary *originalViewportsForEditedSymbols; // @synthesize originalViewportsForEditedSymbols=_originalViewportsForEditedSymbols;
 @property(retain, nonatomic) MSBackButtonController *backButtonController; // @synthesize backButtonController=_backButtonController;
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
 @property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
-@property(nonatomic) BOOL layerSelectionChangeScheduled; // @synthesize layerSelectionChangeScheduled=_layerSelectionChangeScheduled;
 @property(readonly, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
 @property(nonatomic) BOOL isComponentPaneVisible; // @synthesize isComponentPaneVisible=_isComponentPaneVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
+@property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
 @property(retain, nonatomic) _TtC15DocumentLinting10LintResult *lintResult; // @synthesize lintResult=_lintResult;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
@@ -96,7 +100,8 @@
 @property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
 @property(nonatomic) BOOL attemptingToClose; // @synthesize attemptingToClose=_attemptingToClose;
 @property(readonly, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
-@property(retain, nonatomic) MSLintConfiguration *lintConfiguration; // @synthesize lintConfiguration=_lintConfiguration;
+@property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
+@property(retain, nonatomic) MSLintConfigurationPackage *lintConfiguration; // @synthesize lintConfiguration=_lintConfiguration;
 @property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
@@ -156,7 +161,6 @@
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
-- (void)scheduleSelectionChangedUpdatesIfNecessary:(id)arg1;
 - (void)notifyEventHandlersOfChange:(id)arg1;
 - (void)refreshComponentPane:(id)arg1;
 - (void)refreshLayerListIfNecessary:(id)arg1;
@@ -186,11 +190,11 @@
 - (void)menuWillOpen:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)checkForTextLayerChanges:(id)arg1;
-- (void)notifyPluginManagerWithOldDocument:(id)arg1;
 - (void)historyMaker:(id)arg1 setCurrentDocumentData:(id)arg2 selecting:(id)arg3 onPage:(id)arg4;
 - (id)currentDocumentData:(id)arg1;
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
+- (void)historyMaker:(id)arg1 privatelyUpdatedMoment:(id)arg2;
 - (void)historyMaker:(id)arg1 didCommitMoment:(id)arg2;
 - (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
 - (id)changeCountTokenForSaveOperation:(unsigned long long)arg1;
@@ -215,8 +219,8 @@
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validateUserInterfaceItem:(id)arg1;
-- (void)putSelectionBackInCanvasIfPossible;
 - (void)updateHistory;
+- (void)putSelectionBackInCanvasIfPossible;
 - (void)performSelectionChangedUpdates;
 - (id)selectedLayers;
 - (id)makeUnknownRenameError;
@@ -318,6 +322,7 @@
 - (void)revealShareableObject:(struct MSModelObject *)arg1;
 - (void)revealComponentsOfType:(unsigned long long)arg1;
 - (void)revealComponentPane;
+- (void)revealLayerList;
 - (void)handleGoToForeignSymbolInLibrary:(id)arg1;
 - (BOOL)canGoToForeignSymbolInLibrary:(id)arg1;
 - (void)handleEditForeignSymbol:(id)arg1 withInstance:(id)arg2;
@@ -329,6 +334,7 @@
 - (id)editForeignSymbolMessageForLibrary:(id)arg1;
 - (long long)availabilityForLibrary:(id)arg1;
 - (void)showCloudSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)backupFileURL;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;

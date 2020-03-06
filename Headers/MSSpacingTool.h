@@ -21,7 +21,7 @@
 - (id)init;
 @property(nonatomic, readonly) NSArray *verticalStacks;
 @property(nonatomic, readonly) NSArray *horizontalStacks;
-@property(nonatomic, copy) NSArray *layers; // @synthesize layers;
+@property(nonatomic, copy) NSArray *layers;
 
 @end
 

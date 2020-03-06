@@ -6,7 +6,22 @@
 
 #import <AppKit/NSViewController.h>
 
-@interface NSViewController (MSInspectorController)
+#import "MSInspectorSectionProvider-Protocol.h"
+#import "MSViewRestoration-Protocol.h"
+
+@class NSString;
+
+@interface NSViewController (MSInspectorController) <MSViewRestoration, MSInspectorSectionProvider>
 - (id)inspectorController;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
+- (id)sections;
+- (void)reloadInspectorStack:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

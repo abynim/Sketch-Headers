@@ -10,18 +10,21 @@
 
 @interface BCComparisonItem : NSObject
 {
-    id _object;
+    id _updatedObject;
+    id _oldObject;
     BCComparisonItem *_parent;
 }
 
 @property(retain, nonatomic) BCComparisonItem *parent; // @synthesize parent=_parent;
-@property(readonly, nonatomic) id object; // @synthesize object=_object;
+@property(readonly, nonatomic) id oldObject; // @synthesize oldObject=_oldObject;
+@property(readonly, nonatomic) id updatedObject; // @synthesize updatedObject=_updatedObject;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id object;
 @property(readonly, nonatomic) long long type;
 - (id)addChangeForPropertyNamed:(id)arg1;
 @property(readonly, nonatomic) NSString *fullPath;
 - (id)internalFullPath;
-- (id)initWithObject:(id)arg1 parent:(id)arg2;
+- (id)initWithNewObject:(id)arg1 oldObject:(id)arg2 parent:(id)arg3;
 - (id)init;
 
 @end

@@ -7,10 +7,11 @@
 #import <objc/NSObject.h>
 
 #import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
+#import <SketchControllers/MSCloudAssetLibraryControllerDelegate-Protocol.h>
 
 @class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSString;
 
-@interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
+@interface MSAssetLibraryController : NSObject <MSCloudAssetLibraryControllerDelegate, MSAssetLibraryDelegate>
 {
     NSMutableArray *_userLibraries;
     NSArray *_remoteLibraries;

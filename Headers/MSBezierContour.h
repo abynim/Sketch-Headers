@@ -56,6 +56,7 @@
 @property(readonly, nonatomic) BOOL isLinear;
 - (BOOL)_calculateIsLinear;
 - (BOOL)doSegmentsFormARectangle:(id)arg1 closed:(BOOL)arg2;
+@property(readonly, nonatomic) struct CGRect controlPointBounds;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGRect)calculateBounds;
 - (id)initWithSegments:(id)arg1 closed:(BOOL)arg2;

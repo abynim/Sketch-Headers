@@ -11,6 +11,7 @@
 }
 
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
+- (unsigned long long)styleType;
 - (void)resetToDefaultValues;
 - (BOOL)hasDefaultColorControlsValues;
 

@@ -6,31 +6,21 @@
 
 #import "MSNestedInspectorSection.h"
 
-#import "MSStylePartInspectorDelegate-Protocol.h"
+#import "MSInspectorSectionDelegate-Protocol.h"
 
-@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSDictionary, NSString;
+@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, MSTintInspectorViewController, NSArray, NSDictionary, NSMutableDictionary, NSString;
 
-@interface MSStyleInspectorSection : MSNestedInspectorSection <MSStylePartInspectorDelegate>
+@interface MSStyleInspectorSection : MSNestedInspectorSection <MSInspectorSectionDelegate>
 {
     MSCollapsibleHeaderInspectorItem *_headerItem;
-    MSMultipleFillInspectorViewController *_fillViewController;
-    MSMultipleBorderInspectorViewController *_borderViewController;
-    MSMultipleShadowInspectorViewController *_shadowViewController;
-    MSMultipleInnerShadowInspectorViewController *_innerShadowViewController;
-    MSBlurInspectorViewController *_blurViewController;
-    MSColorControlsInspectorViewController *_colorControlsViewController;
     NSArray *_currentControllers;
     NSDictionary *_restorationInfo;
+    NSMutableDictionary *_stylePartViewControllers;
 }
 
+@property(retain, nonatomic) NSMutableDictionary *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) NSArray *currentControllers; // @synthesize currentControllers=_currentControllers;
-@property(retain, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController; // @synthesize colorControlsViewController=_colorControlsViewController;
-@property(retain, nonatomic) MSBlurInspectorViewController *blurViewController; // @synthesize blurViewController=_blurViewController;
-@property(retain, nonatomic) MSMultipleInnerShadowInspectorViewController *innerShadowViewController; // @synthesize innerShadowViewController=_innerShadowViewController;
-@property(retain, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController; // @synthesize shadowViewController=_shadowViewController;
-@property(retain, nonatomic) MSMultipleBorderInspectorViewController *borderViewController; // @synthesize borderViewController=_borderViewController;
-@property(retain, nonatomic) MSMultipleFillInspectorViewController *fillViewController; // @synthesize fillViewController=_fillViewController;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 - (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
@@ -41,7 +31,16 @@
 - (void)restorePopover;
 - (void)closeAnyColorPopoverImmediately:(BOOL)arg1;
 - (void)closeAnyColorPopover;
+@property(readonly, nonatomic) MSTintInspectorViewController *tintViewController;
+@property(readonly, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController;
+@property(readonly, nonatomic) MSBlurInspectorViewController *blurViewController;
+@property(readonly, nonatomic) MSMultipleInnerShadowInspectorViewController *innerShadowViewController;
+@property(readonly, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController;
+@property(readonly, nonatomic) MSMultipleBorderInspectorViewController *borderViewController;
+@property(readonly, nonatomic) MSMultipleFillInspectorViewController *fillViewController;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
+- (id)stylePartViewControllerOfType:(unsigned long long)arg1;
+- (Class)viewControllerClassForType:(unsigned long long)arg1;
 - (id)views;
 @property(readonly, nonatomic) BOOL hasContent;
 - (void)updateItems;

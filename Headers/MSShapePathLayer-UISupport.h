@@ -8,5 +8,7 @@
 
 @interface MSShapePathLayer (UISupport)
 - (BOOL)supportsInnerOuterBorders;
+- (unsigned long long)shareableObjectType;
+- (id)styleForBooleanOperation;
 @end
 

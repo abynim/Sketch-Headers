@@ -9,5 +9,6 @@
 @interface NSTextView (TextLayerUndo)
 - (void)ms_registerUndoWithRuns:(id)arg1;
 - (void)ms_undoWithAttributeRuns:(id)arg1;
+- (BOOL)clickShouldDismissPopover:(id)arg1;
 @end
 

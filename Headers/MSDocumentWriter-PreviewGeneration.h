@@ -7,13 +7,16 @@
 #import <SketchModel/MSDocumentWriter.h>
 
 #import <SketchRendering/MSDocumentPreviewGeneration-Protocol.h>
+#import <SketchRendering/MSDocumentTextPreviews-Protocol.h>
 
 @class NSString;
 
-@interface MSDocumentWriter (PreviewGeneration) <MSDocumentPreviewGeneration>
+@interface MSDocumentWriter (PreviewGeneration) <MSDocumentPreviewGeneration, MSDocumentTextPreviews>
 + (id)findLibraryPreviewArtboardForDocument:(id)arg1 outPage:(id *)arg2;
 + (id)previewImageForDocument:(id)arg1 page:(id)arg2 rect:(struct CGRect)arg3;
 + (id)generatePreviewsForDocument:(id)arg1;
+- (id)createPreviewMetadataForTextLayers:(id)arg1 pageMapping:(id)arg2;
+- (id)createPreviewPDFDataForTextLayers:(id)arg1 document:(id)arg2 pageMapping:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

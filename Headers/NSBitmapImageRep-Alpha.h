@@ -8,5 +8,6 @@
 
 @interface NSBitmapImageRep (Alpha)
 - (BOOL)repSupportsAlpha;
+- (id)dataForArchiving;
 @end
 

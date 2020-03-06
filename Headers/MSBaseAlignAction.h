@@ -12,7 +12,7 @@
 
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)doPerformAction:(id)arg1;
-- (unsigned long long)textAlignment;
+- (long long)textAlignment;
 - (BOOL)validate;
 
 @end

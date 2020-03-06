@@ -7,7 +7,9 @@
 #import <SketchModel/MSStylePart.h>
 
 @interface MSStylePart (Previewing)
++ (BOOL)stylesHaveEqualAppearance:(id)arg1;
 - (id)previewImageForSize:(struct CGSize)arg1 colorSpace:(id)arg2;
 - (void)configureFillForPreview:(id)arg1;
+- (BOOL)hasEqualAppearance:(id)arg1;
 @end
 

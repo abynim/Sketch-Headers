@@ -8,6 +8,7 @@
 
 @interface _TtC6Sketch13GroupViewItem : _TtC6Sketch27ComponentListBranchViewItem
 {
+    // Error parsing type: , name: treeStructure
 }
 
 @end

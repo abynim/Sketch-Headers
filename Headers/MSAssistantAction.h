@@ -15,6 +15,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+- (void)validateToolbarItem;
+@property(nonatomic, readonly) BOOL mayShowInToolbar;
 @property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) BOOL hasSubMenu;
 - (id)submenuActionIDs;

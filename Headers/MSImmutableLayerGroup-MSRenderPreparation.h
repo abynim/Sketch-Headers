@@ -8,5 +8,6 @@
 
 @interface MSImmutableLayerGroup (MSRenderPreparation)
 - (void)gatherForRenderPreparation:(id)arg1;
+- (void)renderToCanvas:(struct EKRasterCanvasStruct *)arg1;
 @end
 

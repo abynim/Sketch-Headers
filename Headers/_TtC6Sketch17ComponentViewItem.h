@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
+    // Error parsing type: , name: componentTreeStructure
     // Error parsing type: , name: componentReference
     // Error parsing type: , name: parent
     // Error parsing type: , name: path

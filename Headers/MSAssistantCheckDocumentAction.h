@@ -15,6 +15,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) SEL preferredMenuAction;
 - (void)assistantCheckDocument:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 @property(nonatomic, readonly) NSString *label;

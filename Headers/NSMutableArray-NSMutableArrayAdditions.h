@@ -7,9 +7,11 @@
 #import <Foundation/NSMutableArray.h>
 
 @interface NSMutableArray (NSMutableArrayAdditions)
++ (id)arrayWithCapacity:(unsigned long long)arg1 fill:(CDUnknownBlockType)arg2;
 - (void)sortUsingKey:(id)arg1 selector:(SEL)arg2;
 - (void)addObjectIfNotNil:(id)arg1;
 - (void)replaceObject:(id)arg1 withObject:(id)arg2;
 - (void)removeFirstObject;
+- (void)removeObjectsPassingTest:(CDUnknownBlockType)arg1;
 @end
 

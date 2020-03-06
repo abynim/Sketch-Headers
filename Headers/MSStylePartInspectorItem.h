@@ -7,16 +7,13 @@
 #import <AppKit/NSViewController.h>
 
 @class NSArray, NSArrayController;
-@protocol MSStylePartInspectorItemDelegate;
 
 @interface MSStylePartInspectorItem : NSViewController
 {
     NSArray *_styleParts;
     NSArrayController *_stylesController;
-    id <MSStylePartInspectorItemDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <MSStylePartInspectorItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArrayController *stylesController; // @synthesize stylesController=_stylesController;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;

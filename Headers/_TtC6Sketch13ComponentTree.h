@@ -11,6 +11,7 @@
     // Error parsing type: , name: document
     // Error parsing type: , name: libraries
     // Error parsing type: , name: componentKind
+    // Error parsing type: , name: structure
     // Error parsing type: , name: containment
     // Error parsing type: , name: defaultExpansionState
     // Error parsing type: , name: rawTopLevelViewItems

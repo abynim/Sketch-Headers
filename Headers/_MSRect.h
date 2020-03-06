@@ -17,6 +17,12 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)setRaw_y:(double)arg1;
+- (void)setRaw_x:(double)arg1;
+- (void)setRaw_width:(double)arg1;
+- (void)setRaw_height:(double)arg1;
+- (void)setRaw_constrainProportions:(BOOL)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

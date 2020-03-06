@@ -6,10 +6,12 @@
 
 #import <AppKit/NSView.h>
 
+#import "NSDraggingSource-Protocol.h"
+
 @class NSString;
 @protocol MSReorderingViewDelegate;
 
-@interface MSReorderingView : NSView
+@interface MSReorderingView : NSView <NSDraggingSource>
 {
     id <MSReorderingViewDelegate> _delegate;
     SEL _deleteAction;

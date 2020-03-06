@@ -10,16 +10,16 @@
 
 @interface MSPluginManagingState : NSObject
 {
+    NSDictionary *_incompatiblePluginVersions;
     NSURL *_metadataURL;
     NSDictionary *_metadata;
-    NSDictionary *_incompatiblePluginVersions;
 }
 
 + (id)incompatiblePlugins;
 + (id)existingDownloadededBlacklistURL;
-@property(readonly, copy, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
+@property(copy, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
 - (void).cxx_destruct;
 - (void)removeIncompatibilityRegistrations;
 - (void)removeDisableOverrides;
@@ -34,7 +34,7 @@
 - (BOOL)shouldEnablePluginIdentifier:(id)arg1 withVersion:(id)arg2;
 - (void)setEnabled:(BOOL)arg1 forPluginIdentifier:(id)arg2 withVersion:(id)arg3;
 - (void)resetIncompatiblePluginMetadata;
-- (id)initWithMetadataURL:(id)arg1 incompatiblePlugins:(id)arg2;
+- (id)initWithMetadataURL:(id)arg1;
 
 @end
 

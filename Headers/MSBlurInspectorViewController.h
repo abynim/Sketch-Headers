@@ -4,18 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSStylePartInspectorViewController.h"
+#import "MSMultipleColorStylePartInspectorViewController.h"
 
-#import "MSStylePartInspectorItemDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 
-@class MSBackgroundBlurInspectorItem, MSBlurNameInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
+@class MSBackgroundBlurInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
 
-@interface MSBlurInspectorViewController : MSStylePartInspectorViewController <MSStylePartInspectorItemDelegate>
+@interface MSBlurInspectorViewController : MSMultipleColorStylePartInspectorViewController <NSMenuDelegate>
 {
     NSMenuItem *_backgroundBlurMenuItem;
     NSMenuItem *_multipleBlursMenuItem;
     MSSeparatorlessView *_paddingView;
-    MSBlurNameInspectorItem *_blurNameItem;
     MSSimpleBlurInspectorItem *_simpleBlurItem;
     MSMotionBlurInspectorItem *_motionBlurItem;
     MSZoomBlurInspectorItem *_zoomBlurItem;
@@ -28,21 +27,27 @@
 @property(retain, nonatomic) MSZoomBlurInspectorItem *zoomBlurItem; // @synthesize zoomBlurItem=_zoomBlurItem;
 @property(retain, nonatomic) MSMotionBlurInspectorItem *motionBlurItem; // @synthesize motionBlurItem=_motionBlurItem;
 @property(retain, nonatomic) MSSimpleBlurInspectorItem *simpleBlurItem; // @synthesize simpleBlurItem=_simpleBlurItem;
-@property(retain, nonatomic) MSBlurNameInspectorItem *blurNameItem; // @synthesize blurNameItem=_blurNameItem;
 @property(retain, nonatomic) MSSeparatorlessView *paddingView; // @synthesize paddingView=_paddingView;
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
 - (void).cxx_destruct;
-- (void)sectionWithIdentifierWillCollapse:(id)arg1;
-- (void)blurStyleChanged:(id)arg1;
-- (id)stylePartInspectorItemDocument:(id)arg1;
-- (id)layers;
-- (void)setStyleParts:(id)arg1;
+- (id)disabledStylePartsButtonTooltip;
+- (id)addStylePartButonTooltip;
+- (id)styleParts;
+- (void)setLayers:(id)arg1;
 - (id)blurKinds;
-- (id)views;
-- (id)items;
+- (id)contentViews;
 - (void)reloadInspectorStack:(id)arg1;
 - (void)viewDidLoad;
+- (void)disabledStylePartsButtonAction:(id)arg1;
+- (void)addStylePartButtonAction:(id)arg1;
+- (long long)disabledStylePartsButtonState;
+- (void)addStylePartHeaderWideAction:(id)arg1;
+- (long long)addStylePartHeaderWideButtonState;
+- (long long)addStylePartButtonState;
+- (long long)advancedOptionsButtonState;
+- (unsigned long long)stylePartType;
+- (id)title;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

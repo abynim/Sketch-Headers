@@ -14,8 +14,8 @@
     // Error parsing type: , name: verticalField
     // Error parsing type: , name: tidyButton
     // Error parsing type: , name: stackController
-    // Error parsing type: , name: horizontalAdaptor.storage
-    // Error parsing type: , name: verticalAdaptor.storage
+    // Error parsing type: , name: $__lazy_storage_$_horizontalAdaptor
+    // Error parsing type: , name: $__lazy_storage_$_verticalAdaptor
     // Error parsing type: , name: tool
     // Error parsing type: , name: viewModel
 }

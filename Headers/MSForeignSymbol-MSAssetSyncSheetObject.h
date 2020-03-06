@@ -9,5 +9,6 @@
 @interface MSForeignSymbol (MSAssetSyncSheetObject)
 - (id)tooltipForObject_MSAssetSyncSheetObject:(struct MSModelObject *)arg1;
 - (unsigned long long)type_MSAssetSyncSheetObject;
+- (void)visitInDocument:(id)arg1;
 @end
 

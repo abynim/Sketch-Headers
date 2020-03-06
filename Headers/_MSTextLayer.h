@@ -23,6 +23,15 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)setRaw_textBehaviour:(long long)arg1;
+- (void)setRaw_preview:(id)arg1;
+- (void)setRaw_lineSpacingBehaviour:(long long)arg1;
+- (void)setRaw_isBeingEdited:(BOOL)arg1;
+- (void)setRaw_glyphBounds:(struct CGRect)arg1;
+- (void)setRaw_dontSynchroniseWithSymbol:(BOOL)arg1;
+- (void)setRaw_automaticallyDrawOnUnderlyingPath:(BOOL)arg1;
+- (void)setRaw_attributedString:(id)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

@@ -19,7 +19,7 @@
     // Error parsing type: , name: cachedRecentDocumentItems
     // Error parsing type: , name: cachedTemplateItems
     // Error parsing type: , name: cachedCloudItems
-    // Error parsing type: , name: previewImageCache.storage
+    // Error parsing type: , name: $__lazy_storage_$_previewImageCache
     // Error parsing type: , name: cloudSharesController
     // Error parsing type: , name: source
     // Error parsing type: , name: delegate
@@ -33,6 +33,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)cloudUserDidChange:(id)arg1;
+- (void)clearRecentDocumentsCache;
 - (id)willPresentError:(id)arg1;
 - (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)cloudAsDefaultDidChange:(id)arg1;

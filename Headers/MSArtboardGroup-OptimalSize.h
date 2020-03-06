@@ -7,6 +7,13 @@
 #import <SketchModel/MSArtboardGroup.h>
 
 @interface MSArtboardGroup (OptimalSize)
++ (struct CGRect)artboardRectFromLayersInArray:(id)arg1;
 - (struct CGRect)optimalBoundingBox;
+- (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)badgeImages;
+- (unsigned long long)displayType;
+- (id)parentForInsertingLayers;
+- (id)displayName;
+- (BOOL)canChangeBooleanOperation;
 @end
 

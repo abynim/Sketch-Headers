@@ -16,6 +16,8 @@
 - (double)beginMask:(id)arg1 context:(id)arg2;
 - (void)renderSubLayer:(id)arg1 skipFills:(BOOL)arg2 ignoreDrawingArea:(BOOL)arg3 maskShapeGroup:(id)arg4 context:(id)arg5;
 - (void)renderSubLayersOfGroup:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
+- (void)tintContext:(id)arg1 withColor:(id)arg2 influenceRect:(struct CGRect)arg3;
+- (void)renderLayerUncached:(id)arg1 transformObject:(id)arg2 ignoreDrawingArea:(BOOL)arg3 context:(id)arg4;
 - (void)renderLayerUncached:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end

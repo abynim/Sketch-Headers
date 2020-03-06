@@ -8,7 +8,7 @@
 
 @interface MSOpaqueSegmentedControl : NSSegmentedControl
 {
-    // Error parsing type: , name: controlBackgroundLayer.storage
+    // Error parsing type: , name: $__lazy_storage_$_controlBackgroundLayer
 }
 
 - (void).cxx_destruct;

@@ -7,6 +7,11 @@
 #import <Foundation/NSValue.h>
 
 @interface NSValue (BCJSONEncoder)
++ (id)valueWithBCFloatRange:(CDStruct_c3b9c2ee)arg1;
++ (id)valueWithCGVector:(struct CGVector)arg1;
+- (void)encodeAsRAWArchive:(id)arg1;
+- (CDStruct_c3b9c2ee)BCFloatRangeValue;
+@property(readonly) struct CGVector CGVectorValue;
 - (id)initWithJSONDecoder:(id)arg1;
 @end
 

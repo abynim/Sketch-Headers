@@ -6,9 +6,11 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
+#import "BCPopoverDelegate-Protocol.h"
+
 @class BCPopover, NSString;
 
-@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController
+@interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <BCPopoverDelegate>
 {
     BCPopover *_popover;
 }
@@ -21,12 +23,15 @@
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;
 - (unsigned long long)traitsForAvancedOptions;
-- (BOOL)shouldShowAdvancedOptionsButton;
+- (long long)advancedOptionsButtonState;
 - (void)viewWillDisappear;
+- (id)disabledStylePartsButtonTooltip;
+- (id)advancedOptionsButtonTooltip;
+- (id)addStylePartButonTooltip;
 - (id)title;
-- (BOOL)shouldEnableAddStylePartButton;
+- (long long)addStylePartButtonState;
 - (void)prepare;
-- (void)showAdvancedOptionsAction:(id)arg1;
+- (void)advancedOptionsButtonAction:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

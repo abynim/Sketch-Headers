@@ -14,8 +14,10 @@
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
 - (Class)inspectorClassForStyleParts:(id)arg1;
-- (BOOL)shouldEnableAddStylePartButton;
-- (BOOL)shouldShowAdvancedOptionsButton;
+- (long long)addStylePartButtonState;
+- (long long)advancedOptionsButtonState;
+- (id)disabledStylePartsButtonTooltip;
+- (id)addStylePartButonTooltip;
 - (id)title;
 - (unsigned long long)stylePartType;
 

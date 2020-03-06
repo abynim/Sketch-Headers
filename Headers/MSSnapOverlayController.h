@@ -22,7 +22,7 @@
 @property(nonatomic, readonly) MSSpecOverlay *overlay; // @synthesize overlay;
 @property(nonatomic) struct CGVector duplicationOffset; // @synthesize duplicationOffset;
 - (void)clear;
-@property(nonatomic, copy) NSArray *originalLayers; // @synthesize originalLayers;
+@property(nonatomic, copy) NSArray *originalLayers;
 @property(nonatomic, retain) _TtC17SketchControllers21MSLayerSnappingResult *snappingResult; // @synthesize snappingResult;
 - (id)init;
 

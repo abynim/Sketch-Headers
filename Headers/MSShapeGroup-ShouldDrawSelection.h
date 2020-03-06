@@ -8,5 +8,9 @@
 
 @interface MSShapeGroup (ShouldDrawSelection)
 - (BOOL)shouldDrawSelectionStroke;
+- (BOOL)canSmartRotate;
+- (Class)handlerClass;
+- (BOOL)handleDoubleClick;
+- (id)inspectorSections;
 @end
 

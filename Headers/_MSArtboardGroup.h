@@ -26,6 +26,18 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)setRaw_verticalRulerData:(id)arg1;
+- (void)setRaw_layout:(id)arg1;
+- (void)setRaw_horizontalRulerData:(id)arg1;
+- (void)setRaw_grid:(id)arg1;
+- (void)setRaw_backgroundColor:(id)arg1;
+- (void)setRaw_resizesContent:(BOOL)arg1;
+- (void)setRaw_presetDictionary:(id)arg1;
+- (void)setRaw_isFlowHome:(BOOL)arg1;
+- (void)setRaw_includeInCloudUpload:(BOOL)arg1;
+- (void)setRaw_includeBackgroundColorInExport:(BOOL)arg1;
+- (void)setRaw_hasBackgroundColor:(BOOL)arg1;
+- (id)collaborationPatchableObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

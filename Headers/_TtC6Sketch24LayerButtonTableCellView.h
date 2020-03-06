@@ -10,7 +10,7 @@
 
 @interface _TtC6Sketch24LayerButtonTableCellView : NSTableCellView
 {
-    // Error parsing type: , name: representedLayer
+    // Error parsing type: , name: delegate
     // Error parsing type: , name: buttonView
 }
 

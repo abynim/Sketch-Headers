@@ -11,6 +11,7 @@
 - (MSImmutableDocumentData *)currentDocumentData:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidProgressHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidRevertHistory:(MSHistoryMaker *)arg1;
+- (void)historyMaker:(MSHistoryMaker *)arg1 privatelyUpdatedMoment:(MSMoment *)arg2;
 - (void)historyMaker:(MSHistoryMaker *)arg1 didCommitMoment:(MSMoment *)arg2;
 - (void)historyMaker:(MSHistoryMaker *)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
 @end

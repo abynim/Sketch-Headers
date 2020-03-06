@@ -7,7 +7,15 @@
 #import <SketchModel/MSShapeGroup.h>
 
 @interface MSShapeGroup (UISupport)
++ (void)applyStyleForBooleanOperationFrom:(id)arg1 toShapeGroup:(id)arg2;
++ (id)shapeWithBooleanOperation:(long long)arg1 onLayers:(id)arg2;
 - (BOOL)supportsInnerOuterBorders;
 - (void)changeInnerOuterBordersIfHasOpenPaths;
+- (BOOL)canFlatten;
+- (BOOL)canProbablyFlatten;
+- (BOOL)hasFlattenablePath;
+- (BOOL)hasBooleanOperations;
+- (id)pathForHoverInBounds;
+- (id)styleForBooleanOperation;
 @end
 

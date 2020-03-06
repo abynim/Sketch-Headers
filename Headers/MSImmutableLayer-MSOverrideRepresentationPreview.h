@@ -6,7 +6,40 @@
 
 #import <SketchModel/MSImmutableLayer.h>
 
-@interface MSImmutableLayer (MSOverrideRepresentationPreview)
+#import <SketchControllers/MSLayerDataType-Protocol.h>
+
+@class NSImage, NSString;
+
+@interface MSImmutableLayer (MSOverrideRepresentationPreview) <MSLayerDataType>
 - (id)overridePreviewImageInDocument:(id)arg1;
+@property(readonly, nonatomic) unsigned long long dataType;
+- (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)generateBasePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)bezierForDrawingLayerListPreviewInDocument:(id)arg1;
+- (id)bezierForDrawingPreviewFromPath:(id)arg1;
+- (id)previewImageWithBezier:(id)arg1;
+- (void)drawPreviewInRect:(struct CGRect)arg1 bezier:(id)arg2;
+- (id)layerListPreviewCacheOwner;
+- (BOOL)hasDynamicPreview;
+@property(readonly, nonatomic) NSImage *previewImageForOverrideManagement;
+- (id)previewImageForOverrideManagementByTintingImageWithName:(id)arg1;
+
+// Remaining properties
+@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
+@property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(readonly, nonatomic) BOOL isFlippedHorizontal;
+@property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isVisible;
+@property(readonly, nonatomic) NSString *objectID;
+@property(readonly, nonatomic) struct CGPoint origin;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) double rotation;
+@property(readonly) Class superclass;
 @end
 

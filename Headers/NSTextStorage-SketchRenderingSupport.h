@@ -9,5 +9,8 @@
 @interface NSTextStorage (SketchRenderingSupport)
 - (void)applyTextColor:(id)arg1 forRange:(struct _NSRange)arg2 context:(id)arg3;
 - (void)addAttribute:(id)arg1 value:(id)arg2 range:(struct _NSRange)arg3 temporarily:(BOOL)arg4;
+- (void)setAttributeValuesByRange:(id)arg1 forKey:(id)arg2;
+- (id)attributeValuesByRangeForKey:(id)arg1 range:(struct _NSRange)arg2;
+- (id)attributeValuesByRangeForKey:(id)arg1;
 @end
 

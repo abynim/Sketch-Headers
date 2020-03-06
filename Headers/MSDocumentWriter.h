@@ -12,6 +12,7 @@
 {
     BOOL _preserveMetadata;
     NSDictionary *_UIMetadata;
+    NSDictionary *_workspaceItems;
     CDUnknownBlockType _previewGenerationBlock;
     MSJSONZippedArchiver *_archiver;
     NSData *_previewData;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) MSJSONZippedArchiver *archiver; // @synthesize archiver=_archiver;
 @property(nonatomic) BOOL preserveMetadata; // @synthesize preserveMetadata=_preserveMetadata;
 @property(copy, nonatomic) CDUnknownBlockType previewGenerationBlock; // @synthesize previewGenerationBlock=_previewGenerationBlock;
+@property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (void).cxx_destruct;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
@@ -31,6 +33,7 @@
 - (BOOL)archiveTextPreviewPDFDataForTextLayers:(id)arg1 documentData:(id)arg2 error:(id *)arg3;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
+- (BOOL)archiveWorkspaceItemsWithArchiver:(id)arg1 error:(id *)arg2;
 
 @end
 

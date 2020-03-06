@@ -16,7 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) NSArray *snaps; // @synthesize snaps;
+@property(nonatomic, readonly) NSArray *snaps;
 @property(nonatomic, readonly) struct CGPoint point;
 
 @end

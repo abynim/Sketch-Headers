@@ -18,7 +18,7 @@
     // Error parsing type: , name: allowsMultipleSelection
     // Error parsing type: , name: allowsEmptySelection
     // Error parsing type: , name: selectionIndexPaths
-    // Error parsing type: , name: selectionGestureRecognizer.storage
+    // Error parsing type: , name: $__lazy_storage_$_selectionGestureRecognizer
     // Error parsing type: , name: cachedOverlayItems
 }
 
@@ -32,7 +32,7 @@
 - (void)deselectItemsAtIndexPaths:(id)arg1;
 - (void)selectItemAtIndexPath:(id)arg1;
 - (void)selectItemsAtIndexPaths:(id)arg1;
-@property(nonatomic, copy) NSSet *selectionIndexPaths; // @synthesize selectionIndexPaths;
+@property(nonatomic, copy) NSSet *selectionIndexPaths;
 @property(nonatomic) BOOL allowsEmptySelection; // @synthesize allowsEmptySelection;
 @property(nonatomic) BOOL allowsMultipleSelection; // @synthesize allowsMultipleSelection;
 @property(nonatomic) BOOL allowsSelection; // @synthesize allowsSelection;

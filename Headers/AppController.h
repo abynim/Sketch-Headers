@@ -8,13 +8,14 @@
 
 #import "MSDataSupplierManagerDelegate-Protocol.h"
 #import "NSApplicationDelegate-Protocol.h"
+#import "NSMenuDelegate-Protocol.h"
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
-@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
+@interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;

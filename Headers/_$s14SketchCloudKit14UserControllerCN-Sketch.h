@@ -17,5 +17,6 @@
 @property(nonatomic, retain) SCKOrganization *defaultOrganization;
 @property(nonatomic, readonly) BOOL isPersonalContributor;
 @property(nonatomic, readonly) BOOL isOrganizationContributor;
+@property(nonatomic, readonly) BOOL isContributor;
 @end
 
