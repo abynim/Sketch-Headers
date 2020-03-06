@@ -7,8 +7,9 @@
 #import <AppKit/NSImage.h>
 
 @interface NSImage (LayerListPreviewIconBadging)
-- (id)badgedWithImage:(id)arg1 maskImage:(id)arg2 offset:(struct CGPoint)arg3 forImageOwner:(id)arg4;
-- (id)badgedWithImageNamed:(id)arg1 maskImageNamed:(id)arg2 offset:(struct CGPoint)arg3 forImageOwner:(id)arg4;
-- (id)badgedAs:(unsigned long long)arg1 forImageOwner:(id)arg2;
+- (id)tintedForLayerListState:(unsigned long long)arg1;
+- (id)badgedWithImage:(id)arg1 maskImage:(id)arg2 offset:(struct CGPoint)arg3;
+- (id)badgedWithImageNamed:(id)arg1 maskImageNamed:(id)arg2 offset:(struct CGPoint)arg3;
+- (id)badgedAs:(unsigned long long)arg1;
 @end
 

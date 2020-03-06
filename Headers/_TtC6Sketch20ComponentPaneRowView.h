@@ -6,23 +6,22 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class NSString;
-
 @interface _TtC6Sketch20ComponentPaneRowView : NSTableRowView
 {
     // Error parsing type: , name: delegate
     // Error parsing type: , name: outlineView
     // Error parsing type: , name: borderRenderingScheme
     // Error parsing type: , name: boundsAnimationsDisabled
+    // Error parsing type: , name: contentPinning
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)animationForKey:(id)arg1;
+- (void)prepareForReuse;
+- (void)addSubview:(id)arg1;
 - (void)setFrameWidth:(double)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
-@property(nonatomic, readonly) NSString *description;
 - (void)updateLayer;
 - (void)resizeWithOldSuperviewSize:(struct CGSize)arg1;
 @property(nonatomic) BOOL selected;

@@ -15,6 +15,7 @@
 - (void)outlineViewItemDidCollapse:(id)arg1;
 - (void)outlineViewItemDidExpand:(id)arg1;
 - (BOOL)outlineView:(id)arg1 shouldExpandItem:(id)arg2;
+- (void)outlineView:(id)arg1 didAddRowView:(id)arg2 forRow:(long long)arg3;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
 @end

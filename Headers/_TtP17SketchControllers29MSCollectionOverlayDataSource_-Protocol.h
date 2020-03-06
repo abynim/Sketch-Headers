@@ -4,12 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class _TtC17SketchControllers19MSCollectionOverlay;
+@class MSOverlayItemContainer, NSDictionary, NSIndexPath, NSString, _TtC17SketchControllers19MSCollectionOverlay, _TtC17SketchControllers35MSCollectionOverlayLayoutAttributes;
 
 @protocol _TtP17SketchControllers29MSCollectionOverlayDataSource_
+- (MSOverlayItemContainer *)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 overlayItemContainerForItemAtIndexPath:(NSIndexPath *)arg2 layoutAttributes:(_TtC17SketchControllers35MSCollectionOverlayLayoutAttributes *)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (long long)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 numberOfItemsInSection:(long long)arg2;
 
 @optional
+- (NSDictionary *)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 overlayItemImagesForColorSpace:(struct CGColorSpace *)arg2 backingScale:(double)arg3;
+- (MSOverlayItemContainer *)collectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1 overlayItemContainerForSupplementaryElementOfKind:(NSString *)arg2 layoutAttributes:(_TtC17SketchControllers35MSCollectionOverlayLayoutAttributes *)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (long long)numberOfSectionsInCollectionOverlay:(_TtC17SketchControllers19MSCollectionOverlay *)arg1;
 @end
 

@@ -22,7 +22,6 @@
 @property(nonatomic) BOOL indicateMultipleSelection; // @synthesize indicateMultipleSelection=_indicateMultipleSelection;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL useDefaultImageDrawing;
-- (struct CGSize)intrinsicContentSize;
 - (id)attributedSecondaryTitle;
 - (id)attributedTitle;
 - (void)mouseDown:(id)arg1;

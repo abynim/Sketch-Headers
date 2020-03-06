@@ -7,7 +7,6 @@
 #import <Foundation/NSArray.h>
 
 @interface NSArray (ModelSupport)
-- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (BOOL)hasDefaultValues;
 @end

@@ -44,8 +44,6 @@
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (id)handleLinesColor;
-- (void)drawHandleLines;
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)repairGradientIfNecessary;
@@ -53,7 +51,9 @@
 - (id)gradient;
 - (void)gradientPointArray:(id)arg1 didReplacePointAtIndex:(unsigned long long)arg2 withPoint:(struct CGPoint)arg3;
 - (id)points;
-- (void)drawHandleAtPoint:(struct CGPoint)arg1 index:(long long)arg2 selected:(BOOL)arg3;
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForItemAtIndexPath:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (id)collectionOverlay:(id)arg1 overlayItemImagesForColorSpace:(struct CGColorSpace *)arg2 backingScale:(double)arg3;
 - (void)handlerWillLoseFocus;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)handlerGotFocus;
@@ -61,6 +61,7 @@
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
+- (id)initWithManager:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

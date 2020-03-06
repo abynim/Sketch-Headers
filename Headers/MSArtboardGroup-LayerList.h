@@ -8,9 +8,6 @@
 
 @interface MSArtboardGroup (LayerList)
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
-- (id)contextualMenuPreviewTemplateImage;
-- (id)unselectedPreviewTemplateImage;
-- (id)selectedPreviewTemplateImage;
 - (id)badgeImages;
 - (unsigned long long)displayType;
 @end

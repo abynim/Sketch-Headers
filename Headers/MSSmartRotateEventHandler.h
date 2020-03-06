@@ -6,21 +6,21 @@
 
 #import "MSEventHandler.h"
 
-@class MSSmartRotateImageCache, NSArray;
+@class MSLayerArray, MSSmartRotateImageCache, NSArray;
 
 @interface MSSmartRotateEventHandler : MSEventHandler
 {
     struct CGPoint rotationCenter;
     BOOL hasRotationCenterSelected;
     unsigned long long _numberOfRepetitions;
-    NSArray *_shapeLayers;
+    MSLayerArray *_shapeLayers;
     NSArray *_shapeLayersCopies;
     MSSmartRotateImageCache *_imageCache;
 }
 
 @property(retain, nonatomic) MSSmartRotateImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(copy, nonatomic) NSArray *shapeLayersCopies; // @synthesize shapeLayersCopies=_shapeLayersCopies;
-@property(copy, nonatomic) NSArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
+@property(copy, nonatomic) MSLayerArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
 @property(nonatomic) unsigned long long numberOfRepetitions; // @synthesize numberOfRepetitions=_numberOfRepetitions;
 - (void).cxx_destruct;
 - (id)imageName;
@@ -46,6 +46,7 @@
 - (void)rotateCopy:(id)arg1 ofShape:(id)arg2 toIndex:(unsigned long long)arg3;
 - (void)rotateCopiesForShape:(id)arg1 shapeIndex:(unsigned long long)arg2;
 - (void)handlerWillLoseFocus;
+- (void)clearEditingFlagForLayerArray:(id)arg1;
 - (void)determineOriginalRotationCenter;
 - (void)createShapeCopies;
 - (void)findShapes;

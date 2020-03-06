@@ -17,6 +17,7 @@
 
 @property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void).cxx_destruct;
+- (id)debugDescription;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned long long)hash;
 - (id)copyWithZone:(struct _NSZone *)arg1;

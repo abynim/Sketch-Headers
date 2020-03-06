@@ -7,8 +7,7 @@
 #import <SketchModel/MSLayerGroup.h>
 
 @interface MSLayerGroup (LayerList)
-- (id)selectedPreviewTemplateImage;
-- (id)unselectedPreviewTemplateImage;
+- (long long)calculatePreviewIconTraitsForState:(unsigned long long)arg1;
 - (BOOL)expandableInLayerList;
 @end
 

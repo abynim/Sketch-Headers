@@ -18,6 +18,7 @@
 - (void)doPerformAction:(id)arg1;
 @property(nonatomic, readonly) BOOL validate;
 - (void)duplicateComponent:(id)arg1;
+@property(nonatomic, readonly) NSString *historyMomentTitle;
 @property(nonatomic, readonly) NSString *label;
 
 @end

@@ -44,6 +44,7 @@
 - (unsigned long long)objectType;
 - (id)masterObjects;
 - (id)layers;
+- (id)sourceLibrary;
 - (id)selectedObjectReference;
 @property(readonly, nonatomic) NSDictionary *menuItemSelectorDictionary;
 - (id)textStyleMenuItemSelectorDictionary;

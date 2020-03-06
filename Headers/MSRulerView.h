@@ -55,7 +55,6 @@
 - (void)updateCursorForDragingGuideToPoint:(struct CGPoint)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (void)dragSelectedGuideWithMouse:(struct CGPoint)arg1;
-- (void)updateSelectedLayerOriginsInInspector;
 - (struct CGPoint)distanceFromDragOrigin:(struct CGPoint)arg1;
 - (void)dragRulerBaseWithMouse:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)mouseDragged:(id)arg1;

@@ -10,10 +10,13 @@
 {
 }
 
++ (id)standardCloudEnvironment;
 - (id)label;
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)startDownloadingLibrary:(id)arg1;
-- (void)addAppcastURL:(id)arg1;
+- (void)controllerDidAddRemoteLibrary:(id)arg1 error:(id)arg2;
+- (void)downloadLibraryWithAppcastURL:(id)arg1;
+- (void)downloadLibraryWithCloudShare:(id)arg1;
 - (void)addCloudLibraryWithID:(id)arg1;
 
 @end

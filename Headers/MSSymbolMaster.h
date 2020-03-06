@@ -24,6 +24,7 @@
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void).cxx_destruct;
+- (BOOL)shouldRoundCoordinates;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
 - (void)syncOverrideProperties;

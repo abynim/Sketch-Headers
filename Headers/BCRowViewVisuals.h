@@ -10,6 +10,8 @@
 {
     // Error parsing type: , name: width
     // Error parsing type: , name: regularRowHeight
+    // Error parsing type: , name: singleBorderHeight
+    // Error parsing type: , name: topAndBottomBorderHeight
     // Error parsing type: , name: scale
     // Error parsing type: , name: renderer
     // Error parsing type: , name: groupRowBoundsWithBottomBorder.storage
@@ -49,7 +51,7 @@
 - (void).cxx_destruct;
 - (id)init;
 - (void)updateVisualStateOfRowView:(id)arg1;
-- (id)initWithWidth:(double)arg1 regularRowHeight:(double)arg2 scale:(double)arg3;
+- (id)initWithWidth:(double)arg1 regularRowHeight:(double)arg2 singleBorderHeight:(double)arg3 topAndBottomBorderHeight:(double)arg4 scale:(double)arg5;
 
 @end
 

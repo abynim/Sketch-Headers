@@ -15,7 +15,6 @@
 
 @property(retain, nonatomic) MSStyleBlur *blurStyle; // @synthesize blurStyle=_blurStyle;
 - (void).cxx_destruct;
-- (BOOL)allowsEmptySelection;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (id)currentGroup;
 - (id)points;

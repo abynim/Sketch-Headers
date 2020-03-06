@@ -44,7 +44,6 @@
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (id)views;
 @property(readonly, nonatomic) BOOL hasContent;
-- (void)valuesPossiblyChanged;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)restoreWithState_ms:(id)arg1;

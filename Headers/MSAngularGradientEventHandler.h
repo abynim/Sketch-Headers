@@ -12,7 +12,7 @@
 
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
 - (BOOL)canInsertPointAtMouse:(struct CGPoint)arg1;
-- (id)handleLinesPath;
+- (id)pointSelectionOverlay:(id)arg1 layout:(id)arg2 pathForConnectingHandlesInSection:(long long)arg3;
 - (double)positionForStop:(struct CGPoint)arg1;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (struct CGPoint)basePointAtIndex:(unsigned long long)arg1;

@@ -38,7 +38,7 @@
 @property(readonly, nonatomic) NSString *menuItemTitleForUnlinkAction;
 @property(readonly, nonatomic) NSString *menuItemTitleForSyncAction;
 - (unsigned long long)syncBehaviour;
-- (void)performCreateNewStyleAction;
+- (id)performCreateNewStyleAction;
 @property(readonly, nonatomic) BOOL canPerformNewStyleAction;
 - (id)localObjectContainer;
 @property(readonly, nonatomic) NSString *menuItemTitleForCreateNewStyleAction;

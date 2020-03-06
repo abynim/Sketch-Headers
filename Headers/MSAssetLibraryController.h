@@ -8,7 +8,7 @@
 
 #import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
 
-@class MSAssetLibraryUpdater, NSArray, NSHashTable, NSMutableArray, NSString;
+@class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSString;
 
 @interface MSAssetLibraryController : NSObject <MSAssetLibraryDelegate>
 {
@@ -16,8 +16,12 @@
     NSArray *_remoteLibraries;
     NSHashTable *_delegates;
     MSAssetLibraryUpdater *_assetLibraryUpdater;
+    MSCloudAssetLibraryController *_cloudAssetLibraryController;
+    NSMutableSet *_validatedCloudLibraries;
 }
 
+@property(retain, nonatomic) NSMutableSet *validatedCloudLibraries; // @synthesize validatedCloudLibraries=_validatedCloudLibraries;
+@property(readonly, nonatomic) MSCloudAssetLibraryController *cloudAssetLibraryController; // @synthesize cloudAssetLibraryController=_cloudAssetLibraryController;
 @property(readonly, nonatomic) MSAssetLibraryUpdater *assetLibraryUpdater; // @synthesize assetLibraryUpdater=_assetLibraryUpdater;
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
@@ -32,8 +36,13 @@
 - (id)makeDuplicateRemoteLibraryError;
 - (id)remoteLibraryWithAppcast:(id)arg1;
 - (void)updateAndLoadAssetLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)cancelDownloadOfLibrary:(id)arg1;
 - (void)startDownloadingAssetLibrary:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)downloadAssetLibraryAppcastsWithHandler:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)checkForRemoteAssetLibraryUpdates;
+@property(readonly, nonatomic) long long checkForLibraryUpdatesPeriod;
+- (void)downloadAssetLibraryAppcastsWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)documentDidUploadNotification:(id)arg1;
+- (void)cloudUserDidChange:(id)arg1;
 - (id)previewFromDocumentReader:(id)arg1;
 - (void)generatePreviewImageForLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)libraryForShareableObject:(id)arg1;
@@ -44,7 +53,6 @@
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
-- (void)loadRemoteLibraryRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;
 - (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;
 - (void)copyInternalLibraryToApplicationSupport;
@@ -54,12 +62,18 @@
 - (void)assetLibraryChangedOnDisk:(id)arg1;
 - (void)reloadLibrary:(id)arg1;
 - (void)notifyLibraryChange:(id)arg1;
+- (void)addRemoteAssetLibrary:(id)arg1;
 - (void)removeRemoteAssetLibrary:(id)arg1;
 - (void)removeUserAssetLibrary:(id)arg1;
 - (void)saveLibraries;
 - (void)saveLibraries:(id)arg1 withLibrariesKey:(id)arg2;
 - (void)removeAssetLibrary:(id)arg1;
 - (long long)addAssetLibraryAtURL:(id)arg1;
+- (void)cloudLibrariesDidFinishUpdate;
+- (void)cloudLibrariesWillUpdate;
+- (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)updateCloudLibraryNamed:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 appcastURL:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;

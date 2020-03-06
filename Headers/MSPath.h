@@ -29,6 +29,8 @@
 + (id)pathWithContours:(id)arg1;
 + (id)pathWithSegments:(id)arg1 closed:(BOOL)arg2;
 + (id)pathWithSubpaths:(id)arg1;
++ (id)new;
++ (id)path;
 + (id)pathWithFBBezierGraph:(id)arg1;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 @property(readonly, nonatomic) const struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
@@ -58,6 +60,7 @@
 - (id)_pathByScalingToBounds:(struct CGRect)arg1;
 - (id)pathByScalingToBounds:(struct CGRect)arg1;
 - (id)pathByJoiningWithPath:(id)arg1;
+- (id)pathByAppendingSubpaths:(id)arg1 transform:(struct CGAffineTransform)arg2;
 - (id)pathByRemovingSegmentAtIndexPath:(id)arg1;
 - (id)segmentAtIndexPath:(id)arg1;
 - (id)segmentIndexPathForPoint:(struct CGPoint)arg1 tolerance:(double)arg2;
@@ -68,6 +71,8 @@
 - (id)debugQuickLookObject;
 - (id)transformedPathUsingMapBlock:(CDUnknownBlockType)arg1;
 - (id)cleanedPath;
+- (void)pathsUsingNonZeroWindingRule:(id *)arg1 holes:(id *)arg2;
+- (id)pathUsingNonZeroWindingRule;
 - (id)simplifiedPath;
 - (id)transformedPathUsingAffineTransform:(struct CGAffineTransform)arg1;
 - (id)createContours;

@@ -6,17 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class MSShareableObjectReference, NSArray, NSSet;
+@class MSAssetLibrary, MSShareableObjectReference, NSArray, NSSet;
 @protocol MSForeignObjectProvider;
 
 @interface MSShareableObjectActionsController : NSObject
 {
     NSArray *_layers;
     MSShareableObjectReference *_selectedObjectReference;
+    MSAssetLibrary *_sourceLibrary;
     id <MSForeignObjectProvider> _provider;
 }
 
++ (long long)validateCanOpenLibrary:(id)arg1;
 @property(retain, nonatomic) id <MSForeignObjectProvider> provider; // @synthesize provider=_provider;
+@property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 @property(retain, nonatomic) MSShareableObjectReference *selectedObjectReference; // @synthesize selectedObjectReference=_selectedObjectReference;
 @property(nonatomic) __weak NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;

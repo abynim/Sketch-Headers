@@ -6,25 +6,42 @@
 
 #import <SketchControllers/MSOverlay.h>
 
-@class _TtC17SketchControllers25MSCollectionOverlayLayout;
-@protocol _TtP17SketchControllers29MSCollectionOverlayDataSource_;
+@class MSGestureRecognizer, NSIndexPath, _TtC17SketchControllers25MSCollectionOverlayLayout;
+@protocol _TtP17SketchControllers27MSCollectionOverlayDelegate_, _TtP17SketchControllers29MSCollectionOverlayDataSource_;
 
 @interface _TtC17SketchControllers19MSCollectionOverlay : MSOverlay
 {
     // Error parsing type: , name: layout
     // Error parsing type: , name: dataSource
+    // Error parsing type: , name: delegate
+    // Error parsing type: , name: allowsSelection
+    // Error parsing type: , name: allowsEmptySelection
+    // Error parsing type: , name: indexPathForSelectedItem
+    // Error parsing type: , name: selectionGestureRecognizer.storage
     // Error parsing type: , name: cachedOverlayItems
 }
 
 - (void).cxx_destruct;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (void)setNeedsDisplay;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (void)handleSelection:(id)arg1;
+@property(nonatomic, retain) MSGestureRecognizer *selectionGestureRecognizer;
+- (void)deselectItemAtIndexPath:(id)arg1;
+- (void)selectItemAtIndexPath:(id)arg1;
+@property(nonatomic, copy) NSIndexPath *indexPathForSelectedItem; // @synthesize indexPathForSelectedItem;
+@property(nonatomic) BOOL allowsEmptySelection; // @synthesize allowsEmptySelection;
+@property(nonatomic) BOOL allowsSelection; // @synthesize allowsSelection;
+- (void)reloadItemsAtIndexPaths:(id)arg1;
 - (void)reloadData;
+@property(nonatomic) __weak id <_TtP17SketchControllers27MSCollectionOverlayDelegate_> delegate; // @synthesize delegate;
 @property(nonatomic) __weak id <_TtP17SketchControllers29MSCollectionOverlayDataSource_> dataSource; // @synthesize dataSource;
 - (long long)numberOfItemsIn:(long long)arg1;
 @property(nonatomic, readonly) long long numberOfSections;
-@property(nonatomic, readonly) _TtC17SketchControllers25MSCollectionOverlayLayout *layout; // @synthesize layout;
+- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
+@property(nonatomic, retain) _TtC17SketchControllers25MSCollectionOverlayLayout *layout; // @synthesize layout;
 - (id)init;
+- (id)initWithLayout:(id)arg1;
 
 @end
 

@@ -99,7 +99,6 @@
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
 - (struct CGPoint)convertPointFromPage:(struct CGPoint)arg1;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
-- (void)layerPositionPossiblyChanged;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)returnToDefaultHandlerIfNeededForResize;
 - (void)windowDidResize:(id)arg1;
@@ -107,7 +106,6 @@
 - (void)smartMagnifyWithEvent:(id)arg1;
 - (void)eventHandlerManager:(id)arg1 didChangeCurrentHandler:(id)arg2;
 - (void)setFrame:(struct CGRect)arg1;
-- (void)selectToolbarItemWithIdentifier:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
 - (id)pages;
 - (id)currentPage;

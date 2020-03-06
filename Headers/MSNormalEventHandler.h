@@ -48,6 +48,7 @@
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void).cxx_destruct;
+- (void)reloadFollowingBackgroundChangesToDocument;
 - (void)endAdjustingHandle;
 - (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
@@ -81,7 +82,6 @@
 - (id)overlayItemsForSelectedShapePathLayers;
 - (id)overlayLayerHighlightItems;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
-- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)prepareToDraw:(id)arg1;
 - (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;

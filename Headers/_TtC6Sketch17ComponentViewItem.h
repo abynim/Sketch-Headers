@@ -10,13 +10,15 @@
 {
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: displayAtTop
+    // Error parsing type: , name: componentReference
     // Error parsing type: , name: parent
     // Error parsing type: , name: path
-    // Error parsing type: , name: componentReference
     // Error parsing type: , name: componentListPreviewImageCachingKey
     // Error parsing type: , name: componentListLargePreviewImageCachingKey
 }
+
+@property(nonatomic, readonly) long long hash;
+- (BOOL)isEqual:(id)arg1;
 
 @end
 

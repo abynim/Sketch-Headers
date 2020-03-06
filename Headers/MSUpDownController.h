@@ -36,9 +36,7 @@
 - (double)incrementValue;
 - (void)keyUp;
 - (void)setFloatValueAndNotifyBindings:(double)arg1;
-- (void)giveUpFirstResponder;
 - (void)insertNewline:(id)arg1;
-- (void)cancelOperation:(id)arg1;
 - (BOOL)cancelTextEditingForInvalidReplacementString:(id)arg1;
 - (BOOL)doCommandBySelector:(SEL)arg1;
 - (void)textDidChange:(id)arg1;

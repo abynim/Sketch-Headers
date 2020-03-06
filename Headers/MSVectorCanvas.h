@@ -7,12 +7,12 @@
 #import <objc/NSObject.h>
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
-#import "MSSelectVectorHandleGestureRecognizerDelegate-Protocol.h"
+#import "MSSelectHandleGestureRecognizerDelegate-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSClickGestureRecognizer, MSContentDrawView, MSDragHandleGestureRecognizer, MSDragSegmentGestureRecognizer, MSDragToSelectGestureRecognizer, MSPathController, MSSelectVectorHandleGestureRecognizer, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, NSArray, NSBezierPath, NSIndexPath, NSMutableArray, NSString;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSClickGestureRecognizer, MSContentDrawView, MSDragHandleGestureRecognizer, MSDragSegmentGestureRecognizer, MSDragToSelectGestureRecognizer, MSPathController, MSSelectHandleGestureRecognizer, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, NSArray, NSBezierPath, NSIndexPath, NSMutableArray, NSString;
 @protocol MSVectorCanvasDelegate;
 
-@interface MSVectorCanvas : NSObject <MSSelectVectorHandleGestureRecognizerDelegate, MSAlignmentEngineDelegate>
+@interface MSVectorCanvas : NSObject <MSSelectHandleGestureRecognizerDelegate, MSAlignmentEngineDelegate>
 {
     NSMutableArray *_selectedHandles;
     MSShapeEventHandler *_eventHandler;
@@ -24,7 +24,7 @@
     MSAlignmentEngineResult *_snaps;
     id <MSVectorCanvasDelegate> _delegate;
     MSDragToSelectGestureRecognizer *_dragToSelectGestureRecognizer;
-    MSSelectVectorHandleGestureRecognizer *_clickToSelectGestureRecognizer;
+    MSSelectHandleGestureRecognizer *_clickToSelectGestureRecognizer;
     MSDragHandleGestureRecognizer *_dragHandleGestureRecognizer;
     MSDragSegmentGestureRecognizer *_dragSegmentGestureRecognizer;
     MSClickGestureRecognizer *_clickToEndEditingGestureRecognizer;
@@ -49,7 +49,7 @@
 @property(readonly, nonatomic) MSClickGestureRecognizer *clickToEndEditingGestureRecognizer; // @synthesize clickToEndEditingGestureRecognizer=_clickToEndEditingGestureRecognizer;
 @property(readonly, nonatomic) MSDragSegmentGestureRecognizer *dragSegmentGestureRecognizer; // @synthesize dragSegmentGestureRecognizer=_dragSegmentGestureRecognizer;
 @property(readonly, nonatomic) MSDragHandleGestureRecognizer *dragHandleGestureRecognizer; // @synthesize dragHandleGestureRecognizer=_dragHandleGestureRecognizer;
-@property(readonly, nonatomic) MSSelectVectorHandleGestureRecognizer *clickToSelectGestureRecognizer; // @synthesize clickToSelectGestureRecognizer=_clickToSelectGestureRecognizer;
+@property(readonly, nonatomic) MSSelectHandleGestureRecognizer *clickToSelectGestureRecognizer; // @synthesize clickToSelectGestureRecognizer=_clickToSelectGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *dragToSelectGestureRecognizer; // @synthesize dragToSelectGestureRecognizer=_dragToSelectGestureRecognizer;
 @property(nonatomic) __weak id <MSVectorCanvasDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) MSAlignmentEngineResult *snaps; // @synthesize snaps=_snaps;

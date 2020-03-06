@@ -22,7 +22,7 @@
 @property(readonly, nonatomic) NSString *outlineViewNodeIdentifier;
 - (id <BCOutlineViewPopupConfigurator>)badgeMenuConfigurator;
 - (NSImage *)maskIconWithState:(unsigned long long)arg1;
-- (long long)previewIconCacheFlagsForState:(unsigned long long)arg1;
+- (long long)previewIconTraitsForState:(unsigned long long)arg1;
 - (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(void (^)(NSImage *))arg2;
 - (NSImage *)previewIconWithState:(unsigned long long)arg1;
 @end

@@ -32,6 +32,10 @@
 @property(retain, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
 @property(retain, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL haveComponentsChanged;
+@property(readonly, nonatomic) BOOL haveSharedTextStylesChanged;
+@property(readonly, nonatomic) BOOL haveSharedLayerStylesChanged;
+@property(readonly, nonatomic) BOOL haveSymbolMastersChanged;
 @property(readonly, nonatomic) BOOL selectionHasChanged;
 @property(readonly, nonatomic) BOOL currentPageHasChanged;
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;

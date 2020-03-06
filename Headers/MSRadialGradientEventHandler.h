@@ -12,17 +12,21 @@
     struct CGSize deltaBetweenRadialPointBeforeDrag;
 }
 
+- (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
+- (struct CGPoint)pointSelectionOverlay:(id)arg1 layout:(id)arg2 locationOfHandleAtIndexPath:(id)arg3;
+- (long long)collectionOverlay:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (long long)numberOfSectionsInCollectionOverlay:(id)arg1;
 - (void)setEllipsePoint:(struct CGPoint)arg1;
 - (struct CGPoint)ellipsePoint;
 - (id)ovalPath;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
-- (void)drawInRect:(struct CGRect)arg1 context:(id)arg2;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)hasSelectedPoint;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)mouseIsNearEllipsePoint:(struct CGPoint)arg1;
+- (id)initWithManager:(id)arg1;
 
 @end
 

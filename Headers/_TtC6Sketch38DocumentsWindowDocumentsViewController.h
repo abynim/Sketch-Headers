@@ -25,6 +25,8 @@
     // Error parsing type: , name: delegate
     // Error parsing type: , name: downloadingItems
     // Error parsing type: , name: selectedLocalCloudItem
+    // Error parsing type: , name: lastDocumentsLoadDate
+    // Error parsing type: , name: refreshOnNextKey
 }
 
 - (void).cxx_destruct;
@@ -32,9 +34,13 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)cloudUserDidChange:(id)arg1;
 - (id)willPresentError:(id)arg1;
+- (void)cloudAsDefaultDidChange:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)clearRecentDocuments:(id)arg1;
 - (void)confirm:(id)arg1;
+- (void)documentCloudShareDidChange:(id)arg1;
+- (void)uploadDidFinish:(id)arg1;
+- (void)windowDidBecomeKey:(id)arg1;
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;

@@ -6,17 +6,17 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableColor, NSBezierPath, NSString;
+@class MSImmutableColor, MSPath, NSString;
 
 @interface MSPathWithColor : NSObject
 {
     MSImmutableColor *_color;
-    NSBezierPath *_path;
+    MSPath *_path;
     NSString *_representedString;
 }
 
 @property(retain, nonatomic) NSString *representedString; // @synthesize representedString=_representedString;
-@property(retain, nonatomic) NSBezierPath *path; // @synthesize path=_path;
+@property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
 

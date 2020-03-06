@@ -46,7 +46,7 @@
 - (void)makeFilteringSearchFieldKey;
 - (void)applyAppearance;
 - (void)viewWillAppear;
-- (void)selectComponentByReference:(id)arg1 collapsingOtherTopLevelAncestors:(BOOL)arg2 allowChangingLibraryAndKind:(BOOL)arg3;
+- (void)selectComponentsByReference:(id)arg1 collapsingOtherTopLevelAncestors:(BOOL)arg2 allowChangingKind:(BOOL)arg3 allowChangingLibrary:(BOOL)arg4;
 - (void)ensureSelectionIncludesComponentLibraryForAssetLibrary:(id)arg1;
 - (void)showComponentsOfKind:(unsigned long long)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;

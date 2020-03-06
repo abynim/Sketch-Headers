@@ -19,7 +19,6 @@
 - (void)giveUpFirstResponder;
 - (void)insertTabIgnoringFieldEditor:(id)arg1;
 - (void)insertNewline:(id)arg1;
-- (void)cancelOperation:(id)arg1;
 - (BOOL)becomeFirstResponder;
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
 - (void)textDidBeginEditing:(id)arg1;

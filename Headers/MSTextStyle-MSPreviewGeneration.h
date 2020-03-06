@@ -8,6 +8,8 @@
 
 @interface MSTextStyle (MSPreviewGeneration)
 - (id)debugQuickLookObject;
+- (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 fittingBackground:(BOOL)arg6 completionBlock:(CDUnknownBlockType)arg7;
+- (void)generateLargeComponentPreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 completionBlock:(CDUnknownBlockType)arg6;
 - (void)generatePreviewWithText:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 completionBlock:(CDUnknownBlockType)arg6;
 @end
 

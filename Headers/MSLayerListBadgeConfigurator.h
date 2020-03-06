@@ -29,7 +29,8 @@
 - (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)updateImagesOnMenu:(id)arg1 withSelectedItem:(id)arg2;
-- (id)imageForOperation:(long long)arg1 withState:(unsigned long long)arg2;
+- (id)imageForOperation:(long long)arg1 tintedForState:(unsigned long long)arg2;
+- (id)imageForOperation:(long long)arg1;
 - (id)badgeMenuItemWithTag:(long long)arg1;
 - (id)templateMenu;
 - (BOOL)updatePopup:(id)arg1 forState:(unsigned long long)arg2;

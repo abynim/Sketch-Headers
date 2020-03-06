@@ -28,7 +28,7 @@
 - (void)pickSymbolMasterForOverride:(id)arg1 relativeToView:(id)arg2 owner:(id)arg3 preselectingSymbol:(id)arg4 enableHideSymbolItem:(BOOL)arg5 completion:(CDUnknownBlockType)arg6;
 - (void)applyAppearance;
 - (id)initWithDocument:(id)arg1;
-@property(nonatomic, readonly) MSDocument *document; // @synthesize document;
+@property(nonatomic) __weak MSDocument *document; // @synthesize document;
 
 @end
 

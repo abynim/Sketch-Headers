@@ -6,9 +6,8 @@
 
 #import "_TtC6Sketch23ComponentListController.h"
 
-#import "NSMenuDelegate-Protocol.h"
-
-@interface _TtC6Sketch23ComponentListController (Sketch2) <NSMenuDelegate>
-- (void)menuWillOpen:(id)arg1;
+@interface _TtC6Sketch23ComponentListController (Sketch2)
++ (id)validateProposedPathString:(id)arg1;
++ (id)validateProposedName:(id)arg1;
 @end
 

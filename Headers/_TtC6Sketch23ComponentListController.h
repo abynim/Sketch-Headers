@@ -16,6 +16,7 @@
     // Error parsing type: , name: heightConstraint
     // Error parsing type: , name: delegate
     // Error parsing type: , name: currentlyPreviewedViewItem
+    // Error parsing type: , name: selectionToPersist
     // Error parsing type: , name: tree
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: useCase
@@ -24,13 +25,14 @@
     // Error parsing type: , name: shouldScrollSelectionToVisible
     // Error parsing type: , name: cachedRowViewRenderer
     // Error parsing type: , name: skipNotifyingDelegateAboutSelectionChange
+    // Error parsing type: , name: expandingItem
+    // Error parsing type: , name: collapsingItem
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)pickComponentKind:(id)arg1;
-- (void)documentWillSave:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSLayoutConstraint *heightConstraint; // @synthesize heightConstraint;

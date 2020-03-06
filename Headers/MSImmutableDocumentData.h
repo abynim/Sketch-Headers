@@ -43,8 +43,8 @@
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
 - (id)layerStyleWithID:(id)arg1;
 - (id)textStyleWithID:(id)arg1;
-- (id)allLayerStyles;
-- (id)allTextStyles;
+@property(readonly, nonatomic) NSArray *allLayerStyles;
+@property(readonly, nonatomic) NSArray *allTextStyles;
 - (id)artboardWithID:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;

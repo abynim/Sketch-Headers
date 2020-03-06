@@ -33,6 +33,7 @@
 - (void).cxx_destruct;
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)fillPropertiesAction:(id)arg1;
+- (void)updateDisplayedValues;
 - (void)hexFieldAction:(id)arg1;
 - (void)updateFillPropertyPopUp;
 - (void)viewDidLoad;

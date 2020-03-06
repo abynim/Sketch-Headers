@@ -6,9 +6,9 @@
 
 #import "_TtC6Sketch38DocumentsWindowDocumentsViewController.h"
 
-#import "MSWelcomeCollectionViewItemDelegate-Protocol.h"
+#import "MSDocumentsCollectionViewItemDelegate-Protocol.h"
 
-@interface _TtC6Sketch38DocumentsWindowDocumentsViewController (Sketch3) <MSWelcomeCollectionViewItemDelegate>
+@interface _TtC6Sketch38DocumentsWindowDocumentsViewController (Sketch3) <MSDocumentsCollectionViewItemDelegate>
 - (id)previewImageCacheFor:(id)arg1;
 - (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
 - (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;

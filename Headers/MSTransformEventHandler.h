@@ -33,7 +33,6 @@
 - (void).cxx_destruct;
 - (struct CGRect)bounds;
 - (id)coordinateSpace;
-- (void)drawHandleLines;
 - (void)resetTransformsForLayer:(id)arg1;
 - (void)transformLayers;
 - (id)cursorForCorner:(long long)arg1;

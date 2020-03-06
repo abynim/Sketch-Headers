@@ -30,7 +30,7 @@
 - (id)makeGuideFromAlignedTarget:(id)arg1 point:(struct CGPoint)arg2;
 @property(readonly, nonatomic) MSAlignmentEngineResult *alignmentResult;
 - (void)addTargetAtPoint:(struct CGPoint)arg1;
-- (void)addTargetsForRect:(struct CGRect)arg1 includeCenter:(BOOL)arg2;
+- (void)addTargetsForRect:(struct CGRect)arg1 includeCenter:(BOOL)arg2 transform:(struct CGAffineTransform)arg3;
 - (void)addOrthogonalTargetsThroughPoint:(struct CGPoint)arg1;
 - (void)addTargetWithLineSegment:(struct BCLineSegment)arg1;
 - (void)addTargets:(id)arg1;

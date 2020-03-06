@@ -38,6 +38,7 @@
 - (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(retain, nonatomic) MSArtboardPreset *preset;
 - (void)setCenter:(struct CGPoint)arg1;
+- (BOOL)shouldRoundCoordinates;
 - (void)setOrigin:(struct CGPoint)arg1;
 - (void)setRect:(struct CGRect)arg1;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
