@@ -15,6 +15,7 @@
     // Error parsing type: , name: path
     // Error parsing type: , name: componentListPreviewImageCachingKey
     // Error parsing type: , name: componentListLargePreviewImageCachingKey
+    // Error parsing type: , name: componentListGroupPreviewImageCachingKey
 }
 
 @property(nonatomic, readonly) long long hash;
