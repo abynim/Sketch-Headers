@@ -23,7 +23,6 @@
 - (id)description;
 @property(readonly, nonatomic) BOOL isValid;
 - (void)calculateAttributeNameAndPath;
-- (id)originalName;
 - (id)overrideName;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;

@@ -23,7 +23,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveExportFormatFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveExportFormatIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllExportFormats;
 - (void)removeExportFormatsAtIndexes:(id)arg1;
 - (void)removeExportFormatAtIndex:(unsigned long long)arg1;

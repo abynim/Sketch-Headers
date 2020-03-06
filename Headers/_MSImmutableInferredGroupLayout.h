@@ -10,18 +10,11 @@
 {
     unsigned long long _axis;
     unsigned long long _layoutAnchor;
-    double _maxSize;
-    double _minSize;
 }
 
 + (Class)mutableClass;
-@property(nonatomic) double minSize; // @synthesize minSize=_minSize;
-@property(nonatomic) double maxSize; // @synthesize maxSize=_maxSize;
 @property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
-- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
-- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

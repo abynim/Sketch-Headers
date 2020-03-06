@@ -19,7 +19,6 @@
     // Error parsing type: , name: previewController
     // Error parsing type: , name: filterBarController
     // Error parsing type: , name: hideSymbolViewController
-    // Error parsing type: , name: symbolSwapPreferenceViewController
     // Error parsing type: , name: appearanceObserver.storage
     // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
@@ -28,7 +27,6 @@
     // Error parsing type: , name: filterBarPosition
     // Error parsing type: , name: enableLibraryList
     // Error parsing type: , name: enableComponentKindControl
-    // Error parsing type: , name: enableSymbolSwapPreference
     // Error parsing type: , name: componentPreviewPosition
     // Error parsing type: , name: librariesNeedReloading
     // Error parsing type: , name: componentsNeedReloading

@@ -12,7 +12,6 @@
 @interface _MSOverrideValue : MSModelObject
 {
     BOOL _isEditing;
-    NSString *_originalName;
     NSString *_overrideName;
     NSObject<NSCopying> *_value;
 }
@@ -30,7 +29,6 @@
 - (void)performInitEmptyObject;
 @property(copy, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
-@property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;

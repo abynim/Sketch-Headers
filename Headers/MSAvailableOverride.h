@@ -48,8 +48,6 @@
 - (BOOL)affectsSameLayerAs:(id)arg1;
 - (BOOL)isComplimentaryTo:(id)arg1;
 @property(nonatomic, readonly) long long ancestorCount;
-- (id)modifiedAffectedLayerForInstance:(id)arg1 inDocument:(id)arg2;
-- (id)modifiedParentMasterForInstance:(id)arg1 inDocument:(id)arg2;
 
 @end
 

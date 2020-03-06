@@ -8,12 +8,14 @@
 
 #import "MSAssetPreferenceItemDelegate-Protocol.h"
 #import "MSDropableViewDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 #import "QLPreviewPanelDataSource-Protocol.h"
 #import "QLPreviewPanelDelegate-Protocol.h"
 
 @class MSAssetLibraryController, MSAssetLibraryTableView, NSArray, NSArrayController, NSButton, NSMenu, NSPredicate, NSSearchField, NSString, NSWindow;
 
-@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
+@interface MSAssetLibrariesPreferencePane : MSPreferencePane <MSAssetPreferenceItemDelegate, MSDropableViewDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate, NSTableViewDelegate, NSTableViewDataSource>
 {
     BOOL _hasAssets;
     BOOL _shouldEnableCogMenu;
@@ -48,9 +50,7 @@
 @property(nonatomic) __weak MSAssetLibraryTableView *tableView; // @synthesize tableView=_tableView;
 - (void).cxx_destruct;
 - (void)duplicateLibraryDisabled:(id)arg1;
-- (void)scrollToFirstLibraryWithUpdateAvailable;
 - (void)libraryControllerDidChange:(id)arg1;
-- (void)libraryNameDidChange:(id)arg1;
 - (void)learnMoreAboutLibraries:(id)arg1;
 - (void)updateQLPreview;
 - (void)viewWillDisappear;

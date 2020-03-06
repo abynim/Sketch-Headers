@@ -6,7 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSArray, NSString, NSView;
+@class NSArray, NSString;
 
 @protocol MSInspectorSection <NSObject>
 - (NSArray *)views;
@@ -15,7 +15,6 @@
 - (void)sectionWithIdentifierWillCollapse:(NSString *)arg1;
 - (NSArray *)footerViews;
 - (struct NSEdgeInsets)separatorInsets;
-- (BOOL)wantsSeparatorBetweenView:(NSView *)arg1 andView:(NSView *)arg2;
 - (BOOL)wantsSeparatorAfterViews;
 @end
 

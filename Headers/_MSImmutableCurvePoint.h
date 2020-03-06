@@ -25,9 +25,6 @@
 @property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
-- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

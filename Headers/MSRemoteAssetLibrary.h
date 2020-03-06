@@ -17,14 +17,15 @@
     NSURL *_appcastURL;
     NSString *_libraryVersion;
     NSString *_originalName;
-    NSString *_displayName;
     NSString *_infoText;
     MSAssetLibraryUpdatingInfo *_updatingInfo;
     NSString *_teamName;
+    NSString *_displayName;
 }
 
 + (id)URLForApplicationSupportLibraryNamed:(id)arg1;
 + (id)assetLibraryFolder;
+@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *teamName; // @synthesize teamName=_teamName;
 @property(nonatomic) BOOL isCloudLibrary; // @synthesize isCloudLibrary=_isCloudLibrary;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) MSAssetLibraryUpdatingInfo *updatingInfo; // @synthesize updatingInfo=_updatingInfo;
 @property(nonatomic) BOOL newUpdatingInfo; // @synthesize newUpdatingInfo=_newUpdatingInfo;
 @property(retain, nonatomic) NSString *infoText; // @synthesize infoText=_infoText;
-@property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(retain, nonatomic) NSString *libraryVersion; // @synthesize libraryVersion=_libraryVersion;
 @property(retain, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;

@@ -7,12 +7,14 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSEditArtboardPresetViewControllerDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 #import "NSUserInterfaceValidations-Protocol.h"
 
 @class MSArtboardPreset, MSArtboardPresetStore, MSArtboardPresetsCategory, NSArray, NSArrayController, NSSegmentedControl, NSString, NSTableView;
 @protocol MSArtboardPresetsViewControllerDelegate;
 
-@interface MSArtboardPresetsViewController : NSViewController <MSEditArtboardPresetViewControllerDelegate, NSUserInterfaceValidations>
+@interface MSArtboardPresetsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, MSEditArtboardPresetViewControllerDelegate, NSUserInterfaceValidations>
 {
     MSArtboardPresetStore *_presetStore;
     long long _orientation;

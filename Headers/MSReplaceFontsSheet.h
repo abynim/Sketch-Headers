@@ -6,11 +6,13 @@
 
 #import <Chocolat/CHSheetController.h>
 
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCPopover, NSMutableArray, NSString, NSTableView, NSViewController;
 
-@interface MSReplaceFontsSheet : CHSheetController <NSWindowDelegate>
+@interface MSReplaceFontsSheet : CHSheetController <NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate>
 {
     NSTableView *_tableView;
     NSMutableArray *_fonts;

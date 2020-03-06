@@ -3,8 +3,8 @@
 ##### Headers from [Sketch app](http://www.sketch.com) exported using [class-dump](http://stevenygard.com/projects/class-dump/).
 
 ```
-Latest Version: 62 (91390)
-Release Date: 21 January 2020
+Latest Version: 61.1 (89650)
+Release Date: 17 December 2019
 ```
 
 See previous [commits](https://github.com/abynim/sketch-headers/commits/master) for past versions.

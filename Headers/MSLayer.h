@@ -94,6 +94,7 @@
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasTransforms;
+- (void)refreshOverlay;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)absoluteInfluenceRect;
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;

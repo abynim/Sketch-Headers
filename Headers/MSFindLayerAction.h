@@ -12,6 +12,8 @@
 
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)label;
+- (BOOL)validate;
+- (id)correspondingComponentAction;
 - (void)doPerformAction:(id)arg1;
 - (void)findLayer:(id)arg1;
 

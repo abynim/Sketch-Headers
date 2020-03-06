@@ -6,8 +6,6 @@
 
 #import <BCFoundation/BCComparisonItem.h>
 
-@class NSString;
-
 @interface BCComparisonArrayChange : BCComparisonItem
 {
     BOOL _isInsertion;
@@ -21,7 +19,6 @@
 @property(readonly, nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(readonly, nonatomic) BOOL isInsertion; // @synthesize isInsertion=_isInsertion;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSString *property;
 - (long long)type;
 - (id)internalFullPath;
 @property(readonly, nonatomic) BOOL isMove;

@@ -27,8 +27,8 @@
 @property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (void).cxx_destruct;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
-- (id)createTextPreviewMetadataForTextLayers:(id)arg1 pageMapping:(id)arg2;
-- (BOOL)archiveTextPreviewPDFDataForTextLayers:(id)arg1 documentData:(id)arg2 error:(id *)arg3;
+- (id)createTextPreviewMetadataForTextLayers:(id)arg1 documentData:(id)arg2;
+- (id)createTextPreviewPDFDataForTextLayers:(id)arg1 documentData:(id)arg2;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
 

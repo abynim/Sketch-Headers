@@ -16,9 +16,7 @@
 + (id)sharedPreviewData;
 @property(readonly, nonatomic) NSMapTable *table; // @synthesize table=_table;
 - (void).cxx_destruct;
-- (struct CGRect)findPreviewRectForDocument:(id)arg1 layerID:(id)arg2;
 - (struct CGPDFPage *)findPreviewPageForDocument:(id)arg1 layer:(id)arg2;
-- (id)layerDataForDocument:(id)arg1;
 - (id)init;
 
 @end

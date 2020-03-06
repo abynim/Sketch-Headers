@@ -20,7 +20,6 @@
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSString *attributeName;
-- (id)originalName;
 - (id)overrideName;
 - (void)setOverrideName:(id)arg1;
 - (void)addPredecessor:(id)arg1;

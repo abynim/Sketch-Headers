@@ -22,9 +22,6 @@
 @property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
 @property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
 - (void).cxx_destruct;
-- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
-- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

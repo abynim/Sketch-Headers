@@ -31,7 +31,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)movePageFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)movePageIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllPages;
 - (void)removePagesAtIndexes:(id)arg1;
 - (void)removePageAtIndex:(unsigned long long)arg1;
@@ -43,7 +43,7 @@
 - (void)insertPage:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addPages:(id)arg1;
 - (void)addPage:(id)arg1;
-- (void)moveForeignTextStyleFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveForeignTextStyleIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllForeignTextStyles;
 - (void)removeForeignTextStylesAtIndexes:(id)arg1;
 - (void)removeForeignTextStyleAtIndex:(unsigned long long)arg1;
@@ -55,7 +55,7 @@
 - (void)insertForeignTextStyle:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addForeignTextStyles:(id)arg1;
 - (void)addForeignTextStyle:(id)arg1;
-- (void)moveForeignSymbolFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveForeignSymbolIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllForeignSymbols;
 - (void)removeForeignSymbolsAtIndexes:(id)arg1;
 - (void)removeForeignSymbolAtIndex:(unsigned long long)arg1;
@@ -67,7 +67,7 @@
 - (void)insertForeignSymbol:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addForeignSymbols:(id)arg1;
 - (void)addForeignSymbol:(id)arg1;
-- (void)moveForeignLayerStyleFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveForeignLayerStyleIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllForeignLayerStyles;
 - (void)removeForeignLayerStylesAtIndexes:(id)arg1;
 - (void)removeForeignLayerStyleAtIndex:(unsigned long long)arg1;

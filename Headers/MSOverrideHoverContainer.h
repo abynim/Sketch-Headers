@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
+- (void)refreshOverlay;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)highlightPathForOverride:(id)arg1 inPath:(id)arg2 withDocument:(id)arg3;
 - (id)highlightPathForAffectedLayer;

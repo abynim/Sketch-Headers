@@ -13,6 +13,7 @@
 - (id)titleForRemoveAllGuidesMenuItem;
 - (id)occupiedRegionForRect:(struct CGRect)arg1 withOffset:(long long)arg2 zoom:(double)arg3;
 - (void)refreshTemporaryRulerGuide;
+- (void)refreshGuideInDrawViewAtPosition:(double)arg1;
 - (void)setResizeCursor;
 - (BOOL)isFlipped;
 - (Class)rulerViewLayerClass;

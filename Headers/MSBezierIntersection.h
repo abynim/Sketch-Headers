@@ -23,7 +23,6 @@
 @property(readonly, nonatomic) MSBezierSegment *segment1; // @synthesize segment1=_segment1;
 - (void).cxx_destruct;
 - (id)debugQuickLookObject;
-- (BOOL)isEqualToIntersection:(id)arg1;
 - (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4;
 
 @end

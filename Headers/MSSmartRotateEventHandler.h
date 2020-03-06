@@ -25,7 +25,10 @@
 - (void).cxx_destruct;
 - (id)imageName;
 - (id)toolbarIdentifier;
+- (void)dealloc;
 - (void)willMoveThroughHistory:(id)arg1;
+- (void)unregisterObservers;
+- (void)registerObservers;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;

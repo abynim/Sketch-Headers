@@ -10,7 +10,6 @@
 {
 }
 
-- (unsigned long long)styleType;
 - (void)multiplyBy:(double)arg1;
 - (double)cropRadius;
 

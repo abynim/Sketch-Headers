@@ -8,6 +8,6 @@
 
 @interface NSDocument (Sketch)
 - (void)didPresentErrorWithRecovery:(BOOL)arg1 contextInfo:(void *)arg2;
-- (void)presentError:(id)arg1 modalForWindow:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)presentError:(id)arg1 modalFor:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @end
 

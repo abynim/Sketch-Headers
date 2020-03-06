@@ -6,9 +6,11 @@
 
 #import <AppKit/NSWindowController.h>
 
+#import "NSTableViewDataSource-Protocol.h"
+
 @class NSArray, NSButton, NSString, NSTableView, NSTextField, NSWindow;
 
-@interface MSMissingFontsDialog : NSWindowController
+@interface MSMissingFontsDialog : NSWindowController <NSTableViewDataSource>
 {
     NSWindow *panel;
     NSTableView *tableView;

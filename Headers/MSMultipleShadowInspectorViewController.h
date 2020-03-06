@@ -6,17 +6,32 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
+@class MSTextLabelForUpDownField, NSButton, NSLayoutConstraint;
+
 @interface MSMultipleShadowInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
+    NSButton *_addStylePartButton;
+    MSTextLabelForUpDownField *_xOffsetField;
+    MSTextLabelForUpDownField *_yOffsetField;
+    MSTextLabelForUpDownField *_blurRadiusField;
+    MSTextLabelForUpDownField *_spreadField;
+    NSLayoutConstraint *_buttonsTrailingConstraint;
 }
 
-- (unsigned long long)supportedActionsForLayers:(id)arg1;
++ (Class)stylePartInspectorClass;
+@property(retain, nonatomic) NSLayoutConstraint *buttonsTrailingConstraint; // @synthesize buttonsTrailingConstraint=_buttonsTrailingConstraint;
+@property(retain, nonatomic) MSTextLabelForUpDownField *spreadField; // @synthesize spreadField=_spreadField;
+@property(retain, nonatomic) MSTextLabelForUpDownField *blurRadiusField; // @synthesize blurRadiusField=_blurRadiusField;
+@property(retain, nonatomic) MSTextLabelForUpDownField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;
+@property(retain, nonatomic) MSTextLabelForUpDownField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
+@property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
+- (void).cxx_destruct;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (Class)inspectorClassForStyleParts:(id)arg1;
-- (BOOL)shouldEnableAddStylePartButton;
-- (BOOL)shouldShowAdvancedOptionsButton;
-- (id)title;
+- (id)views;
+- (void)loadViewControllers;
+- (BOOL)shouldDisableAddStylePartButton;
+- (void)prepare;
 - (unsigned long long)stylePartType;
 
 @end

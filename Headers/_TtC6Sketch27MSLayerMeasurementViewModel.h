@@ -13,7 +13,7 @@
 {
     // Error parsing type: , name: presenter
     // Error parsing type: , name: wantMeasurements
-    // Error parsing type: , name: isUsingTool
+    // Error parsing type: , name: usingTool
     // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: hoveredLayer
     // Error parsing type: , name: hoveredGuides
@@ -36,8 +36,8 @@
 @property(nonatomic) unsigned long long measurementOptions; // @synthesize measurementOptions;
 @property(nonatomic, copy) NSArray *hoveredGuides; // @synthesize hoveredGuides;
 @property(nonatomic, retain) MSLayer *hoveredLayer; // @synthesize hoveredLayer;
-@property(nonatomic, copy) NSArray *selectedLayers; // @synthesize selectedLayers;
-@property(nonatomic) BOOL isUsingTool; // @synthesize isUsingTool;
+@property(nonatomic, retain) id selectedLayers; // @synthesize selectedLayers;
+@property(nonatomic) BOOL usingTool; // @synthesize usingTool;
 @property(nonatomic) BOOL wantMeasurements; // @synthesize wantMeasurements;
 @property(nonatomic) __weak id <_TtP6Sketch27MSLayerMeasurementPresenter_> presenter; // @synthesize presenter;
 

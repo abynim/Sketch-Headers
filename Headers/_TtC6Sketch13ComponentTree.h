@@ -16,7 +16,7 @@
     // Error parsing type: , name: rawTopLevelViewItems
     // Error parsing type: , name: filter
     // Error parsing type: , name: filteredTopLevelViewItems
-    // Error parsing type: , name: userToggledPaths
+    // Error parsing type: , name: userExpandedPaths
 }
 
 @end

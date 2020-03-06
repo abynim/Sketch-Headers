@@ -21,6 +21,7 @@
     unsigned long long _index;
 }
 
++ (unsigned long long)supportedActionsForLayers:(id)arg1;
 + (id)reusableControllerArray;
 + (id)stylePartViewController;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;

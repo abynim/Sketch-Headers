@@ -19,14 +19,14 @@
     // Error parsing type: , name: maintainScrollPositionAfterClick
     // Error parsing type: , name: designLinting
     // Error parsing type: , name: structuredData
-    // Error parsing type: , name: sharedEditing
+    // Error parsing type: , name: agnosticDocuments
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sharedEditing; // @synthesize sharedEditing;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *agnosticDocuments; // @synthesize agnosticDocuments;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *structuredData; // @synthesize structuredData;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;

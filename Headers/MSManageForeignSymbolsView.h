@@ -6,9 +6,11 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "NSTableViewDataSource-Protocol.h"
+
 @class MSDocument, NSArray, NSMenu, NSString, NSTableView;
 
-@interface MSManageForeignSymbolsView : NSViewController
+@interface MSManageForeignSymbolsView : NSViewController <NSTableViewDataSource>
 {
     BOOL _cogEnabled;
     MSDocument *_document;

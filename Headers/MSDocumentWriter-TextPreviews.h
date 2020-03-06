@@ -11,8 +11,8 @@
 @class NSString;
 
 @interface MSDocumentWriter (TextPreviews) <MSDocumentTextPreviews>
-- (id)createPreviewMetadataForTextLayers:(id)arg1 pageMapping:(id)arg2;
-- (id)createPreviewPDFDataForTextLayers:(id)arg1 document:(id)arg2 pageMapping:(id)arg3;
+- (id)createPreviewMetadataForTextLayers:(id)arg1 document:(id)arg2;
+- (id)createPreviewPDFDataForTextLayers:(id)arg1 document:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -4,25 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSBaseInspectorSection.h"
+#import "MSArtboardInspectorSection.h"
 
 #import "MSInspectorItemProvider-Protocol.h"
 #import "MSInspectorTableViewManagerDelegate-Protocol.h"
 
-@class MSBatchedSymbolMasters, MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSOverrideManagementController, MSSymbolMaster, MSTableContainerInspectorItem;
+@class MSBatchedSymbolMasters, MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSLayoutInspectorItem, MSOverrideManagementController, MSSymbolMaster, MSTableContainerInspectorItem;
 
-@interface MSSymbolMasterSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider>
+@interface MSSymbolMasterSection : MSArtboardInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider>
 {
     MSCollapsibleHeaderInspectorItem *_headerItem;
     MSCollapsibleHeaderInspectorItem *_layoutHeaderItem;
     MSTableContainerInspectorItem *_overrideManagementContainer;
     MSInspectorTableViewManager *_tableViewManager;
     MSOverrideManagementController *_overrideManagementController;
+    MSLayoutInspectorItem *_layoutItem;
     MSBatchedSymbolMasters *_batchedSymbolMasters;
 }
 
 @property(nonatomic) __weak MSBatchedSymbolMasters *batchedSymbolMasters; // @synthesize batchedSymbolMasters=_batchedSymbolMasters;
-@property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeaderItem; // @synthesize layoutHeaderItem=_layoutHeaderItem;
 - (void).cxx_destruct;
 - (double)heightOfItemViewAtIndex:(unsigned long long)arg1;
 - (BOOL)wantSeparatorAtIndex:(unsigned long long)arg1;
@@ -34,12 +34,16 @@
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
+- (void)addLayoutItemsToItemArray:(id)arg1;
 - (id)symbolMasters;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
+@property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeaderItem; // @synthesize layoutHeaderItem=_layoutHeaderItem;
+@property(readonly, nonatomic) MSLayoutInspectorItem *layoutItem; // @synthesize layoutItem=_layoutItem;
 @property(readonly, nonatomic) MSOverrideManagementController *overrideManagementController; // @synthesize overrideManagementController=_overrideManagementController;
 @property(readonly, nonatomic) MSTableContainerInspectorItem *overrideManagementContainer; // @synthesize overrideManagementContainer=_overrideManagementContainer;
 @property(readonly, nonatomic) MSInspectorTableViewManager *tableViewManager; // @synthesize tableViewManager=_tableViewManager;
 @property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+- (id)name;
 
 @end
 

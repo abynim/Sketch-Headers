@@ -71,7 +71,6 @@
 - (void)flagsChangedNotification;
 - (void)renamePage;
 - (void)renameLayerAfterNextLayerListRefresh;
-- (void)showComponents:(id)arg1;
 - (void)findLayer:(id)arg1;
 - (void)renameLayer;
 - (void)checkPageListHeight;

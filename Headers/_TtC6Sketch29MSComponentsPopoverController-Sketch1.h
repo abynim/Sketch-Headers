@@ -10,7 +10,6 @@
 
 @interface _TtC6Sketch29MSComponentsPopoverController (Sketch1) <BCPopoverDelegate>
 - (double)minimumPopoverContentViewHeight:(id)arg1;
-- (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (BOOL)popoverShouldCauseExistingPopoversToClose:(id)arg1;

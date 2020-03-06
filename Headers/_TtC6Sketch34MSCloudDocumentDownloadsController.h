@@ -13,6 +13,9 @@
 
 + (void)setSharedController:(id)arg1;
 + (id)sharedController;
++ (id)documentDownloadChangedNotificationName;
++ (id)documentDownloadChangedNotificationDocumentKey;
++ (id)documentDownloadChangedNotificationShareKey;
 - (void).cxx_destruct;
 - (id)init;
 - (void)downloadDocument:(id)arg1 share:(id)arg2 displayAfterDownload:(BOOL)arg3 displayDownloadProgress:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;

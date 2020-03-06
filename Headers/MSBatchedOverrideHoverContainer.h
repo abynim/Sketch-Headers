@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) MSLayer *hoveredLayer;
+- (void)refreshOverlay;
 - (BOOL)matchesLayerListNode:(id)arg1;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)hoverItemsWithColor:(struct CGColor *)arg1;

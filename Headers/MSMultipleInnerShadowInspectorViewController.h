@@ -12,9 +12,9 @@
 
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (id)title;
 - (void)awakeFromNib;
-- (BOOL)shouldEnableAddStylePartButton;
+- (id)nibName;
+- (BOOL)shouldDisableAddStylePartButton;
 - (unsigned long long)stylePartType;
 
 @end

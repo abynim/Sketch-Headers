@@ -6,11 +6,9 @@
 
 #import <SketchModel/_MSImmutableSymbolMaster.h>
 
-#import <SketchModel/BCSortable-Protocol.h>
+@class BCCache, BCReadWriteLock, NSArray, NSDictionary;
 
-@class BCCache, BCReadWriteLock, NSArray, NSDictionary, NSString;
-
-@interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster <BCSortable>
+@interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
@@ -50,13 +48,6 @@
 - (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSString *name;
-@property(readonly) Class superclass;
 
 @end
 

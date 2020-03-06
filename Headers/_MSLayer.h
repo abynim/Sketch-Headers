@@ -17,6 +17,7 @@
     BOOL _isLocked;
     BOOL _isVisible;
     long long _layerListExpandedType;
+    BOOL _maintainScrollPosition;
     NSString *_name;
     BOOL _nameIsFixed;
     NSString *_originalObjectID;
@@ -52,6 +53,7 @@
 @property(retain, nonatomic) NSString *originalObjectID; // @synthesize originalObjectID=_originalObjectID;
 @property(nonatomic) BOOL nameIsFixed; // @synthesize nameIsFixed=_nameIsFixed;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(nonatomic) BOOL maintainScrollPosition; // @synthesize maintainScrollPosition=_maintainScrollPosition;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;
 @property(nonatomic) BOOL isVisible; // @synthesize isVisible=_isVisible;
 @property(nonatomic) BOOL isLocked; // @synthesize isLocked=_isLocked;

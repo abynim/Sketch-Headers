@@ -24,9 +24,6 @@
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void).cxx_destruct;
-- (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
-- (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

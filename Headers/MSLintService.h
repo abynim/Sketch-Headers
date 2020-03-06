@@ -12,10 +12,8 @@
     // Error parsing type: , name: linter
 }
 
-+ (id)shared;
-+ (id)MSAssistantCheckDocumentAutomaticallyKey;
 - (void).cxx_destruct;
-- (void)lintDocumentAt:(id)arg1 config:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)lintDocumentAt:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)init;
 - (void)dealloc;
 

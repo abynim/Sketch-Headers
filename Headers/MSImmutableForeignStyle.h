@@ -10,7 +10,5 @@
 {
 }
 
-- (id)localObject;
-
 @end
 

@@ -8,6 +8,7 @@
 
 @protocol MSHoverableItem
 @property(nonatomic, readonly) MSLayer *hoveredLayer;
+- (void)refreshOverlay;
 - (BOOL)matchesLayerListNode:(id)arg1;
 - (BOOL)canBeHoveredOnPage:(MSPage *)arg1;
 - (NSArray *)hoverItemsWithColor:(struct CGColor *)arg1;

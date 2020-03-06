@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSLinkButton, NSButton, NSError, NSImage, NSPopUpButton, NSSecureTextField, NSString, NSTextField, SCKAPIEnvironment;
+@class MSLinkButton, NSButton, NSError, NSImage, NSPopUpButton, NSSecureTextField, NSString, NSTextField, NSView, SCKAPIEnvironment;
 @protocol MSRegistrationWindowContentDelegate;
 
 @interface MSCloudSignInViewController : NSViewController
@@ -57,6 +57,7 @@
 - (void)changeEnvironment:(id)arg1;
 @property(retain, nonatomic) SCKAPIEnvironment *environment;
 - (void)updateEnvironmentMenuItems;
+- (void)showEnableCloudDocuments:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)confirmRegistration;
 - (void)updateCancelButtonTitle;
@@ -70,6 +71,7 @@
 - (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
+@property(nonatomic, readonly) NSView *headerBadgeDecorationView;
 @property(nonatomic, readonly) NSImage *headerImage;
 @property(nonatomic, readonly) NSImage *headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;

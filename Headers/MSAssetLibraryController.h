@@ -30,9 +30,6 @@
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
 - (BOOL)shouldAttemptToLoadVersionZeroLibraries;
-- (void)cloudDocumentAtLocalURL:(id)arg1 uploadedWithShare:(id)arg2;
-- (void)linkCloudLibraryWithShare:(id)arg1 toCloudDocAtURL:(id)arg2;
-- (id)remoteAssetLibraryForShare:(id)arg1;
 - (void)createAssetLibraryFolder;
 - (id)librariesWithUpdates;
 - (void)addRemoteLibraryFromAppcastURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;

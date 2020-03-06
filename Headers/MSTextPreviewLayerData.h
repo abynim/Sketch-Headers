@@ -6,18 +6,16 @@
 
 #import <objc/NSObject.h>
 
-@class MSTextPreviewLayerMetadata, NSDictionary;
+@class NSDictionary;
 
 @interface MSTextPreviewLayerData : NSObject
 {
     struct CGPDFDocument *_document;
     NSDictionary *_objectIDToPageNumberDictionary;
-    MSTextPreviewLayerMetadata *_metadata;
+    NSDictionary *_attributedStringToPageNumberDictionary;
 }
 
-@property(retain, nonatomic) MSTextPreviewLayerMetadata *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
-- (struct CGRect)findPreviewRectForLayerID:(id)arg1;
 - (struct CGPDFPage *)findPageForLayer:(id)arg1;
 - (void)dealloc;
 - (id)initWithPDFData:(id)arg1 metadata:(id)arg2;

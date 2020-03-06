@@ -49,7 +49,6 @@
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
 - (void)updateAttributedStringInBlock:(CDUnknownBlockType)arg1;
-- (void)setAttributedString:(id)arg1 unavilableFontsRectCalculationBlock:(CDUnknownBlockType)arg2;
 - (void)setAttributedString:(id)arg1;
 @property(copy, nonatomic) NSAttributedString *attributedStringValue;
 - (void)layerStyleDidChange;
@@ -82,8 +81,6 @@
 - (BOOL)shouldMaintainBaseLineOnStyleChange;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
-- (void)fixParentGeometryIfNotAlreadyChangingLayout;
-- (void)adjustFrameToFitWithUnavilableFontsRectCalculationBlock:(CDUnknownBlockType)arg1;
 - (void)adjustFrameToFit;
 - (unsigned long long)assumedAlignment;
 - (void)finishEditing;
@@ -117,7 +114,6 @@
 - (id)foreignSharedStyles;
 - (id)styleContainer;
 - (void)reapplyPreviousAttributesFromString:(id)arg1 document:(id)arg2;
-- (struct CGRect)findUnavailableFontRectStoredInDocument:(id)arg1 override:(id)arg2;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 
 // Remaining properties

@@ -10,8 +10,6 @@
 {
     unsigned long long _axis;
     unsigned long long _layoutAnchor;
-    double _maxSize;
-    double _minSize;
 }
 
 + (BOOL)allowsFaulting;
@@ -24,8 +22,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) double minSize; // @synthesize minSize=_minSize;
-@property(nonatomic) double maxSize; // @synthesize maxSize=_maxSize;
 @property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void)performInitWithImmutableModelObject:(id)arg1;

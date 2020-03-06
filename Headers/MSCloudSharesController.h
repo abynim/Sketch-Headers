@@ -19,14 +19,15 @@
 }
 
 - (void).cxx_destruct;
-- (id)init;
 - (void)startLoadingAdditionalShares;
 @property(nonatomic, readonly) BOOL canLoadAdditionalShares;
 - (void)startLoadingInitialShares;
-@property(nonatomic, readonly) BOOL isLoadingInitialShares;
 @property(nonatomic, readonly) BOOL isCurrentlyLoading;
 @property(nonatomic, readonly) BOOL shouldLoadInitialShares;
 @property(nonatomic, readonly) NSArray *shares;
+- (id)initWithProject:(id)arg1;
+- (id)initWithOrganization:(id)arg1;
+- (id)init;
 @property(nonatomic, copy) NSString *searchText; // @synthesize searchText;
 @property(nonatomic, readonly) SCKProject *project; // @synthesize project;
 @property(nonatomic, readonly) SCKOrganization *organization; // @synthesize organization;

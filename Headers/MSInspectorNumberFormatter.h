@@ -13,7 +13,6 @@
 + (id)standardPercentFormatterWithoutPercentSign;
 + (id)standardPercentFormatter;
 + (id)standardIntegerFormatter;
-+ (id)standardPositiveFloatFormatter;
 + (id)standardFloatFormatter;
 - (id)stringForObjectValue:(id)arg1;
 

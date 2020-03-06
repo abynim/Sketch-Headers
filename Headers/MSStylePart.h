@@ -14,7 +14,6 @@
 }
 
 + (id)defaultStylePartForStyle:(id)arg1;
-- (unsigned long long)styleType;
 - (id)parentLayer;
 - (id)parentStyle;
 - (void)multiplyBy:(double)arg1;

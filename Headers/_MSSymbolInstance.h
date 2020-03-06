@@ -25,7 +25,7 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
-- (void)moveOverrideValueFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)moveOverrideValueIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllOverrideValues;
 - (void)removeOverrideValuesAtIndexes:(id)arg1;
 - (void)removeOverrideValueAtIndex:(unsigned long long)arg1;
