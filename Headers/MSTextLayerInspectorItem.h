@@ -78,13 +78,14 @@
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
+- (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)textBehaviourButtonAction:(id)arg1;
 - (void)updateTextBehaviour;
 - (id)textBehaviourLabelString;
 - (long long)textBehaviourSegmentTag;
 - (void)variableFontsWindowController:(id)arg1 didUpdateToFont:(id)arg2;
 - (void)popoverWillClose:(id)arg1;
-- (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
+- (void)togglePopoverWithBlock:(CDUnknownBlockType)arg1;
 - (void)showVariableFontsPopover:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;

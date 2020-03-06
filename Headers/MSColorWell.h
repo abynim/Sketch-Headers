@@ -31,7 +31,7 @@
 @property(nonatomic) SEL colorChangedAction; // @synthesize colorChangedAction=_colorChangedAction;
 @property(readonly, nonatomic) NSColor *initialColor; // @synthesize initialColor=_initialColor;
 - (void).cxx_destruct;
-- (BOOL)popoverShouldTrackSuperviewOfAttachedToView:(id)arg1;
+- (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)companionPopoverForColorPanelPresenter:(id)arg1;

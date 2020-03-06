@@ -12,5 +12,7 @@
 - (double)minimumPopoverContentViewHeight:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
+- (BOOL)popoverShouldCauseExistingPopoversToClose:(id)arg1;
+- (BOOL)popoverShouldCloseWhenNewPopoverOpens:(id)arg1 newPopover:(id)arg2;
 @end
 
