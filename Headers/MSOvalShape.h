@@ -13,6 +13,7 @@
 + (id)defaultCurvePoints;
 - (BOOL)canFlatten;
 - (void)resetPoints;
+- (id)defaultCurvePoints;
 
 @end
 

@@ -14,7 +14,7 @@
     NSDictionary *_dictionary;
 }
 
-+ (id)unarchiveObjectFromDictionary:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
++ (id)unarchivedObjectFromDictionary:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 @property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) BCJSONDecoder *dataDecoder; // @synthesize dataDecoder=_dataDecoder;
 - (void).cxx_destruct;

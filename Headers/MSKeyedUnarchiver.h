@@ -14,7 +14,7 @@
     MSKeyedUnarchiveHelper *_unarchiveHelper;
 }
 
-+ (id)unarchiveObjectFromURL:(id)arg1 error:(id *)arg2;
++ (id)unarchivedObjectFromURL:(id)arg1 error:(id *)arg2;
 + (void)defineReplacementClasses;
 + (void)initialize;
 @property(retain, nonatomic) MSKeyedUnarchiveHelper *unarchiveHelper; // @synthesize unarchiveHelper=_unarchiveHelper;
@@ -31,7 +31,7 @@
 - (id)decodeObjectForKey:(id)arg1;
 - (BOOL)containsValueForKey:(id)arg1;
 - (id)decodeRoot;
-- (id)initForReadingWithData:(id)arg1;
+- (id)initForReadingFromData:(id)arg1;
 
 @end
 

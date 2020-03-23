@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSStyledLayer-Protocol.h>
 
-@class MSSharedStyle, NSString;
+@class MSColor, MSSharedStyle, NSString;
 
 @interface MSStyledLayer : _MSStyledLayer <MSStyledLayer>
 {
@@ -21,6 +21,7 @@
 + (void)pasteStyleFromPasteboard:(id)arg1 onLayers:(id)arg2 document:(id)arg3;
 + (void)pasteStyleFromPasteboardOnLayers:(id)arg1 document:(id)arg2;
 + (id)supportedPasteboardTypesForStyleCopying;
+@property(retain, nonatomic) MSColor *fillColor;
 - (void)setStyle:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)hasMarkers;

@@ -12,7 +12,10 @@
 {
     // Error parsing type: , name: componentsPaneController
     // Error parsing type: , name: libraryListSplitItem
+    // Error parsing type: , name: libraryMenuSplitItem
     // Error parsing type: , name: filterBarSplitItem
+    // Error parsing type: , name: componentListSplitItem
+    // Error parsing type: , name: componentKindSplitItem
     // Error parsing type: , name: previewSplitItem
     // Error parsing type: , name: hideSymbolItem
     // Error parsing type: , name: symbolSwapPreferenceItem
@@ -38,7 +41,10 @@
 @property(nonatomic, retain) NSSplitViewItem *symbolSwapPreferenceItem; // @synthesize symbolSwapPreferenceItem;
 @property(nonatomic, retain) NSSplitViewItem *hideSymbolItem; // @synthesize hideSymbolItem;
 @property(nonatomic, retain) NSSplitViewItem *previewSplitItem; // @synthesize previewSplitItem;
+@property(nonatomic, retain) NSSplitViewItem *componentKindSplitItem; // @synthesize componentKindSplitItem;
+@property(nonatomic, retain) NSSplitViewItem *componentListSplitItem; // @synthesize componentListSplitItem;
 @property(nonatomic, retain) NSSplitViewItem *filterBarSplitItem; // @synthesize filterBarSplitItem;
+@property(nonatomic, retain) NSSplitViewItem *libraryMenuSplitItem; // @synthesize libraryMenuSplitItem;
 @property(nonatomic, retain) NSSplitViewItem *libraryListSplitItem; // @synthesize libraryListSplitItem;
 
 @end

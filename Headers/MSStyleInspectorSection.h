@@ -8,7 +8,7 @@
 
 #import "MSInspectorSectionDelegate-Protocol.h"
 
-@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, MSTintInspectorViewController, NSArray, NSDictionary, NSMutableDictionary, NSString;
+@class MSBlurInspectorViewController, MSCollapsibleHeaderInspectorItem, MSColorControlsInspectorViewController, MSMultipleBorderInspectorViewController, MSMultipleFillInspectorViewController, MSMultipleInnerShadowInspectorViewController, MSMultipleShadowInspectorViewController, NSArray, NSDictionary, NSMutableDictionary, NSString;
 
 @interface MSStyleInspectorSection : MSNestedInspectorSection <MSInspectorSectionDelegate>
 {
@@ -31,7 +31,6 @@
 - (void)restorePopover;
 - (void)closeAnyColorPopoverImmediately:(BOOL)arg1;
 - (void)closeAnyColorPopover;
-@property(readonly, nonatomic) MSTintInspectorViewController *tintViewController;
 @property(readonly, nonatomic) MSColorControlsInspectorViewController *colorControlsViewController;
 @property(readonly, nonatomic) MSBlurInspectorViewController *blurViewController;
 @property(readonly, nonatomic) MSMultipleInnerShadowInspectorViewController *innerShadowViewController;

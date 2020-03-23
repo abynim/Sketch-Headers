@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableLayer, MSImmutableSymbolMaster, MSOverridePoint, MSOverrideValue, NSArray;
+@class MSImmutableLayer, MSImmutableSymbolMaster, MSOverridePoint, MSOverrideValue, NSArray, NSString;
 
 @interface MSAvailableOverride : NSObject
 {
@@ -35,6 +35,8 @@
 @property(readonly, nonatomic) __weak MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *containedByPropertyID;
+@property(readonly, nonatomic) NSString *containedPropertyID;
 - (void)calculateAppearsOnCanvasWithAncestors:(id)arg1;
 @property(readonly, nonatomic) BOOL allowsOverrides;
 @property(readonly, nonatomic) BOOL defaultIsItselfAnOverride;

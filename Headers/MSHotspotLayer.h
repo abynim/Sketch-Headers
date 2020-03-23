@@ -15,7 +15,6 @@
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
 - (void)setFlow:(id)arg1;
-- (void)performInitEmptyObject;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)applyOverride:(id)arg1 document:(id)arg2;
 

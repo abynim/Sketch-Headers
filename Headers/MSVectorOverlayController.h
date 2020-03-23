@@ -11,7 +11,7 @@
 #import "MSVectorOverlayLayoutDelegate-Protocol.h"
 #import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSContentDrawView, MSDragToSelectGestureRecognizer, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSContentDrawView, MSDragToSelectGestureRecognizer, MSOverlayItemImageCache, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
 @protocol MSVectorOverlayControllerDelegate;
 
 @interface MSVectorOverlayController : NSObject <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSVectorOverlayLayoutDelegate, MSGestureRecognizerDelegate, MSAlignmentEngineDelegate>
@@ -28,6 +28,7 @@
     MSVectorOverlayLayout *_overlayLayout;
     MSDragToSelectGestureRecognizer *_dragToSelectGestureRecognizer;
     _TtC6Sketch21MSVectorOverlayAction *_currentAction;
+    MSOverlayItemImageCache *_imageCache;
     MSAlignmentEngine *_snapper;
     NSArray *_shapeCenterSnapTargets;
     MSPath *_wirePath;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) MSPath *wirePath; // @synthesize wirePath=_wirePath;
 @property(copy, nonatomic) NSArray *shapeCenterSnapTargets; // @synthesize shapeCenterSnapTargets=_shapeCenterSnapTargets;
 @property(retain, nonatomic) MSAlignmentEngine *snapper; // @synthesize snapper=_snapper;
+@property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) _TtC6Sketch21MSVectorOverlayAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *dragToSelectGestureRecognizer; // @synthesize dragToSelectGestureRecognizer=_dragToSelectGestureRecognizer;
 @property(readonly, nonatomic) MSVectorOverlayLayout *overlayLayout; // @synthesize overlayLayout=_overlayLayout;

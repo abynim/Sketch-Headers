@@ -10,13 +10,12 @@
 {
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: componentTreeStructure
+    // Error parsing type: , name: containment
+    // Error parsing type: , name: treeStructure
+    // Error parsing type: , name: rowKind
     // Error parsing type: , name: componentReference
     // Error parsing type: , name: parent
-    // Error parsing type: , name: path
-    // Error parsing type: , name: componentListPreviewImageCachingKey
-    // Error parsing type: , name: componentListLargePreviewImageCachingKey
-    // Error parsing type: , name: componentListGroupPreviewImageCachingKey
+    // Error parsing type: , name: modelPath
 }
 
 @property(nonatomic, readonly) long long hash;

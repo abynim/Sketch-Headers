@@ -11,7 +11,6 @@
 }
 
 + (id)gradientFromStops:(id)arg1 colorSpace:(id)arg2;
-+ (id)defaultGradientStops;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (struct CGAffineTransform)ellipseTransformInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasOpacity;
@@ -21,8 +20,6 @@
 - (double)conditionedEllipseLength;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (id)stopAtIndex:(unsigned long long)arg1;
-- (BOOL)hasDefaultValues;
-- (id)defaultStopsArray;
 
 @end
 

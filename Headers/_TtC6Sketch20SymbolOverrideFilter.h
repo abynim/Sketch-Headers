@@ -6,8 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC11SketchModel37ComponentsPaneDoubleInspectorOverride : _TtCs12_SwiftObject
+@interface _TtC6Sketch20SymbolOverrideFilter : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: symbolFilter
+    // Error parsing type: , name: override
 }
 
 @end

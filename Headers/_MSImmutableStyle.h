@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
-@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableStyleTint, MSImmutableTextStyle, NSArray;
+@class MSImmutableGraphicsContextSettings, MSImmutableStyleBlur, MSImmutableStyleBorderOptions, MSImmutableStyleColorControls, MSImmutableTextStyle, NSArray;
 
 @interface _MSImmutableStyle : MSImmutableModelObject
 {
@@ -23,11 +23,9 @@
     NSArray *_innerShadows;
     NSArray *_shadows;
     MSImmutableTextStyle *_textStyle;
-    MSImmutableStyleTint *_tint;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableStyleTint *tint; // @synthesize tint=_tint;
 @property(retain, nonatomic) MSImmutableTextStyle *textStyle; // @synthesize textStyle=_textStyle;
 @property(retain, nonatomic) NSArray *shadows; // @synthesize shadows=_shadows;
 @property(retain, nonatomic) NSArray *innerShadows; // @synthesize innerShadows=_innerShadows;

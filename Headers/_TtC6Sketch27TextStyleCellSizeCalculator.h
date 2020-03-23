@@ -6,10 +6,8 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch19ComponentTreeFilter : _TtCs12_SwiftObject
+@interface _TtC6Sketch27TextStyleCellSizeCalculator : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: primaryPredicate
-    // Error parsing type: , name: secondaryPredicate
 }
 
 @end

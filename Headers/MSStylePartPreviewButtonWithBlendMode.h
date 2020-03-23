@@ -7,7 +7,7 @@
 #import "MSStylePartPreviewButton.h"
 
 @class NSButton, NSMenu, NSSet;
-@protocol MSStylePartPreviewButtonWithBlendModeDelegae;
+@protocol MSStylePartPreviewButtonWithBlendModeDelegate;
 
 @interface MSStylePartPreviewButtonWithBlendMode : MSStylePartPreviewButton
 {
@@ -25,14 +25,17 @@
 - (void)changeBlendMode:(id)arg1;
 - (void)showBlendModeMenu:(id)arg1;
 - (struct CGRect)contentRect;
+- (BOOL)shouldShowBlendMode;
 - (void)updateButtonState;
 - (void)awakeFromNib;
 - (void)setupStylePartPreviewButtonWithBlendMode;
+- (void)setStylePart:(id)arg1;
+- (void)setColor:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
-@property(nonatomic) __weak id <MSStylePartPreviewButtonWithBlendModeDelegae> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <MSStylePartPreviewButtonWithBlendModeDelegate> delegate; // @dynamic delegate;
 
 @end
 

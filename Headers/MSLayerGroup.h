@@ -29,7 +29,6 @@
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (void)resizeChildrenWithOldSize:(struct CGSize)arg1;
 - (struct CGSize)calculateMinimumSize;
-- (id)defaultLayout;
 @property(readonly, nonatomic) BOOL isAutomaticScalingEnabled;
 - (void)disableAutomaticScalingInBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;
@@ -54,7 +53,6 @@
 - (id)defaultStyle;
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
-- (void)performInitEmptyObject;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;

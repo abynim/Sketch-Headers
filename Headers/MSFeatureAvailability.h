@@ -11,10 +11,9 @@
 @interface MSFeatureAvailability : NSObject
 {
     // Error parsing type: , name: cloudLicensing
-    // Error parsing type: , name: componentsPane
-    // Error parsing type: , name: componentsPaneDoubleInspector
+    // Error parsing type: , name: componentPaneListView
+    // Error parsing type: , name: componentMenuTypeToSearch
     // Error parsing type: , name: builtInRemoteLibraries
-    // Error parsing type: , name: cloudDocumentsAsDefaultModal
     // Error parsing type: , name: saveOmitsDefaultValues
     // Error parsing type: , name: maintainScrollPositionAfterClick
     // Error parsing type: , name: designLinting
@@ -23,12 +22,14 @@
     // Error parsing type: , name: sharedEditing
     // Error parsing type: , name: tintingEnabled
     // Error parsing type: , name: gpuOverlay
+    // Error parsing type: , name: sanityCheckDocumentData
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sanityCheckDocumentData; // @synthesize sanityCheckDocumentData;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *gpuOverlay; // @synthesize gpuOverlay;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *tintingEnabled; // @synthesize tintingEnabled;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sharedEditing; // @synthesize sharedEditing;
@@ -37,10 +38,9 @@
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *designLinting; // @synthesize designLinting;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *saveOmitsDefaultValues; // @synthesize saveOmitsDefaultValues;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudDocumentsAsDefaultModal; // @synthesize cloudDocumentsAsDefaultModal;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *builtInRemoteLibraries; // @synthesize builtInRemoteLibraries;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPaneDoubleInspector; // @synthesize componentsPaneDoubleInspector;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentsPane; // @synthesize componentsPane;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentMenuTypeToSearch; // @synthesize componentMenuTypeToSearch;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentPaneListView; // @synthesize componentPaneListView;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudLicensing; // @synthesize cloudLicensing;
 
 @end

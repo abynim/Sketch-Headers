@@ -10,6 +10,10 @@
 
 @interface NSData (BCFoundation)
 @property(nonatomic, readonly) NSString *hexString;
+@property(readonly, nonatomic) NSString *sha1String_bc;
+@property(readonly, nonatomic) NSData *sha1Data_bc;
+- (id)sha1AsString;
+- (id)sha1;
 - (void)encodeAsRAWArchive:(id)arg1;
 - (id)dataByDecompressing_bc;
 - (id)dataByCompressingWithAlgorithm_bc:(int)arg1;

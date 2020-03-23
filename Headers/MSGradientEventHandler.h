@@ -8,7 +8,7 @@
 
 #import "MSGradientPointArrayDelegate-Protocol.h"
 
-@class MSStyleBasicFill, NSCursor, NSString;
+@class MSOverlayItemImageCache, MSStyleBasicFill, NSCursor, NSString;
 @protocol MSGradientEventHandlerDelegate;
 
 @interface MSGradientEventHandler : MSPointsEventHandler <MSGradientPointArrayDelegate>
@@ -17,9 +17,11 @@
     id <MSGradientEventHandlerDelegate> _gradientDelegate;
     NSCursor *_selectPointCursor;
     NSCursor *_insertPointCursor;
+    MSOverlayItemImageCache *_imageCache;
 }
 
 + (id)gradientHandlerForStylePart:(id)arg1 manager:(id)arg2;
+@property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSCursor *insertPointCursor; // @synthesize insertPointCursor=_insertPointCursor;
 @property(retain, nonatomic) NSCursor *selectPointCursor; // @synthesize selectPointCursor=_selectPointCursor;
 @property(nonatomic) __weak id <MSGradientEventHandlerDelegate> gradientDelegate; // @synthesize gradientDelegate=_gradientDelegate;

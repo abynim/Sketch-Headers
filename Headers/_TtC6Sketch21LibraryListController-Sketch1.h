@@ -7,6 +7,7 @@
 #import "_TtC6Sketch21LibraryListController.h"
 
 @interface _TtC6Sketch21LibraryListController (Sketch1)
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
 - (void)outlineViewSelectionDidChange:(id)arg1;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;

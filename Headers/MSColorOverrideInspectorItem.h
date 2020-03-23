@@ -8,24 +8,48 @@
 
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
-@class BCPopover, MSColorInspector, MSImmutableColor, NSString;
+@class BCPopover, MSColorInspector, MSImmutableColor, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
 
-@interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate>
+@interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, NSTextFieldDelegate>
 {
+    BOOL _hasPendingChanges;
     BCPopover *_popover;
     MSColorInspector *_colorInspector;
-    MSImmutableColor *_color;
+    MSMathInspectorValueAdaptor *_opacityAdaptor;
+    NSArrayController *_colors;
+    MSOverrideTextField *_hexField;
+    MSStylePartPreviewButton *_colorView;
+    MSInlineUpDownNanoTextField *_opacityField;
 }
 
-@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
++ (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSStylePartPreviewButton *colorView; // @synthesize colorView=_colorView;
+@property(retain, nonatomic) MSOverrideTextField *hexField; // @synthesize hexField=_hexField;
+@property(retain, nonatomic) NSArrayController *colors; // @synthesize colors=_colors;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
+@property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 - (void).cxx_destruct;
+- (void)controlTextDidChange:(id)arg1;
+- (void)controlTextDidBeginEditing:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
+- (void)closePopover;
 - (void)togglePopover:(id)arg1;
 - (void)colorChanged:(id)arg1;
+- (void)opacityFieldAction:(id)arg1;
+- (void)hexFieldAction:(id)arg1;
+- (void)updateDisplayedValues;
+@property(readonly, nonatomic) MSImmutableColor *color;
+- (id)labelWithString:(id)arg1 ofClass:(Class)arg2;
+- (id)labelWithString:(id)arg1;
+- (id)createHexField;
+- (id)createOpacityField;
+- (id)createColorWellButton;
 - (id)controlViewForEditingOverride;
 
 // Remaining properties

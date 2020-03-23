@@ -8,25 +8,37 @@
 
 @interface BCRowViewVisuals : NSObject
 {
-    // Error parsing type: , name: width
-    // Error parsing type: , name: regularRowHeight
-    // Error parsing type: , name: singleBorderHeight
-    // Error parsing type: , name: topAndBottomBorderHeight
-    // Error parsing type: , name: scale
+    // Error parsing type: , name: dimensions
     // Error parsing type: , name: renderer
-    // Error parsing type: , name: $__lazy_storage_$_groupRowBoundsWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_groupRowBoundsWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_sectionRowBoundsWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_sectionRowBoundsWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_plainSectionRowImageWithTopBorder
+    // Error parsing type: , name: $__lazy_storage_$_plainSectionRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_plainSectionRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveSectionRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveSectionRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveSectionRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveSectionRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveSectionRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveSectionRowImageWithBottomBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveSectionRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveSectionRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_groupRowBounds
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImage
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImage
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithBlockyCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithRoundCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithRoundTopCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithRoundBottomCorners
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithRoundBottomCorners
     // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithTopBorder
-    // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_plainGroupRowImageWithTopAndBottomBorders
-    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImageWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImageWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImageWithTopAndBottomBorders
-    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImageWithTopAndBottomBorders
-    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithBottomBorder
-    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithTopAndBottomBorders
-    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithTopAndBottomBorders
+    // Error parsing type: , name: $__lazy_storage_$_highlightedActiveGroupRowImageAndTopBorder
+    // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveGroupRowImageAndTopBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedActiveGroupRowImageWithRoundCornersAndTopBorder
+    // Error parsing type: , name: $__lazy_storage_$_selectedInactiveGroupRowImageWithRoundCornersAndTopBorder
     // Error parsing type: , name: $__lazy_storage_$_regularRowBounds
     // Error parsing type: , name: $__lazy_storage_$_highlightedActiveRegularRowImage
     // Error parsing type: , name: $__lazy_storage_$_highlightedInactiveRegularRowImage
@@ -51,7 +63,9 @@
 - (void).cxx_destruct;
 - (id)init;
 - (void)updateVisualStateOfRowView:(id)arg1;
-- (id)initWithWidth:(double)arg1 regularRowHeight:(double)arg2 singleBorderHeight:(double)arg3 topAndBottomBorderHeight:(double)arg4 scale:(double)arg5;
+@property(nonatomic, readonly) double width;
+@property(nonatomic, readonly) double scale;
+- (id)initWithWidth:(double)arg1 sectionRowHeight:(double)arg2 borderWidth:(double)arg3 groupRowHeight:(double)arg4 regularRowHeight:(double)arg5 scale:(double)arg6;
 
 @end
 

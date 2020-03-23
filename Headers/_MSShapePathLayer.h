@@ -52,6 +52,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultCurvePoints;
 
 @end
 

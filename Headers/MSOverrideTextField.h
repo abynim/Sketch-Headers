@@ -6,13 +6,18 @@
 
 #import <AppKit/NSTextField.h>
 
+@class NSString;
+
 @interface MSOverrideTextField : NSTextField
 {
     BOOL _didChangeTextDuringEditing;
+    NSString *_prefixString;
 }
 
 + (Class)cellClass;
 @property(nonatomic) BOOL didChangeTextDuringEditing; // @synthesize didChangeTextDuringEditing=_didChangeTextDuringEditing;
+@property(retain, nonatomic) NSString *prefixString; // @synthesize prefixString=_prefixString;
+- (void).cxx_destruct;
 - (struct NSEdgeInsets)alignmentRectInsets;
 - (struct CGSize)intrinsicContentSize;
 - (BOOL)tryGivingUpFirstResponderToSketchDocument;

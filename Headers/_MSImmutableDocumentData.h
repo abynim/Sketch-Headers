@@ -24,6 +24,7 @@
 }
 
 + (Class)mutableClass;
++ (id)defaultPageArray;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 @property(retain, nonatomic) MSImmutableSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
@@ -50,6 +51,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultPageArray;
 
 @end
 

@@ -20,6 +20,9 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (double)defaultBlurRadius;
++ (double)defaultYOffset;
++ (id)defaultColor;
 - (void).cxx_destruct;
 - (void)setRaw_contextSettings:(id)arg1;
 - (void)setRaw_color:(id)arg1;
@@ -45,6 +48,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultColor;
 
 @end
 

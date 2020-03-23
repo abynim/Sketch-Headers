@@ -6,18 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@protocol MSGPUTexture;
+@class MSMetalTexture;
 
 @interface MSTile : NSObject
 {
-    id <MSGPUTexture> _texture;
+    MSMetalTexture *_texture;
     CDStruct_ffe6b7c1 _point;
     CDStruct_bf95b13b _rectWithImageFragment;
 }
 
 @property(readonly, nonatomic) CDStruct_bf95b13b rectWithImageFragment; // @synthesize rectWithImageFragment=_rectWithImageFragment;
 @property(nonatomic) CDStruct_ffe6b7c1 point; // @synthesize point=_point;
-@property(retain, nonatomic) id <MSGPUTexture> texture; // @synthesize texture=_texture;
+@property(retain, nonatomic) MSMetalTexture *texture; // @synthesize texture=_texture;
 - (void).cxx_destruct;
 - (void)replaceRegion:(CDStruct_bf95b13b)arg1 withBytes:(const void *)arg2 bytesPerRow:(unsigned long long)arg3;
 - (id)initWithRenderer:(id)arg1 point:(CDStruct_ffe6b7c1)arg2;

@@ -11,6 +11,8 @@
 }
 
 + (Class)mutableClass;
++ (double)defaultBlurRadius;
++ (double)defaultYOffset;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

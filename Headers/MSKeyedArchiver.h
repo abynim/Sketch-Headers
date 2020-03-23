@@ -6,15 +6,13 @@
 
 #import <SketchModel/MSBaseArchiver.h>
 
-@class MSKeyedArchiverHelper, NSMutableData;
+@class MSKeyedArchiverHelper;
 
 @interface MSKeyedArchiver : MSBaseArchiver
 {
     MSKeyedArchiverHelper *_archiveHelper;
-    NSMutableData *_archivedData;
 }
 
-@property(retain, nonatomic) NSMutableData *archivedData; // @synthesize archivedData=_archivedData;
 @property(retain, nonatomic) MSKeyedArchiverHelper *archiveHelper; // @synthesize archiveHelper=_archiveHelper;
 - (void).cxx_destruct;
 - (void)encodeSize:(struct CGSize)arg1 forKey:(id)arg2;

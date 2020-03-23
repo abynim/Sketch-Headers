@@ -14,14 +14,14 @@
     NSData *_data;
 }
 
-+ (id)unarchiveObjectWithString:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
++ (id)unarchivedObjectWithString:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) BCJSONDecoder *dataDecoder; // @synthesize dataDecoder=_dataDecoder;
 - (void).cxx_destruct;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;
 - (id)decodeRoot;
 - (id)decoder;
-- (id)initForReadingWithData:(id)arg1;
+- (id)initForReadingFromData:(id)arg1;
 
 @end
 

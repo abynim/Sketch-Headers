@@ -19,6 +19,9 @@
 }
 
 + (Class)mutableClass;
++ (double)defaultBlurRadius;
++ (double)defaultYOffset;
++ (id)defaultColor;
 @property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(nonatomic) double spread; // @synthesize spread=_spread;
@@ -40,6 +43,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultColor;
 
 @end
 

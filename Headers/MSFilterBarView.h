@@ -10,7 +10,6 @@
 {
 }
 
-- (void)drawRect:(struct CGRect)arg1;
 - (void)viewWillDraw;
 
 @end

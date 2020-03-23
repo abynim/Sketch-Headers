@@ -18,9 +18,9 @@
     id _currentObject;
 }
 
-+ (id)unarchiveObjectWithData:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
-+ (id)unarchiveObjectWithData:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
-+ (id)unarchiveObjectWithData:(id)arg1;
++ (id)unarchivedObjectFromData:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
++ (id)unarchivedObjectFromData:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
++ (id)unarchivedObjectFromData:(id)arg1;
 @property(nonatomic) __weak id currentObject; // @synthesize currentObject=_currentObject;
 @property(retain, nonatomic) NSPointerArray *decodedObjectStack; // @synthesize decodedObjectStack=_decodedObjectStack;
 @property(retain, nonatomic) NSArray *actualSymbolIDs; // @synthesize actualSymbolIDs=_actualSymbolIDs;
@@ -40,9 +40,9 @@
 - (id)decodeObjectOfClasses:(id)arg1 forKey:(id)arg2;
 - (id)decodeObjectOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)init;
-- (id)unarchiveObjectAsVersion:(long long)arg1 corruptionDetected:(char *)arg2 error:(id *)arg3;
+- (id)unarchivedObjectAsVersion:(long long)arg1 corruptionDetected:(char *)arg2 error:(id *)arg3;
 - (id)decodeRoot;
-- (id)initForReadingWithData:(id)arg1;
+- (id)initForReadingFromData:(id)arg1;
 
 @end
 

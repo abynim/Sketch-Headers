@@ -25,12 +25,17 @@
 - (unsigned long long)traitsForAvancedOptions;
 - (long long)advancedOptionsButtonState;
 - (void)viewWillDisappear;
+- (unsigned long long)supportedActionsForLayers:(id)arg1;
+- (id)learnMoreButtonTooltip;
 - (id)disabledStylePartsButtonTooltip;
 - (id)advancedOptionsButtonTooltip;
 - (id)addStylePartButonTooltip;
 - (id)title;
+- (long long)learnMoreButtonState;
 - (long long)addStylePartButtonState;
+- (BOOL)isDisplayingTint;
 - (void)prepare;
+- (void)learnMoreButtonAction:(id)arg1;
 - (void)advancedOptionsButtonAction:(id)arg1;
 
 // Remaining properties

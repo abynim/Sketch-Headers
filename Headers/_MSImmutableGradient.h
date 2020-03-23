@@ -18,6 +18,8 @@
 }
 
 + (Class)mutableClass;
++ (id)defaultGradientStops;
++ (id)immutableDefaultGradientStops;
 @property(retain, nonatomic) NSArray *stops; // @synthesize stops=_stops;
 @property(nonatomic) struct CGPoint to; // @synthesize to=_to;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
@@ -38,6 +40,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultGradientStops;
 
 @end
 

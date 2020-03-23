@@ -6,9 +6,11 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class NSArray, NSButton, NSCollectionView, NSMutableArray, NSSet;
+#import "NSCollectionViewDataSource-Protocol.h"
 
-@interface MSExportSheet : CHSheetController
+@class NSArray, NSButton, NSCollectionView, NSMutableArray, NSSet, NSString;
+
+@interface MSExportSheet : CHSheetController <NSCollectionViewDataSource>
 {
     NSCollectionView *_collectionView;
     NSButton *_includeAllSlicesCheckBox;
@@ -37,6 +39,14 @@
 - (void)validateIncludeAllSlicesCheckBox;
 - (void)findConflictingNamesInSlices:(id)arg1;
 - (void)awakeFromNib;
+- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
+- (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

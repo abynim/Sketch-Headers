@@ -31,6 +31,10 @@
 }
 
 + (Class)mutableClass;
++ (id)defaultFrame;
++ (BOOL)shouldBreakMaskChainDefault;
++ (id)defaultFlow;
++ (long long)defaultLayerListExpandedType;
 @property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
 @property(retain, nonatomic) MSImmutableFlowConnection *flow; // @synthesize flow=_flow;
 @property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
@@ -65,6 +69,8 @@
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithMinimalSetup;
+- (BOOL)hasDefaultFrame;
+@property(nonatomic, readonly) BOOL hasDefaultFlow;
 
 @end
 

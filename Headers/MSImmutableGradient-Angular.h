@@ -8,9 +8,9 @@
 
 @interface MSImmutableGradient (Angular)
 - (id)interpolatedStartAndStopColorForStops:(id)arg1;
-- (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 stops:(id)arg2 colorSpace:(id)arg3;
+- (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 stops:(id)arg2 colorSpace:(id)arg3 tint:(id)arg4;
 - (id)sortedStops;
-- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 tint:(id)arg3;
 - (void)drawAngularGradientInRect:(struct CGRect)arg1 context:(id)arg2 cacheKey:(id)arg3;
 - (void)drawRadialFillInRect:(struct CGRect)arg1 gradient:(struct CGGradient *)arg2 context:(id)arg3;
 - (void)drawRadialGradientInRect:(struct CGRect)arg1 gradient:(struct CGGradient *)arg2 firstPoint:(struct CGPoint)arg3 length:(double)arg4 ellipseTransform:(struct CGAffineTransform)arg5 context:(struct CGContext *)arg6;
@@ -18,6 +18,6 @@
 - (void)drawGradientWithTransparentStopsInRect:(struct CGRect)arg1 gradient:(struct CGGradient *)arg2 context:(id)arg3 gradientDrawingBlock:(CDUnknownBlockType)arg4;
 - (struct CGGradient *)createMaskGradientWithContext:(id)arg1;
 - (void)drawFillInRect:(struct CGRect)arg1 forBorderThickness:(double)arg2 context:(id)arg3 cacheKey:(id)arg4;
-- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 cache:(id)arg3 cacheKey:(id)arg4;
+- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(id)arg2 tint:(id)arg3 cache:(id)arg4 cacheKey:(id)arg5;
 @end
 

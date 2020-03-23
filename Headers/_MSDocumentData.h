@@ -25,6 +25,9 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultPageArray;
++ (long long)initialPageNumber;
++ (id)localizedNewPageName;
 - (void).cxx_destruct;
 - (void)setRaw_pages:(id)arg1;
 - (void)setRaw_layerTextStyles:(id)arg1;
@@ -108,6 +111,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultPageArray;
 
 @end
 

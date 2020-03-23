@@ -17,6 +17,8 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)hasClickThroughDefault;
++ (id)defaultLayout;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSImmutableGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
@@ -36,6 +38,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (BOOL)hasDefaultLayout;
 
 @end
 

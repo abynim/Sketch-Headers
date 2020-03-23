@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch29MSComponentsPopoverController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch25MSComponentMenuController, _TtC6Sketch29MSComponentsPopoverController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -18,6 +18,7 @@
     MSDocument *_document;
     BCCache *_previewImageCache;
     _TtC6Sketch29MSComponentsPopoverController *_componentsPopoverController;
+    _TtC6Sketch25MSComponentMenuController *_componentMenuController;
     MSLayerArray *_selectedLayers;
     NSView *_alignmentView;
     NSView *_alignmentContainerView;
@@ -25,13 +26,13 @@
     MSNormalInspector *_normalInspector;
 }
 
-+ (BOOL)isComponentsPopoverEnabled;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
+@property(retain, nonatomic) _TtC6Sketch25MSComponentMenuController *componentMenuController; // @synthesize componentMenuController=_componentMenuController;
 @property(retain, nonatomic) _TtC6Sketch29MSComponentsPopoverController *componentsPopoverController; // @synthesize componentsPopoverController=_componentsPopoverController;
 @property(retain, nonatomic) BCCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;

@@ -11,6 +11,12 @@
     // Error parsing type: , name: rawValue
 }
 
++ (id)current;
++ (id)none;
++ (id)all;
++ (id)public;
++ (id)privateBeta;
++ (id)inHouse;
 + (id)testing;
 + (id)private;
 + (id)experimental;
@@ -25,6 +31,7 @@
 @property(nonatomic, readonly) long long hash;
 - (BOOL)isEqual:(id)arg1;
 @property(nonatomic, readonly) BOOL isDebugUIEnabled;
+- (BOOL)matchesCurrentVariant;
 
 @end
 

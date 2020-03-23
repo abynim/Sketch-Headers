@@ -24,6 +24,9 @@
 }
 
 + (Class)mutableClass;
++ (BOOL)hasClickThroughDefault;
++ (BOOL)shouldBreakMaskChainDefault;
++ (id)defaultBackgroundColor;
 @property(retain, nonatomic) MSImmutableRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 @property(retain, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
@@ -50,6 +53,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultBackgroundColor;
 
 @end
 

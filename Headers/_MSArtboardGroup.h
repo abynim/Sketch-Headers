@@ -25,6 +25,8 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (BOOL)hasClickThroughDefault;
++ (id)defaultBackgroundColor;
 - (void).cxx_destruct;
 - (void)setRaw_verticalRulerData:(id)arg1;
 - (void)setRaw_layout:(id)arg1;
@@ -60,6 +62,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultBackgroundColor;
 
 @end
 

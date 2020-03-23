@@ -17,6 +17,7 @@
 }
 
 + (Class)mutableClass;
++ (id)defaultFillColor;
 @property(retain, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
 @property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
@@ -36,6 +37,7 @@
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
+@property(nonatomic, readonly) BOOL hasDefaultFillColor;
 
 @end
 

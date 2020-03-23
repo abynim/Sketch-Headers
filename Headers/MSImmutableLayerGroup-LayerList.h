@@ -9,5 +9,6 @@
 @interface MSImmutableLayerGroup (LayerList)
 - (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 - (id)baseImageNameForInferredLayoutTraits:(long long)arg1;
+- (id)overridePreviewImageInDocument:(id)arg1;
 @end
 

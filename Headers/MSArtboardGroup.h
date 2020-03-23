@@ -59,8 +59,6 @@
 - (void)setIsVisible:(BOOL)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
-- (void)objectDidInit;
-- (void)performInitEmptyObject;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 
 // Remaining properties

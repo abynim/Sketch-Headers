@@ -19,7 +19,6 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 + (id)createDetachedGroupFromMaster:(id)arg1 forInstance:(id)arg2 inDocument:(id)arg3;
-- (id)defaultLayout;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
@@ -50,6 +49,7 @@
 - (BOOL)containsNoOrOneLayers;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (void)migratePropertiesFromV123OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shadowsFollowRotation;
 - (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;

@@ -19,13 +19,11 @@
     NSTextField *_canvasAppearanceLabel;
     NSView *_mainContainerView;
     NSLayoutConstraint *_cloudDocumentSectionCollapseConstraint;
-    NSLayoutConstraint *_canvasAppearanceTopConstraint;
 }
 
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(retain, nonatomic) NSLayoutConstraint *canvasAppearanceTopConstraint; // @synthesize canvasAppearanceTopConstraint=_canvasAppearanceTopConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *cloudDocumentSectionCollapseConstraint; // @synthesize cloudDocumentSectionCollapseConstraint=_cloudDocumentSectionCollapseConstraint;
 @property(nonatomic) __weak NSView *mainContainerView; // @synthesize mainContainerView=_mainContainerView;
 @property(nonatomic) __weak NSTextField *canvasAppearanceLabel; // @synthesize canvasAppearanceLabel=_canvasAppearanceLabel;
@@ -40,7 +38,6 @@
 - (void)appearanceColorAction:(id)arg1;
 - (void)refreshPreviewImage;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)setupAppearanceControls;
 - (void)watchAppearanceChanges;
 - (void)analyticsAction:(id)arg1;
 - (void)viewDidLoad;

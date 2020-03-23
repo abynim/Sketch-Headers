@@ -26,7 +26,6 @@
     NSMenuItem *_debugMenuItem;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
-    NSMenuItem *_cloudEnvironmentMenuItem;
     NSMenu *_fileMenu;
     NSMenu *_viewMenu;
     NSMenuItem *_assistantMenuItem;
@@ -81,7 +80,6 @@
 @property(retain, nonatomic) NSMenuItem *assistantMenuItem; // @synthesize assistantMenuItem=_assistantMenuItem;
 @property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
-@property(retain, nonatomic) NSMenuItem *cloudEnvironmentMenuItem; // @synthesize cloudEnvironmentMenuItem=_cloudEnvironmentMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
@@ -115,7 +113,6 @@
 - (void)menuWillOpen:(id)arg1;
 - (id)menuItemFromMenu:(id)arg1 withKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
 - (BOOL)doesMenuItem:(id)arg1 haveKeyEquivalent:(id)arg2 modifierMask:(unsigned long long)arg3;
-- (void)tweakSidebarSubmenuIfNeeded:(id)arg1;
 - (void)setKeyEquivalent:(id)arg1 isAlternate:(BOOL)arg2 onEnabledMenuItem:(id)arg3;
 - (void)setUnusedMenuItem:(id)arg1;
 - (void)setupOpenMenuItems:(id)arg1;

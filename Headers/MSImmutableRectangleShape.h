@@ -15,7 +15,6 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (BOOL)hasDefaultCurvePoints;
-- (id)defaultCurvePoints;
 
 @end
 

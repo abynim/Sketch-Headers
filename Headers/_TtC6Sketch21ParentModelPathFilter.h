@@ -6,8 +6,9 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC11SketchModel22CloudDocumentsOverride : _TtCs12_SwiftObject
+@interface _TtC6Sketch21ParentModelPathFilter : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: parentModelPath
 }
 
 @end

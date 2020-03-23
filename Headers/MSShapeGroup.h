@@ -40,7 +40,6 @@
 - (BOOL)groupBoundsShouldBeIntegral;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)performInitEmptyObject;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
 - (BOOL)hitTestAsPath;
 - (id)CSSAttributeString;

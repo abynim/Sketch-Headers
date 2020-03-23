@@ -47,6 +47,8 @@
 - (void)recycleItem:(id)arg1;
 - (BOOL)displaysLabelAtIndex:(unsigned long long)arg1;
 - (id)vendItemAtIndex:(unsigned long long)arg1;
+- (id)containedByOverrideFor:(id)arg1;
+- (id)containedOverrideFor:(id)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfItems;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;

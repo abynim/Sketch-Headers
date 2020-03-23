@@ -14,11 +14,13 @@
 }
 
 + (id)bitmapWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 edgePaddings:(struct BCEdgePaddings)arg3 colorspace:(struct CGColorSpace *)arg4 drawingBlock:(CDUnknownBlockType)arg5;
-+ (id)rectangularBitmapWithStrokeWidth:(double)arg1 cornerRadius:(double)arg2 strokeColor:(struct CGColor *)arg3 fillColor:(struct CGColor *)arg4 colorspace:(struct CGColorSpace *)arg5 backingScale:(double)arg6;
++ (id)rectangularBitmapWithStrokeWidth:(double)arg1 strokeColor:(struct CGColor *)arg2 fillColor:(struct CGColor *)arg3 colorspace:(struct CGColorSpace *)arg4 backingScale:(double)arg5;
 @property(readonly, nonatomic) struct BCEdgePaddings edgePaddings; // @synthesize edgePaddings=_edgePaddings;
 @property(readonly, nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
+- (id)imageWithColorspace:(struct CGColorSpace *)arg1;
 - (id)imageWithTransform:(struct CGAffineTransform)arg1;
+- (struct CGContext *)createBitmapContext:(struct CGSize)arg1 colorspace:(struct CGColorSpace *)arg2;
 - (id)imageRotatedBy:(double)arg1;
 - (id)imageFlippedVertically;
 @property(readonly, nonatomic) struct CGColorSpace *colorspace;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSOverlayColorSettings, NSString;
+@class MSOverlayColorSettings;
 
 @interface MSVisualSettings : NSObject
 {
@@ -15,7 +15,6 @@
     BOOL _showArtboardShadows;
     BOOL _showFlows;
     BOOL _showPixels;
-    NSString *_acceleratorName;
     MSOverlayColorSettings *_overlayColors;
 }
 

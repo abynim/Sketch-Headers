@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface MSCloudDocsEnabled : NSObject
+@interface _TtC6Sketch14CompoundFilter : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: filters
+    // Error parsing type: , name: matchAll
 }
-
-+ (BOOL)isEnabled;
 
 @end
 

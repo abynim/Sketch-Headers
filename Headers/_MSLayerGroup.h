@@ -18,6 +18,9 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (BOOL)hasClickThroughDefault;
++ (id)defaultLayout;
++ (id)defaultFrame;
 - (void).cxx_destruct;
 - (void)setRaw_layers:(id)arg1;
 - (void)setRaw_groupLayout:(id)arg1;
@@ -51,6 +54,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
+- (BOOL)hasDefaultLayout;
 
 @end
 

@@ -13,7 +13,6 @@
 + (id)defaultName;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
-- (void)performInitEmptyObject;
 - (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;

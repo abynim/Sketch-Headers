@@ -24,8 +24,10 @@
     NSButton *_advancedOptionsButton;
     NSButton *_disabledStylePartsButton;
     NSButton *_resetStylePartsButton;
+    NSButton *_learnMoreButton;
 }
 
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
 @property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
 @property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
@@ -64,6 +66,7 @@
 - (void)copyStylePartAction:(id)arg1;
 - (void)addStylePartsForSelection;
 - (BOOL)hasPopOver;
+- (void)learnMoreButtonAction:(id)arg1;
 - (void)addStylePartHeaderWideAction:(id)arg1;
 - (void)addStylePartButtonAction:(id)arg1;
 - (void)addNewStylePart;
@@ -76,9 +79,11 @@
 - (void)prepare;
 - (void)prepareForReuse;
 - (id)viewForStyleAtOffset:(long long)arg1 index:(unsigned long long)arg2;
+- (long long)learnMoreButtonState;
 - (long long)disabledStylePartsButtonState;
 - (long long)advancedOptionsButtonState;
 - (long long)addStylePartHeaderWideButtonState;
+- (id)learnMoreButtonTooltip;
 - (id)disabledStylePartsButtonTooltip;
 - (id)advancedOptionsButtonTooltip;
 - (id)addStylePartButonTooltip;

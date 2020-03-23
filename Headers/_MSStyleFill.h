@@ -19,6 +19,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
++ (id)defaultFillColor;
 - (void).cxx_destruct;
 - (void)setRaw_patternTileScale:(double)arg1;
 - (void)setRaw_patternFillType:(long long)arg1;

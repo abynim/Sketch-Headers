@@ -6,12 +6,14 @@
 
 #import "MSComponentOverrideInspectorItem.h"
 
+#import "MSColorInspectorDelegate-Protocol.h"
+#import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 #import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
-@class MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
+@class BCPopover, MSColorInspector, MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSStylePartPreviewButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem <NSMenuDelegate, _TtP6Sketch24MSComponentsPopoverOwner_>
+@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem <NSMenuDelegate, _TtP6Sketch24MSComponentsPopoverOwner_, MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -19,8 +21,14 @@
     MSInspectorPopoverButton *_popoverButton;
     MSInspectorPopUpButton *_popupButton;
     MSForeignObjectMenuBuilder *_menuBuilder;
+    BCPopover *_popover;
+    MSColorInspector *_colorInspector;
+    MSStylePartPreviewButton *_colorButton;
 }
 
+@property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
+@property(retain, nonatomic) MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
+@property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) MSInspectorPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(retain, nonatomic) MSInspectorPopoverButton *popoverButton; // @synthesize popoverButton=_popoverButton;
@@ -28,17 +36,22 @@
 @property(retain, nonatomic) NSButton *navigateToMasterButton; // @synthesize navigateToMasterButton=_navigateToMasterButton;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void).cxx_destruct;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
+- (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
+- (id)previewColorSpaceForClient:(id)arg1;
+- (void)closePopover;
+- (void)showPopover;
+- (void)togglePopover;
+- (void)colorChanged:(id)arg1;
 - (void)navigateToOverridesMaster:(id)arg1;
-- (void)libraryControllerDidChange:(id)arg1;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
-- (void)restorePopoverWithRestorationInfo:(id)arg1;
 - (void)pickSymbol:(id)arg1;
 - (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
-- (void)reloadMenu;
 - (id)currentSelectionMenuItem;
 - (id)nameOfCurrentNestedSymbol;
 - (void)build;

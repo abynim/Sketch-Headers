@@ -14,6 +14,7 @@
 @interface MSOverrideInspectorItem : MSInspectorItem <NSMenuDelegate, MSDataMenuProviderDelegate>
 {
     BOOL _displaysLabel;
+    MSAvailableOverride *_secondaryOverride;
     MSOverrideRepresentation *_overrideRepresentation;
     MSDataMenuProvider *_dataController;
     NSView *_contentView;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) MSDataMenuProvider *dataController; // @synthesize dataController=_dataController;
 @property(nonatomic) BOOL displaysLabel; // @synthesize displaysLabel=_displaysLabel;
 @property(readonly, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
+@property(retain, nonatomic) MSAvailableOverride *secondaryOverride; // @synthesize secondaryOverride=_secondaryOverride;
 - (void).cxx_destruct;
 - (void)addObserverForMSDataSupplierManagerDataChangedNotification;
 - (void)mouseExited:(id)arg1;

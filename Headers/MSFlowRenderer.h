@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MSArcVertexBuffer, MSRenderingDriverSettings, MSTextureVertexBuffer, NSDictionary, NSSet;
-@protocol MSGPURenderer, MSGPUTexture;
+@class MSArcVertexBuffer, MSMetalRenderer, MSMetalTexture, MSRenderingDriverSettings, MSTextureVertexBuffer, NSDictionary, NSSet;
 
 @interface MSFlowRenderer : NSObject
 {
-    id <MSGPURenderer> _lastRenderer;
+    MSMetalRenderer *_lastRenderer;
     MSRenderingDriverSettings *_lastSettings;
-    id <MSGPUTexture> _flowAnnotationsTexture;
+    MSMetalTexture *_flowAnnotationsTexture;
     MSTextureVertexBuffer *_textureVertexBuffer;
     MSArcVertexBuffer *_arcVertexBuffer;
     NSSet *_flowItems;
@@ -36,9 +35,9 @@
 @property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
 @property(nonatomic) struct BCEdgePaddings flowHotspotTexturePaddings; // @synthesize flowHotspotTexturePaddings=_flowHotspotTexturePaddings;
 @property(nonatomic) struct CGRect flowHotspotTextureCenterRect; // @synthesize flowHotspotTextureCenterRect=_flowHotspotTextureCenterRect;
-@property(retain, nonatomic) id <MSGPUTexture> flowAnnotationsTexture; // @synthesize flowAnnotationsTexture=_flowAnnotationsTexture;
+@property(retain, nonatomic) MSMetalTexture *flowAnnotationsTexture; // @synthesize flowAnnotationsTexture=_flowAnnotationsTexture;
 @property(nonatomic) __weak MSRenderingDriverSettings *lastSettings; // @synthesize lastSettings=_lastSettings;
-@property(nonatomic) __weak id <MSGPURenderer> lastRenderer; // @synthesize lastRenderer=_lastRenderer;
+@property(nonatomic) __weak MSMetalRenderer *lastRenderer; // @synthesize lastRenderer=_lastRenderer;
 - (void).cxx_destruct;
 - (void)drawDotInForItem:(id)arg1 context:(struct CGContext *)arg2 zoomLevel:(double)arg3 settings:(id)arg4;
 - (void)drawTipInForItem:(id)arg1 segment:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;

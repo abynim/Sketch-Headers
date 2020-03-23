@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <AppKit/NSMenuItem.h>
 
-@interface BCNetworkManager : NSObject
+@interface _TtC6Sketch17ViewBasedMenuItem : NSMenuItem
 {
 }
 
-+ (id)sendSynchronousRequest:(id)arg1 returningResponse:(id *)arg2 error:(id *)arg3;
+- (id)initWithTitle:(id)arg1 action:(SEL)arg2 keyEquivalent:(id)arg3;
+- (id)initWithCoder:(id)arg1;
 
 @end
 
