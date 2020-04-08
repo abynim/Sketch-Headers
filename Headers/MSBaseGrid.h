@@ -12,7 +12,6 @@
 }
 
 @property(nonatomic) BOOL forceDraw; // @synthesize forceDraw=_forceDraw;
-- (void)setIsEnabled:(BOOL)arg1;
 
 @end
 

@@ -19,6 +19,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *angleAdapter; // @synthesize angleAdapter=_angleAdapter;
 @property(retain, nonatomic) NSSlider *angleSlider; // @synthesize angleSlider=_angleSlider;
 - (void).cxx_destruct;
+- (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

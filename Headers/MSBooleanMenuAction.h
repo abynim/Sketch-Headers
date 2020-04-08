@@ -10,6 +10,7 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
 - (id)label;
 - (id)tooltip;
 - (id)submenuActionIDs;

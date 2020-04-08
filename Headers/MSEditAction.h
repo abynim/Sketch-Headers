@@ -19,6 +19,8 @@
 - (void)edit:(id)arg1;
 - (id)imageName;
 - (BOOL)validate;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)validateToolbarItem;
 
 @end
 

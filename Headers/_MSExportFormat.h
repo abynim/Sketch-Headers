@@ -21,13 +21,14 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_visibleScaleType:(long long)arg1;
 - (void)setRaw_scale:(double)arg1;
 - (void)setRaw_namingScheme:(long long)arg1;
 - (void)setRaw_name:(id)arg1;
 - (void)setRaw_fileFormat:(id)arg1;
 - (void)setRaw_absoluteSize:(double)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -43,7 +44,7 @@
 @property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 @property(nonatomic) double absoluteSize; // @synthesize absoluteSize=_absoluteSize;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

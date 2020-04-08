@@ -22,12 +22,13 @@
 + (id)defaultGradientStops;
 + (id)mutableDefaultGradientStops;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_stops:(id)arg1;
 - (void)setRaw_to:(struct CGPoint)arg1;
 - (void)setRaw_gradientType:(long long)arg1;
 - (void)setRaw_from:(struct CGPoint)arg1;
 - (void)setRaw_elipseLength:(double)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -54,7 +55,7 @@
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultGradientStops;
 

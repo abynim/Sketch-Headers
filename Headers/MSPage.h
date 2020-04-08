@@ -18,12 +18,14 @@
     id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
+    NSArray *_cachedSymbolMasters;
     MSLayerArray *_cachedSelectedLayers;
 }
 
 + (id)defaultSymbolsPageName;
 + (id)page;
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
+@property(retain, nonatomic) NSArray *cachedSymbolMasters; // @synthesize cachedSymbolMasters=_cachedSymbolMasters;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
 - (void).cxx_destruct;
@@ -34,7 +36,6 @@
 - (BOOL)isVisible;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
-@property(readonly, nonatomic) NSArray *symbols;
 - (struct CGPoint)originForNewArtboardWithSize:(struct CGSize)arg1;
 - (id)artboardsMatchingWidth:(double)arg1;
 - (BOOL)contentIntersectsWithRect:(struct CGRect)arg1;
@@ -46,11 +47,14 @@
 - (void)rectSizeDidChange:(id)arg1;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 - (id)artboardWithID:(id)arg1;
+@property(readonly, nonatomic) NSArray *symbols;
 @property(readonly, nonatomic) __weak NSArray *artboards;
+- (id)topLevelLayersMatchingTrait:(unsigned long long)arg1;
 - (id)parentRoot;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
 - (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
+- (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;

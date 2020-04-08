@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSImmutableCurvePoint.h>
 
-#import <SketchModel/MSCurvePoint-Protocol.h>
+#import <SketchModel/MSCurvePointProtocol-Protocol.h>
 
 @class NSString;
 
-@interface MSImmutableCurvePoint : _MSImmutableCurvePoint <MSCurvePoint>
+@interface MSImmutableCurvePoint : _MSImmutableCurvePoint <MSCurvePointProtocol>
 {
 }
 

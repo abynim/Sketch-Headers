@@ -8,10 +8,17 @@
 
 @interface _TtC6Sketch20ComponentSearchField : NSSearchField
 {
+    // Error parsing type: , name: eventHandler
+    // Error parsing type: , name: enterKey
+    // Error parsing type: , name: leftArrowKey
+    // Error parsing type: , name: rightArrowKey
+    // Error parsing type: , name: upArrowKey
+    // Error parsing type: , name: downArrowKey
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)viewDidMoveToWindow;
 
 @end
 

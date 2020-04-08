@@ -24,8 +24,10 @@
     NSButton *_advancedOptionsButton;
     NSButton *_disabledStylePartsButton;
     NSButton *_resetStylePartsButton;
+    NSButton *_learnMoreButton;
 }
 
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
 @property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
 @property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
@@ -39,13 +41,13 @@
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 @property(readonly, nonatomic) NSString *menuTitleRemove;
 @property(readonly, nonatomic) NSString *menuTitleDuplicate;
 @property(readonly, nonatomic) NSString *menuTitlePaste;
 @property(readonly, nonatomic) NSString *menuTitleCopy;
 - (id)contextMenuForSupportedActions:(unsigned long long)arg1 atIndex:(long long)arg2;
-- (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
+- (void)updateInspector:(id)arg1 index:(unsigned long long)arg2;
 - (BOOL)hasEnabledStyle;
 - (void)dealloc;
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
@@ -64,6 +66,7 @@
 - (void)copyStylePartAction:(id)arg1;
 - (void)addStylePartsForSelection;
 - (BOOL)hasPopOver;
+- (void)learnMoreButtonAction:(id)arg1;
 - (void)addStylePartHeaderWideAction:(id)arg1;
 - (void)addStylePartButtonAction:(id)arg1;
 - (void)addNewStylePart;
@@ -76,9 +79,11 @@
 - (void)prepare;
 - (void)prepareForReuse;
 - (id)viewForStyleAtOffset:(long long)arg1 index:(unsigned long long)arg2;
+- (long long)learnMoreButtonState;
 - (long long)disabledStylePartsButtonState;
 - (long long)advancedOptionsButtonState;
 - (long long)addStylePartHeaderWideButtonState;
+- (id)learnMoreButtonTooltip;
 - (id)disabledStylePartsButtonTooltip;
 - (id)advancedOptionsButtonTooltip;
 - (id)addStylePartButonTooltip;
@@ -87,8 +92,8 @@
 - (id)contentViews;
 - (id)views;
 - (void)resizeViewToFit;
-- (Class)inspectorClassForStyleParts:(id)arg1;
-- (id)createInspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
+- (Class)stylePartInspectorClass;
+- (id)createInspectorForStyleParts:(id)arg1;
 - (void)loadViewControllers;
 - (id)title;
 - (id)nibName;

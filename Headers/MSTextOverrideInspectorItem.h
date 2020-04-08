@@ -29,6 +29,7 @@
 - (id)valueFromControlView:(id)arg1;
 - (void)overrideValueAction:(id)arg1;
 - (id)controlViewForEditingOverride;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)dataOverrides;
 - (void)refreshDataOnCurrentSelection:(id)arg1;
 - (void)applyDataToCurrentSelection:(id)arg1;

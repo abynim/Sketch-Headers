@@ -6,15 +6,14 @@
 
 #import <SketchModel/_MSImmutableLayer.h>
 
-#import <SketchModel/MSEnumerableLayer-Protocol.h>
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
-#import <SketchModel/MSLayer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
+#import <SketchModel/MSLayerProtocol-Protocol.h>
 #import <SketchModel/MSLayerTraits-Protocol.h>
 
-@class MSPath, NSAffineTransform, NSObject, NSSet, NSString;
+@class MSPath, NSAffineTransform, NSObject, NSString;
 
-@interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSEnumerableLayer, MSLayer, MSLayerTraits>
+@interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSLayerProtocol, MSLayerTraits>
 {
     struct CGRect _calculatedInfluenceRectForBounds;
     struct BCLazyVar *_calculatedInfluenceRectLazyVar;
@@ -82,6 +81,7 @@
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1;
+- (void)enumerateImmutableWithTraits:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 parentCreatorBlock:(CDUnknownBlockType)arg4 usingBlock:(CDUnknownBlockType)arg5;
 - (id)descendantsToLayerWithID:(id)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
@@ -96,15 +96,11 @@
 - (BOOL)containsNoOrOneLayers;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (void)enumerateImmutableWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 parentCreatorBlock:(CDUnknownBlockType)arg3 inBlock:(CDUnknownBlockType)arg4;
 - (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
 - (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
-- (id)enumeratorWithOptions:(unsigned long long)arg1;
-@property(readonly, nonatomic) NSSet *unavailableFontNames;
-@property(readonly, nonatomic) NSSet *fontNames;
 - (BOOL)defaultOverrideVisibilityForPoint:(id)arg1 ancestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;

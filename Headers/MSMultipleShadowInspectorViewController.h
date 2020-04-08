@@ -13,7 +13,7 @@
 - (unsigned long long)supportedActionsForLayers:(id)arg1;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (Class)inspectorClassForStyleParts:(id)arg1;
+- (Class)stylePartInspectorClass;
 - (long long)addStylePartButtonState;
 - (long long)advancedOptionsButtonState;
 - (id)disabledStylePartsButtonTooltip;

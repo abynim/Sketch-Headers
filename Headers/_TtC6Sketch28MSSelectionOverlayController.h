@@ -12,6 +12,7 @@
 {
     // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: hidesBoundingBoxForSelectedArtboards
+    // Error parsing type: , name: selectionCornerMidMinimumThreshold
     // Error parsing type: , name: durationForTemporarilyHidingSelection
     // Error parsing type: , name: timerForRestoringTemporarilyHiddenSelection
     // Error parsing type: , name: state

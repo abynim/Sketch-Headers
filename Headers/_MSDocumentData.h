@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSModelObject.h>
 
-@class MSAssetCollection, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray;
+@class MSAssetCollection, MSPatchInfo, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray;
 
 @interface _MSDocumentData : MSModelObject
 {
@@ -14,6 +14,7 @@
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
     MSAssetCollection *_assets;
+    NSMutableArray *_fontReferences;
     NSMutableArray *_foreignLayerStyles;
     NSMutableArray *_foreignSymbols;
     NSMutableArray *_foreignTextStyles;
@@ -21,24 +22,21 @@
     MSSymbolContainer *_layerSymbols;
     MSSharedTextStyleContainer *_layerTextStyles;
     NSMutableArray *_pages;
+    MSPatchInfo *_patchInfo;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 + (id)defaultPageArray;
++ (long long)initialPageNumber;
++ (id)localizedNewPageName;
 - (void).cxx_destruct;
-- (void)setRaw_pages:(id)arg1;
-- (void)setRaw_layerTextStyles:(id)arg1;
-- (void)setRaw_layerSymbols:(id)arg1;
-- (void)setRaw_layerStyles:(id)arg1;
-- (void)setRaw_foreignTextStyles:(id)arg1;
-- (void)setRaw_foreignSymbols:(id)arg1;
-- (void)setRaw_foreignLayerStyles:(id)arg1;
-- (void)setRaw_assets:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_fontReferences:(id)arg1;
 - (void)setRaw_userInfo:(id)arg1;
 - (void)setRaw_currentPageIndex:(unsigned long long)arg1;
 - (void)setRaw_colorSpace:(unsigned long long)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -92,9 +90,22 @@
 - (void)insertForeignLayerStyle:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addForeignLayerStyles:(id)arg1;
 - (void)addForeignLayerStyle:(id)arg1;
+- (void)moveFontReferenceFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllFontReferences;
+- (void)removeFontReferencesAtIndexes:(id)arg1;
+- (void)removeFontReferenceAtIndex:(unsigned long long)arg1;
+- (void)removeFontReference:(id)arg1;
+- (void)insertFontReferences:(id)arg1 afterFontReference:(id)arg2;
+- (void)insertFontReference:(id)arg1 afterFontReference:(id)arg2;
+- (void)insertFontReferences:(id)arg1 beforeFontReference:(id)arg2;
+- (void)insertFontReference:(id)arg1 beforeFontReference:(id)arg2;
+- (void)insertFontReference:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addFontReferences:(id)arg1;
+- (void)addFontReference:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(retain, nonatomic) MSPatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 @property(retain, nonatomic) MSSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
@@ -102,12 +113,13 @@
 @property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
+@property(retain, nonatomic) NSArray *fontReferences; // @synthesize fontReferences=_fontReferences;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultPageArray;
 

@@ -61,11 +61,9 @@
 - (id)beginFilterGroup;
 - (id)addDefinitionWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;
 - (id)uniqueIDForElementWithName:(id)arg1;
-- (void)setDescription:(id)arg1;
-- (void)setTitle:(id)arg1;
 - (id)description;
-- (BOOL)isDescElement:(id)arg1;
-@property(readonly, nonatomic) unsigned long long defsIndexInRoot;
+- (unsigned long long)titleIndexInRoot;
+- (BOOL)hasTitle;
 @property(readonly, nonatomic) BOOL hasDefs;
 - (id)exportLayers:(id)arg1;
 - (id)initWithName:(id)arg1 exportRequest:(id)arg2;

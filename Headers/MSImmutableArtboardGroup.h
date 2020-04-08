@@ -6,14 +6,14 @@
 
 #import <SketchModel/_MSImmutableArtboardGroup.h>
 
-#import <SketchModel/MSArtboardGroup-Protocol.h>
+#import <SketchModel/MSArtboardGroupProtocol-Protocol.h>
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
 #import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
 @class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroup, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroupProtocol, MSImmutableRootLayer>
 {
 }
 

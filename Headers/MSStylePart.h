@@ -6,10 +6,10 @@
 
 #import <SketchModel/_MSStylePart.h>
 
-#import <SketchModel/MSStylePart-Protocol.h>
+#import <SketchModel/MSStylePartProtocol-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@interface MSStylePart : _MSStylePart <NSCopying, MSStylePart>
+@interface MSStylePart : _MSStylePart <NSCopying, MSStylePartProtocol>
 {
 }
 

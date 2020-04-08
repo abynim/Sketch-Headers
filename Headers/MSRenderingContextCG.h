@@ -13,18 +13,18 @@
     BOOL _contextIsVectorBacked;
     struct CGContext *_contextRef;
     MSCGContextPool *_contextPool;
+    unsigned long long _disableClippingFillsCounter;
     NSGraphicsContext *_graphicsContext;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
-    unsigned long long _disableClippingFillsCounter;
     unsigned long long _disableDrawingFillsCounter;
 }
 
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
-@property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
 @property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
+@property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(readonly, nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;

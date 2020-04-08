@@ -74,7 +74,6 @@
 - (double)startingPositionOnPath:(id)arg1;
 - (double)defaultLineHeight:(id)arg1;
 - (void)changeFont:(id)arg1;
-- (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (id)shapeToUseForTextOnPath;
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;

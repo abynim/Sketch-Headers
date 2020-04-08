@@ -6,12 +6,12 @@
 
 #import <SketchModel/_MSCurvePoint.h>
 
-#import <SketchModel/MSCurvePoint-Protocol.h>
+#import <SketchModel/MSCurvePointProtocol-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class NSString;
 
-@interface MSCurvePoint : _MSCurvePoint <MSCurvePoint, NSCopying>
+@interface MSCurvePoint : _MSCurvePoint <MSCurvePointProtocol, NSCopying>
 {
 }
 

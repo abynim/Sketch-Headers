@@ -14,6 +14,7 @@
 @property(readonly, nonatomic) NSDictionary *UIMetadata;
 @property(readonly, nonatomic) MSImmutableDocumentData *exportableImmutableData;
 @property(readonly, nonatomic) NSURL *fileURL;
+- (NSDictionary *)getUpdatedWorkspaceItems:(id *)arg1;
 - (void)updateLocalFileToMatchCloudNameWithCompletionHandler:(void (^)(NSError *))arg1;
 @end
 

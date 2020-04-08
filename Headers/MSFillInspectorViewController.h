@@ -35,6 +35,7 @@
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)fillPropertiesAction:(id)arg1;
 - (void)updateDisplayedValues;
+- (void)bumpKVOValue:(id)arg1;
 - (void)hexFieldAction:(id)arg1;
 - (void)updateFillPropertyPopUp;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;

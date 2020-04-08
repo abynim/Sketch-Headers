@@ -11,7 +11,7 @@
 @class NSString;
 
 @interface NSArray (ModelSupport) <MSCoding>
-- (void)enumerateDescendants:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
+- (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (BOOL)hasDefaultValues;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;

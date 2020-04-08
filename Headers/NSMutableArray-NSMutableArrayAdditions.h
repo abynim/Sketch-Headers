@@ -12,6 +12,7 @@
 - (void)addObjectIfNotNil:(id)arg1;
 - (void)replaceObject:(id)arg1 withObject:(id)arg2;
 - (void)removeFirstObject;
+- (BOOL)consolidateAgainst:(id)arg1 withConsolidator:(id)arg2;
 - (void)removeObjectsPassingTest:(CDUnknownBlockType)arg1;
 @end
 

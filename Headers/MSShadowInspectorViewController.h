@@ -37,6 +37,7 @@
 - (id)keyPath;
 - (BOOL)isSpreadFieldAvailable;
 - (BOOL)allowsNegativeSpread;
+- (void)updateDisplayedValues;
 - (void)prepare;
 - (void)viewDidLoad;
 

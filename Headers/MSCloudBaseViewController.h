@@ -12,6 +12,7 @@
 {
 }
 
+- (void)dismissPopoverIfCommandKeyDown;
 - (void)cloudBaseViewControllerDidAppear;
 @property(readonly, nonatomic) MSCloudViewController *cloudViewController;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;

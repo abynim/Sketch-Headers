@@ -9,5 +9,7 @@
 @interface _TtC6Sketch18MSRecentPlacesList (Sketch)
 - (void)saveToKey:(id)arg1;
 - (void)saveToKey:(id)arg1 userDefaults:(id)arg2;
+- (id)initWithContentsOfUserDefaultsKey:(id)arg1 capacity:(long long)arg2;
+- (id)initWithContentsOfKey:(id)arg1 ofUserDefaults:(id)arg2 capacity:(long long)arg3;
 @end
 

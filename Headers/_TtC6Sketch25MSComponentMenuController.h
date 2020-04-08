@@ -33,9 +33,11 @@
     // Error parsing type: , name: $__lazy_storage_$_sameSizeMenuItem
     // Error parsing type: , name: $__lazy_storage_$_noSymbolMenuItem
     // Error parsing type: , name: libraryMenusNeedRebuilding
+    // Error parsing type: , name: $__lazy_storage_$_bodyMenuItemPlaceholderIcon
+    // Error parsing type: , name: $__lazy_storage_$_librarySubmenuItemPlaceholderIcon
+    // Error parsing type: , name: $__lazy_storage_$_textStyleMinimumHeightPlaceholderIcon
     // Error parsing type: , name: searchString
     // Error parsing type: , name: cachedSearchResultTree
-    // Error parsing type: , name: cachedSearchResultMenuItems
 }
 
 - (void).cxx_destruct;

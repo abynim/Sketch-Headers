@@ -16,11 +16,12 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_minSize:(double)arg1;
 - (void)setRaw_maxSize:(double)arg1;
 - (void)setRaw_layoutAnchor:(unsigned long long)arg1;
 - (void)setRaw_axis:(unsigned long long)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -34,7 +35,7 @@
 @property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

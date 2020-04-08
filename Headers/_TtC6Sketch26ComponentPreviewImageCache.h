@@ -9,6 +9,7 @@
 @interface _TtC6Sketch26ComponentPreviewImageCache : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: cache
+    // Error parsing type: , name: invalidatedCachingKeys
     // Error parsing type: , name: $__lazy_storage_$_queue
 }
 

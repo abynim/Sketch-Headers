@@ -9,16 +9,16 @@
 #import "NSSharingServiceDelegate-Protocol.h"
 #import "NSSharingServicePickerDelegate-Protocol.h"
 
-@class MSContentDrawView, NSArray, NSString, NSWindow;
+@class MSCanvasView, NSArray, NSString, NSWindow;
 
 @interface MSShareButtonHandler : NSObject <NSSharingServiceDelegate, NSSharingServicePickerDelegate>
 {
     NSWindow *_window;
     NSArray *_sliceLayers;
-    MSContentDrawView *_canvas;
+    MSCanvasView *_canvas;
 }
 
-@property(nonatomic) __weak MSContentDrawView *canvas; // @synthesize canvas=_canvas;
+@property(nonatomic) __weak MSCanvasView *canvas; // @synthesize canvas=_canvas;
 @property(retain, nonatomic) NSArray *sliceLayers; // @synthesize sliceLayers=_sliceLayers;
 @property(retain, nonatomic) NSWindow *window; // @synthesize window=_window;
 - (void).cxx_destruct;

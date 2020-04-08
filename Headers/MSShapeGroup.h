@@ -7,11 +7,11 @@
 #import <SketchModel/_MSShapeGroup.h>
 
 #import <SketchModel/MSPathLayer-Protocol.h>
-#import <SketchModel/MSShapeGroup-Protocol.h>
+#import <SketchModel/MSShapeGroupProtocol-Protocol.h>
 
 @class MSPath, NSString;
 
-@interface MSShapeGroup : _MSShapeGroup <MSShapeGroup, MSPathLayer>
+@interface MSShapeGroup : _MSShapeGroup <MSShapeGroupProtocol, MSPathLayer>
 {
 }
 

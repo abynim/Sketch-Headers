@@ -6,12 +6,12 @@
 
 #import <SketchModel/_MSImmutableDocumentData.h>
 
-#import <SketchModel/MSDocumentData-Protocol.h>
+#import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
 @class MSImmutablePage, NSArray, NSData, NSDictionary, NSSet, NSString;
 
-@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentData>
+@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentDataProtocol>
 {
     NSDictionary *_metadata;
     NSData *_textPreviewData;
@@ -36,9 +36,9 @@
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (id)textLayersWithUnsafeFonts;
-- (id)usedFontNames;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) MSImmutablePage *currentPage;
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
 - (id)layerStyleWithID:(id)arg1;
@@ -84,10 +84,8 @@
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)initWithMutableDocumentDataMetadataCopy:(id)arg1;
-@property(readonly, nonatomic) BOOL containsUnavailableFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) NSSet *fontNames;
-- (BOOL)symbolsChangedSincePreviousDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

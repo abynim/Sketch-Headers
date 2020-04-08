@@ -6,17 +6,16 @@
 
 #import <SketchModel/_MSLayer.h>
 
-#import <SketchModel/MSEnumerableLayer-Protocol.h>
-#import <SketchModel/MSLayer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
+#import <SketchModel/MSLayerProtocol-Protocol.h>
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString;
 @protocol MSLayerCoordinateSpace;
 
-@interface MSLayer : _MSLayer <MSLayerContainment, MSEnumerableLayer, MSLayerCoordinateSpace, MSLayer, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate>
 {
     long long skipDrawingSelectionCounter;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
@@ -122,7 +121,6 @@
 - (id)valueForUndefinedKey:(id)arg1;
 @property(nonatomic) double proportions;
 @property(nonatomic) BOOL constrainProportions;
-- (unsigned long long)selectionCornerMaskWithZoomValue:(double)arg1;
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasEnabledBackgroundBlur;
 - (id)rootForNameUniquing;
@@ -135,6 +133,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
 - (void)performInitEmptyObject;
+- (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
 - (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
 - (void)applyRotation:(double)arg1 explicitRotationCenter:(id)arg2;
 @property(readonly, nonatomic) double userVisibleRotation;

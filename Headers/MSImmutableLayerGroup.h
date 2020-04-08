@@ -7,11 +7,11 @@
 #import <SketchModel/_MSImmutableLayerGroup.h>
 
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
-#import <SketchModel/MSLayerGroup-Protocol.h>
+#import <SketchModel/MSLayerGroupProtocol-Protocol.h>
 
 @class NSArray;
 
-@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroup>
+@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroupProtocol>
 {
 }
 
@@ -54,6 +54,7 @@
 - (BOOL)childRectShouldResizeOnlyVertically:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (BOOL)childRectShouldResizeOnlyHorizontally:(struct CGRect)arg1 inParentOfSize:(struct CGSize)arg2;
 - (unsigned long long)constraintForLayer:(id)arg1;
+- (void)migratePropertiesFromV118OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV112OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV109OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV90OrEarlierWithUnarchiver:(id)arg1;

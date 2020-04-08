@@ -23,7 +23,6 @@
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
 - (void)strokeWithWidth:(double)arg1;
-- (void)debugWriteToFileNamed:(id)arg1;
 - (id)subPaths;
 - (id)scaleBy:(double)arg1;
 - (id)animatedGIFRepresentation_ms;

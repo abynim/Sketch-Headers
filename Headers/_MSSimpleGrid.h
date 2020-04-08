@@ -14,9 +14,10 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_thickGridTimes:(long long)arg1;
 - (void)setRaw_gridSize:(long long)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -28,7 +29,7 @@
 @property(nonatomic) long long thickGridTimes; // @synthesize thickGridTimes=_thickGridTimes;
 @property(nonatomic) long long gridSize; // @synthesize gridSize=_gridSize;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

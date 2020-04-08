@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
-@class MSImmutableAssetCollection, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
+@class MSImmutableAssetCollection, MSImmutablePatchInfo, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
@@ -14,6 +14,7 @@
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
     MSImmutableAssetCollection *_assets;
+    NSArray *_fontReferences;
     NSArray *_foreignLayerStyles;
     NSArray *_foreignSymbols;
     NSArray *_foreignTextStyles;
@@ -21,10 +22,12 @@
     MSImmutableSymbolContainer *_layerSymbols;
     MSImmutableSharedTextStyleContainer *_layerTextStyles;
     NSArray *_pages;
+    MSImmutablePatchInfo *_patchInfo;
 }
 
 + (Class)mutableClass;
 + (id)defaultPageArray;
+@property(retain, nonatomic) MSImmutablePatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
 @property(retain, nonatomic) MSImmutableSymbolContainer *layerSymbols; // @synthesize layerSymbols=_layerSymbols;
@@ -32,6 +35,7 @@
 @property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
+@property(retain, nonatomic) NSArray *fontReferences; // @synthesize fontReferences=_fontReferences;
 @property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
@@ -48,7 +52,7 @@
 - (void)performInitEmptyObject;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultPageArray;

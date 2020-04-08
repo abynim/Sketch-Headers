@@ -7,11 +7,11 @@
 #import <SketchModel/_MSImmutableShapeGroup.h>
 
 #import <SketchModel/MSImmutablePathLayer-Protocol.h>
-#import <SketchModel/MSShapeGroup-Protocol.h>
+#import <SketchModel/MSShapeGroupProtocol-Protocol.h>
 
 @class MSImmutableStyle, NSString;
 
-@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroup, MSImmutablePathLayer>
+@interface MSImmutableShapeGroup : _MSImmutableShapeGroup <MSShapeGroupProtocol, MSImmutablePathLayer>
 {
 }
 

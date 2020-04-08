@@ -11,6 +11,7 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 
 @end
 

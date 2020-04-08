@@ -8,8 +8,8 @@
 
 @interface _TtC6Sketch25MSComponentMenuController (Sketch)
 - (BOOL)menuHasKeyEquivalent:(id)arg1 forEvent:(id)arg2 target:(id *)arg3 action:(SEL *)arg4;
-- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuDidClose:(id)arg1;
+- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 @end

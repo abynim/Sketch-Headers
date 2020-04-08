@@ -9,7 +9,7 @@
 #import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
 #import <SketchControllers/MSCloudAssetLibraryControllerDelegate-Protocol.h>
 
-@class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSString;
+@class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSSet, NSString;
 
 @interface MSAssetLibraryController : NSObject <MSCloudAssetLibraryControllerDelegate, MSAssetLibraryDelegate>
 {
@@ -81,6 +81,7 @@
 - (void)updateCloudLibraryNamed:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 appcastURL:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;
+@property(readonly, nonatomic) NSSet *embeddedFontReferences;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;

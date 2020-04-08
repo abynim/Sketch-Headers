@@ -48,6 +48,7 @@
 - (id)compactMap:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)front;
+- (id)arrayByConsolidatingAgainst:(id)arg1 withConsolidator:(id)arg2 hasChanges:(char *)arg3;
 - (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2;
 - (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2 withBlock:(CDUnknownBlockType)arg3;
 - (void)finishEncodingObject:(id)arg1;

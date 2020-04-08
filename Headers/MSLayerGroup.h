@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSLayerGroup.h>
 
-#import <SketchModel/MSLayerGroup-Protocol.h>
+#import <SketchModel/MSLayerGroupProtocol-Protocol.h>
 
 @class NSArray;
 
-@interface MSLayerGroup : _MSLayerGroup <MSLayerGroup>
+@interface MSLayerGroup : _MSLayerGroup <MSLayerGroupProtocol>
 {
     long long _preCalculatedHasSelectedLayer;
     unsigned long long _disableAutomaticScalingCounter;
@@ -53,6 +53,11 @@
 - (id)defaultStyle;
 - (id)parentGroupRecursive;
 - (void)objectDidInit;
+- (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
+- (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
+- (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1;
+- (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1 test:(CDUnknownBlockType)arg2;
+- (void)enumerateLayersAvoidingFaultingWithTraits:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;

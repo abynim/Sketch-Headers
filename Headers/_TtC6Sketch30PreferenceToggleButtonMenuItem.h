@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSMenuItem.h>
+#import "_TtC6Sketch17ViewBasedMenuItem.h"
 
-@interface _TtC6Sketch30PreferenceToggleButtonMenuItem : NSMenuItem
+@interface _TtC6Sketch30PreferenceToggleButtonMenuItem : _TtC6Sketch17ViewBasedMenuItem
 {
     // Error parsing type: , name: toggleHandler
     // Error parsing type: , name: userPreferenceKey
 }
 
 - (void).cxx_destruct;
-- (id)initWithTitle:(id)arg1 action:(SEL)arg2 keyEquivalent:(id)arg3;
 @property(nonatomic) BOOL hidden;
 - (BOOL)isHidden;
 - (void)togglePreference:(id)arg1;

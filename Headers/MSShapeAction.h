@@ -10,6 +10,7 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
 - (id)imageForToolbar;
 - (BOOL)hasSubMenu;
 - (long long)tag;

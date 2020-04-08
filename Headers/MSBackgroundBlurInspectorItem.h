@@ -19,6 +19,7 @@
 @property(retain, nonatomic) NSSlider *saturationSlider; // @synthesize saturationSlider=_saturationSlider;
 @property(retain, nonatomic) MSInlineUpDownTextField *saturationField; // @synthesize saturationField=_saturationField;
 - (void).cxx_destruct;
+- (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

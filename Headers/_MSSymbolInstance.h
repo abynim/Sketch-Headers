@@ -20,12 +20,13 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_overrideValues:(id)arg1;
 - (void)setRaw_verticalSpacing:(double)arg1;
 - (void)setRaw_symbolID:(id)arg1;
 - (void)setRaw_scale:(double)arg1;
 - (void)setRaw_horizontalSpacing:(double)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -52,7 +53,7 @@
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

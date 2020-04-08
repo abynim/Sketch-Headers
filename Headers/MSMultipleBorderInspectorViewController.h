@@ -22,10 +22,9 @@
 - (id)addStylePartButonTooltip;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (void)updateDisplayedValues;
 - (void)dealloc;
 - (id)views;
-- (Class)inspectorClassForStyleParts:(id)arg1;
+- (Class)stylePartInspectorClass;
 - (long long)advancedOptionsButtonState;
 - (long long)addStylePartButtonState;
 - (void)styleDidEnableOrDisable;

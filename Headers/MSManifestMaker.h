@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
 - (void).cxx_destruct;
 - (id)metadataForFlow:(id)arg1;
+- (double)roundValue:(double)arg1;
 - (id)dictForRect:(struct CGRect)arg1 inRootLayer:(id)arg2;
 - (id)metadataForLayer:(id)arg1 fixedByLayer:(id)arg2;
 - (id)specialiseObjectMetadata:(id)arg1 forSymbolInstance:(id)arg2;

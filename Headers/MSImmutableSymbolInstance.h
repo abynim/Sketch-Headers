@@ -27,6 +27,7 @@
 - (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 skipCache:(BOOL)arg6;
+- (id)createMutableDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 symbol:(id)arg5 visitedSymbols:(id)arg6;
 - (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 symbol:(id)arg6;
 - (id)detachedGroupCacheKeyInDocument:(id)arg1 detachRecursively:(BOOL)arg2;
 - (id)modifiedMasterInDocument:(id)arg1;

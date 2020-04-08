@@ -37,6 +37,7 @@
 + (id)defaultFlow;
 + (long long)defaultLayerListExpandedType;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_frame:(id)arg1;
 - (void)setRaw_flow:(id)arg1;
 - (void)setRaw_exportOptions:(id)arg1;
@@ -55,7 +56,7 @@
 - (void)setRaw_isFlippedHorizontal:(BOOL)arg1;
 - (void)setRaw_isFixedToViewport:(BOOL)arg1;
 - (void)setRaw_booleanOperation:(long long)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -83,7 +84,7 @@
 @property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultFrame;
 @property(nonatomic, readonly) BOOL hasDefaultFlow;

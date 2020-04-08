@@ -27,6 +27,8 @@
 @property(nonatomic) __weak id <MSGradientEventHandlerDelegate> gradientDelegate; // @synthesize gradientDelegate=_gradientDelegate;
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
 - (void).cxx_destruct;
+- (void)documentDidChange:(id)arg1;
+@property(readonly, nonatomic) long long gradientType;
 - (BOOL)canDuplicate;
 - (void)selectionDidChangeTo:(id)arg1;
 - (id)cursorWithDrawingBlock:(CDUnknownBlockType)arg1;
@@ -62,6 +64,7 @@
 - (void)didMoveThroughHistory:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
+- (void)updateImageCache;
 - (id)initWithManager:(id)arg1;
 
 // Remaining properties

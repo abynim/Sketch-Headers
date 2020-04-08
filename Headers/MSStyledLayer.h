@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSStyledLayer.h>
 
-#import <SketchModel/MSStyledLayer-Protocol.h>
+#import <SketchModel/MSStyledLayerProtocol-Protocol.h>
 
 @class MSColor, MSSharedStyle, NSString;
 
-@interface MSStyledLayer : _MSStyledLayer <MSStyledLayer>
+@interface MSStyledLayer : _MSStyledLayer <MSStyledLayerProtocol>
 {
     BOOL ignoreStyleDidChangeNotifications;
 }

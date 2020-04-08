@@ -17,10 +17,11 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
+#import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSBackButtonController, MSBadgeController, MSCacheManager, MSCloudAction, MSComponentsPaneController, MSContentDrawView, MSContentDrawViewController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSLintConfigurationPackage, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC11SketchModel19MSChangeCoordinator, _TtC15DocumentLinting10LintResult, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentsPaneController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPaneDelegate, MSHistoryMakerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPaneDelegate, MSHistoryMakerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
     BOOL _attemptingToClose;
     BOOL _nextReadFromURLIsReload;
@@ -39,7 +40,7 @@
     MSToolbarConstructor *_toolbarConstructor;
     MSActionController *_actionsController;
     MSBadgeController *_badgeController;
-    MSLintConfigurationPackage *_lintConfiguration;
+    MSAssistantsConfiguration *_assistantsConfiguration;
     NSDictionary *_workspaceItems;
     MSDocumentData *_documentData;
     _TtC6Sketch23MSDocumentChangeCounter *_documentChangeCounter;
@@ -49,12 +50,12 @@
     MSInspectorController *_inspectorController;
     BCSideBarViewController *_sidebarController;
     MSComponentsPaneController *_componentsPaneController;
-    MSContentDrawViewController *_currentContentViewController;
+    MSCanvasViewController *_currentContentViewController;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
-    _TtC15DocumentLinting10LintResult *_lintResult;
+    _TtC10Assistants20AssistantsRunResults *_assistantsResults;
     _TtC6Sketch24MSDocumentEditController *_editController;
-    _TtC11SketchModel19MSChangeCoordinator *_changeCoordinator;
+    _TtC11SketchModel16MSEditingContext *_editingContext;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
     MSBackButtonController *_backButtonController;
@@ -80,17 +81,17 @@
 @property(retain, nonatomic) NSMutableDictionary *mutableUIMetadata; // @synthesize mutableUIMetadata=_mutableUIMetadata;
 @property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
-@property(readonly, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
+@property(readonly, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 @property(nonatomic) BOOL isComponentPaneVisible; // @synthesize isComponentPaneVisible=_isComponentPaneVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
 @property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
-@property(retain, nonatomic) _TtC15DocumentLinting10LintResult *lintResult; // @synthesize lintResult=_lintResult;
+@property(retain, nonatomic) _TtC10Assistants20AssistantsRunResults *assistantsResults; // @synthesize assistantsResults=_assistantsResults;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
-@property(retain, nonatomic) MSContentDrawViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
+@property(retain, nonatomic) MSCanvasViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(retain, nonatomic) MSComponentsPaneController *componentsPaneController; // @synthesize componentsPaneController=_componentsPaneController;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
@@ -101,7 +102,7 @@
 @property(nonatomic, getter=isAttemptingToClose) BOOL attemptingToClose; // @synthesize attemptingToClose=_attemptingToClose;
 @property(readonly, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
-@property(retain, nonatomic) MSLintConfigurationPackage *lintConfiguration; // @synthesize lintConfiguration=_lintConfiguration;
+@property(retain, nonatomic) MSAssistantsConfiguration *assistantsConfiguration; // @synthesize assistantsConfiguration=_assistantsConfiguration;
 @property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
@@ -111,7 +112,6 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
 - (void).cxx_destruct;
-- (void)lintDocumentAt:(id)arg1;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
@@ -150,10 +150,9 @@
 - (BOOL)canRestoreViewportAfterArtboardEdit:(id)arg1;
 - (void)restoreViewportAfterArtboardEdit:(id)arg1;
 - (void)storeViewport:(id)arg1 andInstance:(id)arg2 forArtboard:(id)arg3;
-- (BOOL)isShowingMeasurements;
 - (void)highlightHoverableItem:(id)arg1;
 - (void)hoveredItemDidChange:(id)arg1;
-- (void)temporarilyHideDocumentDataSelection:(id)arg1;
+- (void)documentData:(id)arg1 layerDidChangeStyle:(id)arg2;
 - (void)flagsChangedNotification:(id)arg1;
 - (BOOL)layerHasHoverStateInCanvas:(id)arg1;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
@@ -166,7 +165,7 @@
 - (void)refreshLayerListIfNecessary:(id)arg1;
 - (void)refreshSupplementaryViews:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
-- (void)documentData:(id)arg1 didChange:(id)arg2;
+- (void)editingContext:(id)arg1 didChange:(id)arg2;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
 - (void)debugCountObjects:(id)arg1;
@@ -256,7 +255,8 @@
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
 @property(readonly, nonatomic) NSResponder *defaultFirstResponder;
-@property(readonly, nonatomic) MSContentDrawView *contentDrawView;
+@property(readonly, nonatomic) MSCanvasView *contentDrawView;
+@property(readonly, nonatomic) MSCanvasView *canvasView;
 - (id)printOperationWithSettings:(id)arg1 error:(id *)arg2;
 - (void)notifyIfDocumentResignedCurrent;
 - (void)notifyIfDocumentBecameCurrent;
@@ -279,10 +279,14 @@
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
 - (void)cleanCloudDirectories;
+- (void)runAssistantsForDocumentAt:(id)arg1;
+- (BOOL)updateWorkspaceItemsAndReturnError:(id *)arg1;
+- (void)ensureSavedWithReason:(id)arg1 suppressionMessage:(id)arg2 suppressPreferenceKey:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (id)duplicateAndReturnError:(id *)arg1;
+- (id)getUpdatedWorkspaceItems:(id *)arg1;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;

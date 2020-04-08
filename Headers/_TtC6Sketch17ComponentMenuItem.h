@@ -6,22 +6,14 @@
 
 #import <AppKit/NSMenuItem.h>
 
-@class NSImage;
-
 @interface _TtC6Sketch17ComponentMenuItem : NSMenuItem
 {
-    // Error parsing type: , name: itemView
-    // Error parsing type: , name: isSearchResult
-    // Error parsing type: , name: height
-    // Error parsing type: , name: isKeyboardHighlighted
+    // Error parsing type: , name: isDisplayingHighlighted
     // Error parsing type: , name: searchResult
 }
 
 - (void).cxx_destruct;
 - (id)initWithTitle:(id)arg1 action:(SEL)arg2 keyEquivalent:(id)arg3;
-@property(nonatomic) BOOL hidden;
-- (BOOL)isHidden;
-@property(nonatomic, retain) NSImage *image;
 - (id)initWithCoder:(id)arg1;
 
 @end

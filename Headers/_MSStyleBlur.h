@@ -17,12 +17,13 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_type:(unsigned long long)arg1;
 - (void)setRaw_saturation:(double)arg1;
 - (void)setRaw_radius:(double)arg1;
 - (void)setRaw_motionAngle:(double)arg1;
 - (void)setRaw_center:(struct CGPoint)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -37,7 +38,7 @@
 @property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
 @property(nonatomic) struct CGPoint center; // @synthesize center=_center;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

@@ -29,14 +29,14 @@
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (unsigned long long)indexOfLayer:(id)arg1;
-- (id)layerAtIndex:(unsigned long long)arg1;
+- (id)layerAtIndex:(long long)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
 - (BOOL)containsMultipleLayers;
 - (BOOL)containsOneLayer;
 - (BOOL)containsLayers;
 - (BOOL)containsNoOrOneLayers;
-- (unsigned long long)containedLayersCount;
+- (long long)containedLayersCount;
 - (id)containedLayers;
 - (id)filter:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
@@ -48,9 +48,8 @@
 - (id)parentOfFirstLayer;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithLayers:(id)arg1;
-- (unsigned long long)indexOfLayerWithID:(id)arg1;
-- (void)updateFlowDestinationsWithMapping:(id)arg1;
 - (id)copyByGivingNewObjectIDs;
+- (id)filterAvoidingFaultingMatching:(unsigned long long)arg1:(CDUnknownBlockType)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -14,7 +14,8 @@
     // Error parsing type: , name: widgetsStackView
     // Error parsing type: , name: delegate
     // Error parsing type: , name: sections
-    // Error parsing type: , name: user
+    // Error parsing type: , name: personalProjects
+    // Error parsing type: , name: organizationProjects
     // Error parsing type: , name: lastSourcesLoadDate
 }
 
