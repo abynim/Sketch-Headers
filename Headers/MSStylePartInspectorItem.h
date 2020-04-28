@@ -6,21 +6,23 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSArray, NSArrayController;
+@class NSArray, NSArrayController, _TtC6Sketch33MSStylePartInspectorChangeTracker;
 
 @interface MSStylePartInspectorItem : NSViewController
 {
-    NSArray *_styleParts;
-    NSArrayController *_stylesController;
+    _TtC6Sketch33MSStylePartInspectorChangeTracker *_changeTracker;
+    NSArrayController *_arrayController;
 }
 
-@property(retain, nonatomic) NSArrayController *stylesController; // @synthesize stylesController=_stylesController;
-@property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
+@property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 - (void).cxx_destruct;
+- (void)updateDisplayedValuesIfRequired;
+- (BOOL)matchesStyleParts:(id)arg1;
 @property(readonly, nonatomic) NSArray *layers;
-- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)updateDisplayedValues;
+@property(retain, nonatomic) NSArray *styleParts;
 - (void)viewDidLoad;
+@property(readonly, nonatomic) _TtC6Sketch33MSStylePartInspectorChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

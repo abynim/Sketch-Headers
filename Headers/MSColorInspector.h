@@ -13,14 +13,14 @@
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorModePickerController, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField;
+@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorModePickerController, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, _TtC6Sketch33MSStylePartInspectorChangeTracker;
 @protocol MSColorInspectorDelegate;
 
 @interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, MSColorModePickerControllerDelegate>
 {
     BOOL _displayingDiverseStyles;
     BOOL _isStacking;
-    NSArray *_styleParts;
+    BOOL _disableCommandKeyDismissal;
     id <MSColorInspectorDelegate> _delegate;
     MSColorModePickerController *_colorModePickerController;
     MSColorInspectorSectionColor *_colorSection;
@@ -33,11 +33,14 @@
     MSLibraryAssetCollectionsController *_libraryAssetsController;
     MSColorPickerViewController *_colorPickerController;
     NSTextField *_textFieldToContinueEditing;
+    _TtC6Sketch33MSStylePartInspectorChangeTracker *_changeTracker;
 }
 
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 delegate:(id)arg2 document:(id)arg3 globalAssets:(id)arg4 relativeToView:(id)arg5 setupHandler:(CDUnknownBlockType)arg6;
 + (id)presentColorInspectorPopoverWithDelegate:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
 + (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
+@property(nonatomic) BOOL disableCommandKeyDismissal; // @synthesize disableCommandKeyDismissal=_disableCommandKeyDismissal;
+@property(retain, nonatomic) _TtC6Sketch33MSStylePartInspectorChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(retain, nonatomic) MSColorPickerViewController *colorPickerController; // @synthesize colorPickerController=_colorPickerController;
 @property(nonatomic) BOOL isStacking; // @synthesize isStacking=_isStacking;
@@ -52,7 +55,6 @@
 @property(retain, nonatomic) MSColorInspectorSectionColor *colorSection; // @synthesize colorSection=_colorSection;
 @property(retain, nonatomic) MSColorModePickerController *colorModePickerController; // @synthesize colorModePickerController=_colorModePickerController;
 @property(nonatomic) __weak id <MSColorInspectorDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
 - (void)touchBarColorAction:(id)arg1;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
@@ -77,6 +79,7 @@
 - (void)colorPickerController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (id)filteredStyleParts:(id)arg1;
 - (void)reflectEffectiveStyleParts;
+@property(copy, nonatomic) NSArray *styleParts;
 - (void)close;
 - (void)refreshAction:(id)arg1;
 - (void)colorChangedTo:(id)arg1;
@@ -106,6 +109,7 @@
 - (void)findFrequentObjects;
 - (void)prepareForDisplay;
 - (void)setInitialColor:(id)arg1;
+- (void)dismissIfCommandKeyDown;
 - (void)inspectorSectionDidUpdate:(id)arg1;
 - (id)documentAssets;
 - (void)didRemoveAssetOfType:(unsigned long long)arg1;

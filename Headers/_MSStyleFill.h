@@ -21,12 +21,13 @@
 + (Class)immutableClass;
 + (id)defaultFillColor;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_patternTileScale:(double)arg1;
 - (void)setRaw_patternFillType:(long long)arg1;
 - (void)setRaw_noiseIntensity:(double)arg1;
 - (void)setRaw_noiseIndex:(long long)arg1;
 - (void)setRaw_image:(id)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -41,7 +42,7 @@
 @property(nonatomic) long long noiseIndex; // @synthesize noiseIndex=_noiseIndex;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

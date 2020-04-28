@@ -18,9 +18,11 @@
     NSColor *_sliceOutlineColor;
     NSColor *_artboardTitleColor;
     NSColor *_symbolTitleColor;
+    NSColor *_guideColor;
 }
 
 + (id)colorSettings;
+@property(retain, nonatomic) NSColor *guideColor; // @synthesize guideColor=_guideColor;
 @property(retain, nonatomic) NSColor *symbolTitleColor; // @synthesize symbolTitleColor=_symbolTitleColor;
 @property(retain, nonatomic) NSColor *artboardTitleColor; // @synthesize artboardTitleColor=_artboardTitleColor;
 @property(retain, nonatomic) NSColor *sliceOutlineColor; // @synthesize sliceOutlineColor=_sliceOutlineColor;

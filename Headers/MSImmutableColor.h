@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSImmutableColor.h>
 
-#import <SketchModel/MSColor-Protocol.h>
+#import <SketchModel/MSColorProtocol-Protocol.h>
 
 @class NSArray, NSString;
 
-@interface MSImmutableColor : _MSImmutableColor <MSColor>
+@interface MSImmutableColor : _MSImmutableColor <MSColorProtocol>
 {
 }
 

@@ -39,7 +39,6 @@
 @property(readonly, nonatomic) double fontSize;
 @property(readonly, nonatomic) long long textAlignment;
 - (BOOL)containsUnsafeFonts;
-- (id)usedFontNames;
 - (double)startingPositionOnPath:(id)arg1;
 - (id)pathsWithColorsFromGlyphsInBoundsWithParentGroupSplitByColorAttribute:(id)arg1 layoutManager:(id)arg2;
 - (id)pathFromGlyphsInBoundsWithParentGroup:(id)arg1 layoutManager:(id)arg2;

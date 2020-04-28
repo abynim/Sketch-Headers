@@ -6,10 +6,10 @@
 
 #import <SketchModel/_MSImmutableStylePart.h>
 
-#import <SketchModel/MSStylePart-Protocol.h>
 #import <SketchModel/MSStylePartPasteboardReadWritable-Protocol.h>
+#import <SketchModel/MSStylePartProtocol-Protocol.h>
 
-@interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePartPasteboardReadWritable, MSStylePart>
+@interface MSImmutableStylePart : _MSImmutableStylePart <MSStylePartPasteboardReadWritable, MSStylePartProtocol>
 {
 }
 

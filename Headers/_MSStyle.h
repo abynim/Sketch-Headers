@@ -28,6 +28,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_textStyle:(id)arg1;
 - (void)setRaw_shadows:(id)arg1;
 - (void)setRaw_innerShadows:(id)arg1;
@@ -41,7 +42,7 @@
 - (void)setRaw_startMarkerType:(unsigned long long)arg1;
 - (void)setRaw_miterLimit:(long long)arg1;
 - (void)setRaw_endMarkerType:(unsigned long long)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -112,7 +113,7 @@
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

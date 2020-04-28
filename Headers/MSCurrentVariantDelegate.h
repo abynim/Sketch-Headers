@@ -6,9 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import "_TtP11SketchModel22CurrentVariantDelegate_-Protocol.h"
+#import "_TtP12BCFoundation22CurrentVariantDelegate_-Protocol.h"
 
-@interface MSCurrentVariantDelegate : NSObject <_TtP11SketchModel22CurrentVariantDelegate_>
+@interface MSCurrentVariantDelegate : NSObject <_TtP12BCFoundation22CurrentVariantDelegate_>
 {
 }
 

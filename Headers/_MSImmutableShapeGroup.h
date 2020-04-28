@@ -23,7 +23,7 @@
 - (void)performInitEmptyObject;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 

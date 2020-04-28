@@ -49,8 +49,10 @@
 - (void)addExportFormat:(id)arg1;
 @property(readonly, nonatomic) NSArray *views;
 @property(readonly, nonatomic) BOOL hasExports;
+- (void)refreshIfNecessary:(id)arg1;
 - (BOOL)hasEnabledStyle;
 - (void)prepare;
+- (id)rotatedSlices;
 - (void)setLayers:(id)arg1;
 - (void)viewDidLoad;
 

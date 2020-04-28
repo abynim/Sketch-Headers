@@ -7,11 +7,11 @@
 #import <SketchModel/_MSColor.h>
 
 #import <SketchModel/MSAsset-Protocol.h>
-#import <SketchModel/MSColor-Protocol.h>
+#import <SketchModel/MSColorProtocol-Protocol.h>
 
 @class NSString;
 
-@interface MSColor : _MSColor <MSAsset, MSColor>
+@interface MSColor : _MSColor <MSAsset, MSColorProtocol>
 {
 }
 

@@ -12,6 +12,7 @@
 {
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;

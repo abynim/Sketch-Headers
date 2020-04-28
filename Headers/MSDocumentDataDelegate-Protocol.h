@@ -6,7 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocumentData, MSLayer, MSModelObject, MSTreeDiff, NSMutableSet, NSObject, NSString;
+@class MSDocumentData, MSLayer, MSModelObject, NSMutableSet, NSObject, NSString;
 @protocol MSHoverableItem;
 
 @protocol MSDocumentDataDelegate <NSObject>
@@ -16,7 +16,6 @@
 - (void)refreshOverlay;
 - (id)documentData:(MSDocumentData *)arg1 metadataForKey:(NSString *)arg2 object:(MSModelObject *)arg3;
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;
-- (void)documentData:(MSDocumentData *)arg1 didChange:(MSTreeDiff *)arg2;
-- (void)temporarilyHideDocumentDataSelection:(MSDocumentData *)arg1;
+- (void)documentData:(MSDocumentData *)arg1 layerDidChangeStyle:(MSLayer *)arg2;
 @end
 

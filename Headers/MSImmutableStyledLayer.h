@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSImmutableStyledLayer.h>
 
-#import <SketchModel/MSStyledLayer-Protocol.h>
+#import <SketchModel/MSStyledLayerProtocol-Protocol.h>
 
 @class MSColor, MSImmutableStyleFill, NSString;
 
-@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSStyledLayer>
+@interface MSImmutableStyledLayer : _MSImmutableStyledLayer <MSStyledLayerProtocol>
 {
     MSImmutableStyleFill *_firstFill;
 }

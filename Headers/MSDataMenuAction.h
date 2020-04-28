@@ -10,6 +10,7 @@
 {
 }
 
+- (void)doPerformAction:(id)arg1;
 - (long long)presentationContext;
 - (BOOL)mayShowInToolbar;
 - (BOOL)isSelectable;

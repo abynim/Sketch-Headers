@@ -4,19 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MSStylePartInspectorItem.h"
 
 #import "MSInspectorSection-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class NSArray, NSArrayController, NSString, NSView;
+@class NSString, NSView;
 @protocol MSInspectorSectionDelegate;
 
-@interface MSStylePartInspectorViewController : NSViewController <MSInspectorSection, NSWindowDelegate>
+@interface MSStylePartInspectorViewController : MSStylePartInspectorItem <MSInspectorSection, NSWindowDelegate>
 {
     NSView *nameView;
-    NSArray *_styleParts;
-    NSArrayController *_arrayController;
     id <MSInspectorSectionDelegate> _delegate;
     unsigned long long _index;
 }
@@ -25,14 +23,11 @@
 + (id)stylePartViewController;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
-@property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
 - (void).cxx_destruct;
 - (void)updateDisplayedValues;
 - (void)closePopoverImmediately:(BOOL)arg1;
 - (id)views;
 - (void)didGetAddedToInspector;
-@property(readonly, nonatomic) NSArray *layers;
 - (BOOL)hasEnabledStyle;
 - (void)prepare;
 - (void)awakeFromNib;

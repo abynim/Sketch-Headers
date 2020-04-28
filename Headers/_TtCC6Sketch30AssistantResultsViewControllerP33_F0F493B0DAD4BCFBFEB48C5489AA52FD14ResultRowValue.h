@@ -20,6 +20,7 @@
 @property(nonatomic, readonly) NSString *message;
 @property(nonatomic, readonly) NSString *rule;
 @property(nonatomic, readonly) NSString *displayName;
+@property(nonatomic, readonly) NSString *assistant;
 @property(nonatomic, readonly) NSNumber *severity;
 
 @end

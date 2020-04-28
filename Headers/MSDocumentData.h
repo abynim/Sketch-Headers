@@ -6,18 +6,18 @@
 
 #import <SketchModel/_MSDocumentData.h>
 
-#import <SketchModel/MSDocumentData-Protocol.h>
+#import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel19MSChangeCoordinator;
+@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext;
 @protocol MSDocumentDataDelegate;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentData>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
     NSArray *_selectedOverrides;
-    _TtC11SketchModel19MSChangeCoordinator *_changeCoordinator;
+    _TtC11SketchModel16MSEditingContext *_editingContext;
     BCCache *_cache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
@@ -35,12 +35,18 @@
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
-@property(retain, nonatomic) _TtC11SketchModel19MSChangeCoordinator *changeCoordinator; // @synthesize changeCoordinator=_changeCoordinator;
+@property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void).cxx_destruct;
-- (void)prepareForChangeProcessing;
+- (void)refaultAgainst:(id)arg1;
+- (void)prepareForChangeProcessingWithDiff:(id)arg1;
 - (void)refreshOverlay;
-- (void)temporarilyHideSelection;
+- (void)layerDidChangeStyle:(id)arg1;
 - (void)replaceExistingCreationMetadata;
+- (void)updateFontReferences:(id)arg1;
+- (id)libraryFontNamesFromReferences:(id)arg1;
+- (id)createFontReferencesForFamilyName:(id)arg1 referencesByFace:(id)arg2;
+- (id)urlsForFacesOfFontFamily:(id)arg1;
+- (void)embedEligibleFontsInReferences:(id)arg1;
 - (void)updateForeignSymbolsPreservingOverridesInBlock:(CDUnknownBlockType)arg1;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
 - (id)images;
@@ -60,7 +66,8 @@
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
-- (void)invalidateAffectedSymbolInstances;
+- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (void)invalidateAffectedSymbolInstancesWithDiff:(id)arg1;
 - (void)addSymbolMaster:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;
@@ -86,10 +93,13 @@
 - (id)documentData;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)objectDidInit;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitEmptyObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
+- (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;

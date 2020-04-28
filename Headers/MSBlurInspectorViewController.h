@@ -8,7 +8,7 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSBackgroundBlurInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSMenuItem, NSString;
+@class MSBackgroundBlurInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSArray, NSMenuItem, NSSet, NSString;
 
 @interface MSBlurInspectorViewController : MSMultipleColorStylePartInspectorViewController <NSMenuDelegate>
 {
@@ -20,8 +20,10 @@
     MSZoomBlurInspectorItem *_zoomBlurItem;
     MSBackgroundBlurInspectorItem *_backgroundBlurItem;
     MSPaddingInspectorItem *_paddingItem;
+    NSSet *_currentlyDisplayedBlurKinds;
 }
 
+@property(retain, nonatomic) NSSet *currentlyDisplayedBlurKinds; // @synthesize currentlyDisplayedBlurKinds=_currentlyDisplayedBlurKinds;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
 @property(retain, nonatomic) MSBackgroundBlurInspectorItem *backgroundBlurItem; // @synthesize backgroundBlurItem=_backgroundBlurItem;
 @property(retain, nonatomic) MSZoomBlurInspectorItem *zoomBlurItem; // @synthesize zoomBlurItem=_zoomBlurItem;
@@ -31,11 +33,13 @@
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
 - (void).cxx_destruct;
+- (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (id)disabledStylePartsButtonTooltip;
 - (id)addStylePartButonTooltip;
-- (id)styleParts;
+- (void)refreshIfNecessary:(id)arg1;
+@property(readonly, nonatomic) NSArray *styleParts;
 - (void)setLayers:(id)arg1;
-- (id)blurKinds;
+@property(readonly, nonatomic) NSSet *blurKinds;
 - (id)contentViews;
 - (void)reloadInspectorStack:(id)arg1;
 - (void)viewDidLoad;
@@ -43,6 +47,7 @@
 - (void)addStylePartButtonAction:(id)arg1;
 - (long long)disabledStylePartsButtonState;
 - (void)addStylePartHeaderWideAction:(id)arg1;
+- (void)loadViewControllers;
 - (long long)addStylePartHeaderWideButtonState;
 - (long long)addStylePartButtonState;
 - (long long)advancedOptionsButtonState;

@@ -9,7 +9,7 @@
 #import "MSTextHeaderInspectorItemDelegate-Protocol.h"
 #import "MSTextLayerItemDelegate-Protocol.h"
 
-@class MSAdvancedTextLayerInspectorItem, MSMissingFontItem, MSRateLimiter, MSTextHeaderInspectorItem, MSTextLayerInspectorItem, NSString;
+@class BCRateLimiter, MSAdvancedTextLayerInspectorItem, MSMissingFontItem, MSTextHeaderInspectorItem, MSTextLayerInspectorItem, NSString;
 
 @interface MSTextInspectorSection : MSBaseInspectorSection <MSTextHeaderInspectorItemDelegate, MSTextLayerItemDelegate>
 {
@@ -17,10 +17,10 @@
     MSTextLayerInspectorItem *_textItem;
     MSMissingFontItem *_missingFontItem;
     MSAdvancedTextLayerInspectorItem *_advancedTextItem;
-    MSRateLimiter *_updateLimiter;
+    BCRateLimiter *_updateLimiter;
 }
 
-@property(retain, nonatomic) MSRateLimiter *updateLimiter; // @synthesize updateLimiter=_updateLimiter;
+@property(retain, nonatomic) BCRateLimiter *updateLimiter; // @synthesize updateLimiter=_updateLimiter;
 @property(retain, nonatomic) MSAdvancedTextLayerInspectorItem *advancedTextItem; // @synthesize advancedTextItem=_advancedTextItem;
 @property(retain, nonatomic) MSMissingFontItem *missingFontItem; // @synthesize missingFontItem=_missingFontItem;
 @property(retain, nonatomic) MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;

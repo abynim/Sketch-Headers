@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSLayer-Protocol.h>
+#import <SketchModel/MSLayerProtocol-Protocol.h>
 
 @class MSImmutableDocumentData, MSImmutableStyle, MSPath;
 
-@protocol MSImmutablePathLayer <MSLayer>
+@protocol MSImmutablePathLayer <MSLayerProtocol>
 @property(readonly, nonatomic) MSImmutableStyle *style;
 @property(readonly, nonatomic) BOOL hasMarkers;
 - (MSPath *)decoratedPathInBoundsInDocument:(MSImmutableDocumentData *)arg1;

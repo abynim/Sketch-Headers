@@ -39,6 +39,7 @@
 @property(retain, nonatomic) NSButton *removeSizeButton; // @synthesize removeSizeButton=_removeSizeButton;
 @property(retain, nonatomic) NSPopUpButton *formatPopup; // @synthesize formatPopup=_formatPopup;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateRemoveButtonLayout;
 - (double)sizeByRemovingSuffixes:(id)arg1;
 - (void)applyEditedScaleFieldValue:(double)arg1 toExportFormat:(id)arg2 scaleType:(long long)arg3 normalSize:(struct CGSize)arg4;

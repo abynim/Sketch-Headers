@@ -6,23 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class BCSketchToolRunner, NSOperationQueue, NSString, NSURL;
+@class NSOperationQueue, NSString, NSURL;
 
 @interface MSPreviewImageCache : NSObject
 {
     NSURL *_directoryURL;
     NSOperationQueue *_fetchQueue;
-    BCSketchToolRunner *_sketchToolRunner;
     NSString *_subdirectoryName;
 }
 
-+ (id)bundledSketchToolURL;
 @property(readonly, copy, nonatomic) NSString *subdirectoryName; // @synthesize subdirectoryName=_subdirectoryName;
-@property(readonly, nonatomic) BCSketchToolRunner *sketchToolRunner; // @synthesize sketchToolRunner=_sketchToolRunner;
 @property(readonly, nonatomic) NSOperationQueue *fetchQueue; // @synthesize fetchQueue=_fetchQueue;
 @property(readonly, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
 - (void).cxx_destruct;
-- (void)exportPreviewImageForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 handler:(CDUnknownBlockType)arg3;
+- (void)fetchPreviewImageForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)cachedPreviewImageForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 error:(id *)arg3;
 - (id)cachedPreviewImageURLForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 createDirectoriesIfNeeded:(BOOL)arg3 error:(id *)arg4;
 - (id)directoryURLCreateIfNeeded:(BOOL)arg1 error:(id *)arg2;

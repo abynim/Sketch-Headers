@@ -8,17 +8,21 @@
 
 #import "MSInspectorItemDelegate-Protocol.h"
 
-@class MSExportInitialHeaderItem, MSExportInspectorViewController, MSExportPreviewHeaderInspectorItem, MSExportPreviewImagesInspectorItem, MSExportSelectedInspectorItem, MSHeader2InspectorItem, MSSliceBackgroundColorInspectorItem, MSSliceExportGroupContentsOnlyInspectorItem, MSSliceTrimTransparencyInspectorItem, NSArray, NSString;
+@class MSExportInitialHeaderItem, MSExportInspectorViewController, MSExportPreviewHeaderInspectorItem, MSExportPreviewImagesInspectorItem, MSExportSelectedInspectorItem, MSHeader2InspectorItem, MSPaddingInspectorItem, MSSliceBackgroundColorInspectorItem, MSSliceExportGroupContentsOnlyInspectorItem, MSTrimGroupTransparencyInspectorItem, MSTrimSliceTransparencyInspectorItem, NSArray, NSString;
 
 @interface MSExportPreviewInspectorSection : MSBaseInspectorSection <MSInspectorItemDelegate>
 {
     MSExportPreviewImagesInspectorItem *_imagesItem;
-    MSSliceTrimTransparencyInspectorItem *_trimTransparencyItem;
+    MSTrimSliceTransparencyInspectorItem *_trimSliceTransparencyItem;
+    MSTrimGroupTransparencyInspectorItem *_trimGroupTransparencyItem;
+    MSPaddingInspectorItem *_paddingInspectorItem;
+    MSPaddingInspectorItem *_nonHeaderPaddingInspectorItem;
     MSSliceExportGroupContentsOnlyInspectorItem *_groupContentsItem;
     MSSliceBackgroundColorInspectorItem *_colorItem;
     MSExportInitialHeaderItem *_initialHeaderItem;
     MSExportPreviewHeaderInspectorItem *_headerItem;
     MSHeader2InspectorItem *_sliceHeader;
+    MSHeader2InspectorItem *_groupHeader;
     NSArray *_footerItems;
     MSExportInspectorViewController *_formatsItem;
     MSExportSelectedInspectorItem *_exportSelectedItem;
@@ -27,14 +31,19 @@
 @property(retain, nonatomic) MSExportSelectedInspectorItem *exportSelectedItem; // @synthesize exportSelectedItem=_exportSelectedItem;
 @property(retain, nonatomic) MSExportInspectorViewController *formatsItem; // @synthesize formatsItem=_formatsItem;
 @property(retain, nonatomic) NSArray *footerItems; // @synthesize footerItems=_footerItems;
+@property(retain, nonatomic) MSHeader2InspectorItem *groupHeader; // @synthesize groupHeader=_groupHeader;
 @property(retain, nonatomic) MSHeader2InspectorItem *sliceHeader; // @synthesize sliceHeader=_sliceHeader;
 @property(retain, nonatomic) MSExportPreviewHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(retain, nonatomic) MSExportInitialHeaderItem *initialHeaderItem; // @synthesize initialHeaderItem=_initialHeaderItem;
 @property(retain, nonatomic) MSSliceBackgroundColorInspectorItem *colorItem; // @synthesize colorItem=_colorItem;
 @property(retain, nonatomic) MSSliceExportGroupContentsOnlyInspectorItem *groupContentsItem; // @synthesize groupContentsItem=_groupContentsItem;
-@property(retain, nonatomic) MSSliceTrimTransparencyInspectorItem *trimTransparencyItem; // @synthesize trimTransparencyItem=_trimTransparencyItem;
+@property(retain, nonatomic) MSPaddingInspectorItem *nonHeaderPaddingInspectorItem; // @synthesize nonHeaderPaddingInspectorItem=_nonHeaderPaddingInspectorItem;
+@property(retain, nonatomic) MSPaddingInspectorItem *paddingInspectorItem; // @synthesize paddingInspectorItem=_paddingInspectorItem;
+@property(retain, nonatomic) MSTrimGroupTransparencyInspectorItem *trimGroupTransparencyItem; // @synthesize trimGroupTransparencyItem=_trimGroupTransparencyItem;
+@property(retain, nonatomic) MSTrimSliceTransparencyInspectorItem *trimSliceTransparencyItem; // @synthesize trimSliceTransparencyItem=_trimSliceTransparencyItem;
 @property(retain, nonatomic) MSExportPreviewImagesInspectorItem *imagesItem; // @synthesize imagesItem=_imagesItem;
 - (void).cxx_destruct;
+- (id)makePaddingInspectorItem;
 - (void)refreshIfNecessary:(id)arg1;
 - (BOOL)wantsSeparatorAfterViews;
 - (id)footerViews;

@@ -6,7 +6,7 @@
 
 #import <SketchModel/_MSArtboardGroup.h>
 
-#import <SketchModel/MSArtboardGroup-Protocol.h>
+#import <SketchModel/MSArtboardGroupProtocol-Protocol.h>
 #import <SketchModel/MSColorConvertible-Protocol.h>
 #import <SketchModel/MSLayerWithMutableBackgroundColor-Protocol.h>
 #import <SketchModel/MSRootLayer-Protocol.h>
@@ -14,7 +14,7 @@
 @class MSArtboardPreset, MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 @protocol MSLayerCoordinateSpace;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroup, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorConvertible>
+@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroupProtocol, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorConvertible>
 {
     id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
 }

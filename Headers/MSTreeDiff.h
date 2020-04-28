@@ -33,14 +33,16 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL haveComponentsChanged;
-@property(readonly, nonatomic) BOOL haveSharedTextStylesChanged;
-@property(readonly, nonatomic) BOOL haveSharedLayerStylesChanged;
+- (BOOL)haveComponentsChangedByBruteForce;
+- (BOOL)haveSharedTextStylesChanged;
+- (BOOL)haveSharedLayerStylesChanged;
+@property(readonly, nonatomic) BOOL haveSymbolInstancesChanged;
 @property(readonly, nonatomic) BOOL haveSymbolMastersChanged;
 @property(readonly, nonatomic) BOOL selectionHasChanged;
 @property(readonly, nonatomic) BOOL currentPageHasChanged;
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
-- (BOOL)changedPropertiesAllExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
+- (BOOL)allChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)affectsAnyKeyIn:(id)arg1;
 - (BOOL)affectsKey:(id)arg1;
 @property(readonly, nonatomic) NSSet *keysAffectedByDiff; // @synthesize keysAffectedByDiff=_keysAffectedByDiff;
@@ -53,8 +55,6 @@
 @property(readonly, nonatomic) NSArray *diffs;
 - (id)init;
 - (id)initWithFirstDocument:(id)arg1 secondDocument:(id)arg2;
-- (BOOL)subTreeRootContainsSymbolChange:(id)arg1;
-- (BOOL)symbolsChanged;
 
 @end
 

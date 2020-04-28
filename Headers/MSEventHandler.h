@@ -198,7 +198,7 @@
 - (void)refreshOverlay;
 @property(readonly, nonatomic) NSUndoManager *undoManager;
 - (id)document;
-- (id)contentDrawView;
+- (id)canvasView;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
 

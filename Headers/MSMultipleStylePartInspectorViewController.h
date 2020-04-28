@@ -41,13 +41,13 @@
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 @property(readonly, nonatomic) NSString *menuTitleRemove;
 @property(readonly, nonatomic) NSString *menuTitleDuplicate;
 @property(readonly, nonatomic) NSString *menuTitlePaste;
 @property(readonly, nonatomic) NSString *menuTitleCopy;
 - (id)contextMenuForSupportedActions:(unsigned long long)arg1 atIndex:(long long)arg2;
-- (void)prepareInspector:(id)arg1 parts:(id)arg2 index:(unsigned long long)arg3;
+- (void)updateInspector:(id)arg1 index:(unsigned long long)arg2;
 - (BOOL)hasEnabledStyle;
 - (void)dealloc;
 - (double)startingOffsetForStackingContainerBackground:(id)arg1;
@@ -92,8 +92,8 @@
 - (id)contentViews;
 - (id)views;
 - (void)resizeViewToFit;
-- (Class)inspectorClassForStyleParts:(id)arg1;
-- (id)createInspectorForStyleParts:(id)arg1 atIndex:(unsigned long long)arg2;
+- (Class)stylePartInspectorClass;
+- (id)createInspectorForStyleParts:(id)arg1;
 - (void)loadViewControllers;
 - (id)title;
 - (id)nibName;

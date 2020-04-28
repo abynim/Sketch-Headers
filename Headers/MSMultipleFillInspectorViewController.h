@@ -19,7 +19,7 @@
 - (void).cxx_destruct;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
-- (Class)inspectorClassForStyleParts:(id)arg1;
+- (Class)stylePartInspectorClass;
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;
 - (unsigned long long)traitsForAvancedOptions;

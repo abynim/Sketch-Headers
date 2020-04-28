@@ -6,9 +6,9 @@
 
 #import <SketchModel/_MSRect.h>
 
-#import <SketchModel/MSRect-Protocol.h>
+#import <SketchModel/MSRectProtocol-Protocol.h>
 
-@interface MSRect : _MSRect <MSRect>
+@interface MSRect : _MSRect <MSRectProtocol>
 {
     long long _proportionsTempDisabled;
     unsigned long long _batchEditsCount;

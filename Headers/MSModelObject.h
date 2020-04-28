@@ -17,7 +17,6 @@
     BOOL _isFault;
     MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObject *_parentObject;
-    MSDocumentData *_documentData;
 }
 
 + (Class)immutableClass;
@@ -27,12 +26,12 @@
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void).cxx_destruct;
 - (BOOL)isDescendantOfObject:(id)arg1;
-@property(readonly, nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
+@property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (void)breakConnectionWith:(id)arg1;
 - (id)parentGroupRecursive;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
-- (id)rootModelObject;
+- (BOOL)matchesImmutable:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
 - (void)invalidateImmutableObjectAndAncestors;
 - (void)invalidateImmutableObject;
@@ -40,9 +39,11 @@
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) id immutableModelObject;
+- (void)refaultAgainst:(id)arg1;
 - (void)fireFaultIfNecessary;
 - (void)fireFault;
 @property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
+- (id)generateObjectID;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;
 - (void)correctInvalidGamma;
@@ -53,14 +54,15 @@
 - (id)cachedValueForKey:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
+- (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
+- (void)refaultChildrenAgainst:(id)arg1;
 @property(retain, nonatomic) id cachedImmutableModelObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (BOOL)collaborationDiffRemoveChild:(id)arg1 moving:(BOOL)arg2;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (id)metadataForKey:(id)arg1;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2;
 @property(readonly, nonatomic) NSString *UIMetadataKey;

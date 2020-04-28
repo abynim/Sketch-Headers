@@ -14,13 +14,13 @@
 {
     BOOL _isDirty;
     long long _changeIdentifier;
-    NSMutableDictionary *_internalOverrideProperies;
+    NSMutableDictionary *_internalOverrideProperties;
 }
 
 + (void)copyPropertiesFrom:(id)arg1 to:(id)arg2;
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
-@property(retain, nonatomic) NSMutableDictionary *internalOverrideProperies; // @synthesize internalOverrideProperies=_internalOverrideProperies;
+@property(retain, nonatomic) NSMutableDictionary *internalOverrideProperties; // @synthesize internalOverrideProperties=_internalOverrideProperties;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void).cxx_destruct;
@@ -30,7 +30,7 @@
 - (void)syncOverrideProperties;
 - (void)setOverridePoint:(id)arg1 editable:(BOOL)arg2;
 - (id)internalSetOverridePoint:(id)arg1 editable:(BOOL)arg2;
-@property(readonly, nonatomic) NSDictionary *overrideProperies;
+@property(readonly, nonatomic) NSDictionary *overrideProperties;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;

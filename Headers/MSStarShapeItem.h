@@ -8,11 +8,10 @@
 
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSString;
+@class MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSString;
 
 @interface MSStarShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
 {
-    NSArrayController *_layersController;
     MSInlineUpDownNanoTextField *_radiusField;
     MSInlineUpDownNanoTextField *_pointsField;
     MSMathInspectorValueAdaptor *_radiusAdaptor;
@@ -24,8 +23,8 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *pointsField; // @synthesize pointsField=_pointsField;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *radiusField; // @synthesize radiusField=_radiusField;
-@property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 - (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;
 

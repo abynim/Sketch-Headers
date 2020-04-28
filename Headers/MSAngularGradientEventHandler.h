@@ -10,6 +10,7 @@
 {
 }
 
+- (long long)gradientType;
 - (long long)addStopAtPosition:(struct CGPoint)arg1;
 - (BOOL)canInsertPointAtMouse:(struct CGPoint)arg1;
 - (id)handleOverlay:(id)arg1 layout:(id)arg2 pathForConnectingHandlesInSection:(long long)arg3;

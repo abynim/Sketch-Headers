@@ -11,14 +11,14 @@
 #import "MSVectorOverlayLayoutDelegate-Protocol.h"
 #import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSContentDrawView, MSDragToSelectGestureRecognizer, MSOverlayItemImageCache, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSCanvasView, MSDragToSelectGestureRecognizer, MSOverlayItemImageCache, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
 @protocol MSVectorOverlayControllerDelegate;
 
 @interface MSVectorOverlayController : NSObject <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSVectorOverlayLayoutDelegate, MSGestureRecognizerDelegate, MSAlignmentEngineDelegate>
 {
     MSShapeEventHandler *_eventHandler;
     MSVectorOverlay *_overlay;
-    MSContentDrawView *_view;
+    MSCanvasView *_view;
     MSPathController *_pathController;
     NSArray *_selectedLayers;
     NSArray *_visibleLayers;
@@ -49,7 +49,7 @@
 @property(readonly, copy, nonatomic) NSArray *visibleLayers; // @synthesize visibleLayers=_visibleLayers;
 @property(copy, nonatomic) NSArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
-@property(nonatomic) MSContentDrawView *view; // @synthesize view=_view;
+@property(nonatomic) MSCanvasView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) MSVectorOverlay *overlay; // @synthesize overlay=_overlay;
 @property(nonatomic) __weak MSShapeEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void).cxx_destruct;

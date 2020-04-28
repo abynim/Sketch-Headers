@@ -24,9 +24,10 @@
 - (void).cxx_destruct;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
+- (void)performPopUpMenuAction;
 - (void)performAction:(id)arg1;
 - (void)refreshOverlay;
-- (id)contentDrawView;
+- (id)canvasView;
 - (id)currentPage;
 - (void)switchToNormalHandler;
 - (id)setCurrentHandlerClass:(Class)arg1;

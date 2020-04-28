@@ -15,7 +15,7 @@
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
     long long _changeIdentifier;
-    NSDictionary *_overrideProperies;
+    NSDictionary *_overrideProperties;
     BCCache *_modifiedMasterCache;
     BCCache *_detachedGroupCache;
 }
@@ -24,7 +24,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 @property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
 @property(readonly, nonatomic) BCCache *modifiedMasterCache; // @synthesize modifiedMasterCache=_modifiedMasterCache;
-@property(readonly, nonatomic) NSDictionary *overrideProperies; // @synthesize overrideProperies=_overrideProperies;
+@property(readonly, nonatomic) NSDictionary *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void).cxx_destruct;
 - (id)overridePropertyForName:(id)arg1;
@@ -38,6 +38,7 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)convertOverridePropertiesToLocalDictionary:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
+@property(readonly, nonatomic) BOOL isWorthDetaching;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (void)objectDidInit;
@@ -46,7 +47,7 @@
 - (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;
-- (id)overrideProperiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;
+- (id)overridePropertiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;
 - (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;

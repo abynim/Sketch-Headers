@@ -15,7 +15,7 @@
 #import "NSComboBoxDataSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSArrayController, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 @protocol MSTextLayerItemDelegate;
 
 @interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, BCPopoverDelegate, NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate, MSVariableFontsInspectorDelegate>
@@ -40,7 +40,6 @@
     MSNativeColorPanelPresenter *_colorPanelPresenter;
     NSSet *_fontPostscriptNames;
     MSImmutableColor *_textColor;
-    NSArrayController *_layersController;
     MSMathInspectorValueAdaptor *_fontSizeAdaptor;
     MSMathInspectorValueAdaptor *_kerningAdaptor;
     MSMathInspectorValueAdaptor *_paragraphSpacingAdaptor;
@@ -59,7 +58,6 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *paragraphSpacingAdaptor; // @synthesize paragraphSpacingAdaptor=_paragraphSpacingAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *kerningAdaptor; // @synthesize kerningAdaptor=_kerningAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *fontSizeAdaptor; // @synthesize fontSizeAdaptor=_fontSizeAdaptor;
-@property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSImmutableColor *textColor; // @synthesize textColor=_textColor;
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
@@ -108,7 +106,7 @@
 - (id)textEventHandler;
 - (id)textView;
 - (void)verticalAlignmentAction:(id)arg1;
-- (id)contentDrawView;
+- (id)canvasView;
 - (void)putFocusOnTextView;
 - (id)companionPopoverForColorPanelPresenter:(id)arg1;
 - (void)colorPanelPresenter:(id)arg1 didChangeColor:(id)arg2;

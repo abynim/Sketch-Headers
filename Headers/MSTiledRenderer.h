@@ -85,8 +85,8 @@
 - (void)_drawOverlayTextureForPage:(id)arg1 overlayItems:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 flowItems:(id)arg4 overlayItemImages:(id)arg5 pageOverlayRenderOptions:(unsigned long long)arg6;
 - (void)_renderPageOverlayElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 options:(unsigned long long)arg3 baseOrigin:(struct CGPoint)arg4 rect:(struct CGRect)arg5 overlayColors:(id)arg6;
 - (void)_drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
-- (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
-- (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5;
+- (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlayColors:(id)arg6;
+- (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlayColors:(id)arg6;
 - (void)updateContentWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
 - (id)flowItems:(unsigned long long)arg1 onPage:(id)arg2;
 - (void)_doUpdateWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;

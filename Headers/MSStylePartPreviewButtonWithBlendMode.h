@@ -21,6 +21,8 @@
 @property(retain, nonatomic) NSButton *inlineBlendModeButton; // @synthesize inlineBlendModeButton=_inlineBlendModeButton;
 @property(retain, nonatomic) NSSet *blendModes; // @synthesize blendModes=_blendModes;
 - (void).cxx_destruct;
+- (BOOL)isEnabled;
+- (void)setEnabled:(BOOL)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)changeBlendMode:(id)arg1;
 - (void)showBlendModeMenu:(id)arg1;

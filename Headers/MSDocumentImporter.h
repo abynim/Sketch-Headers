@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class CHProgressSheet, MSContentDrawView, MSLayerGroup, NSArray, NSString, NSURL;
+@class CHProgressSheet, MSCanvasView, MSLayerGroup, NSArray, NSString, NSURL;
 @protocol MSImporter;
 
 @interface MSDocumentImporter : NSObject
@@ -27,7 +27,7 @@
 @property(retain, nonatomic) id <MSImporter> importer; // @synthesize importer=_importer;
 @property(retain, nonatomic) MSLayerGroup *group; // @synthesize group=_group;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) __weak MSContentDrawView *view; // @dynamic view;
+@property(readonly, nonatomic) __weak MSCanvasView *view; // @dynamic view;
 - (id)showProgressSheet;
 - (void)importerDidFinish;
 - (void)close;

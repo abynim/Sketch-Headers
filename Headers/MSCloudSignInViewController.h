@@ -67,7 +67,6 @@
 - (void)visitCloudDocumentation:(id)arg1;
 - (void)visitStore:(id)arg1;
 - (void)signUp:(id)arg1;
-- (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) NSImage *headerImage;

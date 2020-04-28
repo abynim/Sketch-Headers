@@ -18,10 +18,11 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_symbolPrivate:(BOOL)arg1;
 - (void)setRaw_sourceLibraryName:(id)arg1;
 - (void)setRaw_libraryID:(id)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -34,7 +35,7 @@
 @property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

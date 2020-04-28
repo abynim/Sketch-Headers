@@ -19,7 +19,6 @@
 {
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
-    id _shapesMenu;
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_printMenu;
     NSMenuItem *_aboutMenuItem;
@@ -29,6 +28,7 @@
     NSMenu *_fileMenu;
     NSMenu *_viewMenu;
     NSMenuItem *_assistantMenuItem;
+    NSMenu *_insertMenu;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
@@ -77,6 +77,7 @@
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
+@property(retain, nonatomic) NSMenu *insertMenu; // @synthesize insertMenu=_insertMenu;
 @property(retain, nonatomic) NSMenuItem *assistantMenuItem; // @synthesize assistantMenuItem=_assistantMenuItem;
 @property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
@@ -86,7 +87,6 @@
 @property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
-@property(nonatomic) __weak id shapesMenu; // @synthesize shapesMenu=_shapesMenu;
 - (void).cxx_destruct;
 - (void)applyAppearanceToAllWindows:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;

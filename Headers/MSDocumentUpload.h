@@ -36,6 +36,7 @@
 - (void)URLSession:(id)arg1 task:(id)arg2 didSendBodyData:(long long)arg3 totalBytesSent:(long long)arg4 totalBytesExpectedToSend:(long long)arg5;
 - (void)cancel;
 - (void)startUpload;
+- (void)dealloc;
 - (id)initWithDocument:(id)arg1 updatingShare:(id)arg2;
 @property(nonatomic, readonly) NSProgress *progress; // @synthesize progress;
 @property(nonatomic) BOOL finalized; // @synthesize finalized;

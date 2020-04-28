@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/MSLayer-Protocol.h>
+#import <SketchControllers/MSLayerProtocol-Protocol.h>
 
-@protocol MSLayerDataType <MSLayer>
+@protocol MSLayerDataType <MSLayerProtocol>
 @property(readonly, nonatomic) unsigned long long dataType;
 @end
 

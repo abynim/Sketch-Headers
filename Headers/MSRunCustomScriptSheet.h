@@ -8,24 +8,30 @@
 
 #import "NSTextViewDelegate-Protocol.h"
 
-@class JSTTextView, NSButton, NSString, NSTextField, NSTextView, NSUndoManager;
+@class JSTTextView, NSButton, NSLayoutConstraint, NSString, NSTextField, NSTextView, NSUndoManager;
 
 @interface MSRunCustomScriptSheet : CHSheetController <NSTextViewDelegate>
 {
-    JSTTextView *inputField;
-    NSButton *saveButton;
-    NSTextField *scriptNameField;
-    NSButton *runButton;
-    NSTextView *_logField;
     NSUndoManager *_undoManager;
     NSButton *_touchBarSave;
     NSButton *_touchBarRun;
+    JSTTextView *_inputField;
+    NSButton *_saveButton;
+    NSTextField *_scriptNameField;
+    NSButton *_runButton;
+    NSTextView *_logField;
+    NSLayoutConstraint *_saveButtonToScriptNameConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *saveButtonToScriptNameConstraint; // @synthesize saveButtonToScriptNameConstraint=_saveButtonToScriptNameConstraint;
+@property(retain, nonatomic) NSTextView *logField; // @synthesize logField=_logField;
+@property(retain, nonatomic) NSButton *runButton; // @synthesize runButton=_runButton;
+@property(retain, nonatomic) NSTextField *scriptNameField; // @synthesize scriptNameField=_scriptNameField;
+@property(retain, nonatomic) NSButton *saveButton; // @synthesize saveButton=_saveButton;
+@property(retain, nonatomic) JSTTextView *inputField; // @synthesize inputField=_inputField;
 @property(nonatomic) __weak NSButton *touchBarRun; // @synthesize touchBarRun=_touchBarRun;
 @property(nonatomic) __weak NSButton *touchBarSave; // @synthesize touchBarSave=_touchBarSave;
 @property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
-@property(retain, nonatomic) NSTextView *logField; // @synthesize logField=_logField;
 - (void).cxx_destruct;
 - (void)redoAction:(id)arg1;
 - (void)undoAction:(id)arg1;

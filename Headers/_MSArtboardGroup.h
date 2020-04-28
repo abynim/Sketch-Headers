@@ -28,6 +28,7 @@
 + (BOOL)hasClickThroughDefault;
 + (id)defaultBackgroundColor;
 - (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_verticalRulerData:(id)arg1;
 - (void)setRaw_layout:(id)arg1;
 - (void)setRaw_horizontalRulerData:(id)arg1;
@@ -39,7 +40,7 @@
 - (void)setRaw_includeInCloudUpload:(BOOL)arg1;
 - (void)setRaw_includeBackgroundColorInExport:(BOOL)arg1;
 - (void)setRaw_hasBackgroundColor:(BOOL)arg1;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -60,7 +61,7 @@
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultBackgroundColor;
 

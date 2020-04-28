@@ -11,7 +11,6 @@
 }
 
 + (id)hotspotLayerFromLayer:(id)arg1;
-- (void)resetFlow;
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
 - (void)setFlow:(id)arg1;

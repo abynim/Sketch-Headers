@@ -6,13 +6,13 @@
 
 #import <AppKit/NSView.h>
 
-@class MSContentDrawView, MSDocument, MSRulerData, MSRulerViewLayer, NSNumberFormatter;
+@class MSCanvasView, MSDocument, MSRulerData, MSRulerViewLayer, NSNumberFormatter;
 
 @interface MSRulerView : NSView
 {
     BOOL _mouseDidDrag;
     MSDocument *_document;
-    MSContentDrawView *_contentView;
+    MSCanvasView *_contentView;
     unsigned long long _axis;
     MSRulerViewLayer *_rulerViewLayer;
     unsigned long long _dragIndex;
@@ -33,7 +33,7 @@
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
 @property(nonatomic) BOOL mouseDidDrag; // @synthesize mouseDidDrag=_mouseDidDrag;
-@property(nonatomic) __weak MSContentDrawView *contentView; // @synthesize contentView=_contentView;
+@property(nonatomic) __weak MSCanvasView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
 - (long long)rulerHeight;
@@ -86,6 +86,7 @@
 - (Class)rulerViewLayerClass;
 - (id)makeRulerViewLayer;
 - (void)calculateContentsScale;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)viewDidChangeBackingProperties;
 - (void)awakeFromNib;
 

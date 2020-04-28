@@ -11,10 +11,10 @@
 @interface MSManageComponentsSheet : CHSheetController
 {
     NSView *_containerView;
-    NSViewController *_contentDrawViewController;
+    NSViewController *_canvasViewController;
 }
 
-@property(retain, nonatomic) NSViewController *contentDrawViewController; // @synthesize contentDrawViewController=_contentDrawViewController;
+@property(retain, nonatomic) NSViewController *canvasViewController; // @synthesize canvasViewController=_canvasViewController;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
 - (void).cxx_destruct;
 - (void)windowDidLoad;

@@ -12,7 +12,8 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
-- (id)collaborationPatchableObjectWithID:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -22,7 +23,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
+- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end
