@@ -16,7 +16,6 @@
 - (void)drawErrorPatternForInstance:(id)arg1 context:(id)arg2 error:(long long)arg3;
 - (void)renderPreparedSymbolContents:(id)arg1 forInstance:(id)arg2 influenceBounds:(struct CGRect)arg3 ignoreDrawingArea:(BOOL)arg4 inContext:(id)arg5;
 - (void)renderSymbolOrErrorPatternForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 ignoreDrawingArea:(BOOL)arg3 context:(id)arg4;
-- (BOOL)setupTransparencyIfRequiredForInstance:(id)arg1 influenceBounds:(struct CGRect)arg2 context:(id)arg3 previousAlpha:(double *)arg4;
 - (void)renderLayerUncached:(id)arg1 transformObject:(id)arg2 ignoreDrawingArea:(BOOL)arg3 context:(id)arg4;
 
 @end

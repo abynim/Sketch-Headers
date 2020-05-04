@@ -34,7 +34,6 @@
 - (void).cxx_destruct;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (BOOL)hasEnabledFill;
-- (void)resetFlow;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (id)allSymbolInstancesInChildren;
 - (BOOL)canLockProportions;

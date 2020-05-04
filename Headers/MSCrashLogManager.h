@@ -19,6 +19,7 @@
     NSMutableArray *_items;
     NSString *_text;
     NSString *_attachmentText;
+    NSDictionary *_userProvidedInfo;
     NSTextField *_header;
     NSTextField *_emailField;
     NSTextField *_commentsField;
@@ -27,6 +28,7 @@
 @property(nonatomic) __weak NSTextField *commentsField; // @synthesize commentsField=_commentsField;
 @property(nonatomic) __weak NSTextField *emailField; // @synthesize emailField=_emailField;
 @property(nonatomic) __weak NSTextField *header; // @synthesize header=_header;
+@property(retain, nonatomic) NSDictionary *userProvidedInfo; // @synthesize userProvidedInfo=_userProvidedInfo;
 @property(retain, nonatomic) NSString *attachmentText; // @synthesize attachmentText=_attachmentText;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
@@ -34,11 +36,10 @@
 - (void)cancel:(id)arg1;
 - (id)attachmentsWithCrashes:(id)arg1 forErrorReport:(id)arg2;
 - (BOOL)setup;
-- (id)environmentText;
-- (id)logText;
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
+- (void)logActionWithName:(id)arg1 actionID:(id)arg2 context:(id)arg3;
 - (id)prepareContextForLog:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *environment;
 @property(readonly, nonatomic) NSArray *items;
