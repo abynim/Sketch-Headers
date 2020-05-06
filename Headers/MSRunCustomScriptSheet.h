@@ -36,9 +36,6 @@
 - (void)redoAction:(id)arg1;
 - (void)undoAction:(id)arg1;
 - (id)undoManagerForTextView:(id)arg1;
-- (void)scriptingMenuAction:(id)arg1;
-- (void)commentSelection:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
 - (void)saveAction:(id)arg1;
 - (void)showHelp:(id)arg1;
 - (void)runScript:(id)arg1;

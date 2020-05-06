@@ -12,7 +12,9 @@
 
 + (id)poiLog;
 + (id)applicationLog;
++ (id)influenceRectLog;
 + (id)modelLog;
++ (id)rasterisationLog;
 + (id)renderingLog;
 
 @end

@@ -6,12 +6,12 @@
 
 #import <objc/NSObject.h>
 
-@class MSArcVertexBuffer, MSMetalRenderer, MSMetalTexture, MSRenderingDriverSettings, MSTextureVertexBuffer, NSDictionary, NSSet;
+@class MSArcVertexBuffer, MSFlowRendererSettings, MSMetalRenderer, MSMetalTexture, MSTextureVertexBuffer, NSDictionary, NSSet;
 
 @interface MSFlowRenderer : NSObject
 {
     MSMetalRenderer *_lastRenderer;
-    MSRenderingDriverSettings *_lastSettings;
+    MSFlowRendererSettings *_lastSettings;
     MSMetalTexture *_flowAnnotationsTexture;
     MSTextureVertexBuffer *_textureVertexBuffer;
     MSArcVertexBuffer *_arcVertexBuffer;
@@ -36,14 +36,9 @@
 @property(nonatomic) struct BCEdgePaddings flowHotspotTexturePaddings; // @synthesize flowHotspotTexturePaddings=_flowHotspotTexturePaddings;
 @property(nonatomic) struct CGRect flowHotspotTextureCenterRect; // @synthesize flowHotspotTextureCenterRect=_flowHotspotTextureCenterRect;
 @property(retain, nonatomic) MSMetalTexture *flowAnnotationsTexture; // @synthesize flowAnnotationsTexture=_flowAnnotationsTexture;
-@property(nonatomic) __weak MSRenderingDriverSettings *lastSettings; // @synthesize lastSettings=_lastSettings;
+@property(nonatomic) __weak MSFlowRendererSettings *lastSettings; // @synthesize lastSettings=_lastSettings;
 @property(nonatomic) __weak MSMetalRenderer *lastRenderer; // @synthesize lastRenderer=_lastRenderer;
 - (void).cxx_destruct;
-- (void)drawDotInForItem:(id)arg1 context:(struct CGContext *)arg2 zoomLevel:(double)arg3 settings:(id)arg4;
-- (void)drawTipInForItem:(id)arg1 segment:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
-- (void)drawLineAndTipForItem:(id)arg1 context:(struct CGContext *)arg2 clipToArtboards:(BOOL)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
-- (void)renderFlowItem:(id)arg1 context:(struct CGContext *)arg2 clipToArtboards:(BOOL)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
-- (void)renderFlowsItems:(id)arg1 selectedLayerIDs:(id)arg2 context:(struct CGContext *)arg3 zoomLevel:(double)arg4 settings:(id)arg5;
 - (void)renderFlowItems:(id)arg1 selectedLayerIDs:(id)arg2 backingScaleFactor:(double)arg3 translation:(struct CGPoint)arg4 zoomLevel:(double)arg5 renderer:(id)arg6 settings:(id)arg7;
 - (id)flowAnnotationsTexture:(double)arg1 renderer:(id)arg2 settings:(id)arg3;
 - (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2 backingScaleFactor:(double)arg3;

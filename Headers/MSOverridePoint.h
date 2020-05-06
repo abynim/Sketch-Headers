@@ -24,11 +24,12 @@
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
 @property(readonly, nonatomic) NSString *layerID; // @synthesize layerID=_layerID;
 - (void).cxx_destruct;
-- (unsigned long long)distanceToOverridePoint:(id)arg1;
+- (long long)distanceToOverridePoint:(id)arg1;
 - (long long)comparisonScoreAgainst:(id)arg1;
 - (BOOL)canAcceptDataOfType:(id)arg1;
 @property(readonly, nonatomic) BOOL isStyleOverride;
 @property(readonly, nonatomic) BOOL isSymbolOverride;
+- (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)description;
 @property(readonly, nonatomic) NSArray *pathComponents;

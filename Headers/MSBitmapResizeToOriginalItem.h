@@ -16,7 +16,7 @@
 + (BOOL)canHandleLayer:(id)arg1;
 @property(retain, nonatomic) NSButton *setToOriginalSizeButton; // @synthesize setToOriginalSizeButton=_setToOriginalSizeButton;
 - (void).cxx_destruct;
-- (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 
 @end
 

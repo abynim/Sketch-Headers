@@ -6,22 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MSRenderingDriverSettings, NSMapTable;
+@class NSMapTable;
 
 @interface MSRenderingDriver : NSObject
 {
-    MSRenderingDriverSettings *_settings;
     NSMapTable *_renderers;
 }
 
 @property(retain, nonatomic) NSMapTable *renderers; // @synthesize renderers=_renderers;
-@property(readonly, nonatomic) MSRenderingDriverSettings *settings; // @synthesize settings=_settings;
 - (void).cxx_destruct;
 - (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 renderingRequest:(id)arg3;
 - (id)rendererForObject:(id)arg1 protocol:(id)arg2;
 - (id)setupRendererMap;
-- (id)initWithSettings:(id)arg1;
-- (struct CGColor *)createColorFromDefaultNamed:(id)arg1;
 - (id)init;
 
 @end

@@ -8,11 +8,11 @@
 
 #import <SketchControllers/MSRenderingContextCacheProvider-Protocol.h>
 
-@class BCCache, MSImmutableLayerAncestry, NSColorSpace, NSString;
+@class BCCache, NSColorSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 
 @interface MSSymbolPreviewGeneratorOperation : NSOperation <MSRenderingContextCacheProvider>
 {
-    MSImmutableLayerAncestry *_symbolAncestry;
+    _TtC11SketchModel24MSImmutableLayerAncestry *_symbolAncestry;
     NSColorSpace *_colorSpace;
     CDUnknownBlockType _shouldCancelBlock;
     CDUnknownBlockType _imageBlock;
@@ -25,7 +25,7 @@
 @property(copy, nonatomic) CDUnknownBlockType shouldCancelBlock; // @synthesize shouldCancelBlock=_shouldCancelBlock;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(retain, nonatomic) MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
+@property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (id)cacheForZoomLevel:(double)arg1;

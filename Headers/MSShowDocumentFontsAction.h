@@ -4,17 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSBaseSharedObjectAction.h"
+#import "MSDocumentAction.h"
 
-@interface MSManageShareableObjectsAction : MSBaseSharedObjectAction
+@interface MSShowDocumentFontsAction : MSDocumentAction
 {
 }
 
 - (id)label;
-- (BOOL)validate;
 - (long long)validationStatus;
-- (void)showOrganiserSheet:(id)arg1;
-- (void)showSheetWithTabIndex:(unsigned long long)arg1;
+- (BOOL)validate;
+- (void)doPerformAction:(id)arg1;
+- (void)showDocumentFonts:(id)arg1;
 
 @end
 

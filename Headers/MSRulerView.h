@@ -88,6 +88,7 @@
 - (void)calculateContentsScale;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)viewDidChangeBackingProperties;
+- (void)setupUI;
 - (void)awakeFromNib;
 
 @end

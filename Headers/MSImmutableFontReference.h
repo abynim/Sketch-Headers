@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) BOOL shouldStoreFontData;
 @property(readonly, nonatomic, getter=isForeign) BOOL foreign;
 @property(readonly, nonatomic, getter=isEmbedded) BOOL embedded;
+@property(readonly, nonatomic, getter=isUsed) BOOL used;
 @property(readonly, copy, nonatomic) NSData *fontFileData;
 
 // Remaining properties

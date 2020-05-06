@@ -8,13 +8,13 @@
 
 #import "MSCanvasViewDelegate-Protocol.h"
 
-@class MSCanvasView, MSDocument, MSFlashController, MSRulerView, NSLayoutConstraint, NSString, NSView;
+@class MSCanvasView, MSDocument, MSFlashController, NSLayoutConstraint, NSString, NSView, _TtC6Sketch24MSBidirectionalRulerView;
 
 @interface MSCanvasViewController : NSViewController <MSCanvasViewDelegate>
 {
     MSCanvasView *_canvasView;
-    MSRulerView *_horizontalRuler;
-    MSRulerView *_verticalRuler;
+    _TtC6Sketch24MSBidirectionalRulerView *_horizontalRuler;
+    _TtC6Sketch24MSBidirectionalRulerView *_verticalRuler;
     NSView *_rulerCornerView;
     NSLayoutConstraint *_rulerWidthConstraint;
     NSLayoutConstraint *_rulerHeightConstraint;
@@ -27,8 +27,8 @@
 @property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *rulerWidthConstraint; // @synthesize rulerWidthConstraint=_rulerWidthConstraint;
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
-@property(retain, nonatomic) MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
-@property(retain, nonatomic) MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
+@property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
+@property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
 - (void).cxx_destruct;
 - (void)prepareForDealloc;

@@ -14,9 +14,11 @@
 @interface MSAttributedStringKey : NSObject <NSCopying, BCJSONEncoding>
 {
     MSAttributedString *_attributedString;
+    NSString *_styleID;
     struct CGSize _size;
 }
 
+@property(retain, nonatomic) NSString *styleID; // @synthesize styleID=_styleID;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (void).cxx_destruct;
@@ -27,7 +29,7 @@
 @property(readonly) unsigned long long hash;
 - (id)dictionaryRepresentation;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithAttributedString:(id)arg1 size:(struct CGSize)arg2;
+- (id)initWithAttributedString:(id)arg1 size:(struct CGSize)arg2 styleID:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

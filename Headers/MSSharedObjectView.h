@@ -12,7 +12,6 @@
 @interface MSSharedObjectView : NSView
 {
     BOOL _hasShadow;
-    BOOL _previewDirty;
     struct MSModelObject *_sharedObject;
     NSString *_label;
     NSColor *_labelColor;
@@ -22,7 +21,6 @@
     NSImage *_previewImage;
 }
 
-@property(nonatomic) BOOL previewDirty; // @synthesize previewDirty=_previewDirty;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) unsigned long long borders; // @synthesize borders=_borders;

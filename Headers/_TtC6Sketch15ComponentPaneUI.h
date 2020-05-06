@@ -8,14 +8,11 @@
 
 @interface _TtC6Sketch15ComponentPaneUI : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: displayTitleFontSize
-    // Error parsing type: , name: secondaryTitleFontSize
     // Error parsing type: , name: $__lazy_storage_$_displayTitleFont
     // Error parsing type: , name: $__lazy_storage_$_secondaryTitleFont
     // Error parsing type: , name: $__lazy_storage_$_emphasizedDisplayTitleFont
     // Error parsing type: , name: $__lazy_storage_$_emphasizedSecondaryTitleFont
     // Error parsing type: , name: $__lazy_storage_$_popoverLibraryTitleFont
-    // Error parsing type: , name: libraryListRowHeight
     // Error parsing type: , name: sidebarCompactTreeDimensions
     // Error parsing type: , name: sidebarNestedTreeDimensions
     // Error parsing type: , name: sidebarFlatListTreeDimensions

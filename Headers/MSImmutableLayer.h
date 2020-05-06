@@ -21,19 +21,19 @@
     // Error parsing type: A^v, name: _pathInDocumentAtomicPointer
     NSObject *_calculatePathInDocumentAtomicity;
     unsigned long long _traits;
-    struct CGRect _influenceRectForFrame;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 + (BOOL)persistsObjectID;
-@property(readonly, nonatomic) struct CGRect influenceRectForFrame; // @synthesize influenceRectForFrame=_influenceRectForFrame;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;
 - (BOOL)hasEnabledFill;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)maskingLayerForChild:(id)arg1;
+- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
+- (id)resolvedUsingDocumentData:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;

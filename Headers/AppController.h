@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
@@ -32,6 +32,7 @@
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
+    MSDebouncer *_assistantRunScheduler;
     MSDataSupplierManager *_dataSupplierManager;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
@@ -74,6 +75,7 @@
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager; // @synthesize dataSupplierManager=_dataSupplierManager;
+@property(retain, nonatomic) MSDebouncer *assistantRunScheduler; // @synthesize assistantRunScheduler=_assistantRunScheduler;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
@@ -164,8 +166,6 @@
 - (id)actionClasses;
 - (void)kickMenu:(id)arg1;
 - (void)applySubmenuShortcutFix;
-- (void)scriptingMenuAction:(id)arg1;
-- (BOOL)validatePluginMenuItem:(id)arg1 documentShowing:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 handler:(id)arg2 name:(id)arg3 withPreprocess:(BOOL)arg4;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3 onComplete:(CDUnknownBlockType)arg4;

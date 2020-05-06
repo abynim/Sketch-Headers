@@ -6,10 +6,9 @@
 
 #import "_TtC6Sketch30AssistantResultsViewController.h"
 
-#import "NSTableViewDataSource-Protocol.h"
-
-@interface _TtC6Sketch30AssistantResultsViewController (Sketch1) <NSTableViewDataSource>
-- (void)tableView:(id)arg1 sortDescriptorsDidChange:(id)arg2;
-- (long long)numberOfRowsInTableView:(id)arg1;
+@interface _TtC6Sketch30AssistantResultsViewController (Sketch1)
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
+- (id)outlineView:(id)arg1 itemForPersistentObject:(id)arg2;
+- (id)outlineView:(id)arg1 persistentObjectForItem:(id)arg2;
 @end
 

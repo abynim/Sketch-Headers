@@ -14,7 +14,7 @@
     unsigned long long _layerBehavior;
 }
 
-+ (id)webExportRequestForRootLayer:(id)arg1 inDocument:(id)arg2 atScale:(double)arg3;
++ (id)webExportRequestFromLayerAncestry:(id)arg1 atScale:(double)arg2;
 @property(nonatomic) unsigned long long layerBehavior; // @synthesize layerBehavior=_layerBehavior;
 - (id)includedLayerIDs;
 - (id)includedLayerIDsFromLayer:(id)arg1 ancestors:(id)arg2;

@@ -9,10 +9,11 @@
 #import <SketchControllers/MSAssetLibraryDelegate-Protocol.h>
 #import <SketchControllers/MSCloudAssetLibraryControllerDelegate-Protocol.h>
 
-@class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSSet, NSString;
+@class MSAssetLibraryUpdater, MSCloudAssetLibraryController, NSArray, NSHashTable, NSMutableArray, NSMutableSet, NSString;
 
 @interface MSAssetLibraryController : NSObject <MSCloudAssetLibraryControllerDelegate, MSAssetLibraryDelegate>
 {
+    BOOL _includeCloudLibraries;
     NSMutableArray *_userLibraries;
     NSArray *_remoteLibraries;
     NSHashTable *_delegates;
@@ -29,6 +30,7 @@
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
+@property(nonatomic) BOOL includeCloudLibraries; // @synthesize includeCloudLibraries=_includeCloudLibraries;
 - (void).cxx_destruct;
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
@@ -89,7 +91,7 @@
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;
-@property(readonly, nonatomic) NSSet *embeddedFontReferences;
+- (id)embeddedFontReferencesExcludingDocumentID:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;

@@ -15,7 +15,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 @property(nonatomic, readonly) SEL preferredMenuAction;
-- (void)assistantToggleResultsPanel:(id)arg1;
+- (void)assistantToggleResultsPanel2:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) BOOL hasDynamicTitle;

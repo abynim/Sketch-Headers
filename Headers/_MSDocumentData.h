@@ -10,6 +10,8 @@
 
 @interface _MSDocumentData : MSModelObject
 {
+    BOOL _agreedToFontEmbedding;
+    BOOL _autoEmbedFonts;
     unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
@@ -36,6 +38,8 @@
 - (void)setRaw_userInfo:(id)arg1;
 - (void)setRaw_currentPageIndex:(unsigned long long)arg1;
 - (void)setRaw_colorSpace:(unsigned long long)arg1;
+- (void)setRaw_autoEmbedFonts:(BOOL)arg1;
+- (void)setRaw_agreedToFontEmbedding:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -118,6 +122,8 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) BOOL autoEmbedFonts; // @synthesize autoEmbedFonts=_autoEmbedFonts;
+@property(nonatomic) BOOL agreedToFontEmbedding; // @synthesize agreedToFontEmbedding=_agreedToFontEmbedding;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

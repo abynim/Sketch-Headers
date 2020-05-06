@@ -8,7 +8,7 @@
 
 @interface _TtC17SketchControllers16AssistantManager : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: $__lazy_storage_$_assistantsTemporaryDirectory
+    // Error parsing type: , name: assistantsCache
 }
 
 @end

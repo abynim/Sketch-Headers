@@ -38,7 +38,7 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 - (void).cxx_destruct;
-- (id)cloudManifestMaker:(id)arg1 fileMetadataForRootLayer:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
+- (id)cloudManifestMaker:(id)arg1 fileMetadataForAncestry:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;
 - (id)exportImageMetadataForRequest:(id)arg1 manifestScale:(double)arg2;
 - (id)metadataForDocument:(id)arg1;
@@ -47,7 +47,7 @@
 - (BOOL)exportDocumentPreviews;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
-- (BOOL)exportArtboardsAndManifestWithError:(id *)arg1 forSketchToolCloudExport:(BOOL)arg2;
+- (BOOL)exportArtboardsAndManifestForCloud:(id)arg1 error:(id *)arg2;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

@@ -71,6 +71,7 @@
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (BOOL)canContainLayer:(id)arg1;
 - (void)changeSelectionByDeselectingLayers:(id)arg1;
+- (void)changeSelectionBySelectingLayersInSet:(id)arg1;
 - (void)changeSelectionBySelectingLayers:(id)arg1;
 - (void)changeSelectionUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)isLayerSelected:(id)arg1;

@@ -22,6 +22,7 @@
 - (void)dataController:(id)arg1 updateNode:(id)arg2 expandedState:(unsigned long long)arg3;
 - (long long)mapExpandedStateToLayerListStatus:(unsigned long long)arg1;
 - (BOOL)dataController:(id)arg1 isNodeHighlighted:(id)arg2;
+- (BOOL)dataController:(id)arg1 isPreviewDependentOnExpansionState:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeExpandable:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeExpanded:(id)arg2;
 - (void)dataController:(id)arg1 changeSelectionTo:(id)arg2;

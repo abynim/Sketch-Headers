@@ -31,7 +31,7 @@
 - (void)cleanupAfterTesting;
 - (void)save;
 - (void)saveIfNeeded;
-- (void)invalidateImmutableObject;
+- (void)invalidateImmutableObjectAndAncestors;
 
 @end
 

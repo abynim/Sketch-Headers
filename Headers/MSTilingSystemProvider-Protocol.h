@@ -4,17 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class CALayer, MSImmutableDocumentData, MSRenderInstruction, NSView;
+@class CALayer, MSRenderInstruction, NSView;
 @protocol MSTiledRendererHostView;
 
 @protocol MSTilingSystemProvider
-@property(readonly) MSImmutableDocumentData *renderedDocument;
-@property(nonatomic) BOOL hideOverlay;
+@property(readonly, copy) MSRenderInstruction *renderedInstruction;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView;
 @property(readonly, nonatomic) CALayer *layer;
 - (BOOL)isDrawing;
-- (void)endFastZooming;
-- (void)beginFastZooming;
 - (void)updateContentWithRenderInstruction:(MSRenderInstruction *)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
 - (id)initWithCompletionHandler:(void (^)(struct CGImage *))arg1 syncFirstFrame:(BOOL)arg2;
 @end

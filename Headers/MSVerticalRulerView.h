@@ -16,7 +16,7 @@
 - (void)setResizeCursor;
 - (BOOL)isFlipped;
 - (Class)rulerViewLayerClass;
-- (void)awakeFromNib;
+- (void)setupUI;
 
 @end
 

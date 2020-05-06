@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTableCellView.h>
+#import <AppKit/NSImageView.h>
 
-@interface _TtC6Sketch30ViolationSeverityTableCellView : NSTableCellView
+@interface _TtC6Sketch13AssistantIcon : NSImageView
 {
-    // Error parsing type: , name: severity
+    // Error parsing type: , name: cornerRadius
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 
 @end
 

@@ -14,7 +14,6 @@
 {
     MSPluginCommandSpecifier *_commandSpecifier;
     BOOL _disableCocoaScriptPreprocessor;
-    BOOL _hasAPI;
     BOOL _errorInScript;
     NSString *_identifier;
     MSPluginScript *_script;
@@ -37,7 +36,6 @@
 @property(retain, nonatomic) NSMutableDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
 @property(nonatomic) BOOL errorInScript; // @synthesize errorInScript=_errorInScript;
-@property(nonatomic) BOOL hasAPI; // @synthesize hasAPI=_hasAPI;
 @property(retain, nonatomic) NSMutableDictionary *context; // @synthesize context=_context;
 @property(retain, nonatomic) COScript *session; // @synthesize session=_session;
 @property(retain, nonatomic) NSMutableArray *logsWhenRunViaTests; // @synthesize logsWhenRunViaTests=_logsWhenRunViaTests;

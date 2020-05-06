@@ -7,9 +7,7 @@
 @class MSRenderingDriver;
 
 @protocol MSTiledRendererHostView
+- (void)setNeedsRenderWithMask:(unsigned long long)arg1;
 - (MSRenderingDriver *)driver;
-- (BOOL)hasUserFocus;
-- (void)setNeedsDisplay:(BOOL)arg1;
-- (void)setNeedsUpdateOverlayModel;
 @end
 

@@ -6,11 +6,11 @@
 
 #import <Foundation/NSOperation.h>
 
-@class MSExportPreviewViewModel, MSExportRequest, MSImmutableLayerAncestry, NSImage;
+@class MSExportPreviewViewModel, MSExportRequest, NSImage, _TtC11SketchModel24MSImmutableLayerAncestry;
 
 @interface MSExportPreviewOperation : NSOperation
 {
-    MSImmutableLayerAncestry *_ancestry;
+    _TtC11SketchModel24MSImmutableLayerAncestry *_ancestry;
     MSExportRequest *_request;
     NSImage *_previewImage;
     struct CGSize _imageSize;
@@ -20,7 +20,7 @@
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
-@property(retain, nonatomic) MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
+@property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSExportPreviewViewModel *previewViewModel;
 - (id)exportingColorSpace;

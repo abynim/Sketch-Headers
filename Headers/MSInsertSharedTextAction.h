@@ -26,7 +26,6 @@
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
-- (void)showSharedObjectsSheet:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 

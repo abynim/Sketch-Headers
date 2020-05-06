@@ -8,23 +8,19 @@
 
 #import <SketchCloudKit/NSURLSessionDownloadDelegate-Protocol.h>
 
-@class NSError, NSProgress, NSString, NSURL, NSURLRequest, NSURLSessionDownloadTask, SCKDownloadOperationSessionDelegate;
+@class NSProgress, NSString, NSURLRequest, NSURLSessionDownloadTask, SCKDownloadOperationSessionDelegate;
 
 @interface SCKDownloadOperation : BCURLOperation <NSURLSessionDownloadDelegate>
 {
     NSURLRequest *_request;
     CDUnknownBlockType _downloadCompletionBlock;
     NSProgress *_progress;
-    NSError *_error;
     NSURLSessionDownloadTask *_task;
-    NSURL *_fileURL;
 }
 
 + (id)operationByRequesting:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)defaultURLSession;
-@property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) NSURLSessionDownloadTask *task; // @synthesize task=_task;
-@property(readonly, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(copy, nonatomic) CDUnknownBlockType downloadCompletionBlock; // @synthesize downloadCompletionBlock=_downloadCompletionBlock;
 @property(readonly, nonatomic) NSURLRequest *request; // @synthesize request=_request;

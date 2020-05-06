@@ -47,6 +47,7 @@
 - (id)shapeToUseForTextOnPathWithParentGroup:(id)arg1;
 @property(readonly, nonatomic) BOOL shouldUseBezierRepresentationForRendering;
 @property(readonly, nonatomic) struct CGRect capHeightBounds;
+- (BOOL)allowsShadowSpread;
 @property(readonly, nonatomic) struct CGPoint drawingPointForText;
 - (struct CGSize)textContainerSize;
 - (double)totalHeightOfFont:(id)arg1;

@@ -11,12 +11,14 @@
 @interface MSBaseArchiver : NSObject
 {
     BOOL _archiveObjectIDs;
+    BOOL _omitDefaultValues;
     NSMutableDictionary *_references;
 }
 
 + (id)archivedDataWithHeaderAndRootObject:(id)arg1;
 + (id)archivedDataWithRootObject:(id)arg1 error:(id *)arg2;
 @property(retain, nonatomic) NSMutableDictionary *references; // @synthesize references=_references;
+@property(nonatomic) BOOL omitDefaultValues; // @synthesize omitDefaultValues=_omitDefaultValues;
 @property(nonatomic) BOOL archiveObjectIDs; // @synthesize archiveObjectIDs=_archiveObjectIDs;
 - (void).cxx_destruct;
 - (void)encodeSize:(struct CGSize)arg1 forKey:(id)arg2;

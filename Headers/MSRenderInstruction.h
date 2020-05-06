@@ -6,40 +6,42 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutablePage, MSOverlayColorSettings, MSOverlayItemContainer, NSColorSpace, NSDictionary;
+#import <SketchRendering/NSCopying-Protocol.h>
+#import <SketchRendering/NSMutableCopying-Protocol.h>
+
+@class MSImmutableDocumentData, MSOverlayItemContainer, MSOverlaySettings, NSDictionary;
 @protocol MSRenderingContextCacheProvider;
 
-@interface MSRenderInstruction : NSObject
+@interface MSRenderInstruction : NSObject <NSCopying, NSMutableCopying>
 {
     MSImmutableDocumentData *_documentData;
-    MSImmutablePage *_page;
-    id <MSRenderingContextCacheProvider> _cacheProvider;
-    NSColorSpace *_colorSpace;
-    MSOverlayItemContainer *_overlayItemContainer;
-    unsigned long long _overlayRenderOptions;
-    MSOverlayColorSettings *_overlayColorSettings;
-    NSDictionary *_overlayItemImages;
     struct MSRenderingParameters _renderingParameters;
+    id <MSRenderingContextCacheProvider> _cacheProvider;
+    struct CGColorSpace *_colorSpace;
+    MSOverlayItemContainer *_overlayItemContainer;
+    unsigned long long _overlayOptions;
+    MSOverlaySettings *_overlaySettings;
+    NSDictionary *_overlayItemImages;
 }
 
 @property(readonly, copy, nonatomic) NSDictionary *overlayItemImages; // @synthesize overlayItemImages=_overlayItemImages;
-@property(readonly, copy, nonatomic) MSOverlayColorSettings *overlayColorSettings; // @synthesize overlayColorSettings=_overlayColorSettings;
-@property(readonly, nonatomic) unsigned long long overlayRenderOptions; // @synthesize overlayRenderOptions=_overlayRenderOptions;
-@property(readonly, copy, nonatomic) MSOverlayItemContainer *overlayItemContainer; // @synthesize overlayItemContainer=_overlayItemContainer;
-@property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(readonly, nonatomic) MSOverlayItemContainer *overlayItemContainer; // @synthesize overlayItemContainer=_overlayItemContainer;
+@property(readonly, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
+@property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
-@property(readonly, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL shouldDrawPixelated;
-- (id)instructionSettingColorSpace:(id)arg1 overlayColorSettings:(id)arg2;
-- (id)instructionSettingOverlayItemContainer:(id)arg1 itemImages:(id)arg2 renderOptions:(unsigned long long)arg3;
-- (id)instructionSettingRenderingParameters:(struct MSRenderingParameters *)arg1;
-- (id)instructionSettingDocumentData:(id)arg1 page:(id)arg2;
-- (id)initWithDocumentData:(id)arg1 page:(id)arg2 cacheProvider:(id)arg3 colorSpace:(id)arg4;
+- (BOOL)isEqualToRenderInstruction:(id)arg1;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
+- (id)mutableCopyWithZone:(struct _NSZone *)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
+- (id)asDictionary_;
+- (id)description;
+- (void)dealloc;
 - (id)init;
-- (id)initWithDocumentData:(id)arg1 page:(id)arg2 renderingParameters:(struct MSRenderingParameters *)arg3 cacheProvider:(id)arg4 colorSpace:(id)arg5 overlayColorSettings:(id)arg6 overlayRenderOptions:(unsigned long long)arg7 overlayItemContainer:(id)arg8 overlayItemImages:(id)arg9;
+- (id)initWithDocumentData:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 colorSpace:(struct CGColorSpace *)arg4;
 
 @end
 

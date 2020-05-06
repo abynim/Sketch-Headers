@@ -6,12 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer, NSOperationQueue;
+@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer;
 @protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
 
 @interface MSMetalRenderer : NSObject
 {
     BOOL _hasScissor;
+    BOOL _drawing;
     CAMetalLayer *_metalLayer;
     id <MTLCommandBuffer> _currentCommands;
     id <CAMetalDrawable> _currentDrawable;
@@ -32,14 +33,13 @@
     id <MTLBuffer> _textureVerticesBuffer;
     id <MTLBuffer> _textureIndexesBuffer;
     CDUnknownBlockType _drawCompletionHandler;
-    NSOperationQueue *_renderQueue;
     CDStruct_bf95b13b _scissorRect;
     struct _opaque_pthread_mutex_t _textureLock;
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
-@property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
+@property(getter=isDrawing) BOOL drawing; // @synthesize drawing=_drawing;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
 @property(retain, nonatomic) id <MTLBuffer> textureIndexesBuffer; // @synthesize textureIndexesBuffer=_textureIndexesBuffer;
 @property(retain, nonatomic) id <MTLBuffer> textureVerticesBuffer; // @synthesize textureVerticesBuffer=_textureVerticesBuffer;
@@ -66,16 +66,15 @@
 - (CDStruct_ffe6b7c1)maximumTextureSize;
 - (void)unlockTextures;
 - (void)lockTextures;
-- (BOOL)requiresSynchronousRendering;
 - (id)layer;
 - (id)createBufferWithBytes:(const void *)arg1 length:(unsigned long long)arg2 count:(unsigned long long)arg3;
 - (id)createTextureWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
 - (void)endFrameAndWaitForFrame:(BOOL)arg1;
-- (BOOL)beginFrameWithClearColor:(id)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (BOOL)beginFrameWithClearColor:(CDStruct_0b1c536a)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
 - (void)resetScissorRect;
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
 - (void)drawTextureVertexBuffer:(id)arg1 sourceTexture:(id)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
-- (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_818bb265 *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
+- (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_0b1c536a *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
 - (void)drawTexturedTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 sourceTexture:(id)arg3;
@@ -85,10 +84,8 @@
 - (id)ms_createStencilTextureForColorAttachment:(id)arg1;
 - (void)drawColorTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
 - (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
-- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_818bb265)arg2;
+- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_0b1c536a)arg2;
 - (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
-- (BOOL)isDrawing;
-- (void)scheduleDrawBlock:(CDUnknownBlockType)arg1 drawableSize:(struct CGSize)arg2;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
 

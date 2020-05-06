@@ -7,28 +7,36 @@
 #import <SketchModel/_MSImmutableDocumentData.h>
 
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
+#import <SketchModel/MSImmutableLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
 @class MSImmutablePage, NSArray, NSData, NSDictionary, NSSet, NSString;
 
-@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentDataProtocol>
+@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSDocumentDataProtocol, MSImmutableLayerContainer>
 {
     NSDictionary *_metadata;
     NSData *_textPreviewData;
     NSData *_textPreviewMetadata;
     NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
+    NSString *_sessionIdentifier;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (BOOL)persistsObjectID;
 + (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;
+@property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *layers;
+- (id)embeddedFontReferences;
+- (id)initAsCopyOf:(id)arg1 withPages:(id)arg2;
+- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 changedIndexes:(id)arg2;
+- (id)resolvedDocumentDataCopy;
 - (id)pagesAndArtboardsMetadata;
 @property(readonly, nonatomic) NSArray *allSymbols;
 @property(readonly, nonatomic) NSArray *localSymbols;
@@ -43,8 +51,8 @@
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
 - (id)layerStyleWithID:(id)arg1;
 - (id)textStyleWithID:(id)arg1;
-@property(readonly, nonatomic) NSArray *allLayerStyles;
-@property(readonly, nonatomic) NSArray *allTextStyles;
+- (id)allLayerStyles;
+- (id)allTextStyles;
 - (id)artboardWithID:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
