@@ -7,11 +7,12 @@
 #import <SketchModel/_MSImmutableLayerGroup.h>
 
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
+#import <SketchModel/MSImmutableLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerGroupProtocol-Protocol.h>
 
-@class NSArray;
+@class NSArray, NSString;
 
-@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroupProtocol>
+@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroupProtocol, MSImmutableLayerContainer>
 {
 }
 
@@ -19,6 +20,9 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 + (id)createDetachedGroupFromMaster:(id)arg1 forInstance:(id)arg2 inDocument:(id)arg3;
+- (id)initAsCopyOf:(id)arg1 withLayers:(id)arg2;
+- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
+- (id)resolvedUsingDocumentData:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
@@ -28,6 +32,7 @@
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (long long)booleanOperationForLayer:(id)arg1;
 - (id)pathCombiningChildrenByApplyingBlock:(CDUnknownBlockType)arg1;
+- (BOOL)allowsShadowSpread;
 - (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;
 - (BOOL)includeChildrenInCalculatingStyleSize;
@@ -65,7 +70,11 @@
 - (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) NSArray *layers;
+@property(readonly) Class superclass;
 
 @end
 

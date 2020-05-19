@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: lastDocumentData
-    // Error parsing type: , name: lastDocumentChangeIdentifier
 }
 
 - (void).cxx_destruct;

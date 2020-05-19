@@ -22,6 +22,7 @@
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL isPreviewDependentOnExpansionState;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 @property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;

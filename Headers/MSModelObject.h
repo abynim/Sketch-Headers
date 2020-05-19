@@ -9,7 +9,7 @@
 #import <SketchModel/MSModelObject-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, MSForeignObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
+@class MSDocumentData, MSForeignObject, MSImmutableModelObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
 {
@@ -34,11 +34,10 @@
 - (BOOL)matchesImmutable:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
 - (void)invalidateImmutableObjectAndAncestors;
-- (void)invalidateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-@property(readonly, nonatomic) id immutableModelObject;
+@property(readonly, nonatomic) MSImmutableModelObject *immutableModelObject;
 - (void)refaultAgainst:(id)arg1;
 - (void)fireFaultIfNecessary;
 - (void)fireFault;

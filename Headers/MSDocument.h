@@ -68,6 +68,9 @@
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
 + (id)currentDocument;
 + (id)windowForSheet;
++ (void)cleanCloudDirectories;
++ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
++ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (id)documentWithCloudShareID:(id)arg1;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
@@ -278,14 +281,14 @@
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
-- (void)cleanCloudDirectories;
-- (void)runAssistantsForDocumentAt:(id)arg1;
 - (BOOL)updateWorkspaceItemsAndReturnError:(id *)arg1;
-- (void)ensureSavedWithReason:(id)arg1 suppressionMessage:(id)arg2 suppressPreferenceKey:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
+- (void)runAssistants;
 - (id)duplicateAndReturnError:(id *)arg1;
+@property(readonly, nonatomic) BOOL needsUploading;
+@property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload;
 - (id)getUpdatedWorkspaceItems:(id *)arg1;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;

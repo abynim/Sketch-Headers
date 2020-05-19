@@ -76,9 +76,7 @@
 - (void)addAction:(id)arg1 toMenu:(id)arg2;
 - (id)titleForRemoveAllGuidesMenuItem;
 - (id)menuForEvent:(id)arg1;
-- (void)didMoveThroughHistory:(id)arg1;
-- (void)unregisterObservers;
-- (void)registerObservers;
+- (void)refresh;
 - (void)setFrame:(struct CGRect)arg1;
 - (id)guides;
 - (struct CGRect)occupiedRegion;
@@ -88,6 +86,7 @@
 - (void)calculateContentsScale;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)viewDidChangeBackingProperties;
+- (void)setupUI;
 - (void)awakeFromNib;
 
 @end

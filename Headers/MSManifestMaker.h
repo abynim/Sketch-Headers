@@ -38,10 +38,10 @@
 - (id)metadataForChildLayersInLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5 fixedByLayer:(id)arg6;
 - (id)metadataForLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5 fixedByLayer:(id)arg6;
 - (id)metadataForLayersInRootLayer:(id)arg1 ancestors:(id)arg2;
-- (id)filesMetadataForRootLayer:(id)arg1 onPage:(id)arg2 id:(id)arg3;
+- (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)formatAsInteger:(double)arg1;
-- (BOOL)shouldExportLayerGroup:(id)arg1;
+- (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (id)metadataAndExportForPages:(id)arg1;

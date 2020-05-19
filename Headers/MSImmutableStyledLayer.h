@@ -42,6 +42,7 @@
 - (BOOL)hasEnabledFill;
 @property(readonly, nonatomic) BOOL shadowsFollowRotation;
 - (BOOL)hasMarkers;
+@property(readonly, nonatomic) BOOL allowsShadowSpread;
 @property(readonly, nonatomic) BOOL allowsBlur;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)decoratedPathInBoundsInDocument:(id)arg1;

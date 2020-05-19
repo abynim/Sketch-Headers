@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSColor.h>
+#import <SketchModel/_MSImmutableSwatchContainer.h>
 
 @class NSArray;
 
-@interface NSColor (TreeAsDictionarySupport)
-- (id)treeAsDictionary;
-- (id)colorTranslatedToColorSpace:(id)arg1;
-@property(readonly, nonatomic) NSArray *manifestComponents;
+@interface MSImmutableSwatchContainer : _MSImmutableSwatchContainer
+{
+}
+
+@property(readonly, nonatomic) NSArray *colors;
+
 @end
 

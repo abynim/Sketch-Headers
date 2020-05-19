@@ -10,6 +10,7 @@
 
 @protocol MSLayerListLayerExtensions <BCOutlineViewNode>
 @property(nonatomic) long long layerListExpandedType;
+@property(readonly, nonatomic) BOOL isPreviewDependentOnExpansionState;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
 @property(readonly, nonatomic) BOOL isExportableViaDragAndDrop;
 @property(readonly, nonatomic) BOOL lockedOnCanvas;

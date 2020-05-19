@@ -15,13 +15,15 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+- (id)makeToolbarItemForToolbar:(BOOL)arg1;
+@property(nonatomic, readonly) SEL preferredMenuAction;
+- (void)assistantsToggle:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)togglePanel;
+- (void)doPerformAction:(id)arg1;
 - (void)validateToolbarItem;
 @property(nonatomic, readonly) BOOL mayShowInToolbar;
 @property(nonatomic, readonly) NSString *label;
-@property(nonatomic, readonly) BOOL hasSubMenu;
-- (id)submenuActionIDs;
-- (void)menuNeedsUpdate:(id)arg1;
-- (void)doPerformAction:(id)arg1;
 
 @end
 

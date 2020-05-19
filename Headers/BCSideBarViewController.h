@@ -95,6 +95,7 @@
 - (void)dealloc;
 - (id)initWithPageListDataSource:(id)arg1 delegate:(id)arg2 layerListDataSource:(id)arg3 delegate:(id)arg4;
 - (BOOL)isNodeExpanded:(id)arg1;
+- (BOOL)layerListOwnsDraggingSource:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

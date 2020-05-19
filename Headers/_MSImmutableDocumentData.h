@@ -6,16 +6,19 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
-@class MSImmutableAssetCollection, MSImmutablePatchInfo, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
+@class MSImmutableAssetCollection, MSImmutablePatchInfo, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSwatchContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
+    BOOL _agreedToFontEmbedding;
+    BOOL _autoEmbedFonts;
     unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
     MSImmutableAssetCollection *_assets;
     NSArray *_fontReferences;
     NSArray *_foreignLayerStyles;
+    NSArray *_foreignSwatches;
     NSArray *_foreignSymbols;
     NSArray *_foreignTextStyles;
     MSImmutableSharedStyleContainer *_layerStyles;
@@ -23,10 +26,12 @@
     MSImmutableSharedTextStyleContainer *_layerTextStyles;
     NSArray *_pages;
     MSImmutablePatchInfo *_patchInfo;
+    MSImmutableSwatchContainer *_sharedSwatches;
 }
 
 + (Class)mutableClass;
 + (id)defaultPageArray;
+@property(retain, nonatomic) MSImmutableSwatchContainer *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) MSImmutablePatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
@@ -34,17 +39,21 @@
 @property(retain, nonatomic) MSImmutableSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
 @property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
+@property(retain, nonatomic) NSArray *foreignSwatches; // @synthesize foreignSwatches=_foreignSwatches;
 @property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
 @property(retain, nonatomic) NSArray *fontReferences; // @synthesize fontReferences=_fontReferences;
 @property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) BOOL autoEmbedFonts; // @synthesize autoEmbedFonts=_autoEmbedFonts;
+@property(nonatomic) BOOL agreedToFontEmbedding; // @synthesize agreedToFontEmbedding=_agreedToFontEmbedding;
 - (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)pluginDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
+- (void)copyPropertiesFromObject:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

@@ -8,27 +8,23 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, CAMetalLayer, MSImmutableDocumentData, NSView;
+@class CALayer, CAMetalLayer, MSRenderInstruction, NSView;
 @protocol MSTiledRendererHostView;
 
 @interface MSEkranoplanRenderer : NSObject <MSTilingSystemProvider>
 {
-    BOOL hideOverlay;
     NSView<MSTiledRendererHostView> *hostView;
     CALayer *layer;
-    MSImmutableDocumentData *renderedDocument;
     CAMetalLayer *_metalLayer;
+    MSRenderInstruction *_renderedInstruction;
 }
 
+@property(copy) MSRenderInstruction *renderedInstruction; // @synthesize renderedInstruction=_renderedInstruction;
 @property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
-@property(readonly) MSImmutableDocumentData *renderedDocument; // @synthesize renderedDocument;
-@property(nonatomic) BOOL hideOverlay; // @synthesize hideOverlay;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer;
 - (BOOL)isDrawing;
-- (void)endFastZooming;
-- (void)beginFastZooming;
 - (void)updateContentWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 syncFirstFrame:(BOOL)arg2;
 

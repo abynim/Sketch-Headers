@@ -6,20 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutableLayerGroup, MSImmutableModelObject, NSArray;
+@class MSImmutableDocumentData, MSImmutableLayerGroup, MSModelObjectIndexPair, NSArray;
 @protocol MSWebExportableRootLayer;
 
 @interface MSSubtreeRoot : NSObject
 {
-    MSImmutableModelObject *_object;
+    MSModelObjectIndexPair *_object;
     NSArray *_ancestorsOfObject;
     MSImmutableDocumentData *_document;
 }
 
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSArray *ancestorsOfObject; // @synthesize ancestorsOfObject=_ancestorsOfObject;
-@property(retain, nonatomic) MSImmutableModelObject *object; // @synthesize object=_object;
+@property(retain, nonatomic) MSModelObjectIndexPair *object; // @synthesize object=_object;
 - (void).cxx_destruct;
+- (id)modelObjectAncestors;
 - (id)page;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSWebExportableRootLayer> *webExportableRootLayer;

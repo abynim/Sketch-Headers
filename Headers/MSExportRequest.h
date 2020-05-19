@@ -8,7 +8,7 @@
 
 #import <SketchRendering/NSCopying-Protocol.h>
 
-@class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString;
+@class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 
 @interface MSExportRequest : NSObject <NSCopying>
 {
@@ -23,8 +23,7 @@
     NSSet *_includedLayerIDs;
     double _scale;
     MSImmutableColor *_exportBackgroundColor;
-    MSImmutableLayer *_rootLayer;
-    MSImmutableDocumentData *_immutableDocument;
+    _TtC11SketchModel24MSImmutableLayerAncestry *_layerAncestry;
     NSString *_format;
     double _compression;
     struct CGRect _rect;
@@ -49,8 +48,7 @@
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
-@property(retain, nonatomic) MSImmutableDocumentData *immutableDocument; // @synthesize immutableDocument=_immutableDocument;
-@property(retain, nonatomic) MSImmutableLayer *rootLayer; // @synthesize rootLayer=_rootLayer;
+@property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *layerAncestry; // @synthesize layerAncestry=_layerAncestry;
 @property(copy, nonatomic) MSImmutableColor *exportBackgroundColor; // @synthesize exportBackgroundColor=_exportBackgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
@@ -60,10 +58,11 @@
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(readonly, nonatomic) MSImmutableDocumentData *immutableDocument;
+@property(readonly, nonatomic) MSImmutableLayer *rootLayer;
 - (id)init;
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
-- (void)setNameFromID:(id)arg1 exportFormat:(id)arg2;
 - (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end

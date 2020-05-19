@@ -26,6 +26,7 @@
 - (BOOL)documentCreationAllowed;
 - (id)typeForContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)cloudDocumentURLsInFolder:(id)arg1 shouldEnumerateSubDirectories:(BOOL)arg2;
+- (id)init;
 - (void)documentControllerWithDocController:(id)arg1 didReviewAll:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)reviewUnsavedDocumentsWithAlertTitle:(id)arg1 cancellable:(BOOL)arg2 delegate:(id)arg3 didReviewAllSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (BOOL)validateUserInterfaceItem:(id)arg1;

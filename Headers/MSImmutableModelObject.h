@@ -38,6 +38,7 @@
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 @property(readonly, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
+- (void)copyPropertiesFromObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithMutableModelObject:(id)arg1;

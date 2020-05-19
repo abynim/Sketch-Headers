@@ -56,7 +56,7 @@
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)invalidateModifiedSymbolCache;
-- (void)invalidateImmutableObject;
+- (void)invalidateImmutableObjectAndAncestors;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -6,9 +6,15 @@
 
 #import "_TtC6Sketch30AssistantResultsViewController.h"
 
-#import "NSTableViewDelegate-Protocol.h"
-
-@interface _TtC6Sketch30AssistantResultsViewController (Sketch) <NSTableViewDelegate>
-- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+@interface _TtC6Sketch30AssistantResultsViewController (Sketch)
+- (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
+- (void)outlineViewSelectionDidChange:(id)arg1;
+- (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
+- (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
+- (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
+- (id)outlineView:(id)arg1 objectValueForTableColumn:(id)arg2 byItem:(id)arg3;
+- (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
+- (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
+- (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
 @end
 

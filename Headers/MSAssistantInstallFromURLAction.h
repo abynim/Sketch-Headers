@@ -8,18 +8,17 @@
 
 @class NSString;
 
-@interface MSAssistantUninstallAction : MSDocumentAction
+@interface MSAssistantInstallFromURLAction : MSDocumentAction
 {
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
-- (BOOL)validateMenuItem:(id)arg1;
+@property(nonatomic, readonly) SEL preferredMenuAction;
+- (void)assistantInstallFromURL:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
-- (void)uninstallAssistant:(id)arg1;
-@property(nonatomic, readonly) BOOL hasSubMenu;
-- (void)menuNeedsUpdate:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 
 @end
 

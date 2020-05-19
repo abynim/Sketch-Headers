@@ -6,30 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class MSModelObjectCacheGeneration, MSOverlayColorSettings, NSColorSpace, NSSet;
+@class MSModelObjectCacheGeneration, MSOverlaySettings, NSColorSpace, NSSet;
 
 @interface MSRenderPassState : NSObject
 {
     void *_document;
     MSModelObjectCacheGeneration *_pageCacheGeneration;
     NSSet *_selectedLayerIDs;
-    unsigned long long _overlayRenderOptions;
     NSColorSpace *_canvasColorSpace;
-    MSOverlayColorSettings *_colors;
+    MSOverlaySettings *_overlaySettings;
     struct MSRenderingParameters _renderingParameters;
 }
 
-+ (id)stateWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 canvasColorSpace:(id)arg5 overlayColors:(id)arg6;
-@property(readonly, nonatomic) MSOverlayColorSettings *colors; // @synthesize colors=_colors;
++ (id)stateWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
+@property(readonly, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
-@property(readonly, nonatomic) unsigned long long overlayRenderOptions; // @synthesize overlayRenderOptions=_overlayRenderOptions;
 @property(readonly, copy, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(readonly, copy, nonatomic) MSModelObjectCacheGeneration *pageCacheGeneration; // @synthesize pageCacheGeneration=_pageCacheGeneration;
 @property(readonly, nonatomic) void *document; // @synthesize document=_document;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 - (void).cxx_destruct;
 - (unsigned long long)traitsDifferingFromState:(id)arg1;
-- (id)initWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 pageOverlayRenderOptions:(unsigned long long)arg4 canvasColorSpace:(id)arg5 overlayColors:(id)arg6;
+- (id)initWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
 
 @end
 

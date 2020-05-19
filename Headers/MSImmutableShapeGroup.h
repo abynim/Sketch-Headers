@@ -23,6 +23,7 @@
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)canSkipAdvancedClipForStrokes;
 - (id)defaultName;
+- (BOOL)allowsShadowSpread;
 - (BOOL)allowsBlur;
 @property(readonly, nonatomic) BOOL isPartOfClippingMask;
 @property(readonly, nonatomic) BOOL hasMarkers;

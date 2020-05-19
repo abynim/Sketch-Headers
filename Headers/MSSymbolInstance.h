@@ -19,16 +19,12 @@
 - (void)removeShareableObjectsFromOverrides:(id)arg1;
 - (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
-- (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (void)mapOverrides:(id)arg1 forOverridePoint:(id)arg2 symbols:(BOOL)arg3;
-- (void)mapExistingSymbolOverridesFrom:(id)arg1 forOverridePoint:(id)arg2;
 - (BOOL)shouldResizeRespectOwnLayoutDirection:(id)arg1;
 - (void)didResizeToFitContentsWithMaster:(id)arg1 oldRect:(struct CGRect)arg2;
 - (void)resizeToFitContentsIfNeededWithDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (void)resizeToFitContentsIfNeededNoCache;
 - (void)resizeToFitContentsIfNeeded;
-- (id)internalSetValue:(id)arg1 forOverridePointNamed:(id)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
-- (id)availableOverridesIn:(id)arg1 underPoint:(id)arg2;
+- (id)setValueWithoutMapping:(id)arg1 forOverridePointNamed:(id)arg2;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 @property(readonly, nonatomic) NSSet *influencingSymbolIDs;
 - (BOOL)canScale;
@@ -48,6 +44,7 @@
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedMaster;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
+- (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSDictionary *overrides;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;

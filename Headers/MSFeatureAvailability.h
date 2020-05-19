@@ -13,13 +13,11 @@
     // Error parsing type: , name: cloudLicensing
     // Error parsing type: , name: componentPaneListView
     // Error parsing type: , name: componentMenuTypeToSearch
-    // Error parsing type: , name: builtInRemoteLibraries
     // Error parsing type: , name: saveOmitsDefaultValues
     // Error parsing type: , name: maintainScrollPositionAfterClick
     // Error parsing type: , name: assistants
     // Error parsing type: , name: structuredData
     // Error parsing type: , name: sharedEditing
-    // Error parsing type: , name: tintingEnabled
     // Error parsing type: , name: colorVariables
     // Error parsing type: , name: embeddedFonts
     // Error parsing type: , name: undoUsingRefaulting
@@ -34,13 +32,11 @@
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *undoUsingRefaulting; // @synthesize undoUsingRefaulting;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *embeddedFonts; // @synthesize embeddedFonts;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *colorVariables; // @synthesize colorVariables;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *tintingEnabled; // @synthesize tintingEnabled;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sharedEditing; // @synthesize sharedEditing;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *structuredData; // @synthesize structuredData;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *assistants; // @synthesize assistants;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *saveOmitsDefaultValues; // @synthesize saveOmitsDefaultValues;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *builtInRemoteLibraries; // @synthesize builtInRemoteLibraries;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentMenuTypeToSearch; // @synthesize componentMenuTypeToSearch;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *componentPaneListView; // @synthesize componentPaneListView;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *cloudLicensing; // @synthesize cloudLicensing;

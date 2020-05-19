@@ -8,17 +8,18 @@
 
 @class NSString;
 
-@interface MSAssistantResultsAction : MSAction
+@interface MSAssistantInstallAction : MSAction
 {
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 @property(nonatomic, readonly) SEL preferredMenuAction;
-- (void)assistantToggleResultsPanel:(id)arg1;
-- (void)doPerformAction:(id)arg1;
+- (void)assistantInstall:(id)arg1;
+- (void)installFrom:(id)arg1 activateOn:(id)arg2;
+- (void)installFromDeepLink:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
-@property(nonatomic, readonly) BOOL hasDynamicTitle;
+- (void)doPerformAction:(id)arg1;
 
 @end
 

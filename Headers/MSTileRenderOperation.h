@@ -6,7 +6,7 @@
 
 #import <Foundation/NSOperation.h>
 
-@class MSOverlayColorSettings, MSTiledRenderer, NSArray, NSBitmapImageRep, NSColorSpace, NSOperationQueue;
+@class MSOverlaySettings, MSTiledRenderer, NSArray, NSBitmapImageRep, NSColorSpace, NSOperationQueue;
 @protocol MSRenderingContextCacheProvider;
 
 @interface MSTileRenderOperation : NSOperation
@@ -15,32 +15,26 @@
     BOOL _isFinished;
     NSBitmapImageRep *_renderedImage;
     NSArray *_renderPasses;
-    double _backingScaleFactor;
-    unsigned long long _pageOverlayRenderOptions;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     NSColorSpace *_canvasColorSpace;
     MSTiledRenderer *_renderer;
     NSOperationQueue *_renderPassQueue;
-    MSOverlayColorSettings *_colorSettings;
-    struct CGSize _pixelViewSize;
-    struct CGRect _visibleContentRect;
+    MSOverlaySettings *_overlaySettings;
+    struct MSRenderingParameters _renderingParameters;
 }
 
-+ (id)renderOperationWithPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pageOverlayRenderOptions:(unsigned long long)arg7 cacheProvider:(id)arg8 canvasColorSpace:(id)arg9 colorSettings:(id)arg10;
-+ (id)renderOperationWithRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pageOverlayRenderOptions:(unsigned long long)arg5 cacheProvider:(id)arg6 canvasColorSpace:(id)arg7 colorSettings:(id)arg8;
-+ (id)bitmapImageFromRenderPasses:(id)arg1 visibleContentRect:(struct CGRect)arg2 backingScaleFactor:(double)arg3 pixelViewSize:(struct CGSize)arg4 pageOverlayRenderOptions:(unsigned long long)arg5 cacheProvider:(id)arg6 canvasColorSpace:(id)arg7 colorSettings:(id)arg8;
-+ (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 visibleContentRect:(struct CGRect)arg3 backingScaleFactor:(double)arg4 pixelViewSize:(struct CGSize)arg5 zoomValue:(double)arg6 pageOverlayRenderOptions:(unsigned long long)arg7 cacheProvider:(id)arg8 canvasColorSpace:(id)arg9 colorSettings:(id)arg10;
++ (id)renderOperationWithPage:(id)arg1 inDocument:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 cacheProvider:(id)arg4 canvasColorSpace:(id)arg5 overlaySettings:(id)arg6;
++ (id)renderOperationWithRenderPasses:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
++ (id)bitmapImageFromRenderPasses:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
++ (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 cacheProvider:(id)arg4 canvasColorSpace:(id)arg5 overlaySettings:(id)arg6;
 @property BOOL isFinished; // @synthesize isFinished=_isFinished;
 @property BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
-@property(retain, nonatomic) MSOverlayColorSettings *colorSettings; // @synthesize colorSettings=_colorSettings;
+@property(retain, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
 @property(retain, nonatomic) NSOperationQueue *renderPassQueue; // @synthesize renderPassQueue=_renderPassQueue;
 @property(retain, nonatomic) MSTiledRenderer *renderer; // @synthesize renderer=_renderer;
 @property(retain, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
-@property(nonatomic) unsigned long long pageOverlayRenderOptions; // @synthesize pageOverlayRenderOptions=_pageOverlayRenderOptions;
-@property(nonatomic) struct CGSize pixelViewSize; // @synthesize pixelViewSize=_pixelViewSize;
-@property(nonatomic) double backingScaleFactor; // @synthesize backingScaleFactor=_backingScaleFactor;
-@property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
+@property(nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 @property(copy, nonatomic) NSArray *renderPasses; // @synthesize renderPasses=_renderPasses;
 @property(retain, nonatomic) NSBitmapImageRep *renderedImage; // @synthesize renderedImage=_renderedImage;
 - (void).cxx_destruct;

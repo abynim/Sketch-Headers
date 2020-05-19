@@ -6,17 +6,22 @@
 
 #import <SketchModel/MSModelObject.h>
 
+@class NSString;
+
 @interface _MSColor : MSModelObject
 {
     double _alpha;
     double _blue;
     double _green;
     double _red;
+    NSString *_swatchID;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_swatchID:(id)arg1;
 - (void)setRaw_red:(double)arg1;
 - (void)setRaw_green:(double)arg1;
 - (void)setRaw_blue:(double)arg1;
@@ -30,14 +35,11 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-- (void)setRed:(double)arg1;
-@property(readonly, nonatomic) double red; // @synthesize red=_red;
-- (void)setGreen:(double)arg1;
-@property(readonly, nonatomic) double green; // @synthesize green=_green;
-- (void)setBlue:(double)arg1;
-@property(readonly, nonatomic) double blue; // @synthesize blue=_blue;
-- (void)setAlpha:(double)arg1;
-@property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
+@property(retain, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
+@property(nonatomic) double red; // @synthesize red=_red;
+@property(nonatomic) double green; // @synthesize green=_green;
+@property(nonatomic) double blue; // @synthesize blue=_blue;
+@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

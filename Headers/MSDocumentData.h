@@ -7,12 +7,13 @@
 #import <SketchModel/_MSDocumentData.h>
 
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
+#import <SketchModel/MSLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
 @class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext;
 @protocol MSDocumentDataDelegate;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol, MSLayerContainer>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
@@ -24,10 +25,12 @@
     NSData *_textPreviewData;
     NSData *_textPreviewMetadata;
     MSFontList *_fontList;
+    NSString *_sessionIdentifier;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
+@property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
@@ -37,16 +40,21 @@
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *layers;
 - (void)refaultAgainst:(id)arg1;
 - (void)prepareForChangeProcessingWithDiff:(id)arg1;
 - (void)refreshOverlay;
 - (void)layerDidChangeStyle:(id)arg1;
 - (void)replaceExistingCreationMetadata;
+- (id)embeddedFontReferences;
 - (void)updateFontReferences:(id)arg1;
 - (id)libraryFontNamesFromReferences:(id)arg1;
-- (id)createFontReferencesForFamilyName:(id)arg1 referencesByFace:(id)arg2;
+- (id)createFontReferenceForPostscriptName:(id)arg1 familyName:(id)arg2;
+- (id)createFontReferencesForFamilyName:(id)arg1 currentReferences:(id)arg2 referencesByFace:(id)arg3;
 - (id)urlsForFacesOfFontFamily:(id)arg1;
 - (void)embedEligibleFontsInReferences:(id)arg1;
+- (id)swatchWithID:(id)arg1;
+- (id)allSwatches;
 - (void)updateForeignSymbolsPreservingOverridesInBlock:(CDUnknownBlockType)arg1;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
 - (id)images;

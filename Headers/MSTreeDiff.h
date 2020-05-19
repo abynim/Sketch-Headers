@@ -32,10 +32,8 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
 @property(readonly, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
 - (void).cxx_destruct;
+- (id)changedIndexesTree;
 @property(readonly, nonatomic) BOOL haveComponentsChanged;
-- (BOOL)haveComponentsChangedByBruteForce;
-- (BOOL)haveSharedTextStylesChanged;
-- (BOOL)haveSharedLayerStylesChanged;
 @property(readonly, nonatomic) BOOL haveSymbolInstancesChanged;
 @property(readonly, nonatomic) BOOL haveSymbolMastersChanged;
 @property(readonly, nonatomic) BOOL selectionHasChanged;
@@ -49,8 +47,8 @@
 - (void)buildPropertyTraitsIfNeeded;
 - (id)description;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
-- (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2;
-- (void)diffObject:(id)arg1 withObject:(id)arg2;
+- (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2 indexInParent:(unsigned long long)arg3;
+- (void)diffObject:(id)arg1 withObject:(id)arg2 indexInParent:(unsigned long long)arg3;
 - (void)diffObjects:(id)arg1 withObjects:(id)arg2;
 @property(readonly, nonatomic) NSArray *diffs;
 - (id)init;

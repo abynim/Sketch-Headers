@@ -6,13 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSTableView;
+@class NSOutlineView;
 
 @interface _TtC6Sketch30AssistantResultsViewController : NSViewController
 {
-    // Error parsing type: , name: resultTableView
-    // Error parsing type: , name: document
     // Error parsing type: , name: results
+    // Error parsing type: , name: resultOutlineView
+    // Error parsing type: , name: document
     // Error parsing type: , name: currentOverlayController
     // Error parsing type: , name: $__lazy_storage_$_assistantStoryboard
     // Error parsing type: , name: $__lazy_storage_$_noDocumentOverlayViewController
@@ -24,10 +24,8 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)dealloc;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)viewDidLoad;
-@property(nonatomic, retain) NSTableView *resultTableView; // @synthesize resultTableView;
+@property(nonatomic, retain) NSOutlineView *resultOutlineView; // @synthesize resultOutlineView;
 
 @end
 

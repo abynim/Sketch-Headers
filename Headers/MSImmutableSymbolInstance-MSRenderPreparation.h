@@ -6,8 +6,7 @@
 
 #import <SketchModel/MSImmutableSymbolInstance.h>
 
-@interface MSImmutableSymbolInstance (MasterForRendering)
-- (id)cachedModifiedSymbolForMaster:(id)arg1 inContext:(id)arg2;
+@interface MSImmutableSymbolInstance (MSRenderPreparation)
 - (void)prepareForRender:(id)arg1;
 @end
 

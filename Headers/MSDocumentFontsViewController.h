@@ -4,56 +4,48 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Chocolat/CHSheetController.h>
+#import <AppKit/NSViewController.h>
 
-#import "BCPopoverDelegate-Protocol.h"
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
-#import "NSWindowDelegate-Protocol.h"
 
-@class BCPopover, NSButton, NSMutableArray, NSString, NSTableView, NSTextField, NSViewController;
+@class MSDocument, NSArray, NSButton, NSString, NSTableView, NSTextField;
 
-@interface MSDocumentFontsSheet : CHSheetController <NSTableViewDataSource, NSTableViewDelegate, BCPopoverDelegate, NSWindowDelegate>
+@interface MSDocumentFontsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 {
+    MSDocument *_document;
     NSTableView *_tableView;
-    NSMutableArray *_fonts;
-    NSViewController *_viewController;
-    BCPopover *_popover;
     NSTextField *_headerTitleField;
     NSTextField *_headerMessageField;
     NSButton *_doneButton;
-    NSButton *_cancelButton;
     NSButton *_embedAllButton;
+    NSArray *_fonts;
 }
 
-+ (id)dontReplaceFontLabel;
+@property(copy, nonatomic) NSArray *fonts; // @synthesize fonts=_fonts;
 @property(nonatomic) __weak NSButton *embedAllButton; // @synthesize embedAllButton=_embedAllButton;
-@property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(nonatomic) __weak NSButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(nonatomic) __weak NSTextField *headerMessageField; // @synthesize headerMessageField=_headerMessageField;
 @property(nonatomic) __weak NSTextField *headerTitleField; // @synthesize headerTitleField=_headerTitleField;
-@property(nonatomic) __weak BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSViewController *viewController; // @synthesize viewController=_viewController;
-@property(retain, nonatomic) NSMutableArray *fonts; // @synthesize fonts=_fonts;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 - (void).cxx_destruct;
-- (BOOL)popoverShouldCauseExistingPopoversToClose:(id)arg1;
-- (BOOL)popoverShouldCloseWhenNewPopoverOpens:(id)arg1 newPopover:(id)arg2;
-- (BOOL)closePopover;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
+- (void)changeAutoEmbedSetting:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
-- (id)displayNameForSystemFontname:(id)arg1;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
-- (void)fontFamilyAction:(id)arg1;
-- (void)reloadFontWeightPopup:(id)arg1 familyName:(id)arg2 row:(long long)arg3;
-- (void)fontWeightAction:(id)arg1;
-- (void)changeFontFamilyTo:(id)arg1 forRow:(long long)arg2;
+- (void)applyPendingFontChanges;
+- (void)turnOffAutoEmbeddingIfEnabled;
+- (void)setEmbedded:(BOOL)arg1 forDocumentFont:(id)arg2;
+- (void)setShouldEmbed:(BOOL)arg1 forFontAtRow:(long long)arg2;
+- (void)replaceFontAtRow:(long long)arg1 withFont:(id)arg2;
 - (void)updateFonts;
-- (void)setObject:(id)arg1;
 - (void)systemFontsChanged:(id)arg1;
-- (void)windowDidLoad;
+- (void)prepareForSegue:(id)arg1 sender:(id)arg2;
+- (void)viewWillAppear;
+- (void)viewDidLoad;
 - (void)dealloc;
 
 // Remaining properties

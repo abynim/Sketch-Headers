@@ -12,7 +12,7 @@
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSAbsoluteRect, MSArtboardGroup, MSImmutableLayerAncestry, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString;
+@class MSAbsoluteRect, MSArtboardGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 @protocol MSLayerCoordinateSpace;
 
 @interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate>
@@ -68,7 +68,7 @@
 - (id)ancestors;
 - (id)parentSymbol;
 @property(readonly, nonatomic) MSArtboardGroup *parentArtboard;
-@property(readonly, nonatomic) MSImmutableLayerAncestry *ancestry;
+@property(readonly, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *ancestry;
 - (id)parentRoot;
 - (id)parentShape;
 @property(readonly, nonatomic) __weak MSPage *parentPage;
