@@ -4,25 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSImmutableModelObject.h>
+#import <SketchModel/MSImmutableForeignObject.h>
 
-@class NSString;
+@class MSImmutableSwatch, NSString;
 
-@interface _MSImmutableColor : MSImmutableModelObject
+@interface _MSImmutableForeignSwatch : MSImmutableForeignObject
 {
-    double _alpha;
-    double _blue;
-    double _green;
-    double _red;
-    NSString *_swatchID;
+    NSString *_remoteSwatchID;
+    MSImmutableSwatch *_localSwatch;
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
-@property(nonatomic) double red; // @synthesize red=_red;
-@property(nonatomic) double green; // @synthesize green=_green;
-@property(nonatomic) double blue; // @synthesize blue=_blue;
-@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+@property(retain, nonatomic) MSImmutableSwatch *localSwatch; // @synthesize localSwatch=_localSwatch;
+@property(retain, nonatomic) NSString *remoteSwatchID; // @synthesize remoteSwatchID=_remoteSwatchID;
 - (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

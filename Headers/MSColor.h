@@ -8,10 +8,11 @@
 
 #import <SketchModel/MSAsset-Protocol.h>
 #import <SketchModel/MSColorProtocol-Protocol.h>
+#import <SketchModel/MSSharedObjectInstance-Protocol.h>
 
 @class NSString;
 
-@interface MSColor : _MSColor <MSAsset, MSColorProtocol>
+@interface MSColor : _MSColor <MSAsset, MSColorProtocol, MSSharedObjectInstance>
 {
 }
 
@@ -36,6 +37,9 @@
 - (id)NSColorWithColorSpace:(id)arg1;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
+- (void)setSwatch:(id)arg1;
+- (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
+- (unsigned long long)type;
 - (id)initWithImmutableObject:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 - (BOOL)isAssetEqual:(id)arg1;
@@ -51,6 +55,7 @@
 @property(readonly, nonatomic) double green;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) NSString *swatchID;
 
 @end
 

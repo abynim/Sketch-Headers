@@ -41,7 +41,7 @@
 - (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;
 - (id)formatAsInteger:(double)arg1;
-- (BOOL)shouldExportLayerGroup:(id)arg1;
+- (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (id)metadataAndExportForPages:(id)arg1;

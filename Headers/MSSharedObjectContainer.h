@@ -18,7 +18,7 @@
 - (id)objectsReferencing:(id)arg1 inContainer:(id)arg2;
 - (void)removeSharedObject:(id)arg1;
 - (void)removeSharedObjects:(id)arg1;
-- (Class)sharedObjectClass;
+@property(readonly, nonatomic) Class sharedObjectClass;
 
 @end
 

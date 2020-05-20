@@ -6,8 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
+@class MSCanvasView;
+
 @protocol MSCanvasViewDelegate <NSObject>
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (void)canvasViewDidChangeEffectiveAppearance:(MSCanvasView *)arg1;
 @end
 

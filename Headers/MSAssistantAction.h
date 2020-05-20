@@ -17,9 +17,9 @@
 - (id)initWithDocument:(id)arg1;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 @property(nonatomic, readonly) SEL preferredMenuAction;
-- (void)assistantShowResults:(id)arg1;
+- (void)assistantsToggle:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (void)showResults;
+- (void)togglePanel;
 - (void)doPerformAction:(id)arg1;
 - (void)validateToolbarItem;
 @property(nonatomic, readonly) BOOL mayShowInToolbar;

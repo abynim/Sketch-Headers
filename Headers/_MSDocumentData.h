@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSModelObject.h>
 
-@class MSAssetCollection, MSPatchInfo, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray;
+@class MSAssetCollection, MSPatchInfo, MSSharedStyleContainer, MSSharedTextStyleContainer, MSSymbolContainer, NSArray, NSDictionary, NSMutableArray, _TtC11SketchModel17MSSwatchContainer;
 
 @interface _MSDocumentData : MSModelObject
 {
@@ -18,6 +18,7 @@
     MSAssetCollection *_assets;
     NSMutableArray *_fontReferences;
     NSMutableArray *_foreignLayerStyles;
+    NSMutableArray *_foreignSwatches;
     NSMutableArray *_foreignSymbols;
     NSMutableArray *_foreignTextStyles;
     MSSharedStyleContainer *_layerStyles;
@@ -25,6 +26,7 @@
     MSSharedTextStyleContainer *_layerTextStyles;
     NSMutableArray *_pages;
     MSPatchInfo *_patchInfo;
+    _TtC11SketchModel17MSSwatchContainer *_sharedSwatches;
 }
 
 + (BOOL)allowsFaulting;
@@ -82,6 +84,18 @@
 - (void)insertForeignSymbol:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)addForeignSymbols:(id)arg1;
 - (void)addForeignSymbol:(id)arg1;
+- (void)moveForeignSwatchFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllForeignSwatchs;
+- (void)removeForeignSwatchsAtIndexes:(id)arg1;
+- (void)removeForeignSwatchAtIndex:(unsigned long long)arg1;
+- (void)removeForeignSwatch:(id)arg1;
+- (void)insertForeignSwatchs:(id)arg1 afterForeignSwatch:(id)arg2;
+- (void)insertForeignSwatch:(id)arg1 afterForeignSwatch:(id)arg2;
+- (void)insertForeignSwatchs:(id)arg1 beforeForeignSwatch:(id)arg2;
+- (void)insertForeignSwatch:(id)arg1 beforeForeignSwatch:(id)arg2;
+- (void)insertForeignSwatch:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addForeignSwatchs:(id)arg1;
+- (void)addForeignSwatch:(id)arg1;
 - (void)moveForeignLayerStyleFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllForeignLayerStyles;
 - (void)removeForeignLayerStylesAtIndexes:(id)arg1;
@@ -109,6 +123,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(retain, nonatomic) _TtC11SketchModel17MSSwatchContainer *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) MSPatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
@@ -116,6 +131,7 @@
 @property(retain, nonatomic) MSSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
 @property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
+@property(retain, nonatomic) NSArray *foreignSwatches; // @synthesize foreignSwatches=_foreignSwatches;
 @property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
 @property(retain, nonatomic) NSArray *fontReferences; // @synthesize fontReferences=_fontReferences;
 @property(retain, nonatomic) MSAssetCollection *assets; // @synthesize assets=_assets;

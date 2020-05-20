@@ -18,13 +18,10 @@
     id <MSCloudUploadProvider> _upload;
     SCKAPIOperation *_refreshOperation;
     SCKProject *_projectToAssign;
-    long long _numberOfUploadAttemptsSinceLastSuccessfulUpload;
     CDUnknownBlockType _closeAlertUploadDidFinishHandler;
     NSTimer *_displayErrorSheetTimer;
 }
 
-+ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
-+ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (void)finishOpenCloudDocument:(id)arg1 displayingShare:(id)arg2 wasAlreadyOpen:(BOOL)arg3 withError:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 + (void)openCloudDocumentWithShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)openCloudDocumentWithApplicationURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -38,7 +35,6 @@
 + (BOOL)isErrorRecoverable:(id)arg1;
 @property(retain, nonatomic) NSTimer *displayErrorSheetTimer; // @synthesize displayErrorSheetTimer=_displayErrorSheetTimer;
 @property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
-@property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload; // @synthesize numberOfUploadAttemptsSinceLastSuccessfulUpload=_numberOfUploadAttemptsSinceLastSuccessfulUpload;
 @property(retain, nonatomic) SCKProject *projectToAssign; // @synthesize projectToAssign=_projectToAssign;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(readonly, nonatomic) id <MSCloudUploadProvider> upload; // @synthesize upload=_upload;
@@ -64,7 +60,6 @@
 @property(readonly, nonatomic) BOOL isCloudDocument;
 - (void)progressDidChangeNotification:(id)arg1;
 - (id)initWithDocument:(id)arg1;
-@property(readonly, nonatomic) BOOL needsUploading;
 - (void)authenticationDidChangeNotification:(id)arg1;
 - (void)setUpload:(id)arg1;
 - (void)attemptRecoveryFromError:(id)arg1 optionIndex:(unsigned long long)arg2 delegate:(id)arg3 didRecoverSelector:(SEL)arg4 contextInfo:(void *)arg5;

@@ -10,6 +10,7 @@
 {
 }
 
++ (id)metalSupportedGPU;
 + (id)macModel;
 + (id)currentOSVersion;
 

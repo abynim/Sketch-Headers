@@ -19,6 +19,7 @@
 @property(nonatomic) struct CGRect frame;
 @property(nonatomic, retain) MSCanvasView *contentView; // @synthesize contentView;
 @property(nonatomic, retain) MSDocument *document;
+- (void)refresh;
 - (void)prepareRulerViewLayer:(struct CGRect)arg1;
 - (void)viewDidMoveToWindow;
 - (void)awakeFromNib;

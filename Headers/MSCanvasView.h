@@ -11,7 +11,7 @@
 #import "MSOverlayItemDataSource-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSRenderInstruction, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSViewPort, MSZoomTool, NSNumberFormatter, NSObject, NSString, _TtC6Sketch18MSScrollRecognizer;
+@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSViewPort, MSZoomTool, NSNumberFormatter, NSObject, NSString, _TtC6Sketch18MSScrollRecognizer;
 @protocol MSCanvasViewDelegate, MSTilingSystemProvider;
 
 @interface MSCanvasView : NSView <MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
@@ -24,8 +24,8 @@
     id _eventMonitor;
     struct CGPoint _handToolOriginalPoint;
     struct CGPoint _handToolOriginalScrollOrigin;
-    BOOL _shouldHideOverlayControls;
     BOOL _didMouseDown;
+    BOOL _shouldDrawPixelated;
     BOOL _needsUpdateCursor;
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _magnifying;
@@ -43,6 +43,7 @@
     MSRenderingDriver *_driver;
     MSMouseTracker *_mouseTracker;
     unsigned long long _handToolState;
+    MSOverlaySettings *_overlaySettings;
     MSZoomTool *_zoomTool;
     NSNumberFormatter *_measurementLabelNumberFormatter;
     _TtC6Sketch18MSScrollRecognizer *_scrollRecognizer;
@@ -78,12 +79,13 @@
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(readonly, nonatomic) BOOL needsUpdateCursor; // @synthesize needsUpdateCursor=_needsUpdateCursor;
+@property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
+@property(copy, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
 @property(nonatomic) unsigned long long handToolState; // @synthesize handToolState=_handToolState;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(retain, nonatomic) MSRenderMonitor *pendingMonitor; // @synthesize pendingMonitor=_pendingMonitor;
-@property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
@@ -161,8 +163,8 @@
 - (void)mouseEntered:(id)arg1;
 - (void)_redrawContentImmediately:(BOOL)arg1;
 - (void)renderIfNeeded;
+- (unsigned long long)updateRenderInstructionIfNeeded;
 - (void)setNeedsRenderWithMask:(unsigned long long)arg1;
-- (void)applyCurrentOverlaySettingsToInstruction:(id)arg1;
 - (void)applyCurrentRenderingParametersToInstruction:(id)arg1;
 - (void)applyCurrentOverlayToInstruction:(id)arg1;
 @property(readonly, nonatomic) BOOL isReadyToRender;
@@ -198,14 +200,12 @@
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)flowItems:(unsigned long long)arg1;
-- (unsigned long long)overlayOptionsForPage:(id)arg1 zoom:(double)arg2 fullScreen:(BOOL)arg3 hideOverlay:(BOOL)arg4;
 - (void)scrollBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;
 - (void)displayLayer:(id)arg1;
 - (void)placeOriginInTopLeft;
 - (void)centerDocumentAndPlaceScrollOriginInTopLeft;
 - (void)centerInBounds;
-- (void)userDefaultsChanged:(id)arg1;
 - (void)prepare;
 - (void)viewDidChangeBackingProperties;
 - (long long)tag;
@@ -214,6 +214,7 @@
 - (void)setupDisplayLinkForWindow:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)viewDidMoveToWindow;
 - (void)removeObserversForNotifications;
 - (void)refreshAfterVisualSettingsChange;

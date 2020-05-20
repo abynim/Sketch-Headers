@@ -58,6 +58,7 @@
 @property(readonly, nonatomic) double green;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) NSString *swatchID;
 
 @end
 

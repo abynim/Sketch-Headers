@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
-@class MSImmutableAssetCollection, MSImmutablePatchInfo, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
+@class MSImmutableAssetCollection, MSImmutablePatchInfo, MSImmutableSharedStyleContainer, MSImmutableSharedTextStyleContainer, MSImmutableSwatchContainer, MSImmutableSymbolContainer, NSArray, NSDictionary;
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
@@ -18,6 +18,7 @@
     MSImmutableAssetCollection *_assets;
     NSArray *_fontReferences;
     NSArray *_foreignLayerStyles;
+    NSArray *_foreignSwatches;
     NSArray *_foreignSymbols;
     NSArray *_foreignTextStyles;
     MSImmutableSharedStyleContainer *_layerStyles;
@@ -25,10 +26,12 @@
     MSImmutableSharedTextStyleContainer *_layerTextStyles;
     NSArray *_pages;
     MSImmutablePatchInfo *_patchInfo;
+    MSImmutableSwatchContainer *_sharedSwatches;
 }
 
 + (Class)mutableClass;
 + (id)defaultPageArray;
+@property(retain, nonatomic) MSImmutableSwatchContainer *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) MSImmutablePatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(retain, nonatomic) MSImmutableSharedTextStyleContainer *layerTextStyles; // @synthesize layerTextStyles=_layerTextStyles;
@@ -36,6 +39,7 @@
 @property(retain, nonatomic) MSImmutableSharedStyleContainer *layerStyles; // @synthesize layerStyles=_layerStyles;
 @property(retain, nonatomic) NSArray *foreignTextStyles; // @synthesize foreignTextStyles=_foreignTextStyles;
 @property(retain, nonatomic) NSArray *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
+@property(retain, nonatomic) NSArray *foreignSwatches; // @synthesize foreignSwatches=_foreignSwatches;
 @property(retain, nonatomic) NSArray *foreignLayerStyles; // @synthesize foreignLayerStyles=_foreignLayerStyles;
 @property(retain, nonatomic) NSArray *fontReferences; // @synthesize fontReferences=_fontReferences;
 @property(retain, nonatomic) MSImmutableAssetCollection *assets; // @synthesize assets=_assets;

@@ -21,7 +21,7 @@
 @property(retain, nonatomic) id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
-- (BOOL)shouldExportLayerGroup:(id)arg1;
+- (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (BOOL)validate;
 - (BOOL)validateObjectID:(id)arg1;
 - (id)createManifest;

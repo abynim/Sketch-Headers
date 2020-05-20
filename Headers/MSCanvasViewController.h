@@ -12,6 +12,8 @@
 
 @interface MSCanvasViewController : NSViewController <MSCanvasViewDelegate>
 {
+    BOOL _shouldHideOverlayControls;
+    BOOL _observingDefaults;
     MSCanvasView *_canvasView;
     _TtC6Sketch24MSBidirectionalRulerView *_horizontalRuler;
     _TtC6Sketch24MSBidirectionalRulerView *_verticalRuler;
@@ -22,6 +24,9 @@
     MSDocument *_document;
 }
 
++ (id)overlayOptionsDefaultsKeys;
+@property(nonatomic, getter=isObservingDefaults) BOOL observingDefaults; // @synthesize observingDefaults=_observingDefaults;
+@property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSFlashController *flashController; // @synthesize flashController=_flashController;
 @property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
@@ -31,9 +36,21 @@
 @property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
 - (void).cxx_destruct;
-- (void)prepareForDealloc;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)endObservingDefaults;
+- (void)beginObservingDefaults;
+- (void)updateContentSettings;
+- (void)updateOverlaySettings;
+- (unsigned long long)currentOverlayOptions;
+- (void)canvasViewDidChangeEffectiveAppearance:(id)arg1;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (void)refreshRulers;
+- (void)prepareForDealloc;
+- (void)viewWillDisappear;
+- (void)viewDidAppear;
+- (void)viewDidLoad;
+- (void)dealloc;
 - (void)awakeFromNib;
 
 // Remaining properties

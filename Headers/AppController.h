@@ -27,7 +27,7 @@
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenu *_fileMenu;
     NSMenu *_viewMenu;
-    NSMenuItem *_assistantMenuItem;
+    NSMenuItem *_assistantsMenuItem;
     NSMenu *_insertMenu;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
@@ -80,7 +80,7 @@
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSMenu *insertMenu; // @synthesize insertMenu=_insertMenu;
-@property(retain, nonatomic) NSMenuItem *assistantMenuItem; // @synthesize assistantMenuItem=_assistantMenuItem;
+@property(retain, nonatomic) NSMenuItem *assistantsMenuItem; // @synthesize assistantsMenuItem=_assistantsMenuItem;
 @property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
@@ -153,8 +153,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
-- (void)updateAssistantMenuState:(BOOL)arg1;
-- (void)setupAssistantMenu;
+- (void)updateAssistantsMenuState:(BOOL)arg1;
+- (void)setupAssistantsMenu;
 - (void)setupMenuItems;
 - (id)init;
 - (unsigned long long)handleTerminationRequest:(id)arg1;

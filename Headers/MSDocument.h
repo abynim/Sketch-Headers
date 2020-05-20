@@ -69,6 +69,8 @@
 + (id)currentDocument;
 + (id)windowForSheet;
 + (void)cleanCloudDirectories;
++ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
++ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (id)documentWithCloudShareID:(id)arg1;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
@@ -285,6 +287,8 @@
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)runAssistants;
 - (id)duplicateAndReturnError:(id *)arg1;
+@property(readonly, nonatomic) BOOL needsUploading;
+@property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload;
 - (id)getUpdatedWorkspaceItems:(id *)arg1;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;

@@ -6,7 +6,10 @@
 
 #import <SketchModel/NSObject-Protocol.h>
 
+@class NSString;
+
 @protocol MSColorProtocol <NSObject>
+@property(retain, nonatomic) NSString *swatchID;
 @property(readonly, nonatomic) double red;
 @property(readonly, nonatomic) double green;
 @property(readonly, nonatomic) double blue;

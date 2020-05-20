@@ -53,6 +53,8 @@
 - (id)createFontReferencesForFamilyName:(id)arg1 currentReferences:(id)arg2 referencesByFace:(id)arg3;
 - (id)urlsForFacesOfFontFamily:(id)arg1;
 - (void)embedEligibleFontsInReferences:(id)arg1;
+- (id)swatchWithID:(id)arg1;
+- (id)allSwatches;
 - (void)updateForeignSymbolsPreservingOverridesInBlock:(CDUnknownBlockType)arg1;
 - (void)removeShareableObjectsFromInstanceOverrides:(id)arg1;
 - (id)images;

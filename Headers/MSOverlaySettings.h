@@ -6,16 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@interface MSOverlaySettings : NSObject
+#import <SketchRendering/NSCopying-Protocol.h>
+
+@interface MSOverlaySettings : NSObject <NSCopying>
 {
     struct CGColor *_colors[10];
     unsigned long long _layoutGridStyle;
     unsigned long long _options;
 }
 
++ (id)defaultsKeyPaths;
 + (id)settingsFromTheme:(id)arg1 options:(unsigned long long)arg2;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) unsigned long long layoutGridStyle; // @synthesize layoutGridStyle=_layoutGridStyle;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqualToSettings:(id)arg1;
 - (struct CGColor *)colorAtIndex:(unsigned long long)arg1;
 - (void)dealloc;

@@ -80,6 +80,7 @@
 - (void)startDraggingAtPoint:(struct CGPoint)arg1;
 - (void)layerDragged:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
+- (BOOL)isDraggingSourceSketchLayerList:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (id)siblingsOfSelectedShapePathLayers;
 - (id)overlayItemsForSelectedShapePathLayers;

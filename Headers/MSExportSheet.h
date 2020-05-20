@@ -34,7 +34,6 @@
 - (id)collectionView:(id)arg1 newItemForRepresentedObject:(id)arg2;
 - (void)resizeWindowToFit;
 - (void)includeAllCheckboxAction:(id)arg1;
-- (void)updateExportSheetItems:(BOOL)arg1;
 @property(readonly, nonatomic) long long slicesCheckBoxState;
 - (void)validateIncludeAllSlicesCheckBox;
 - (void)findConflictingNamesInSlices:(id)arg1;

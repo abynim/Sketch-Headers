@@ -4,28 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSModelObject.h>
+#import <SketchModel/MSSharedObjectContainer.h>
 
-@class NSString;
-
-@interface _MSColor : MSModelObject
+@interface _MSSwatchContainer : MSSharedObjectContainer
 {
-    double _alpha;
-    double _blue;
-    double _green;
-    double _red;
-    NSString *_swatchID;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
-- (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
-- (void)setRaw_swatchID:(id)arg1;
-- (void)setRaw_red:(double)arg1;
-- (void)setRaw_green:(double)arg1;
-- (void)setRaw_blue:(double)arg1;
-- (void)setRaw_alpha:(double)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -35,11 +22,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(retain, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
-@property(nonatomic) double red; // @synthesize red=_red;
-@property(nonatomic) double green; // @synthesize green=_green;
-@property(nonatomic) double blue; // @synthesize blue=_blue;
-@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
