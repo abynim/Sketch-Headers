@@ -40,6 +40,7 @@
 - (void)updateFillPropertyPopUp;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
+- (BOOL)isDisplayingTint;
 - (void)viewDidLoad;
 - (BOOL)buttonShouldShowBlendMode:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

@@ -27,6 +27,7 @@
 + (id)colorWithSVGString:(id)arg1;
 + (id)namedColor:(id)arg1;
 + (id)staticColorDictionary;
+- (void)setStroke;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @property(readonly, copy) NSString *debugDescription;
