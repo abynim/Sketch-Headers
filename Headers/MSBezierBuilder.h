@@ -19,12 +19,12 @@
 
 + (id)pathForSegmentAtIndex:(unsigned long long)arg1 inPath:(id)arg2 inRect:(struct CGRect)arg3;
 + (id)pathWithPoints:(id)arg1 inRect:(struct CGRect)arg2 shouldClose:(BOOL)arg3 pointRadiusBehaviour:(long long)arg4;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *filletCache; // @synthesize filletCache=_filletCache;
 @property(nonatomic) BOOL pathShouldClose; // @synthesize pathShouldClose=_pathShouldClose;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(readonly, nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
-- (void).cxx_destruct;
 - (void)addCurveFromPointAtIndex:(unsigned long long)arg1 toPointAtIndex:(unsigned long long)arg2 inArray:(id)arg3 inRect:(struct CGRect)arg4 includingTrailingArc:(BOOL)arg5 toCGPath:(struct CGPath *)arg6;
 - (void)addLineToPoint:(struct CGPoint)arg1 toCGPath:(struct CGPath *)arg2;
 - (id)filletAtIndex:(unsigned long long)arg1 inPointArray:(id)arg2 rect:(struct CGRect)arg3;

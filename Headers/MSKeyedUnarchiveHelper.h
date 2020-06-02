@@ -13,8 +13,8 @@
     MSKeyedUnarchiver *_unarchiver;
 }
 
-@property(nonatomic) __weak MSKeyedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSKeyedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
 
 @end
 

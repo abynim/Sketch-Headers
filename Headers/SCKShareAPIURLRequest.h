@@ -10,13 +10,13 @@
 {
 }
 
-+ (id)shareCancelUpdateRequestWithID:(struct NSString *)arg1;
-+ (id)shareDeletionRequestWithID:(struct NSString *)arg1;
++ (id)shareCancelUpdateRequestWithID:(id)arg1;
++ (id)shareDeletionRequestWithID:(id)arg1;
 + (id)shareUpdateRequestWithManifest:(id)arg1 existingShare:(id)arg2;
 + (id)shareCreationRequestWithManifest:(id)arg1;
 + (id)userSharesListRequest;
-+ (id)shareRequestWithShortID:(struct NSString *)arg1;
-+ (id)shareRequestWithID:(struct NSString *)arg1;
++ (id)shareRequestWithShortID:(id)arg1;
++ (id)shareRequestWithID:(id)arg1;
 + (id)baseURLForEnvironment:(id)arg1;
 - (Class)resultType;
 

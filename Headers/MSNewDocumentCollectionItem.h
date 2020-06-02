@@ -12,6 +12,7 @@
 
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)supportsRenaming;
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
 - (id)title;

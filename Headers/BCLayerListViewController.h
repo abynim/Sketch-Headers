@@ -14,10 +14,10 @@
 }
 
 + (id)itemForExpansionStateNotification:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) id currentlyExpandingItem; // @synthesize currentlyExpandingItem=_currentlyExpandingItem;
 @property(retain, nonatomic) id currentlyCollapsingItem; // @synthesize currentlyCollapsingItem=_currentlyCollapsingItem;
 @property(retain, nonatomic) id floatingGroupRowItemToScrollToAfterCollapse; // @synthesize floatingGroupRowItemToScrollToAfterCollapse=_floatingGroupRowItemToScrollToAfterCollapse;
-- (void).cxx_destruct;
 - (void)refreshHeightOfDependentRowsAfterExpansionStateOfGroupItem:(id)arg1 didChangeTo:(BOOL)arg2;
 - (long long)nextSiblingRowFromRow:(long long)arg1;
 - (void)noteExpansionTransitionState:(unsigned long long)arg1 forItem:(id)arg2;

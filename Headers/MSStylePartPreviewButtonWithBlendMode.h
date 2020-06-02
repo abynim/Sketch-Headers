@@ -17,10 +17,10 @@
 }
 
 + (id)toolTipForBlendModes:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *blendModeMenu; // @synthesize blendModeMenu=_blendModeMenu;
 @property(retain, nonatomic) NSButton *inlineBlendModeButton; // @synthesize inlineBlendModeButton=_inlineBlendModeButton;
 @property(retain, nonatomic) NSSet *blendModes; // @synthesize blendModes=_blendModes;
-- (void).cxx_destruct;
 - (BOOL)isEnabled;
 - (void)setEnabled:(BOOL)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

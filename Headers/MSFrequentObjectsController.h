@@ -19,10 +19,10 @@
 }
 
 + (id)menuItemAttributedTitleForTitle:(id)arg1 description:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *menu; // @synthesize menu=_menu;
 @property(nonatomic) __weak id <MSFrequentObjectsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *frequentObjects; // @synthesize frequentObjects=_frequentObjects;
-- (void).cxx_destruct;
 - (void)menuDidClose:(id)arg1;
 - (void)showMenuAtLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (void)refreshMenuItems:(id)arg1;

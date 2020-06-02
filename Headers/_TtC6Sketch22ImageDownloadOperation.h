@@ -8,7 +8,7 @@
 
 @interface _TtC6Sketch22ImageDownloadOperation : NSOperation
 {
-    // Error parsing type: , name: uncachedImageHandler
+    // Error parsing type: , name: _uncachedImageHandler
     // Error parsing type: , name: imageUrl
     // Error parsing type: , name: preferredSize
 }

@@ -20,9 +20,9 @@
 + (id)menuItemForColorCounter:(id)arg1 target:(id)arg2 action:(SEL)arg3 documentColorSpace:(id)arg4 colorModel:(long long)arg5;
 + (id)menuItemAttributedTitleForColorCounter:(id)arg1 colorModel:(long long)arg2;
 + (id)previewImageForColorCounter:(id)arg1 documentColorSpace:(id)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 - (void)frequentColorPicked:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshMenuItems:(id)arg1;

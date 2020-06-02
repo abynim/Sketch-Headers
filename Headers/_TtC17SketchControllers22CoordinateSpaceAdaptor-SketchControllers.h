@@ -6,9 +6,7 @@
 
 #import <SketchControllers/_TtC17SketchControllers22CoordinateSpaceAdaptor.h>
 
-#import <SketchControllers/MSLayerCoordinateSpace-Protocol.h>
-
-@interface _TtC17SketchControllers22CoordinateSpaceAdaptor (SketchControllers) <MSLayerCoordinateSpace>
+@interface _TtC17SketchControllers22CoordinateSpaceAdaptor (SketchControllers)
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;

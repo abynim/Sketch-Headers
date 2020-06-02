@@ -17,11 +17,11 @@
     id _dragOwner;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id dragOwner; // @synthesize dragOwner=_dragOwner;
 @property(nonatomic) __weak id <MSStylePartPreviewButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSStylePart *stylePart; // @synthesize stylePart=_stylePart;
-- (void).cxx_destruct;
 - (BOOL)isFlipped;
 - (struct CGRect)contentRect;
 - (void)drawButton;

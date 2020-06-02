@@ -18,13 +18,13 @@
     NSTrackingArea *_trackingArea;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSImageView *progressIndicatorBackground; // @synthesize progressIndicatorBackground=_progressIndicatorBackground;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(nonatomic) __weak MSDocumentsCollectionItem *collectionItem; // @synthesize collectionItem=_collectionItem;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
-- (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (void)updateTrackingAreas;
 - (void)mouseExited:(id)arg1;

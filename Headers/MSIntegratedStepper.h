@@ -17,12 +17,12 @@
     NSTimer *_initialSlowTimer;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL keepFiringTimer; // @synthesize keepFiringTimer=_keepFiringTimer;
 @property(retain, nonatomic) NSTimer *initialSlowTimer; // @synthesize initialSlowTimer=_initialSlowTimer;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
 @property(nonatomic) long long highlightMode; // @synthesize highlightMode=_highlightMode;
 @property(nonatomic) __weak MSUpDownController *target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (BOOL)isFlipped;
 - (void)drawRect:(struct CGRect)arg1;

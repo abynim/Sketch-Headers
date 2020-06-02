@@ -13,8 +13,8 @@
     NSButton *_editOriginButton;
 }
 
-@property(retain, nonatomic) NSButton *editOriginButton; // @synthesize editOriginButton=_editOriginButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *editOriginButton; // @synthesize editOriginButton=_editOriginButton;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)editZoomCenter:(id)arg1;
 - (void)updateDisplayedValues;

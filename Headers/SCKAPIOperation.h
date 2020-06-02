@@ -6,15 +6,17 @@
 
 #import <BCFoundation/BCURLOperation.h>
 
-@class NSError, NSObject, NSURLSessionDataTask;
-@protocol OS_dispatch_group, SCKAPIRequest;
+@class NSError, NSObject, NSURLSessionDataTask, _TtC14SketchCloudKit29SCKAPIOperationProgressHelper;
+@protocol OS_dispatch_group, SCKAPIOperationDelegate, SCKAPIRequest;
 
 @interface SCKAPIOperation : BCURLOperation
 {
+    id <SCKAPIOperationDelegate> _delegate;
     id <SCKAPIRequest> _request;
     NSError *_error;
     NSURLSessionDataTask *_task;
     NSObject<OS_dispatch_group> *_authRefreshGroup;
+    _TtC14SketchCloudKit29SCKAPIOperationProgressHelper *_progressHelper;
 }
 
 + (id)clientToken;
@@ -32,11 +34,13 @@
 + (id)requestShareWithShortID:(id)arg1 environment:(id)arg2 handler:(CDUnknownBlockType)arg3;
 + (id)requestUpdatedShare:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (id)requestShareWithObjectID:(id)arg1 environment:(id)arg2 handler:(CDUnknownBlockType)arg3;
+- (void).cxx_destruct;
+@property(retain, nonatomic) _TtC14SketchCloudKit29SCKAPIOperationProgressHelper *progressHelper; // @synthesize progressHelper=_progressHelper;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *authRefreshGroup; // @synthesize authRefreshGroup=_authRefreshGroup;
 @property(retain, nonatomic) NSURLSessionDataTask *task; // @synthesize task=_task;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) id <SCKAPIRequest> request; // @synthesize request=_request;
-- (void).cxx_destruct;
+@property(nonatomic) __weak id <SCKAPIOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)processData:(id)arg1 response:(id)arg2 error:(id)arg3;
 - (void)cancel;
 - (void)applicationWillTerminate:(id)arg1;

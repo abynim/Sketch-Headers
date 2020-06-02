@@ -16,10 +16,10 @@
 }
 
 + (id)errorWithCode:(unsigned long long)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) FMDatabaseQueue *db; // @synthesize db=_db;
 @property(retain, nonatomic) NSMutableDictionary *cachedMetadata; // @synthesize cachedMetadata=_cachedMetadata;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void).cxx_destruct;
 - (BOOL)checkDatabaseIsOpen:(id *)arg1;
 - (BOOL)readMetaData:(id *)arg1;
 - (BOOL)close:(id *)arg1;

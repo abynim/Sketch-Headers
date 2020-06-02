@@ -44,6 +44,7 @@
     struct CGPoint _currentPoint;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSAffineTransform *flippedTransform; // @synthesize flippedTransform=_flippedTransform;
 @property(retain, nonatomic) NSAffineTransform *transform; // @synthesize transform=_transform;
 @property(nonatomic) __weak MSPDFScanner *scanner; // @synthesize scanner=_scanner;
@@ -74,7 +75,6 @@
 @property(retain, nonatomic) NSColorSpace *borderColorSpace; // @synthesize borderColorSpace=_borderColorSpace;
 @property(retain, nonatomic) NSColor *borderColor; // @synthesize borderColor=_borderColor;
 @property(nonatomic) double borderAlphaConstant; // @synthesize borderAlphaConstant=_borderAlphaConstant;
-- (void).cxx_destruct;
 - (id)description;
 - (id)stringFromTransform:(id)arg1;
 - (id)transformedClippingPath;

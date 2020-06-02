@@ -17,11 +17,11 @@
 }
 
 + (id)textLayoutForLayoutManager:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) double firstLineCapOffset; // @synthesize firstLineCapOffset=_firstLineCapOffset;
 @property(readonly, nonatomic) struct CGRect lineFragmentBounds; // @synthesize lineFragmentBounds=_lineFragmentBounds;
 @property(readonly, copy, nonatomic) NSArray *lineFragmentRectangles; // @synthesize lineFragmentRectangles=_lineFragmentRectangles;
 @property(readonly, copy, nonatomic) NSArray *baselineOffsets; // @synthesize baselineOffsets=_baselineOffsets;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) double lastBaselineOffset;
 @property(readonly, nonatomic) double firstBaselineOffset;
 - (id)initWithBaselineOffsets:(id)arg1 firstLineCapOffset:(double)arg2 lineFragments:(id)arg3 lineFragmentBounds:(struct CGRect)arg4;

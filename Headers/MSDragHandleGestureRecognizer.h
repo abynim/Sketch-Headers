@@ -14,9 +14,9 @@
     struct CGPoint _originalHandleLocation;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) MSAlignmentEngineConstraint *lockingConstraint; // @synthesize lockingConstraint=_lockingConstraint;
 @property(nonatomic) struct CGPoint originalHandleLocation; // @synthesize originalHandleLocation=_originalHandleLocation;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) MSAlignmentEngineConstraint *effectiveLockingConstraint;
 - (void)reset;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

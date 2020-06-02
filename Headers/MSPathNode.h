@@ -17,10 +17,10 @@
 
 + (id)rootNodeFromPath:(id)arg1;
 + (id)pathNodeFromClipperNode:(struct ClipperGraphNode *)arg1 isFilled:(BOOL)arg2;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isFilled; // @synthesize isFilled=_isFilled;
 @property(readonly, copy, nonatomic) NSArray *children; // @synthesize children=_children;
 @property(readonly, nonatomic) MSPath *path; // @synthesize path=_path;
-- (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (id)collapsedPath;
 - (void)recursivelyAddChildPathsToChain:(id)arg1;

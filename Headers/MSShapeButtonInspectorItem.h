@@ -15,10 +15,10 @@
     NSButton *_closePathButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *closePathButton; // @synthesize closePathButton=_closePathButton;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
-- (void).cxx_destruct;
 - (void)finishEditingAction:(id)arg1;
 - (void)closePathAction:(id)arg1;
 - (void)updateDisplayedValues;

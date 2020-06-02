@@ -13,8 +13,8 @@
     NSImage *_artboardPreviewImage;
 }
 
-@property(retain, nonatomic) NSImage *artboardPreviewImage; // @synthesize artboardPreviewImage=_artboardPreviewImage;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *artboardPreviewImage; // @synthesize artboardPreviewImage=_artboardPreviewImage;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 

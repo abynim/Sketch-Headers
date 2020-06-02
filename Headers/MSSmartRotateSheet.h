@@ -14,9 +14,9 @@
     long long _numberOfCopies;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) long long numberOfCopies; // @synthesize numberOfCopies=_numberOfCopies;
 @property(retain, nonatomic) NSTextField *explanationLabel; // @synthesize explanationLabel=_explanationLabel;
-- (void).cxx_destruct;
 - (id)doc;
 - (void)setNilValueForKey:(id)arg1;
 - (void)confirm:(id)arg1;

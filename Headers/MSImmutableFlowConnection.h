@@ -16,7 +16,6 @@
 - (long long)flowTypeForTransitionFromParentLayer:(id)arg1 toArtboard:(id)arg2;
 - (BOOL)isValidFlowConnectionInDocumentData:(id)arg1;
 @property(readonly, nonatomic) BOOL isBackAction;
-- (id)lightweightCopyWithNewDestinationArtboard_Detach:(id)arg1;
 
 @end
 

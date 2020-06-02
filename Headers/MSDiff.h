@@ -14,9 +14,9 @@
     MSSubtreeRoot *_secondObjectRoot;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSSubtreeRoot *secondObjectRoot; // @synthesize secondObjectRoot=_secondObjectRoot;
 @property(retain, nonatomic) MSSubtreeRoot *firstObjectRoot; // @synthesize firstObjectRoot=_firstObjectRoot;
-- (void).cxx_destruct;
 - (id)description;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (id)init;

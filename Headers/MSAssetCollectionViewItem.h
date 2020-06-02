@@ -28,6 +28,7 @@
 }
 
 + (id)drawAssetViewBackgroundReturningContentPathInBounds:(struct CGRect)arg1 highlighted:(BOOL)arg2 scale:(double)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long itemSizeMode; // @synthesize itemSizeMode=_itemSizeMode;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(retain, nonatomic) NSLayoutConstraint *leadingPreviewConstraint; // @synthesize leadingPreviewConstraint=_leadingPreviewConstraint;
@@ -39,10 +40,10 @@
 @property(retain, nonatomic) NSArray *alternativeCollections; // @synthesize alternativeCollections=_alternativeCollections;
 @property(nonatomic) BOOL assetHighlighted; // @synthesize assetHighlighted=_assetHighlighted;
 @property(nonatomic) __weak id <MSAssetCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)commitNameEditing:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)rename:(id)arg1;
+- (void)edit:(id)arg1;
 - (void)moveToAssetCollection:(id)arg1;
 - (void)copyToAssetCollection:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

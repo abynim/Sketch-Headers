@@ -19,8 +19,8 @@
 + (id)emptyArray;
 + (id)arrayWithLayers:(id)arg1;
 + (id)arrayWithLayer:(id)arg1;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;

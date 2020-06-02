@@ -15,8 +15,8 @@
     NSArray *_views;
 }
 
-@property(retain, nonatomic) NSArray *views; // @synthesize views=_views;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *views; // @synthesize views=_views;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -15,10 +15,10 @@
     NSButton *_retryButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *retryButton; // @synthesize retryButton=_retryButton;
 @property(retain, nonatomic) SCKShare *existingShare; // @synthesize existingShare=_existingShare;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-- (void).cxx_destruct;
 - (void)retryUpload:(id)arg1;
 - (void)updateErrorDescription;
 - (void)viewDidLoad;

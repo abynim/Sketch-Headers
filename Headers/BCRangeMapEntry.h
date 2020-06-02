@@ -14,9 +14,9 @@
     struct _NSRange _range;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id <NSObject> object; // @synthesize object=_object;
 @property(readonly, nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (void).cxx_destruct;
 - (id)initWithObject:(id)arg1 range:(struct _NSRange)arg2;
 
 @end

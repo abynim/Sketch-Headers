@@ -14,9 +14,9 @@
     NSOperationQueue *_sketchToolSubprocessQueue;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSOperationQueue *sketchToolSubprocessQueue; // @synthesize sketchToolSubprocessQueue=_sketchToolSubprocessQueue;
 @property(readonly, nonatomic) NSURL *sketchToolURL; // @synthesize sketchToolURL=_sketchToolURL;
-- (void).cxx_destruct;
 - (void)exportPreviewImageForDocumentAtURL:(id)arg1 additionalArguments:(id)arg2 intoURL:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)initWithSketchToolURL:(id)arg1 maximumConcurrentOperations:(long long)arg2;
 

@@ -15,9 +15,9 @@
 }
 
 + (Class)cellClass;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL didChangeTextDuringEditing; // @synthesize didChangeTextDuringEditing=_didChangeTextDuringEditing;
 @property(retain, nonatomic) NSString *prefixString; // @synthesize prefixString=_prefixString;
-- (void).cxx_destruct;
 - (struct NSEdgeInsets)alignmentRectInsets;
 - (struct CGSize)intrinsicContentSize;
 - (BOOL)tryGivingUpFirstResponderToSketchDocument;

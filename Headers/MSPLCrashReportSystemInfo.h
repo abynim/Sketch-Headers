@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSString;
+@class MSPLCrashReportProcessorInfo, NSDate, NSString;
 
 @interface MSPLCrashReportSystemInfo : NSObject
 {
@@ -15,14 +15,17 @@
     NSString *_osBuild;
     int _architecture;
     NSDate *_timestamp;
+    MSPLCrashReportProcessorInfo *_processorInfo;
 }
 
+@property(readonly, nonatomic) MSPLCrashReportProcessorInfo *processorInfo; // @synthesize processorInfo=_processorInfo;
 @property(readonly, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(readonly, nonatomic) int architecture; // @synthesize architecture=_architecture;
 @property(readonly, nonatomic) NSString *operatingSystemBuild; // @synthesize operatingSystemBuild=_osBuild;
 @property(readonly, nonatomic) NSString *operatingSystemVersion; // @synthesize operatingSystemVersion=_osVersion;
 @property(readonly, nonatomic) int operatingSystem; // @synthesize operatingSystem=_operatingSystem;
 - (void)dealloc;
+- (id)initWithOperatingSystem:(int)arg1 operatingSystemVersion:(id)arg2 operatingSystemBuild:(id)arg3 architecture:(int)arg4 processorInfo:(id)arg5 timestamp:(id)arg6;
 - (id)initWithOperatingSystem:(int)arg1 operatingSystemVersion:(id)arg2 operatingSystemBuild:(id)arg3 architecture:(int)arg4 timestamp:(id)arg5;
 - (id)initWithOperatingSystem:(int)arg1 operatingSystemVersion:(id)arg2 architecture:(int)arg3 timestamp:(id)arg4;
 

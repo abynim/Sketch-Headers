@@ -17,11 +17,11 @@
     BCCache *_cachedChildrenOfNodesByFilterCacheGeneration;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *cachedChildrenOfNodesByFilterCacheGeneration; // @synthesize cachedChildrenOfNodesByFilterCacheGeneration=_cachedChildrenOfNodesByFilterCacheGeneration;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDelegate> *delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) id rootObject;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
 - (BOOL)isNodeHighlighted:(id)arg1;

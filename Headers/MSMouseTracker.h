@@ -18,12 +18,12 @@
     unsigned long long _modifierFlags;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long modifierFlags; // @synthesize modifierFlags=_modifierFlags;
 @property(nonatomic) __weak NSView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) unsigned long long trackingState; // @synthesize trackingState=_trackingState;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (void)sendAction;
 - (void)removeTrackingState:(unsigned long long)arg1;
 - (void)addTrackingState:(unsigned long long)arg1;

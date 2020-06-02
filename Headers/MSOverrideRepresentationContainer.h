@@ -14,8 +14,8 @@
 }
 
 + (id)rootRepresentationForSymbolInstance:(id)arg1;
-@property(retain, nonatomic) MSImmutableSymbolInstance *appliedInstance; // @synthesize appliedInstance=_appliedInstance;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSImmutableSymbolInstance *appliedInstance; // @synthesize appliedInstance=_appliedInstance;
 - (void)updateAfterSelectingChild;
 - (BOOL)isEditable;
 - (id)description;

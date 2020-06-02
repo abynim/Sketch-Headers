@@ -15,9 +15,9 @@
 }
 
 + (id)filterSelection:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long orientation; // @synthesize orientation=_orientation;
 @property(retain, nonatomic) NSSegmentedControl *orientationSegmentedControl; // @synthesize orientationSegmentedControl=_orientationSegmentedControl;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)refreshOrientationControl;
 - (void)updateUI;

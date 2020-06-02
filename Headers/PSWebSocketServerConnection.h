@@ -20,6 +20,7 @@
     PSWebSocketBuffer *_outputBuffer;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) PSWebSocketBuffer *outputBuffer; // @synthesize outputBuffer=_outputBuffer;
 @property(retain, nonatomic) PSWebSocketBuffer *inputBuffer; // @synthesize inputBuffer=_inputBuffer;
 @property(nonatomic) BOOL outputStreamOpenCompleted; // @synthesize outputStreamOpenCompleted=_outputStreamOpenCompleted;
@@ -28,7 +29,6 @@
 @property(retain, nonatomic) NSInputStream *inputStream; // @synthesize inputStream=_inputStream;
 @property(nonatomic) long long readyState; // @synthesize readyState=_readyState;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void).cxx_destruct;
 - (id)init;
 
 @end

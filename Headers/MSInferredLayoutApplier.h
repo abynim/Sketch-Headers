@@ -15,9 +15,9 @@
 }
 
 + (void)applyInferredLayoutRulesInGroup:(id)arg1 recordedState:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSLayerGroup *groupAfter; // @synthesize groupAfter=_groupAfter;
 @property(retain, nonatomic) MSImmutableLayerGroup *groupBefore; // @synthesize groupBefore=_groupBefore;
-- (void).cxx_destruct;
 - (BOOL)layer:(id)arg1 isPinnedMaxOnAxis:(unsigned long long)arg2;
 - (BOOL)layer:(id)arg1 isPinnedMinOnAxis:(unsigned long long)arg2;
 - (BOOL)layer:(id)arg1 isFixedOnAxis:(unsigned long long)arg2;

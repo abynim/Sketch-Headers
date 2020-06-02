@@ -14,8 +14,8 @@
 }
 
 + (id)dropDownArrowImage;
-@property(retain, nonatomic) NSMenu *popupMenu; // @synthesize popupMenu=_popupMenu;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMenu *popupMenu; // @synthesize popupMenu=_popupMenu;
 - (struct CGSize)intrinsicContentSize;
 - (void)resetCursorRects;
 - (void)mouseDown:(id)arg1;

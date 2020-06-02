@@ -17,12 +17,12 @@
     unsigned long long _pendingRetryAttempts;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long pendingRetryAttempts; // @synthesize pendingRetryAttempts=_pendingRetryAttempts;
 @property(readonly, nonatomic) NSArray *uploadURLs; // @synthesize uploadURLs=_uploadURLs;
 @property(readonly, nonatomic) unsigned long long partSize; // @synthesize partSize=_partSize;
 @property(readonly, nonatomic) NSString *uploadKey; // @synthesize uploadKey=_uploadKey;
 @property(readonly, nonatomic) NSString *uploadID; // @synthesize uploadID=_uploadID;
-- (void).cxx_destruct;
 - (id)uploadRequestCompletionBodyWithSize:(unsigned long long)arg1;
 - (id)initWithDictionary:(id)arg1;
 

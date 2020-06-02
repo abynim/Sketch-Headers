@@ -6,21 +6,17 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class MSImmutableDocumentData, NSSet, NSString, NSTimer;
+@class MSImmutableDocumentData, NSTimer;
 
 @interface MSCanvasUpdatingSheet : CHSheetController
 {
     MSImmutableDocumentData *_oldDocumentState;
     NSTimer *_operationTimer;
-    NSString *_selectedPageID;
-    NSSet *_selectedLayerIDs;
 }
 
-@property(copy, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
-@property(copy, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTimer *operationTimer; // @synthesize operationTimer=_operationTimer;
 @property(retain, nonatomic) MSImmutableDocumentData *oldDocumentState; // @synthesize oldDocumentState=_oldDocumentState;
-- (void).cxx_destruct;
 - (id)doc;
 - (void)restoreState;
 - (void)storeState;

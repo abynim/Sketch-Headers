@@ -20,6 +20,7 @@
     double _alignmentDistance;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) double alignmentDistance; // @synthesize alignmentDistance=_alignmentDistance;
 @property(copy, nonatomic) NSArray *copiedItems; // @synthesize copiedItems=_copiedItems;
 @property(copy, nonatomic) NSArray *originalDragPositions; // @synthesize originalDragPositions=_originalDragPositions;
@@ -28,7 +29,6 @@
 @property(readonly, nonatomic) NSNumber *alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
 @property(nonatomic) BOOL shouldInterpretAlignment; // @synthesize shouldInterpretAlignment=_shouldInterpretAlignment;
 @property(nonatomic) unsigned long long alignModifierMask; // @synthesize alignModifierMask=_alignModifierMask;
-- (void).cxx_destruct;
 @property(readonly, nonatomic, getter=isAligned) BOOL aligned;
 - (void)reset;
 - (void)setState:(long long)arg1;

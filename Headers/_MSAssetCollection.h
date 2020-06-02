@@ -21,6 +21,10 @@
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_imageCollection:(id)arg1;
+- (void)setRaw_gradientAssets:(id)arg1;
+- (void)setRaw_exportPresets:(id)arg1;
+- (void)setRaw_colorAssets:(id)arg1;
 - (void)setRaw_images:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

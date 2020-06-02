@@ -20,13 +20,13 @@
     struct CGRect _insertionRect;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSDragInsertionTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
 @property(retain, nonatomic) MSAlignmentEngineResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(readonly, nonatomic) MSAlignmentEngine *snapper; // @synthesize snapper=_snapper;
 @property(readonly, nonatomic) MSDragRectGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(nonatomic) struct CGRect insertionRect; // @synthesize insertionRect=_insertionRect;
-- (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)addTargetsToEngine:(id)arg1 snappingDisabled:(BOOL)arg2;
 - (struct CGPoint)alignmentEngine:(id)arg1 alignPoint:(struct CGPoint)arg2;

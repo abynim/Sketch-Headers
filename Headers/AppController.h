@@ -12,11 +12,12 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
+    BOOL _applicationHasFinishedLaunching;
     BOOL _sketchSafeModeOn;
     BOOL _needToInformUserPluginsAreDisabled;
     NSMenuItem *_pluginsMenuItem;
@@ -33,6 +34,7 @@
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
     MSDebouncer *_assistantRunScheduler;
+    SCKUserNotificationsController *_cloudNotificationsController;
     MSDataSupplierManager *_dataSupplierManager;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
@@ -49,14 +51,13 @@
     NSArray *_visualSettings;
     MSFontWatcher *_fontWatcher;
     id _lastRunPlugin;
-    SCKUserNotificationsController *_cloudNotificationsController;
 }
 
 + (id)licenseAlertDateComponentsFormatter;
 + (id)templateLibraryURL;
 + (id)sharedInstance;
 + (void)initialize;
-@property(retain, nonatomic) SCKUserNotificationsController *cloudNotificationsController; // @synthesize cloudNotificationsController=_cloudNotificationsController;
+- (void).cxx_destruct;
 @property(retain, nonatomic) id lastRunPlugin; // @synthesize lastRunPlugin=_lastRunPlugin;
 @property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
@@ -65,6 +66,7 @@
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
 @property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
+@property(nonatomic) BOOL applicationHasFinishedLaunching; // @synthesize applicationHasFinishedLaunching=_applicationHasFinishedLaunching;
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
@@ -75,6 +77,7 @@
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager; // @synthesize dataSupplierManager=_dataSupplierManager;
+@property(retain, nonatomic) SCKUserNotificationsController *cloudNotificationsController; // @synthesize cloudNotificationsController=_cloudNotificationsController;
 @property(retain, nonatomic) MSDebouncer *assistantRunScheduler; // @synthesize assistantRunScheduler=_assistantRunScheduler;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
@@ -89,7 +92,6 @@
 @property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
-- (void).cxx_destruct;
 - (void)applyAppearanceToAllWindows:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;
@@ -156,6 +158,8 @@
 - (void)updateAssistantsMenuState:(BOOL)arg1;
 - (void)setupAssistantsMenu;
 - (void)setupMenuItems;
+@property(readonly, nonatomic) BOOL shouldShowDocumentsWindowOnLaunch;
+@property(readonly, nonatomic) MSDocumentController *documentController;
 - (id)init;
 - (unsigned long long)handleTerminationRequest:(id)arg1;
 - (void)openDocumentAtPath:(id)arg1 withParameters:(id)arg2;

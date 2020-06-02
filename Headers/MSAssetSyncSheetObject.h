@@ -19,11 +19,11 @@
     MSModelObject<BCSortable><MSSharedObjectStyling> *_libraryMaster;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL shouldSync; // @synthesize shouldSync=_shouldSync;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *libraryMaster; // @synthesize libraryMaster=_libraryMaster;
 @property(retain, nonatomic) MSForeignObject *foreignObject; // @synthesize foreignObject=_foreignObject;
 @property(retain, nonatomic) MSAssetLibrary *library; // @synthesize library;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *tooltipForRemote;
 @property(readonly, nonatomic) NSString *tooltipForLocal;
 @property(readonly, nonatomic) NSString *displayName;

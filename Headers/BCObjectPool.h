@@ -16,9 +16,10 @@
     CDUnknownBlockType _creatorBlock;
 }
 
-@property(readonly, copy, nonatomic) CDUnknownBlockType creatorBlock; // @synthesize creatorBlock=_creatorBlock;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) CDUnknownBlockType creatorBlock; // @synthesize creatorBlock=_creatorBlock;
 @property unsigned long long maximumPoolCount;
+- (void)allObjectsWithBlock:(CDUnknownBlockType)arg1;
 - (id)removeAllObjects;
 - (void)recycleObject:(id)arg1;
 - (id)vendObject;

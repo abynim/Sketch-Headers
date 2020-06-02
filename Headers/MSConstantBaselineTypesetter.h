@@ -13,8 +13,8 @@
     BCRangeMap *_rangeMap;
 }
 
-@property(retain, nonatomic) BCRangeMap *rangeMap; // @synthesize rangeMap=_rangeMap;
 - (void).cxx_destruct;
+@property(retain, nonatomic) BCRangeMap *rangeMap; // @synthesize rangeMap=_rangeMap;
 - (void)setLineFragmentRect:(struct CGRect)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect)arg3 baselineOffset:(double)arg4;
 - (void)willSetLineFragmentRect:(struct CGRect *)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect *)arg3 baselineOffset:(double *)arg4;
 - (double)paragraphSpacingBeforeGlyphAtIndex:(unsigned long long)arg1 withProposedLineFragmentRect:(struct CGRect)arg2;

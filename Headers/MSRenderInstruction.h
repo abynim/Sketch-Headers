@@ -24,6 +24,7 @@
     NSDictionary *_overlayItemImages;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSDictionary *overlayItemImages; // @synthesize overlayItemImages=_overlayItemImages;
 @property(readonly, nonatomic) MSOverlayItemContainer *overlayItemContainer; // @synthesize overlayItemContainer=_overlayItemContainer;
 @property(readonly, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
@@ -31,7 +32,6 @@
 @property(readonly, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
-- (void).cxx_destruct;
 - (BOOL)isEqualToRenderInstruction:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned long long)hash;

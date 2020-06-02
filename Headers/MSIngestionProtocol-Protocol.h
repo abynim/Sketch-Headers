@@ -5,23 +5,13 @@
 //
 
 #import "MSEnable-Protocol.h"
-#import "MSIngestionCallDelegate-Protocol.h"
 #import "NSObject-Protocol.h"
 
-@class MS_Reachability, NSObject, NSString;
-@protocol MSIngestionDelegate;
+@class NSObject, NSString;
 
-@protocol MSIngestionProtocol <NSObject, MSIngestionCallDelegate, MSEnable>
+@protocol MSIngestionProtocol <NSObject, MSEnable>
 @property(readonly, nonatomic, getter=isReadyToSend) BOOL readyToSend;
-@property(nonatomic, getter=isPaused) BOOL paused;
-@property(retain, nonatomic) MS_Reachability *reachability;
-- (void)resume;
-- (void)pause;
-- (void)removeDelegate:(id <MSIngestionDelegate>)arg1;
-- (void)addDelegate:(id <MSIngestionDelegate>)arg1;
 - (void)sendAsync:(NSObject *)arg1 eTag:(NSString *)arg2 completionHandler:(void (^)(NSString *, NSHTTPURLResponse *, NSData *, NSError *))arg3;
-- (void)sendAsync:(NSObject *)arg1 eTag:(NSString *)arg2 authToken:(NSString *)arg3 completionHandler:(void (^)(NSString *, NSHTTPURLResponse *, NSData *, NSError *))arg4;
 - (void)sendAsync:(NSObject *)arg1 completionHandler:(void (^)(NSString *, NSHTTPURLResponse *, NSData *, NSError *))arg2;
-- (void)sendAsync:(NSObject *)arg1 authToken:(NSString *)arg2 completionHandler:(void (^)(NSString *, NSHTTPURLResponse *, NSData *, NSError *))arg3;
 @end
 

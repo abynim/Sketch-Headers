@@ -18,11 +18,11 @@
     MSColor *_replacementColor;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSColor *replacementColor; // @synthesize replacementColor=_replacementColor;
 @property(readonly, nonatomic) BOOL replaceAlphaOfOriginalColor; // @synthesize replaceAlphaOfOriginalColor=_replaceAlphaOfOriginalColor;
 @property(readonly, nonatomic) MSColor *originalColor; // @synthesize originalColor=_originalColor;
 @property(readonly, nonatomic) BOOL ignoreAlphaWhenMatchingOriginalColor; // @synthesize ignoreAlphaWhenMatchingOriginalColor=_ignoreAlphaWhenMatchingOriginalColor;
-- (void).cxx_destruct;
 - (id)initWithOriginalColor:(id)arg1 replacementColor:(id)arg2 ignoreAlphaWhenMatchingOriginalColor:(BOOL)arg3 replaceAlphaOfOriginalColor:(BOOL)arg4;
 
 // Remaining properties

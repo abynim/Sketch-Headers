@@ -16,8 +16,8 @@
 }
 
 + (id)keyPathsForValuesAffectingSelectedObjects;
-@property(copy, nonatomic) NSArray *content; // @synthesize content=_content;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *content; // @synthesize content=_content;
 - (void)remove:(id)arg1;
 - (void)changeCurveMode:(long long)arg1;
 - (id)currentCurveMode;

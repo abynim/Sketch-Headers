@@ -25,6 +25,7 @@
     NSTimer *_updateTimer;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL needsUpdateMetadata; // @synthesize needsUpdateMetadata=_needsUpdateMetadata;
 @property(retain, nonatomic) NSTimer *updateTimer; // @synthesize updateTimer=_updateTimer;
 @property(nonatomic) BOOL isAlreadyComparing; // @synthesize isAlreadyComparing=_isAlreadyComparing;
@@ -34,7 +35,6 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak SMKMirrorController *connectionController; // @synthesize connectionController=_connectionController;
-- (void).cxx_destruct;
 - (id)currentArtboard;
 @property(readonly, nonatomic) BOOL hasConnectedClients;
 - (void)lookupUpdateTypeWithHandler:(CDUnknownBlockType)arg1;

@@ -15,6 +15,9 @@
 - (id)cssClassNamesWithBase:(id)arg1;
 - (id)urlLink;
 - (id)localLink;
+- (BOOL)attributesCanBeSafelyMoved;
+- (id)attributesWithoutID;
+- (void)foldAwayRedundantGroups;
 - (id)simplifyAttributesIgnoringElements:(id)arg1 attributes:(id)arg2;
 - (void)removeAttributesMatchingParentIgnoringAttributes:(id)arg1;
 - (id)attributesWithStyleMergedDefaults:(id)arg1;

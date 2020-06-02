@@ -17,11 +17,11 @@
 }
 
 + (id)intersectionWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) double segment2Offset; // @synthesize segment2Offset=_segment2Offset;
 @property(readonly, nonatomic) double segment1Offset; // @synthesize segment1Offset=_segment1Offset;
 @property(readonly, nonatomic) MSBezierSegment *segment2; // @synthesize segment2=_segment2;
 @property(readonly, nonatomic) MSBezierSegment *segment1; // @synthesize segment1=_segment1;
-- (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (BOOL)isEqualToIntersection:(id)arg1;
 - (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4;

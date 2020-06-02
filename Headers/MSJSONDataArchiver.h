@@ -15,9 +15,9 @@
 }
 
 + (id)archiveStringWithRootObject:(id)arg1 error:(id *)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableData *archivedData; // @synthesize archivedData=_archivedData;
 @property(retain, nonatomic) BCJSONEncoder *dataEncoder; // @synthesize dataEncoder=_dataEncoder;
-- (void).cxx_destruct;
 - (void)archiveRootObject:(id)arg1;
 - (id)replacementObjectForObject:(id)arg1;
 - (id)archivedDataWithRootObject:(id)arg1 error:(id *)arg2;

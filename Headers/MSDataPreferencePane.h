@@ -31,6 +31,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSPredicate *dataFilterPredicate; // @synthesize dataFilterPredicate=_dataFilterPredicate;
 @property(retain, nonatomic) NSSearchField *filterTextField; // @synthesize filterTextField=_filterTextField;
 @property(retain, nonatomic) NSButton *spyglassFilterButton; // @synthesize spyglassFilterButton=_spyglassFilterButton;
@@ -42,7 +43,6 @@
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(retain, nonatomic) NSArrayController *dataArrayController; // @synthesize dataArrayController=_dataArrayController;
 @property(nonatomic) __weak MSDataTableView *tableView; // @synthesize tableView=_tableView;
-- (void).cxx_destruct;
 - (void)setSelectedIndexesFromSelectionIdentifierArray;
 - (void)setSelectionIdentifierArrayFromSelectionIndexes;
 - (void)didSwitchToPane;

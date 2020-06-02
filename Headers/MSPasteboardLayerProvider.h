@@ -15,9 +15,9 @@
 }
 
 + (id)providerForDictionary:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(readonly, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
-- (void).cxx_destruct;
 - (void)pasteboard:(id)arg1 provideDataForType:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 

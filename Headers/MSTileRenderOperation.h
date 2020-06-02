@@ -27,6 +27,7 @@
 + (id)renderOperationWithRenderPasses:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
 + (id)bitmapImageFromRenderPasses:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
 + (id)bitmapImageRenderForPage:(id)arg1 inDocument:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 cacheProvider:(id)arg4 canvasColorSpace:(id)arg5 overlaySettings:(id)arg6;
+- (void).cxx_destruct;
 @property BOOL isFinished; // @synthesize isFinished=_isFinished;
 @property BOOL isExecuting; // @synthesize isExecuting=_isExecuting;
 @property(retain, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
@@ -37,7 +38,6 @@
 @property(nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
 @property(copy, nonatomic) NSArray *renderPasses; // @synthesize renderPasses=_renderPasses;
 @property(retain, nonatomic) NSBitmapImageRep *renderedImage; // @synthesize renderedImage=_renderedImage;
-- (void).cxx_destruct;
 - (void)renderComplete:(id)arg1;
 - (void)start;
 - (void)renderNextPass:(id)arg1 image:(struct CGImage *)arg2;

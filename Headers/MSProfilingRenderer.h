@@ -19,11 +19,11 @@
     NSString *_label;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *label; // @synthesize label=_label;
 @property(readonly, nonatomic) BOOL isGroup; // @synthesize isGroup=_isGroup;
 @property(readonly, nonatomic) id <MSProfilingRendererDelegate> profilingDelegate; // @synthesize profilingDelegate=_profilingDelegate;
 @property(readonly, nonatomic) id <MSRenderer> baseRenderer; // @synthesize baseRenderer=_baseRenderer;
-- (void).cxx_destruct;
 - (void)forwardInvocation:(id)arg1;
 - (id)initWithBaseRenderer:(id)arg1 profilingDelegate:(id)arg2 isGroup:(BOOL)arg3 label:(id)arg4;
 

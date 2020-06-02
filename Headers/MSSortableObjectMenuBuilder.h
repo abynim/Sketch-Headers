@@ -17,8 +17,8 @@
     id <MSMenuBuilderDelegate> _delegate;
 }
 
-@property(readonly, nonatomic) __weak id <MSMenuBuilderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) __weak id <MSMenuBuilderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)applyStyleToMenuItem:(id)arg1;

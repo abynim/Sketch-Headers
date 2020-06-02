@@ -13,8 +13,8 @@
     NSColor *_flowColor;
 }
 
-@property(retain, nonatomic) NSColor *flowColor; // @synthesize flowColor=_flowColor;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSColor *flowColor; // @synthesize flowColor=_flowColor;
 - (id)createOverlayItemImagesForColorSpace:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)dealloc;
 - (id)init;

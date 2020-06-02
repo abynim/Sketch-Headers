@@ -29,6 +29,7 @@
 + (id)documentURLInDirectory:(id)arg1;
 + (void)exportArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
@@ -37,7 +38,6 @@
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
-- (void).cxx_destruct;
 - (id)cloudManifestMaker:(id)arg1 fileMetadataForAncestry:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;
 - (id)exportImageMetadataForRequest:(id)arg1 manifestScale:(double)arg2;

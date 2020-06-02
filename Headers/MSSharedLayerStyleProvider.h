@@ -11,7 +11,7 @@
 }
 
 - (BOOL)masterIsOutOfSyncWithInstance:(id)arg1;
-- (struct MSModelObject *)masterObjectForInstance:(id)arg1;
+- (id)masterObjectForInstance:(id)arg1;
 - (unsigned long long)objectType;
 - (id)foreignObjects;
 - (id)localObjectsForDocument:(id)arg1;

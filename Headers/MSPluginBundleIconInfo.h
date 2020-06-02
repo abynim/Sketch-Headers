@@ -14,9 +14,9 @@
     MSImageData *_imageWrapper;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSImageData *imageWrapper; // @synthesize imageWrapper=_imageWrapper;
 @property(retain, nonatomic) NSString *path; // @synthesize path=_path;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSFileWrapper *fileWrapper;
 @property(readonly, nonatomic) NSImage *image;
 - (id)initWithImage:(id)arg1;

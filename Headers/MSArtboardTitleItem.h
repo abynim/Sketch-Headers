@@ -12,20 +12,22 @@
 {
     BOOL _isFlowHome;
     BOOL _isSymbolMaster;
+    double _attributedTitleWidth;
     struct CGColor *_color;
     NSAttributedString *_attributedTitle;
     double _titleCompression;
     CDStruct_bf95b13b _bounds;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isSymbolMaster; // @synthesize isSymbolMaster=_isSymbolMaster;
 @property(nonatomic) double titleCompression; // @synthesize titleCompression=_titleCompression;
 @property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
 @property(retain, nonatomic) NSAttributedString *attributedTitle; // @synthesize attributedTitle=_attributedTitle;
 @property(nonatomic) struct CGColor *color; // @synthesize color=_color;
 @property(nonatomic) CDStruct_bf95b13b bounds; // @synthesize bounds=_bounds;
-- (void).cxx_destruct;
 - (BOOL)isEqualToItem:(id)arg1;
+@property(readonly, nonatomic) double attributedTitleWidth; // @synthesize attributedTitleWidth=_attributedTitleWidth;
 - (void)dealloc;
 
 @end

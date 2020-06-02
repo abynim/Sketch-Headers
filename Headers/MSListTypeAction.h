@@ -13,8 +13,8 @@
     NSString *_marker;
 }
 
-@property(readonly, nonatomic) NSString *marker; // @synthesize marker=_marker;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *marker; // @synthesize marker=_marker;
 - (BOOL)validateMenuItem:(id)arg1;
 - (id)selectedListMarkers;
 - (BOOL)isActive;

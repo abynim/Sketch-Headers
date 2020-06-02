@@ -15,8 +15,8 @@
     PDFParser *_parser;
 }
 
-@property(retain, nonatomic) PDFParser *parser; // @synthesize parser=_parser;
 - (void).cxx_destruct;
+@property(retain, nonatomic) PDFParser *parser; // @synthesize parser=_parser;
 - (void)debugConvertedFile:(id)arg1;
 - (id)name;
 - (void)parsePastedDocument;

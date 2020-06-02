@@ -16,10 +16,10 @@
     id <MSProfilingRendererDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id <MSProfilingRendererDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *traversalIndent; // @synthesize traversalIndent=_traversalIndent;
 @property(readonly, nonatomic) NSMutableString *traversalLog; // @synthesize traversalLog=_traversalLog;
-- (void).cxx_destruct;
 - (id)setupRendererMap;
 - (id)initWithDelegate:(id)arg1;
 

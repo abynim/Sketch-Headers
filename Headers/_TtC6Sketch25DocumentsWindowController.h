@@ -14,6 +14,8 @@
     // Error parsing type: , name: sourcesViewController
     // Error parsing type: , name: documentsViewController
     // Error parsing type: , name: cloudIntroViewController
+    // Error parsing type: , name: pendingUploads
+    // Error parsing type: , name: currentSource
 }
 
 + (void)clearRecentItemsCache;

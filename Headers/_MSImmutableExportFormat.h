@@ -19,13 +19,13 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(nonatomic) long long visibleScaleType; // @synthesize visibleScaleType=_visibleScaleType;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(nonatomic) long long namingScheme; // @synthesize namingScheme=_namingScheme;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *fileFormat; // @synthesize fileFormat=_fileFormat;
 @property(nonatomic) double absoluteSize; // @synthesize absoluteSize=_absoluteSize;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

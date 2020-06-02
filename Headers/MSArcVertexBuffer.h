@@ -6,19 +6,28 @@
 
 #import <objc/NSObject.h>
 
+@class MSMetalBuffer;
+
 @interface MSArcVertexBuffer : NSObject
 {
     const struct MSArcVertex *_verticies;
     const unsigned int *_indicies;
     unsigned long long _indexCount;
     unsigned long long _vertexCount;
+    MSMetalBuffer *_indexBuffer;
+    MSMetalBuffer *_vertexBuffer;
 }
 
 + (id)arcVertexBufferWithBuffers:(id)arg1;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) MSMetalBuffer *vertexBuffer; // @synthesize vertexBuffer=_vertexBuffer;
+@property(readonly, nonatomic) MSMetalBuffer *indexBuffer; // @synthesize indexBuffer=_indexBuffer;
 @property(readonly, nonatomic) unsigned long long vertexCount; // @synthesize vertexCount=_vertexCount;
 @property(readonly, nonatomic) unsigned long long indexCount; // @synthesize indexCount=_indexCount;
 @property(readonly, nonatomic) const unsigned int *indicies; // @synthesize indicies=_indicies;
 @property(readonly, nonatomic) const struct MSArcVertex *verticies; // @synthesize verticies=_verticies;
+- (id)indexBufferForRenderer:(id)arg1;
+- (id)vertexBufferForRenderer:(id)arg1;
 - (void)dealloc;
 @property(readonly, nonatomic) unsigned long long indiciesLength;
 @property(readonly, nonatomic) unsigned long long verticiesLength;

@@ -20,14 +20,14 @@
 }
 
 + (id)metadataForNewFile;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSData *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
 @property(retain, nonatomic) NSData *previewData; // @synthesize previewData=_previewData;
 @property(retain, nonatomic) MSJSONZippedArchiver *archiver; // @synthesize archiver=_archiver;
 @property(nonatomic) BOOL preserveMetadata; // @synthesize preserveMetadata=_preserveMetadata;
 @property(copy, nonatomic) CDUnknownBlockType previewGenerationBlock; // @synthesize previewGenerationBlock=_previewGenerationBlock;
-@property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
-@property(retain, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
-- (void).cxx_destruct;
+@property(copy, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
+@property(copy, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
 - (id)createTextPreviewMetadataForTextLayers:(id)arg1 pageMapping:(id)arg2;
 - (BOOL)archiveTextPreviewPDFDataForTextLayers:(id)arg1 documentData:(id)arg2 error:(id *)arg3;

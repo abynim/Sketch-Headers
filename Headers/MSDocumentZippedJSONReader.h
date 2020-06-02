@@ -19,11 +19,11 @@
 + (long long)maximumPixelSizeForImageSource:(struct CGImageSource *)arg1 maximumSize:(struct CGSize)arg2;
 + (long long)documentCompatibilityVersion;
 + (long long)documentVersion;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSJSONZippedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
 - (id)workspaceItems;
 - (id)metadata;
 - (id)UIMetadata;
-- (void).cxx_destruct;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
 - (id)previewBitmapImageRepWithSize:(struct CGSize)arg1;
 - (id)libraryPreviewImage;

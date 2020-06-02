@@ -21,12 +21,12 @@
     NSSearchField *_searchField;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSSearchField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) __weak NSTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) NSArray *currentFonts; // @synthesize currentFonts=_currentFonts;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
-- (void).cxx_destruct;
 - (id)tableView:(id)arg1 rowViewForRow:(long long)arg2;
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (void)controlTextDidChange:(id)arg1;

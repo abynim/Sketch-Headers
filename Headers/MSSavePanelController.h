@@ -44,6 +44,7 @@
 }
 
 + (id)saveSheetWithDocumentName:(id)arg1 allowDeletion:(BOOL)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL allowDocumentDeletion; // @synthesize allowDocumentDeletion=_allowDocumentDeletion;
 @property(retain, nonatomic) SCKAPIOperation *projectsRequest; // @synthesize projectsRequest=_projectsRequest;
 @property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
@@ -71,7 +72,6 @@
 @property(retain, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(nonatomic) long long destination; // @synthesize destination=_destination;
-- (void).cxx_destruct;
 - (void)selectDesktop:(id)arg1;
 - (id)dragTypes;
 - (BOOL)performDragOperation:(id)arg1;

@@ -31,6 +31,7 @@
     struct CGSize _selectionSize;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSColor *previouslySelectedColor; // @synthesize previouslySelectedColor=_previouslySelectedColor;
 @property(retain, nonatomic) NSTextField *fillLabel; // @synthesize fillLabel=_fillLabel;
 @property(retain, nonatomic) NSTextField *cropLabel; // @synthesize cropLabel=_cropLabel;
@@ -46,7 +47,6 @@
 @property(nonatomic) MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(nonatomic) struct CGSize selectionSize; // @synthesize selectionSize=_selectionSize;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;

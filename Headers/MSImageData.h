@@ -24,10 +24,10 @@
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BCReadWriteLock *imageLock; // @synthesize imageLock=_imageLock;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-- (void).cxx_destruct;
 - (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
 - (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 cache:(id)arg2 owner:(id)arg3;

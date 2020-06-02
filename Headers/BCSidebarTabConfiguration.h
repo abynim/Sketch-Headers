@@ -14,9 +14,9 @@
     CDUnknownBlockType _actionFilter;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) CDUnknownBlockType actionFilter; // @synthesize actionFilter=_actionFilter;
 @property(readonly, nonatomic) NSString *tabIdentifier; // @synthesize tabIdentifier=_tabIdentifier;
-- (void).cxx_destruct;
 - (BOOL)shouldShowAction:(SEL)arg1;
 - (id)initWithTabIdentifier:(id)arg1 actionFilter:(CDUnknownBlockType)arg2;
 

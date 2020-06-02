@@ -14,9 +14,9 @@
     NSEnumerator *_enumerator;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSEnumerator *enumerator; // @synthesize enumerator=_enumerator;
 @property(retain, nonatomic) NSArray *array; // @synthesize array=_array;
-- (void).cxx_destruct;
 - (id)allObjects;
 - (id)nextObject;
 - (id)initWithArray:(id)arg1;

@@ -13,8 +13,8 @@
     MSFlexibleColor *_color;
 }
 
-@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 - (void)drawAlphaGradient;

@@ -16,8 +16,8 @@
     NSObject<MSCoding> *_referencedObject;
 }
 
-@property(readonly, nonatomic) NSObject<MSCoding> *referencedObject; // @synthesize referencedObject=_referencedObject;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSObject<MSCoding> *referencedObject; // @synthesize referencedObject=_referencedObject;
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
 - (id)initWithReferenceObject:(id)arg1;

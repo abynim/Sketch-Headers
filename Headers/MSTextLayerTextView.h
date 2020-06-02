@@ -15,9 +15,9 @@
     id <MSTextLayerTextViewDelegate> _textLayerTextViewDelegate;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerTextViewDelegate> textLayerTextViewDelegate; // @synthesize textLayerTextViewDelegate=_textLayerTextViewDelegate;
 @property(nonatomic) __weak MSHangingGlyphView *hangingGlyphView; // @synthesize hangingGlyphView=_hangingGlyphView;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)makeTouchBar;

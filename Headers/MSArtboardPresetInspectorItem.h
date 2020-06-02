@@ -19,10 +19,10 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInspectorPopoverButton *presetButton; // @synthesize presetButton=_presetButton;
 @property(readonly, nonatomic) MSArtboardPresetStore *presetStore; // @synthesize presetStore=_presetStore;
 @property(retain, nonatomic) MSArtboardPresetsViewController *presetsViewController; // @synthesize presetsViewController=_presetsViewController;
-- (void).cxx_destruct;
 - (void)dismissAllPresentedViewControllers;
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;

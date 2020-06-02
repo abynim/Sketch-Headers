@@ -6,9 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSPasteboardWriting-Protocol.h"
-
-@interface _TtC6Sketch29ComponentListPasteboardWriter : NSObject <NSPasteboardWriting>
+@interface _TtC6Sketch29ComponentListPasteboardWriter : NSObject
 {
     // Error parsing type: , name: componentReference
     // Error parsing type: , name: groupPath

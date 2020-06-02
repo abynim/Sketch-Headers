@@ -27,8 +27,8 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 + (BOOL)persistsObjectID;
-@property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (BOOL)hasEnabledFill;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)maskingLayerForChild:(id)arg1;
@@ -75,13 +75,14 @@
 @property(readonly, nonatomic) BOOL shouldBeIncludedInParentPath;
 - (id)layerWithID:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
+@property(readonly, nonatomic) unsigned long long containedTraits;
 - (void)objectDidInit;
 - (void)dealloc;
 - (id)initWithMinimalSetup;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1;
-- (void)enumerateImmutableWithTraits:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 parentCreatorBlock:(CDUnknownBlockType)arg4 usingBlock:(CDUnknownBlockType)arg5;
+- (void)enumerateImmutableWithOptions:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 parentCreatorBlock:(CDUnknownBlockType)arg4 usingBlock:(CDUnknownBlockType)arg5;
 - (id)descendantsToLayerWithID:(id)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
@@ -99,8 +100,6 @@
 - (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
-- (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
-- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (BOOL)defaultOverrideVisibilityForPoint:(id)arg1 ancestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;

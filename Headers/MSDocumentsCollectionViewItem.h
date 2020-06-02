@@ -8,11 +8,12 @@
 
 #import "MSDocumentsCollectionViewSelectionDrawing-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
-@class MSDocumentProgressView, MSDocumentsCollectionItem, NSImageView, NSString, NSTextField;
+@class MSDocumentProgressView, MSDocumentsCollectionItem, MSDocumentsCollectionTextField, NSImageView, NSString, NSTextField;
 @protocol MSDocumentsCollectionViewItemDelegate;
 
-@interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
+@interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSTextFieldDelegate, NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
 {
     struct CGSize _designedImageViewSize;
     id <MSDocumentsCollectionViewItemDelegate> _delegate;
@@ -21,15 +22,17 @@
     NSTextField *_subtextField;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) id <MSDocumentsCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
+- (void)controlTextDidEndEditing:(id)arg1;
 - (BOOL)validateCloudMenuItem:(id)arg1;
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
+- (void)startEditing;
 - (void)fetchPreviewImage;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSDocumentsCollectionItem *collectionItem;
@@ -42,6 +45,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(retain, nonatomic) MSDocumentsCollectionTextField *textField; // @dynamic textField;
 
 @end
 

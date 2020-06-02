@@ -18,11 +18,11 @@
     NSArray *_artboards;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *artboards; // @synthesize artboards=_artboards;
 @property(readonly, nonatomic) unsigned long long order; // @synthesize order=_order;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 @property(readonly, nonatomic) SCKDocument *document;
 - (BOOL)isEqual:(id)arg1;

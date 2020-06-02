@@ -21,6 +21,7 @@
     struct CGRect _originalRect;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *originLabel; // @synthesize originLabel=_originLabel;
 @property(retain, nonatomic) NSView *originButtonsContainer; // @synthesize originButtonsContainer=_originButtonsContainer;
 @property(nonatomic) long long scalingOriginCorner; // @synthesize scalingOriginCorner=_scalingOriginCorner;
@@ -30,7 +31,6 @@
 @property(retain, nonatomic) NSTextField *scalingField; // @synthesize scalingField=_scalingField;
 @property(readonly, nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-- (void).cxx_destruct;
 - (id)historyMomentTitle;
 - (void)doPerformOperation;
 - (void)selectScalingOrigin:(id)arg1;

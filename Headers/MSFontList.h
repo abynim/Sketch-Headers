@@ -19,12 +19,12 @@
 }
 
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *filteredFontFamilyNames; // @synthesize filteredFontFamilyNames=_filteredFontFamilyNames;
 @property(retain, nonatomic) NSArray *allFontFamilyNames; // @synthesize allFontFamilyNames=_allFontFamilyNames;
 @property(retain, nonatomic) NSArray *systemFontFamilyNames; // @synthesize systemFontFamilyNames=_systemFontFamilyNames;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(copy, nonatomic) NSArray *documentFontFamilyNames; // @synthesize documentFontFamilyNames=_documentFontFamilyNames;
-- (void).cxx_destruct;
 - (void)prepareForDealloc;
 - (void)stopCachingFonts;
 - (void)dispatchStartCachingFonts;

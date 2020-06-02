@@ -16,11 +16,11 @@
     struct CGPoint _lastMouse;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGPoint lastMouse; // @synthesize lastMouse=_lastMouse;
 @property(nonatomic) BOOL isDragging; // @synthesize isDragging=_isDragging;
 @property(retain, nonatomic) MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
 @property(retain, nonatomic) MSShapePathLayer *shape; // @synthesize shape=_shape;
-- (void).cxx_destruct;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)addCurvePoint:(id)arg1;

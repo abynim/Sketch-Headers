@@ -28,6 +28,7 @@
     MSFlexibleColor *_flexibleColor;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL connectedToColorPanel; // @synthesize connectedToColorPanel=_connectedToColorPanel;
 @property(retain, nonatomic) MSFlexibleColor *flexibleColor; // @synthesize flexibleColor=_flexibleColor;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
@@ -38,7 +39,6 @@
 @property(retain, nonatomic) MSColorComponentsController *componentsController; // @synthesize componentsController=_componentsController;
 @property(nonatomic) __weak id <MSColorPickerViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCHSBColorPicker *colorPicker; // @synthesize colorPicker=_colorPicker;
-- (void).cxx_destruct;
 - (void)systemColorPanelDidChangeColor:(id)arg1;
 - (void)disconnectFromColorPanel;
 - (void)connectToColorPanel;

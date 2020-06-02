@@ -36,7 +36,17 @@
 + (id)localizedNewPageName;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_sharedSwatches:(id)arg1;
+- (void)setRaw_pages:(id)arg1;
+- (void)setRaw_layerTextStyles:(id)arg1;
+- (void)setRaw_layerSymbols:(id)arg1;
+- (void)setRaw_layerStyles:(id)arg1;
+- (void)setRaw_foreignTextStyles:(id)arg1;
+- (void)setRaw_foreignSymbols:(id)arg1;
+- (void)setRaw_foreignSwatches:(id)arg1;
+- (void)setRaw_foreignLayerStyles:(id)arg1;
 - (void)setRaw_fontReferences:(id)arg1;
+- (void)setRaw_assets:(id)arg1;
 - (void)setRaw_userInfo:(id)arg1;
 - (void)setRaw_currentPageIndex:(unsigned long long)arg1;
 - (void)setRaw_colorSpace:(unsigned long long)arg1;

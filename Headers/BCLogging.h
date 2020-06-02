@@ -10,6 +10,7 @@
 {
 }
 
++ (id)collaborationLog;
 + (id)poiLog;
 + (id)applicationLog;
 + (id)influenceRectLog;

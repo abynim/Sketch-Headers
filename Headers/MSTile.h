@@ -11,16 +11,19 @@
 @interface MSTile : NSObject
 {
     MSMetalTexture *_texture;
-    CDStruct_ffe6b7c1 _point;
+    struct {
+        int x;
+        int y;
+    } _point;
     CDStruct_bf95b13b _rectWithImageFragment;
 }
 
-@property(readonly, nonatomic) CDStruct_bf95b13b rectWithImageFragment; // @synthesize rectWithImageFragment=_rectWithImageFragment;
-@property(nonatomic) CDStruct_ffe6b7c1 point; // @synthesize point=_point;
-@property(retain, nonatomic) MSMetalTexture *texture; // @synthesize texture=_texture;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) CDStruct_bf95b13b rectWithImageFragment; // @synthesize rectWithImageFragment=_rectWithImageFragment;
+@property(nonatomic) CDStruct_1ef3fb1f point; // @synthesize point=_point;
+@property(retain, nonatomic) MSMetalTexture *texture; // @synthesize texture=_texture;
 - (void)replaceRegion:(CDStruct_bf95b13b)arg1 withBytes:(const void *)arg2 bytesPerRow:(unsigned long long)arg3;
-- (id)initWithRenderer:(id)arg1 point:(CDStruct_ffe6b7c1)arg2;
+- (id)initWithRenderer:(id)arg1 point:(CDStruct_1ef3fb1f)arg2;
 
 @end
 

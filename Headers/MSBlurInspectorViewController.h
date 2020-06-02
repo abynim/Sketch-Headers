@@ -23,6 +23,7 @@
     NSSet *_currentlyDisplayedBlurKinds;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *currentlyDisplayedBlurKinds; // @synthesize currentlyDisplayedBlurKinds=_currentlyDisplayedBlurKinds;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
 @property(retain, nonatomic) MSBackgroundBlurInspectorItem *backgroundBlurItem; // @synthesize backgroundBlurItem=_backgroundBlurItem;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) MSSeparatorlessView *paddingView; // @synthesize paddingView=_paddingView;
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
-- (void).cxx_destruct;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (id)disabledStylePartsButtonTooltip;
 - (id)addStylePartButonTooltip;

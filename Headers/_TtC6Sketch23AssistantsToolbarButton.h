@@ -8,11 +8,7 @@
 
 @interface _TtC6Sketch23AssistantsToolbarButton : NSButton
 {
-    // Error parsing type: , name: capsuleFont
-    // Error parsing type: , name: capsuleIconSize
-    // Error parsing type: , name: _capsuleTitle
-    // Error parsing type: , name: _capsuleImage
-    // Error parsing type: , name: capsuleColor
+    // Error parsing type: , name: capsule
 }
 
 - (void).cxx_destruct;

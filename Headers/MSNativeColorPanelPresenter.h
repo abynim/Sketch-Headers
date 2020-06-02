@@ -15,9 +15,9 @@
     NSView *_nextResponderView;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSView *nextResponderView; // @synthesize nextResponderView=_nextResponderView;
 @property(nonatomic) __weak id <MSNativeColorPanelPresenterDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)closeColorPanel;
 - (id)nextResponder;
 - (void)changeColor:(id)arg1;

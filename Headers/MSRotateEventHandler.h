@@ -27,6 +27,7 @@
 }
 
 + (id)cursorForDegrees:(long long)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _TtC6Sketch34MSRotationCenterPointPlacementTool *centerPointTool; // @synthesize centerPointTool=_centerPointTool;
 @property(nonatomic) unsigned long long draggedComponent; // @synthesize draggedComponent=_draggedComponent;
 @property(readonly, nonatomic) MSRotationGestureInterpreter *dragRotationInterpreter; // @synthesize dragRotationInterpreter=_dragRotationInterpreter;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
 @property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
-- (void).cxx_destruct;
 - (id)documentForRotationBar:(id)arg1;
 - (void)refreshTouchBarItemWithIdentifier:(id)arg1;
 - (void)rotationBarAction:(id)arg1;
@@ -49,11 +49,13 @@
 - (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)dragLayer:(id)arg1;
+- (void)updateAnchorPoint;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)trackMouse:(id)arg1;
 - (void)dragCenterPoint:(id)arg1;
 - (void)handleDrag:(id)arg1;
 - (void)handleRotation:(id)arg1;
+- (void)documentDidChange:(id)arg1;
 - (unsigned long long)componentAtPoint:(struct CGPoint)arg1;
 - (struct CGPoint)rotationCenterPointForAnchorPoint:(struct CGPoint)arg1 layer:(id)arg2;
 - (void)setRotationCenterPoint:(struct CGPoint)arg1 updateAnchorPoints:(BOOL)arg2;

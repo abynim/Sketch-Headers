@@ -25,6 +25,7 @@
 
 + (id)URLForApplicationSupportLibraryNamed:(id)arg1;
 + (id)assetLibraryFolder;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *teamName; // @synthesize teamName=_teamName;
 @property(nonatomic) BOOL isCloudLibrary; // @synthesize isCloudLibrary=_isCloudLibrary;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
@@ -36,7 +37,6 @@
 @property(copy, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(retain, nonatomic) NSString *libraryVersion; // @synthesize libraryVersion=_libraryVersion;
 @property(retain, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
-- (void).cxx_destruct;
 - (void)updateLibraryID:(id)arg1;
 - (void)assetLibraryUpdated;
 - (id)name;

@@ -15,10 +15,10 @@
     MSRenderingDriver *_driver;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(copy, nonatomic) CDUnknownBlockType sliceCompletionBlock; // @synthesize sliceCompletionBlock=_sliceCompletionBlock;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
-- (void).cxx_destruct;
 - (id)savePanelWithDefaultFilename:(id)arg1;
 - (void)showSavePanelToExportIndividualSlice:(id)arg1;
 - (id)openPanelForRequests:(id)arg1;

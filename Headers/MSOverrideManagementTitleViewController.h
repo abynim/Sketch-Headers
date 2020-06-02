@@ -16,9 +16,9 @@
     NSString *_overrideName;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
 @property(retain, nonatomic) MSThemeImageView *previewView; // @synthesize previewView=_previewView;
-- (void).cxx_destruct;
 - (id)imageForThemeImageView:(id)arg1;
 - (id)contextMenuForCurrentItem;
 - (void)setManagementItem:(id)arg1;

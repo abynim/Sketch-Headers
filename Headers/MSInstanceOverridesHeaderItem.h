@@ -15,10 +15,10 @@
     NSButton *_trash;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *trash; // @synthesize trash=_trash;
 @property(retain, nonatomic) NSButton *refreshDataButton; // @synthesize refreshDataButton=_refreshDataButton;
 @property(retain, nonatomic) NSButton *sizeToFitButton; // @synthesize sizeToFitButton=_sizeToFitButton;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)refreshDataButton:(id)arg1;
 - (void)sizeToFitAction:(id)arg1;

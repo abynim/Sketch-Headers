@@ -16,8 +16,8 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
-@property(retain, nonatomic) NSSet *clipping; // @synthesize clipping=_clipping;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSSet *clipping; // @synthesize clipping=_clipping;
 - (void)primitiveRemoveClippingObject:(id)arg1;
 - (void)primitiveAddClippingObject:(id)arg1;
 - (void)removeClippingObject:(id)arg1;

@@ -13,8 +13,8 @@
     NSMutableDictionary *_layerStylePreviews;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *layerStylePreviews; // @synthesize layerStylePreviews=_layerStylePreviews;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *layerStylePreviews; // @synthesize layerStylePreviews=_layerStylePreviews;
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (void)generateSymbolPreviews;
 - (void)awakeFromNib;

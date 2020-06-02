@@ -24,13 +24,12 @@
     MSStyleInspectorSection *_styleSection;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSStyleInspectorSection *styleSection; // @synthesize styleSection=_styleSection;
 @property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 @property(readonly, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 @property(readonly, nonatomic) MSVectorOverlayController *overlayController; // @synthesize overlayController=_overlayController;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
-- (void)vectorOverlayControllerDidEditPoints:(id)arg1;
 - (void)vectorOverlayController:(id)arg1 didSelectLayers:(id)arg2;
 - (void)vectorOverlayControllerDidFinishInteractiveSelection:(id)arg1;
 - (void)vectorOverlayController:(id)arg1 didDeselectHandles:(id)arg2;
@@ -40,7 +39,8 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)performPathControllerUpdate:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL ignorePathController;
-- (void)refreshCloseOrOpenPathUI;
+- (void)selectionDidChangeTo:(id)arg1;
+- (void)documentDidChange:(id)arg1;
 - (void)pathDidOpenOrClose;
 - (id)makeTouchBar;
 @property(readonly, nonatomic) MSEditShapeInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
@@ -50,7 +50,6 @@
 - (id)toolbarIdentifier;
 - (void)changeColor:(id)arg1;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
-- (void)didMoveThroughHistory:(id)arg1;
 - (void)delete:(id)arg1;
 - (long long)curveModeForPressedKey:(long long)arg1;
 - (void)flagsChanged:(id)arg1;
@@ -78,6 +77,7 @@
 - (void)layerListSelectionDidChange:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
+- (void)selectBestEditPoint;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
 

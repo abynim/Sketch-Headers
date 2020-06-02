@@ -50,7 +50,7 @@
 - (id)addChannelUnitWithConfiguration:(id)arg1 withIngestion:(id)arg2;
 - (id)addChannelUnitWithConfiguration:(id)arg1;
 - (id)initWithIngestion:(id)arg1;
-- (id)initWithInstallId:(id)arg1 logUrl:(id)arg2;
+- (id)initWithHttpClient:(id)arg1 installId:(id)arg2 logUrl:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

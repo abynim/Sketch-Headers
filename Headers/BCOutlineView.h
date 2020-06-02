@@ -21,6 +21,7 @@
     long long _floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) long long floatingRowToTakeIntoAccountWhenProcessingMouseEvent; // @synthesize floatingRowToTakeIntoAccountWhenProcessingMouseEvent=_floatingRowToTakeIntoAccountWhenProcessingMouseEvent;
 @property(nonatomic) SEL disclosureButtonAction; // @synthesize disclosureButtonAction=_disclosureButtonAction;
 @property(nonatomic) BOOL useHighlightedBackgroundColor; // @synthesize useHighlightedBackgroundColor=_useHighlightedBackgroundColor;
@@ -29,7 +30,6 @@
 @property(nonatomic) BOOL isActiveOutlineView; // @synthesize isActiveOutlineView=_isActiveOutlineView;
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
-- (void).cxx_destruct;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)setIntercellSpacing:(struct CGSize)arg1;
 - (void)deliberateScrollRowToVisible:(long long)arg1;

@@ -14,9 +14,9 @@
     MSCloudAction *_action;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSCloudAction *action; // @synthesize action=_action;
 @property(retain, nonatomic) MSCloudBaseViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
-- (void).cxx_destruct;
 - (void)refreshLicenseIfIneligible;
 - (void)resetContentViewController:(id)arg1;
 - (void)licenseDidChangeNotification:(id)arg1;

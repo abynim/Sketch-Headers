@@ -14,8 +14,8 @@
 }
 
 + (id)wrappedScript:(id)arg1 handler:(id)arg2;
-@property(copy, nonatomic) NSString *wrappedScript; // @synthesize wrappedScript=_wrappedScript;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *wrappedScript; // @synthesize wrappedScript=_wrappedScript;
 @property(readonly, copy, nonatomic) NSString *handler;
 - (id)script;
 @property(readonly, copy, nonatomic) NSString *rawScript;

@@ -11,5 +11,6 @@
 - (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
+- (CDStruct_75f85af1 *)createRegionInDocument:(id)arg1 zoomLevel:(double)arg2;
 @end
 

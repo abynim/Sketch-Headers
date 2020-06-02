@@ -17,12 +17,12 @@
     MSPDFState *_state;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSPDFState *state; // @synthesize state=_state;
 @property(retain, nonatomic) NSMutableArray *stack; // @synthesize stack=_stack;
 @property(nonatomic) unsigned long long nextID; // @synthesize nextID=_nextID;
 @property(retain, nonatomic) NSString *substituteFontName; // @synthesize substituteFontName=_substituteFontName;
 @property(retain, nonatomic) MSLayerGroup *rootLayer; // @synthesize rootLayer=_rootLayer;
-- (void).cxx_destruct;
 - (void)endText;
 - (void)appendText:(id)arg1;
 - (void)setTextMatrix:(id)arg1;

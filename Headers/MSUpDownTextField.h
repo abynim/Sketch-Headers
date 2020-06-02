@@ -27,6 +27,7 @@
 }
 
 + (id)multipleValuesPlaceholderString;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
@@ -37,7 +38,6 @@
 @property(nonatomic) BOOL hasMaximum; // @synthesize hasMaximum=_hasMaximum;
 @property(nonatomic) BOOL hasMinimum; // @synthesize hasMinimum=_hasMinimum;
 @property(nonatomic) __weak id refreshDelegate; // @synthesize refreshDelegate=_refreshDelegate;
-- (void).cxx_destruct;
 - (id)makeTouchBar;
 - (void)textDidEndEditing:(id)arg1;
 - (BOOL)becomeFirstResponder;

@@ -25,6 +25,7 @@
 }
 
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorView; // @synthesize colorView=_colorView;
 @property(retain, nonatomic) MSOverrideTextField *hexField; // @synthesize hexField=_hexField;
@@ -33,7 +34,6 @@
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-- (void).cxx_destruct;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;

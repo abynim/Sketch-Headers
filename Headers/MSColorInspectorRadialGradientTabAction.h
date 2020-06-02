@@ -11,7 +11,8 @@
 }
 
 - (id)touchBarImage;
-- (unsigned long long)colorInspectorMode;
+- (long long)gradientType;
+- (unsigned long long)fillType;
 
 @end
 

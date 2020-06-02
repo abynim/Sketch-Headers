@@ -29,6 +29,7 @@
     MSShapeButtonInspectorItem *_buttonItem;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSShapeButtonInspectorItem *buttonItem; // @synthesize buttonItem=_buttonItem;
 @property(retain, nonatomic) NSArrayController *pointsController; // @synthesize pointsController=_pointsController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yAdapter; // @synthesize yAdapter=_yAdapter;
@@ -44,7 +45,6 @@
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
-- (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;

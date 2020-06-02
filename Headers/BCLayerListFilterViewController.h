@@ -25,6 +25,7 @@
     NSView *_filterTokensView;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSView *filterTokensView; // @synthesize filterTokensView=_filterTokensView;
 @property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
 @property(retain, nonatomic) NSDictionary *filterMenuItemTemplateImages; // @synthesize filterMenuItemTemplateImages=_filterMenuItemTemplateImages;
@@ -33,7 +34,6 @@
 @property(nonatomic) double designedClearButtonWidth; // @synthesize designedClearButtonWidth=_designedClearButtonWidth;
 @property(nonatomic) __weak NSButton *clearButton; // @synthesize clearButton=_clearButton;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
-- (void).cxx_destruct;
 - (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshFilterTokens;

@@ -13,7 +13,7 @@
 }
 
 + (id)shared;
-+ (id)MSAssistantCheckDocumentAutomaticallyKey;
++ (id)disableAutomaticAssistantsKey;
 - (void).cxx_destruct;
 - (void)runAssistantsWithAssistants:(id)arg1 forDocumentAt:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)init;

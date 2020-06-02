@@ -6,8 +6,8 @@
 
 #import <Foundation/NSOperation.h>
 
-@class MSCGContextPool, MSImmutableDocumentData, MSImmutablePage, MSRenderingDriver;
-@protocol MSRenderingContextCacheProvider;
+@class MSImmutableDocumentData, MSImmutablePage, MSRenderingDriver;
+@protocol MSRenderingContextCGPoolProvider, MSRenderingContextCacheProvider;
 
 @interface MSTileRasterisationOperation : NSOperation
 {
@@ -18,16 +18,17 @@
     MSImmutablePage *_page;
     MSImmutableDocumentData *_document;
     MSRenderingDriver *_driver;
-    MSCGContextPool *_contextPool;
+    id <MSRenderingContextCGPoolProvider> _poolProvider;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     struct CGColorSpace *_colorSpace;
     CDStruct_bf95b13b _rect;
 }
 
-+ (id)operationWithMemory:(void *)arg1 bytesPerRow:(unsigned long long)arg2 rect:(CDStruct_bf95b13b)arg3 zoomValue:(double)arg4 backingScaleFactor:(double)arg5 page:(id)arg6 document:(id)arg7 driver:(id)arg8 contextPool:(id)arg9 cacheProvider:(id)arg10 colorSpace:(struct CGColorSpace *)arg11;
++ (id)operationWithMemory:(void *)arg1 bytesPerRow:(unsigned long long)arg2 rect:(CDStruct_bf95b13b)arg3 zoomValue:(double)arg4 backingScaleFactor:(double)arg5 page:(id)arg6 document:(id)arg7 driver:(id)arg8 cacheProvider:(id)arg9 poolProvider:(id)arg10 colorSpace:(struct CGColorSpace *)arg11;
+- (void).cxx_destruct;
 @property(nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
-@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
+@property(retain, nonatomic) id <MSRenderingContextCGPoolProvider> poolProvider; // @synthesize poolProvider=_poolProvider;
 @property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
@@ -36,7 +37,6 @@
 @property(nonatomic) CDStruct_bf95b13b rect; // @synthesize rect=_rect;
 @property(nonatomic) unsigned long long bytesPerRow; // @synthesize bytesPerRow=_bytesPerRow;
 @property(nonatomic) void *memory; // @synthesize memory=_memory;
-- (void).cxx_destruct;
 - (void)main;
 - (void)dealloc;
 

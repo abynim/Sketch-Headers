@@ -25,6 +25,7 @@
     struct CGRect _visibleRect;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSDragLayerToolUserInterface> userInterface; // @synthesize userInterface=_userInterface;
 @property(retain, nonatomic) _TtC17SketchControllers21MSLayerSnappingResult *snappingResult; // @synthesize snappingResult=_snappingResult;
 @property(retain, nonatomic) NSNumber *alignmentAxis; // @synthesize alignmentAxis=_alignmentAxis;
@@ -35,7 +36,6 @@
 @property(readonly, copy, nonatomic) NSArray *originalLayers; // @synthesize originalLayers=_originalLayers;
 @property(readonly, nonatomic, getter=isDuplicating) BOOL duplicating; // @synthesize duplicating=_duplicating;
 @property(readonly, nonatomic) MSLayerPositioningTool *positioningTool; // @synthesize positioningTool=_positioningTool;
-- (void).cxx_destruct;
 - (void)layerPositioningTool:(id)arg1 provideTargetsToSnapper:(id)arg2;
 - (void)endDuplicating:(BOOL)arg1;
 - (void)beginDuplicating;

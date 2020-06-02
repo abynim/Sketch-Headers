@@ -15,9 +15,9 @@
     id <MSInspectorItemProvider> _itemOwner;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSInspectorItemProvider> itemOwner; // @synthesize itemOwner=_itemOwner;
 @property(retain, nonatomic) NSViewController *hostedItem; // @synthesize hostedItem=_hostedItem;
-- (void).cxx_destruct;
 - (void)installItem:(id)arg1 owner:(id)arg2 withParentViewController:(id)arg3;
 - (id)popHostedItemAndGetOwner:(id *)arg1;
 

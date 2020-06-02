@@ -27,6 +27,7 @@
     struct CGPoint _startPoint;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long *nextVisits; // @synthesize nextVisits=_nextVisits;
 @property(nonatomic) char *planned; // @synthesize planned=_planned;
 @property(nonatomic) struct BCPixel reference; // @synthesize reference=_reference;
@@ -39,7 +40,6 @@
 @property(retain, nonatomic) NSBitmapImageRep *bitmap; // @synthesize bitmap=_bitmap;
 @property(nonatomic) unsigned char tolerance; // @synthesize tolerance=_tolerance;
 @property(nonatomic) struct CGPoint startPoint; // @synthesize startPoint=_startPoint;
-- (void).cxx_destruct;
 - (struct CGPoint)nextUnvisitedPoint;
 - (void)pushVisit:(struct CGPoint)arg1;
 - (void)collectVisitsForPoint:(struct CGPoint)arg1;

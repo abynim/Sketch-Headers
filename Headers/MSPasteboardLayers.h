@@ -27,13 +27,13 @@
 + (id)pasteboardLayersWithForeignLayers:(id)arg1;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long parentTraits; // @synthesize parentTraits=_parentTraits;
 @property(nonatomic) struct CGPoint suggestedPosition; // @synthesize suggestedPosition=_suggestedPosition;
 @property(retain, nonatomic) NSDictionary *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) NSDictionary *localSymbols; // @synthesize localSymbols=_localSymbols;
 @property(retain, nonatomic) NSArray *sharedStyles; // @synthesize sharedStyles=_sharedStyles;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 - (struct CGRect)suggestedRect;
 - (id)insertInGroup:(id)arg1 atPosition:(struct CGPoint)arg2 afterLayer:(id)arg3 viewport:(id)arg4 fitToParent:(BOOL)arg5;
 - (id)insertOnPage:(id)arg1 viewport:(id)arg2 hint:(id)arg3;

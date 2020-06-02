@@ -29,9 +29,8 @@
 + (unsigned long long)fileSizeOfItemAtURL:(id)arg1;
 + (unsigned long long)unitsToUploadFromURL:(id)arg1;
 + (id)urlRequestWithDocumentUploadURL:(id)arg1;
-+ (id)urlRequestWithItem:(id)arg1;
 + (id)itemUploadOperationWithDocumentUploadURL:(id)arg1 fromURL:(id)arg2;
-+ (id)itemUploadOperationWithItem:(id)arg1 fromURL:(id)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long currentAttempt; // @synthesize currentAttempt=_currentAttempt;
 @property(retain, nonatomic) NSURLSessionUploadTask *task; // @synthesize task=_task;
 @property(retain, nonatomic) NSURLRequest *urlRequest; // @synthesize urlRequest=_urlRequest;
@@ -42,7 +41,6 @@
 @property(nonatomic) unsigned long long multipartIndex; // @synthesize multipartIndex=_multipartIndex;
 @property(readonly, nonatomic) NSURL *sourceURL; // @synthesize sourceURL=_sourceURL;
 @property(retain, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
-- (void).cxx_destruct;
 - (void)URLSession:(id)arg1 task:(id)arg2 didSendBodyData:(long long)arg3 totalBytesSent:(long long)arg4 totalBytesExpectedToSend:(long long)arg5;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)updateProgress;

@@ -9,6 +9,7 @@
 @interface _TtC6Sketch12ResultsModel : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: count
+    // Error parsing type: , name: shouldIncludeRunResult
     // Error parsing type: , name: orderedHeaderNames
     // Error parsing type: , name: headerRowModels
 }

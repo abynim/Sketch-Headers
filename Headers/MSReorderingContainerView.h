@@ -16,9 +16,9 @@
     NSArray *_subViewDestinationFrames;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *subViewDestinationFrames; // @synthesize subViewDestinationFrames=_subViewDestinationFrames;
 @property(nonatomic) __weak id <MSReorderingContainerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (BOOL)performDragOperation:(id)arg1;
 - (double)startOffsetForStacking;
 - (id)destinationFramesForSubviews;

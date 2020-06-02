@@ -15,8 +15,8 @@
 
 + (BOOL)allowsReverseTransformation;
 + (Class)transformedValueClass;
-@property(nonatomic) __weak id <MSColorHexStringTransformerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSColorHexStringTransformerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)reverseTransformedValue:(id)arg1;
 - (id)transformedValue:(id)arg1;
 

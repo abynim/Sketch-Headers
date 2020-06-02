@@ -21,6 +21,7 @@
     MSMathInspectorValueAdaptor *_spreadAdapter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *spreadAdapter; // @synthesize spreadAdapter=_spreadAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;
@@ -30,7 +31,7 @@
 @property(retain, nonatomic) MSUpDownTextField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;
 @property(retain, nonatomic) MSUpDownTextField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
-- (void).cxx_destruct;
+- (void)applyUserSelectedColors:(id)arg1;
 - (void)didGetAddedToInspector;
 - (id)sectionTitle;
 - (id)title;

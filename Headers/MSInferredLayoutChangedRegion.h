@@ -14,9 +14,9 @@
     struct _NSRange _calculatedRange;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableSet *layerPairs; // @synthesize layerPairs=_layerPairs;
 @property(nonatomic) struct _NSRange calculatedRange; // @synthesize calculatedRange=_calculatedRange;
-- (void).cxx_destruct;
 - (id)description;
 - (double)changeInSize;
 - (BOOL)containsLayer:(id)arg1;

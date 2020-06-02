@@ -24,12 +24,12 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *colorCheckbox; // @synthesize colorCheckbox=_colorCheckbox;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdaptor; // @synthesize colorAdaptor=_colorAdaptor;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *backgroundColorButton; // @synthesize backgroundColorButton=_backgroundColorButton;
-- (void).cxx_destruct;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;

@@ -14,6 +14,7 @@
 {
 }
 
++ (BOOL)persistsObjectID;
 @property(readonly, nonatomic) BOOL shouldStoreFontData;
 @property(readonly, nonatomic, getter=isForeign) BOOL foreign;
 @property(readonly, nonatomic, getter=isEmbedded) BOOL embedded;

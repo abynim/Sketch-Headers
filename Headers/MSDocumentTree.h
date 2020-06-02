@@ -15,10 +15,10 @@
     NSMapTable *_parentByObject;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMapTable *parentByObject; // @synthesize parentByObject=_parentByObject;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
-- (void).cxx_destruct;
 - (id)ancestorLayersOfObject:(id)arg1;
 - (id)ancestorsOfObject:(id)arg1;
 - (id)parentForObject:(id)arg1;

@@ -20,6 +20,7 @@
     NSImage *_cachedPreviewImage;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSImage *cachedPreviewImage; // @synthesize cachedPreviewImage=_cachedPreviewImage;
 @property(readonly, nonatomic) double tailPadding; // @synthesize tailPadding=_tailPadding;
 @property(readonly, nonatomic) BOOL isLastInCollection; // @synthesize isLastInCollection=_isLastInCollection;
@@ -28,7 +29,6 @@
 @property(readonly, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(readonly, nonatomic) MSColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)patternPreviewImageWithDrawingBounds:(struct CGRect)arg1;
 - (id)gradientPreviewImageWithDrawingBounds:(struct CGRect)arg1;

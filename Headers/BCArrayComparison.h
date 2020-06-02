@@ -17,11 +17,11 @@
     struct DiffPath *_furthestPath;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct DiffPath *furthestPath; // @synthesize furthestPath=_furthestPath;
 @property(nonatomic) CDUnknownBlockType comparator; // @synthesize comparator=_comparator;
 @property(nonatomic) NSArray *modifiedArray; // @synthesize modifiedArray=_modifiedArray;
 @property(nonatomic) NSArray *oldArray; // @synthesize oldArray=_oldArray;
-- (void).cxx_destruct;
 - (void)inferMoves;
 @property(readonly, nonatomic) NSArray *changes; // @synthesize changes=_changes;
 - (void)computeChanges;

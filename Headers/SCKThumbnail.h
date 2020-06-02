@@ -15,10 +15,10 @@
     struct CGSize _dimensions;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 

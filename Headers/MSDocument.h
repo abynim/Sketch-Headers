@@ -18,11 +18,13 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
+#import "_TtP13SharedEditing33MSCollaborationControllerDelegate_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentsPaneController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKShare, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentsPaneController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSPatchContainer, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKOrganization, SCKProject, SCKShare, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing25MSCollaborationController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPaneDelegate, MSHistoryMakerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <_TtP13SharedEditing33MSCollaborationControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPaneDelegate, MSHistoryMakerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
 {
+    BOOL _hideDocumentsWindowWhenDisplayingWindow;
     BOOL _attemptingToClose;
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
@@ -55,6 +57,8 @@
     id _editingLibraryWarning;
     _TtC10Assistants20AssistantsRunResults *_assistantsResults;
     _TtC6Sketch24MSDocumentEditController *_editController;
+    _TtC13SharedEditing25MSCollaborationController *_collaborationController;
+    _TtC11SketchModel23MSResolvedDocumentMaker *_resolvedDocumentMaker;
     _TtC11SketchModel16MSEditingContext *_editingContext;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -76,6 +80,7 @@
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSDocumentChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(copy, nonatomic) NSArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
@@ -88,6 +93,8 @@
 @property(nonatomic) BOOL isComponentPaneVisible; // @synthesize isComponentPaneVisible=_isComponentPaneVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
+@property(readonly, nonatomic) _TtC11SketchModel23MSResolvedDocumentMaker *resolvedDocumentMaker; // @synthesize resolvedDocumentMaker=_resolvedDocumentMaker;
+@property(retain, nonatomic) _TtC13SharedEditing25MSCollaborationController *collaborationController; // @synthesize collaborationController=_collaborationController;
 @property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
 @property(retain, nonatomic) _TtC10Assistants20AssistantsRunResults *assistantsResults; // @synthesize assistantsResults=_assistantsResults;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
@@ -107,6 +114,7 @@
 @property(retain, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
 @property(retain, nonatomic) MSAssistantsConfiguration *assistantsConfiguration; // @synthesize assistantsConfiguration=_assistantsConfiguration;
 @property(retain, nonatomic) MSBadgeController *badgeController; // @synthesize badgeController=_badgeController;
+@property(nonatomic) BOOL hideDocumentsWindowWhenDisplayingWindow; // @synthesize hideDocumentsWindowWhenDisplayingWindow=_hideDocumentsWindowWhenDisplayingWindow;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
 @property(retain, nonatomic) NSView *canvasPlaceholderView; // @synthesize canvasPlaceholderView=_canvasPlaceholderView;
@@ -114,7 +122,6 @@
 @property(nonatomic) __weak MSMainSplitViewController *splitViewController; // @synthesize splitViewController=_splitViewController;
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
-- (void).cxx_destruct;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
@@ -143,7 +150,7 @@
 @property(readonly, nonatomic) MSAssetLibraryController *libraryController;
 - (id)documentData:(id)arg1 metadataForKey:(id)arg2 object:(id)arg3;
 - (void)documentData:(id)arg1 storeMetadata:(id)arg2 forKey:(id)arg3 object:(id)arg4;
-@property(retain, nonatomic) NSDictionary *UIMetadata;
+@property(copy, nonatomic) NSDictionary *UIMetadata;
 - (void)setFileURL:(id)arg1;
 - (void)openLibrariesForForeignObjects:(id)arg1;
 - (void)revealLayerWithID:(id)arg1;
@@ -163,7 +170,6 @@
 - (void)sidebarController:(id)arg1 validateRemovalOfPages:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (void)sidebarController:(id)arg1 didChangeSelection:(id)arg2;
 - (void)sidebarControllerDidUpdate:(id)arg1;
-- (void)notifyEventHandlersOfChange:(id)arg1;
 - (void)refreshComponentPane:(id)arg1;
 - (void)refreshLayerListIfNecessary:(id)arg1;
 - (void)refreshSupplementaryViews:(id)arg1;
@@ -191,22 +197,20 @@
 - (id)actionForMenu:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
-- (void)checkForTextLayerChanges:(id)arg1;
-- (void)historyMaker:(id)arg1 setCurrentDocumentData:(id)arg2 selecting:(id)arg3 onPage:(id)arg4;
+- (void)refreshWindowBadgeIfNecessary:(id)arg1;
+- (void)changeToImmutableDocumentData:(id)arg1;
+- (void)historyMaker:(id)arg1 setCurrentDocumentData:(id)arg2;
 - (id)currentDocumentData:(id)arg1;
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
-- (void)historyMaker:(id)arg1 privatelyUpdatedMoment:(id)arg2;
-- (void)historyMaker:(id)arg1 didCommitMoment:(id)arg2;
-- (void)historyMaker:(id)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
+- (void)historyMakerDidCommitPrivateUpdate:(id)arg1;
+- (void)historyMakerDidCommitHistory:(id)arg1;
+- (void)historyMakerDidCreateHistory:(id)arg1;
 - (id)changeCountTokenForSaveOperation:(unsigned long long)arg1;
 - (void)updateChangeCountWithToken:(id)arg1 forSaveOperation:(unsigned long long)arg2;
 - (void)updateChangeCount:(unsigned long long)arg1;
-- (void)registerHistoryMomentTitle:(id)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
-- (void)changeToImmutableDocumentData:(id)arg1 selecting:(id)arg2 onPage:(id)arg3;
 - (void)reloadEverythingFollowingDocumentDataChange;
-- (void)commitHistoryIfNecessary:(id)arg1;
 - (void)flushCachesIfNecessary;
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
@@ -221,7 +225,6 @@
 - (BOOL)hasArtboards;
 - (BOOL)validateMenuItem:(id)arg1;
 - (BOOL)validateUserInterfaceItem:(id)arg1;
-- (void)updateHistory;
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)performSelectionChangedUpdates;
 - (id)selectedLayers;
@@ -249,6 +252,7 @@
 - (void)cancelAllUploads;
 @property(readonly, nonatomic) BOOL hasPendingCloudDocumentUploadRequest;
 @property(retain, nonatomic) MSImmutableDocumentData *exportableImmutableData; // @synthesize exportableImmutableData=_exportableImmutableData;
+- (id)newExportableImmutableData;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
 - (void)setDocumentData:(id)arg1 reset:(BOOL)arg2;
 - (void)loadInspectorPanel;
@@ -281,15 +285,24 @@
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
 - (id)init;
+- (void)presentCollaborationDebugMessageWithErrorWithError:(id)arg1;
+- (void)presentCollaborationErrorWithError:(id)arg1;
+- (void)uploadStateDidChangeWithController:(id)arg1;
+@property(nonatomic, readonly) MSPatchContainer *patchContainer;
+@property(nonatomic, readonly) NSString *documentIdentifier;
+- (void)setupCollaborationController;
 - (BOOL)updateWorkspaceItemsAndReturnError:(id *)arg1;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
 - (void)runAssistants;
+- (void)runAssistantsAutomatically;
 - (id)duplicateAndReturnError:(id *)arg1;
 @property(readonly, nonatomic) BOOL needsUploading;
 @property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload;
 - (id)getUpdatedWorkspaceItems:(id *)arg1;
+@property(retain, nonatomic) SCKProject *preferredProject;
+@property(retain, nonatomic) SCKOrganization *preferredOrganization;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;
@@ -326,7 +339,7 @@
 - (BOOL)readSVGFromURL:(id)arg1 error:(id *)arg2;
 - (BOOL)readFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (void)selectShareableObjectsIfVisible:(id)arg1;
-- (void)revealShareableObject:(struct MSModelObject *)arg1;
+- (void)revealShareableObject:(id)arg1;
 - (void)revealComponentsOfType:(unsigned long long)arg1;
 - (void)revealComponentPane;
 - (void)revealLayerList;
@@ -345,7 +358,7 @@
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
-- (void)saveCloudDocumentDraftAs:(id)arg1 project:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)saveCloudDocumentDraftAs:(id)arg1 organization:(id)arg2 project:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldRunSavePanelWithAccessoryView;
 - (void)runModalSaveDraftCloudDocPanelForOperationType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)discardDraftDocumentWithError:(id *)arg1;

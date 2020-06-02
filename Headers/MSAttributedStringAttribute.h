@@ -16,9 +16,9 @@
     struct _NSRange _range;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *attributeDictionary; // @synthesize attributeDictionary=_attributeDictionary;
 @property(nonatomic) struct _NSRange range; // @synthesize range=_range;
-- (void).cxx_destruct;
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
 

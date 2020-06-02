@@ -15,9 +15,9 @@
 }
 
 + (id)runForDocument:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *inputField; // @synthesize inputField=_inputField;
 @property(copy, nonatomic) CDUnknownBlockType inputCompletionBlock; // @synthesize inputCompletionBlock=_inputCompletionBlock;
-- (void).cxx_destruct;
 - (void)confirm:(id)arg1;
 
 @end

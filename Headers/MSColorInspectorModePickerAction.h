@@ -13,9 +13,10 @@
 - (id)label;
 - (BOOL)isTouchBarItemSelected;
 - (void)doPerformAction:(id)arg1;
-- (unsigned long long)colorInspectorMode;
-- (id)colorModePickerController;
-- (void)switchToColorTabAtIndex:(unsigned long long)arg1;
+- (long long)gradientType;
+- (unsigned long long)fillType;
+- (void)switchToColorMode:(unsigned long long)arg1 gradientStyle:(long long)arg2;
+- (id)colorInspector;
 
 @end
 

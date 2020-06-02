@@ -22,9 +22,9 @@
 + (id)assetCollectionByMigratingPresetsFromSources:(id)arg1;
 + (id)defaultMigrationArchiveForPresetNamed:(id)arg1;
 + (id)defaultMigrationSources;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
-- (void).cxx_destruct;
 - (void)addNoiseImagesIfNeededForVersion:(long long)arg1 withName:(id)arg2;
 - (void)migrateForLocalizationIfNeeded:(long long)arg1;
 - (id)resourceNeedingMigration;

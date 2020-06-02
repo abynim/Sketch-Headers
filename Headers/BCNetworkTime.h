@@ -23,6 +23,7 @@
 
 + (void)requestTimeFromHost:(id)arg1 timeout:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (id)dispatchQueue;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) double startupReferenceTime; // @synthesize startupReferenceTime=_startupReferenceTime;
 @property(readonly, nonatomic) double networkTimeUpdateTime; // @synthesize networkTimeUpdateTime=_networkTimeUpdateTime;
 @property(nonatomic) double networkTime; // @synthesize networkTime=_networkTime;
@@ -32,7 +33,6 @@
 @property(nonatomic) struct addrinfo *allAddressInfo; // @synthesize allAddressInfo=_allAddressInfo;
 @property(nonatomic) double timeout; // @synthesize timeout=_timeout;
 @property(copy, nonatomic) NSString *host; // @synthesize host=_host;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDate *currentDate;
 @property(readonly) BOOL includesNetworkTime;
 - (double)systemStartupTime;

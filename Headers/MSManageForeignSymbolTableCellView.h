@@ -14,9 +14,9 @@
     MSSharedObjectView *_sharedObjectView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSSharedObjectView *sharedObjectView; // @synthesize sharedObjectView=_sharedObjectView;
 @property(retain, nonatomic) NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
-- (void).cxx_destruct;
 - (void)setBackgroundStyle:(long long)arg1;
 - (void)setObjectValue:(id)arg1;
 

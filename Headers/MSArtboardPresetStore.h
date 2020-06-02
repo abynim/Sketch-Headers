@@ -18,9 +18,9 @@
 + (unsigned long long)indexOfLastSelectedCategory;
 + (void)setSystemCategories:(id)arg1;
 + (id)systemCategories;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSArtboardPresetsCategory *customPresetsCategory; // @synthesize customPresetsCategory=_customPresetsCategory;
 @property(readonly, nonatomic) NSArray *categories; // @synthesize categories=_categories;
-- (void).cxx_destruct;
 - (id)presetWithName:(id)arg1 matchingSize:(struct CGSize)arg2;
 - (id)suggestedNameForUserPreset;
 - (void)artboardPresetStoreDidChange:(id)arg1;

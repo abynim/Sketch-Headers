@@ -15,9 +15,9 @@
     MSMetalRenderer *_renderer;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
 @property(readonly, nonatomic) MSTextureAtlas *textureAtlas; // @synthesize textureAtlas=_textureAtlas;
-- (void).cxx_destruct;
 - (void)getArtboardShadowTextureRects:(struct CGRect *)arg1 innerRect:(struct CGRect *)arg2;
 - (double)cornerSourceSize;
 - (double)cornerSize;

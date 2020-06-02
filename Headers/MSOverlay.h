@@ -18,10 +18,10 @@
     struct CGRect _visibleRect;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect=_visibleRect;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView=_hostView;
 @property(nonatomic, getter=isHidden) BOOL hidden; // @synthesize hidden=_hidden;
-- (void).cxx_destruct;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)setNeedsDisplay;

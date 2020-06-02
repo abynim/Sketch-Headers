@@ -27,6 +27,7 @@
 
 + (id)keyPathsForValuesAffectingUpdateAvailable;
 + (id)preferenceItemForLibrary:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *downloadButtonTitle; // @synthesize downloadButtonTitle=_downloadButtonTitle;
 @property(nonatomic) unsigned long long originalLibraryType; // @synthesize originalLibraryType=_originalLibraryType;
 @property(retain, nonatomic) NSColor *secondaryTitleColor; // @synthesize secondaryTitleColor=_secondaryTitleColor;
@@ -37,7 +38,6 @@
 @property(readonly, nonatomic) MSAssetLibrary *library; // @synthesize library=_library;
 @property(nonatomic) __weak id <MSAssetPreferenceItemDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long updatingStatus; // @synthesize updatingStatus=_updatingStatus;
-- (void).cxx_destruct;
 - (id)tableRowViewForTableView:(id)arg1;
 @property(readonly, nonatomic) double preferredViewHeight;
 @property(readonly, nonatomic) BOOL missingRemoteLibraryWithNoInternet;

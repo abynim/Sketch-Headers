@@ -25,6 +25,7 @@
 
 + (BOOL)allOverridesInLayers:(id)arg1 match:(id)arg2;
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(nonatomic) __weak NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSLayoutConstraint *indentationConstraint; // @synthesize indentationConstraint=_indentationConstraint;
@@ -33,7 +34,6 @@
 @property(nonatomic) BOOL displaysLabel; // @synthesize displaysLabel=_displaysLabel;
 @property(readonly, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 @property(retain, nonatomic) MSAvailableOverride *secondaryOverride; // @synthesize secondaryOverride=_secondaryOverride;
-- (void).cxx_destruct;
 - (void)addObserverForMSDataSupplierManagerDataChangedNotification;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;

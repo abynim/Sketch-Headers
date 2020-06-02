@@ -22,12 +22,12 @@
 + (id)itemForPath:(id)arg1 transform:(struct CGAffineTransform)arg2 color:(struct CGColor *)arg3 lineWidth:(double)arg4 dashes:(id)arg5;
 + (id)itemForPath:(id)arg1 transform:(struct CGAffineTransform)arg2 color:(struct CGColor *)arg3 lineWidth:(double)arg4;
 + (id)filledItemForPath:(id)arg1 transform:(struct CGAffineTransform)arg2 color:(struct CGColor *)arg3;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *dashes; // @synthesize dashes=_dashes;
 @property(readonly, nonatomic) double lineWidth; // @synthesize lineWidth=_lineWidth;
 @property(readonly, nonatomic) struct CGAffineTransform transform; // @synthesize transform=_transform;
 @property(readonly, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(readonly, nonatomic) struct CGColor *color; // @synthesize color=_colorRef;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) MSPath *transformedPath;
 @property(readonly, nonatomic) BOOL hasDashes;
 @property(readonly, nonatomic) BOOL isFilled;

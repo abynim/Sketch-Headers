@@ -12,9 +12,9 @@
     unsigned long long _attribute;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long attribute; // @synthesize attribute=_attribute;
 @property(readonly, nonatomic) __weak id item; // @synthesize item=_item;
-- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) unsigned long long axis;
 - (id)initWithItem:(id)arg1 attribute:(unsigned long long)arg2;

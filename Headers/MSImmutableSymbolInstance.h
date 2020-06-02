@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
 
-@class MSImmutableSymbolMaster, NSArray, NSDictionary;
+@class NSArray, NSDictionary;
 
 @interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
@@ -16,32 +16,27 @@
     // Error parsing type: A^^v, name: _availableOverridesInDocumentAtomicPointer
     NSArray *_calculatedAvailableOverrideValues;
     // Error parsing type: A^^v, name: _availableOverrideValuesInDocumentAtomicPointer
-    MSImmutableSymbolMaster *_cachedModifiedSymbolMaster;
 }
 
 + (id)defaultName;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
-@property __weak MSImmutableSymbolMaster *cachedModifiedSymbolMaster; // @synthesize cachedModifiedSymbolMaster=_cachedModifiedSymbolMaster;
 - (void).cxx_destruct;
 - (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
-- (BOOL)shouldWrapDetachedSymbolMasterInGroup:(id)arg1;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2;
-- (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 skipCache:(BOOL)arg6;
-- (id)createMutableDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 symbol:(id)arg5 visitedSymbols:(id)arg6;
-- (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 desiredWidth:(double)arg4 visitedSymbols:(id)arg5 symbol:(id)arg6;
-- (id)detachedGroupCacheKeyInDocument:(id)arg1 detachRecursively:(BOOL)arg2;
+- (BOOL)canSimplyWrapMasterLayers:(id)arg1 overrides:(id)arg2 detachRecursively:(BOOL)arg3;
+- (id)detachedGroupCacheKeyWithOverrides:(id)arg1 detachRecursively:(BOOL)arg2;
+- (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 visitedSymbols:(id)arg4 skipCache:(BOOL)arg5;
+- (id)createMutableDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 symbol:(id)arg4 visitedSymbols:(id)arg5;
+- (id)updatedUserInfo:(id)arg1 withMasterObjectID:(id)arg2 masterSymbolID:(id)arg3;
+- (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 visitedSymbols:(id)arg4 symbol:(id)arg5;
 - (id)resolvedUsingDocumentData:(id)arg1;
-- (id)modifiedMasterInDocument:(id)arg1;
-- (id)prepareModifiedMasterInDocument:(id)arg1;
-- (id)modifiedMasterCacheKeyInDocument:(id)arg1;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)shouldCreateModifiedMasterForMaster:(id)arg1 inDocument:(id)arg2;
 - (id)availableOverrideValuesWithDocument:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
 - (BOOL)isScaled;
-- (struct CGRect)paddedInfluenceRect:(struct CGRect)arg1 withPaddingsFromMasterInDocument:(id)arg2 visitedSymbols:(id)arg3;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (id)overridesFromGroupForMigration:(id)arg1;
@@ -63,7 +58,6 @@
 - (void)migratePropertiesFromV96OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV89OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV84OrEarlierWithUnarchiver:(id)arg1;
-- (id)detachedMasterInDocument:(id)arg1 withCache:(id)arg2;
 - (id)overrideMatchingPoint:(id)arg1 inDocument:(id)arg2;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)overridePointsInDocument:(id)arg1;

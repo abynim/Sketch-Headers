@@ -14,8 +14,8 @@
     MSOpenTypeFeature *_parent;
 }
 
-@property(readonly, nonatomic) __weak MSOpenTypeFeature *parent; // @synthesize parent=_parent;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) __weak MSOpenTypeFeature *parent; // @synthesize parent=_parent;
 - (id)description;
 - (id)fontAttributeForInsertion;
 @property(readonly, nonatomic) BOOL isDefault;

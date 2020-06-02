@@ -20,11 +20,11 @@
 
 + (id)operationByRequesting:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)defaultURLSession;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSURLSessionDownloadTask *task; // @synthesize task=_task;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(copy, nonatomic) CDUnknownBlockType downloadCompletionBlock; // @synthesize downloadCompletionBlock=_downloadCompletionBlock;
 @property(readonly, nonatomic) NSURLRequest *request; // @synthesize request=_request;
-- (void).cxx_destruct;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didFinishDownloadingToURL:(id)arg3;
 - (void)URLSession:(id)arg1 downloadTask:(id)arg2 didWriteData:(long long)arg3 totalBytesWritten:(long long)arg4 totalBytesExpectedToWrite:(long long)arg5;

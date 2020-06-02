@@ -13,8 +13,8 @@
     MSSharedStyle *_sharedStyle;
 }
 
-@property(retain, nonatomic) MSSharedStyle *sharedStyle; // @synthesize sharedStyle=_sharedStyle;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSSharedStyle *sharedStyle; // @synthesize sharedStyle=_sharedStyle;
 
 @end
 

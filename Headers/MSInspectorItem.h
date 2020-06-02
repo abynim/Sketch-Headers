@@ -24,11 +24,11 @@
 + (BOOL)canHandleSomeLayersOfSelection:(id)arg1;
 + (id)filterSelection:(id)arg1;
 + (id)itemForSection:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMapTable *managedControls; // @synthesize managedControls=_managedControls;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak id <MSInspectorItemDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)cachedUserInterfaceElementForKey:(id)arg1;
 - (void)cacheUserInterfaceElement:(id)arg1 withKey:(id)arg2;
 - (void)manageTextField:(id)arg1 adaptor:(id)arg2 identifier:(id)arg3 inlineToolTip:(id)arg4 touchBarItems:(id)arg5 bindingOptions:(id)arg6;

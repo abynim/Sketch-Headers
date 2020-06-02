@@ -16,10 +16,10 @@
 }
 
 + (id)tileRenderPassWithPage:(id)arg1 inDocument:(id)arg2 zoomValue:(double)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) double zoomValue; // @synthesize zoomValue=_zoomValue;
 @property(retain, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
-- (void).cxx_destruct;
 
 @end
 

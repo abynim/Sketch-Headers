@@ -22,6 +22,7 @@
     NSSet *_diffKeysAffectingValue;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *diffKeysAffectingValue; // @synthesize diffKeysAffectingValue=_diffKeysAffectingValue;
 @property(retain, nonatomic) NSHashTable *changeObservers; // @synthesize changeObservers=_changeObservers;
 @property(retain, nonatomic) NSArray *keyPathsToWatch; // @synthesize keyPathsToWatch=_keyPathsToWatch;
@@ -31,7 +32,6 @@
 @property(nonatomic) __weak NSView *view; // @synthesize view=_view;
 @property(nonatomic) BOOL showsDefaultAlerts; // @synthesize showsDefaultAlerts=_showsDefaultAlerts;
 @property(nonatomic) __weak id <MSInspectorValueAdaptorDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)removeChangeObserver:(id)arg1;
 - (void)addChangeObserver:(id)arg1;
 - (void)handleInvalidInputError:(id)arg1;

@@ -14,8 +14,8 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
-@property(retain, nonatomic) NSButton *sizeToFitButton; // @synthesize sizeToFitButton=_sizeToFitButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *sizeToFitButton; // @synthesize sizeToFitButton=_sizeToFitButton;
 - (void)updateDisplayedValues;
 
 @end

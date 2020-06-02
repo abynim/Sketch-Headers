@@ -31,6 +31,7 @@
 }
 
 + (id)presetPickerVisibilityDefaultsKey;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSTileScaleViewController *scaleController; // @synthesize scaleController=_scaleController;
 @property(retain, nonatomic) NSViewController *noPatternController; // @synthesize noPatternController=_noPatternController;
 @property(retain, nonatomic) MSColorInspectorImageDataController *imageDataController; // @synthesize imageDataController=_imageDataController;
@@ -43,7 +44,7 @@
 @property(retain, nonatomic) MSPatternImageCell *imageCell; // @synthesize imageCell=_imageCell;
 @property(retain, nonatomic) NSImageView *patternWell; // @synthesize patternWell=_patternWell;
 @property(retain, nonatomic) NSArray *frequentImages; // @synthesize frequentImages=_frequentImages;
-- (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)usableSupplierIdentifiers;
 - (void)imageDataControllerMenuDidClose:(id)arg1;
 - (void)imageDataControllerDidClearData:(id)arg1;

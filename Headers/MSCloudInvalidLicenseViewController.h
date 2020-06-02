@@ -13,8 +13,8 @@
     NSButton *_learnMoreButton;
 }
 
-@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 - (void)learnMore:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

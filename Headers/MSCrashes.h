@@ -9,14 +9,13 @@
 #import "MSChannelDelegate-Protocol.h"
 #import "MSServiceInternal-Protocol.h"
 
-@class MSChannelUnitConfiguration, MSEncrypter, MSErrorReport, MSPLCrashReporter, NSMutableArray, NSObject, NSString;
+@class MSChannelUnitConfiguration, MSEncrypter, MSErrorReport, MSPLCrashReporter, NSDate, NSMutableArray, NSObject, NSString;
 @protocol MSChannelGroupProtocol, MSChannelUnitProtocol, MSCrashesDelegate, OS_dispatch_group, OS_dispatch_queue, OS_dispatch_semaphore, OS_dispatch_source;
 
 @interface MSCrashes : MSServiceAbstract <MSChannelDelegate, MSServiceInternal>
 {
     BOOL _didCrashInLastSession;
     BOOL _didReceiveMemoryWarningInLastSession;
-    BOOL _shouldReleaseProcessingSemaphore;
     BOOL _enableMachExceptionHandler;
     BOOL _automaticProcessingEnabled;
     id <MSCrashesDelegate> _delegate;
@@ -39,6 +38,7 @@
     NSMutableArray *_unprocessedReports;
     NSMutableArray *_unprocessedFilePaths;
     CDUnknownBlockType _userConfirmationHandler;
+    NSDate *_appStartTime;
 }
 
 + (void)resetSharedInstance;
@@ -47,10 +47,9 @@
 + (id)logTag;
 + (id)serviceName;
 + (id)sharedInstance;
-+ (void)trackModelException:(id)arg1 withProperties:(id)arg2;
-+ (void)trackModelException:(id)arg1;
 + (void)setDelegate:(id)arg1;
 + (void)disableMachExceptionHandler;
++ (void)applicationDidReportException:(id)arg1;
 + (id)lastSessionCrashReport;
 + (void)notifyWithUserConfirmation:(unsigned long long)arg1;
 + (void)setUserConfirmationHandler:(CDUnknownBlockType)arg1;
@@ -58,6 +57,7 @@
 + (BOOL)hasCrashedInLastSession;
 + (void)generateTestCrash;
 @property(nonatomic, getter=isAutomaticProcessingEnabled) BOOL automaticProcessingEnabled; // @synthesize automaticProcessingEnabled=_automaticProcessingEnabled;
+@property(retain, nonatomic) NSDate *appStartTime; // @synthesize appStartTime=_appStartTime;
 @property(copy) CDUnknownBlockType userConfirmationHandler; // @synthesize userConfirmationHandler=_userConfirmationHandler;
 @property(retain) NSMutableArray *unprocessedFilePaths; // @synthesize unprocessedFilePaths=_unprocessedFilePaths;
 @property(retain) NSMutableArray *unprocessedReports; // @synthesize unprocessedReports=_unprocessedReports;
@@ -76,14 +76,14 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *bufferFileGroup; // @synthesize bufferFileGroup=_bufferFileGroup;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *bufferFileQueue; // @synthesize bufferFileQueue=_bufferFileQueue;
 @property(retain, getter=getLastSessionCrashReport) MSErrorReport *lastSessionCrashReport; // @synthesize lastSessionCrashReport=_lastSessionCrashReport;
-@property BOOL shouldReleaseProcessingSemaphore; // @synthesize shouldReleaseProcessingSemaphore=_shouldReleaseProcessingSemaphore;
 @property BOOL didReceiveMemoryWarningInLastSession; // @synthesize didReceiveMemoryWarningInLastSession=_didReceiveMemoryWarningInLastSession;
 @property BOOL didCrashInLastSession; // @synthesize didCrashInLastSession=_didCrashInLastSession;
 @property(retain, nonatomic) MSChannelUnitConfiguration *channelUnitConfiguration; // @synthesize channelUnitConfiguration=_channelUnitConfiguration;
 @property(retain, nonatomic) id <MSChannelGroupProtocol> channelGroup; // @synthesize channelGroup=_channelGroup;
 @property(nonatomic) __weak id <MSCrashesDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)trackModelException:(id)arg1 withProperties:(id)arg2;
+- (id)buildHandledErrorReportWithErrorID:(id)arg1;
+- (id)trackModelException:(id)arg1 withProperties:(id)arg2 withAttachments:(id)arg3;
 - (void)clearUnprocessedReports;
 - (void)handleUserConfirmation:(unsigned long long)arg1;
 - (void)notifyWithUserConfirmation:(unsigned long long)arg1;
@@ -114,6 +114,7 @@
 - (void)channel:(id)arg1 didCompleteEnqueueingLog:(id)arg2 internalId:(id)arg3;
 - (void)channel:(id)arg1 didPrepareLog:(id)arg2 internalId:(id)arg3 flags:(unsigned long long)arg4;
 - (void)didReceiveMemoryWarning:(id)arg1;
+- (void)applicationWillEnterForeground;
 - (void)clearContextHistoryAndKeepCurrentSession;
 @property(readonly, nonatomic) long long initializationPriority;
 @property(readonly, copy, nonatomic) NSString *groupId;

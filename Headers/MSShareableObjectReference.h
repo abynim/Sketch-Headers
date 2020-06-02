@@ -15,14 +15,14 @@
 @interface MSShareableObjectReference : NSObject <BCSortable, MSSharedObjectStyling>
 {
     MSAssetLibrary *_sourceLibrary;
-    struct MSModelObject *_shareableObject;
+    MSModelObject<BCSortable><MSSharedObjectStyling> *_shareableObject;
 }
 
-+ (id)referenceForShareableObject:(struct MSModelObject *)arg1 inLibrary:(id)arg2;
-+ (id)referenceForShareableObject:(struct MSModelObject *)arg1;
++ (id)referenceForShareableObject:(id)arg1 inLibrary:(id)arg2;
++ (id)referenceForShareableObject:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject; // @synthesize shareableObject=_shareableObject;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
-- (void).cxx_destruct;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;

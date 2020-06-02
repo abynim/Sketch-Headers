@@ -20,10 +20,10 @@
 + (double)interItemSpacingForItemSizeMode:(unsigned long long)arg1;
 + (struct CGSize)itemSizeForItemSizeMode:(unsigned long long)arg1 displayMode:(unsigned long long)arg2 collectionViewWidth:(double)arg3;
 + (Class)layoutAttributesClass;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long itemSizeMode; // @synthesize itemSizeMode=_itemSizeMode;
 @property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(retain, nonatomic) NSIndexSet *updatedIndexes; // @synthesize updatedIndexes=_updatedIndexes;
-- (void).cxx_destruct;
 - (void)recalculateLayoutParameters;
 - (id)layoutAttributesForSupplementaryViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;

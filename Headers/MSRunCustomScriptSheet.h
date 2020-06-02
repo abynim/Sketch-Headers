@@ -23,6 +23,7 @@
     NSLayoutConstraint *_saveButtonToScriptNameConstraint;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSLayoutConstraint *saveButtonToScriptNameConstraint; // @synthesize saveButtonToScriptNameConstraint=_saveButtonToScriptNameConstraint;
 @property(retain, nonatomic) NSTextView *logField; // @synthesize logField=_logField;
 @property(retain, nonatomic) NSButton *runButton; // @synthesize runButton=_runButton;
@@ -32,7 +33,6 @@
 @property(nonatomic) __weak NSButton *touchBarRun; // @synthesize touchBarRun=_touchBarRun;
 @property(nonatomic) __weak NSButton *touchBarSave; // @synthesize touchBarSave=_touchBarSave;
 @property(retain, nonatomic) NSUndoManager *undoManager; // @synthesize undoManager=_undoManager;
-- (void).cxx_destruct;
 - (void)redoAction:(id)arg1;
 - (void)undoAction:(id)arg1;
 - (id)undoManagerForTextView:(id)arg1;

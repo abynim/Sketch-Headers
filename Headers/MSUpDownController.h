@@ -19,10 +19,10 @@
 
 + (Class)stepperClass;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSIntegratedStepper *stepper; // @synthesize stepper=_stepper;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *textField; // @synthesize textField=_textField;
 @property(nonatomic) __weak id <MSIncrementDecrementDelegate> incrementDecrementDelegate; // @synthesize incrementDecrementDelegate=_incrementDecrementDelegate;
-- (void).cxx_destruct;
 - (BOOL)isEditable;
 - (BOOL)isEnabled;
 - (BOOL)isEditing;

@@ -18,11 +18,11 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
 @property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

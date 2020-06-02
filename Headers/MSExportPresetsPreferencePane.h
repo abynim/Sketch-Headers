@@ -34,6 +34,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *exportFormatViewControllers; // @synthesize exportFormatViewControllers=_exportFormatViewControllers;
 @property(readonly, nonatomic) double designedExportFormatFooterBottomDistance; // @synthesize designedExportFormatFooterBottomDistance=_designedExportFormatFooterBottomDistance;
 @property(readonly, nonatomic) struct CGSize designedSize; // @synthesize designedSize=_designedSize;
@@ -48,7 +49,6 @@
 @property(nonatomic) __weak NSView *exportFormatEditorView; // @synthesize exportFormatEditorView=_exportFormatEditorView;
 @property(nonatomic) __weak NSButton *addFormatButton; // @synthesize addFormatButton=_addFormatButton;
 @property(nonatomic) __weak NSButton *addButton; // @synthesize addButton=_addButton;
-- (void).cxx_destruct;
 - (void)adjustFirstResponderIfNeeded;
 - (void)restoreDefaultExportPresets:(id)arg1;
 - (void)removeExportFormatFromPreset:(id)arg1;

@@ -13,8 +13,8 @@
     BCJSONZippedEncoder *_zipEncoder;
 }
 
-@property(retain, nonatomic) BCJSONZippedEncoder *zipEncoder; // @synthesize zipEncoder=_zipEncoder;
 - (void).cxx_destruct;
+@property(retain, nonatomic) BCJSONZippedEncoder *zipEncoder; // @synthesize zipEncoder=_zipEncoder;
 - (id)replacementObjectForObject:(id)arg1;
 - (id)encoder;
 - (id)encodableReferenceToOriginal:(id)arg1;

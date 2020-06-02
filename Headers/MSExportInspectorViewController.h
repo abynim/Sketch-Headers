@@ -24,6 +24,7 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(nonatomic) double textLabelRightConstraintExpandedWidth; // @synthesize textLabelRightConstraintExpandedWidth=_textLabelRightConstraintExpandedWidth;
 @property(copy, nonatomic) NSArray *formatViewControllers; // @synthesize formatViewControllers=_formatViewControllers;
@@ -35,7 +36,6 @@
 @property(retain, nonatomic) NSButton *knifeButton; // @synthesize knifeButton=_knifeButton;
 @property(retain, nonatomic) NSButton *addExportFormatButton; // @synthesize addExportFormatButton=_addExportFormatButton;
 @property(retain, nonatomic) NSView *bottomLabelView; // @synthesize bottomLabelView=_bottomLabelView;
-- (void).cxx_destruct;
 - (id)firstResponderIgnoringFieldEditor;
 - (void)editExportPresets:(id)arg1;
 - (void)addExportPreset:(id)arg1;

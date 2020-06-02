@@ -28,6 +28,7 @@
     MSExportSelectedInspectorItem *_exportSelectedItem;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSExportSelectedInspectorItem *exportSelectedItem; // @synthesize exportSelectedItem=_exportSelectedItem;
 @property(retain, nonatomic) MSExportInspectorViewController *formatsItem; // @synthesize formatsItem=_formatsItem;
 @property(retain, nonatomic) NSArray *footerItems; // @synthesize footerItems=_footerItems;
@@ -42,7 +43,6 @@
 @property(retain, nonatomic) MSTrimGroupTransparencyInspectorItem *trimGroupTransparencyItem; // @synthesize trimGroupTransparencyItem=_trimGroupTransparencyItem;
 @property(retain, nonatomic) MSTrimSliceTransparencyInspectorItem *trimSliceTransparencyItem; // @synthesize trimSliceTransparencyItem=_trimSliceTransparencyItem;
 @property(retain, nonatomic) MSExportPreviewImagesInspectorItem *imagesItem; // @synthesize imagesItem=_imagesItem;
-- (void).cxx_destruct;
 - (id)makePaddingInspectorItem;
 - (void)refreshIfNecessary:(id)arg1;
 - (BOOL)wantsSeparatorAfterViews;

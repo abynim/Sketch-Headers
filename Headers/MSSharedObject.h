@@ -17,8 +17,8 @@
 + (id)defaultName;
 - (id)parentGroup;
 - (unsigned long long)type;
-- (BOOL)isOutOfSyncWithInstance:(struct MSModelObject *)arg1;
-- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(struct MSModelObject *)arg3;
+- (BOOL)isOutOfSyncWithInstance:(id)arg1;
+- (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

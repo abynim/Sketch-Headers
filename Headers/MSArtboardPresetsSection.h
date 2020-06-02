@@ -16,9 +16,9 @@
 
 + (BOOL)writeSections:(id)arg1 toURL:(id)arg2 error:(id *)arg3;
 + (id)sectionsWithContentsOfURL:(id)arg1;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *presets; // @synthesize presets=_presets;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionaryRepresentation:(id)arg1;

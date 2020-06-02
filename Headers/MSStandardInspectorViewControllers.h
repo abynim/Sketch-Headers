@@ -21,6 +21,7 @@
     MSExportPreviewInspectorSection *_exportPreviewViewController;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSExportPreviewInspectorSection *exportPreviewViewController; // @synthesize exportPreviewViewController=_exportPreviewViewController;
 @property(readonly, nonatomic) MSSpecialLayerViewController *specialLayerViewController; // @synthesize specialLayerViewController=_specialLayerViewController;
 @property(readonly, nonatomic) MSAppearanceInspectorSection *appearanceInspectorSection; // @synthesize appearanceInspectorSection=_appearanceInspectorSection;
@@ -30,7 +31,6 @@
 @property(readonly, nonatomic) MSLayoutInspectorSection *layoutSection; // @synthesize layoutSection=_layoutSection;
 @property(readonly, nonatomic) MSResizeInspectorSection *resizeSection; // @synthesize resizeSection=_resizeSection;
 @property(readonly, nonatomic) MSGeometryInspectorSection *geometryViewController; // @synthesize geometryViewController=_geometryViewController;
-- (void).cxx_destruct;
 - (id)init;
 
 @end

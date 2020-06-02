@@ -14,8 +14,8 @@
 }
 
 + (id)styleDefaults;
-@property(retain, nonatomic) NSXMLElement *deferredClipping; // @synthesize deferredClipping=_deferredClipping;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSXMLElement *deferredClipping; // @synthesize deferredClipping=_deferredClipping;
 - (id)gradientFromSVGGradient:(id)arg1 layer:(id)arg2;
 - (void)applyEffectsToLayer:(id)arg1;
 - (void)applyScaling:(double)arg1 recursivelyToStyleOfLayer:(id)arg2 parentStyle:(id)arg3;

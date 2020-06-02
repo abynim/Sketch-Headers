@@ -25,6 +25,7 @@
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
 + (void)registerExporterClass:(Class)arg1 forFormat:(id)arg2;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
-- (void).cxx_destruct;
 - (BOOL)exportToFileURL:(id)arg1;
 - (id)cacheForZoomLevel:(double)arg1;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;

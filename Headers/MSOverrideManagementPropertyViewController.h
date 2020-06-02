@@ -14,9 +14,9 @@
     NSButton *_checkButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *checkButton; // @synthesize checkButton=_checkButton;
 @property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
-- (void).cxx_destruct;
 @property(nonatomic) long long canOverride;
 - (void)setManagementItem:(id)arg1;
 @property(readonly, nonatomic) MSOverrideManagementPropertyItem *propertyItem;

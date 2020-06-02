@@ -17,9 +17,9 @@
     MSDocument *_document;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)tableView:(id)arg1 setObjectValue:(id)arg2 forTableColumn:(id)arg3 row:(long long)arg4;
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;

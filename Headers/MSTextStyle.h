@@ -14,8 +14,8 @@
 }
 
 + (id)styleWithAttributes:(id)arg1;
-@property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void)multiplyBy:(double)arg1;
 - (id)stringByTransformingString:(id)arg1;
 - (void)resetDecodedAttributes;

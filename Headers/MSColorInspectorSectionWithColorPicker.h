@@ -12,14 +12,16 @@
 
 @interface MSColorInspectorSectionWithColorPicker : MSColorInspectorSection <MSCollapsibleHeaderInspectorItemTarget>
 {
+    BOOL _excludePickerHeaderItem;
     MSCollapsibleHeaderInspectorItem *_pickerHeaderItem;
 }
 
-+ (void)refreshColorPickerViewHeight:(id)arg1;
 + (void)initialize;
-@property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *pickerHeaderItem; // @synthesize pickerHeaderItem=_pickerHeaderItem;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *pickerHeaderItem; // @synthesize pickerHeaderItem=_pickerHeaderItem;
+@property(nonatomic) BOOL excludePickerHeaderItem; // @synthesize excludePickerHeaderItem=_excludePickerHeaderItem;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)refreshColorPickerViewHeight:(id)arg1;
 - (id)colorPickerViews;
 
 @end

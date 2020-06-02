@@ -20,13 +20,13 @@
     MSMathInspectorValueAdaptor *_radiusAdapter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
 @property(retain, nonatomic) NSPopUpButton *blurPopUp; // @synthesize blurPopUp=_blurPopUp;
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
-- (void).cxx_destruct;
 - (long long)popUpMenuIndexFromBlurType:(unsigned long long)arg1;
 - (unsigned long long)blurTypeFromPopUpMenuIndex:(long long)arg1;
 - (void)updateDisplayedValues;

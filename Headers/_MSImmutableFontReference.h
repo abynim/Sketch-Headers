@@ -18,12 +18,12 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *postscriptNames; // @synthesize postscriptNames=_postscriptNames;
 @property(nonatomic) long long options; // @synthesize options=_options;
 @property(retain, nonatomic) NSString *fontFileName; // @synthesize fontFileName=_fontFileName;
 @property(retain, nonatomic) NSString *fontFamilyName; // @synthesize fontFamilyName=_fontFamilyName;
 @property(retain, nonatomic) MSFontData *fontData; // @synthesize fontData=_fontData;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

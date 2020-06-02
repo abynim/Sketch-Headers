@@ -6,7 +6,7 @@
 
 #import <SketchModel/_MSSymbolInstance.h>
 
-@class MSImmutableSymbolMaster, MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
+@class MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
 
 @interface MSSymbolInstance : _MSSymbolInstance
 {
@@ -42,7 +42,7 @@
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolID;
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
-@property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedMaster;
+- (id)detachedLayerGroupRecursively:(BOOL)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSDictionary *overrides;

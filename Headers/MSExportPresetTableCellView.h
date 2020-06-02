@@ -13,8 +13,8 @@
     NSButton *_defaultPresetButton;
 }
 
-@property(retain, nonatomic) NSButton *defaultPresetButton; // @synthesize defaultPresetButton=_defaultPresetButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *defaultPresetButton; // @synthesize defaultPresetButton=_defaultPresetButton;
 
 @end
 

@@ -11,19 +11,15 @@
 
 @interface MSHistory : NSObject
 {
-    BOOL _allowsCoalescingOfMomentsCloseInTime;
     id <MSHistoryDelegate> _delegate;
-    double _timestampCoalesingThreshold;
     NSMutableArray *_moments;
     long long _indexOfCurrentMoment;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) long long indexOfCurrentMoment; // @synthesize indexOfCurrentMoment=_indexOfCurrentMoment;
 @property(retain, nonatomic) NSMutableArray *moments; // @synthesize moments=_moments;
-@property(nonatomic) double timestampCoalesingThreshold; // @synthesize timestampCoalesingThreshold=_timestampCoalesingThreshold;
-@property(nonatomic) BOOL allowsCoalescingOfMomentsCloseInTime; // @synthesize allowsCoalescingOfMomentsCloseInTime=_allowsCoalescingOfMomentsCloseInTime;
 @property(nonatomic) __weak id <MSHistoryDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long numberOfMoments;
 @property(readonly, nonatomic) BOOL canProgressToNextMoment;
 - (BOOL)progressToNextMoment;
@@ -34,12 +30,8 @@
 @property(readonly, nonatomic) MSMoment *nextMoment;
 @property(readonly, nonatomic) MSMoment *previousMoment;
 @property(readonly, nonatomic) MSMoment *currentMoment;
-- (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2 adaptability:(unsigned long long)arg3;
-- (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2;
 - (void)removeFutureMoments;
-- (BOOL)pagesListChangedFromMoment:(id)arg1 toMoment:(id)arg2;
-- (BOOL)onlyPageSwitchedFromMoment:(id)arg1 toMoment:(id)arg2;
-- (unsigned long long)addMoment:(id)arg1;
+- (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2;
 - (id)init;
 - (id)initWithInitialMoment:(id)arg1;
 

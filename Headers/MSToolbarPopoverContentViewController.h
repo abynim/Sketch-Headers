@@ -19,9 +19,9 @@
     NSStackView *_stackView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
 @property(readonly, nonatomic) __weak MSPopoverAction *action; // @synthesize action=_action;
-- (void).cxx_destruct;
 - (void)animateFrameWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSTextField *footerLabel; // @synthesize footerLabel=_footerLabel;
 @property(readonly, nonatomic) NSView *actionView; // @synthesize actionView=_actionView;

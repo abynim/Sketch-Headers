@@ -25,6 +25,7 @@
 + (void)enumerateOverrides:(id)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)flattenAvailableOverrides:(id)arg1;
 + (id)availableOverrideWithOverridePoint:(id)arg1 master:(id)arg2 overrideValue:(id)arg3 otherOverrides:(id)arg4 overrideProperties:(id)arg5 inParent:(id)arg6 document:(id)arg7;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id affectedLayerDefault; // @synthesize affectedLayerDefault=_affectedLayerDefault;
 @property(readonly, nonatomic) MSOverrideValue *internalOverrideValue; // @synthesize internalOverrideValue=_internalOverrideValue;
 @property(nonatomic) BOOL appearsOnCanvas; // @synthesize appearsOnCanvas=_appearsOnCanvas;
@@ -34,7 +35,6 @@
 @property(readonly, nonatomic) __weak MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
 @property(readonly, nonatomic) __weak MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *containedByPropertyID;
 @property(readonly, nonatomic) NSString *containedPropertyID;
 - (void)calculateAppearsOnCanvasWithAncestors:(id)arg1;
@@ -52,7 +52,7 @@
 - (BOOL)isComplimentaryTo:(id)arg1;
 @property(nonatomic, readonly) long long ancestorCount;
 - (id)modifiedAffectedLayerForInstance:(id)arg1 inDocument:(id)arg2;
-- (id)modifiedParentMasterForInstance:(id)arg1 inDocument:(id)arg2;
+- (id)detachedLayerGroupForInstance:(id)arg1 inDocument:(id)arg2;
 
 @end
 

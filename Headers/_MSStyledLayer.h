@@ -20,6 +20,7 @@
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_style:(id)arg1;
 - (void)setRaw_sharedStyleID:(id)arg1;
 - (void)setRaw_hasClippingMask:(BOOL)arg1;
 - (void)setRaw_clippingMaskMode:(long long)arg1;

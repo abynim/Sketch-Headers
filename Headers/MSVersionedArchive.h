@@ -20,11 +20,11 @@
 + (id)globalDirectory;
 + (id)URLForArchiveWithName:(id)arg1 extension:(id)arg2 version:(long long)arg3;
 + (id)globalArchiveWithName:(id)arg1 extension:(id)arg2 version:(long long)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *alternateFolder; // @synthesize alternateFolder=_alternateFolder;
 @property(nonatomic) unsigned long long version; // @synthesize version=_version;
 @property(retain, nonatomic) NSURL *baseURL; // @synthesize baseURL=_baseURL;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void).cxx_destruct;
 - (void)cleanupAfterTesting;
 - (BOOL)archiveRootObject:(id)arg1 error:(id *)arg2;
 - (id)unarchiveRootObjectVersion:(long long *)arg1 error:(id *)arg2;

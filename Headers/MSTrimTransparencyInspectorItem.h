@@ -13,8 +13,8 @@
     NSButton *_trimTransparencyCheckbox;
 }
 
-@property(retain, nonatomic) NSButton *trimTransparencyCheckbox; // @synthesize trimTransparencyCheckbox=_trimTransparencyCheckbox;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *trimTransparencyCheckbox; // @synthesize trimTransparencyCheckbox=_trimTransparencyCheckbox;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;
 

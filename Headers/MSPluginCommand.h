@@ -32,6 +32,7 @@
 
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
 + (id)actionIDsNotToReload;
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSPluginManager *manager; // @synthesize manager=_manager;
 @property(retain, nonatomic) NSMutableDictionary *coreModuleMap; // @synthesize coreModuleMap=_coreModuleMap;
 @property(retain, nonatomic) NSString *executingScript; // @synthesize executingScript=_executingScript;
@@ -47,7 +48,6 @@
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSPluginScript *script; // @synthesize script=_script;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void).cxx_destruct;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onDocument:(id)arg3;
 - (id)valueForKey:(id)arg1 onDocument:(id)arg2;
 - (void)setValue:(id)arg1 forKey:(id)arg2 onLayer:(id)arg3;

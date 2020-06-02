@@ -13,8 +13,8 @@
     NSDictionary *_shortcutMap;
 }
 
-@property(readonly, nonatomic) NSDictionary *shortcutMap; // @synthesize shortcutMap=_shortcutMap;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDictionary *shortcutMap; // @synthesize shortcutMap=_shortcutMap;
 - (id)defaultKeyBindingsPath;
 - (id)userKeyBindingsPath;
 - (id)init;

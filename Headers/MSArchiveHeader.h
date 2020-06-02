@@ -19,11 +19,11 @@
 }
 
 + (id)metadataForNewHeader;
+- (void).cxx_destruct;
 @property(retain, nonatomic) id root; // @synthesize root=_root;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) long long compatibilityVersion; // @synthesize compatibilityVersion=_compatibilityVersion;
 @property(nonatomic) long long version; // @synthesize version=_version;
-- (void).cxx_destruct;
 - (void)encodeAsJSON:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;

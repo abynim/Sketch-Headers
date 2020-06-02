@@ -18,10 +18,10 @@
     struct CGSize _size;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *styleID; // @synthesize styleID=_styleID;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
-- (void).cxx_destruct;
 - (id)initWithJSONDecoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
 @property(readonly, copy) NSString *debugDescription;

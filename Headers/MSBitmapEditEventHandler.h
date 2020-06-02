@@ -20,6 +20,7 @@
     MSOverlayItemImageCache *_imageCache;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
@@ -27,7 +28,6 @@
 @property(retain, nonatomic) MSBitmapRectangleEditor *rectangleEditor; // @synthesize rectangleEditor=_rectangleEditor;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
-- (void).cxx_destruct;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;

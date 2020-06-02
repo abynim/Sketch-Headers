@@ -17,9 +17,9 @@
     id <BCColorPreviewDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <BCColorPreviewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 - (void)drawCheckerboard;
 - (void)drawRect:(struct CGRect)arg1;
 - (id)initInBounds:(struct CGRect)arg1;

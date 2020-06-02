@@ -19,12 +19,12 @@
     MSColorWell *_lightColorButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSColorWell *lightColorButton; // @synthesize lightColorButton=_lightColorButton;
 @property(retain, nonatomic) MSColorWell *darkColorButton; // @synthesize darkColorButton=_darkColorButton;
 @property(retain, nonatomic) MSImmutableBaseGrid *templateImmutable; // @synthesize templateImmutable=_templateImmutable;
 @property(copy, nonatomic) MSBaseGrid *templateObject; // @synthesize templateObject=_templateObject;
 @property(retain, nonatomic) NSMapTable *originalSettings; // @synthesize originalSettings=_originalSettings;
-- (void).cxx_destruct;
 - (void)saveCurrentSettingsAsDefault;
 - (void)lightColorUpdated:(id)arg1;
 - (void)darkColorUpdated:(id)arg1;

@@ -26,6 +26,7 @@
     SEL _bc_action;
 }
 
+- (void).cxx_destruct;
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 @property(nonatomic) BOOL displaysMultipleValues; // @synthesize displaysMultipleValues=_displaysMultipleValues;
@@ -35,7 +36,6 @@
 @property(retain, nonatomic) BCHueColorPicker *hPickerView; // @synthesize hPickerView=_hPickerView;
 @property(retain, nonatomic) BCSaturationBrightnessColorPicker *sbPickerView; // @synthesize sbPickerView=_sbPickerView;
 @property(nonatomic) __weak id <BCHSBColorPickerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)setColor:(id)arg1 ignoringFields:(id)arg2;
 - (void)setColor:(id)arg1 multipleValues:(BOOL)arg2;
 @property(copy, nonatomic) MSFlexibleColor *color; // @dynamic color;

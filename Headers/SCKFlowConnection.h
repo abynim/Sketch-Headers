@@ -14,15 +14,15 @@
 {
     BOOL _isBackAction;
     BOOL _maintainScrollPosition;
-    struct NSString *_destinationArtboardID;
+    NSString *_destinationArtboardID;
     NSString *_animationType;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL maintainScrollPosition; // @synthesize maintainScrollPosition=_maintainScrollPosition;
 @property(readonly, nonatomic) NSString *animationType; // @synthesize animationType=_animationType;
 @property(readonly, nonatomic) NSString *destinationArtboardID; // @synthesize destinationArtboardID=_destinationArtboardID;
 @property(readonly, nonatomic) BOOL isBackAction; // @synthesize isBackAction=_isBackAction;
-- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) SCKLayer *layer;
 - (id)dictionaryRepresentation;

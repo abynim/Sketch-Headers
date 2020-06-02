@@ -20,8 +20,10 @@
 + (BOOL)persistsObjectID;
 + (id)generateObjectID;
 + (id)defaultName;
-@property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
++ (id)metadataForKey:(id)arg1 objectKey:(id)arg2 objectID:(id)arg3 inDictionary:(id)arg4;
++ (void)storeMetadata:(id)arg1 forKey:(id)arg2 objectKey:(id)arg3 objectID:(id)arg4 inDictionary:(id)arg5;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1;
@@ -37,7 +39,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitEmptyObject;
 - (id)initWithMinimalSetup;
-- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (id)init;
 @property(readonly, nonatomic) NSArray *overridePointAttributeNamesForOverridePropertyMigration;
 @property(readonly, copy) NSString *description;

@@ -16,11 +16,11 @@
     MSArcVertexBuffer *_buffer;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSArcVertexBuffer *buffer; // @synthesize buffer=_buffer;
 @property(readonly, nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
 @property(readonly, nonatomic) BOOL clipToArtboards; // @synthesize clipToArtboards=_clipToArtboards;
 @property(readonly, nonatomic) MSFlowItem *item; // @synthesize item=_item;
-- (void).cxx_destruct;
 - (void)main;
 - (id)segmentsByClippingSegment:(id)arg1 toRects:(id)arg2;
 - (id)initWithFlowItem:(id)arg1 clipToArtboards:(BOOL)arg2 zoomLevel:(double)arg3;

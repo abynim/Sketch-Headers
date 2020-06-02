@@ -17,10 +17,10 @@
     NSURL *_downloadURL;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
-- (void).cxx_destruct;
 - (id)name;
 - (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;
 - (id)diffComparedTo:(id)arg1;

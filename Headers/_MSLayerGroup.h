@@ -23,6 +23,7 @@
 + (id)defaultFrame;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_layers:(id)arg1;
 - (void)setRaw_groupLayout:(id)arg1;
 - (void)setRaw_sharedObjectID:(id)arg1;
 - (void)setRaw_hasClickThrough:(BOOL)arg1;

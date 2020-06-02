@@ -11,8 +11,8 @@
     CDUnknownBlockType _progressBlock;
 }
 
-@property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 - (void).cxx_destruct;
+@property(copy, nonatomic) CDUnknownBlockType progressBlock; // @synthesize progressBlock=_progressBlock;
 - (void)converterReleased;
 - (void)converterMessage:(id)arg1;
 - (void)converterProgress;

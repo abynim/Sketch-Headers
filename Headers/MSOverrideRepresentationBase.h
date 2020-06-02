@@ -15,10 +15,10 @@
     MSSymbolInstance *_instance;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
 @property(readonly, nonatomic) __weak MSSymbolInstance *instance; // @synthesize instance=_instance;
 @property(retain, nonatomic) NSArray *children; // @synthesize children=_children;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isOpen;
 @property(readonly, nonatomic) NSArray *flattenedChildren;
 - (id)firstOverridePassingTest:(CDUnknownBlockType)arg1;

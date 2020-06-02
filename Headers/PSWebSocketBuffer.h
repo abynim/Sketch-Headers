@@ -15,9 +15,9 @@
     unsigned long long _compactionLength;
 }
 
+- (void).cxx_destruct;
 @property unsigned long long compactionLength; // @synthesize compactionLength=_compactionLength;
 @property long long offset; // @synthesize offset=_offset;
-- (void).cxx_destruct;
 - (id)data;
 - (void *)mutableBytes;
 - (const void *)bytes;

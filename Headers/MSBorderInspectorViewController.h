@@ -17,12 +17,13 @@
     MSInspectorSegmentedControl *_positionControl;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInspectorSegmentedControl *positionControl; // @synthesize positionControl=_positionControl;
 @property(retain, nonatomic) NSTextField *borderPositionLabel; // @synthesize borderPositionLabel=_borderPositionLabel;
 @property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *thicknessAdaptor; // @synthesize thicknessAdaptor=_thicknessAdaptor;
 @property(retain, nonatomic) MSUpDownTextField *thicknessField; // @synthesize thicknessField=_thicknessField;
-- (void).cxx_destruct;
+- (void)applyUserSelectedColors:(id)arg1;
 - (void)updateUI;
 - (void)enableAction:(id)arg1;
 - (BOOL)canDrawInnerOrOuterBorders;

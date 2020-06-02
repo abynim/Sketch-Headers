@@ -17,8 +17,8 @@
 
 + (struct CGPoint)convertPoint:(struct CGPoint)arg1 toBounds:(struct CGRect)arg2;
 + (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromBounds:(struct CGRect)arg2;
-@property(nonatomic) __weak id <MSLayerCoordinateSpace> parentCoordinateSpace; // @synthesize parentCoordinateSpace=_parentCoordinateSpace;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSLayerCoordinateSpace> parentCoordinateSpace; // @synthesize parentCoordinateSpace=_parentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;

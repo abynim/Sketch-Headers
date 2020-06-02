@@ -21,12 +21,12 @@
 }
 
 + (id)resizeCursorForFlags:(unsigned long long)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSPanGestureRecognizer *dragRecognizer; // @synthesize dragRecognizer=_dragRecognizer;
 @property(retain, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(retain, nonatomic) id flagsMonitor; // @synthesize flagsMonitor=_flagsMonitor;
 @property(copy, nonatomic) NSArray *textFields; // @synthesize textFields=_textFields;
 @property(nonatomic) __weak NSTextField<MSUpDownProtocol> *upDownTextField; // @synthesize upDownTextField=_upDownTextField;
-- (void).cxx_destruct;
 - (BOOL)canScrub;
 - (void)didDrag:(id)arg1;
 - (id)textField;

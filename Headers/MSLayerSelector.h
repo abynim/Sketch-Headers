@@ -6,17 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class MSLayerArray;
+@class MSLayerArray, MSPage;
 
 @interface MSLayerSelector : NSObject
 {
+    BOOL _contextualSelectAll;
+    BOOL _selectAllCanEscalate;
+    MSPage *_page;
     MSLayerArray *_initialSelection;
 }
 
-@property(copy, nonatomic) MSLayerArray *initialSelection; // @synthesize initialSelection=_initialSelection;
 - (void).cxx_destruct;
-- (BOOL)shouldUseArtboardSelectionModeForRect:(struct CGRect)arg1 page:(id)arg2 extendSelection:(BOOL)arg3 options:(unsigned long long)arg4;
-- (void)updateSelectionWithRect:(struct CGRect)arg1 page:(id)arg2 extendSelection:(BOOL)arg3 options:(unsigned long long)arg4;
+@property(nonatomic) BOOL selectAllCanEscalate; // @synthesize selectAllCanEscalate=_selectAllCanEscalate;
+@property(nonatomic) BOOL contextualSelectAll; // @synthesize contextualSelectAll=_contextualSelectAll;
+@property(copy, nonatomic) MSLayerArray *initialSelection; // @synthesize initialSelection=_initialSelection;
+@property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+- (BOOL)shouldUseArtboardSelectionModeForRect:(struct CGRect)arg1 extendSelection:(BOOL)arg2 options:(unsigned long long)arg3;
+- (void)updateSelectionWithRect:(struct CGRect)arg1 extendSelection:(BOOL)arg2 options:(unsigned long long)arg3;
+- (id)init;
+- (id)selectAll;
 
 @end
 

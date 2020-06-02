@@ -6,15 +6,16 @@
 
 #import <AppKit/NSWindowController.h>
 
+@class NSToolbar;
+
 @interface _TtC6Sketch34MSAssistantResultsWindowController : NSWindowController
 {
+    // Error parsing type: , name: configurationItemIdentifier
+    // Error parsing type: , name: allAssistantsItemIdentifier
+    // Error parsing type: , name: $__lazy_storage_$_resultsController
+    // Error parsing type: , name: toolBar
 }
 
-+ (void)sharedWindowWillCloseWithNotification:(id)arg1;
-+ (void)toggleSharedWindow;
-+ (void)show;
-+ (BOOL)isShowing;
-+ (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
@@ -22,8 +23,11 @@
 - (void)documentDidResignCurrentWithNotification:(id)arg1;
 - (void)documentDidBecomeCurrentWithNotification:(id)arg1;
 - (void)displayResultForDocument:(id)arg1;
+- (void)windowDidResignKey:(id)arg1;
+- (void)windowDidBecomeKey:(id)arg1;
 - (void)windowDidLoad;
 - (void)dealloc;
+@property(nonatomic, retain) NSToolbar *toolBar; // @synthesize toolBar;
 
 @end
 

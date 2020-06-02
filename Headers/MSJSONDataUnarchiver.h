@@ -15,9 +15,9 @@
 }
 
 + (id)unarchivedObjectWithString:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) BCJSONDecoder *dataDecoder; // @synthesize dataDecoder=_dataDecoder;
-- (void).cxx_destruct;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;
 - (id)decodeRoot;
 - (id)decoder;

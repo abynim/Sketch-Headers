@@ -16,7 +16,6 @@
 - (BOOL)shouldBeIncludedInParentPath;
 - (BOOL)isLayerExportable;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
-- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)flowDestination;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 

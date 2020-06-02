@@ -18,10 +18,10 @@
     unsigned long long _attributes;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long attributes; // @synthesize attributes=_attributes;
 @property(readonly, copy, nonatomic) SCKPage *comparedObject; // @synthesize comparedObject=_comparedObject;
 @property(readonly, copy, nonatomic) SCKPage *object; // @synthesize object=_object;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL objectsAreEqual;
 @property(readonly, nonatomic) SCKCollectionDiff *artboardsDiff; // @synthesize artboardsDiff=_artboardsDiff;
 - (id)initWithObject:(id)arg1 comparedTo:(id)arg2;

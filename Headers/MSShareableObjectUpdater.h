@@ -17,18 +17,25 @@
     MSModelObjectCacheGeneration *_lastProcessedModelGeneration;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSModelObjectCacheGeneration *lastProcessedModelGeneration; // @synthesize lastProcessedModelGeneration=_lastProcessedModelGeneration;
 @property(retain, nonatomic) MSLayerArray *lastProcessedLayers; // @synthesize lastProcessedLayers=_lastProcessedLayers;
 @property(nonatomic) unsigned long long shareableObjectType; // @synthesize shareableObjectType=_shareableObjectType;
 @property(nonatomic) __weak id <MSShareableObjectUpdaterDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *foreignSharedObjects;
 @property(readonly, nonatomic) MSStyle *selectedStyle;
 @property(readonly, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject;
 @property(readonly, nonatomic) NSSet *allSharedObjects;
 @property(readonly, nonatomic) BOOL hasOutOfSyncStyles;
+- (id)documentData;
 @property(readonly, nonatomic) MSLayerArray *selectedLayers;
 - (id)init;
+@property(readonly, nonatomic) NSString *menuItemTitleForResetColorAction;
+@property(readonly, nonatomic) NSString *menuItemTitleForCreateNewColorAction;
+- (id)performCreateNewColorAction;
+@property(readonly, nonatomic) BOOL canPerformNewColorAction;
+@property(readonly, nonatomic) BOOL hasOutOfSyncColors;
+- (id)selectedColor;
 - (void)performDetachAction;
 @property(readonly, nonatomic) NSString *menuItemTitleForDetachAction;
 - (void)performResetAction;

@@ -10,22 +10,23 @@
 
 @interface BCRateLimiter : NSObject
 {
-    BOOL _needsUpdate;
     BOOL _hasScheduledBlock;
+    BOOL _atomicNeedsUpdate;
     id _target;
     NSInvocation *_actionInvocation;
     unsigned long long _updateStrategy;
 }
 
-@property(nonatomic) BOOL hasScheduledBlock; // @synthesize hasScheduledBlock=_hasScheduledBlock;
-@property(nonatomic) unsigned long long updateStrategy; // @synthesize updateStrategy=_updateStrategy;
-@property(retain, nonatomic) NSInvocation *actionInvocation; // @synthesize actionInvocation=_actionInvocation;
-@property(nonatomic) __weak id target; // @synthesize target=_target;
-@property(nonatomic) BOOL needsUpdate; // @synthesize needsUpdate=_needsUpdate;
 - (void).cxx_destruct;
+@property BOOL atomicNeedsUpdate; // @synthesize atomicNeedsUpdate=_atomicNeedsUpdate;
+@property BOOL hasScheduledBlock; // @synthesize hasScheduledBlock=_hasScheduledBlock;
+@property unsigned long long updateStrategy; // @synthesize updateStrategy=_updateStrategy;
+@property(retain) NSInvocation *actionInvocation; // @synthesize actionInvocation=_actionInvocation;
+@property __weak id target; // @synthesize target=_target;
 - (void)update;
 - (void)updateIfNeeded;
 - (void)performUpdateIfNeeded;
+@property(nonatomic) BOOL needsUpdate;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2 updateStrategy:(unsigned long long)arg3;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;
 

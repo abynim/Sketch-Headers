@@ -37,9 +37,9 @@
 
 + (id)serverWithHost:(id)arg1 port:(unsigned long long)arg2 SSLCertificates:(id)arg3;
 + (id)serverWithHost:(id)arg1 port:(unsigned long long)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) __weak id <PSWebSocketServerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)executeDelegateAndWait:(CDUnknownBlockType)arg1;
 - (void)executeDelegate:(CDUnknownBlockType)arg1;

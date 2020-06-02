@@ -13,6 +13,8 @@
     id <MSCrashHandlerSetupDelegate> _crashHandlerSetupDelegate;
 }
 
++ (id)buildHandledErrorReportWithErrorID:(id)arg1;
++ (id)trackModelException:(id)arg1 withProperties:(id)arg2 withAttachments:(id)arg3;
 + (void)sendErrorAttachments:(id)arg1 withIncidentIdentifier:(id)arg2;
 + (BOOL)sendCrashReportsOrAwaitUserConfirmationForFilteredIds:(id)arg1;
 + (id)unprocessedCrashReports;

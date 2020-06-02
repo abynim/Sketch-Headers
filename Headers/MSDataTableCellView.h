@@ -17,12 +17,12 @@
     NSButton *_revealButton;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSButton *revealButton; // @synthesize revealButton=_revealButton;
 @property(nonatomic) __weak MSDataPreview *previewContainer; // @synthesize previewContainer=_previewContainer;
 @property(nonatomic) __weak MSDataPreferencePane *dataPreferencePane; // @synthesize dataPreferencePane=_dataPreferencePane;
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
-- (void).cxx_destruct;
 - (void)setObjectValue:(id)arg1;
 @property(readonly, nonatomic) MSDataPreferenceItem *dataPreferenceItem;
 - (void)awakeFromNib;

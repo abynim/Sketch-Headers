@@ -16,10 +16,10 @@
     MSImmutableDocumentData *_document;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSArray *ancestorsOfObject; // @synthesize ancestorsOfObject=_ancestorsOfObject;
 @property(retain, nonatomic) MSModelObjectIndexPair *object; // @synthesize object=_object;
-- (void).cxx_destruct;
 - (id)modelObjectAncestors;
 - (id)page;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;

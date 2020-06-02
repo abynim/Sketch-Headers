@@ -9,30 +9,44 @@
 #import "MSGradientBarViewDelegate-Protocol.h"
 #import "MSGradientEventHandlerDelegate-Protocol.h"
 
-@class MSAssetPickerCollectionHeaderController, MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, NSButton, NSString;
+@class MSAssetPickerCollectionHeaderController, MSAssetPickerController, MSGradientBarView, MSGradientEventHandler, MSInlineUpDownNanoTextField, MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSTextLabelForUpDownField, NSArrayController, NSButton, NSString, NSTextField;
 
 @interface MSColorInspectorSectionGradient : MSColorInspectorSectionWithColorPicker <MSGradientEventHandlerDelegate, MSGradientBarViewDelegate>
 {
     MSGradientBarView *_gradientBarView;
+    long long _gradientType;
     MSGradientEventHandler *_gradientHandler;
     MSAssetPickerController *_secondaryAssetPickerController;
     NSButton *_rotateLeftButton;
     NSButton *_rotateRightButton;
+    MSInspectorSegmentedControl *_gradientTypeControl;
+    NSTextField *_gradientTypeLabel;
+    MSInlineUpDownNanoTextField *_opacityField;
+    MSTextLabelForUpDownField *_opacityLabel;
+    MSMathInspectorValueAdaptor *_opacityAdaptor;
     MSAssetPickerCollectionHeaderController *_gradientHeader;
     MSAssetPickerCollectionHeaderController *_colorHeader;
+    NSArrayController *_arrayController;
 }
 
 + (BOOL)canHandleStylePart:(id)arg1;
 + (id)filterSelection:(id)arg1;
 + (id)presetPickerVisibilityDefaultsKey;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) MSAssetPickerCollectionHeaderController *colorHeader; // @synthesize colorHeader=_colorHeader;
 @property(retain, nonatomic) MSAssetPickerCollectionHeaderController *gradientHeader; // @synthesize gradientHeader=_gradientHeader;
+@property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
+@property(retain, nonatomic) MSTextLabelForUpDownField *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
+@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) NSTextField *gradientTypeLabel; // @synthesize gradientTypeLabel=_gradientTypeLabel;
+@property(retain, nonatomic) MSInspectorSegmentedControl *gradientTypeControl; // @synthesize gradientTypeControl=_gradientTypeControl;
 @property(nonatomic) __weak NSButton *rotateRightButton; // @synthesize rotateRightButton=_rotateRightButton;
 @property(nonatomic) __weak NSButton *rotateLeftButton; // @synthesize rotateLeftButton=_rotateLeftButton;
 @property(retain, nonatomic) MSAssetPickerController *secondaryAssetPickerController; // @synthesize secondaryAssetPickerController=_secondaryAssetPickerController;
 @property(retain, nonatomic) MSGradientEventHandler *gradientHandler; // @synthesize gradientHandler=_gradientHandler;
+@property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
 @property(nonatomic) __weak MSGradientBarView *gradientBarView; // @synthesize gradientBarView=_gradientBarView;
-- (void).cxx_destruct;
 - (id)toolTipForAltButton:(id)arg1 alternate:(BOOL)arg2;
 - (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
 - (unsigned long long)assetType;
@@ -41,6 +55,7 @@
 - (void)popoverWillClose;
 - (id)gradients;
 - (void)flipGradient:(id)arg1;
+- (void)gradientTypeSelected:(id)arg1;
 - (void)rotateGradientAction:(id)arg1;
 - (void)updateOtherGradientsToReflectChanges;
 - (void)colorPickerChangedTo:(id)arg1;
@@ -51,7 +66,6 @@
 - (id)createPresetFromCurrentSelection;
 - (void)setStyleParts:(id)arg1;
 - (void)highlightCurrentGradient;
-- (void)assetDataSourcesMighHaveChanged;
 - (void)gradientHandlerDidChangeGradient:(id)arg1;
 - (void)gradientHandlerWillLoseFocus:(id)arg1;
 - (void)gradientHandlerDidChangeCurrentPoint:(id)arg1;
@@ -66,6 +80,7 @@
 - (id)scrollableViews;
 - (id)headerViews;
 - (id)gradientBarViewPreviewColorSpace:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateUIAfterGradientChange;
 - (void)viewDidLoad;
 - (void)restoreWithState_ms:(id)arg1;

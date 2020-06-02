@@ -18,12 +18,12 @@
 }
 
 + (id)accumulateSelectionWithPrevious:(id)arg1 draggingRect:(id)arg2 dragMode:(long long)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSBezierPath *selectionBeforeDrag; // @synthesize selectionBeforeDrag=_selectionBeforeDrag;
 @property(nonatomic) struct CGPoint mouseEndPoint; // @synthesize mouseEndPoint=_mouseEndPoint;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
 @property(nonatomic) BOOL didDrag; // @synthesize didDrag=_didDrag;
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
-- (void).cxx_destruct;
 - (struct CGRect)rectFromDraggingPoints;
 - (struct CGRect)rectForLabel;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;

@@ -19,13 +19,13 @@
     unsigned long long _expansionState;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
 @property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) unsigned long long expansionTransitionState; // @synthesize expansionTransitionState=_expansionTransitionState;
 @property(nonatomic) unsigned long long expansionState; // @synthesize expansionState=_expansionState;
 @property(nonatomic) __weak NSObject<BCTableRowViewDelegate> *delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<BCOutlineViewNode> *node; // @synthesize node=_node;
-- (void).cxx_destruct;
 - (void)relayoutNow;
 @property(readonly, nonatomic) BCOutlineView *outlineView;
 - (void)mouseDown:(id)arg1;

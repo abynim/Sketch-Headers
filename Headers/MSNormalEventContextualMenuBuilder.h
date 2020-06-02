@@ -22,6 +22,7 @@
     NSMenu *_overidesMenu;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *overidesMenu; // @synthesize overidesMenu=_overidesMenu;
 @property(retain, nonatomic) NSMenu *sliceMenu; // @synthesize sliceMenu=_sliceMenu;
 @property(retain, nonatomic) NSMenu *artboardMenu; // @synthesize artboardMenu=_artboardMenu;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) NSMenu *groupLayerMenu; // @synthesize groupLayerMenu=_groupLayerMenu;
 @property(retain, nonatomic) NSMenu *textLayerMenu; // @synthesize textLayerMenu=_textLayerMenu;
 @property(retain, nonatomic) NSMenu *standardLayerMenu; // @synthesize standardLayerMenu=_standardLayerMenu;
-- (void).cxx_destruct;
 - (id)overrideMenuItems;
 - (id)symbolInstanceOnlyItems;
 - (id)symbolItems;

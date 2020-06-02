@@ -23,6 +23,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(nonatomic) double width; // @synthesize width=_width;
 @property(retain, nonatomic) NSString *linejoin; // @synthesize linejoin=_linejoin;
 @property(retain, nonatomic) NSString *linecap; // @synthesize linecap=_linecap;
@@ -31,7 +32,6 @@
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
 @property(retain, nonatomic) SVGPattern *pattern; // @synthesize pattern=_pattern;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;
-- (void).cxx_destruct;
 - (void)primitiveRemoveUsedByObject:(id)arg1;
 - (void)primitiveAddUsedByObject:(id)arg1;
 - (void)removeUsedByObject:(id)arg1;

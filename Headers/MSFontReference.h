@@ -14,7 +14,9 @@
 {
 }
 
+- (id)fileURL;
 @property(readonly, nonatomic) BOOL shouldStoreFontData;
+@property(readonly, copy, nonatomic) NSString *lookupKey;
 @property(nonatomic, getter=isForeign) BOOL foreign;
 @property(nonatomic, getter=isUsed) BOOL used;
 @property(nonatomic, getter=isEmbedded) BOOL embedded;

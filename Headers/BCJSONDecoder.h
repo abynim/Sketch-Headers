@@ -21,12 +21,12 @@
 + (id)decodeFileAtURL:(id)arg1 error:(id *)arg2;
 + (id)decodeData:(id)arg1 error:(id *)arg2;
 + (void)setClass:(Class)arg1 forClassName:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *currentObjectDict; // @synthesize currentObjectDict=_currentObjectDict;
 @property(retain, nonatomic) NSObject *root; // @synthesize root=_root;
 @property(nonatomic) __weak id <BCJSONDecoderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) __weak id userInfo; // @synthesize userInfo=_userInfo;
-- (void).cxx_destruct;
 - (id)decode:(id *)arg1;
 - (id)decodeObject:(id)arg1;
 - (id)decodeArray:(id)arg1;

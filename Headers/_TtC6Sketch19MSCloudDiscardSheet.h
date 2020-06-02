@@ -6,9 +6,11 @@
 
 #import <Chocolat/CHSheetController.h>
 
+#import "_TtP13SharedEditing23ProgressTrackerDelegate_-Protocol.h"
+
 @class NSButton, NSProgressIndicator, NSString, NSTextField;
 
-@interface _TtC6Sketch19MSCloudDiscardSheet : CHSheetController
+@interface _TtC6Sketch19MSCloudDiscardSheet : CHSheetController <_TtP13SharedEditing23ProgressTrackerDelegate_>
 {
     // Error parsing type: , name: titleLabel
     // Error parsing type: , name: descriptionLabel
@@ -25,6 +27,7 @@
 - (void)confirm:(id)arg1;
 - (void)discardChanges:(id)arg1;
 - (void)uploadDidChange:(id)arg1;
+- (void)progressDidChangeWithProgress:(double)arg1;
 - (void)updateProgress:(id)arg1;
 - (void)windowDidLoad;
 - (void)run:(CDUnknownBlockType)arg1;

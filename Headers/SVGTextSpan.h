@@ -15,10 +15,10 @@
     struct CGRect _rect;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *attributes; // @synthesize attributes=_attributes;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
-- (void).cxx_destruct;
 
 @end
 

@@ -16,10 +16,10 @@
 }
 
 + (id)createWithBlock:(CDUnknownBlockType)arg1;
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType creationBlock; // @synthesize creationBlock=_creationBlock;
 @property(retain, nonatomic) NSObject *calculatedObject; // @synthesize calculatedObject=_calculatedObject;
 @property(retain, nonatomic) NSRecursiveLock *lock; // @synthesize lock=_lock;
-- (void).cxx_destruct;
 - (id)BCCache_selfOrDeferredObject;
 - (id)BCCache_unblockingSelfOrDeferredObject;
 - (id)initWithBlock:(CDUnknownBlockType)arg1;

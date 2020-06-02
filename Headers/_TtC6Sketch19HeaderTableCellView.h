@@ -6,12 +6,11 @@
 
 #import "_TtC6Sketch19ResultTableCellView.h"
 
-@class NSButton, NSTextField, _TtC6Sketch13AssistantIcon, _TtC6Sketch13SeverityBadge;
+@class NSButton, NSTextField, _TtC6Sketch13AssistantIcon;
 
 @interface _TtC6Sketch19HeaderTableCellView : _TtC6Sketch19ResultTableCellView
 {
     // Error parsing type: , name: headerText
-    // Error parsing type: , name: severityBadge
     // Error parsing type: , name: helpButton
     // Error parsing type: , name: assistantImage
     // Error parsing type: , name: headerRowModel
@@ -23,7 +22,6 @@
 - (void)helpButtonTapped:(id)arg1;
 @property(nonatomic, retain) _TtC6Sketch13AssistantIcon *assistantImage; // @synthesize assistantImage;
 @property(nonatomic, retain) NSButton *helpButton; // @synthesize helpButton;
-@property(nonatomic, retain) _TtC6Sketch13SeverityBadge *severityBadge; // @synthesize severityBadge;
 @property(nonatomic, retain) NSTextField *headerText; // @synthesize headerText;
 
 @end

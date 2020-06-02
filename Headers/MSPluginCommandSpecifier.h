@@ -16,9 +16,9 @@
     NSString *_commandIdentifier;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *commandIdentifier; // @synthesize commandIdentifier=_commandIdentifier;
 @property(readonly, copy, nonatomic) NSString *pluginBundleIdentifier; // @synthesize pluginBundleIdentifier=_pluginBundleIdentifier;
-- (void).cxx_destruct;
 - (id)debugDescription;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (BOOL)isEqual:(id)arg1;

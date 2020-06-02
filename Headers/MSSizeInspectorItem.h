@@ -14,9 +14,9 @@
     NSButton *_flipVerticalButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *flipVerticalButton; // @synthesize flipVerticalButton=_flipVerticalButton;
 @property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
-- (void).cxx_destruct;
 - (void)updateButtonState:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateUI;

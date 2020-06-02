@@ -31,10 +31,9 @@
 + (id)pathWithSubpaths:(id)arg1;
 + (id)new;
 + (id)path;
-+ (id)pathWithFBBezierGraph:(id)arg1;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *contours; // @synthesize contours=_contours;
 @property(readonly, nonatomic) const struct CGPath *CGPath; // @synthesize CGPath=_CGPath;
-- (void).cxx_destruct;
 - (id)description;
 - (BOOL)isEqualToPath:(id)arg1 epsilon:(double)arg2;
 - (BOOL)isEqualToPath:(id)arg1;
@@ -104,7 +103,6 @@
 - (id)booleanIntersectWith:(id)arg1;
 - (id)booleanUnionWith:(id)arg1;
 - (id)booleanOp:(long long)arg1 withPath:(id)arg2;
-- (id)FBBezierGraph;
 
 @end
 

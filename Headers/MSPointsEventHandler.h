@@ -20,12 +20,12 @@
     MSOverlayItemImageCache *_imageCache;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) MSAlignmentEngineResult *alignmentResult; // @synthesize alignmentResult=_alignmentResult;
 @property(readonly, nonatomic) MSHandleOverlay *handlesOverlay; // @synthesize handlesOverlay=_handlesOverlay;
 @property(nonatomic) long long indexForSelectedPoint; // @synthesize indexForSelectedPoint=_indexForSelectedPoint;
 @property(retain, nonatomic) MSStyledLayer *layer; // @synthesize layer=_layer;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
 - (struct CGPoint)snapPoint:(struct CGPoint)arg1 toPoints:(id)arg2;
 - (id)pointsToSnap;

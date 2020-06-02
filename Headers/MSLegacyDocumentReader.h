@@ -18,12 +18,12 @@
     unsigned long long _documentFileState;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long documentFileState; // @synthesize documentFileState=_documentFileState;
 @property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) BCStructuredFile *file; // @synthesize file=_file;
 - (id)metadata;
 - (BOOL)documentWasMigrated;
-- (void).cxx_destruct;
 - (void)repair;
 - (id)UIMetadata;
 - (id)data;

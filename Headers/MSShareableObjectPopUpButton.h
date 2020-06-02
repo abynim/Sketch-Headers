@@ -18,11 +18,11 @@
     NSArray *_objectLibraryMapping;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL needsRebuildMenu; // @synthesize needsRebuildMenu=_needsRebuildMenu;
 @property(retain, nonatomic) NSArray *objectLibraryMapping; // @synthesize objectLibraryMapping=_objectLibraryMapping;
 @property(nonatomic) __weak MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) MSShareableObjectActionsController *actionsController; // @synthesize actionsController=_actionsController;
-- (void).cxx_destruct;
 - (void)setTitle:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
@@ -47,6 +47,7 @@
 - (id)sourceLibrary;
 - (id)selectedObjectReference;
 @property(readonly, nonatomic) NSDictionary *menuItemSelectorDictionary;
+- (id)colorMenuItemSelectorDictionary;
 - (id)textStyleMenuItemSelectorDictionary;
 - (id)layerStyleMenuItemSelectorDictionary;
 - (id)symbolMenuItemSelectorDictionary;

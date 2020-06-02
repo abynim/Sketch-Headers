@@ -16,11 +16,11 @@
     MSCloudUploadArrowView *_arrowView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSCloudUploadArrowView *arrowView; // @synthesize arrowView=_arrowView;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSProgressIndicator *progressIndicator; // @synthesize progressIndicator=_progressIndicator;
 @property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
-- (void).cxx_destruct;
 - (void)updateProgress;
 - (void)cancel:(id)arg1;
 - (void)progressDidChangeNotification:(id)arg1;

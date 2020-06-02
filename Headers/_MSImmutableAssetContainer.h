@@ -14,8 +14,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

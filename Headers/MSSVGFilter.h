@@ -15,8 +15,8 @@
 
 + (id)filter;
 + (id)elementName;
-@property(retain, nonatomic) MSSVGMerge *finalMerge; // @synthesize finalMerge=_finalMerge;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSSVGMerge *finalMerge; // @synthesize finalMerge=_finalMerge;
 - (void)close;
 - (void)addFilterOutput:(id)arg1;
 - (void)addFilterItem:(id)arg1;

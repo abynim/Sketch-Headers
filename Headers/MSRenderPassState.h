@@ -6,12 +6,14 @@
 
 #import <objc/NSObject.h>
 
-@class MSModelObjectCacheGeneration, MSOverlaySettings, NSColorSpace, NSSet;
+@class MSModelObjectCacheGeneration, MSOverlaySettings, NSColorSpace, NSSet, NSString;
 
 @interface MSRenderPassState : NSObject
 {
     void *_document;
-    MSModelObjectCacheGeneration *_pageCacheGeneration;
+    NSString *_pageObjectID;
+    MSModelObjectCacheGeneration *_verticalRulerCacheGeneration;
+    MSModelObjectCacheGeneration *_horizontalRulerCacheGeneration;
     NSSet *_selectedLayerIDs;
     NSColorSpace *_canvasColorSpace;
     MSOverlaySettings *_overlaySettings;
@@ -19,14 +21,16 @@
 }
 
 + (id)stateWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace; // @synthesize canvasColorSpace=_canvasColorSpace;
 @property(readonly, copy, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
-@property(readonly, copy, nonatomic) MSModelObjectCacheGeneration *pageCacheGeneration; // @synthesize pageCacheGeneration=_pageCacheGeneration;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *horizontalRulerCacheGeneration; // @synthesize horizontalRulerCacheGeneration=_horizontalRulerCacheGeneration;
+@property(readonly, nonatomic) MSModelObjectCacheGeneration *verticalRulerCacheGeneration; // @synthesize verticalRulerCacheGeneration=_verticalRulerCacheGeneration;
+@property(readonly, copy, nonatomic) NSString *pageObjectID; // @synthesize pageObjectID=_pageObjectID;
 @property(readonly, nonatomic) void *document; // @synthesize document=_document;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
-- (void).cxx_destruct;
-- (unsigned long long)traitsDifferingFromState:(id)arg1;
+- (unsigned long long)traitsDifferingFromState:(id)arg1 diff:(id)arg2;
 - (id)initWithPage:(id)arg1 document:(id)arg2 renderingParameters:(const struct MSRenderingParameters *)arg3 canvasColorSpace:(id)arg4 overlaySettings:(id)arg5;
 
 @end

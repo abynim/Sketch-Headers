@@ -19,11 +19,11 @@
 + (Class)mutableClass;
 + (BOOL)hasClickThroughDefault;
 + (id)defaultLayout;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSImmutableGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

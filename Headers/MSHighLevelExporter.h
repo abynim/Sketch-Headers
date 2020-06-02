@@ -16,10 +16,11 @@
 }
 
 + (id)exporterWithDelegate:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) __weak id <MSHighLevelExportDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (BOOL)export:(id)arg1;
+- (id)fullURLForOutputURL:(id)arg1 format:(id)arg2;
 - (void)prepareExportRequest:(id)arg1 layer:(id)arg2;
 - (id)exportRequestsForLayer:(id)arg1 inRect:(struct CGRect)arg2 exportFormats:(id)arg3;
 - (BOOL)exportLayers:(id)arg1;

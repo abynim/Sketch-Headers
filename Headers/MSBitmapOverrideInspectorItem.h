@@ -15,8 +15,8 @@
     MSImageOverrideView *_imageView;
 }
 
-@property(retain, nonatomic) MSImageOverrideView *imageView; // @synthesize imageView=_imageView;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSImageOverrideView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, nonatomic) struct CGRect controlRect;
 - (id)dataOverrides;
 - (void)refreshDataOnCurrentSelection:(id)arg1;

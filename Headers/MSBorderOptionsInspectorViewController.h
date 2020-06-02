@@ -24,6 +24,7 @@
     NSTextField *_dashField2;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL hasPathWithAdjustableCaps; // @synthesize hasPathWithAdjustableCaps=_hasPathWithAdjustableCaps;
 @property(nonatomic) BOOL hasOpenPathLayer; // @synthesize hasOpenPathLayer=_hasOpenPathLayer;
 @property(retain, nonatomic) NSTextField *dashField2; // @synthesize dashField2=_dashField2;
@@ -36,7 +37,6 @@
 @property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
 @property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
-- (void).cxx_destruct;
 - (id)impliedDashPatternFromDashPattern:(id)arg1 paddingToLength:(unsigned long long)arg2;
 - (id)validDashPatternFromProposedDashPattern:(id)arg1 padIfNeeded:(BOOL)arg2;
 - (id)dashFields;

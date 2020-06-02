@@ -21,6 +21,7 @@
 }
 
 + (id)selectedParagraphsOfTextView:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextView *sourceTextView; // @synthesize sourceTextView=_sourceTextView;
 @property(retain, nonatomic) MSAutoSelectingArrayController *transformController; // @synthesize transformController=_transformController;
 @property(retain, nonatomic) MSAutoSelectingArrayController *underlineController; // @synthesize underlineController=_underlineController;
@@ -29,7 +30,6 @@
 @property(retain, nonatomic) MSAutoSelectingArrayController *paragraphStylesController; // @synthesize paragraphStylesController=_paragraphStylesController;
 @property(retain, nonatomic) MSAutoSelectingArrayController *kerningController; // @synthesize kerningController=_kerningController;
 @property(retain, nonatomic) MSAutoSelectingArrayController *fontsController; // @synthesize fontsController=_fontsController;
-- (void).cxx_destruct;
 - (void)reloadFromTextView:(id)arg1 orLayers:(id)arg2 includeAdvanced:(BOOL)arg3;
 - (id)init;
 

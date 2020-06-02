@@ -16,11 +16,11 @@
     NSPopUpButton *_organizationButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSPopUpButton *organizationButton; // @synthesize organizationButton=_organizationButton;
 @property(retain, nonatomic) NSLayoutConstraint *uploadButtonWidthConstraint; // @synthesize uploadButtonWidthConstraint=_uploadButtonWidthConstraint;
 @property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
 @property(retain, nonatomic) NSStackView *actionStackView; // @synthesize actionStackView=_actionStackView;
-- (void).cxx_destruct;
 - (void)upload:(id)arg1;
 - (void)updateFootnote:(id)arg1;
 - (id)selectedOrganization;

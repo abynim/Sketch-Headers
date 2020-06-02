@@ -20,10 +20,10 @@
 
 + (void)onBooleanOperation:(id)arg1;
 + (id)configuratorWithLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isOpen; // @synthesize isOpen=_isOpen;
 @property(nonatomic) __weak NSPopUpButton *popup; // @synthesize popup=_popup;
 @property(nonatomic) __weak MSLayer *layer; // @synthesize layer=_layer;
-- (void).cxx_destruct;
 - (void)onBooleanOperation:(id)arg1;
 - (void)menuDidClose:(id)arg1;
 - (void)menu:(id)arg1 willHighlightItem:(id)arg2;

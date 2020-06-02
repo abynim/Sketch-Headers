@@ -17,9 +17,9 @@
 + (struct CGRect)adjustFrameWidth:(struct CGRect)arg1 alignment:(long long)arg2;
 + (struct CGRect)adjustFrameHeight:(struct CGRect)arg1;
 + (struct CGRect)makeBiggerRect:(struct CGRect)arg1 withBehaviour:(long long)arg2 alignment:(long long)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextView *textView; // @synthesize textView=_textView;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
-- (void).cxx_destruct;
 - (BOOL)canBecomeKeyWindow;
 - (void)addTextView:(id)arg1 toView:(id)arg2;
 - (void)moveToRect:(struct CGRect)arg1 canvasViewRect:(struct CGRect)arg2 behaviour:(long long)arg3;

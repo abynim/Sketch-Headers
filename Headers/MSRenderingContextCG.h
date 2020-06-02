@@ -6,29 +6,38 @@
 
 #import <SketchRendering/MSRenderingContext.h>
 
-@class MSCGContextPool, NSGraphicsContext, NSMutableArray;
+#import <SketchRendering/MSRenderingContextCGPoolProvider-Protocol.h>
 
-@interface MSRenderingContextCG : MSRenderingContext
+@class MSBitmapEffectsContextPool, MSCGContextPool, MSTextPreviewLayerDataPool, NSGraphicsContext, NSMutableArray, NSString;
+@protocol MSRenderingContextCGPoolProvider;
+
+@interface MSRenderingContextCG : MSRenderingContext <MSRenderingContextCGPoolProvider>
 {
     BOOL _contextIsVectorBacked;
     struct CGContext *_contextRef;
-    MSCGContextPool *_contextPool;
+    id <MSRenderingContextCGPoolProvider> _poolProvider;
     unsigned long long _disableClippingFillsCounter;
     NSGraphicsContext *_graphicsContext;
     struct CGContext *_savedContextRef;
     NSMutableArray *_bitmapTransparencyLayerSavedStates;
     unsigned long long _disableDrawingFillsCounter;
+    MSBitmapEffectsContextPool *_bitmapEffectsContextPool;
+    MSCGContextPool *_contextPool;
+    MSTextPreviewLayerDataPool *_textPreviewPool;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) MSTextPreviewLayerDataPool *textPreviewPool; // @synthesize textPreviewPool=_textPreviewPool;
+@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
+@property(retain, nonatomic) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool=_bitmapEffectsContextPool;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;
 @property(retain, nonatomic) NSMutableArray *bitmapTransparencyLayerSavedStates; // @synthesize bitmapTransparencyLayerSavedStates=_bitmapTransparencyLayerSavedStates;
 @property(nonatomic) struct CGContext *savedContextRef; // @synthesize savedContextRef=_savedContextRef;
 @property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
 @property(nonatomic) unsigned long long disableClippingFillsCounter; // @synthesize disableClippingFillsCounter=_disableClippingFillsCounter;
-@property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
+@property(nonatomic) __weak id <MSRenderingContextCGPoolProvider> poolProvider; // @synthesize poolProvider=_poolProvider;
 @property(readonly, nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(readonly, nonatomic) BOOL contextIsVectorBacked; // @synthesize contextIsVectorBacked=_contextIsVectorBacked;
-- (void).cxx_destruct;
 - (BOOL)shouldDrawFills;
 - (void)ifCondition:(BOOL)arg1 skipDrawingFillsInBlock:(CDUnknownBlockType)arg2;
 - (BOOL)shouldClipFills;
@@ -41,7 +50,6 @@
 - (void)applyShadow:(id)arg1 respectFlipped:(BOOL)arg2;
 - (void)applyShadow:(id)arg1;
 - (BOOL)shouldSkipDrawingShadow:(id)arg1;
-- (void)renderRect:(struct CGRect)arg1 withStyle:(id)arg2;
 - (void)renderLayer:(id)arg1 ignoreCacheAndDrawingArea:(BOOL)arg2;
 - (void)tearDown;
 - (BOOL)shouldDisableSubpixelQuantization;
@@ -70,6 +78,12 @@
 - (id)initWithName:(id)arg1 driver:(id)arg2 cgContext:(struct CGContext *)arg3 contextIsVectorBacked:(BOOL)arg4 renderingRequest:(id)arg5;
 - (id)initWithName:(id)arg1 driver:(id)arg2 context:(struct CGContext *)arg3 renderingRequest:(id)arg4;
 - (id)initWithName:(id)arg1 driver:(id)arg2 renderingRequest:(id)arg3;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

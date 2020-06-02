@@ -32,6 +32,7 @@
 + (id)builtinDataDefaultLanguage;
 + (id)builtinDataDefaultPath;
 + (id)makeObjectID;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *replyContexts; // @synthesize replyContexts=_replyContexts;
 @property(retain, nonatomic) NSMutableDictionary *pluginDataGroups; // @synthesize pluginDataGroups=_pluginDataGroups;
 @property(retain, nonatomic) NSMutableDictionary *localDataGroups; // @synthesize localDataGroups=_localDataGroups;
@@ -41,7 +42,6 @@
 @property(retain, nonatomic) NSMutableArray *pluginData; // @synthesize pluginData=_pluginData;
 @property(readonly, copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) __weak id <MSDataSupplierManagerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)makeGroupsFromPluginDataSuppliers:(id)arg1;
 - (id)builtinDataGroupsFromDefaults;
 - (id)builtinDataFromDefaults;

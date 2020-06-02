@@ -13,8 +13,8 @@
     MSPluginsPreferenceTableCellView *_tableCellView;
 }
 
-@property(nonatomic) __weak MSPluginsPreferenceTableCellView *tableCellView; // @synthesize tableCellView=_tableCellView;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSPluginsPreferenceTableCellView *tableCellView; // @synthesize tableCellView=_tableCellView;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (void)awakeFromNib;

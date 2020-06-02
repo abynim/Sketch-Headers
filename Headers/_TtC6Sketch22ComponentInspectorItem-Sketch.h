@@ -6,8 +6,6 @@
 
 #import "_TtC6Sketch22ComponentInspectorItem.h"
 
-#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
-
-@interface _TtC6Sketch22ComponentInspectorItem (Sketch) <_TtP6Sketch24MSComponentsPopoverOwner_>
+@interface _TtC6Sketch22ComponentInspectorItem (Sketch)
 @end
 

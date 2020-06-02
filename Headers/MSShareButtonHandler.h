@@ -18,10 +18,10 @@
     MSCanvasView *_canvas;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSCanvasView *canvas; // @synthesize canvas=_canvas;
 @property(retain, nonatomic) NSArray *sliceLayers; // @synthesize sliceLayers=_sliceLayers;
 @property(retain, nonatomic) NSWindow *window; // @synthesize window=_window;
-- (void).cxx_destruct;
 - (id)sharingService:(id)arg1 sourceWindowForShareItems:(id)arg2 sharingContentScope:(long long *)arg3;
 - (id)sharingService:(id)arg1 transitionImageForShareItem:(id)arg2 contentRect:(struct CGRect *)arg3;
 - (struct CGRect)sharingService:(id)arg1 sourceFrameOnScreenForShareItem:(id)arg2;

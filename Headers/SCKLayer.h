@@ -18,11 +18,11 @@
     struct CGRect _boundingRect;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(readonly, nonatomic) SCKFlowConnection *flowConnection; // @synthesize flowConnection=_flowConnection;
 @property(readonly, nonatomic) struct CGRect boundingRect; // @synthesize boundingRect=_boundingRect;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) SCKArtboard *artboard;
 - (id)dictionaryRepresentation;

@@ -23,6 +23,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) long long index; // @synthesize index=_index;
@@ -31,7 +32,6 @@
 @property(retain, nonatomic) SVGElement *parent; // @synthesize parent=_parent;
 @property(retain, nonatomic) NSSet *linked; // @synthesize linked=_linked;
 @property(retain, nonatomic) NSSet *children; // @synthesize children=_children;
-- (void).cxx_destruct;
 - (void)primitiveSetParent:(id)arg1;
 - (void)primitiveRemoveLinkedObject:(id)arg1;
 - (void)primitiveAddLinkedObject:(id)arg1;

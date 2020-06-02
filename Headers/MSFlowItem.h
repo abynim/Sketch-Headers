@@ -16,11 +16,11 @@
     struct MSFlowInfo _flowInfo;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSSet *clipRects; // @synthesize clipRects=_clipRects;
 @property(readonly, nonatomic) struct MSFlowInfo flowInfo; // @synthesize flowInfo=_flowInfo;
 @property(readonly, nonatomic) struct CGRect sourceLayerBounds; // @synthesize sourceLayerBounds=_sourceLayerBounds;
 @property(readonly, copy, nonatomic) NSSet *flowInfluencingLayerIDs; // @synthesize flowInfluencingLayerIDs=_flowInfluencingLayerIDs;
-- (void).cxx_destruct;
 - (id)flowSegmentForZoomLevel:(double)arg1;
 @property(readonly, nonatomic) long long flowType;
 - (struct CGVector)endPointDisplacement;

@@ -19,6 +19,7 @@
     NSArrayController *_layersController;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL colorEnabled; // @synthesize colorEnabled=_colorEnabled;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
@@ -26,7 +27,6 @@
 @property(retain, nonatomic) MSIncludeBackgroundColorInExportInspectorItem *includeInExportItem; // @synthesize includeInExportItem=_includeInExportItem;
 @property(retain, nonatomic) MSArtboardBackgroundColorInspectorItem *colorItem; // @synthesize colorItem=_colorItem;
 @property(retain, nonatomic) MSArtboardContentResizeInspectorItem *resizeItem; // @synthesize resizeItem=_resizeItem;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
 - (void)setLayers:(id)arg1;

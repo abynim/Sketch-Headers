@@ -20,14 +20,15 @@
     struct CGPoint _lastMouse;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSFlowEventHandlerImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(nonatomic) BOOL didDragMouse; // @synthesize didDragMouse=_didDragMouse;
 @property(nonatomic) struct CGPoint lastMouse; // @synthesize lastMouse=_lastMouse;
 @property(retain, nonatomic) MSArtboardGroup *targetArtboard; // @synthesize targetArtboard=_targetArtboard;
 @property(nonatomic) unsigned long long hoverType; // @synthesize hoverType=_hoverType;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
-- (void)didMoveThroughHistory:(id)arg1;
+- (void)documentDidChange:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
 - (BOOL)mayShowResizingInspectorView;
 - (id)findTargetLayerForMouse:(struct CGPoint)arg1;
 - (struct CGPoint)positionOfOtherPageImageIndicatorForArtboard:(id)arg1;

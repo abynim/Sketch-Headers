@@ -25,12 +25,12 @@
     MSTextWindow *_textViewWindow;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) NSTimer *updateInsertionPointColorTimer; // @synthesize updateInsertionPointColorTimer=_updateInsertionPointColorTimer;
 @property(retain, nonatomic) NSTextStorage *textStorage; // @synthesize textStorage=_textStorage;
 @property(readonly, nonatomic) MSImmutableTextLayer *immutableTextLayer; // @synthesize immutableTextLayer=_immutableTextLayer;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
-- (void).cxx_destruct;
 - (void)willStartExporting;
 - (id)selectionTouchBar;
 - (BOOL)shouldExitOnContentViewResize;

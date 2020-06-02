@@ -17,10 +17,10 @@
 
 + (id)incompatiblePlugins;
 + (id)existingDownloadededBlacklistURL;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) NSURL *metadataURL; // @synthesize metadataURL=_metadataURL;
 @property(copy, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
-- (void).cxx_destruct;
 - (void)removeIncompatibilityRegistrations;
 - (void)removeDisableOverrides;
 - (BOOL)registerIncompatibilityForPluginIdentifier:(id)arg1 withVersion:(id)arg2;

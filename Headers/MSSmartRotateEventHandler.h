@@ -6,7 +6,7 @@
 
 #import "MSEventHandler.h"
 
-@class MSLayerArray, MSSmartRotateImageCache, NSArray;
+@class MSLayerArray, MSSmartRotateImageCache, NSArray, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSSmartRotateEventHandler : MSEventHandler
 {
@@ -15,17 +15,21 @@
     unsigned long long _numberOfRepetitions;
     MSLayerArray *_shapeLayers;
     NSArray *_shapeLayersCopies;
+    _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
     MSSmartRotateImageCache *_imageCache;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSSmartRotateImageCache *imageCache; // @synthesize imageCache=_imageCache;
+@property(retain, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(copy, nonatomic) NSArray *shapeLayersCopies; // @synthesize shapeLayersCopies=_shapeLayersCopies;
 @property(copy, nonatomic) MSLayerArray *shapeLayers; // @synthesize shapeLayers=_shapeLayers;
 @property(nonatomic) unsigned long long numberOfRepetitions; // @synthesize numberOfRepetitions=_numberOfRepetitions;
-- (void).cxx_destruct;
 - (id)imageName;
 - (id)toolbarIdentifier;
-- (void)willMoveThroughHistory:(id)arg1;
+- (void)documentDidChange:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
+- (void)returnToDefaultHandler;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (double)rotationForRepetitionAtIndex:(unsigned long long)arg1;
@@ -45,6 +49,7 @@
 - (void)handlerWillLoseFocus;
 - (void)clearEditingFlagForLayerArray:(id)arg1;
 - (void)determineOriginalRotationCenter;
+- (void)createChangeTracker;
 - (void)createShapeCopies;
 - (void)findShapes;
 - (void)handlerGotFocus;

@@ -19,12 +19,12 @@
 
 + (id)screenGrabForDisplay:(unsigned int)arg1 belowWindowWithID:(unsigned int)arg2;
 + (id)screenGrabWithBitmapImageRep:(id)arg1 originOnScreen:(struct CGPoint)arg2 colorSpace:(id)arg3 displayID:(unsigned int)arg4;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGPoint imageOrigin; // @synthesize imageOrigin=_imageOrigin;
 @property(readonly, nonatomic) NSBitmapImageRep *bitmapRep; // @synthesize bitmapRep=_bitmapRep;
 @property(readonly, nonatomic) NSImage *image; // @synthesize image=_image;
 @property(readonly, nonatomic) unsigned int displayID; // @synthesize displayID=_displayID;
-- (void).cxx_destruct;
 - (id)bitmapImageRepCroppingToRect:(struct CGRect)arg1;
 - (id)currentScreen;
 @property(readonly, nonatomic) BOOL isRetinaScreen;

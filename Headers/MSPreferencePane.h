@@ -17,8 +17,8 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
-@property(readonly, nonatomic) __weak MSPreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) __weak MSPreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
 - (void)didSwitchToPane;
 - (void)dismissAlertSheet;
 - (void)dismissAlertWindow:(id)arg1;

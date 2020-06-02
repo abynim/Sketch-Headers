@@ -35,12 +35,12 @@
 - (void)deleteLogsFromDBWithColumnValues:(id)arg1 columnName:(id)arg2;
 - (void)deleteLogsFromDBWithColumnValue:(id)arg1 columnName:(id)arg2;
 - (void)deleteLogFromDBWithId:(id)arg1;
-- (id)logsWithCondition:(id)arg1;
+- (id)logsWithCondition:(id)arg1 andValues:(id)arg2;
 - (id)logsFromDBWithGroupId:(id)arg1;
 - (void)deleteLogsWithBatchId:(id)arg1 groupId:(id)arg2;
 - (id)deleteLogsWithGroupId:(id)arg1;
-- (BOOL)loadLogsWithGroupId:(id)arg1 limit:(unsigned long long)arg2 excludedTargetKeys:(id)arg3 afterDate:(id)arg4 beforeDate:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
-- (unsigned long long)countLogsBeforeDate:(id)arg1;
+- (BOOL)loadLogsWithGroupId:(id)arg1 limit:(unsigned long long)arg2 excludedTargetKeys:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (id)buildKeyFormatWithCount:(unsigned long long)arg1;
 - (BOOL)saveLog:(id)arg1 withGroupId:(id)arg2 flags:(unsigned long long)arg3;
 - (id)init;
 

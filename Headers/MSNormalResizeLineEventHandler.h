@@ -16,11 +16,11 @@
     _TtC6Sketch16MSLineResizeTool *_tool;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) _TtC6Sketch16MSLineResizeTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) long long pointIndex; // @synthesize pointIndex=_pointIndex;
 @property(retain, nonatomic) MSShapePathLayer *layer; // @synthesize layer=_layer;
-- (void).cxx_destruct;
 - (id)cursorForRadians:(double)arg1;
 - (BOOL)updateCursor;
 - (void)updateVisibleHandle;

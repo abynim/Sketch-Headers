@@ -6,16 +6,20 @@
 
 #import "MSColorInspectorSectionWithColorPicker.h"
 
-@class MSColor;
+#import "MSInspectorItemDelegate-Protocol.h"
 
-@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker
+@class MSColor, NSString;
+
+@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker <MSInspectorItemDelegate>
 {
     MSColor *_pickedColor;
 }
 
 + (id)presetPickerVisibilityDefaultsKey;
-@property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
+- (void)itemDidResize:(id)arg1;
+- (id)documentForInspectorItem:(id)arg1;
 - (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
 - (void)controlDidSelectAsset:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
@@ -29,6 +33,12 @@
 - (void)highlightCurrentColor;
 - (id)assetPickerDataSources;
 - (id)scrollableViews;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

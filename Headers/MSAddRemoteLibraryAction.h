@@ -11,6 +11,8 @@
 }
 
 + (id)standardCloudEnvironment;
+- (void)addAsCloudLibrary:(id)arg1;
+- (void)displayError:(id)arg1 forDocument:(id)arg2;
 - (id)label;
 - (void)displayDuplicateAlertSheetForRemoteAssetLibrary:(id)arg1;
 - (void)startDownloadingLibrary:(id)arg1;

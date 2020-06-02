@@ -17,11 +17,11 @@
     NSButton *_detailSettingsButton;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL detailSettingsEnabled; // @synthesize detailSettingsEnabled=_detailSettingsEnabled;
 @property(nonatomic) BOOL detailSettingsDisclosed; // @synthesize detailSettingsDisclosed=_detailSettingsDisclosed;
 @property(nonatomic) BOOL detailSettingsVisible; // @synthesize detailSettingsVisible=_detailSettingsVisible;
 @property(retain, nonatomic) NSButton *detailSettingsButton; // @synthesize detailSettingsButton=_detailSettingsButton;
-- (void).cxx_destruct;
 - (void)toggleSettings:(id)arg1;
 - (void)updateUI;
 - (void)viewDidLoad;

@@ -18,11 +18,11 @@
     NSColorSpace *_targetNSColorSpace;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSColorSpace *targetNSColorSpace; // @synthesize targetNSColorSpace=_targetNSColorSpace;
 @property(readonly, nonatomic) NSColorSpace *oldNSColorSpace; // @synthesize oldNSColorSpace=_oldNSColorSpace;
 @property(readonly, nonatomic) unsigned long long targetColorSpace; // @synthesize targetColorSpace=_targetColorSpace;
 @property(readonly, nonatomic) unsigned long long oldColorSpace; // @synthesize oldColorSpace=_oldColorSpace;
-- (void).cxx_destruct;
 - (BOOL)shouldConvertImmutableColor:(id)arg1;
 - (BOOL)shouldConvertColor:(id)arg1;
 - (id)convertColor:(id)arg1;

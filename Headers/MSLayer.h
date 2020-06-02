@@ -6,20 +6,20 @@
 
 #import <SketchModel/_MSLayer.h>
 
+#import <SketchModel/MSAbsoluteLayerRectRepresentation-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
 #import <SketchModel/MSLayerProtocol-Protocol.h>
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSAbsoluteRect, MSArtboardGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
+@class MSArtboardGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 @protocol MSLayerCoordinateSpace;
 
-@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate>
+@interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate, MSAbsoluteLayerRectRepresentation>
 {
     long long skipDrawingSelectionCounter;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
-    MSAbsoluteRect *_absoluteRect;
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
@@ -30,7 +30,6 @@
 + (double)rotationForUserVisibleRotation:(double)arg1;
 + (double)userVisibleRotationForRotation:(double)arg1;
 + (double)normalizeUserVisibleRotation:(double)arg1;
-@property(retain, nonatomic) MSAbsoluteRect *absoluteRect; // @synthesize absoluteRect=_absoluteRect;
 - (void).cxx_destruct;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (BOOL)hasEnabledFill;
@@ -85,6 +84,14 @@
 - (double)rotationDirection;
 @property(nonatomic) struct CGPoint absoluteCenter;
 @property(nonatomic) struct CGPoint absolutePosition;
+- (id)absoluteRect;
+- (void)setRulerOrigin:(struct CGPoint)arg1;
+- (struct CGPoint)rulerOrigin;
+@property(nonatomic) double rulerY;
+@property(nonatomic) double rulerX;
+@property(readonly, nonatomic) MSPath *pathForAbsoluteRect;
+- (void)moveInAbsoluteCoordinatesBy:(struct CGPoint)arg1;
+@property(nonatomic) struct CGRect absoluteBoundingBox;
 - (id)pathInCoordinateSpace:(id)arg1;
 @property(readonly, nonatomic) MSPath *pathInFrameWithTransforms;
 @property(readonly, copy, nonatomic) MSPath *pathInFrame;

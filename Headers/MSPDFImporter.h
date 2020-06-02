@@ -20,10 +20,10 @@
 
 + (id)epsImporter;
 + (id)pdfImporter;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 @property(retain, nonatomic) MSPDFScanner *scanner; // @synthesize scanner=_scanner;
 @property(retain, nonatomic) id <PDFParser> parser; // @synthesize parser=_parser;
-- (void).cxx_destruct;
 - (BOOL)shouldCollapseSinglePage;
 - (BOOL)shouldExpandPages;
 - (id)secondPhaseSubtitleForValue:(long long)arg1 maximum:(long long)arg2;

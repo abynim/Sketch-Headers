@@ -28,6 +28,7 @@
     NSLayoutConstraint *_scrollViewBottomConstraint;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
 @property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
 @property(retain, nonatomic) NSLayoutConstraint *scrollViewBottomConstraint; // @synthesize scrollViewBottomConstraint=_scrollViewBottomConstraint;
@@ -39,7 +40,6 @@
 @property(retain, nonatomic) MSEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 @property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
-- (void).cxx_destruct;
 - (void)fixNextResponder;
 - (void)scheduleNextResponderFixing;
 - (void)stackScrollViewDidScroll:(id)arg1;

@@ -13,8 +13,8 @@
     NSButton *_fixToViewportButton;
 }
 
-@property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 - (void).cxx_destruct;
+@property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 - (void)validateFixLayersToViewportButton;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;

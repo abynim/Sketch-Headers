@@ -26,6 +26,7 @@
 + (id)sizeToFitPresetWithName:(id)arg1 size:(struct CGSize)arg2;
 + (double)resizeScaleFromArtboardSize:(struct CGSize)arg1 presetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3;
 + (long long)compareArtboardSize:(struct CGSize)arg1 withScaledPresetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3 isRotated:(char *)arg4;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isNew; // @synthesize isNew=_isNew;
 @property(readonly, nonatomic) BOOL isSizeToFit; // @synthesize isSizeToFit=_isSizeToFit;
 @property(readonly, copy, nonatomic) NSString *tooltip; // @synthesize tooltip=_tooltip;
@@ -35,7 +36,6 @@
 @property(nonatomic) unsigned long long height; // @synthesize height=_height;
 @property(nonatomic) unsigned long long width; // @synthesize width=_width;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;

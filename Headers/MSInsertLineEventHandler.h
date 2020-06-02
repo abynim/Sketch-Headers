@@ -13,8 +13,8 @@
     _TtC6Sketch19MSLineInsertionTool *_tool;
 }
 
-@property(readonly, nonatomic) _TtC6Sketch19MSLineInsertionTool *tool; // @synthesize tool=_tool;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _TtC6Sketch19MSLineInsertionTool *tool; // @synthesize tool=_tool;
 - (id)currentGroup;
 - (id)updateToolWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (void)handleDrag:(id)arg1;

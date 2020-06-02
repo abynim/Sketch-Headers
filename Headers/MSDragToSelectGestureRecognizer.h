@@ -14,9 +14,9 @@
     NSArray *_initialSelection;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *initialSelection; // @synthesize initialSelection=_initialSelection;
 @property(nonatomic) unsigned long long selectionExtensionMask; // @synthesize selectionExtensionMask=_selectionExtensionMask;
-- (void).cxx_destruct;
 - (void)reset;
 @property(readonly, nonatomic) BOOL extendSelection;
 - (struct CGRect)selectionRect;

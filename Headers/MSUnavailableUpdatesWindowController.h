@@ -21,13 +21,13 @@
 }
 
 + (void)showModalWithVersion:(id)arg1 buildNumber:(id)arg2 reason:(long long)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) long long blockedUpdateReason; // @synthesize blockedUpdateReason=_blockedUpdateReason;
 @property(retain, nonatomic) NSString *lastBuildNumber; // @synthesize lastBuildNumber=_lastBuildNumber;
 @property(retain, nonatomic) NSString *lastVersion; // @synthesize lastVersion=_lastVersion;
 @property(nonatomic) __weak NSButton *confirmationButton; // @synthesize confirmationButton=_confirmationButton;
 @property(nonatomic) __weak NSTextField *headerTextField; // @synthesize headerTextField=_headerTextField;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
-- (void).cxx_destruct;
 - (void)learnMore:(id)arg1;
 - (void)openUpdatesPage:(id)arg1;
 - (void)confirmationAction:(id)arg1;

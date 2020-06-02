@@ -13,8 +13,8 @@
     NSMutableData *_data;
 }
 
-@property(retain, nonatomic) NSMutableData *data; // @synthesize data=_data;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableData *data; // @synthesize data=_data;
 - (void)writeData:(const void *)arg1 length:(unsigned long long)arg2;
 - (id)initWithData:(id)arg1;
 

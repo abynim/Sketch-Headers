@@ -21,6 +21,7 @@
     struct CGRect _originalRect;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGPoint firstSelectedLocation; // @synthesize firstSelectedLocation=_firstSelectedLocation;
 @property(nonatomic) unsigned long long directionLock; // @synthesize directionLock=_directionLock;
 @property(retain, nonatomic) MSLayerGroup *currentGroup; // @synthesize currentGroup=_currentGroup;
@@ -30,7 +31,6 @@
 @property(retain, nonatomic) MSPointArray *mouseDownPoints; // @synthesize mouseDownPoints=_mouseDownPoints;
 @property(retain, nonatomic) MSPointArray *transformPoints; // @synthesize transformPoints=_transformPoints;
 @property(nonatomic) struct CGRect originalRect; // @synthesize originalRect=_originalRect;
-- (void).cxx_destruct;
 - (struct CGRect)bounds;
 - (id)coordinateSpace;
 - (void)resetTransformsForLayer:(id)arg1;

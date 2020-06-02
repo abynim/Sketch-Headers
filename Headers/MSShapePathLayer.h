@@ -57,7 +57,7 @@
 - (void)resetPointsBasedOnUserInteraction;
 - (void)setParentObject:(id)arg1;
 - (id)usedStyle;
-- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (id)defaultCurvePoints;
 - (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
 - (double)userVisibleRotation;

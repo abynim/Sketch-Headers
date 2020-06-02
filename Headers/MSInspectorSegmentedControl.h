@@ -13,8 +13,8 @@
     MSInspectorSegmentedControlTagBinder *_tagBinder;
 }
 
-@property(retain, nonatomic) MSInspectorSegmentedControlTagBinder *tagBinder; // @synthesize tagBinder=_tagBinder;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSInspectorSegmentedControlTagBinder *tagBinder; // @synthesize tagBinder=_tagBinder;
 - (void)viewDidMoveToWindow;
 - (void)setToolTip:(id)arg1 forSegment:(long long)arg2;
 - (void)setWidth:(double)arg1 forSegment:(long long)arg2;

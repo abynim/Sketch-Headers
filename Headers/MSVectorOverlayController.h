@@ -35,6 +35,7 @@
     MSVectorHandleStateDecider *_handleStateDecider;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSVectorHandleStateDecider *handleStateDecider; // @synthesize handleStateDecider=_handleStateDecider;
 @property(retain, nonatomic) MSPath *wirePath; // @synthesize wirePath=_wirePath;
 @property(copy, nonatomic) NSArray *shapeCenterSnapTargets; // @synthesize shapeCenterSnapTargets=_shapeCenterSnapTargets;
@@ -52,7 +53,6 @@
 @property(nonatomic) MSCanvasView *view; // @synthesize view=_view;
 @property(readonly, nonatomic) MSVectorOverlay *overlay; // @synthesize overlay=_overlay;
 @property(nonatomic) __weak MSShapeEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
-- (void).cxx_destruct;
 - (struct CGPoint)alignmentEngine:(id)arg1 roundPoint:(struct CGPoint)arg2;
 - (void)collectionOverlay:(id)arg1 didDeselectItemAtIndexPath:(id)arg2;
 - (BOOL)collectionOverlay:(id)arg1 shouldDeselectItemsAtIndexPaths:(id)arg2;
@@ -111,6 +111,7 @@
 - (void)addHandlesToSnapperForDragging:(BOOL)arg1;
 - (void)addTargetsToSnapperForDragging:(BOOL)arg1;
 - (void)prepareSnapper;
+- (void)ensureCurrentSelectionIsValid;
 - (id)changeContext;
 @property(readonly, nonatomic, getter=isInteractivelySelecting) BOOL interactivelySelecting;
 - (void)didChangeSelection;

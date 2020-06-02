@@ -17,11 +17,11 @@
 }
 
 + (id)cacheWithCreateImageBlock:(CDUnknownBlockType)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) CDUnknownBlockType createImageBlock; // @synthesize createImageBlock=_createImageBlock;
 @property(retain, nonatomic) NSDictionary *cachedImages; // @synthesize cachedImages=_cachedImages;
 @property(nonatomic) struct CGColorSpace *cachedColorspace; // @synthesize cachedColorspace=_cachedColorspace;
 @property(nonatomic) double cachedBackingScale; // @synthesize cachedBackingScale=_cachedBackingScale;
-- (void).cxx_destruct;
 - (void)removeAllCachedImages;
 - (id)createOverlayItemImagesForColorSpace:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;

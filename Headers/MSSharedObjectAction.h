@@ -15,8 +15,8 @@
     NSString *_noSharedObjectMenuItemTitle;
 }
 
-@property(readonly, nonatomic) NSString *noSharedObjectMenuItemTitle; // @synthesize noSharedObjectMenuItemTitle=_noSharedObjectMenuItemTitle;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *noSharedObjectMenuItemTitle; // @synthesize noSharedObjectMenuItemTitle=_noSharedObjectMenuItemTitle;
 - (BOOL)hasSubMenu;
 - (id)noSharedObjectMenuItemForMenu:(id)arg1;
 - (id)noSharedObjectsView;

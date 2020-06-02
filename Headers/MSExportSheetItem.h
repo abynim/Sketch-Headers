@@ -19,6 +19,7 @@
     MSExportSheet *_exportSheet;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL showWarningLabel; // @synthesize showWarningLabel=_showWarningLabel;
 @property(nonatomic) __weak MSExportSheet *exportSheet; // @synthesize exportSheet=_exportSheet;
 @property(retain, nonatomic) NSImageView *warningView; // @synthesize warningView=_warningView;
@@ -26,7 +27,6 @@
 @property(retain, nonatomic) NSTextField *subTitleField; // @synthesize subTitleField=_subTitleField;
 @property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSView *previewContainer; // @synthesize previewContainer=_previewContainer;
-- (void).cxx_destruct;
 @property(nonatomic) BOOL isExportable;
 - (id)subTitle;
 - (void)exportPreviewOperationDidFinish:(id)arg1;

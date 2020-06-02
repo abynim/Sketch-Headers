@@ -16,11 +16,11 @@
     unsigned long long _frequency;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long frequency; // @synthesize frequency=_frequency;
 @property(retain, nonatomic) MSImmutableDocumentData *previousDocument; // @synthesize previousDocument=_previousDocument;
 @property(retain, nonatomic) MSImmutableDocumentData *mostRecentDocument; // @synthesize mostRecentDocument=_mostRecentDocument;
 @property(retain, nonatomic) NSMapTable *observerToBlock; // @synthesize observerToBlock=_observerToBlock;
-- (void).cxx_destruct;
 - (void)sendUpdateToObservers;
 - (void)coalesceDocumentUpdate;
 - (void)processDocumentUpdate:(id)arg1;

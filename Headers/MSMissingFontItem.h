@@ -15,9 +15,9 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *missingFontFamilyButton; // @synthesize missingFontFamilyButton=_missingFontFamilyButton;
 @property(retain, nonatomic) NSTextField *missingFontsLabel; // @synthesize missingFontsLabel=_missingFontsLabel;
-- (void).cxx_destruct;
 - (void)updateDisplayedValues;
 - (id)missingFontTitle;
 - (BOOL)hasMoreThanOneMissingFont;

@@ -24,6 +24,7 @@
     struct SCKArtboardViewport _viewport;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(readonly, nonatomic) unsigned long long possibleFileTypes; // @synthesize possibleFileTypes=_possibleFileTypes;
@@ -34,7 +35,6 @@
 @property(readonly, nonatomic) unsigned long long order; // @synthesize order=_order;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)fileAtScale:(double)arg1 ofType:(unsigned long long)arg2;
 @property(readonly, nonatomic) SCKPage *page;

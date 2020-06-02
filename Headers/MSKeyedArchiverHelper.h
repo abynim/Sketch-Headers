@@ -13,8 +13,8 @@
     MSBaseArchiver *_archiver;
 }
 
-@property(nonatomic) __weak MSBaseArchiver *archiver; // @synthesize archiver=_archiver;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSBaseArchiver *archiver; // @synthesize archiver=_archiver;
 - (void)encodeObject:(id)arg1 forKey:(id)arg2;
 
 @end

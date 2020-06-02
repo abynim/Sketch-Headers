@@ -15,9 +15,9 @@
 }
 
 + (id)converterWithAttributeName:(id)arg1 block:(CDUnknownBlockType)arg2;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) CDUnknownBlockType conversionBlock; // @synthesize conversionBlock=_conversionBlock;
 @property(readonly, copy, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
-- (void).cxx_destruct;
 - (id)convertAttributes:(id)arg1;
 - (id)initWithAttributeName:(id)arg1 block:(CDUnknownBlockType)arg2;
 

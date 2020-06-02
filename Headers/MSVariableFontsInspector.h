@@ -23,13 +23,13 @@
     NSArray *_sliderControllers;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *sliderControllers; // @synthesize sliderControllers=_sliderControllers;
 @property(retain, nonatomic) NSArray *variableFontAxes; // @synthesize variableFontAxes=_variableFontAxes;
 @property(retain, nonatomic) NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(retain, nonatomic) NSView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
 @property(nonatomic) __weak id <MSVariableFontsInspectorDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)fixKeyViewLoop;
 - (void)collectionView:(id)arg1 willDisplayItem:(id)arg2 forRepresentedObjectAtIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;

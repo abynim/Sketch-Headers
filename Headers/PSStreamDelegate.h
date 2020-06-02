@@ -16,8 +16,8 @@
     id <NSStreamDelegate> _weakDelegate;
 }
 
-@property __weak id <NSStreamDelegate> weakDelegate; // @synthesize weakDelegate=_weakDelegate;
 - (void).cxx_destruct;
+@property __weak id <NSStreamDelegate> weakDelegate; // @synthesize weakDelegate=_weakDelegate;
 - (void)stream:(id)arg1 handleEvent:(unsigned long long)arg2;
 
 // Remaining properties

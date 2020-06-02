@@ -18,15 +18,15 @@
     NSString *_name;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) NSArray *pages; // @synthesize pages=_pages;
 @property(readonly, nonatomic) NSNumber *fileID; // @synthesize fileID=_fileID;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
-- (id)pageWithID:(struct NSString *)arg1;
+- (id)pageWithID:(id)arg1;
 - (id)artboardWithPredicate:(id)arg1;
-- (id)artboardWithID:(struct NSString *)arg1;
+- (id)artboardWithID:(id)arg1;
 - (BOOL)isIdentityEqual:(id)arg1;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithDictionary:(id)arg1;

@@ -14,9 +14,9 @@
     NSTextField *_label;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *label; // @synthesize label=_label;
 @property(retain, nonatomic) NSString *labelText; // @synthesize labelText=_labelText;
-- (void).cxx_destruct;
 - (void)updateDisplayedValues;
 
 @end

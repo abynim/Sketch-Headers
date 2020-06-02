@@ -13,8 +13,8 @@
     MSFileMonitor *_fileMonitor;
 }
 
-@property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSFileMonitor *fileMonitor; // @synthesize fileMonitor=_fileMonitor;
 - (void)resolveLocationOnDisk;
 - (void)startMonitoring;
 - (void)loadAsyncWithDispatchGroup:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

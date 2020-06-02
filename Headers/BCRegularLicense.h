@@ -22,13 +22,13 @@
 }
 
 + (long long)provider;
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
 @property(nonatomic) long long signatureStatus; // @synthesize signatureStatus=_signatureStatus;
 @property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;
 @property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *variants;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;
 @property(readonly, nonatomic) NSDate *updateExpirationDate;

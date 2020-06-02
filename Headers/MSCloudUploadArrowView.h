@@ -13,8 +13,8 @@
     CALayer *_arrowLayer;
 }
 
-@property(retain, nonatomic) CALayer *arrowLayer; // @synthesize arrowLayer=_arrowLayer;
 - (void).cxx_destruct;
+@property(retain, nonatomic) CALayer *arrowLayer; // @synthesize arrowLayer=_arrowLayer;
 - (void)startAnimation;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;

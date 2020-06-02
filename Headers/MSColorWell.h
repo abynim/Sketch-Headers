@@ -23,6 +23,7 @@
     MSDocument *_document;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL canDisplayPopover; // @synthesize canDisplayPopover=_canDisplayPopover;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
@@ -30,7 +31,6 @@
 @property(nonatomic) __weak id colorChangedTarget; // @synthesize colorChangedTarget=_colorChangedTarget;
 @property(nonatomic) SEL colorChangedAction; // @synthesize colorChangedAction=_colorChangedAction;
 @property(readonly, nonatomic) NSColor *initialColor; // @synthesize initialColor=_initialColor;
-- (void).cxx_destruct;
 - (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;

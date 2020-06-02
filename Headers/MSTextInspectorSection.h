@@ -20,12 +20,12 @@
     BCRateLimiter *_updateLimiter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCRateLimiter *updateLimiter; // @synthesize updateLimiter=_updateLimiter;
 @property(retain, nonatomic) MSAdvancedTextLayerInspectorItem *advancedTextItem; // @synthesize advancedTextItem=_advancedTextItem;
 @property(retain, nonatomic) MSMissingFontItem *missingFontItem; // @synthesize missingFontItem=_missingFontItem;
 @property(retain, nonatomic) MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
 @property(retain, nonatomic) MSTextHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
-- (void).cxx_destruct;
 - (BOOL)isShowingAdvancedItem:(id)arg1;
 - (void)itemWantsToggleDetailSettings:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;

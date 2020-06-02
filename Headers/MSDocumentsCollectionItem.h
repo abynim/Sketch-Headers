@@ -14,6 +14,7 @@
 {
     BOOL _showLibraryIcon;
     BOOL _showPublicShareIcon;
+    BOOL _supportsRenaming;
     NSString *_title;
     NSString *_status;
     NSString *_statusColor;
@@ -26,6 +27,8 @@
 + (id)keyPathsForValuesAffectingStatus;
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
+- (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
 @property(readonly, nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
@@ -33,8 +36,7 @@
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
 @property(retain, nonatomic) NSString *status; // @synthesize status=_status;
-@property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
-- (void).cxx_destruct;
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)updateCloudStatus;
@@ -42,6 +44,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (id)getStatusColor;
 - (id)getStatus;
+@property(readonly, nonatomic) BOOL supportsDeletion;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
 

@@ -18,8 +18,8 @@
 }
 
 + (void)showLicenseUpdateWindow;
-@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 - (void)didCloseAllDocuments:(id)arg1;
 - (void)closeDocumentsAndQuitWithURL:(id)arg1;
 - (void)learnMore:(id)arg1;

@@ -21,11 +21,11 @@
     NSButton *_openButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSTextField *descriptionText; // @synthesize descriptionText=_descriptionText;
 @property(copy, nonatomic) NSArray *missingFonts; // @synthesize missingFonts=_missingFonts;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)close:(id)arg1;
 - (void)openAnyway:(id)arg1;

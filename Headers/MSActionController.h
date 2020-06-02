@@ -15,10 +15,10 @@
     NSMutableSet *_observers;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableSet *observers; // @synthesize observers=_observers;
 @property(retain, nonatomic) NSMutableDictionary *actionsByIdentifier; // @synthesize actionsByIdentifier=_actionsByIdentifier;
 @property(copy, nonatomic) NSDictionary *singleKeyShortcuts; // @synthesize singleKeyShortcuts=_singleKeyShortcuts;
-- (void).cxx_destruct;
 - (id)firstActionToHandleKeyEvent:(id)arg1;
 - (BOOL)forwardKeyEvent:(id)arg1;
 - (id)supplementalTargetForAction:(SEL)arg1 sender:(id)arg2;

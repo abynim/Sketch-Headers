@@ -20,13 +20,13 @@
 }
 
 + (void)load;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL cloudEnabled; // @synthesize cloudEnabled=_cloudEnabled;
 @property(retain, nonatomic) NSString *applicationVariant; // @synthesize applicationVariant=_applicationVariant;
 @property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
 @property(retain, nonatomic) NSURL *licenseURL; // @synthesize licenseURL=_licenseURL;
 @property(readonly, nonatomic) id <BCLicense> license; // @synthesize license=_license;
-- (void).cxx_destruct;
 - (id)websiteAvailableVersionsURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;

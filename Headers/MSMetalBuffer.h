@@ -10,15 +10,18 @@
 
 @interface MSMetalBuffer : NSObject
 {
+    BOOL _readonly;
     unsigned long long _count;
     id <MTLBuffer> _metalBuffer;
 }
 
-@property(readonly, nonatomic) id <MTLBuffer> metalBuffer; // @synthesize metalBuffer=_metalBuffer;
-@property(readonly, nonatomic) unsigned long long count; // @synthesize count=_count;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) id <MTLBuffer> metalBuffer; // @synthesize metalBuffer=_metalBuffer;
+@property(readonly, nonatomic, getter=isReadonly) BOOL readonly; // @synthesize readonly=_readonly;
+@property(readonly, nonatomic) unsigned long long count; // @synthesize count=_count;
+- (void)updateBufferWithBytes:(const void *)arg1 length:(unsigned long long)arg2 count:(unsigned long long)arg3;
 @property(readonly, nonatomic) unsigned long long length;
-- (id)initWithBuffer:(id)arg1 count:(unsigned long long)arg2;
+- (id)initWithBuffer:(id)arg1 count:(unsigned long long)arg2 readonly:(BOOL)arg3;
 
 @end
 

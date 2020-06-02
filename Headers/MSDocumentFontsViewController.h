@@ -22,6 +22,7 @@
     NSArray *_fonts;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *fonts; // @synthesize fonts=_fonts;
 @property(nonatomic) __weak NSButton *embedAllButton; // @synthesize embedAllButton=_embedAllButton;
 @property(nonatomic) __weak NSButton *doneButton; // @synthesize doneButton=_doneButton;
@@ -29,7 +30,6 @@
 @property(nonatomic) __weak NSTextField *headerTitleField; // @synthesize headerTitleField=_headerTitleField;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)changeAutoEmbedSetting:(id)arg1;
@@ -41,6 +41,7 @@
 - (void)setEmbedded:(BOOL)arg1 forDocumentFont:(id)arg2;
 - (void)setShouldEmbed:(BOOL)arg1 forFontAtRow:(long long)arg2;
 - (void)replaceFontAtRow:(long long)arg1 withFont:(id)arg2;
+- (void)beginReplaceActionForRow:(long long)arg1 button:(id)arg2;
 - (void)updateFonts;
 - (void)systemFontsChanged:(id)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;

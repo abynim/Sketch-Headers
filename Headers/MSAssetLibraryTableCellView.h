@@ -22,6 +22,7 @@
 + (id)sketchRemoteLibraryPlaceholderImage;
 + (id)missingLibraryPlaceholderImage;
 + (id)keyPathsForValuesAffectingValueForKey:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL downloadCancelled; // @synthesize downloadCancelled=_downloadCancelled;
 @property(nonatomic) BOOL downloadProgressHidden; // @synthesize downloadProgressHidden=_downloadProgressHidden;
 @property(nonatomic) __weak NSProgressIndicator *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
@@ -29,7 +30,6 @@
 @property(nonatomic) __weak MSAssetLibrariesPreferencePane *libraryPreferencePane; // @synthesize libraryPreferencePane=_libraryPreferencePane;
 @property(nonatomic) __weak NSTextField *secondaryTextField; // @synthesize secondaryTextField=_secondaryTextField;
 @property(nonatomic) __weak NSTextField *primaryTextField; // @synthesize primaryTextField=_primaryTextField;
-- (void).cxx_destruct;
 - (void)setPrimaryTextFieldTextColor:(id)arg1;
 - (void)setSecondaryTextFieldTextColor:(id)arg1;
 - (void)downloadLibrary:(id)arg1;

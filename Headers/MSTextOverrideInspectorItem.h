@@ -21,9 +21,9 @@
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
 + (unsigned long long)numberOfLinesForOverride:(id)arg1 layers:(id)arg2;
 + (unsigned long long)numberOfLinesForSingleOverride:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
-- (void).cxx_destruct;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (id)valueFromControlView:(id)arg1;

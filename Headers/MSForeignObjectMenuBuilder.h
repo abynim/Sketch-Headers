@@ -17,10 +17,10 @@
 
 + (CDUnknownBlockType)symbolFilterForOverride:(id)arg1 inDocument:(id)arg2 restrictToMatchingSize:(BOOL)arg3;
 + (CDUnknownBlockType)filterForReplacingSymbolInstances:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSForeignObjectCollector *collector; // @synthesize collector=_collector;
 @property(nonatomic) BOOL requiresLocalSubmenu; // @synthesize requiresLocalSubmenu=_requiresLocalSubmenu;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
-- (void).cxx_destruct;
 - (id)buildMenuItemsForMenu:(id)arg1 withAction:(id)arg2;
 - (id)buildMenuItemsForMenu:(id)arg1 withTarget:(id)arg2 selector:(SEL)arg3;
 - (id)menuItemForLibrary:(id)arg1 mainMenu:(BOOL)arg2 target:(id)arg3 selector:(SEL)arg4;

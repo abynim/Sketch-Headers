@@ -27,6 +27,7 @@
     struct CGRect _exportBounds;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL includeSketchCredit; // @synthesize includeSketchCredit=_includeSketchCredit;
 @property(readonly, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(readonly, nonatomic) NSMutableArray *parentStack; // @synthesize parentStack=_parentStack;
@@ -42,7 +43,6 @@
 @property(retain, nonatomic) NSString *currentShapeDef; // @synthesize currentShapeDef=_currentShapeDef;
 @property(retain, nonatomic) NSString *mask; // @synthesize mask=_mask;
 @property(readonly, nonatomic) struct CGRect exportBounds; // @synthesize exportBounds=_exportBounds;
-- (void).cxx_destruct;
 - (BOOL)layerIsIncluded:(id)arg1;
 - (BOOL)isDrawingSymbol;
 - (void)drawSymbolInstance:(id)arg1 inBlock:(CDUnknownBlockType)arg2;

@@ -13,8 +13,8 @@
     id _doubleClickMonitor;
 }
 
-@property(retain, nonatomic) id doubleClickMonitor; // @synthesize doubleClickMonitor=_doubleClickMonitor;
 - (void).cxx_destruct;
+@property(retain, nonatomic) id doubleClickMonitor; // @synthesize doubleClickMonitor=_doubleClickMonitor;
 - (void)dealloc;
 - (void)handleDoubleClick:(id)arg1;
 - (void)invalidateDoubleClickMonitor;

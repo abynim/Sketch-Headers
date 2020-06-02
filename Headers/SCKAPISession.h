@@ -31,16 +31,16 @@
 + (id)readCurrentSessionWithError:(id *)arg1;
 + (id)currentSessionWithError:(id *)arg1;
 + (id)currentSessionQueue;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(readonly, nonatomic) double validityPeriod; // @synthesize validityPeriod=_validityPeriod;
 @property(readonly, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(readonly, copy, nonatomic) NSString *tokenType; // @synthesize tokenType=_tokenType;
 @property(readonly, copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 @property(readonly, copy, nonatomic) NSString *token; // @synthesize token=_token;
-- (void).cxx_destruct;
 - (BOOL)isRefreshedByAuthentication:(id)arg1;
 @property(readonly, nonatomic) NSString *httpAuthorizationValue;
-@property(readonly, nonatomic) BOOL isValid;
+@property(readonly, nonatomic) BOOL isValidInTheNearFuture;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;

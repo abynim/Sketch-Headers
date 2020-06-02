@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch26ComponentPreviewController.h"
 
-#import "_TtP6Sketch33ComponentPreviewImageViewDelegate_-Protocol.h"
-
-@interface _TtC6Sketch26ComponentPreviewController (Sketch) <_TtP6Sketch33ComponentPreviewImageViewDelegate_>
+@interface _TtC6Sketch26ComponentPreviewController (Sketch)
 - (void)componentPreviewImageViewWillBeginDraggingSession:(id)arg1;
 @end
 

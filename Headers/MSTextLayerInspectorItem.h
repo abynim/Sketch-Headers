@@ -51,6 +51,7 @@
 
 + (void)initialize;
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSTextAttributeEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 @property(retain, nonatomic) MSInspectorValueAdaptor *colorAdapor; // @synthesize colorAdapor=_colorAdapor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *lineHeightAdaptor; // @synthesize lineHeightAdaptor=_lineHeightAdaptor;
@@ -77,7 +78,6 @@
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
-- (void).cxx_destruct;
 - (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)textBehaviourButtonAction:(id)arg1;
 - (void)updateTextBehaviour;
@@ -99,6 +99,7 @@
 - (id)colorInspectorUndoManager:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)validateVariableFontButton;
+- (id)uniqueMembersByPSNameIn:(id)arg1;
 - (void)reloadFontWeightPopUp;
 - (void)reloadFontWeightPopUpIfNecessary;
 - (id)firstColor;
@@ -121,7 +122,6 @@
 - (void)fontSizeMenuAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
-- (void)commitHistory;
 - (void)viewWillDisappear;
 - (void)dealloc;
 - (double)defaultLineHeight;

@@ -14,8 +14,8 @@
 }
 
 + (id)pathItemWithParent:(id)arg1 newObject:(id)arg2 oldObject:(id)arg3 named:(id)arg4;
-@property(retain, nonatomic) NSString *objectName; // @synthesize objectName=_objectName;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *objectName; // @synthesize objectName=_objectName;
 - (id)internalFullPath;
 
 @end

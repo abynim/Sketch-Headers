@@ -14,9 +14,9 @@
     NSMutableArray *_writers;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *writers; // @synthesize writers=_writers;
 @property(retain, nonatomic) NSMutableArray *readers; // @synthesize readers=_readers;
-- (void).cxx_destruct;
 - (void)registerViewForSupportedDraggedTypes:(id)arg1;
 - (void)registerReader:(id)arg1;
 - (void)registerWriter:(id)arg1;

@@ -21,9 +21,9 @@
     MSBatchedSymbolMasters *_batchedSymbolMasters;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSBatchedSymbolMasters *batchedSymbolMasters; // @synthesize batchedSymbolMasters=_batchedSymbolMasters;
 @property(readonly, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeaderItem; // @synthesize layoutHeaderItem=_layoutHeaderItem;
-- (void).cxx_destruct;
 - (double)heightOfItemViewAtIndex:(unsigned long long)arg1;
 - (BOOL)wantSeparatorAtIndex:(unsigned long long)arg1;
 - (void)recycleItem:(id)arg1;

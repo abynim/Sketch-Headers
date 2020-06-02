@@ -17,12 +17,12 @@
     MSForeignObjectProvider *_menuObjectProvider;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSForeignObjectProvider *menuObjectProvider; // @synthesize menuObjectProvider=_menuObjectProvider;
 @property(retain, nonatomic) MSInspectorPopoverButton *popoverButton; // @synthesize popoverButton=_popoverButton;
 @property(retain, nonatomic) MSStyleOverridePopupButton *overrideControl; // @synthesize overrideControl=_overrideControl;
 @property(retain, nonatomic) NSLayoutConstraint *labelConstraint; // @synthesize labelConstraint=_labelConstraint;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
-- (void).cxx_destruct;
 - (void)setDisplaysLabel:(BOOL)arg1;
 - (BOOL)displaysLabel;
 - (void)overrideValueAction:(id)arg1;

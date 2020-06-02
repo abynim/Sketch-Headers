@@ -17,10 +17,10 @@
     struct CGPDFDocument *_document;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGPDFDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) PDFScanner *scanner; // @synthesize scanner=_scanner;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (void)parsePastedDocument;
 - (void)parseWithProgress:(CDUnknownBlockType)arg1;
 - (void)parseWithProgress:(CDUnknownBlockType)arg1 isPasted:(BOOL)arg2;

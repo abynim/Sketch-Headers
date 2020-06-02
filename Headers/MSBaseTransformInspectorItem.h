@@ -19,6 +19,7 @@
     NSString *_textFieldTitle;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *textFieldTitle; // @synthesize textFieldTitle=_textFieldTitle;
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -26,7 +27,6 @@
 @property(retain, nonatomic) MSMathNumberFormatter *textFieldFormatter; // @synthesize textFieldFormatter=_textFieldFormatter;
 @property(retain, nonatomic) NSSegmentedControl *flipSegmentedControl; // @synthesize flipSegmentedControl=_flipSegmentedControl;
 @property(retain, nonatomic) MSUpDownTextField *textField; // @synthesize textField=_textField;
-- (void).cxx_destruct;
 - (BOOL)areAllLayersFlippedVertically;
 - (BOOL)areAllLayersFlippedHorizontally;
 - (void)clearFlipSegmentedControl;

@@ -15,8 +15,8 @@
 }
 
 + (Class)cellClass;
-@property(nonatomic) __weak id <BCSidebarTabButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <BCSidebarTabButtonDelegate> delegate; // @synthesize delegate=_delegate;
 - (struct CGSize)intrinsicContentSize;
 - (void)drawRect:(struct CGRect)arg1;
 @property(nonatomic) BOOL isIndifferent;

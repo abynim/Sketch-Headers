@@ -5,6 +5,7 @@
 //
 
 @class MSAssetLibrary, MSAssetLibraryController, MSDocumentData, MSModelObject, NSArray;
+@protocol BCSortable><MSSharedObjectStyling;
 
 @protocol MSForeignObjectProvider
 @property(readonly, nonatomic) unsigned long long objectType;
@@ -12,7 +13,7 @@
 @property(readonly, nonatomic) MSDocumentData *currentDocument;
 @property(readonly, nonatomic) NSArray *foreignObjects;
 - (BOOL)masterIsOutOfSyncWithInstance:(MSModelObject *)arg1;
-- (struct MSModelObject *)masterObjectForInstance:(MSModelObject *)arg1;
+- (MSModelObject<BCSortable><MSSharedObjectStyling> *)masterObjectForInstance:(MSModelObject *)arg1;
 - (BOOL)currentDocumentIsLibrary:(MSAssetLibrary *)arg1;
 - (NSArray *)localObjectsForDocument:(MSDocumentData *)arg1;
 @end

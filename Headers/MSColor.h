@@ -38,7 +38,7 @@
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (void)setSwatch:(id)arg1;
-- (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
+- (void)syncWithTemplateInstance:(id)arg1;
 - (unsigned long long)type;
 - (id)initWithImmutableObject:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;

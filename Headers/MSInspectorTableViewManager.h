@@ -17,8 +17,8 @@
     id <MSInspectorTableViewManagerDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <MSInspectorTableViewManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSInspectorTableViewManagerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)refreshTableView:(id)arg1 ifNecessary:(id)arg2;
 - (id)visibleItemsInTableView:(id)arg1;
 - (void)tableView:(id)arg1 didRemoveRowView:(id)arg2 forRow:(long long)arg3;

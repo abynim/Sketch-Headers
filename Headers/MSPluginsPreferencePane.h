@@ -42,6 +42,7 @@
 + (id)title;
 + (id)identifier;
 + (void)openWithPluginToHighlight:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNib *tableCellViewNib; // @synthesize tableCellViewNib=_tableCellViewNib;
 @property(retain, nonatomic) NSArray *selectedItemIdentifiers; // @synthesize selectedItemIdentifiers=_selectedItemIdentifiers;
 @property(nonatomic) long long originalHeightIncompatiblePlugin; // @synthesize originalHeightIncompatiblePlugin=_originalHeightIncompatiblePlugin;
@@ -63,7 +64,6 @@
 @property(retain, nonatomic) NSImage *zeroPluginsImage; // @synthesize zeroPluginsImage=_zeroPluginsImage;
 @property(copy, nonatomic) NSPredicate *pluginFilterPredicate; // @synthesize pluginFilterPredicate=_pluginFilterPredicate;
 @property(retain, nonatomic) NSArrayController *pluginsArrayController; // @synthesize pluginsArrayController=_pluginsArrayController;
-- (void).cxx_destruct;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (void)installPluginsWithURLArray:(id)arg1;
 - (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;

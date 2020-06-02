@@ -17,9 +17,9 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSBezierPath *path; // @synthesize path=_path;
 @property(nonatomic) BOOL closed; // @synthesize closed=_closed;
-- (void).cxx_destruct;
 
 @end
 

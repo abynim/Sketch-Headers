@@ -4,15 +4,23 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSImageView.h>
+#import <AppKit/NSButton.h>
 
-@interface _TtC6Sketch13AssistantIcon : NSImageView
+@interface _TtC6Sketch13AssistantIcon : NSButton
 {
-    // Error parsing type: , name: cornerRadius
+    // Error parsing type: , name: name
+    // Error parsing type: , name: source
+    // Error parsing type: , name: metadata
+    // Error parsing type: , name: badgeTitle
+    // Error parsing type: , name: badgeColor
 }
 
-- (id)initWithCoder:(id)arg1;
+- (void).cxx_destruct;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)drawRect:(struct CGRect)arg1;
+@property(nonatomic, readonly) struct CGSize intrinsicContentSize;
+- (id)initWithCoder:(id)arg1;
+- (id)init;
 
 @end
 

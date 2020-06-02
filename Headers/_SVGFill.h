@@ -21,13 +21,13 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *windingrule; // @synthesize windingrule=_windingrule;
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSSet *usedBy; // @synthesize usedBy=_usedBy;
 @property(retain, nonatomic) SVGPattern *pattern; // @synthesize pattern=_pattern;
 @property(retain, nonatomic) SVGGradient *gradient; // @synthesize gradient=_gradient;
-- (void).cxx_destruct;
 - (void)primitiveRemoveUsedByObject:(id)arg1;
 - (void)primitiveAddUsedByObject:(id)arg1;
 - (void)removeUsedByObject:(id)arg1;

@@ -17,9 +17,9 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSUpDownTextField *sidesField; // @synthesize sidesField=_sidesField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *sidesAdaptor; // @synthesize sidesAdaptor=_sidesAdaptor;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;

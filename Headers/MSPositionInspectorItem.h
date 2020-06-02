@@ -20,13 +20,13 @@
     MSMathInspectorValueAdaptor *_rotationAdapter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdapter; // @synthesize rotationAdapter=_rotationAdapter;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
 @property(retain, nonatomic) MSInlineUpDownTextField *xField; // @synthesize xField=_xField;
 @property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
 @property(retain, nonatomic) MSInlineUpDownTextField *yField; // @synthesize yField=_yField;
-- (void).cxx_destruct;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (BOOL)allowFloatValues;

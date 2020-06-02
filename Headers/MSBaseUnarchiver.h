@@ -21,13 +21,13 @@
 + (id)unarchivedObjectFromData:(id)arg1 asVersion:(long long)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
 + (id)unarchivedObjectFromData:(id)arg1 actualVersion:(long long *)arg2 error:(id *)arg3;
 + (id)unarchivedObjectFromData:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) __weak id currentObject; // @synthesize currentObject=_currentObject;
 @property(retain, nonatomic) NSPointerArray *decodedObjectStack; // @synthesize decodedObjectStack=_decodedObjectStack;
 @property(retain, nonatomic) NSArray *actualSymbolIDs; // @synthesize actualSymbolIDs=_actualSymbolIDs;
 @property(nonatomic) BOOL corruptionDetected; // @synthesize corruptionDetected=_corruptionDetected;
 @property(nonatomic) long long archiveVersion; // @synthesize archiveVersion=_archiveVersion;
 @property(nonatomic) long long currentVersion; // @synthesize currentVersion=_currentVersion;
-- (void).cxx_destruct;
 - (id)instanciateObject:(id)arg1;
 - (struct CGSize)decodeSizeForKey:(id)arg1 withDefault:(struct CGSize)arg2;
 - (long long)decodeIntegerForKey:(id)arg1 withDefault:(long long)arg2;

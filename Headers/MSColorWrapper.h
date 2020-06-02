@@ -14,8 +14,8 @@
 }
 
 + (id)wrapperWithColor:(id)arg1;
-@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 
 @end
 

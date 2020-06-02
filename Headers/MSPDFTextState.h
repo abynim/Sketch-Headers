@@ -31,6 +31,7 @@
 }
 
 + (id)textStateWithState:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) double wordSpacing; // @synthesize wordSpacing=_wordSpacing;
 @property(retain, nonatomic) NSAffineTransform *transform; // @synthesize transform=_transform;
 @property(retain, nonatomic) NSMutableAttributedString *text; // @synthesize text=_text;
@@ -47,7 +48,6 @@
 @property(retain, nonatomic) NSString *fontName; // @synthesize fontName=_fontName;
 @property(retain, nonatomic) NSFont *font; // @synthesize font=_font;
 @property(nonatomic) double characterSpacing; // @synthesize characterSpacing=_characterSpacing;
-- (void).cxx_destruct;
 - (void)appendText:(id)arg1;
 - (id)attributes;
 - (void)setTransform:(id)arg1 resettingLineTransform:(BOOL)arg2;

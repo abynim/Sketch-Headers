@@ -39,6 +39,7 @@
 }
 
 + (double)displayScaleValueForComponentIndex:(unsigned long long)arg1 colorModel:(long long)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSUndoManager *localUndoManager; // @synthesize localUndoManager=_localUndoManager;
 @property(nonatomic) BOOL multipleColors; // @synthesize multipleColors=_multipleColors;
 @property(retain, nonatomic) NSView *modelPickerContainer; // @synthesize modelPickerContainer=_modelPickerContainer;
@@ -60,7 +61,6 @@
 @property(retain, nonatomic) NSTextField *component1Field; // @synthesize component1Field=_component1Field;
 @property(nonatomic) __weak id <MSColorComponentsControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
-- (void).cxx_destruct;
 - (id)undoManager;
 - (void)redo:(id)arg1;
 - (void)undo:(id)arg1;

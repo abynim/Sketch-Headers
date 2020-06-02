@@ -20,11 +20,11 @@
     NSMutableArray *_queue;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *queue; // @synthesize queue=_queue;
 @property(nonatomic) BOOL webViewReady; // @synthesize webViewReady=_webViewReady;
 @property(copy, nonatomic) NSString *siteID; // @synthesize siteID=_siteID;
 @property(retain, nonatomic) WebView *webView; // @synthesize webView=_webView;
-- (void).cxx_destruct;
 - (id)webView:(id)arg1 resource:(id)arg2 willSendRequest:(id)arg3 redirectResponse:(id)arg4 fromDataSource:(id)arg5;
 - (void)webView:(id)arg1 addMessageToConsole:(id)arg2;
 - (void)callMethod:(id)arg1 arguments:(id)arg2;

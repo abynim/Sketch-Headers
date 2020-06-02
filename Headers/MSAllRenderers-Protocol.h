@@ -6,11 +6,10 @@
 
 #import <SketchRendering/MSBackgroundBlurRenderer-Protocol.h>
 #import <SketchRendering/MSFillRenderer-Protocol.h>
-#import <SketchRendering/MSGridRenderer-Protocol.h>
 #import <SketchRendering/MSLayerRenderer-Protocol.h>
 #import <SketchRendering/MSPathRenderer-Protocol.h>
 #import <SketchRendering/MSShadowRenderer-Protocol.h>
 
-@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer, MSGridRenderer>
+@protocol MSAllRenderers <MSLayerRenderer, MSPathRenderer, MSFillRenderer, MSBackgroundBlurRenderer, MSShadowRenderer>
 @end
 

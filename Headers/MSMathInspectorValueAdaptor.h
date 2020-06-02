@@ -24,6 +24,7 @@
     NSNumberFormatter *_cachedIntegerNumberFormatter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumberFormatter *cachedIntegerNumberFormatter; // @synthesize cachedIntegerNumberFormatter=_cachedIntegerNumberFormatter;
 @property(retain, nonatomic) NSNumberFormatter *cachedFloatNumberFormatter; // @synthesize cachedFloatNumberFormatter=_cachedFloatNumberFormatter;
 @property(nonatomic) BOOL forcePrefixMath; // @synthesize forcePrefixMath=_forcePrefixMath;
@@ -33,7 +34,6 @@
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(nonatomic) BOOL adjustIndividually; // @synthesize adjustIndividually=_adjustIndividually;
 @property(nonatomic) BOOL clampsValues; // @synthesize clampsValues=_clampsValues;
-- (void).cxx_destruct;
 - (void)forceRelativeMathForBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)currentAdjustOptions;
 - (id)errorWithUnparsableString:(id)arg1;

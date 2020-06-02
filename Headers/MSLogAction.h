@@ -16,9 +16,9 @@
     NSDictionary *_latestLog;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *latestLog; // @synthesize latestLog=_latestLog;
 @property(retain, nonatomic) NSMutableDictionary *logs; // @synthesize logs=_logs;
-- (void).cxx_destruct;
 - (id)label;
 - (id)contextForActionObservers;
 - (id)URLForLogFile;

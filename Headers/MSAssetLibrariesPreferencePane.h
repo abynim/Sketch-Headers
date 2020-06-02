@@ -36,6 +36,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSPredicate *librariesFilterPredicate; // @synthesize librariesFilterPredicate=_librariesFilterPredicate;
 @property(nonatomic) __weak NSWindow *genericAlertWindow; // @synthesize genericAlertWindow=_genericAlertWindow;
 @property(nonatomic) __weak NSWindow *chooseLibraryPanelWindow; // @synthesize chooseLibraryPanelWindow=_chooseLibraryPanelWindow;
@@ -49,7 +50,6 @@
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) NSArrayController *librariesArrayController; // @synthesize librariesArrayController=_librariesArrayController;
 @property(nonatomic) __weak MSAssetLibraryTableView *tableView; // @synthesize tableView=_tableView;
-- (void).cxx_destruct;
 - (void)duplicateLibraryDisabled:(id)arg1;
 - (void)scrollToFirstLibraryWithUpdateAvailable;
 - (void)libraryControllerDidChange:(id)arg1;

@@ -20,6 +20,7 @@
     CDUnknownBlockType _completionBlock;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) NSPopUpButton *symbolLayoutPopUpButton; // @synthesize symbolLayoutPopUpButton=_symbolLayoutPopUpButton;
 @property(retain, nonatomic) NSTextField *informativeTextField; // @synthesize informativeTextField=_informativeTextField;
@@ -28,7 +29,6 @@
 @property(retain, nonatomic) NSTextField *symbolNameField; // @synthesize symbolNameField=_symbolNameField;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) NSButton *moveSymbolToPageCheckbox; // @synthesize moveSymbolToPageCheckbox=_moveSymbolToPageCheckbox;
-- (void).cxx_destruct;
 - (id)validatedSymbolName;
 - (void)validateConfirmButton;
 - (void)controlTextDidChange:(id)arg1;

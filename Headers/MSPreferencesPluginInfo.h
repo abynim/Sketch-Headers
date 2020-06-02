@@ -18,10 +18,10 @@
 
 + (id)pluginInfoWithName:(id)arg1;
 + (id)pluginInfoWithPluginBundle:(id)arg1;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSPluginBundle *pluginBundle; // @synthesize pluginBundle=_pluginBundle;
 @property(nonatomic) BOOL isUpdating; // @synthesize isUpdating=_isUpdating;
-- (void).cxx_destruct;
 - (id)pluginManager;
 - (id)latestPluginUpdate;
 @property(readonly, copy, nonatomic) NSString *updateVersionString;

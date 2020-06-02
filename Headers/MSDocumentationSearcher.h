@@ -16,9 +16,9 @@
     NSArray *_searchEntries;
 }
 
+- (void).cxx_destruct;
 @property(retain) NSArray *searchEntries; // @synthesize searchEntries=_searchEntries;
 @property(retain) NSOperationQueue *queue; // @synthesize queue=_queue;
-- (void).cxx_destruct;
 - (id)downloadRequest;
 - (id)localizedTitlesForItem:(id)arg1;
 - (void)performActionForItem:(id)arg1;

@@ -14,9 +14,9 @@
     MSFlexibleColor *_currentColor;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSFlexibleColor *currentColor; // @synthesize currentColor=_currentColor;
 @property(retain, nonatomic) BCScreenGrab *screenGrab; // @synthesize screenGrab=_screenGrab;
-- (void).cxx_destruct;
 - (void)drawMiddlePixel;
 - (void)drawPixelLines;
 - (void)drawBlackBorder:(id)arg1;

@@ -13,8 +13,8 @@
     id <MTLTexture> _metalTexture;
 }
 
-@property(retain, nonatomic) id <MTLTexture> metalTexture; // @synthesize metalTexture=_metalTexture;
 - (void).cxx_destruct;
+@property(retain, nonatomic) id <MTLTexture> metalTexture; // @synthesize metalTexture=_metalTexture;
 - (unsigned long long)height;
 - (unsigned long long)width;
 - (void)replaceRegion:(CDStruct_bf95b13b)arg1 bytesPerRow:(unsigned long long)arg2 pixels:(const void *)arg3;

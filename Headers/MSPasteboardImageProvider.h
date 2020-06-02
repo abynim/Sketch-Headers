@@ -16,9 +16,9 @@
 }
 
 + (void)preparePasteboard:(id)arg1 withExportRequest:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
 @property(copy, nonatomic) MSExportRequest *request; // @synthesize request=_request;
-- (void).cxx_destruct;
 - (void)pasteboard:(id)arg1 provideDataForType:(id)arg2;
 @property(readonly, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
 

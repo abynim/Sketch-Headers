@@ -13,8 +13,8 @@
     NSImageView *_iconImageView;
 }
 
-@property(nonatomic) __weak NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 - (void).cxx_destruct;
+@property(nonatomic) __weak NSImageView *iconImageView; // @synthesize iconImageView=_iconImageView;
 - (void)awakeFromNib;
 
 @end

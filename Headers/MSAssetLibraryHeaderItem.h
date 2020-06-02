@@ -16,9 +16,9 @@
     NSString *_title;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)tableRowViewForTableView:(id)arg1;
 @property(readonly, nonatomic) double preferredViewHeight;
 @property(readonly, nonatomic) MSAssetLibrary *library;

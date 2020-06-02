@@ -16,8 +16,8 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
-@property(retain, nonatomic) SVGElement *link; // @synthesize link=_link;
 - (void).cxx_destruct;
+@property(retain, nonatomic) SVGElement *link; // @synthesize link=_link;
 - (void)primitiveSetLink:(id)arg1;
 
 @end

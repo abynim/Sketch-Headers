@@ -19,10 +19,10 @@
 }
 
 + (id)snappingResultWithPoint:(struct CGPoint)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long snappedAxes; // @synthesize snappedAxes=_snappedAxes;
 @property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
-- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
