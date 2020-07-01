@@ -14,8 +14,8 @@
 }
 
 + (id)defaultURLSession;
-@property(retain) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 - (void).cxx_destruct;
+@property(retain) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 - (id)init;
 
 @end

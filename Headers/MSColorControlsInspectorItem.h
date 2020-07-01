@@ -21,6 +21,7 @@
 }
 
 + (void)setupTextField:(id)arg1 adaptor:(id)arg2 valueTransformer:(id)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInlineUpDownTextField *contrastField; // @synthesize contrastField=_contrastField;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *brightnessField; // @synthesize brightnessField=_brightnessField;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *saturationField; // @synthesize saturationField=_saturationField;
@@ -29,7 +30,6 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *brightnessAdaptor; // @synthesize brightnessAdaptor=_brightnessAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *saturationAdaptor; // @synthesize saturationAdaptor=_saturationAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *hueAdaptor; // @synthesize hueAdaptor=_hueAdaptor;
-- (void).cxx_destruct;
 - (void)sliderDragAction:(id)arg1;
 - (void)viewDidLoad;
 

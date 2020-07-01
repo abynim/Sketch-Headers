@@ -8,7 +8,7 @@
 
 @interface _TtC6Sketch18LayerStyleViewItem : _TtC6Sketch17ComponentViewItem
 {
-    // Error parsing type: , name: previewToken
+    // Error parsing type: , name: _previewToken
 }
 
 @end

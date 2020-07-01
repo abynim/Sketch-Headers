@@ -33,6 +33,7 @@
     struct CGVector _duplicateOffset;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
 @property(retain, nonatomic) MSLayerDragController *dragController; // @synthesize dragController=_dragController;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
@@ -49,7 +50,6 @@
 @property(readonly, nonatomic) _TtC6Sketch28MSSelectionOverlayController *selectionOverlayController; // @synthesize selectionOverlayController=_selectionOverlayController;
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
-- (void).cxx_destruct;
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)endAdjustingHandle;
 - (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
@@ -71,8 +71,8 @@
 - (id)menu;
 @property(readonly, nonatomic) NSMenu *menuForLayerList;
 - (id)menuForCanvas;
-- (void)selectAll:(id)arg1;
 - (void)dragToSelect:(id)arg1;
+- (void)selectAll:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)setUndoActionName:(id)arg1;
 - (void)selectLayers:(id)arg1;

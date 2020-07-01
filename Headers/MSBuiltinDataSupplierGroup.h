@@ -15,8 +15,8 @@
     NSArray *_encodedIdentifiers;
 }
 
-@property(copy, nonatomic) NSArray *encodedIdentifiers; // @synthesize encodedIdentifiers=_encodedIdentifiers;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *encodedIdentifiers; // @synthesize encodedIdentifiers=_encodedIdentifiers;
 - (BOOL)includesEncodedIdentifier:(id)arg1;
 @property(readonly, nonatomic) NSArray *builtinDataSuppliers;
 - (id)groupName;

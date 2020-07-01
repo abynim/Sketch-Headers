@@ -19,12 +19,12 @@
     NSMutableArray *_infoStack;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *infoStack; // @synthesize infoStack=_infoStack;
 @property(retain, nonatomic) NSMutableDictionary *infoRecord; // @synthesize infoRecord=_infoRecord;
 @property(retain, nonatomic) NSDictionary *options; // @synthesize options=_options;
 @property(retain, nonatomic) NSMutableArray *errors; // @synthesize errors=_errors;
 @property(retain, nonatomic) NSMutableString *output; // @synthesize output=_output;
-- (void).cxx_destruct;
 - (void)outputErrorWithDomain:(id)arg1 code:(unsigned long long)arg2 info:(id)arg3 format:(id)arg4;
 - (void)outputError:(id)arg1;
 - (void)closeInfoGroup;

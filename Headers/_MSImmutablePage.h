@@ -18,12 +18,12 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
 @property(retain, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
 @property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

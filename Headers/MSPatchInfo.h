@@ -13,8 +13,8 @@
     NSObject *__patchContainer;
 }
 
-@property(retain, nonatomic) NSObject *_patchContainer; // @synthesize _patchContainer=__patchContainer;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSObject *_patchContainer; // @synthesize _patchContainer=__patchContainer;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)performInitWithImmutableModelObject:(id)arg1;

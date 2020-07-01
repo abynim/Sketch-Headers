@@ -11,7 +11,7 @@
 }
 
 - (id)initWithMinimalSetup;
-- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (id)init;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)swatches;
@@ -22,6 +22,7 @@
 - (void)removeSwatchWithSwatch:(id)arg1;
 - (id)objectsReferencing:(id)arg1 inContainer:(id)arg2;
 - (void)removeSharedObjects:(id)arg1;
+- (id)allColorReferencesTo:(id)arg1;
 - (void)updateReferencesToSwatch:(id)arg1;
 - (id)addSwatchWithName:(id)arg1 color:(id)arg2;
 @property(nonatomic, readonly) Class sharedObjectClass;

@@ -19,11 +19,11 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *pointsAdaptor; // @synthesize pointsAdaptor=_pointsAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *pointsField; // @synthesize pointsField=_pointsField;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *radiusField; // @synthesize radiusField=_radiusField;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;

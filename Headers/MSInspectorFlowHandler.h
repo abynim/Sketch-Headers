@@ -18,8 +18,8 @@
 + (BOOL)shouldShowFullInspectorForLayers:(id)arg1;
 + (BOOL)shouldShowFullInspectorForFlow:(id)arg1;
 + (id)flowConnectionForLayers:(id)arg1;
-@property(nonatomic) __weak id <MSInspectorFlowHandlerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSInspectorFlowHandlerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)layers;
 - (id)document;
 - (void)reload;

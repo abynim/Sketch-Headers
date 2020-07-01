@@ -30,6 +30,7 @@
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
@@ -39,18 +40,17 @@
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *layers;
 - (void)refaultAgainst:(id)arg1;
-- (void)prepareForChangeProcessingWithDiff:(id)arg1;
+- (void)prepareForChangeProcessing;
 - (void)refreshOverlay;
 - (void)layerDidChangeStyle:(id)arg1;
 - (void)replaceExistingCreationMetadata;
 - (id)embeddedFontReferences;
-- (void)updateFontReferences:(id)arg1;
-- (id)libraryFontNamesFromReferences:(id)arg1;
+- (void)updateFontReferencesPurgingForeignObjects:(BOOL)arg1;
+- (id)postscriptNamesFromForeignObjects;
 - (id)createFontReferenceForPostscriptName:(id)arg1 familyName:(id)arg2;
-- (id)createFontReferencesForFamilyName:(id)arg1 currentReferences:(id)arg2 referencesByFace:(id)arg3;
+- (void)updateReferencesLookup:(id)arg1 withReferencesFromFamilyName:(id)arg2;
 - (id)urlsForFacesOfFontFamily:(id)arg1;
 - (void)embedEligibleFontsInReferences:(id)arg1;
 - (id)swatchWithID:(id)arg1;
@@ -74,8 +74,8 @@
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
-- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)invalidateAffectedSymbolInstancesWithDiff:(id)arg1;
+- (void)enumerateNonNestedSymbolInstancesUsingBlock:(CDUnknownBlockType)arg1;
+- (void)invalidateAffectedSymbolInstances;
 - (void)addSymbolMaster:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;

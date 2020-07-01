@@ -19,12 +19,12 @@
     NSString *_name;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL canContribute; // @synthesize canContribute=_canContribute;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
-- (void).cxx_destruct;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 - (id)dictionaryRepresentation;

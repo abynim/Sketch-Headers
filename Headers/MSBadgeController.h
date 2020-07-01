@@ -14,9 +14,9 @@
     NSArray *_activeActions;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *activeActions; // @synthesize activeActions=_activeActions;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (void)refresh;
 - (id)updateBadge:(id)arg1 forAction:(id)arg2;
 - (id)activeBadgingActionsForController:(id)arg1;

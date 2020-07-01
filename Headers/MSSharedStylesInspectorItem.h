@@ -21,12 +21,12 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(copy, nonatomic) CDUnknownBlockType renameBlock; // @synthesize renameBlock=_renameBlock;
 @property(retain, nonatomic) MSSharedObject *renamingObject; // @synthesize renamingObject=_renamingObject;
 @property(retain, nonatomic) NSTextField *editNameField; // @synthesize editNameField=_editNameField;
 @property(retain, nonatomic) MSShareableObjectPopUpButton *sharedObjectsPopUpButton; // @synthesize sharedObjectsPopUpButton=_sharedObjectsPopUpButton;
-- (void).cxx_destruct;
 - (id)cachedImageForPopupButtonCell:(id)arg1 withSharedObject:(id)arg2;
 - (void)popupButtonCell:(id)arg1 didCreatePreviewImage:(id)arg2 forSharedObject:(id)arg3;
 - (void)renameSharedObjectAction:(id)arg1;

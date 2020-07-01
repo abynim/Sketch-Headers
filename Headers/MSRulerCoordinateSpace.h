@@ -16,8 +16,8 @@
     MSLayer<MSRootLayer> *_layer;
 }
 
-@property(readonly, nonatomic) __weak MSLayer<MSRootLayer> *layer; // @synthesize layer=_layer;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) __weak MSLayer<MSRootLayer> *layer; // @synthesize layer=_layer;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> parentCoordinateSpace;

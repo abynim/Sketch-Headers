@@ -14,11 +14,11 @@
     CDUnknownBlockType _postRemoveBlock;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType postRemoveBlock; // @synthesize postRemoveBlock=_postRemoveBlock;
 @property(copy, nonatomic) CDUnknownBlockType createBlock; // @synthesize createBlock=_createBlock;
 @property(copy, nonatomic) CDUnknownBlockType updateBlock; // @synthesize updateBlock=_updateBlock;
 @property(copy, nonatomic) CDUnknownBlockType comparisonBlock; // @synthesize comparisonBlock=_comparisonBlock;
-- (void).cxx_destruct;
 
 @end
 

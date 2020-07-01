@@ -37,6 +37,7 @@
 }
 
 + (BOOL)itemRowCanFloat:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCRowViewVisuals *rowViewVisuals; // @synthesize rowViewVisuals=_rowViewVisuals;
 @property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
 @property(nonatomic) double refreshNotificationTime; // @synthesize refreshNotificationTime=_refreshNotificationTime;
@@ -54,7 +55,6 @@
 @property(nonatomic) BOOL selectionStateUpdating; // @synthesize selectionStateUpdating=_selectionStateUpdating;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
-- (void).cxx_destruct;
 - (void)updateVisualStateOfRowView:(id)arg1;
 - (void)resetRowViewVisuals;
 - (id)tableCellOutlineView:(id)arg1;
@@ -70,6 +70,8 @@
 - (void)performNecessaryRefreshOperations;
 - (void)queueRefreshIfRequired;
 - (void)resetLayoutDirtyFlag;
+- (void)resetTableViewCellContentsDirtyFlag;
+- (BOOL)areTableViewCellContentsDirty;
 @property(readonly, nonatomic) BOOL isLayoutDirty;
 - (void)resetPreviewImagesDirtyFlag;
 @property(readonly, nonatomic) BOOL arePreviewImagesDirty;

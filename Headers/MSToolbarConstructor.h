@@ -20,11 +20,11 @@
 
 + (id)toolbarDefaultItemIdentifiers;
 + (id)toolbarAllowedSketchDocumentItemIdentifiers;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *toolbarDefaultItemIdentifiers; // @synthesize toolbarDefaultItemIdentifiers=_toolbarDefaultItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarAllowedItemIdentifiers; // @synthesize toolbarAllowedItemIdentifiers=_toolbarAllowedItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
-- (void).cxx_destruct;
 - (void)documentTypeDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)validateToolbarItems;

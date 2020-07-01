@@ -36,8 +36,8 @@
 + (id)bezierPathForEndDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (id)bezierPathForStartDecorationOnPath:(id *)arg1 strokeWidth:(double)arg2 lineCap:(int)arg3 decorationType:(unsigned long long)arg4;
 + (struct CGSize)scaleForDecoration:(unsigned long long)arg1 stokeWidth:(double)arg2;
-@property(readonly, nonatomic) MSImmutableStyleFill *firstFill; // @synthesize firstFill=_firstFill;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSImmutableStyleFill *firstFill; // @synthesize firstFill=_firstFill;
 @property(readonly, nonatomic) MSColor *fillColor;
 - (BOOL)hasEnabledFill;
 @property(readonly, nonatomic) BOOL shadowsFollowRotation;
@@ -55,7 +55,6 @@
 - (id)bezierPathForStartDecorationOnPath:(id *)arg1;
 - (unsigned long long)roundDecorationTypeIfNecessary:(unsigned long long)arg1;
 - (void)updateSharedStyleIDFromMigration:(id)arg1;
-- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;

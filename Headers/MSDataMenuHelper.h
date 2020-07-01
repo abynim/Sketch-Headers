@@ -14,9 +14,9 @@
     MSDataSupplierManager *_dataManager;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) __weak MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData=_documentData;
-- (void).cxx_destruct;
 - (void)clearDataIdentifiersOnSelectedLayers;
 @property(readonly, nonatomic) BOOL selectedLayersHaveClearableDataIdentifiers;
 @property(readonly, nonatomic) NSString *refreshDataText;

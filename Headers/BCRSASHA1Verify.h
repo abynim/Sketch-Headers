@@ -17,12 +17,12 @@
     NSData *_signatureData;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSData *signatureData; // @synthesize signatureData=_signatureData;
 @property(nonatomic) struct __SecKey *publicKey; // @synthesize publicKey=_publicKey;
 @property(retain, nonatomic) NSData *inputData; // @synthesize inputData=_inputData;
 @property(nonatomic) BOOL verified; // @synthesize verified=_verified;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
-- (void).cxx_destruct;
 - (void)verify;
 - (void)dealloc;
 - (id)initWithInputData:(id)arg1 publicKey:(struct __SecKey *)arg2 signatureData:(id)arg3;

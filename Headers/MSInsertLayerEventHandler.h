@@ -15,10 +15,10 @@
     MSLayer *_insertedLayer;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSLayer *insertedLayer; // @synthesize insertedLayer=_insertedLayer;
 @property(copy, nonatomic) CDUnknownBlockType completionBlock; // @synthesize completionBlock=_completionBlock;
 @property(retain, nonatomic) MSLayer *prototypeLayer; // @synthesize prototypeLayer=_prototypeLayer;
-- (void).cxx_destruct;
 - (BOOL)allowsSwitchToInsertAction;
 - (void)resizeLayer:(id)arg1 toRect:(struct CGRect)arg2;
 - (id)group;

@@ -20,13 +20,13 @@
     NSSet *_warningSliceIDs;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *warningSliceIDs; // @synthesize warningSliceIDs=_warningSliceIDs;
 @property(retain, nonatomic) NSArray *slices; // @synthesize slices=_slices;
 @property(retain, nonatomic) NSMutableArray *selectedSlices; // @synthesize selectedSlices=_selectedSlices;
 @property(retain, nonatomic) NSButton *exportButton; // @synthesize exportButton=_exportButton;
 @property(retain, nonatomic) NSButton *includeAllSlicesCheckBox; // @synthesize includeAllSlicesCheckBox=_includeAllSlicesCheckBox;
 @property(retain, nonatomic) NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
-- (void).cxx_destruct;
 - (void)toggleItemSelectedForExportState:(id)arg1;
 - (BOOL)isItemSelectedForExport:(id)arg1;
 - (id)document;

@@ -11,7 +11,7 @@
 #import "MSOverlayItemDataSource-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderMonitor, MSRenderingDriver, MSRulerView, MSViewPort, MSZoomTool, NSNumberFormatter, NSObject, NSString, _TtC6Sketch18MSScrollRecognizer;
+@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderingDriver, MSRulerView, MSViewPort, MSZoomTool, NSNumberFormatter, NSObject, NSString, _TtC6Sketch18MSScrollRecognizer;
 @protocol MSCanvasViewDelegate, MSTilingSystemProvider;
 
 @interface MSCanvasView : NSView <MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
@@ -39,7 +39,6 @@
     MSRulerView *_horizontalRuler;
     MSRulerView *_verticalRuler;
     MSDocument *_document;
-    MSRenderMonitor *_pendingMonitor;
     MSRenderingDriver *_driver;
     MSMouseTracker *_mouseTracker;
     unsigned long long _handToolState;
@@ -61,6 +60,7 @@
 + (struct CGPoint)viewCoordinatesFromAbsoluteCoordinates:(struct CGPoint)arg1 forViewPort:(id)arg2;
 + (struct CGPoint)scrollOriginAfterScalingViewPort:(id)arg1 toZoomValue:(double)arg2 scalingCenterInViewCoordinates:(struct CGPoint)arg3;
 + (id)viewPortAfterScalingViewPort:(id)arg1 toZoom:(double)arg2 centeredOnAbsoluteCoordinates:(struct CGPoint)arg3;
+- (void).cxx_destruct;
 @property BOOL shouldRedrawNextEqualRenderingInstruction; // @synthesize shouldRedrawNextEqualRenderingInstruction=_shouldRedrawNextEqualRenderingInstruction;
 @property(nonatomic) unsigned long long renderMask; // @synthesize renderMask=_renderMask;
 @property(nonatomic) double windowBackingScale; // @synthesize windowBackingScale=_windowBackingScale;
@@ -85,14 +85,12 @@
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
-@property(retain, nonatomic) MSRenderMonitor *pendingMonitor; // @synthesize pendingMonitor=_pendingMonitor;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSCanvasViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<MSTilingSystemProvider> *tiledRenderer; // @synthesize tiledRenderer=_tiledRenderer;
-- (void).cxx_destruct;
 - (void)startAnimatingViewPort:(id)arg1;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
@@ -167,6 +165,7 @@
 - (void)setNeedsRenderWithMask:(unsigned long long)arg1;
 - (void)applyCurrentRenderingParametersToInstruction:(id)arg1;
 - (void)applyCurrentOverlayToInstruction:(id)arg1;
+- (void)applyCurrentDocumentToInstructions:(id)arg1;
 @property(readonly, nonatomic) BOOL isReadyToRender;
 - (void)_scheduleRedraw:(BOOL)arg1;
 - (void)refreshRulers;

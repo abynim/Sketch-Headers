@@ -21,13 +21,13 @@
     NSImage *_menuItemImage;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *menuItemImage; // @synthesize menuItemImage=_menuItemImage;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) NSString *dataIdentifier; // @synthesize dataIdentifier=_dataIdentifier;
 @property(readonly, nonatomic) unsigned long long dataType; // @synthesize dataType=_dataType;
 @property(copy, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;
 @property(nonatomic) __weak id <MSDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)dataForItem:(id)arg1 ofType:(unsigned long long)arg2;
 - (void)resetMenuItemImage;
 @property(readonly, nonatomic) NSString *uttDataType;

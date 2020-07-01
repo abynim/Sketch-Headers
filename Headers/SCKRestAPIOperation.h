@@ -15,8 +15,8 @@
 
 + (void)executeRequest:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)resultOfType:(Class)arg1 fromData:(id)arg2 error:(id *)arg3;
-@property(readonly) NSArray *result; // @synthesize result=_result;
 - (void).cxx_destruct;
+@property(readonly) NSArray *result; // @synthesize result=_result;
 - (id)resultFromData:(id)arg1 error:(id *)arg2;
 - (void)processData:(id)arg1 response:(id)arg2 error:(id)arg3;
 

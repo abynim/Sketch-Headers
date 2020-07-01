@@ -13,8 +13,8 @@
     MSBatchedSymbolMasters *_masters;
 }
 
-@property(retain, nonatomic) MSBatchedSymbolMasters *masters; // @synthesize masters=_masters;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSBatchedSymbolMasters *masters; // @synthesize masters=_masters;
 - (void)highlightItem:(BOOL)arg1;
 @property(nonatomic) long long allowsOverrides;
 - (id)initWithBatchedMasters:(id)arg1;

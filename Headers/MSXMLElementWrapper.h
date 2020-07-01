@@ -16,8 +16,8 @@
 + (BOOL)resolveInstanceMethod:(SEL)arg1;
 + (id)element;
 + (id)elementName;
-@property(retain, nonatomic) NSXMLElement *element; // @synthesize element=_element;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSXMLElement *element; // @synthesize element=_element;
 - (void)addChildWrapper:(id)arg1;
 - (void)addChild:(id)arg1;
 - (id)href;

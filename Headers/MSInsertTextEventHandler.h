@@ -13,8 +13,8 @@
     MSTextLayer *_textLayer;
 }
 
-@property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (BOOL)allowsSwitchToInsertAction;
 - (id)toolbarIdentifier;

@@ -15,9 +15,9 @@
 }
 
 + (id)appcastForURL:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *downloadTasks; // @synthesize downloadTasks=_downloadTasks;
 @property(retain, nonatomic) BCDownloadManager *downloadManager; // @synthesize downloadManager=_downloadManager;
-- (void).cxx_destruct;
 - (id)dictionaryValueForDownloadTaskWithIdentifier:(id)arg1 key:(id)arg2;
 - (CDUnknownBlockType)completionHandlerForIdentifier:(id)arg1;
 - (CDUnknownBlockType)progressHandlerForIdentifier:(id)arg1;

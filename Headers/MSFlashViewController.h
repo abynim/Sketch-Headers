@@ -18,12 +18,12 @@
 }
 
 + (id)flashViewControllerWithMessage:(id)arg1 closeBlock:(CDUnknownBlockType)arg2 helpBlock:(CDUnknownBlockType)arg3;
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType closeBlock; // @synthesize closeBlock=_closeBlock;
 @property(copy, nonatomic) CDUnknownBlockType helpBlock; // @synthesize helpBlock=_helpBlock;
 @property(retain, nonatomic) NSButton *closeButton; // @synthesize closeButton=_closeButton;
 @property(retain, nonatomic) NSButton *helpButton; // @synthesize helpButton=_helpButton;
 @property(retain, nonatomic) NSTextField *message; // @synthesize message=_message;
-- (void).cxx_destruct;
 - (void)helpPressed:(id)arg1;
 - (void)closeFlash:(id)arg1;
 - (id)init;

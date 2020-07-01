@@ -21,12 +21,12 @@
 }
 
 + (id)gradientHandlerForStylePart:(id)arg1 manager:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSCursor *insertPointCursor; // @synthesize insertPointCursor=_insertPointCursor;
 @property(retain, nonatomic) NSCursor *selectPointCursor; // @synthesize selectPointCursor=_selectPointCursor;
 @property(nonatomic) __weak id <MSGradientEventHandlerDelegate> gradientDelegate; // @synthesize gradientDelegate=_gradientDelegate;
 @property(retain, nonatomic) MSStyleBasicFill *stylePart; // @synthesize stylePart=_stylePart;
-- (void).cxx_destruct;
 - (void)documentDidChange:(id)arg1;
 @property(readonly, nonatomic) long long gradientType;
 - (BOOL)canDuplicate;
@@ -61,7 +61,6 @@
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)handlerGotFocus;
 - (void)reloadFollowingBackgroundChangesToDocument;
-- (void)didMoveThroughHistory:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (void)updateImageCache;

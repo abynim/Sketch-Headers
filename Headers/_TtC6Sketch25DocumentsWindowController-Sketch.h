@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch25DocumentsWindowController.h"
 
-#import "NSToolbarDelegate-Protocol.h"
-
-@interface _TtC6Sketch25DocumentsWindowController (Sketch) <NSToolbarDelegate>
+@interface _TtC6Sketch25DocumentsWindowController (Sketch)
 - (void)toolbarWillAddItem:(id)arg1;
 @end
 

@@ -18,13 +18,13 @@
     unsigned long long _options;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isObserving; // @synthesize isObserving=_isObserving;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(retain, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
 @property(nonatomic) __weak id observed; // @synthesize observed=_observed;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (void)stopObserving;

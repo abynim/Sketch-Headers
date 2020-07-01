@@ -32,6 +32,7 @@
 + (id)scriptDefaultTitle;
 + (id)commandsFromArray:(id)arg1 sketchPluginURL:(id)arg2 pluginBundle:(id)arg3;
 + (id)pluginBundleWithURL:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSPluginBundleIconInfo *iconInfo; // @synthesize iconInfo=_iconInfo;
 @property(nonatomic) BOOL disableCocoaScriptPreprocessor; // @synthesize disableCocoaScriptPreprocessor=_disableCocoaScriptPreprocessor;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
@@ -49,7 +50,6 @@
 @property(readonly, copy, nonatomic) NSString *version; // @synthesize version=_version;
 @property(readonly, copy, nonatomic) NSDictionary *commands; // @synthesize commands=_commands;
 @property(readonly, copy, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void).cxx_destruct;
 - (id)debugDescription;
 - (id)urlForResourceNamed:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *versionedIdentifier;

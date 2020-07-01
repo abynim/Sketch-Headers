@@ -14,9 +14,9 @@
     NSTextField *_sizeLabel;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *sizeLabel; // @synthesize sizeLabel=_sizeLabel;
 @property(retain, nonatomic) NSImageView *checkmark; // @synthesize checkmark=_checkmark;
-- (void).cxx_destruct;
 - (id)hitTest:(struct CGPoint)arg1;
 
 @end

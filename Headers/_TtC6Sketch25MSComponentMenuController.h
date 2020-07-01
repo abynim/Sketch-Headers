@@ -48,6 +48,7 @@
 - (void)selectSearchFieldContents:(id)arg1;
 - (void)pickComponent:(id)arg1;
 - (void)pickNoSymbol:(id)arg1;
+- (void)pickColorVariableWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingColor:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)pickTextStyleWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingTextStyle:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)pickLayerStyleWithRelativeToView:(id)arg1 owner:(id)arg2 preselectingLayerStyle:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)pickSymbolMasterForOverride:(id)arg1 relativeTo:(id)arg2 preselectingSymbol:(id)arg3 completion:(CDUnknownBlockType)arg4;

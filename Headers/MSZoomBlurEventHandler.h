@@ -13,8 +13,8 @@
     MSStyleBlur *_blurStyle;
 }
 
-@property(retain, nonatomic) MSStyleBlur *blurStyle; // @synthesize blurStyle=_blurStyle;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSStyleBlur *blurStyle; // @synthesize blurStyle=_blurStyle;
 - (void)documentDidChange:(id)arg1;
 - (void)replacePointAtIndex:(long long)arg1 withPoint:(struct CGPoint)arg2;
 - (id)currentGroup;

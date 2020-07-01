@@ -25,6 +25,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSAffineTransform *transform; // @synthesize transform=_transform;
 @property(nonatomic) double toY; // @synthesize toY=_toY;
 @property(nonatomic) double toX; // @synthesize toX=_toX;
@@ -35,7 +36,6 @@
 @property(retain, nonatomic) NSSet *usedByFills; // @synthesize usedByFills=_usedByFills;
 @property(retain, nonatomic) SVGGradient *linkedTo; // @synthesize linkedTo=_linkedTo;
 @property(retain, nonatomic) NSSet *linkedFrom; // @synthesize linkedFrom=_linkedFrom;
-- (void).cxx_destruct;
 - (void)primitiveRemoveUsedByStrokesObject:(id)arg1;
 - (void)primitiveAddUsedByStrokesObject:(id)arg1;
 - (void)removeUsedByStrokesObject:(id)arg1;

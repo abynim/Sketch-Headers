@@ -19,10 +19,10 @@
     NSNumberFormatter *_numberFormatter;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(readonly, nonatomic) _TtC6Sketch27MSLayerMeasurementViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(readonly, nonatomic) MSSpecOverlay *overlay; // @synthesize overlay=_overlay;
-- (void).cxx_destruct;
 - (void)layerMeasurementUpdated;
 - (id)specOverlay:(id)arg1 textForMeasurement:(id)arg2 vector:(struct CGVector)arg3;
 - (BOOL)specOverlay:(id)arg1 shouldHideItemAtIndexPath:(id)arg2 startpoint:(struct CGPoint)arg3 endpoint:(struct CGPoint)arg4;

@@ -19,7 +19,7 @@
 - (void)correctInvalidGamma;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
 - (id)handlePasteIntoDocument:(id)arg1;
-- (void)updateToMatch:(struct MSModelObject *)arg1;
+- (void)updateToMatch:(id)arg1;
 - (void)resetReferencingInstances;
 - (id)allInstances;
 - (id)allLayersInstances;

@@ -6,11 +6,13 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class MSDocument, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
+@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
     NSString *_documentName;
+    SCKOrganization *_defaultOrganization;
+    SCKProject *_defaultProject;
     unsigned long long _operationType;
     CDUnknownBlockType _completionHandler;
     NSTextField *_headerTitleLabel;
@@ -25,7 +27,9 @@
     SCKUser *_userWithProjects;
 }
 
++ (id)keyPathsForValuesAffectingCanPerformCloudOperation;
 + (id)runForDocument:(id)arg1 performingOperation:(unsigned long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
 @property(retain, nonatomic) SCKAPIOperation *projectsRequest; // @synthesize projectsRequest=_projectsRequest;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
@@ -38,8 +42,10 @@
 @property(retain, nonatomic) NSTextField *headerTitleLabel; // @synthesize headerTitleLabel=_headerTitleLabel;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
+@property(retain, nonatomic) SCKProject *defaultProject; // @synthesize defaultProject=_defaultProject;
+@property(retain, nonatomic) SCKOrganization *defaultOrganization; // @synthesize defaultOrganization=_defaultOrganization;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
-- (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL canPerformCloudOperation;
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
@@ -53,7 +59,7 @@
 - (void)selectOrganization:(id)arg1;
 - (void)reloadOrganizations;
 - (void)updateView;
-@property(readonly, nonatomic) MSDocument *targetDocument;
+@property(readonly, nonatomic) NSArray *targetDocumentURLs;
 - (void)awakeFromNib;
 
 @end

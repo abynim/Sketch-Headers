@@ -26,6 +26,7 @@
     MSStylePartPreviewButton *_colorButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 @property(retain, nonatomic) MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
 @property(retain, nonatomic) NSButton *navigateToMasterButton; // @synthesize navigateToMasterButton=_navigateToMasterButton;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
-- (void).cxx_destruct;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;

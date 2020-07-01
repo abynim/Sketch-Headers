@@ -15,9 +15,9 @@
 }
 
 + (id)booleanOperationChainStepWithPath:(id)arg1 operation:(long long)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) long long operation; // @synthesize operation=_operation;
 @property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) long long effectiveOperation;
 
 @end

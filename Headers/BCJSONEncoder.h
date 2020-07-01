@@ -24,9 +24,9 @@
 + (id)encoderForWritingToURL:(id)arg1;
 + (BOOL)encodeObject:(id)arg1 toFile:(id)arg2 error:(id *)arg3;
 + (id)encoderForWritingToFile:(id)arg1;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) __weak id userInfo; // @synthesize userInfo=_userInfo;
-- (void).cxx_destruct;
 - (void)encodeSize:(struct CGSize)arg1 forKey:(id)arg2;
 - (void)encodeInteger:(long long)arg1 forKey:(id)arg2;
 - (void)encodePoint:(struct CGPoint)arg1 forKey:(id)arg2;

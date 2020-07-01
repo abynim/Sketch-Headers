@@ -8,7 +8,7 @@
 
 #import <SketchControllers/NSCollectionViewDataSource-Protocol.h>
 
-@class MSAssetCollection, NSIndexSet, NSString;
+@class MSAssetCollection, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
 @protocol MSAsset, MSAssetCollectionViewSourceDelegate, MSAssetCollectionViewSourceItemProvider;
 
 @interface MSAssetCollectionViewDataSource : NSObject <NSCollectionViewDataSource>
@@ -20,16 +20,17 @@
     NSString *_title;
     id <MSAssetCollectionViewSourceDelegate> _delegate;
     id <MSAssetCollectionViewSourceItemProvider> _itemProvider;
-    MSAssetCollection *_assetCollection;
+    _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
     id <MSAsset> _highlightedAsset;
-    NSIndexSet *_cachedHighlightedIndexes;
+    MSAssetCollection *_assetCollection;
 }
 
 + (id)pasteboardTypeForAssetType:(unsigned long long)arg1;
 + (id)pasteboardRepresentationForAsset:(id)arg1 ofType:(unsigned long long)arg2;
-@property(retain, nonatomic) NSIndexSet *cachedHighlightedIndexes; // @synthesize cachedHighlightedIndexes=_cachedHighlightedIndexes;
-@property(retain, nonatomic) id <MSAsset> highlightedAsset; // @synthesize highlightedAsset=_highlightedAsset;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
+@property(retain, nonatomic) id <MSAsset> highlightedAsset; // @synthesize highlightedAsset=_highlightedAsset;
+@property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) __weak id <MSAssetCollectionViewSourceItemProvider> itemProvider; // @synthesize itemProvider=_itemProvider;
 @property(nonatomic) __weak id <MSAssetCollectionViewSourceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) BOOL isLibrary; // @synthesize isLibrary=_isLibrary;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 @property(nonatomic) unsigned long long assetType; // @synthesize assetType=_assetType;
-- (void).cxx_destruct;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
 - (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
@@ -45,7 +45,6 @@
 - (void)markUpdatedIndexesAsRead;
 - (void)getUpdatedIndexes:(CDUnknownBlockType)arg1;
 - (void)moveAssetAtIndexPath:(id)arg1 toIndexPath:(id)arg2;
-- (void)highlightAsset:(id)arg1 inCollectionView:(id)arg2;
 - (void)deleteAssetAtIndexPath:(id)arg1;
 - (id)nameOfAssetAtIndexPath:(id)arg1;
 - (void)setName:(id)arg1 ofAssetAtIndexPath:(id)arg2;
@@ -53,7 +52,8 @@
 - (id)assetAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfAssets;
 - (void)prepareCollectionView:(id)arg1;
-- (void)collectionDidMutate;
+- (id)indicesForAsset:(id)arg1;
+- (void)markAssetToHighlight:(id)arg1;
 - (id)pasteboardRepresentationForIndexPath:(id)arg1;
 - (void)registerDraggedTypesForCollectionView:(id)arg1;
 - (id)initWithAssetCollection:(id)arg1 assetType:(unsigned long long)arg2 identifier:(id)arg3 name:(id)arg4 title:(id)arg5 isLibrary:(BOOL)arg6 delegate:(id)arg7;

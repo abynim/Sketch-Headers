@@ -20,9 +20,9 @@
 + (void)defineReplacementClasses;
 + (void)registerGenericClass:(Class)arg1;
 + (void)load;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *allowedClasses; // @synthesize allowedClasses=_allowedClasses;
 @property(retain, nonatomic) NSMutableDictionary *references; // @synthesize references=_references;
-- (void).cxx_destruct;
 - (void)setArchiveVersion:(long long)arg1;
 - (id)referenceObjectWithIdentifier:(id)arg1;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;

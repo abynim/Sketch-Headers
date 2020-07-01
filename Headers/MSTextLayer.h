@@ -24,10 +24,10 @@
 + (void)maintainTextLayerBaselinesForLayers:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)keyPathsForValuesAffectingHasFixedHeight;
 + (id)keyPathsForValuesAffectingCanFixHeight;
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
-- (void).cxx_destruct;
 - (void)convertColorsUsing:(id)arg1;
 - (BOOL)canLockProportions;
 - (BOOL)canScale;
@@ -49,7 +49,7 @@
 - (void)ignoreDelegateNotificationsInBlock:(CDUnknownBlockType)arg1;
 @property(copy, nonatomic) NSString *stringValue;
 - (void)updateAttributedStringInBlock:(CDUnknownBlockType)arg1;
-- (void)setAttributedString:(id)arg1 unavilableFontsRectCalculationBlock:(CDUnknownBlockType)arg2;
+- (void)setAttributedString:(id)arg1 unavailableFontsRectCalculationBlock:(CDUnknownBlockType)arg2;
 - (void)setAttributedString:(id)arg1;
 @property(copy, nonatomic) NSAttributedString *attributedStringValue;
 - (void)layerStyleDidChange;

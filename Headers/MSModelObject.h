@@ -6,12 +6,13 @@
 
 #import <SketchModel/MSModelObjectCommon.h>
 
+#import <SketchModel/MSMetadataCoding-Protocol.h>
 #import <SketchModel/MSModelObject-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class MSDocumentData, MSForeignObject, MSImmutableModelObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 
-@interface MSModelObject : MSModelObjectCommon <NSCopying, MSModelObject>
+@interface MSModelObject : MSModelObjectCommon <NSCopying, MSMetadataCoding, MSModelObject>
 {
     id _cachedImmutableModelObject;
     BOOL _isFault;
@@ -22,18 +23,20 @@
 + (Class)immutableClass;
 + (BOOL)allowsFaulting;
 + (BOOL)persistsObjectID;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
-- (void).cxx_destruct;
 - (BOOL)isDescendantOfObject:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (void)breakConnectionWith:(id)arg1;
+- (void)refaultingDidRemove;
 - (id)parentGroupRecursive;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
 - (BOOL)matchesImmutable:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
 - (void)invalidateImmutableObjectAndAncestors;
+- (void)invalidateImmutableObject;
 - (void)invalidateModelCacheGeneration;
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
@@ -44,13 +47,27 @@
 @property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
 - (id)generateObjectID;
 - (id)initWithImmutableModelObject:(id)arg1;
-- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
 - (void)clearCachedValueForKey:(id)arg1;
 - (void)clearCache;
 - (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
 - (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
 - (id)cachedValueForKey:(id)arg1;
+- (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)insertObjects:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)insertObject:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)insertObjects:(id)arg1 beforeObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)insertObject:(id)arg1 beforeObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)removeAllObjectsFromStorage:(id)arg1 forRelationship:(id)arg2;
+- (void)removeObjectsInArray:(id)arg1 fromStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)removeObjectsAtIndexes:(id)arg1 fromStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)removeObjectAtIndex:(unsigned long long)arg1 fromStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)removeObject:(id)arg1 fromStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)insertObject:(id)arg1 atIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
+- (void)replaceContentsWithArray:(id)arg1 inStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)addObjectsFromArray:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
 - (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
@@ -62,9 +79,11 @@
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
+- (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;
+@property(readonly, nonatomic) NSString *UIMetadataKey;
 - (id)metadataForKey:(id)arg1;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2;
-@property(readonly, nonatomic) NSString *UIMetadataKey;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

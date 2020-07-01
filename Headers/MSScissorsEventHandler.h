@@ -16,11 +16,11 @@
     MSOverlayItemContainer *_overlayItemContainer;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayItemContainer *overlayItemContainer; // @synthesize overlayItemContainer=_overlayItemContainer;
 @property(nonatomic) double containerZoomLevel; // @synthesize containerZoomLevel=_containerZoomLevel;
 @property(nonatomic) BOOL didCutOnMouseDown; // @synthesize didCutOnMouseDown=_didCutOnMouseDown;
 @property(retain, nonatomic) NSIndexPath *hoveringSegmentIndexPath; // @synthesize hoveringSegmentIndexPath=_hoveringSegmentIndexPath;
-- (void).cxx_destruct;
 - (id)toolbarIdentifier;
 - (id)imageName;
 - (id)thinStrokePathItems:(id)arg1 hoverIndex:(id)arg2 parameters:(struct MSRenderingParameters)arg3;

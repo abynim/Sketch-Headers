@@ -27,11 +27,11 @@
 + (id)urlWithPath:(id)arg1 withEnvironment:(id)arg2;
 + (id)baseURLForEnvironment:(id)arg1;
 + (id)baseURLOverrideForKey:(id)arg1 environment:(id)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) Class resultType; // @synthesize resultType=_resultType;
 @property(retain, nonatomic) id <SCKAPISignable> body; // @synthesize body=_body;
 @property(retain, nonatomic) SCKAPISession *authentication; // @synthesize authentication=_authentication;
 @property(copy, nonatomic) SCKAPIEnvironment *environment; // @synthesize environment=_environment;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSURLRequest *urlRequest;
 - (void)updateSignature;
 @property(nonatomic) unsigned long long type;

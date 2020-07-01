@@ -49,8 +49,9 @@
 - (id)extractProcessInfo:(struct _Plcrash__CrashReport__ProcessInfo *)arg1 error:(id *)arg2;
 - (id)extractApplicationInfo:(struct _Plcrash__CrashReport__ApplicationInfo *)arg1 error:(id *)arg2;
 - (id)extractMachineInfo:(struct _Plcrash__CrashReport__MachineInfo *)arg1 error:(id *)arg2;
+- (id)synthesizeProcessorInfoFromArchitecture:(int)arg1 error:(id *)arg2;
 - (id)extractProcessorInfo:(struct _Plcrash__CrashReport__Processor *)arg1 error:(id *)arg2;
-- (id)extractSystemInfo:(struct _Plcrash__CrashReport__SystemInfo *)arg1 error:(id *)arg2;
+- (id)extractSystemInfo:(struct _Plcrash__CrashReport__SystemInfo *)arg1 processorInfo:(id)arg2 error:(id *)arg3;
 - (struct _Plcrash__CrashReport *)decodeCrashData:(id)arg1 error:(id *)arg2;
 
 @end

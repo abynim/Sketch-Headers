@@ -29,6 +29,7 @@
 + (id)URLForTemplateLibraryNamed:(id)arg1;
 + (id)keyPathsForValuesAffectingValid;
 + (unsigned long long)assetLibraryStatusForDocumentErrorCode:(unsigned long long)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *propertyListDictionaryRepresentation; // @synthesize propertyListDictionaryRepresentation=_propertyListDictionaryRepresentation;
 @property(readonly, nonatomic) unsigned long long libraryType; // @synthesize libraryType=_libraryType;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) MSDocumentData *document; // @synthesize document=_document;
 @property(nonatomic) unsigned long long status; // @synthesize status=_status;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *previewURL;
 - (void)resolveLocationOnDisk;
 @property(readonly, nonatomic) NSDate *dateLastModified;

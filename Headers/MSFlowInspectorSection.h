@@ -19,12 +19,12 @@
     _TtC6Sketch33MSFlowScrollPositionInspectorItem *_scrollPositionItem;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) _TtC6Sketch33MSFlowScrollPositionInspectorItem *scrollPositionItem; // @synthesize scrollPositionItem=_scrollPositionItem;
 @property(retain, nonatomic) MSFlowFixLayerInspectorItem *fixedLayerItem; // @synthesize fixedLayerItem=_fixedLayerItem;
 @property(retain, nonatomic) MSFlowInspectorItem *flowItem; // @synthesize flowItem=_flowItem;
 @property(retain, nonatomic) MSFlowHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(retain, nonatomic) MSHeaderInspectorItem *initialHeaderItem; // @synthesize initialHeaderItem=_initialHeaderItem;
-- (void).cxx_destruct;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (BOOL)hasLayerWithParentArtboard;
 - (BOOL)isInFlowEventHandler;

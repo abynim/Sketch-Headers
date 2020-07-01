@@ -19,9 +19,9 @@
 + (struct CGSize)previewViewSizeForNumColumns:(unsigned long long)arg1;
 + (void)reloadPreviewsForLayers:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) long long throttleCount; // @synthesize throttleCount=_throttleCount;
 @property(retain, nonatomic) NSArray *previewViews; // @synthesize previewViews=_previewViews;
-- (void).cxx_destruct;
 - (void)setPreviewsWithViewModels:(id)arg1;
 - (void)reloadPreviewViews;
 - (void)removeAllPreviewViews;

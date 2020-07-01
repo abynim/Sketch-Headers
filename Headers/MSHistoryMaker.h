@@ -13,43 +13,37 @@
 
 @interface MSHistoryMaker : NSObject <MSHistoryDelegate>
 {
-    BOOL _isMovingThroughHistory;
     BOOL _historyIsCoalescing;
     BOOL _fontsDidChange;
+    BOOL _isMovingThroughHistory;
     BOOL _isMakingHistory;
-    id <MSHistoryMakerDelegate> _delegate;
     MSHistory *_history;
+    id <MSHistoryMakerDelegate> _delegate;
     NSString *_historyMomentTitle;
-    long long _deferMakingHistoryCounter;
     NSTimer *_commitTimer;
 }
 
-@property(retain, nonatomic) NSTimer *commitTimer; // @synthesize commitTimer=_commitTimer;
-@property long long deferMakingHistoryCounter; // @synthesize deferMakingHistoryCounter=_deferMakingHistoryCounter;
-@property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
-@property(nonatomic) BOOL fontsDidChange; // @synthesize fontsDidChange=_fontsDidChange;
-@property(nonatomic) BOOL historyIsCoalescing; // @synthesize historyIsCoalescing=_historyIsCoalescing;
-@property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
-@property(retain, nonatomic) NSString *historyMomentTitle; // @synthesize historyMomentTitle=_historyMomentTitle;
-@property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
-@property(readonly, nonatomic) __weak id <MSHistoryMakerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTimer *commitTimer; // @synthesize commitTimer=_commitTimer;
+@property(retain, nonatomic) NSString *historyMomentTitle; // @synthesize historyMomentTitle=_historyMomentTitle;
+@property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
+@property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
+@property(nonatomic) BOOL fontsDidChange; // @synthesize fontsDidChange=_fontsDidChange;
+@property(readonly, nonatomic) __weak id <MSHistoryMakerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
+@property(nonatomic) BOOL historyIsCoalescing; // @synthesize historyIsCoalescing=_historyIsCoalescing;
 - (void)history:(id)arg1 didCommitMoment:(id)arg2;
 - (void)commitTimerFired:(id)arg1;
 - (void)startCommitTimer;
 - (void)installedFontsChanged;
 - (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
-- (void)moveThroughHistoryBackInTime:(BOOL)arg1;
+- (void)moveDocument:(id)arg1 throughHistoryBackInTime:(BOOL)arg2;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
-- (void)updateCurrentMomentWithSelection:(id)arg1;
-- (void)makeHistoryIfNecessaryUsingTransientMoment:(BOOL)arg1;
-- (void)deferMakingHistoryInBlock:(CDUnknownBlockType)arg1;
-- (void)makeTransientMomentInHistoryIfNecessary;
 - (void)makeHistoryIfNecessary;
-- (void)commitTransientMomentIfNecessary;
-- (void)coalesceHistoryInBlock:(CDUnknownBlockType)arg1;
 - (void)finishCoalescingHistory;
 - (void)startCoalescingHistory;
+@property(readonly, nonatomic) NSString *redoTitle;
+@property(readonly, nonatomic) NSString *undoTitle;
 - (void)registerHistoryMomentTitle:(id)arg1;
 - (void)dealloc;
 - (id)init;

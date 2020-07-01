@@ -14,9 +14,9 @@
     MSResizeInspectorItem *_resizeItem;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSResizeInspectorItem *resizeItem; // @synthesize resizeItem=_resizeItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *resizeHeader; // @synthesize resizeHeader=_resizeHeader;
-- (void).cxx_destruct;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

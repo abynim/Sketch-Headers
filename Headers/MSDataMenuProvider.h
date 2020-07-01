@@ -18,10 +18,10 @@
     long long _presentationContext;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) long long presentationContext; // @synthesize presentationContext=_presentationContext;
 @property(nonatomic) __weak id <MSDataMenuProviderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
-- (void).cxx_destruct;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)pluginKeysDictionaryFromDataSuppliers:(id)arg1;
 - (id)pluginNameForIdentifier:(id)arg1;

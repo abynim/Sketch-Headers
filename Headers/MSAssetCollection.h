@@ -12,7 +12,7 @@
 
 - (BOOL)moveAssetAtIndex:(unsigned long long)arg1 beforeObjectAtIndex:(unsigned long long)arg2 ofType:(unsigned long long)arg3;
 - (id)moveAssetInArray:(id)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;
-- (id)indexesOfAsset:(id)arg1;
+- (id)indicesForAsset:(id)arg1;
 - (id)arrayForType:(unsigned long long)arg1;
 - (void)removeAssetAtIndex:(unsigned long long)arg1 ofType:(unsigned long long)arg2;
 - (id)assetAtIndex:(unsigned long long)arg1 ofType:(unsigned long long)arg2;

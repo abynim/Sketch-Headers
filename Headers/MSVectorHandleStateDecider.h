@@ -16,11 +16,11 @@
     _TtC17SketchControllers26MSVectorComponentSpecifier *_highlightedComponent;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) _TtC17SketchControllers26MSVectorComponentSpecifier *highlightedComponent; // @synthesize highlightedComponent=_highlightedComponent;
 @property(copy, nonatomic) MSShapeChangeContext *selectionContext; // @synthesize selectionContext=_selectionContext;
 @property(nonatomic) long long visibilityAroundHighlight; // @synthesize visibilityAroundHighlight=_visibilityAroundHighlight;
 @property(nonatomic) long long visibilityAroundSelectedHandles; // @synthesize visibilityAroundSelectedHandles=_visibilityAroundSelectedHandles;
-- (void).cxx_destruct;
 - (id)debugDescription;
 - (unsigned long long)stateOfCurvePointAtIndexPath:(id)arg1 curveToState:(unsigned long long *)arg2 curveFromState:(unsigned long long *)arg3;
 - (BOOL)isCurveAdjustmentHandleVisibleDueToHighlightedHandle:(id)arg1;

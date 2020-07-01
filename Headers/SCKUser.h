@@ -21,6 +21,7 @@
     NSArray *_organizations;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, nonatomic) NSString *changedEmail; // @synthesize changedEmail=_changedEmail;
@@ -28,7 +29,6 @@
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

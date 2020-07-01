@@ -22,12 +22,12 @@
 
 + (void)hideWindowIfNeeded;
 + (id)sharedController;
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
 @property(retain, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
 @property(copy, nonatomic) NSDictionary *preferencePaneClasses; // @synthesize preferencePaneClasses=_preferencePaneClasses;
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;
-- (void).cxx_destruct;
 - (void)windowWillClose:(id)arg1;
 - (void)dismissAnyAlertSheet;
 - (BOOL)validateToolbarItem:(id)arg1;

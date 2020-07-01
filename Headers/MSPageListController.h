@@ -16,8 +16,8 @@
     NSArray *_selectedPages;
 }
 
-@property(retain, nonatomic) NSArray *selectedPages; // @synthesize selectedPages=_selectedPages;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *selectedPages; // @synthesize selectedPages=_selectedPages;
 - (Class)pasteboardWriterClass;
 - (id)dataController:(id)arg1 menuItemsForSelectedObjects:(id)arg2;
 - (void)duplicatePages:(id)arg1;

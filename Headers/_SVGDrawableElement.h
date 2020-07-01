@@ -26,6 +26,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSAffineTransform *transform; // @synthesize transform=_transform;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) SVGFont *font; // @synthesize font=_font;
 @property(retain, nonatomic) SVGFill *fill; // @synthesize fill=_fill;
 @property(retain, nonatomic) SVGClipPath *clip; // @synthesize clip=_clip;
-- (void).cxx_destruct;
 - (void)primitiveSetStroke:(id)arg1;
 - (void)primitiveSetMask:(id)arg1;
 - (void)primitiveSetFont:(id)arg1;

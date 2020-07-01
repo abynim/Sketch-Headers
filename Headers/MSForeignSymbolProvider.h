@@ -10,7 +10,7 @@
 {
 }
 
-- (struct MSModelObject *)masterObjectForInstance:(id)arg1;
+- (id)masterObjectForInstance:(id)arg1;
 - (unsigned long long)objectType;
 - (id)localObjectsForDocument:(id)arg1;
 - (id)foreignObjects;

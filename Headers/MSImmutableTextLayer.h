@@ -7,11 +7,10 @@
 #import <SketchModel/_MSImmutableTextLayer.h>
 
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
-#import <SketchModel/NSLayoutManagerDelegate-Protocol.h>
 
 @class MSTextLayout, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSFirstLineTypesetterDelegate>
 {
     MSTextLayout *_textLayout;
     // Error parsing type: A^v, name: _textLayoutAtomicPointer
@@ -22,8 +21,8 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;
@@ -62,7 +61,6 @@
 - (void)migratePropertiesFromV77OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV76OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV44OrEarlierWithUnarchiver:(id)arg1;
-- (id)directlyApplyOverrides:(id)arg1 inDocument:(id)arg2 withCache_Detach:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;

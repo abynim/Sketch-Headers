@@ -15,10 +15,10 @@
     NSURL *_imageURL;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSURL *imageURL; // @synthesize imageURL=_imageURL;
 @property(retain, nonatomic) MSVersionedArchive *gradientArchive; // @synthesize gradientArchive=_gradientArchive;
 @property(retain, nonatomic) MSVersionedArchive *colorArchive; // @synthesize colorArchive=_colorArchive;
-- (void).cxx_destruct;
 
 @end
 

@@ -18,13 +18,13 @@
     NSNumber *_strikethroughValue;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumber *strikethroughValue; // @synthesize strikethroughValue=_strikethroughValue;
 @property(retain, nonatomic) NSNumber *underlineValue; // @synthesize underlineValue=_underlineValue;
 @property(retain, nonatomic) NSMenuItem *titleItem; // @synthesize titleItem=_titleItem;
 @property(retain, nonatomic) NSSegmentedControl *transformControl; // @synthesize transformControl=_transformControl;
 @property(retain, nonatomic) NSPopUpButton *decorationButton; // @synthesize decorationButton=_decorationButton;
 @property(nonatomic) __weak MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
-- (void).cxx_destruct;
 - (void)transformPopUpAction:(id)arg1;
 - (void)prepareTransformPopUpButton;
 - (void)decorationButtonAction:(id)arg1;

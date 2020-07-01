@@ -7,11 +7,11 @@
 #import "MSColorStylePartInspectorViewController.h"
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
-#import "MSDropableViewDelegate-Protocol.h"
+#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
-@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSInspectorPopoverButton, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
-@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, MSDropableViewDelegate>
+@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, _TtP6Sketch24MSComponentsPopoverOwner_>
 {
     MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
@@ -21,8 +21,11 @@
     NSTextField *_contextPopUpLabel;
     NSTextField *_hexField;
     MSColorHexStringTransformer *_hexTransformer;
+    MSInspectorPopoverButton *_colorPopoverButton;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) MSInspectorPopoverButton *colorPopoverButton; // @synthesize colorPopoverButton=_colorPopoverButton;
 @property(retain, nonatomic) MSColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
 @property(retain, nonatomic) NSTextField *hexField; // @synthesize hexField=_hexField;
 @property(retain, nonatomic) NSTextField *contextPopUpLabel; // @synthesize contextPopUpLabel=_contextPopUpLabel;
@@ -31,14 +34,16 @@
 @property(retain, nonatomic) NSArrayController *fills; // @synthesize fills=_fills;
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
-- (void).cxx_destruct;
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)fillPropertiesAction:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)bumpKVOValue:(id)arg1;
 - (void)hexFieldAction:(id)arg1;
 - (void)updateFillPropertyPopUp;
+- (void)applyUserSelectedColors:(id)arg1;
+- (id)readImagesFromPasteboard:(id)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
 - (BOOL)isDisplayingTint;
 - (void)viewDidLoad;

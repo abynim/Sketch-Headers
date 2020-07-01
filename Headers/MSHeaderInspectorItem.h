@@ -30,6 +30,7 @@
     NSStackView *_accessoryStackView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSStackView *accessoryStackView; // @synthesize accessoryStackView=_accessoryStackView;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
@@ -48,7 +49,6 @@
 @property(nonatomic) long long buttonState; // @synthesize buttonState=_buttonState;
 @property(retain, nonatomic) NSString *buttonToolTip; // @synthesize buttonToolTip=_buttonToolTip;
 @property(retain, nonatomic) NSString *labelText; // @synthesize labelText=_labelText;
-- (void).cxx_destruct;
 - (void)setLabelLeadingMargin:(unsigned long long)arg1;
 - (void)updateStackView;
 - (void)updateDisplayedValues;

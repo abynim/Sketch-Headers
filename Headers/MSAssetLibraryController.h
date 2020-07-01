@@ -23,6 +23,7 @@
     NSMutableSet *_validatedCloudLibraries;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableSet *validatedCloudLibraries; // @synthesize validatedCloudLibraries=_validatedCloudLibraries;
 @property(copy) NSString *cloudUserID; // @synthesize cloudUserID=_cloudUserID;
 @property(readonly, nonatomic) MSCloudAssetLibraryController *cloudAssetLibraryController; // @synthesize cloudAssetLibraryController=_cloudAssetLibraryController;
@@ -31,7 +32,6 @@
 @property(retain, nonatomic) NSArray *remoteLibraries; // @synthesize remoteLibraries=_remoteLibraries;
 @property(readonly, nonatomic) NSMutableArray *userLibraries; // @synthesize userLibraries=_userLibraries;
 @property(nonatomic) BOOL includeCloudLibraries; // @synthesize includeCloudLibraries=_includeCloudLibraries;
-- (void).cxx_destruct;
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
 - (BOOL)shouldAttemptToLoadVersionZeroLibraries;

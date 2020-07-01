@@ -14,9 +14,9 @@
     NSMutableDictionary *_locationsToEntries;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *locationsToEntries; // @synthesize locationsToEntries=_locationsToEntries;
 @property(retain, nonatomic) NSMutableIndexSet *locations; // @synthesize locations=_locations;
-- (void).cxx_destruct;
 - (void)removeObjectsAtOrBeyondLocation:(unsigned long long)arg1;
 - (struct _NSRange)rangeForLocation:(unsigned long long)arg1;
 - (id)objectForLocation:(unsigned long long)arg1;

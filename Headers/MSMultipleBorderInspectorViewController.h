@@ -15,8 +15,8 @@
     MSBorderOptionsInspectorViewController *_borderOptionsController;
 }
 
-@property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
 - (id)disabledStylePartsButtonTooltip;
 - (id)advancedOptionsButtonTooltip;
 - (id)addStylePartButonTooltip;

@@ -25,7 +25,8 @@
 + (id)hashableRepresentationForAsset:(id)arg1 withName:(id)arg2;
 + (void)gatherSetForType:(unsigned long long)arg1 fromCollection:(id)arg2 andWriteToURL:(id)arg3;
 + (id)readSetFromURL:(id)arg1;
-+ (id)indexesOfAssetsInCollection:(id)arg1 ofType:(unsigned long long)arg2 notContainedIn:(id)arg3;
++ (id)indicesForAssetsInCollection:(id)arg1 ofType:(unsigned long long)arg2 notContainedIn:(id)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL markedAsRead; // @synthesize markedAsRead=_markedAsRead;
 @property(retain, nonatomic) NSIndexSet *updatedIndexes; // @synthesize updatedIndexes=_updatedIndexes;
 @property(retain, nonatomic) id lastReadData; // @synthesize lastReadData=_lastReadData;
@@ -35,14 +36,12 @@
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) MSImmutableAssetCollection *assetCollection; // @synthesize assetCollection=_assetCollection;
 @property(retain, nonatomic) NSString *libraryIdentifier; // @synthesize libraryIdentifier=_libraryIdentifier;
-- (void).cxx_destruct;
 - (void)readLastReadAssetsIfNecessary:(CDUnknownBlockType)arg1;
 - (void)updateNewIndexesIfNecessary:(CDUnknownBlockType)arg1;
 - (void)markCollectionAsRead:(CDUnknownBlockType)arg1;
 - (void)getIndexesOfNewAssets:(CDUnknownBlockType)arg1;
 - (id)initWithCollection:(id)arg1 libraryIdentifier:(id)arg2 name:(id)arg3 assetType:(unsigned long long)arg4 dataURL:(id)arg5 ioQueue:(id)arg6;
 - (void)collectionViewSourceMarkUpdatedIndexesAsRead:(id)arg1;
-- (void)collectionViewSourceDidMutate:(id)arg1;
 - (void)collectionViewSource:(id)arg1 getUpdatedIndexes:(CDUnknownBlockType)arg2;
 - (id)dataSource;
 

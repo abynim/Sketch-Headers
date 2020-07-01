@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSSet, NSString;
+@class MSImmutableDocumentData, NSString;
 
 @interface MSMoment : NSObject
 {
@@ -14,20 +14,20 @@
     NSString *_title;
     MSImmutableDocumentData *_document;
     unsigned long long _adaptability;
-    NSSet *_selectedLayerIDs;
     NSString *_pageID;
 }
 
++ (void)setTimestampCoalesingThreshold:(double)arg1;
++ (double)timestampCoalesingThreshold;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
-@property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(nonatomic) unsigned long long adaptability; // @synthesize adaptability=_adaptability;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
-- (void).cxx_destruct;
 - (BOOL)commit;
+@property(readonly, nonatomic) BOOL canCoalesce;
 - (id)init;
-- (id)initWithTitle:(id)arg1 documentData:(id)arg2 adaptability:(unsigned long long)arg3;
 - (id)initWithTitle:(id)arg1 documentData:(id)arg2;
 
 @end

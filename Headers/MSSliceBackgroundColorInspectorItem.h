@@ -22,10 +22,10 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *backgroundColorButton; // @synthesize backgroundColorButton=_backgroundColorButton;
-- (void).cxx_destruct;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
@@ -40,6 +40,7 @@
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
+- (BOOL)selectionHasEnabledBackgroundColor;
 - (void)updateDisplayedValues;
 - (void)dealloc;
 

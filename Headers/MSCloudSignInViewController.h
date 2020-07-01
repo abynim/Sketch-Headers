@@ -33,6 +33,7 @@
 
 + (id)makeSuccesViewForTextField:(id)arg1;
 + (id)storyboardIdentifier;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
@@ -51,7 +52,6 @@
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation=_allowCancellation;
 @property(nonatomic) BOOL wantsLicense; // @synthesize wantsLicense=_wantsLicense;
 @property(nonatomic) __weak id <MSRegistrationWindowContentDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)willPresentLicensingError:(id)arg1;
 - (id)willPresentError:(id)arg1;
 - (void)changeEnvironment:(id)arg1;

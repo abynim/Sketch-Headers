@@ -27,6 +27,7 @@
     NSButton *_learnMoreButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
 @property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
@@ -39,7 +40,6 @@
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 @property(readonly, nonatomic) NSString *menuTitleRemove;

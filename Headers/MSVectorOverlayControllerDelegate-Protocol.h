@@ -9,7 +9,6 @@
 @class MSVectorOverlayController, NSArray, _TtC17SketchControllers26MSVectorComponentSpecifier;
 
 @protocol MSVectorOverlayControllerDelegate <NSObject>
-- (void)vectorOverlayControllerDidEditPoints:(MSVectorOverlayController *)arg1;
 - (void)vectorOverlayController:(MSVectorOverlayController *)arg1 didSelectLayers:(NSArray *)arg2;
 - (void)vectorOverlayControllerDidFinishInteractiveSelection:(MSVectorOverlayController *)arg1;
 - (void)vectorOverlayController:(MSVectorOverlayController *)arg1 didDeselectHandles:(NSArray *)arg2;

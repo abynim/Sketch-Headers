@@ -11,7 +11,7 @@
 + (id)layerWithImageFromFileURL:(id)arg1;
 + (id)layerWithImageFromPasteboard:(id)arg1;
 - (void)changeColor:(id)arg1;
-- (struct MSModelObject *)sharedMaster;
+- (id)sharedMaster;
 - (unsigned long long)shareableObjectType;
 - (id)imageReplaceableStyleFill;
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;

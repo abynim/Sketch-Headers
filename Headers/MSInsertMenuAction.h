@@ -16,10 +16,10 @@
     MSForeignObjectMenuBuilder *_textStyleMenuBuilder;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *textStyleMenuBuilder; // @synthesize textStyleMenuBuilder=_textStyleMenuBuilder;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *symbolMenuBuilder; // @synthesize symbolMenuBuilder=_symbolMenuBuilder;
 @property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
-- (void).cxx_destruct;
 - (void)doPerformAction:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)addInsertMenuItemsFor:(id)arg1 usingMenuBuilder:(id)arg2 forMenu:(id)arg3;

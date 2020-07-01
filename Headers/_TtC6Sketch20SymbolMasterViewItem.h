@@ -8,8 +8,8 @@
 
 @interface _TtC6Sketch20SymbolMasterViewItem : _TtC6Sketch17ComponentViewItem
 {
-    // Error parsing type: , name: previewToken
-    // Error parsing type: , name: previewAncestry
+    // Error parsing type: , name: _previewToken
+    // Error parsing type: , name: cachedPreviewAncestry
 }
 
 @end

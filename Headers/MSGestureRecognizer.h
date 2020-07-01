@@ -16,11 +16,11 @@
     id <MSGestureRecognizerDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSGestureRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property SEL action; // @synthesize action=_action;
 @property __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (struct CGPoint)locationInLayer:(id)arg1;
 - (id)init;
 - (id)initWithTarget:(id)arg1 action:(SEL)arg2;

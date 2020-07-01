@@ -14,8 +14,8 @@
 }
 
 + (Class)cellClass;
-@property(retain, nonatomic) NSImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *placeholderImage; // @synthesize placeholderImage=_placeholderImage;
 - (struct CGSize)intrinsicContentSize;
 @property(readonly, nonatomic) BOOL displaysPlaceholder;
 - (void)removeOverrideImage:(id)arg1;

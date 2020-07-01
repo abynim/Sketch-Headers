@@ -34,10 +34,10 @@
 + (id)serverDriverWithRequest:(id)arg1;
 + (id)clientDriverWithRequest:(id)arg1;
 + (BOOL)isWebSocketRequest:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *protocol; // @synthesize protocol=_protocol;
 @property(nonatomic) __weak id <PSWebSocketDriverDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long mode; // @synthesize mode=_mode;
-- (void).cxx_destruct;
 - (id)base64EncodedData:(id)arg1;
 - (id)acceptHeaderForKey:(id)arg1;
 - (BOOL)pmdConfigureWithExtensionsHeaderComponents:(id)arg1;

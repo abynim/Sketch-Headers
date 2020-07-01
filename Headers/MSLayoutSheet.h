@@ -15,8 +15,8 @@
 
 + (id)keyPathsForValuesAffectingColumnWidth;
 + (id)keyPathsForValuesAffectingGutterWidth;
-@property(retain, nonatomic) NSButton *centerGridButton; // @synthesize centerGridButton=_centerGridButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *centerGridButton; // @synthesize centerGridButton=_centerGridButton;
 @property(nonatomic) double columnWidth;
 @property(nonatomic) double gutterWidth;
 @property(readonly, nonatomic) MSLayoutGrid *layoutGrid;

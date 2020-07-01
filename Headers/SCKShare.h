@@ -25,6 +25,7 @@
     NSString *_selectedPageID;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL libraryEnabled; // @synthesize libraryEnabled=_libraryEnabled;
 @property(readonly, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;
 @property(readonly, nonatomic) NSString *selectedArtboardID; // @synthesize selectedArtboardID=_selectedArtboardID;
@@ -36,7 +37,6 @@
 @property(readonly, nonatomic) BOOL isPrivate; // @synthesize isPrivate=_isPrivate;
 @property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)debugDescription;
 - (id)description;
 - (id)shareBySettingCurrentVersion:(id)arg1;
@@ -44,6 +44,7 @@
 - (BOOL)isUpdatedByShare:(id)arg1;
 - (id)readOnlyCopy;
 - (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSURL *sketchComPublicURL;
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
 - (id)initWithDictionary:(id)arg1;
 

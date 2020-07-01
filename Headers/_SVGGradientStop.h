@@ -17,9 +17,9 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(nonatomic) double position; // @synthesize position=_position;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 
 @end
 

@@ -22,13 +22,14 @@
 + (id)nameFromHost:(id)arg1;
 + (BOOL)supportsSecureCoding;
 + (id)keychainErrorForStatus:(int)arg1;
-@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) long long definition;
 @property(readonly, nonatomic) NSString *displayName;
 - (BOOL)isValidEnvironmentForCloudShareURL:(id)arg1;
+@property(readonly, nonatomic) NSString *sketchComHost;
 @property(readonly, nonatomic) NSString *host;
 - (id)hostWithSubdomain:(id)arg1;
 - (void)setCurrent;
@@ -57,9 +58,9 @@
 @property(readonly, nonatomic) NSString *requestSignatureSecret;
 @property(readonly, nonatomic) NSURL *resetPasswordURL;
 @property(readonly, nonatomic) NSURL *signUpURL;
-- (id)sharesOverviewURLForUserID:(struct NSString *)arg1;
+- (id)sharesOverviewURLForUserID:(id)arg1;
 - (id)settingsURLForShare:(id)arg1;
-- (id)accountSettingsURLForUserID:(struct NSString *)arg1;
+- (id)accountSettingsURLForUserID:(id)arg1;
 - (id)urlWithEndpoint:(id)arg1 queryItems:(id)arg2;
 
 @end

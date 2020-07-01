@@ -13,8 +13,8 @@
     NSArray *_allSlices;
 }
 
-@property(retain, nonatomic) NSArray *allSlices; // @synthesize allSlices=_allSlices;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *allSlices; // @synthesize allSlices=_allSlices;
 - (id)toolbarIdentifier;
 - (id)performActionWithRect:(struct CGRect)arg1 fromLayer:(id)arg2 constrainProportions:(BOOL)arg3;
 - (id)cursorForInsertingFromExisting;

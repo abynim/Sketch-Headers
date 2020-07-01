@@ -13,8 +13,8 @@
     NSString *_sizeString;
 }
 
-@property(retain, nonatomic) NSString *sizeString; // @synthesize sizeString=_sizeString;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *sizeString; // @synthesize sizeString=_sizeString;
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) MSImageData *imageData;
 

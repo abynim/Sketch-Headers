@@ -15,10 +15,10 @@
     NSButton *_shareButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *shareButton; // @synthesize shareButton=_shareButton;
 @property(retain, nonatomic) MSShareButtonHandler *shareButtonHandler; // @synthesize shareButtonHandler=_shareButtonHandler;
 @property(retain, nonatomic) NSButton *exportButton; // @synthesize exportButton=_exportButton;
-- (void).cxx_destruct;
 - (void)shareAction:(id)arg1;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;

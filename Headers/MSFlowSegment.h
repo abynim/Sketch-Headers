@@ -17,10 +17,10 @@
 
 + (id)segmentWithBezierSegment:(id)arg1 startType:(unsigned long long)arg2 endType:(unsigned long long)arg3;
 + (id)segmentWithBezierSegment:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) MSBezierSegment *bezierSegment; // @synthesize bezierSegment=_bezierSegment;
 @property(readonly, nonatomic) unsigned long long endType; // @synthesize endType=_endType;
 @property(readonly, nonatomic) unsigned long long startType; // @synthesize startType=_startType;
-- (void).cxx_destruct;
 - (id)segmentsByClippingToRect:(struct CGRect)arg1;
 - (id)initWithBezierSegment:(id)arg1 startType:(unsigned long long)arg2 endType:(unsigned long long)arg3;
 

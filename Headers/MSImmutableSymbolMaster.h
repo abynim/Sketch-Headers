@@ -16,23 +16,20 @@
     NSArray *_calculatedAvailableOverrides;
     long long _changeIdentifier;
     NSDictionary *_overrideProperties;
-    BCCache *_modifiedMasterCache;
     BCCache *_detachedGroupCache;
 }
 
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
-@property(readonly, nonatomic) BCCache *modifiedMasterCache; // @synthesize modifiedMasterCache=_modifiedMasterCache;
 @property(readonly, nonatomic) NSDictionary *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
 @property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
-- (void).cxx_destruct;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
-- (id)modifiedMasterWithOverrides:(id)arg1 scale:(double)arg2 size:(struct CGSize)arg3 inDocument:(id)arg4;
-- (id)modifiedMasterByApplyingInstance:(id)arg1 inDocument:(id)arg2;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
@@ -44,7 +41,6 @@
 - (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
-- (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;
 - (id)overridePropertiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;

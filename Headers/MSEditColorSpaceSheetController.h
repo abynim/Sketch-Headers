@@ -21,6 +21,7 @@
     double _optionsViewHeight;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) double optionsViewHeight; // @synthesize optionsViewHeight=_optionsViewHeight;
 @property(readonly, nonatomic) double optionsViewBottomMargin; // @synthesize optionsViewBottomMargin=_optionsViewBottomMargin;
 @property(nonatomic) __weak NSTextField *convertDescriptionTextField; // @synthesize convertDescriptionTextField=_convertDescriptionTextField;
@@ -30,7 +31,6 @@
 @property(nonatomic) __weak NSPopUpButton *colorSpacePopUpButton; // @synthesize colorSpacePopUpButton=_colorSpacePopUpButton;
 @property(nonatomic) __weak NSTextField *assignDescriptionTextField; // @synthesize assignDescriptionTextField=_assignDescriptionTextField;
 @property(nonatomic) __weak NSButton *assignButton; // @synthesize assignButton=_assignButton;
-- (void).cxx_destruct;
 - (void)confirm:(id)arg1;
 - (void)viewDocumentation:(id)arg1;
 - (void)disableUI;

@@ -16,8 +16,8 @@
 }
 
 + (id)sharedNetworkThread;
-@property(retain, nonatomic) NSRunLoop *runLoop; // @synthesize runLoop=_runLoop;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSRunLoop *runLoop; // @synthesize runLoop=_runLoop;
 - (void)timerFired:(id)arg1;
 - (void)main;
 - (id)init;

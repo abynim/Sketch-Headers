@@ -4,12 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSData, NSDictionary, NSString, NSURL;
+@class NSArray, NSData, NSDictionary, NSString, NSURL;
+@protocol MSHttpClientDelegate;
 
 @protocol MSHttpClientProtocol
+@property(nonatomic) __weak id <MSHttpClientDelegate> delegate;
 - (void)setEnabled:(BOOL)arg1;
 - (void)resume;
 - (void)pause;
+- (void)sendAsync:(NSURL *)arg1 method:(NSString *)arg2 headers:(NSDictionary *)arg3 data:(NSData *)arg4 retryIntervals:(NSArray *)arg5 compressionEnabled:(BOOL)arg6 completionHandler:(void (^)(NSData *, NSHTTPURLResponse *, NSError *))arg7;
 - (void)sendAsync:(NSURL *)arg1 method:(NSString *)arg2 headers:(NSDictionary *)arg3 data:(NSData *)arg4 completionHandler:(void (^)(NSData *, NSHTTPURLResponse *, NSError *))arg5;
 @end
 

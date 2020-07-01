@@ -17,12 +17,12 @@
     struct CGRect _deviceRect;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) BOOL shouldFlip; // @synthesize shouldFlip=_shouldFlip;
 @property(nonatomic) struct CGRect deviceRect; // @synthesize deviceRect=_deviceRect;
 @property(nonatomic) struct CGContext *contextRef; // @synthesize contextRef=_contextRef;
 @property(retain, nonatomic) NSGraphicsContext *graphicsContext; // @synthesize graphicsContext=_graphicsContext;
-- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

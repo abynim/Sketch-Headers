@@ -21,6 +21,7 @@
     NSArray *_groupLayouts;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *groupLayouts; // @synthesize groupLayouts=_groupLayouts;
 @property(copy, nonatomic) NSArray *keyPaths; // @synthesize keyPaths=_keyPaths;
 @property(copy, nonatomic) NSString *titleFieldTitle; // @synthesize titleFieldTitle=_titleFieldTitle;
@@ -30,7 +31,6 @@
 @property(nonatomic) __weak MSInlineUpDownTextField *minField; // @synthesize minField=_minField;
 @property(nonatomic) __weak NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
-- (void).cxx_destruct;
 - (void)refreshAction:(id)arg1;
 - (void)viewDidLoad;
 - (void)setLayers:(id)arg1;

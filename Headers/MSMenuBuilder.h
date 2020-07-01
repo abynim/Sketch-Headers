@@ -14,9 +14,9 @@
 
 + (id)menuBuilderWithTarget:(id)arg1 action:(SEL)arg2;
 + (id)menuBuilderWithTarget:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(retain, nonatomic) id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (void)dealloc;
 
 @end

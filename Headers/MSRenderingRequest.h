@@ -20,6 +20,7 @@
     unsigned long long _options;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(readonly, nonatomic) MSImmutableLayer *backgroundBlurLayer; // @synthesize backgroundBlurLayer=_backgroundBlurLayer;
 @property(readonly, nonatomic) double zoomLevel; // @synthesize zoomLevel=_zoomLevel;
@@ -27,7 +28,6 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL skipLayerInclusionTests;
 @property(readonly, nonatomic) BOOL shouldFlipShadows;
 @property(readonly, nonatomic, getter=isPrinting) BOOL printing;

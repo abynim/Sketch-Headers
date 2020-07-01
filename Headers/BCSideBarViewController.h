@@ -35,6 +35,7 @@
     BCLayerListFilterViewController *_filterViewController;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCLayerListFilterViewController *filterViewController; // @synthesize filterViewController=_filterViewController;
 @property(nonatomic) BOOL userUpdatedPageHeight; // @synthesize userUpdatedPageHeight=_userUpdatedPageHeight;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
@@ -55,7 +56,6 @@
 @property(nonatomic) __weak NSButton *toggleLibraryListButton; // @synthesize toggleLibraryListButton=_toggleLibraryListButton;
 @property(nonatomic) __weak NSButton *libraryPreferencesButton; // @synthesize libraryPreferencesButton=_libraryPreferencesButton;
 @property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (void)splitViewDidResizeSubviews:(id)arg1;
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;

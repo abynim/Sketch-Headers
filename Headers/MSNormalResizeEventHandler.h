@@ -16,11 +16,11 @@
     MSDragGestureRecognizer *_resizeGestureRecognizer;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSDragGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
 @property(readonly, nonatomic) _TtC17SketchControllers15MSResizeSession *resizeSession; // @synthesize resizeSession=_resizeSession;
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) long long handle; // @synthesize handle=_handle;
-- (void).cxx_destruct;
 - (BOOL)updateCursor;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (long long)oppositeCorner;

@@ -25,13 +25,13 @@
     NSTextField *_commentsField;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSTextField *commentsField; // @synthesize commentsField=_commentsField;
 @property(nonatomic) __weak NSTextField *emailField; // @synthesize emailField=_emailField;
 @property(nonatomic) __weak NSTextField *header; // @synthesize header=_header;
 @property(retain, nonatomic) NSDictionary *userProvidedInfo; // @synthesize userProvidedInfo=_userProvidedInfo;
 @property(retain, nonatomic) NSString *attachmentText; // @synthesize attachmentText=_attachmentText;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
-- (void).cxx_destruct;
 - (void)send:(id)arg1;
 - (void)cancel:(id)arg1;
 - (id)attachmentsWithCrashes:(id)arg1 forErrorReport:(id)arg2;

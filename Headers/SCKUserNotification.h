@@ -14,9 +14,9 @@
     SCKShare *_share;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) SCKShare *share; // @synthesize share=_share;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 

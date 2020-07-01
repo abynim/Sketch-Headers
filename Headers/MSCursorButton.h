@@ -13,8 +13,8 @@
     NSCursor *_cursor;
 }
 
-@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 - (void)resetCursorRects;
 
 @end

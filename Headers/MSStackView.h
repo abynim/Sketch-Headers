@@ -17,12 +17,12 @@
     id _keyResponder;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id keyResponder; // @synthesize keyResponder=_keyResponder;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) double minimumHeight; // @synthesize minimumHeight=_minimumHeight;
 @property(nonatomic) long long maximumHeight; // @synthesize maximumHeight=_maximumHeight;
 @property(nonatomic) BOOL autoupdatesMaximumHeight; // @synthesize autoupdatesMaximumHeight=_autoupdatesMaximumHeight;
-- (void).cxx_destruct;
 - (void)keyDown:(id)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 - (BOOL)isFlipped;

@@ -11,8 +11,8 @@
     MSColorComponentValueTextField *_counterpart;
 }
 
-@property(nonatomic) __weak MSColorComponentValueTextField *counterpart; // @synthesize counterpart=_counterpart;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSColorComponentValueTextField *counterpart; // @synthesize counterpart=_counterpart;
 
 @end
 

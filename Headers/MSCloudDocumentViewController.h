@@ -20,6 +20,7 @@
     NSTimer *_timeLabelUpdateTimer;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTimer *timeLabelUpdateTimer; // @synthesize timeLabelUpdateTimer=_timeLabelUpdateTimer;
 @property(retain, nonatomic) NSTextField *permissionLabel; // @synthesize permissionLabel=_permissionLabel;
 @property(retain, nonatomic) NSButton *settingsButton; // @synthesize settingsButton=_settingsButton;
@@ -28,7 +29,6 @@
 @property(retain, nonatomic) NSButton *updateButton; // @synthesize updateButton=_updateButton;
 @property(retain, nonatomic) NSButton *uploadButton; // @synthesize uploadButton=_uploadButton;
 @property(retain, nonatomic) NSStackView *buttonStackView; // @synthesize buttonStackView=_buttonStackView;
-- (void).cxx_destruct;
 - (void)openShareSettings:(id)arg1;
 - (void)openPublicURL:(id)arg1;
 - (void)update:(id)arg1;

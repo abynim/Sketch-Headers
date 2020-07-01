@@ -10,7 +10,6 @@
 {
 }
 
-+ (id)hideAuthToken:(id)arg1;
 + (id)hideSecret:(id)arg1;
 + (BOOL)isSSLConnectionError:(id)arg1;
 + (BOOL)isNoInternetConnectionError:(id)arg1;

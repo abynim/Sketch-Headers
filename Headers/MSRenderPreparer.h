@@ -15,10 +15,10 @@
     MSImmutableDocumentData *_document;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) BCAtomicStack *layerStack; // @synthesize layerStack=_layerStack;
 @property(retain, nonatomic) NSOperationQueue *operationQueue; // @synthesize operationQueue=_operationQueue;
-- (void).cxx_destruct;
 - (void)prepareDocument:(id)arg1;
 - (id)init;
 

@@ -18,10 +18,10 @@
 + (id)separator;
 + (id)itemWithTitle:(id)arg1;
 + (id)itemWithTitle:(id)arg1 tag:(long long)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isSeparator; // @synthesize isSeparator=_isSeparator;
 @property(nonatomic) long long tag; // @synthesize tag=_tag;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
-- (void).cxx_destruct;
 - (id)menuItem;
 
 @end

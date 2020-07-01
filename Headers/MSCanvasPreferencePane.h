@@ -20,12 +20,12 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
 @property(retain, nonatomic) NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
 @property(retain, nonatomic) NSColorWell *prototypingColorWell; // @synthesize prototypingColorWell=_prototypingColorWell;
 @property(retain, nonatomic) NSColorWell *measuringColorWell; // @synthesize measuringColorWell=_measuringColorWell;
 @property(retain, nonatomic) NSColorWell *guidesColorWell; // @synthesize guidesColorWell=_guidesColorWell;
-- (void).cxx_destruct;
 - (void)pickDefaultColorSpace:(id)arg1;
 - (void)refreshColorSpaceDescription;
 - (void)refreshOpenDocuments;

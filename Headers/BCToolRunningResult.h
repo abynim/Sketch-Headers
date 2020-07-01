@@ -16,11 +16,11 @@
     long long _terminationReason;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) long long terminationReason; // @synthesize terminationReason=_terminationReason;
 @property(readonly, nonatomic) NSData *output; // @synthesize output=_output;
 @property(readonly, nonatomic) int exitStatus; // @synthesize exitStatus=_exitStatus;
 @property(readonly, nonatomic) NSData *errorOutput; // @synthesize errorOutput=_errorOutput;
-- (void).cxx_destruct;
 - (id)initWithExitStatus:(int)arg1 terminationReason:(long long)arg2 output:(id)arg3 errorOutput:(id)arg4;
 
 @end

@@ -6,19 +6,33 @@
 
 #import <BCFoundation/BCRect.h>
 
-@interface MSAlignLayersUnion : BCRect
+#import <SketchControllers/MSAbsoluteLayerRectRepresentation-Protocol.h>
+
+@class MSPath, NSString;
+
+@interface MSAlignLayersUnion : BCRect <MSAbsoluteLayerRectRepresentation>
 {
     id _layers;
 }
 
 + (id)unionWithLayers:(id)arg1;
-@property(retain, nonatomic) id layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+@property(retain, nonatomic) id layers; // @synthesize layers=_layers;
+- (void)setHeightRespectingProportions:(double)arg1;
+- (void)setWidthRespectingProportions:(double)arg1;
+- (void)moveInAbsoluteCoordinatesBy:(struct CGPoint)arg1;
+@property(readonly, nonatomic) MSPath *pathForAbsoluteRect;
+@property(nonatomic) struct CGRect absoluteBoundingBox;
 - (void)makeOriginIntegral;
-- (id)frame;
 - (void)setValue:(id)arg1 forKey:(id)arg2;
-- (id)absoluteRect;
 - (BOOL)isLocked;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) struct CGRect rect;
+@property(readonly) Class superclass;
 
 @end
 

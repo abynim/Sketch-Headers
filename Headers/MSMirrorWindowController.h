@@ -29,6 +29,7 @@
 + (void)close;
 + (void)show;
 + (id)sharedController;
+- (void).cxx_destruct;
 @property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) MSColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) NSToolbarItem *backToolbarItem; // @synthesize backToolbarItem=_backToolbarItem;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) NSToolbarItem *startpointToolbarItem; // @synthesize startpointToolbarItem=_startpointToolbarItem;
 @property(retain, nonatomic) NSPopUpButton *artboardButton; // @synthesize artboardButton=_artboardButton;
 @property(retain, nonatomic) NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
-- (void).cxx_destruct;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;

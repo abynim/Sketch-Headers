@@ -22,13 +22,13 @@
 
 + (id)managerWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 bindingOptions:(id)arg7;
 + (id)managerWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL resetPointsOnEdit; // @synthesize resetPointsOnEdit=_resetPointsOnEdit;
 @property(nonatomic) BOOL hideSelectionOnEdit; // @synthesize hideSelectionOnEdit=_hideSelectionOnEdit;
 @property(retain, nonatomic) NSArray *touchBarItems; // @synthesize touchBarItems=_touchBarItems;
 @property(retain, nonatomic) MSUpDownTextField *textField; // @synthesize textField=_textField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *adaptor; // @synthesize adaptor=_adaptor;
 @property(nonatomic) __weak MSInspectorItem *item; // @synthesize item=_item;
-- (void).cxx_destruct;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)handleValueDidChange;
 - (id)initWithItem:(id)arg1 textField:(id)arg2 adaptor:(id)arg3 identifier:(id)arg4 inlineToolTip:(id)arg5 touchBarItems:(id)arg6 bindingOptions:(id)arg7;

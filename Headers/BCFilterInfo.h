@@ -15,10 +15,10 @@
     NSObject *_cacheGeneration;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject *cacheGeneration; // @synthesize cacheGeneration=_cacheGeneration;
 @property(nonatomic) unsigned long long filterTypeMask; // @synthesize filterTypeMask=_filterTypeMask;
 @property(copy, nonatomic) NSString *filterString; // @synthesize filterString=_filterString;
-- (void).cxx_destruct;
 - (BOOL)shouldIncludeNode:(id)arg1;
 - (BOOL)filterTypeMatchesNode:(id)arg1;
 - (BOOL)filterTypeApplies:(unsigned long long)arg1;

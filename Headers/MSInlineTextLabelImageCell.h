@@ -14,8 +14,8 @@
 }
 
 + (id)inlineTextLabelFont;
-@property(retain, nonatomic) NSValue *customFittingSize; // @synthesize customFittingSize=_customFittingSize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSValue *customFittingSize; // @synthesize customFittingSize=_customFittingSize;
 - (id)font;
 - (id)textColor;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;

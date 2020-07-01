@@ -16,10 +16,10 @@
 }
 
 + (double)rowHeight;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSLayoutConstraint *indentConstraint; // @synthesize indentConstraint=_indentConstraint;
 @property(retain, nonatomic) MSOverrideManagementItem *managementItem; // @synthesize managementItem=_managementItem;
-- (void).cxx_destruct;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (void)viewDidLoad;

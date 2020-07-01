@@ -15,10 +15,10 @@
     NSString *_subdirectoryName;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSString *subdirectoryName; // @synthesize subdirectoryName=_subdirectoryName;
 @property(readonly, nonatomic) NSOperationQueue *fetchQueue; // @synthesize fetchQueue=_fetchQueue;
 @property(readonly, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
-- (void).cxx_destruct;
 - (void)fetchPreviewImageForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 handler:(CDUnknownBlockType)arg3;
 - (id)cachedPreviewImageForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 error:(id *)arg3;
 - (id)cachedPreviewImageURLForDocumentFileURL:(id)arg1 maximumPixelSize:(double)arg2 createDirectoriesIfNeeded:(BOOL)arg3 error:(id *)arg4;

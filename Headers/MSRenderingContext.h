@@ -25,6 +25,7 @@
     struct CGAffineTransform _totalTransform;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGAffineTransform totalTransform; // @synthesize totalTransform=_totalTransform;
 @property(retain, nonatomic) NSMutableArray *symbolInstanceStack; // @synthesize symbolInstanceStack=_symbolInstanceStack;
 @property(retain, nonatomic) NSMutableArray *symbolMasterStack; // @synthesize symbolMasterStack=_symbolMasterStack;
@@ -38,8 +39,6 @@
 @property(nonatomic) struct CGRect drawingArea; // @synthesize drawingArea=_drawingArea;
 @property(nonatomic, getter=isCancelled) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(readonly, nonatomic) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest=_renderingRequest;
-- (void).cxx_destruct;
-- (BOOL)shouldLog;
 - (void)applyShadow:(id)arg1;
 - (id)colorByTintingIfNecessary:(id)arg1;
 - (void)applyStrokeColor:(id)arg1;
@@ -83,10 +82,9 @@
 - (void)tearDown;
 - (void)setUp;
 - (void)renderInBlock:(CDUnknownBlockType)arg1;
-- (void)renderRect:(struct CGRect)arg1 withStyle:(id)arg2;
 - (void)renderLayer:(id)arg1 ignoreCacheAndDrawingArea:(BOOL)arg2;
-- (id)initWithName:(id)arg1 driver:(id)arg2 renderingRequest:(id)arg3;
 - (id)init;
+- (id)initWithName:(id)arg1 driver:(id)arg2 renderingRequest:(id)arg3;
 
 @end
 

@@ -34,6 +34,7 @@
 - (void)layerDidResizeFromRect:(struct CGRect)arg1 corner:(long long)arg2;
 - (BOOL)isExpanded;
 - (BOOL)canRotate;
+- (struct CGRect)absoluteBoundingBox;
 - (id)otherArtboardUnderArtboard;
 - (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(retain, nonatomic) MSArtboardPreset *preset;

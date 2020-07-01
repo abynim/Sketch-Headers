@@ -16,10 +16,10 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL maintainScrollPosition; // @synthesize maintainScrollPosition=_maintainScrollPosition;
 @property(retain, nonatomic) NSString *destinationArtboardID; // @synthesize destinationArtboardID=_destinationArtboardID;
 @property(nonatomic) long long animationType; // @synthesize animationType=_animationType;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

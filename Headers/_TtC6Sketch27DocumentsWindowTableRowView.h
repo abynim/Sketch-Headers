@@ -20,8 +20,6 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic) BOOL selected;
 - (BOOL)isSelected;
-@property(nonatomic) BOOL emphasized;
-- (BOOL)isEmphasized;
 @property(nonatomic, retain) NSTextField *textField; // @synthesize textField;
 @property(nonatomic, retain) NSImageView *imageView; // @synthesize imageView;
 

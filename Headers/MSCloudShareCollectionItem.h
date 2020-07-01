@@ -6,26 +6,34 @@
 
 #import "MSExistingDocumentCollectionItem.h"
 
-@class SCKCloudDocument, SCKShare;
+@class NSImage, NSString, SCKCloudDocument, SCKShare;
 
 @interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem
 {
     SCKShare *_cloudShare;
+    NSImage *_previewImage;
+    NSString *_shareName;
 }
 
-@property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
+@property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
+@property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
+- (BOOL)supportsDeletion;
 - (void)cancelDocumentDownload;
 - (void)updateCloudStatus;
 - (void)updateDownloadProgress;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (BOOL)supportsRenaming;
 - (BOOL)showLibraryIcon;
 - (BOOL)showPublicShareIcon;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
+- (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;
+- (id)initWithCloudShare:(id)arg1 previewImage:(id)arg2;
 - (id)initWithCloudShare:(id)arg1;
 
 @end

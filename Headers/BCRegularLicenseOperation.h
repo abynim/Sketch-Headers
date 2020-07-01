@@ -25,11 +25,11 @@
 + (void)refreshLicense:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (void)configureWithApplicationID:(id)arg1 publicCertificate:(id)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) Class resultType; // @synthesize resultType=_resultType;
 @property(retain, nonatomic) NSURLSessionDataTask *task; // @synthesize task=_task;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) id <BCLicenseOperationResult> result; // @synthesize result=_result;
-- (void).cxx_destruct;
 - (void)executeWithHandler:(CDUnknownBlockType)arg1;
 - (void)cancel;
 - (void)main;

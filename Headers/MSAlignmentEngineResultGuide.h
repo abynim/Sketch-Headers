@@ -16,9 +16,9 @@
     struct BCLineSegment _lineSegment;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayPathItem *overlayPathItem; // @synthesize overlayPathItem=_overlayPathItem;
 @property(readonly, nonatomic) struct BCLineSegment lineSegment; // @synthesize lineSegment=_lineSegment;
-- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)drawWithLineWidth:(double)arg1;
 - (id)bezierPath;

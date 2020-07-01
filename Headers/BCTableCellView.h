@@ -29,6 +29,7 @@
     double _designedTextFieldTopPadding;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL isShowingImages; // @synthesize isShowingImages=_isShowingImages;
 @property(readonly, nonatomic) double designedTextFieldTopPadding; // @synthesize designedTextFieldTopPadding=_designedTextFieldTopPadding;
 @property(nonatomic) __weak BCSidebarPreviewImageView *maskPreviewView; // @synthesize maskPreviewView=_maskPreviewView;
@@ -42,7 +43,6 @@
 @property(nonatomic) __weak NSButton *lockHideButton; // @synthesize lockHideButton=_lockHideButton;
 @property(nonatomic) unsigned long long displayState; // @synthesize displayState=_displayState;
 @property(nonatomic) __weak id <BCTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)cancelOperation:(id)arg1;
 @property(readonly, nonatomic) NSWindow *destinationWindow;
 - (void)drawDragImageInRect:(struct CGRect)arg1;
@@ -67,6 +67,7 @@
 - (BOOL)isEventCurrent:(id)arg1;
 - (void)setObjectValue:(id)arg1;
 - (void)stopObserving;
+- (void)refreshCellContents:(id)arg1;
 - (void)refreshPreviewImages:(id)arg1;
 - (long long)backgroundStyle;
 - (void)refreshTextColor;

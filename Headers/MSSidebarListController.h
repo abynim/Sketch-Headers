@@ -15,9 +15,9 @@
     id _rootObject;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) id rootObject; // @synthesize rootObject=_rootObject;
 @property(nonatomic) __weak id <MSSidebarControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)dataController:(id)arg1 exportNodes:(id)arg2 toFolder:(id)arg3;
 - (struct CGPoint)originalPositionOfLayersInPasteboard:(id)arg1 forNewParent:(id)arg2;
 - (BOOL)dataController:(id)arg1 copyFromPasteboard:(id)arg2 toParent:(id)arg3 after:(id)arg4;

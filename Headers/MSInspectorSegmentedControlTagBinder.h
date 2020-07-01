@@ -17,12 +17,12 @@
     NSNumber *_tag;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL suppressBinding; // @synthesize suppressBinding=_suppressBinding;
 @property(retain, nonatomic) NSNumber *tag; // @synthesize tag=_tag;
 @property(retain, nonatomic) NSString *modelKeyPath; // @synthesize modelKeyPath=_modelKeyPath;
 @property(retain, nonatomic) id model; // @synthesize model=_model;
 @property(nonatomic) __weak MSInspectorSegmentedControl *segmentedControl; // @synthesize segmentedControl=_segmentedControl;
-- (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithSegmentedControl:(id)arg1 model:(id)arg2 keyPath:(id)arg3;

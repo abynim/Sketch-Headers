@@ -13,6 +13,7 @@
     BOOL _allTraitsCompared;
     BOOL _traitsCalculated;
     NSSet *_keysAffectedByDiff;
+    unsigned long long _containedTraits;
     MSImmutableDocumentData *_firstDoc;
     MSImmutableDocumentData *_secondDoc;
     NSMutableArray *_mutableDiffs;
@@ -22,6 +23,7 @@
     unsigned long long _allTraits;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL traitsCalculated; // @synthesize traitsCalculated=_traitsCalculated;
 @property(nonatomic) BOOL allTraitsCompared; // @synthesize allTraitsCompared=_allTraitsCompared;
 @property(nonatomic) unsigned long long allTraits; // @synthesize allTraits=_allTraits;
@@ -31,13 +33,13 @@
 @property(retain, nonatomic) NSMutableArray *mutableDiffs; // @synthesize mutableDiffs=_mutableDiffs;
 @property(readonly, nonatomic) MSImmutableDocumentData *secondDoc; // @synthesize secondDoc=_secondDoc;
 @property(readonly, nonatomic) MSImmutableDocumentData *firstDoc; // @synthesize firstDoc=_firstDoc;
-- (void).cxx_destruct;
 - (id)changedIndexesTree;
 @property(readonly, nonatomic) BOOL haveComponentsChanged;
 @property(readonly, nonatomic) BOOL haveSymbolInstancesChanged;
 @property(readonly, nonatomic) BOOL haveSymbolMastersChanged;
 @property(readonly, nonatomic) BOOL selectionHasChanged;
 @property(readonly, nonatomic) BOOL currentPageHasChanged;
+@property(readonly, nonatomic) unsigned long long containedTraits; // @synthesize containedTraits=_containedTraits;
 - (BOOL)containsLayerWithTraits:(unsigned long long)arg1;
 - (BOOL)someChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
 - (BOOL)allChangedPropertiesExhibitTrait:(unsigned long long)arg1 allKeysWereCompared:(char *)arg2;
@@ -45,6 +47,8 @@
 - (BOOL)affectsKey:(id)arg1;
 @property(readonly, nonatomic) NSSet *keysAffectedByDiff; // @synthesize keysAffectedByDiff=_keysAffectedByDiff;
 - (void)buildPropertyTraitsIfNeeded;
+- (BOOL)haveLocalSymbolsChanged;
+- (id)cacheGenerationSetFromSymbolArray:(id)arg1;
 - (id)description;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
 - (void)addDiffPairForFirstObject:(id)arg1 secondObject:(id)arg2 indexInParent:(unsigned long long)arg3;

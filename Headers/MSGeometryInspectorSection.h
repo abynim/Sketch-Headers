@@ -25,6 +25,7 @@
     MSPaddingInspectorItem *_paddingItem2;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL insetSeparator; // @synthesize insetSeparator=_insetSeparator;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem2; // @synthesize paddingItem2=_paddingItem2;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem1; // @synthesize paddingItem1=_paddingItem1;
@@ -38,7 +39,6 @@
 @property(retain, nonatomic) MSSizeInspectorItem *sizeItem; // @synthesize sizeItem=_sizeItem;
 @property(retain, nonatomic) MSArtboardPositionInspectorItem *artboardPositionItem; // @synthesize artboardPositionItem=_artboardPositionItem;
 @property(retain, nonatomic) MSPositionInspectorItem *positionItem; // @synthesize positionItem=_positionItem;
-- (void).cxx_destruct;
 - (struct NSEdgeInsets)separatorInsets;
 - (BOOL)hasSliceLayer;
 - (BOOL)hasArtboardLayer;

@@ -21,6 +21,7 @@
     struct CGRect _occupiedRegion;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSView *parentView; // @synthesize parentView=_parentView;
 @property(nonatomic) BOOL shouldDrawGuides; // @synthesize shouldDrawGuides=_shouldDrawGuides;
 @property(retain, nonatomic) NSArray *guides; // @synthesize guides=_guides;
@@ -30,7 +31,6 @@
 @property(retain, nonatomic) NSColor *snapColor; // @synthesize snapColor=_snapColor;
 @property(retain, nonatomic) NSNumberFormatter *formatter; // @synthesize formatter=_formatter;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
-- (void).cxx_destruct;
 - (BOOL)isFlipped;
 - (long long)rulerHeight;
 - (long long)rulerLength;
@@ -48,7 +48,6 @@
 - (long long)smallStep;
 - (double)adjustedBase;
 - (void)drawMetrics;
-- (void)drawBackground;
 - (void)drawInContext:(struct CGContext *)arg1;
 - (id)init;
 

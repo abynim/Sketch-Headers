@@ -9,8 +9,8 @@
 @class NSView;
 
 @protocol MSKeyViewProvider <NSObject>
-@property(readonly, nonatomic) NSView *preferredFirstResponder;
-@property(readonly, nonatomic) NSView *lastKeyView;
-@property(readonly, nonatomic) NSView *firstKeyView;
+@property(nonatomic, readonly) NSView *preferredFirstResponder;
+@property(nonatomic, readonly) NSView *lastKeyView;
+@property(nonatomic, readonly) NSView *firstKeyView;
 @end
 

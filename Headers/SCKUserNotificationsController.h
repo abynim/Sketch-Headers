@@ -12,7 +12,6 @@
 }
 
 + (id)notificationKey;
-+ (id)didReceiveNotification;
 - (void).cxx_destruct;
 - (void)apiSessionDidChange:(id)arg1;
 - (id)init;

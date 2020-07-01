@@ -8,8 +8,11 @@
 
 @interface MSDocumentController : NSDocumentController
 {
+    long long _numberOfDocumentsBeingOpened;
 }
 
+@property(nonatomic) long long numberOfDocumentsBeingOpened; // @synthesize numberOfDocumentsBeingOpened=_numberOfDocumentsBeingOpened;
+- (void)beginOpenPanelWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)closeAllDocumentsWithDelegate:(id)arg1 cancellingSheets:(BOOL)arg2 didCloseAllSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (id)defaultType;
 - (void)noteNewRecentDocumentURL:(id)arg1;
@@ -18,6 +21,7 @@
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)decideOpenStrategyForDocument:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
+@property(readonly, nonatomic) BOOL canShowDocumentsWindowAtLaunch;
 - (void)openLocalDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;

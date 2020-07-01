@@ -6,14 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import "MSAuthTokenContextDelegate-Protocol.h"
 #import "MSChannelUnitProtocol-Protocol.h"
-#import "MSIngestionDelegate-Protocol.h"
 
 @class MSChannelUnitConfiguration, NSHashTable, NSMutableArray, NSMutableSet, NSString;
 @protocol MSIngestionProtocol, MSStorage, OS_dispatch_queue, OS_dispatch_source;
 
-@interface MSChannelUnitDefault : NSObject <MSChannelUnitProtocol, MSIngestionDelegate, MSAuthTokenContextDelegate>
+@interface MSChannelUnitDefault : NSObject <MSChannelUnitProtocol>
 {
     BOOL _availableBatchFromStorage;
     BOOL _pendingBatchQueueFull;
@@ -65,14 +63,8 @@
 - (void)startTimer:(unsigned long long)arg1;
 - (void)checkPendingLogs;
 - (void)flushQueue;
-- (void)flushNextBatchFromQueueForTokenArray:(id)arg1 withTokenIndex:(unsigned long long)arg2;
-- (void)flushQueueForTokenArray:(id)arg1 withTokenIndex:(unsigned long long)arg2;
-- (void)sendLogContainer:(id)arg1 withAuthTokenFromArray:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)sendLogContainer:(id)arg1;
 - (void)enqueueItem:(id)arg1 flags:(unsigned long long)arg2;
-- (void)authTokenContext:(id)arg1 didUpdateAuthToken:(id)arg2;
-- (void)ingestionDidReceiveFatalError:(id)arg1;
-- (void)ingestionDidResume:(id)arg1;
-- (void)ingestionDidPause:(id)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;
 - (id)initWithIngestion:(id)arg1 storage:(id)arg2 configuration:(id)arg3 logsDispatchQueue:(id)arg4;

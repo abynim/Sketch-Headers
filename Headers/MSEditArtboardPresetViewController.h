@@ -19,11 +19,11 @@
     NSButton *_cancelButton;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak id <MSEditArtboardPresetViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSArtboardPreset *preset; // @synthesize preset=_preset;
-- (void).cxx_destruct;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
 - (void)confirm:(id)arg1;

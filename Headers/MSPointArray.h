@@ -15,8 +15,8 @@
     NSMutableArray *_points;
 }
 
-@property(retain, nonatomic) NSMutableArray *points; // @synthesize points=_points;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *points; // @synthesize points=_points;
 - (id)treeAsDictionary;
 - (id)description;
 - (void)replacePointAtIndex:(unsigned long long)arg1 withPoint:(struct CGPoint)arg2;

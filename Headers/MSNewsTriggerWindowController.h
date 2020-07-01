@@ -19,12 +19,12 @@
     NSButton *_dontShowAgainButton;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL finishedLoadingData; // @synthesize finishedLoadingData=_finishedLoadingData;
 @property(nonatomic) NSButton *dontShowAgainButton; // @synthesize dontShowAgainButton=_dontShowAgainButton;
 @property(nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 @property(copy, nonatomic) NSString *newsID; // @synthesize newsID=_newsID;
 @property(copy, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void).cxx_destruct;
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 didCommitNavigation:(id)arg2;
 - (void)dontShowNewsWithIDAnymore:(id)arg1;

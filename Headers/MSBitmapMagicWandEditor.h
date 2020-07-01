@@ -20,6 +20,7 @@
     struct CGPoint _mouseEndPoint;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
 @property(nonatomic) BOOL didDrag; // @synthesize didDrag=_didDrag;
@@ -28,7 +29,6 @@
 @property(nonatomic) struct CGPoint mouseEndPoint; // @synthesize mouseEndPoint=_mouseEndPoint;
 @property(nonatomic) struct CGPoint mouseDownPoint; // @synthesize mouseDownPoint=_mouseDownPoint;
 @property(nonatomic) struct CGPoint pageMouseDownPoint; // @synthesize pageMouseDownPoint=_pageMouseDownPoint;
-- (void).cxx_destruct;
 - (BOOL)isValidRect:(struct CGRect)arg1;
 - (struct CGRect)dragCirclePageBounds;
 - (struct CGRect)dragCircleBounds;

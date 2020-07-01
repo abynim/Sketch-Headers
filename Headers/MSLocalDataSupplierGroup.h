@@ -19,11 +19,11 @@
 + (id)subgroupWithFileSytemURL:(id)arg1 localDataSupplierGroup:(id)arg2;
 + (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2 makeFolderMonitor:(BOOL)arg3;
 + (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
 @property(retain, nonatomic) MSLocalDataSupplier *topLevelSupplier; // @synthesize topLevelSupplier=_topLevelSupplier;
 @property(retain, nonatomic) MSLocalDataSupplierSubgroup *subGroup; // @synthesize subGroup=_subGroup;
 @property(readonly, nonatomic) NSURL *groupURL; // @synthesize groupURL=_groupURL;
-- (void).cxx_destruct;
 - (id)dataSupplierMenuItemForDataType:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL canGroupMultipleDataSuppliers;
 - (id)dataSupplierWithIdentifier:(id)arg1;

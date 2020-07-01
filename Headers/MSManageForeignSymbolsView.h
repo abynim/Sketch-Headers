@@ -20,12 +20,12 @@
     NSMenu *_contextMenu;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *contextMenu; // @synthesize contextMenu=_contextMenu;
 @property(nonatomic) BOOL cogEnabled; // @synthesize cogEnabled=_cogEnabled;
 @property(retain, nonatomic) NSArray *symbols; // @synthesize symbols=_symbols;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (void)unlinkFromLibrary:(id)arg1;
 - (void)editInLibrary:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

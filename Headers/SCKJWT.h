@@ -16,8 +16,8 @@
 }
 
 + (id)dictionaryFromJWTComponentString:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *components; // @synthesize components=_components;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSArray *components; // @synthesize components=_components;
 - (BOOL)isSignatureValidForPublicKey:(struct __SecKey *)arg1;
 @property(readonly, nonatomic) NSString *signature;
 @property(readonly, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;

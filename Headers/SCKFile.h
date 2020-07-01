@@ -18,13 +18,13 @@
     struct CGSize _dimensions;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(readonly, nonatomic) NSArray *thumbnails; // @synthesize thumbnails=_thumbnails;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
-- (void).cxx_destruct;
 - (id)dictionaryRepresentation;
 - (id)thumbnailConstrainedToSize:(struct CGSize)arg1;
 - (id)initWithDictionary:(id)arg1;

@@ -13,6 +13,7 @@
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
     BOOL _ignoreMirrorExportScale;
+    BOOL _includeUnrenderedLayersInManifest;
     MSImmutableDocumentData *_immutableDocumentData;
     NSString *_name;
     NSURL *_fileURL;
@@ -21,6 +22,8 @@
 
 + (id)keyForFlowAnimationType:(long long)arg1;
 + (id)manifestValueForColorSpace:(unsigned long long)arg1;
+- (void).cxx_destruct;
+@property(nonatomic) BOOL includeUnrenderedLayersInManifest; // @synthesize includeUnrenderedLayersInManifest=_includeUnrenderedLayersInManifest;
 @property(nonatomic) BOOL ignoreMirrorExportScale; // @synthesize ignoreMirrorExportScale=_ignoreMirrorExportScale;
 @property(copy, nonatomic) NSDictionary *applicationMetadata; // @synthesize applicationMetadata=_applicationMetadata;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
@@ -28,7 +31,6 @@
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
-- (void).cxx_destruct;
 - (id)metadataForFlow:(id)arg1;
 - (double)roundValue:(double)arg1;
 - (id)dictForRect:(struct CGRect)arg1 inRootLayer:(id)arg2;

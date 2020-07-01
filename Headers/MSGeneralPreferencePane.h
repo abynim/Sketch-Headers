@@ -24,6 +24,7 @@
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSLayoutConstraint *cloudDocumentSectionCollapseConstraint; // @synthesize cloudDocumentSectionCollapseConstraint=_cloudDocumentSectionCollapseConstraint;
 @property(nonatomic) __weak NSView *mainContainerView; // @synthesize mainContainerView=_mainContainerView;
 @property(nonatomic) __weak NSTextField *canvasAppearanceLabel; // @synthesize canvasAppearanceLabel=_canvasAppearanceLabel;
@@ -33,7 +34,6 @@
 @property(nonatomic) __weak NSImageView *appearancePreview; // @synthesize appearancePreview=_appearancePreview;
 @property(nonatomic) __weak NSPopUpButton *defaultColorSpacePopUpButton; // @synthesize defaultColorSpacePopUpButton=_defaultColorSpacePopUpButton;
 @property(nonatomic) __weak NSTextField *defaultColorSpaceDescriptionLabel; // @synthesize defaultColorSpaceDescriptionLabel=_defaultColorSpaceDescriptionLabel;
-- (void).cxx_destruct;
 - (void)canvasColorAction:(id)arg1;
 - (void)appearanceColorAction:(id)arg1;
 - (void)refreshPreviewImage;

@@ -7,7 +7,7 @@
 #import <SketchControllers/MSAssistantsService.h>
 
 @interface MSAssistantsService (SketchControllers)
-+ (void)setAutomaticallyCheckDocument:(BOOL)arg1;
-+ (BOOL)automaticallyCheckDocument;
++ (void)setAutomaticAssistantsDisabled:(BOOL)arg1;
++ (BOOL)automaticAssistantsDisabled;
 @end
 

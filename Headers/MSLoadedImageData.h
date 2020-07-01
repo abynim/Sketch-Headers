@@ -20,10 +20,10 @@
 + (id)loadedImageFromImage:(id)arg1 withSizeScaledDownByFactor:(double)arg2;
 + (id)imageFromFileURL:(id)arg1;
 + (id)imageFromPasteboard:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) long long intendedDPI; // @synthesize intendedDPI=_intendedDPI;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
-- (void).cxx_destruct;
 
 @end
 

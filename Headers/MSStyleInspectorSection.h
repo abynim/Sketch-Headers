@@ -18,11 +18,11 @@
     NSMutableDictionary *_stylePartViewControllers;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) NSArray *currentControllers; // @synthesize currentControllers=_currentControllers;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;

@@ -17,10 +17,10 @@
     MSDocumentData *_documentData;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) MSAvailableOverride *primaryOverride; // @synthesize primaryOverride=_primaryOverride;
 @property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
-- (void).cxx_destruct;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (void)buildMenuForOverride:(id)arg1 withMenuBuilder:(id)arg2 document:(id)arg3 imageCallback:(CDUnknownBlockType)arg4;

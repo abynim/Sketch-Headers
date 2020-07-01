@@ -21,15 +21,15 @@
     NSArray *_comparedObject;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *comparedObject; // @synthesize comparedObject=_comparedObject;
 @property(readonly, copy, nonatomic) NSArray *object; // @synthesize object=_object;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL objectsAreEqual;
 @property(readonly, nonatomic) NSSet *updateDiffs; // @synthesize updateDiffs=_updateDiffs;
 @property(readonly, nonatomic) NSSet *deletions; // @synthesize deletions=_deletions;
 @property(readonly, nonatomic) NSSet *insertions; // @synthesize insertions=_insertions;
-- (id)comparedObjectWithID:(struct NSString *)arg1;
-- (id)objectWithID:(struct NSString *)arg1;
+- (id)comparedObjectWithID:(id)arg1;
+- (id)objectWithID:(id)arg1;
 @property(readonly, nonatomic) NSSet *comparedObjectIDs; // @synthesize comparedObjectIDs=_comparedObjectIDs;
 @property(readonly, nonatomic) NSSet *objectIDs; // @synthesize objectIDs=_objectIDs;
 - (id)initWithCollectionDiffSet:(id)arg1;

@@ -16,10 +16,10 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL symbolPrivate; // @synthesize symbolPrivate=_symbolPrivate;
 @property(retain, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

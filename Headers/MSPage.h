@@ -24,11 +24,12 @@
 
 + (id)defaultSymbolsPageName;
 + (id)page;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
 @property(retain, nonatomic) NSArray *cachedSymbolMasters; // @synthesize cachedSymbolMasters=_cachedSymbolMasters;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
-- (void).cxx_destruct;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)isLocked;
@@ -48,13 +49,12 @@
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
 - (id)artboardWithID:(id)arg1;
 @property(readonly, nonatomic) NSArray *symbols;
-@property(readonly, nonatomic) __weak NSArray *artboards;
+@property(readonly, nonatomic) NSArray *artboards;
 - (id)topLevelLayersMatchingTrait:(unsigned long long)arg1;
 - (id)parentRoot;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
 - (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
-- (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;

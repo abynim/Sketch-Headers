@@ -20,10 +20,12 @@
 + (void)copyPropertiesFrom:(id)arg1 to:(id)arg2;
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *internalOverrideProperties; // @synthesize internalOverrideProperties=_internalOverrideProperties;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 @property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
-- (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1;
+- (void)setRaw_changeIdentifier:(long long)arg1;
 - (BOOL)shouldRoundCoordinates;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
@@ -56,7 +58,7 @@
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)invalidateModifiedSymbolCache;
-- (void)invalidateImmutableObjectAndAncestors;
+- (void)invalidateModelCacheGeneration;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -70,7 +72,7 @@
 - (void)applyScale:(double)arg1;
 - (void)applyOverridesRespectingLayout:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
 - (BOOL)hasInferredLayouts;
-- (void)applyOverrides:(id)arg1 scale:(double)arg2 rect:(struct CGRect)arg3 resizeToNaturalSizeOnAxes:(unsigned long long)arg4 inDocument:(id)arg5 visitedSymbols:(id)arg6;
+- (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 inDocument:(id)arg4 visitedSymbols:(id)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -15,9 +15,9 @@
 }
 
 + (id)elementOfType:(id)arg1 xml:(id)arg2 importer:(id)arg3 parent:(id)arg4;
+- (void).cxx_destruct;
 @property(retain, nonatomic) SVGImporter *importer; // @synthesize importer=_importer;
 @property(retain, nonatomic) NSXMLElement *xml; // @synthesize xml=_xml;
-- (void).cxx_destruct;
 - (id)makeLayerWithParentLayer:(id)arg1 progress:(CDUnknownBlockType)arg2;
 - (id)adjustOwnLayer:(id)arg1 parentLayer:(id)arg2;
 - (void)nameLayer:(id)arg1;

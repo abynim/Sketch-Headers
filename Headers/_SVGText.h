@@ -24,6 +24,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(nonatomic) double y; // @synthesize y=_y;
 @property(nonatomic) double x; // @synthesize x=_x;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
@@ -33,7 +34,6 @@
 @property(nonatomic) double dx; // @synthesize dx=_dx;
 @property(nonatomic) short anchor; // @synthesize anchor=_anchor;
 @property(nonatomic) BOOL adjustSpacingAndGlyphs; // @synthesize adjustSpacingAndGlyphs=_adjustSpacingAndGlyphs;
-- (void).cxx_destruct;
 
 @end
 

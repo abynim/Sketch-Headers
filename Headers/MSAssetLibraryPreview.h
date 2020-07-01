@@ -14,9 +14,9 @@
     NSImage *_preview;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(nonatomic) __weak NSImage *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSBezierPath *contentPath;
 @property(readonly, nonatomic) struct CGRect previewFrame;
 - (id)centeredThumbFromImage:(id)arg1;

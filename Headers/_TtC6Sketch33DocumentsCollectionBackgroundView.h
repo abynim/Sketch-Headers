@@ -8,8 +8,11 @@
 
 @interface _TtC6Sketch33DocumentsCollectionBackgroundView : NSView
 {
+    // Error parsing type: , name: dragOperationHighlightColor
+    // Error parsing type: , name: dragOperationInPlace
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;

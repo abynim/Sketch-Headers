@@ -15,8 +15,8 @@
     NSMenu *_popupMenu;
 }
 
-@property(retain, nonatomic) NSMenu *popupMenu; // @synthesize popupMenu=_popupMenu;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMenu *popupMenu; // @synthesize popupMenu=_popupMenu;
 - (void)clickShowInlineMenu:(id)arg1;
 - (void)pressShowInlineMenu:(id)arg1;
 - (void)doShowMenu;

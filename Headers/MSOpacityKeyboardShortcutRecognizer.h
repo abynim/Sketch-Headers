@@ -17,11 +17,11 @@
     double _opacity;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) double concatenationDuration; // @synthesize concatenationDuration=_concatenationDuration;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 - (void)discardAccumulatedEvents;
 - (double)opacityFromCharacters:(id)arg1;
 - (void)keyDown:(id)arg1;

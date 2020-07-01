@@ -19,11 +19,11 @@
     NSString *_groupIdentifier;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *groupIdentifier; // @synthesize groupIdentifier=_groupIdentifier;
 @property(nonatomic) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) __weak id <MSDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSDictionary *dataSuppliersDictionary; // @synthesize dataSuppliersDictionary=_dataSuppliersDictionary;
-- (void).cxx_destruct;
 - (void)notifyDelegateOfChanges;
 - (id)usableDataSuppliersOfDataType:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isUsableDataSupplierGroup;

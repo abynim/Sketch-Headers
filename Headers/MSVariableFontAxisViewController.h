@@ -15,9 +15,9 @@
     id <MSVariableFontAxisViewControllerDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSVariableFontAxisViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSVariableFontAxis *variableFontAxis; // @synthesize variableFontAxis=_variableFontAxis;
-- (void).cxx_destruct;
 - (void)cancelOperation:(id)arg1;
 - (void)handleControlUpdate:(id)arg1;
 

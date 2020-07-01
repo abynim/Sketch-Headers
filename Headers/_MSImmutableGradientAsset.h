@@ -14,8 +14,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -18,12 +18,12 @@
     NSString *_name;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) NSString *layerName; // @synthesize layerName=_layerName;
 @property(readonly, nonatomic) __weak MSOverridePoint *parent; // @synthesize parent=_parent;
 @property(readonly, nonatomic) NSString *property; // @synthesize property=_property;
 @property(readonly, nonatomic) NSString *layerID; // @synthesize layerID=_layerID;
-- (void).cxx_destruct;
 - (long long)distanceToOverridePoint:(id)arg1;
 - (long long)comparisonScoreAgainst:(id)arg1;
 - (BOOL)canAcceptDataOfType:(id)arg1;

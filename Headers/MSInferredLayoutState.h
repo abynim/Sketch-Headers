@@ -13,8 +13,8 @@
     NSMutableArray *_changedLayersRegions;
 }
 
-@property(retain, nonatomic) NSMutableArray *changedLayersRegions; // @synthesize changedLayersRegions=_changedLayersRegions;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *changedLayersRegions; // @synthesize changedLayersRegions=_changedLayersRegions;
 - (void)addLayerPair:(id)arg1;
 - (id)changedRegions;
 - (id)init;

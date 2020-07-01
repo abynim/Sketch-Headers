@@ -15,10 +15,10 @@
     BCComparisonItem *_parent;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCComparisonItem *parent; // @synthesize parent=_parent;
 @property(readonly, nonatomic) id oldObject; // @synthesize oldObject=_oldObject;
 @property(readonly, nonatomic) id updatedObject; // @synthesize updatedObject=_updatedObject;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) id object;
 @property(readonly, nonatomic) long long type;
 - (id)addChangeForPropertyNamed:(id)arg1;

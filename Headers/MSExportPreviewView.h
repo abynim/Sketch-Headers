@@ -16,8 +16,8 @@
     MSExportPreviewViewModel *_viewModel;
 }
 
-@property(retain, nonatomic) MSExportPreviewViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSExportPreviewViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (unsigned long long)writingOptionsForType:(id)arg1 pasteboard:(id)arg2;

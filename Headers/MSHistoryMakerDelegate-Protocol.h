@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSHistoryMaker, MSImmutableDocumentData, MSMoment, NSSet, NSString;
+@class MSHistoryMaker, MSImmutableDocumentData;
 
 @protocol MSHistoryMakerDelegate
-- (void)historyMaker:(MSHistoryMaker *)arg1 setCurrentDocumentData:(MSImmutableDocumentData *)arg2 selecting:(NSSet *)arg3 onPage:(NSString *)arg4;
+- (void)historyMaker:(MSHistoryMaker *)arg1 setCurrentDocumentData:(MSImmutableDocumentData *)arg2;
 - (MSImmutableDocumentData *)currentDocumentData:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidProgressHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidRevertHistory:(MSHistoryMaker *)arg1;
-- (void)historyMaker:(MSHistoryMaker *)arg1 privatelyUpdatedMoment:(MSMoment *)arg2;
-- (void)historyMaker:(MSHistoryMaker *)arg1 didCommitMoment:(MSMoment *)arg2;
-- (void)historyMaker:(MSHistoryMaker *)arg1 didApplyHistoryUpdate:(unsigned long long)arg2;
+- (void)historyMakerDidCommitPrivateUpdate:(MSHistoryMaker *)arg1;
+- (void)historyMakerDidCommitHistory:(MSHistoryMaker *)arg1;
+- (void)historyMakerDidCreateHistory:(MSHistoryMaker *)arg1;
 @end
 

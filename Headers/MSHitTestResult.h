@@ -14,9 +14,9 @@
     MSOverrideRepresentation *_overrideRepresentation;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 @property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
-- (void).cxx_destruct;
 
 @end
 

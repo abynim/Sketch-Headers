@@ -12,15 +12,29 @@
 {
     // Error parsing type: , name: orientation
     // Error parsing type: , name: rulerView
+    // Error parsing type: , name: labelView
+    // Error parsing type: , name: tickMarkView
+    // Error parsing type: , name: occupiedRegionView
+    // Error parsing type: , name: separatorView
+    // Error parsing type: , name: $__lazy_storage_$_metricsFormatter
+    // Error parsing type: , name: lightAppearanceBackgroundColor
+    // Error parsing type: , name: darkAppearanceBackgroundColor
     // Error parsing type: , name: contentView
 }
 
 - (void).cxx_destruct;
+- (void)mouseExited:(id)arg1;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDragged:(id)arg1;
+- (void)mouseDown:(id)arg1;
 @property(nonatomic) struct CGRect frame;
 @property(nonatomic, retain) MSCanvasView *contentView; // @synthesize contentView;
 @property(nonatomic, retain) MSDocument *document;
 - (void)refresh;
 - (void)prepareRulerViewLayer:(struct CGRect)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)viewDidMoveToWindow;
 - (void)awakeFromNib;
 - (id)initWithFrame:(struct CGRect)arg1;

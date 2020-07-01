@@ -6,17 +6,28 @@
 
 #import <AppKit/NSCollectionView.h>
 
+@class _TtC6Sketch33DocumentsCollectionBackgroundView;
+
 @interface _TtC6Sketch23DocumentsCollectionView : NSCollectionView
 {
     // Error parsing type: , name: keyEventsDelegate
+    // Error parsing type: , name: dropDelegate
+    // Error parsing type: , name: collectionBackgroundView
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)performDragOperation:(id)arg1;
+- (unsigned long long)draggingUpdated:(id)arg1;
+- (void)draggingExited:(id)arg1;
+- (unsigned long long)draggingEntered:(id)arg1;
+- (BOOL)wantsPeriodicDraggingUpdates;
+- (BOOL)prepareForDragOperation:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
+@property(nonatomic) __weak _TtC6Sketch33DocumentsCollectionBackgroundView *collectionBackgroundView; // @synthesize collectionBackgroundView;
 
 @end
 

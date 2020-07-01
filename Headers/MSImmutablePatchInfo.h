@@ -13,8 +13,8 @@
     NSObject *__patchContainer;
 }
 
-@property(retain, nonatomic) NSObject *_patchContainer; // @synthesize _patchContainer=__patchContainer;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSObject *_patchContainer; // @synthesize _patchContainer=__patchContainer;
 - (void)performInitWithMutableModelObject:(id)arg1;
 
 @end

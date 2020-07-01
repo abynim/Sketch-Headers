@@ -19,11 +19,11 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSPopUpButton *curvaturePopup; // @synthesize curvaturePopup=_curvaturePopup;
 @property(retain, nonatomic) MSCornerRadiusInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
-- (void).cxx_destruct;
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (void)refreshIfNecessary:(id)arg1;

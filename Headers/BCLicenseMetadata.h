@@ -15,8 +15,8 @@
     NSDate *_updateExpirationDate;
 }
 
-@property(readonly, nonatomic) NSDate *updateExpirationDate; // @synthesize updateExpirationDate=_updateExpirationDate;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSDate *updateExpirationDate; // @synthesize updateExpirationDate=_updateExpirationDate;
 - (id)initWithDictionary:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
 - (id)initWithUpdateExpirationDate:(id)arg1;
 - (id)init;

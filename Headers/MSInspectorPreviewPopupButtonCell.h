@@ -13,8 +13,8 @@
     NSImage *_previewImage;
 }
 
-@property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 - (void)drawImageWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 

@@ -13,8 +13,8 @@
     MSVersionedArchive *_archive;
 }
 
-@property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
 @property(retain, nonatomic) id defaultObject;
 - (id)newObject;
 - (id)archivesNeedingMigration;

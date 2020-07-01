@@ -6,15 +6,17 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSImmutableDocumentData, NSDictionary, NSString, NSURL, SCKShare;
+@class MSImmutableDocumentData, NSDictionary, NSString, NSURL, SCKOrganization, SCKProject, SCKShare;
 
 @protocol MSCloudExportableDocument <NSObject>
-@property(readonly, nonatomic) NSString *cloudName;
-@property(retain, nonatomic) SCKShare *cloudShare;
-@property(readonly, nonatomic) NSDictionary *UIMetadata;
-@property(readonly, nonatomic) MSImmutableDocumentData *exportableImmutableData;
-@property(readonly, nonatomic) NSURL *fileURL;
 - (NSDictionary *)getUpdatedWorkspaceItems:(id *)arg1;
 - (void)updateLocalFileToMatchCloudNameWithCompletionHandler:(void (^)(NSError *))arg1;
+@property(nonatomic, retain) SCKProject *preferredProject;
+@property(nonatomic, retain) SCKOrganization *preferredOrganization;
+@property(nonatomic, readonly) NSString *cloudName;
+@property(nonatomic, retain) SCKShare *cloudShare;
+@property(nonatomic, readonly) NSDictionary *UIMetadata;
+@property(nonatomic, retain) MSImmutableDocumentData *exportableImmutableData;
+@property(nonatomic, readonly) NSURL *fileURL;
 @end
 

@@ -14,9 +14,9 @@
     NSMutableArray *_items;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *items; // @synthesize items=_items;
 @property(retain, nonatomic) MSBatchedSymbolMasters *masters; // @synthesize masters=_masters;
-- (void).cxx_destruct;
 
 @end
 

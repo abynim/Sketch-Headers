@@ -21,9 +21,9 @@
 
 + (id)reusableControllerArray;
 + (id)stylePartViewController;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long index; // @synthesize index=_index;
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)updateDisplayedValues;
 - (void)closePopoverImmediately:(BOOL)arg1;
 - (id)views;

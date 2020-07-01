@@ -14,9 +14,9 @@
     NSImage *_preview;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(retain, nonatomic) NSImage *icon; // @synthesize icon=_icon;
-- (void).cxx_destruct;
 - (struct CGRect)previewFrame;
 - (id)contentPath;
 - (id)centeredThumbFromImage:(id)arg1;

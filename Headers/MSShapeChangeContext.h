@@ -16,9 +16,9 @@
     NSArray *_componentSpecifiers;
 }
 
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *componentSpecifiers; // @synthesize componentSpecifiers=_componentSpecifiers;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 - (id)description;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (struct CGRect)rectOfSelectedPoints;

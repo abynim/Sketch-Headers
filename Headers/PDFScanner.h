@@ -22,6 +22,7 @@
 + (id)convertObject:(struct CGPDFObject *)arg1;
 + (id)convertDictionary:(struct CGPDFDictionary *)arg1;
 + (id)convertArray:(struct CGPDFArray *)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *encodingMap; // @synthesize encodingMap=_encodingMap;
 @property(retain, nonatomic) NSSet *fontTypesToMap; // @synthesize fontTypesToMap=_fontTypesToMap;
 @property(retain, nonatomic) NSMutableDictionary *fonts; // @synthesize fonts=_fonts;
@@ -29,7 +30,6 @@
 @property(nonatomic) struct CGPDFScanner *scanner; // @synthesize scanner=_scanner;
 @property(nonatomic) struct CGPDFOperatorTable *table; // @synthesize table=_table;
 @property(retain, nonatomic) NSDictionary *dictionary; // @synthesize dictionary=_dictionary;
-- (void).cxx_destruct;
 - (void)operatorglyphBoundsWithInfo:(id)arg1;
 - (void)registerOperatorglyphBounds;
 - (void)operatordeclareGlyphWithInfo:(id)arg1;

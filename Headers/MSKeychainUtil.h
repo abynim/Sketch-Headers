@@ -15,8 +15,8 @@
 + (int)deleteSecItem:(id)arg1;
 + (id)generateItem:(id)arg1 withServiceName:(id)arg2;
 + (BOOL)clear;
-+ (id)stringForKey:(id)arg1;
-+ (id)stringForKey:(id)arg1 withServiceName:(id)arg2;
++ (id)stringForKey:(id)arg1 statusCode:(int *)arg2;
++ (id)stringForKey:(id)arg1 withServiceName:(id)arg2 statusCode:(int *)arg3;
 + (id)deleteStringForKey:(id)arg1;
 + (id)deleteStringForKey:(id)arg1 withServiceName:(id)arg2;
 + (BOOL)storeString:(id)arg1 forKey:(id)arg2;

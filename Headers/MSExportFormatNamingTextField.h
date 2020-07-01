@@ -14,8 +14,8 @@
 }
 
 + (Class)cellClass;
-@property(copy, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void)applyNamingScheme:(id)arg1;
 - (id)popupMenu;
 

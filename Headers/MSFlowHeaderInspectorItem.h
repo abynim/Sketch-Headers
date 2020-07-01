@@ -19,12 +19,12 @@
     MSInspectorFlowHandler *_flowHandler;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak MSInspectorFlowHandler *flowHandler; // @synthesize flowHandler=_flowHandler;
 @property(nonatomic) __weak NSButton *followFlowButton; // @synthesize followFlowButton=_followFlowButton;
 @property(nonatomic) __weak NSButton *convertToHotspotButton; // @synthesize convertToHotspotButton=_convertToHotspotButton;
 @property(nonatomic) __weak NSButton *removeFlowButton; // @synthesize removeFlowButton=_removeFlowButton;
 @property(nonatomic) __weak NSButton *addFlowButton; // @synthesize addFlowButton=_addFlowButton;
-- (void).cxx_destruct;
 - (id)layersForFlowHandler:(id)arg1;
 - (id)documentForFlowHandler:(id)arg1;
 - (BOOL)isInFlowEventHandler;

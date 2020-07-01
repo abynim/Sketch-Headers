@@ -17,11 +17,11 @@
 }
 
 + (Class)cellClass;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *inlineToolTip; // @synthesize inlineToolTip=_inlineToolTip;
 @property(retain, nonatomic) NSTextField *inlineLabelField; // @synthesize inlineLabelField=_inlineLabelField;
 @property(retain, nonatomic) NSImage *inlineImage; // @synthesize inlineImage=_inlineImage;
 @property(retain, nonatomic) NSString *inlineLabel; // @synthesize inlineLabel=_inlineLabel;
-- (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
 - (void)resetCursorRects;
 @property(readonly, nonatomic) double inlineFieldWidth;

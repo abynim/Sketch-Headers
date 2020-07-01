@@ -16,11 +16,11 @@
     NSColor *_inactiveSelectedTabIndicatorColor;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSColor *inactiveSelectedTabIndicatorColor; // @synthesize inactiveSelectedTabIndicatorColor=_inactiveSelectedTabIndicatorColor;
 @property(retain, nonatomic) NSColor *activeSelectedTabIndicatorColor; // @synthesize activeSelectedTabIndicatorColor=_activeSelectedTabIndicatorColor;
 @property(nonatomic) BOOL isIndifferent; // @synthesize isIndifferent=_isIndifferent;
 @property(nonatomic) BOOL isTabSelected; // @synthesize isTabSelected=_isTabSelected;
-- (void).cxx_destruct;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 

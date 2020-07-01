@@ -19,11 +19,12 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSPopUpButton *blendModePopUp; // @synthesize blendModePopUp=_blendModePopUp;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
-- (void).cxx_destruct;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (void)dealloc;

@@ -43,12 +43,12 @@
 + (id)serverSocketWithRequest:(id)arg1 inputStream:(id)arg2 outputStream:(id)arg3;
 + (id)clientSocketWithRequest:(id)arg1;
 + (BOOL)isWebSocketRequest:(id)arg1;
+- (void).cxx_destruct;
 @property BOOL pumpingOutput; // @synthesize pumpingOutput=_pumpingOutput;
 @property BOOL pumpingInput; // @synthesize pumpingInput=_pumpingInput;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) __weak id <PSWebSocketDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSURLRequest *request; // @synthesize request=_request;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)executeDelegateAndWait:(CDUnknownBlockType)arg1;
 - (void)executeDelegate:(CDUnknownBlockType)arg1;

@@ -18,9 +18,9 @@
 }
 
 + (long long)provider;
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
 @property(readonly, copy, nonatomic) SCKJWT *jwt; // @synthesize jwt=_jwt;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *variants;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;
 @property(readonly, nonatomic) NSDate *updateExpirationDate;

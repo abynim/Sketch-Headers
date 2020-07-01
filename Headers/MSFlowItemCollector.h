@@ -18,13 +18,13 @@
     NSMutableArray *_symbolMasterStack;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *symbolMasterStack; // @synthesize symbolMasterStack=_symbolMasterStack;
 @property(retain, nonatomic) NSArray *artboardsByRect; // @synthesize artboardsByRect=_artboardsByRect;
 @property(retain, nonatomic) NSDictionary *artboardsByID; // @synthesize artboardsByID=_artboardsByID;
 @property(copy, nonatomic) NSDictionary *collectedFlows; // @synthesize collectedFlows=_collectedFlows;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
-- (void).cxx_destruct;
 - (void)pushSymbolMaster:(id)arg1 onStackInBlock:(CDUnknownBlockType)arg2;
 - (id)collectFlowForLayer:(id)arg1 destinationArtboardAncestry:(id)arg2 flowInfo:(struct MSFlowInfo)arg3 clipToRects:(id)arg4 mayDrawHotspotBounds:(BOOL)arg5;
 - (id)destinationArtboardAncestryForFlow:(id)arg1;

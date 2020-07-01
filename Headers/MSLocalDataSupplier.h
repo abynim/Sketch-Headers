@@ -19,9 +19,9 @@
 + (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
 + (id)dataFromFileURL:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
-- (void).cxx_destruct;
 - (void)respondToContentChanged;
 - (id)shuffleArray:(id)arg1 truncateToLength:(unsigned long long)arg2;
 - (id)shuffledArrayWithCount:(unsigned long long)arg1 fromArray:(id)arg2;

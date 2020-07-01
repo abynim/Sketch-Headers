@@ -15,8 +15,8 @@
     NSTableView *_searchResults;
 }
 
-@property(nonatomic) __weak NSTableView *searchResults; // @synthesize searchResults=_searchResults;
 - (void).cxx_destruct;
+@property(nonatomic) __weak NSTableView *searchResults; // @synthesize searchResults=_searchResults;
 - (void)moveFocusToTableView;
 - (BOOL)textView:(id)arg1 doCommandBySelector:(SEL)arg2;
 

@@ -20,13 +20,13 @@
     MSMathInspectorValueAdaptor *_rotationAdaptor;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdaptor; // @synthesize rotationAdaptor=_rotationAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *lengthAdapter; // @synthesize lengthAdapter=_lengthAdapter;
 @property(retain, nonatomic) NSButton *flipVerticalButton; // @synthesize flipVerticalButton=_flipVerticalButton;
 @property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
 @property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
 @property(retain, nonatomic) MSInlineUpDownTextField *lengthField; // @synthesize lengthField=_lengthField;
-- (void).cxx_destruct;
 - (void)updateButtonState:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;

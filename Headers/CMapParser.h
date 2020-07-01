@@ -19,6 +19,7 @@
     NSArray *_integersInProgress;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *integersInProgress; // @synthesize integersInProgress=_integersInProgress;
 @property(nonatomic) BOOL vertical; // @synthesize vertical=_vertical;
 @property(nonatomic) unsigned long long max; // @synthesize max=_max;
@@ -26,7 +27,6 @@
 @property(retain, nonatomic) NSArray *words; // @synthesize words=_words;
 @property(retain, nonatomic) NSString *source; // @synthesize source=_source;
 @property(retain, nonatomic) NSMutableDictionary *map; // @synthesize map=_map;
-- (void).cxx_destruct;
 - (void)parseData;
 - (void)parseCmap;
 - (void)codespacerangeParseWithCount:(unsigned long long)arg1;

@@ -15,8 +15,8 @@
     MSForeignObjectMenuBuilder *_menuBuilder;
 }
 
-@property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSForeignObjectMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 - (id)tooltip;
 - (id)label;
 - (id)noSharedObjectMenuItemTitle;

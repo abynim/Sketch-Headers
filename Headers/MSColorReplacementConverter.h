@@ -21,6 +21,7 @@
     MSColor *_replacementColor;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSColor *replacementColor; // @synthesize replacementColor=_replacementColor;
 @property(readonly, nonatomic) BOOL replaceAlphaOfOriginalColor; // @synthesize replaceAlphaOfOriginalColor=_replaceAlphaOfOriginalColor;
 @property(readonly, nonatomic) MSImmutableColor *immutableReplacementColor; // @synthesize immutableReplacementColor=_immutableReplacementColor;
@@ -28,7 +29,6 @@
 @property(readonly, nonatomic) BOOL ignoreAlphaWhenMatching; // @synthesize ignoreAlphaWhenMatching=_ignoreAlphaWhenMatching;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) MSColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 - (BOOL)shouldConvertImmutableColor:(id)arg1;
 - (BOOL)shouldConvertColor:(id)arg1;
 - (id)convertImmutableColor:(id)arg1;

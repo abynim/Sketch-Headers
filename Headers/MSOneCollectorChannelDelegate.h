@@ -37,7 +37,7 @@
 - (void)channel:(id)arg1 didPrepareLog:(id)arg2 internalId:(id)arg3 flags:(unsigned long long)arg4;
 - (void)channel:(id)arg1 prepareLog:(id)arg2;
 - (void)channelGroup:(id)arg1 didAddChannelUnit:(id)arg2;
-- (id)initWithInstallId:(id)arg1 baseUrl:(id)arg2;
+- (id)initWithHttpClient:(id)arg1 installId:(id)arg2 baseUrl:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

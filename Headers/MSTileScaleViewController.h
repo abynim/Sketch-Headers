@@ -15,10 +15,10 @@
     MSMathInspectorValueAdaptor *_scaleAdaptor;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *scaleAdaptor; // @synthesize scaleAdaptor=_scaleAdaptor;
 @property(retain, nonatomic) MSInlineUpDownTextField *scaleField; // @synthesize scaleField=_scaleField;
 @property(retain, nonatomic) NSArrayController *stylesController; // @synthesize stylesController=_stylesController;
-- (void).cxx_destruct;
 - (void)viewDidLoad;
 - (id)initWithStylesController:(id)arg1;
 

@@ -23,6 +23,7 @@
 + (void)drawCheckerboardBackgroundInRect:(struct CGRect)arg1 size:(double)arg2 foreColor:(struct CGColor *)arg3 backgroundColor:(struct CGColor *)arg4;
 + (id)presetPickerVisibilityDefaultsKey;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSColorInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSViewController *noContentController; // @synthesize noContentController=_noContentController;
 @property(retain, nonatomic) MSGenericButtonController *addButtonController; // @synthesize addButtonController=_addButtonController;
@@ -30,11 +31,9 @@
 @property(retain, nonatomic) MSAssetPickerScrubberController *assetPickerScrubberController; // @synthesize assetPickerScrubberController=_assetPickerScrubberController;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *assetPickerHeaderItem; // @synthesize assetPickerHeaderItem=_assetPickerHeaderItem;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
-- (void).cxx_destruct;
 - (void)assetPickerScrubberController:(id)arg1 didSelectAsset:(id)arg2;
 - (id)makeTouchBarItemForIdentifier:(id)arg1;
 - (id)customTouchBarItemIdentifiers;
-- (void)collectionViewSourceDidMutate:(id)arg1;
 - (void)adjustFirstResponder:(id)arg1;
 - (void)assetPickerController:(id)arg1 didSelectDataSource:(id)arg2;
 - (void)layoutChangedForAssetPickerCollection:(id)arg1;
@@ -66,8 +65,7 @@
 - (double)minimumHeight;
 - (id)scrollViewWithStackedViews:(id)arg1;
 - (id)stackViewsInVerticalScrollView:(id)arg1 frame:(struct CGRect)arg2;
-- (void)assetDataSourcesMighHaveChanged;
-- (void)didMoveThroughHistory:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
 
 @end

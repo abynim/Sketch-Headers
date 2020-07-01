@@ -14,9 +14,9 @@
     MSCoordinateInspectorValueAdaptor *_yAdaptor;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *yAdaptor; // @synthesize yAdaptor=_yAdaptor;
 @property(retain, nonatomic) MSCoordinateInspectorValueAdaptor *xAdaptor; // @synthesize xAdaptor=_xAdaptor;
-- (void).cxx_destruct;
 - (void)setLayers:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;

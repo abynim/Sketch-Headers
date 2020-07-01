@@ -29,6 +29,7 @@
 }
 
 + (BOOL)shouldContinueInertialScrollingAtSpeed:(double)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSAutoSelectingArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *rotationAdaptor; // @synthesize rotationAdaptor=_rotationAdaptor;
 @property(nonatomic) double inertialSpeed; // @synthesize inertialSpeed=_inertialSpeed;
@@ -44,7 +45,6 @@
 @property(nonatomic) BOOL currentlyTrackingTouch; // @synthesize currentlyTrackingTouch=_currentlyTrackingTouch;
 @property(nonatomic) __weak id <MSRotationBarDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (BOOL)isFlipped;
 - (void)endInertialScrolling;

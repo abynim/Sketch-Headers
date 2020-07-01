@@ -16,10 +16,10 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *points; // @synthesize points=_points;
 @property(nonatomic) long long pointRadiusBehaviour; // @synthesize pointRadiusBehaviour=_pointRadiusBehaviour;
 @property(nonatomic) BOOL isClosed; // @synthesize isClosed=_isClosed;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

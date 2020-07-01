@@ -25,6 +25,7 @@
 }
 
 + (id)overlayOptionsDefaultsKeys;
+- (void).cxx_destruct;
 @property(nonatomic, getter=isObservingDefaults) BOOL observingDefaults; // @synthesize observingDefaults=_observingDefaults;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
@@ -35,7 +36,6 @@
 @property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
-- (void).cxx_destruct;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)endObservingDefaults;
 - (void)beginObservingDefaults;

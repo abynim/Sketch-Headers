@@ -14,9 +14,9 @@
     NSString *_minimumVersion;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *minimumVersion; // @synthesize minimumVersion=_minimumVersion;
 @property(retain, nonatomic) NSString *expectedBundleID; // @synthesize expectedBundleID=_expectedBundleID;
-- (void).cxx_destruct;
 - (id)initWithBundleID:(id)arg1 minimumVersion:(id)arg2;
 
 @end

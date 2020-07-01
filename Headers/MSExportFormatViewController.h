@@ -26,6 +26,7 @@
 
 + (id)scaleDisplayStringForValue:(double)arg1 suffix:(unsigned short)arg2;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *scalePopupMenu; // @synthesize scalePopupMenu=_scalePopupMenu;
 @property(nonatomic) double designedFormatPopUpButtonWidth; // @synthesize designedFormatPopUpButtonWidth=_designedFormatPopUpButtonWidth;
 @property(nonatomic) double expandedRemoveWidth; // @synthesize expandedRemoveWidth=_expandedRemoveWidth;
@@ -38,7 +39,6 @@
 @property(retain, nonatomic) NSView *sizeView; // @synthesize sizeView=_sizeView;
 @property(retain, nonatomic) NSButton *removeSizeButton; // @synthesize removeSizeButton=_removeSizeButton;
 @property(retain, nonatomic) NSPopUpButton *formatPopup; // @synthesize formatPopup=_formatPopup;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateRemoveButtonLayout;
 - (double)sizeByRemovingSuffixes:(id)arg1;

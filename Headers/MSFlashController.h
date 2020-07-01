@@ -15,10 +15,10 @@
     MSFlashViewController *_flash;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSFlashViewController *flash; // @synthesize flash=_flash;
 @property(retain, nonatomic) NSMutableArray *messages; // @synthesize messages=_messages;
 @property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
-- (void).cxx_destruct;
 - (void)clearFlash;
 - (void)removeMessage:(id)arg1;
 - (id)displayFixedMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2;

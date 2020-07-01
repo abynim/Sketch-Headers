@@ -12,7 +12,7 @@
 @interface MSSharedObjectView : NSView
 {
     BOOL _hasShadow;
-    struct MSModelObject *_sharedObject;
+    MSModelObject<BCSortable><MSSharedObjectStyling> *_sharedObject;
     NSString *_label;
     NSColor *_labelColor;
     NSColor *_labelBackgroundColor;
@@ -21,6 +21,7 @@
     NSImage *_previewImage;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) BOOL hasShadow; // @synthesize hasShadow=_hasShadow;
 @property(nonatomic) unsigned long long borders; // @synthesize borders=_borders;
@@ -29,7 +30,6 @@
 @property(retain, nonatomic) NSColor *labelColor; // @synthesize labelColor=_labelColor;
 @property(retain, nonatomic) NSString *label; // @synthesize label=_label;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *sharedObject; // @synthesize sharedObject=_sharedObject;
-- (void).cxx_destruct;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)drawBorder;
 - (void)drawBorderFrom:(long long)arg1 to:(long long)arg2;

@@ -24,6 +24,7 @@
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setInferredLayoutOnAxis:(unsigned long long)arg1 direction:(unsigned long long)arg2;
 - (BOOL)shouldGrowSizeOfGroupForInferredLayout;
+@property(nonatomic) BOOL hasInferredLayout;
 - (id)candidatesForMasking;
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
@@ -35,18 +36,14 @@
 - (void)multiplyBy:(double)arg1;
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
 - (void)moveTransformsToChildren;
-- (BOOL)fixGeometryWithOptions:(long long)arg1 allowedAxes:(unsigned long long)arg2;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)groupBoundsShouldBeIntegral;
-@property(nonatomic) BOOL hasInferredLayout;
-- (BOOL)shouldResizeToFitBounds:(struct CGRect)arg1;
 - (struct CGRect)optimalBoundingBox;
-- (struct CGRect)optimalBoundingBoxInParentCoordinates;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
-- (BOOL)isExpanded;
 - (void)deselectLayerAndParent;
+- (BOOL)isExpanded;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
 - (void)setStyle:(id)arg1;
@@ -58,7 +55,7 @@
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1 test:(CDUnknownBlockType)arg2;
-- (void)enumerateLayersAvoidingFaultingWithTraits:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
+- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
 - (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;

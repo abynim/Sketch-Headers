@@ -18,11 +18,11 @@
 }
 
 + (long long)validateCanOpenLibrary:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) id <MSForeignObjectProvider> provider; // @synthesize provider=_provider;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 @property(retain, nonatomic) MSShareableObjectReference *selectedObjectReference; // @synthesize selectedObjectReference=_selectedObjectReference;
 @property(nonatomic) __weak NSArray *layers; // @synthesize layers=_layers;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) long long validateCanOpenInLibrary;
 - (void)updateWithForeignObjectProvider:(id)arg1 forLayers:(id)arg2;
 - (BOOL)containsOutOfSyncInstance;

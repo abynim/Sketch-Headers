@@ -15,10 +15,10 @@
     SCKCloudDocument *_document;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) SCKCloudDocument *document; // @synthesize document=_document;
 @property(readonly, nonatomic) NSString *message; // @synthesize message=_message;
 @property(readonly, nonatomic) unsigned long long number; // @synthesize number=_number;
-- (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1;
 
 @end

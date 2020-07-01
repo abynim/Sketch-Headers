@@ -14,8 +14,8 @@
 }
 
 + (Class)cellClass;
-@property(copy, nonatomic) NSString *buttonOnColorName; // @synthesize buttonOnColorName=_buttonOnColorName;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *buttonOnColorName; // @synthesize buttonOnColorName=_buttonOnColorName;
 - (struct NSEdgeInsets)alignmentRectInsets;
 
 @end

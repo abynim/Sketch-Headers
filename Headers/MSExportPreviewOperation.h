@@ -17,11 +17,11 @@
 }
 
 + (id)sharedPreviewRenderQueue;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(nonatomic) struct CGSize imageSize; // @synthesize imageSize=_imageSize;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 @property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) MSExportPreviewViewModel *previewViewModel;
 - (id)exportingColorSpace;
 - (void)main;

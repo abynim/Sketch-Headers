@@ -20,13 +20,13 @@
     struct CGSize _size;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCCache *renderingCache; // @synthesize renderingCache=_renderingCache;
 @property(copy, nonatomic) CDUnknownBlockType imageBlock; // @synthesize imageBlock=_imageBlock;
 @property(copy, nonatomic) CDUnknownBlockType shouldCancelBlock; // @synthesize shouldCancelBlock=_shouldCancelBlock;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) struct CGSize size; // @synthesize size=_size;
 @property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *symbolAncestry; // @synthesize symbolAncestry=_symbolAncestry;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (id)cacheForZoomLevel:(double)arg1;
 - (void)main;

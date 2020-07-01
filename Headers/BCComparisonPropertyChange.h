@@ -13,8 +13,8 @@
     NSString *_propertyName;
 }
 
-@property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 - (long long)type;
 - (id)internalFullPath;
 

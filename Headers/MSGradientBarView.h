@@ -16,10 +16,10 @@
     unsigned long long _selectedStopIndex;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long selectedStopIndex; // @synthesize selectedStopIndex=_selectedStopIndex;
 @property(retain, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;
 @property(nonatomic) __weak id <MSGradientBarViewDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (BOOL)becomeFirstResponder;
 - (BOOL)acceptsFirstResponder;
 - (BOOL)canBecomeKeyView;

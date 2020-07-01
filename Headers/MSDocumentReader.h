@@ -15,9 +15,9 @@
 }
 
 + (id)readerForDocumentAtURL:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
-- (void).cxx_destruct;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSImage *libraryPreviewImage;
 @property(readonly, nonatomic) NSImage *previewImage;

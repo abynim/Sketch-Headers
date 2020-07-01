@@ -21,10 +21,10 @@
 + (id)identifierForLibrary:(id)arg1;
 + (void)cleanupPersistedHashesNotIncludedInHelpersInBackground:(id)arg1;
 + (id)dispatchQueue;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *supportedAssetTypes; // @synthesize supportedAssetTypes=_supportedAssetTypes;
 @property(retain, nonatomic) NSMutableDictionary *collectionInfoDictionary; // @synthesize collectionInfoDictionary=_collectionInfoDictionary;
 @property(retain, nonatomic) MSAssetLibraryController *libraryController; // @synthesize libraryController=_libraryController;
-- (void).cxx_destruct;
 - (id)dataSourceWithIdentifier:(id)arg1 forAssetType:(unsigned long long)arg2;
 - (id)dataSourcesWithContentForAssetType:(unsigned long long)arg1 exludingDocumentsAtURLs:(id)arg2;
 - (id)dataSourcesForAssetType:(unsigned long long)arg1;

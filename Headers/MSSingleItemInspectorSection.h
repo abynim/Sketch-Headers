@@ -15,8 +15,8 @@
 
 + (BOOL)canHandleLayer:(id)arg1;
 + (Class)itemClass;
-@property(retain, nonatomic) MSInspectorItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSInspectorItem *item; // @synthesize item=_item;
 - (void)updateItems;
 
 @end

@@ -14,12 +14,15 @@
 
 @interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroupProtocol, MSImmutableLayerContainer>
 {
+    unsigned long long _containedTraits;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
-+ (id)createDetachedGroupFromMaster:(id)arg1 forInstance:(id)arg2 inDocument:(id)arg3;
+- (unsigned long long)containedTraits;
+- (void)calculateContainedTraits;
+- (void)objectDidInit;
 - (id)initAsCopyOf:(id)arg1 withLayers:(id)arg2;
 - (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
 - (id)resolvedUsingDocumentData:(id)arg1;
@@ -38,6 +41,7 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (unsigned long long)axesForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
+- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
 @property(readonly, nonatomic) double mirrorExportScale;
@@ -66,8 +70,6 @@
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-- (id)detachedMasterFromInstance:(id)arg1 byApplyingOverrrides:(id)arg2 inDocument:(id)arg3 withCache_Detach:(id)arg4;
-- (id)modifiedVersionByReplacingChildrenIn:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

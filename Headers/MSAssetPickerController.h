@@ -20,7 +20,7 @@
     id <MSAssetPickerControllerDelegate> _delegate;
     NSArray *_dataSources;
     MSAssetCollectionViewDataSource *_currentDataSource;
-    id <MSAsset> _highlightedAsset;
+    id <MSAsset> _currentAsset;
     NSCollectionView *_collectionView;
     MSAssetCollectionLayout *_flowLayout;
     MSGenericButtonController *_assetDisplayModeButtonController;
@@ -29,9 +29,12 @@
     NSIndexPath *_draggingSourceIndexPath;
     NSIndexPath *_currentDropTargetPath;
     unsigned long long _effectiveDisplayMode;
+    NSIndexPath *_itemToEdit;
 }
 
 + (Class)itemClassForAssetType:(unsigned long long)arg1;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSIndexPath *itemToEdit; // @synthesize itemToEdit=_itemToEdit;
 @property(nonatomic) unsigned long long effectiveDisplayMode; // @synthesize effectiveDisplayMode=_effectiveDisplayMode;
 @property(retain, nonatomic) NSIndexPath *currentDropTargetPath; // @synthesize currentDropTargetPath=_currentDropTargetPath;
 @property(retain, nonatomic) NSIndexPath *draggingSourceIndexPath; // @synthesize draggingSourceIndexPath=_draggingSourceIndexPath;
@@ -40,17 +43,17 @@
 @property(retain, nonatomic) MSGenericButtonController *assetDisplayModeButtonController; // @synthesize assetDisplayModeButtonController=_assetDisplayModeButtonController;
 @property(retain, nonatomic) MSAssetCollectionLayout *flowLayout; // @synthesize flowLayout=_flowLayout;
 @property(retain, nonatomic) NSCollectionView *collectionView; // @synthesize collectionView=_collectionView;
-@property(retain, nonatomic) id <MSAsset> highlightedAsset; // @synthesize highlightedAsset=_highlightedAsset;
+@property(retain, nonatomic) id <MSAsset> currentAsset; // @synthesize currentAsset=_currentAsset;
 @property(retain, nonatomic) MSAssetCollectionViewDataSource *currentDataSource; // @synthesize currentDataSource=_currentDataSource;
 @property(copy, nonatomic) NSArray *dataSources; // @synthesize dataSources=_dataSources;
 @property(nonatomic) __weak id <MSAssetPickerControllerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)assetItemDidEndRenaming:(id)arg1;
 - (void)assetItem:(id)arg1 wantsRenameTo:(id)arg2;
 - (void)scrollPathToVisible:(id)arg1;
 - (void)scrollPathToVisibleAndStartEditing:(id)arg1;
 - (void)assetItemWantsStartRenaming:(id)arg1;
+- (void)assetItemWantsStartEditing:(id)arg1;
 - (void)deleteAssetItem:(id)arg1;
 - (BOOL)assetItemIsEditable:(id)arg1;
 - (void)assetItem:(id)arg1 copyToCollection:(id)arg2;
@@ -78,7 +81,7 @@
 - (void)viewWillLayout;
 - (void)adjustHeight;
 - (void)updateLayoutParameters;
-- (void)updateHighlightedAssets;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)reloadDataAndUpdateSize;
 - (void)updateAssetDisplayModeButton;
 - (void)updateSwitchButton;

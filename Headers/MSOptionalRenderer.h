@@ -15,9 +15,9 @@
 }
 
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *disableSetting; // @synthesize disableSetting=_disableSetting;
 @property(retain, nonatomic) id baseRenderer; // @synthesize baseRenderer=_baseRenderer;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL enabled;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)initWithBaseRenderer:(id)arg1 disableSetting:(id)arg2;

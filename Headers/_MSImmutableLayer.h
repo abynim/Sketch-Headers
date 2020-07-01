@@ -35,6 +35,7 @@
 + (BOOL)shouldBreakMaskChainDefault;
 + (id)defaultFlow;
 + (long long)defaultLayerListExpandedType;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
 @property(retain, nonatomic) MSImmutableFlowConnection *flow; // @synthesize flow=_flow;
 @property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
@@ -53,7 +54,6 @@
 @property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
 @property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -14,9 +14,9 @@
     NSArray *_sectionViews;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *sectionViews; // @synthesize sectionViews=_sectionViews;
 @property(retain, nonatomic) NSArray *sectionViewControllers; // @synthesize sectionViewControllers=_sectionViewControllers;
-- (void).cxx_destruct;
 - (id)enclosingStackView;
 - (BOOL)isFlipped;
 - (void)reloadWithViewControllers:(id)arg1;

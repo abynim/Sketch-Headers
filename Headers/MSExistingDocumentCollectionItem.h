@@ -13,8 +13,8 @@
     NSURL *_URL;
 }
 
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
 - (void)updateDownloadProgress;

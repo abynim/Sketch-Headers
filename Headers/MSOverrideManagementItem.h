@@ -14,9 +14,9 @@
     MSComplimentaryOverrides *_complimentaryOverrides;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSComplimentaryOverrides *complimentaryOverrides; // @synthesize complimentaryOverrides=_complimentaryOverrides;
 @property(nonatomic) unsigned long long indentationLevel; // @synthesize indentationLevel=_indentationLevel;
-- (void).cxx_destruct;
 - (void)highlightItem:(BOOL)arg1;
 - (id)title;
 

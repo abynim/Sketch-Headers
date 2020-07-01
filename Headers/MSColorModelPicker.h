@@ -16,10 +16,10 @@
     MSColorModelPickerView *_modelPickerView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSColorModelPickerView *modelPickerView; // @synthesize modelPickerView=_modelPickerView;
 @property(nonatomic) __weak id <MSColorModelPickerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
-- (void).cxx_destruct;
 - (void)colorModeAction:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)showMenu;

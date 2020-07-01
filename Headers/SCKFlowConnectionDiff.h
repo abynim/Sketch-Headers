@@ -17,10 +17,10 @@
     unsigned long long _attributes;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long attributes; // @synthesize attributes=_attributes;
 @property(readonly, copy, nonatomic) SCKFlowConnection *comparedObject; // @synthesize comparedObject=_comparedObject;
 @property(readonly, copy, nonatomic) SCKFlowConnection *object; // @synthesize object=_object;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL objectsAreEqual;
 - (id)initWithObject:(id)arg1 comparedTo:(id)arg2;
 

@@ -14,9 +14,9 @@
     NSCountedSet *_usageCounts;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSCountedSet *usageCounts; // @synthesize usageCounts=_usageCounts;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
-- (void).cxx_destruct;
 - (long long)compare:(id)arg1 byUse:(long long)arg2;
 - (long long)compare:(id)arg1;
 - (id)secondarySortPriorities;

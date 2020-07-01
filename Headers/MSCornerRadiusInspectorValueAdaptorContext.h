@@ -16,11 +16,11 @@
     NSNumber *_value;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumber *value; // @synthesize value=_value;
 @property(retain, nonatomic) NSString *mathOperator; // @synthesize mathOperator=_mathOperator;
 @property(retain, nonatomic) NSString *componentString; // @synthesize componentString=_componentString;
 @property(nonatomic) unsigned long long mode; // @synthesize mode=_mode;
-- (void).cxx_destruct;
 - (id)componentStringWithMathValueForModel:(id)arg1;
 
 @end

@@ -14,9 +14,9 @@
     NSEvent *_lastForwardedKeyEvent;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSEvent *lastForwardedKeyEvent; // @synthesize lastForwardedKeyEvent=_lastForwardedKeyEvent;
 @property(retain, nonatomic) BCWindowBadge *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
-- (void).cxx_destruct;
 - (void)setAppearance:(id)arg1;
 - (void)refreshAfterAppearanceChange;
 - (id)touchBar;

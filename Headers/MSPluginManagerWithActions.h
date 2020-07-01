@@ -17,10 +17,10 @@
     NSDictionary *_commandsWithHandler;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL wilcardsEnabled; // @synthesize wilcardsEnabled=_wilcardsEnabled;
 @property(retain, nonatomic) NSDictionary *commandsWithHandler; // @synthesize commandsWithHandler=_commandsWithHandler;
 @property(nonatomic) __weak MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
-- (void).cxx_destruct;
 - (id)pluginAndCommandIdentifiersForPlugins:(id)arg1;
 - (void)sendCommandActionWithID:(id)arg1 toPlugins:(id)arg2 withIdentifiers:(id)arg3 context:(id)arg4;
 - (id)pluginsToSendStartupMessageToWithOldPlugins:(id)arg1 andNewPlugins:(id)arg2;

@@ -16,9 +16,9 @@
 }
 
 + (Class)cellClass;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSFlexibleColor *color; // @synthesize color=_color;
 @property(nonatomic) __weak id <BCMagnifierButtonDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (BOOL)sendAction:(SEL)arg1 to:(id)arg2;
 - (id)documentColorSpace;
 - (id)initWithFrame:(struct CGRect)arg1;

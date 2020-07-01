@@ -15,10 +15,10 @@
     BCDownloadManager *_pluginDownloader;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCDownloadManager *pluginDownloader; // @synthesize pluginDownloader=_pluginDownloader;
 @property(nonatomic) long long downloadingPluginVersionsStatus; // @synthesize downloadingPluginVersionsStatus=_downloadingPluginVersionsStatus;
 @property(nonatomic) long long downloadingAppcastsStatus; // @synthesize downloadingAppcastsStatus=_downloadingAppcastsStatus;
-- (void).cxx_destruct;
 - (BOOL)makeDecompressError:(id *)arg1 withDescription:(id)arg2;
 - (BOOL)decompressCurrentFile:(void *)arg1 toURL:(id)arg2 error:(id *)arg3;
 - (BOOL)decompressPluginZip:(id)arg1 toFolder:(id)arg2 error:(id *)arg3;

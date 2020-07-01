@@ -6,7 +6,7 @@
 
 #import "MSTextInputEventHandler.h"
 
-@class MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSymbolInstance, MSTextLayer;
+@class MSImmutableSymbolMaster, MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSymbolInstance, MSTextLayer;
 
 @interface MSTextOverrideEventHandler : MSTextInputEventHandler
 {
@@ -15,14 +15,16 @@
     MSOverrideValue *_overrideValue;
     MSTextLayer *_textLayer;
     MSImmutableTextStyle *_style;
+    MSImmutableSymbolMaster *_immutableMaster;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) MSImmutableSymbolMaster *immutableMaster; // @synthesize immutableMaster=_immutableMaster;
 @property(retain, nonatomic) MSImmutableTextStyle *style; // @synthesize style=_style;
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 @property(retain, nonatomic) MSOverrideValue *overrideValue; // @synthesize overrideValue=_overrideValue;
 @property(retain, nonatomic) MSOverrideRepresentation *override; // @synthesize override=_override;
 @property(retain, nonatomic) MSSymbolInstance *instance; // @synthesize instance=_instance;
-- (void).cxx_destruct;
 - (void)textDidChange:(id)arg1;
 - (void)documentDidChange:(id)arg1;
 - (void)handlerWillLoseFocus;

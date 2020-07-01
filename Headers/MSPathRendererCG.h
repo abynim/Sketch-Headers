@@ -18,13 +18,13 @@
 - (BOOL)shadowFillShouldClipForStyle:(id)arg1;
 - (void)drawShadowsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4;
 - (void)clipFillsWithPath:(id)arg1 style:(id)arg2 layer:(id)arg3 context:(id)arg4 block:(CDUnknownBlockType)arg5;
-- (void)drawFillForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 fallbackColor:(struct CGColor *)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
+- (void)drawFillsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 fillColor:(struct CGColor *)arg4 rect:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBordersForPath:(id)arg1 style:(id)arg2 applyClip:(BOOL)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (void)renderFillsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (BOOL)shouldAdvanceClipToAvoidOuterStrokeStrokeBleedForStyle:(id)arg1;
 - (BOOL)shouldAdvanceClipToAvoidInnerStrokeBleedForStyle:(id)arg1 layer:(id)arg2;
 - (id)clipPathForOuterStrokeForStyle:(id)arg1 path:(id)arg2 layer:(id)arg3 context:(id)arg4;
-- (void)renderPath:(id)arg1 style:(id)arg2 layer:(id)arg3 inRect:(struct CGRect)arg4 fallbackColor:(struct CGColor *)arg5 context:(id)arg6;
+- (void)renderPath:(id)arg1 style:(id)arg2 layer:(id)arg3 inRect:(struct CGRect)arg4 fillColor:(struct CGColor *)arg5 context:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

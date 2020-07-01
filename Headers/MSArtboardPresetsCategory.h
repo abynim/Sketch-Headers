@@ -15,9 +15,9 @@
 }
 
 + (id)categoriesWithContentsOfURL:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSArray *sections; // @synthesize sections=_sections;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)initWithName:(id)arg1 sections:(id)arg2;
 

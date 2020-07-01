@@ -20,12 +20,12 @@
 + (id)containerWithPathItem:(id)arg1;
 + (id)containerWithPathItems:(id)arg1;
 + (id)container;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isEmpty; // @synthesize isEmpty=_isEmpty;
 @property(readonly, copy, nonatomic) NSSet *flowItems; // @synthesize flowItems=_flowItems;
 @property(readonly, copy, nonatomic) NSArray *labelItems; // @synthesize labelItems=_labelItems;
 @property(readonly, copy, nonatomic) NSArray *bitmapItems; // @synthesize bitmapItems=_bitmapItems;
 @property(readonly, copy, nonatomic) NSArray *pathItems; // @synthesize pathItems=_pathItems;
-- (void).cxx_destruct;
 - (BOOL)isEqualToOverlayItemContainer:(id)arg1;
 - (id)appendingItems:(id)arg1;
 - (id)initWithPathItems:(id)arg1 bitmapItems:(id)arg2 labelItems:(id)arg3 flowItems:(id)arg4;

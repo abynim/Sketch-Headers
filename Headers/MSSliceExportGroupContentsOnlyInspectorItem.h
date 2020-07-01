@@ -14,8 +14,8 @@
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
-@property(retain, nonatomic) NSButton *groupContentsOnlyButton; // @synthesize groupContentsOnlyButton=_groupContentsOnlyButton;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSButton *groupContentsOnlyButton; // @synthesize groupContentsOnlyButton=_groupContentsOnlyButton;
 - (void)groupContentsOnlyAction:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;

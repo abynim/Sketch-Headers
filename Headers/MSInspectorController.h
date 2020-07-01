@@ -26,6 +26,7 @@
     MSNormalInspector *_normalInspector;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
@@ -37,7 +38,6 @@
 @property(retain, nonatomic) BCCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL sharedStyleInspectorVisible;
 - (void)reloadTouchBars;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;

@@ -14,9 +14,9 @@
     unsigned long long _indexInParent;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long indexInParent; // @synthesize indexInParent=_indexInParent;
 @property(readonly, nonatomic) MSImmutableModelObject *modelObject; // @synthesize modelObject=_modelObject;
-- (void).cxx_destruct;
 - (id)initWithObject:(id)arg1 indexInParent:(unsigned long long)arg2;
 
 @end

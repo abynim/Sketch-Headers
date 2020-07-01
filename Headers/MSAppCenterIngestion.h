@@ -15,11 +15,13 @@
 
 @property(copy, nonatomic) NSString *appSecret; // @synthesize appSecret=_appSecret;
 - (void).cxx_destruct;
-- (id)obfuscateHeaderValue:(id)arg1 forKey:(id)arg2;
-- (id)createRequest:(id)arg1 eTag:(id)arg2 authToken:(id)arg3;
-- (void)sendAsync:(id)arg1 authToken:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)willSendHTTPRequestToURL:(id)arg1 withHeaders:(id)arg2;
+- (id)obfuscateResponsePayload:(id)arg1;
+- (id)getPayloadWithData:(id)arg1;
+- (id)getHeadersWithData:(id)arg1 eTag:(id)arg2;
+- (void)sendAsync:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)isReadyToSend;
-- (id)initWithBaseUrl:(id)arg1 installId:(id)arg2;
+- (id)initWithHttpClient:(id)arg1 baseUrl:(id)arg2 installId:(id)arg3;
 
 @end
 

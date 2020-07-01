@@ -25,12 +25,12 @@
     MSTextWindow *_textViewWindow;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSTextWindow *textViewWindow; // @synthesize textViewWindow=_textViewWindow;
 @property(retain, nonatomic) NSTimer *updateInsertionPointColorTimer; // @synthesize updateInsertionPointColorTimer=_updateInsertionPointColorTimer;
 @property(retain, nonatomic) NSTextStorage *textStorage; // @synthesize textStorage=_textStorage;
 @property(readonly, nonatomic) MSImmutableTextLayer *immutableTextLayer; // @synthesize immutableTextLayer=_immutableTextLayer;
 @property(retain, nonatomic) MSTextLayerTextView *textView; // @synthesize textView=_textView;
-- (void).cxx_destruct;
 - (void)willStartExporting;
 - (id)selectionTouchBar;
 - (BOOL)shouldExitOnContentViewResize;
@@ -57,6 +57,7 @@
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)adjustTextViewFrame;
 - (void)scheduleUpdateInsertionPointColorTimer;
+- (BOOL)layoutManager:(id)arg1 shouldSetLineFragmentRect:(inout struct CGRect *)arg2 lineFragmentUsedRect:(inout struct CGRect *)arg3 baselineOffset:(inout double *)arg4 inTextContainer:(id)arg5 forGlyphRange:(struct _NSRange)arg6;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
 - (id)documentColorSpaceForTextLayerTextView:(id)arg1;
 - (id)canvasColorSpaceForTextLayerTextView:(id)arg1;

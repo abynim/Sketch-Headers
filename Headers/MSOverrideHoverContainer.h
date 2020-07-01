@@ -16,8 +16,8 @@
     MSOverridePoint *_overridePoint;
 }
 
-@property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (BOOL)canBeHoveredOnPage:(id)arg1;

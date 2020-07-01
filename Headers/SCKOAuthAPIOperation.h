@@ -17,8 +17,8 @@
 + (void)refreshAuthentication:(id)arg1 handler:(CDUnknownBlockType)arg2;
 + (void)refreshSession:(id)arg1 withRequest:(id)arg2 handler:(CDUnknownBlockType)arg3;
 + (void)signinWithEmail:(id)arg1 password:(id)arg2 handler:(CDUnknownBlockType)arg3;
-@property(readonly, nonatomic) SCKAPISession *authentication; // @synthesize authentication=_authentication;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SCKAPISession *authentication; // @synthesize authentication=_authentication;
 - (void)processData:(id)arg1 response:(id)arg2 error:(id)arg3;
 - (void)refreshAuthentication;
 - (id)initWithRequest:(id)arg1;

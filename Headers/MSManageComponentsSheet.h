@@ -14,9 +14,9 @@
     NSViewController *_canvasViewController;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSViewController *canvasViewController; // @synthesize canvasViewController=_canvasViewController;
 @property(retain, nonatomic) NSView *containerView; // @synthesize containerView=_containerView;
-- (void).cxx_destruct;
 - (void)windowDidLoad;
 
 @end

@@ -8,15 +8,17 @@
 
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSColorSpaceProvider-Protocol.h"
+#import "MSDropableViewDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSReorderingViewDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
+#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
 @class BCPopover, MSColorInspector, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSString;
 
-@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate>
+@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate, _TtP6Sketch24MSComponentsPopoverOwner_, MSDropableViewDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
     MSColorInspector *_colorInspector;
@@ -25,17 +27,19 @@
     MSInspectorValueAdaptor *_stylePartAdaptor;
 }
 
++ (id)supportedPasteboardTypesForColorPreviewButton;
 + (id)fillTypeStringForFillType:(unsigned long long)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInspectorValueAdaptor *stylePartAdaptor; // @synthesize stylePartAdaptor=_stylePartAdaptor;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
-- (void).cxx_destruct;
 - (BOOL)reorderingView:(id)arg1 shouldDeleteItemForDragPosition:(struct CGPoint)arg2;
 - (void)setBlendMode:(long long)arg1 forPreviewButton:(id)arg2;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)refreshAction:(id)arg1;
 - (void)updateBlendMode;
@@ -55,7 +59,16 @@
 - (id)getFirstColorFromCurrentStyleParts;
 - (BOOL)showNativeColorPanelIfSuitable;
 - (void)togglePopover;
+- (void)pickColorVariableAction:(id)arg1;
+- (id)currentSwatchReference;
+- (id)currentSwatch;
+- (id)readSwatchReferencesFromPasteboard:(id)arg1;
+- (void)applyUserSelectedColors:(id)arg1;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
+- (id)draggedTypesForView:(id)arg1;
 - (void)didGetAddedToInspector;
+- (void)viewDidLoad;
 - (void)prepare;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

@@ -21,12 +21,12 @@
     NSSplitView *_splitView;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) BOOL hasSyncableItems; // @synthesize hasSyncableItems=_hasSyncableItems;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
 @property(nonatomic) __weak MSSharedObjectView *updatedSharedObjectView; // @synthesize updatedSharedObjectView=_updatedSharedObjectView;
 @property(nonatomic) __weak MSSharedObjectView *currentSharedObjectView; // @synthesize currentSharedObjectView=_currentSharedObjectView;
 @property(readonly, nonatomic) NSArray *tableViewData; // @synthesize tableViewData=_tableViewData;
-- (void).cxx_destruct;
 - (void)updateSelectedForSync:(id)arg1;
 - (BOOL)splitView:(id)arg1 shouldAdjustSizeOfSubview:(id)arg2;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;

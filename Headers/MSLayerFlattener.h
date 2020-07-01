@@ -13,8 +13,8 @@
     NSObject<MSLayerFlattenerDelegate> *_delegate;
 }
 
-@property(nonatomic) __weak NSObject<MSLayerFlattenerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak NSObject<MSLayerFlattenerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (id)exportRequestFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3 includeArtboardBackground:(BOOL)arg4;
 - (struct CGRect)trimRectFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3 includeArtboardBackground:(BOOL)arg4;
 - (struct CGRect)rectFromLayers:(id)arg1;

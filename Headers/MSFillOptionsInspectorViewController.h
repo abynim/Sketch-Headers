@@ -13,8 +13,8 @@
     NSArray *_layers;
 }
 
-@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 
 @end
 

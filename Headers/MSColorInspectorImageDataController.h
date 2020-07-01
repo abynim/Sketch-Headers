@@ -18,8 +18,8 @@
     id <MSColorInspectorImageDataControllerDelegate> delegate;
 }
 
-@property(nonatomic) __weak id <MSColorInspectorImageDataControllerDelegate> delegate; // @synthesize delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSColorInspectorImageDataControllerDelegate> delegate; // @synthesize delegate;
 - (void)menuDidClose:(id)arg1;
 - (void)showMenuAtLocation:(struct CGPoint)arg1 inView:(id)arg2;
 - (void)clearDataRecordFromCurrentSelection:(id)arg1;

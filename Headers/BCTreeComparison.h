@@ -20,12 +20,12 @@
     BCComparisonItem *_currentParent;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) BCComparisonItem *currentParent; // @synthesize currentParent=_currentParent;
 @property(nonatomic) __weak id <BCTreeComparisonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id root2; // @synthesize root2=_root2;
 @property(retain, nonatomic) id root1; // @synthesize root1=_root1;
 @property(retain, nonatomic) NSMutableArray *mutableChanges; // @synthesize mutableChanges=_mutableChanges;
-- (void).cxx_destruct;
 - (void)findCrossArrayMoves;
 - (void)compareOldObject:(id)arg1 againstNewObject:(id)arg2 withName:(id)arg3;
 - (void)compareOldArray:(id)arg1 againstNewArray:(id)arg2 withName:(id)arg3;

@@ -13,8 +13,8 @@
     MSAssetCollectionViewItem *_item;
 }
 
-@property(nonatomic) __weak MSAssetCollectionViewItem *item; // @synthesize item=_item;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSAssetCollectionViewItem *item; // @synthesize item=_item;
 - (void)drawRect:(struct CGRect)arg1;
 
 @end

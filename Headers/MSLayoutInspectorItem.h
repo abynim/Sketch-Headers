@@ -15,10 +15,10 @@
     MSInspectorSegmentedControl *_axisSegmentedControl;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSInspectorSegmentedControl *axisSegmentedControl; // @synthesize axisSegmentedControl=_axisSegmentedControl;
 @property(retain, nonatomic) MSInspectorSegmentedControl *directionSegmentedControl; // @synthesize directionSegmentedControl=_directionSegmentedControl;
 @property(retain, nonatomic) NSTextField *directionLabel; // @synthesize directionLabel=_directionLabel;
-- (void).cxx_destruct;
 - (void)layoutDirectionAction:(id)arg1;
 - (void)layoutAxisAction:(id)arg1;
 - (void)updateLayoutDirectionForSelectedGroupsTo:(unsigned long long)arg1;

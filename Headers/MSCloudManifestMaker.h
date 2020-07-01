@@ -16,10 +16,10 @@
     NSString *_organizationID;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *organizationID; // @synthesize organizationID=_organizationID;
 @property(retain, nonatomic) NSSet *objectsToExport; // @synthesize objectsToExport=_objectsToExport;
 @property(retain, nonatomic) id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
 - (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (BOOL)validate;

@@ -13,8 +13,8 @@
     NSImage *_image;
 }
 
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (BOOL)wantsLayer;
 
 @end

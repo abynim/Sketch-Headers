@@ -17,10 +17,10 @@
     NSDictionary *_relativeRects;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *relativeRects; // @synthesize relativeRects=_relativeRects;
 @property(nonatomic) struct CGImage *atlasImage; // @synthesize atlasImage=_atlasImage;
 @property(readonly, copy, nonatomic) NSDictionary *textures; // @synthesize textures=_textures;
-- (void).cxx_destruct;
 - (struct CGRect)relativeRectForResizeableTextureNamed:(id)arg1 withEdgePaddings:(struct BCEdgePaddings)arg2;
 - (id)textureForRenderer:(id)arg1;
 - (struct CGRect)absoluteRectForTextureNamed:(id)arg1;

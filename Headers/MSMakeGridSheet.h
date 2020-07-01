@@ -23,6 +23,7 @@
     NSButton *_shouldFilHolesButton;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSButton *shouldFilHolesButton; // @synthesize shouldFilHolesButton=_shouldFilHolesButton;
 @property(nonatomic) __weak NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(nonatomic) __weak NSTextField *subtextField; // @synthesize subtextField=_subtextField;
@@ -34,7 +35,6 @@
 @property(nonatomic) BOOL hasVerticalPadding; // @synthesize hasVerticalPadding=_hasVerticalPadding;
 @property(nonatomic) BOOL hasHorizontalPadding; // @synthesize hasHorizontalPadding=_hasHorizontalPadding;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
-- (void).cxx_destruct;
 - (struct CGSize)defaultBoxSize;
 - (unsigned long long)layerCount;
 - (BOOL)layersHaveSameSize;

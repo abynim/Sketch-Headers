@@ -19,9 +19,9 @@
 + (id)styleWithFillColor:(id)arg1;
 + (Class)immutableStylePartClassOfType:(unsigned long long)arg1;
 + (Class)stylePartClassOfType:(unsigned long long)arg1;
-@property(retain, nonatomic) NSString *primitiveSharedObjectID; // @synthesize primitiveSharedObjectID=_primitiveSharedObjectID;
 - (void).cxx_destruct;
-- (void)syncWithTemplateInstance:(struct MSModelObject *)arg1;
+@property(retain, nonatomic) NSString *primitiveSharedObjectID; // @synthesize primitiveSharedObjectID=_primitiveSharedObjectID;
+- (void)syncWithTemplateInstance:(id)arg1;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) double thickestStroke;

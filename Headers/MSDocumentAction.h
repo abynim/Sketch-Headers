@@ -18,10 +18,10 @@
     NSEvent *_previousEvent;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak NSEvent *previousEvent; // @synthesize previousEvent=_previousEvent;
 @property(retain, nonatomic) NSTouchBarItem *cachedTouchedBarItem; // @synthesize cachedTouchedBarItem=_cachedTouchedBarItem;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performPopUpMenuAction;

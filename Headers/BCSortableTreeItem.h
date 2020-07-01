@@ -21,11 +21,11 @@
 + (void)sortAndCombineTreeItems:(id)arg1;
 + (id)sortableTreeItemForObject:(id)arg1;
 + (id)sortableTreeItemsForSortableObjects:(id)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *descriptionDictionary; // @synthesize descriptionDictionary=_descriptionDictionary;
 @property(retain, nonatomic) NSMutableArray *internalChildren; // @synthesize internalChildren=_internalChildren;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) id <BCSortable> object; // @synthesize object=_object;
-- (void).cxx_destruct;
 - (void)compressNesting;
 @property(readonly, nonatomic) NSArray *children;
 - (id)initWithObject:(id)arg1 parent:(id)arg2 name:(id)arg3;

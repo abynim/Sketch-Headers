@@ -27,6 +27,7 @@
 + (id)curveFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3;
 + (id)lineFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3;
 + (id)zeroRadiusFilletWithSegment1:(id)arg1 segment2:(id)arg2;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGPoint arcCenter; // @synthesize arcCenter=_arcCenter;
 @property(readonly, nonatomic) struct CGPoint arcEndPoint2; // @synthesize arcEndPoint2=_arcEndPoint2;
 @property(readonly, nonatomic) struct CGPoint arcEndPoint1; // @synthesize arcEndPoint1=_arcEndPoint1;
@@ -35,7 +36,6 @@
 @property(readonly, nonatomic) double segment1Offset; // @synthesize segment1Offset=_segment1Offset;
 @property(readonly, nonatomic) MSBezierSegment *segment2; // @synthesize segment2=_segment2;
 @property(readonly, nonatomic) MSBezierSegment *segment1; // @synthesize segment1=_segment1;
-- (void).cxx_destruct;
 - (id)debugQuickLookObject;
 - (void)addArcToBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
 - (id)arcSegments;

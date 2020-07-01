@@ -22,6 +22,7 @@
     struct CGPoint _lastEventLocationInWindow;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long lastEventType; // @synthesize lastEventType=_lastEventType;
 @property(nonatomic) long long lastMouseDownClickCount; // @synthesize lastMouseDownClickCount=_lastMouseDownClickCount;
 @property(nonatomic) struct CGPoint lastEventLocationInWindow; // @synthesize lastEventLocationInWindow=_lastEventLocationInWindow;
@@ -29,11 +30,9 @@
 @property(retain, nonatomic) MSEventHandler *currentHandler; // @synthesize currentHandler=_currentHandler;
 @property(nonatomic) __weak id <MSEventHandlerManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)documentDidChange:(id)arg1;
-- (void)selectionDidChangeTo:(id)arg1;
 - (void)recordEvent:(id)arg1;
 - (void)sendMouseMovedEvent:(id)arg1;
 - (void)sendMouseUpEvent:(id)arg1;

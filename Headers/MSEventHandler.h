@@ -33,6 +33,7 @@
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSEventHandlerOverlayItemImageCache *overlayItemImageCache; // @synthesize overlayItemImageCache=_overlayItemImageCache;
 @property(copy, nonatomic) NSDictionary *measurementLabelAttributes; // @synthesize measurementLabelAttributes=_measurementLabelAttributes;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
@@ -45,7 +46,6 @@
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 @property(retain, nonatomic) MSDuplicateOffsetTracker *offsetTracker; // @synthesize offsetTracker=_offsetTracker;
 @property(nonatomic) __weak MSEventHandlerManager *manager; // @synthesize manager=_manager;
-- (void).cxx_destruct;
 - (void)willStartExporting;
 - (id)documentWindow;
 - (BOOL)mayShowResizingInspectorView;
@@ -150,10 +150,6 @@
 - (void)zoomToArtboard;
 - (void)zoomToSelection;
 - (void)reloadFollowingBackgroundChangesToDocument;
-- (void)unregisterObservers;
-- (void)registerObservers;
-- (void)didMoveThroughHistory:(id)arg1;
-- (void)willMoveThroughHistory:(id)arg1;
 @property(readonly, nonatomic) NSString *applicableActionItemIdentifier;
 @property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;

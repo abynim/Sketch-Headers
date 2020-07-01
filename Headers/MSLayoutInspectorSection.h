@@ -17,15 +17,16 @@
 }
 
 + (id)createLayoutInspectorHeaderForSection:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSMinOrMaxSizeLayoutInspectorItem *layoutSizeHeightItem; // @synthesize layoutSizeHeightItem=_layoutSizeHeightItem;
 @property(retain, nonatomic) MSMinOrMaxSizeLayoutInspectorItem *layoutSizeWidthItem; // @synthesize layoutSizeWidthItem=_layoutSizeWidthItem;
 @property(retain, nonatomic) MSLayoutInspectorItem *layoutItem; // @synthesize layoutItem=_layoutItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *layoutHeader; // @synthesize layoutHeader=_layoutHeader;
-- (void).cxx_destruct;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (unsigned long long)inferredLayoutAxes;
 - (id)symbolMasters;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

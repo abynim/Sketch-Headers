@@ -13,8 +13,8 @@
     MSDocument *_doc;
 }
 
-@property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
 - (void)hide;
 - (void)show;
 - (void)attachToView:(id)arg1;

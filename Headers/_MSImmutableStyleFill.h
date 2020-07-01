@@ -18,12 +18,12 @@
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
 @property(nonatomic) double patternTileScale; // @synthesize patternTileScale=_patternTileScale;
 @property(nonatomic) long long patternFillType; // @synthesize patternFillType=_patternFillType;
 @property(nonatomic) double noiseIntensity; // @synthesize noiseIntensity=_noiseIntensity;
 @property(nonatomic) long long noiseIndex; // @synthesize noiseIndex=_noiseIndex;
 @property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
-- (void).cxx_destruct;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

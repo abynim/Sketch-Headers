@@ -14,9 +14,9 @@
     MSAssetLibrary *_library;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSAssetLibrary *library; // @synthesize library=_library;
 @property(readonly, nonatomic) MSForeignSymbol *foreignSymbol; // @synthesize foreignSymbol=_foreignSymbol;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *libraryName;
 @property(readonly, nonatomic) NSString *symbolName;
 - (id)initWithForeignSymbol:(id)arg1;

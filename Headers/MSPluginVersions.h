@@ -15,10 +15,10 @@
     NSMutableDictionary *__versionsDictionary;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableDictionary *_versionsDictionary; // @synthesize _versionsDictionary=__versionsDictionary;
 @property(readonly, copy, nonatomic) NSURL *appcastURL; // @synthesize appcastURL=_appcastURL;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void).cxx_destruct;
 - (BOOL)isUpdateAvailableForVersion:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *latestVersionAvailable;
 @property(readonly, copy, nonatomic) NSDictionary *versionsDictionary;

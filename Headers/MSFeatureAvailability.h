@@ -17,22 +17,30 @@
     // Error parsing type: , name: maintainScrollPositionAfterClick
     // Error parsing type: , name: assistants
     // Error parsing type: , name: structuredData
-    // Error parsing type: , name: sharedEditing
+    // Error parsing type: , name: incrementalCloudUploads
+    // Error parsing type: , name: collaborationLog
     // Error parsing type: , name: colorVariables
     // Error parsing type: , name: embeddedFonts
+    // Error parsing type: , name: contextualSelectAll
+    // Error parsing type: , name: escalatingSelectAll
     // Error parsing type: , name: undoUsingRefaulting
     // Error parsing type: , name: gpuOverlay
+    // Error parsing type: , name: renderResolvedDocument
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *renderResolvedDocument; // @synthesize renderResolvedDocument;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *gpuOverlay; // @synthesize gpuOverlay;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *undoUsingRefaulting; // @synthesize undoUsingRefaulting;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *escalatingSelectAll; // @synthesize escalatingSelectAll;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *contextualSelectAll; // @synthesize contextualSelectAll;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *embeddedFonts; // @synthesize embeddedFonts;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *colorVariables; // @synthesize colorVariables;
-@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *sharedEditing; // @synthesize sharedEditing;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *collaborationLog; // @synthesize collaborationLog;
+@property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *incrementalCloudUploads; // @synthesize incrementalCloudUploads;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *structuredData; // @synthesize structuredData;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *assistants; // @synthesize assistants;
 @property(nonatomic, readonly) _TtC11SketchModel11FeatureFlag *maintainScrollPositionAfterClick; // @synthesize maintainScrollPositionAfterClick;

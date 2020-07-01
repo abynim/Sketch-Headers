@@ -14,8 +14,8 @@
 }
 
 + (id)exportViewWithRenderer:(id)arg1;
-@property(nonatomic) __weak MSExporter *renderer; // @synthesize renderer=_renderer;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSExporter *renderer; // @synthesize renderer=_renderer;
 - (BOOL)isFlipped;
 - (void)drawRect:(struct CGRect)arg1;
 

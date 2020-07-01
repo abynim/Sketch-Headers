@@ -15,10 +15,10 @@
     long long _windowNumber;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) long long windowNumber; // @synthesize windowNumber=_windowNumber;
 @property(nonatomic) BOOL mouseIsOnCanvas; // @synthesize mouseIsOnCanvas=_mouseIsOnCanvas;
 @property(readonly, nonatomic) BCScreenGrab *canvasGrab; // @synthesize canvasGrab=_canvasGrab;
-- (void).cxx_destruct;
 - (id)initWithPreviousCanvasGrabResult:(id)arg1 mouseIsOnCanvas:(BOOL)arg2;
 - (id)initWithCanvasGrab:(id)arg1 windowNumber:(long long)arg2 mouseIsOnCanvas:(BOOL)arg3;
 

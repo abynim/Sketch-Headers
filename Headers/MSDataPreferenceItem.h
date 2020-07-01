@@ -21,12 +21,12 @@
 + (id)keyPathsForValuesAffectingSecondaryTextFieldColor;
 + (id)keyPathsForValuesAffectingPrimaryTextFieldColor;
 + (id)preferenceItemForLocalData:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
 @property(readonly, nonatomic) NSString *modificationDate; // @synthesize modificationDate=_modificationDate;
 @property(nonatomic) __weak MSDataTableCellView *cellView; // @synthesize cellView=_cellView;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(readonly, nonatomic) MSDataSupplierGroup *dataGroup; // @synthesize dataGroup=_dataGroup;
-- (void).cxx_destruct;
 - (id)dataTypeString;
 @property(readonly, nonatomic) NSColor *secondaryTextFieldColor;
 @property(readonly, nonatomic) NSColor *primaryTextFieldColor;

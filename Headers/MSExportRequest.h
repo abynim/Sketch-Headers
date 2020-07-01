@@ -41,6 +41,7 @@
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 useIDForName:(BOOL)arg3;
 + (id)exportRequestsFromExportableLayer:(id)arg1 useIDForName:(BOOL)arg2;
 + (id)exportRequestsFromExportableLayer:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL renderSymbolMasterAsInstances; // @synthesize renderSymbolMasterAsInstances=_renderSymbolMasterAsInstances;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
 @property(nonatomic) BOOL interlaced; // @synthesize interlaced=_interlaced;
@@ -56,7 +57,6 @@
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
-- (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocument;
 @property(readonly, nonatomic) MSImmutableLayer *rootLayer;

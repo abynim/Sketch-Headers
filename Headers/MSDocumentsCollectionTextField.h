@@ -9,6 +9,7 @@
 @interface MSDocumentsCollectionTextField : NSTextField
 {
     // Error parsing type: , name: isSelected
+    // Error parsing type: , name: allowsEditingMode
 }
 
 + (void)setCellClass:(Class)arg1;
@@ -16,6 +17,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;
+- (void)endEditing;
+- (void)startEditing;
+@property(nonatomic) BOOL allowsEditingMode; // @synthesize allowsEditingMode;
+- (void)mouseUp:(id)arg1;
+- (void)textDidEndEditing:(id)arg1;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected;
 
 @end

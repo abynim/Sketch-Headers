@@ -22,6 +22,7 @@
     NSString *_svgNamespacePrefix;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *svgNamespacePrefix; // @synthesize svgNamespacePrefix=_svgNamespacePrefix;
 @property(nonatomic) unsigned long long drawableElementCount; // @synthesize drawableElementCount=_drawableElementCount;
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) NSDictionary *elementClasses; // @synthesize elementClasses=_elementClasses;
 @property(nonatomic) Class defaultElementClass; // @synthesize defaultElementClass=_defaultElementClass;
 @property(nonatomic) double scaleValue; // @synthesize scaleValue=_scaleValue;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) double documentHeight;
 @property(readonly, nonatomic) double documentWidth;
 - (id)styleAttributesForElement:(id)arg1 defaults:(id)arg2;

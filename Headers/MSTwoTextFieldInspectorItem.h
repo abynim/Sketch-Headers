@@ -19,6 +19,7 @@
     NSString *_field2;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *field2; // @synthesize field2=_field2;
 @property(retain, nonatomic) NSString *field1; // @synthesize field1=_field1;
 @property(retain, nonatomic) NSString *itemTitle; // @synthesize itemTitle=_itemTitle;
@@ -26,7 +27,6 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *textField2; // @synthesize textField2=_textField2;
 @property(retain, nonatomic) MSInlineUpDownTextField *textField1; // @synthesize textField1=_textField1;
 @property(retain, nonatomic) NSTextField *itemLabel; // @synthesize itemLabel=_itemLabel;
-- (void).cxx_destruct;
 - (void)interTextFieldButtonAction:(id)arg1;
 - (void)textField2Action:(id)arg1;
 - (void)textField1Action:(id)arg1;

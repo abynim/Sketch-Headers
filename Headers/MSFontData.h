@@ -22,9 +22,9 @@
 }
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(nonatomic) struct __CTFont *fontRef; // @synthesize fontRef=_fontRef;
-- (void).cxx_destruct;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;

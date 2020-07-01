@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class CAMetalLayer, MSArcVertexBuffer, MSTextureVertexBuffer;
-@protocol CAMetalDrawable, MTLBuffer, MTLCommandBuffer, MTLCommandQueue, MTLDepthStencilState, MTLLibrary, MTLRenderPipelineState, MTLTexture;
+@class CAMetalLayer, MSArcVertexRenderPipeline, MSColorVertexRenderPipeline, MSConstantColorRenderPipeline, MSTexturedVertexRenderPipeline;
+@protocol CAMetalDrawable, MTLCommandBuffer, MTLCommandQueue, MTLLibrary, MTLRenderCommandEncoder, MTLTexture;
 
 @interface MSMetalRenderer : NSObject
 {
@@ -15,77 +15,74 @@
     BOOL _drawing;
     CAMetalLayer *_metalLayer;
     id <MTLCommandBuffer> _currentCommands;
+    id <MTLRenderCommandEncoder> _currentRenderEncoder;
     id <CAMetalDrawable> _currentDrawable;
     id <MTLLibrary> _metalLibrary;
     id <MTLCommandQueue> _metalCommandQueue;
-    id <MTLRenderPipelineState> _drawTextureState;
-    id <MTLRenderPipelineState> _drawTextureNearestState;
-    id <MTLRenderPipelineState> _drawColorQuadState;
-    id <MTLRenderPipelineState> _drawArcVertexBufferState;
-    id <MTLRenderPipelineState> _drawTextureVertexBufferState;
-    id <MTLRenderPipelineState> _drawColorQuadWithStencilState;
-    id <MTLDepthStencilState> _disableOverlappingTriangleBlendingState;
+    MSColorVertexRenderPipeline *_colorVertexPipeline;
+    MSColorVertexRenderPipeline *_colorVertexPipelineWithStencil;
+    MSConstantColorRenderPipeline *_constantColorPipeline;
+    MSConstantColorRenderPipeline *_constantColorPipelineWithStencil;
+    MSTexturedVertexRenderPipeline *_texturedVertexPipeline;
+    MSTexturedVertexRenderPipeline *_texturedVertexNearestPipeline;
+    MSArcVertexRenderPipeline *_arcVertexPipeline;
     id <MTLTexture> _stencilTexture;
-    MSArcVertexBuffer *_arcVertexBuffer;
-    MSTextureVertexBuffer *_textureVertexBuffer;
-    id <MTLBuffer> _arcVerticesBuffer;
-    id <MTLBuffer> _arcIndexesBuffer;
-    id <MTLBuffer> _textureVerticesBuffer;
-    id <MTLBuffer> _textureIndexesBuffer;
     CDUnknownBlockType _drawCompletionHandler;
     CDStruct_bf95b13b _scissorRect;
+    // Error parsing type: {?="columns"[4]}, name: _currentProjectionMatrix
     struct _opaque_pthread_mutex_t _textureLock;
 }
 
 + (id)createWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct _opaque_pthread_mutex_t textureLock; // @synthesize textureLock=_textureLock;
 @property(getter=isDrawing) BOOL drawing; // @synthesize drawing=_drawing;
 @property(copy, nonatomic) CDUnknownBlockType drawCompletionHandler; // @synthesize drawCompletionHandler=_drawCompletionHandler;
-@property(retain, nonatomic) id <MTLBuffer> textureIndexesBuffer; // @synthesize textureIndexesBuffer=_textureIndexesBuffer;
-@property(retain, nonatomic) id <MTLBuffer> textureVerticesBuffer; // @synthesize textureVerticesBuffer=_textureVerticesBuffer;
-@property(retain, nonatomic) id <MTLBuffer> arcIndexesBuffer; // @synthesize arcIndexesBuffer=_arcIndexesBuffer;
-@property(retain, nonatomic) id <MTLBuffer> arcVerticesBuffer; // @synthesize arcVerticesBuffer=_arcVerticesBuffer;
-@property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
-@property(retain, nonatomic) MSArcVertexBuffer *arcVertexBuffer; // @synthesize arcVertexBuffer=_arcVertexBuffer;
 @property(nonatomic) CDStruct_bf95b13b scissorRect; // @synthesize scissorRect=_scissorRect;
 @property(nonatomic) BOOL hasScissor; // @synthesize hasScissor=_hasScissor;
 @property(retain, nonatomic) id <MTLTexture> stencilTexture; // @synthesize stencilTexture=_stencilTexture;
-@property(retain, nonatomic) id <MTLDepthStencilState> disableOverlappingTriangleBlendingState; // @synthesize disableOverlappingTriangleBlendingState=_disableOverlappingTriangleBlendingState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawColorQuadWithStencilState; // @synthesize drawColorQuadWithStencilState=_drawColorQuadWithStencilState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureVertexBufferState; // @synthesize drawTextureVertexBufferState=_drawTextureVertexBufferState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawArcVertexBufferState; // @synthesize drawArcVertexBufferState=_drawArcVertexBufferState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawColorQuadState; // @synthesize drawColorQuadState=_drawColorQuadState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureNearestState; // @synthesize drawTextureNearestState=_drawTextureNearestState;
-@property(retain, nonatomic) id <MTLRenderPipelineState> drawTextureState; // @synthesize drawTextureState=_drawTextureState;
+@property(retain, nonatomic) MSArcVertexRenderPipeline *arcVertexPipeline; // @synthesize arcVertexPipeline=_arcVertexPipeline;
+@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexNearestPipeline; // @synthesize texturedVertexNearestPipeline=_texturedVertexNearestPipeline;
+@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexPipeline; // @synthesize texturedVertexPipeline=_texturedVertexPipeline;
+@property(retain, nonatomic) MSConstantColorRenderPipeline *constantColorPipelineWithStencil; // @synthesize constantColorPipelineWithStencil=_constantColorPipelineWithStencil;
+@property(retain, nonatomic) MSConstantColorRenderPipeline *constantColorPipeline; // @synthesize constantColorPipeline=_constantColorPipeline;
+@property(retain, nonatomic) MSColorVertexRenderPipeline *colorVertexPipelineWithStencil; // @synthesize colorVertexPipelineWithStencil=_colorVertexPipelineWithStencil;
+@property(retain, nonatomic) MSColorVertexRenderPipeline *colorVertexPipeline; // @synthesize colorVertexPipeline=_colorVertexPipeline;
 @property(retain, nonatomic) id <MTLCommandQueue> metalCommandQueue; // @synthesize metalCommandQueue=_metalCommandQueue;
 @property(retain, nonatomic) id <MTLLibrary> metalLibrary; // @synthesize metalLibrary=_metalLibrary;
+// Error parsing type for property currentProjectionMatrix:
+// Property attributes: T{?=[4]},N,V_currentProjectionMatrix
+
 @property(retain, nonatomic) id <CAMetalDrawable> currentDrawable; // @synthesize currentDrawable=_currentDrawable;
+@property(retain, nonatomic) id <MTLRenderCommandEncoder> currentRenderEncoder; // @synthesize currentRenderEncoder=_currentRenderEncoder;
 @property(retain, nonatomic) id <MTLCommandBuffer> currentCommands; // @synthesize currentCommands=_currentCommands;
 @property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
-- (void).cxx_destruct;
-- (CDStruct_ffe6b7c1)maximumTextureSize;
+- (CDStruct_1ef3fb1f)maximumTextureSize;
 - (void)unlockTextures;
 - (void)lockTextures;
 - (id)layer;
 - (id)createBufferWithBytes:(const void *)arg1 length:(unsigned long long)arg2 count:(unsigned long long)arg3;
+- (id)createBufferWithBytes:(const void *)arg1 length:(unsigned long long)arg2 count:(unsigned long long)arg3 readonly:(BOOL)arg4;
 - (id)createTextureWithWidth:(unsigned long long)arg1 height:(unsigned long long)arg2;
+- (id)createTextureWithSize:(CDStruct_1ef3fb1f)arg1 ioSurface:(struct __IOSurface *)arg2;
 - (void)endFrameAndWaitForFrame:(BOOL)arg1;
+- (id)blitCommandEncoder;
+- (id)getRenderCommandEncoder:(BOOL)arg1;
 - (BOOL)beginFrameWithClearColor:(CDStruct_0b1c536a)arg1 drawableSize:(struct CGSize)arg2 backingScaleFactor:(double)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (void)_resetScissorRect:(id)arg1 forTargetTexture:(id)arg2;
+- (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
 - (void)resetScissorRect;
 - (void)setScissorRectWithX:(int)arg1 y:(int)arg2 width:(int)arg3 height:(int)arg4;
 - (void)drawTextureVertexBuffer:(id)arg1 sourceTexture:(id)arg2 modelViewTransform:(struct CGAffineTransform)arg3;
 - (void)drawArcVertexBuffer:(id)arg1 color:(const CDStruct_0b1c536a *)arg2 modelViewTransform:(struct CGAffineTransform)arg3 backingScale:(double)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 sourceRect:(struct CGRect)arg3 bilinearFilter:(BOOL)arg4;
 - (void)drawTexturedQuadInDestinationRect:(struct CGRect)arg1 sourceTexture:(id)arg2 bilinearFilter:(BOOL)arg3;
-- (void)drawTexturedTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 sourceTexture:(id)arg3;
-- (void)drawTexturedTriangleMesh:(const CDStruct_e817f9f7 *)arg1 sourceTexture:(id)arg2;
 -     // Error parsing type: v156@0:8@16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMeshFromBuffer:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
--     // Error parsing type: v156@0:8r^{?=^{?}II}16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMesh:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
+-     // Error parsing type: v156@0:8r^{MSColorVertexMesh=}16{?=[4]}24{?=[4]}88c152, name: drawColorTriangleMesh:modelViewMatrix:projectionMatrix:disableOverlappingFragmentBlending:
 - (id)ms_createStencilTextureForColorAttachment:(id)arg1;
 - (void)drawColorTriangleMeshFromBuffer:(id)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
-- (void)drawColorTriangleMesh:(const CDStruct_e817f9f7 *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
-- (void)drawColorQuadInRect:(struct CGRect)arg1 color:(CDStruct_0b1c536a)arg2;
-- (void)_setupScissorRect:(id)arg1 forTargetTexture:(id)arg2;
+- (void)drawColorTriangleMesh:(const struct MSColorVertexMesh *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
+- (void)drawConstantColorTriangleMeshFromBuffer:(id)arg1 color:(CDStruct_0b1c536a)arg2 modelViewTransform:(struct CGAffineTransform)arg3 disableOverlappingFragmentBlending:(BOOL)arg4;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
 

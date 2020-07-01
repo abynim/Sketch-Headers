@@ -17,11 +17,11 @@
 }
 
 + (id)identifierWithPluginIdentifier:(id)arg1 commandIdentifier:(id)arg2 dynamicDataKey:(id)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) BOOL registered; // @synthesize registered=_registered;
 @property(readonly, nonatomic) NSString *dynamicDataKey; // @synthesize dynamicDataKey=_dynamicDataKey;
 @property(readonly, nonatomic) NSString *commandIdentifier; // @synthesize commandIdentifier=_commandIdentifier;
 @property(readonly, nonatomic) NSString *pluginIdentifier; // @synthesize pluginIdentifier=_pluginIdentifier;
-- (void).cxx_destruct;
 - (id)splitString;
 - (id)displayName;
 @property(readonly, nonatomic) NSString *subgroupName;

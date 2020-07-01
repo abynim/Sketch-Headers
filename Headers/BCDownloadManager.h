@@ -19,13 +19,13 @@
     id <BCDownloadManagerDelegate> _delegate;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) id <BCDownloadManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSMutableDictionary *downloadingTasks; // @synthesize downloadingTasks=_downloadingTasks;
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(readonly, nonatomic) BOOL canAcceptNewDownloadTasks; // @synthesize canAcceptNewDownloadTasks=_canAcceptNewDownloadTasks;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated; // @synthesize hasBeenInvalidated=_hasBeenInvalidated;
-- (void).cxx_destruct;
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(id)arg1;
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;

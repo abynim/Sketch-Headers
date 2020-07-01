@@ -18,12 +18,12 @@
     NSNumber *_currentValue;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSNumber *currentValue; // @synthesize currentValue=_currentValue;
 @property(readonly, nonatomic) NSNumber *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSNumber *maxValue; // @synthesize maxValue=_maxValue;
 @property(readonly, nonatomic) NSNumber *minValue; // @synthesize minValue=_minValue;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void).cxx_destruct;
 - (id)initWithDictionary:(id)arg1 currentValue:(id)arg2;
 
 @end

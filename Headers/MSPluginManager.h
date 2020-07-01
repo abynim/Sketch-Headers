@@ -42,6 +42,7 @@
 + (id)defaultPluginURL;
 + (id)mainPluginsFolderURL;
 + (void)initialisePlugins;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
 @property(retain, nonatomic) NSMutableArray *downloadPluginsErrors; // @synthesize downloadPluginsErrors=_downloadPluginsErrors;
 @property(retain, nonatomic) NSMutableDictionary *pluginVersions; // @synthesize pluginVersions=_pluginVersions;
@@ -61,7 +62,6 @@
 @property(nonatomic) NSArray *pluginsWithSketchCompatipleUpdates; // @synthesize pluginsWithSketchCompatipleUpdates=_pluginsWithSketchCompatipleUpdates;
 @property(nonatomic) long long numberOfIncompatiblePluginsDisabled; // @synthesize numberOfIncompatiblePluginsDisabled=_numberOfIncompatiblePluginsDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
-- (void).cxx_destruct;
 - (void)removePluginVersionsNotInIdentifiers:(id)arg1;
 - (void)addDownloadAndDecompressPluginError:(id)arg1;
 - (id)compatiblePluginUpdatesNotDownloaded;

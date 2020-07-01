@@ -20,10 +20,10 @@
 
 + (id)readableTypesForPasteboard:(id)arg1;
 + (id)pasteboardType;
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long shareableObjectType; // @synthesize shareableObjectType=_shareableObjectType;
 @property(copy, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(copy, nonatomic) NSURL *libraryLocation; // @synthesize libraryLocation=_libraryLocation;
-- (void).cxx_destruct;
 - (id)initWithPasteboardPropertyList:(id)arg1 ofType:(id)arg2;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (id)writableTypesForPasteboard:(id)arg1;

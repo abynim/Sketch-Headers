@@ -15,8 +15,8 @@
     NSFileHandle *_output;
 }
 
-@property(retain, nonatomic) NSFileHandle *output; // @synthesize output=_output;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSFileHandle *output; // @synthesize output=_output;
 - (BOOL)encodeRootObject:(id)arg1 error:(id *)arg2;
 - (void)finishWriting;
 - (void)writeData:(const void *)arg1 length:(unsigned long long)arg2;

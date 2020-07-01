@@ -25,6 +25,7 @@
     struct BCEdgePaddings _flowHotspotTexturePaddings;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *relativeTextureRects; // @synthesize relativeTextureRects=_relativeTextureRects;
 @property(retain, nonatomic) NSDictionary *absoluteRects; // @synthesize absoluteRects=_absoluteRects;
 @property(retain, nonatomic) NSDictionary *cachedItemBuffers; // @synthesize cachedItemBuffers=_cachedItemBuffers;
@@ -38,7 +39,6 @@
 @property(retain, nonatomic) MSMetalTexture *flowAnnotationsTexture; // @synthesize flowAnnotationsTexture=_flowAnnotationsTexture;
 @property(nonatomic) __weak MSFlowRendererSettings *lastSettings; // @synthesize lastSettings=_lastSettings;
 @property(nonatomic) __weak MSMetalRenderer *lastRenderer; // @synthesize lastRenderer=_lastRenderer;
-- (void).cxx_destruct;
 - (void)renderFlowItems:(id)arg1 selectedLayerIDs:(id)arg2 backingScaleFactor:(double)arg3 translation:(struct CGPoint)arg4 zoomLevel:(double)arg5 renderer:(id)arg6 settings:(id)arg7;
 - (id)flowAnnotationsTexture:(double)arg1 renderer:(id)arg2 settings:(id)arg3;
 - (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2 backingScaleFactor:(double)arg3;

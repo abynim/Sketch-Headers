@@ -39,9 +39,8 @@
 + (id)cubicSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 + (id)quadraticSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 + (id)lineSegmentWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
-+ (id)segmentWithFBBezierCurve:(id)arg1;
-@property(nonatomic) CDStruct_aa84902a fromRange; // @synthesize fromRange=_fromRange;
 - (void).cxx_destruct;
+@property(nonatomic) CDStruct_aa84902a fromRange; // @synthesize fromRange=_fromRange;
 - (id)debugQuickLookObject;
 - (id)description;
 - (id)repr;
@@ -112,7 +111,6 @@
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
 - (id)initWithSegmentData:(struct BCBezierSegment)arg1;
 - (id)segmentBySmoothingEndPoints:(double)arg1 decay:(double)arg2;
-- (id)FBBezierCurve;
 
 @end
 

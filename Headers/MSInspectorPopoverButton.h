@@ -16,11 +16,11 @@
     NSString *_secondaryTitle;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *secondaryTitle; // @synthesize secondaryTitle=_secondaryTitle;
 @property(nonatomic) BOOL indicateObjectHasChanged; // @synthesize indicateObjectHasChanged=_indicateObjectHasChanged;
 @property(nonatomic) BOOL indicateNoSelection; // @synthesize indicateNoSelection=_indicateNoSelection;
 @property(nonatomic) BOOL indicateMultipleSelection; // @synthesize indicateMultipleSelection=_indicateMultipleSelection;
-- (void).cxx_destruct;
 @property(nonatomic) BOOL useDefaultImageDrawing;
 - (id)attributedSecondaryTitle;
 - (id)attributedTitle;

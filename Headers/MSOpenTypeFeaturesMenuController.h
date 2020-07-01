@@ -15,8 +15,8 @@
     id <MSOpenTypeFeaturesMenuControllerDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <MSOpenTypeFeaturesMenuControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSOpenTypeFeaturesMenuControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)currentFontAttributes;
 - (void)commitChangedAttributes:(id)arg1;
 - (void)toggleFontFeature:(id)arg1;

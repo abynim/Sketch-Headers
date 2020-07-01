@@ -15,6 +15,7 @@
 @property(nonatomic, readonly) BOOL shouldShowOrganizationMenu;
 @property(nonatomic, copy) NSString *defaultProjectID;
 @property(nonatomic, retain) SCKOrganization *defaultOrganization;
+- (BOOL)canContributeTo:(id)arg1;
 @property(nonatomic, readonly) BOOL isPersonalContributor;
 @property(nonatomic, readonly) BOOL isOrganizationContributor;
 @property(nonatomic, readonly) BOOL isContributor;

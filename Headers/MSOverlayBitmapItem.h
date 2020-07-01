@@ -14,9 +14,9 @@
     struct CGPoint _position;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct CGPoint position; // @synthesize position=_position;
 @property(readonly, copy, nonatomic) NSString *imageID; // @synthesize imageID=_imageID;
-- (void).cxx_destruct;
 - (id)initWithImageID:(id)arg1 position:(struct CGPoint)arg2;
 
 @end

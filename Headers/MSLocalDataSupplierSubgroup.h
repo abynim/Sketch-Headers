@@ -20,11 +20,11 @@
 + (id)localDataSupplierSubgroupsInFolder:(id)arg1 localDataSupplierGroup:(id)arg2;
 + (id)localDataSuppliersInFolder:(id)arg1;
 + (id)localDataSupplierSubgroupWithURL:(id)arg1 localDataSupplierGroup:(id)arg2;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *subgroupURL; // @synthesize subgroupURL=_subgroupURL;
 @property(readonly, nonatomic) __weak MSLocalDataSupplierGroup *parentGroup; // @synthesize parentGroup=_parentGroup;
 @property(readonly, nonatomic) NSArray *subGroups; // @synthesize subGroups=_subGroups;
 @property(readonly, nonatomic) NSArray *dataSupplierIdentifiers; // @synthesize dataSupplierIdentifiers=_dataSupplierIdentifiers;
-- (void).cxx_destruct;
 - (id)dataSupplierMenuItemForDataType:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSString *groupName;
 - (id)initWithLocalDataSupplier:(id)arg1 parentGroup:(id)arg2;

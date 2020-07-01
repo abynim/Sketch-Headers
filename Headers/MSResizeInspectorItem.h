@@ -15,10 +15,10 @@
     _TtC6Sketch21MSResizingPreviewView *_resizingPreviewView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) _TtC6Sketch21MSResizingPreviewView *resizingPreviewView; // @synthesize resizingPreviewView=_resizingPreviewView;
 @property(retain, nonatomic) NSButton *fixVerticalButton; // @synthesize fixVerticalButton=_fixVerticalButton;
 @property(retain, nonatomic) NSButton *fixHorizontalButton; // @synthesize fixHorizontalButton=_fixHorizontalButton;
-- (void).cxx_destruct;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)resetConstraints:(id)arg1;
 - (void)toggleBoth:(id)arg1;

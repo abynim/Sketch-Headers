@@ -14,9 +14,9 @@
     id <MSCollapsibleHeaderInspectorItemTarget> _collapseTarget;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSCollapsibleHeaderInspectorItemTarget> collapseTarget; // @synthesize collapseTarget=_collapseTarget;
 @property(nonatomic) BOOL collapsed; // @synthesize collapsed=_collapsed;
-- (void).cxx_destruct;
 - (void)toggleCollapsed:(id)arg1;
 - (void)setDelegate:(id)arg1;
 - (id)init;

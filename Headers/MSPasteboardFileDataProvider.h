@@ -18,8 +18,8 @@
 + (id)extensionForExportingLayer:(id)arg1;
 + (id)exportLayers:(id)arg1 toFolder:(id)arg2;
 + (void)addLayers:(id)arg1 toPasteboard:(id)arg2;
-@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void)pasteboard:(id)arg1 provideDataForType:(id)arg2;
 
 @end

@@ -17,9 +17,9 @@
 + (id)overrideValuesFromDictionary:(id)arg1;
 + (id)dictionaryFromOverrideValues:(id)arg1;
 + (id)overrideValuesFromDictionary:(id)arg1 withPrefix:(id)arg2;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 @property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
-- (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) BOOL isValid;
 - (void)calculateAttributeNameAndPath;

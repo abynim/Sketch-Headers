@@ -18,12 +18,12 @@
     unsigned long long _layoutAnchor;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
 @property(readonly, nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 @property(readonly, nonatomic) MSImmutableLayerGroup *oldLayerGroup; // @synthesize oldLayerGroup=_oldLayerGroup;
 @property(readonly, nonatomic) MSLayer *updatedLayerState; // @synthesize updatedLayerState=_updatedLayerState;
 @property(readonly, nonatomic) MSImmutableLayer *oldLayerState; // @synthesize oldLayerState=_oldLayerState;
-- (void).cxx_destruct;
 - (id)description;
 - (double)trailingMarginForLayer:(id)arg1 detectedStack:(char *)arg2;
 - (double)calculateChangeInSize;

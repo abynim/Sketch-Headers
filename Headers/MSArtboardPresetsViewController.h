@@ -31,6 +31,7 @@
     struct CGSize _selectedPresetSize;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSArtboardPreset *editingPreset; // @synthesize editingPreset=_editingPreset;
 @property(readonly, nonatomic) NSArray *arrangedObjects; // @synthesize arrangedObjects=_arrangedObjects;
 @property(readonly, nonatomic) NSArray *arrangedSections; // @synthesize arrangedSections=_arrangedSections;
@@ -42,7 +43,6 @@
 @property(nonatomic) struct CGSize selectedPresetSize; // @synthesize selectedPresetSize=_selectedPresetSize;
 @property(copy, nonatomic) NSArray *extraPresets; // @synthesize extraPresets=_extraPresets;
 @property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
-- (void).cxx_destruct;
 - (void)popoverWillShow:(id)arg1;
 - (void)editArtboardPresetViewController:(id)arg1 savePreset:(id)arg2;
 - (void)tableViewSelectionDidChange:(id)arg1;

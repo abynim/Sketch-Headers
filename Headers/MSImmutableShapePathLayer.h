@@ -19,9 +19,9 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)defaultName;
 + (unsigned long long)traits;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSImmutableStyle *usedStyle; // @synthesize usedStyle=_usedStyle;
 @property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
-- (void).cxx_destruct;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 @property(readonly, nonatomic) BOOL isRectangle;
@@ -33,7 +33,7 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 @property(readonly, nonatomic) BOOL hasDefaultCurvePoints;
-- (id)initWithBlock:(CDUnknownBlockType)arg1;
+- (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migrateByTakingStyleFrom:(id)arg1;
 - (void)migratePropertiesFromShapeGroup:(id)arg1;

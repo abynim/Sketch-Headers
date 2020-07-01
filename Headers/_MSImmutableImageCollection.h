@@ -14,8 +14,8 @@
 }
 
 + (Class)mutableClass;
-@property(retain, nonatomic) NSDictionary *images; // @synthesize images=_images;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDictionary *images; // @synthesize images=_images;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

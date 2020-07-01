@@ -23,6 +23,7 @@
     NSView *_savedInspectorView;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSView *savedInspectorView; // @synthesize savedInspectorView=_savedInspectorView;
 @property(nonatomic) BOOL isInVersionBrowser; // @synthesize isInVersionBrowser=_isInVersionBrowser;
 @property(nonatomic) long long rightSide; // @synthesize rightSide=_rightSide;
@@ -32,7 +33,6 @@
 @property(nonatomic) __weak NSView *inspectorView; // @synthesize inspectorView=_inspectorView;
 @property(nonatomic) __weak NSView *canvasView; // @synthesize canvasView=_canvasView;
 @property(nonatomic) __weak NSView *layerListView; // @synthesize layerListView=_layerListView;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)didExitVersionBrowser;
 - (void)didEnterVersionBrowser;

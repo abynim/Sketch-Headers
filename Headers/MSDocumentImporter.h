@@ -20,13 +20,13 @@
 }
 
 + (void)importFromURL:(id)arg1 inPage:(id)arg2 importer:(id)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *addedLayers; // @synthesize addedLayers=_addedLayers;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) CHProgressSheet *sheet; // @synthesize sheet=_sheet;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) id <MSImporter> importer; // @synthesize importer=_importer;
 @property(retain, nonatomic) MSLayerGroup *group; // @synthesize group=_group;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) __weak MSCanvasView *view; // @dynamic view;
 - (id)showProgressSheet;
 - (void)importerDidFinish;

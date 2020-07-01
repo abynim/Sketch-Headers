@@ -14,9 +14,9 @@
     NSImage *_preview;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(nonatomic) __weak MSDataPreferenceItem *dataItem; // @synthesize dataItem=_dataItem;
-- (void).cxx_destruct;
 - (id)firstFourDataImages;
 - (id)firstThreeDataTextItems;
 - (id)contentsOfDataTextItems;

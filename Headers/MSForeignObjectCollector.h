@@ -14,9 +14,9 @@
     CDUnknownBlockType _filter;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) id <MSForeignObjectProvider> provider; // @synthesize provider=_provider;
-- (void).cxx_destruct;
 - (id)buildCollectionWithFilter:(CDUnknownBlockType)arg1;
 - (void)enumerateForeignObjects:(CDUnknownBlockType)arg1;
 - (id)buildLibraryToSharedObjectMap;

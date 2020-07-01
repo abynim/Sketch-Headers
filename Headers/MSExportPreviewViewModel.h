@@ -17,12 +17,12 @@
     struct CGRect _previewFrame;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) struct CGRect previewFrame; // @synthesize previewFrame=_previewFrame;
 @property(readonly, nonatomic) BOOL isVectorFormat; // @synthesize isVectorFormat=_isVectorFormat;
 @property(readonly, nonatomic) NSString *defaultExportFormat; // @synthesize defaultExportFormat=_defaultExportFormat;
 @property(retain, nonatomic) MSExportRequest *cachedExportRequest; // @synthesize cachedExportRequest=_cachedExportRequest;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *defaultExportFileName;
 - (void)exportDataInFormat:(id)arg1 toURL:(id)arg2;
 - (id)imageDataInFormat:(id)arg1;

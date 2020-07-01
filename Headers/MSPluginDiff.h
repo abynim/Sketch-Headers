@@ -17,9 +17,9 @@
     MSDocumentData *_currentDoc;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSDocumentData *currentDoc; // @synthesize currentDoc=_currentDoc;
 @property(retain, nonatomic) MSImmutableDocumentData *oldDoc; // @synthesize oldDoc=_oldDoc;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *changes; // @synthesize changes=_changes;
 - (id)treeComparison:(id)arg1 propertiesOfObject:(id)arg2 notMatching:(id)arg3;
 - (BOOL)treeComparison:(id)arg1 isObject:(id)arg2 theSameObjectAs:(id)arg3;

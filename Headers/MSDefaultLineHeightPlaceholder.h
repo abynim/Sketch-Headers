@@ -14,8 +14,8 @@
 }
 
 + (id)placeholderWithTextItem:(id)arg1;
-@property(nonatomic) __weak MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSTextLayerInspectorItem *textItem; // @synthesize textItem=_textItem;
 - (id)description;
 
 @end

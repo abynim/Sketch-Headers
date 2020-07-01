@@ -15,10 +15,10 @@
     NSString *_representedString;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *representedString; // @synthesize representedString=_representedString;
 @property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
-- (void).cxx_destruct;
 
 @end
 

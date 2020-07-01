@@ -19,22 +19,22 @@
 }
 
 + (id)tileMipLevelWithScaleRangeMax:(double)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *tiles; // @synthesize tiles=_tiles;
 @property(nonatomic) CDStruct_75f85af1 *dirtyRegion; // @synthesize dirtyRegion=_dirtyRegion;
 @property BOOL clearBeforeUpload; // @synthesize clearBeforeUpload=_clearBeforeUpload;
 @property(nonatomic) struct CGColorSpace *currentColorSpace; // @synthesize currentColorSpace=_currentColorSpace;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(readonly, nonatomic) double scaleRangeMax; // @synthesize scaleRangeMax=_scaleRangeMax;
-- (void).cxx_destruct;
 - (void)subtractDirtyRect:(CDStruct_bf95b13b)arg1;
-- (void)uniteDirtyRect:(struct CGRect)arg1;
+- (void)unionDirtyRegion:(CDStruct_75f85af1 *)arg1;
 - (BOOL)isCurrentColorSpaceEqualTo:(struct CGColorSpace *)arg1;
 @property(readonly, nonatomic) unsigned long long tileCount;
-- (void)removeAllTilesAndResetDirtyRegionToRect:(CDStruct_bf95b13b)arg1;
+- (void)removeAllTilesAndResetDirtyRegion:(CDStruct_75f85af1 *)arg1;
 - (void)removeAllTilesAndClearDirtyRegion;
 - (void)removeAllTiles;
 - (void)addTile:(id)arg1;
-- (id)findWritableTileAt:(CDStruct_ffe6b7c1)arg1;
+- (id)findWritableTileAt:(CDStruct_1ef3fb1f)arg1;
 - (id)enqueueRenderableTilesForVisibleRect:(struct CGRect)arg1;
 - (unsigned long long)countExistingTilesForVisibleRect:(struct CGRect)arg1;
 - (void)dealloc;

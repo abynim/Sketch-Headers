@@ -20,6 +20,7 @@
     NSDictionary *_restorationInfo;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) MSInsetSeparatorInspectorItem *opacitySeparatorItem; // @synthesize opacitySeparatorItem=_opacitySeparatorItem;
 @property(retain, nonatomic) MSOpacityBlendingInspectorItem *opacityItem; // @synthesize opacityItem=_opacityItem;
@@ -28,7 +29,6 @@
 @property(retain, nonatomic) _TtC6Sketch25MSLayerStyleInspectorItem *layerStyleItem; // @synthesize layerStyleItem=_layerStyleItem;
 @property(retain, nonatomic) MSSharedStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
-- (void).cxx_destruct;
 - (void)restorePopover;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;

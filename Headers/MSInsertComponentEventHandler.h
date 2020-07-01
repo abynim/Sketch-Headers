@@ -22,6 +22,7 @@
 
 + (id)makeLayerForComponentReference:(id)arg1 forInserting:(BOOL)arg2 intoDocument:(id)arg3 isForeign:(BOOL)arg4;
 + (id)makeLayerForComponentReference:(id)arg1 forInserting:(BOOL)arg2 intoDocument:(id)arg3;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *storedDragImageProviders; // @synthesize storedDragImageProviders=_storedDragImageProviders;
 @property(retain, nonatomic) NSOperationQueue *renderQueue; // @synthesize renderQueue=_renderQueue;
 @property(retain, nonatomic) MSDocumentData *temporaryPreviewDocument; // @synthesize temporaryPreviewDocument=_temporaryPreviewDocument;
@@ -29,7 +30,6 @@
 @property(readonly, nonatomic) MSComponentInsertionTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) MSSnapOverlayController *snapOverlayController; // @synthesize snapOverlayController=_snapOverlayController;
 @property(retain, nonatomic) NSArray *shareableObjectReferences; // @synthesize shareableObjectReferences=_shareableObjectReferences;
-- (void).cxx_destruct;
 - (void)generatePreviewAndRefreshWhenDone;
 - (void)setPreviewImage:(id)arg1 forZoomScale:(double)arg2;
 - (id)previewBitmapForZoomScale:(double)arg1;
@@ -49,6 +49,7 @@
 - (BOOL)performInsert;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)trackMouse:(id)arg1;
+- (void)zoomValueDidChange;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;

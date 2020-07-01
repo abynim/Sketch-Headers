@@ -21,12 +21,12 @@
     NSScrubber *_scrubber;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSScrubber *scrubber; // @synthesize scrubber=_scrubber;
 @property(retain, nonatomic) NSTouchBarItem *item; // @synthesize item=_item;
 @property(nonatomic) __weak id <MSAssetPickerScrubberControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSAssetCollectionViewDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-- (void).cxx_destruct;
 - (void)scrubber:(id)arg1 didSelectItemAtIndex:(long long)arg2;
 - (struct CGSize)scrubber:(id)arg1 layout:(id)arg2 sizeForItemAtIndex:(long long)arg3;
 - (struct CGSize)fittingAssetScrubberLabelItemSizeForTitle:(id)arg1;

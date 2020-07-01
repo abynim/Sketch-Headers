@@ -22,10 +22,10 @@
 + (id)insertPagePasteboardData:(id)arg1 intoDocument:(id)arg2 afterPage:(id)arg3;
 + (id)insertPasteboardData:(id)arg1 intoParent:(id)arg2 atPosition:(struct CGPoint)arg3 beforeLayer:(id)arg4;
 + (id)insertPasteboardData:(id)arg1 onPage:(id)arg2 withHint:(id)arg3 viewPort:(id)arg4;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSPasteboardLayers *pasteboardLayers; // @synthesize pasteboardLayers=_pasteboardLayers;
 @property(readonly, nonatomic) NSMutableArray *insertedSymbolMasters; // @synthesize insertedSymbolMasters=_insertedSymbolMasters;
 @property(readonly, nonatomic) NSMutableDictionary *objectIDMap; // @synthesize objectIDMap=_objectIDMap;
-- (void).cxx_destruct;
 - (void)removeDisconnectedFlowsFromLayers:(id)arg1;
 - (void)mapObjectIDsFrom:(id)arg1 to:(id)arg2;
 - (void)addReferencedSymbolsToDocument:(id)arg1;

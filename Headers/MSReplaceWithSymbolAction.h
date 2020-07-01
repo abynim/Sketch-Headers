@@ -13,8 +13,8 @@
     id <NSObject> _documentCloseObserver;
 }
 
-@property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (void).cxx_destruct;
+@property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (id)label;
 - (id)menuItemsForMenu:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;

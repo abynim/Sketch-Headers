@@ -15,10 +15,10 @@
     NSString *_key;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *key; // @synthesize key=_key;
 @property(readonly, nonatomic) NSArray *items; // @synthesize items=_items;
 @property(readonly, nonatomic) BOOL isSymbolInstanceOverride; // @synthesize isSymbolInstanceOverride=_isSymbolInstanceOverride;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long requestedCount;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithOverrides:(id)arg1;

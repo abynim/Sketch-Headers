@@ -19,13 +19,13 @@
 }
 
 + (void)resolve:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *potentialMatches; // @synthesize potentialMatches=_potentialMatches;
 @property(nonatomic) __weak MSDocumentData *searchDocument; // @synthesize searchDocument=_searchDocument;
 @property(nonatomic) __weak NSArray *allMatches; // @synthesize allMatches=_allMatches;
 @property(retain, nonatomic) MSSymbolMaster *resolvedMatch; // @synthesize resolvedMatch=_resolvedMatch;
 @property(readonly, nonatomic) MSForeignSymbol *foreignSymbol; // @synthesize foreignSymbol=_foreignSymbol;
 @property(readonly, nonatomic) MSSymbolMaster *remoteMaster; // @synthesize remoteMaster=_remoteMaster;
-- (void).cxx_destruct;
 - (void)findPotentialMatches;
 - (void)resolveLocalMatch;
 - (void)resolveForeignMatch;

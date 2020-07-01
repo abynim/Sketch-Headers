@@ -8,42 +8,39 @@
 
 #import "MSHttpClientProtocol-Protocol.h"
 
-@class MS_Reachability, NSArray, NSMutableSet, NSURLSession, NSURLSessionConfiguration;
+@class MS_Reachability, NSMutableSet, NSURLSession, NSURLSessionConfiguration;
+@protocol MSHttpClientDelegate;
 
 @interface MSHttpClient : NSObject <MSHttpClientProtocol>
 {
     BOOL _paused;
     BOOL _enabled;
-    BOOL _compressionEnabled;
+    id <MSHttpClientDelegate> _delegate;
     NSURLSession *_session;
     MS_Reachability *_reachability;
     NSMutableSet *_pendingCalls;
-    NSArray *_retryIntervals;
     NSURLSessionConfiguration *_sessionConfiguration;
 }
 
 @property(retain, nonatomic) NSURLSessionConfiguration *sessionConfiguration; // @synthesize sessionConfiguration=_sessionConfiguration;
-@property(nonatomic, getter=isCompressionEnabled) BOOL compressionEnabled; // @synthesize compressionEnabled=_compressionEnabled;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic, getter=isPaused) BOOL paused; // @synthesize paused=_paused;
-@property(retain, nonatomic) NSArray *retryIntervals; // @synthesize retryIntervals=_retryIntervals;
 @property(retain, nonatomic) NSMutableSet *pendingCalls; // @synthesize pendingCalls=_pendingCalls;
 @property(retain, nonatomic) MS_Reachability *reachability; // @synthesize reachability=_reachability;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
+@property(nonatomic) __weak id <MSHttpClientDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)dealloc;
-- (id)prettyPrintHeaders:(id)arg1;
-- (id)obfuscateHeaderValue:(id)arg1 forKey:(id)arg2;
+- (void)setEnabled:(BOOL)arg1 andDeleteDataOnDisabled:(BOOL)arg2;
 - (void)resume;
 - (void)pause;
 - (void)networkStateChanged:(id)arg1;
 - (void)requestCompletedWithHttpCall:(id)arg1 data:(id)arg2 response:(id)arg3 error:(id)arg4;
 - (void)sendCallAsync:(id)arg1;
+- (void)sendAsync:(id)arg1 method:(id)arg2 headers:(id)arg3 data:(id)arg4 retryIntervals:(id)arg5 compressionEnabled:(BOOL)arg6 completionHandler:(CDUnknownBlockType)arg7;
 - (void)sendAsync:(id)arg1 method:(id)arg2 headers:(id)arg3 data:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
-- (id)initWithMaxHttpConnectionsPerHost:(id)arg1 retryIntervals:(id)arg2 reachability:(id)arg3 compressionEnabled:(BOOL)arg4;
-- (id)initWithMaxHttpConnectionsPerHost:(long long)arg1 compressionEnabled:(BOOL)arg2;
-- (id)initWithCompressionEnabled:(BOOL)arg1;
-- (id)initNoRetriesWithCompressionEnabled:(BOOL)arg1;
+- (id)initWithMaxHttpConnectionsPerHost:(id)arg1 reachability:(id)arg2;
+- (id)initWithMaxHttpConnectionsPerHost:(long long)arg1;
 - (id)init;
 
 @end

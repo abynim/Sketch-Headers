@@ -17,9 +17,9 @@
 }
 
 + (id)svgImporter;
+- (void).cxx_destruct;
 @property(retain, nonatomic) SVGElement *graph; // @synthesize graph=_graph;
 @property(retain, nonatomic) SVGImporter *importer; // @synthesize importer=_importer;
-- (void).cxx_destruct;
 - (BOOL)shouldCollapseSinglePage;
 - (BOOL)shouldExpandPages;
 - (id)secondPhaseSubtitleForValue:(long long)arg1 maximum:(long long)arg2;

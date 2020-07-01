@@ -13,8 +13,8 @@
     MSColorControlsInspectorItem *_inspectorItem;
 }
 
-@property(retain, nonatomic) MSColorControlsInspectorItem *inspectorItem; // @synthesize inspectorItem=_inspectorItem;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSColorControlsInspectorItem *inspectorItem; // @synthesize inspectorItem=_inspectorItem;
 - (id)disabledStylePartsButtonTooltip;
 - (id)addStylePartButonTooltip;
 - (void)setLayers:(id)arg1;

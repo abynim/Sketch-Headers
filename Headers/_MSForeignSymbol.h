@@ -18,6 +18,7 @@
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_originalMaster:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;

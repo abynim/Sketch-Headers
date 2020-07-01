@@ -11,7 +11,6 @@
 }
 
 - (id)touchBarImage;
-- (unsigned long long)colorInspectorMode;
 
 @end
 

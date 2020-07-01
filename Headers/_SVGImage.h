@@ -16,8 +16,8 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 
 @end
 

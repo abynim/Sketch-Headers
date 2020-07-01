@@ -19,11 +19,11 @@
 
 + (id)enumeratorForPossibleSnapTargetLayersInGroup:(id)arg1;
 + (id)snapTargetsForCentersOfLayers:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic) __weak id <MSAlignmentEngineDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) _TtC17SketchControllers22MSAlignmentEngineCycle *currentCycle; // @synthesize currentCycle=_currentCycle;
 @property(readonly, nonatomic) MSAlignmentEngineConstraint *constraint; // @synthesize constraint=_constraint;
 @property(nonatomic) double snapDistance; // @synthesize snapDistance=_snapDistance;
-- (void).cxx_destruct;
 - (struct CGPoint)roundPoint:(struct CGPoint)arg1;
 - (struct CGPoint)applyDelegateAlignment:(struct CGPoint)arg1 snappedAxes:(unsigned long long)arg2;
 - (struct BCLineSegment)extendGuide:(struct BCLineSegment)arg1 toIncludePoint:(struct CGPoint)arg2;

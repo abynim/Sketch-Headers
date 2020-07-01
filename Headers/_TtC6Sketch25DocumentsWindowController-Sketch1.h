@@ -6,7 +6,12 @@
 
 #import "_TtC6Sketch25DocumentsWindowController.h"
 
-@interface _TtC6Sketch25DocumentsWindowController (Sketch1)
-- (void)controlTextDidChange:(id)arg1;
+#import "MSDocumentUploadDelegate-Protocol.h"
+
+@interface _TtC6Sketch25DocumentsWindowController (Sketch1) <MSDocumentUploadDelegate>
+- (void)documentUploadDidCancel:(id)arg1;
+- (void)documentUpload:(id)arg1 didFailWithError:(id)arg2;
+- (void)documentUpload:(id)arg1 didChangeProgress:(id)arg2;
+- (void)documentUpload:(id)arg1 didUploadShare:(id)arg2;
 @end
 

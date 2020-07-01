@@ -30,6 +30,7 @@
 
 + (id)systemVersionString;
 + (id)sparkleCheckerWithLicenseExpirationDate:(id)arg1 buildNumber:(id)arg2 appcastResults:(id)arg3;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *buildNumber; // @synthesize buildNumber=_buildNumber;
 @property(readonly, nonatomic) NSDate *expiryDate; // @synthesize expiryDate=_expiryDate;
 @property(readonly, nonatomic) unsigned long long indexOfBestUpdate; // @synthesize indexOfBestUpdate=_indexOfBestUpdate;
@@ -46,7 +47,6 @@
 @property(nonatomic) unsigned long long numberOfUpdatesRequiringRenewal; // @synthesize numberOfUpdatesRequiringRenewal=_numberOfUpdatesRequiringRenewal;
 @property(readonly, nonatomic) BOOL hasAvailableUpdates; // @synthesize hasAvailableUpdates=_hasAvailableUpdates;
 @property(readonly, nonatomic) unsigned long long numberOfUnavailableReleases; // @synthesize numberOfUnavailableReleases=_numberOfUnavailableReleases;
-- (void).cxx_destruct;
 - (BOOL)isUpdateInstalled:(id)arg1;
 - (long long)compareBuildNumber:(id)arg1 to:(id)arg2;
 - (id)sparkleShortVersionForItem:(id)arg1;

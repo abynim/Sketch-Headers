@@ -22,6 +22,7 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
+- (void).cxx_destruct;
 @property(nonatomic) double y; // @synthesize y=_y;
 @property(nonatomic) double x; // @synthesize x=_x;
 @property(nonatomic) double width; // @synthesize width=_width;
@@ -29,7 +30,6 @@
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(retain, nonatomic) NSSet *usedByStrokes; // @synthesize usedByStrokes=_usedByStrokes;
 @property(retain, nonatomic) NSSet *usedByFills; // @synthesize usedByFills=_usedByFills;
-- (void).cxx_destruct;
 - (void)primitiveRemoveUsedByStrokesObject:(id)arg1;
 - (void)primitiveAddUsedByStrokesObject:(id)arg1;
 - (void)removeUsedByStrokesObject:(id)arg1;

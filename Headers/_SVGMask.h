@@ -16,8 +16,8 @@
 + (id)attributeNames;
 + (id)relationshipNames;
 + (id)propertyNames;
-@property(retain, nonatomic) NSSet *masking; // @synthesize masking=_masking;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSSet *masking; // @synthesize masking=_masking;
 - (void)primitiveRemoveMaskingObject:(id)arg1;
 - (void)primitiveAddMaskingObject:(id)arg1;
 - (void)removeMaskingObject:(id)arg1;

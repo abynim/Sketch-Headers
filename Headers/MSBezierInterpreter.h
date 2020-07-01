@@ -15,9 +15,9 @@
 }
 
 + (id)pointsFromBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
+- (void).cxx_destruct;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 @property(retain, nonatomic) NSBezierPath *bezierPath; // @synthesize bezierPath=_bezierPath;
-- (void).cxx_destruct;
 - (id)points;
 
 @end

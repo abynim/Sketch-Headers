@@ -25,6 +25,7 @@
 + (BOOL)rulerDraggingLocked;
 + (void)setRulerDraggingLocked:(BOOL)arg1;
 + (void)initialize;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumberFormatter *metricsFormatter; // @synthesize metricsFormatter=_metricsFormatter;
 @property(nonatomic) double previousBase; // @synthesize previousBase=_previousBase;
 @property(nonatomic) double baseOffset; // @synthesize baseOffset=_baseOffset;
@@ -35,7 +36,6 @@
 @property(nonatomic) BOOL mouseDidDrag; // @synthesize mouseDidDrag=_mouseDidDrag;
 @property(nonatomic) __weak MSCanvasView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-- (void).cxx_destruct;
 - (long long)rulerHeight;
 - (long long)rulerLength;
 - (double)zoomValue;

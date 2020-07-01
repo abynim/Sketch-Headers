@@ -6,13 +6,12 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSArray, NSDate, NSString;
+@class NSArray, NSString;
 @protocol MSLog;
 
 @protocol MSStorage <NSObject>
 - (void)setMaxStorageSize:(long long)arg1 completionHandler:(void (^)(BOOL))arg2;
-- (unsigned long long)countLogsBeforeDate:(NSDate *)arg1;
-- (BOOL)loadLogsWithGroupId:(NSString *)arg1 limit:(unsigned long long)arg2 excludedTargetKeys:(NSArray *)arg3 afterDate:(NSDate *)arg4 beforeDate:(NSDate *)arg5 completionHandler:(void (^)(NSArray *, NSString *))arg6;
+- (BOOL)loadLogsWithGroupId:(NSString *)arg1 limit:(unsigned long long)arg2 excludedTargetKeys:(NSArray *)arg3 completionHandler:(void (^)(NSArray *, NSString *))arg4;
 - (void)deleteLogsWithBatchId:(NSString *)arg1 groupId:(NSString *)arg2;
 - (NSArray *)deleteLogsWithGroupId:(NSString *)arg1;
 - (unsigned long long)countLogs;

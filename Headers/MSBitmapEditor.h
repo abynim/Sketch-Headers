@@ -16,8 +16,8 @@
     MSBitmapEditEventHandler *_eventHandler;
 }
 
-@property(nonatomic) __weak MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 - (void).cxx_destruct;
+@property(nonatomic) __weak MSBitmapEditEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (struct CGAffineTransform)transformForConvertingFromImageToPage;

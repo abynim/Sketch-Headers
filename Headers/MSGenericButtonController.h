@@ -15,9 +15,9 @@
 }
 
 + (id)buttonWithNibName:(id)arg1 target:(id)arg2 action:(SEL)arg3;
+- (void).cxx_destruct;
 @property(nonatomic) SEL action; // @synthesize action=_action;
 @property(nonatomic) __weak id target; // @synthesize target=_target;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSButton *button;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 target:(id)arg2 action:(SEL)arg3;

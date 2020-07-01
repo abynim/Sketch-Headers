@@ -13,8 +13,8 @@
     NSTextField *_titleField;
 }
 
-@property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTextField *titleField; // @synthesize titleField=_titleField;
 - (void)setTitle:(id)arg1;
 - (void)updateUI;
 - (void)viewDidLoad;

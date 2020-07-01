@@ -13,10 +13,10 @@
     CDUnknownBlockType _mapBlock;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) CDUnknownBlockType mapBlock; // @synthesize mapBlock=_mapBlock;
 @property(retain, nonatomic) id result; // @synthesize result=_result;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
-- (void).cxx_destruct;
 - (void)main;
 
 @end

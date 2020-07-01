@@ -16,9 +16,9 @@
 
 + (void)markSearchEntriesAsDuplicates:(id)arg1;
 + (id)searchEntryWithDictionary:(id)arg1;
+- (void).cxx_destruct;
 @property BOOL isDuplicateResult; // @synthesize isDuplicateResult=_isDuplicateResult;
 @property(copy, nonatomic) NSDictionary *data; // @synthesize data=_data;
-- (void).cxx_destruct;
 - (void)show;
 - (BOOL)matchesSearchQuery:(id)arg1;
 - (id)titles;

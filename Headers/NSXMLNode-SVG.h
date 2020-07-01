@@ -15,6 +15,7 @@
 + (id)numberFromString:(id)arg1 scale:(double)arg2;
 + (double)doubleFromString:(id)arg1 scale:(double)arg2;
 - (id)cssClassNamesWithBase:(id)arg1;
+- (void)foldAwayRedundantGroups;
 - (id)simplifyAttributesIgnoringElements:(id)arg1 attributes:(id)arg2;
 - (id)numberValuesWithScale:(double)arg1;
 - (id)numberValues;

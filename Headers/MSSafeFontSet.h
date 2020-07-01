@@ -14,8 +14,8 @@
 }
 
 + (id)sharedSet;
-@property(retain, nonatomic) NSSet *fontSet; // @synthesize fontSet=_fontSet;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSSet *fontSet; // @synthesize fontSet=_fontSet;
 - (BOOL)isFontSafe:(id)arg1;
 - (id)init;
 

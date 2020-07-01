@@ -11,6 +11,6 @@
 @protocol MSPathRenderer <MSRenderer>
 - (void)renderBordersForPath:(MSPath *)arg1 style:(MSImmutableStyle *)arg2 applyClip:(BOOL)arg3 rect:(struct CGRect)arg4 context:(MSRenderingContext *)arg5;
 - (void)renderFillsForPath:(MSPath *)arg1 style:(MSImmutableStyle *)arg2 layer:(MSImmutableStyledLayer *)arg3 rect:(struct CGRect)arg4 context:(MSRenderingContext *)arg5;
-- (void)renderPath:(MSPath *)arg1 style:(MSImmutableStyle *)arg2 layer:(MSImmutableStyledLayer *)arg3 inRect:(struct CGRect)arg4 fallbackColor:(struct CGColor *)arg5 context:(MSRenderingContext *)arg6;
+- (void)renderPath:(MSPath *)arg1 style:(MSImmutableStyle *)arg2 layer:(MSImmutableStyledLayer *)arg3 inRect:(struct CGRect)arg4 fillColor:(struct CGColor *)arg5 context:(MSRenderingContext *)arg6;
 @end
 

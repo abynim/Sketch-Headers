@@ -23,10 +23,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)contentViewDidChangeBounds:(id)arg1;
+- (BOOL)outlineView:(id)arg1 acceptDrop:(id)arg2 item:(id)arg3 childIndex:(long long)arg4;
+- (unsigned long long)outlineView:(id)arg1 validateDrop:(id)arg2 proposedItem:(id)arg3 proposedChildIndex:(long long)arg4;
 - (void)openExistingDocument:(id)arg1;
 - (void)openWidget:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
-- (void)sourceDidChange:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
 - (void)currentAPISessionDidChange:(id)arg1;
 - (void)viewDidLoad;

@@ -14,9 +14,9 @@
     NSURL *_largeURL;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *largeURL; // @synthesize largeURL=_largeURL;
 @property(readonly, nonatomic) NSURL *url; // @synthesize url=_url;
-- (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 

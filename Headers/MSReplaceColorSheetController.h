@@ -23,6 +23,7 @@
     NSMenu *_frequentColorsMenu;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMenu *frequentColorsMenu; // @synthesize frequentColorsMenu=_frequentColorsMenu;
 @property(nonatomic) __weak NSButton *replaceButton; // @synthesize replaceButton=_replaceButton;
 @property(nonatomic) __weak NSButton *keepAlphaOfOriginalColorButton; // @synthesize keepAlphaOfOriginalColorButton=_keepAlphaOfOriginalColorButton;
@@ -30,7 +31,6 @@
 @property(nonatomic) __weak MSStylePartPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
 @property(nonatomic) __weak NSButton *ignoreAlphaWhenMatchingOriginalColorButton; // @synthesize ignoreAlphaWhenMatchingOriginalColorButton=_ignoreAlphaWhenMatchingOriginalColorButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-- (void).cxx_destruct;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)initialColorPickerColorForColorWell:(id)arg1;

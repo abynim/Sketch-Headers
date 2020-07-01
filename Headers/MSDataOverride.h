@@ -16,9 +16,9 @@
     MSSymbolInstance *_symbolInstance;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSSymbolInstance *symbolInstance; // @synthesize symbolInstance=_symbolInstance;
 @property(readonly, nonatomic) MSAvailableOverride *availableOverride; // @synthesize availableOverride=_availableOverride;
-- (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSString *overrideIdentifier;
 @property(readonly, nonatomic) MSImmutableStyledLayer *affectedLayer;
