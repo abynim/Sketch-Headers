@@ -10,15 +10,17 @@
 
 @interface _TtC6Sketch30MSEmbeddingAgreementController : NSViewController
 {
+    // Error parsing type: , name: headerLabel
     // Error parsing type: , name: messageField
     // Error parsing type: , name: agreeButton
     // Error parsing type: , name: proceedButton
     // Error parsing type: , name: document
     // Error parsing type: , name: completionHandler
     // Error parsing type: , name: cancellationHandler
+    // Error parsing type: , name: font
 }
 
-+ (void)confirmIfNeededForDocumentFontsViewController:(id)arg1 completionHandler:(CDUnknownBlockType)arg2 cancellationHandler:(CDUnknownBlockType)arg3;
++ (void)confirmForDocumentFontsViewController:(id)arg1 font:(id)arg2 completionHandler:(CDUnknownBlockType)arg3 cancellationHandler:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
@@ -29,6 +31,7 @@
 @property(nonatomic) __weak NSButton *proceedButton; // @synthesize proceedButton;
 @property(nonatomic) __weak NSButton *agreeButton; // @synthesize agreeButton;
 @property(nonatomic) __weak NSTextField *messageField; // @synthesize messageField;
+@property(nonatomic) __weak NSTextField *headerLabel; // @synthesize headerLabel;
 
 @end
 

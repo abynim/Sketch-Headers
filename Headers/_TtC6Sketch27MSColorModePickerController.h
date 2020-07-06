@@ -6,17 +6,24 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSInspectorLeftAlignedPopUp, NSArray, NSButton;
+@class NSArray, NSButton, NSStackView;
 @protocol _TtP6Sketch35MSColorModePickerControllerDelegate_;
 
 @interface _TtC6Sketch27MSColorModePickerController : NSViewController
 {
     // Error parsing type: , name: delegate
-    // Error parsing type: , name: fillTypeButton
-    // Error parsing type: , name: swatchesToggleButton
+    // Error parsing type: , name: tabColorSolidButton
+    // Error parsing type: , name: tabGradientLinearButton
+    // Error parsing type: , name: tabGradientRadialButton
+    // Error parsing type: , name: tabGradientAngularButton
+    // Error parsing type: , name: tabImageButton
+    // Error parsing type: , name: tabContainer
     // Error parsing type: , name: addSwatchButton
+    // Error parsing type: , name: swatchesToggleButton
+    // Error parsing type: , name: modeButtons
+    // Error parsing type: , name: colorMode
+    // Error parsing type: , name: currentGradientType
     // Error parsing type: , name: allowsFillTypeSelection
-    // Error parsing type: , name: fillType
     // Error parsing type: , name: styleParts
 }
 
@@ -26,13 +33,21 @@
 - (void)viewDidLoad;
 - (void)showColorsPressed:(id)arg1;
 - (void)addColorPressed:(id)arg1;
-- (void)fillTypeSelected:(id)arg1;
+- (void)modeButtonSelected:(id)arg1;
 @property(nonatomic, copy) NSArray *styleParts;
-@property(nonatomic) unsigned long long fillType; // @synthesize fillType;
+- (void)selectFillType:(unsigned long long)arg1 gradientType:(long long)arg2;
+@property(nonatomic, readonly) long long gradientType;
+@property(nonatomic, readonly) unsigned long long fillType;
 @property(nonatomic) BOOL allowsFillTypeSelection; // @synthesize allowsFillTypeSelection;
-@property(nonatomic, retain) NSButton *addSwatchButton; // @synthesize addSwatchButton;
+@property(nonatomic) long long colorMode; // @synthesize colorMode;
 @property(nonatomic, retain) NSButton *swatchesToggleButton; // @synthesize swatchesToggleButton;
-@property(nonatomic, retain) MSInspectorLeftAlignedPopUp *fillTypeButton; // @synthesize fillTypeButton;
+@property(nonatomic, retain) NSButton *addSwatchButton; // @synthesize addSwatchButton;
+@property(nonatomic, retain) NSStackView *tabContainer; // @synthesize tabContainer;
+@property(nonatomic, retain) NSButton *tabImageButton; // @synthesize tabImageButton;
+@property(nonatomic, retain) NSButton *tabGradientAngularButton; // @synthesize tabGradientAngularButton;
+@property(nonatomic, retain) NSButton *tabGradientRadialButton; // @synthesize tabGradientRadialButton;
+@property(nonatomic, retain) NSButton *tabGradientLinearButton; // @synthesize tabGradientLinearButton;
+@property(nonatomic, retain) NSButton *tabColorSolidButton; // @synthesize tabColorSolidButton;
 @property(nonatomic, retain) id <_TtP6Sketch35MSColorModePickerControllerDelegate_> delegate; // @synthesize delegate;
 
 @end

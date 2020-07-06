@@ -7,11 +7,10 @@
 #import <SketchModel/_MSImmutableTextLayer.h>
 
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
-#import <SketchModel/NSLayoutManagerDelegate-Protocol.h>
 
 @class MSTextLayout, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <NSLayoutManagerDelegate, MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSFirstLineTypesetterDelegate>
 {
     MSTextLayout *_textLayout;
     // Error parsing type: A^v, name: _textLayoutAtomicPointer

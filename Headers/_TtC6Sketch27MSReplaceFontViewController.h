@@ -6,15 +6,17 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSDocumentFontsViewController, NSButton, NSPopUpButton;
+@class MSDocumentFontsViewController, NSButton, NSPopUpButton, NSString, NSTextField;
 
 @interface _TtC6Sketch27MSReplaceFontViewController : NSViewController
 {
-    // Error parsing type: , name: replaceButton
+    // Error parsing type: , name: headerLabel
     // Error parsing type: , name: fontFamilyButton
     // Error parsing type: , name: fontWeightButton
+    // Error parsing type: , name: replaceButton
     // Error parsing type: , name: documentFontsViewController
     // Error parsing type: , name: row
+    // Error parsing type: , name: missingFontIdentifier
     // Error parsing type: , name: font
 }
 
@@ -25,11 +27,13 @@
 - (void)fontFamilyActionWith_sender:(id)arg1;
 - (void)replaceWith_sender:(id)arg1;
 - (void)viewWillAppear;
+@property(nonatomic, copy) NSString *missingFontIdentifier;
 @property(nonatomic) long long row; // @synthesize row;
 @property(nonatomic, retain) MSDocumentFontsViewController *documentFontsViewController; // @synthesize documentFontsViewController;
+@property(nonatomic, retain) NSButton *replaceButton; // @synthesize replaceButton;
 @property(nonatomic, retain) NSPopUpButton *fontWeightButton; // @synthesize fontWeightButton;
 @property(nonatomic, retain) NSButton *fontFamilyButton; // @synthesize fontFamilyButton;
-@property(nonatomic, retain) NSButton *replaceButton; // @synthesize replaceButton;
+@property(nonatomic, retain) NSTextField *headerLabel; // @synthesize headerLabel;
 
 @end
 

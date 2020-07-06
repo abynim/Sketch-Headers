@@ -29,6 +29,7 @@
 - (BOOL)isDescendantOfObject:(id)arg1;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (void)breakConnectionWith:(id)arg1;
+- (void)refaultingDidRemove;
 - (id)parentGroupRecursive;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;

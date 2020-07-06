@@ -26,7 +26,6 @@
 - (void)setRaw_layers:(id)arg1;
 - (void)setRaw_groupLayout:(id)arg1;
 - (void)setRaw_sharedObjectID:(id)arg1;
-- (void)setRaw_hasClickThrough:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;

@@ -24,6 +24,7 @@
     // Error parsing type: , name: downloadingItems
     // Error parsing type: , name: lastDocumentsLoadDate
     // Error parsing type: , name: refreshOnNextKey
+    // Error parsing type: , name: dragAndDropMessage
 }
 
 - (void).cxx_destruct;

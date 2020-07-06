@@ -27,7 +27,6 @@
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
 - (void)presentViewController:(id)arg1 animator:(id)arg2;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)editArtboardPresetViewController:(id)arg1 savePreset:(id)arg2;
 - (void)showCustomPresetSheet:(id)arg1 preset:(id)arg2;
 - (void)artboardPresetsViewController:(id)arg1 didSelectOrientation:(long long)arg2;
@@ -45,7 +44,6 @@
 - (void)showPresets:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)refreshIfNecessary:(id)arg1;
-- (void)dealloc;
 - (void)viewDidLoad;
 
 // Remaining properties

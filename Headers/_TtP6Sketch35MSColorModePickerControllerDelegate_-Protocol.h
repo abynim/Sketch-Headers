@@ -9,6 +9,6 @@
 @protocol _TtP6Sketch35MSColorModePickerControllerDelegate_
 - (void)showSwatches:(_TtC6Sketch27MSColorModePickerController *)arg1;
 - (void)createSwatchColor:(_TtC6Sketch27MSColorModePickerController *)arg1;
-- (void)colorModeController:(_TtC6Sketch27MSColorModePickerController *)arg1 didChangeFillType:(unsigned long long)arg2;
+- (void)colorModeController:(_TtC6Sketch27MSColorModePickerController *)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 @end
 

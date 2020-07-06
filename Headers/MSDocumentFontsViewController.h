@@ -9,12 +9,13 @@
 #import "NSTableViewDataSource-Protocol.h"
 #import "NSTableViewDelegate-Protocol.h"
 
-@class MSDocument, NSArray, NSButton, NSString, NSTableView, NSTextField;
+@class MSDocument, NSArray, NSButton, NSString, NSTableView, NSTextField, NSView;
 
 @interface MSDocumentFontsViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate>
 {
     MSDocument *_document;
     NSTableView *_tableView;
+    NSView *_noFontsView;
     NSTextField *_headerTitleField;
     NSTextField *_headerMessageField;
     NSButton *_doneButton;
@@ -28,11 +29,13 @@
 @property(nonatomic) __weak NSButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(nonatomic) __weak NSTextField *headerMessageField; // @synthesize headerMessageField=_headerMessageField;
 @property(nonatomic) __weak NSTextField *headerTitleField; // @synthesize headerTitleField=_headerTitleField;
+@property(nonatomic) __weak NSView *noFontsView; // @synthesize noFontsView=_noFontsView;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)changeAutoEmbedSetting:(id)arg1;
+- (void)showContextHelp:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;

@@ -26,6 +26,7 @@
 - (unsigned long long)inferredLayoutAxes;
 - (id)symbolMasters;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

@@ -95,7 +95,7 @@
 - (void)swatchPickerWithInspector:(id)arg1 didSelect:(id)arg2;
 - (void)showSwatches:(id)arg1;
 - (void)createSwatchColor:(id)arg1;
-- (void)colorModeController:(id)arg1 didChangeFillType:(unsigned long long)arg2;
+- (void)colorModeController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)filteredStyleParts:(id)arg1;
 - (void)reflectEffectiveStyleParts;
@@ -121,6 +121,7 @@
 - (void)viewWillDisappear;
 - (void)setMaximumAvailableHeight:(long long)arg1;
 - (void)validateEnableButtons;
+- (id)colorForCurrentSection;
 - (id)currentSection;
 - (void)stack;
 - (BOOL)stylePartIsGradient:(id)arg1;

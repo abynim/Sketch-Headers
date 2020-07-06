@@ -49,6 +49,7 @@
 - (BOOL)performInsert;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (void)trackMouse:(id)arg1;
+- (void)zoomValueDidChange;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (id)initWithManager:(id)arg1;

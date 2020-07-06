@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) long long definition;
 @property(readonly, nonatomic) NSString *displayName;
 - (BOOL)isValidEnvironmentForCloudShareURL:(id)arg1;
+@property(readonly, nonatomic) NSString *sketchComHost;
 @property(readonly, nonatomic) NSString *host;
 - (id)hostWithSubdomain:(id)arg1;
 - (void)setCurrent;

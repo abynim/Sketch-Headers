@@ -10,7 +10,7 @@
 
 @interface NSURL (SketchCloudKit)
 + (id)appcastURLWithShareID:(id)arg1 environment:(id)arg2;
-+ (id)cloudShareURLWithShortID:(id)arg1 environment:(id)arg2;
++ (id)cloudShareURLWithShortID:(id)arg1 host:(id)arg2;
 - (id)appendingCloudDeeplinkComponentsToArtboard:(id)arg1 usingPageSelectorComponent:(id)arg2;
 - (id)appendingCloudDeeplinkComponentsInPageToArtboard:(id)arg1;
 - (id)appendingCloudDeeplinkComponentsToArtboard:(id)arg1;

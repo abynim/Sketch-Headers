@@ -44,6 +44,7 @@
 - (BOOL)isUpdatedByShare:(id)arg1;
 - (id)readOnlyCopy;
 - (id)dictionaryRepresentation;
+@property(readonly, nonatomic) NSURL *sketchComPublicURL;
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
 - (id)initWithDictionary:(id)arg1;
 

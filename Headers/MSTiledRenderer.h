@@ -80,9 +80,9 @@
 - (struct CGRect)_updatePageObjectID:(id)arg1 document:(id)arg2 dirtyRect:(struct CGRect)arg3;
 - (void)_removeAllTilesAndClearDirtyRegions;
 - (CDStruct_3b01f0aa *)_visibleDirtyRects:(struct CGRect)arg1 totalZoom:(double)arg2 previousContentScale:(double)arg3 level:(id)arg4;
-- (BOOL)_rasteriseContentInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 instruction:(id)arg3 tiles:(id)arg4 renderContentSynchronously:(BOOL)arg5 didCompleteSemaphore:(id)arg6;
+- (BOOL)_rasteriseContentInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 zoomValue:(double)arg3 backingScale:(double)arg4 instruction:(id)arg5 tiles:(id)arg6 renderContentSynchronously:(BOOL)arg7 didCompleteSemaphore:(id)arg8;
 - (void)_rasterisationFinishedForTileLevel:(id)arg1 page:(id)arg2 instruction:(id)arg3;
-- (void)_doParallelContentRasterisationInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 instruction:(id)arg3 contentsScale:(double)arg4 tiles:(id)arg5;
+- (void)_doParallelContentRasterisationInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 zoomValue:(double)arg3 backingScale:(double)arg4 instruction:(id)arg5 contentsScale:(double)arg6 tiles:(id)arg7;
 - (BOOL)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 displayPixels:(BOOL)arg4 tiles:(id)arg5 overlaySettings:(id)arg6 canvasColorSpace:(id)arg7 overlayTexture:(id)arg8 flowItems:(id)arg9 hasUserFocus:(BOOL)arg10;
 - (void)_renderTilesWithTotalZoom:(double)arg1 renderingParameters:(struct MSRenderingParameters)arg2 displayPixels:(BOOL)arg3 tiles:(id)arg4;
 - (CDStruct_75f85af1 *)_renderTileLevelWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 tiles:(id)arg4 inRegion:(const CDStruct_75f85af1 *)arg5;

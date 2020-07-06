@@ -40,6 +40,7 @@
 - (void)viewWillDisappear;
 - (void)dismissViewController:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
+- (BOOL)selectionHasEnabledBackgroundColor;
 - (void)updateDisplayedValues;
 - (void)dealloc;
 

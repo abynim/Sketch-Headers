@@ -89,6 +89,7 @@
 - (void)showVariableFontsPopover:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
+- (void)updateColorPicker;
 - (void)updateColorButton;
 - (void)applyTextColor:(id)arg1;
 - (id)inspectorValueAdaptor:(id)arg1 nilOperandDropInForModel:(id)arg2 operator:(id)arg3 operand2:(double)arg4;

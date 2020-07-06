@@ -29,6 +29,7 @@
 @property(retain, nonatomic) NSArray *cachedSymbolMasters; // @synthesize cachedSymbolMasters=_cachedSymbolMasters;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)isLocked;

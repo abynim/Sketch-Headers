@@ -24,6 +24,7 @@
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSPopUpButton *blendModePopUp; // @synthesize blendModePopUp=_blendModePopUp;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;
 - (void)dealloc;
