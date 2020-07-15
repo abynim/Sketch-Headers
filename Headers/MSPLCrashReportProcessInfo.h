@@ -19,6 +19,7 @@
     BOOL _native;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL native; // @synthesize native=_native;
 @property(readonly, nonatomic) unsigned long long parentProcessID; // @synthesize parentProcessID=_parentProcessID;
 @property(readonly, nonatomic) NSString *parentProcessName; // @synthesize parentProcessName=_parentProcessName;
@@ -26,7 +27,6 @@
 @property(readonly, nonatomic) NSString *processPath; // @synthesize processPath=_processPath;
 @property(readonly, nonatomic) unsigned long long processID; // @synthesize processID=_processID;
 @property(readonly, nonatomic) NSString *processName; // @synthesize processName=_processName;
-- (void)dealloc;
 - (id)initWithProcessName:(id)arg1 processID:(unsigned long long)arg2 processPath:(id)arg3 processStartTime:(id)arg4 parentProcessName:(id)arg5 parentProcessID:(unsigned long long)arg6 native:(BOOL)arg7;
 
 @end

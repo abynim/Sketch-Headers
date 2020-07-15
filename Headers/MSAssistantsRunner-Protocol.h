@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSDictionary, NSURL;
+@class NSDictionary, NSURL, _TtC10Assistants19IgnoreConfiguration;
 
 @protocol MSAssistantsRunner
-- (void)runAssistantsWithAssistants:(NSDictionary *)arg1 forDocumentAt:(NSURL *)arg2 completionHandler:(void (^)(_TtC10Assistants20AssistantsRunResults *, NSError *))arg3;
+- (void)runAssistantsWithAssistants:(NSDictionary *)arg1 ignoring:(_TtC10Assistants19IgnoreConfiguration *)arg2 forDocumentAt:(NSURL *)arg3 completionHandler:(void (^)(_TtC10Assistants20AssistantsRunResults *, NSError *))arg4;
 @end
 

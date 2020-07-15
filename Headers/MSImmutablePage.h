@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSImmutableRootLayer> *currentRoot;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitWithMutableModelObject:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 @property(readonly, nonatomic) MSArtboardPreset *preset;

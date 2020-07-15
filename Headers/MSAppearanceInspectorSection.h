@@ -34,6 +34,7 @@
 - (id)viewRestorationState_ms;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
+@property(readonly, nonatomic) BOOL isRenamingSharedObject;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)updateItems;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

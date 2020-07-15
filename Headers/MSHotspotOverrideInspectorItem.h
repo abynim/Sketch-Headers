@@ -20,7 +20,6 @@
 - (void)removeFlowAction:(id)arg1;
 - (void)flowTargetAction:(id)arg1;
 - (void)flowBackAction:(id)arg1;
-- (id)documentData;
 - (id)controlViewForEditingOverride;
 
 @end

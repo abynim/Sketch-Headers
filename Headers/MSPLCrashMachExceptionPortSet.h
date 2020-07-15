@@ -16,10 +16,10 @@
     struct plcrash_mach_exception_port_set _asyncSafeRepresentation;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSSet *set; // @synthesize set=_state_set;
 @property(readonly, nonatomic) struct plcrash_mach_exception_port_set asyncSafeRepresentation; // @synthesize asyncSafeRepresentation=_asyncSafeRepresentation;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (void)dealloc;
 - (id)initWithAsyncSafeRepresentation:(struct plcrash_mach_exception_port_set)arg1;
 - (id)initWithSet:(id)arg1;
 

@@ -14,6 +14,7 @@
 @interface SCKAPIEnvironment : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_name;
+    NSString *_keychainServiceNamePrefix;
 }
 
 + (id)current;
@@ -21,8 +22,10 @@
 + (BOOL)isProductionHost:(id)arg1;
 + (id)nameFromHost:(id)arg1;
 + (BOOL)supportsSecureCoding;
++ (id)authenticationDidChange;
 + (id)keychainErrorForStatus:(int)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *keychainServiceNamePrefix; // @synthesize keychainServiceNamePrefix=_keychainServiceNamePrefix;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
@@ -36,12 +39,15 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithDefinition:(long long)arg1 keychainServiceNamePrefix:(id)arg2;
 - (id)initWithDefinition:(long long)arg1;
 - (id)initWithHost:(id)arg1;
 - (id)initWithName:(id)arg1;
-- (void)migrateCloudCredentialWithAttributes:(id)arg1;
-- (void)migrateCloudCredentials;
-- (void)migrateCloudCredentialsIfNeeded;
+- (BOOL)removeAuthenticationAndReturnError:(id *)arg1;
+- (void)invalidateAuthenticationCache;
+- (BOOL)assignAuthentication:(id)arg1 error:(id *)arg2;
+- (id)authenticationAndReturnError:(id *)arg1;
+@property(nonatomic, readonly) BOOL hasAuthentication;
 - (int)deleteItemForUserID:(id)arg1;
 - (int)updatePasswordData:(id)arg1 forUserID:(id)arg2;
 - (int)addPasswordData:(id)arg1 forUserID:(id)arg2;
@@ -50,7 +56,7 @@
 - (id)keychainItemDictionary;
 - (id)keychainQueryDictionary;
 - (id)keychainLabel;
-- (id)keychainServiceName;
+@property(readonly, nonatomic) NSString *keychainServiceName;
 - (id)applicationVariant;
 - (BOOL)setKeychainAuthentication:(id)arg1 error:(id *)arg2;
 - (id)keychainAuthenticationWithError:(id *)arg1;

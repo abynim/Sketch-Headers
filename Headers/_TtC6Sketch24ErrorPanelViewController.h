@@ -6,18 +6,23 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSTextField;
+@class NSButton, NSTextField, _TtC6Sketch13AssistantIcon;
 
 @interface _TtC6Sketch24ErrorPanelViewController : NSViewController
 {
+    // Error parsing type: , name: assistantIcon
     // Error parsing type: , name: label
+    // Error parsing type: , name: actionButton
+    // Error parsing type: , name: errorDetails
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)viewDidLoad;
+- (void)copyDetails:(id)arg1;
+@property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSTextField *label; // @synthesize label;
+@property(nonatomic, retain) _TtC6Sketch13AssistantIcon *assistantIcon; // @synthesize assistantIcon;
 
 @end
 

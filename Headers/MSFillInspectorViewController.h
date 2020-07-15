@@ -7,11 +7,10 @@
 #import "MSColorStylePartInspectorViewController.h"
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
-#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
 @class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSInspectorPopoverButton, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
-@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, _TtP6Sketch24MSComponentsPopoverOwner_>
+@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
 {
     MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
@@ -35,7 +34,9 @@
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
 - (id)currentColorValueForTransformer:(id)arg1;
+- (void)updateDisplayedSwatchValues;
 - (void)fillPropertiesAction:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)bumpKVOValue:(id)arg1;
 - (void)hexFieldAction:(id)arg1;
@@ -47,7 +48,6 @@
 - (id)draggedTypesForView:(id)arg1;
 - (BOOL)isDisplayingTint;
 - (void)viewDidLoad;
-- (BOOL)buttonShouldShowBlendMode:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

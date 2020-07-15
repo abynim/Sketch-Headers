@@ -19,12 +19,12 @@
 
 + (id)attachmentWithBinary:(id)arg1 filename:(id)arg2 contentType:(id)arg3;
 + (id)attachmentWithText:(id)arg1 filename:(id)arg2;
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *errorId; // @synthesize errorId=_errorId;
 @property(copy, nonatomic) NSString *attachmentId; // @synthesize attachmentId=_attachmentId;
 @property(copy, nonatomic) NSData *data; // @synthesize data=_data;
 @property(copy, nonatomic) NSString *filename; // @synthesize filename=_filename;
 @property(copy, nonatomic) NSString *contentType; // @synthesize contentType=_contentType;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isValid;

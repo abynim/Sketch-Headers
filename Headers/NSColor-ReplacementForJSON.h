@@ -13,5 +13,6 @@
 - (id)treeAsDictionary;
 - (id)colorTranslatedToColorSpace:(id)arg1;
 @property(readonly, nonatomic) NSArray *manifestComponents;
+- (id)makeMSColorUsingColorSpace:(id)arg1 convert:(BOOL)arg2;
 @end
 

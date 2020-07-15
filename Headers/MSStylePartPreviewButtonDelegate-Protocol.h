@@ -7,5 +7,9 @@
 #import "MSPreviewColorSpaceProvider-Protocol.h"
 
 @protocol MSStylePartPreviewButtonDelegate <MSPreviewColorSpaceProvider>
+- (BOOL)previewButtonShouldShowColorVariablesButton;
+
+@optional
+- (void)showColorVariablesPopoverMenu:(id)arg1;
 @end
 

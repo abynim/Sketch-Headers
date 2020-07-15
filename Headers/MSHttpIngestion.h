@@ -25,6 +25,7 @@
 }
 
 + (id)eTagFromResponse:(id)arg1;
+- (void).cxx_destruct;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) NSArray *callsRetryIntervals; // @synthesize callsRetryIntervals=_callsRetryIntervals;
 @property(readonly, nonatomic) long long maxNumberOfConnections; // @synthesize maxNumberOfConnections=_maxNumberOfConnections;
@@ -33,7 +34,6 @@
 @property(retain, nonatomic) NSURL *sendURL; // @synthesize sendURL=_sendURL;
 @property(copy, nonatomic) NSString *apiPath; // @synthesize apiPath=_apiPath;
 @property(copy, nonatomic) NSString *baseURL; // @synthesize baseURL=_baseURL;
-- (void).cxx_destruct;
 - (void)printResponse:(id)arg1 body:(id)arg2 error:(id)arg3;
 - (void)sendAsync:(id)arg1 eTag:(id)arg2 callId:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)getHttpMethod;

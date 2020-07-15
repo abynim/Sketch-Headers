@@ -22,6 +22,7 @@
     NSArray *_retryIntervals;
 }
 
+- (void).cxx_destruct;
 @property(getter=isInProgress) BOOL inProgress; // @synthesize inProgress=_inProgress;
 @property(retain, nonatomic) NSArray *retryIntervals; // @synthesize retryIntervals=_retryIntervals;
 @property(nonatomic) int retryCount; // @synthesize retryCount=_retryCount;
@@ -31,7 +32,6 @@
 @property(retain, nonatomic) NSURL *url; // @synthesize url=_url;
 @property(retain, nonatomic) NSDictionary *headers; // @synthesize headers=_headers;
 @property(retain, nonatomic) NSData *data; // @synthesize data=_data;
-- (void).cxx_destruct;
 - (unsigned int)delayForRetryCount:(unsigned long long)arg1;
 - (void)startRetryTimerWithStatusCode:(unsigned long long)arg1 retryAfter:(id)arg2 event:(CDUnknownBlockType)arg3;
 - (void)resetRetry;

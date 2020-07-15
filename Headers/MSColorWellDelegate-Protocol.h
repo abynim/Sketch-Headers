@@ -6,11 +6,11 @@
 
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 
-@class MSColorWell, NSColor;
+@class MSColor, MSColorWell;
 
 @protocol MSColorWellDelegate <MSStylePartPreviewButtonDelegate>
 
 @optional
-- (NSColor *)initialColorPickerColorForColorWell:(MSColorWell *)arg1;
+- (MSColor *)initialColorPickerColorForColorWell:(MSColorWell *)arg1;
 @end
 

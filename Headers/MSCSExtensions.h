@@ -24,6 +24,7 @@
     MSLocExtension *_locExt;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSLocExtension *locExt; // @synthesize locExt=_locExt;
 @property(retain, nonatomic) MSSDKExtension *sdkExt; // @synthesize sdkExt=_sdkExt;
 @property(retain, nonatomic) MSNetExtension *netExt; // @synthesize netExt=_netExt;
@@ -33,7 +34,6 @@
 @property(retain, nonatomic) MSUserExtension *userExt; // @synthesize userExt=_userExt;
 @property(retain, nonatomic) MSProtocolExtension *protocolExt; // @synthesize protocolExt=_protocolExt;
 @property(retain, nonatomic) MSMetadataExtension *metadataExt; // @synthesize metadataExt=_metadataExt;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

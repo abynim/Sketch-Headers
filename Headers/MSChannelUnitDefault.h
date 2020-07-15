@@ -30,6 +30,7 @@
     NSMutableSet *_pausedTargetKeys;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableSet *pausedTargetKeys; // @synthesize pausedTargetKeys=_pausedTargetKeys;
 @property(retain, nonatomic) NSHashTable *pausedIdentifyingObjects; // @synthesize pausedIdentifyingObjects=_pausedIdentifyingObjects;
 @property(nonatomic) BOOL discardLogs; // @synthesize discardLogs=_discardLogs;
@@ -45,7 +46,6 @@
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *logsDispatchQueue; // @synthesize logsDispatchQueue=_logsDispatchQueue;
 @property(retain, nonatomic) MSChannelUnitConfiguration *configuration; // @synthesize configuration=_configuration;
-- (void).cxx_destruct;
 - (void)notifyFailureBeforeSendingForItem:(id)arg1 withError:(id)arg2;
 - (void)enumerateDelegatesForSelector:(SEL)arg1 withBlock:(CDUnknownBlockType)arg2;
 - (void)deleteAllLogsWithErrorSync:(id)arg1;

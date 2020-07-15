@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCJSONZippedEncoder *zipEncoder; // @synthesize zipEncoder=_zipEncoder;
+- (void)encodeReferences:(id)arg1 forKey:(id)arg2;
 - (id)replacementObjectForObject:(id)arg1;
 - (id)encoder;
 - (id)encodableReferenceToOriginal:(id)arg1;

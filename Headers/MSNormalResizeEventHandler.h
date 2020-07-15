@@ -6,7 +6,7 @@
 
 #import "MSNormalBaseEventHandler.h"
 
-@class MSDragGestureRecognizer, MSNormalEventHandler, _TtC17SketchControllers15MSResizeSession;
+@class MSDragGestureRecognizer, MSNormalEventHandler, NSNumberFormatter, _TtC17SketchControllers14MSOverlayLabel, _TtC17SketchControllers15MSResizeSession;
 
 @interface MSNormalResizeEventHandler : MSNormalBaseEventHandler
 {
@@ -14,9 +14,13 @@
     MSNormalEventHandler *_normalEventHandler;
     _TtC17SketchControllers15MSResizeSession *_resizeSession;
     MSDragGestureRecognizer *_resizeGestureRecognizer;
+    _TtC17SketchControllers14MSOverlayLabel *_sizeLabel;
+    NSNumberFormatter *_lengthFormatter;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSNumberFormatter *lengthFormatter; // @synthesize lengthFormatter=_lengthFormatter;
+@property(readonly, nonatomic) _TtC17SketchControllers14MSOverlayLabel *sizeLabel; // @synthesize sizeLabel=_sizeLabel;
 @property(readonly, nonatomic) MSDragGestureRecognizer *resizeGestureRecognizer; // @synthesize resizeGestureRecognizer=_resizeGestureRecognizer;
 @property(readonly, nonatomic) _TtC17SketchControllers15MSResizeSession *resizeSession; // @synthesize resizeSession=_resizeSession;
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;

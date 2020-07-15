@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch25MSComponentMenuController, _TtC6Sketch29MSComponentsPopoverController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch25MSComponentMenuController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -17,7 +17,6 @@
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     BCCache *_previewImageCache;
-    _TtC6Sketch29MSComponentsPopoverController *_componentsPopoverController;
     _TtC6Sketch25MSComponentMenuController *_componentMenuController;
     MSLayerArray *_selectedLayers;
     NSView *_alignmentView;
@@ -34,7 +33,6 @@
 @property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
 @property(retain, nonatomic) _TtC6Sketch25MSComponentMenuController *componentMenuController; // @synthesize componentMenuController=_componentMenuController;
-@property(retain, nonatomic) _TtC6Sketch29MSComponentsPopoverController *componentsPopoverController; // @synthesize componentsPopoverController=_componentsPopoverController;
 @property(retain, nonatomic) BCCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
@@ -58,6 +56,7 @@
 - (id)inspectorForLayers:(id)arg1 eventHandler:(id)arg2;
 - (void)refreshCurrentController;
 - (void)layoutContentView;
+@property(readonly, nonatomic) BOOL isRenamingSharedObject;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;

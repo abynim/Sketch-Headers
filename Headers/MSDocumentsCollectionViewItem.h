@@ -22,6 +22,7 @@
     NSTextField *_subtextField;
 }
 
++ (id)reuseIdentifier;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;

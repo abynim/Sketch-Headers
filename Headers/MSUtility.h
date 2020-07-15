@@ -10,6 +10,8 @@
 {
 }
 
++ (id)archiveKeyedData:(id)arg1;
++ (id)unarchiveKeyedData:(id)arg1;
 + (id)sdkVersion;
 + (id)sdkName;
 + (BOOL)isAppStoreReceiptSandbox;

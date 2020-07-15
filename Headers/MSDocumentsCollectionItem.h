@@ -45,6 +45,7 @@
 - (id)getStatusColor;
 - (id)getStatus;
 @property(readonly, nonatomic) BOOL supportsDeletion;
+@property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
 

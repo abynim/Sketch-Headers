@@ -6,16 +6,16 @@
 
 #import <SketchModel/_MSStyleShadow.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 
 @class NSString;
 
-@interface MSStyleShadow : _MSStyleShadow <MSColorConvertible>
+@interface MSStyleShadow : _MSStyleShadow <MSColorUpdateable>
 {
 }
 
 - (unsigned long long)styleType;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 - (id)CSSAttributeString;

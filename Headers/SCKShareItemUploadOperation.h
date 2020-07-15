@@ -45,13 +45,14 @@
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)updateProgress;
 - (void)deleteChunkFile;
-- (void)exportChunkToFile;
+- (BOOL)exportChunkToFileWithError:(id *)arg1;
 - (id)multipartChunkURL;
 - (void)startUploadAttempt:(unsigned long long)arg1;
 - (void)cancel;
 - (void)start;
 @property(readonly, nonatomic) long long taskIdentifier;
 - (BOOL)isAsynchronous;
+- (void)dealloc;
 - (id)initWithURLRequest:(id)arg1 fromURL:(id)arg2;
 
 // Remaining properties

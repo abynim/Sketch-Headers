@@ -55,7 +55,7 @@
 - (void)resetPoints;
 - (void)setNilValueForKey:(id)arg1;
 - (void)resetPointsBasedOnUserInteraction;
-- (void)setParentObject:(id)arg1;
+- (void)willMoveToParentObject:(id)arg1;
 - (id)usedStyle;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (id)defaultCurvePoints;

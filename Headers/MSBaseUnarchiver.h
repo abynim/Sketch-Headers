@@ -28,6 +28,7 @@
 @property(nonatomic) BOOL corruptionDetected; // @synthesize corruptionDetected=_corruptionDetected;
 @property(nonatomic) long long archiveVersion; // @synthesize archiveVersion=_archiveVersion;
 @property(nonatomic) long long currentVersion; // @synthesize currentVersion=_currentVersion;
+- (id)decodeReferencesOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)instanciateObject:(id)arg1;
 - (struct CGSize)decodeSizeForKey:(id)arg1 withDefault:(struct CGSize)arg2;
 - (long long)decodeIntegerForKey:(id)arg1 withDefault:(long long)arg2;

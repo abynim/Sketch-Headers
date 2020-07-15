@@ -8,7 +8,7 @@
 
 @interface MSPLCrashMachExceptionServer : NSObject
 {
-    struct plcrash_exception_server_context *_serverContext;
+    // Error parsing type: ^{plcrash_exception_server_context=IIII^?^v{_opaque_pthread_mutex_t=q[56c]}{_opaque_pthread_cond_t=q[40c]}ABB}, name: _serverContext
 }
 
 - (void)dealloc;

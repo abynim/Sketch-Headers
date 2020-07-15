@@ -15,8 +15,8 @@
     NSString *_value;
 }
 
-@property(retain, nonatomic) NSString *value; // @synthesize value=_value;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *value; // @synthesize value=_value;
 - (int)bindWithStatement:(void *)arg1 atIndex:(int)arg2;
 - (id)initWithValue:(id)arg1;
 

@@ -6,25 +6,20 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSSegmentedControl, NSTextField;
+@class NSSegmentedControl, NSTextField;
 
 @interface _TtC6Sketch23ComponentKindController : NSViewController
 {
     // Error parsing type: , name: componentKindSegmentedControl
     // Error parsing type: , name: componentKindLabel
-    // Error parsing type: , name: treeStructureLabel
-    // Error parsing type: , name: treeStructureButton
     // Error parsing type: , name: componentsPaneController
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)toggleTreeStructure:(id)arg1;
 - (void)pickComponentKind:(id)arg1;
 - (void)viewDidLoad;
-@property(nonatomic) __weak NSButton *treeStructureButton; // @synthesize treeStructureButton;
-@property(nonatomic) __weak NSTextField *treeStructureLabel; // @synthesize treeStructureLabel;
 @property(nonatomic) __weak NSTextField *componentKindLabel; // @synthesize componentKindLabel;
 @property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
 

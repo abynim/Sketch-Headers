@@ -12,6 +12,7 @@
     // Error parsing type: , name: socket
     // Error parsing type: , name: request
     // Error parsing type: , name: messageHandler
+    // Error parsing type: , name: messageQueue
     // Error parsing type: , name: subscriptions
     // Error parsing type: , name: reconnector
 }
@@ -20,7 +21,7 @@
 - (id)init;
 - (void)close;
 - (void)subscribeWithGraphQL:(id)arg1 errorHandler:(CDUnknownBlockType)arg2 callback:(CDUnknownBlockType)arg3;
-- (id)initWithRequest:(id)arg1;
+- (id)initWithRequest:(id)arg1 messageQueue:(id)arg2;
 @property(nonatomic) long long status; // @synthesize status;
 
 @end

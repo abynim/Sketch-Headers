@@ -15,8 +15,8 @@
     NSArray *_services;
 }
 
-@property(retain, nonatomic) NSArray *services; // @synthesize services=_services;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *services; // @synthesize services=_services;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)serializeToDictionary;

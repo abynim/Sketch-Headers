@@ -14,9 +14,9 @@
     NSString *_epoch;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSString *epoch; // @synthesize epoch=_epoch;
 @property(nonatomic) unsigned long long seq; // @synthesize seq=_seq;
-- (void).cxx_destruct;
 - (id)initWithEpoch:(id)arg1;
 
 @end

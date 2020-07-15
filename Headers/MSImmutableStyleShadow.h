@@ -13,9 +13,11 @@
 
 @interface MSImmutableStyleShadow : _MSImmutableStyleShadow <NSPasteboardWriting, NSPasteboardReading>
 {
+    struct CGSize _offset;
 }
 
 + (id)stylePartPasteboardType;
+@property(nonatomic) struct CGSize offset; // @synthesize offset=_offset;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)pasteboardReaderWriter;
 

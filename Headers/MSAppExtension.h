@@ -20,12 +20,12 @@
     NSString *_userId;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *userId; // @synthesize userId=_userId;
 @property(copy, nonatomic) NSString *locale; // @synthesize locale=_locale;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *ver; // @synthesize ver=_ver;
 @property(copy, nonatomic) NSString *appId; // @synthesize appId=_appId;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

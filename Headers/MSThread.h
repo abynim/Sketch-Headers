@@ -18,11 +18,11 @@
     MSException *_exception;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSException *exception; // @synthesize exception=_exception;
 @property(retain, nonatomic) NSMutableArray *frames; // @synthesize frames=_frames;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSNumber *threadId; // @synthesize threadId=_threadId;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -12,6 +12,7 @@
 {
     // Error parsing type: , name: keyEventsDelegate
     // Error parsing type: , name: dropDelegate
+    // Error parsing type: , name: collectionViewAcceptsFirstResponder
     // Error parsing type: , name: collectionBackgroundView
 }
 
@@ -24,6 +25,7 @@
 - (unsigned long long)draggingEntered:(id)arg1;
 - (BOOL)wantsPeriodicDraggingUpdates;
 - (BOOL)prepareForDragOperation:(id)arg1;
+@property(nonatomic, readonly) BOOL acceptsFirstResponder;
 - (void)keyDown:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;

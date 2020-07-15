@@ -36,7 +36,6 @@
 - (id)description;
 - (void)log;
 - (BOOL)containsPoint:(struct CGPoint)arg1;
-- (BOOL)isEqual:(id)arg1;
 @property(nonatomic) BOOL primitiveConstrainProportions;
 - (id)scaleBy:(double)arg1;
 @property(nonatomic) double midY;

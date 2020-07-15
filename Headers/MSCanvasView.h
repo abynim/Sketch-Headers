@@ -11,7 +11,7 @@
 #import "MSOverlayItemDataSource-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderingDriver, MSRulerView, MSViewPort, MSZoomTool, NSNumberFormatter, NSObject, NSString, _TtC6Sketch18MSScrollRecognizer;
+@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderingDriver, MSViewPort, MSZoomTool, NSObject, NSString, _TtC6Sketch11MSRulerView, _TtC6Sketch18MSGuideOverlayTool, _TtC6Sketch18MSScrollRecognizer;
 @protocol MSCanvasViewDelegate, MSTilingSystemProvider;
 
 @interface MSCanvasView : NSView <MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
@@ -36,15 +36,17 @@
     NSObject<MSTilingSystemProvider> *_tiledRenderer;
     id <MSCanvasViewDelegate> _delegate;
     MSEventHandlerManager *_eventHandlerManager;
-    MSRulerView *_horizontalRuler;
-    MSRulerView *_verticalRuler;
+    _TtC6Sketch11MSRulerView *_horizontalRuler;
+    _TtC6Sketch11MSRulerView *_verticalRuler;
     MSDocument *_document;
     MSRenderingDriver *_driver;
     MSMouseTracker *_mouseTracker;
     unsigned long long _handToolState;
     MSOverlaySettings *_overlaySettings;
     MSZoomTool *_zoomTool;
-    NSNumberFormatter *_measurementLabelNumberFormatter;
+    double _temporaryVerticalGuide;
+    double _temporaryHorizontalGuide;
+    _TtC6Sketch18MSGuideOverlayTool *_guideOverlayTool;
     _TtC6Sketch18MSScrollRecognizer *_scrollRecognizer;
     struct __CFRunLoopObserver *_displayRunLoopObserver;
     struct __CVDisplayLink *_displayLink;
@@ -72,11 +74,13 @@
 @property(readonly, nonatomic) struct __CFRunLoopObserver *displayRunLoopObserver; // @synthesize displayRunLoopObserver=_displayRunLoopObserver;
 @property(readonly, nonatomic) _TtC6Sketch18MSScrollRecognizer *scrollRecognizer; // @synthesize scrollRecognizer=_scrollRecognizer;
 @property(nonatomic) BOOL didMouseDragged; // @synthesize didMouseDragged=_didMouseDragged;
-@property(retain, nonatomic) NSNumberFormatter *measurementLabelNumberFormatter; // @synthesize measurementLabelNumberFormatter=_measurementLabelNumberFormatter;
 @property(nonatomic, getter=isMagnifying) BOOL magnifying; // @synthesize magnifying=_magnifying;
 @property(nonatomic) BOOL haveStoredMostRecentFullScaleScrollOrigin; // @synthesize haveStoredMostRecentFullScaleScrollOrigin=_haveStoredMostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint mostRecentFullScaleScrollOrigin; // @synthesize mostRecentFullScaleScrollOrigin=_mostRecentFullScaleScrollOrigin;
 @property(nonatomic) struct CGPoint scalingCenterInViewCoordinates; // @synthesize scalingCenterInViewCoordinates=_scalingCenterInViewCoordinates;
+@property(readonly, nonatomic) _TtC6Sketch18MSGuideOverlayTool *guideOverlayTool; // @synthesize guideOverlayTool=_guideOverlayTool;
+@property(nonatomic) double temporaryHorizontalGuide; // @synthesize temporaryHorizontalGuide=_temporaryHorizontalGuide;
+@property(nonatomic) double temporaryVerticalGuide; // @synthesize temporaryVerticalGuide=_temporaryVerticalGuide;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(readonly, nonatomic) BOOL needsUpdateCursor; // @synthesize needsUpdateCursor=_needsUpdateCursor;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
@@ -86,8 +90,8 @@
 @property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
 @property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
-@property(nonatomic) __weak MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
-@property(nonatomic) __weak MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
+@property(nonatomic) __weak _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
+@property(nonatomic) __weak _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSCanvasViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<MSTilingSystemProvider> *tiledRenderer; // @synthesize tiledRenderer=_tiledRenderer;
@@ -197,6 +201,7 @@
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
+- (id)temporaryGuideOverlayItemContainerWithParameters:(struct MSRenderingParameters)arg1;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)flowItems:(unsigned long long)arg1;
 - (void)scrollBy:(struct CGPoint)arg1;

@@ -22,8 +22,8 @@
 + (id)getCrashHandlerSetupDelegate;
 + (void)setCrashHandlerSetupDelegate:(id)arg1;
 + (id)sharedInstance;
-@property(nonatomic) __weak id <MSCrashHandlerSetupDelegate> crashHandlerSetupDelegate; // @synthesize crashHandlerSetupDelegate=_crashHandlerSetupDelegate;
 - (void).cxx_destruct;
+@property(nonatomic) __weak id <MSCrashHandlerSetupDelegate> crashHandlerSetupDelegate; // @synthesize crashHandlerSetupDelegate=_crashHandlerSetupDelegate;
 
 @end
 

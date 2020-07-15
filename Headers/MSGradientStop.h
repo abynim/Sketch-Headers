@@ -6,16 +6,16 @@
 
 #import <SketchModel/_MSGradientStop.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 
 @class NSString;
 
-@interface MSGradientStop : _MSGradientStop <MSColorConvertible>
+@interface MSGradientStop : _MSGradientStop <MSColorUpdateable>
 {
 }
 
 + (id)stopWithPosition:(double)arg1 color:(id)arg2;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (double)cappedBounds:(double)arg1;
 - (void)setPosition:(double)arg1;
 - (id)initWithPosition:(double)arg1 color:(id)arg2;

@@ -6,10 +6,9 @@
 
 #import "_TtC6Sketch25ComponentFilterController.h"
 
-#import "NSSearchFieldDelegate-Protocol.h"
+#import "BCFilterTextFieldDelegate-Protocol.h"
 
-@interface _TtC6Sketch25ComponentFilterController (Sketch1) <NSSearchFieldDelegate>
-- (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
-- (void)controlTextDidChange:(id)arg1;
+@interface _TtC6Sketch25ComponentFilterController (Sketch1) <BCFilterTextFieldDelegate>
+- (void)filterTextField:(id)arg1 willUseFieldEditor:(id)arg2;
 @end
 

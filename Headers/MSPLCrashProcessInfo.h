@@ -18,12 +18,12 @@
 }
 
 + (id)currentProcessInfo;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct timeval startTime; // @synthesize startTime=_startTime;
 @property(readonly, nonatomic, getter=isTraced) BOOL traced; // @synthesize traced=_traced;
 @property(readonly, nonatomic) int parentProcessID; // @synthesize parentProcessID=_parentProcessID;
 @property(readonly, nonatomic) NSString *processName; // @synthesize processName=_processName;
 @property(readonly, nonatomic) int processID; // @synthesize processID=_processID;
-- (void)dealloc;
 - (id)initWithProcessID:(int)arg1;
 
 @end

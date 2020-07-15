@@ -12,17 +12,21 @@
 {
     // Error parsing type: , name: primaryLabel
     // Error parsing type: , name: secondaryLabel
-    // Error parsing type: , name: hoverLabel
-    // Error parsing type: , name: revealImage
+    // Error parsing type: , name: actionButton
     // Error parsing type: , name: violationRowModel
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
-- (void)revealButtonTapped:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)toggleIgnore;
+- (void)viewDetails;
+- (void)ignoreAll;
+- (void)enable;
+- (void)ignore;
+- (void)reveal;
 - (void)prepareForReuse;
-@property(nonatomic, retain) NSButton *revealImage; // @synthesize revealImage;
-@property(nonatomic, retain) NSTextField *hoverLabel; // @synthesize hoverLabel;
+@property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSTextField *secondaryLabel; // @synthesize secondaryLabel;
 @property(nonatomic, retain) NSTextField *primaryLabel; // @synthesize primaryLabel;
 

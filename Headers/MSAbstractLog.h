@@ -24,6 +24,7 @@
     NSSet *_transmissionTargetTokens;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *transmissionTargetTokens; // @synthesize transmissionTargetTokens=_transmissionTargetTokens;
 @property(retain, nonatomic) NSObject *tag; // @synthesize tag=_tag;
 @property(retain, nonatomic) MSDevice *device; // @synthesize device=_device;
@@ -32,7 +33,6 @@
 @property(copy, nonatomic) NSString *sid; // @synthesize sid=_sid;
 @property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
-- (void).cxx_destruct;
 - (id)convertTimeZoneOffsetToISO8601:(long long)arg1;
 - (id)combineSDKLibVer:(id)arg1 withVersion:(id)arg2;
 - (id)combineOsVersion:(id)arg1 withBuild:(id)arg2;

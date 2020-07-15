@@ -26,11 +26,17 @@
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *backgroundColorButton; // @synthesize backgroundColorButton=_backgroundColorButton;
+- (void)applyUserSelectedColor:(id)arg1;
+- (id)currentSwatchReference;
+- (id)currentSwatch;
+- (void)showColorVariablesPopoverMenu:(id)arg1;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)documentColorSpace;
 - (id)canvasColorSpace;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)stylePartPreviewButtonDisabledAction:(id)arg1;
+- (id)firstLayerBackgroundColor;
 - (void)changeBackgroundColorTo:(id)arg1;
 - (void)backgroundColorAction:(id)arg1;
 - (id)companionPopoverForColorPanelPresenter:(id)arg1;

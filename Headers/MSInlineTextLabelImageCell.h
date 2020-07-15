@@ -17,7 +17,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSValue *customFittingSize; // @synthesize customFittingSize=_customFittingSize;
 - (id)font;
-- (id)textColor;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (struct CGSize)cellSize;
 - (void)setImage:(id)arg1;

@@ -13,8 +13,8 @@
     NSString *_sessionId;
 }
 
-@property(copy, nonatomic) NSString *sessionId; // @synthesize sessionId=_sessionId;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *sessionId; // @synthesize sessionId=_sessionId;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTimestamp:(id)arg1 andSessionId:(id)arg2;

@@ -6,13 +6,18 @@
 
 #import <SketchModel/MSModelObject.h>
 
+@class NSString;
+
 @interface _MSPatchInfo : MSModelObject
 {
+    NSString *_lastIntegratedPatchID;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
+- (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_lastIntegratedPatchID:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -22,6 +27,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(retain, nonatomic) NSString *lastIntegratedPatchID; // @synthesize lastIntegratedPatchID=_lastIntegratedPatchID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

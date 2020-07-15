@@ -6,19 +6,22 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary, NSString;
+@class NSMutableArray, NSMutableDictionary, NSString;
 
 @interface BCPasteboardMock : NSObject
 {
     NSString *_name;
     NSMutableDictionary *_storage;
+    NSMutableArray *_objects;
 }
 
 + (id)pasteboardWithName:(id)arg1;
 + (id)generalPasteboard;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *objects; // @synthesize objects=_objects;
 @property(retain, nonatomic) NSMutableDictionary *storage; // @synthesize storage=_storage;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)readObjectsForClasses:(id)arg1 options:(id)arg2;
 - (void)clearContents;
 @property(readonly) long long changeCount;
 - (BOOL)writeObjects:(id)arg1;

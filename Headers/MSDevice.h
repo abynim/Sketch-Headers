@@ -30,6 +30,7 @@
     NSString *_appNamespace;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *appNamespace; // @synthesize appNamespace=_appNamespace;
 @property(copy, nonatomic) NSString *appBuild; // @synthesize appBuild=_appBuild;
 @property(copy, nonatomic) NSString *carrierCountry; // @synthesize carrierCountry=_carrierCountry;
@@ -46,7 +47,6 @@
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
 @property(copy, nonatomic) NSString *sdkVersion; // @synthesize sdkVersion=_sdkVersion;
 @property(copy, nonatomic) NSString *sdkName; // @synthesize sdkName=_sdkName;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

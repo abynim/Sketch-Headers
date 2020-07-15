@@ -10,15 +10,11 @@
 
 @interface MSLayerSelector : NSObject
 {
-    BOOL _contextualSelectAll;
-    BOOL _selectAllCanEscalate;
     MSPage *_page;
     MSLayerArray *_initialSelection;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) BOOL selectAllCanEscalate; // @synthesize selectAllCanEscalate=_selectAllCanEscalate;
-@property(nonatomic) BOOL contextualSelectAll; // @synthesize contextualSelectAll=_contextualSelectAll;
 @property(copy, nonatomic) MSLayerArray *initialSelection; // @synthesize initialSelection=_initialSelection;
 @property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
 - (BOOL)shouldUseArtboardSelectionModeForRect:(struct CGRect)arg1 extendSelection:(BOOL)arg2 options:(unsigned long long)arg3;

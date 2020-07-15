@@ -27,7 +27,6 @@
 + (BOOL)removeCurrentWithError:(id *)arg1;
 + (BOOL)setCurrentSession:(id)arg1 error:(id *)arg2;
 + (void)getCurrentSessionAndRefreshIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (BOOL)cacheKeychainSessionWithError:(id *)arg1;
 + (id)readCurrentSessionWithError:(id *)arg1;
 + (id)currentSessionWithError:(id *)arg1;
 + (id)currentSessionQueue;

@@ -6,32 +6,24 @@
 
 #import <AppKit/NSViewController.h>
 
-@class BCSidebarTabButton, NSButton, NSSearchField, NSStackView;
+@class NSButton, NSSearchField;
 
 @interface _TtC6Sketch25ComponentFilterController : NSViewController
 {
-    // Error parsing type: , name: filterButton
     // Error parsing type: , name: searchField
     // Error parsing type: , name: clearButton
-    // Error parsing type: , name: tokenContainerView
     // Error parsing type: , name: componentsPaneController
-    // Error parsing type: , name: currentFilterTokens
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)supplementalTargetForAction:(SEL)arg1 sender:(id)arg2;
-- (void)filterTokenButtonClicked:(id)arg1;
-- (void)filterMenuAction:(id)arg1;
-- (void)showFilterMenu:(id)arg1;
 - (void)clearFilterString:(id)arg1;
 - (void)applyAppearance;
 - (void)viewDidLoad;
-@property(nonatomic, retain) NSStackView *tokenContainerView; // @synthesize tokenContainerView;
 @property(nonatomic) __weak NSButton *clearButton; // @synthesize clearButton;
 @property(nonatomic) __weak NSSearchField *searchField; // @synthesize searchField;
-@property(nonatomic) __weak BCSidebarTabButton *filterButton; // @synthesize filterButton;
 
 @end
 

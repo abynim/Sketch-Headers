@@ -16,8 +16,8 @@
     NSString *_tz;
 }
 
-@property(copy, nonatomic) NSString *tz; // @synthesize tz=_tz;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *tz; // @synthesize tz=_tz;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -17,9 +17,9 @@
 + (void)refreshDeviceNextTime;
 + (void)resetSharedInstance;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *deviceHistory; // @synthesize deviceHistory=_deviceHistory;
 @property(retain, nonatomic) MSDevice *device; // @synthesize device=_device;
-- (void).cxx_destruct;
 - (id)appNamespace:(id)arg1;
 - (id)appBuild:(id)arg1;
 - (id)appVersion:(id)arg1;

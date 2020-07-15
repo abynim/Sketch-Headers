@@ -12,13 +12,8 @@
     // Error parsing type: , name: $__lazy_storage_$_secondaryTitleFont
     // Error parsing type: , name: $__lazy_storage_$_emphasizedDisplayTitleFont
     // Error parsing type: , name: $__lazy_storage_$_emphasizedSecondaryTitleFont
-    // Error parsing type: , name: $__lazy_storage_$_popoverLibraryTitleFont
-    // Error parsing type: , name: sidebarCompactTreeDimensions
     // Error parsing type: , name: sidebarNestedTreeDimensions
     // Error parsing type: , name: sidebarFlatListTreeDimensions
-    // Error parsing type: , name: popoverCompactTreeDimensions
-    // Error parsing type: , name: popoverNestedTreeDimensions
-    // Error parsing type: , name: popoverFlatListTreeDimensions
 }
 
 @end

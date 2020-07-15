@@ -19,11 +19,11 @@
     NSUUID *_installId;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSUUID *installId; // @synthesize installId=_installId;
 @property(nonatomic) long long seq; // @synthesize seq=_seq;
 @property(copy, nonatomic) NSString *epoch; // @synthesize epoch=_epoch;
 @property(copy, nonatomic) NSString *libVer; // @synthesize libVer=_libVer;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

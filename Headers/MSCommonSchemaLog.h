@@ -23,6 +23,7 @@
     MSCSData *_data;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSCSData *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSCSExtensions *ext; // @synthesize ext=_ext;
 @property(copy, nonatomic) NSString *cV; // @synthesize cV=_cV;
@@ -31,7 +32,6 @@
 @property(nonatomic) double popSample; // @synthesize popSample=_popSample;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *ver; // @synthesize ver=_ver;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -16,8 +16,8 @@
     NSDictionary *_metadata;
 }
 
-@property(copy) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void).cxx_destruct;
+@property(copy) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

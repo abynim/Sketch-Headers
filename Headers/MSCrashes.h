@@ -56,6 +56,7 @@
 + (BOOL)hasReceivedMemoryWarningInLastSession;
 + (BOOL)hasCrashedInLastSession;
 + (void)generateTestCrash;
+- (void).cxx_destruct;
 @property(nonatomic, getter=isAutomaticProcessingEnabled) BOOL automaticProcessingEnabled; // @synthesize automaticProcessingEnabled=_automaticProcessingEnabled;
 @property(retain, nonatomic) NSDate *appStartTime; // @synthesize appStartTime=_appStartTime;
 @property(copy) CDUnknownBlockType userConfirmationHandler; // @synthesize userConfirmationHandler=_userConfirmationHandler;
@@ -81,7 +82,6 @@
 @property(retain, nonatomic) MSChannelUnitConfiguration *channelUnitConfiguration; // @synthesize channelUnitConfiguration=_channelUnitConfiguration;
 @property(retain, nonatomic) id <MSChannelGroupProtocol> channelGroup; // @synthesize channelGroup=_channelGroup;
 @property(nonatomic) __weak id <MSCrashesDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (id)buildHandledErrorReportWithErrorID:(id)arg1;
 - (id)trackModelException:(id)arg1 withProperties:(id)arg2 withAttachments:(id)arg3;
 - (void)clearUnprocessedReports;

@@ -6,7 +6,8 @@
 
 #import <objc/NSObject.h>
 
-@class MSNormalEventHandler, MSSelectionOverlay, MSSpacingTool;
+@class MSSelectionOverlay, MSSpacingTool, _TtC17SketchControllers14MSOverlayLabel;
+@protocol _TtP6Sketch27MSSelectionOverlayPresenter_;
 
 @interface _TtC6Sketch28MSSelectionOverlayController : NSObject
 {
@@ -20,18 +21,21 @@
     // Error parsing type: , name: horizontalSpaces
     // Error parsing type: , name: verticalSpaces
     // Error parsing type: , name: overlay
+    // Error parsing type: , name: $__lazy_storage_$_spacingLabel
     // Error parsing type: , name: visibilityModel
-    // Error parsing type: , name: eventHandler
+    // Error parsing type: , name: presenter
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak MSNormalEventHandler *eventHandler; // @synthesize eventHandler;
+@property(nonatomic) __weak id <_TtP6Sketch27MSSelectionOverlayPresenter_> presenter; // @synthesize presenter;
+@property(nonatomic, retain) _TtC17SketchControllers14MSOverlayLabel *spacingLabel;
 @property(nonatomic, readonly) MSSelectionOverlay *overlay; // @synthesize overlay;
 @property(nonatomic, readonly) MSSpacingTool *spacingTool; // @synthesize spacingTool;
 - (void)restoreShowingSelection;
 - (void)temporarilyHideSelection;
 - (void)refreshIfNecessary:(id)arg1;
 @property(nonatomic) BOOL hidesBoundingBoxForSelectedArtboards; // @synthesize hidesBoundingBoxForSelectedArtboards;
+- (void)installIntoEventHandler:(id)arg1;
 - (void)dealloc;
 - (id)init;
 

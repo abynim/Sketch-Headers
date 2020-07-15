@@ -23,6 +23,8 @@
     NSString *_sessionIdentifier;
 }
 
++ (void)setIsRunningHeadless:(BOOL)arg1;
++ (BOOL)isRunningHeadless;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (BOOL)persistsObjectID;
 + (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;

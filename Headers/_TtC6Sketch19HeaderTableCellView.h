@@ -11,17 +11,21 @@
 @interface _TtC6Sketch19HeaderTableCellView : _TtC6Sketch19ResultTableCellView
 {
     // Error parsing type: , name: headerText
-    // Error parsing type: , name: helpButton
+    // Error parsing type: , name: actionButton
     // Error parsing type: , name: assistantImage
     // Error parsing type: , name: headerRowModel
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (void)help;
+- (void)enable;
+- (void)ignore;
+- (void)toggleIgnore;
 - (void)prepareForReuse;
-- (void)helpButtonTapped:(id)arg1;
 @property(nonatomic, retain) _TtC6Sketch13AssistantIcon *assistantImage; // @synthesize assistantImage;
-@property(nonatomic, retain) NSButton *helpButton; // @synthesize helpButton;
+@property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSTextField *headerText; // @synthesize headerText;
 
 @end

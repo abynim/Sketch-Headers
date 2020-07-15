@@ -12,6 +12,7 @@
 {
     // Error parsing type: , name: configurationItemIdentifier
     // Error parsing type: , name: allAssistantsItemIdentifier
+    // Error parsing type: , name: shouldShow
     // Error parsing type: , name: $__lazy_storage_$_resultsController
     // Error parsing type: , name: toolBar
 }
@@ -23,8 +24,7 @@
 - (void)documentDidResignCurrentWithNotification:(id)arg1;
 - (void)documentDidBecomeCurrentWithNotification:(id)arg1;
 - (void)displayResultForDocument:(id)arg1;
-- (void)windowDidResignKey:(id)arg1;
-- (void)windowDidBecomeKey:(id)arg1;
+- (void)keyWindowChanged:(id)arg1;
 - (void)windowDidLoad;
 - (void)dealloc;
 @property(nonatomic, retain) NSToolbar *toolBar; // @synthesize toolBar;

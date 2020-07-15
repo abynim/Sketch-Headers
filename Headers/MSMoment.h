@@ -6,29 +6,36 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSString;
+@class MSImmutableDocumentData, NSArray, NSSet, NSString;
 
 @interface MSMoment : NSObject
 {
+    BOOL _committed;
     double _timestamp;
     NSString *_title;
-    MSImmutableDocumentData *_document;
-    unsigned long long _adaptability;
+    MSImmutableDocumentData *_initialDocument;
+    MSImmutableDocumentData *_finalDocument;
     NSString *_pageID;
+    NSSet *_selection;
+    NSArray *_selectedOverrides;
 }
 
 + (void)setTimestampCoalesingThreshold:(double)arg1;
 + (double)timestampCoalesingThreshold;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
-@property(nonatomic) unsigned long long adaptability; // @synthesize adaptability=_adaptability;
-@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
+@property(readonly, nonatomic) NSSet *selection; // @synthesize selection=_selection;
+@property(readonly, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
+@property(readonly, nonatomic) BOOL committed; // @synthesize committed=_committed;
+@property(retain, nonatomic) MSImmutableDocumentData *finalDocument; // @synthesize finalDocument=_finalDocument;
+@property(retain, nonatomic) MSImmutableDocumentData *initialDocument; // @synthesize initialDocument=_initialDocument;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) double timestamp; // @synthesize timestamp=_timestamp;
+- (id)patchMovingBackwards:(BOOL)arg1;
 - (BOOL)commit;
 @property(readonly, nonatomic) BOOL canCoalesce;
 - (id)init;
-- (id)initWithTitle:(id)arg1 documentData:(id)arg2;
+- (id)initWithInitialDocument:(id)arg1 finalDocument:(id)arg2;
 
 @end
 

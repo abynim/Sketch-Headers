@@ -6,12 +6,20 @@
 
 #import <AppKit/NSDocumentController.h>
 
+@class NSMutableDictionary;
+
 @interface MSDocumentController : NSDocumentController
 {
     long long _numberOfDocumentsBeingOpened;
+    NSMutableDictionary *_documentClassOverrides;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *documentClassOverrides; // @synthesize documentClassOverrides=_documentClassOverrides;
 @property(nonatomic) long long numberOfDocumentsBeingOpened; // @synthesize numberOfDocumentsBeingOpened=_numberOfDocumentsBeingOpened;
+- (void)testing_resetAllDocumentClassOverrides;
+- (void)testing_setDocumentClassOverride:(Class)arg1 forDocumentType:(id)arg2;
+- (Class)documentClassForType:(id)arg1;
 - (void)beginOpenPanelWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)closeAllDocumentsWithDelegate:(id)arg1 cancellingSheets:(BOOL)arg2 didCloseAllSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (id)defaultType;

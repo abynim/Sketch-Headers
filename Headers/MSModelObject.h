@@ -11,27 +11,36 @@
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class MSDocumentData, MSForeignObject, MSImmutableModelObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
+@protocol MSRootLayer;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSMetadataCoding, MSModelObject>
 {
-    id _cachedImmutableModelObject;
+    MSImmutableModelObject *_immutableModelObject;
     BOOL _isFault;
-    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
     MSModelObject *_parentObject;
+    MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
 }
 
 + (Class)immutableClass;
++ (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
 + (BOOL)allowsFaulting;
 + (BOOL)persistsObjectID;
 - (void).cxx_destruct;
-@property(nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
+@property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration; // @synthesize modelObjectCacheGeneration=_modelObjectCacheGeneration;
+@property(readonly, nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
+- (void)didMoveToDocument;
+- (void)willMoveToDocument:(id)arg1;
+- (void)didMoveToParentObject;
+- (void)willMoveToParentObject:(id)arg1;
+- (void)enumerateFaultedDescendantsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)notifyDidMove:(BOOL)arg1;
+- (BOOL)notifyWillMoveToParentObject:(id)arg1;
 - (BOOL)isDescendantOfObject:(id)arg1;
+@property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *parentRoot;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (void)breakConnectionWith:(id)arg1;
 - (void)refaultingDidRemove;
-- (id)parentGroupRecursive;
-@property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (void)setAsParentOnChildren;
 - (BOOL)matchesImmutable:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
@@ -41,11 +50,12 @@
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) MSImmutableModelObject *immutableModelObject;
+- (void)refaultChildrenAgainst:(id)arg1;
 - (void)refaultAgainst:(id)arg1;
-- (void)fireFaultIfNecessary;
-- (void)fireFault;
-@property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration;
+- (void)performInitWithImmutableModelObject:(id)arg1;
+- (void)fireFaultIfNeeded;
 - (id)generateObjectID;
+@property(copy, nonatomic) NSString *objectID; // @dynamic objectID;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
@@ -70,10 +80,6 @@
 - (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
-- (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
-- (void)refaultChildrenAgainst:(id)arg1;
-@property(retain, nonatomic) id cachedImmutableModelObject;
-- (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;
@@ -89,7 +95,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, copy, nonatomic) NSString *objectID;
 @property(readonly) Class superclass;
 
 @end

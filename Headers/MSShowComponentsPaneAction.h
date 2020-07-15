@@ -6,11 +6,18 @@
 
 #import "MSShowSidebarTabAction.h"
 
+@class MSComponentsPaneController, NSWindow;
+
 @interface MSShowComponentsPaneAction : MSShowSidebarTabAction
 {
+    NSWindow *_componentsWindow;
+    MSComponentsPaneController *_componentsController;
 }
 
+- (void).cxx_destruct;
 - (id)label;
+- (void)hide;
+- (void)show;
 - (void)showComponentsPane:(id)arg1;
 - (id)tabIdentifier;
 - (BOOL)isActive;

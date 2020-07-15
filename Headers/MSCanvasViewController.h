@@ -8,15 +8,15 @@
 
 #import "MSCanvasViewDelegate-Protocol.h"
 
-@class MSCanvasView, MSDocument, MSFlashController, NSLayoutConstraint, NSString, NSView, _TtC6Sketch24MSBidirectionalRulerView;
+@class MSCanvasView, MSDocument, MSFlashController, NSLayoutConstraint, NSString, NSView, _TtC6Sketch11MSRulerView;
 
 @interface MSCanvasViewController : NSViewController <MSCanvasViewDelegate>
 {
     BOOL _shouldHideOverlayControls;
     BOOL _observingDefaults;
     MSCanvasView *_canvasView;
-    _TtC6Sketch24MSBidirectionalRulerView *_horizontalRuler;
-    _TtC6Sketch24MSBidirectionalRulerView *_verticalRuler;
+    _TtC6Sketch11MSRulerView *_horizontalRuler;
+    _TtC6Sketch11MSRulerView *_verticalRuler;
     NSView *_rulerCornerView;
     NSLayoutConstraint *_rulerWidthConstraint;
     NSLayoutConstraint *_rulerHeightConstraint;
@@ -33,9 +33,13 @@
 @property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *rulerWidthConstraint; // @synthesize rulerWidthConstraint=_rulerWidthConstraint;
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
-@property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
-@property(retain, nonatomic) _TtC6Sketch24MSBidirectionalRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
+@property(retain, nonatomic) _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
+@property(retain, nonatomic) _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
+- (void)rulerViewStopCoalescingHistory:(id)arg1;
+- (void)rulerViewStartCoalescingHistory:(id)arg1;
+- (void)rulerViewDidDisableTemporaryGuide:(id)arg1;
+- (void)rulerView:(id)arg1 didMoveTemporaryGuideToPosition:(double)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)endObservingDefaults;
 - (void)beginObservingDefaults;
@@ -50,6 +54,7 @@
 - (void)viewWillDisappear;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
+- (void)updateRulers;
 - (void)dealloc;
 - (void)awakeFromNib;
 

@@ -17,12 +17,12 @@
     unsigned long long _flushInterval;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long flushInterval; // @synthesize flushInterval=_flushInterval;
 @property(readonly, nonatomic) unsigned long long pendingBatchesLimit; // @synthesize pendingBatchesLimit=_pendingBatchesLimit;
 @property(readonly, nonatomic) unsigned long long batchSizeLimit; // @synthesize batchSizeLimit=_batchSizeLimit;
 @property(readonly, nonatomic) long long priority; // @synthesize priority=_priority;
 @property(readonly, copy, nonatomic) NSString *groupId; // @synthesize groupId=_groupId;
-- (void).cxx_destruct;
 - (id)initDefaultConfigurationWithGroupId:(id)arg1;
 - (id)initDefaultConfigurationWithGroupId:(id)arg1 flushInterval:(unsigned long long)arg2;
 - (id)initWithGroupId:(id)arg1 priority:(long long)arg2 flushInterval:(unsigned long long)arg3 batchSizeLimit:(unsigned long long)arg4 pendingBatchesLimit:(unsigned long long)arg5;

@@ -10,12 +10,13 @@
 
 @interface MSDefaultArchive : BCSingleton
 {
+    id _defaultObject;
     MSVersionedArchive *_archive;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSVersionedArchive *archive; // @synthesize archive=_archive;
-@property(retain, nonatomic) id defaultObject;
+@property(retain, nonatomic) id defaultObject; // @synthesize defaultObject=_defaultObject;
 - (id)newObject;
 - (id)archivesNeedingMigration;
 - (Class)defaultClass;

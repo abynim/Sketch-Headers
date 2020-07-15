@@ -14,9 +14,9 @@
     NSArray *_logs;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *logs; // @synthesize logs=_logs;
 @property(copy, nonatomic) NSString *batchId; // @synthesize batchId=_batchId;
-- (void).cxx_destruct;
 - (BOOL)isValid;
 - (id)serializeLogWithPrettyPrinting:(BOOL)arg1;
 - (id)serializeLog;

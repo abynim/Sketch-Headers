@@ -54,6 +54,7 @@
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
 - (void)reloadWithFooterViewControllers:(id)arg1;
 - (void)prepareForDisplay;
+@property(readonly, nonatomic) BOOL isRenamingSharedObject;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)showBorderOptionsAction:(id)arg1;
 - (void)showFillOptionsAction:(id)arg1;

@@ -6,11 +6,16 @@
 
 #import <SketchModel/MSImmutableModelObject.h>
 
+@class NSString;
+
 @interface _MSImmutablePatchInfo : MSImmutableModelObject
 {
+    NSString *_lastIntegratedPatchID;
 }
 
 + (Class)mutableClass;
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSString *lastIntegratedPatchID; // @synthesize lastIntegratedPatchID=_lastIntegratedPatchID;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

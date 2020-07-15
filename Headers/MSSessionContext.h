@@ -16,9 +16,9 @@
 
 + (void)resetSharedInstance;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *sessionHistory; // @synthesize sessionHistory=_sessionHistory;
 @property(retain, nonatomic) MSSessionHistoryInfo *currentSessionInfo; // @synthesize currentSessionInfo=_currentSessionInfo;
-- (void).cxx_destruct;
 - (void)clearSessionHistoryAndKeepCurrentSession:(BOOL)arg1;
 - (id)sessionIdAt:(id)arg1;
 - (void)setSessionId:(id)arg1;

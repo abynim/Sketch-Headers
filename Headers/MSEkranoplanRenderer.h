@@ -13,6 +13,7 @@
 
 @interface MSEkranoplanRenderer : NSObject <MSTilingSystemProvider>
 {
+    struct EKDeviceStruct *_device;
     NSView<MSTiledRendererHostView> *hostView;
     CALayer *layer;
     CAMetalLayer *_metalLayer;

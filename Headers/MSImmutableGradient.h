@@ -18,6 +18,8 @@
 - (struct CGGradient *)newCGGradientForColorSpace:(struct CGColorSpace *)arg1;
 - (struct CGGradient *)newCGGradientForColorSpace:(struct CGColorSpace *)arg1 colorConverter:(CDUnknownBlockType)arg2;
 - (double)conditionedEllipseLength;
+- (struct CGPoint)lastPoint;
+- (struct CGPoint)firstPoint;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
 - (id)stopAtIndex:(unsigned long long)arg1;
 

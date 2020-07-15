@@ -25,6 +25,7 @@
 
 + (BOOL)isEnabled;
 + (void)setEnabled:(BOOL)arg1;
+- (void).cxx_destruct;
 @property(nonatomic, getter=isStarted) BOOL started; // @synthesize started=_started;
 @property(readonly, copy, nonatomic) NSString *isEnabledKey; // @synthesize isEnabledKey=_isEnabledKey;
 @property(nonatomic) BOOL startedFromApplication; // @synthesize startedFromApplication=_startedFromApplication;
@@ -32,7 +33,6 @@
 @property(retain, nonatomic) NSString *appSecret; // @synthesize appSecret=_appSecret;
 @property(retain, nonatomic) id <MSChannelUnitProtocol> channelUnit; // @synthesize channelUnit=_channelUnit;
 @property(retain, nonatomic) id <MSChannelGroupProtocol> channelGroup; // @synthesize channelGroup=_channelGroup;
-- (void).cxx_destruct;
 - (void)updateConfigurationWithAppSecret:(id)arg1 transmissionTargetToken:(id)arg2;
 - (void)startWithChannelGroup:(id)arg1 appSecret:(id)arg2 transmissionTargetToken:(id)arg3 fromApplication:(BOOL)arg4;
 - (BOOL)isStartedFromApplication;

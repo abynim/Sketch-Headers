@@ -7,17 +7,25 @@
 #import "MSColorInspectorSectionWithColorPicker.h"
 
 #import "MSInspectorItemDelegate-Protocol.h"
+#import "_TtP6Sketch22MSSwatchPickerDelegate_-Protocol.h"
 
-@class MSColor, NSString;
+@class MSColor, NSString, _TtC6Sketch28MSColorInspectorSwatchPicker;
 
-@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker <MSInspectorItemDelegate>
+@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker <MSInspectorItemDelegate, _TtP6Sketch22MSSwatchPickerDelegate_>
 {
+    BOOL _isEditingSwatch;
     MSColor *_pickedColor;
+    _TtC6Sketch28MSColorInspectorSwatchPicker *_swatchColorPicker;
 }
 
 + (id)presetPickerVisibilityDefaultsKey;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isEditingSwatch; // @synthesize isEditingSwatch=_isEditingSwatch;
+@property(retain, nonatomic) _TtC6Sketch28MSColorInspectorSwatchPicker *swatchColorPicker; // @synthesize swatchColorPicker=_swatchColorPicker;
 @property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
+- (void)swatchEditorDidCancelEditing:(id)arg1;
+- (void)swatchPickerCreateColor:(id)arg1;
+- (void)swatchPicker:(id)arg1 didSelect:(id)arg2;
 - (void)itemDidResize:(id)arg1;
 - (id)documentForInspectorItem:(id)arg1;
 - (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
@@ -31,8 +39,10 @@
 - (void)setStyleParts:(id)arg1;
 - (void)selectColorInAssetPicker:(id)arg1;
 - (void)highlightCurrentColor;
+- (void)setPickedColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (id)assetPickerDataSources;
 - (id)scrollableViews;
+- (id)headerViews;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

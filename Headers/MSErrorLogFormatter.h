@@ -11,18 +11,16 @@
 }
 
 + (id)formatAddress:(unsigned long long)arg1 is64bit:(BOOL)arg2;
-+ (unsigned long long)normalizeAddress:(unsigned long long)arg1 is64bit:(BOOL)arg2;
 + (id)uuidRefToString:(struct __CFUUID *)arg1;
-+ (id)addressesFromReport:(id)arg1 is64bit:(BOOL)arg2;
++ (id)addressesFromReport:(id)arg1;
 + (id)findCrashedThreadInReport:(id)arg1;
-+ (BOOL)isCodeType64bit:(id)arg1;
-+ (id)extractCodeTypeFromReport:(id)arg1;
++ (BOOL)isCodeType64bit:(unsigned long long)arg1;
 + (long long)imageTypeForImagePath:(id)arg1 processPath:(id)arg2;
 + (id)selectorForRegisterWithName:(id)arg1 ofThread:(id)arg2 report:(id)arg3;
 + (id)anonymizedPathFromPath:(id)arg1;
 + (BOOL)isBinaryWithStart:(unsigned long long)arg1 end:(unsigned long long)arg2 inAddresses:(id)arg3;
-+ (id)extractBinaryImagesFromReport:(id)arg1 codeType:(id)arg2 is64bit:(BOOL)arg3;
-+ (id)selectorRegisterValueFromReport:(id)arg1 ofCrashedThread:(id)arg2 is64bit:(BOOL)arg3;
++ (id)extractBinaryImagesFromReport:(id)arg1 is64bit:(BOOL)arg2;
++ (id)selectorRegisterValueFromReport:(id)arg1 ofCrashedThread:(id)arg2 codeType:(unsigned long long)arg3;
 + (id)extractExceptionReasonFromReport:(id)arg1;
 + (id)extractRegistersFromCrashedThread:(id)arg1 is64bit:(BOOL)arg2;
 + (id)formatStackFrame:(id)arg1 report:(id)arg2;

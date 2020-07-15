@@ -40,9 +40,9 @@
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (id)overridesFromGroupForMigration:(id)arg1;
+- (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)initWithMinimalSetup;
-- (id)keysDifferingFromObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;

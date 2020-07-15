@@ -10,8 +10,6 @@
 
 @interface _MSDocumentData : MSModelObject
 {
-    BOOL _agreedToFontEmbedding;
-    BOOL _autoEmbedFonts;
     unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
@@ -27,6 +25,7 @@
     NSMutableArray *_pages;
     MSPatchInfo *_patchInfo;
     _TtC11SketchModel17MSSwatchContainer *_sharedSwatches;
+    NSMutableArray *_workspaceItems;
 }
 
 + (BOOL)allowsFaulting;
@@ -36,6 +35,7 @@
 + (id)localizedNewPageName;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_workspaceItems:(id)arg1;
 - (void)setRaw_sharedSwatches:(id)arg1;
 - (void)setRaw_pages:(id)arg1;
 - (void)setRaw_layerTextStyles:(id)arg1;
@@ -50,14 +50,24 @@
 - (void)setRaw_userInfo:(id)arg1;
 - (void)setRaw_currentPageIndex:(unsigned long long)arg1;
 - (void)setRaw_colorSpace:(unsigned long long)arg1;
-- (void)setRaw_autoEmbedFonts:(BOOL)arg1;
-- (void)setRaw_agreedToFontEmbedding:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)setAsParentOnChildren;
+- (void)moveWorkspaceItemFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
+- (void)removeAllWorkspaceItems;
+- (void)removeWorkspaceItemsAtIndexes:(id)arg1;
+- (void)removeWorkspaceItemAtIndex:(unsigned long long)arg1;
+- (void)removeWorkspaceItem:(id)arg1;
+- (void)insertWorkspaceItems:(id)arg1 afterWorkspaceItem:(id)arg2;
+- (void)insertWorkspaceItem:(id)arg1 afterWorkspaceItem:(id)arg2;
+- (void)insertWorkspaceItems:(id)arg1 beforeWorkspaceItem:(id)arg2;
+- (void)insertWorkspaceItem:(id)arg1 beforeWorkspaceItem:(id)arg2;
+- (void)insertWorkspaceItem:(id)arg1 atIndex:(unsigned long long)arg2;
+- (void)addWorkspaceItems:(id)arg1;
+- (void)addWorkspaceItem:(id)arg1;
 - (void)movePageFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2;
 - (void)removeAllPages;
 - (void)removePagesAtIndexes:(id)arg1;
@@ -133,6 +143,7 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(retain, nonatomic) NSArray *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
 @property(retain, nonatomic) _TtC11SketchModel17MSSwatchContainer *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) MSPatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
@@ -148,8 +159,6 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(nonatomic) BOOL autoEmbedFonts; // @synthesize autoEmbedFonts=_autoEmbedFonts;
-@property(nonatomic) BOOL agreedToFontEmbedding; // @synthesize agreedToFontEmbedding=_agreedToFontEmbedding;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

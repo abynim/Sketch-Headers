@@ -6,16 +6,16 @@
 
 #import <SketchModel/_MSStyleBasicFill.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 
 @class NSString;
 
-@interface MSStyleBasicFill : _MSStyleBasicFill <MSColorConvertible>
+@interface MSStyleBasicFill : _MSStyleBasicFill <MSColorUpdateable>
 {
 }
 
 @property(copy, nonatomic) NSString *hexColor;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (void)performInitEmptyObject;
 
 // Remaining properties

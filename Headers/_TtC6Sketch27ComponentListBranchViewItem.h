@@ -11,7 +11,6 @@
     // Error parsing type: , name: library
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: isVariableHeight
-    // Error parsing type: , name: containment
     // Error parsing type: , name: treeStructure
     // Error parsing type: , name: treeContainsMultipleLibraries
     // Error parsing type: , name: expansionState

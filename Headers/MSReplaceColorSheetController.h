@@ -31,6 +31,7 @@
 @property(nonatomic) __weak MSStylePartPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
 @property(nonatomic) __weak NSButton *ignoreAlphaWhenMatchingOriginalColorButton; // @synthesize ignoreAlphaWhenMatchingOriginalColorButton=_ignoreAlphaWhenMatchingOriginalColorButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)initialColorPickerColorForColorWell:(id)arg1;

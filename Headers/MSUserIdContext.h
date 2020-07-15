@@ -20,10 +20,10 @@
 + (BOOL)isUserIdValidForAppCenter:(id)arg1;
 + (void)resetSharedInstance;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(retain, nonatomic) NSMutableArray *userIdHistory; // @synthesize userIdHistory=_userIdHistory;
 @property(retain, nonatomic) MSUserIdHistoryInfo *currentUserIdInfo; // @synthesize currentUserIdInfo=_currentUserIdInfo;
-- (void).cxx_destruct;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1;
 - (void)clearUserIdHistory;

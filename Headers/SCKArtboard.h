@@ -13,6 +13,7 @@
 @interface SCKArtboard : SCKObject <SCKDiffable>
 {
     BOOL _isFlowHome;
+    NSString *_shortID;
     NSString *_name;
     NSString *_slug;
     unsigned long long _order;
@@ -35,6 +36,7 @@
 @property(readonly, nonatomic) unsigned long long order; // @synthesize order=_order;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 - (id)dictionaryRepresentation;
 - (id)fileAtScale:(double)arg1 ofType:(unsigned long long)arg2;
 @property(readonly, nonatomic) SCKPage *page;

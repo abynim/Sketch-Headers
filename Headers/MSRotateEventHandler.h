@@ -9,7 +9,7 @@
 #import "MSRotationBarDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSNormalEventHandler, MSRotationGestureInterpreter, NSArray, NSString, _TtC6Sketch34MSRotationCenterPointPlacementTool;
+@class MSDragToMoveOrCopyGestureRecognizer, MSNormalEventHandler, MSRotationGestureInterpreter, NSArray, NSString, _TtC17SketchControllers14MSOverlayLabel, _TtC6Sketch34MSRotationCenterPointPlacementTool;
 
 @interface MSRotateEventHandler : MSNormalBaseEventHandler <MSRotationBarDelegate, NSTouchBarDelegate>
 {
@@ -23,11 +23,13 @@
     MSRotationGestureInterpreter *_dragRotationInterpreter;
     unsigned long long _draggedComponent;
     _TtC6Sketch34MSRotationCenterPointPlacementTool *_centerPointTool;
+    _TtC17SketchControllers14MSOverlayLabel *_rotationLabel;
     struct CGPoint _rotationCenterPoint;
 }
 
 + (id)cursorForDegrees:(long long)arg1;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _TtC17SketchControllers14MSOverlayLabel *rotationLabel; // @synthesize rotationLabel=_rotationLabel;
 @property(readonly, nonatomic) _TtC6Sketch34MSRotationCenterPointPlacementTool *centerPointTool; // @synthesize centerPointTool=_centerPointTool;
 @property(nonatomic) unsigned long long draggedComponent; // @synthesize draggedComponent=_draggedComponent;
 @property(readonly, nonatomic) MSRotationGestureInterpreter *dragRotationInterpreter; // @synthesize dragRotationInterpreter=_dragRotationInterpreter;
@@ -45,6 +47,8 @@
 - (id)makeTouchBar;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (id)formatAngle:(long long)arg1;
+- (void)updateMeasurementLabelWithAngle:(long long)arg1;
 - (double)alignDegreesTo15Angles:(double)arg1;
 - (void)keyDown:(id)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

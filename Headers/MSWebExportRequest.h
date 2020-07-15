@@ -17,6 +17,7 @@
 + (id)webExportRequestFromLayerAncestry:(id)arg1 atScale:(double)arg2;
 @property(nonatomic) unsigned long long layerBehavior; // @synthesize layerBehavior=_layerBehavior;
 - (id)includedLayerIDs;
+- (unsigned long long)options;
 - (id)includedLayerIDsFromLayer:(id)arg1 ancestors:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 

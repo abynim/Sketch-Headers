@@ -10,8 +10,6 @@
 
 @interface _MSImmutableDocumentData : MSImmutableModelObject
 {
-    BOOL _agreedToFontEmbedding;
-    BOOL _autoEmbedFonts;
     unsigned long long _colorSpace;
     unsigned long long _currentPageIndex;
     NSDictionary *_userInfo;
@@ -27,11 +25,13 @@
     NSArray *_pages;
     MSImmutablePatchInfo *_patchInfo;
     MSImmutableSwatchContainer *_sharedSwatches;
+    NSArray *_workspaceItems;
 }
 
 + (Class)mutableClass;
 + (id)defaultPageArray;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
 @property(retain, nonatomic) MSImmutableSwatchContainer *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) MSImmutablePatchInfo *patchInfo; // @synthesize patchInfo=_patchInfo;
 @property(retain, nonatomic) NSArray *pages; // @synthesize pages=_pages;
@@ -47,8 +47,6 @@
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo=_userInfo;
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
-@property(nonatomic) BOOL autoEmbedFonts; // @synthesize autoEmbedFonts=_autoEmbedFonts;
-@property(nonatomic) BOOL agreedToFontEmbedding; // @synthesize agreedToFontEmbedding=_agreedToFontEmbedding;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

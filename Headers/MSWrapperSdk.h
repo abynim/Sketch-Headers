@@ -20,13 +20,13 @@
     NSString *_liveUpdatePackageHash;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *liveUpdatePackageHash; // @synthesize liveUpdatePackageHash=_liveUpdatePackageHash;
 @property(copy, nonatomic) NSString *liveUpdateDeploymentKey; // @synthesize liveUpdateDeploymentKey=_liveUpdateDeploymentKey;
 @property(copy, nonatomic) NSString *liveUpdateReleaseLabel; // @synthesize liveUpdateReleaseLabel=_liveUpdateReleaseLabel;
 @property(copy, nonatomic) NSString *wrapperRuntimeVersion; // @synthesize wrapperRuntimeVersion=_wrapperRuntimeVersion;
 @property(copy, nonatomic) NSString *wrapperSdkName; // @synthesize wrapperSdkName=_wrapperSdkName;
 @property(copy, nonatomic) NSString *wrapperSdkVersion; // @synthesize wrapperSdkVersion=_wrapperSdkVersion;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -10,9 +10,6 @@
 {
 }
 
-- (void)drawBrokenLinkSymbolErrorIconInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
-- (void)drawRecursiveSymbolErrorIconInRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
-- (void)drawErrorPatternInRect:(struct CGRect)arg1 error:(long long)arg2 context:(id)arg3;
 - (void)drawErrorPatternForInstance:(id)arg1 error:(long long)arg2 context:(id)arg3;
 - (void)renderLayer:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 

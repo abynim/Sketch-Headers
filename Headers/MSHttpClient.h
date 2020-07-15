@@ -22,6 +22,7 @@
     NSURLSessionConfiguration *_sessionConfiguration;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSURLSessionConfiguration *sessionConfiguration; // @synthesize sessionConfiguration=_sessionConfiguration;
 @property(nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(nonatomic, getter=isPaused) BOOL paused; // @synthesize paused=_paused;
@@ -29,7 +30,6 @@
 @property(retain, nonatomic) MS_Reachability *reachability; // @synthesize reachability=_reachability;
 @property(retain, nonatomic) NSURLSession *session; // @synthesize session=_session;
 @property(nonatomic) __weak id <MSHttpClientDelegate> delegate; // @synthesize delegate=_delegate;
-- (void).cxx_destruct;
 - (void)dealloc;
 - (void)setEnabled:(BOOL)arg1 andDeleteDataOnDisabled:(BOOL)arg2;
 - (void)resume;

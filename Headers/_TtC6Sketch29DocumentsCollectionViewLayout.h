@@ -8,13 +8,11 @@
 
 @interface _TtC6Sketch29DocumentsCollectionViewLayout : NSCollectionViewFlowLayout
 {
-    // Error parsing type: , name: showsLoadingPlaceholders
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
-- (id)layoutAttributesForDecorationViewOfKind:(id)arg1 atIndexPath:(id)arg2;
 
 @end
 

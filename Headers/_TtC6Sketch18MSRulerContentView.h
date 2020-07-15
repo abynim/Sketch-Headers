@@ -10,7 +10,7 @@
 {
     // Error parsing type: , name: zoomValue
     // Error parsing type: , name: baseLine
-    // Error parsing type: , name: orientation
+    // Error parsing type: , name: axis
 }
 
 - (id)initWithCoder:(id)arg1;

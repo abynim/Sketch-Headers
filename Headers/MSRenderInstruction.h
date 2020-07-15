@@ -42,6 +42,7 @@
 - (void)dealloc;
 - (id)init;
 - (id)initWithDocumentData:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cacheProvider:(id)arg3 colorSpace:(struct CGColorSpace *)arg4;
+- (unsigned long long)traitsDifferingWithInstruction:(id)arg1;
 
 @end
 

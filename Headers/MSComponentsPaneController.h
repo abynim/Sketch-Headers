@@ -13,17 +13,13 @@
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: delegate
-    // Error parsing type: , name: popoverController
     // Error parsing type: , name: splitViewController
     // Error parsing type: , name: libraryListController
     // Error parsing type: , name: componentListController
     // Error parsing type: , name: previewController
     // Error parsing type: , name: filterBarController
     // Error parsing type: , name: kindBarController
-    // Error parsing type: , name: hideSymbolViewController
-    // Error parsing type: , name: symbolSwapPreferenceViewController
     // Error parsing type: , name: $__lazy_storage_$_appearanceObserver
-    // Error parsing type: , name: containment
     // Error parsing type: , name: splitViewControllerConfigured
     // Error parsing type: , name: allowEditing
     // Error parsing type: , name: selectionScheme
@@ -31,8 +27,8 @@
     // Error parsing type: , name: enableLibraryList
     // Error parsing type: , name: enableLibraryMenu
     // Error parsing type: , name: enableComponentKindControl
-    // Error parsing type: , name: enableSymbolSwapPreference
     // Error parsing type: , name: componentPreviewPosition
+    // Error parsing type: , name: defaultExpansionState
     // Error parsing type: , name: librariesNeedReloading
     // Error parsing type: , name: componentsNeedReloading
     // Error parsing type: , name: directlyModifiedDocumentToIgnoreOnce

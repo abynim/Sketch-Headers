@@ -37,12 +37,13 @@
 @property(readonly, nonatomic) BOOL isPrivate; // @synthesize isPrivate=_isPrivate;
 @property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (id)debugDescription;
 - (id)description;
 - (id)shareBySettingCurrentVersion:(id)arg1;
 - (BOOL)isManagedByOwner:(id)arg1;
 - (BOOL)isUpdatedByShare:(id)arg1;
 - (id)readOnlyCopy;
+- (id)shareBySettingOwner:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, nonatomic) NSURL *sketchComPublicURL;
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;

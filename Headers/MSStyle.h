@@ -24,7 +24,7 @@
 - (void)syncWithTemplateInstance:(id)arg1;
 @property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasMarkers;
-@property(readonly, nonatomic) double thickestStroke;
+@property(readonly, nonatomic) double thickestStrokeDoubledForClipping;
 - (BOOL)hasTextStyle;
 - (unsigned long long)type;
 - (id)parentStyle;

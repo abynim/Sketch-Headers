@@ -16,6 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)initWithItemIdentifier:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
 - (void)validate;
 - (void)buttonPressed;
 

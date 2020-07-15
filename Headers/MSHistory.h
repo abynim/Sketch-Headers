@@ -6,34 +6,39 @@
 
 #import <objc/NSObject.h>
 
-@class MSMoment, NSMutableArray;
+@class MSImmutableDocumentData, MSMoment, NSMutableArray, NSString;
 @protocol MSHistoryDelegate;
 
 @interface MSHistory : NSObject
 {
+    BOOL _isCoalescing;
     id <MSHistoryDelegate> _delegate;
+    NSString *_nextMomentTitle;
     NSMutableArray *_moments;
-    long long _indexOfCurrentMoment;
+    unsigned long long _indexOfNextMoment;
+    MSImmutableDocumentData *_currentDocument;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) long long indexOfCurrentMoment; // @synthesize indexOfCurrentMoment=_indexOfCurrentMoment;
+@property(retain, nonatomic) MSImmutableDocumentData *currentDocument; // @synthesize currentDocument=_currentDocument;
+@property(nonatomic) unsigned long long indexOfNextMoment; // @synthesize indexOfNextMoment=_indexOfNextMoment;
 @property(retain, nonatomic) NSMutableArray *moments; // @synthesize moments=_moments;
+@property(copy, nonatomic) NSString *nextMomentTitle; // @synthesize nextMomentTitle=_nextMomentTitle;
+@property(nonatomic) BOOL isCoalescing; // @synthesize isCoalescing=_isCoalescing;
 @property(nonatomic) __weak id <MSHistoryDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) unsigned long long numberOfMoments;
-@property(readonly, nonatomic) BOOL canProgressToNextMoment;
-- (BOOL)progressToNextMoment;
-- (void)notifyDidCommitMoment:(id)arg1;
+- (void)ignoreRemotePatch:(id)arg1 changingFrom:(id)arg2 toCurrentDocument:(id)arg3;
+- (id)updateDocument:(id)arg1 against:(id)arg2 removingPatchContents:(id)arg3;
+- (void)ignoreLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
+- (void)updateAfterHistoryChange:(id)arg1 backwards:(BOOL)arg2;
 - (void)commitCurrentMoment;
-@property(readonly, nonatomic) BOOL canRevertToPreviousMoment;
+- (BOOL)progressToNextMoment;
 - (BOOL)revertToPreviousMoment;
-@property(readonly, nonatomic) MSMoment *nextMoment;
-@property(readonly, nonatomic) MSMoment *previousMoment;
-@property(readonly, nonatomic) MSMoment *currentMoment;
+@property(readonly, nonatomic) MSMoment *redoMoment;
+@property(readonly, nonatomic) MSMoment *undoMoment;
 - (void)removeFutureMoments;
-- (unsigned long long)addMomentWithTitle:(id)arg1 documentData:(id)arg2;
+- (unsigned long long)updateWithLocalDocumentChanges:(id)arg1;
 - (id)init;
-- (id)initWithInitialMoment:(id)arg1;
+- (id)initWithInitialDocument:(id)arg1;
 
 @end
 
