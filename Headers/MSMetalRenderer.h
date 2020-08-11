@@ -84,7 +84,7 @@
 - (void)drawColorTriangleMesh:(const struct MSColorVertexMesh *)arg1 modelViewTransform:(struct CGAffineTransform)arg2 disableOverlappingFragmentBlending:(BOOL)arg3;
 - (void)drawConstantColorTriangleMeshFromBuffer:(id)arg1 color:(CDStruct_0b1c536a)arg2 modelViewTransform:(struct CGAffineTransform)arg3 disableOverlappingFragmentBlending:(BOOL)arg4;
 - (void)dealloc;
-- (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 device:(id)arg2;
+- (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 
 @end
 

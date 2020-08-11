@@ -17,6 +17,8 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+- (void)popoverWillClose:(id)arg1;
+- (void)popoverWillShow:(id)arg1;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
 - (Class)stylePartInspectorClass;

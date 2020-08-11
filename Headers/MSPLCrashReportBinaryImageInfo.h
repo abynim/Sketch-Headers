@@ -18,13 +18,13 @@
     NSString *_imageUUID;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *imageUUID; // @synthesize imageUUID=_imageUUID;
 @property(readonly, nonatomic) BOOL hasImageUUID; // @synthesize hasImageUUID=_hasImageUUID;
 @property(readonly, nonatomic) NSString *imageName; // @synthesize imageName=_imageName;
 @property(readonly, nonatomic) unsigned long long imageSize; // @synthesize imageSize=_imageSize;
 @property(readonly, nonatomic) unsigned long long imageBaseAddress; // @synthesize imageBaseAddress=_baseAddress;
 @property(readonly, nonatomic) MSPLCrashReportProcessorInfo *codeType; // @synthesize codeType=_processorInfo;
-- (void)dealloc;
 - (id)initWithCodeType:(id)arg1 baseAddress:(unsigned long long)arg2 size:(unsigned long long)arg3 name:(id)arg4 uuid:(id)arg5;
 
 @end

@@ -11,8 +11,6 @@
 @interface NSError (Cloud)
 + (id)cloudErrorFromAPIResponse_sck:(id)arg1 jsonBody:(id)arg2;
 + (id)cloudErrorFromAPIResponse_sck:(id)arg1 data:(id)arg2;
-@property(readonly, nonatomic) BOOL isNotLoggedInError;
-@property(readonly, nonatomic) BOOL isProjectDoesNotExistsError;
 @property(readonly, nonatomic) NSArray *cloudFields_sck;
 @property(readonly, nonatomic) BOOL isURLCancelled_sck;
 @property(readonly, nonatomic) BOOL isCloudServerRelated_sck;

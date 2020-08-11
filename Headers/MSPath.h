@@ -95,9 +95,9 @@
 - (id)initWithContours:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4;
+- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(unsigned long long)arg3 lineWidth:(double)arg4;
 - (id)shadowPathWithSpread:(double)arg1;
-- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2;
+- (id)shadowPathForStrokeType:(unsigned long long)arg1 lineWidth:(double)arg2;
 - (id)booleanExclusiveOrWith:(id)arg1;
 - (id)booleanSubtractWith:(id)arg1;
 - (id)booleanIntersectWith:(id)arg1;

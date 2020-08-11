@@ -13,8 +13,8 @@
     NSString *_userId;
 }
 
-@property(copy, nonatomic) NSString *userId; // @synthesize userId=_userId;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *userId; // @synthesize userId=_userId;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTimestamp:(id)arg1 andUserId:(id)arg2;

@@ -21,12 +21,12 @@
     NSMutableArray *_channels;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *channels; // @synthesize channels=_channels;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *logsDispatchQueue; // @synthesize logsDispatchQueue=_logsDispatchQueue;
 @property(retain, nonatomic) id <MSStorage> storage; // @synthesize storage=_storage;
 @property(retain, nonatomic) MSAppCenterIngestion *ingestion; // @synthesize ingestion=_ingestion;
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
-- (void).cxx_destruct;
 - (void)setMaxStorageSize:(long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setAppSecret:(id)arg1;
 - (void)setLogUrl:(id)arg1;

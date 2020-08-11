@@ -15,10 +15,10 @@
     unsigned long long _endAddress;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long endAddress; // @synthesize endAddress=_endAddress;
 @property(readonly, nonatomic) unsigned long long startAddress; // @synthesize startAddress=_startAddress;
 @property(readonly, nonatomic) NSString *symbolName; // @synthesize symbolName=_symbolName;
-- (void)dealloc;
 - (id)initWithSymbolName:(id)arg1 startAddress:(unsigned long long)arg2 endAddress:(unsigned long long)arg3;
 
 @end

@@ -19,7 +19,11 @@
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
+- (id)_themedTextColorForEffectiveAppearance;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)setEnabled:(BOOL)arg1;
 - (struct NSEdgeInsets)alignmentRectInsets;
+- (void)awakeFromNib;
 
 @end
 

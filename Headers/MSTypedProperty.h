@@ -16,9 +16,9 @@
     NSString *_name;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
-- (void).cxx_destruct;
 - (BOOL)isEqual:(id)arg1;
 - (id)serializeToDictionary;
 - (void)encodeWithCoder:(id)arg1;

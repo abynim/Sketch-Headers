@@ -22,6 +22,7 @@
 
 + (id)sharedReporter;
 + (void)initialize;
+- (void).cxx_destruct;
 - (void)setCrashCallbacks:(struct PLCrashReporterCallbacks *)arg1;
 - (id)generateLiveReportAndReturnError:(id *)arg1;
 - (id)generateLiveReport;
@@ -41,7 +42,6 @@
 - (id)crashReportDirectory;
 - (BOOL)populateCrashReportDirectoryAndReturnError:(id *)arg1;
 - (int)mapToAsyncSymbolicationStrategy:(unsigned long long)arg1;
-- (void)dealloc;
 - (id)enableMachExceptionServerWithPreviousPortSet:(id *)arg1 callback:(CDUnknownFunctionPointerType)arg2 context:(void *)arg3 error:(id *)arg4;
 - (id)initWithBundle:(id)arg1 configuration:(id)arg2;
 - (id)initWithApplicationIdentifier:(id)arg1 appVersion:(id)arg2 appMarketingVersion:(id)arg3 configuration:(id)arg4;

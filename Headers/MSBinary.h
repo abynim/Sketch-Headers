@@ -22,6 +22,7 @@
     NSNumber *_architectureVariantId;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSNumber *architectureVariantId; // @synthesize architectureVariantId=_architectureVariantId;
 @property(retain, nonatomic) NSNumber *primaryArchitectureId; // @synthesize primaryArchitectureId=_primaryArchitectureId;
 @property(copy, nonatomic) NSString *architecture; // @synthesize architecture=_architecture;
@@ -30,7 +31,6 @@
 @property(copy, nonatomic) NSString *endAddress; // @synthesize endAddress=_endAddress;
 @property(copy, nonatomic) NSString *startAddress; // @synthesize startAddress=_startAddress;
 @property(copy, nonatomic) NSString *binaryId; // @synthesize binaryId=_binaryId;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

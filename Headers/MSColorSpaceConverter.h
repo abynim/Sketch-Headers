@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/MSColorConverter-Protocol.h>
+#import <SketchControllers/MSColorUpdater-Protocol.h>
 
 @class NSColorSpace, NSString;
 
-@interface MSColorSpaceConverter : NSObject <MSColorConverter>
+@interface MSColorSpaceConverter : NSObject <MSColorUpdater>
 {
     unsigned long long _oldColorSpace;
     unsigned long long _targetColorSpace;
@@ -23,10 +23,10 @@
 @property(readonly, nonatomic) NSColorSpace *oldNSColorSpace; // @synthesize oldNSColorSpace=_oldNSColorSpace;
 @property(readonly, nonatomic) unsigned long long targetColorSpace; // @synthesize targetColorSpace=_targetColorSpace;
 @property(readonly, nonatomic) unsigned long long oldColorSpace; // @synthesize oldColorSpace=_oldColorSpace;
-- (BOOL)shouldConvertImmutableColor:(id)arg1;
-- (BOOL)shouldConvertColor:(id)arg1;
-- (id)convertColor:(id)arg1;
-- (id)convertImmutableColor:(id)arg1;
+- (BOOL)shouldUpdateImmutableColor:(id)arg1;
+- (BOOL)shouldUpdateColor:(id)arg1;
+- (id)updateColor:(id)arg1;
+- (id)updateImmutableColor:(id)arg1;
 - (id)initForConversionFromColorSpace:(unsigned long long)arg1 to:(unsigned long long)arg2;
 
 // Remaining properties

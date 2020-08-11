@@ -14,9 +14,9 @@
     MSPLCrashReportSymbolInfo *_symbolInfo;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSPLCrashReportSymbolInfo *symbolInfo; // @synthesize symbolInfo=_symbolInfo;
 @property(readonly, nonatomic) unsigned long long instructionPointer; // @synthesize instructionPointer=_instructionPointer;
-- (void)dealloc;
 - (id)initWithInstructionPointer:(unsigned long long)arg1 symbolInfo:(id)arg2;
 
 @end

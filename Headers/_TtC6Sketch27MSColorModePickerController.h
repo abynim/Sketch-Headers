@@ -18,8 +18,6 @@
     // Error parsing type: , name: tabGradientAngularButton
     // Error parsing type: , name: tabImageButton
     // Error parsing type: , name: tabContainer
-    // Error parsing type: , name: addSwatchButton
-    // Error parsing type: , name: swatchesToggleButton
     // Error parsing type: , name: modeButtons
     // Error parsing type: , name: colorMode
     // Error parsing type: , name: currentGradientType
@@ -31,8 +29,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidLoad;
-- (void)showColorsPressed:(id)arg1;
-- (void)addColorPressed:(id)arg1;
 - (void)modeButtonSelected:(id)arg1;
 @property(nonatomic, copy) NSArray *styleParts;
 - (void)selectFillType:(unsigned long long)arg1 gradientType:(long long)arg2;
@@ -40,8 +36,6 @@
 @property(nonatomic, readonly) unsigned long long fillType;
 @property(nonatomic) BOOL allowsFillTypeSelection; // @synthesize allowsFillTypeSelection;
 @property(nonatomic) long long colorMode; // @synthesize colorMode;
-@property(nonatomic, retain) NSButton *swatchesToggleButton; // @synthesize swatchesToggleButton;
-@property(nonatomic, retain) NSButton *addSwatchButton; // @synthesize addSwatchButton;
 @property(nonatomic, retain) NSStackView *tabContainer; // @synthesize tabContainer;
 @property(nonatomic, retain) NSButton *tabImageButton; // @synthesize tabImageButton;
 @property(nonatomic, retain) NSButton *tabGradientAngularButton; // @synthesize tabGradientAngularButton;

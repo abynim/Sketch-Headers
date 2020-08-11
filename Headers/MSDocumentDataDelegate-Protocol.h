@@ -13,7 +13,6 @@
 - (void)hoveredItemDidChange:(NSObject<MSHoverableItem> *)arg1;
 - (BOOL)validateSelectionOfLayer:(MSLayer *)arg1 proposedIDsOfLayersToSelect:(NSMutableSet *)arg2;
 - (struct CGRect)visibleCanvasRectForDocumentData:(MSDocumentData *)arg1;
-- (void)refreshOverlay;
 - (id)documentData:(MSDocumentData *)arg1 metadataForKey:(NSString *)arg2 object:(MSModelObject *)arg3;
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;
 - (void)documentData:(MSDocumentData *)arg1 layerDidChangeStyle:(MSLayer *)arg2;

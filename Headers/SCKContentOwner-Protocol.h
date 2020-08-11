@@ -6,9 +6,10 @@
 
 #import <SketchCloudKit/NSObject-Protocol.h>
 
-@class NSString, SCKPaginatedProjects, SCKPaginatedShares;
+@class NSDictionary, NSString, SCKPaginatedProjects, SCKPaginatedShares;
 
 @protocol SCKContentOwner <NSObject>
+@property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares;
 @property(readonly, copy, nonatomic) NSString *name;

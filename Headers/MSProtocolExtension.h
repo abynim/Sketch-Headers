@@ -18,10 +18,10 @@
     NSString *_devModel;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *devModel; // @synthesize devModel=_devModel;
 @property(copy, nonatomic) NSString *devMake; // @synthesize devMake=_devMake;
 @property(retain, nonatomic) NSArray *ticketKeys; // @synthesize ticketKeys=_ticketKeys;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

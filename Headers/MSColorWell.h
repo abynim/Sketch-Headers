@@ -30,7 +30,7 @@
 @property(retain, nonatomic) BCPopover *colorPopover; // @synthesize colorPopover=_colorPopover;
 @property(nonatomic) __weak id colorChangedTarget; // @synthesize colorChangedTarget=_colorChangedTarget;
 @property(nonatomic) SEL colorChangedAction; // @synthesize colorChangedAction=_colorChangedAction;
-@property(readonly, nonatomic) NSColor *initialColor; // @synthesize initialColor=_initialColor;
+@property(retain, nonatomic) NSColor *initialColor; // @synthesize initialColor=_initialColor;
 - (BOOL)colorInspectorShouldAdjustInspectorToPopover:(id)arg1;
 - (void)windowDidResignKey:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;

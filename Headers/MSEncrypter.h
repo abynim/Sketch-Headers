@@ -20,9 +20,9 @@
 + (id)performCryptoOperation:(unsigned int)arg1 input:(id)arg2 initializationVector:(id)arg3 key:(id)arg4;
 + (void)rotateToNewKeyTag:(id)arg1;
 + (id)getCurrentKeyTag;
+- (void).cxx_destruct;
 @property(retain) NSData *alternateKeyData; // @synthesize alternateKeyData=_alternateKeyData;
 @property(retain) NSData *originalKeyData; // @synthesize originalKeyData=_originalKeyData;
-- (void).cxx_destruct;
 - (id)getKeyWithKeyTag:(id)arg1;
 - (id)decryptData:(id)arg1;
 - (id)decryptString:(id)arg1;

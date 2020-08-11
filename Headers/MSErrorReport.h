@@ -21,6 +21,7 @@
     unsigned long long _appProcessIdentifier;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long appProcessIdentifier; // @synthesize appProcessIdentifier=_appProcessIdentifier;
 @property(readonly, nonatomic) MSDevice *device; // @synthesize device=_device;
 @property(readonly, nonatomic) NSDate *appErrorTime; // @synthesize appErrorTime=_appErrorTime;
@@ -30,7 +31,6 @@
 @property(copy, nonatomic) NSString *signal; // @synthesize signal=_signal;
 @property(readonly, copy, nonatomic) NSString *reporterKey; // @synthesize reporterKey=_reporterKey;
 @property(readonly, copy, nonatomic) NSString *incidentIdentifier; // @synthesize incidentIdentifier=_incidentIdentifier;
-- (void).cxx_destruct;
 - (BOOL)isAppKill;
 - (id)initWithErrorId:(id)arg1 reporterKey:(id)arg2 signal:(id)arg3 exceptionName:(id)arg4 exceptionReason:(id)arg5 appStartTime:(id)arg6 appErrorTime:(id)arg7 device:(id)arg8 appProcessIdentifier:(unsigned long long)arg9;
 

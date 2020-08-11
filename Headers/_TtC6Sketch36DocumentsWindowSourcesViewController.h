@@ -6,14 +6,20 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSOutlineView, NSStackView;
+@class NSMenu, NSOutlineView, NSStackView;
 
 @interface _TtC6Sketch36DocumentsWindowSourcesViewController : NSViewController
 {
     // Error parsing type: , name: outlineView
     // Error parsing type: , name: widgetsStackView
+    // Error parsing type: , name: projectItemContextualMenu
+    // Error parsing type: , name: sourceForContextualMenu
+    // Error parsing type: , name: rowIndexForContextualMenu
     // Error parsing type: , name: delegate
     // Error parsing type: , name: sections
+    // Error parsing type: , name: updatingSections
+    // Error parsing type: , name: newProjectPlaceholder
+    // Error parsing type: , name: isEditingProjectName
     // Error parsing type: , name: personalProjects
     // Error parsing type: , name: organizationProjects
     // Error parsing type: , name: lastSourcesLoadDate
@@ -26,11 +32,20 @@
 - (BOOL)outlineView:(id)arg1 acceptDrop:(id)arg2 item:(id)arg3 childIndex:(long long)arg4;
 - (unsigned long long)outlineView:(id)arg1 validateDrop:(id)arg2 proposedItem:(id)arg3 proposedChildIndex:(long long)arg4;
 - (void)openExistingDocument:(id)arg1;
+- (id)willPresentError:(id)arg1;
+@property(nonatomic, readonly) BOOL canOpenSource;
+- (void)copyURLToClipboard:(id)arg1;
+- (void)openSource:(id)arg1;
+- (void)deleteProject:(id)arg1;
+- (void)renameProject:(id)arg1;
+@property(nonatomic, readonly) BOOL canEditClickedProject;
 - (void)openWidget:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
 - (void)currentAPISessionDidChange:(id)arg1;
 - (void)viewDidLoad;
+@property(nonatomic) BOOL isEditingProjectName; // @synthesize isEditingProjectName;
+@property(nonatomic, retain) NSMenu *projectItemContextualMenu; // @synthesize projectItemContextualMenu;
 @property(nonatomic, retain) NSStackView *widgetsStackView; // @synthesize widgetsStackView;
 @property(nonatomic, retain) NSOutlineView *outlineView; // @synthesize outlineView;
 

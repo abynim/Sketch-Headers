@@ -7,10 +7,11 @@
 #import <AppKit/NSResponder.h>
 
 #import <SketchControllers/NSMenuDelegate-Protocol.h>
+#import <SketchControllers/NSMenuItemValidation-Protocol.h>
 
 @class MSActionController, NSAttributedString, NSImage, NSMenuItem, NSString, NSToolbarItem;
 
-@interface MSAction : NSResponder <NSMenuDelegate>
+@interface MSAction : NSResponder <NSMenuDelegate, NSMenuItemValidation>
 {
     BOOL _isSelectable;
     MSActionController *_controller;

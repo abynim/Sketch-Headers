@@ -8,13 +8,16 @@
 
 @interface SCKOAuthAPIURLRequest : SCKAPIURLRequest
 {
+    BOOL _shouldRefreshIfNeeded;
 }
 
 + (id)licenseRequestWithAuthentication:(id)arg1;
-+ (id)requestWithAuthentication:(id)arg1;
++ (id)requestWithAuthentication:(id)arg1 environment:(id)arg2;
 + (id)requestWithEmail:(id)arg1 password:(id)arg2;
 + (id)baseURLForEnvironment:(id)arg1;
+@property(readonly, nonatomic) BOOL shouldRefreshIfNeeded; // @synthesize shouldRefreshIfNeeded=_shouldRefreshIfNeeded;
 - (void)setAuthentication:(id)arg1;
+- (void)setEnvironment:(id)arg1;
 
 @end
 

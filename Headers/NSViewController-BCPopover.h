@@ -7,6 +7,7 @@
 #import <AppKit/NSViewController.h>
 
 @interface NSViewController (BCPopover)
+- (id)presentViewController:(id)arg1 asBCPopoverRelativeToRect:(struct CGRect)arg2 ofView:(id)arg3 preferredEdge:(unsigned long long)arg4 screenEdgeBehaviour:(long long)arg5;
 - (id)presentViewController:(id)arg1 asBCPopoverRelativeToView:(id)arg2 preferredEdge:(unsigned long long)arg3 screenEdgeBehaviour:(long long)arg4;
 - (void)addChildViewController:(id)arg1 fittingIntoView:(id)arg2;
 - (void)ensureLoaded;

@@ -95,6 +95,8 @@
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;
+- (id)globalColorSwatchesLibraryURL;
+- (void)copyGlobalColorsToSwatchesLibraryIfNeeded;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

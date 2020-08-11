@@ -50,6 +50,7 @@
 - (void)loadViewControllers;
 - (long long)addStylePartHeaderWideButtonState;
 - (long long)addStylePartButtonState;
+- (long long)blendModeButtonState;
 - (long long)advancedOptionsButtonState;
 - (unsigned long long)stylePartType;
 - (id)title;

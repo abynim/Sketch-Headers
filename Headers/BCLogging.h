@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)usesHighFrequencySignposts;
 + (id)collaborationLog;
 + (id)poiLog;
 + (id)applicationLog;

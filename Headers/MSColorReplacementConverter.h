@@ -6,11 +6,11 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/MSColorConverter-Protocol.h>
+#import <SketchControllers/MSColorUpdater-Protocol.h>
 
 @class MSColor, MSImmutableColor, NSColorSpace, NSString;
 
-@interface MSColorReplacementConverter : NSObject <MSColorConverter>
+@interface MSColorReplacementConverter : NSObject <MSColorUpdater>
 {
     BOOL _ignoreAlphaWhenMatching;
     BOOL _replaceAlphaOfOriginalColor;
@@ -29,10 +29,10 @@
 @property(readonly, nonatomic) BOOL ignoreAlphaWhenMatching; // @synthesize ignoreAlphaWhenMatching=_ignoreAlphaWhenMatching;
 @property(readonly, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) MSColor *color; // @synthesize color=_color;
-- (BOOL)shouldConvertImmutableColor:(id)arg1;
-- (BOOL)shouldConvertColor:(id)arg1;
-- (id)convertImmutableColor:(id)arg1;
-- (id)convertColor:(id)arg1;
+- (BOOL)shouldUpdateImmutableColor:(id)arg1;
+- (BOOL)shouldUpdateColor:(id)arg1;
+- (id)updateImmutableColor:(id)arg1;
+- (id)updateColor:(id)arg1;
 - (id)initWithColor:(id)arg1 replacementColor:(id)arg2 colorSpace:(id)arg3 ignoreAlphaWhenMatching:(BOOL)arg4 replaceAlphaOfOriginalColor:(BOOL)arg5;
 
 // Remaining properties

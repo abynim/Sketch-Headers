@@ -13,8 +13,8 @@
     NSString *_value;
 }
 
-@property(copy, nonatomic) NSString *value; // @synthesize value=_value;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *value; // @synthesize value=_value;
 - (BOOL)isEqual:(id)arg1;
 - (id)serializeToDictionary;
 - (void)encodeWithCoder:(id)arg1;

@@ -54,7 +54,6 @@
 @property(readonly, nonatomic) NSSet *xAxisRoots;
 - (id)intersectionsWithVerticalLineAt:(double)arg1;
 - (id)intersectionsWithHorizontalLineAt:(double)arg1;
-- (id)setFromOffsets:(double *)arg1 count:(unsigned long long)arg2;
 @property(readonly, nonatomic) NSSet *inflectionOffsets;
 @property(readonly, nonatomic) double flatness;
 - (id)normalizedSegment;
@@ -106,6 +105,7 @@
 @property(readonly, nonatomic) struct CGPoint endPoint1;
 @property(readonly, nonatomic) int segmentType;
 @property(readonly, nonatomic) struct BCBezierSegment segmentData;
+- (id)init;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint:(struct CGPoint)arg3;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;

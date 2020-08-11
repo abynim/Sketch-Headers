@@ -14,10 +14,13 @@
 {
 }
 
-- (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 context:(id)arg4 cacheObject:(id)arg5;
+- (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 forBorderThickness:(double)arg3 context:(id)arg4 cacheKey:(id)arg5;
+- (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 cacheObject:(id)arg4 context:(id)arg5;
 - (void)renderShadow:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3 block:(CDUnknownBlockType)arg4;
-- (void)renderShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 windingRule:(unsigned long long)arg4 options:(id)arg5 type:(unsigned long long)arg6 strokeType:(long long)arg7 fillShouldClip:(BOOL)arg8 lineWidth:(double)arg9 context:(id)arg10;
+- (void)renderShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 options:(id)arg4 type:(unsigned long long)arg5 strokeType:(unsigned long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id)arg9 context:(id)arg10;
 - (void)renderBackgroundBlurBehindLayer:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
+- (void)renderGradientBorder:(id)arg1 path:(id)arg2 advancedOptions:(id)arg3 originalPath:(id)arg4 frame:(struct CGRect)arg5 context:(id)arg6;
+- (void)renderBorder:(id)arg1 path:(id)arg2 advancedOptions:(id)arg3 applyClip:(BOOL)arg4 context:(id)arg5;
 - (void)renderFill:(id)arg1 path:(id)arg2 layer:(id)arg3 index:(long long)arg4 rect:(struct CGRect)arg5 hasInnerStroke:(BOOL)arg6 context:(id)arg7;
 - (void)renderBordersForPath:(id)arg1 style:(id)arg2 applyClip:(BOOL)arg3 rect:(struct CGRect)arg4 context:(id)arg5;
 - (void)renderFillsForPath:(id)arg1 style:(id)arg2 layer:(id)arg3 rect:(struct CGRect)arg4 context:(id)arg5;

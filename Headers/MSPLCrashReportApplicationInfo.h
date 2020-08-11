@@ -15,10 +15,10 @@
     NSString *_applicationMarketingVersion;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *applicationMarketingVersion; // @synthesize applicationMarketingVersion=_applicationMarketingVersion;
 @property(readonly, nonatomic) NSString *applicationVersion; // @synthesize applicationVersion=_applicationVersion;
 @property(readonly, nonatomic) NSString *applicationIdentifier; // @synthesize applicationIdentifier=_applicationIdentifier;
-- (void)dealloc;
 - (id)initWithApplicationIdentifier:(id)arg1 applicationVersion:(id)arg2 applicationMarketingVersion:(id)arg3;
 
 @end

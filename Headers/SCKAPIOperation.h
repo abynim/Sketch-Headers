@@ -12,6 +12,7 @@
 @interface SCKAPIOperation : BCURLOperation
 {
     id <SCKAPIOperationDelegate> _delegate;
+    CDUnknownBlockType _requestCompletionBlock;
     id <SCKAPIRequest> _request;
     NSError *_error;
     NSURLSessionDataTask *_task;
@@ -40,6 +41,7 @@
 @property(retain, nonatomic) NSURLSessionDataTask *task; // @synthesize task=_task;
 @property(retain) NSError *error; // @synthesize error=_error;
 @property(retain, nonatomic) id <SCKAPIRequest> request; // @synthesize request=_request;
+@property(copy, nonatomic) CDUnknownBlockType requestCompletionBlock; // @synthesize requestCompletionBlock=_requestCompletionBlock;
 @property(nonatomic) __weak id <SCKAPIOperationDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)processData:(id)arg1 response:(id)arg2 error:(id)arg3;
 - (void)cancel;

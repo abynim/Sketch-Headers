@@ -12,14 +12,12 @@
 {
     long long _base;
     NSArray *_guides;
-    double _temporaryGuide;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
-- (void)setRaw_temporaryGuide:(double)arg1;
 - (void)setRaw_guides:(id)arg1;
 - (void)setRaw_base:(long long)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
@@ -31,7 +29,6 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) double temporaryGuide; // @synthesize temporaryGuide=_temporaryGuide;
 @property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void)performInitWithImmutableModelObject:(id)arg1;

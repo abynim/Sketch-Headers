@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSComponentOverrideInspectorItem.h"
+#import "MSOverrideInspectorItem.h"
 
 @class MSForeignObjectProvider, MSInspectorPopoverButton, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint;
 
-@interface MSStyleOverrideInspectorItem : MSComponentOverrideInspectorItem
+@interface MSStyleOverrideInspectorItem : MSOverrideInspectorItem
 {
     NSControl *_labelView;
     NSLayoutConstraint *_labelConstraint;

@@ -6,26 +6,24 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSOutlineView, NSView;
+@class NSOutlineView, NSStackView;
 
 @interface _TtC6Sketch30AssistantResultsViewController : NSViewController
 {
     // Error parsing type: , name: results
     // Error parsing type: , name: collapsedState
     // Error parsing type: , name: resultOutlineView
-    // Error parsing type: , name: errorPanelPlaceHolder
+    // Error parsing type: , name: errorPanelStackView
     // Error parsing type: , name: mostRecentDocument
     // Error parsing type: , name: document
     // Error parsing type: , name: filteredAssistant
     // Error parsing type: , name: currentOverlayController
-    // Error parsing type: , name: currentErrorPanelController
     // Error parsing type: , name: $__lazy_storage_$_assistantStoryboard
     // Error parsing type: , name: $__lazy_storage_$_assistantsRunningOverlayViewController
-    // Error parsing type: , name: $__lazy_storage_$_noDocumentOverlayViewController
-    // Error parsing type: , name: $__lazy_storage_$_noErrorsOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noInstalledAssistantsOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noActiveAssistantsOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noResultsOverlayViewController
+    // Error parsing type: , name: $__lazy_storage_$_allAssistantsErrorOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_allAssistantsMissingOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_errorPanelViewController
 }
@@ -35,8 +33,10 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)outlineViewItemDidExpand:(id)arg1;
 - (void)outlineViewItemDidCollapse:(id)arg1;
+- (void)installMissingFilteredAssistant;
+- (void)copyAssistantError;
 - (void)viewDidLoad;
-@property(nonatomic, retain) NSView *errorPanelPlaceHolder; // @synthesize errorPanelPlaceHolder;
+@property(nonatomic, retain) NSStackView *errorPanelStackView; // @synthesize errorPanelStackView;
 @property(nonatomic, retain) NSOutlineView *resultOutlineView; // @synthesize resultOutlineView;
 
 @end

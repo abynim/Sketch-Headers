@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchCloudKit/NSCopying-Protocol.h>
 #import <SketchCloudKit/NSSecureCoding-Protocol.h>
 
 @class NSDate, NSDictionary, NSString;
 
-@interface SCKObject : NSObject <NSSecureCoding>
+@interface SCKObject : NSObject <NSSecureCoding, NSCopying>
 {
     SCKObject *_parent;
     NSString *_objectID;
@@ -26,10 +27,12 @@
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) __weak SCKObject *parent; // @synthesize parent=_parent;
+- (id)debugDescription;
 - (id)copyByBumpingUpdateDate;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;

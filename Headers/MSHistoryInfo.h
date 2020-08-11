@@ -15,8 +15,8 @@
     NSDate *_timestamp;
 }
 
-@property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDate *timestamp; // @synthesize timestamp=_timestamp;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTimestamp:(id)arg1;

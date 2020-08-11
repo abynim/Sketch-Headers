@@ -19,12 +19,12 @@
     NSUUID *_installId;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSUUID *installId; // @synthesize installId=_installId;
 @property(retain, nonatomic) NSMutableDictionary *epochsAndSeqsByIKey; // @synthesize epochsAndSeqsByIKey=_epochsAndSeqsByIKey;
 @property(copy, nonatomic) NSString *baseUrl; // @synthesize baseUrl=_baseUrl;
 @property(retain, nonatomic) MSOneCollectorIngestion *oneCollectorIngestion; // @synthesize oneCollectorIngestion=_oneCollectorIngestion;
 @property(retain, nonatomic) NSMutableDictionary *oneCollectorChannels; // @synthesize oneCollectorChannels=_oneCollectorChannels;
-- (void).cxx_destruct;
 - (void)setLogUrl:(id)arg1;
 - (BOOL)validateLogName:(id)arg1;
 - (BOOL)validateLog:(id)arg1;

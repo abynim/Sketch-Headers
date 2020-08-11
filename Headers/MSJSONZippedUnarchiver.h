@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCJSONZippedDecoder *zipDecoder; // @synthesize zipDecoder=_zipDecoder;
+- (id)decodeReferencesOfClass:(Class)arg1 forKey:(id)arg2;
 - (id)decodeReferenceObjectOfClass:(id)arg1 withIdentifier:(id)arg2;
 - (id)filePathsInSubpath:(id)arg1 error:(id *)arg2;
 - (id)unarchivedRawDataAtSubpath:(id)arg1 error:(id *)arg2;

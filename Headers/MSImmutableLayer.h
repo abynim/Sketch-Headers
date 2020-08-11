@@ -35,7 +35,7 @@
 - (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
 - (id)resolvedUsingDocumentData:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
-- (BOOL)canSkipAdvancedClipForStrokes;
+@property(readonly, nonatomic) BOOL canSkipAdvancedClipForStrokes;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;

@@ -9,18 +9,10 @@
 @interface _TtC6Sketch19ResultTableCellView : NSTableCellView
 {
     // Error parsing type: , name: isSelected
-    // Error parsing type: , name: isHovering
-    // Error parsing type: , name: trackingArea
 }
 
-- (void).cxx_destruct;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)updateTrackingAreas;
-- (void)mouseExited:(id)arg1;
-- (void)mouseEntered:(id)arg1;
-- (void)hoveredItemDidChangeWithNotification:(id)arg1;
-- (void)dealloc;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

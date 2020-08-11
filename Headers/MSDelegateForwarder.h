@@ -23,12 +23,12 @@
 + (void)resetSharedInstance;
 + (id)sharedInstance;
 + (void)load;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableSet *selectorsToSwizzle; // @synthesize selectorsToSwizzle=_selectorsToSwizzle;
 @property(retain, nonatomic) NSDictionary *deprecatedSelectors; // @synthesize deprecatedSelectors=_deprecatedSelectors;
 @property(readonly, nonatomic) NSMutableDictionary *originalImplementations; // @synthesize originalImplementations=_originalImplementations;
 @property(nonatomic) CDUnknownFunctionPointerType originalSetDelegateImp; // @synthesize originalSetDelegateImp=_originalSetDelegateImp;
 @property(retain, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
-- (void).cxx_destruct;
 @property(getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 - (void)setEnabledFromPlistForKey:(id)arg1;
 - (void)removeDelegate:(id)arg1;

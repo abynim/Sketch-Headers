@@ -27,6 +27,7 @@
     MSException *_exception;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSException *exception; // @synthesize exception=_exception;
 @property(retain, nonatomic) NSDictionary *registers; // @synthesize registers=_registers;
 @property(retain, nonatomic) NSArray *binaries; // @synthesize binaries=_binaries;
@@ -40,7 +41,6 @@
 @property(copy, nonatomic) NSString *applicationPath; // @synthesize applicationPath=_applicationPath;
 @property(retain, nonatomic) NSNumber *architectureVariantId; // @synthesize architectureVariantId=_architectureVariantId;
 @property(retain, nonatomic) NSNumber *primaryArchitectureId; // @synthesize primaryArchitectureId=_primaryArchitectureId;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

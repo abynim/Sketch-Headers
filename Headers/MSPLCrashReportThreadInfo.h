@@ -16,11 +16,11 @@
     NSArray *_registers;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *registers; // @synthesize registers=_registers;
 @property(readonly, nonatomic) BOOL crashed; // @synthesize crashed=_crashed;
 @property(readonly, nonatomic) NSArray *stackFrames; // @synthesize stackFrames=_stackFrames;
 @property(readonly, nonatomic) long long threadNumber; // @synthesize threadNumber=_threadNumber;
-- (void)dealloc;
 - (id)initWithThreadNumber:(long long)arg1 stackFrames:(id)arg2 crashed:(BOOL)arg3 registers:(id)arg4;
 
 @end

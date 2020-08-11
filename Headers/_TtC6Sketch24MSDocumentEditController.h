@@ -6,10 +6,13 @@
 
 #import <objc/NSObject.h>
 
+@class MSImmutableDocumentData;
+
 @interface _TtC6Sketch24MSDocumentEditController : NSObject
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: lastDocumentData
+    // Error parsing type: , name: _saveableDocument
 }
 
 - (void).cxx_destruct;
@@ -17,6 +20,7 @@
 - (void)handleImplicitDocumentChange;
 - (void)handleExplicitDocumentChange;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
 
 @end
 

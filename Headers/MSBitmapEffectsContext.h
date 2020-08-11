@@ -27,7 +27,7 @@
 - (struct CGImage *)createImageFromBuffer:(struct vImage_Buffer *)arg1 colorSpace:(struct CGColorSpace *)arg2 imageFreeCallack:(CDUnknownFunctionPointerType)arg3 userData:(void *)arg4;
 - (struct CGContext *)createContextForImageBuffer:(struct vImage_Buffer *)arg1 size:(struct CGSize)arg2 scale:(struct CGSize)arg3 colorSpace:(struct CGColorSpace *)arg4 blur:(BOOL)arg5;
 - (void)checkTempDataSizeForImageBuffer:(struct vImage_Buffer *)arg1 workingBuffer:(struct vImage_Buffer *)arg2 kernelSize:(unsigned int)arg3;
-- (struct vImage_Buffer)checkSize:(struct CGSize)arg1 forBuffer:(struct vImage_Buffer *)arg2;
+- (struct vImage_Buffer)checkSize:(struct CGSize)arg1 forBuffer:(struct vImage_Buffer *)arg2 error:(long long *)arg3;
 - (double)imageScaleForBlurRadius:(double)arg1;
 - (void)dealloc;
 

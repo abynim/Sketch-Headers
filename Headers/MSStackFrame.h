@@ -20,13 +20,13 @@
     NSString *_fileName;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *fileName; // @synthesize fileName=_fileName;
 @property(copy, nonatomic) NSNumber *lineNumber; // @synthesize lineNumber=_lineNumber;
 @property(copy, nonatomic) NSString *methodName; // @synthesize methodName=_methodName;
 @property(copy, nonatomic) NSString *className; // @synthesize className=_className;
 @property(copy, nonatomic) NSString *code; // @synthesize code=_code;
 @property(copy, nonatomic) NSString *address; // @synthesize address=_address;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -29,7 +29,7 @@
 - (void)appendSquareAtPoint_ms:(struct CGPoint)arg1 size:(double)arg2 scale:(double)arg3;
 - (double)debugScale_ms;
 - (double)lengthWithMaximumError:(double)arg1;
-- (double)length;
+@property(readonly, nonatomic) double length;
 - (id)bezierPathByTrimmingToLength:(double)arg1 withMaximumError:(double)arg2;
 - (id)bezierPathByTrimmingToLength:(double)arg1;
 - (struct CGPoint)pointOnPathAtLength:(double)arg1 slope:(double *)arg2;

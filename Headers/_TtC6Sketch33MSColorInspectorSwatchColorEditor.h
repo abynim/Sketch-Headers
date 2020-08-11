@@ -6,12 +6,11 @@
 
 #import "MSColorInspectorSectionWithColorPicker.h"
 
-@class MSColor, MSInspectorSectionHeaderLabel, MSSwatch, NSButton, NSString, NSTextField, NSView;
+@class MSColor, MSSwatch, NSButton, NSString, NSTextField, NSView;
 @protocol _TtP6Sketch22MSSwatchEditorDelegate_;
 
 @interface _TtC6Sketch33MSColorInspectorSwatchColorEditor : MSColorInspectorSectionWithColorPicker
 {
-    // Error parsing type: , name: sectionHeader
     // Error parsing type: , name: nameTextField
     // Error parsing type: , name: submitButton
     // Error parsing type: , name: buttonsView
@@ -44,7 +43,6 @@
 @property(nonatomic) __weak NSView *buttonsView; // @synthesize buttonsView;
 @property(nonatomic) __weak NSButton *submitButton; // @synthesize submitButton;
 @property(nonatomic) __weak NSTextField *nameTextField; // @synthesize nameTextField;
-@property(nonatomic) __weak MSInspectorSectionHeaderLabel *sectionHeader; // @synthesize sectionHeader;
 
 @end
 

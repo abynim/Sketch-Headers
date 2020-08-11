@@ -10,7 +10,6 @@
 
 @interface _TtC6Sketch22ComponentPaneSplitView : NSSplitView
 {
-    // Error parsing type: , name: containment
 }
 
 - (id)initWithCoder:(id)arg1;

@@ -13,8 +13,8 @@
     NSMutableDictionary *_properties;
 }
 
-@property(retain, nonatomic) NSMutableDictionary *properties; // @synthesize properties=_properties;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *properties; // @synthesize properties=_properties;
 - (id)propertiesImmutableCopy;
 - (BOOL)isValidValue:(id)arg1;
 - (BOOL)isValidKey:(id)arg1;

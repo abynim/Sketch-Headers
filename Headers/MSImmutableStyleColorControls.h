@@ -11,6 +11,7 @@
 }
 
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) BOOL hasEnabledValues;
 
 @end
 

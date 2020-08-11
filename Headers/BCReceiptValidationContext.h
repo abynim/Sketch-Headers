@@ -12,7 +12,6 @@
     BOOL _valid;
 }
 
-+ (void)initialize;
 @property(nonatomic) BOOL valid; // @synthesize valid=_valid;
 @property(nonatomic) BOOL quickValidated; // @synthesize quickValidated=_quickValidated;
 

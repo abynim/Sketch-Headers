@@ -8,7 +8,7 @@
 
 #import <SketchCloudKit/SCKContentOwner-Protocol.h>
 
-@class NSArray, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
+@class NSArray, NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
 
 @interface SCKUser : SCKObject <SCKContentOwner>
 {
@@ -30,12 +30,13 @@
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

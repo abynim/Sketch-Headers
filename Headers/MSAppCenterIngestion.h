@@ -13,8 +13,8 @@
     NSString *_appSecret;
 }
 
-@property(copy, nonatomic) NSString *appSecret; // @synthesize appSecret=_appSecret;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSString *appSecret; // @synthesize appSecret=_appSecret;
 - (void)willSendHTTPRequestToURL:(id)arg1 withHeaders:(id)arg2;
 - (id)obfuscateResponsePayload:(id)arg1;
 - (id)getPayloadWithData:(id)arg1;

@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserNotificationsController, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
@@ -34,7 +34,6 @@
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
     MSDebouncer *_assistantRunScheduler;
-    SCKUserNotificationsController *_cloudNotificationsController;
     MSDataSupplierManager *_dataSupplierManager;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
@@ -77,7 +76,6 @@
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager; // @synthesize dataSupplierManager=_dataSupplierManager;
-@property(retain, nonatomic) SCKUserNotificationsController *cloudNotificationsController; // @synthesize cloudNotificationsController=_cloudNotificationsController;
 @property(retain, nonatomic) MSDebouncer *assistantRunScheduler; // @synthesize assistantRunScheduler=_assistantRunScheduler;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;

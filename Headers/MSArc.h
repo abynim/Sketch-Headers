@@ -17,11 +17,11 @@
 
 + (id)lineWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;
 + (id)arcWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 center:(struct CGPoint)arg3 clockwise:(BOOL)arg4;
-+ (id)biarcApproximationForSegment:(id)arg1 absoluteError:(double *)arg2;
++ (id)biarcApproximationForSegment:(struct BCBezierSegment)arg1 absoluteError:(double *)arg2;
 + (id)singleArcApproximationForSegment:(id)arg1;
 + (id)arcWithPoints:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 onCurvePoint:(struct CGPoint)arg3;
-+ (id)arcApproximationForSegment:(id)arg1 absoluteError:(double *)arg2;
-+ (id)arcApproximationForSegment:(id)arg1 maximumError:(double)arg2;
++ (id)arcApproximationForSegment:(struct BCBezierSegment)arg1 absoluteError:(double *)arg2;
++ (id)arcApproximationForSegment:(struct BCBezierSegment)arg1 maximumError:(double)arg2;
 @property(readonly, nonatomic) BOOL isALine; // @synthesize isALine=_isALine;
 @property(readonly, nonatomic, getter=isClockwise) BOOL clockwise; // @synthesize clockwise=_clockwise;
 @property(readonly, nonatomic) struct CGPoint center; // @synthesize center=_center;
@@ -37,7 +37,7 @@
 @property(readonly, nonatomic) struct CGVector startNormal;
 @property(readonly, nonatomic) double endAngle;
 @property(readonly, nonatomic) double startAngle;
-- (double)absoluteErrorWithSegment:(id)arg1;
+- (double)absoluteErrorWithSegment:(struct BCBezierSegment)arg1;
 @property(readonly, nonatomic) double radius;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 center:(struct CGPoint)arg3 clockwise:(BOOL)arg4;
 - (id)initLineWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2;

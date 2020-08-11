@@ -8,7 +8,7 @@
 
 #import "MSAlignmentEngineDelegate-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragInsertionTool, MSDragRectGestureRecognizer, MSLayerGroup, NSCursor, NSString;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSDragInsertionTool, MSDragRectGestureRecognizer, MSLayerGroup, NSCursor, NSNumberFormatter, NSString, _TtC17SketchControllers14MSOverlayLabel;
 
 @interface MSDragRectEventHandler : MSEventHandler <MSAlignmentEngineDelegate>
 {
@@ -17,10 +17,14 @@
     MSAlignmentEngineResult *_snappingResult;
     NSCursor *_insertionCursor;
     MSDragInsertionTool *_tool;
+    _TtC17SketchControllers14MSOverlayLabel *_sizeLabel;
+    NSNumberFormatter *_lengthFormatter;
     struct CGRect _insertionRect;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSNumberFormatter *lengthFormatter; // @synthesize lengthFormatter=_lengthFormatter;
+@property(readonly, nonatomic) _TtC17SketchControllers14MSOverlayLabel *sizeLabel; // @synthesize sizeLabel=_sizeLabel;
 @property(retain, nonatomic) MSDragInsertionTool *tool; // @synthesize tool=_tool;
 @property(retain, nonatomic) NSCursor *insertionCursor; // @synthesize insertionCursor=_insertionCursor;
 @property(retain, nonatomic) MSAlignmentEngineResult *snappingResult; // @synthesize snappingResult=_snappingResult;

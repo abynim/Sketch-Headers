@@ -13,8 +13,8 @@
     NSMutableArray *_array;
 }
 
-@property(retain, nonatomic) NSMutableArray *array; // @synthesize array=_array;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *array; // @synthesize array=_array;
 - (int)bindAllValuesWithStatement:(void *)arg1 inOpenedDatabase:(void *)arg2;
 - (void)addNumber:(id)arg1;
 - (void)addString:(id)arg1;

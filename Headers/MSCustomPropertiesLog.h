@@ -15,10 +15,10 @@
 }
 
 + (id)serializeProperty:(id)arg1;
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
 - (void)setType:(id)arg1;
 - (id)type;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)serializeToDictionary;

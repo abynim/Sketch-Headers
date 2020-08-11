@@ -12,26 +12,25 @@
 
 @interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
 {
-    NSString *_objectID;
     MSModelObjectCache *_cache;
+    NSString *_objectID;
 }
 
 + (unsigned long long)traits;
 + (BOOL)persistsObjectID;
 + (id)generateObjectID;
 + (id)defaultName;
-+ (id)metadataForKey:(id)arg1 objectKey:(id)arg2 objectID:(id)arg3 inDictionary:(id)arg4;
-+ (void)storeMetadata:(id)arg1 forKey:(id)arg2 objectKey:(id)arg3 objectID:(id)arg4 inDictionary:(id)arg5;
++ (id)metadataForKey:(id)arg1 persistentIdentifier:(id)arg2 objectID:(id)arg3 inDictionary:(id)arg4;
++ (void)storeMetadata:(id)arg1 forKey:(id)arg2 persistentIdentifier:(id)arg3 objectID:(id)arg4 inDictionary:(id)arg5;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
+@property(copy, nonatomic) NSString *primitiveObjectID; // @synthesize primitiveObjectID=_objectID;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)traits;
-@property(readonly, nonatomic) NSString *primitiveObjectID;
-- (id)regenerateObjectID;
 - (id)generateObjectID;
+@property(readonly, copy, nonatomic) NSString *objectID;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
 - (id)defaultName;

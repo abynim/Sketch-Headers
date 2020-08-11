@@ -12,13 +12,19 @@
     // Error parsing type: , name: source
     // Error parsing type: , name: metadata
     // Error parsing type: , name: badgeTitle
+    // Error parsing type: , name: badgeIcon
     // Error parsing type: , name: badgeColor
+    // Error parsing type: , name: errorMessage
+    // Error parsing type: , name: contentInset
+    // Error parsing type: , name: drawsOversizedCapsule
+    // Error parsing type: , name: maximumHorizontalCapsuleOverflow
 }
 
 - (void).cxx_destruct;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;
+@property(nonatomic, readonly) BOOL wantsDefaultClipping;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 

@@ -7,11 +7,12 @@
 #import <AppKit/NSViewController.h>
 
 #import "MSReorderingContainerDelegate-Protocol.h"
+#import "MSStylePartBlendModeButtonDelegate-Protocol.h"
 
-@class MSReorderingContainerView, NSArray, NSButton, NSString, NSTextField, NSView;
+@class MSReorderingContainerView, MSStylePartBlendModeButton, NSArray, NSButton, NSString, NSTextField, NSView;
 @protocol MSInspectorSectionDelegate;
 
-@interface MSMultipleStylePartInspectorViewController : NSViewController <MSReorderingContainerDelegate>
+@interface MSMultipleStylePartInspectorViewController : NSViewController <MSStylePartBlendModeButtonDelegate, MSReorderingContainerDelegate>
 {
     NSArray *_layers;
     NSArray *_stylePartViewControllers;
@@ -21,6 +22,7 @@
     NSTextField *_nameField;
     NSButton *_addStylePartButton;
     NSButton *_addStylePartHeaderWideButton;
+    MSStylePartBlendModeButton *_blendModeButton;
     NSButton *_advancedOptionsButton;
     NSButton *_disabledStylePartsButton;
     NSButton *_resetStylePartsButton;
@@ -32,6 +34,7 @@
 @property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
 @property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
 @property(retain, nonatomic) NSButton *advancedOptionsButton; // @synthesize advancedOptionsButton=_advancedOptionsButton;
+@property(retain, nonatomic) MSStylePartBlendModeButton *blendModeButton; // @synthesize blendModeButton=_blendModeButton;
 @property(retain, nonatomic) NSButton *addStylePartHeaderWideButton; // @synthesize addStylePartHeaderWideButton=_addStylePartHeaderWideButton;
 @property(retain, nonatomic) NSButton *addStylePartButton; // @synthesize addStylePartButton=_addStylePartButton;
 @property(retain, nonatomic) NSTextField *nameField; // @synthesize nameField=_nameField;
@@ -40,6 +43,9 @@
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+- (id)documentForStylePartBlendButton:(id)arg1;
+- (void)setBlendMode:(long long)arg1 sender:(id)arg2;
+- (long long)blendModeButtonState;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 @property(readonly, nonatomic) NSString *menuTitleRemove;

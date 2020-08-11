@@ -34,6 +34,11 @@
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+- (void)applyUserSelectedColor:(id)arg1;
+- (id)currentSwatchReference;
+- (id)currentSwatch;
+- (void)showColorVariablesPopoverMenu:(id)arg1;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;

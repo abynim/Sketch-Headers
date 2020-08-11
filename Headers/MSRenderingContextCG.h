@@ -44,7 +44,6 @@
 - (void)doNotClipFillsInBlock:(CDUnknownBlockType)arg1;
 - (void)applyStrokeColor:(id)arg1;
 - (void)applyFillColor:(id)arg1;
-- (void)clipToRect:(struct CGRect)arg1;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2 respectFlipped:(BOOL)arg3;
 - (void)applyShadow:(id)arg1 withXOffset:(double)arg2;
 - (void)applyShadow:(id)arg1 respectFlipped:(BOOL)arg2;

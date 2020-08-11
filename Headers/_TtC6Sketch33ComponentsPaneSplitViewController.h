@@ -17,10 +17,6 @@
     // Error parsing type: , name: componentListSplitItem
     // Error parsing type: , name: componentKindSplitItem
     // Error parsing type: , name: previewSplitItem
-    // Error parsing type: , name: hideSymbolItem
-    // Error parsing type: , name: symbolSwapPreferenceItem
-    // Error parsing type: , name: includeHideSymbolView
-    // Error parsing type: , name: includeSymbolSwapView
     // Error parsing type: , name: $__lazy_storage_$_libraryItemCollapseObserver
     // Error parsing type: , name: previewItemCollapseObserver
     // Error parsing type: , name: configured
@@ -38,8 +34,6 @@
 - (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
-@property(nonatomic, retain) NSSplitViewItem *symbolSwapPreferenceItem; // @synthesize symbolSwapPreferenceItem;
-@property(nonatomic, retain) NSSplitViewItem *hideSymbolItem; // @synthesize hideSymbolItem;
 @property(nonatomic, retain) NSSplitViewItem *previewSplitItem; // @synthesize previewSplitItem;
 @property(nonatomic, retain) NSSplitViewItem *componentKindSplitItem; // @synthesize componentKindSplitItem;
 @property(nonatomic, retain) NSSplitViewItem *componentListSplitItem; // @synthesize componentListSplitItem;

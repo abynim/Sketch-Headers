@@ -12,18 +12,16 @@
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 #import "_TtP6Sketch22MSSwatchEditorDelegate_-Protocol.h"
-#import "_TtP6Sketch22MSSwatchPickerDelegate_-Protocol.h"
 #import "_TtP6Sketch35MSColorModePickerControllerDelegate_-Protocol.h"
 
-@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, _TtC17SketchControllers26MSModelObjectChangeTracker, _TtC6Sketch27MSColorModePickerController, _TtC6Sketch28MSColorInspectorSwatchPicker, _TtC6Sketch33MSColorInspectorSwatchColorEditor;
+@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, _TtC17SketchControllers26MSModelObjectChangeTracker, _TtC6Sketch27MSColorModePickerController, _TtC6Sketch33MSColorInspectorSwatchColorEditor;
 @protocol MSColorInspectorDelegate;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, _TtP6Sketch35MSColorModePickerControllerDelegate_, _TtP6Sketch22MSSwatchPickerDelegate_, _TtP6Sketch22MSSwatchEditorDelegate_>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, _TtP6Sketch35MSColorModePickerControllerDelegate_, _TtP6Sketch22MSSwatchEditorDelegate_>
 {
     BOOL _displayingDiverseStyles;
     BOOL _isStacking;
     BOOL _creatingVariable;
-    BOOL _pickingVariable;
     BOOL _disableCommandKeyDismissal;
     id <MSColorInspectorDelegate> _delegate;
     MSColorPickerViewController *_colorPickerController;
@@ -31,7 +29,6 @@
     MSColorInspectorSectionColor *_colorSection;
     MSColorInspectorSectionGradient *_gradientSection;
     MSColorInspectorSectionPattern *_patternSection;
-    _TtC6Sketch28MSColorInspectorSwatchPicker *_swatchColorPicker;
     _TtC6Sketch33MSColorInspectorSwatchColorEditor *_swatchColorEditor;
     MSEventHandlerManager *_eventHandlerManager;
     MSDocument *_document;
@@ -43,15 +40,14 @@
     _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
 }
 
-+ (id)presentColorInspectorPopoverForViewController:(id)arg1 delegate:(id)arg2 document:(id)arg3 globalAssets:(id)arg4 relativeToView:(id)arg5 setupHandler:(CDUnknownBlockType)arg6;
-+ (id)presentColorInspectorPopoverWithDelegate:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
-+ (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToView:(id)arg4 setupHandler:(CDUnknownBlockType)arg5;
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 delegate:(id)arg2 document:(id)arg3 globalAssets:(id)arg4 relativeToRect:(struct CGRect)arg5 ofView:(id)arg6 setupHandler:(CDUnknownBlockType)arg7;
++ (id)presentColorInspectorPopoverWithDelegate:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToRect:(struct CGRect)arg4 ofView:(id)arg5 setupHandler:(CDUnknownBlockType)arg6;
++ (id)presentColorInspectorPopoverForViewController:(id)arg1 document:(id)arg2 globalAssets:(id)arg3 relativeToRect:(struct CGRect)arg4 ofView:(id)arg5 setupHandler:(CDUnknownBlockType)arg6;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL disableCommandKeyDismissal; // @synthesize disableCommandKeyDismissal=_disableCommandKeyDismissal;
 @property(retain, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
-@property(nonatomic) BOOL pickingVariable; // @synthesize pickingVariable=_pickingVariable;
 @property(nonatomic) BOOL creatingVariable; // @synthesize creatingVariable=_creatingVariable;
 @property(nonatomic) BOOL isStacking; // @synthesize isStacking=_isStacking;
 @property(retain, nonatomic) MSLibraryAssetCollectionsController *libraryAssetsController; // @synthesize libraryAssetsController=_libraryAssetsController;
@@ -61,7 +57,6 @@
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(retain, nonatomic) _TtC6Sketch33MSColorInspectorSwatchColorEditor *swatchColorEditor; // @synthesize swatchColorEditor=_swatchColorEditor;
-@property(retain, nonatomic) _TtC6Sketch28MSColorInspectorSwatchPicker *swatchColorPicker; // @synthesize swatchColorPicker=_swatchColorPicker;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;
 @property(retain, nonatomic) MSColorInspectorSectionGradient *gradientSection; // @synthesize gradientSection=_gradientSection;
 @property(retain, nonatomic) MSColorInspectorSectionColor *colorSection; // @synthesize colorSection=_colorSection;
@@ -92,9 +87,6 @@
 @property(readonly, nonatomic) unsigned long long fillType;
 - (void)swatchEditorWithInspector:(id)arg1 didFinishEditing:(id)arg2;
 - (void)swatchPickerWithInspector:(id)arg1 startEditing:(id)arg2;
-- (void)swatchPickerWithInspector:(id)arg1 didSelect:(id)arg2;
-- (void)showSwatches:(id)arg1;
-- (void)createSwatchColor:(id)arg1;
 - (void)colorModeController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)filteredStyleParts:(id)arg1;
@@ -111,6 +103,7 @@
 - (void)setColorWithoutNotifying:(id)arg1;
 - (void)setColor:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (id)stylePartPreviewButtonPreviewColorSpace:(id)arg1;
 - (void)cancelOperation:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
@@ -138,6 +131,8 @@
 - (void)setModePickerInitialMode;
 - (void)updateModePickerForCurrentStyles;
 - (void)colorDidChangeTo:(id)arg1;
+- (void)editSwatch:(id)arg1 startingWithColor:(id)arg2;
+- (void)createColorSwatch:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

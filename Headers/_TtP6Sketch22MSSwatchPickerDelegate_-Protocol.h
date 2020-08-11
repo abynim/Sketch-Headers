@@ -4,10 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSColor, MSColorInspectorSection;
+@class MSColor, _TtC6Sketch28MSColorInspectorSwatchPicker;
 
 @protocol _TtP6Sketch22MSSwatchPickerDelegate_
-- (void)swatchPickerWithInspector:(MSColorInspectorSection *)arg1 startEditing:(MSColor *)arg2;
-- (void)swatchPickerWithInspector:(MSColorInspectorSection *)arg1 didSelect:(MSColor *)arg2;
+- (void)swatchPickerCreateColor:(_TtC6Sketch28MSColorInspectorSwatchPicker *)arg1;
+- (void)swatchPicker:(_TtC6Sketch28MSColorInspectorSwatchPicker *)arg1 didSelect:(MSColor *)arg2;
 @end
 

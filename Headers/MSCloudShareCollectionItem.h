@@ -10,6 +10,7 @@
 
 @interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem
 {
+    BOOL _loading;
     SCKShare *_cloudShare;
     NSImage *_previewImage;
     NSString *_shareName;
@@ -19,12 +20,14 @@
 @property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
+@property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
 - (BOOL)supportsDeletion;
 - (void)cancelDocumentDownload;
 - (void)updateCloudStatus;
 - (void)updateDownloadProgress;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)supportsRenaming;
+- (BOOL)isPlaceholder;
 - (BOOL)showLibraryIcon;
 - (BOOL)showPublicShareIcon;
 - (BOOL)providesPreviewImage;

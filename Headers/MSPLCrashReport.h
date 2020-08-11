@@ -23,6 +23,7 @@
     struct __CFUUID *_uuid;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) struct __CFUUID *uuidRef; // @synthesize uuidRef=_uuid;
 @property(readonly, nonatomic) MSPLCrashReportExceptionInfo *exceptionInfo; // @synthesize exceptionInfo=_exceptionInfo;
 @property(readonly, nonatomic) NSArray *images; // @synthesize images=_images;

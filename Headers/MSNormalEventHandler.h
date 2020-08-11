@@ -8,13 +8,15 @@
 
 #import "MSDragLayerToolUserInterface-Protocol.h"
 #import "MSGestureRecognizerDelegate-Protocol.h"
+#import "_TtP6Sketch27MSSelectionOverlayPresenter_-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC6Sketch28MSSelectionOverlayController;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
-@interface MSNormalEventHandler : MSNormalBaseEventHandler <MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
+@interface MSNormalEventHandler : MSNormalBaseEventHandler <_TtP6Sketch27MSSelectionOverlayPresenter_, MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
 {
     BOOL _ignoreNextKeyDownEventUntilModifiersChange;
+    MSPasteboardLayers *_draggedLayers;
     BOOL _isLayerPastedFromLayerList;
     MSNormalEventData *_eventData;
     long long _dragMode;

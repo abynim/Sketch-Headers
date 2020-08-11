@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSComponentOverrideInspectorItem.h"
+#import "MSOverrideInspectorItem.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
-#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
 @class BCPopover, MSColorInspector, MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSStylePartPreviewButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSComponentOverrideInspectorItem <NSMenuDelegate, _TtP6Sketch24MSComponentsPopoverOwner_, MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate>
+@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate, MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -38,6 +37,7 @@
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)closePopover;

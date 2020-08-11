@@ -7,7 +7,7 @@
 #import <SketchModel/MSImmutableGraphicsContextSettings.h>
 
 @interface MSImmutableGraphicsContextSettings (Rendering)
-- (int)CGBlendMode;
-- (BOOL)shouldChangeGraphicsContext;
+@property(readonly, nonatomic) int CGBlendMode;
+@property(readonly, nonatomic) BOOL shouldChangeGraphicsContext;
 @end
 

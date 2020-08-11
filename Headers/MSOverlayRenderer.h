@@ -12,6 +12,7 @@
 @interface MSOverlayRenderer : NSObject
 {
     NSObject<OS_os_log> *_log;
+    struct EKDeviceStruct *_device;
     MSMetalRenderer *_renderer;
     MSRasterSurface *_quartzOverlaySurface;
     MSMetalTexture *_ekranoplanOverlayTexture;
@@ -43,9 +44,10 @@
 - (id)_createPageBackgroundBufferForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
 - (void)drawBackgroundElementsForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 totalZoom:(double)arg3 renderingCache:(id)arg4;
 - (void)_drawOverlayTexture:(id)arg1;
-- (id)overlayTextureForPage:(id)arg1 overlayItems:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 flowItems:(id)arg4 overlayItemImages:(id)arg5 overlayOptions:(unsigned long long)arg6;
+- (id)overlayTextureForPage:(id)arg1 overlayItems:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 flowItems:(id)arg4 overlayItemImages:(id)arg5 overlayOptions:(unsigned long long)arg6 colorSpace:(struct CGColorSpace *)arg7;
 - (id)_quartzOverlaySurfaceForPixelViewSize:(struct CGSize)arg1;
 - (id)_overlayTextureWithSize:(struct CGSize)arg1;
+- (void)dealloc;
 - (id)initWithRenderer:(id)arg1;
 
 @end

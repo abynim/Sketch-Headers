@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)tooltip;
 - (BOOL)hasDynamicTitle;
 - (id)labelForToolbar;

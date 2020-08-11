@@ -13,13 +13,15 @@
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSArtboardGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
+@class MSArtboardGroup, MSLayerGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 @protocol MSLayerCoordinateSpace;
 
 @interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate, MSAbsoluteLayerRectRepresentation>
 {
     long long skipDrawingSelectionCounter;
+    BOOL _transformFromRootIsCached;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
+    struct CGAffineTransform _transformForConvertingFromRoot;
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
@@ -40,6 +42,9 @@
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)layerWithID:(id)arg1;
+- (void)setIsFlippedVertical:(BOOL)arg1;
+- (void)setIsFlippedHorizontal:(BOOL)arg1;
+- (void)setRotation:(double)arg1;
 - (void)endEditingFrame;
 - (void)beginEditingFrame;
 - (void)setHeightRespectingProportions:(double)arg1;
@@ -59,6 +64,17 @@
 @property(nonatomic) struct _CHTransformStruct transformStruct;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> rulerCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> unitCoordinateSpace;
+- (void)invalidateTransformForConvertingFromRoot;
+@property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromRoot; // @synthesize transformForConvertingFromRoot=_transformForConvertingFromRoot;
+- (struct CGAffineTransform)transformForConvertingToLayer:(id)arg1;
+- (struct CGAffineTransform)transformForConvertingFromLayer:(id)arg1;
+- (struct CGVector)convertVector:(struct CGVector)arg1 fromLayer:(id)arg2;
+- (struct CGVector)convertVector:(struct CGVector)arg1 toLayer:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toLayer:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
+- (void)didMoveToParentObject;
 - (BOOL)canContainLayer:(id)arg1;
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
@@ -68,9 +84,9 @@
 - (id)parentSymbol;
 @property(readonly, nonatomic) MSArtboardGroup *parentArtboard;
 @property(readonly, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *ancestry;
-- (id)parentRoot;
 - (id)parentShape;
 @property(readonly, nonatomic) __weak MSPage *parentPage;
+@property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
 - (BOOL)isOpen;
 - (void)removeFromParent;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
@@ -197,8 +213,6 @@
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
 - (id)enumeratorWithOptions:(unsigned long long)arg1;
-- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
-- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> parentCoordinateSpace;

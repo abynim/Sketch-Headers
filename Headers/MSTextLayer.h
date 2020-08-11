@@ -6,13 +6,13 @@
 
 #import <SketchModel/_MSTextLayer.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
 @class MSColor, NSAttributedString, NSDictionary, NSFont, NSNumber, NSString;
 @protocol MSTextLayerEditingDelegate;
 
-@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorConvertible>
+@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorUpdateable>
 {
     // Error parsing type: Ai, name: ignoreDelegateNotificationsCounter
     BOOL _isEditingText;
@@ -28,7 +28,7 @@
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;

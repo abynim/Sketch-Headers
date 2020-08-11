@@ -19,10 +19,10 @@
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
-- (id)debugDescription;
 - (id)description;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
+- (id)initWithObjectID:(id)arg1 shortID:(id)arg2;
 
 @end
 

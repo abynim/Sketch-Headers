@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) NSURLRequest *urlRequest;
 - (void)updateSignature;
 @property(nonatomic) unsigned long long type;
+- (void)setEnvironment:(id)arg1 authentication:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties

@@ -14,9 +14,9 @@
     unsigned long long _registerValue;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long registerValue; // @synthesize registerValue=_registerValue;
 @property(readonly, nonatomic) NSString *registerName; // @synthesize registerName=_registerName;
-- (void)dealloc;
 - (id)initWithRegisterName:(id)arg1 registerValue:(unsigned long long)arg2;
 
 @end

@@ -88,6 +88,11 @@
 - (void)togglePopoverWithBlock:(CDUnknownBlockType)arg1;
 - (void)showVariableFontsPopover:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
+- (void)applyUserSelectedColor:(id)arg1;
+- (id)currentSwatchReference;
+- (id)currentSwatch;
+- (void)showColorVariablesPopoverMenu:(id)arg1;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)updateColorPicker;
 - (void)updateColorButton;

@@ -13,8 +13,8 @@
     NSDictionary *_properties;
 }
 
-@property(retain, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDictionary *properties; // @synthesize properties=_properties;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

@@ -19,13 +19,11 @@
     NSTextField *_headerTitleField;
     NSTextField *_headerMessageField;
     NSButton *_doneButton;
-    NSButton *_embedAllButton;
     NSArray *_fonts;
 }
 
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *fonts; // @synthesize fonts=_fonts;
-@property(nonatomic) __weak NSButton *embedAllButton; // @synthesize embedAllButton=_embedAllButton;
 @property(nonatomic) __weak NSButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(nonatomic) __weak NSTextField *headerMessageField; // @synthesize headerMessageField=_headerMessageField;
 @property(nonatomic) __weak NSTextField *headerTitleField; // @synthesize headerTitleField=_headerTitleField;
@@ -34,13 +32,11 @@
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
-- (void)changeAutoEmbedSetting:(id)arg1;
 - (void)showContextHelp:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (void)applyPendingFontChanges;
-- (void)turnOffAutoEmbeddingIfEnabled;
 - (void)setEmbedded:(BOOL)arg1 forDocumentFont:(id)arg2;
 - (void)setShouldEmbed:(BOOL)arg1 forFontAtRow:(long long)arg2;
 - (void)replaceFontAtRow:(long long)arg1 withFont:(id)arg2;

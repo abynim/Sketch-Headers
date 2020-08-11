@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: delegate
     // Error parsing type: , name: outlineView
-    // Error parsing type: , name: borderRenderingScheme
     // Error parsing type: , name: boundsAnimationsDisabled
     // Error parsing type: , name: contentPinning
 }

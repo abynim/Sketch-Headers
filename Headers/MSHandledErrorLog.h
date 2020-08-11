@@ -14,9 +14,9 @@
     MSException *_exception;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) MSException *exception; // @synthesize exception=_exception;
 @property(copy, nonatomic) NSString *errorId; // @synthesize errorId=_errorId;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

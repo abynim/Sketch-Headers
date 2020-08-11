@@ -9,9 +9,6 @@
 #import "NSToolbarDelegate-Protocol.h"
 
 @interface _TtC6Sketch34MSAssistantResultsWindowController (Sketch) <NSToolbarDelegate>
-- (void)toolbarDidRemoveItem:(id)arg1;
-- (void)toolbarWillAddItem:(id)arg1;
-- (id)toolbarAllowedItemIdentifiers:(id)arg1;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 @end

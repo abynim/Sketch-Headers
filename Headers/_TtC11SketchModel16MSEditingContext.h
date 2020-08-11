@@ -12,17 +12,22 @@
 @interface _TtC11SketchModel16MSEditingContext : NSObject
 {
     // Error parsing type: , name: documentData
+    // Error parsing type: , name: runLoop
+    // Error parsing type: , name: threadAssertionEnabled
     // Error parsing type: , name: runLoopObservation
     // Error parsing type: , name: lastProcessedData
     // Error parsing type: , name: subscriber
 }
 
 - (void).cxx_destruct;
-- (id)init;
 @property(nonatomic) __weak id <_TtP11SketchModel26MSEditingContextSubscriber_> subscriber; // @synthesize subscriber;
+@property(nonatomic, readonly) BOOL hasChanges;
 - (BOOL)processPendingChanges;
+- (void)performWithoutThreadAssertion:(CDUnknownBlockType)arg1;
+@property(nonatomic, retain) struct __CFRunLoop *runLoop; // @synthesize runLoop;
 - (void)edited;
 @property(nonatomic) __weak MSDocumentData *documentData; // @synthesize documentData;
+- (id)init;
 
 @end
 

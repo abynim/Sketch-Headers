@@ -55,6 +55,7 @@
 + (void)configure;
 + (void)configureWithAppSecret:(id)arg1;
 + (id)sharedInstance;
+- (void).cxx_destruct;
 @property BOOL setMaxStorageSizeHasBeenCalled; // @synthesize setMaxStorageSizeHasBeenCalled=_setMaxStorageSizeHasBeenCalled;
 @property(copy, nonatomic) CDUnknownBlockType maxStorageSizeCompletionHandler; // @synthesize maxStorageSizeCompletionHandler=_maxStorageSizeCompletionHandler;
 @property(nonatomic, getter=isEnabledStateUpdating) BOOL enabledStateUpdating; // @synthesize enabledStateUpdating=_enabledStateUpdating;
@@ -68,7 +69,6 @@
 @property(retain, nonatomic) id <MSChannelGroupProtocol> channelGroup; // @synthesize channelGroup=_channelGroup;
 @property(retain, nonatomic) MSOneCollectorChannelDelegate *oneCollectorChannelDelegate; // @synthesize oneCollectorChannelDelegate=_oneCollectorChannelDelegate;
 @property(retain, nonatomic) id <MSChannelUnitProtocol> channelUnit; // @synthesize channelUnit=_channelUnit;
-- (void).cxx_destruct;
 - (BOOL)shouldDisable:(id)arg1;
 - (void)sendCustomPropertiesLog:(id)arg1;
 - (void)sendStartServiceLog:(id)arg1;

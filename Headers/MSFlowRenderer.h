@@ -44,6 +44,7 @@
 - (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2 backingScaleFactor:(double)arg3;
 - (struct MSTextureVertexQuad)textureVertexQuadWithName:(id)arg1 scaledToWidth:(double)arg2 size:(struct CGSize *)arg3 backingScaleFactor:(double)arg4;
 - (id)arcVertexBufferForItems:(id)arg1 selectedLayerIDs:(id)arg2 zoomLevel:(double)arg3;
+- (id)init;
 
 @end
 

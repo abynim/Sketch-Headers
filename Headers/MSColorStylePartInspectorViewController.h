@@ -11,14 +11,14 @@
 #import "MSDropableViewDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSReorderingViewDelegate-Protocol.h"
+#import "MSStylePartBlendModeButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
-#import "_TtP6Sketch24MSComponentsPopoverOwner_-Protocol.h"
 
 @class BCPopover, MSColorInspector, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSString;
 
-@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate, _TtP6Sketch24MSComponentsPopoverOwner_, MSDropableViewDelegate>
+@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSStylePartBlendModeButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate, MSDropableViewDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
     MSColorInspector *_colorInspector;
@@ -36,7 +36,10 @@
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorButton; // @synthesize colorButton=_colorButton;
 - (BOOL)reorderingView:(id)arg1 shouldDeleteItemForDragPosition:(struct CGPoint)arg2;
-- (void)setBlendMode:(long long)arg1 forPreviewButton:(id)arg2;
+- (void)showColorVariablesPopoverMenu:(id)arg1;
+- (BOOL)previewButtonShouldShowColorVariablesButton;
+- (void)setBlendMode:(long long)arg1 sender:(id)arg2;
+- (id)documentForStylePartBlendButton:(id)arg1;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;

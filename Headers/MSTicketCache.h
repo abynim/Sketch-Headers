@@ -14,8 +14,8 @@
 }
 
 + (id)sharedInstance;
-@property(retain, nonatomic) NSMutableDictionary *tickets; // @synthesize tickets=_tickets;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *tickets; // @synthesize tickets=_tickets;
 - (void)clearCache;
 - (void)setTicket:(id)arg1 forKey:(id)arg2;
 - (id)ticketFor:(id)arg1;

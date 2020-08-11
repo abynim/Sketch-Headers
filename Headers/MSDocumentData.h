@@ -40,10 +40,11 @@
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
+- (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
+- (id)workspaceItemNamed:(id)arg1;
 @property(readonly, nonatomic) NSArray *layers;
 - (void)refaultAgainst:(id)arg1;
 - (void)prepareForChangeProcessing;
-- (void)refreshOverlay;
 - (void)layerDidChangeStyle:(id)arg1;
 - (void)replaceExistingCreationMetadata;
 - (id)embeddedFontReferences;
@@ -106,6 +107,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)enumerateColorUpdateablesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;

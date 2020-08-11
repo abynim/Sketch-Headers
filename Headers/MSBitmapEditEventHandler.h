@@ -6,33 +6,37 @@
 
 #import "MSEventHandler.h"
 
-@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, MSOverlayItemImageCache, NSBezierPath, NSBitmapImageRep;
+@class MSBitmapEditInspectorViewController, MSBitmapMagicWandEditor, MSBitmapRectangleEditor, MSOverlayItemImageCache, NSBezierPath, NSBitmapImageRep, NSNumberFormatter, _TtC17SketchControllers14MSOverlayLabel;
 
 @interface MSBitmapEditEventHandler : MSEventHandler
 {
     MSBitmapEditInspectorViewController *_inspectorViewController;
     long long _currentMode;
     NSBezierPath *_accumulatedSelection;
+    _TtC17SketchControllers14MSOverlayLabel *_measurementLabel;
     MSBitmapRectangleEditor *_rectangleEditor;
     MSBitmapMagicWandEditor *_magicWandEditor;
     NSBitmapImageRep *_backupImageRep;
     NSBitmapImageRep *_cachedFirstBitmapImageRep;
     MSOverlayItemImageCache *_imageCache;
+    NSNumberFormatter *_lengthFormatter;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSNumberFormatter *lengthFormatter; // @synthesize lengthFormatter=_lengthFormatter;
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) NSBitmapImageRep *cachedFirstBitmapImageRep; // @synthesize cachedFirstBitmapImageRep=_cachedFirstBitmapImageRep;
 @property(retain, nonatomic) NSBitmapImageRep *backupImageRep; // @synthesize backupImageRep=_backupImageRep;
 @property(retain, nonatomic) MSBitmapMagicWandEditor *magicWandEditor; // @synthesize magicWandEditor=_magicWandEditor;
 @property(retain, nonatomic) MSBitmapRectangleEditor *rectangleEditor; // @synthesize rectangleEditor=_rectangleEditor;
+@property(readonly, nonatomic) _TtC17SketchControllers14MSOverlayLabel *measurementLabel; // @synthesize measurementLabel=_measurementLabel;
 @property(retain, nonatomic) NSBezierPath *accumulatedSelection; // @synthesize accumulatedSelection=_accumulatedSelection;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (unsigned long long)inspectorLocation;
 @property(readonly, nonatomic) MSBitmapEditInspectorViewController *inspectorViewController; // @synthesize inspectorViewController=_inspectorViewController;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (void)configureInspector:(id)arg1;
-- (void)updateMeasurementLabel;
+- (void)updateMeasurementLabelWithPosition:(struct CGPoint)arg1;
 - (struct CGRect)displayRectForSelectionRect:(struct CGRect)arg1;
 - (id)crossHairCursorRemove;
 - (id)crossHairCursorAdd;

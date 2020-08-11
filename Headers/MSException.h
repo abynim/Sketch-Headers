@@ -20,13 +20,13 @@
     NSString *_wrapperSdkName;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSString *wrapperSdkName; // @synthesize wrapperSdkName=_wrapperSdkName;
 @property(retain, nonatomic) NSArray *innerExceptions; // @synthesize innerExceptions=_innerExceptions;
 @property(retain, nonatomic) NSArray *frames; // @synthesize frames=_frames;
 @property(copy, nonatomic) NSString *stackTrace; // @synthesize stackTrace=_stackTrace;
 @property(copy, nonatomic) NSString *message; // @synthesize message=_message;
 @property(copy, nonatomic) NSString *type; // @synthesize type=_type;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

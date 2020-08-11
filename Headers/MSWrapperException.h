@@ -17,10 +17,10 @@
     NSNumber *_processId;
 }
 
+- (void).cxx_destruct;
 @property(copy, nonatomic) NSNumber *processId; // @synthesize processId=_processId;
 @property(retain, nonatomic) NSData *exceptionData; // @synthesize exceptionData=_exceptionData;
 @property(retain, nonatomic) MSException *modelException; // @synthesize modelException=_modelException;
-- (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)serializeToDictionary;

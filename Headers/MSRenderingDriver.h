@@ -16,7 +16,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMapTable *renderers; // @synthesize renderers=_renderers;
 - (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 renderingRequest:(id)arg3;
-- (id)rendererForObject:(id)arg1 protocol:(id)arg2;
+- (id)rendererForObject:(id)arg1;
 - (id)setupRendererMap;
 - (id)init;
 

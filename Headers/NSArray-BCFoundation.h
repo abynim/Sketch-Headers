@@ -14,6 +14,7 @@
 - (unsigned long long)indexOfSubArray:(id)arg1;
 - (id)rotateTwoDimensionalArray;
 - (id)uniqueObjects;
+- (id)subArrayFromIndex:(unsigned long long)arg1;
 - (id)subArrayToIndex:(unsigned long long)arg1;
 - (id)objectAtIndexOrNil:(unsigned long long)arg1;
 - (BOOL)isValidIndex:(unsigned long long)arg1;

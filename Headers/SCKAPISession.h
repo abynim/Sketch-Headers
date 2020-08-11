@@ -14,11 +14,11 @@
 @interface SCKAPISession : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_token;
+    NSString *_refreshToken;
     NSString *_userID;
     NSString *_tokenType;
     NSDate *_expirationDate;
     double _validityPeriod;
-    NSString *_refreshToken;
 }
 
 + (BOOL)supportsSecureCoding;
@@ -26,17 +26,14 @@
 + (void)invalidateCurrentCache;
 + (BOOL)removeCurrentWithError:(id *)arg1;
 + (BOOL)setCurrentSession:(id)arg1 error:(id *)arg2;
-+ (void)getCurrentSessionAndRefreshIfNeededWithCompletionHandler:(CDUnknownBlockType)arg1;
-+ (BOOL)cacheKeychainSessionWithError:(id *)arg1;
 + (id)readCurrentSessionWithError:(id *)arg1;
 + (id)currentSessionWithError:(id *)arg1;
-+ (id)currentSessionQueue;
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(readonly, nonatomic) double validityPeriod; // @synthesize validityPeriod=_validityPeriod;
 @property(readonly, nonatomic) NSDate *expirationDate; // @synthesize expirationDate=_expirationDate;
 @property(readonly, copy, nonatomic) NSString *tokenType; // @synthesize tokenType=_tokenType;
 @property(readonly, copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
+@property(readonly, copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(readonly, copy, nonatomic) NSString *token; // @synthesize token=_token;
 - (BOOL)isRefreshedByAuthentication:(id)arg1;
 @property(readonly, nonatomic) NSString *httpAuthorizationValue;

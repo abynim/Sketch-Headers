@@ -10,7 +10,7 @@
 {
 }
 
-- (void)processDocumentUpdate:(id)arg1;
+- (void)coalesceDocumentUpdate;
 - (id)initWithUpdateFrequency:(unsigned long long)arg1;
 
 @end

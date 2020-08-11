@@ -14,9 +14,9 @@
     NSArray *_codes;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *codes; // @synthesize codes=_codes;
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
-- (void)dealloc;
 - (id)initWithType:(unsigned long long)arg1 codes:(id)arg2;
 
 @end

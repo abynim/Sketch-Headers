@@ -7,9 +7,9 @@
 #import <SketchModel/MSPath.h>
 
 @interface MSPath (Rendering)
-- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(long long)arg3 lineWidth:(double)arg4 cacheObject:(id)arg5 context:(id)arg6;
+- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(unsigned long long)arg3 lineWidth:(double)arg4 cacheObject:(id)arg5 context:(id)arg6;
 - (id)shadowPathWithSpread:(double)arg1 cacheObject:(id)arg2 context:(id)arg3;
-- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
+- (id)shadowPathForStrokeType:(unsigned long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
 - (id)pathWithDashPattern:(id)arg1;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)outerPathWithRect:(struct CGRect)arg1;

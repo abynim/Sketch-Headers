@@ -34,7 +34,6 @@
 @property(readonly, nonatomic) BOOL containsPreviewImage;
 @property(readonly, nonatomic) BOOL documentWasMigrated;
 - (id)readDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
-- (id)unarchiveWorkspaceItemsWithUnarchiver:(id)arg1 error:(id *)arg2;
 
 @end
 

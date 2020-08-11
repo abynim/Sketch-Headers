@@ -35,8 +35,6 @@
 - (void)getHue:(double *)arg1 saturation:(double *)arg2 brightness:(double *)arg3;
 @property(readonly, copy) NSString *description;
 - (id)NSColorWithColorSpace:(id)arg1;
-@property(readonly) unsigned long long hash;
-- (BOOL)isEqual:(id)arg1;
 - (void)setSwatch:(id)arg1;
 - (void)syncWithTemplateInstance:(id)arg1;
 - (unsigned long long)type;
@@ -53,6 +51,7 @@
 @property(readonly, nonatomic) double blue;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) double green;
+@property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) double red;
 @property(readonly) Class superclass;
 @property(retain, nonatomic) NSString *swatchID;

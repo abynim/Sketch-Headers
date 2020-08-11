@@ -22,6 +22,7 @@
 - (void)togglePanel;
 - (void)doPerformAction:(id)arg1;
 - (void)validateToolbarItem;
+@property(nonatomic, readonly) NSString *tooltip;
 @property(nonatomic, readonly) BOOL mayShowInToolbar;
 @property(nonatomic, readonly) NSString *label;
 

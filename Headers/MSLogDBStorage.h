@@ -21,13 +21,13 @@
 }
 
 + (int)deleteLogsFromDBWithColumnValues:(id)arg1 columnName:(id)arg2 inOpenedDatabase:(void *)arg3;
+- (void).cxx_destruct;
 @property(readonly, nonatomic) MSEncrypter *targetTokenEncrypter; // @synthesize targetTokenEncrypter=_targetTokenEncrypter;
 @property(readonly, nonatomic) unsigned long long targetTokenColumnIndex; // @synthesize targetTokenColumnIndex=_targetTokenColumnIndex;
 @property(readonly, nonatomic) unsigned long long logColumnIndex; // @synthesize logColumnIndex=_logColumnIndex;
 @property(readonly, nonatomic) unsigned long long groupIdColumnIndex; // @synthesize groupIdColumnIndex=_groupIdColumnIndex;
 @property(readonly, nonatomic) unsigned long long idColumnIndex; // @synthesize idColumnIndex=_idColumnIndex;
 @property(retain, nonatomic) NSMutableDictionary *batches; // @synthesize batches=_batches;
-- (void).cxx_destruct;
 - (void)migrateDatabase:(void *)arg1 fromVersion:(unsigned long long)arg2;
 - (void)customizeDatabase:(void *)arg1;
 - (void)createPriorityIndex:(void *)arg1;

@@ -6,6 +6,10 @@
 
 #import "_TtC6Sketch22ComponentInspectorItem.h"
 
-@interface _TtC6Sketch22ComponentInspectorItem (Sketch)
+#import "MSViewRestoration-Protocol.h"
+
+@interface _TtC6Sketch22ComponentInspectorItem (Sketch) <MSViewRestoration>
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 @end
 

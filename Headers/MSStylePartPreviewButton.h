@@ -6,13 +6,14 @@
 
 #import "MSInspectorButton.h"
 
-@class MSStylePart, NSColor;
+@class MSColor, MSStylePart;
 @protocol MSStylePartPreviewButtonDelegate;
 
 @interface MSStylePartPreviewButton : MSInspectorButton
 {
+    MSInspectorButton *_inlineButton;
     MSStylePart *_stylePart;
-    NSColor *_color;
+    MSColor *_color;
     id <MSStylePartPreviewButtonDelegate> _delegate;
     id _dragOwner;
 }
@@ -20,13 +21,23 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak id dragOwner; // @synthesize dragOwner=_dragOwner;
 @property(nonatomic) __weak id <MSStylePartPreviewButtonDelegate> delegate; // @synthesize delegate=_delegate;
-@property(copy, nonatomic) NSColor *color; // @synthesize color=_color;
+@property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) MSStylePart *stylePart; // @synthesize stylePart=_stylePart;
+@property(retain, nonatomic) MSInspectorButton *inlineButton; // @synthesize inlineButton=_inlineButton;
+- (void)inlineButtonAction:(id)arg1;
 - (BOOL)isFlipped;
-- (struct CGRect)contentRect;
+@property(readonly, nonatomic) struct CGRect contentRect;
 - (void)drawButton;
 - (void)drawRect:(struct CGRect)arg1;
+- (void)setEnabled:(BOOL)arg1;
+- (void)setNeedsDisplay:(BOOL)arg1;
+- (id)colorFromStylePart:(id)arg1;
+- (BOOL)isPreviewingSwatch;
 - (void)mouseUp:(id)arg1;
+- (void)updateInlineButtonState;
+- (void)setupInlineButton;
+- (id)initWithFrame:(struct CGRect)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -13,8 +13,8 @@
     NSDate *_value;
 }
 
-@property(retain, nonatomic) NSDate *value; // @synthesize value=_value;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDate *value; // @synthesize value=_value;
 - (BOOL)isEqual:(id)arg1;
 - (id)serializeToDictionary;
 - (void)encodeWithCoder:(id)arg1;

@@ -12,7 +12,6 @@
 
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
-- (void)performInitWithUnarchiver:(id)arg1;
 
 @end
 

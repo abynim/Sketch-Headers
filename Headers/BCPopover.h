@@ -25,6 +25,7 @@
     NSView *_attachedToView;
     double _attachedToViewMargin;
     unsigned long long _preferredEdge;
+    struct CGRect _positioningRect;
 }
 
 + (void)closeAllPopovers;
@@ -34,6 +35,7 @@
 @property(nonatomic) unsigned long long preferredEdge; // @synthesize preferredEdge=_preferredEdge;
 @property(nonatomic) double attachedToViewMargin; // @synthesize attachedToViewMargin=_attachedToViewMargin;
 @property(retain, nonatomic) NSView *attachedToView; // @synthesize attachedToView=_attachedToView;
+@property(nonatomic) struct CGRect positioningRect; // @synthesize positioningRect=_positioningRect;
 @property(nonatomic) BOOL closesOnWindowDidResignKey; // @synthesize closesOnWindowDidResignKey=_closesOnWindowDidResignKey;
 @property(nonatomic) long long layerDependency; // @synthesize layerDependency=_layerDependency;
 @property(nonatomic) long long screenEdgeBehaviour; // @synthesize screenEdgeBehaviour=_screenEdgeBehaviour;
@@ -65,7 +67,7 @@
 - (void)attachedWindowDidMove:(id)arg1;
 - (void)configureNotifications:(id)arg1;
 - (void)move;
-- (void)showRelativeToView:(id)arg1 preferredEdge:(unsigned long long)arg2;
+- (void)showRelativeToRect:(struct CGRect)arg1 ofView:(id)arg2 preferredEdge:(unsigned long long)arg3;
 - (id)init;
 
 // Remaining properties

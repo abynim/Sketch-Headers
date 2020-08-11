@@ -8,7 +8,6 @@
 
 @interface _TtC6Sketch30AssistantResultsViewController (Sketch)
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
-- (void)outlineViewSelectionDidChange:(id)arg1;
 - (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;

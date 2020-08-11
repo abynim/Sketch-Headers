@@ -6,11 +6,11 @@
 
 #import <SketchModel/_MSStyleBorder.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 
 @class NSString;
 
-@interface MSStyleBorder : _MSStyleBorder <MSColorConvertible>
+@interface MSStyleBorder : _MSStyleBorder <MSColorUpdateable>
 {
 }
 

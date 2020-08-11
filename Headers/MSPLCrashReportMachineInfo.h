@@ -16,11 +16,11 @@
     unsigned long long _logicalProcessorCount;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long logicalProcessorCount; // @synthesize logicalProcessorCount=_logicalProcessorCount;
 @property(readonly, nonatomic) unsigned long long processorCount; // @synthesize processorCount=_processorCount;
 @property(readonly, nonatomic) MSPLCrashReportProcessorInfo *processorInfo; // @synthesize processorInfo=_processorInfo;
 @property(readonly, nonatomic) NSString *modelName; // @synthesize modelName=_modelName;
-- (void)dealloc;
 - (id)initWithModelName:(id)arg1 processorInfo:(id)arg2 processorCount:(unsigned long long)arg3 logicalProcessorCount:(unsigned long long)arg4;
 
 @end

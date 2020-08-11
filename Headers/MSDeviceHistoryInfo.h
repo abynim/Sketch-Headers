@@ -13,8 +13,8 @@
     MSDevice *_device;
 }
 
-@property(retain, nonatomic) MSDevice *device; // @synthesize device=_device;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSDevice *device; // @synthesize device=_device;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithTimestamp:(id)arg1 andDevice:(id)arg2;

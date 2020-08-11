@@ -17,8 +17,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSOverrideValue *predecessor; // @synthesize predecessor=_predecessor;
 @property(nonatomic) BOOL isInherited; // @synthesize isInherited=_isInherited;
-- (unsigned long long)hash;
-- (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) NSString *attributeName;
 - (id)originalName;
 - (id)overrideName;

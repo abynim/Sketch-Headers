@@ -6,17 +6,17 @@
 
 #import <SketchModel/_MSSliceLayer.h>
 
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSLayerWithMutableBackgroundColor-Protocol.h>
 
 @class MSColor, NSString;
 
-@interface MSSliceLayer : _MSSliceLayer <MSLayerWithMutableBackgroundColor, MSColorConvertible>
+@interface MSSliceLayer : _MSSliceLayer <MSLayerWithMutableBackgroundColor, MSColorUpdateable>
 {
 }
 
 - (void)changeColor:(id)arg1;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;

@@ -16,11 +16,13 @@
 {
     MSAssetLibrary *_sourceLibrary;
     MSModelObject<BCSortable><MSSharedObjectStyling> *_shareableObject;
+    MSShareableObjectReference *_remoteReference;
 }
 
 + (id)referenceForShareableObject:(id)arg1 inLibrary:(id)arg2;
 + (id)referenceForShareableObject:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSShareableObjectReference *remoteReference; // @synthesize remoteReference=_remoteReference;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject; // @synthesize shareableObject=_shareableObject;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;

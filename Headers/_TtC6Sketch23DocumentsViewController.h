@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, _TtC6Sketch23DocumentsCollectionView;
+@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
@@ -18,6 +18,7 @@
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
+    // Error parsing type: , name: bannerView
     // Error parsing type: , name: $__lazy_storage_$_previewImageCache
     // Error parsing type: , name: provider
     // Error parsing type: , name: delegate
@@ -25,12 +26,14 @@
     // Error parsing type: , name: lastDocumentsLoadDate
     // Error parsing type: , name: refreshOnNextKey
     // Error parsing type: , name: dragAndDropMessage
+    // Error parsing type: , name: bannerError
 }
 
 - (void).cxx_destruct;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)willPresentError:(id)arg1;
 - (void)documentDidProcessNotification:(id)arg1;
+- (void)boundsDidChangeNotification:(id)arg1;
 - (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)deleteDocument:(id)arg1;
@@ -39,13 +42,16 @@
 - (void)confirmDocumentRename:(id)arg1;
 - (void)renameDocument:(id)arg1;
 - (void)confirm:(id)arg1;
+- (void)refresh:(id)arg1;
 - (void)documentCloudShareDidChange:(id)arg1;
 - (void)uploadDidFinish:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
+- (void)viewDidLayout;
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 - (id)initWithCoder:(id)arg1;
+@property(nonatomic, retain) _TtC6Sketch19DocumentsBannerView *bannerView; // @synthesize bannerView;
 @property(nonatomic, retain) MSFlashController *flashController; // @synthesize flashController;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;

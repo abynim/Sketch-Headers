@@ -14,9 +14,9 @@
     NSMutableDictionary *_dictionary;
 }
 
+- (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *dictionary; // @synthesize dictionary=_dictionary;
 @property(retain, nonatomic) NSMutableArray *order; // @synthesize order=_order;
-- (void).cxx_destruct;
 - (BOOL)isEqualToDictionary:(id)arg1;
 - (id)mutableCopy;
 - (void)removeAllObjects;

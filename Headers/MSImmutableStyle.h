@@ -19,6 +19,7 @@
     BOOL _hasBlending;
     BOOL _hasEnabledBackgroundBlur;
     double _thickestStroke;
+    double _thickestStrokeDoubledForClipping;
     double _thickestInnerStroke;
     double _outerPaddingForBiggestStroke;
     double _outerPaddingForSmallestStroke;
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) double outerPaddingForSmallestStroke; // @synthesize outerPaddingForSmallestStroke=_outerPaddingForSmallestStroke;
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke; // @synthesize outerPaddingForBiggestStroke=_outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke; // @synthesize thickestInnerStroke=_thickestInnerStroke;
+@property(readonly, nonatomic) double thickestStrokeDoubledForClipping; // @synthesize thickestStrokeDoubledForClipping=_thickestStrokeDoubledForClipping;
 @property(readonly, nonatomic) double thickestStroke; // @synthesize thickestStroke=_thickestStroke;
 @property(readonly, nonatomic) BOOL hasBlending; // @synthesize hasBlending=_hasBlending;
 @property(readonly, nonatomic) BOOL hasEnabledFill; // @synthesize hasEnabledFill=_hasEnabledFill;
@@ -51,13 +53,14 @@
 @property(readonly, nonatomic) NSArray *enabledShadows;
 @property(readonly, nonatomic) NSArray *enabledBorders;
 @property(readonly, nonatomic) NSArray *enabledFills;
-@property(readonly, nonatomic) long long shadowStrokeType;
+@property(readonly, nonatomic) unsigned long long shadowStrokeType;
 @property(readonly, nonatomic) unsigned long long shadowType;
 - (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
 - (double)calculateOuterPaddingForBiggestShadowSpread;
 - (double)calculateOuterPaddingForSmallestStroke;
 - (double)calculateOuterPaddingForBiggestStroke;
 - (double)calculateThickestInnerStroke;
+- (double)calculateThickestStrokeDoubledForClipping;
 - (double)calculateThickestStroke;
 - (BOOL)calculateHasBlending;
 @property(readonly, nonatomic) MSImmutableStyleBorder *firstEnabledBorder;

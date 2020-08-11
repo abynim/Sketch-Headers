@@ -15,10 +15,10 @@
     unsigned long long _address;
 }
 
+- (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long address; // @synthesize address=_address;
 @property(readonly, nonatomic) NSString *code; // @synthesize code=_code;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
-- (void)dealloc;
 - (id)initWithSignalName:(id)arg1 code:(id)arg2 address:(unsigned long long)arg3;
 
 @end

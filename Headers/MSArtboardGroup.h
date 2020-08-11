@@ -7,14 +7,14 @@
 #import <SketchModel/_MSArtboardGroup.h>
 
 #import <SketchModel/MSArtboardGroupProtocol-Protocol.h>
-#import <SketchModel/MSColorConvertible-Protocol.h>
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSLayerWithMutableBackgroundColor-Protocol.h>
 #import <SketchModel/MSRootLayer-Protocol.h>
 
 @class MSArtboardPreset, MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 @protocol MSLayerCoordinateSpace;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroupProtocol, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorConvertible>
+@interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroupProtocol, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorUpdateable>
 {
     id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
 }
@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (BOOL)shouldGrowSizeOfGroupForInferredLayout;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
-- (void)convertColorsUsing:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (id)immutableBackgroundColor;
 - (id)closestClippingLayer;
 @property(readonly, nonatomic) struct CGRect contentBounds;
