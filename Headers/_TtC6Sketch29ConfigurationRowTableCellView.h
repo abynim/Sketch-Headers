@@ -17,8 +17,8 @@
     // Error parsing type: , name: checkBox
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: subtitle
-    // Error parsing type: , name: message
     // Error parsing type: , name: activityIndicator
+    // Error parsing type: , name: versionLabel
     // Error parsing type: , name: delegate
     // Error parsing type: , name: configurationRowModel
 }
@@ -34,8 +34,8 @@
 - (void)viewDetails;
 - (void)installAssistant;
 - (void)checkChanged:(id)arg1;
+@property(nonatomic, retain) NSTextField *versionLabel; // @synthesize versionLabel;
 @property(nonatomic, retain) NSProgressIndicator *activityIndicator; // @synthesize activityIndicator;
-@property(nonatomic, retain) NSTextField *message; // @synthesize message;
 @property(nonatomic, retain) NSTextField *subtitle; // @synthesize subtitle;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSButton *checkBox; // @synthesize checkBox;

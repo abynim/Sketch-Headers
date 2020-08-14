@@ -45,7 +45,10 @@
 - (id)initWithName:(id)arg1;
 - (BOOL)removeAuthenticationAndReturnError:(id *)arg1;
 - (void)invalidateAuthenticationCache;
-- (BOOL)assignAuthentication:(id)arg1 error:(id *)arg2;
+- (void)cache:(id)arg1;
+- (void)notifyAuthenticationChange:(id)arg1;
+- (BOOL)assignSession:(id)arg1 error:(id *)arg2;
+- (id)unsafeAuthenticationAndReturnError:(id *)arg1;
 - (id)authenticationAndReturnError:(id *)arg1;
 @property(nonatomic, readonly) BOOL hasAuthentication;
 - (int)deleteItemForUserID:(id)arg1;

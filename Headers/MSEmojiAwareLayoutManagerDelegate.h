@@ -4,16 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <BCFoundation/BCSingleton.h>
+#import <objc/NSObject.h>
 
 #import <SketchModel/NSLayoutManagerDelegate-Protocol.h>
 
 @class NSString;
 
-@interface MSEmojiAwareLayoutManagerDelegate : BCSingleton <NSLayoutManagerDelegate>
+@interface MSEmojiAwareLayoutManagerDelegate : NSObject <NSLayoutManagerDelegate>
 {
 }
 
++ (BOOL)layoutManager:(id)arg1 shouldSetLineFragmentRect:(inout struct CGRect *)arg2 lineFragmentUsedRect:(inout struct CGRect *)arg3 baselineOffset:(inout double *)arg4 inTextContainer:(id)arg5 forGlyphRange:(struct _NSRange)arg6;
 - (BOOL)layoutManager:(id)arg1 shouldSetLineFragmentRect:(inout struct CGRect *)arg2 lineFragmentUsedRect:(inout struct CGRect *)arg3 baselineOffset:(inout double *)arg4 inTextContainer:(id)arg5 forGlyphRange:(struct _NSRange)arg6;
 
 // Remaining properties

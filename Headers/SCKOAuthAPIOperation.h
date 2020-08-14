@@ -13,10 +13,9 @@
     SCKAPISession *_authentication;
 }
 
-+ (void)refreshLicenseWithAuthentication:(id)arg1 handler:(CDUnknownBlockType)arg2;
-+ (void)refreshAuthentication:(id)arg1 handler:(CDUnknownBlockType)arg2;
-+ (void)refreshSession:(id)arg1 withRequest:(id)arg2 handler:(CDUnknownBlockType)arg3;
-+ (void)signinWithEmail:(id)arg1 password:(id)arg2 handler:(CDUnknownBlockType)arg3;
++ (id)executeRequest:(id)arg1 error:(id *)arg2;
++ (void)executeRequest:(id)arg1 requestCompletionHandler:(CDUnknownBlockType)arg2;
++ (void)executeOAuthOperation:(id)arg1 waitUntilFinished:(BOOL)arg2;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SCKAPISession *authentication; // @synthesize authentication=_authentication;
 - (void)processData:(id)arg1 response:(id)arg2 error:(id)arg3;

@@ -15,7 +15,6 @@
     // Error parsing type: , name: runLoop
     // Error parsing type: , name: threadAssertionEnabled
     // Error parsing type: , name: runLoopObservation
-    // Error parsing type: , name: isGuardingAgainstEdits
     // Error parsing type: , name: lastProcessedData
     // Error parsing type: , name: subscriber
 }
@@ -24,9 +23,6 @@
 @property(nonatomic) __weak id <_TtP11SketchModel26MSEditingContextSubscriber_> subscriber; // @synthesize subscriber;
 @property(nonatomic, readonly) BOOL hasChanges;
 - (BOOL)processPendingChanges;
-@property(nonatomic) BOOL isGuardingAgainstEdits; // @synthesize isGuardingAgainstEdits;
-- (void)stopGuardAgainstEdits;
-- (void)startGuardAgainstEdits;
 - (void)performWithoutThreadAssertion:(CDUnknownBlockType)arg1;
 @property(nonatomic, retain) struct __CFRunLoop *runLoop; // @synthesize runLoop;
 - (void)edited;

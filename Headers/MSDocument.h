@@ -368,7 +368,7 @@
 - (void)makeUploadRequest;
 - (BOOL)writeSafelyToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 error:(id *)arg4;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (BOOL)shouldCreateCloudVersionForSaveOperation:(unsigned long long)arg1 documentWasEdited:(BOOL)arg2;
+- (BOOL)shouldCreateCloudVersionForSaveOperation:(unsigned long long)arg1 destinationType:(id)arg2 documentWasEdited:(BOOL)arg3;
 - (void)prepareForSaveOperation:(unsigned long long)arg1;
 - (id)actionClasses;
 

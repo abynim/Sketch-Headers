@@ -20,7 +20,6 @@
     // Error parsing type: , name: currentOverlayController
     // Error parsing type: , name: $__lazy_storage_$_assistantStoryboard
     // Error parsing type: , name: $__lazy_storage_$_assistantsRunningOverlayViewController
-    // Error parsing type: , name: $__lazy_storage_$_noDocumentOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noInstalledAssistantsOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noActiveAssistantsOverlayViewController
     // Error parsing type: , name: $__lazy_storage_$_noResultsOverlayViewController
