@@ -40,6 +40,7 @@
 - (id)transformedValuesFromAdaptorValue:(id)arg1 contexts:(id *)arg2 error:(id *)arg3;
 - (void)doSetValue:(id)arg1;
 @property(retain, nonatomic) id value;
+- (BOOL)value:(id)arg1 isEqualToValue:(id)arg2;
 - (void)updateValues;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)refreshIfNecessary:(id)arg1;

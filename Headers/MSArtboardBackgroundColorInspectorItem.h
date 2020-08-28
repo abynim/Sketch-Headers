@@ -8,13 +8,14 @@
 
 #import "BCPopoverDelegate-Protocol.h"
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSInspectorValueAdaptorDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 
 @class BCPopover, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSButton, NSString;
 
-@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate>
+@interface MSArtboardBackgroundColorInspectorItem : MSInspectorItem <MSColorInspectorDelegate, BCPopoverDelegate, MSStylePartPreviewButtonDelegate, MSStylePartPreviewButtonDisabledTarget, MSNativeColorPanelPresenterDelegate, MSInspectorValueAdaptorDelegate>
 {
     MSStylePartPreviewButton *_backgroundColorButton;
     BCPopover *_popover;
@@ -30,6 +31,7 @@
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(retain, nonatomic) MSStylePartPreviewButton *backgroundColorButton; // @synthesize backgroundColorButton=_backgroundColorButton;
+- (BOOL)inspectorValueAdaptor:(id)arg1 value:(id)arg2 isEqualToValue:(id)arg3;
 - (void)applyUserSelectedColor:(id)arg1;
 - (id)currentSwatchReference;
 - (id)currentSwatch;
