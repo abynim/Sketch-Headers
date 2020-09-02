@@ -10,7 +10,7 @@
 - (void)adjustAfterInsert;
 - (BOOL)canBeHidden;
 - (long long)cornerRectType;
-- (id)overrideSelectionPathItems;
+- (id)overrideSelectionPaths;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (BOOL)shouldDrawSelectionStroke;
 - (BOOL)shouldDrawSelection;

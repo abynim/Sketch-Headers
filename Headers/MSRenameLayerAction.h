@@ -15,7 +15,7 @@
 - (BOOL)validate;
 - (id)correspondingComponentAction;
 - (void)doPerformAction:(id)arg1;
-- (void)renameLayer:(id)arg1;
+- (void)renameAction:(id)arg1;
 
 @end
 

@@ -13,10 +13,12 @@
 
 @interface BCSideBarViewController : NSViewController <NSSplitViewDelegate>
 {
+    BOOL _showsTabView;
     BOOL _userUpdatedPageHeight;
     NSObject<BCSideBarViewControllerDelegate> *_delegate;
     NSButton *_libraryPreferencesButton;
     NSButton *_toggleLibraryListButton;
+    NSView *_headerView;
     BCSidebarTabButton *_pageTabButton;
     BCSidebarTabButton *_componentsTabButton;
     NSTabView *_tabView;
@@ -53,8 +55,10 @@
 @property(retain, nonatomic) NSTabView *tabView; // @synthesize tabView=_tabView;
 @property(nonatomic) __weak BCSidebarTabButton *componentsTabButton; // @synthesize componentsTabButton=_componentsTabButton;
 @property(nonatomic) __weak BCSidebarTabButton *pageTabButton; // @synthesize pageTabButton=_pageTabButton;
+@property(nonatomic) __weak NSView *headerView; // @synthesize headerView=_headerView;
 @property(nonatomic) __weak NSButton *toggleLibraryListButton; // @synthesize toggleLibraryListButton=_toggleLibraryListButton;
 @property(nonatomic) __weak NSButton *libraryPreferencesButton; // @synthesize libraryPreferencesButton=_libraryPreferencesButton;
+@property(nonatomic) BOOL showsTabView; // @synthesize showsTabView=_showsTabView;
 @property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (void)splitViewDidResizeSubviews:(id)arg1;

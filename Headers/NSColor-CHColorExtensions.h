@@ -19,7 +19,7 @@
 - (BOOL)isWhite;
 - (BOOL)fuzzyIsEqual:(id)arg1;
 - (struct CGColor *)newCGColor;
-- (id)stringValueWithAlpha:(BOOL)arg1;
+- (id)stringValueIncludingAlpha:(BOOL)arg1;
 - (id)hexValue;
 - (id)highlightedColor;
 - (id)colorByApplyingModifier:(id)arg1;

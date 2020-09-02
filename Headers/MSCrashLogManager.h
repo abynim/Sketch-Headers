@@ -8,10 +8,11 @@
 
 #import "MSActionObserver-Protocol.h"
 #import "MSCrashesDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
 @class BCReadWriteLock, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSURL;
 
-@interface MSCrashLogManager : NSObject <MSActionObserver, MSCrashesDelegate>
+@interface MSCrashLogManager : NSObject <MSActionObserver, MSCrashesDelegate, NSTextFieldDelegate>
 {
     BCReadWriteLock *_environmentLock;
     NSMutableDictionary *_environment;
@@ -50,6 +51,7 @@
 - (void)clearEnvironment;
 - (void)log:(id)arg1;
 - (id)init;
+- (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

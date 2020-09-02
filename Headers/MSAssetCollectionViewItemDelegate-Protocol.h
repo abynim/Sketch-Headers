@@ -12,7 +12,6 @@
 - (void)assetItemDidEndRenaming:(MSAssetCollectionViewItem *)arg1;
 - (void)assetItem:(MSAssetCollectionViewItem *)arg1 wantsRenameTo:(NSString *)arg2;
 - (void)assetItemWantsStartRenaming:(MSAssetCollectionViewItem *)arg1;
-- (void)assetItemWantsStartEditing:(MSAssetCollectionViewItem *)arg1;
 - (void)deleteAssetItem:(MSAssetCollectionViewItem *)arg1;
 - (BOOL)assetItemIsEditable:(MSAssetCollectionViewItem *)arg1;
 - (void)assetItem:(MSAssetCollectionViewItem *)arg1 copyToCollection:(MSAssetCollectionViewDataSource *)arg2;

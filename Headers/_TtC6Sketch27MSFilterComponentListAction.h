@@ -4,19 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch21MSComponentPaneAction.h"
+#import "_TtC6Sketch17MSComponentAction.h"
 
 @class NSString;
 
-@interface _TtC6Sketch27MSFilterComponentListAction : _TtC6Sketch21MSComponentPaneAction
+@interface _TtC6Sketch27MSFilterComponentListAction : _TtC6Sketch17MSComponentAction
 {
 }
 
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) long long validationStatus;
 - (void)doPerformAction:(id)arg1;
-@property(nonatomic, readonly) BOOL validate;
 - (void)filterComponentList:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
 

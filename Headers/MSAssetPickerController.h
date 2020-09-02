@@ -53,7 +53,6 @@
 - (void)scrollPathToVisible:(id)arg1;
 - (void)scrollPathToVisibleAndStartEditing:(id)arg1;
 - (void)assetItemWantsStartRenaming:(id)arg1;
-- (void)assetItemWantsStartEditing:(id)arg1;
 - (void)deleteAssetItem:(id)arg1;
 - (BOOL)assetItemIsEditable:(id)arg1;
 - (void)assetItem:(id)arg1 copyToCollection:(id)arg2;

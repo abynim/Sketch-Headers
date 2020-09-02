@@ -48,7 +48,6 @@
 - (void)setRaw_fontReferences:(id)arg1;
 - (void)setRaw_assets:(id)arg1;
 - (void)setRaw_userInfo:(id)arg1;
-- (void)setRaw_currentPageIndex:(unsigned long long)arg1;
 - (void)setRaw_colorSpace:(unsigned long long)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

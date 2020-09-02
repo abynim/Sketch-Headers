@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch23DocumentsViewController.h"
 
-#import "NSCollectionViewDelegate-Protocol.h"
-
-@interface _TtC6Sketch23DocumentsViewController (Sketch2) <NSCollectionViewDelegate>
+@interface _TtC6Sketch23DocumentsViewController (Sketch2)
 - (id)collectionView:(id)arg1 shouldSelectItemsAtIndexPaths:(id)arg2;
 @end
 

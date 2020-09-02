@@ -11,7 +11,6 @@
 }
 
 - (id)label;
-- (long long)validationStatus;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)showDocumentFonts:(id)arg1;

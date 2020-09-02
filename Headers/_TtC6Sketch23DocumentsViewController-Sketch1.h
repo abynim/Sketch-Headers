@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch23DocumentsViewController.h"
 
-#import "NSCollectionViewDataSource-Protocol.h"
-
-@interface _TtC6Sketch23DocumentsViewController (Sketch1) <NSCollectionViewDataSource>
+@interface _TtC6Sketch23DocumentsViewController (Sketch1)
 - (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 @end

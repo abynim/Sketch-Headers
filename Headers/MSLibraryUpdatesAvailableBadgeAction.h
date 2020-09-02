@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)validate;
 - (id)librariesWithUpdates;
 @property(readonly, nonatomic) NSColor *badgeTint;
 @property(readonly, nonatomic) unsigned long long numberOfBadges;

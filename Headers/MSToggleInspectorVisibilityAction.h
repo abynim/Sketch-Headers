@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (id)label;
 - (void)hide;
 - (void)show;

@@ -6,18 +6,19 @@
 
 #import <objc/NSObject.h>
 
-@class MSSelectionOverlay, MSSpacingTool, _TtC17SketchControllers14MSOverlayLabel;
+@class MSSelectionOverlay, MSStackTool, NSArray, _TtC17SketchControllers14MSOverlayLabel;
 @protocol _TtP6Sketch27MSSelectionOverlayPresenter_;
 
 @interface _TtC6Sketch28MSSelectionOverlayController : NSObject
 {
+    // Error parsing type: , name: configuration
     // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: hidesBoundingBoxForSelectedArtboards
     // Error parsing type: , name: selectionCornerMidMinimumThreshold
     // Error parsing type: , name: durationForTemporarilyHidingSelection
     // Error parsing type: , name: timerForRestoringTemporarilyHiddenSelection
     // Error parsing type: , name: state
-    // Error parsing type: , name: spacingTool
+    // Error parsing type: , name: stackTool
     // Error parsing type: , name: horizontalSpaces
     // Error parsing type: , name: verticalSpaces
     // Error parsing type: , name: overlay
@@ -30,11 +31,12 @@
 @property(nonatomic) __weak id <_TtP6Sketch27MSSelectionOverlayPresenter_> presenter; // @synthesize presenter;
 @property(nonatomic, retain) _TtC17SketchControllers14MSOverlayLabel *spacingLabel;
 @property(nonatomic, readonly) MSSelectionOverlay *overlay; // @synthesize overlay;
-@property(nonatomic, readonly) MSSpacingTool *spacingTool; // @synthesize spacingTool;
+@property(nonatomic, readonly) MSStackTool *stackTool; // @synthesize stackTool;
 - (void)restoreShowingSelection;
 - (void)temporarilyHideSelection;
 - (void)refreshIfNecessary:(id)arg1;
 @property(nonatomic) BOOL hidesBoundingBoxForSelectedArtboards; // @synthesize hidesBoundingBoxForSelectedArtboards;
+@property(nonatomic, copy) NSArray *selectedLayers;
 - (void)installIntoEventHandler:(id)arg1;
 - (void)dealloc;
 - (id)init;

@@ -10,5 +10,9 @@
 {
 }
 
++ (BOOL)persistsObjectID;
+- (void)migratePropertiesFromV133OrEarlierWithUnarchiver:(id)arg1;
+- (void)migrateObjectIDsBasedOnParentID:(id)arg1;
+
 @end
 

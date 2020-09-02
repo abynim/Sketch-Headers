@@ -10,8 +10,11 @@
 {
 }
 
+- (id)labelForToolbar;
 - (id)label;
+- (id)image;
 - (void)showLayerList:(id)arg1;
+- (void)doPerformAction:(id)arg1;
 - (id)tabIdentifier;
 - (BOOL)isActive;
 

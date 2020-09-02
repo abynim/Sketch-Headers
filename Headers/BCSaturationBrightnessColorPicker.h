@@ -30,6 +30,7 @@
 - (struct CGRect)contentBounds;
 - (struct CGRect)activeRect;
 - (void)drawBackgroundInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
+- (double)hueForDrawing;
 - (id)initInBounds:(struct CGRect)arg1;
 
 @end

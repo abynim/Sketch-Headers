@@ -26,7 +26,6 @@
 + (id)keyPathsForValuesAffectingCanFixHeight;
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
-@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
 - (void)updateColorsUsing:(id)arg1;
 - (BOOL)canLockProportions;
@@ -75,6 +74,7 @@
 - (double)defaultLineHeight:(id)arg1;
 - (void)changeFont:(id)arg1;
 - (id)shapeToUseForTextOnPath;
+@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
 - (void)updateStyleInBlock:(CDUnknownBlockType)arg1;

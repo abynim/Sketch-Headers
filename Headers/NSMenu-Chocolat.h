@@ -10,6 +10,7 @@
 + (id)menuWithItems:(id)arg1;
 - (void)moveItem:(id)arg1 toAfter:(id)arg2;
 - (BOOL)insertItem:(id)arg1 after:(id)arg2;
+- (void)applyBlockToMenuItemsInSubmenus:(CDUnknownBlockType)arg1;
 - (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3 deferred:(BOOL)arg4 triggerControlViewActionOnZeroItems:(BOOL)arg5;
 - (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3 deferred:(BOOL)arg4;
 - (void)showPopUpMenuForEvent:(id)arg1 relativeToRect:(struct CGRect)arg2 ofView:(id)arg3;

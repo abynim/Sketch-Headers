@@ -10,6 +10,7 @@
 {
 }
 
+- (unsigned long long)supportedShareableObjectType;
 - (void)pickStyle:(id)arg1;
 - (id)currentTextStyleReference;
 - (id)currentStyle;

@@ -6,7 +6,11 @@
 
 #import <SketchModel/MSSwatch.h>
 
-@interface MSSwatch (MSSharedObjectStyling)
+#import <SketchControllers/MSSharedObjectStyling-Protocol.h>
+
+@class NSString;
+
+@interface MSSwatch (MSSharedObjectStyling) <MSSharedObjectStyling>
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)generatePreviewForSyncSheetWithSize:(struct CGSize)arg1 backingScale:(double)arg2 shadow:(BOOL)arg3 colorSpace:(id)arg4 completionBlock:(CDUnknownBlockType)arg5;
@@ -14,5 +18,11 @@
 - (id)generatePreviewForPopup:(id)arg1 backingScale:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (id)generatePreviewForMenuItem:(id)arg1 withColorSpace:(id)arg2 backingScale:(double)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (Class)shareableObjectReferenceClass_bc;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

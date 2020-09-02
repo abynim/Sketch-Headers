@@ -20,7 +20,6 @@
 - (void).cxx_destruct;
 - (id)init;
 - (void)close;
-- (void)subscribeWithGraphQL:(id)arg1 errorHandler:(CDUnknownBlockType)arg2 callback:(CDUnknownBlockType)arg3;
 - (id)initWithRequest:(id)arg1 messageQueue:(id)arg2;
 @property(nonatomic) long long status; // @synthesize status;
 

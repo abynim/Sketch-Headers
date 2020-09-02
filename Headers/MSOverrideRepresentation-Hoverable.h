@@ -10,12 +10,12 @@
 #import <SketchControllers/MSHoverableItem-Protocol.h>
 #import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 
-@class MSLayer, MSTintedImages, NSString;
+@class MSLayer, MSPath, MSTintedImages, NSString;
 
 @interface MSOverrideRepresentation (Hoverable) <MSHoverableItem, BCOutlineViewNode, MSLayerListLayerExtensions>
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
-- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+@property(readonly) MSPath *hoverPath;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (BOOL)canApplyDataToSelfInDocument:(id)arg1;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;

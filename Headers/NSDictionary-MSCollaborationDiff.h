@@ -24,6 +24,7 @@
 - (id)prepareStringAttributesAfterDecoding;
 - (id)prepareStringAttributesForEncoding;
 - (id)treeAsDictionary;
+- (id)newMutableCounterpart;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 
 // Remaining properties

@@ -13,20 +13,20 @@
 
 @interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
 {
-    MSBaseInspectorSection *_textSection;
     MSSymbolInstanceSection *_symbolInstanceSection;
     NSArray *_layerInspectorSections;
     NSCache *_sectionInterfaceCache;
+    MSBaseInspectorSection *_textSection;
     NSDictionary *_restorationInfo;
 }
 
 + (id)sectionOrder;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
+@property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 @property(retain, nonatomic) NSCache *sectionInterfaceCache; // @synthesize sectionInterfaceCache=_sectionInterfaceCache;
 @property(retain, nonatomic) NSArray *layerInspectorSections; // @synthesize layerInspectorSections=_layerInspectorSections;
 @property(retain, nonatomic) MSSymbolInstanceSection *symbolInstanceSection; // @synthesize symbolInstanceSection=_symbolInstanceSection;
-@property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 - (void)restorePopover;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;

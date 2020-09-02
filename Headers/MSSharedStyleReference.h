@@ -13,7 +13,6 @@
 }
 
 - (id)localLocationPath;
-- (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) MSStyle *style;
 - (id)sharedObjectID;
 

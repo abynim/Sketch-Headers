@@ -8,7 +8,7 @@
 
 #import <SketchControllers/MSHoverableItem-Protocol.h>
 
-@class MSLayer, MSOverridePoint, MSSymbolMaster;
+@class MSLayer, MSOverridePoint, MSPath, MSSymbolMaster;
 
 @interface MSOverrideHoverContainer : NSObject <MSHoverableItem>
 {
@@ -22,8 +22,7 @@
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (id)highlightPathForOverride:(id)arg1 inPath:(id)arg2 withDocument:(id)arg3;
-- (id)highlightPathForAffectedLayer;
-- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+@property(readonly) MSPath *hoverPath;
 - (id)initWith:(id)arg1 inMaster:(id)arg2;
 
 @end

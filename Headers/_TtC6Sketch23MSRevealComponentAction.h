@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch21MSComponentPaneAction.h"
+#import "_TtC6Sketch17MSComponentAction.h"
 
 @class NSString;
 
-@interface _TtC6Sketch23MSRevealComponentAction : _TtC6Sketch21MSComponentPaneAction
+@interface _TtC6Sketch23MSRevealComponentAction : _TtC6Sketch17MSComponentAction
 {
 }
 
@@ -17,6 +17,7 @@
 - (id)initWithDocument:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)revealComponent:(id)arg1;
+- (BOOL)validateMenuItem:(id)arg1;
 @property(nonatomic, readonly) BOOL validate;
 @property(nonatomic, readonly) NSString *label;
 

@@ -25,6 +25,7 @@
     NSTextField *_component1Label;
     NSTextField *_component2Label;
     NSTextField *_component3Label;
+    NSTextField *_component4Label;
     MSAutoSelectingArrayController *_colorsController;
     MSMathInspectorValueAdaptor *_component1Adaptor;
     MSMathInspectorValueAdaptor *_component2Adaptor;
@@ -52,6 +53,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *component2Adaptor; // @synthesize component2Adaptor=_component2Adaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *component1Adaptor; // @synthesize component1Adaptor=_component1Adaptor;
 @property(retain, nonatomic) MSAutoSelectingArrayController *colorsController; // @synthesize colorsController=_colorsController;
+@property(retain, nonatomic) NSTextField *component4Label; // @synthesize component4Label=_component4Label;
 @property(retain, nonatomic) NSTextField *component3Label; // @synthesize component3Label=_component3Label;
 @property(retain, nonatomic) NSTextField *component2Label; // @synthesize component2Label=_component2Label;
 @property(retain, nonatomic) NSTextField *component1Label; // @synthesize component1Label=_component1Label;
@@ -73,6 +75,7 @@
 - (void)colorModelPickerDidChange:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)shouldForceMultipleValuesForAdaptor:(id)arg1;
+@property(nonatomic, getter=isEnabled) BOOL enabled;
 - (void)updateUI;
 - (void)getComponents:(double [4])arg1 forColor:(id)arg2;
 - (id)colorBySettingComponentDisplayValue:(double)arg1 atIndex:(long long)arg2 forColor:(id)arg3;

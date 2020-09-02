@@ -7,7 +7,7 @@
 #import <SketchModel/MSImmutableBitmapLayer.h>
 
 @interface MSImmutableBitmapLayer (LayerList)
-- (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 - (id)overridePreviewImageInDocument:(id)arg1;
 - (id)previewImageForOverrideManagement;
 @end

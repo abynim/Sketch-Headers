@@ -8,19 +8,21 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSColor, NSString;
+@class MSColor, MSDocumentData, NSString;
 @protocol MSFrequentColorsControllerDelegate;
 
 @interface MSFrequentColorsController : MSFrequentObjectsController <NSMenuDelegate>
 {
     MSColor *_color;
     long long _colorModel;
+    MSDocumentData *_documentData;
 }
 
-+ (id)menuItemForColorCounter:(id)arg1 target:(id)arg2 action:(SEL)arg3 documentColorSpace:(id)arg4 colorModel:(long long)arg5;
-+ (id)menuItemAttributedTitleForColorCounter:(id)arg1 colorModel:(long long)arg2;
++ (id)menuItemForColorCounter:(id)arg1 target:(id)arg2 action:(SEL)arg3 documentColorSpace:(id)arg4 colorModel:(long long)arg5 document:(id)arg6;
++ (id)menuItemAttributedTitleForColorCounter:(id)arg1 colorModel:(long long)arg2 document:(id)arg3;
 + (id)previewImageForColorCounter:(id)arg1 documentColorSpace:(id)arg2;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(nonatomic) long long colorModel; // @synthesize colorModel=_colorModel;
 @property(retain, nonatomic) MSColor *color; // @synthesize color=_color;
 - (void)frequentColorPicked:(id)arg1;

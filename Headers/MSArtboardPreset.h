@@ -40,6 +40,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+- (void)setNilValueForKey:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *dictionaryRepresentation;
 @property(readonly, nonatomic) NSImage *image;
 - (id)oppositeOrientationPreset;

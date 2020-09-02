@@ -22,6 +22,7 @@
     NSString *_name;
     NSString *_libraryID;
     id <MSAssetLibraryDelegate> _delegate;
+    long long _lastSavedDocumentVersion;
     unsigned long long _libraryType;
     NSDictionary *_propertyListDictionaryRepresentation;
 }
@@ -32,6 +33,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *propertyListDictionaryRepresentation; // @synthesize propertyListDictionaryRepresentation=_propertyListDictionaryRepresentation;
 @property(readonly, nonatomic) unsigned long long libraryType; // @synthesize libraryType=_libraryType;
+@property(readonly, nonatomic) long long lastSavedDocumentVersion; // @synthesize lastSavedDocumentVersion=_lastSavedDocumentVersion;
 @property(nonatomic) __weak id <MSAssetLibraryDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;

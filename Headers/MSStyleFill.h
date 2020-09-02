@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSImageOwner-Protocol.h>
 
-@class MSImageData;
+@class MSImageData, NSString;
 
 @interface MSStyleFill : _MSStyleFill <MSImageOwner>
 {
@@ -24,7 +24,7 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)correctInvalidGamma;
-- (id)CSSAttributeString;
+@property(readonly, nonatomic) NSString *CSSAttributeString;
 
 // Remaining properties
 @property(retain, nonatomic) MSImageData *image;

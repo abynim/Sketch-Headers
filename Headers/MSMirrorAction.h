@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)validate;
 @property(readonly, nonatomic) SMKMirrorController *mirrorController;
 - (id)availableClients;
 @property(readonly, nonatomic) NSColor *badgeTint;

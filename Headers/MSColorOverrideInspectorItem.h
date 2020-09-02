@@ -10,7 +10,7 @@
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class BCPopover, MSColorInspector, MSImmutableColor, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
+@class BCPopover, MSColor, MSColorInspector, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
 
 @interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, NSTextFieldDelegate>
 {
@@ -43,19 +43,22 @@
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (id)previewColorSpaceForClient:(id)arg1;
+- (void)updatePopoverColor;
 - (void)closePopover;
 - (void)togglePopover:(id)arg1;
 - (void)colorChanged:(id)arg1;
 - (void)opacityFieldAction:(id)arg1;
 - (void)hexFieldAction:(id)arg1;
 - (void)updateDisplayedValues;
-@property(readonly, nonatomic) MSImmutableColor *color;
+@property(readonly, nonatomic) MSColor *color;
+- (void)refreshAction:(id)arg1;
 - (id)labelWithString:(id)arg1 ofClass:(Class)arg2;
 - (id)labelWithString:(id)arg1;
 - (id)createHexField;
 - (id)createOpacityField;
 - (id)createColorWellButton;
 - (id)controlViewForEditingOverride;
+- (void)viewWillDisappear;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

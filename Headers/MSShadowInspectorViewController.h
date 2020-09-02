@@ -6,7 +6,7 @@
 
 #import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSString, NSTextField;
 
 @interface MSShadowInspectorViewController : MSColorStylePartInspectorViewController
 {
@@ -19,9 +19,11 @@
     MSMathInspectorValueAdaptor *_yOffsetAdapter;
     MSMathInspectorValueAdaptor *_radiusAdapter;
     MSMathInspectorValueAdaptor *_spreadAdapter;
+    NSTextField *_borderColorLabel;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTextField *borderColorLabel; // @synthesize borderColorLabel=_borderColorLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *spreadAdapter; // @synthesize spreadAdapter=_spreadAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;
@@ -32,6 +34,7 @@
 @property(retain, nonatomic) MSUpDownTextField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
 - (void)applyUserSelectedColors:(id)arg1;
+- (void)updateUI;
 - (void)didGetAddedToInspector;
 - (id)sectionTitle;
 - (id)title;

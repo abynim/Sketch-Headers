@@ -36,6 +36,7 @@
 @property(readonly, nonatomic) MSMultipleInnerShadowInspectorViewController *innerShadowViewController;
 @property(readonly, nonatomic) MSMultipleShadowInspectorViewController *shadowViewController;
 @property(readonly, nonatomic) MSMultipleBorderInspectorViewController *borderViewController;
+@property(readonly, nonatomic) MSMultipleFillInspectorViewController *tintViewController;
 @property(readonly, nonatomic) MSMultipleFillInspectorViewController *fillViewController;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (id)stylePartViewControllerOfType:(unsigned long long)arg1;

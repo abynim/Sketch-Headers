@@ -12,7 +12,7 @@
 #import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 #import <SketchControllers/MSSnappable-Protocol.h>
 
-@class MSLayoutDimension, MSLayoutPosition, MSModelObject, MSTintedImages, NSString;
+@class MSLayoutDimension, MSLayoutPosition, MSModelObject, MSPath, MSTintedImages, NSString;
 @protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSLayer (ReplaceWithSymbol) <MSHoverableItem, MSSnappable, MSDataApplicable, MSLayerDataType, MSLayerListLayerExtensions>
@@ -27,8 +27,7 @@
 - (BOOL)matchesLayerListNode:(id)arg1;
 @property(readonly, nonatomic) MSLayer *hoveredLayer;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
-- (id)pathForHoverInBounds;
-- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+@property(readonly) MSPath *hoverPath;
 - (BOOL)canSnap:(unsigned long long)arg1 toLayer:(id)arg2;
 @property(readonly, nonatomic) MSLayer *coordinateSpace;
 @property(readonly, nonatomic) MSLayoutPosition *midXHeightAnchor;

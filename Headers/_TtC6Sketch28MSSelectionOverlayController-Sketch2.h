@@ -6,17 +6,12 @@
 
 #import "_TtC6Sketch28MSSelectionOverlayController.h"
 
-@class NSArray;
-
 @interface _TtC6Sketch28MSSelectionOverlayController (Sketch2)
-@property(nonatomic, readonly) BOOL shouldShowSelectedOverrides;
-@property(nonatomic) BOOL preferencesWantSelection;
-@property(nonatomic) BOOL currentEventHandlerWantsStandardSelectionControls;
-- (void)beginToolWithHandleOfKind:(id)arg1;
-- (void)beginToolWithHandle:(long long)arg1;
-- (void)beginToolWithHiddenHandles;
-- (void)resetMode;
-- (BOOL)isStackSpacingHandleAtPoint:(struct CGPoint)arg1;
-@property(nonatomic, copy) NSArray *selectedLayers;
+- (struct CGRect)selectionOverlay:(id)arg1 layout:(id)arg2 rectForStackElementAt:(id)arg3;
+- (unsigned long long)selectionOverlay:(id)arg1 resizeHandlesMaskForItemAt:(id)arg2;
+- (struct CGSize)selectionOverlay:(id)arg1 layout:(id)arg2 sizeForHandleOfKind:(id)arg3 atIndexPath:(id)arg4;
+- (BOOL)selectionOverlay:(id)arg1 layout:(id)arg2 shouldHideItemAt:(id)arg3;
+- (struct CGAffineTransform)selectionOverlay:(id)arg1 layout:(id)arg2 transformForItemAt:(id)arg3;
+- (struct CGRect)selectionOverlay:(id)arg1 layout:(id)arg2 frameForItemAt:(id)arg3;
 @end
 

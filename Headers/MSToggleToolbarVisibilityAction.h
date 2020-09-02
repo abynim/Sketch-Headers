@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)validate;
 - (id)label;
 - (BOOL)isFullscreen;
 - (double)toolbarHeight;

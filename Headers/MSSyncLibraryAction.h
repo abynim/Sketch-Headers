@@ -14,6 +14,7 @@
 {
 }
 
+- (BOOL)validate;
 @property(readonly, nonatomic) BOOL areForeignObjectsOutOfDate;
 @property(readonly, nonatomic) unsigned long long numberOfBadges;
 - (id)label;

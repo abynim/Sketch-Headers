@@ -86,7 +86,6 @@
 - (void)setColorMode:(unsigned long long)arg1 gradientStyle:(long long)arg2;
 @property(readonly, nonatomic) unsigned long long fillType;
 - (void)swatchEditorWithInspector:(id)arg1 didFinishEditing:(id)arg2;
-- (void)swatchPickerWithInspector:(id)arg1 startEditing:(id)arg2;
 - (void)colorModeController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)filteredStyleParts:(id)arg1;
@@ -131,7 +130,6 @@
 - (void)setModePickerInitialMode;
 - (void)updateModePickerForCurrentStyles;
 - (void)colorDidChangeTo:(id)arg1;
-- (void)editSwatch:(id)arg1 startingWithColor:(id)arg2;
 - (void)createColorSwatch:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)viewDidLoad;

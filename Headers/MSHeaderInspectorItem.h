@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-@class NSArray, NSButton, NSImage, NSLayoutConstraint, NSNumber, NSStackView, NSString, NSTextField, NSView;
+@class MSInspectorButton, NSArray, NSButton, NSImage, NSLayoutConstraint, NSNumber, NSStackView, NSString, NSTextField, NSView;
 
 @interface MSHeaderInspectorItem : MSInspectorItem
 {
@@ -23,6 +23,7 @@
     NSLayoutConstraint *_labelLeadingConstraint;
     NSNumber *_adjustedLabelLeadingMargin;
     NSButton *_headerButton;
+    MSInspectorButton *_inspectorButton;
     NSImage *_image;
     NSImage *_alternateImage;
     id _target;
@@ -36,6 +37,7 @@
 @property(nonatomic) __weak id target; // @synthesize target=_target;
 @property(retain, nonatomic) NSImage *alternateImage; // @synthesize alternateImage=_alternateImage;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
+@property(retain, nonatomic) MSInspectorButton *inspectorButton; // @synthesize inspectorButton=_inspectorButton;
 @property(retain, nonatomic) NSButton *headerButton; // @synthesize headerButton=_headerButton;
 @property(retain, nonatomic) NSNumber *adjustedLabelLeadingMargin; // @synthesize adjustedLabelLeadingMargin=_adjustedLabelLeadingMargin;
 @property(retain, nonatomic) NSLayoutConstraint *labelLeadingConstraint; // @synthesize labelLeadingConstraint=_labelLeadingConstraint;

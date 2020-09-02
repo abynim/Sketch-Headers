@@ -8,7 +8,7 @@
 
 @interface MSSymbolInstance (ReplaceWithSymbol)
 - (id)replaceWithInstanceOfSymbol:(id)arg1;
-- (id)pathForHoverInBounds;
+- (id)hoverPath;
 - (id)sharedMaster;
 - (unsigned long long)shareableObjectType;
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;

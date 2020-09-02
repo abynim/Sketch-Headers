@@ -10,7 +10,7 @@
 #import "NSDraggingDestination-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDuplicateOffsetTracker, MSEventHandlerManager, MSEventHandlerOverlayItemImageCache, NSArray, NSCursor, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
+@class MSDuplicateOffsetTracker, MSEventHandlerManager, NSArray, NSCursor, NSMutableArray, NSString, NSTouchBar, NSUndoManager;
 
 @interface MSEventHandler : NSResponder <NSDraggingDestination, NSTouchBarDelegate, MSOverlayItemDataSource>
 {
@@ -26,15 +26,11 @@
     NSCursor *_cursor;
     NSArray *_overlays;
     NSArray *_activeGestureRecognizers;
-    MSEventHandlerOverlayItemImageCache *_overlayItemImageCache;
-    struct CGRect _selectionRect;
 }
 
 + (id)eventHandlerWithManager:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSEventHandlerOverlayItemImageCache *overlayItemImageCache; // @synthesize overlayItemImageCache=_overlayItemImageCache;
 @property(copy, nonatomic) NSArray *activeGestureRecognizers; // @synthesize activeGestureRecognizers=_activeGestureRecognizers;
-@property(nonatomic) struct CGRect selectionRect; // @synthesize selectionRect=_selectionRect;
 @property(readonly, nonatomic) NSArray *overlays; // @synthesize overlays=_overlays;
 @property(retain, nonatomic) NSCursor *cursor; // @synthesize cursor=_cursor;
 @property(retain, nonatomic) NSTouchBar *selectionTouchBar; // @synthesize selectionTouchBar=_selectionTouchBar;
@@ -64,7 +60,8 @@
 - (double)nudgeDistanceForFlags:(unsigned long long)arg1;
 - (BOOL)canDuplicate;
 - (id)inspectorViewController;
-- (unsigned long long)inspectorLocation;
+@property(readonly, nonatomic) unsigned long long inspectorLocation;
+- (BOOL)shouldShowTextInspector;
 - (BOOL)shouldShowSharedStyles;
 - (BOOL)shouldShowFlowView;
 - (BOOL)shouldManageOverridesView;
@@ -150,7 +147,6 @@
 @property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)selectAll:(id)arg1;
-- (id)dragSelectionItems;
 - (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;
 - (void)selectToolbarItemWithIdentifier:(id)arg1;

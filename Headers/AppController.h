@@ -23,7 +23,12 @@
     NSMenuItem *_pluginsMenuItem;
     NSMenu *_printMenu;
     NSMenuItem *_aboutMenuItem;
+    NSMenuItem *_componentsWindowMenuItem;
     NSMenuItem *_debugMenuItem;
+    NSMenuItem *_switchToCanvasModeMenuItem;
+    NSMenuItem *_switchToComponentsModeMenuItem;
+    NSMenuItem *_switchComponentKindMenuItem;
+    NSMenuItem *_componentSeparatorItem;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenu *_fileMenu;
@@ -86,7 +91,12 @@
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
+@property(nonatomic) __weak NSMenuItem *componentSeparatorItem; // @synthesize componentSeparatorItem=_componentSeparatorItem;
+@property(nonatomic) __weak NSMenuItem *switchComponentKindMenuItem; // @synthesize switchComponentKindMenuItem=_switchComponentKindMenuItem;
+@property(nonatomic) __weak NSMenuItem *switchToComponentsModeMenuItem; // @synthesize switchToComponentsModeMenuItem=_switchToComponentsModeMenuItem;
+@property(nonatomic) __weak NSMenuItem *switchToCanvasModeMenuItem; // @synthesize switchToCanvasModeMenuItem=_switchToCanvasModeMenuItem;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
+@property(nonatomic) __weak NSMenuItem *componentsWindowMenuItem; // @synthesize componentsWindowMenuItem=_componentsWindowMenuItem;
 @property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
@@ -130,6 +140,7 @@
 - (void)badgeWindows;
 - (void)checkForAndDownloadPluginUpdates;
 - (void)installCompatiblePluginUpdates;
+- (void)record1234ShortcutPairs;
 - (void)applicationDidFinishLaunching:(id)arg1;
 - (void)createActions;
 - (void)userNotificationCenter:(id)arg1 didActivateNotification:(id)arg2;

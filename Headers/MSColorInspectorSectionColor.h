@@ -7,28 +7,62 @@
 #import "MSColorInspectorSectionWithColorPicker.h"
 
 #import "MSInspectorItemDelegate-Protocol.h"
-#import "_TtP6Sketch22MSSwatchPickerDelegate_-Protocol.h"
+#import "MSSwatchGridControllerDelegate-Protocol.h"
 
-@class MSColor, NSString, _TtC6Sketch28MSColorInspectorSwatchPicker;
+@class MSColor, MSSwatch, MSSwatchGridController, NSButton, NSString, NSTextField, NSView;
 
-@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker <MSInspectorItemDelegate, _TtP6Sketch22MSSwatchPickerDelegate_>
+@interface MSColorInspectorSectionColor : MSColorInspectorSectionWithColorPicker <MSInspectorItemDelegate, MSSwatchGridControllerDelegate>
 {
     BOOL _isEditingSwatch;
+    BOOL _isSavingSwatch;
+    BOOL _swatchNameIsValid;
     MSColor *_pickedColor;
-    _TtC6Sketch28MSColorInspectorSwatchPicker *_swatchColorPicker;
+    MSSwatchGridController *_swatchGridController;
+    MSSwatch *_editedSwatch;
+    NSView *_editmodeButtonsView;
+    NSView *_swatchActionsView;
+    NSButton *_swatchPrimaryActionButton;
+    NSView *_saveColorSwatchView;
+    NSTextField *_swatchNameTextField;
+    NSString *_swatchName;
 }
 
 + (id)presetPickerVisibilityDefaultsKey;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL swatchNameIsValid; // @synthesize swatchNameIsValid=_swatchNameIsValid;
+@property(copy, nonatomic) NSString *swatchName; // @synthesize swatchName=_swatchName;
+@property(nonatomic) __weak NSTextField *swatchNameTextField; // @synthesize swatchNameTextField=_swatchNameTextField;
+@property(nonatomic) __weak NSView *saveColorSwatchView; // @synthesize saveColorSwatchView=_saveColorSwatchView;
+@property(nonatomic) BOOL isSavingSwatch; // @synthesize isSavingSwatch=_isSavingSwatch;
+@property(nonatomic) __weak NSButton *swatchPrimaryActionButton; // @synthesize swatchPrimaryActionButton=_swatchPrimaryActionButton;
+@property(nonatomic) __weak NSView *swatchActionsView; // @synthesize swatchActionsView=_swatchActionsView;
+@property(nonatomic) __weak NSView *editmodeButtonsView; // @synthesize editmodeButtonsView=_editmodeButtonsView;
+@property(retain, nonatomic) MSSwatch *editedSwatch; // @synthesize editedSwatch=_editedSwatch;
 @property(nonatomic) BOOL isEditingSwatch; // @synthesize isEditingSwatch=_isEditingSwatch;
-@property(retain, nonatomic) _TtC6Sketch28MSColorInspectorSwatchPicker *swatchColorPicker; // @synthesize swatchColorPicker=_swatchColorPicker;
+@property(retain, nonatomic) MSSwatchGridController *swatchGridController; // @synthesize swatchGridController=_swatchGridController;
 @property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
-- (void)swatchEditorDidCancelEditing:(id)arg1;
-- (void)swatchPickerCreateColor:(id)arg1;
-- (void)swatchPicker:(id)arg1 didSelect:(id)arg2;
+- (id)preferredFirstResponder;
+- (id)lastKeyView;
+- (void)popoverWillClose;
+- (void)commitEditingSwatch:(id)arg1;
+- (void)cancelEditingSwatch:(id)arg1;
+- (void)finishEditingSwatch:(id)arg1;
+- (void)startEditingSwatch:(id)arg1;
+- (id)validatedSwatchName;
+- (id)performSaveColorToDocumentSwatches;
+- (void)cancelSavingColorSwatchAction:(id)arg1;
+- (void)commitSaveToDocumentColorSwatchAction:(id)arg1;
+- (void)saveToDocumentColorsAction:(id)arg1;
+- (void)detachFromSwatchAction:(id)arg1;
+- (void)swatchGridControllerDidChangeCollectionViewLayoutWithController:(id)arg1;
+- (void)swatchGridController:(id)arg1 didRequestEditSwatch:(id)arg2;
+- (void)swatchGridController:(id)arg1 didDetachFromSwatch:(id)arg2;
+- (void)swatchGridController:(id)arg1 didSelectSwatch:(id)arg2;
+- (void)applySwatch:(id)arg1;
 - (void)itemDidResize:(id)arg1;
 - (id)documentForInspectorItem:(id)arg1;
 - (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)controlDidSelectAsset:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (id)createPresetFromCurrentSelection;
@@ -39,6 +73,7 @@
 - (void)setStyleParts:(id)arg1;
 - (void)selectColorInAssetPicker:(id)arg1;
 - (void)highlightCurrentColor;
+- (id)currentColor;
 - (void)setPickedColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (id)assetPickerDataSources;
 - (id)scrollableViews;

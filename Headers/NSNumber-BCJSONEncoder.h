@@ -9,5 +9,6 @@
 @interface NSNumber (BCJSONEncoder)
 - (void)encodeAsKey:(id)arg1;
 - (void)encodeAsRAWArchive:(id)arg1;
+- (id)sanityCheckZeroForDisplay;
 @end
 

@@ -6,9 +6,11 @@
 
 #import "MSOverrideInspectorItem.h"
 
-@class MSForeignObjectProvider, MSInspectorPopoverButton, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint;
+#import "MSDropableViewDelegate-Protocol.h"
 
-@interface MSStyleOverrideInspectorItem : MSOverrideInspectorItem
+@class MSForeignObjectProvider, MSInspectorPopoverButton, MSStyleOverridePopupButton, NSControl, NSLayoutConstraint, NSString;
+
+@interface MSStyleOverrideInspectorItem : MSOverrideInspectorItem <MSDropableViewDelegate>
 {
     NSControl *_labelView;
     NSLayoutConstraint *_labelConstraint;
@@ -23,6 +25,10 @@
 @property(retain, nonatomic) MSStyleOverridePopupButton *overrideControl; // @synthesize overrideControl=_overrideControl;
 @property(retain, nonatomic) NSLayoutConstraint *labelConstraint; // @synthesize labelConstraint=_labelConstraint;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (unsigned long long)supportedShareableObjectType;
+- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
+- (id)draggedTypesForView:(id)arg1;
 - (void)setDisplaysLabel:(BOOL)arg1;
 - (BOOL)displaysLabel;
 - (void)overrideValueAction:(id)arg1;
@@ -31,8 +37,17 @@
 - (id)currentStyleReference;
 - (id)currentStyle;
 - (void)build;
+- (void)viewWillDisappear;
 - (void)viewWillAppear;
+- (void)refreshUI;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)initWithPrimaryOverrideRepresentation:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

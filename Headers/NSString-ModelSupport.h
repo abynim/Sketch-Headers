@@ -16,6 +16,7 @@
 - (id)uniqueSlugUsingEarlierSlugs:(id)arg1;
 @property(readonly) NSString *slug;
 - (id)treeAsDictionary;
+- (id)newMutableCounterpart;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

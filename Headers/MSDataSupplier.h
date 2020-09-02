@@ -29,6 +29,7 @@
 @property(copy, nonatomic) NSString *dataName; // @synthesize dataName=_dataName;
 @property(nonatomic) __weak id <MSDataSupplierDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)dataForItem:(id)arg1 ofType:(unsigned long long)arg2;
+@property(readonly, nonatomic) id menuItemTooltipInfo;
 - (void)resetMenuItemImage;
 @property(readonly, nonatomic) NSString *uttDataType;
 @property(readonly, nonatomic) BOOL isUsableDataSupplier;

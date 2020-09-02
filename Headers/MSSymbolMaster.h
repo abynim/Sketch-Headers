@@ -13,7 +13,6 @@
 @interface MSSymbolMaster : _MSSymbolMaster <BCSortable>
 {
     BOOL _isDirty;
-    long long _changeIdentifier;
     NSMutableDictionary *_internalOverrideProperties;
 }
 
@@ -23,9 +22,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *internalOverrideProperties; // @synthesize internalOverrideProperties=_internalOverrideProperties;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
-@property(nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
 - (void)refaultAgainst:(id)arg1;
-- (void)setRaw_changeIdentifier:(long long)arg1;
 - (BOOL)shouldRoundCoordinates;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
@@ -36,7 +33,6 @@
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)parentSymbol;
 - (id)rootForNameUniquing;
 - (id)ancestorIDsForLayerNamed:(id)arg1 skip:(id)arg2;

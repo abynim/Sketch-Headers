@@ -12,7 +12,6 @@
 
 - (id)label;
 - (id)tooltip;
-- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)openMirrorPreview:(id)arg1;
 

@@ -6,21 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData;
+@class MSHistoryMaker, MSImmutableDocumentData;
 
 @interface _TtC6Sketch24MSDocumentEditController : NSObject
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: lastDocumentData
     // Error parsing type: , name: _saveableDocument
+    // Error parsing type: , name: historyMaker
+    // Error parsing type: , name: localChanges
 }
 
 - (void).cxx_destruct;
 - (id)init;
 - (void)handleImplicitDocumentChange;
-- (void)handleExplicitDocumentChange;
+- (void)resetSaveableDocumentData;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
+@property(nonatomic, retain) MSHistoryMaker *historyMaker; // @synthesize historyMaker;
 
 @end
 

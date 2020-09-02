@@ -8,6 +8,7 @@
 
 @protocol _TtP6Sketch27MSSelectionOverlayPresenter_
 - (void)endAdjustingHandle;
+- (void)didGridLayout;
 - (void)beginAdjustingHandleOfKind:(NSString *)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
 @end

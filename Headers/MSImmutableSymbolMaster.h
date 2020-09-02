@@ -14,18 +14,16 @@
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
-    long long _changeIdentifier;
     NSDictionary *_overrideProperties;
     BCCache *_detachedGroupCache;
 }
 
++ (id)defaultName;
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
 @property(readonly, nonatomic) NSDictionary *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
-@property(readonly, nonatomic) long long changeIdentifier; // @synthesize changeIdentifier=_changeIdentifier;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;

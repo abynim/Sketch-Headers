@@ -4,58 +4,36 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import "_TtC6Sketch27BaseComponentMenuController.h"
 
-@class MSDocument;
-
-@interface _TtC6Sketch25MSComponentMenuController : NSObject
+@interface _TtC6Sketch25MSComponentMenuController : _TtC6Sketch27BaseComponentMenuController
 {
-    // Error parsing type: , name: document
-    // Error parsing type: , name: anchorView
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: useCase
     // Error parsing type: , name: showSymbolSwapSizeMenuItem
     // Error parsing type: , name: showSameSizeMenuItem
     // Error parsing type: , name: showNoSymbolItem
-    // Error parsing type: , name: pickHandler
-    // Error parsing type: , name: currentComponentReference
     // Error parsing type: , name: cachedComponentTree
-    // Error parsing type: , name: cachedCurrentComponentViewItem
-    // Error parsing type: , name: openSubmenus
-    // Error parsing type: , name: $__lazy_storage_$_topLevelMenu
     // Error parsing type: , name: $__lazy_storage_$_moreSearchResultsMenu
     // Error parsing type: , name: $__lazy_storage_$_moreSearchResultsTopLevelMenuItems
     // Error parsing type: , name: undoManager
-    // Error parsing type: , name: $__lazy_storage_$_searchField
-    // Error parsing type: , name: $__lazy_storage_$_searchView
-    // Error parsing type: , name: $__lazy_storage_$_searchFieldMenuItem
     // Error parsing type: , name: $__lazy_storage_$_swapSymbolAtSizeMenuItem
     // Error parsing type: , name: $__lazy_storage_$_sameSizeMenuItem
     // Error parsing type: , name: $__lazy_storage_$_noSymbolMenuItem
     // Error parsing type: , name: libraryMenusNeedRebuilding
-    // Error parsing type: , name: $__lazy_storage_$_bodyMenuItemPlaceholderIcon
-    // Error parsing type: , name: $__lazy_storage_$_librarySubmenuItemPlaceholderIcon
-    // Error parsing type: , name: $__lazy_storage_$_textStyleMinimumHeightPlaceholderIcon
-    // Error parsing type: , name: searchString
     // Error parsing type: , name: cachedSearchResultTree
 }
 
 - (void).cxx_destruct;
-- (id)init;
-- (void)refreshIfNecessary:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 - (void)redoSearchFieldEdit:(id)arg1;
 - (void)undoSearchFieldEdit:(id)arg1;
 - (void)selectSearchFieldContents:(id)arg1;
-- (void)pickComponent:(id)arg1;
 - (void)pickNoSymbol:(id)arg1;
-- (void)pickColorVariableWithRelativeToView:(id)arg1 preselectingColor:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)pickSwatchRelativeToView:(id)arg1 preselectingSwatch:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)pickTextStyleWithRelativeToView:(id)arg1 preselectingTextStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)pickLayerStyleWithRelativeToView:(id)arg1 preselectingLayerStyle:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)pickSymbolMasterForOverride:(id)arg1 relativeTo:(id)arg2 preselectingSymbol:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)availableLibrariesDidChange:(id)arg1;
-- (void)setUp;
-- (id)initWithDocument:(id)arg1;
-@property(nonatomic) __weak MSDocument *document; // @synthesize document;
 
 @end
 

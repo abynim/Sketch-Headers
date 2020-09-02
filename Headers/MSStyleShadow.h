@@ -18,7 +18,7 @@
 - (void)updateColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
-- (id)CSSAttributeString;
+@property(readonly, nonatomic) NSString *CSSAttributeString;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

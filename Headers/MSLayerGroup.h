@@ -60,7 +60,7 @@
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (id)lastLayer;
 - (id)firstLayer;

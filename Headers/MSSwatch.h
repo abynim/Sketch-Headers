@@ -6,16 +6,26 @@
 
 #import <SketchModel/_MSSwatch.h>
 
-@class MSColor;
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@interface MSSwatch : _MSSwatch
+@class MSColor, NSString;
+
+@interface MSSwatch : _MSSwatch <MSColorUpdateable>
 {
 }
 
+- (BOOL)isOutOfSyncWithInstance:(id)arg1;
+- (void)updateColorsUsing:(id)arg1;
 - (void)updateWithColor:(id)arg1;
 - (id)makeReferencingColor;
 - (id)initWithName:(id)arg1 color:(id)arg2;
 @property(readonly, nonatomic) MSColor *color;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

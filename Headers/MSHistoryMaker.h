@@ -14,33 +14,40 @@
 @interface MSHistoryMaker : NSObject <MSHistoryDelegate>
 {
     BOOL _fontsDidChange;
-    BOOL _isMovingThroughHistory;
     BOOL _isMakingHistory;
     MSHistory *_history;
     id <MSHistoryMakerDelegate> _delegate;
+    unsigned long long _state;
     NSTimer *_commitTimer;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTimer *commitTimer; // @synthesize commitTimer=_commitTimer;
 @property(nonatomic) BOOL isMakingHistory; // @synthesize isMakingHistory=_isMakingHistory;
-@property(nonatomic) BOOL isMovingThroughHistory; // @synthesize isMovingThroughHistory=_isMovingThroughHistory;
+@property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(nonatomic) BOOL fontsDidChange; // @synthesize fontsDidChange=_fontsDidChange;
 @property(readonly, nonatomic) __weak id <MSHistoryMakerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
-- (void)history:(id)arg1 didCommitMoment:(id)arg2;
+- (void)history:(id)arg1 didCommitMoment:(id)arg2 withPatch:(id)arg3;
+- (void)history:(id)arg1 willCommitMoment:(id)arg2;
+- (id)currentDocumentData:(id)arg1;
 - (void)commitTimerFired:(id)arg1;
 - (void)startCommitTimer;
+- (void)flush;
 - (void)installedFontsChanged;
-- (void)ignoreRemotePatch:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)ignoreRemotePatches:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
 - (void)moveDocument:(id)arg1 throughHistoryBackInTime:(BOOL)arg2;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
 - (id)momentThroughHistoryBackInTime:(BOOL)arg1;
 - (void)makeHistoryIfNecessary;
+@property(readonly, nonatomic) BOOL isRedoing;
+@property(readonly, nonatomic) BOOL isUndoing;
 @property(readonly, nonatomic) BOOL historyIsCoalescing;
 - (void)finishCoalescingHistory;
 - (void)startCoalescingHistory;
+- (void)removeAllSupplementalActionsWithTarget:(id)arg1;
+- (void)registerSupplementalActionWithTarget:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSString *redoTitle;
 @property(readonly, nonatomic) NSString *undoTitle;
 - (void)registerHistoryMomentTitle:(id)arg1;

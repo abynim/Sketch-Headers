@@ -8,13 +8,11 @@
 
 @interface _TtC6Sketch32SelectionOverlayLayoutAttributes : _$s17SketchControllers35MSCollectionOverlayLayoutAttributesCN
 {
-    // Error parsing type: , name: itemTransform
     // Error parsing type: , name: overrideIndex
 }
 
 - (BOOL)isEqual:(id)arg1;
 @property(nonatomic) long long overrideIndex; // @synthesize overrideIndex;
-@property(nonatomic) struct CGAffineTransform itemTransform; // @synthesize itemTransform;
 
 @end
 

@@ -20,6 +20,7 @@
 
 + (id)readableTypesForPasteboard:(id)arg1;
 + (id)pasteboardType;
++ (id)descriptorsFromPasteboard:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) unsigned long long shareableObjectType; // @synthesize shareableObjectType=_shareableObjectType;
 @property(copy, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;

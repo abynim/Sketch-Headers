@@ -12,7 +12,7 @@
 {
     // Error parsing type: , name: searchField
     // Error parsing type: , name: clearButton
-    // Error parsing type: , name: componentsPaneController
+    // Error parsing type: , name: componentsPanelController
 }
 
 - (void).cxx_destruct;

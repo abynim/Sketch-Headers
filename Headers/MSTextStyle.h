@@ -6,16 +6,20 @@
 
 #import <SketchModel/_MSTextStyle.h>
 
+#import <SketchModel/MSColorUpdateable-Protocol.h>
+
 @class NSDictionary, NSString;
 
-@interface MSTextStyle : _MSTextStyle
+@interface MSTextStyle : _MSTextStyle <MSColorUpdateable>
 {
     NSDictionary *_decodedAttributes;
 }
 
 + (id)styleWithAttributes:(id)arg1;
++ (id)emptyStyle;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
+- (void)updateColorsUsing:(id)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)stringByTransformingString:(id)arg1;
 - (void)resetDecodedAttributes;
@@ -26,6 +30,12 @@
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
 - (id)treeAsDictionary;
 - (void)replaceFonts:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

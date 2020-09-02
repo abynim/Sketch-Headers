@@ -34,6 +34,8 @@
 - (id)toggleHandlerClass:(Class)arg1;
 - (id)currentHandler;
 - (BOOL)isInNormalHandler;
+- (BOOL)validate;
+@property(readonly, nonatomic) unsigned long long currentContentMode;
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
 - (id)menu;

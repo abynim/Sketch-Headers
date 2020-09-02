@@ -42,8 +42,7 @@
 @property(nonatomic) struct CGPoint originalLocation; // @synthesize originalLocation;
 - (struct CGPoint)locationInCoordinateSpace:(id)arg1;
 @property(nonatomic) struct CGVector dragOffset; // @synthesize dragOffset;
-- (struct CGPoint)positionFromLocation:(struct CGPoint)arg1;
-@property(nonatomic, readonly) struct CGPoint position;
+@property(nonatomic, readonly) struct CGPoint center;
 - (void)reset;
 @property(nonatomic, copy) NSArray *items;
 

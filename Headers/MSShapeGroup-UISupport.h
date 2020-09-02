@@ -15,7 +15,7 @@
 - (BOOL)canProbablyFlatten;
 - (BOOL)hasFlattenablePath;
 - (BOOL)hasBooleanOperations;
-- (id)pathForHoverInBounds;
+- (id)hoverPath;
 - (id)styleForBooleanOperation;
 @end
 

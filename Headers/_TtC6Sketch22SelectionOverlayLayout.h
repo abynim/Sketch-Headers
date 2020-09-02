@@ -9,12 +9,13 @@
 @interface _TtC6Sketch22SelectionOverlayLayout : _$s17SketchControllers25MSCollectionOverlayLayoutCN
 {
     // Error parsing type: , name: handleSize
+    // Error parsing type: , name: gridHandleOffset
     // Error parsing type: , name: maximumNumberOfItemsToShowDuringMultipleSelection
     // Error parsing type: , name: indexPathForDragHighlight
     // Error parsing type: , name: itemLayoutAttributes
     // Error parsing type: , name: multipleSelectionFrameLayoutAttributes
     // Error parsing type: , name: spacingHandles
-    // Error parsing type: , name: otherHandles
+    // Error parsing type: , name: generalHandles
     // Error parsing type: , name: measurementLayoutAttributes
     // Error parsing type: , name: selectionRect
     // Error parsing type: , name: minSpacingHandleInset

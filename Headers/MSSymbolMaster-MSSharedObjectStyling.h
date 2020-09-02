@@ -12,6 +12,7 @@
 @class NSString;
 
 @interface MSSymbolMaster (MSSharedObjectStyling) <MSSharedObjectStyling, MSPreviewGeneration>
++ (void)generatePreviewForLayerAncestry:(id)arg1 imageSize:(struct CGSize)arg2 previewSize:(struct CGSize)arg3 colorSpace:(id)arg4 backingScale:(double)arg5 concurrentCancelBlock:(CDUnknownBlockType)arg6 completionBlock:(CDUnknownBlockType)arg7;
 - (void)applyStyleToMenuItem:(id)arg1 withColorSpace:(id)arg2;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)generatePreviewWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2 backingScale:(double)arg3 shadow:(BOOL)arg4 colorSpace:(id)arg5 completionBlock:(CDUnknownBlockType)arg6;

@@ -34,6 +34,8 @@
 @property(nonatomic) BOOL displaysLabel; // @synthesize displaysLabel=_displaysLabel;
 @property(readonly, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 @property(retain, nonatomic) MSAvailableOverride *secondaryOverride; // @synthesize secondaryOverride=_secondaryOverride;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)watchAppearanceChanges;
 - (void)addObserverForMSDataSupplierManagerDataChangedNotification;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;

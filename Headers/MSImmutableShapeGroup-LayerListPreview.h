@@ -7,7 +7,7 @@
 #import <SketchModel/MSImmutableShapeGroup.h>
 
 @interface MSImmutableShapeGroup (LayerListPreview)
-- (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 - (id)bezierForDrawingLayerListPreviewInDocument:(id)arg1;
 - (BOOL)hasDynamicPreview;
 @end

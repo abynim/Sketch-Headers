@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch24ComponentPaneOutlineView.h"
+#import "_TtC6Sketch26ComponentsPanelOutlineView.h"
 
-@interface _TtC6Sketch24ComponentListOutlineView : _TtC6Sketch24ComponentPaneOutlineView
+@interface _TtC6Sketch24ComponentListOutlineView : _TtC6Sketch26ComponentsPanelOutlineView
 {
 }
 

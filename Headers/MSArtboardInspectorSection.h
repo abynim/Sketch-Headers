@@ -6,7 +6,7 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, NSArrayController, NSString;
+@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, MSSeparatorInspectorItem, NSArrayController, NSString;
 
 @interface MSArtboardInspectorSection : MSBaseInspectorSection
 {
@@ -16,12 +16,14 @@
     MSIncludeBackgroundColorInExportInspectorItem *_includeInExportItem;
     MSIncludeBackgroundColorInInstancesInspectorItem *_includeInInstancesItem;
     MSPaddingInspectorItem *_paddingItem;
+    MSSeparatorInspectorItem *_separatorItem;
     NSArrayController *_layersController;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) BOOL colorEnabled; // @synthesize colorEnabled=_colorEnabled;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
+@property(retain, nonatomic) MSSeparatorInspectorItem *separatorItem; // @synthesize separatorItem=_separatorItem;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
 @property(retain, nonatomic) MSIncludeBackgroundColorInInstancesInspectorItem *includeInInstancesItem; // @synthesize includeInInstancesItem=_includeInInstancesItem;
 @property(retain, nonatomic) MSIncludeBackgroundColorInExportInspectorItem *includeInExportItem; // @synthesize includeInExportItem=_includeInExportItem;

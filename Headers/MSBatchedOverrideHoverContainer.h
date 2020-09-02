@@ -8,7 +8,7 @@
 
 #import <SketchControllers/MSHoverableItem-Protocol.h>
 
-@class MSLayer, NSArray;
+@class MSLayer, MSPath, NSArray;
 
 @interface MSBatchedOverrideHoverContainer : NSObject <MSHoverableItem>
 {
@@ -20,7 +20,7 @@
 @property(nonatomic, readonly) MSLayer *hoveredLayer;
 - (BOOL)matchesLayerListNode:(id)arg1;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
-- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+@property(nonatomic, readonly) MSPath *hoverPath;
 - (id)initWithBatchedOverrides:(id)arg1;
 @property(nonatomic, readonly) NSArray *hoverContainers;
 

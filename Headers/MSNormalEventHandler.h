@@ -10,7 +10,7 @@
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "_TtP6Sketch27MSSelectionOverlayPresenter_-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC6Sketch28MSSelectionOverlayController;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <_TtP6Sketch27MSSelectionOverlayPresenter_, MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
@@ -27,6 +27,10 @@
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
     MSHitTestResult *_mouseDownHitTest;
+    _TtC17SketchControllers13MSPathOverlay *_selectedShapePathsOverlay;
+    _TtC17SketchControllers13MSPathOverlay *_hoverHighlightOverlay;
+    _TtC17SketchControllers21MSSelectionBoxOverlay *_selectionBoxOverlay;
+    _TtC17SketchControllers13MSPathOverlay *_selectedOverridesOverlay;
     NSSet *_duplicatedObjectIDs;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
@@ -43,6 +47,10 @@
 @property(nonatomic) BOOL isLayerPastedFromLayerList; // @synthesize isLayerPastedFromLayerList=_isLayerPastedFromLayerList;
 @property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
+@property(readonly, nonatomic) _TtC17SketchControllers13MSPathOverlay *selectedOverridesOverlay; // @synthesize selectedOverridesOverlay=_selectedOverridesOverlay;
+@property(readonly, nonatomic) _TtC17SketchControllers21MSSelectionBoxOverlay *selectionBoxOverlay; // @synthesize selectionBoxOverlay=_selectionBoxOverlay;
+@property(readonly, nonatomic) _TtC17SketchControllers13MSPathOverlay *hoverHighlightOverlay; // @synthesize hoverHighlightOverlay=_hoverHighlightOverlay;
+@property(readonly, nonatomic) _TtC17SketchControllers13MSPathOverlay *selectedShapePathsOverlay; // @synthesize selectedShapePathsOverlay=_selectedShapePathsOverlay;
 @property(retain, nonatomic) MSHitTestResult *mouseDownHitTest; // @synthesize mouseDownHitTest=_mouseDownHitTest;
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
@@ -53,6 +61,7 @@
 @property(nonatomic) long long dragMode; // @synthesize dragMode=_dragMode;
 @property(retain, nonatomic) MSNormalEventData *eventData; // @synthesize eventData=_eventData;
 - (void)reloadFollowingBackgroundChangesToDocument;
+- (void)didGridLayout;
 - (void)endAdjustingHandle;
 - (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
@@ -85,9 +94,7 @@
 - (BOOL)isDraggingSourceSketchLayerList:(id)arg1;
 - (void)flagsChanged:(id)arg1;
 - (id)siblingsOfSelectedShapePathLayers;
-- (id)overlayItemsForSelectedShapePathLayers;
-- (id)overlayLayerHighlightItems;
-- (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+- (void)updateSelectedShapePathsOverlay;
 - (void)documentDidChange:(id)arg1;
 - (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;
@@ -108,6 +115,7 @@
 - (void)moveToPreviousArtboard;
 - (void)keyDown:(id)arg1;
 - (void)trackMouse:(id)arg1;
+- (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
 - (BOOL)isMouseHoveringResizeHandle:(struct CGPoint)arg1;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;

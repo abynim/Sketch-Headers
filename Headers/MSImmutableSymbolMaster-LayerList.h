@@ -7,6 +7,6 @@
 #import <SketchModel/MSImmutableSymbolMaster.h>
 
 @interface MSImmutableSymbolMaster (LayerList)
-- (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 @end
 

@@ -28,7 +28,7 @@
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(long long)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
@@ -39,6 +39,7 @@
 - (long long)containedLayersCount;
 - (id)containedLayers;
 - (id)filter:(CDUnknownBlockType)arg1;
+- (id)flatMap:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)commonArtboard;
 - (id)layerToInsertAfter;
