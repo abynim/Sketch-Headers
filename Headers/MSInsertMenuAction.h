@@ -6,30 +6,17 @@
 
 #import "MSDocumentAction.h"
 
-@class MSForeignObjectMenuBuilder;
-@protocol NSObject;
-
 @interface MSInsertMenuAction : MSDocumentAction
 {
-    id <NSObject> _documentCloseObserver;
-    MSForeignObjectMenuBuilder *_symbolMenuBuilder;
-    MSForeignObjectMenuBuilder *_textStyleMenuBuilder;
 }
 
-- (void).cxx_destruct;
-@property(retain, nonatomic) MSForeignObjectMenuBuilder *textStyleMenuBuilder; // @synthesize textStyleMenuBuilder=_textStyleMenuBuilder;
-@property(retain, nonatomic) MSForeignObjectMenuBuilder *symbolMenuBuilder; // @synthesize symbolMenuBuilder=_symbolMenuBuilder;
-@property(retain, nonatomic) id <NSObject> documentCloseObserver; // @synthesize documentCloseObserver=_documentCloseObserver;
 - (void)doPerformAction:(id)arg1;
-- (void)menuNeedsUpdate:(id)arg1;
-- (void)addInsertMenuItemsFor:(id)arg1 usingMenuBuilder:(id)arg2 forMenu:(id)arg3;
-- (void)addInsertSharedTextToMenu:(id)arg1;
-- (void)addInsertSymbolsToMenu:(id)arg1;
-- (void)addHeaderToMenu:(id)arg1 withTitle:(id)arg2;
-- (BOOL)isSelectable;
+- (BOOL)mayShowInToolbar;
+- (id)labelForToolbar;
 - (id)label;
-- (id)tooltip;
-- (id)submenuActionIDs;
+- (BOOL)isSelectable;
+- (BOOL)hasSubMenu;
+- (id)makeToolbarItemForToolbar:(BOOL)arg1;
 
 @end
 

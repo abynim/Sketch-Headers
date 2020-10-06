@@ -19,6 +19,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSNumber *firstBaselineOffsetBeforeEditing; // @synthesize firstBaselineOffsetBeforeEditing=_firstBaselineOffsetBeforeEditing;
 @property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
+- (void)documentDidChange:(id)arg1;
 - (void)setListType:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)viewDidScroll:(id)arg1;

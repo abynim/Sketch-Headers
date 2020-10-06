@@ -8,7 +8,7 @@
 
 #import <SketchControllers/MSColorUpdater-Protocol.h>
 
-@class NSColorSpace, NSString;
+@class MSDocumentData, NSColorSpace, NSString;
 
 @interface MSColorSpaceConverter : NSObject <MSColorUpdater>
 {
@@ -16,18 +16,21 @@
     unsigned long long _targetColorSpace;
     NSColorSpace *_oldNSColorSpace;
     NSColorSpace *_targetNSColorSpace;
+    MSDocumentData *_documentData;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(readonly, nonatomic) NSColorSpace *targetNSColorSpace; // @synthesize targetNSColorSpace=_targetNSColorSpace;
 @property(readonly, nonatomic) NSColorSpace *oldNSColorSpace; // @synthesize oldNSColorSpace=_oldNSColorSpace;
 @property(readonly, nonatomic) unsigned long long targetColorSpace; // @synthesize targetColorSpace=_targetColorSpace;
 @property(readonly, nonatomic) unsigned long long oldColorSpace; // @synthesize oldColorSpace=_oldColorSpace;
-- (BOOL)shouldUpdateImmutableColor:(id)arg1;
+- (BOOL)_shouldUpdateColorObject:(id)arg1;
 - (BOOL)shouldUpdateColor:(id)arg1;
+- (BOOL)shouldUpdateImmutableColor:(id)arg1;
 - (id)updateColor:(id)arg1;
 - (id)updateImmutableColor:(id)arg1;
-- (id)initForConversionFromColorSpace:(unsigned long long)arg1 to:(unsigned long long)arg2;
+- (id)initForConversionFromColorSpace:(unsigned long long)arg1 to:(unsigned long long)arg2 withData:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

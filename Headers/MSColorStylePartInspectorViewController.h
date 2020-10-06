@@ -63,8 +63,6 @@
 - (BOOL)showNativeColorPanelIfSuitable;
 - (void)togglePopover;
 - (void)pickColorVariableAction:(id)arg1;
-- (id)currentSwatchReference;
-- (id)currentSwatch;
 - (id)readSwatchReferencesFromPasteboard:(id)arg1;
 - (void)applyUserSelectedColors:(id)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
@@ -73,9 +71,7 @@
 - (void)didGetAddedToInspector;
 - (void)viewDidLoad;
 - (void)prepare;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
 

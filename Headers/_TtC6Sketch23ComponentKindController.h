@@ -12,7 +12,7 @@
 {
     // Error parsing type: , name: componentKindSegmentedControl
     // Error parsing type: , name: componentKindLabel
-    // Error parsing type: , name: componentsPaneController
+    // Error parsing type: , name: componentsPanelController
 }
 
 - (void).cxx_destruct;

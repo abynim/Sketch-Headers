@@ -12,15 +12,18 @@
 
 @interface MSMultipleFillInspectorViewController : MSMultipleColorStylePartInspectorViewController <BCPopoverDelegate>
 {
+    BOOL _isDisplayingTint;
     BCPopover *_popover;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(nonatomic) BOOL isDisplayingTint; // @synthesize isDisplayingTint=_isDisplayingTint;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (id)menuTitlePaste;
 - (id)menuTitleCopy;
+- (id)createInspectorForStyleParts:(id)arg1;
 - (Class)stylePartInspectorClass;
 - (unsigned long long)stylePartType;
 - (void)dismissViewController:(id)arg1;
@@ -35,7 +38,6 @@
 - (id)title;
 - (long long)learnMoreButtonState;
 - (long long)addStylePartButtonState;
-- (BOOL)isDisplayingTint;
 - (void)prepare;
 - (void)learnMoreButtonAction:(id)arg1;
 - (void)advancedOptionsButtonAction:(id)arg1;

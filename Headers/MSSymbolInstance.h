@@ -6,9 +6,11 @@
 
 #import <SketchModel/_MSSymbolInstance.h>
 
+#import <SketchModel/MSColorUpdateable-Protocol.h>
+
 @class MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
 
-@interface MSSymbolInstance : _MSSymbolInstance
+@interface MSSymbolInstance : _MSSymbolInstance <MSColorUpdateable>
 {
     MSOverrideRepresentationContainer *_overrideContainer;
 }
@@ -44,6 +46,9 @@
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
+- (id)updateableColors;
+- (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSDictionary *overrides;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
@@ -52,6 +57,7 @@
 - (id)overrideMatchingPoint:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableOverrides;
 @property(readonly, nonatomic) NSArray *overridePoints;
+- (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
 
 @end

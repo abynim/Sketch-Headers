@@ -13,7 +13,7 @@
 #import <SketchModel/MSRectDelegate-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSArtboardGroup, MSLayerGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
+@class MSArtboardGroup, MSLayerGroup, MSPage, MSPath, MSStyle, MSUnitCoordinateSpace, NSArray, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 @protocol MSLayerCoordinateSpace;
 
 @interface MSLayer : _MSLayer <MSLayerContainment, MSLayerCoordinateSpace, MSLayerProtocol, NSCopying, MSRectDelegate, MSAbsoluteLayerRectRepresentation>
@@ -25,6 +25,7 @@
 }
 
 + (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
++ (id)keyPathsForValuesAffectingLastNameComponent;
 + (id)defaultName;
 + (unsigned long long)traits;
 + (id)layerWithPath:(id)arg1;
@@ -114,7 +115,6 @@
 @property(readonly, nonatomic) MSPath *pathInBounds;
 - (struct CGRect)frameForAlignmentRect:(struct CGRect)arg1;
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
-- (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)absoluteInfluenceRect;
@@ -150,6 +150,7 @@
 - (void)makeNameUniqueInRoot:(id)arg1 withOptions:(long long)arg2;
 - (void)makeNameUniqueWithOptions:(long long)arg1;
 - (BOOL)isLine;
+@property(copy, nonatomic) NSString *lastNameComponent;
 - (id)name;
 - (unsigned long long)traits;
 - (id)initWithFrame:(struct CGRect)arg1;
@@ -162,7 +163,7 @@
 - (long long)layoutDirection;
 - (id)lastLayer;
 - (id)firstLayer;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 classFilter:(Class)arg2 block:(CDUnknownBlockType)arg3;
@@ -202,9 +203,10 @@
 @property(readonly, nonatomic) BOOL canFixRight;
 @property(readonly, nonatomic) BOOL canFixLeft;
 - (id)resizingConstraintKeys;
-- (id)CSSAttributes;
+@property(readonly, nonatomic) NSArray *CSSAttributes;
 - (id)CSSTransformString;
-- (id)CSSAttributeString;
+@property(readonly, nonatomic) NSString *CSSAttributeString;
+- (id)swatchesReferencedInDocument:(id)arg1;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;
 - (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;

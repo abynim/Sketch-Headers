@@ -26,9 +26,10 @@
 + (id)keyPathsForValuesAffectingCanFixHeight;
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
-@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
@@ -75,6 +76,7 @@
 - (double)defaultLineHeight:(id)arg1;
 - (void)changeFont:(id)arg1;
 - (id)shapeToUseForTextOnPath;
+@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void)updateNameFromStorage;
 - (void)changeListType:(id)arg1;
 - (void)updateStyleInBlock:(CDUnknownBlockType)arg1;
@@ -88,6 +90,7 @@
 - (void)finishEditing;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch27ComponentListBranchViewItem.h"
+#import "_TtC6Sketch19ComponentTreeBranch.h"
 
-@interface _TtC6Sketch13GroupViewItem : _TtC6Sketch27ComponentListBranchViewItem
+@interface _TtC6Sketch13GroupViewItem : _TtC6Sketch19ComponentTreeBranch
 {
 }
 

@@ -13,7 +13,6 @@
 }
 
 - (id)localLocationPath;
-- (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) MSColor *color;
 @property(readonly, nonatomic) MSSwatch *swatch;
 - (id)foreignObjectCollectionInDocument:(id)arg1;

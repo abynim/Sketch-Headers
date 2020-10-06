@@ -23,6 +23,7 @@
 @property SEL bc_action; // @synthesize bc_action=_bc_action;
 @property(nonatomic) __weak id bc_target; // @synthesize bc_target=_bc_target;
 @property(nonatomic) BOOL hideSelection; // @synthesize hideSelection=_hideSelection;
+- (BOOL)shouldSendEventsDuringMouseDrag;
 - (BOOL)acceptsFirstMouse:(id)arg1;
 - (void)drawMarkerInRect:(struct CGRect)arg1;
 - (void)drawCheckerboardPatternInRect:(struct CGRect)arg1;

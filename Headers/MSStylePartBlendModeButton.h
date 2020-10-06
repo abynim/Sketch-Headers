@@ -25,6 +25,7 @@
 @property(retain, nonatomic) NSSet *blendModes; // @synthesize blendModes=_blendModes;
 @property(nonatomic) __weak id <MSStylePartBlendModeButtonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
+- (id)displayNameForColor:(id)arg1;
 - (id)swatchForColor:(id)arg1;
 - (id)uniqueColorsInShadowStyleParts:(id)arg1;
 - (id)uniqueFillTypesInStyleParts:(id)arg1;

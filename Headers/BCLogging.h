@@ -15,6 +15,7 @@
 + (id)poiLog;
 + (id)applicationLog;
 + (id)influenceRectLog;
++ (id)historyLog;
 + (id)modelLog;
 + (id)rasterisationLog;
 + (id)renderingLog;

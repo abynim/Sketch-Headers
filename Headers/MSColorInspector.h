@@ -11,17 +11,15 @@
 #import "MSColorPickerViewControllerDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
-#import "_TtP6Sketch22MSSwatchEditorDelegate_-Protocol.h"
 #import "_TtP6Sketch35MSColorModePickerControllerDelegate_-Protocol.h"
 
-@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, _TtC17SketchControllers26MSModelObjectChangeTracker, _TtC6Sketch27MSColorModePickerController, _TtC6Sketch33MSColorInspectorSwatchColorEditor;
+@class MSColorInspectorSectionColor, MSColorInspectorSectionGradient, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSStackView, NSArray, NSString, NSTextField, _TtC17SketchControllers26MSModelObjectChangeTracker, _TtC6Sketch27MSColorModePickerController;
 @protocol MSColorInspectorDelegate;
 
-@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, _TtP6Sketch35MSColorModePickerControllerDelegate_, _TtP6Sketch22MSSwatchEditorDelegate_>
+@interface MSColorInspector : NSViewController <MSColorInspectorSectionDelegate, BCPopoverDelegate, NSTouchBarDelegate, MSStylePartPreviewButtonDelegate, MSColorPickerViewControllerDelegate, _TtP6Sketch35MSColorModePickerControllerDelegate_>
 {
     BOOL _displayingDiverseStyles;
     BOOL _isStacking;
-    BOOL _creatingVariable;
     BOOL _disableCommandKeyDismissal;
     id <MSColorInspectorDelegate> _delegate;
     MSColorPickerViewController *_colorPickerController;
@@ -29,7 +27,6 @@
     MSColorInspectorSectionColor *_colorSection;
     MSColorInspectorSectionGradient *_gradientSection;
     MSColorInspectorSectionPattern *_patternSection;
-    _TtC6Sketch33MSColorInspectorSwatchColorEditor *_swatchColorEditor;
     MSEventHandlerManager *_eventHandlerManager;
     MSDocument *_document;
     MSPersistentAssetCollection *_globalAssets;
@@ -48,7 +45,6 @@
 @property(retain, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) __weak NSTextField *textFieldToContinueEditing; // @synthesize textFieldToContinueEditing=_textFieldToContinueEditing;
 @property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
-@property(nonatomic) BOOL creatingVariable; // @synthesize creatingVariable=_creatingVariable;
 @property(nonatomic) BOOL isStacking; // @synthesize isStacking=_isStacking;
 @property(retain, nonatomic) MSLibraryAssetCollectionsController *libraryAssetsController; // @synthesize libraryAssetsController=_libraryAssetsController;
 @property(retain, nonatomic) MSStackView *stackView; // @synthesize stackView=_stackView;
@@ -56,7 +52,6 @@
 @property(retain, nonatomic) MSPersistentAssetCollection *globalAssets; // @synthesize globalAssets=_globalAssets;
 @property(retain, nonatomic) MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
-@property(retain, nonatomic) _TtC6Sketch33MSColorInspectorSwatchColorEditor *swatchColorEditor; // @synthesize swatchColorEditor=_swatchColorEditor;
 @property(retain, nonatomic) MSColorInspectorSectionPattern *patternSection; // @synthesize patternSection=_patternSection;
 @property(retain, nonatomic) MSColorInspectorSectionGradient *gradientSection; // @synthesize gradientSection=_gradientSection;
 @property(retain, nonatomic) MSColorInspectorSectionColor *colorSection; // @synthesize colorSection=_colorSection;
@@ -85,8 +80,6 @@
 - (void)refreshTabbingCycle;
 - (void)setColorMode:(unsigned long long)arg1 gradientStyle:(long long)arg2;
 @property(readonly, nonatomic) unsigned long long fillType;
-- (void)swatchEditorWithInspector:(id)arg1 didFinishEditing:(id)arg2;
-- (void)swatchPickerWithInspector:(id)arg1 startEditing:(id)arg2;
 - (void)colorModeController:(id)arg1 didChangeFillType:(unsigned long long)arg2 gradientType:(long long)arg3;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)filteredStyleParts:(id)arg1;
@@ -131,8 +124,6 @@
 - (void)setModePickerInitialMode;
 - (void)updateModePickerForCurrentStyles;
 - (void)colorDidChangeTo:(id)arg1;
-- (void)editSwatch:(id)arg1 startingWithColor:(id)arg2;
-- (void)createColorSwatch:(id)arg1;
 - (void)keyDown:(id)arg1;
 - (void)viewDidLoad;
 - (void)dealloc;

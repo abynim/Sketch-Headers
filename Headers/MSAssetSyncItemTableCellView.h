@@ -12,6 +12,7 @@
 
 - (void)setBackgroundStyle:(long long)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+- (id)imageName;
 
 @end
 

@@ -29,6 +29,8 @@
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (id)archiveReferenceIdentifier_bc;
+- (struct CGPoint)origin;
+- (struct CGRect)rect;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSImmutableRootLayer> *currentRoot;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitWithMutableModelObject:(id)arg1;

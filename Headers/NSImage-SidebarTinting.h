@@ -12,9 +12,6 @@
 + (id)pngDataByInvertingGammaInData:(id)arg1;
 + (id)PDFImageWithSize:(struct CGSize)arg1 flipped:(BOOL)arg2 drawingHandler:(CDUnknownBlockType)arg3;
 + (id)bundledImageNamed:(id)arg1;
-+ (id)localizedImageName:(id)arg1;
-+ (id)localizedImageNamed:(id)arg1;
-+ (id)localizedBundledImageNamed:(id)arg1;
 + (id)drawImageFlipped:(BOOL)arg1 withSize:(struct CGSize)arg2 withBlock:(CDUnknownBlockType)arg3;
 + (id)drawImageFlippedWithSize:(struct CGSize)arg1 withBlock:(CDUnknownBlockType)arg2;
 + (id)drawImageWithSize:(struct CGSize)arg1 withBlock:(CDUnknownBlockType)arg2;
@@ -39,11 +36,6 @@
 - (id)horizontallyFlipped;
 - (id)tintedWithColor:(id)arg1 compositingOperation:(unsigned long long)arg2;
 - (id)tintedWithColor:(id)arg1;
-- (id)highlightImage;
-- (id)altImage;
-- (id)pressedImage;
-- (id)hoverImage;
-- (id)selectedImage;
 - (void)drawProportionallyInRect:(struct CGRect)arg1 operation:(unsigned long long)arg2 fraction:(double)arg3;
 - (id)scaledImageToSize:(struct CGSize)arg1;
 - (void)drawInRect:(struct CGRect)arg1 fraction:(double)arg2;

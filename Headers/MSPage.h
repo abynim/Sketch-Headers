@@ -37,6 +37,7 @@
 - (BOOL)isVisible;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (id)parentGroupForInserting;
 - (struct CGPoint)originForNewArtboardWithSize:(struct CGSize)arg1;
 - (id)artboardsMatchingWidth:(double)arg1;
 - (BOOL)contentIntersectsWithRect:(struct CGRect)arg1;
@@ -66,6 +67,8 @@
 - (id)artboardForSlice:(id)arg1 inArtboards:(id)arg2;
 - (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
+- (struct CGPoint)origin;
+@property(readonly, nonatomic) struct CGRect rect;
 - (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
@@ -94,7 +97,6 @@
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(copy, nonatomic) MSLayoutGrid *layout;
-@property(readonly, nonatomic) struct CGRect rect;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
 

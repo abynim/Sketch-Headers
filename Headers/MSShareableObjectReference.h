@@ -19,6 +19,9 @@
     MSShareableObjectReference *_remoteReference;
 }
 
++ (id)referenceForLocalObject:(id)arg1;
++ (id)referenceForRemoteObject:(id)arg1 inLibrary:(id)arg2;
++ (id)referenceForLocalCopy:(id)arg1 ofRemote:(id)arg2;
 + (id)referenceForShareableObject:(id)arg1 inLibrary:(id)arg2;
 + (id)referenceForShareableObject:(id)arg1;
 - (void).cxx_destruct;
@@ -34,17 +37,22 @@
 @property(readonly, nonatomic) NSString *locationPath;
 - (id)localLocationPath;
 @property(readonly, nonatomic) NSString *name;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) MSShareableObjectReference *deepestReference;
 @property(readonly, nonatomic) unsigned long long shareableObjectType;
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 @property(readonly, nonatomic) NSString *sharedObjectID;
 @property(readonly) unsigned long long hash;
+@property(readonly, nonatomic) BOOL isForeign;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)isEqualToReference:(id)arg1;
+- (BOOL)idAndLibraryAreEqual:(id)arg1;
 @property(readonly, nonatomic) MSShareableObjectReferenceDescriptor *descriptor;
+- (id)referenceWithUpdatedObject:(id)arg1;
 - (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) Class superclass;
 
 @end

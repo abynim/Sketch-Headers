@@ -12,6 +12,7 @@
 {
 }
 
+- (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 @property(readonly, nonatomic) NSString *tabIdentifier;
 

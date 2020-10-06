@@ -6,7 +6,7 @@
 
 #import "MSColorInspectorSectionWithColorPicker.h"
 
-@class MSColor, MSSwatch, NSButton, NSString, NSTextField, NSView;
+@class MSColor, MSInspectorPushButton, MSSwatch, NSString, NSTextField, NSView;
 @protocol _TtP6Sketch22MSSwatchEditorDelegate_;
 
 @interface _TtC6Sketch33MSColorInspectorSwatchColorEditor : MSColorInspectorSectionWithColorPicker
@@ -17,6 +17,7 @@
     // Error parsing type: , name: document
     // Error parsing type: , name: swatchName
     // Error parsing type: , name: swatchNameIsValid
+    // Error parsing type: , name: initialColor
     // Error parsing type: , name: color
     // Error parsing type: , name: swatch
     // Error parsing type: , name: delegate
@@ -38,10 +39,11 @@
 @property(nonatomic, retain) id <_TtP6Sketch22MSSwatchEditorDelegate_> delegate; // @synthesize delegate;
 @property(nonatomic, retain) MSSwatch *swatch; // @synthesize swatch;
 @property(nonatomic, retain) MSColor *color; // @synthesize color;
+@property(nonatomic, retain) MSColor *initialColor; // @synthesize initialColor;
 @property(nonatomic) BOOL swatchNameIsValid; // @synthesize swatchNameIsValid;
 @property(nonatomic, copy) NSString *swatchName;
 @property(nonatomic) __weak NSView *buttonsView; // @synthesize buttonsView;
-@property(nonatomic) __weak NSButton *submitButton; // @synthesize submitButton;
+@property(nonatomic) __weak MSInspectorPushButton *submitButton; // @synthesize submitButton;
 @property(nonatomic) __weak NSTextField *nameTextField; // @synthesize nameTextField;
 
 @end

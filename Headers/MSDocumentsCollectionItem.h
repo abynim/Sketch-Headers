@@ -8,7 +8,7 @@
 
 #import "MSDocumentsCollectionItemPreviewImageLoading-Protocol.h"
 
-@class NSError, NSImage, NSProgress, NSString, NSURL;
+@class NSColor, NSError, NSImage, NSProgress, NSString, NSURL;
 
 @interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
 {
@@ -46,6 +46,7 @@
 - (id)getStatus;
 @property(readonly, nonatomic) BOOL supportsDeletion;
 @property(readonly, nonatomic) BOOL isPlaceholder;
+@property(readonly, nonatomic) NSColor *tintColor;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
 @property(readonly, nonatomic) NSImage *placeholderImage;
 

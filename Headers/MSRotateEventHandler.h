@@ -14,7 +14,7 @@
 @interface MSRotateEventHandler : MSNormalBaseEventHandler <MSRotationBarDelegate, NSTouchBarDelegate>
 {
     long long _startingDegrees;
-    BOOL _exitOnMouseUp;
+    BOOL _shouldExitOnMouseUp;
     BOOL _disableMoving;
     MSNormalEventHandler *_normalEventHandler;
     NSArray *_rotationItems;
@@ -39,7 +39,7 @@
 @property(nonatomic) struct CGPoint rotationCenterPoint; // @synthesize rotationCenterPoint=_rotationCenterPoint;
 @property(retain, nonatomic) MSNormalEventHandler *normalEventHandler; // @synthesize normalEventHandler=_normalEventHandler;
 @property(nonatomic) BOOL disableMoving; // @synthesize disableMoving=_disableMoving;
-@property(nonatomic) BOOL exitOnMouseUp; // @synthesize exitOnMouseUp=_exitOnMouseUp;
+@property(nonatomic) BOOL shouldExitOnMouseUp; // @synthesize shouldExitOnMouseUp=_shouldExitOnMouseUp;
 - (id)documentForRotationBar:(id)arg1;
 - (void)refreshTouchBarItemWithIdentifier:(id)arg1;
 - (void)rotationBarAction:(id)arg1;

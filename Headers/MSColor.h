@@ -37,9 +37,11 @@
 - (id)NSColorWithColorSpace:(id)arg1;
 - (void)setSwatch:(id)arg1;
 - (void)syncWithTemplateInstance:(id)arg1;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (unsigned long long)type;
 - (id)initWithImmutableObject:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
+@property(readonly, nonatomic) NSString *CSSAttributeString;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 - (id)treeAsDictionary;

@@ -4,15 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <Chocolat/MSHoverButton.h>
+#import <AppKit/NSButton.h>
 
-@interface MSAltButton : MSHoverButton
+@class NSImage;
+
+@interface MSAltButton : NSButton
 {
     id _bc_weakTarget;
+    NSImage *_altImage;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSImage *altImage; // @synthesize altImage=_altImage;
 @property(nonatomic) __weak id bc_weakTarget; // @synthesize bc_weakTarget=_bc_weakTarget;
+- (void)mouseDown:(id)arg1;
 - (void)dealloc;
 - (void)updateToolTip;
 - (void)flagsChangedNotification:(id)arg1;

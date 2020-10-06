@@ -10,10 +10,12 @@
 {
 }
 
+- (BOOL)validate;
 - (id)label;
 - (void)hide;
 - (void)show;
 - (BOOL)isActive;
+- (void)showInspector:(id)arg1;
 - (void)toggleInspectorVisibility:(id)arg1;
 
 @end

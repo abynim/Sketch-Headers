@@ -6,18 +6,18 @@
 
 #import <SketchModel/_MSSharedStyle.h>
 
-#import <SketchModel/MSSharedStylePasting-Protocol.h>
+#import <SketchModel/MSSharedObjectPasting-Protocol.h>
 
 @class MSStyle, NSString;
 
-@interface MSSharedStyle : _MSSharedStyle <MSSharedStylePasting>
+@interface MSSharedStyle : _MSSharedStyle <MSSharedObjectPasting>
 {
 }
 
 - (id)initWithName:(id)arg1 style:(id)arg2;
 @property(readonly, nonatomic) MSStyle *style;
 - (void)correctInvalidGamma;
-@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
 - (id)handlePasteIntoDocument:(id)arg1;
 - (void)updateToMatch:(id)arg1;
 - (void)resetReferencingInstances;

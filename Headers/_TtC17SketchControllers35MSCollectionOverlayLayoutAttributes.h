@@ -15,12 +15,14 @@
     // Error parsing type: , name: representedElementKind
     // Error parsing type: , name: bounds
     // Error parsing type: , name: center
+    // Error parsing type: , name: transform
     // Error parsing type: , name: isHidden
 }
 
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic) BOOL isHidden; // @synthesize isHidden;
+@property(nonatomic) struct CGAffineTransform transform; // @synthesize transform;
 @property(nonatomic) struct CGPoint center; // @synthesize center;
 @property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds;

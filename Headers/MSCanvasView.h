@@ -26,6 +26,7 @@
     struct CGPoint _handToolOriginalScrollOrigin;
     BOOL _didMouseDown;
     BOOL _shouldDrawPixelated;
+    BOOL _shouldOptimisePerformance;
     BOOL _needsUpdateCursor;
     BOOL _haveStoredMostRecentFullScaleScrollOrigin;
     BOOL _magnifying;
@@ -83,6 +84,7 @@
 @property(nonatomic) double temporaryVerticalGuide; // @synthesize temporaryVerticalGuide=_temporaryVerticalGuide;
 @property(readonly, nonatomic) MSZoomTool *zoomTool; // @synthesize zoomTool=_zoomTool;
 @property(readonly, nonatomic) BOOL needsUpdateCursor; // @synthesize needsUpdateCursor=_needsUpdateCursor;
+@property(nonatomic) BOOL shouldOptimisePerformance; // @synthesize shouldOptimisePerformance=_shouldOptimisePerformance;
 @property(nonatomic) BOOL shouldDrawPixelated; // @synthesize shouldDrawPixelated=_shouldDrawPixelated;
 @property(copy, nonatomic) MSOverlaySettings *overlaySettings; // @synthesize overlaySettings=_overlaySettings;
 @property(nonatomic) unsigned long long handToolState; // @synthesize handToolState=_handToolState;

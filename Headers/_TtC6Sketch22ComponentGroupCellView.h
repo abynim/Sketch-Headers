@@ -6,12 +6,18 @@
 
 #import "_TtC6Sketch21ComponentListCellView.h"
 
+@class NSLayoutConstraint;
+
 @interface _TtC6Sketch22ComponentGroupCellView : _TtC6Sketch21ComponentListCellView
 {
+    // Error parsing type: , name: textFieldLeadingInsetConstraint
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)updateConstraints;
+@property(nonatomic, retain) NSLayoutConstraint *textFieldLeadingInsetConstraint; // @synthesize textFieldLeadingInsetConstraint;
 
 @end
 

@@ -21,6 +21,7 @@
 - (BOOL)hasEnabledColorControls;
 - (id)contentViews;
 - (id)styleParts;
+- (long long)blendModeButtonState;
 - (long long)advancedOptionsButtonState;
 - (void)resetStylePartsButtonAction:(id)arg1;
 - (long long)resetStylePartsButtonState;

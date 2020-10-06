@@ -22,6 +22,7 @@
 @property(nonatomic) BOOL excludePickerHeaderItem; // @synthesize excludePickerHeaderItem=_excludePickerHeaderItem;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshColorPickerViewHeight:(id)arg1;
+@property(readonly, nonatomic) BOOL ignoreCollapsedState;
 - (id)colorPickerViews;
 
 @end

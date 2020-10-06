@@ -31,7 +31,6 @@
 - (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
 - (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 cache:(id)arg2 owner:(id)arg3;
-- (struct CGImage *)generateCGImageAtLevelOfDetail:(unsigned long long)arg1;
 - (struct CGImage *)CGImageInCache:(id)arg1 owner:(id)arg2;
 - (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 cache:(id)arg2 owner:(id)arg3;
 - (void)correctInvalidGamma;

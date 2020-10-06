@@ -23,7 +23,6 @@
 - (id)initWithLayout:(id)arg1;
 - (long long)cornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
-- (id)indexPathForItemAtPoint:(struct CGPoint)arg1;
 @property(nonatomic, copy) NSIndexPath *indexPathForSubselection;
 - (void)trackMouseWithLocation:(struct CGPoint)arg1;
 - (id)kindOfHandleAt:(struct CGPoint)arg1;

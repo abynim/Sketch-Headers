@@ -12,6 +12,7 @@
 {
     // Error parsing type: , name: componentListController
     // Error parsing type: , name: textFieldTopConstraint
+    // Error parsing type: , name: textFieldVCenterConstraint
 }
 
 - (void).cxx_destruct;
@@ -20,6 +21,7 @@
 - (void)prepareForReuse;
 - (void)updateConstraints;
 @property(nonatomic, copy) id objectValue;
+@property(nonatomic, retain) NSLayoutConstraint *textFieldVCenterConstraint; // @synthesize textFieldVCenterConstraint;
 @property(nonatomic, retain) NSLayoutConstraint *textFieldTopConstraint; // @synthesize textFieldTopConstraint;
 
 @end

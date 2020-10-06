@@ -20,7 +20,7 @@
 - (void)multiplyBy:(double)arg1;
 - (long long)patternFillType;
 - (double)noiseIntensity;
-- (id)CSSAttributeString;
+@property(readonly, nonatomic) NSString *CSSAttributeString;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

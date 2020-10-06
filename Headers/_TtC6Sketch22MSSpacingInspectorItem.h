@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-@class MSInlineUpDownTextField, MSSpacingTool, NSButton, _TtC6Sketch23MSSpacingInspectorModel;
+@class MSInlineUpDownTextField, MSStackTool, NSButton, _TtC6Sketch23MSSpacingInspectorModel;
 
 @interface _TtC6Sketch22MSSpacingInspectorItem : MSInspectorItem
 {
@@ -24,7 +24,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 @property(nonatomic, retain) _TtC6Sketch23MSSpacingInspectorModel *viewModel; // @synthesize viewModel;
-@property(nonatomic, retain) MSSpacingTool *tool; // @synthesize tool;
+@property(nonatomic, retain) MSStackTool *tool; // @synthesize tool;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSButton *tidyButton; // @synthesize tidyButton;
 @property(nonatomic, retain) MSInlineUpDownTextField *verticalField; // @synthesize verticalField;

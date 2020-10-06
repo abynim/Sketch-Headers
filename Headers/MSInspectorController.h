@@ -17,8 +17,8 @@
     NSViewController<MSInspectorChildController> *_currentController;
     MSDocument *_document;
     BCCache *_previewImageCache;
-    _TtC6Sketch25MSComponentMenuController *_componentMenuController;
     MSLayerArray *_selectedLayers;
+    _TtC6Sketch25MSComponentMenuController *_componentMenuController;
     NSView *_alignmentView;
     NSView *_alignmentContainerView;
     NSView *_contentContainerView;
@@ -30,9 +30,9 @@
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
 @property(retain, nonatomic) NSView *alignmentView; // @synthesize alignmentView=_alignmentView;
-@property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(nonatomic) BOOL alignmentBarHidden; // @synthesize alignmentBarHidden=_alignmentBarHidden;
 @property(retain, nonatomic) _TtC6Sketch25MSComponentMenuController *componentMenuController; // @synthesize componentMenuController=_componentMenuController;
+@property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 @property(retain, nonatomic) BCCache *previewImageCache; // @synthesize previewImageCache=_previewImageCache;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) NSViewController<MSInspectorChildController> *currentController; // @synthesize currentController=_currentController;
@@ -60,6 +60,8 @@
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (void)checkAlignmentButtonsVisibility;
+- (void)contentTypeDidChange;
 - (void)currentHandlerChanged;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateOnPageChange;

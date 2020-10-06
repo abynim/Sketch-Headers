@@ -30,14 +30,10 @@
 - (void)warmColorCache;
 - (void)changeApplicationAppearanceInBlock:(CDUnknownBlockType)arg1;
 - (id)resolvedNamesForBaseName:(id)arg1 options:(unsigned long long)arg2;
-- (id)localizedImageNamed:(id)arg1 options:(unsigned long long)arg2;
-- (id)localizedImageNamed:(id)arg1;
 - (id)cachedImageForKey:(id)arg1 imageOwner:(id)arg2 createBlock:(CDUnknownBlockType)arg3;
 - (id)cachedImageForKey:(id)arg1 imageOwner:(id)arg2;
 - (void)cacheImage:(id)arg1 forKey:(id)arg2 imageOwner:(id)arg3;
-- (id)imageNamed:(id)arg1 options:(unsigned long long)arg2;
 - (id)tintedImageNamed:(id)arg1 color:(id)arg2;
-- (id)imageNamed:(id)arg1;
 - (id)systemColorNamed:(id)arg1;
 - (id)systemColorConvertedToFixed:(id)arg1;
 - (id)_colorForStringValue:(id)arg1 cachingKey:(id)arg2;
@@ -51,7 +47,9 @@
 - (id)attributedStringWithString:(id)arg1 color:(id)arg2 controlSize:(unsigned long long)arg3;
 - (void)validateColorPlist;
 - (void)validate;
-@property(readonly, nonatomic) NSColor *componentPaneTextItemMissingFontBackgroundColor;
+@property(readonly, nonatomic) NSColor *componentsColor;
+@property(readonly, nonatomic) NSColor *componentsItemBackgroundColor;
+@property(readonly, nonatomic) NSColor *componentsPanelTextItemMissingFontBackgroundColor;
 @property(readonly, nonatomic) NSColor *cloudIntroButtonBackgroundColorPressed;
 @property(readonly, nonatomic) NSColor *cloudIntroButtonBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowStatusIconColorSelected;
@@ -113,6 +111,7 @@
 @property(readonly, nonatomic) NSColor *canvasRulerTextBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasRulerTextColor;
 @property(readonly, nonatomic) NSColor *canvasRulerOccupiedColor;
+@property(readonly, nonatomic) NSColor *canvasRulerLockPressedColor;
 @property(readonly, nonatomic) NSColor *canvasRulerLockColor;
 @property(readonly, nonatomic) NSColor *canvasRulerLineOccupiedColor;
 @property(readonly, nonatomic) NSColor *canvasRulerLineColor;
@@ -139,7 +138,8 @@
 @property(readonly, nonatomic) NSColor *hoverButtonHoverColor;
 @property(readonly, nonatomic) NSColor *splitViewDividerColor;
 - (id)layerListTextColorForBackgroundStyle:(long long)arg1 nodeIsHidden:(BOOL)arg2 editing:(BOOL)arg3 selected:(BOOL)arg4 active:(BOOL)arg5;
-@property(readonly, nonatomic) NSColor *componentPaneGroupPreviewBackgroundColor;
+@property(readonly, nonatomic) NSColor *sidebarSeparatorColor;
+@property(readonly, nonatomic) NSColor *componentsPanelGroupPreviewBackgroundColor;
 @property(readonly, nonatomic) NSColor *layerListSelectedTabButtonColor;
 @property(readonly, nonatomic) NSColor *layerListTabButtonColor;
 - (id)layerListSymbolOverrideSelectionColorForWindow:(id)arg1 isActiveOutlineView:(BOOL)arg2;

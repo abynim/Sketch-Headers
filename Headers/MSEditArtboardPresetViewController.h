@@ -6,12 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "NSTextFieldDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
 @class MSArtboardPreset, NSButton, NSString;
 @protocol MSEditArtboardPresetViewControllerDelegate;
 
-@interface MSEditArtboardPresetViewController : NSViewController <NSTouchBarDelegate>
+@interface MSEditArtboardPresetViewController : NSViewController <NSTouchBarDelegate, NSTextFieldDelegate>
 {
     MSArtboardPreset *_preset;
     id <MSEditArtboardPresetViewControllerDelegate> _delegate;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) MSArtboardPreset *preset; // @synthesize preset=_preset;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;
+- (BOOL)control:(id)arg1 isValidObject:(id)arg2;
 - (void)confirm:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)viewDidLoad;

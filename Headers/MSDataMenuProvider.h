@@ -27,6 +27,7 @@
 - (id)pluginNameForIdentifier:(id)arg1;
 - (id)sortedMenuItems:(id)arg1;
 - (id)dataSuppliersForDataType:(unsigned long long)arg1;
+- (id)tooltipFromInfo:(id)arg1;
 - (id)menuItemsForDataType:(unsigned long long)arg1;
 - (id)shadowImageFromImage:(id)arg1;
 - (id)addImageToMenuItems:(id)arg1;

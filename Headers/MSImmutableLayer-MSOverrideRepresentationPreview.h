@@ -13,8 +13,8 @@
 @interface MSImmutableLayer (MSOverrideRepresentationPreview) <MSLayerDataType>
 - (id)overridePreviewImageInDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long dataType;
-- (id)basePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
-- (id)generateBasePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (id)generatePreviewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 - (id)bezierForDrawingLayerListPreviewInDocument:(id)arg1;
 - (id)bezierForDrawingPreviewFromPath:(id)arg1;
 - (id)previewImageWithBezier:(id)arg1;
@@ -22,7 +22,6 @@
 - (id)layerListPreviewCacheOwner;
 - (BOOL)hasDynamicPreview;
 @property(readonly, nonatomic) NSImage *previewImageForOverrideManagement;
-- (id)previewImageForOverrideManagementByTintingImageWithName:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;

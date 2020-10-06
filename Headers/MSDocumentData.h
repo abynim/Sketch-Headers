@@ -10,7 +10,7 @@
 #import <SketchModel/MSLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSFontList, MSImmutableDocumentData, MSPage, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext;
+@class BCCache, MSDocumentState, MSFontList, MSImmutableDocumentData, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol, MSLayerContainer>
@@ -26,11 +26,13 @@
     NSData *_textPreviewMetadata;
     MSFontList *_fontList;
     NSString *_sessionIdentifier;
+    MSStateContainer *_stateContainer;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
@@ -42,6 +44,8 @@
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
+- (void)resetStateAndMetadataForDuplication;
+@property(copy, nonatomic) MSDocumentState *documentState;
 @property(readonly, nonatomic) NSArray *layers;
 - (void)refaultAgainst:(id)arg1;
 - (void)prepareForChangeProcessing;
@@ -66,12 +70,8 @@
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 @property(retain, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void)purgeForeignObjects;
-- (void)purgeForeignStyles;
-- (id)stylesReferencedInDocument;
-- (void)purgeForeignSymbols;
-- (id)symbolsReferencedBySymbolInstances;
-- (id)symbolsReferencedBySymbolMasters;
-- (id)symbolsReferencedByInstances:(id)arg1;
+- (id)sharedObjectReferencesInDocument;
+- (void)addReferencedObjectsWithin:(id)arg1 toSet:(id)arg2;
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
@@ -107,7 +107,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (void)enumerateColorUpdateablesIgnoringForeignSymbols:(CDUnknownBlockType)arg1;
+- (void)enumerateColorUpdateables:(CDUnknownBlockType)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
@@ -115,7 +115,7 @@
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)containsNoOrOneLayers;
 - (BOOL)containsLayers;

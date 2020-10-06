@@ -14,6 +14,7 @@
 
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (id)foreignObjectCollectionInDocument:(id)arg1;
++ (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
 - (id)unlinkFromRemote;
 @property(readonly, nonatomic) NSString *remoteShareID;
 - (void)setLocalShareID:(id)arg1;

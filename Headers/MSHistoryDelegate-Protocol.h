@@ -6,9 +6,11 @@
 
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class MSHistory, MSMoment;
+@class MSHistory, MSImmutableDocumentData, MSMoment, MSPatch;
 
 @protocol MSHistoryDelegate <NSObject>
-- (void)history:(MSHistory *)arg1 didCommitMoment:(MSMoment *)arg2;
+- (void)history:(MSHistory *)arg1 didCommitMoment:(MSMoment *)arg2 withPatch:(MSPatch *)arg3;
+- (void)history:(MSHistory *)arg1 willCommitMoment:(MSMoment *)arg2;
+- (MSImmutableDocumentData *)currentDocumentData:(MSHistory *)arg1;
 @end
 

@@ -15,7 +15,9 @@
 }
 
 @property(copy, nonatomic) NSString *hexColor;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)performInitEmptyObject;
 
 // Remaining properties

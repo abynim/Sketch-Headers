@@ -6,9 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchModel/MSColorUpdater-Protocol.h>
-
-@interface _TtC11SketchModel18ColorSwatchUpdater : NSObject <MSColorUpdater>
+@interface _TtC11SketchModel18ColorSwatchUpdater : NSObject
 {
     // Error parsing type: , name: swatch
 }

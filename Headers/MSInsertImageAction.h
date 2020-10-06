@@ -13,7 +13,6 @@
 - (id)tooltip;
 - (id)label;
 - (id)touchBarImage;
-- (id)groupForInserting;
 - (void)importImagesFromURLs:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;

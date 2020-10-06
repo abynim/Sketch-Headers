@@ -11,7 +11,7 @@
 }
 
 + (double)strokeWidthForZoomValue:(double)arg1;
-+ (id)overrideItemsForLayers:(id)arg1;
++ (id)overridePathForLayers:(id)arg1;
 
 @end
 

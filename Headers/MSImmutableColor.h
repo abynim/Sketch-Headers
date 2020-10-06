@@ -32,8 +32,9 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 @property(readonly, copy) NSString *debugDescription;
 - (id)colorWithAlphaComponent:(double)arg1;
-- (id)stringValueWithAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
-- (id)stringValueWithAlpha:(BOOL)arg1;
+- (id)uniqueStringValueIncludingAlpha:(BOOL)arg1;
+- (id)stringValueIncludingAlpha:(BOOL)arg1 alphaMultiplication:(double)arg2;
+- (id)stringValueIncludingAlpha:(BOOL)arg1;
 - (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1 precision:(double)arg2;
 - (BOOL)fuzzyIsEqualExcludingAlpha:(id)arg1;
 - (BOOL)fuzzyIsEqual:(id)arg1 precision:(double)arg2;

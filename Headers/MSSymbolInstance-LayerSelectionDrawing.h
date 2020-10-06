@@ -7,7 +7,7 @@
 #import <SketchModel/MSSymbolInstance.h>
 
 @interface MSSymbolInstance (LayerSelectionDrawing)
-- (id)overrideSelectionPathItems;
+- (id)overrideSelectionPaths;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (id)inspectorSections;
 @end

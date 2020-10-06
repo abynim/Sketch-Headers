@@ -4,18 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch20ComponentPaneRowView.h"
+#import "_TtC6Sketch22ComponentsPanelRowView.h"
 
-@interface _TtC6Sketch20ComponentListRowView : _TtC6Sketch20ComponentPaneRowView
+@interface _TtC6Sketch20ComponentListRowView : _TtC6Sketch22ComponentsPanelRowView
 {
 }
 
-- (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)mouseDown:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)toggleExpansionState:(id)arg1;
 - (void)didAddSubview:(id)arg1;
+- (void)prepareForReuse;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -21,6 +21,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (BOOL)matchesURL:(id)arg1;
+- (id)tintColor;
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
 - (id)title;

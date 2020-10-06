@@ -6,33 +6,57 @@
 
 #import "_TtC6Sketch22ComponentInspectorItem.h"
 
-@class MSColor, MSInspectorPushButton, NSMenu, NSTextField;
+@class MSColor, MSInspectorButton, MSInspectorPushButton, MSSwatch, NSMenu, NSStackView, NSTextField;
+@protocol _TtP6Sketch36MSColorVariableInspectorItemDelegate_;
 
 @interface _TtC6Sketch28MSColorVariableInspectorItem : _TtC6Sketch22ComponentInspectorItem
 {
+    // Error parsing type: , name: pickerDelegate
     // Error parsing type: , name: selectedColor
+    // Error parsing type: , name: isEditingSwatch
+    // Error parsing type: , name: indicateMultipleSelection
     // Error parsing type: , name: renameTextField
     // Error parsing type: , name: createColorButton
-    // Error parsing type: , name: updateColorButton
+    // Error parsing type: , name: createColorSecondaryButton
+    // Error parsing type: , name: editSwatchButton
+    // Error parsing type: , name: editSwatchInLibraryButton
+    // Error parsing type: , name: makeLocalButton
     // Error parsing type: , name: detachColorButton
     // Error parsing type: , name: moreActionsButton
     // Error parsing type: , name: moreActionsMenu
-    // Error parsing type: , name: renameCompletionHandler
+    // Error parsing type: , name: actionButtonsContainer
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidLoad;
+- (void)updateDisplayedValues;
 - (void)commitColorName:(id)arg1;
+- (void)renameSwatch:(id)arg1;
+- (void)makeLocal:(id)arg1;
+- (void)deleteSwatch:(id)arg1;
+- (void)createSwatch:(id)arg1;
 - (void)showMoreActionsMenu:(id)arg1;
+- (void)cancelEditing;
+- (void)swatchColorDidChangeTo:(id)arg1;
+- (void)editSwatch:(id)arg1;
+- (void)detachSwatch:(id)arg1;
+@property(nonatomic) __weak NSStackView *actionButtonsContainer; // @synthesize actionButtonsContainer;
 @property(nonatomic) __weak NSMenu *moreActionsMenu; // @synthesize moreActionsMenu;
 @property(nonatomic) __weak MSInspectorPushButton *moreActionsButton; // @synthesize moreActionsButton;
 @property(nonatomic) __weak MSInspectorPushButton *detachColorButton; // @synthesize detachColorButton;
-@property(nonatomic) __weak MSInspectorPushButton *updateColorButton; // @synthesize updateColorButton;
-@property(nonatomic) __weak MSInspectorPushButton *createColorButton; // @synthesize createColorButton;
+@property(nonatomic) __weak MSInspectorPushButton *makeLocalButton; // @synthesize makeLocalButton;
+@property(nonatomic) __weak MSInspectorPushButton *editSwatchInLibraryButton; // @synthesize editSwatchInLibraryButton;
+@property(nonatomic) __weak MSInspectorPushButton *editSwatchButton; // @synthesize editSwatchButton;
+@property(nonatomic) __weak MSInspectorPushButton *createColorSecondaryButton; // @synthesize createColorSecondaryButton;
+@property(nonatomic) __weak MSInspectorButton *createColorButton; // @synthesize createColorButton;
 @property(nonatomic) __weak NSTextField *renameTextField; // @synthesize renameTextField;
+@property(nonatomic, readonly) MSSwatch *currentSwatch;
+@property(nonatomic) BOOL indicateMultipleSelection; // @synthesize indicateMultipleSelection;
+@property(nonatomic) BOOL isEditingSwatch; // @synthesize isEditingSwatch;
 @property(nonatomic, retain) MSColor *selectedColor; // @synthesize selectedColor;
+@property(nonatomic, retain) id <_TtP6Sketch36MSColorVariableInspectorItemDelegate_> pickerDelegate; // @synthesize pickerDelegate;
 
 @end
 

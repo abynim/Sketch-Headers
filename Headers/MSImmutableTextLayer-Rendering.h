@@ -9,6 +9,6 @@
 @interface MSImmutableTextLayer (Rendering)
 - (id)textStoragePoolInCache:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
+- (BOOL)shouldRenderInTransparencyLayerInContext:(id)arg1;
 @end
 

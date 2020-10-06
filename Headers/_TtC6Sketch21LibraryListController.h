@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch34ComponentPaneOutlineViewController.h"
+#import "_TtC6Sketch36ComponentsPanelOutlineViewController.h"
 
-@interface _TtC6Sketch21LibraryListController : _TtC6Sketch34ComponentPaneOutlineViewController
+@interface _TtC6Sketch21LibraryListController : _TtC6Sketch36ComponentsPanelOutlineViewController
 {
     // Error parsing type: , name: cachedAllLibrariesViewItem
     // Error parsing type: , name: $__lazy_storage_$_documentViewItem

@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSLayer, MSPage, NSArray;
+@class MSLayer, MSPage, MSPath;
 
 @protocol MSHoverableItem
 @property(nonatomic, readonly) MSLayer *hoveredLayer;
 - (BOOL)matchesLayerListNode:(id)arg1;
 - (BOOL)canBeHoveredOnPage:(MSPage *)arg1;
-- (NSArray *)hoverItemsWithColor:(struct CGColor *)arg1;
+@property(nonatomic, readonly) MSPath *hoverPath;
 @end
 

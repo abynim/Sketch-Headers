@@ -57,6 +57,7 @@
 @property(readonly, nonatomic) NSArray *diffs;
 - (id)init;
 - (id)initWithFirstDocument:(id)arg1 secondDocument:(id)arg2;
+@property(nonatomic, readonly) BOOL haveSymbolOverrideValuesChanged;
 
 @end
 

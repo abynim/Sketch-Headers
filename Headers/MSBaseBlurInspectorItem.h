@@ -33,6 +33,8 @@
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)blurPopUpAction:(id)arg1;
 - (void)viewDidLoad;
+- (void)dealloc;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

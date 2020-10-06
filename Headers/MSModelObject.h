@@ -16,8 +16,8 @@
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSMetadataCoding, MSModelObject>
 {
     MSImmutableModelObject *_immutableModelObject;
-    BOOL _isFault;
     MSModelObject *_parentObject;
+    long long _faultingState;
     MSModelObjectCacheGeneration *_modelObjectCacheGeneration;
 }
 
@@ -27,7 +27,7 @@
 + (BOOL)persistsObjectID;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration; // @synthesize modelObjectCacheGeneration=_modelObjectCacheGeneration;
-@property(readonly, nonatomic) BOOL isFault; // @synthesize isFault=_isFault;
+@property(nonatomic) long long faultingState; // @synthesize faultingState=_faultingState;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
 - (void)didMoveToDocument;
 - (void)willMoveToDocument:(id)arg1;
@@ -40,7 +40,7 @@
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *parentRoot;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
 - (void)breakConnectionWith:(id)arg1;
-- (void)refaultingDidRemove;
+- (void)setPrimitiveParent:(id)arg1;
 - (void)setAsParentOnChildren;
 - (BOOL)matchesImmutable:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBeenInvalidated;
@@ -54,6 +54,7 @@
 - (void)refaultAgainst:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)fireFaultIfNeeded;
+@property(readonly, nonatomic) BOOL isFault;
 - (id)generateObjectID;
 @property(copy, nonatomic) NSString *objectID; // @dynamic objectID;
 - (id)initWithImmutableModelObject:(id)arg1;
@@ -85,6 +86,7 @@
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;
 @property(readonly, nonatomic) NSString *UIMetadataKey;

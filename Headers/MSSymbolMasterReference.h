@@ -16,8 +16,6 @@
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 - (unsigned long long)shareableObjectType;
 - (id)sharedObjectID;
-- (unsigned long long)hash;
-- (BOOL)isEqual:(id)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
 - (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
 

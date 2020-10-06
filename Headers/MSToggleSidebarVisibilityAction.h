@@ -11,6 +11,7 @@
 }
 
 + (void)showSidebarForDocument:(id)arg1;
+- (BOOL)validate;
 - (id)label;
 - (void)hide;
 - (void)show;

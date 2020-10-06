@@ -6,7 +6,10 @@
 
 #import <AppKit/NSWindow.h>
 
+@class NSArray;
+
 @interface NSWindow (Chocolat)
+@property(readonly, nonatomic) NSArray *coveredWindows;
 - (void)commitEditedTextRetainingFirstResponder;
 - (BOOL)closePopovers;
 - (struct CGPoint)convertPointFromScreen_ch:(struct CGPoint)arg1;

@@ -17,6 +17,7 @@
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (id)treeAsDictionary;
+- (id)newMutableCounterpart;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 
 // Remaining properties

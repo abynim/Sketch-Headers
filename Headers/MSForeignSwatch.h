@@ -6,14 +6,17 @@
 
 #import <SketchModel/_MSForeignSwatch.h>
 
-@interface MSForeignSwatch : _MSForeignSwatch
+#import <SketchModel/MSSharedObjectPasting-Protocol.h>
+
+@class NSString;
+
+@interface MSForeignSwatch : _MSForeignSwatch <MSSharedObjectPasting>
 {
 }
 
 + (id)symbolPrivateSwatchWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
 + (id)foreignObjectCollectionInDocument:(id)arg1;
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
-+ (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
 + (unsigned long long)containerType;
 - (id)debugQuickLookObject;
 - (id)findOrCreatePublicVersion;
@@ -31,6 +34,8 @@
 - (id)initAsPrivateReferenceForSymbol:(id)arg1 withForeignSwatch:(id)arg2;
 - (id)initAsPrivateReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
+- (id)handlePasteIntoDocument:(id)arg1;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
 
 @end
 

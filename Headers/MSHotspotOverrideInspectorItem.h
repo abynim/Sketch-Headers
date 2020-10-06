@@ -21,6 +21,8 @@
 - (void)flowTargetAction:(id)arg1;
 - (void)flowBackAction:(id)arg1;
 - (id)controlViewForEditingOverride;
+- (void)refreshIfNecessary:(id)arg1;
+- (void)updateDisplayedValues;
 
 @end
 

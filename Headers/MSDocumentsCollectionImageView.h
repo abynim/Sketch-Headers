@@ -4,26 +4,19 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSImageView.h>
+#import "MSBorderedImageView.h"
 
-@interface MSDocumentsCollectionImageView : NSImageView
+@interface MSDocumentsCollectionImageView : MSBorderedImageView
 {
-    BOOL _selected;
     BOOL _overlayEnabled;
     BOOL _showLibraryIcon;
     BOOL _showPublicShareIcon;
-    SEL _doubleClickAction;
-    unsigned long long _imageInterpolation;
 }
 
-+ (Class)cellClass;
 @property(nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
 @property(nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
-@property(nonatomic) unsigned long long imageInterpolation; // @synthesize imageInterpolation=_imageInterpolation;
-@property(nonatomic) SEL doubleClickAction; // @synthesize doubleClickAction=_doubleClickAction;
-@property(nonatomic, getter=isSelected) BOOL selected;
-- (void)mouseDown:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

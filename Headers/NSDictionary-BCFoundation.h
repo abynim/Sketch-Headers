@@ -23,5 +23,6 @@
 - (id)arrayForKey_bc:(id)arg1;
 - (id)stringForKey_bc:(id)arg1;
 - (void)encodeAsRAWArchive:(id)arg1;
+- (id)initWithJSONDecoder:(id)arg1;
 @end
 

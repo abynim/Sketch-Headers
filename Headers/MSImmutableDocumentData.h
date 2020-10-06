@@ -11,7 +11,7 @@
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSImmutablePage, NSArray, NSData, NSDictionary, NSSet, NSString;
+@class MSDocumentState, MSImmutablePage, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol, MSImmutableLayerContainer>
 {
@@ -21,6 +21,7 @@
     NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
     NSString *_sessionIdentifier;
+    MSStateContainer *_stateContainer;
 }
 
 + (void)setIsRunningHeadless:(BOOL)arg1;
@@ -29,12 +30,15 @@
 + (BOOL)persistsObjectID;
 + (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+- (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
+- (void)resetStateAndMetadataForDuplication;
 @property(readonly, nonatomic) NSArray *layers;
 - (id)embeddedFontReferences;
 - (id)initAsCopyOf:(id)arg1 withPages:(id)arg2;
@@ -47,6 +51,8 @@
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
 - (id)textLayersWithUnsafeFonts;
+@property(copy) MSDocumentState *documentState;
+- (id)immutableDocumentState;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
@@ -65,12 +71,14 @@
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
+- (void)performPostMigrationTidyupFromV131WithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (id)newPageForMigratedSymbols:(id)arg1;
 - (void)arrangeMigratedSymbolsInGrid:(id)arg1;
 - (void)stripRedundantOverridesFromInstances:(id)arg1 ofSymbol:(id)arg2;
 - (void)stripRedundantOverridesFromInstancesOfSymbols:(id)arg1;
 - (id)migratedSymbolFromSymbol:(id)arg1 group:(id)arg2;
 - (id)migratedSymbolsFromOldSymbols:(id)arg1;
+- (void)migratePropertiesFromV132OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV91OrEarlierWithUnarchiver:(id)arg1;
 - (void)regenerateObjectIDOnSymbolMaster:(id)arg1;
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
@@ -82,7 +90,7 @@
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)containsNoOrOneLayers;
 - (BOOL)containsLayers;

@@ -15,7 +15,9 @@
 }
 
 + (id)stopWithPosition:(double)arg1 color:(id)arg2;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (double)cappedBounds:(double)arg1;
 - (void)setPosition:(double)arg1;
 - (id)initWithPosition:(double)arg1 color:(id)arg2;

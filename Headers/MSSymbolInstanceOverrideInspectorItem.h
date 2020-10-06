@@ -7,12 +7,13 @@
 #import "MSOverrideInspectorItem.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSDropableViewDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
 @class BCPopover, MSColorInspector, MSForeignObjectMenuBuilder, MSInspectorPopUpButton, MSInspectorPopoverButton, MSStylePartPreviewButton, MSSymbolInstance, MSSymbolMaster, NSButton, NSControl, NSString;
 
-@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate, MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate>
+@interface MSSymbolInstanceOverrideInspectorItem : MSOverrideInspectorItem <NSMenuDelegate, MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, MSDropableViewDelegate>
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
@@ -45,13 +46,18 @@
 - (void)togglePopover;
 - (void)colorChanged:(id)arg1;
 - (void)navigateToOverridesMaster:(id)arg1;
+- (void)viewWillDisappear;
 - (void)viewWillAppear;
 - (void)overrideValueAction:(id)arg1;
 - (void)pickSymbol:(id)arg1;
+- (id)currentReference;
 - (id)replaceOverrideSymbolAction;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
+- (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
+- (unsigned long long)view:(id)arg1 draggingUpdated:(id)arg2;
+- (id)draggedTypesForView:(id)arg1;
 - (id)currentSelectionMenuItem;
 - (id)nameOfCurrentNestedSymbol;
 - (void)build;

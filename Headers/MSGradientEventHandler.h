@@ -57,7 +57,6 @@
 - (id)collectionOverlay:(id)arg1 overlayItemContainerForSupplementaryElementOfKind:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (id)collectionOverlay:(id)arg1 overlayItemContainerForItemAtIndexPath:(id)arg2 layoutAttributes:(id)arg3 parameters:(struct MSRenderingParameters)arg4;
 - (id)collectionOverlay:(id)arg1 overlayItemImagesForColorSpace:(struct CGColorSpace *)arg2 backingScale:(double)arg3;
-- (void)handlerWillLoseFocus;
 - (void)returnToDefaultHandlerByClickingOutside;
 - (void)handlerGotFocus;
 - (void)reloadFollowingBackgroundChangesToDocument;

@@ -11,6 +11,7 @@
 }
 
 - (id)init;
+- (void)renderDocumentContentWithUnder:(id)arg1 contextRef:(struct CGContext *)arg2 rect:(struct CGRect)arg3 scale:(double)arg4 context:(id)arg5;
 - (void)renderBackgroundBlurBehindLayer:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
 
 @end

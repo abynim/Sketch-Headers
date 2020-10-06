@@ -61,6 +61,7 @@
 - (void)syncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importShareableObjectReference:(id)arg1 intoDocument:(id)arg2;
+- (void)syncNestedSwatchesOf:(id)arg1 fromRemote:(id)arg2 fromLibrary:(id)arg3;
 - (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (void)migratePublicLibrariesWithDispatchGroup:(id)arg1;
@@ -91,12 +92,18 @@
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;
+- (id)shareableObjectReferenceForObject:(id)arg1 forDocument:(id)arg2;
 - (id)embeddedFontReferencesExcludingDocumentID:(id)arg1;
 @property(readonly, nonatomic) NSArray *libraries; // @dynamic libraries;
 @property(readonly, nonatomic) NSArray *availableLibraries;
 - (id)init;
-- (id)globalColorSwatchesLibraryURL;
-- (void)copyGlobalColorsToSwatchesLibraryIfNeeded;
+- (id)swatchesLibraryURL;
+- (BOOL)writeSwatchesLibraryDocumentData:(id)arg1;
+- (id)readSwatchesLibraryDocumentData;
+- (id)previewPageWithSwatches:(id)arg1;
+- (id)swatchesLibraryPreviewPage;
+- (void)migrateGlobalColorsToSwatches;
+- (BOOL)shouldMigrateGlobalColorsToSwatches;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

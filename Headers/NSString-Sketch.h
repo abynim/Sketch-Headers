@@ -7,10 +7,13 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (Sketch)
++ (id)MSSelectionOverlayGridHandleVertical;
++ (id)MSSelectionOverlayGridHandleHorizontal;
++ (id)MSSelectionOverlayGridHandle;
++ (id)MSSelectionOverlaySpacingHandle;
 + (id)MSSupplementaryElementKindInsertionPoint;
 + (id)MSSupplementaryElementKindCurveFromHandle;
 + (id)MSSupplementaryElementKindCurveToHandle;
-+ (id)MSSelectionOverlaySpacingHandle;
 + (id)pointsOutline;
 + (id)MSRadialGradientEllipse;
 @end

@@ -8,29 +8,31 @@
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
 
-@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSInspectorPopoverButton, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
 @interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
 {
+    BOOL _isDisplayingTint;
     MSInlineUpDownNanoTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
     NSArrayController *_fills;
     MSMathInspectorValueAdaptor *_opacityAdaptor;
+    NSTextField *_opacityLabel;
     NSTextField *_fillTypeLabel;
     NSTextField *_contextPopUpLabel;
     NSTextField *_hexField;
     MSColorHexStringTransformer *_hexTransformer;
-    MSInspectorPopoverButton *_colorPopoverButton;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSInspectorPopoverButton *colorPopoverButton; // @synthesize colorPopoverButton=_colorPopoverButton;
 @property(retain, nonatomic) MSColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
 @property(retain, nonatomic) NSTextField *hexField; // @synthesize hexField=_hexField;
 @property(retain, nonatomic) NSTextField *contextPopUpLabel; // @synthesize contextPopUpLabel=_contextPopUpLabel;
 @property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
+@property(retain, nonatomic) NSTextField *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *opacityAdaptor; // @synthesize opacityAdaptor=_opacityAdaptor;
 @property(retain, nonatomic) NSArrayController *fills; // @synthesize fills=_fills;
+@property(nonatomic) BOOL isDisplayingTint; // @synthesize isDisplayingTint=_isDisplayingTint;
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
 @property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
 - (id)currentColorValueForTransformer:(id)arg1;
@@ -46,7 +48,6 @@
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
-- (BOOL)isDisplayingTint;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

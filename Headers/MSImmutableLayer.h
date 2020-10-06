@@ -79,6 +79,7 @@
 - (void)objectDidInit;
 - (void)dealloc;
 - (id)initWithMinimalSetup;
+- (id)findParentLayerGroupWithDocument:(id)arg1;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1;
@@ -86,7 +87,7 @@
 - (id)descendantsToLayerWithID:(id)arg1;
 - (id)lastLayer;
 - (id)firstLayer;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 classFilter:(Class)arg2 block:(CDUnknownBlockType)arg3;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;

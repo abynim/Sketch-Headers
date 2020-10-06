@@ -49,7 +49,6 @@
 - (void)setRaw_originalObjectID:(id)arg1;
 - (void)setRaw_nameIsFixed:(BOOL)arg1;
 - (void)setRaw_name:(id)arg1;
-- (void)setRaw_layerListExpandedType:(long long)arg1;
 - (void)setRaw_isVisible:(BOOL)arg1;
 - (void)setRaw_isLocked:(BOOL)arg1;
 - (void)setRaw_isFlippedVertical:(BOOL)arg1;

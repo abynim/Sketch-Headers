@@ -4,15 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class MSHistoryMaker, MSImmutableDocumentData;
+@class MSHistoryMaker, MSImmutableDocumentData, MSPatch;
 
 @protocol MSHistoryMakerDelegate
-- (void)historyMaker:(MSHistoryMaker *)arg1 setCurrentDocumentData:(MSImmutableDocumentData *)arg2;
 - (MSImmutableDocumentData *)currentDocumentData:(MSHistoryMaker *)arg1;
+- (void)historyMaker:(MSHistoryMaker *)arg1 recordedChange:(MSPatch *)arg2;
 - (void)historyMakerDidProgressHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidRevertHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCommitPrivateUpdate:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCommitHistory:(MSHistoryMaker *)arg1;
+- (void)historyMakerWillCommitHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCreateHistory:(MSHistoryMaker *)arg1;
 @end
 

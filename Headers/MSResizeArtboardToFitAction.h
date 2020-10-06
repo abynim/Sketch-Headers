@@ -11,7 +11,6 @@
 }
 
 - (id)label;
-- (BOOL)shouldResizeArtboard:(id)arg1 toFitRect:(struct CGRect)arg2;
 - (void)doPerformAction:(id)arg1;
 - (void)resizeArtboardToFit:(id)arg1;
 - (BOOL)validate;

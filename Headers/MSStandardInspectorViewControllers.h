@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSAppearanceInspectorSection, MSExportPreviewInspectorSection, MSFlowInspectorSection, MSGeometryInspectorSection, MSLayoutInspectorSection, MSResizeInspectorSection, MSSpecialLayerViewController, MSStyleInspectorSection, MSSymbolMasterSection;
+@class MSAppearanceInspectorSection, MSExportPreviewInspectorSection, MSFlowInspectorSection, MSGeometryInspectorSection, MSLayoutInspectorSection, MSResizeInspectorSection, MSSpecialLayerViewController, MSStyleInspectorSection, MSSymbolMasterSection, NSArray, _TtC6Sketch22MSComponentNameSection, _TtC6Sketch32MSInsertInstanceInspectorSection, _TtC6Sketch34MSColorSwatchLayerInspectorSection, _TtC6Sketch35MSVisitSymbolMasterInspectorSection;
 
 @interface MSStandardInspectorViewControllers : NSObject
 {
@@ -19,9 +19,17 @@
     MSAppearanceInspectorSection *_appearanceInspectorSection;
     MSSpecialLayerViewController *_specialLayerViewController;
     MSExportPreviewInspectorSection *_exportPreviewViewController;
+    _TtC6Sketch34MSColorSwatchLayerInspectorSection *_colorSwatchViewController;
+    _TtC6Sketch22MSComponentNameSection *_componentNameSection;
+    _TtC6Sketch35MSVisitSymbolMasterInspectorSection *_visitSymbolMasterSection;
+    _TtC6Sketch32MSInsertInstanceInspectorSection *_insertInstanceSection;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _TtC6Sketch32MSInsertInstanceInspectorSection *insertInstanceSection; // @synthesize insertInstanceSection=_insertInstanceSection;
+@property(readonly, nonatomic) _TtC6Sketch35MSVisitSymbolMasterInspectorSection *visitSymbolMasterSection; // @synthesize visitSymbolMasterSection=_visitSymbolMasterSection;
+@property(readonly, nonatomic) _TtC6Sketch22MSComponentNameSection *componentNameSection; // @synthesize componentNameSection=_componentNameSection;
+@property(readonly, nonatomic) _TtC6Sketch34MSColorSwatchLayerInspectorSection *colorSwatchViewController; // @synthesize colorSwatchViewController=_colorSwatchViewController;
 @property(readonly, nonatomic) MSExportPreviewInspectorSection *exportPreviewViewController; // @synthesize exportPreviewViewController=_exportPreviewViewController;
 @property(readonly, nonatomic) MSSpecialLayerViewController *specialLayerViewController; // @synthesize specialLayerViewController=_specialLayerViewController;
 @property(readonly, nonatomic) MSAppearanceInspectorSection *appearanceInspectorSection; // @synthesize appearanceInspectorSection=_appearanceInspectorSection;
@@ -31,6 +39,7 @@
 @property(readonly, nonatomic) MSLayoutInspectorSection *layoutSection; // @synthesize layoutSection=_layoutSection;
 @property(readonly, nonatomic) MSResizeInspectorSection *resizeSection; // @synthesize resizeSection=_resizeSection;
 @property(readonly, nonatomic) MSGeometryInspectorSection *geometryViewController; // @synthesize geometryViewController=_geometryViewController;
+@property(readonly, nonatomic) NSArray *viewControllers;
 - (id)init;
 
 @end

@@ -6,10 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSAssetPickerController, MSAssetPickerScrubberController, MSCollapsibleHeaderInspectorItem, MSGenericButtonController, NSArray;
+#import "MSKeyViewProvider-Protocol.h"
+
+@class MSAssetPickerController, MSAssetPickerScrubberController, MSCollapsibleHeaderInspectorItem, MSGenericButtonController, NSArray, NSString, NSView;
 @protocol MSColorInspectorSectionDelegate;
 
-@interface MSColorInspectorSection : NSViewController
+@interface MSColorInspectorSection : NSViewController <MSKeyViewProvider>
 {
     NSArray *_styleParts;
     MSCollapsibleHeaderInspectorItem *_assetPickerHeaderItem;
@@ -31,6 +33,9 @@
 @property(retain, nonatomic) MSAssetPickerScrubberController *assetPickerScrubberController; // @synthesize assetPickerScrubberController=_assetPickerScrubberController;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *assetPickerHeaderItem; // @synthesize assetPickerHeaderItem=_assetPickerHeaderItem;
 @property(copy, nonatomic) NSArray *styleParts; // @synthesize styleParts=_styleParts;
+@property(readonly, nonatomic) NSView *preferredFirstResponder;
+@property(readonly, nonatomic) NSView *lastKeyView;
+@property(readonly, nonatomic) NSView *firstKeyView;
 - (void)assetPickerScrubberController:(id)arg1 didSelectAsset:(id)arg2;
 - (id)makeTouchBarItemForIdentifier:(id)arg1;
 - (id)customTouchBarItemIdentifiers;
@@ -67,6 +72,12 @@
 - (id)stackViewsInVerticalScrollView:(id)arg1 frame:(struct CGRect)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)initWithDelegate:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

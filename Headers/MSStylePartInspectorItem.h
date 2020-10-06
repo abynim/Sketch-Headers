@@ -16,6 +16,8 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
+- (id)currentSwatchReferences;
+- (BOOL)isDisplayingSingleSwatch;
 - (void)refreshIfNecessary:(id)arg1;
 - (BOOL)matchesStyleParts:(id)arg1;
 @property(readonly, nonatomic) NSArray *layers;

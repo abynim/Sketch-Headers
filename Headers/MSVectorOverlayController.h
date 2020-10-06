@@ -11,7 +11,7 @@
 #import "MSVectorOverlayLayoutDelegate-Protocol.h"
 #import "_TtP17SketchControllers29MSCollectionOverlayDataSource_-Protocol.h"
 
-@class MSAlignmentEngine, MSAlignmentEngineResult, MSCanvasView, MSDragToSelectGestureRecognizer, MSOverlayItemImageCache, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC6Sketch21MSVectorOverlayAction;
+@class MSAlignmentEngine, MSAlignmentEngineResult, MSCanvasView, MSDragToSelectGestureRecognizer, MSOverlayItemImageCache, MSPath, MSPathController, MSShapeEditingBehavior, MSShapeEventHandler, MSVectorHandleStateDecider, MSVectorOverlay, MSVectorOverlayLayout, NSArray, NSString, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch21MSVectorOverlayAction;
 @protocol MSVectorOverlayControllerDelegate;
 
 @interface MSVectorOverlayController : NSObject <_TtP17SketchControllers29MSCollectionOverlayDataSource_, MSVectorOverlayLayoutDelegate, MSGestureRecognizerDelegate, MSAlignmentEngineDelegate>
@@ -26,6 +26,7 @@
     MSAlignmentEngineResult *_snaps;
     id <MSVectorOverlayControllerDelegate> _delegate;
     MSVectorOverlayLayout *_overlayLayout;
+    _TtC17SketchControllers21MSSelectionBoxOverlay *_selectionBoxOverlay;
     MSDragToSelectGestureRecognizer *_dragToSelectGestureRecognizer;
     _TtC6Sketch21MSVectorOverlayAction *_currentAction;
     MSOverlayItemImageCache *_imageCache;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) MSOverlayItemImageCache *imageCache; // @synthesize imageCache=_imageCache;
 @property(retain, nonatomic) _TtC6Sketch21MSVectorOverlayAction *currentAction; // @synthesize currentAction=_currentAction;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *dragToSelectGestureRecognizer; // @synthesize dragToSelectGestureRecognizer=_dragToSelectGestureRecognizer;
+@property(readonly, nonatomic) _TtC17SketchControllers21MSSelectionBoxOverlay *selectionBoxOverlay; // @synthesize selectionBoxOverlay=_selectionBoxOverlay;
 @property(readonly, nonatomic) MSVectorOverlayLayout *overlayLayout; // @synthesize overlayLayout=_overlayLayout;
 @property(nonatomic) __weak id <MSVectorOverlayControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(copy, nonatomic) MSAlignmentEngineResult *snaps; // @synthesize snaps=_snaps;

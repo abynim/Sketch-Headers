@@ -6,7 +6,7 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, MSSwatch, NSTouchBar;
+@class MSAssetCollection, MSColor, MSColorInspectorSectionPattern, MSColorPickerViewController, MSDocument, MSEventHandlerManager, MSLibraryAssetCollectionsController, MSPersistentAssetCollection, NSTouchBar;
 @protocol MSAsset;
 
 @protocol MSColorInspectorSectionDelegate <NSObject>
@@ -23,7 +23,5 @@
 - (MSAssetCollection *)documentAssets;
 - (void)inspectorSectionDidUpdate:(MSColorInspectorSectionPattern *)arg1;
 - (void)colorDidChangeTo:(MSColor *)arg1;
-- (void)editSwatch:(MSSwatch *)arg1 startingWithColor:(MSColor *)arg2;
-- (void)createColorSwatch:(id)arg1;
 @end
 

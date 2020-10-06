@@ -28,6 +28,7 @@
 - (void)makeTextDataFileSystemMonitor;
 - (void)makeImageDataFileSystemMonitor;
 - (void)makeFolderMonitor;
+- (id)menuItemTooltipInfo;
 - (void)generateDataForObjects:(id)arg1 dataSupplierManager:(id)arg2 dataApplier:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) NSURL *dataSource;
 - (id)imageFileURLForDataItem:(id)arg1;

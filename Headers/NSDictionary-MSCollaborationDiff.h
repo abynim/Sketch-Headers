@@ -18,12 +18,14 @@
 - (id)dictionaryByConvertingMSImmutableColorsToNSColorsInColorSpace:(id)arg1;
 - (id)dictionaryByConvertingNSColorsToMSImmutableColorsInColorSpace:(id)arg1;
 - (id)dictionaryByMappingComponentsDictionaryToMSImmutableColor;
+- (id)dictionaryByFixingForegroundColorAttributes;
 - (id)dictionaryByMappingFontDescriptorsToFont;
 - (id)dictionaryByRefreshingFontDescriptors;
 - (id)dictionaryByMappingFontToFontDescriptors;
 - (id)prepareStringAttributesAfterDecoding;
 - (id)prepareStringAttributesForEncoding;
 - (id)treeAsDictionary;
+- (id)newMutableCounterpart;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 
 // Remaining properties

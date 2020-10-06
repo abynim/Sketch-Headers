@@ -9,6 +9,13 @@
 @interface _TtC6Sketch23ComponentListController (Sketch)
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
 - (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
+- (void)deleteBackward:(id)arg1;
+- (void)delete:(id)arg1;
+- (void)renameAction:(id)arg1;
+- (void)ungroup:(id)arg1;
+- (void)group:(id)arg1;
+- (BOOL)validateUserInterfaceItem:(id)arg1;
+- (void)groupActionableComponentsAndGroups;
 - (void)outlineViewSelectionDidChange:(id)arg1;
 - (BOOL)selectionShouldChangeInOutlineView:(id)arg1;
 - (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;

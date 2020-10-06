@@ -6,12 +6,14 @@
 
 #import "MSDocumentAction.h"
 
+@class NSString;
+
 @interface MSEventHandlerAction : MSDocumentAction
 {
 }
 
 - (BOOL)isSelectable;
-- (id)eventHandlerKey;
+@property(readonly) NSString *eventHandlerKey;
 - (Class)eventHandlerClass;
 - (BOOL)validate;
 - (BOOL)isActive;

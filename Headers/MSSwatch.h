@@ -6,16 +6,31 @@
 
 #import <SketchModel/_MSSwatch.h>
 
-@class MSColor;
+#import <SketchModel/MSColorUpdateable-Protocol.h>
+#import <SketchModel/MSSharedObjectPasting-Protocol.h>
 
-@interface MSSwatch : _MSSwatch
+@class MSColor, NSString;
+
+@interface MSSwatch : _MSSwatch <MSSharedObjectPasting, MSColorUpdateable>
 {
 }
 
+- (BOOL)isOutOfSyncWithInstance:(id)arg1;
+- (id)updateableColors;
+- (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)updateWithColor:(id)arg1;
 - (id)makeReferencingColor;
 - (id)initWithName:(id)arg1 color:(id)arg2;
 @property(readonly, nonatomic) MSColor *color;
+- (id)handlePasteIntoDocument:(id)arg1;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

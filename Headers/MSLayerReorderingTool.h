@@ -8,7 +8,7 @@
 
 @interface MSLayerReorderingTool : NSObject
 {
-    // Error parsing type: , name: spacingTool
+    // Error parsing type: , name: stackTool
     // Error parsing type: , name: state
     // Error parsing type: , name: location
     // Error parsing type: , name: originalPosition

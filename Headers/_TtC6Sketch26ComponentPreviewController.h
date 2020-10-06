@@ -12,7 +12,7 @@
 {
     // Error parsing type: , name: state
     // Error parsing type: , name: _currentImageGenerationToken
-    // Error parsing type: , name: componentsPaneController
+    // Error parsing type: , name: componentsPanelController
     // Error parsing type: , name: imageView
     // Error parsing type: , name: textField
     // Error parsing type: , name: placeholderField

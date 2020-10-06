@@ -8,6 +8,6 @@
 
 @interface MSImmutableBitmapLayer (ContentRendering)
 - (void)renderToCanvas:(struct EKRasterCanvasStruct *)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
+- (BOOL)shouldRenderInTransparencyLayerInContext:(id)arg1;
 @end
 

@@ -15,7 +15,7 @@
 + (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
 + (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
-- (id)hoverItemsWithColor:(struct CGColor *)arg1;
+- (id)hoverPath;
 - (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)shareableObjectType;
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;

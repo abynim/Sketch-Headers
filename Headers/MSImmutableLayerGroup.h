@@ -41,14 +41,14 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (unsigned long long)axesForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
-- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2;
+- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2 isMask:(BOOL)arg3;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
 @property(readonly, nonatomic) double mirrorExportScale;
 - (id)subObjectsForTreeDiff;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (unsigned long long)indexOfLayer:(id)arg1;
+- (long long)indexOfLayer:(id)arg1;
 - (id)layerAtIndex:(unsigned long long)arg1;
 - (id)lastLayer;
 - (id)firstLayer;

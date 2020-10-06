@@ -4,13 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch34ComponentPaneOutlineViewController.h"
+#import "_TtC6Sketch36ComponentsPanelOutlineViewController.h"
 
-@class NSTextField;
+@class MSThemedColorView, NSString, NSTextField;
 
-@interface _TtC6Sketch23ComponentListController : _TtC6Sketch34ComponentPaneOutlineViewController
+@interface _TtC6Sketch23ComponentListController : _TtC6Sketch36ComponentsPanelOutlineViewController
 {
     // Error parsing type: , name: noComponentsToShowTextField
+    // Error parsing type: , name: backgroundView
+    // Error parsing type: , name: style
     // Error parsing type: , name: delegate
     // Error parsing type: , name: currentlyPreviewedViewItem
     // Error parsing type: , name: selectionToPersist
@@ -19,8 +21,6 @@
     // Error parsing type: , name: searchResultTree
     // Error parsing type: , name: searchString
     // Error parsing type: , name: componentKind
-    // Error parsing type: , name: useCase
-    // Error parsing type: , name: parentModelPathToFocusOn
     // Error parsing type: , name: deferringHeightChangeNotifications
     // Error parsing type: , name: shouldScrollSelectionToVisible
     // Error parsing type: , name: cachedRowViewRenderer
@@ -34,6 +34,8 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
+@property(nonatomic, copy) NSString *searchString;
+@property(nonatomic, retain) MSThemedColorView *backgroundView; // @synthesize backgroundView;
 @property(nonatomic) __weak NSTextField *noComponentsToShowTextField; // @synthesize noComponentsToShowTextField;
 
 @end

@@ -6,11 +6,9 @@
 
 #import "_TtC6Sketch33MSColorInspectorSwatchColorEditor.h"
 
-#import "MSKeyViewProvider-Protocol.h"
-
 @class NSView;
 
-@interface _TtC6Sketch33MSColorInspectorSwatchColorEditor (Sketch) <MSKeyViewProvider>
+@interface _TtC6Sketch33MSColorInspectorSwatchColorEditor (Sketch)
 @property(nonatomic, readonly) NSView *preferredFirstResponder;
 @property(nonatomic, readonly) NSView *lastKeyView;
 @property(nonatomic, readonly) NSView *firstKeyView;
