@@ -12,8 +12,8 @@
 - (id)fillStyleForDecoratedPath;
 - (id)fillPathWithDecorations:(id *)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayer;
-@property(readonly, nonatomic) BOOL shouldRasterize;
+- (BOOL)shouldRenderInTransparencyLayerInContext:(id)arg1;
+- (BOOL)shouldRasterizeInContext:(id)arg1;
 - (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @end
 

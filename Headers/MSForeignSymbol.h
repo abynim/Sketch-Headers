@@ -18,8 +18,9 @@
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)updateAfterPatching;
+- (void)syncWithRemote:(id)arg1 updatingPrivateStylesWithBlock:(CDUnknownBlockType)arg2;
 - (void)syncWithRemote:(id)arg1;
-- (void)syncSymbolPrivateStylesWithRemote:(id)arg1;
+- (void)syncSymbolPrivateStylesWithRemote:(id)arg1 updatingPrivateStylesWithBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateSharedStyleItemsForMaster:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (BOOL)doesStyleOfClass:(Class)arg1 withID:(id)arg2 differInRemoteDocument:(id)arg3;
 - (BOOL)containsNestedStylesOutOfDateWithLibrary:(id)arg1;

@@ -6,29 +6,18 @@
 
 #import <AppKit/NSImageCell.h>
 
-@class NSBezierPath, NSColor;
+@class MSBorderedImageView, NSBezierPath;
 
 @interface MSBorderedImageViewCell : NSImageCell
 {
-    BOOL _includeBorder;
-    double _borderWidth;
-    double _cornerRadius;
-    NSColor *_contentBackgroundColor;
 }
 
-- (void).cxx_destruct;
-@property(retain, nonatomic) NSColor *contentBackgroundColor; // @synthesize contentBackgroundColor=_contentBackgroundColor;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
-@property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;
-@property(nonatomic) BOOL includeBorder; // @synthesize includeBorder=_includeBorder;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
-@property(readonly, nonatomic) NSColor *borderColor;
 @property(readonly, nonatomic) struct CGRect contentRect;
 @property(readonly, nonatomic) NSBezierPath *backgroundPath;
 @property(readonly, nonatomic) struct CGRect backgroundRect;
-- (double)backgroundInset;
-- (id)initWithCoder:(id)arg1;
+@property(readonly, nonatomic) MSBorderedImageView *imageView;
 
 @end
 

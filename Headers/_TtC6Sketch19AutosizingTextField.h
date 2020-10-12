@@ -16,6 +16,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;
+@property(nonatomic, copy) NSString *placeholderString;
 @property(nonatomic, copy) NSString *stringValue;
 - (void)textDidChange:(id)arg1;
 - (void)awakeFromNib;

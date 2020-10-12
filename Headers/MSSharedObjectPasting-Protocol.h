@@ -6,8 +6,8 @@
 
 @class MSDocumentData, NSString;
 
-@protocol MSSharedStylePasting
-@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+@protocol MSSharedObjectPasting
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
 - (NSString *)handlePasteIntoDocument:(MSDocumentData *)arg1;
 @end
 

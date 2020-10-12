@@ -20,6 +20,7 @@
 @property(nonatomic, readonly) NSString *label;
 - (void)doPerformAction:(id)arg1;
 - (void)addKind:(id)arg1;
+- (void)validateToolbarItem;
 @property(nonatomic, readonly) BOOL validate;
 
 @end

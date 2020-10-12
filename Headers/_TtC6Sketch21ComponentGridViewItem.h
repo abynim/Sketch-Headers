@@ -25,7 +25,6 @@
 - (BOOL)isSelected;
 @property(nonatomic, readonly) BOOL acceptsFirstResponder;
 - (void)prepareForReuse;
-@property(nonatomic, copy) id representedObject;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSTextField *metadataField; // @synthesize metadataField;
 @property(nonatomic, retain) NSTextField *pathField; // @synthesize pathField;

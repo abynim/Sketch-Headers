@@ -16,7 +16,9 @@
 }
 
 - (void)changeColor:(id)arg1;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
 - (BOOL)canRotate;

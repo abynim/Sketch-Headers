@@ -66,7 +66,7 @@
 @property(nonatomic) long long orientationAdapter;
 @property(nonatomic, readonly) BOOL isVertical;
 @property(nonatomic) unsigned long long axis; // @synthesize axis;
-@property(nonatomic, retain) id <_TtP6Sketch19MSRulerViewDelegate_> delegate; // @synthesize delegate;
+@property(nonatomic) __weak id <_TtP6Sketch19MSRulerViewDelegate_> delegate; // @synthesize delegate;
 
 @end
 

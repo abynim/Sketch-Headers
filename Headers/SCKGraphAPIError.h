@@ -6,12 +6,17 @@
 
 #import <Foundation/NSError.h>
 
-@interface _TtC14SketchCloudKit13GraphAPIError : NSError
+@interface SCKGraphAPIError : NSError
 {
 }
 
++ (id)minClientVersionKey;
++ (id)extensionsKey;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDomain:(id)arg1 code:(long long)arg2 userInfo:(id)arg3;
+- (id)initWithCloudError:(id)arg1;
+- (id)initWithDictionary:(id)arg1;
 
 @end
 

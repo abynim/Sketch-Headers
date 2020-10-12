@@ -66,11 +66,13 @@
 @property(readonly, nonatomic) NSArray *publicKeys;
 @property(readonly, nonatomic) NSString *requestSignatureSecret;
 @property(readonly, nonatomic) NSURL *resetPasswordURL;
+@property(readonly, nonatomic) NSURL *signInWithSSOURL;
 @property(readonly, nonatomic) NSURL *signUpURL;
 - (id)sharesOverviewURLForUserID:(id)arg1;
 - (id)settingsURLForShare:(id)arg1;
 - (id)accountSettingsURLForUserID:(id)arg1;
-- (id)urlWithEndpoint:(id)arg1 queryItems:(id)arg2;
+- (id)frontendURLWithPath:(id)arg1 queryItems:(id)arg2;
+- (id)frontendOverrideBaseURL;
 
 @end
 

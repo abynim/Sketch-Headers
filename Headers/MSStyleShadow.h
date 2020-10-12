@@ -15,7 +15,9 @@
 }
 
 - (unsigned long long)styleType;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
 @property(readonly, nonatomic) NSString *CSSAttributeString;

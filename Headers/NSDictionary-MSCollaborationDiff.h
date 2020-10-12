@@ -18,6 +18,7 @@
 - (id)dictionaryByConvertingMSImmutableColorsToNSColorsInColorSpace:(id)arg1;
 - (id)dictionaryByConvertingNSColorsToMSImmutableColorsInColorSpace:(id)arg1;
 - (id)dictionaryByMappingComponentsDictionaryToMSImmutableColor;
+- (id)dictionaryByFixingForegroundColorAttributes;
 - (id)dictionaryByMappingFontDescriptorsToFont;
 - (id)dictionaryByRefreshingFontDescriptors;
 - (id)dictionaryByMappingFontToFontDescriptors;

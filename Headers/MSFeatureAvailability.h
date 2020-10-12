@@ -25,12 +25,14 @@
     // Error parsing type: , name: sheetsToModes
     // Error parsing type: , name: sendBetaFeedback
     // Error parsing type: , name: pixelAlignByDragDelta
+    // Error parsing type: , name: sso
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) MSFeatureFlag *sso; // @synthesize sso;
 @property(nonatomic, readonly) MSFeatureFlag *pixelAlignByDragDelta; // @synthesize pixelAlignByDragDelta;
 @property(nonatomic, readonly) MSFeatureFlag *sendBetaFeedback; // @synthesize sendBetaFeedback;
 @property(nonatomic, readonly) MSFeatureFlag *sheetsToModes; // @synthesize sheetsToModes;

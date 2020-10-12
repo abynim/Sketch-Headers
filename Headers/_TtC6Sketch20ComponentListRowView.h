@@ -10,12 +10,13 @@
 {
 }
 
-- (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)mouseDown:(id)arg1;
 - (BOOL)respondsToSelector:(SEL)arg1;
 - (void)toggleExpansionState:(id)arg1;
 - (void)didAddSubview:(id)arg1;
+- (void)prepareForReuse;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

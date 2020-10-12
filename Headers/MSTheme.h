@@ -47,9 +47,8 @@
 - (id)attributedStringWithString:(id)arg1 color:(id)arg2 controlSize:(unsigned long long)arg3;
 - (void)validateColorPlist;
 - (void)validate;
-@property(readonly, nonatomic) NSColor *windowBackgroundColor;
+@property(readonly, nonatomic) NSColor *componentsColor;
 @property(readonly, nonatomic) NSColor *componentsItemBackgroundColor;
-@property(readonly, nonatomic) NSColor *componentsSidebarBackgroundColor;
 @property(readonly, nonatomic) NSColor *componentsPanelTextItemMissingFontBackgroundColor;
 @property(readonly, nonatomic) NSColor *cloudIntroButtonBackgroundColorPressed;
 @property(readonly, nonatomic) NSColor *cloudIntroButtonBackgroundColor;

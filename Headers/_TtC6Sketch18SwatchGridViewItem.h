@@ -10,11 +10,13 @@
 {
     // Error parsing type: , name: onRequestEditItem
     // Error parsing type: , name: onDetachFromSwatchAction
+    // Error parsing type: , name: colorSpaceProvider
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)previewColorSpace;
 
 @end
 

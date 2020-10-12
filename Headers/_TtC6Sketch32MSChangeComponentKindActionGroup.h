@@ -6,6 +6,8 @@
 
 #import "MSActionGroup.h"
 
+@class NSString;
+
 @interface _TtC6Sketch32MSChangeComponentKindActionGroup : MSActionGroup
 {
 }
@@ -13,6 +15,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) BOOL validate;
 - (BOOL)supportsState;
 - (id)actionNames;

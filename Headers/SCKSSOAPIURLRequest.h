@@ -4,16 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import <SketchCloudKit/SCKOAuthAPIURLRequest.h>
 
-@interface MSResizeArtboardToFitAction : MSDocumentAction
+@interface SCKSSOAPIURLRequest : SCKOAuthAPIURLRequest
 {
 }
 
-- (id)label;
-- (void)doPerformAction:(id)arg1;
-- (void)resizeArtboardToFit:(id)arg1;
-- (BOOL)validate;
++ (id)requestWithSSOToken:(id)arg1;
++ (id)baseURLForEnvironment:(id)arg1;
 
 @end
 

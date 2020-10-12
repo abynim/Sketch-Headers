@@ -31,6 +31,8 @@
 @property(nonatomic) __weak MSStylePartPreviewButton *originalColorButton; // @synthesize originalColorButton=_originalColorButton;
 @property(nonatomic) __weak NSButton *ignoreAlphaWhenMatchingOriginalColorButton; // @synthesize ignoreAlphaWhenMatchingOriginalColorButton=_ignoreAlphaWhenMatchingOriginalColorButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
+- (id)swatchReferenceForColor:(id)arg1 inDocument:(id)arg2;
+- (void)showColorVariablesPopoverMenu:(id)arg1;
 - (BOOL)previewButtonShouldShowColorVariablesButton;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
@@ -40,10 +42,12 @@
 - (void)validateUI;
 - (void)validateReplaceButton;
 - (void)replacementColorAction:(id)arg1;
+- (void)validateKeepAlphaOfOriginalColorButton;
 - (void)validateReplacementColorButton;
 - (void)setOriginalColor:(id)arg1;
 - (void)commitOriginalColor:(id)arg1;
 - (void)pickOriginalColor:(id)arg1;
+- (void)validateIgnoreAlphaWhenMatchingOriginalColorButton;
 - (void)validateOriginalColorButton;
 - (void)refreshOriginalColorButtonFromSelection;
 - (void)menuNeedsUpdate:(id)arg1;

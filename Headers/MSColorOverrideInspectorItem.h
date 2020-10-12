@@ -34,6 +34,7 @@
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)applyUserSelectedColor:(id)arg1;
 - (id)currentSwatchReference;
 - (id)currentSwatch;
@@ -58,6 +59,7 @@
 - (id)createOpacityField;
 - (id)createColorWellButton;
 - (id)controlViewForEditingOverride;
+- (void)dismissViewController:(id)arg1;
 - (void)viewWillDisappear;
 
 // Remaining properties

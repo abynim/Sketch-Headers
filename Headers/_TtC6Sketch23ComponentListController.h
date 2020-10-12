@@ -20,7 +20,6 @@
     // Error parsing type: , name: navigationTree
     // Error parsing type: , name: searchResultTree
     // Error parsing type: , name: searchString
-    // Error parsing type: , name: alwaysShowsNavigationTree
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: deferringHeightChangeNotifications
     // Error parsing type: , name: shouldScrollSelectionToVisible

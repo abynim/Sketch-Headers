@@ -9,12 +9,16 @@
 #import "NSMenuItemValidation-Protocol.h"
 #import "_TtP6Sketch14InsertInstance_-Protocol.h"
 
-@class NSButton, NSStackView, NSTextField;
+@class NSButton, NSImageView, NSLayoutConstraint, NSStackView, NSTextField, _TtC6Sketch32MSComponentsHeaderBackgroundView;
 
 @interface _TtC6Sketch32MSComponentsPickerViewController : NSViewController <_TtP6Sketch14InsertInstance_, NSMenuItemValidation>
 {
+    // Error parsing type: , name: headerBackgroundView
+    // Error parsing type: , name: headerLeadingInsetConstraint
     // Error parsing type: , name: headerStackView
+    // Error parsing type: , name: searchIcon
     // Error parsing type: , name: searchField
+    // Error parsing type: , name: clearButton
     // Error parsing type: , name: pinnedButton
     // Error parsing type: , name: splitViewController
     // Error parsing type: , name: sidebarController
@@ -34,15 +38,22 @@
 - (void)changeToSymbolComponentKind:(id)arg1;
 - (void)changeComponentsKind:(id)arg1;
 - (void)insertChildViewController:(id)arg1 atIndex:(long long)arg2;
+- (void)updateViewConstraints;
 - (void)viewDidLayout;
 - (void)viewWillAppear;
+- (void)viewDidLoad;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)toggleSidebarVisibility:(id)arg1;
 - (void)insertInstance:(id)arg1;
+- (void)clearSearch:(id)arg1;
 - (void)cancelOperation:(id)arg1;
 @property(nonatomic, retain) NSButton *pinnedButton; // @synthesize pinnedButton;
+@property(nonatomic, retain) NSButton *clearButton; // @synthesize clearButton;
 @property(nonatomic, retain) NSTextField *searchField; // @synthesize searchField;
+@property(nonatomic, retain) NSImageView *searchIcon; // @synthesize searchIcon;
 @property(nonatomic, retain) NSStackView *headerStackView; // @synthesize headerStackView;
+@property(nonatomic, retain) NSLayoutConstraint *headerLeadingInsetConstraint; // @synthesize headerLeadingInsetConstraint;
+@property(nonatomic, retain) _TtC6Sketch32MSComponentsHeaderBackgroundView *headerBackgroundView; // @synthesize headerBackgroundView;
 
 @end
 

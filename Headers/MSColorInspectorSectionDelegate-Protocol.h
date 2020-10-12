@@ -23,6 +23,5 @@
 - (MSAssetCollection *)documentAssets;
 - (void)inspectorSectionDidUpdate:(MSColorInspectorSectionPattern *)arg1;
 - (void)colorDidChangeTo:(MSColor *)arg1;
-- (void)createColorSwatch:(id)arg1;
 @end
 

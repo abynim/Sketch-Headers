@@ -6,6 +6,7 @@
 
 #import <AppKit/NSDocument.h>
 
+#import "BCColorPickerDocument-Protocol.h"
 #import "BCSideBarViewControllerDelegate-Protocol.h"
 #import "MSCloudExportableDocument-Protocol.h"
 #import "MSComponentsPanelDelegate-Protocol.h"
@@ -21,7 +22,7 @@
 
 @class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSPatchContainer, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC13SharedEditing29MSIncrementalUploadController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
 
-@interface MSDocument : NSDocument <_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate>
+@interface MSDocument : NSDocument <_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, BCColorPickerDocument>
 {
     BOOL _hideDocumentsWindowWhenDisplayingWindow;
     BOOL _attemptingToClose;
@@ -243,6 +244,7 @@
 - (id)toolbar;
 - (void)showWindows;
 - (void)refreshAfterAppearanceChange;
+- (BOOL)colorPickerShouldSendEventsDuringMouseDrag:(id)arg1;
 - (void)hideComponentsInspector;
 - (void)showComponentsInspector;
 - (void)hideRulersIfNecessary;

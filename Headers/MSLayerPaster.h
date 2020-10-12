@@ -31,6 +31,7 @@
 - (void)addReferencedSymbolsToDocument:(id)arg1;
 - (void)updateOverrides;
 - (void)ensureSymbolMastersIn:(id)arg1 haveUniqueIDInDocument:(id)arg2;
+- (void)addSharedSwatchesInDocument:(id)arg1;
 - (void)addSharedStylesInDocument:(id)arg1;
 - (id)rightmostArtboardOnPage:(id)arg1 intersectingRect:(struct CGRect)arg2;
 - (struct CGPoint)findFirstAvailablePositionForSize:(struct CGSize)arg1 nextToArtboardsOnPage:(id)arg2 inAllowedRect:(struct CGRect)arg3;

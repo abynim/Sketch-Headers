@@ -4,16 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "_TtC6Sketch17ComponentMenuItem.h"
 
-@interface MSResizeArtboardToFitAction : MSDocumentAction
+@interface _TtC6Sketch26SubtitledComponentMenuItem : _TtC6Sketch17ComponentMenuItem
 {
 }
 
-- (id)label;
-- (void)doPerformAction:(id)arg1;
-- (void)resizeArtboardToFit:(id)arg1;
-- (BOOL)validate;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

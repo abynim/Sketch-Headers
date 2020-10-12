@@ -27,7 +27,9 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
@@ -88,6 +90,7 @@
 - (void)finishEditing;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;
+- (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
 - (void)syncTextStyleAttributes;
 - (id)sharedObject;

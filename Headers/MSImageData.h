@@ -30,9 +30,9 @@
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
 - (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
-- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 cache:(id)arg2 owner:(id)arg3;
-- (struct CGImage *)CGImageInCache:(id)arg1 owner:(id)arg2;
-- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 cache:(id)arg2 owner:(id)arg3;
+- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4;
+- (struct CGImage *)CGImageForColorSpace:(struct CGColorSpace *)arg1 cache:(id)arg2 owner:(id)arg3;
+- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4;
 - (void)correctInvalidGamma;
 - (id)imageDataByCorrectingInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;

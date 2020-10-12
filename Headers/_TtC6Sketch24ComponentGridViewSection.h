@@ -8,11 +8,12 @@
 
 #import "NSCollectionViewElement-Protocol.h"
 
-@class NSStackView;
+@class NSStackView, _TtC6Sketch32MSComponentsHeaderBackgroundView;
 
 @interface _TtC6Sketch24ComponentGridViewSection : NSView <NSCollectionViewElement>
 {
     // Error parsing type: , name: pathStackView
+    // Error parsing type: , name: backgroundView
     // Error parsing type: , name: representedObject
     // Error parsing type: , name: showsLibrary
 }
@@ -21,7 +22,10 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)prepareForReuse;
-@property(nonatomic) __weak NSStackView *pathStackView; // @synthesize pathStackView;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)awakeFromNib;
+@property(nonatomic, retain) _TtC6Sketch32MSComponentsHeaderBackgroundView *backgroundView; // @synthesize backgroundView;
+@property(nonatomic, retain) NSStackView *pathStackView; // @synthesize pathStackView;
 
 @end
 

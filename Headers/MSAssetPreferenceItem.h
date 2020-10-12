@@ -40,6 +40,7 @@
 @property(nonatomic) long long updatingStatus; // @synthesize updatingStatus=_updatingStatus;
 - (id)tableRowViewForTableView:(id)arg1;
 @property(readonly, nonatomic) double preferredViewHeight;
+@property(readonly, nonatomic) BOOL shouldDisableEnableControl;
 @property(readonly, nonatomic) BOOL missingRemoteLibraryWithNoInternet;
 @property(readonly, nonatomic) MSRemoteAssetLibrary *remoteLibrary;
 @property(readonly, nonatomic) BOOL canViewLibraryWithQuicklook;

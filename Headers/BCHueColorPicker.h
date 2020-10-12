@@ -10,8 +10,6 @@
 {
 }
 
-- (void)mouseDragged:(id)arg1;
-- (void)mouseDown:(id)arg1;
 - (void)drawBackgroundInRect:(struct CGRect)arg1 dirtyRect:(struct CGRect)arg2;
 - (id)initInBounds:(struct CGRect)arg1;
 

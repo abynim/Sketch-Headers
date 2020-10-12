@@ -12,13 +12,16 @@
 {
     // Error parsing type: , name: document
     // Error parsing type: , name: componentTitleField
+    // Error parsing type: , name: observerToken
     // Error parsing type: , name: layers
     // Error parsing type: , name: selection
 }
 
 - (void).cxx_destruct;
 - (id)init;
+- (void)prepareForDeinit;
 - (id)inspectorViewControllersFor:(id)arg1 from:(id)arg2;
+- (void)reload;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, copy) NSArray *layers;
 

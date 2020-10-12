@@ -20,9 +20,10 @@
     // Error parsing type: , name: filterBarController
     // Error parsing type: , name: kindBarController
     // Error parsing type: , name: componentGridController
+    // Error parsing type: , name: isDelayingTreeDiffs
+    // Error parsing type: , name: delayedTreeDiffs
     // Error parsing type: , name: $__lazy_storage_$_appearanceObserver
     // Error parsing type: , name: splitViewControllerConfigured
-    // Error parsing type: , name: allowEditing
     // Error parsing type: , name: selectionScheme
     // Error parsing type: , name: filterBarPosition
     // Error parsing type: , name: enableLibraryList

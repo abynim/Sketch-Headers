@@ -18,7 +18,6 @@
     NSArray *_toolbarDefaultItemIdentifiers;
 }
 
-+ (id)sidebarTrackingItemIdentifier;
 + (id)toolbarDefaultComponentItemIdentifiers;
 + (id)toolbarDefaultItemIdentifiers;
 + (id)toolbarAllowedComponentItemIdentifiers;

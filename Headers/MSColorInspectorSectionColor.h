@@ -22,6 +22,7 @@
     NSView *_editmodeButtonsView;
     NSView *_swatchActionsView;
     NSButton *_swatchPrimaryActionButton;
+    NSButton *_swatchSecondaryActionButton;
     NSView *_saveColorSwatchView;
     NSTextField *_swatchNameTextField;
     NSString *_swatchName;
@@ -34,6 +35,7 @@
 @property(nonatomic) __weak NSTextField *swatchNameTextField; // @synthesize swatchNameTextField=_swatchNameTextField;
 @property(nonatomic) __weak NSView *saveColorSwatchView; // @synthesize saveColorSwatchView=_saveColorSwatchView;
 @property(nonatomic) BOOL isSavingSwatch; // @synthesize isSavingSwatch=_isSavingSwatch;
+@property(nonatomic) __weak NSButton *swatchSecondaryActionButton; // @synthesize swatchSecondaryActionButton=_swatchSecondaryActionButton;
 @property(nonatomic) __weak NSButton *swatchPrimaryActionButton; // @synthesize swatchPrimaryActionButton=_swatchPrimaryActionButton;
 @property(nonatomic) __weak NSView *swatchActionsView; // @synthesize swatchActionsView=_swatchActionsView;
 @property(nonatomic) __weak NSView *editmodeButtonsView; // @synthesize editmodeButtonsView=_editmodeButtonsView;
@@ -48,6 +50,7 @@
 - (void)cancelEditingSwatch:(id)arg1;
 - (void)finishEditingSwatch:(id)arg1;
 - (void)startEditingSwatch:(id)arg1;
+- (void)editCurrentSwatchAction:(id)arg1;
 - (id)validatedSwatchName;
 - (id)performSaveColorToDocumentSwatches;
 - (void)cancelSavingColorSwatchAction:(id)arg1;
@@ -58,7 +61,10 @@
 - (void)swatchGridController:(id)arg1 didRequestEditSwatch:(id)arg2;
 - (void)swatchGridController:(id)arg1 didDetachFromSwatch:(id)arg2;
 - (void)swatchGridController:(id)arg1 didSelectSwatch:(id)arg2;
+- (void)updateRecentSwatchesWithSwatch:(id)arg1;
 - (void)applySwatch:(id)arg1;
+- (void)updateSwatchActions;
+- (id)currentSwatchReference;
 - (void)itemDidResize:(id)arg1;
 - (id)documentForInspectorItem:(id)arg1;
 - (BOOL)assetPickerController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
@@ -77,7 +83,7 @@
 - (void)setPickedColor:(id)arg1 multipleValues:(BOOL)arg2;
 - (id)assetPickerDataSources;
 - (id)scrollableViews;
-- (id)headerViews;
+- (BOOL)ignoreCollapsedState;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

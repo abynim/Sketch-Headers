@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: $__lazy_storage_$_panelController
     // Error parsing type: , name: isInsertWindowPinnedDefaultsKey
+    // Error parsing type: , name: didUnfocusWindowWhenInsertStarted
 }
 
 + (void)refreshIfNeededForDocument:(id)arg1 treeDiff:(id)arg2;
@@ -22,6 +23,7 @@
 - (void)cancelOperation:(id)arg1;
 - (void)currentDocumentDidChange:(id)arg1;
 - (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
+- (void)componentWasInserted;
 - (void)windowDidLoad;
 - (void)showWindow:(id)arg1;
 

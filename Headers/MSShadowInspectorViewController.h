@@ -19,11 +19,11 @@
     MSMathInspectorValueAdaptor *_yOffsetAdapter;
     MSMathInspectorValueAdaptor *_radiusAdapter;
     MSMathInspectorValueAdaptor *_spreadAdapter;
-    NSTextField *_borderColorLabel;
+    NSTextField *_colorButtonLabel;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSTextField *borderColorLabel; // @synthesize borderColorLabel=_borderColorLabel;
+@property(retain, nonatomic) NSTextField *colorButtonLabel; // @synthesize colorButtonLabel=_colorButtonLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *spreadAdapter; // @synthesize spreadAdapter=_spreadAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdapter; // @synthesize radiusAdapter=_radiusAdapter;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *yOffsetAdapter; // @synthesize yOffsetAdapter=_yOffsetAdapter;

@@ -157,6 +157,7 @@
 - (void)storePluginsForCrashReport;
 - (void)setupPluginManager;
 - (void)applicationWillFinishLaunching:(id)arg1;
+- (void)showUpdates:(id)arg1;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) BOOL canShowDocumentsWindowForUserAction;
 - (void)showMainApplicationWindow;

@@ -6,18 +6,17 @@
 
 #import <SketchModel/_MSForeignStyle.h>
 
-#import <SketchModel/MSSharedStylePasting-Protocol.h>
+#import <SketchModel/MSSharedObjectPasting-Protocol.h>
 
 @class NSString;
 
-@interface MSForeignStyle : _MSForeignStyle <MSSharedStylePasting>
+@interface MSForeignStyle : _MSForeignStyle <MSSharedObjectPasting>
 {
 }
 
 + (id)symbolPrivateStyleWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (unsigned long long)containerType;
-+ (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
 - (id)debugQuickLookObject;
 - (id)findOrCreatePublicVersion;
 - (void)addOrReplaceInDocument:(id)arg1;
@@ -34,7 +33,7 @@
 - (id)initAsPrivateReferenceForSymbol:(id)arg1 withForeignStyle:(id)arg2;
 - (id)initAsPrivateReferenceForSymbol:(id)arg1 withOriginal:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
-@property(readonly, nonatomic) NSString *currentObjectID_MSSharedStylePasting;
+@property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
 - (id)handlePasteIntoDocument:(id)arg1;
 
 @end

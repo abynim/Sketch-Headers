@@ -86,6 +86,7 @@
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;
 @property(readonly, nonatomic) NSString *UIMetadataKey;

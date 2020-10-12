@@ -26,6 +26,7 @@
 - (void)drawForeground;
 - (void)drawRect:(struct CGRect)arg1;
 - (void)mouseUp:(id)arg1;
+- (void)mouseDragged:(id)arg1;
 - (void)mouseDown:(id)arg1;
 
 @end

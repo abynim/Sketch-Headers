@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch17ViewBasedMenuItem.h"
+#import "MSSwatchGridController.h"
 
-@interface _TtC6Sketch23NoSearchResultsMenuItem : _TtC6Sketch17ViewBasedMenuItem
-{
-}
-
-- (id)initWithCoder:(id)arg1;
-
+@interface MSSwatchGridController (Sketch4)
+- (id)previewColorSpaceForClient:(id)arg1;
 @end
 

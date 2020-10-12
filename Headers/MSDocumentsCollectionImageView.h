@@ -16,6 +16,7 @@
 @property(nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
 @property(nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

@@ -14,6 +14,7 @@
     // Error parsing type: , name: layerStyleButton
     // Error parsing type: , name: textStyleButton
     // Error parsing type: , name: swatchButton
+    // Error parsing type: , name: appearanceObservation
     // Error parsing type: , name: componentsPanelController
     // Error parsing type: , name: containerView
 }
@@ -22,6 +23,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)changeComponentKind:(id)arg1;
+- (void)viewDidLoad;
 @property(nonatomic, retain) NSView *containerView; // @synthesize containerView;
 @property(nonatomic, retain) _TtC6Sketch21MSComponentKindButton *swatchButton; // @synthesize swatchButton;
 @property(nonatomic, retain) _TtC6Sketch21MSComponentKindButton *textStyleButton; // @synthesize textStyleButton;

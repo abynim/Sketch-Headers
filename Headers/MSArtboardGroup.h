@@ -23,7 +23,9 @@
 - (void).cxx_destruct;
 - (BOOL)shouldGrowSizeOfGroupForInferredLayout;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
+- (id)updateableColors;
 - (void)updateColorsUsing:(id)arg1;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;
 - (id)closestClippingLayer;
 @property(readonly, nonatomic) struct CGRect contentBounds;

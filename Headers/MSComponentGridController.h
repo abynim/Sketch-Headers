@@ -30,7 +30,7 @@
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;
 - (id)collectionView:(id)arg1 pasteboardWriterForItemAtIndexPath:(id)arg2;
 - (void)collectionView:(id)arg1 draggingSession:(id)arg2 endedAtPoint:(struct CGPoint)arg3 dragOperation:(unsigned long long)arg4;
-- (void)collectionView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItemsAtIndexes:(id)arg4;
+- (void)collectionView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItemsAtIndexPaths:(id)arg4;
 - (void)collectionView:(id)arg1 didDeselectItemsAtIndexPaths:(id)arg2;
 - (void)collectionView:(id)arg1 didSelectItemsAtIndexPaths:(id)arg2;
 - (id)collectionView:(id)arg1 viewForSupplementaryElementOfKind:(id)arg2 atIndexPath:(id)arg3;
@@ -43,6 +43,7 @@
 - (void)insertNewline:(id)arg1;
 - (void)group:(id)arg1;
 - (BOOL)validateUserInterfaceItem:(id)arg1;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) _TtC6Sketch22ComponentGridEmptyView *emptyView; // @synthesize emptyView;
 @property(nonatomic, retain) NSCollectionView *collectionView; // @synthesize collectionView;

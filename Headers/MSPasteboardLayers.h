@@ -14,6 +14,7 @@
 {
     MSLayerArray *_layers;
     NSArray *_sharedStyles;
+    NSArray *_sharedSwatches;
     NSDictionary *_localSymbols;
     NSDictionary *_foreignSymbols;
     unsigned long long _parentTraits;
@@ -32,6 +33,7 @@
 @property(nonatomic) struct CGPoint suggestedPosition; // @synthesize suggestedPosition=_suggestedPosition;
 @property(retain, nonatomic) NSDictionary *foreignSymbols; // @synthesize foreignSymbols=_foreignSymbols;
 @property(retain, nonatomic) NSDictionary *localSymbols; // @synthesize localSymbols=_localSymbols;
+@property(retain, nonatomic) NSArray *sharedSwatches; // @synthesize sharedSwatches=_sharedSwatches;
 @property(retain, nonatomic) NSArray *sharedStyles; // @synthesize sharedStyles=_sharedStyles;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (struct CGRect)suggestedRect;

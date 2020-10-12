@@ -15,6 +15,7 @@
 - (BOOL)hasDynamicTitle;
 - (id)labelForToolbar;
 - (id)label;
+- (void)hideAndAdjustScrollOrigin:(BOOL)arg1;
 - (void)hide;
 - (void)show;
 - (id)defaultsKey;

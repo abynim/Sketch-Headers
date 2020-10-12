@@ -206,6 +206,7 @@
 @property(readonly, nonatomic) NSArray *CSSAttributes;
 - (id)CSSTransformString;
 @property(readonly, nonatomic) NSString *CSSAttributeString;
+- (id)swatchesReferencedInDocument:(id)arg1;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;
 - (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;

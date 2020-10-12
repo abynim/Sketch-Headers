@@ -79,6 +79,7 @@
 - (id)moveLayersToParent;
 - (void)ungroupSingleChildDescendentGroups;
 - (id)ungroup;
+- (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
 
 // Remaining properties

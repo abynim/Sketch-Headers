@@ -26,7 +26,7 @@
 @property(copy, nonatomic) NSString *primitiveObjectID; // @synthesize primitiveObjectID=_objectID;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
-- (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateDescendantsIncludingAncestors:(BOOL)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)traits;
 - (id)generateObjectID;
