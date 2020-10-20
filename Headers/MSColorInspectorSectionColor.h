@@ -15,7 +15,7 @@
 {
     BOOL _isEditingSwatch;
     BOOL _isSavingSwatch;
-    BOOL _swatchNameIsValid;
+    BOOL _canCreateSwatch;
     MSColor *_pickedColor;
     MSSwatchGridController *_swatchGridController;
     MSSwatch *_editedSwatch;
@@ -30,7 +30,7 @@
 
 + (id)presetPickerVisibilityDefaultsKey;
 - (void).cxx_destruct;
-@property(nonatomic) BOOL swatchNameIsValid; // @synthesize swatchNameIsValid=_swatchNameIsValid;
+@property(nonatomic) BOOL canCreateSwatch; // @synthesize canCreateSwatch=_canCreateSwatch;
 @property(copy, nonatomic) NSString *swatchName; // @synthesize swatchName=_swatchName;
 @property(nonatomic) __weak NSTextField *swatchNameTextField; // @synthesize swatchNameTextField=_swatchNameTextField;
 @property(nonatomic) __weak NSView *saveColorSwatchView; // @synthesize saveColorSwatchView=_saveColorSwatchView;
@@ -51,6 +51,7 @@
 - (void)finishEditingSwatch:(id)arg1;
 - (void)startEditingSwatch:(id)arg1;
 - (void)editCurrentSwatchAction:(id)arg1;
+- (BOOL)hasValidSwatchProperties;
 - (id)validatedSwatchName;
 - (id)performSaveColorToDocumentSwatches;
 - (void)cancelSavingColorSwatchAction:(id)arg1;
