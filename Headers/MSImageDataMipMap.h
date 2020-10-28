@@ -10,11 +10,13 @@
 {
     struct CGImage *_CGImage;
     unsigned long long _lod;
+    struct CGColorSpace *_colorspace;
     MSImageDataMipMap *_next;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImageDataMipMap *next; // @synthesize next=_next;
+@property(readonly, nonatomic) struct CGColorSpace *colorspace; // @synthesize colorspace=_colorspace;
 @property(readonly, nonatomic) unsigned long long lod; // @synthesize lod=_lod;
 @property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
 - (struct CGImage *)createDownscaledImageWithBoxFilter:(struct CGImage *)arg1;
