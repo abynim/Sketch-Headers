@@ -11,7 +11,6 @@
 - (BOOL)isExportableViaDragAndDrop;
 - (BOOL)canCopyToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (id)previewImages;
-- (id)badgeImages;
 - (unsigned long long)displayType;
 - (id)displayName;
 @end

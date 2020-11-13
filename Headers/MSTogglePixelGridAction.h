@@ -12,8 +12,9 @@
 
 - (BOOL)isActive;
 - (BOOL)validateMenuItem:(id)arg1;
+- (id)imageForMenu;
 - (id)imageName;
-- (BOOL)isShowingPixelatedView;
+@property(readonly) BOOL isShowingPixelatedView;
 - (void)doPerformAction:(id)arg1;
 - (id)tooltip;
 - (BOOL)hasDynamicTitle;

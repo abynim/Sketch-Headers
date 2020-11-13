@@ -27,7 +27,6 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)prepareForDisplay;
 - (void)confirm:(id)arg1;
 - (void)viewDidLoad;
 @property(nonatomic, retain) _TtC17SketchControllers17MSGridConstructor *gridConstructor; // @synthesize gridConstructor;

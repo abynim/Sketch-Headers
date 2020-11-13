@@ -8,7 +8,7 @@
 
 #import "MSUpDownTextFieldDelegate-Protocol.h"
 
-@class MSDocument, MSLayerArray, NSArrayController, NSMapTable, NSString;
+@class MSDocument, MSLayerArray, NSArrayController, NSMapTable, NSString, NSView;
 @protocol MSInspectorItemDelegate;
 
 @interface MSInspectorItem : NSViewController <MSUpDownTextFieldDelegate>
@@ -16,6 +16,7 @@
     id <MSInspectorItemDelegate> _delegate;
     MSLayerArray *_layers;
     NSArrayController *_layersController;
+    NSView *_initialFirstResponder;
     NSMapTable *_managedControls;
 }
 
@@ -26,6 +27,7 @@
 + (id)itemForSection:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMapTable *managedControls; // @synthesize managedControls=_managedControls;
+@property(retain, nonatomic) NSView *initialFirstResponder; // @synthesize initialFirstResponder=_initialFirstResponder;
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(nonatomic) __weak id <MSInspectorItemDelegate> delegate; // @synthesize delegate=_delegate;
@@ -39,6 +41,7 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)viewDidAppear;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 maximumSizeWithDecorations:(struct CGSize)arg4 scale:(double)arg5 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg6;

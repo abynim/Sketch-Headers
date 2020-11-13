@@ -15,5 +15,9 @@
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
+- (id)outlineView:(id)arg1 itemForPersistentObject:(id)arg2;
+- (id)outlineView:(id)arg1 persistentObjectForItem:(id)arg2;
+- (void)menuNeedsUpdate:(id)arg1;
 @end
 

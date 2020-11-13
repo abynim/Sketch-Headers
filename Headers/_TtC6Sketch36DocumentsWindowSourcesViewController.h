@@ -6,12 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSMenu, NSOutlineView, _TtC6Sketch32DocumentsWindowSourcesFooterView;
+@class NSBox, NSMenu, NSOutlineView;
 
 @interface _TtC6Sketch36DocumentsWindowSourcesViewController : NSViewController
 {
     // Error parsing type: , name: outlineView
-    // Error parsing type: , name: footerView
+    // Error parsing type: , name: scrollViewBottomSeparator
     // Error parsing type: , name: projectItemContextualMenu
     // Error parsing type: , name: sourceForContextualMenu
     // Error parsing type: , name: rowIndexForContextualMenu
@@ -42,10 +42,11 @@
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
 - (void)currentAPISessionDidChange:(id)arg1;
+- (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic) BOOL isEditingProjectName; // @synthesize isEditingProjectName;
 @property(nonatomic, retain) NSMenu *projectItemContextualMenu; // @synthesize projectItemContextualMenu;
-@property(nonatomic) __weak _TtC6Sketch32DocumentsWindowSourcesFooterView *footerView; // @synthesize footerView;
+@property(nonatomic) __weak NSBox *scrollViewBottomSeparator; // @synthesize scrollViewBottomSeparator;
 @property(nonatomic, retain) NSOutlineView *outlineView; // @synthesize outlineView;
 
 @end

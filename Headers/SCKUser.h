@@ -12,23 +12,21 @@
 
 @interface SCKUser : SCKObject <SCKContentOwner>
 {
+    SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
     NSString *_name;
     NSString *_email;
-    NSString *_changedEmail;
-    SCKAvatar *_avatar;
     NSArray *_organizations;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
-@property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
-@property(readonly, nonatomic) NSString *changedEmail; // @synthesize changedEmail=_changedEmail;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
+@property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;

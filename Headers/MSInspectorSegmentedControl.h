@@ -23,6 +23,7 @@
 - (id)view:(id)arg1 stringForToolTip:(long long)arg2 point:(struct CGPoint)arg3 userData:(void *)arg4;
 - (void)updateByBumpingTagKVO;
 - (void)bindTagsToObject:(id)arg1 keyPath:(id)arg2;
+- (struct CGSize)intrinsicContentSize;
 - (struct NSEdgeInsets)alignmentRectInsets;
 
 @end

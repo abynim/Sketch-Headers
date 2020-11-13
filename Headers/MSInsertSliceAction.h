@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)tooltip;
 - (id)label;
 - (void)doPerformAction:(id)arg1;

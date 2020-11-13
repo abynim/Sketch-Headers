@@ -7,6 +7,7 @@
 #import "MSMakeGridInspectorViewController.h"
 
 @interface MSMakeGridInspectorViewController (Sketch)
+- (void)prepareForDisplay;
 - (id)views;
 @end
 

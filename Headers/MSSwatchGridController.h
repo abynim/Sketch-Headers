@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSColor, MSInspectorPopUpButton, NSCollectionView, NSView;
+@class MSColor, MSInspectorButton, MSInspectorPopUpButton, NSCollectionView, NSView;
 @protocol MSSwatchGridControllerDelegate;
 
 @interface MSSwatchGridController : NSViewController
@@ -17,6 +17,8 @@
     // Error parsing type: , name: librariesButton
     // Error parsing type: , name: collectionView
     // Error parsing type: , name: emptyView
+    // Error parsing type: , name: displayModeButton
+    // Error parsing type: , name: effectiveDisplayMode
     // Error parsing type: , name: $__lazy_storage_$_documentViewItem
     // Error parsing type: , name: foreignLibraryViewItems
     // Error parsing type: , name: selectedLibraryViewItem
@@ -28,9 +30,13 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)onDoubleClick:(id)arg1;
+- (void)switchDisplayMode:(id)arg1;
+- (void)viewWillLayout;
 - (void)viewDidLoad;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic) unsigned long long effectiveDisplayMode; // @synthesize effectiveDisplayMode;
+@property(nonatomic, retain) MSInspectorButton *displayModeButton; // @synthesize displayModeButton;
 @property(nonatomic, retain) NSView *emptyView; // @synthesize emptyView;
 @property(nonatomic, retain) NSCollectionView *collectionView; // @synthesize collectionView;
 @property(nonatomic) __weak MSInspectorPopUpButton *librariesButton; // @synthesize librariesButton;

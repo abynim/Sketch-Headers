@@ -6,16 +6,31 @@
 
 #import <objc/NSObject.h>
 
+@class MSHistoryMaker;
+
 @interface _TtC6Sketch10ScaleModel : NSObject
 {
-    // Error parsing type: , name: originalRect
+    // Error parsing type: , name: originalSize
+    // Error parsing type: , name: items
+    // Error parsing type: , name: originCorner
     // Error parsing type: , name: scale
+    // Error parsing type: , name: resizeBox
+    // Error parsing type: , name: historyMaker
+    // Error parsing type: , name: delegate
 }
 
-- (id)init;
++ (id)keyPathsForValuesAffectingHeight;
++ (id)keyPathsForValuesAffectingWidth;
++ (id)keyPathsForValuesAffectingScaledRect;
+- (void).cxx_destruct;
+@property(nonatomic, retain) MSHistoryMaker *historyMaker; // @synthesize historyMaker;
 @property(nonatomic) double height;
 @property(nonatomic) double width;
+@property(nonatomic, readonly) struct CGRect scaledRect;
 @property(nonatomic) double scale; // @synthesize scale;
+@property(nonatomic) long long originCorner; // @synthesize originCorner;
+- (void)dealloc;
+- (id)init;
 
 @end
 

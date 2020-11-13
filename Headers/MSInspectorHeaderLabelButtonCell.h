@@ -6,10 +6,15 @@
 
 #import <SketchControllers/MSInspectorTweakedTextRectPopUpButtonCell.h>
 
+@class NSColor;
+
 @interface MSInspectorHeaderLabelButtonCell : MSInspectorTweakedTextRectPopUpButtonCell
 {
+    NSColor *_labelColor;
 }
 
+- (void).cxx_destruct;
+@property(readonly, nonatomic) NSColor *labelColor; // @synthesize labelColor=_labelColor;
 - (struct CGRect)inspectorPopUpArrowRectForBounds:(struct CGRect)arg1;
 - (id)attributedTitle;
 

@@ -8,5 +8,15 @@
 
 @interface _TtC17SketchControllers26MSTemporaryCoordinateSpace (SketchControllers)
 - (id)initWithLayer:(id)arg1;
+- (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
+- (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;
+@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
+@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
+- (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGVector)convertVector:(struct CGVector)arg1 toCoordinateSpace:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
 @end
 

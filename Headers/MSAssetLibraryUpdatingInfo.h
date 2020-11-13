@@ -36,6 +36,7 @@
 - (BOOL)isEqualToAssetLibraryUpdatingInfo:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithCloudShare:(id)arg1;
 - (id)initWithDownloadURL:(id)arg1 libraryName:(id)arg2 imageURL:(id)arg3 newVersionNumber:(id)arg4 shareLink:(id)arg5 downloadSize:(unsigned long long)arg6;
 
 @end

@@ -6,7 +6,7 @@
 
 #import "MSCollapsibleHeaderInspectorItem.h"
 
-@class NSButton;
+@class MSDataMenuProvider, NSButton, NSMenu;
 @protocol MSTextHeaderInspectorItemDelegate;
 
 @interface MSTextHeaderInspectorItem : MSCollapsibleHeaderInspectorItem
@@ -15,16 +15,25 @@
     BOOL _detailSettingsDisclosed;
     BOOL _detailSettingsEnabled;
     NSButton *_detailSettingsButton;
+    NSButton *_dataButton;
+    NSMenu *_dataMenu;
+    MSDataMenuProvider *_dataMenuProvider;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSDataMenuProvider *dataMenuProvider; // @synthesize dataMenuProvider=_dataMenuProvider;
+@property(retain, nonatomic) NSMenu *dataMenu; // @synthesize dataMenu=_dataMenu;
+@property(nonatomic) __weak NSButton *dataButton; // @synthesize dataButton=_dataButton;
 @property(nonatomic) BOOL detailSettingsEnabled; // @synthesize detailSettingsEnabled=_detailSettingsEnabled;
 @property(nonatomic) BOOL detailSettingsDisclosed; // @synthesize detailSettingsDisclosed=_detailSettingsDisclosed;
 @property(nonatomic) BOOL detailSettingsVisible; // @synthesize detailSettingsVisible=_detailSettingsVisible;
 @property(retain, nonatomic) NSButton *detailSettingsButton; // @synthesize detailSettingsButton=_detailSettingsButton;
 - (void)toggleSettings:(id)arg1;
+- (void)validateDataButtonState;
 - (void)updateUI;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)viewDidLoad;
+- (void)showDataMenu:(id)arg1;
 - (id)init;
 
 // Remaining properties

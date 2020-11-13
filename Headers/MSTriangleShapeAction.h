@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)tooltip;
 - (id)label;
 - (void)triangleShape:(id)arg1;

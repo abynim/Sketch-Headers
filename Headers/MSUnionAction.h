@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)label;
 - (id)tooltip;
 - (id)touchBarImage;

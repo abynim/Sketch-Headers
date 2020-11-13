@@ -21,6 +21,7 @@
 @property(nonatomic) BOOL indicateObjectHasChanged; // @synthesize indicateObjectHasChanged=_indicateObjectHasChanged;
 @property(nonatomic) BOOL indicateNoSelection; // @synthesize indicateNoSelection=_indicateNoSelection;
 @property(nonatomic) BOOL indicateMultipleSelection; // @synthesize indicateMultipleSelection=_indicateMultipleSelection;
+- (struct NSEdgeInsets)alignmentRectInsets;
 @property(nonatomic) BOOL useDefaultImageDrawing;
 - (id)attributedSecondaryTitle;
 - (id)attributedTitle;

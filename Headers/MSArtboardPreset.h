@@ -21,12 +21,14 @@
     unsigned long long _height;
     NSString *_imageName;
     NSString *_tooltip;
+    NSString *_imageNameLandscape;
 }
 
 + (id)sizeToFitPresetWithName:(id)arg1 size:(struct CGSize)arg2;
 + (double)resizeScaleFromArtboardSize:(struct CGSize)arg1 presetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3;
 + (long long)compareArtboardSize:(struct CGSize)arg1 withScaledPresetSize:(struct CGSize)arg2 offeringLandscapeVariant:(BOOL)arg3 isRotated:(char *)arg4;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *imageNameLandscape; // @synthesize imageNameLandscape=_imageNameLandscape;
 @property(nonatomic) BOOL isNew; // @synthesize isNew=_isNew;
 @property(readonly, nonatomic) BOOL isSizeToFit; // @synthesize isSizeToFit=_isSizeToFit;
 @property(readonly, copy, nonatomic) NSString *tooltip; // @synthesize tooltip=_tooltip;
@@ -49,7 +51,7 @@
 @property(readonly, nonatomic) NSString *layerName;
 - (id)init;
 - (id)initWithDictionaryRepresentation:(id)arg1;
-- (id)initWithName:(id)arg1 size:(struct CGSize)arg2 imageName:(id)arg3;
+- (id)initWithName:(id)arg1 size:(struct CGSize)arg2 imageName:(id)arg3 imageNameLandscape:(id)arg4;
 - (double)resizeScaleFromArtboardSize:(struct CGSize)arg1;
 - (unsigned long long)matchWithArtboardSize:(struct CGSize)arg1;
 

@@ -16,5 +16,7 @@
     // Error parsing type: , name: coordinateSpace
 }
 
+- (id)debugQuickLookObject;
+
 @end
 

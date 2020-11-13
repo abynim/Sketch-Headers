@@ -9,6 +9,7 @@
 @class NSArray;
 
 @interface NSWindow (Chocolat)
+@property(readonly, nonatomic) double toolbarHeight;
 @property(readonly, nonatomic) NSArray *coveredWindows;
 - (void)commitEditedTextRetainingFirstResponder;
 - (BOOL)closePopovers;

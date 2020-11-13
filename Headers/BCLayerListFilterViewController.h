@@ -16,25 +16,20 @@
 @interface BCLayerListFilterViewController : NSViewController <NSMenuDelegate, NSSearchFieldDelegate, NSTextViewDelegate, BCFilterTextFieldDelegate>
 {
     BCFilterInfo *_filter;
-    NSButton *_clearButton;
-    double _designedClearButtonWidth;
     NSButton *_filterButton;
     NSMenu *_filterPickerMenu;
     NSDictionary *_filterMenuItemTemplateImages;
-    NSSearchField *_filterStringTextField;
+    NSSearchField *_searchField;
     NSView *_filterTokensView;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak NSView *filterTokensView; // @synthesize filterTokensView=_filterTokensView;
-@property(nonatomic) __weak NSSearchField *filterStringTextField; // @synthesize filterStringTextField=_filterStringTextField;
+@property(nonatomic) __weak NSSearchField *searchField; // @synthesize searchField=_searchField;
 @property(retain, nonatomic) NSDictionary *filterMenuItemTemplateImages; // @synthesize filterMenuItemTemplateImages=_filterMenuItemTemplateImages;
 @property(nonatomic) __weak NSMenu *filterPickerMenu; // @synthesize filterPickerMenu=_filterPickerMenu;
 @property(nonatomic) __weak NSButton *filterButton; // @synthesize filterButton=_filterButton;
-@property(nonatomic) double designedClearButtonWidth; // @synthesize designedClearButtonWidth=_designedClearButtonWidth;
-@property(nonatomic) __weak NSButton *clearButton; // @synthesize clearButton=_clearButton;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
-- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshFilterTokens;
 - (void)dropLastFilterToken;
@@ -47,7 +42,6 @@
 - (void)showFilterMenu:(id)arg1;
 - (void)findLayer:(id)arg1;
 - (id)tokenButtonWithTitle:(id)arg1 filterType:(unsigned long long)arg2;
-- (void)showClearButtonIfAppropriate;
 - (id)selectedFilterTokenButtons;
 - (id)filterTokenButtons;
 - (id)sidebar;

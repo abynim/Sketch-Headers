@@ -9,7 +9,7 @@
 #import <SketchControllers/NSMenuDelegate-Protocol.h>
 #import <SketchControllers/NSMenuItemValidation-Protocol.h>
 
-@class MSActionController, NSAttributedString, NSImage, NSMenuItem, NSString, NSToolbarItem;
+@class MSActionController, NSArray, NSAttributedString, NSImage, NSMenuItem, NSString, NSToolbarItem;
 
 @interface MSAction : NSResponder <NSMenuDelegate, NSMenuItemValidation>
 {
@@ -19,7 +19,10 @@
 }
 
 + (id)classNamesToImageNamesDictionary;
++ (id)imageSuffix;
 + (id)imageName;
++ (id)imageNameWithBaseName:(id)arg1;
++ (id)baseImageName;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
@@ -45,7 +48,6 @@
 @property(readonly, nonatomic) NSString *tooltip;
 @property(readonly, nonatomic) BOOL mayShowInToolbar;
 - (id)imageForToolbarCustomisationSheet;
-@property(readonly, nonatomic) NSString *labelForToolbarCustomisationSheet;
 @property(readonly, nonatomic) NSImage *imageForToolbar;
 @property(readonly, nonatomic) NSString *labelForToolbar;
 @property(readonly, nonatomic) NSMenuItem *menuItemForToolbarItem;
@@ -54,7 +56,8 @@
 - (void)menuDidClose:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
-- (id)menuItems;
+@property(readonly) NSArray *menuItems;
+@property(readonly, nonatomic) NSImage *imageForMenu;
 @property(readonly, nonatomic) NSString *labelForMenu;
 - (id)menuItemsForMenu:(id)arg1;
 @property(readonly, nonatomic) SEL preferredMenuAction;

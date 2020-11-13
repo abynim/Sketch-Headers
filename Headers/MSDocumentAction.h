@@ -34,10 +34,12 @@
 - (id)toggleHandlerClass:(Class)arg1;
 - (id)currentHandler;
 - (BOOL)isInNormalHandler;
+- (BOOL)isActive;
 - (BOOL)validate;
 @property(readonly, nonatomic) unsigned long long currentContentMode;
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
+- (void)menuWillOpen:(id)arg1;
 - (id)menu;
 - (void)repopulateMenu:(id)arg1;
 - (unsigned long long)touchBarItemSizing;

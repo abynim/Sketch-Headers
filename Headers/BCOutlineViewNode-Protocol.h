@@ -6,13 +6,12 @@
 
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class MSTintedImages, NSImage, NSString;
+@class NSImage, NSString;
 @protocol BCOutlineViewPopupConfigurator;
 
 @protocol BCOutlineViewNode <NSObject>
 @property(readonly, nonatomic) BOOL isExpanded;
 @property(readonly, nonatomic) id layerListImmutable;
-@property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
 @property(readonly, nonatomic) BOOL isEditableInLayerList;
 @property(readonly, nonatomic) BOOL isActive;

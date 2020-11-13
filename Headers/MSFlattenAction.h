@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)historyMomentTitle;
 - (id)label;
 - (id)tooltip;

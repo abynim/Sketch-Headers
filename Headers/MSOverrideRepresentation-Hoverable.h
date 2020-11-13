@@ -10,7 +10,7 @@
 #import <SketchControllers/MSHoverableItem-Protocol.h>
 #import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 
-@class MSLayer, MSPath, MSTintedImages, NSString;
+@class MSLayer, MSPath, NSString;
 
 @interface MSOverrideRepresentation (Hoverable) <MSHoverableItem, BCOutlineViewNode, MSLayerListLayerExtensions>
 - (BOOL)matchesLayerListNode:(id)arg1;
@@ -36,7 +36,6 @@
 - (void)layerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)previewIconWithState:(unsigned long long)arg1;
 - (long long)previewIconTraitsForState:(unsigned long long)arg1;
-@property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
 - (BOOL)hasHighlight;
 @property(readonly, nonatomic) BOOL isEditableInLayerList;

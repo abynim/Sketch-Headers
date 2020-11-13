@@ -26,6 +26,7 @@
 - (void)recalculateHeight;
 - (void)layout;
 - (void)reloadSubviews;
+- (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end
 

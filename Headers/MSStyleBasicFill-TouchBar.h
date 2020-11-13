@@ -7,7 +7,6 @@
 #import <SketchModel/MSStyleBasicFill.h>
 
 @interface MSStyleBasicFill (TouchBar)
-+ (void)drawNoiseFill:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3;
 + (void)drawPatternFill:(id)arg1 inRect:(struct CGRect)arg2;
 + (void)drawGradientFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;
 + (void)drawColorFill:(id)arg1 colorSpace:(id)arg2 inRect:(struct CGRect)arg3;

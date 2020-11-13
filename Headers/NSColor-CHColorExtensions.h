@@ -11,8 +11,6 @@
 + (id)colorWithGray:(double)arg1;
 + (id)tintColorMildDark;
 + (id)tintColorMild;
-+ (id)tintColorNormalDark;
-+ (id)tintColorNormal;
 + (id)tintColorIntenseDark;
 + (id)tintColorIntense;
 - (double)luminance_ch;

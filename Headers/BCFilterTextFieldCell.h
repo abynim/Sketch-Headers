@@ -6,12 +6,21 @@
 
 #import <AppKit/NSSearchFieldCell.h>
 
+@class NSView;
+
 @interface BCFilterTextFieldCell : NSSearchFieldCell
 {
+    NSView *_filterTokenView;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) __weak NSView *filterTokenView; // @synthesize filterTokenView=_filterTokenView;
+- (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (struct CGRect)searchTextRectForBounds:(struct CGRect)arg1;
+- (struct CGRect)searchButtonRectForBounds:(struct CGRect)arg1;
+- (void)selectWithFrame:(struct CGRect)arg1 inView:(id)arg2 editor:(id)arg3 delegate:(id)arg4 start:(long long)arg5 length:(long long)arg6;
+- (struct CGRect)adjustRectForFilterTokens:(struct CGRect)arg1;
 - (id)setUpFieldEditorAttributes:(id)arg1;
-- (void)awakeFromNib;
 
 @end
 

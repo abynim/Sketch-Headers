@@ -11,5 +11,6 @@
 @interface _TtC17SketchControllers12MSResizeTool (SketchControllers)
 - (struct CGRect)alignmentRectInCoordinateSpace:(id)arg1 options:(unsigned long long)arg2;
 @property(nonatomic, readonly) id <MSLayerCoordinateSpace> coordinateSpaceForSnapping;
+- (id)debugQuickLookObject;
 @end
 

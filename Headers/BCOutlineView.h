@@ -38,6 +38,7 @@
 - (void)applyAppearance;
 - (id)menuForEvent:(id)arg1;
 - (BOOL)validateProposedFirstResponder:(id)arg1 forEvent:(id)arg2;
+- (struct CGRect)frameOfOutlineCellForRowView:(id)arg1 row:(long long)arg2 proposedFrame:(struct CGRect)arg3;
 - (struct CGRect)frameOfOutlineCellAtRow:(long long)arg1;
 - (id)makeViewWithIdentifier:(id)arg1 owner:(id)arg2;
 - (void)disclosureTriangleClicked:(id)arg1;

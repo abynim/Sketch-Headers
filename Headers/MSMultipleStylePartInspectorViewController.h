@@ -9,7 +9,7 @@
 #import "MSReorderingContainerDelegate-Protocol.h"
 #import "MSStylePartBlendModeButtonDelegate-Protocol.h"
 
-@class MSReorderingContainerView, MSStylePartBlendModeButton, NSArray, NSButton, NSString, NSTextField, NSView;
+@class MSDataMenuProvider, MSReorderingContainerView, MSStylePartBlendModeButton, NSArray, NSButton, NSMenu, NSString, NSTextField, NSView;
 @protocol MSInspectorSectionDelegate;
 
 @interface MSMultipleStylePartInspectorViewController : NSViewController <MSStylePartBlendModeButtonDelegate, MSReorderingContainerDelegate>
@@ -27,9 +27,15 @@
     NSButton *_disabledStylePartsButton;
     NSButton *_resetStylePartsButton;
     NSButton *_learnMoreButton;
+    NSButton *_dataButton;
+    NSMenu *_dataMenu;
+    MSDataMenuProvider *_dataMenuProvider;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSDataMenuProvider *dataMenuProvider; // @synthesize dataMenuProvider=_dataMenuProvider;
+@property(retain, nonatomic) NSMenu *dataMenu; // @synthesize dataMenu=_dataMenu;
+@property(retain, nonatomic) NSButton *dataButton; // @synthesize dataButton=_dataButton;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSButton *resetStylePartsButton; // @synthesize resetStylePartsButton=_resetStylePartsButton;
 @property(retain, nonatomic) NSButton *disabledStylePartsButton; // @synthesize disabledStylePartsButton=_disabledStylePartsButton;
@@ -43,6 +49,10 @@
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *stylePartViewControllers; // @synthesize stylePartViewControllers=_stylePartViewControllers;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+- (id)dataButtonTooltip;
+- (void)validateDataButtonState;
+- (long long)dataButtonState;
+- (void)showDataMenu:(id)arg1;
 - (id)documentForStylePartBlendButton:(id)arg1;
 - (void)setBlendMode:(long long)arg1 sender:(id)arg2;
 - (long long)blendModeButtonState;

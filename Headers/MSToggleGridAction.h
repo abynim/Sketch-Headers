@@ -13,6 +13,7 @@
 - (long long)validationStatus;
 - (BOOL)validate;
 - (id)tooltip;
+- (id)imageForMenu;
 - (id)labelForToolbar;
 - (id)label;
 - (void)setGrid:(id)arg1 forLayer:(id)arg2;

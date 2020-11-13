@@ -8,15 +8,24 @@
 
 @interface MSScaleEventHandler : MSEventHandler
 {
+    // Error parsing type: , name: scaleModel
+    // Error parsing type: , name: $__lazy_storage_$_selectionOverlay
+    // Error parsing type: , name: scaledRectObservation
+    // Error parsing type: , name: $__lazy_storage_$_overlayLabel
+    // Error parsing type: , name: $__lazy_storage_$_percentFormatter
+    // Error parsing type: , name: $__lazy_storage_$_sizeFormatter
+    // Error parsing type: , name: isProcessingOwnChange
     // Error parsing type: , name: $__lazy_storage_$_inspectorViewController
 }
 
 - (void).cxx_destruct;
 - (id)init;
-- (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)selectionDidChangeTo:(id)arg1;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 @property(nonatomic, readonly) unsigned long long inspectorLocation;
+- (void)documentDidChange:(id)arg1;
+- (void)handlerWillLoseFocus;
+- (void)handlerGotFocus;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithManager:(id)arg1;
 

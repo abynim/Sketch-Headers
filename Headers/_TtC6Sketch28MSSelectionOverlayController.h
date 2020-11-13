@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSSelectionOverlay, MSStackTool, NSArray, _TtC17SketchControllers14MSOverlayLabel;
+@class MSSelectionOverlay, MSStackTool, NSArray;
 @protocol _TtP6Sketch27MSSelectionOverlayPresenter_;
 
 @interface _TtC6Sketch28MSSelectionOverlayController : NSObject
@@ -22,14 +22,13 @@
     // Error parsing type: , name: horizontalSpaces
     // Error parsing type: , name: verticalSpaces
     // Error parsing type: , name: overlay
-    // Error parsing type: , name: $__lazy_storage_$_spacingLabel
+    // Error parsing type: , name: $__lazy_storage_$_overlayLabel
     // Error parsing type: , name: visibilityModel
     // Error parsing type: , name: presenter
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <_TtP6Sketch27MSSelectionOverlayPresenter_> presenter; // @synthesize presenter;
-@property(nonatomic, retain) _TtC17SketchControllers14MSOverlayLabel *spacingLabel;
 @property(nonatomic, readonly) MSSelectionOverlay *overlay; // @synthesize overlay;
 @property(nonatomic, readonly) MSStackTool *stackTool; // @synthesize stackTool;
 - (void)restoreShowingSelection;

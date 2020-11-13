@@ -69,6 +69,7 @@
 - (void)stopObserving;
 - (void)refreshCellContents:(id)arg1;
 - (void)refreshPreviewImages:(id)arg1;
+- (BOOL)isOpaque;
 - (long long)backgroundStyle;
 - (void)refreshTextColor;
 - (void)updateSelectionStateIfRequired;
@@ -80,6 +81,7 @@
 @property(readonly, nonatomic) BOOL isNodeHidden;
 @property(readonly, nonatomic) BOOL isNodeSelected;
 - (void)dealloc;
+- (void)viewDidMoveToSuperview;
 - (void)awakeFromNib;
 
 // Remaining properties

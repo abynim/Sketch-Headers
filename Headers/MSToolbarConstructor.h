@@ -18,7 +18,11 @@
     NSArray *_toolbarDefaultItemIdentifiers;
 }
 
++ (id)toolbarDefaultComponentItemIdentifiersForCatalinaAndBelow;
++ (id)toolbarDefaultComponentItemIdentifiersForBigSurAndUp;
 + (id)toolbarDefaultComponentItemIdentifiers;
++ (id)toolbarDefaultItemIdentifiersForCatalinaAndBelow;
++ (id)toolbarDefaultItemIdentifiersForBigSurAndUp;
 + (id)toolbarDefaultItemIdentifiers;
 + (id)toolbarAllowedComponentItemIdentifiers;
 + (id)toolbarAllowedSketchDocumentItemIdentifiers;
@@ -27,13 +31,20 @@
 @property(copy, nonatomic) NSArray *toolbarAllowedItemIdentifiers; // @synthesize toolbarAllowedItemIdentifiers=_toolbarAllowedItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarSelectableIdentifiers; // @synthesize toolbarSelectableIdentifiers=_toolbarSelectableIdentifiers;
 @property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
+@property(readonly) NSString *componentsToolbarType;
+@property(readonly) NSString *canvasToolbarType;
+- (void)removeLegacyToolbarItemsForToolbar:(id)arg1;
 - (void)insertNewDefaultToolbarItemsForToolbar:(id)arg1;
+- (void)forceAddToolbarItemWithIdentifier:(id)arg1 toToolbar:(id)arg2;
 - (void)documentContentTypeDidChange;
 - (void)documentTypeDidChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)validateActionOfToolbarItem:(id)arg1;
 - (void)validateToolbarItems;
+- (void)ensureNotificationItemVisibility;
+- (BOOL)shouldShowNotificationItem;
 - (void)toolbarWillAddItem:(id)arg1;
+- (void)toolbarDidRemoveItem:(id)arg1;
 - (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (id)toolbarSelectableItemIdentifiers:(id)arg1;

@@ -14,6 +14,7 @@
 - (struct CGRect)rectOfTickMarkAtIndex:(long long)arg1;
 - (void)drawTickmarkKnob:(struct CGRect)arg1;
 - (void)drawKnob:(struct CGRect)arg1;
+- (double)knobThickness;
 - (struct CGRect)knobRectFlipped:(BOOL)arg1;
 - (void)drawBarInside:(struct CGRect)arg1 flipped:(BOOL)arg2;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;

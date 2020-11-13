@@ -11,6 +11,7 @@
 @protocol WKNavigationDelegate <NSObject>
 
 @optional
+- (void)webView:(WKWebView *)arg1 authenticationChallenge:(NSURLAuthenticationChallenge *)arg2 shouldAllowDeprecatedTLS:(void (^)(BOOL))arg3;
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)arg1;
 - (void)webView:(WKWebView *)arg1 didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2 completionHandler:(void (^)(long long, NSURLCredential *))arg3;
 - (void)webView:(WKWebView *)arg1 didFailNavigation:(WKNavigation *)arg2 withError:(NSError *)arg3;

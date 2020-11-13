@@ -31,6 +31,8 @@
 - (id)menuItemsForDataType:(unsigned long long)arg1;
 - (id)shadowImageFromImage:(id)arg1;
 - (id)addImageToMenuItems:(id)arg1;
+- (SEL)actionForCurrentContext;
+- (SEL)rootActionForCurrentContext;
 - (BOOL)addDataSuppliersForType:(unsigned long long)arg1 toMenu:(id)arg2 typeTitle:(id)arg3;
 - (void)addMenusForMultipleTypesToMenu:(id)arg1;
 - (id)refreshDataMenuItem;

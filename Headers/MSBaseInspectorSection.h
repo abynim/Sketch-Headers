@@ -6,13 +6,14 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "MSInspectorChildController-Protocol.h"
 #import "MSInspectorItemDelegate-Protocol.h"
 #import "MSInspectorSection-Protocol.h"
 
 @class MSLayerArray, NSArray, NSString;
 @protocol MSInspectorSectionDelegate;
 
-@interface MSBaseInspectorSection : NSViewController <MSInspectorSection, MSInspectorItemDelegate>
+@interface MSBaseInspectorSection : NSViewController <MSInspectorSection, MSInspectorItemDelegate, MSInspectorChildController>
 {
     MSLayerArray *_layers;
     id <MSInspectorSectionDelegate> _delegate;
@@ -25,6 +26,8 @@
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (id)documentForInspectorItem:(id)arg1;
 - (void)itemDidResize:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
+- (void)prepareForDisplay;
 - (void)refreshIfNecessary:(id)arg1;
 - (struct NSEdgeInsets)separatorInset;
 - (BOOL)wantsSeparatorAfterViews;

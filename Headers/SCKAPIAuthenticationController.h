@@ -16,7 +16,7 @@
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
-- (void)signinWithSSOFromContextProvider:(id)arg1 environment:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)signinWithSSOFromContextProvider:(id)arg1 environment:(id)arg2 organizationShortName:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)refreshLicense:(CDUnknownBlockType)arg1;
 - (void)signinWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)refreshAuthenticationWithValidation:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;

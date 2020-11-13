@@ -10,6 +10,7 @@
 {
 }
 
+- (BOOL)hasDynamicTitle;
 - (id)label;
 - (id)tooltip;
 - (BOOL)validate;

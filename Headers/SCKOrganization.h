@@ -8,23 +8,29 @@
 
 #import <SketchCloudKit/SCKContentOwner-Protocol.h>
 
-@class NSDictionary, NSString, SCKPaginatedProjects, SCKPaginatedShares;
+@class NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
 
 @interface SCKOrganization : SCKObject <SCKContentOwner>
 {
     BOOL _canContribute;
+    BOOL _ssoEnabled;
+    SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
     NSString *_shortID;
     NSString *_name;
+    NSString *_ssoShortName;
 }
 
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSString *ssoShortName; // @synthesize ssoShortName=_ssoShortName;
+@property(readonly, nonatomic) BOOL ssoEnabled; // @synthesize ssoEnabled=_ssoEnabled;
 @property(readonly, nonatomic) BOOL canContribute; // @synthesize canContribute=_canContribute;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
+@property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;

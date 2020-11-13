@@ -29,7 +29,11 @@
 @property(nonatomic) long long draggingDestinationFeedbackStyle;
 @property(nonatomic) long long selectionHighlightStyle;
 - (void)didAddSubview:(id)arg1;
+- (BOOL)isOpaque;
 @property(nonatomic) BOOL wantsLayer;
+
+// Remaining properties
+@property(nonatomic, readonly) BOOL opaque;
 
 @end
 

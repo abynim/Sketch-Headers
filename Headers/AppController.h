@@ -131,7 +131,6 @@
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)openTemplateAtURL:(id)arg1;
 - (void)openTemplateFile:(id)arg1;
-- (void)checkImageTemplates;
 @property(nonatomic) BOOL cloudAsDefault;
 - (void)checkDefaults;
 - (BOOL)application:(id)arg1 continueUserActivity:(id)arg2 restorationHandler:(CDUnknownBlockType)arg3;
@@ -180,6 +179,12 @@
 - (id)actionClasses;
 - (void)kickMenu:(id)arg1;
 - (void)applySubmenuShortcutFix;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3 portToAsnwerTo:(id)arg4;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3;
+- (id)runPluginAtURL:(id)arg1;
+- (id)evaluateScript:(id)arg1;
+- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
+- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
 - (id)runPluginScript:(id)arg1 handler:(id)arg2 name:(id)arg3 withPreprocess:(BOOL)arg4;
 - (id)runPluginScript:(id)arg1 name:(id)arg2;
 - (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2 context:(id)arg3 onComplete:(CDUnknownBlockType)arg4;
@@ -190,12 +195,6 @@
 - (void)revealPlugin:(id)arg1;
 @property(readonly, nonatomic) MSPluginCommand *lastRun;
 - (void)rememberLastRun:(id)arg1;
-- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3 portToAsnwerTo:(id)arg4;
-- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2 context:(id)arg3;
-- (id)runPluginAtURL:(id)arg1;
-- (id)evaluateScript:(id)arg1;
-- (id)runPluginCommandWithIdentifier:(id)arg1 fromBundleAtURL:(id)arg2;
-- (id)runPluginCommand:(id)arg1 fromMenu:(BOOL)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

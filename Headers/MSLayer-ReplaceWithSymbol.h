@@ -12,7 +12,7 @@
 #import <SketchControllers/MSLayerListLayerExtensions-Protocol.h>
 #import <SketchControllers/MSSnappable-Protocol.h>
 
-@class MSLayoutDimension, MSLayoutPosition, MSModelObject, MSPath, MSTintedImages, NSString;
+@class MSLayoutDimension, MSLayoutPosition, MSModelObject, MSPath, NSString;
 @protocol BCSortable><MSSharedObjectStyling;
 
 @interface MSLayer (ReplaceWithSymbol) <MSHoverableItem, MSSnappable, MSDataApplicable, MSLayerDataType, MSLayerListLayerExtensions>
@@ -84,7 +84,6 @@
 - (long long)previewIconTraitsForState:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isPreviewDependentOnExpansionState;
 @property(readonly, nonatomic) BOOL previewShouldIndicateSharedStyle;
-@property(readonly, nonatomic) MSTintedImages *badgeImages;
 @property(readonly, nonatomic) BOOL hasBadgedIcon;
 @property(readonly, nonatomic) BOOL isEditableInLayerList;
 @property(readonly, nonatomic) BOOL isActive;

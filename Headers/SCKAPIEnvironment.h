@@ -22,6 +22,7 @@
 + (BOOL)isProductionHost:(id)arg1;
 + (id)nameFromHost:(id)arg1;
 + (BOOL)supportsSecureCoding;
++ (id)ssoDidChange;
 + (id)authenticationDidChange;
 + (id)keychainErrorForStatus:(int)arg1;
 - (void).cxx_destruct;
@@ -66,7 +67,7 @@
 @property(readonly, nonatomic) NSArray *publicKeys;
 @property(readonly, nonatomic) NSString *requestSignatureSecret;
 @property(readonly, nonatomic) NSURL *resetPasswordURL;
-@property(readonly, nonatomic) NSURL *signInWithSSOURL;
+- (id)signInWithSSOURLForOrganizationShortName:(id)arg1;
 @property(readonly, nonatomic) NSURL *signUpURL;
 - (id)sharesOverviewURLForUserID:(id)arg1;
 - (id)settingsURLForShare:(id)arg1;

@@ -19,6 +19,8 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
 @property(nonatomic) BOOL isDisplayingTint; // @synthesize isDisplayingTint=_isDisplayingTint;
+- (long long)dataButtonState;
+- (void)popoverWindowDidMove:(id)arg1;
 - (void)popoverWillClose:(id)arg1;
 - (void)popoverWillShow:(id)arg1;
 - (id)menuTitlePaste;

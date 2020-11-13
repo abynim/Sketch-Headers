@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSString, NSView, _TtC6Sketch25MSComponentMenuController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSStackView, NSString, NSView, _TtC6Sketch25MSComponentMenuController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -23,9 +23,11 @@
     NSView *_alignmentContainerView;
     NSView *_contentContainerView;
     MSNormalInspector *_normalInspector;
+    NSStackView *_stackView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
 @property(retain, nonatomic) NSView *alignmentContainerView; // @synthesize alignmentContainerView=_alignmentContainerView;
@@ -70,6 +72,7 @@
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
 - (void)refreshAfterAppearanceChange;
+- (void)alignWithWindowContentLayoutGuide;
 - (void)dealloc;
 - (void)viewDidLoad;
 - (void)awakeFromNib;

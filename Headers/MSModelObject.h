@@ -81,11 +81,11 @@
 - (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
+- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;

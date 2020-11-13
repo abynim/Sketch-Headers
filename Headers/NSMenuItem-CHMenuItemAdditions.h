@@ -13,6 +13,7 @@
 + (id)itemWithTitle:(id)arg1 action:(SEL)arg2;
 - (void)applyBlockToMenuItemAndItemsInSubmenus:(CDUnknownBlockType)arg1;
 - (BOOL)isInMainMenu;
+- (void)setFont:(id)arg1;
 - (void)setSmallCenteredFont;
 - (void)setSmallFont;
 @end

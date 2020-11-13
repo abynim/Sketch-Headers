@@ -8,5 +8,6 @@
 
 @interface MSLayerDraggingSnapTargetManager (SketchControllers)
 - (void)provideTargetsToSnapper:(id)arg1;
+- (id)debugQuickLookObject;
 @end
 

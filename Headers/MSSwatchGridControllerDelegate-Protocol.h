@@ -9,6 +9,7 @@
 @class MSSwatch, MSSwatchGridController;
 
 @protocol MSSwatchGridControllerDelegate <MSPreviewColorSpaceProvider>
+- (BOOL)swatchGridController:(MSSwatchGridController *)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
 - (void)swatchGridControllerDidChangeCollectionViewLayoutWithController:(MSSwatchGridController *)arg1;
 - (void)swatchGridController:(MSSwatchGridController *)arg1 didRequestEditSwatch:(MSSwatch *)arg2;
 - (void)swatchGridController:(MSSwatchGridController *)arg1 didDetachFromSwatch:(MSSwatch *)arg2;

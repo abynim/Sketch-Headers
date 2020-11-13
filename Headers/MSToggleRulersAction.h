@@ -13,6 +13,7 @@
 - (id)historyMomentTitle;
 - (id)tooltip;
 - (BOOL)hasDynamicTitle;
+- (id)imageForMenu;
 - (id)labelForToolbar;
 - (id)label;
 - (void)hideAndAdjustScrollOrigin:(BOOL)arg1;

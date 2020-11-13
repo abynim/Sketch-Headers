@@ -9,6 +9,7 @@
 @class NSString, SCKOrganization;
 
 @interface _$s14SketchCloudKit14UserControllerCN (Sketch)
++ (BOOL)supportsPersonalContributors;
 - (void)configureOrganizationButton:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
 - (void)selectOrganization:(id)arg1;
 - (id)organizationMenuWithTarget:(id)arg1 action:(SEL)arg2;

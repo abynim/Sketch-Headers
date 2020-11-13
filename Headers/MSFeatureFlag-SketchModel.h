@@ -8,5 +8,6 @@
 
 @interface MSFeatureFlag (SketchModel)
 + (void)switchToUserDefaultsStorageStrategy;
++ (BOOL)usesDisabledStorageStrategy;
 @end
 

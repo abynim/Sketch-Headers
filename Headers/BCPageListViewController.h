@@ -10,6 +10,7 @@
 {
 }
 
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (void)refreshWithMask:(unsigned long long)arg1;
 - (void)awakeFromNib;
 

@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) double fillFactor;
 
 @end
 

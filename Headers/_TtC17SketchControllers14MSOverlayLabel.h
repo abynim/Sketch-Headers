@@ -13,11 +13,16 @@
     // Error parsing type: , name: text
     // Error parsing type: , name: $__lazy_storage_$_textAttributes
     // Error parsing type: , name: position
+    // Error parsing type: , name: wantsBackingAlignPosition
+    // Error parsing type: , name: offset
 }
 
 - (void).cxx_destruct;
 - (id)init;
+- (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
+@property(nonatomic) struct CGVector offset; // @synthesize offset;
+@property(nonatomic) BOOL wantsBackingAlignPosition; // @synthesize wantsBackingAlignPosition;
 @property(nonatomic) struct CGPoint position; // @synthesize position;
 @property(nonatomic, copy) NSString *text;
 

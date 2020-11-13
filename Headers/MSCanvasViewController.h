@@ -14,6 +14,7 @@
 {
     BOOL _shouldHideOverlayControls;
     BOOL _observingDefaults;
+    NSView *_canvasContainerView;
     MSCanvasView *_canvasView;
     _TtC6Sketch11MSRulerView *_horizontalRuler;
     _TtC6Sketch11MSRulerView *_verticalRuler;
@@ -36,6 +37,7 @@
 @property(retain, nonatomic) _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(retain, nonatomic) _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
+@property(retain, nonatomic) NSView *canvasContainerView; // @synthesize canvasContainerView=_canvasContainerView;
 - (void)rulerViewStopCoalescingHistory:(id)arg1;
 - (void)rulerViewStartCoalescingHistory:(id)arg1;
 - (void)rulerViewDidDisableTemporaryGuide:(id)arg1;
@@ -53,6 +55,8 @@
 - (void)prepareForDealloc;
 - (void)viewWillDisappear;
 - (void)viewDidAppear;
+- (void)alignWithWindowContentLayoutGuide;
+- (id)documentWindow;
 - (void)viewDidLoad;
 - (void)updateRulers;
 - (void)dealloc;
