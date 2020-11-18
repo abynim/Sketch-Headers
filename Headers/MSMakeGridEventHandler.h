@@ -10,8 +10,8 @@
 {
     // Error parsing type: , name: gridConstructor
     // Error parsing type: , name: selectionOverlayController
-    // Error parsing type: , name: _ignoreChangesCount
     // Error parsing type: , name: $__lazy_storage_$_inspectorViewController
+    // Error parsing type: , name: _ignoreChangesCount
 }
 
 - (void).cxx_destruct;

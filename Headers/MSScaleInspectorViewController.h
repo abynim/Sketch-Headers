@@ -17,21 +17,19 @@
     // Error parsing type: , name: originButtonsContainer
     // Error parsing type: , name: originLabel
     // Error parsing type: , name: scaleEventHandler
-    // Error parsing type: , name: scalingOriginCorner
     // Error parsing type: , name: scaleModel
-    // Error parsing type: , name: selectedLayers
     // Error parsing type: , name: $__lazy_storage_$_scaleValueAdaptor
     // Error parsing type: , name: $__lazy_storage_$_widthValueAdaptor
     // Error parsing type: , name: $__lazy_storage_$_heightValueAdaptor
+    // Error parsing type: , name: originObservation
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)selectionDidChangeTo:(id)arg1;
-- (void)prepareForDisplay;
 - (void)confirm:(id)arg1;
 - (void)selectScalingOrigin:(id)arg1;
+- (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) _TtC6Sketch10ScaleModel *scaleModel; // @synthesize scaleModel;
 @property(nonatomic) __weak MSScaleEventHandler *scaleEventHandler; // @synthesize scaleEventHandler;

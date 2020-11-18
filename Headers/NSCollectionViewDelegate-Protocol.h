@@ -27,7 +27,7 @@
 - (void)collectionView:(NSCollectionView *)arg1 draggingSession:(NSDraggingSession *)arg2 endedAtPoint:(struct CGPoint)arg3 dragOperation:(unsigned long long)arg4;
 - (void)collectionView:(NSCollectionView *)arg1 draggingSession:(NSDraggingSession *)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItemsAtIndexes:(NSIndexSet *)arg4;
 - (void)collectionView:(NSCollectionView *)arg1 draggingSession:(NSDraggingSession *)arg2 willBeginAtPoint:(struct CGPoint)arg3 forItemsAtIndexPaths:(NSSet *)arg4;
-- (id <NSPasteboardWriting>)collectionView:(NSCollectionView *)arg1 pasteboardWriterForItemAtIndex:(long long)arg2;
+- (id <NSPasteboardWriting>)collectionView:(NSCollectionView *)arg1 pasteboardWriterForItemAtIndex:(unsigned long long)arg2;
 - (id <NSPasteboardWriting>)collectionView:(NSCollectionView *)arg1 pasteboardWriterForItemAtIndexPath:(NSIndexPath *)arg2;
 - (BOOL)collectionView:(NSCollectionView *)arg1 acceptDrop:(id <NSDraggingInfo>)arg2 index:(long long)arg3 dropOperation:(long long)arg4;
 - (BOOL)collectionView:(NSCollectionView *)arg1 acceptDrop:(id <NSDraggingInfo>)arg2 indexPath:(NSIndexPath *)arg3 dropOperation:(long long)arg4;

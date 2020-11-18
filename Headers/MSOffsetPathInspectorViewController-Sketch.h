@@ -9,6 +9,7 @@
 #import "MSInspectorSection-Protocol.h"
 
 @interface MSOffsetPathInspectorViewController (Sketch) <MSInspectorSection>
+- (void)prepareForDisplay;
 - (id)views;
 @end
 

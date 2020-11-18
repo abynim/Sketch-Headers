@@ -12,6 +12,7 @@
 
 - (BOOL)isTouchBarItemSelected;
 - (id)imageName;
+- (id)imageForMenu;
 - (id)touchBarImage;
 - (BOOL)isSelectable;
 - (id)tooltip;

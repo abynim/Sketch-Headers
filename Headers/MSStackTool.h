@@ -20,7 +20,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
-@property(nonatomic, retain) _TtC17SketchControllers17MSGridConstructor *gridConstructor; // @synthesize gridConstructor;
+@property(nonatomic, readonly) _TtC17SketchControllers17MSGridConstructor *gridConstructor; // @synthesize gridConstructor;
 @property(nonatomic, readonly) NSArray *verticalStacks;
 @property(nonatomic, readonly) NSArray *horizontalStacks;
 @property(nonatomic, copy) NSArray *layers;

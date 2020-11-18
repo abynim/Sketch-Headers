@@ -13,14 +13,12 @@
     // Error parsing type: , name: descriptionTextField
     // Error parsing type: , name: missingFontTextField
     // Error parsing type: , name: missingFontImageView
-    // Error parsing type: , name: alignmentImageView
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic) long long backgroundStyle;
-@property(nonatomic, retain) NSImageView *alignmentImageView; // @synthesize alignmentImageView;
 @property(nonatomic, retain) NSImageView *missingFontImageView; // @synthesize missingFontImageView;
 @property(nonatomic, retain) NSTextField *missingFontTextField; // @synthesize missingFontTextField;
 @property(nonatomic, retain) NSTextField *descriptionTextField; // @synthesize descriptionTextField;

@@ -9,8 +9,8 @@
 @interface NSObject (BCCacheDeferredCreation)
 @property(readonly, nonatomic) NSObject *BCCache_unblockingSelfOrDeferredObject;
 @property(readonly, nonatomic) NSObject *BCCache_selfOrDeferredObject;
-- (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
 - (id)mutableCopyDeep;
+- (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
 - (void)encodeAsKey:(id)arg1;
 - (void)finishEncodingObject:(id)arg1;
 - (void)startEncodingObject:(id)arg1;

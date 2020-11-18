@@ -6,11 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
+@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
     // Error parsing type: , name: collectionView
+    // Error parsing type: , name: collectionViewContainer
     // Error parsing type: , name: collectionScrollView
     // Error parsing type: , name: emptyStateLabel
     // Error parsing type: , name: emptyStateImage
@@ -48,6 +49,7 @@
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)viewDidLayout;
 - (void)viewDidDisappear;
+- (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 - (id)initWithCoder:(id)arg1;
@@ -59,6 +61,7 @@
 @property(nonatomic, retain) NSImageView *emptyStateImage; // @synthesize emptyStateImage;
 @property(nonatomic, retain) NSTextField *emptyStateLabel; // @synthesize emptyStateLabel;
 @property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;
+@property(nonatomic, retain) NSView *collectionViewContainer; // @synthesize collectionViewContainer;
 @property(nonatomic, retain) _TtC6Sketch23DocumentsCollectionView *collectionView; // @synthesize collectionView;
 
 @end

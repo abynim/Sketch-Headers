@@ -41,6 +41,7 @@
 - (void)createAssetLibraryFolder;
 - (id)librariesWithUpdates;
 - (void)addRemoteLibraryFromAppcastURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (id)addCloudLibraryFromShare:(id)arg1;
 - (id)makeDuplicateRemoteLibraryError;
 - (id)publicCloudLibraries;
 - (id)cloudLibraryWithShare:(id)arg1;
@@ -66,7 +67,6 @@
 - (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (void)migratePublicLibrariesWithDispatchGroup:(id)arg1;
 - (BOOL)shouldMigratePublicCloudLibrary:(id)arg1;
-- (void)ensureCloudIsAuthenticatedInDispatchGroup:(id)arg1;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;
 - (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;
@@ -88,7 +88,7 @@
 - (id)existingLibraryMatchingLibrary:(id)arg1;
 - (void)cloudLibrariesDidFinishUpdate;
 - (void)cloudLibrariesWillUpdate;
-- (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
+- (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 updatingInfo:(id)arg4 editable:(BOOL)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;

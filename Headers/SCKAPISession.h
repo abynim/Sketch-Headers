@@ -14,6 +14,7 @@
 @interface SCKAPISession : NSObject <NSCopying, NSSecureCoding>
 {
     NSString *_token;
+    NSString *_organizationID;
     NSString *_refreshToken;
     NSString *_userID;
     NSString *_tokenType;
@@ -34,6 +35,7 @@
 @property(readonly, copy, nonatomic) NSString *tokenType; // @synthesize tokenType=_tokenType;
 @property(readonly, copy, nonatomic) NSString *userID; // @synthesize userID=_userID;
 @property(readonly, copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
+@property(readonly, copy, nonatomic) NSString *organizationID; // @synthesize organizationID=_organizationID;
 @property(readonly, copy, nonatomic) NSString *token; // @synthesize token=_token;
 - (BOOL)isRefreshedByAuthentication:(id)arg1;
 @property(readonly, nonatomic) NSString *httpAuthorizationValue;
@@ -44,7 +46,7 @@
 @property(readonly, nonatomic) NSData *tokenData;
 - (id)sessionWithRefreshToken:(id)arg1;
 - (id)initWithTokenData:(id)arg1 forUserID:(id)arg2;
-- (id)initWithOAuthDictionary:(id)arg1;
+- (id)initWithOAuthDictionary:(id)arg1 organizationID:(id)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithToken:(id)arg1 ofType:(id)arg2 refreshToken:(id)arg3 forUserID:(id)arg4;
 - (id)init;

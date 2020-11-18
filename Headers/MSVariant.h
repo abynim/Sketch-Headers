@@ -18,6 +18,7 @@
 + (id)all;
 + (id)privateBeta;
 + (id)inHouse;
++ (id)featurepreview;
 + (id)testing;
 + (id)private;
 + (id)experimental;

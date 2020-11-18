@@ -6,18 +6,22 @@
 
 #import <AppKit/NSViewController.h>
 
-#import "ASWebAuthenticationPresentationContextProviding-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
+#import "SCKAPIAuthenticationSSODelegate-Protocol.h"
 
-@class MSLinkButton, NSButton, NSError, NSImage, NSPopUpButton, NSSecureTextField, NSString, NSTextField, SCKAPIEnvironment;
+@class MSLinkButton, NSButton, NSError, NSImage, NSLayoutConstraint, NSPopUpButton, NSSecureTextField, NSString, NSTextField, SCKAPIEnvironment;
 @protocol MSRegistrationWindowContentDelegate;
 
-@interface MSCloudSignInViewController : NSViewController <ASWebAuthenticationPresentationContextProviding>
+@interface MSCloudSignInViewController : NSViewController <SCKAPIAuthenticationSSODelegate, NSTextFieldDelegate>
 {
     BOOL _wantsLicense;
     BOOL _allowCancellation;
     BOOL _isSkippable;
     BOOL _didFinish;
     BOOL _isLoading;
+    BOOL _hasEmail;
+    BOOL _hasPassword;
+    BOOL _hidesInputViews;
     id <MSRegistrationWindowContentDelegate> _delegate;
     NSString *_email;
     NSString *_password;
@@ -31,6 +35,8 @@
     NSButton *_ssoButton;
     NSButton *_cancelButton;
     NSTextField *_statusLabel;
+    NSLayoutConstraint *_actionButtonTopInputConstraint;
+    NSLayoutConstraint *_actionButtonTopContainerConstraint;
     NSError *_error;
 }
 
@@ -38,6 +44,9 @@
 + (id)storyboardIdentifier;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(nonatomic) BOOL hidesInputViews; // @synthesize hidesInputViews=_hidesInputViews;
+@property(retain, nonatomic) NSLayoutConstraint *actionButtonTopContainerConstraint; // @synthesize actionButtonTopContainerConstraint=_actionButtonTopContainerConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *actionButtonTopInputConstraint; // @synthesize actionButtonTopInputConstraint=_actionButtonTopInputConstraint;
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSButton *ssoButton; // @synthesize ssoButton=_ssoButton;
@@ -48,6 +57,8 @@
 @property(retain, nonatomic) MSLinkButton *forgotPasswordButton; // @synthesize forgotPasswordButton=_forgotPasswordButton;
 @property(retain, nonatomic) NSPopUpButton *environmentPopUpButton; // @synthesize environmentPopUpButton=_environmentPopUpButton;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(nonatomic) BOOL hasPassword; // @synthesize hasPassword=_hasPassword;
+@property(nonatomic) BOOL hasEmail; // @synthesize hasEmail=_hasEmail;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
 @property(copy, nonatomic) NSString *email; // @synthesize email=_email;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
@@ -56,6 +67,8 @@
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation=_allowCancellation;
 @property(nonatomic) BOOL wantsLicense; // @synthesize wantsLicense=_wantsLicense;
 @property(nonatomic) __weak id <MSRegistrationWindowContentDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)controlTextDidChange:(id)arg1;
+- (void)didDismissAuthenticationSession:(id)arg1;
 - (id)presentationAnchorForWebAuthenticationSession:(id)arg1;
 - (id)willPresentLicensingError:(id)arg1;
 - (id)willPresentError:(id)arg1;
@@ -75,6 +88,7 @@
 - (void)visitStore:(id)arg1;
 - (void)signUp:(id)arg1;
 - (BOOL)shouldShowSSO;
+- (void)updateViewConstraints;
 - (void)viewWillAppear;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) NSImage *headerImage;

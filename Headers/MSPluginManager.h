@@ -62,6 +62,7 @@
 @property(nonatomic) NSArray *pluginsWithSketchCompatipleUpdates; // @synthesize pluginsWithSketchCompatipleUpdates=_pluginsWithSketchCompatipleUpdates;
 @property(nonatomic) long long numberOfIncompatiblePluginsDisabled; // @synthesize numberOfIncompatiblePluginsDisabled=_numberOfIncompatiblePluginsDisabled;
 @property(readonly, copy, nonatomic) NSArray *pluginsFolderURLs; // @synthesize pluginsFolderURLs=_pluginsFolderURLs;
+- (void)alertAboutUnsupportedPluginBundle:(id)arg1;
 - (void)removePluginVersionsNotInIdentifiers:(id)arg1;
 - (void)addDownloadAndDecompressPluginError:(id)arg1;
 - (id)compatiblePluginUpdatesNotDownloaded;

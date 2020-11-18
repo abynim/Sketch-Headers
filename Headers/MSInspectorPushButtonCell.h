@@ -11,8 +11,10 @@
 @interface MSInspectorPushButtonCell : NSButtonCell
 {
     BOOL _fakeReturnButtonLook;
+    BOOL _suppressesTextHighlight;
 }
 
+@property(readonly, nonatomic) BOOL suppressesTextHighlight; // @synthesize suppressesTextHighlight=_suppressesTextHighlight;
 @property(nonatomic) BOOL fakeReturnButtonLook; // @synthesize fakeReturnButtonLook=_fakeReturnButtonLook;
 - (void)drawImage:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;

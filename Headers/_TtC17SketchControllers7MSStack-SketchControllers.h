@@ -8,5 +8,6 @@
 
 @interface _TtC17SketchControllers7MSStack (SketchControllers)
 @property(nonatomic, readonly) double fillFactor;
+- (id)debugQuickLookObject;
 @end
 

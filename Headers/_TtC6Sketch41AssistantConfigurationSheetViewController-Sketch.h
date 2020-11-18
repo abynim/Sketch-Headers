@@ -7,8 +7,13 @@
 #import "_TtC6Sketch41AssistantConfigurationSheetViewController.h"
 
 #import "NSMenuDelegate-Protocol.h"
+#import "NSTableViewDataSource-Protocol.h"
+#import "NSTableViewDelegate-Protocol.h"
 
-@interface _TtC6Sketch41AssistantConfigurationSheetViewController (Sketch) <NSMenuDelegate>
+@interface _TtC6Sketch41AssistantConfigurationSheetViewController (Sketch) <NSMenuDelegate, NSTableViewDataSource, NSTableViewDelegate>
 - (void)menuNeedsUpdate:(id)arg1;
+- (long long)numberOfRowsInTableView:(id)arg1;
+- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
+- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 @end
 

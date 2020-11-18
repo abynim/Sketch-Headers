@@ -58,6 +58,7 @@
 - (void)commitSaveToDocumentColorSwatchAction:(id)arg1;
 - (void)saveToDocumentColorsAction:(id)arg1;
 - (void)detachFromSwatchAction:(id)arg1;
+- (BOOL)swatchGridController:(id)arg1 shouldChangeToDisplayMode:(unsigned long long)arg2;
 - (void)swatchGridControllerDidChangeCollectionViewLayoutWithController:(id)arg1;
 - (void)swatchGridController:(id)arg1 didRequestEditSwatch:(id)arg2;
 - (void)swatchGridController:(id)arg1 didDetachFromSwatch:(id)arg2;

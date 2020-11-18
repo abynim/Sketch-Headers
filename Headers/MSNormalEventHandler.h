@@ -96,7 +96,6 @@
 - (id)siblingsOfSelectedShapePathLayers;
 - (void)updateSelectedShapePathsOverlay;
 - (void)documentDidChange:(id)arg1;
-- (BOOL)updateCursor;
 - (void)duplicate:(id)arg1;
 - (void)keyDownMoveCanvasIncremental:(unsigned short)arg1 flags:(unsigned long long)arg2;
 - (void)keyDownMoveToEndOfCanvas:(unsigned short)arg1;

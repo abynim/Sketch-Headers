@@ -12,6 +12,7 @@
 
 - (id)tooltip;
 - (id)label;
+- (id)imageForMenu;
 - (id)touchBarImage;
 - (void)importImagesFromURLs:(id)arg1;
 - (void)doPerformAction:(id)arg1;

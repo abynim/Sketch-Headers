@@ -20,9 +20,9 @@
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 #import "_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSPatchContainer, MSToolbarConstructor, NSArray, NSColor, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, NSWindow, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC13SharedEditing29MSIncrementalUploadController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSPatchContainer, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC13SharedEditing29MSIncrementalUploadController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
 
-@interface MSDocument : NSDocument <_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, BCColorPickerDocument>
+@interface MSDocument : NSDocument <_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
     BOOL _hideDocumentsWindowWhenDisplayingWindow;
     BOOL _attemptingToClose;
@@ -35,11 +35,8 @@
     _TtC6Sketch22MSInsertMenuController *_insertMenuController;
     NSArray *_exportableLayerSelection;
     MSImmutableDocumentData *_exportableImmutableData;
-    NSWindow *_documentWindow;
+    MSDocumentWindowController *_documentWindowController;
     NSView *_messageView;
-    MSMainSplitViewController *_splitViewController;
-    NSView *_inspectorPlaceholderView;
-    NSView *_canvasPlaceholderView;
     MSToolbarConstructor *_toolbarConstructor;
     MSActionController *_actionsController;
     MSBadgeController *_badgeController;
@@ -49,8 +46,6 @@
     MSDocumentChangeNotifier *_changeNotifier;
     MSEventHandlerManager *_eventHandlerManager;
     MSCacheManager *_cacheManager;
-    MSInspectorController *_inspectorController;
-    BCSideBarViewController *_sidebarController;
     MSComponentsPanelController *_componentsPanelController;
     MSCanvasViewController *_currentContentViewController;
     id _colorSpaceMismatchWarning;
@@ -107,8 +102,6 @@
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
 @property(retain, nonatomic) MSCanvasViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
-@property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
-@property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(readonly, nonatomic) MSDocumentChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
@@ -120,11 +113,8 @@
 @property(nonatomic) BOOL hideDocumentsWindowWhenDisplayingWindow; // @synthesize hideDocumentsWindowWhenDisplayingWindow=_hideDocumentsWindowWhenDisplayingWindow;
 @property(retain, nonatomic) MSActionController *actionsController; // @synthesize actionsController=_actionsController;
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
-@property(retain, nonatomic) NSView *canvasPlaceholderView; // @synthesize canvasPlaceholderView=_canvasPlaceholderView;
-@property(retain, nonatomic) NSView *inspectorPlaceholderView; // @synthesize inspectorPlaceholderView=_inspectorPlaceholderView;
-@property(nonatomic) __weak MSMainSplitViewController *splitViewController; // @synthesize splitViewController=_splitViewController;
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
-@property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
+@property(retain, nonatomic) MSDocumentWindowController *documentWindowController; // @synthesize documentWindowController=_documentWindowController;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
@@ -146,9 +136,10 @@
 - (void)reloadTouchBars;
 - (void)libraryControllerDidChange:(id)arg1;
 @property(nonatomic) BOOL pageListCollapsed;
-@property(nonatomic) double pageListHeight;
-@property(readonly, nonatomic) NSColor *inactiveSelectedTabIndicatorColor;
-@property(readonly, nonatomic) NSColor *activeSelectedTabIndicatorColor;
+- (void)setPageListHeight:(double)arg1 isUserInitiated:(BOOL)arg2;
+@property(readonly, nonatomic) double pageListHeight;
+- (id)inactiveSelectedTabIndicatorColor;
+- (id)activeSelectedTabIndicatorColor;
 - (id)sidebarViewController:(id)arg1 viewControllerForSidebarTabIdentifier:(id)arg2;
 - (id)tabConfigurationsForSidebarViewController:(id)arg1;
 @property(readonly, nonatomic) MSAssetLibraryController *libraryController;
@@ -238,7 +229,6 @@
 - (id)currentHandler;
 - (void)restoreStateWithCoder:(id)arg1;
 - (void)encodeRestorableStateWithCoder:(id)arg1;
-- (id)windowNibName;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
 - (id)toolbar;
@@ -252,7 +242,6 @@
 - (void)showComponents;
 - (void)showComponentsBetaWarning;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
-- (void)windowControllerDidLoadNib:(id)arg1;
 - (BOOL)validateSelectionOfLayer:(id)arg1 proposedIDsOfLayersToSelect:(id)arg2;
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) _TtC6Sketch22MSInsertMenuController *insertMenuController; // @synthesize insertMenuController=_insertMenuController;
@@ -266,7 +255,6 @@
 - (void)loadInspectorPanel;
 - (void)windowDidExitFullScreen:(id)arg1;
 - (void)windowWillEnterFullScreen:(id)arg1;
-- (void)awakeFromNib;
 - (void)updateCountDownButton;
 - (void)wireDocumentDataToUI;
 @property(readonly, nonatomic) NSResponder *defaultFirstResponder;
@@ -292,6 +280,15 @@
 @property(readonly, nonatomic) NSColorSpace *canvasColorSpace;
 @property(readonly, nonatomic) NSColorSpace *documentColorSpace;
 @property(readonly, nonatomic) NSColorSpace *colorSpace;
+@property(readonly, nonatomic) MSInspectorController *inspectorController;
+@property(readonly, nonatomic) BCSideBarViewController *sidebarController;
+@property(readonly, nonatomic) MSMainSplitViewController *splitViewController;
+@property(readonly, nonatomic) MSDocumentWindow *documentWindow;
+- (void)updateWindowSubtitle;
+- (void)setUp;
+- (void)applyCorrectSizeForNewWindow:(id)arg1;
+- (struct CGSize)defaultNewWindowSize;
+- (void)makeWindowControllers;
 - (id)init;
 - (void)patchReceived:(id)arg1 statusInfo:(id)arg2;
 - (void)presentCollaborationDebugMessageWithErrorWithError:(id)arg1;

@@ -9,8 +9,8 @@
 @class NSAttributedString, NSColor;
 
 @protocol MSWindowBadgeAction <NSObject>
-@property(readonly, nonatomic) NSColor *badgeTint;
-@property(readonly, nonatomic) NSAttributedString *badgeTitle;
-@property(readonly, nonatomic) unsigned long long numberOfBadges;
+@property(nonatomic, readonly) NSColor *badgeTint;
+@property(nonatomic, readonly) NSAttributedString *badgeTitle;
+@property(nonatomic, readonly) unsigned long long numberOfBadges;
 @end
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)tooltip;
 - (id)label;
 - (id)recipeName;

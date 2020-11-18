@@ -6,7 +6,7 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class BCOutlineView, BCTableCellView, NSObject;
+@class BCOutlineView, BCTableCellView, NSObject, NSView, NSVisualEffectView;
 @protocol BCOutlineViewNode, BCTableRowViewDelegate;
 
 @interface BCTableRowView : NSTableRowView
@@ -17,9 +17,13 @@
     NSObject<BCOutlineViewNode> *_node;
     NSObject<BCTableRowViewDelegate> *_delegate;
     unsigned long long _expansionState;
+    NSVisualEffectView *_headerMaterialView;
+    NSView *_headerVisualsView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSView *headerVisualsView; // @synthesize headerVisualsView=_headerVisualsView;
+@property(retain, nonatomic) NSVisualEffectView *headerMaterialView; // @synthesize headerMaterialView=_headerMaterialView;
 @property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
 @property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) unsigned long long expansionTransitionState; // @synthesize expansionTransitionState=_expansionTransitionState;
@@ -35,6 +39,7 @@
 - (BOOL)isOpaque;
 - (BOOL)hasBottomPaddingApplied;
 - (BOOL)hasTopPaddingApplied;
+- (id)rowViewVisualsLayer;
 - (BOOL)isArtboardRow;
 - (BOOL)drawsBottomBorder;
 - (BOOL)drawsTopBorder;
@@ -42,6 +47,7 @@
 - (void)viewWillDraw;
 - (void)refreshBadges;
 - (void)refreshSelectionState;
+- (void)viewDidMoveToSuperview;
 - (void)viewDidMoveToWindow;
 - (void)refreshBackgroundStyle;
 - (void)updateLayer;
@@ -63,7 +69,10 @@
 - (BOOL)isNodeSubselected;
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;
 - (BOOL)isInActiveOutlineView;
+- (void)setBackgroundColor:(id)arg1;
 - (void)didAddSubview:(id)arg1;
+- (void)removeHeaderEffectView;
+- (void)setUpHeaderEffectView;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

@@ -7,6 +7,8 @@
 #import "_TtC6Sketch23ComponentListController.h"
 
 @interface _TtC6Sketch23ComponentListController (Sketch)
++ (id)validateProposedPathString:(id)arg1;
++ (id)validateProposedName:(id)arg1;
 - (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
 - (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
 - (void)deleteBackward:(id)arg1;
@@ -25,5 +27,8 @@
 - (void)outlineView:(id)arg1 didAddRowView:(id)arg2 forRow:(long long)arg3;
 - (id)outlineView:(id)arg1 viewForTableColumn:(id)arg2 item:(id)arg3;
 - (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (BOOL)control:(id)arg1 textShouldEndEditing:(id)arg2;
+- (void)menuWillOpen:(id)arg1;
 @end
 

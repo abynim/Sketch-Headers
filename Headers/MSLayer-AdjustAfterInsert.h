@@ -7,6 +7,7 @@
 #import <SketchModel/MSLayer.h>
 
 @interface MSLayer (AdjustAfterInsert)
++ (id)layerOfDataType:(unsigned long long)arg1;
 - (void)adjustAfterInsert;
 - (BOOL)canBeHidden;
 - (long long)cornerRectType;

@@ -11,6 +11,7 @@
 }
 
 - (void)doPerformAction:(id)arg1;
+- (id)imageForMenu;
 - (id)imageForToolbar;
 - (BOOL)hasSubMenu;
 - (long long)tag;

@@ -14,6 +14,7 @@
 - (id)label;
 - (BOOL)isTouchBarItemSelected;
 - (BOOL)touchBarItemButtonShouldShowState;
+- (id)imageForMenu;
 - (id)touchBarImage;
 - (void)doPerformAction:(id)arg1;
 - (SEL)preferredMenuAction;

@@ -26,6 +26,7 @@
 - (id)dataPointsInLayersOfType:(unsigned long long)arg1 identifier:(id)arg2;
 - (id)dataOverridesInInstancesOfType:(unsigned long long)arg1 identifier:(id)arg2;
 - (void)applyDataFromSupplier:(id)arg1 toObjects:(id)arg2 identifier:(id)arg3;
+- (void)applyDataFromSupplier:(id)arg1 toObjects:(id)arg2;
 - (void)applyDataFromSupplier:(id)arg1 toLayersWithIdentifier:(id)arg2;
 - (void)applyDataFromSupplier:(id)arg1;
 @property(readonly, nonatomic) unsigned long long applicableDataTypesDataTypeFromCurrentSelection;

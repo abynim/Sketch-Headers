@@ -6,15 +6,15 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSError;
+@class MSInspectorValueAdaptor, NSError;
 
 @protocol MSInspectorValueAdaptorDelegate <NSObject>
 
 @optional
-- (BOOL)inspectorValueAdaptor:(id)arg1 value:(id)arg2 isEqualToValue:(id)arg3;
-- (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(NSError *)arg2;
-- (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
-- (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
-- (void)inspectorValueAdaptor:(id)arg1 changeValueUsingBlock:(void (^)(void))arg2;
+- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 value:(id)arg2 isEqualToValue:(id)arg3;
+- (void)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 didEncounterError:(NSError *)arg2;
+- (void)inspectorValueAdaptorDidChangeValue:(MSInspectorValueAdaptor *)arg1;
+- (BOOL)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
+- (void)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 changeValueUsingBlock:(void (^)(void))arg2;
 @end
 

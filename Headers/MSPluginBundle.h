@@ -61,6 +61,8 @@
 - (id)initWithName:(id)arg1 identifier:(id)arg2 commands:(id)arg3 icon:(id)arg4;
 - (void)logErrorString:(id)arg1;
 - (id)initPluginBundleWithURL:(id)arg1;
+@property(readonly) NSDictionary *executableFileURLsAndArchitectures;
+@property(readonly) BOOL hasUnsupportedBinaries;
 
 @end
 

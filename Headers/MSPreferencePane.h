@@ -14,6 +14,8 @@
 }
 
 + (id)nibName;
++ (id)toolbarIconNameWithBase:(id)arg1;
++ (id)toolbarIconSuffix;
 + (id)toolbarIcon;
 + (id)title;
 + (id)identifier;

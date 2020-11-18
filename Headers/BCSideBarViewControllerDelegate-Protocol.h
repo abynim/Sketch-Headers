@@ -4,15 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "BCSidebarTabButtonDelegate-Protocol.h"
 #import "NSObject-Protocol.h"
 
 @class BCSideBarViewController, NSArray, NSString, NSViewController;
 
-@protocol BCSideBarViewControllerDelegate <NSObject, BCSidebarTabButtonDelegate>
+@protocol BCSideBarViewControllerDelegate <NSObject>
 @property(nonatomic) BOOL pageListCollapsed;
-@property(nonatomic) double pageListHeight;
+@property(readonly, nonatomic) double pageListHeight;
 - (NSViewController *)sidebarViewController:(BCSideBarViewController *)arg1 viewControllerForSidebarTabIdentifier:(NSString *)arg2;
 - (NSArray *)tabConfigurationsForSidebarViewController:(BCSideBarViewController *)arg1;
+- (void)setPageListHeight:(double)arg1 isUserInitiated:(BOOL)arg2;
 @end
 

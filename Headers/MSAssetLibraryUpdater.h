@@ -30,6 +30,7 @@
 - (id)startDownloadingAssetLibrary:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)updatingInfoForLatestVersionInAppcast:(id)arg1;
 - (void)downloadAppcastAtURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)assignUpdatingInfo:(id)arg1 toAssetLibrary:(id)arg2;
 - (void)downloadAssetLibraryAppcasts:(id)arg1 downloadAppcastHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)init;
 

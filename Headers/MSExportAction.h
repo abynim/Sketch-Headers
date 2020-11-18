@@ -10,7 +10,6 @@
 {
 }
 
-- (id)touchBarImage;
 - (id)baseNameForSlice;
 - (struct CGRect)rectForExportingEntirePage;
 - (void)determineRectForInitialSliceWithCompletionHandler:(CDUnknownBlockType)arg1;

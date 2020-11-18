@@ -61,7 +61,6 @@
 - (void)rectSelectionAction:(id)arg1;
 @property(readonly, nonatomic) BOOL hasSelection;
 - (void)refresh;
-- (id)buttonLabels;
 - (id)actionButtons;
 - (void)dismissViewController:(id)arg1;
 - (void)viewWillDisappear;

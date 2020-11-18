@@ -21,6 +21,7 @@
 - (id)label;
 - (id)noSharedObjectMenuItemTitle;
 - (id)sharedObjectName;
+- (id)imageForMenu;
 - (id)imageName;
 - (id)imageForToolbar;
 - (id)sortedObjectMenuItemsForMenu:(id)arg1;

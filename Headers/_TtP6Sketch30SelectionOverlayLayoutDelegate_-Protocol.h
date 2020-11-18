@@ -7,11 +7,10 @@
 @class MSSelectionOverlay, NSIndexPath, NSString, _TtC17SketchControllers25MSCollectionOverlayLayout, _TtC6Sketch22SelectionOverlayLayout;
 
 @protocol _TtP6Sketch30SelectionOverlayLayoutDelegate_
-- (struct CGRect)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC6Sketch22SelectionOverlayLayout *)arg2 rectForStackElementAt:(NSIndexPath *)arg3;
-- (unsigned long long)selectionOverlay:(MSSelectionOverlay *)arg1 resizeHandlesMaskForItemAt:(NSIndexPath *)arg2;
 - (struct CGRect)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC17SketchControllers25MSCollectionOverlayLayout *)arg2 frameForItemAt:(NSIndexPath *)arg3;
 
 @optional
+- (struct CGRect)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC6Sketch22SelectionOverlayLayout *)arg2 rectForStackElementAt:(NSIndexPath *)arg3;
 - (struct CGSize)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC6Sketch22SelectionOverlayLayout *)arg2 sizeForHandleOfKind:(NSString *)arg3 atIndexPath:(NSIndexPath *)arg4;
 - (BOOL)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC17SketchControllers25MSCollectionOverlayLayout *)arg2 shouldHideItemAt:(NSIndexPath *)arg3;
 - (struct CGAffineTransform)selectionOverlay:(MSSelectionOverlay *)arg1 layout:(_TtC17SketchControllers25MSCollectionOverlayLayout *)arg2 transformForItemAt:(NSIndexPath *)arg3;

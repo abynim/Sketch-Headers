@@ -10,13 +10,14 @@
 
 @interface MSInspectorPushButton : MSInspectorButton
 {
+    BOOL _isHovering;
     NSString *_buttonOnColorName;
 }
 
 + (Class)cellClass;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isHovering; // @synthesize isHovering=_isHovering;
 @property(copy, nonatomic) NSString *buttonOnColorName; // @synthesize buttonOnColorName=_buttonOnColorName;
-- (struct NSEdgeInsets)alignmentRectInsets;
 
 @end
 

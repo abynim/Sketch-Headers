@@ -11,5 +11,7 @@
 - (void)editSwatchAction:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
+@property(nonatomic) BOOL selected;
+- (BOOL)isSelected;
 @end
 

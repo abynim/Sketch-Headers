@@ -98,6 +98,8 @@
 @property(nonatomic) __weak id <MSCanvasViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSObject<MSTilingSystemProvider> *tiledRenderer; // @synthesize tiledRenderer=_tiledRenderer;
 - (void)startAnimatingViewPort:(id)arg1;
+- (void)showDebugWindowBadgeTypeB:(id)arg1;
+- (void)showDebugWindowBadgeTypeA:(id)arg1;
 - (struct CGPoint)zoomPoint:(struct CGPoint)arg1;
 - (struct CGSize)convertSizeToPage:(struct CGSize)arg1;
 - (struct CGPoint)convertPointFromPage:(struct CGPoint)arg1;

@@ -16,7 +16,6 @@
 
 - (void).cxx_destruct;
 - (id)resourcesNeedingMigration;
-- (id)loadNoiseImageWithIndex:(long long)arg1;
 - (id)loadImageWithName:(id)arg1;
 @property(readonly, nonatomic) NSBitmapImageRep *errorPattern;
 @property(readonly, nonatomic) NSArray *noiseImages;

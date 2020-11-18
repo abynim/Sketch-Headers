@@ -6,7 +6,7 @@
 
 #import "_TtC6Sketch31MSBaseChangeComponentKindAction.h"
 
-@class NSString;
+@class NSImage, NSString;
 
 @interface _TtC6Sketch33MSChangeSwatchComponentKindAction : _TtC6Sketch31MSBaseChangeComponentKindAction
 {
@@ -18,6 +18,7 @@
 @property(nonatomic, readonly) NSString *tooltip;
 - (void)changeToSwatchComponentKind:(id)arg1;
 @property(nonatomic, readonly) NSString *label;
+@property(nonatomic, readonly) NSImage *imageForMenu;
 @property(nonatomic, readonly) NSString *imageName;
 
 @end

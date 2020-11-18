@@ -10,6 +10,7 @@
 {
 }
 
+- (id)imageForMenu;
 - (id)touchBarImage;
 - (BOOL)isSelectable;
 - (BOOL)isActive;

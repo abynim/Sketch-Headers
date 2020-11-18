@@ -6,19 +6,15 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSString, SCKCloudDocument;
+@class SCKCloudDocument;
 
 @interface SCKShareVersion : SCKObject
 {
-    unsigned long long _number;
-    NSString *_message;
     SCKCloudDocument *_document;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SCKCloudDocument *document; // @synthesize document=_document;
-@property(readonly, nonatomic) NSString *message; // @synthesize message=_message;
-@property(readonly, nonatomic) unsigned long long number; // @synthesize number=_number;
 - (id)initWithDictionary:(id)arg1;
 
 @end

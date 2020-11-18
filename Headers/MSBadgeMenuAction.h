@@ -8,7 +8,7 @@
 
 #import "MSWindowBadgeAction-Protocol.h"
 
-@class NSAttributedString, NSColor, NSString;
+@class NSArray, NSAttributedString, NSColor, NSString;
 
 @interface MSBadgeMenuAction : MSDocumentAction <MSWindowBadgeAction>
 {
@@ -19,7 +19,7 @@
 - (id)label;
 @property(readonly, nonatomic) NSColor *badgeTint;
 - (void)doPerformAction:(id)arg1;
-- (id)badgedActions;
+@property(readonly, nonatomic) NSArray *badgedActions; // @dynamic badgedActions;
 - (id)buildMenu;
 
 // Remaining properties

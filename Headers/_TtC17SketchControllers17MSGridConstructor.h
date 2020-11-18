@@ -35,8 +35,8 @@
 @property(nonatomic) long long numberOfRows; // @synthesize numberOfRows;
 @property(nonatomic) long long numberOfColumns; // @synthesize numberOfColumns;
 @property(nonatomic, copy) NSArray *arrangedLayers;
+- (void)configureWithLayers:(id)arg1;
 - (void)dealloc;
-- (id)initWithLayers:(id)arg1;
 
 @end
 

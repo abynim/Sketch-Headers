@@ -20,7 +20,9 @@
 @property(retain, nonatomic) NSMutableDictionary *images; // @synthesize images=_images;
 @property(nonatomic) struct CGPoint highlightLocation; // @synthesize highlightLocation=_highlightLocation;
 - (void)setHighlighted:(BOOL)arg1;
+- (struct CGRect)clipRectForSegment:(unsigned long long)arg1 inRect:(struct CGRect)arg2 cellFrame:(struct CGRect)arg3;
 - (void)drawSegment:(long long)arg1 inFrame:(struct CGRect)arg2 withView:(id)arg3;
+- (void)drawSeparatorAt:(double)arg1 inRect:(struct CGRect)arg2 yInset:(double)arg3;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (long long)segmentForX:(double)arg1 frame:(struct CGRect)arg2;
 - (id)segmentWidthsForFrame:(struct CGRect)arg1 total:(double *)arg2;

@@ -29,6 +29,7 @@
 @property(readonly, nonatomic) struct CGRect contentRect;
 - (void)drawButton;
 - (void)drawRect:(struct CGRect)arg1;
+- (struct NSEdgeInsets)alignmentRectInsets;
 - (void)setEnabled:(BOOL)arg1;
 - (void)setNeedsDisplay:(BOOL)arg1;
 - (id)colorFromStylePart:(id)arg1;

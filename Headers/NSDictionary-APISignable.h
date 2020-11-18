@@ -16,6 +16,7 @@
 - (BOOL)boolForKey:(id)arg1;
 - (id)urlForKey:(id)arg1;
 - (id)dateForKey:(id)arg1;
+- (id)iso8601DateFormatter;
 - (id)cloudDateFormatter;
 - (id)objectForKeys:(id)arg1 ofType:(Class)arg2;
 - (id)objectForKey:(id)arg1 ofType:(Class)arg2;

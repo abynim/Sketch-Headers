@@ -6,23 +6,20 @@
 
 #import <objc/NSObject.h>
 
-@class BCCache, MSTintedImages, NSColor, NSDictionary;
+@class BCCache, NSColor, NSDictionary;
 
 @interface MSTheme : NSObject
 {
     long long _darkModeScheme;
-    MSTintedImages *_cachedTintedImages;
     BOOL _isDark;
     BCCache *_cache;
     NSDictionary *_colorPlist;
-    MSTintedImages *_tintedImages;
 }
 
 + (id)sharedTheme;
 + (void)initialize;
 + (void)setupAppearance;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSTintedImages *tintedImages; // @synthesize tintedImages=_tintedImages;
 @property(readonly, nonatomic) NSDictionary *colorPlist; // @synthesize colorPlist=_colorPlist;
 @property(readonly, nonatomic) BCCache *cache; // @synthesize cache=_cache;
 @property BOOL isDark; // @synthesize isDark=_isDark;
@@ -47,6 +44,8 @@
 - (id)attributedStringWithString:(id)arg1 color:(id)arg2 controlSize:(unsigned long long)arg3;
 - (void)validateColorPlist;
 - (void)validate;
+@property(readonly, nonatomic) NSColor *hoverButtonNormalColor;
+@property(readonly, nonatomic) NSColor *hoverButtonHoverColor;
 @property(readonly, nonatomic) NSColor *componentsColor;
 @property(readonly, nonatomic) NSColor *componentsItemBackgroundColor;
 @property(readonly, nonatomic) NSColor *componentsPanelTextItemMissingFontBackgroundColor;
@@ -72,6 +71,8 @@
 @property(readonly, nonatomic) NSColor *windowBadgePluginUpdatesAvailableColor;
 @property(readonly, nonatomic) NSColor *windowBadgeLibraryChangesAvailableColor;
 @property(readonly, nonatomic) NSColor *windowBadgeFontsMissingColor;
+@property(readonly, nonatomic) NSColor *preferencesAssetLibraryHeaderBorderColor;
+@property(readonly, nonatomic) NSColor *preferencesAssetLibraryHeaderBackgroundColor;
 @property(readonly, nonatomic) NSColor *preferencesAccountBoxBackgroundColor;
 @property(readonly, nonatomic) NSColor *preferencesWindowErrorTextColor;
 @property(readonly, nonatomic) NSColor *licenseWindowErrorTextColor;
@@ -80,13 +81,11 @@
 @property(readonly, nonatomic) NSColor *documentsWindowBannerTextColor;
 @property(readonly, nonatomic) NSColor *documentsWindowBannerBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedTextSelectionColor;
-@property(readonly, nonatomic) NSColor *documentsWindowTextSelectionColor;
 @property(readonly, nonatomic) NSColor *documentsWindowThumbnailBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentsWindowThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentItemOverlayColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedSelectionColor;
-@property(readonly, nonatomic) NSColor *documentsWindowSelectionColor;
 @property(readonly, nonatomic) NSColor *overlayButtonBackground;
 @property(readonly, nonatomic) NSColor *assetPickerItemGridHighlightColor;
 @property(readonly, nonatomic) NSColor *assetPickerImageItemBackgroundColor;
@@ -105,7 +104,6 @@
 @property(readonly, nonatomic) NSColor *colorPickerAssetBorderColor;
 @property(readonly, nonatomic) NSColor *colorPickerFrequentImageBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasOverrideSelectionBackgroundColor;
-@property(readonly, nonatomic) NSColor *canvasOverrideSelectionColor;
 @property(readonly, nonatomic) NSColor *canvasSymbolTitleColor;
 @property(readonly, nonatomic) NSColor *canvasSliceOutlineColor;
 @property(readonly, nonatomic) NSColor *canvasRulerTextBackgroundColor;
@@ -134,9 +132,6 @@
 @property(readonly, nonatomic) NSColor *assistantCapsuleYellowColor;
 @property(readonly, nonatomic) NSColor *assistantCapsuleRedColor;
 - (id)assistantCapsuleDisabledColor;
-@property(readonly, nonatomic) NSColor *hoverButtonNormalColor;
-@property(readonly, nonatomic) NSColor *hoverButtonHoverColor;
-@property(readonly, nonatomic) NSColor *splitViewDividerColor;
 - (id)layerListTextColorForBackgroundStyle:(long long)arg1 nodeIsHidden:(BOOL)arg2 editing:(BOOL)arg3 selected:(BOOL)arg4 active:(BOOL)arg5;
 @property(readonly, nonatomic) NSColor *sidebarSeparatorColor;
 @property(readonly, nonatomic) NSColor *componentsPanelGroupPreviewBackgroundColor;
@@ -144,14 +139,11 @@
 @property(readonly, nonatomic) NSColor *layerListTabButtonColor;
 - (id)layerListSymbolOverrideSelectionColorForWindow:(id)arg1 isActiveOutlineView:(BOOL)arg2;
 @property(readonly, nonatomic) NSColor *layerListSymbolOverrideIconTintColor;
-@property(readonly, nonatomic) NSColor *layerListSplitViewDividerColor;
 - (id)layerListSelectionColorForWindow:(id)arg1 isActiveOutlineView:(BOOL)arg2;
 - (id)_colorNamed:(id)arg1 forWindow:(id)arg2 isActiveView:(BOOL)arg3;
 @property(readonly, nonatomic) NSColor *layerListIconSharedTintColor;
 @property(readonly, nonatomic) NSColor *layerListIconSelectedInactiveTintColor;
 @property(readonly, nonatomic) NSColor *layerListIconSelectedActiveTintColor;
-@property(readonly, nonatomic) NSColor *layerListIconPressedTintColorSelected;
-@property(readonly, nonatomic) NSColor *layerListIconPressedTintColor;
 @property(readonly, nonatomic) NSColor *layerListIconTintColor;
 @property(readonly, nonatomic) NSColor *layerListFilterTokenSelectedTitleColor;
 @property(readonly, nonatomic) NSColor *layerListFilterTokenTitleColor;
@@ -171,7 +163,6 @@
 @property(readonly, nonatomic) NSColor *inspectorSliderRightTrackColor;
 @property(readonly, nonatomic) NSColor *inspectorSliderKnobBorderColor;
 @property(readonly, nonatomic) NSColor *inspectorSliderKnobColor;
-@property(readonly, nonatomic) NSColor *inspectorSeparatorColor;
 @property(readonly, nonatomic) NSColor *inspectorSectionSeparatorColor;
 @property(readonly, nonatomic) NSColor *inspectorSectionHeaderTextColor;
 @property(readonly, nonatomic) NSColor *inspectorSectionBackgroundColor;
@@ -188,12 +179,10 @@
 @property(readonly, nonatomic) NSColor *inspectorIconColor;
 @property(readonly, nonatomic) NSColor *inspectorHighlightedSliderKnobColor;
 @property(readonly, nonatomic) NSColor *inspectorHighlightedIconColor;
-@property(readonly, nonatomic) NSColor *inspectorHighlightedBorderColor;
 @property(readonly, nonatomic) NSColor *inspectorHighlightedAccentColor;
 @property(readonly, nonatomic) NSColor *inspectorButtonHighlightedBackgroundColor;
 @property(readonly, nonatomic) NSColor *inspectorButtonDropShadowColor;
 @property(readonly, nonatomic) NSColor *inspectorButtonBackgroundColor;
-@property(readonly, nonatomic) NSColor *inspectorBorderColor;
 @property(readonly, nonatomic) NSColor *inspectorBackgroundColor;
 @property(readonly, nonatomic) NSColor *inspectorAlignmentViewBackgroundColor;
 @property(readonly, nonatomic) NSColor *inspectorAlignmentHighlightedActiveStrutColor;

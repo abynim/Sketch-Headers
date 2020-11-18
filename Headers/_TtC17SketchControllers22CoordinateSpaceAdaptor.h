@@ -15,6 +15,17 @@
 }
 
 @property(nonatomic) __weak id <MSLayerCoordinateSpace> parentCoordinateSpace; // @synthesize parentCoordinateSpace;
+@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
+@property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
+- (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
+- (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;
+- (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGVector)convertVector:(struct CGVector)arg1 toCoordinateSpace:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
+- (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
+@property(nonatomic, readonly) struct CGRect bounds;
 
 @end
 

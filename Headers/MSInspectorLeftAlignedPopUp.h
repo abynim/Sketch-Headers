@@ -11,6 +11,7 @@
 }
 
 - (struct NSEdgeInsets)alignmentRectInsets;
+- (struct CGSize)intrinsicContentSize;
 
 @end
 

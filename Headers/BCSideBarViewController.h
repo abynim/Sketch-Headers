@@ -8,7 +8,7 @@
 
 #import <BCLayerList/NSSplitViewDelegate-Protocol.h>
 
-@class BCLayerListFilterViewController, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, BCSidebarTabButton, NSButton, NSDictionary, NSObject, NSPopUpButton, NSSplitView, NSString, NSTabView, NSView;
+@class BCLayerListFilterViewController, BCOutlineViewController, BCOutlineViewDataController, BCPageListViewController, BCSidebarLabelButton, BCWindowTabMeasurementView, MSColorView, NSButton, NSDictionary, NSObject, NSPopUpButton, NSSplitView, NSStackView, NSString, NSTabView, NSView, NSVisualEffectView;
 @protocol BCOutlineViewNode, BCSideBarViewControllerDelegate;
 
 @interface BCSideBarViewController : NSViewController <NSSplitViewDelegate>
@@ -18,11 +18,13 @@
     NSObject<BCSideBarViewControllerDelegate> *_delegate;
     NSButton *_libraryPreferencesButton;
     NSButton *_toggleLibraryListButton;
-    NSView *_headerView;
-    BCSidebarTabButton *_pageTabButton;
-    BCSidebarTabButton *_componentsTabButton;
+    NSVisualEffectView *_backgroundEffectView;
+    NSStackView *_stackView;
+    NSButton *_pagesButton;
+    BCSidebarLabelButton *_componentsTabButton;
     NSTabView *_tabView;
     NSDictionary *_tabConfigurations;
+    BCWindowTabMeasurementView *_windowTabMeasurementView;
     BCOutlineViewDataController *_pageListDataController;
     BCPageListViewController *_pageListViewController;
     NSView *_pageListContainer;
@@ -33,6 +35,7 @@
     BCOutlineViewController *_layerListViewController;
     NSButton *_addPageButton;
     NSButton *_togglePageListButton;
+    MSColorView *_headerSeparatorView;
     NSSplitView *_splitView;
     BCLayerListFilterViewController *_filterViewController;
 }
@@ -41,6 +44,7 @@
 @property(retain, nonatomic) BCLayerListFilterViewController *filterViewController; // @synthesize filterViewController=_filterViewController;
 @property(nonatomic) BOOL userUpdatedPageHeight; // @synthesize userUpdatedPageHeight=_userUpdatedPageHeight;
 @property(nonatomic) __weak NSSplitView *splitView; // @synthesize splitView=_splitView;
+@property(nonatomic) __weak MSColorView *headerSeparatorView; // @synthesize headerSeparatorView=_headerSeparatorView;
 @property(nonatomic) __weak NSButton *togglePageListButton; // @synthesize togglePageListButton=_togglePageListButton;
 @property(nonatomic) __weak NSButton *addPageButton; // @synthesize addPageButton=_addPageButton;
 @property(retain, nonatomic) BCOutlineViewController *layerListViewController; // @synthesize layerListViewController=_layerListViewController;
@@ -51,11 +55,13 @@
 @property(retain, nonatomic) NSView *pageListContainer; // @synthesize pageListContainer=_pageListContainer;
 @property(retain, nonatomic) BCPageListViewController *pageListViewController; // @synthesize pageListViewController=_pageListViewController;
 @property(retain, nonatomic) BCOutlineViewDataController *pageListDataController; // @synthesize pageListDataController=_pageListDataController;
+@property(retain, nonatomic) BCWindowTabMeasurementView *windowTabMeasurementView; // @synthesize windowTabMeasurementView=_windowTabMeasurementView;
 @property(retain, nonatomic) NSDictionary *tabConfigurations; // @synthesize tabConfigurations=_tabConfigurations;
 @property(retain, nonatomic) NSTabView *tabView; // @synthesize tabView=_tabView;
-@property(nonatomic) __weak BCSidebarTabButton *componentsTabButton; // @synthesize componentsTabButton=_componentsTabButton;
-@property(nonatomic) __weak BCSidebarTabButton *pageTabButton; // @synthesize pageTabButton=_pageTabButton;
-@property(nonatomic) __weak NSView *headerView; // @synthesize headerView=_headerView;
+@property(nonatomic) __weak BCSidebarLabelButton *componentsTabButton; // @synthesize componentsTabButton=_componentsTabButton;
+@property(nonatomic) __weak NSButton *pagesButton; // @synthesize pagesButton=_pagesButton;
+@property(nonatomic) __weak NSStackView *stackView; // @synthesize stackView=_stackView;
+@property(nonatomic) __weak NSVisualEffectView *backgroundEffectView; // @synthesize backgroundEffectView=_backgroundEffectView;
 @property(nonatomic) __weak NSButton *toggleLibraryListButton; // @synthesize toggleLibraryListButton=_toggleLibraryListButton;
 @property(nonatomic) __weak NSButton *libraryPreferencesButton; // @synthesize libraryPreferencesButton=_libraryPreferencesButton;
 @property(nonatomic) BOOL showsTabView; // @synthesize showsTabView=_showsTabView;
@@ -93,12 +99,15 @@
 @property(readonly, nonatomic) NSString *currentTabIdentifier;
 - (void)updateActiveList;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)alignWithWindowContentLayoutGuide;
+- (void)refreshHeaderSeparator;
+- (void)pageListDidScroll:(id)arg1;
 - (void)viewDidLoad;
 - (void)embedView:(id)arg1 inView:(id)arg2;
 - (void)dealloc;
 - (id)initWithPageListDataSource:(id)arg1 delegate:(id)arg2 layerListDataSource:(id)arg3 delegate:(id)arg4;
-- (BOOL)isNodeExpanded:(id)arg1;
 - (BOOL)layerListOwnsDraggingSource:(id)arg1;
+- (BOOL)isNodeExpanded:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

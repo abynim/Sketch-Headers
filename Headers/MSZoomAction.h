@@ -6,12 +6,14 @@
 
 #import "MSDocumentAction.h"
 
+@class NSString;
+
 @interface MSZoomAction : MSDocumentAction
 {
 }
 
 - (id)label;
-- (id)zoomValueString;
+@property(readonly, copy) NSString *zoomValueString;
 - (void)zoomValueDidChange;
 - (void)keyUp:(id)arg1;
 - (void)keyDown:(id)arg1;

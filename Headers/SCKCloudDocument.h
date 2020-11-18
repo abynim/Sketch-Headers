@@ -15,9 +15,11 @@
     BOOL _isProcessing;
     NSString *_slug;
     NSURL *_downloadURL;
+    unsigned long long _fileSize;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;

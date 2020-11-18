@@ -6,12 +6,12 @@
 
 #import "MSInspectorValueAdaptorDelegate-Protocol.h"
 
-@class NSNumber, NSString;
+@class MSInspectorValueAdaptor, NSNumber, NSString;
 
 @protocol MSInspectorMathValueAdaptorDelegate <MSInspectorValueAdaptorDelegate>
 
 @optional
-- (NSNumber *)inspectorValueAdaptor:(id)arg1 nilOperandDropInForModel:(id)arg2 operator:(NSString *)arg3 operand2:(double)arg4;
-- (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
+- (NSNumber *)inspectorValueAdaptor:(MSInspectorValueAdaptor *)arg1 nilOperandDropInForModel:(id)arg2 operator:(NSString *)arg3 operand2:(double)arg4;
+- (BOOL)inspectorValueAdaptorAllowFloat:(MSInspectorValueAdaptor *)arg1;
 @end
 

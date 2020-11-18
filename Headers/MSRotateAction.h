@@ -18,6 +18,7 @@
 - (void)rotationBarAction:(id)arg1;
 - (void)refreshTouchBarItem;
 - (id)touchBarItem;
+- (id)imageForMenu;
 - (BOOL)validate;
 - (void)doPerformAction:(id)arg1;
 - (void)rotate:(id)arg1;

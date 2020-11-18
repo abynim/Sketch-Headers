@@ -12,6 +12,7 @@
 
 - (id)labelForToolbar;
 - (id)tooltip;
+- (id)imageForMenu;
 - (id)label;
 - (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;

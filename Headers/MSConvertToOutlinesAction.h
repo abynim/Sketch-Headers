@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validate;
+- (id)imageForMenu;
 - (id)imageName;
 - (BOOL)isFirstLayerText;
 - (id)historyMomentTitle;

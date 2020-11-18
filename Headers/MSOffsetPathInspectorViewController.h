@@ -4,13 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
-
-#import "MSInspectorChildController-Protocol.h"
+#import "MSInspectorItem.h"
 
 @class MSInlineUpDownTextField, NSArrayController, _TtC6Sketch14OffsetPathTool;
 
-@interface MSOffsetPathInspectorViewController : NSViewController <MSInspectorChildController>
+@interface MSOffsetPathInspectorViewController : MSInspectorItem
 {
     // Error parsing type: , name: tool
     // Error parsing type: , name: eventHandler
@@ -23,16 +21,12 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)refreshIfNecessary:(id)arg1;
-- (void)selectionDidChangeTo:(id)arg1;
-- (void)prepareForDisplay;
 - (void)confirm:(id)arg1;
 - (void)duplicateClicked:(id)arg1;
 - (void)offsetDragged:(id)arg1;
 @property(nonatomic, retain) MSInlineUpDownTextField *offsetField; // @synthesize offsetField;
 @property(nonatomic, retain) NSArrayController *arrayController; // @synthesize arrayController;
 @property(nonatomic, retain) _TtC6Sketch14OffsetPathTool *tool; // @synthesize tool;
-- (void)viewDidAppear;
 - (void)viewDidLoad;
 
 @end

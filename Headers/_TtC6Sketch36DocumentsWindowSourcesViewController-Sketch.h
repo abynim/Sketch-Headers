@@ -7,10 +7,17 @@
 #import "_TtC6Sketch36DocumentsWindowSourcesViewController.h"
 
 #import "NSOutlineViewDataSource-Protocol.h"
+#import "NSOutlineViewDelegate-Protocol.h"
 
-@interface _TtC6Sketch36DocumentsWindowSourcesViewController (Sketch) <NSOutlineViewDataSource>
+@interface _TtC6Sketch36DocumentsWindowSourcesViewController (Sketch) <NSOutlineViewDataSource, NSOutlineViewDelegate>
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;
+- (void)outlineViewSelectionDidChange:(id)arg1;
+- (BOOL)outlineView:(id)arg1 shouldShowOutlineCellForItem:(id)arg2;
+- (double)outlineView:(id)arg1 heightOfRowByItem:(id)arg2;
+- (id)outlineView:(id)arg1 rowViewForItem:(id)arg2;
+- (BOOL)outlineView:(id)arg1 isGroupItem:(id)arg2;
+- (BOOL)outlineView:(id)arg1 shouldSelectItem:(id)arg2;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <BCLayerList/NSControlTextEditingDelegate-Protocol.h>
 
-@class NSCell, NSEvent, NSIndexSet, NSNotification, NSOutlineView, NSString, NSTableColumn, NSTableRowView, NSView;
+@class NSCell, NSEvent, NSIndexSet, NSNotification, NSOutlineView, NSString, NSTableColumn, NSTableRowView, NSTintConfiguration, NSView;
 
 @protocol NSOutlineViewDelegate <NSControlTextEditingDelegate>
 
@@ -32,6 +32,7 @@
 - (BOOL)outlineView:(NSOutlineView *)arg1 shouldTypeSelectForEvent:(NSEvent *)arg2 withCurrentSearchString:(NSString *)arg3;
 - (id)outlineView:(NSOutlineView *)arg1 nextTypeSelectMatchFromItem:(id)arg2 toItem:(id)arg3 forString:(NSString *)arg4;
 - (NSString *)outlineView:(NSOutlineView *)arg1 typeSelectStringForTableColumn:(NSTableColumn *)arg2 item:(id)arg3;
+- (NSTintConfiguration *)outlineView:(NSOutlineView *)arg1 tintConfigurationForItem:(id)arg2;
 - (double)outlineView:(NSOutlineView *)arg1 heightOfRowByItem:(id)arg2;
 - (NSString *)outlineView:(NSOutlineView *)arg1 toolTipForCell:(NSCell *)arg2 rect:(struct CGRect *)arg3 tableColumn:(NSTableColumn *)arg4 item:(id)arg5 mouseLocation:(struct CGPoint)arg6;
 - (void)outlineView:(NSOutlineView *)arg1 didDragTableColumn:(NSTableColumn *)arg2;
