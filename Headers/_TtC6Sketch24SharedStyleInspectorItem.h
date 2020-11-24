@@ -6,7 +6,7 @@
 
 #import "_TtC6Sketch22ComponentInspectorItem.h"
 
-@class MSInspectorPushButton, NSMenu, NSTextField;
+@class MSInspectorControlView, MSInspectorPushButton, NSMenu, NSTextField;
 
 @interface _TtC6Sketch24SharedStyleInspectorItem : _TtC6Sketch22ComponentInspectorItem
 {
@@ -15,6 +15,7 @@
     // Error parsing type: , name: updateStyleButton
     // Error parsing type: , name: detachStyleButton
     // Error parsing type: , name: moreActionsButton
+    // Error parsing type: , name: controlViewOutline
     // Error parsing type: , name: moreActionsMenu
     // Error parsing type: , name: renameCompletionHandler
 }
@@ -28,6 +29,7 @@
 - (void)showMoreActionsMenu:(id)arg1;
 - (void)viewDidLoad;
 @property(nonatomic) __weak NSMenu *moreActionsMenu; // @synthesize moreActionsMenu;
+@property(nonatomic) __weak MSInspectorControlView *controlViewOutline; // @synthesize controlViewOutline;
 @property(nonatomic) __weak MSInspectorPushButton *moreActionsButton; // @synthesize moreActionsButton;
 @property(nonatomic) __weak MSInspectorPushButton *detachStyleButton; // @synthesize detachStyleButton;
 @property(nonatomic) __weak MSInspectorPushButton *updateStyleButton; // @synthesize updateStyleButton;

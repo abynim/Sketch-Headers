@@ -30,6 +30,7 @@
 @property(nonatomic) BOOL isActiveOutlineView; // @synthesize isActiveOutlineView=_isActiveOutlineView;
 @property(retain, nonatomic) id discloserTriangleClickedItem; // @synthesize discloserTriangleClickedItem=_discloserTriangleClickedItem;
 @property(nonatomic) __weak BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
+- (void)viewDidChangeBackingProperties;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)setIntercellSpacing:(struct CGSize)arg1;
 - (void)deliberateScrollRowToVisible:(long long)arg1;

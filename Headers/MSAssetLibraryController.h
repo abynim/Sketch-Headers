@@ -88,7 +88,7 @@
 - (id)existingLibraryMatchingLibrary:(id)arg1;
 - (void)cloudLibrariesDidFinishUpdate;
 - (void)cloudLibrariesWillUpdate;
-- (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 updatingInfo:(id)arg4 editable:(BOOL)arg5 completionHandler:(CDUnknownBlockType)arg6;
+- (void)addCloudLibraryFromAppcastURL:(id)arg1 teamName:(id)arg2 libraryID:(id)arg3 editable:(BOOL)arg4 completionHandler:(CDUnknownBlockType)arg5;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)updateCloudLibraryShare:(id)arg1 editable:(BOOL)arg2;
 - (id)existingLibraryForDocumentAtURL:(id)arg1;
