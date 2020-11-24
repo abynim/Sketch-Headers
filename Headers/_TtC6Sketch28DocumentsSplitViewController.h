@@ -14,6 +14,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (BOOL)splitView:(id)arg1 canCollapseSubview:(id)arg2;
 - (void)splitViewDidResizeSubviews:(id)arg1;
 
 @end

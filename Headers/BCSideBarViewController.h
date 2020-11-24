@@ -100,6 +100,7 @@
 - (void)updateActiveList;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)alignWithWindowContentLayoutGuide;
+- (void)refreshHeaderSeparator;
 - (void)pageListDidScroll:(id)arg1;
 - (void)viewDidLoad;
 - (void)embedView:(id)arg1 inView:(id)arg2;

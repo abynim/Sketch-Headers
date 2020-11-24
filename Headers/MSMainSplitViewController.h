@@ -13,6 +13,7 @@
 @interface MSMainSplitViewController : NSSplitViewController <NSSplitViewDelegate>
 {
     BOOL _isInVersionBrowser;
+    BOOL _shouldEncodeCurrentSidebarWidth;
     NSWindow *_window;
     MSDocument *_document;
     BCSideBarViewController *_sidebarController;
@@ -22,9 +23,12 @@
     long long _leftSide;
     long long _rightSide;
     NSView *_savedInspectorView;
+    double _restorableSidebarWidth;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) double restorableSidebarWidth; // @synthesize restorableSidebarWidth=_restorableSidebarWidth;
+@property(nonatomic) BOOL shouldEncodeCurrentSidebarWidth; // @synthesize shouldEncodeCurrentSidebarWidth=_shouldEncodeCurrentSidebarWidth;
 @property(retain, nonatomic) NSView *savedInspectorView; // @synthesize savedInspectorView=_savedInspectorView;
 @property(nonatomic) BOOL isInVersionBrowser; // @synthesize isInVersionBrowser=_isInVersionBrowser;
 @property(nonatomic) long long rightSide; // @synthesize rightSide=_rightSide;

@@ -14,6 +14,7 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initTextCell:(id)arg1 pullsDown:(BOOL)arg2;
+- (struct CGRect)titleRectForBounds:(struct CGRect)arg1;
 @property(nonatomic, readonly) NSColor *labelColor;
 
 @end

@@ -77,6 +77,7 @@
 - (BOOL)doLayersHaveSameDataSupplier:(id)arg1;
 - (id)styleFillForLayer:(id)arg1;
 @property(readonly, nonatomic) NSArray *layersWithData;
+- (BOOL)canApplyData;
 @property(readonly, nonatomic) BOOL canRefreshData;
 - (void)refreshData:(id)arg1;
 - (void)showData:(id)arg1;

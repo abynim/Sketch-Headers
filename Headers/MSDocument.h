@@ -136,7 +136,8 @@
 - (void)reloadTouchBars;
 - (void)libraryControllerDidChange:(id)arg1;
 @property(nonatomic) BOOL pageListCollapsed;
-@property(nonatomic) double pageListHeight;
+- (void)setPageListHeight:(double)arg1 isUserInitiated:(BOOL)arg2;
+@property(readonly, nonatomic) double pageListHeight;
 - (id)inactiveSelectedTabIndicatorColor;
 - (id)activeSelectedTabIndicatorColor;
 - (id)sidebarViewController:(id)arg1 viewControllerForSidebarTabIdentifier:(id)arg2;

@@ -141,7 +141,7 @@
 - (void)dealloc;
 @property(readonly, nonatomic) double preferredHeight;
 - (void)outlineViewDidResize:(id)arg1;
-- (void)documentWindowBackingPropertiesDidChange:(id)arg1;
+- (void)outlineViewBackingPropertiesDidChange:(id)arg1;
 - (void)applyAppearance;
 - (void)viewDidAppear;
 - (void)viewDidLoad;

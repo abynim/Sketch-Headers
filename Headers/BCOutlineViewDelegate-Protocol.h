@@ -9,6 +9,7 @@
 @class BCOutlineView;
 
 @protocol BCOutlineViewDelegate <NSOutlineViewDelegate>
+- (void)outlineViewBackingPropertiesDidChange:(BCOutlineView *)arg1;
 - (BOOL)isOutlineViewShowingContextMenu:(BCOutlineView *)arg1;
 
 @optional

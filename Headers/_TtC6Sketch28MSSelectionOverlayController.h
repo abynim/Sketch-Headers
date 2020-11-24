@@ -35,6 +35,7 @@
 - (void)temporarilyHideSelection;
 - (void)refreshIfNecessary:(id)arg1;
 @property(nonatomic) BOOL hidesBoundingBoxForSelectedArtboards; // @synthesize hidesBoundingBoxForSelectedArtboards;
+- (void)setSelectedLayers:(id)arg1 reloadStacks:(BOOL)arg2;
 @property(nonatomic, copy) NSArray *selectedLayers;
 - (void)installIntoEventHandler:(id)arg1;
 - (void)dealloc;

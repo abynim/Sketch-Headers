@@ -10,8 +10,9 @@
 
 @protocol BCSideBarViewControllerDelegate <NSObject>
 @property(nonatomic) BOOL pageListCollapsed;
-@property(nonatomic) double pageListHeight;
+@property(readonly, nonatomic) double pageListHeight;
 - (NSViewController *)sidebarViewController:(BCSideBarViewController *)arg1 viewControllerForSidebarTabIdentifier:(NSString *)arg2;
 - (NSArray *)tabConfigurationsForSidebarViewController:(BCSideBarViewController *)arg1;
+- (void)setPageListHeight:(double)arg1 isUserInitiated:(BOOL)arg2;
 @end
 
