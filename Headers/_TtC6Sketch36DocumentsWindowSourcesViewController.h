@@ -41,7 +41,7 @@
 @property(nonatomic, readonly) BOOL canEditClickedProject;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
-- (void)currentAPISessionDidChange:(id)arg1;
+- (void)environmentAuthenticationDidChange:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic) BOOL isEditingProjectName; // @synthesize isEditingProjectName;

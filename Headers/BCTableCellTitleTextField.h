@@ -14,6 +14,11 @@
 - (void)setObjectValue:(id)arg1;
 - (void)textDidEndEditing:(id)arg1;
 - (struct NSEdgeInsets)alignmentRectInsets;
+- (void)modifyFieldEditorContainment;
+- (void)replaceSubview:(id)arg1 with:(id)arg2;
+- (void)addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
+- (void)setSubviews:(id)arg1;
+- (void)addSubview:(id)arg1;
 
 @end
 

@@ -69,7 +69,8 @@
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
 + (id)currentDocument;
 + (id)windowForSheet;
-+ (void)cleanCloudDirectories;
++ (void)cleanCloudDirectoriesRemovingAllDocuments:(BOOL)arg1;
++ (id)didCleanCloudDirectoriesNotification;
 + (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
 + (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (id)documentWithCloudShareID:(id)arg1;

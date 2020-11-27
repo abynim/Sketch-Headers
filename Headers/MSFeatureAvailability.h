@@ -26,12 +26,14 @@
     // Error parsing type: , name: sendBetaFeedback
     // Error parsing type: , name: pixelAlignByDragDelta
     // Error parsing type: , name: sso
+    // Error parsing type: , name: removeCloudDocsOnSignout
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) MSFeatureFlag *removeCloudDocsOnSignout; // @synthesize removeCloudDocsOnSignout;
 @property(nonatomic, readonly) MSFeatureFlag *sso; // @synthesize sso;
 @property(nonatomic, readonly) MSFeatureFlag *pixelAlignByDragDelta; // @synthesize pixelAlignByDragDelta;
 @property(nonatomic, readonly) MSFeatureFlag *sendBetaFeedback; // @synthesize sendBetaFeedback;

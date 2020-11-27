@@ -32,7 +32,6 @@
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)showAccountSettings:(id)arg1;
-- (void)signout:(id)arg1;
 - (void)authenticationDidChange:(id)arg1;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSTextField *environmentLabel; // @synthesize environmentLabel;
