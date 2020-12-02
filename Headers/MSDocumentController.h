@@ -27,6 +27,7 @@
 - (void)noteNewRecentDocument:(id)arg1;
 - (BOOL)shouldNoteRecentDocumentForType:(id)arg1;
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)cloudAuthenticationDidChange:(id)arg1;
 - (void)decideOpenStrategyForDocument:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) BOOL canShowDocumentsWindowAtLaunch;

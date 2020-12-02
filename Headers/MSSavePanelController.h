@@ -82,6 +82,8 @@
 - (void)confirm:(id)arg1;
 - (void)learnMoreAboutCloud:(id)arg1;
 - (void)signInToCloud:(id)arg1;
+- (void)reloadCloudDestinations;
+- (void)authenticationDidChange:(id)arg1;
 - (void)userDidChange:(id)arg1;
 - (void)addRecentLocation:(id)arg1;
 - (id)makeRecentLocationMenuItems;

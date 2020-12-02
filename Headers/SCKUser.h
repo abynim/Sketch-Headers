@@ -12,6 +12,7 @@
 
 @interface SCKUser : SCKObject <SCKContentOwner>
 {
+    BOOL _hasPersonalIdentity;
     SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
@@ -22,6 +23,7 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
+@property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;

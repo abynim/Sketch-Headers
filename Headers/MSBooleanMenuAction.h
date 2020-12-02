@@ -10,6 +10,7 @@
 {
 }
 
+- (id)menuKeyBindings;
 - (void)doPerformAction:(id)arg1;
 - (id)label;
 - (id)tooltip;

@@ -41,9 +41,6 @@
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
-- (id)toolbarDefaultItemIdentifiers:(id)arg1;
-- (id)toolbarAllowedItemIdentifiers:(id)arg1;
-- (id)toolbarItemIdentifiers;
 - (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidChangeBackingProperties:(id)arg1;

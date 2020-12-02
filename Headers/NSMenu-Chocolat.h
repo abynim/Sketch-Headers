@@ -8,6 +8,7 @@
 
 @interface NSMenu (Chocolat)
 + (id)menuWithItems:(id)arg1;
+- (id)deepFindMenuItemWithLabel:(id)arg1;
 - (void)moveItem:(id)arg1 toAfter:(id)arg2;
 - (BOOL)insertItem:(id)arg1 after:(id)arg2;
 - (void)applyBlockToMenuItemsInSubmenus:(CDUnknownBlockType)arg1;

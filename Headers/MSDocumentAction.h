@@ -9,7 +9,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class MSDocument, NSEvent, NSString, NSTouchBarItem;
+@class MSDocument, NSArray, NSEvent, NSString, NSTouchBarItem;
 
 @interface MSDocumentAction : MSAction <NSMenuDelegate, NSTouchBarDelegate>
 {
@@ -22,6 +22,8 @@
 @property(nonatomic) __weak NSEvent *previousEvent; // @synthesize previousEvent=_previousEvent;
 @property(retain, nonatomic) NSTouchBarItem *cachedTouchedBarItem; // @synthesize cachedTouchedBarItem=_cachedTouchedBarItem;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(readonly, nonatomic) NSArray *menuKeyBindings;
+- (id)menuItemLabelForActionIdentifier:(id)arg1;
 - (id)contextForActionObservers;
 @property(readonly, nonatomic) NSString *historyMomentTitle;
 - (void)performPopUpMenuAction;
@@ -39,6 +41,7 @@
 @property(readonly, nonatomic) unsigned long long currentContentMode;
 - (id)selectedLayers;
 - (id)initWithDocument:(id)arg1;
+- (void)menuDidClose:(id)arg1;
 - (void)menuWillOpen:(id)arg1;
 - (id)menu;
 - (void)repopulateMenu:(id)arg1;

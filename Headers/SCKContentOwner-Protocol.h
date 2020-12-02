@@ -9,10 +9,10 @@
 @class NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
 
 @protocol SCKContentOwner <NSObject>
-@property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
-@property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
-@property(readonly, nonatomic) SCKPaginatedShares *paginatedShares;
-@property(readonly, nonatomic) SCKAvatar *avatar;
-@property(readonly, copy, nonatomic) NSString *name;
+@property(nonatomic, readonly) NSDictionary *disclosableDictionaryRepresentation;
+@property(nonatomic, readonly) SCKPaginatedProjects *paginatedProjects;
+@property(nonatomic, readonly) SCKPaginatedShares *paginatedShares;
+@property(nonatomic, readonly) SCKAvatar *avatar;
+@property(nonatomic, readonly) NSString *name;
 @end
 

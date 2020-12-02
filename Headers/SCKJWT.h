@@ -35,6 +35,7 @@
 @property(readonly, nonatomic) NSNumber *expirationTime;
 @property(readonly, nonatomic) NSNumber *issuedAt;
 @property(readonly, nonatomic) NSString *subject;
+@property(readonly, nonatomic) NSString *team;
 @property(readonly, nonatomic) NSString *type;
 @property(readonly, nonatomic) NSString *algorithm;
 

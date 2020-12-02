@@ -27,14 +27,14 @@
 + (id)applicationBundle;
 + (id)additionalHeaders;
 + (id)defaultURLSession;
-+ (id)requestAllProjectsWithHandler:(CDUnknownBlockType)arg1;
++ (id)requestAllProjectsOnBehalfOfOwner:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)renameShare:(id)arg1 newName:(id)arg2 handler:(CDUnknownBlockType)arg3;
 + (id)updateShare:(id)arg1 libraryEnabled:(BOOL)arg2 handler:(CDUnknownBlockType)arg3;
 + (id)moveShareOperation:(id)arg1 toProject:(id)arg2 environment:(id)arg3 authentication:(id)arg4 handler:(CDUnknownBlockType)arg5;
-+ (id)requestShareAtURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
-+ (id)requestShareWithShortID:(id)arg1 environment:(id)arg2 handler:(CDUnknownBlockType)arg3;
++ (void)requestShareAtURL:(id)arg1 handler:(CDUnknownBlockType)arg2;
++ (void)requestShareWithShortID:(id)arg1 environment:(id)arg2 handler:(CDUnknownBlockType)arg3;
 + (id)requestUpdatedShare:(id)arg1 handler:(CDUnknownBlockType)arg2;
-+ (id)requestShareWithObjectID:(id)arg1 environment:(id)arg2 handler:(CDUnknownBlockType)arg3;
++ (id)requestShareWithObjectID:(id)arg1 environment:(id)arg2 onBehalfOfOwner:(id)arg3 handler:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
 @property(retain, nonatomic) _TtC14SketchCloudKit29SCKAPIOperationProgressHelper *progressHelper; // @synthesize progressHelper=_progressHelper;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *authRefreshGroup; // @synthesize authRefreshGroup=_authRefreshGroup;

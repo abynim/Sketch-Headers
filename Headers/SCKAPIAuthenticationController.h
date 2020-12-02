@@ -19,9 +19,9 @@
 - (void)signinWithSSOFromContextProvider:(id)arg1 environment:(id)arg2 organizationShortName:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)refreshLicense:(CDUnknownBlockType)arg1;
 - (void)signinWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-- (void)refreshAuthenticationWithValidation:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)validateAuthenticationWithTest:(CDUnknownBlockType)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)validateAuthentication:(CDUnknownBlockType)arg1;
+- (void)refreshAuthentication:(id)arg1 validation:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)validateAuthentication:(id)arg1 test:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)validateAuthentication:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 
 @end
 
