@@ -4,29 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+#import "MSSlowBadgeAction.h"
 
-#import "MSWindowBadgeAction-Protocol.h"
-
-@class NSAttributedString, NSColor, NSString;
-
-@interface MSReplaceFontsAction : MSDocumentAction <MSWindowBadgeAction>
+@interface MSReplaceFontsAction : MSSlowBadgeAction
 {
 }
 
-@property(readonly, nonatomic) NSColor *badgeTint;
+- (id)badgeTint;
 - (id)label;
-@property(readonly, nonatomic) unsigned long long numberOfBadges;
-- (BOOL)validate;
+- (id)findBadgeResults:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)replaceMissingFonts:(id)arg1;
-
-// Remaining properties
-@property(readonly, nonatomic) NSAttributedString *badgeTitle; // @dynamic badgeTitle;
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 
