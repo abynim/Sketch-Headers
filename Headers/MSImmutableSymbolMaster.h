@@ -14,7 +14,7 @@
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
-    NSDictionary *_overrideProperties;
+    NSDictionary *_overridePropertyDict;
     BCCache *_detachedGroupCache;
 }
 
@@ -23,21 +23,20 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
-@property(readonly, nonatomic) NSDictionary *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
+- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
-- (void)decodePropertiesWithUnarchiver:(id)arg1;
-- (id)keysDifferingFromObject:(id)arg1;
-- (BOOL)isEqualForDiffToObject:(id)arg1;
-- (void)convertOverridePropertiesToLocalDictionary:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
+@property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
+- (void)calculateOverridePropertyDict;
 @property(readonly, nonatomic) BOOL isWorthDetaching;
 - (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-- (void)objectDidInit;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (void)initializeUnsetObjectPropertiesWithDefaults;
+- (void)objectDidInit;
+- (void)migrationSetOverrideProperties:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;

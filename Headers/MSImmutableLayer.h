@@ -11,7 +11,7 @@
 #import <SketchModel/MSLayerProtocol-Protocol.h>
 #import <SketchModel/MSLayerTraits-Protocol.h>
 
-@class MSPath, NSAffineTransform, NSObject, NSString;
+@class MSPath, NSObject, NSString;
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSLayerProtocol, MSLayerTraits>
 {
@@ -58,9 +58,7 @@
 - (id)bezierBoundsInAbsoluteCoordinatesWithAncestors:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
 @property(readonly, nonatomic) struct CGRect frameForTransforms;
-@property(readonly, nonatomic) NSAffineTransform *transform;
 @property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-- (id)transformForRect:(struct CGRect)arg1;
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
 @property(readonly, nonatomic) struct CGPoint center;
@@ -83,7 +81,6 @@
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1;
-- (void)enumerateImmutableWithOptions:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 parentCreatorBlock:(CDUnknownBlockType)arg4 usingBlock:(CDUnknownBlockType)arg5;
 - (id)descendantsToLayerWithID:(id)arg1;
 - (id)lastLayer;
 - (id)firstLayer;

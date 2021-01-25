@@ -14,7 +14,6 @@
 
 - (id)localLocationPath;
 @property(readonly, nonatomic) MSStyle *style;
-- (id)sharedObjectID;
 
 @end
 

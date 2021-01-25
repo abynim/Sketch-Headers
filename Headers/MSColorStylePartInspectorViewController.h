@@ -11,14 +11,13 @@
 #import "MSDropableViewDelegate-Protocol.h"
 #import "MSNativeColorPanelPresenterDelegate-Protocol.h"
 #import "MSReorderingViewDelegate-Protocol.h"
-#import "MSStylePartBlendModeButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "MSStylePartPreviewButtonDisabledTarget-Protocol.h"
 #import "NSPopoverDelegate-Protocol.h"
 
 @class BCPopover, MSColorInspector, MSInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, NSString;
 
-@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSStylePartBlendModeButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate, MSDropableViewDelegate>
+@interface MSColorStylePartInspectorViewController : MSStylePartInspectorViewController <NSPopoverDelegate, MSStylePartPreviewButtonDisabledTarget, MSColorInspectorDelegate, MSStylePartPreviewButtonDelegate, MSColorSpaceProvider, MSNativeColorPanelPresenterDelegate, MSReorderingViewDelegate, MSDropableViewDelegate>
 {
     MSStylePartPreviewButton *_colorButton;
     MSColorInspector *_colorInspector;
@@ -38,14 +37,11 @@
 - (BOOL)reorderingView:(id)arg1 shouldDeleteItemForDragPosition:(struct CGPoint)arg2;
 - (void)showColorVariablesPopoverMenu:(id)arg1;
 - (BOOL)previewButtonShouldShowColorVariablesButton;
-- (void)setBlendMode:(long long)arg1 sender:(id)arg2;
-- (id)documentForStylePartBlendButton:(id)arg1;
 - (id)documentColorSpaceForClient:(id)arg1;
 - (id)previewColorSpaceForClient:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)refreshAction:(id)arg1;
-- (void)updateBlendMode;
 - (void)colorInspectorDidChange:(id)arg1;
 - (void)colorInspector:(id)arg1 didChangeToColor:(id)arg2;
 - (void)updateColorInActiveInspector;

@@ -33,6 +33,7 @@
 @property(readonly, nonatomic) NSString *fontPostscriptName;
 @property(readonly, nonatomic) BOOL isRequiredFontAvailable;
 - (id)treeAsDictionary;
+- (BOOL)isFontAvailable;
 - (void)replaceFonts:(id)arg1;
 
 // Remaining properties

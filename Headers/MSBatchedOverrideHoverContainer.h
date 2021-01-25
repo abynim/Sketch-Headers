@@ -6,11 +6,9 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/MSHoverableItem-Protocol.h>
-
 @class MSLayer, MSPath, NSArray;
 
-@interface MSBatchedOverrideHoverContainer : NSObject <MSHoverableItem>
+@interface MSBatchedOverrideHoverContainer : NSObject
 {
     // Error parsing type: , name: hoverContainers
 }

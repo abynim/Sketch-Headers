@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (void)actualSize:(id)arg1;
 - (void)doPerformAction:(id)arg1;

@@ -38,7 +38,7 @@
 @property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
 @property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

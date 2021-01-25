@@ -6,7 +6,7 @@
 
 #import <AppKit/NSWindowController.h>
 
-#import "NSTableViewDataSource-Protocol.h"
+#import <SketchControllers/NSTableViewDataSource-Protocol.h>
 
 @class NSArray, NSButton, NSString, NSTableView, NSTextField, NSWindow;
 
@@ -21,6 +21,7 @@
     NSButton *_openButton;
 }
 
++ (BOOL)shouldOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *openButton; // @synthesize openButton=_openButton;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;

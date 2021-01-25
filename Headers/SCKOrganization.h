@@ -32,6 +32,7 @@
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;

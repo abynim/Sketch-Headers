@@ -13,7 +13,6 @@
 }
 
 @property(readonly, nonatomic) NSArray *swatches;
-@property(readonly, nonatomic) NSArray *colors;
 
 @end
 

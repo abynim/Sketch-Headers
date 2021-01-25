@@ -7,6 +7,7 @@
 #import <SketchModel/MSFeatureFlag.h>
 
 @interface MSFeatureFlag (SketchModel)
++ (void)switchToDisabledStorageStrategy;
 + (void)switchToUserDefaultsStorageStrategy;
 + (BOOL)usesDisabledStorageStrategy;
 @end

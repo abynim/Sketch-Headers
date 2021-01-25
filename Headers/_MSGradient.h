@@ -55,7 +55,7 @@
 @property(nonatomic) struct CGPoint from; // @synthesize from=_from;
 @property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultGradientStops;
 

@@ -32,6 +32,7 @@
 - (BOOL)allowsSwitchToInsertAction;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
+- (id)group;
 - (id)title;
 - (void)dealloc;
 

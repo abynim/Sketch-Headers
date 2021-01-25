@@ -18,6 +18,7 @@
 @property(retain, nonatomic) MSOverrideValue *predecessor; // @synthesize predecessor=_predecessor;
 @property(nonatomic) BOOL isInherited; // @synthesize isInherited=_isInherited;
 @property(readonly, nonatomic) NSString *attributeName;
+- (id)value;
 - (id)originalName;
 - (id)overrideName;
 - (void)setOverrideName:(id)arg1;

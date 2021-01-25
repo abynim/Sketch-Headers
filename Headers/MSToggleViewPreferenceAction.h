@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (BOOL)hasDynamicTitle;
 - (id)preferenceKey;
 - (void)doPerformAction:(id)arg1;

@@ -15,6 +15,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithFrame:(struct CGRect)arg1 pullsDown:(BOOL)arg2;
+- (void)triggerRedraw;
+- (void)viewDidMoveToWindow;
 - (void)setFrameOrigin:(struct CGPoint)arg1;
 
 @end

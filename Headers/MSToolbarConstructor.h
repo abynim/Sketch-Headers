@@ -37,6 +37,9 @@
 - (BOOL)shouldAutomaticallyRemoveNotificationToolbarItem;
 @property(readonly) NSString *componentsToolbarType;
 @property(readonly) NSString *canvasToolbarType;
+- (void)reinsertToolbarItemWithIdentifier:(id)arg1;
+- (void)handleShareChangedNotification:(id)arg1;
+- (void)handleUserChangedNotification:(id)arg1;
 - (void)removeLegacyToolbarItemsForToolbar:(id)arg1;
 - (void)insertNewDefaultToolbarItemsForToolbar:(id)arg1;
 - (void)forceAddToolbarItemWithIdentifier:(id)arg1 toToolbar:(id)arg2;

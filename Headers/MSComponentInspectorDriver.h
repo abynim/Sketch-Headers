@@ -22,6 +22,7 @@
 - (void)prepareForDeinit;
 - (id)inspectorViewControllersFor:(id)arg1 from:(id)arg2;
 - (void)reload;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, copy) NSArray *layers;
 

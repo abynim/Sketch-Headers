@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (id)tooltip;
 - (void)doPerformAction:(id)arg1;

@@ -9,7 +9,7 @@
 #import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
 
 @class MSLayer;
-@protocol MSLayerCoordinateSpace, MSRootLayer;
+@protocol MSRootLayer;
 
 @interface MSRulerCoordinateSpace : NSObject <MSLayerCoordinateSpace>
 {
@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) __weak MSLayer<MSRootLayer> *layer; // @synthesize layer=_layer;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
-@property(readonly, nonatomic) id <MSLayerCoordinateSpace> parentCoordinateSpace;
+- (id)parentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
 - (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id)arg2;

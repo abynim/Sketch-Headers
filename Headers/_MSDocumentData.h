@@ -34,6 +34,7 @@
 + (long long)initialPageNumber;
 + (id)localizedNewPageName;
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_workspaceItems:(id)arg1;
 - (void)setRaw_sharedSwatches:(id)arg1;
@@ -159,7 +160,7 @@
 @property(nonatomic) unsigned long long currentPageIndex; // @synthesize currentPageIndex=_currentPageIndex;
 @property(nonatomic) unsigned long long colorSpace; // @synthesize colorSpace=_colorSpace;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultPageArray;
 

@@ -45,6 +45,7 @@
 @property(retain, nonatomic) MSColor *pickedColor; // @synthesize pickedColor=_pickedColor;
 - (id)preferredFirstResponder;
 - (id)lastKeyView;
+- (id)customTouchBarItemIdentifiers;
 - (void)popoverWillClose;
 - (void)commitEditingSwatch:(id)arg1;
 - (void)cancelEditingSwatch:(id)arg1;
@@ -79,7 +80,6 @@
 - (unsigned long long)assetType;
 - (unsigned long long)fillType;
 - (void)setStyleParts:(id)arg1;
-- (void)selectColorInAssetPicker:(id)arg1;
 - (void)highlightCurrentColor;
 - (id)currentColor;
 - (void)setPickedColor:(id)arg1 multipleValues:(BOOL)arg2;

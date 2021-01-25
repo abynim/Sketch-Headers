@@ -13,7 +13,6 @@
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)ungroup:(id)arg1;
-- (id)ungroupComponentsAction;
 - (BOOL)validate;
 - (id)label;
 - (id)tooltip;

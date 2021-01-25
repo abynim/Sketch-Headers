@@ -17,7 +17,9 @@
     // Error parsing type: , name: rowIndexForContextualMenu
     // Error parsing type: , name: delegate
     // Error parsing type: , name: sections
-    // Error parsing type: , name: updatingSections
+    // Error parsing type: , name: isUpdatingSections
+    // Error parsing type: , name: pendingProjectUpdateTokens
+    // Error parsing type: , name: sourceToSelectAfterUpdateComplete
     // Error parsing type: , name: newProjectPlaceholder
     // Error parsing type: , name: isEditingProjectName
     // Error parsing type: , name: personalProjects

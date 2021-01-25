@@ -6,17 +6,20 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSArray, NSString, NSURL, SCKProject, SCKShareVersion;
+@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion;
 @protocol SCKContentOwner;
 
 @interface SCKShare : SCKObject
 {
     BOOL _isPrivate;
+    BOOL _userIsMember;
+    BOOL _userCanEdit;
     BOOL _canUpdate;
     BOOL _libraryEnabled;
     NSURL *_publicURL;
     NSString *_name;
     NSString *_shortID;
+    NSArray *_presences;
     SCKShareVersion *_currentVersion;
     unsigned long long _versionCount;
     NSArray *_previewThumbnails;
@@ -24,22 +27,28 @@
     SCKProject *_project;
     NSString *_selectedArtboardID;
     NSString *_selectedPageID;
+    SCKShareMembership *_membership;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL libraryEnabled; // @synthesize libraryEnabled=_libraryEnabled;
+@property(readonly, nonatomic) SCKShareMembership *membership; // @synthesize membership=_membership;
 @property(readonly, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;
 @property(readonly, nonatomic) NSString *selectedArtboardID; // @synthesize selectedArtboardID=_selectedArtboardID;
 @property(readonly, nonatomic) SCKProject *project; // @synthesize project=_project;
 @property(readonly, nonatomic) SCKObject<SCKContentOwner> *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) NSArray *previewThumbnails; // @synthesize previewThumbnails=_previewThumbnails;
 @property(readonly, nonatomic) BOOL canUpdate; // @synthesize canUpdate=_canUpdate;
+@property(readonly, nonatomic) BOOL userCanEdit; // @synthesize userCanEdit=_userCanEdit;
+@property(readonly, nonatomic) BOOL userIsMember; // @synthesize userIsMember=_userIsMember;
 @property(readonly, nonatomic) unsigned long long versionCount; // @synthesize versionCount=_versionCount;
 @property(readonly, nonatomic) SCKShareVersion *currentVersion; // @synthesize currentVersion=_currentVersion;
 @property(readonly, nonatomic) BOOL isPrivate; // @synthesize isPrivate=_isPrivate;
+@property(readonly, nonatomic) NSArray *presences; // @synthesize presences=_presences;
 @property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (id)description;
+- (id)shareWithDisclosableOwner;
 - (id)shareBySettingCurrentVersion:(id)arg1;
 - (BOOL)isManagedByOwner:(id)arg1;
 - (BOOL)isUpdatedByShare:(id)arg1;

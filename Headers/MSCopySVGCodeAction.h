@@ -13,6 +13,8 @@
 - (id)label;
 - (BOOL)shouldIncludeBackgroundColorFromLayers:(id)arg1;
 - (BOOL)validate;
+- (id)makeExporterForLayers:(id)arg1 immutablePage:(id)arg2 immutableDocument:(id)arg3;
+- (id)makeExporterForSlice:(id)arg1 immutablePage:(id)arg2 immutableDocument:(id)arg3;
 - (void)doPerformAction:(id)arg1;
 - (void)copySVG:(id)arg1;
 

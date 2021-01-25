@@ -57,7 +57,7 @@
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
 - (void)refreshCoordinates;
-- (void)vectorModeSegmentedButtonAction:(id)arg1;
+- (void)changeCurveMode:(id)arg1;
 - (void)refreshCurveModeControls;
 - (void)finishEditingAction:(id)arg1;
 - (void)refreshClosePathButton;

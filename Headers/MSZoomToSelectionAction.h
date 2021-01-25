@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (void)zoomToSelection:(id)arg1;
 - (BOOL)validate;

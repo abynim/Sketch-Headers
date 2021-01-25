@@ -25,6 +25,7 @@
 - (void)validateToolbarItem;
 @property(nonatomic, readonly) NSString *tooltip;
 @property(nonatomic, readonly) BOOL mayShowInToolbar;
+@property(nonatomic, readonly) NSString *historyMomentTitle;
 @property(nonatomic, readonly) NSString *label;
 
 @end

@@ -8,12 +8,14 @@
 
 @interface MSSectionBackgroundView : NSView
 {
+    BOOL _needsRefresh;
 }
 
 + (long long)requiredHeightForViews:(id)arg1;
 + (id)separatorBetweenView:(id)arg1 andView:(id)arg2;
 + (id)sectionBackgroundWithController:(id)arg1 wantsSeparatorAfterViews:(BOOL)arg2;
 + (id)sectionBackgroundWithController:(id)arg1;
+@property(nonatomic) BOOL needsRefresh; // @synthesize needsRefresh=_needsRefresh;
 - (BOOL)isFlipped;
 - (void)drawWhiteHeader;
 - (void)drawRect:(struct CGRect)arg1;

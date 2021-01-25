@@ -31,7 +31,6 @@
 - (void)editedFromRect:(struct CGRect)arg1;
 - (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
 - (void)setConstrainProportions:(BOOL)arg1;
-- (void)calculateProportions;
 @property(nonatomic) struct CGPoint mid;
 - (id)description;
 - (void)log;
@@ -61,7 +60,6 @@
 - (BOOL)shouldConstrainProportions;
 - (void)performUpdatesWithUnconstrainedProportions:(CDUnknownBlockType)arg1;
 - (void)setNilValueForKey:(id)arg1;
-- (void)objectDidInit;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
 

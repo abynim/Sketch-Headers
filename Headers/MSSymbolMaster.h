@@ -8,19 +8,18 @@
 
 #import <SketchModel/BCSortable-Protocol.h>
 
-@class NSArray, NSDictionary, NSMutableDictionary, NSSet, NSString;
+@class NSArray, NSDictionary, NSSet, NSString;
 
 @interface MSSymbolMaster : _MSSymbolMaster <BCSortable>
 {
     BOOL _isDirty;
-    NSMutableDictionary *_internalOverrideProperties;
+    NSDictionary *_overridePropertyDict;
 }
 
 + (void)copyPropertiesFrom:(id)arg1 to:(id)arg2;
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableDictionary *internalOverrideProperties; // @synthesize internalOverrideProperties=_internalOverrideProperties;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 - (void)refaultAgainst:(id)arg1;
 - (BOOL)shouldRoundCoordinates;
@@ -28,8 +27,8 @@
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;
 - (void)syncOverrideProperties;
 - (void)setOverridePoint:(id)arg1 editable:(BOOL)arg2;
-- (id)internalSetOverridePoint:(id)arg1 editable:(BOOL)arg2;
-@property(readonly, nonatomic) NSDictionary *overrideProperties;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
+@property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
@@ -55,20 +54,18 @@
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)invalidateModifiedSymbolCache;
 - (void)invalidateModelCacheGeneration;
-- (void)syncPropertiesFromObject:(id)arg1;
-- (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)overridePropertiesMatchWithObject:(id)arg1;
-- (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
+- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
 @property(readonly, nonatomic) NSArray *availableOverrides;
 - (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)applyBackgroundColorProperties;
 - (void)clearBackgroundBlurCaches;
 - (void)applyResizeToRect:(struct CGRect)arg1 preferNaturalSizeOnAxes:(unsigned long long)arg2;
 - (void)applyScale:(double)arg1;
-- (void)applyOverridesRespectingLayout:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
+- (void)applyOverridesRespectingLayout:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
 - (BOOL)hasInferredLayouts;
-- (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 inDocument:(id)arg4 visitedSymbols:(id)arg5;
+- (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 scale:(double)arg3 resizeToNaturalSizeOnAxes:(unsigned long long)arg4 inDocument:(id)arg5 visitedSymbols:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -21,18 +21,42 @@
     // Error parsing type: , name: $__lazy_storage_$_sidebarSearchFieldBorder
     // Error parsing type: , name: $__lazy_storage_$_sidebarSectionRowBorder
     // Error parsing type: , name: $__lazy_storage_$_sidebarSectionRowBackground
+    // Error parsing type: , name: $__lazy_storage_$_componentButton
+    // Error parsing type: , name: $__lazy_storage_$_componentButtonBackground
     // Error parsing type: , name: $__lazy_storage_$_inspectorSectionSeparator
     // Error parsing type: , name: $__lazy_storage_$_inspectorButtonBorder
     // Error parsing type: , name: $__lazy_storage_$_inspectorControlEmbossed
     // Error parsing type: , name: $__lazy_storage_$_inspectorButtonBorderHighlighted
+    // Error parsing type: , name: $__lazy_storage_$_documentsWindowThumbnailBackgroundColor
+    // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeRedColor
+    // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeYellowColor
+    // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeGreyColor
+    // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeGreenColor
+    // Error parsing type: , name: $__lazy_storage_$_assistantSelectionColor
+    // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeRedColor
+    // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeYellowColor
+    // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeGreyColor
+    // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeGreenColor
 }
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, retain) NSColor *toolbarBadgeGreenColor;
+@property(nonatomic, retain) NSColor *toolbarBadgeGreyColor;
+@property(nonatomic, retain) NSColor *toolbarBadgeYellowColor;
+@property(nonatomic, retain) NSColor *toolbarBadgeRedColor;
+@property(nonatomic, retain) NSColor *assistantSelectionColor;
+@property(nonatomic, retain) NSColor *assistantWindowBadgeGreenColor;
+@property(nonatomic, retain) NSColor *assistantWindowBadgeGreyColor;
+@property(nonatomic, retain) NSColor *assistantWindowBadgeYellowColor;
+@property(nonatomic, retain) NSColor *assistantWindowBadgeRedColor;
+@property(nonatomic, retain) NSColor *documentsWindowThumbnailBackgroundColor;
 @property(nonatomic, retain) NSColor *inspectorButtonBorderHighlighted;
 @property(nonatomic, retain) NSColor *inspectorControlEmbossed;
 @property(nonatomic, retain) NSColor *inspectorButtonBorder;
 @property(nonatomic, retain) NSColor *inspectorSectionSeparator;
+@property(nonatomic, retain) NSColor *componentButtonBackground;
+@property(nonatomic, retain) NSColor *componentButton;
 @property(nonatomic, retain) NSColor *sidebarSectionRowBackground;
 @property(nonatomic, retain) NSColor *sidebarSectionRowBorder;
 @property(nonatomic, retain) NSColor *sidebarSearchFieldBorder;

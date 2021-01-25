@@ -47,6 +47,9 @@
 @property(readonly, nonatomic) NSWindow *destinationWindow;
 - (void)drawDragImageInRect:(struct CGRect)arg1;
 @property(readonly, nonatomic) double widthForDragImage;
+- (void)enableBadgesAfterTextEditingEnded;
+- (void)enableBadges;
+- (void)disableBadges;
 - (void)renameNode;
 @property(readonly, nonatomic) BOOL isTextFieldEditing;
 - (void)updateConstraints;
@@ -58,8 +61,8 @@
 @property(readonly, nonatomic) BCOutlineView *outlineView;
 - (struct NSEdgeInsets)verticalInsets;
 - (void)handleBadgePressed:(id)arg1;
-- (void)updateBadge;
-- (void)updateBadgeImages;
+- (void)updateBooleanOpPopUpButtonIfNeeded;
+- (void)updateLockHideButtonIfNeeded;
 @property(readonly, nonatomic) __weak NSLayoutConstraint *badgeTrailingSpaceConstraint; // @synthesize badgeTrailingSpaceConstraint=_badgeTrailingSpaceConstraint;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;

@@ -35,7 +35,7 @@
 @property(nonatomic) unsigned long long layoutAnchor; // @synthesize layoutAnchor=_layoutAnchor;
 @property(nonatomic) unsigned long long axis; // @synthesize axis=_axis;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

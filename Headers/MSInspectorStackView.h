@@ -10,22 +10,26 @@
 
 @interface MSInspectorStackView : NSView
 {
+    BOOL _hasChanges;
     NSArray *_sectionViewControllers;
     NSArray *_sectionViews;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(retain, nonatomic) NSArray *sectionViews; // @synthesize sectionViews=_sectionViews;
 @property(retain, nonatomic) NSArray *sectionViewControllers; // @synthesize sectionViewControllers=_sectionViewControllers;
+- (void)updateSectionViewControllers:(id)arg1;
 - (id)enclosingStackView;
 - (BOOL)isFlipped;
-- (void)reloadWithViewControllers:(id)arg1;
 - (void)subViewFrameDidChange:(id)arg1;
 - (void)stack;
 - (void)recalculateHeight:(id)arg1;
 - (void)recalculateHeight;
 - (void)layout;
-- (void)reloadSubviews;
+- (void)reloadSubviewsForSection:(id)arg1;
+- (void)reloadAllSubviews;
+- (void)finaliseUpdates;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

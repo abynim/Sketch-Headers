@@ -23,6 +23,8 @@
 @property(nonatomic) double c2; // @synthesize c2=_c2;
 @property(nonatomic) double c1; // @synthesize c1=_c1;
 @property(nonatomic) long long model; // @synthesize model=_model;
+- (BOOL)isEqual:(id)arg1;
+- (unsigned long long)hash;
 - (id)description;
 - (id)colorForColorSpace:(id)arg1;
 - (id)msColor;

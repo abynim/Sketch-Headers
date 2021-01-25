@@ -15,14 +15,17 @@
     NSEvent *_lastForwardedKeyEvent;
 }
 
++ (void)initialize;
 - (void).cxx_destruct;
 @property(nonatomic) __weak NSEvent *lastForwardedKeyEvent; // @synthesize lastForwardedKeyEvent=_lastForwardedKeyEvent;
 @property(retain, nonatomic) BCWindowBadge *titleBarBadge; // @synthesize titleBarBadge=_titleBarBadge;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(readonly, nonatomic) BOOL supportsFilePathMenu;
 - (void)setAppearance:(id)arg1;
 - (void)refreshAfterAppearanceChange;
 - (id)touchBar;
 - (void)toggleToolbarShown:(id)arg1;
+- (void)showFilePopoverFromView:(id)arg1;
 - (BOOL)shouldDismissPopover:(id)arg1 event:(id)arg2;
 - (void)cancelOperation:(id)arg1;
 - (void)keyDown:(id)arg1;

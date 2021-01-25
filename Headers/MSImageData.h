@@ -22,6 +22,8 @@
     BCReadWriteLock *_imageLock;
 }
 
++ (id)mipampCacheBaseURL;
++ (void)purgeMipampCache;
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
 - (void).cxx_destruct;
@@ -30,9 +32,10 @@
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
 - (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
-- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4;
+- (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4 options:(unsigned long long)arg5;
 - (struct CGImage *)CGImageForColorSpace:(struct CGColorSpace *)arg1 cache:(id)arg2 owner:(id)arg3;
-- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4;
+- (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4 options:(unsigned long long)arg5;
+- (id)mipampCacheURL;
 - (void)correctInvalidGamma;
 - (id)imageDataByCorrectingInvalidGamma;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;

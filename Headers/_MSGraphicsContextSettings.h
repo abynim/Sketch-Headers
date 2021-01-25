@@ -29,7 +29,7 @@
 @property(nonatomic) double opacity; // @synthesize opacity=_opacity;
 @property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

@@ -29,6 +29,7 @@
 - (BOOL)hasLayerWithParentArtboard;
 - (BOOL)isInFlowEventHandler;
 - (void)updateItems;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)addFlowAction:(id)arg1;
 - (void)updateInitialHeader;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;

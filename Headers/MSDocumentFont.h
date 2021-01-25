@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
+#import <SketchModel/NSCopying-Protocol.h>
 
 @class NSArray, NSFont, NSSet, NSString;
 
@@ -24,7 +24,7 @@
 }
 
 + (id)documentFontWithReference:(id)arg1;
-+ (id)documentFontWithUnavailableFontName:(id)arg1;
++ (id)documentFontWithUnavailableFontName:(id)arg1 isForeign:(BOOL)arg2;
 + (id)documentFontKeyforPostscriptName:(id)arg1;
 + (id)embeddableFontsInDocument:(id)arg1;
 + (id)missingFontsInDocument:(id)arg1;

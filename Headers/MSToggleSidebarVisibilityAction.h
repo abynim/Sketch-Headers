@@ -12,6 +12,7 @@
 
 + (void)showSidebarForDocument:(id)arg1;
 - (BOOL)validate;
+- (id)historyMomentTitle;
 - (id)label;
 - (void)hide;
 - (void)show;

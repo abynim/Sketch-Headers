@@ -4,14 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSGroupRendererCG.h>
+#import <SketchRendering/MSSwiftGroupRendererCG.h>
 
-@interface MSSwiftArtboardRendererCG : MSGroupRendererCG
+@interface MSSwiftArtboardRendererCG : MSSwiftGroupRendererCG
 {
 }
 
 - (id)init;
-- (void)renderSubLayersOfGroup:(id)arg1 ignoreDrawingArea:(BOOL)arg2 context:(id)arg3;
 
 @end
 

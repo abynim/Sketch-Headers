@@ -23,7 +23,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL hasDefaultFlow;
 

@@ -6,9 +6,7 @@
 
 #import <AppKit/NSWindowController.h>
 
-#import "NSWindowDelegate-Protocol.h"
-
-@interface _TtC6Sketch30MSRegistrationWindowController : NSWindowController <NSWindowDelegate>
+@interface _TtC6Sketch30MSRegistrationWindowController : NSWindowController
 {
     // Error parsing type: , name: completionHandlers
     // Error parsing type: , name: lockState

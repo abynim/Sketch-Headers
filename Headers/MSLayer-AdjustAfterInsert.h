@@ -22,6 +22,7 @@
 - (BOOL)shouldFlattenAfterRotate;
 - (Class)handlerClass;
 - (BOOL)handleDoubleClick;
+- (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (id)inspectorSections;
 - (void)writeBitmapImageToFile:(id)arg1;
 - (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;

@@ -19,7 +19,6 @@
 - (BOOL)hasDefaultValues;
 - (void)setCloudShareForMigration:(id)arg1;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
-- (void)encodePropertiesWithCoder:(id)arg1;
 
 @end
 

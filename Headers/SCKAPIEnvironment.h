@@ -9,7 +9,7 @@
 #import <SketchCloudKit/NSCopying-Protocol.h>
 #import <SketchCloudKit/NSSecureCoding-Protocol.h>
 
-@class NSArray, NSString, NSURL;
+@class NSArray, NSNumber, NSString, NSURL;
 
 @interface SCKAPIEnvironment : NSObject <NSCopying, NSSecureCoding>
 {
@@ -17,6 +17,9 @@
     NSString *_keychainServiceNamePrefix;
 }
 
++ (void)setDebugRunAsAlternateUser:(BOOL)arg1;
++ (BOOL)debugRunAsAlternateUser;
++ (void)setCurrent:(id)arg1;
 + (id)current;
 + (BOOL)isAValidCloudShareHost:(id)arg1;
 + (BOOL)isProductionHost:(id)arg1;
@@ -35,9 +38,12 @@
 @property(readonly, nonatomic) NSString *displayName;
 - (BOOL)isValidEnvironmentForCloudShareURL:(id)arg1;
 @property(readonly, nonatomic) NSString *sketchComHost;
+@property(readonly, nonatomic) NSString *socketScheme;
+@property(readonly, nonatomic) NSString *scheme;
+@property(readonly, nonatomic) NSNumber *sketchQLPort;
 @property(readonly, nonatomic) NSString *host;
 - (id)hostWithSubdomain:(id)arg1;
-- (void)setCurrent;
+- (void)makeCurrentAndSetAsDefault;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
@@ -78,6 +84,7 @@
 - (id)signInWithSSOURLForOrganizationShortName:(id)arg1;
 @property(readonly, nonatomic) NSURL *signUpURL;
 - (id)sharesOverviewURLForUserID:(id)arg1;
+- (id)settingsURLForShare:(id)arg1 showingTab:(id)arg2;
 - (id)settingsURLForShare:(id)arg1;
 - (id)accountSettingsURLForUserID:(id)arg1;
 - (id)frontendURLWithPath:(id)arg1 queryItems:(id)arg2;

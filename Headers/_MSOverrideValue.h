@@ -39,7 +39,7 @@
 @property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

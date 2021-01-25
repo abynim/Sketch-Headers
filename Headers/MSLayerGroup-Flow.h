@@ -12,7 +12,7 @@
 - (id)createChildLayerWithTextData:(id)arg1;
 - (id)createChildLayerWithImageData:(id)arg1;
 - (struct CGPoint)tileLayer:(id)arg1 atPoint:(struct CGPoint)arg2;
-- (void)applyData:(id)arg1 fromSupplier:(id)arg2;
+- (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (id)inspectorSections;
 @end
 

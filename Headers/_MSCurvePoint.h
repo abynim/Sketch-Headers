@@ -44,7 +44,7 @@
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

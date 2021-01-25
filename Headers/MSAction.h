@@ -27,6 +27,7 @@
 @property(readonly, nonatomic) BOOL isSelectable; // @synthesize isSelectable=_isSelectable;
 @property(retain, nonatomic) NSToolbarItem *toolbarItem; // @synthesize toolbarItem=_toolbarItem;
 @property(nonatomic) __weak MSActionController *controller; // @synthesize controller=_controller;
+- (unsigned long long)numberOfBadges;
 - (void)keyDown:(id)arg1;
 - (BOOL)handlesKeyEvent:(id)arg1;
 @property(readonly, nonatomic) BOOL isActive;

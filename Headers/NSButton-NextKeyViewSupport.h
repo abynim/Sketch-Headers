@@ -7,6 +7,13 @@
 #import <AppKit/NSButton.h>
 
 @interface NSButton (NextKeyViewSupport)
++ (void)ms_swizzleDocumentMenu;
++ (void)ms_swizzleDocumentPopover;
++ (void)ms_swizzleDocumentThemeAutosaveButtonPopover;
 - (BOOL)canBeKeyView;
+- (id)ms_mainWindow;
+- (void)ms_swizzled_themedocumentbutton_showPopup;
+- (void)ms_swizzled_autosavebutton_showPopover;
+- (void)ms_swizzled_autosavebutton_showPopoverThenContinue:(id)arg1;
 @end
 

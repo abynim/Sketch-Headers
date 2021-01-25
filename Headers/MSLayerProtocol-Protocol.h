@@ -7,14 +7,14 @@
 #import <SketchControllers/MSLayerTraits-Protocol.h>
 #import <SketchControllers/NSObject-Protocol.h>
 
-@class NSAffineTransform, NSArray, NSString;
+@class NSArray, NSString;
 
 @protocol MSLayerProtocol <NSObject, MSLayerTraits>
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) BOOL hasTransforms;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, nonatomic) struct CGRect bounds;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) NSString *objectID;
@@ -26,6 +26,5 @@
 - (NSArray *)childrenIncludingSelf:(BOOL)arg1;
 - (NSArray *)children;
 - (id)layerWithID:(NSString *)arg1;
-- (NSAffineTransform *)transformForRect:(struct CGRect)arg1;
 @end
 

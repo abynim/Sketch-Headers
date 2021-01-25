@@ -10,7 +10,7 @@
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "_TtP6Sketch27MSSelectionOverlayPresenter_-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSPresenceOverlay, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <_TtP6Sketch27MSSelectionOverlayPresenter_, MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
@@ -23,6 +23,7 @@
     _TtC6Sketch28MSSelectionOverlayController *_selectionOverlayController;
     MSLayerMeasuringController *_measuringController;
     MSSnapOverlayController *_snapsController;
+    MSPresenceOverlay *_presenceOverlay;
     NSObject<MSHoverableItem> *_highlightedItem;
     MSNormalEventContextualMenuBuilder *_menuBuilder;
     MSOpacityKeyboardShortcutRecognizer *_opacityShortcutRecognizer;
@@ -55,6 +56,7 @@
 @property(readonly, nonatomic) MSOpacityKeyboardShortcutRecognizer *opacityShortcutRecognizer; // @synthesize opacityShortcutRecognizer=_opacityShortcutRecognizer;
 @property(retain, nonatomic) MSNormalEventContextualMenuBuilder *menuBuilder; // @synthesize menuBuilder=_menuBuilder;
 @property(retain, nonatomic) NSObject<MSHoverableItem> *highlightedItem; // @synthesize highlightedItem=_highlightedItem;
+@property(readonly, nonatomic) MSPresenceOverlay *presenceOverlay; // @synthesize presenceOverlay=_presenceOverlay;
 @property(readonly, nonatomic) MSSnapOverlayController *snapsController; // @synthesize snapsController=_snapsController;
 @property(readonly, nonatomic) MSLayerMeasuringController *measuringController; // @synthesize measuringController=_measuringController;
 @property(readonly, nonatomic) _TtC6Sketch28MSSelectionOverlayController *selectionOverlayController; // @synthesize selectionOverlayController=_selectionOverlayController;

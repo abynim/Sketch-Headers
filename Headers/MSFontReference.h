@@ -14,6 +14,7 @@
 {
 }
 
+@property(readonly, copy) NSString *description;
 - (id)fileURL;
 @property(readonly, nonatomic) BOOL shouldStoreFontData;
 @property(readonly, copy, nonatomic) NSString *lookupKey;
@@ -24,7 +25,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly, copy, nonatomic) NSString *fontFamilyName;
 @property(readonly, copy, nonatomic) NSString *fontFileName;
 @property(readonly) unsigned long long hash;

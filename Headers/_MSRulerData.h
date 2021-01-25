@@ -32,7 +32,7 @@
 @property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
 @property(nonatomic) long long base; // @synthesize base=_base;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

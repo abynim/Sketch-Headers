@@ -15,6 +15,7 @@
 }
 
 + (BOOL)persistsObjectID;
+@property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL shouldStoreFontData;
 @property(readonly, nonatomic, getter=isForeign) BOOL foreign;
 @property(readonly, nonatomic, getter=isEmbedded) BOOL embedded;
@@ -23,7 +24,6 @@
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly, copy, nonatomic) NSString *fontFamilyName;
 @property(readonly, copy, nonatomic) NSString *fontFileName;
 @property(readonly) unsigned long long hash;

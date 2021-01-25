@@ -51,6 +51,7 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsMultipleShadows;
 - (BOOL)supportsInnerOuterBorders;
+- (id)applicableDataSupplierIdentifier;
 - (BOOL)hasRefreshableDataWithDataManager:(id)arg1;
 - (unsigned long long)applicableDataTypes;
 @property(readonly, nonatomic) unsigned long long dataType;
@@ -96,8 +97,8 @@
 - (id)styleForBooleanOperation;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL hasTransforms;

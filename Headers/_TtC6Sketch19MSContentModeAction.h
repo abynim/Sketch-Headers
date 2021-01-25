@@ -21,6 +21,7 @@
 - (id)childActions;
 - (id)actionNames;
 @property(nonatomic, readonly) NSString *labelForToolbar;
+@property(nonatomic, readonly) NSString *historyMomentTitle;
 @property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) long long validationStatus;
 

@@ -8,11 +8,13 @@
 
 @interface _MSForeignTextStyle : MSForeignStyle
 {
+    BOOL _missingLibraryFontAcknowledged;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void)refaultChildrenAgainst:(id)arg1;
+- (void)setRaw_missingLibraryFontAcknowledged:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -22,8 +24,9 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
+@property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

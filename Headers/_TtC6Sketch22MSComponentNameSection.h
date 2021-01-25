@@ -15,6 +15,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)updateItems;
 
 @end

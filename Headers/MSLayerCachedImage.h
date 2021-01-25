@@ -14,6 +14,7 @@
 
 @property(nonatomic) struct CGImage *image; // @synthesize image=_image;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
+- (id)debugQuickLookObject;
 - (void)dealloc;
 
 @end

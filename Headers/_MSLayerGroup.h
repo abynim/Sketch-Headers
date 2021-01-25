@@ -22,6 +22,7 @@
 + (id)defaultLayout;
 + (id)defaultFrame;
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_layers:(id)arg1;
 - (void)setRaw_groupLayout:(id)arg1;
@@ -52,7 +53,7 @@
 @property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultLayout;
 

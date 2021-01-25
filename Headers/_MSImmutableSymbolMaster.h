@@ -6,17 +6,19 @@
 
 #import <SketchModel/MSImmutableArtboardGroup.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface _MSImmutableSymbolMaster : MSImmutableArtboardGroup
 {
     BOOL _allowsOverrides;
     BOOL _includeBackgroundColorInInstance;
     NSString *_symbolID;
+    NSArray *_overrideProperties;
 }
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
 @property(nonatomic) BOOL allowsOverrides; // @synthesize allowsOverrides=_allowsOverrides;
@@ -32,7 +34,7 @@
 - (void)performInitEmptyObject;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 

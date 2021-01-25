@@ -16,6 +16,7 @@
 + (id)sharedSet;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *fontSet; // @synthesize fontSet=_fontSet;
+@property(readonly) unsigned long long count;
 - (BOOL)isFontSafe:(id)arg1;
 - (id)init;
 

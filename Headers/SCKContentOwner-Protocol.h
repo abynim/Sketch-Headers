@@ -5,11 +5,11 @@
 //
 
 #import <SketchCloudKit/NSObject-Protocol.h>
+#import <SketchCloudKit/SCKSensitiveMetadata-Protocol.h>
 
-@class NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
+@class NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
 
-@protocol SCKContentOwner <NSObject>
-@property(nonatomic, readonly) NSDictionary *disclosableDictionaryRepresentation;
+@protocol SCKContentOwner <NSObject, SCKSensitiveMetadata>
 @property(nonatomic, readonly) SCKPaginatedProjects *paginatedProjects;
 @property(nonatomic, readonly) SCKPaginatedShares *paginatedShares;
 @property(nonatomic, readonly) SCKAvatar *avatar;

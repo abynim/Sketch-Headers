@@ -49,6 +49,8 @@
 - (double)length;
 - (double)lengthWithMaximumError:(double)arg1;
 - (id)pathByTrimmingToLength:(double)arg1;
+- (double)slopeOnPathAtLength:(double)arg1;
+- (struct CGPoint)pointOnPathAtLength:(double)arg1 slope:(double *)arg2;
 - (struct CGPoint)pointOnPathAtLength:(double)arg1;
 - (BOOL)isClosed;
 - (struct CGPoint)pointAtIndex:(unsigned long long)arg1;
@@ -95,9 +97,8 @@
 - (id)initWithContours:(id)arg1;
 - (id)initWithCGPath:(struct CGPath *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)shadowPathWithSpread:(double)arg1 borderOptions:(id)arg2 strokeType:(unsigned long long)arg3 lineWidth:(double)arg4;
-- (id)shadowPathWithSpread:(double)arg1;
-- (id)shadowPathForStrokeType:(unsigned long long)arg1 lineWidth:(double)arg2;
+- (id)shadowPathWithSpread:(double)arg1 position:(long long)arg2 lineWidth:(double)arg3;
+- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2;
 - (id)booleanExclusiveOrWith:(id)arg1;
 - (id)booleanSubtractWith:(id)arg1;
 - (id)booleanIntersectWith:(id)arg1;

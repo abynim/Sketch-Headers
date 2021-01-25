@@ -11,7 +11,6 @@
 @interface SketchSVGExporter : NSObject
 {
     BOOL _includeArtboardBackground;
-    BOOL _includeSketchCredit;
     NSString *_mask;
     NSString *_currentShapeDef;
     MSImmutableDocumentData *_document;
@@ -28,7 +27,6 @@
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL includeSketchCredit; // @synthesize includeSketchCredit=_includeSketchCredit;
 @property(readonly, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(readonly, nonatomic) NSMutableArray *parentStack; // @synthesize parentStack=_parentStack;
 @property(nonatomic) unsigned long long nextUniqueID; // @synthesize nextUniqueID=_nextUniqueID;

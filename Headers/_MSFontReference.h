@@ -41,7 +41,7 @@
 @property(retain, nonatomic) NSString *fontFamilyName; // @synthesize fontFamilyName=_fontFamilyName;
 @property(retain, nonatomic) MSFontData *fontData; // @synthesize fontData=_fontData;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

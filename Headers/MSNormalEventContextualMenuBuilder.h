@@ -46,6 +46,7 @@
 - (id)maskItems;
 - (id)transformItems;
 - (id)groupRenameItems;
+- (id)copySVGItems;
 - (id)pasteCopyStyleItems;
 - (id)moveForwardBackwardItems;
 - (id)cutCopyPasteItems;

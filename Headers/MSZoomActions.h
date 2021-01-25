@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (unsigned long long)touchBarItemSizing;
 - (id)actionNames;

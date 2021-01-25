@@ -41,7 +41,7 @@
 @property(nonatomic) double blue; // @synthesize blue=_blue;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

@@ -37,7 +37,6 @@
 - (void)insertLayer:(id)arg1 afterLayerOrAtEnd:(id)arg2;
 - (void)moveTransformsToChildren;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
-- (BOOL)groupBoundsShouldBeIntegral;
 - (struct CGRect)optimalBoundingBox;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
@@ -55,8 +54,6 @@
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1 test:(CDUnknownBlockType)arg2;
-- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 recursively:(BOOL)arg2 passingTest:(CDUnknownBlockType)arg3 usingBlock:(CDUnknownBlockType)arg4;
-- (void)enumerateLayersAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
@@ -71,11 +68,11 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
-- (void)applyOverride:(id)arg1 document:(id)arg2;
+- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
 - (void)applyTransformsToLayers:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;
 - (BOOL)hasStyleOrTransform;
-- (void)translateChildrenFrameToLayers:(id)arg1;
+- (void)positionChildren:(id)arg1;
 - (id)moveLayersToParent;
 - (void)ungroupSingleChildDescendentGroups;
 - (id)ungroup;

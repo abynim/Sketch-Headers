@@ -13,6 +13,7 @@
 
 @interface MSCloudAction : MSPopoverAction <MSDocumentUploadDelegate>
 {
+    BOOL _suppressOpeningBrowserWindows;
     NSViewController *_popoverViewController;
     NSArray *_progressImages;
     MSDocumentUpload *_upload;
@@ -36,6 +37,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSTimer *displayErrorSheetTimer; // @synthesize displayErrorSheetTimer=_displayErrorSheetTimer;
 @property(copy, nonatomic) CDUnknownBlockType closeAlertUploadDidFinishHandler; // @synthesize closeAlertUploadDidFinishHandler=_closeAlertUploadDidFinishHandler;
+@property(nonatomic) BOOL suppressOpeningBrowserWindows; // @synthesize suppressOpeningBrowserWindows=_suppressOpeningBrowserWindows;
 @property(retain, nonatomic) SCKAPIOperation *refreshOperation; // @synthesize refreshOperation=_refreshOperation;
 @property(readonly, nonatomic) MSDocumentUpload *upload; // @synthesize upload=_upload;
 @property(retain, nonatomic) NSViewController *popoverViewController; // @synthesize popoverViewController=_popoverViewController;
@@ -43,9 +45,7 @@
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)menu;
 - (void)doPerformAction:(id)arg1;
-- (void)setCloudPlatform:(id)arg1;
 - (BOOL)validate;
-- (BOOL)validateMenuItem:(id)arg1;
 @property(readonly, nonatomic) NSArray *progressImages; // @synthesize progressImages=_progressImages;
 - (void)updateProgressImage;
 - (id)image;
@@ -53,6 +53,7 @@
 - (BOOL)isSelectable;
 - (BOOL)hasSubMenu;
 - (BOOL)popoverShouldAnimateOnContentFrameDidChange:(id)arg1;
+- (id)historyMomentTitle;
 - (id)label;
 - (id)tooltip;
 - (BOOL)mayShowInToolbar;

@@ -17,14 +17,17 @@
     MSAssetLibrary *_sourceLibrary;
     MSModelObject<BCSortable><MSSharedObjectStyling> *_shareableObject;
     MSShareableObjectReference *_remoteReference;
+    NSString *_objectID;
 }
 
++ (id)referenceForMissingRemoteObject:(id)arg1 withObjectID:(id)arg2 inLibrary:(id)arg3;
 + (id)referenceForLocalObject:(id)arg1;
 + (id)referenceForRemoteObject:(id)arg1 inLibrary:(id)arg2;
 + (id)referenceForLocalCopy:(id)arg1 ofRemote:(id)arg2;
 + (id)referenceForShareableObject:(id)arg1 inLibrary:(id)arg2;
 + (id)referenceForShareableObject:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(retain, nonatomic) MSShareableObjectReference *remoteReference; // @synthesize remoteReference=_remoteReference;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject; // @synthesize shareableObject=_shareableObject;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;

@@ -15,9 +15,9 @@
 }
 
 - (void)drawGradient:(id)arg1 inRect:(struct CGRect)arg2 forBorderThickness:(double)arg3 context:(id)arg4 cacheKey:(id)arg5;
-- (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 cacheObject:(id)arg4 context:(id)arg5;
+- (void)renderInnerShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 context:(id)arg4;
 - (void)renderShadow:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3 block:(CDUnknownBlockType)arg4;
-- (void)renderShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 options:(id)arg4 type:(unsigned long long)arg5 strokeType:(unsigned long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id)arg9 context:(id)arg10;
+- (void)renderShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 options:(id)arg4 type:(unsigned long long)arg5 borderPosition:(long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id)arg9 context:(id)arg10;
 - (void)renderBackgroundBlurBehindLayer:(id)arg1 context:(id)arg2 clippedToPath:(id)arg3;
 - (void)renderGradientBorder:(id)arg1 path:(id)arg2 advancedOptions:(id)arg3 originalPath:(id)arg4 frame:(struct CGRect)arg5 context:(id)arg6;
 - (void)renderBorder:(id)arg1 path:(id)arg2 advancedOptions:(id)arg3 applyClip:(BOOL)arg4 context:(id)arg5;

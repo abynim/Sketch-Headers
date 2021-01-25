@@ -16,7 +16,8 @@
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
 - (id)sections;
-- (void)reloadInspectorStack:(id)arg1;
+- (void)updateContainerStack;
+- (void)reloadStackContaining:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -19,7 +19,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)pickComponentKind:(id)arg1;
-- (void)viewDidLoad;
 @property(nonatomic) __weak NSTextField *componentKindLabel; // @synthesize componentKindLabel;
 @property(nonatomic) __weak NSSegmentedControl *componentKindSegmentedControl; // @synthesize componentKindSegmentedControl;
 

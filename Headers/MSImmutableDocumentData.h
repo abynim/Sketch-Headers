@@ -17,7 +17,6 @@
 {
     NSDictionary *_metadata;
     NSData *_textPreviewData;
-    NSData *_textPreviewMetadata;
     NSArray *_selectedOverrides;
     NSDictionary *_symbolsIndexedByID;
     NSString *_sessionIdentifier;
@@ -34,11 +33,11 @@
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
-@property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (void)resetStateAndMetadataForDuplication;
+- (BOOL)hasNonSystemNonEmbeddedFonts;
 @property(readonly, nonatomic) NSArray *layers;
 - (id)embeddedFontReferences;
 - (id)initAsCopyOf:(id)arg1 withPages:(id)arg2;
@@ -101,7 +100,15 @@
 - (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)initWithMutableDocumentDataMetadataCopy:(id)arg1;
+- (id)unavailableForeignSymbolFontNames:(long long *)arg1;
+- (id)unavailableForeignTextStyleFontNames:(long long *)arg1;
+- (id)unavailableSharedTextStyleFontNames;
+- (id)unavailableDocumentFontNames;
+- (id)unavailableFontNamesExcludingLocalDocument:(BOOL)arg1 countOfAcknowledgedForeignFonts:(long long *)arg2;
+@property(readonly, nonatomic) NSSet *unavailableForeignFontNames;
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
+@property(readonly, nonatomic) BOOL shouldShowMissingLibraryFontsWarning;
+@property(readonly, nonatomic) BOOL shouldShowMissingFontsBadge;
 @property(readonly, nonatomic) NSSet *fontNames;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;

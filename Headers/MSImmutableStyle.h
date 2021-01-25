@@ -11,14 +11,14 @@
 @interface MSImmutableStyle : _MSImmutableStyle
 {
     BOOL _hasMarkers;
-    BOOL _hasMoreThanOneEnabledFill;
+    BOOL _hasMultipleEnabledFills;
     BOOL _hasEnabledShadow;
     BOOL _hasEnabledInnerShadow;
     BOOL _hasEnabledBorder;
     BOOL _hasEnabledFill;
     BOOL _hasBlending;
     BOOL _hasEnabledBackgroundBlur;
-    double _thickestStroke;
+    double _thickestBorder;
     double _thickestStrokeDoubledForClipping;
     double _thickestInnerStroke;
     double _outerPaddingForBiggestStroke;
@@ -33,13 +33,13 @@
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke; // @synthesize outerPaddingForBiggestStroke=_outerPaddingForBiggestStroke;
 @property(readonly, nonatomic) double thickestInnerStroke; // @synthesize thickestInnerStroke=_thickestInnerStroke;
 @property(readonly, nonatomic) double thickestStrokeDoubledForClipping; // @synthesize thickestStrokeDoubledForClipping=_thickestStrokeDoubledForClipping;
-@property(readonly, nonatomic) double thickestStroke; // @synthesize thickestStroke=_thickestStroke;
+@property(readonly, nonatomic) double thickestBorder; // @synthesize thickestBorder=_thickestBorder;
 @property(readonly, nonatomic) BOOL hasBlending; // @synthesize hasBlending=_hasBlending;
 @property(readonly, nonatomic) BOOL hasEnabledFill; // @synthesize hasEnabledFill=_hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledBorder; // @synthesize hasEnabledBorder=_hasEnabledBorder;
 @property(readonly, nonatomic) BOOL hasEnabledInnerShadow; // @synthesize hasEnabledInnerShadow=_hasEnabledInnerShadow;
 @property(readonly, nonatomic) BOOL hasEnabledShadow; // @synthesize hasEnabledShadow=_hasEnabledShadow;
-@property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill; // @synthesize hasMoreThanOneEnabledFill=_hasMoreThanOneEnabledFill;
+@property(readonly, nonatomic) BOOL hasMultipleEnabledFills; // @synthesize hasMultipleEnabledFills=_hasMultipleEnabledFills;
 @property(readonly, nonatomic) BOOL hasMarkers; // @synthesize hasMarkers=_hasMarkers;
 - (void)removeFillsAfterMigration;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
@@ -53,7 +53,7 @@
 @property(readonly, nonatomic) NSArray *enabledShadows;
 @property(readonly, nonatomic) NSArray *enabledBorders;
 @property(readonly, nonatomic) NSArray *enabledFills;
-@property(readonly, nonatomic) unsigned long long shadowStrokeType;
+@property(readonly, nonatomic) long long shadowBorderPosition;
 @property(readonly, nonatomic) unsigned long long shadowType;
 - (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
 - (double)calculateOuterPaddingForBiggestShadowSpread;
@@ -61,7 +61,7 @@
 - (double)calculateOuterPaddingForBiggestStroke;
 - (double)calculateThickestInnerStroke;
 - (double)calculateThickestStrokeDoubledForClipping;
-- (double)calculateThickestStroke;
+- (double)calculateThickestBorder;
 - (BOOL)calculateHasBlending;
 @property(readonly, nonatomic) MSImmutableStyleBorder *firstEnabledBorder;
 @property(readonly, nonatomic) MSImmutableStyleFill *firstEnabledFill;

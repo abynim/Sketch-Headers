@@ -37,6 +37,7 @@
 + (id)defaultFlow;
 + (long long)defaultLayerListExpandedType;
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_frame:(id)arg1;
 - (void)setRaw_flow:(id)arg1;
@@ -83,7 +84,7 @@
 @property(nonatomic) BOOL isFixedToViewport; // @synthesize isFixedToViewport=_isFixedToViewport;
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultFrame;
 @property(nonatomic, readonly) BOOL hasDefaultFlow;

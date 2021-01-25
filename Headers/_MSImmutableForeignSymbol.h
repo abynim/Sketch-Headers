@@ -10,6 +10,7 @@
 
 @interface _MSImmutableForeignSymbol : MSImmutableForeignObject
 {
+    BOOL _missingLibraryFontAcknowledged;
     MSImmutableSymbolMaster *_originalMaster;
     MSImmutableSymbolMaster *_symbolMaster;
 }
@@ -18,6 +19,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
@@ -30,7 +32,7 @@
 - (void)performInitEmptyObject;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 

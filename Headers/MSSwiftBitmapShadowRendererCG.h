@@ -8,13 +8,13 @@
 
 @interface MSSwiftBitmapShadowRendererCG : NSObject
 {
-    // Error parsing type: , name: MSMinimumBlurRadius
-    // Error parsing type: , name: MSMaximumShadowMaskSize
+    // Error parsing type: , name: minimumBlurRadius
+    // Error parsing type: , name: maximumShadowMaskSize
 }
 
 - (id)init;
-- (void)renderShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 options:(id)arg4 type:(unsigned long long)arg5 strokeType:(unsigned long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id)arg9 context:(id)arg10;
-- (void)renderInnerShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 cacheObject:(id)arg4 context:(id)arg5;
+- (void)renderShadow:(id)arg1 path:(id)arg2 windingRule:(unsigned long long)arg3 options:(id)arg4 type:(unsigned long long)arg5 borderPosition:(long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id)arg9 context:(id)arg10;
+- (void)renderInnerShadow:(id)arg1 path:(id)arg2 cacheObject:(id)arg3 context:(id)arg4;
 - (void)renderShadow:(id)arg1 rect:(struct CGRect)arg2 context:(id)arg3 block:(CDUnknownBlockType)arg4;
 
 @end

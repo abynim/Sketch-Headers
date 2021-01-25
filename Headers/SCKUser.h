@@ -4,19 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchCloudKit/SCKObject.h>
+#import <SketchCloudKit/SCKPublicUser.h>
 
 #import <SketchCloudKit/SCKContentOwner-Protocol.h>
 
 @class NSArray, NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
 
-@interface SCKUser : SCKObject <SCKContentOwner>
+@interface SCKUser : SCKPublicUser <SCKContentOwner>
 {
     BOOL _hasPersonalIdentity;
     SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
-    NSString *_name;
     NSString *_email;
     NSArray *_organizations;
 }
@@ -25,19 +24,20 @@
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
-@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
-@property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
+@property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 @property(readonly) unsigned long long hash;
+@property(readonly, copy, nonatomic) NSString *name;
 @property(readonly) Class superclass;
 
 @end

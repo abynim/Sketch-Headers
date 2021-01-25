@@ -16,11 +16,13 @@
     NSString *_shareName;
 }
 
++ (id)editedTimeDateComponentFormatter;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+- (id)status;
 - (BOOL)supportsDeletion;
 - (void)cancelDocumentDownload;
 - (void)updateCloudStatus;
@@ -29,10 +31,11 @@
 - (BOOL)supportsRenaming;
 - (BOOL)isPlaceholder;
 - (BOOL)showLibraryIcon;
-- (BOOL)showPublicShareIcon;
+- (BOOL)showSharedDocumentIcon;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
+- (id)presences;
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;

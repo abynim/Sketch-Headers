@@ -14,7 +14,6 @@
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)group:(id)arg1;
-- (id)groupComponentsAction;
 - (BOOL)validate;
 - (id)label;
 - (id)tooltip;

@@ -81,7 +81,6 @@
 @property(readonly, nonatomic) NSColor *documentsWindowBannerTextColor;
 @property(readonly, nonatomic) NSColor *documentsWindowBannerBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedTextSelectionColor;
-@property(readonly, nonatomic) NSColor *documentsWindowThumbnailBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentsWindowThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentItemOverlayColor;
@@ -126,12 +125,6 @@
 @property(readonly, nonatomic) NSColor *canvasDarkModeBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasArtboardTitleColor;
-@property(readonly, nonatomic) NSColor *assistantSelectionColor;
-@property(readonly, nonatomic) NSColor *assistantCapsuleGreenColor;
-@property(readonly, nonatomic) NSColor *assistantCapsuleGreyColor;
-@property(readonly, nonatomic) NSColor *assistantCapsuleYellowColor;
-@property(readonly, nonatomic) NSColor *assistantCapsuleRedColor;
-- (id)assistantCapsuleDisabledColor;
 - (id)layerListTextColorForBackgroundStyle:(long long)arg1 nodeIsHidden:(BOOL)arg2 editing:(BOOL)arg3 selected:(BOOL)arg4 active:(BOOL)arg5;
 @property(readonly, nonatomic) NSColor *sidebarSeparatorColor;
 @property(readonly, nonatomic) NSColor *componentsPanelGroupPreviewBackgroundColor;

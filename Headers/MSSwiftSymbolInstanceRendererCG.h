@@ -4,10 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSGroupRendererCG.h>
+#import <SketchRendering/MSSwiftGroupRendererCG.h>
 
-@interface MSSwiftSymbolInstanceRendererCG : MSGroupRendererCG
+@interface MSSwiftSymbolInstanceRendererCG : MSSwiftGroupRendererCG
 {
+    // Error parsing type: , name: invalidSymbolErrorIconRadius
+    // Error parsing type: , name: invalidSymbolErrorStringFontSize
+    // Error parsing type: , name: spaceBetweenInvalidSymbolErrorIconAndText
+    // Error parsing type: , name: minimumContentPadding
 }
 
 - (id)init;

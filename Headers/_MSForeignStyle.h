@@ -32,7 +32,7 @@
 @property(retain, nonatomic) MSSharedStyle *localSharedStyle; // @synthesize localSharedStyle=_localSharedStyle;
 @property(retain, nonatomic) NSString *remoteStyleID; // @synthesize remoteStyleID=_remoteStyleID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (void)centerLayersInCanvas:(id)arg1;
 - (BOOL)validate;

@@ -31,6 +31,7 @@
 @property(readonly, nonatomic) MSVectorOverlayController *overlayController; // @synthesize overlayController=_overlayController;
 @property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void)vectorOverlayController:(id)arg1 didSelectLayers:(id)arg2;
+- (id)vectorOverlayController:(id)arg1 willInsertAtIndexPath:(id)arg2 location:(struct CGPoint)arg3;
 - (void)vectorOverlayControllerDidFinishInteractiveSelection:(id)arg1;
 - (void)vectorOverlayController:(id)arg1 didDeselectHandles:(id)arg2;
 - (void)vectorOverlayController:(id)arg1 didSelectHandles:(id)arg2;
@@ -64,7 +65,6 @@
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (id)parentGroupForInserting;
 - (void)insertNewShapeForEditingAtPoint:(struct CGPoint)arg1;
-- (BOOL)mouseDownEvent:(id)arg1;
 - (struct CGRect)selectedRect;
 - (void)zoomToSelection;
 - (void)updateToolButton;

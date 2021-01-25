@@ -6,15 +6,17 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class SCKCloudDocument;
+@class SCKCloudDocument, SCKPublicUser;
 
 @interface SCKShareVersion : SCKObject
 {
+    SCKPublicUser *_creator;
     SCKCloudDocument *_document;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) SCKCloudDocument *document; // @synthesize document=_document;
+@property(readonly, nonatomic) SCKPublicUser *creator; // @synthesize creator=_creator;
 - (id)initWithDictionary:(id)arg1;
 
 @end

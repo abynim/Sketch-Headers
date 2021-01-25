@@ -16,7 +16,6 @@
 
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 - (void)encodeReferenceInJSONZipArchive:(id)arg1;
-@property(readonly, nonatomic) NSString *archivePath;
 - (id)initWithData:(id)arg1 name:(id)arg2;
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
 

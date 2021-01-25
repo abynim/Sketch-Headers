@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
+- (BOOL)validate;
 
 @end
 

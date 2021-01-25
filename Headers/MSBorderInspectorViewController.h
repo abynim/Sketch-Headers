@@ -6,7 +6,7 @@
 
 #import "MSColorStylePartInspectorViewController.h"
 
-@class MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSUpDownTextField, NSTextField;
+@class MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSUpDownTextField, NSBundle, NSTextField;
 
 @interface MSBorderInspectorViewController : MSColorStylePartInspectorViewController
 {
@@ -15,9 +15,11 @@
     NSTextField *_fillTypeLabel;
     NSTextField *_borderPositionLabel;
     MSInspectorSegmentedControl *_positionControl;
+    NSBundle *_borderEnabledButton;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) __weak NSBundle *borderEnabledButton; // @synthesize borderEnabledButton=_borderEnabledButton;
 @property(retain, nonatomic) MSInspectorSegmentedControl *positionControl; // @synthesize positionControl=_positionControl;
 @property(retain, nonatomic) NSTextField *borderPositionLabel; // @synthesize borderPositionLabel=_borderPositionLabel;
 @property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;

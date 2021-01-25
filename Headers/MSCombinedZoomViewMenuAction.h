@@ -6,7 +6,7 @@
 
 #import "MSZoomAction.h"
 
-@class NSMenu, NSString;
+@class NSArray, NSMenu, NSString;
 
 @interface MSCombinedZoomViewMenuAction : MSZoomAction
 {
@@ -15,6 +15,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+@property(nonatomic, readonly) NSArray *menuKeyBindings;
 @property(nonatomic, readonly) BOOL validate;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 @property(nonatomic, retain) NSMenu *menu;

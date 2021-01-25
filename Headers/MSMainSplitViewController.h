@@ -12,6 +12,7 @@
 
 @interface MSMainSplitViewController : NSSplitViewController <NSSplitViewDelegate>
 {
+    BOOL _inspectorVisible;
     BOOL _isInVersionBrowser;
     BOOL _shouldEncodeCurrentSidebarWidth;
     NSWindow *_window;
@@ -34,6 +35,7 @@
 @property(nonatomic) long long rightSide; // @synthesize rightSide=_rightSide;
 @property(nonatomic) long long leftSide; // @synthesize leftSide=_leftSide;
 @property(retain, nonatomic) NSLayoutConstraint *sidebarWidthConstraint; // @synthesize sidebarWidthConstraint=_sidebarWidthConstraint;
+@property(nonatomic, getter=isInspectorVisible) BOOL inspectorVisible; // @synthesize inspectorVisible=_inspectorVisible;
 @property(retain, nonatomic) MSInspectorController *inspectorController; // @synthesize inspectorController=_inspectorController;
 @property(retain, nonatomic) MSCanvasViewController *canvasController; // @synthesize canvasController=_canvasController;
 @property(retain, nonatomic) BCSideBarViewController *sidebarController; // @synthesize sidebarController=_sidebarController;
@@ -45,7 +47,6 @@
 - (void)tearDown;
 - (void)setUp;
 - (struct CGRect)splitView:(id)arg1 effectiveRect:(struct CGRect)arg2 forDrawnRect:(struct CGRect)arg3 ofDividerAtIndex:(long long)arg4;
-- (BOOL)isInspectorVisible;
 - (void)hideInspector;
 @property(readonly, nonatomic) NSView *inspectorView;
 - (id)showInspector;

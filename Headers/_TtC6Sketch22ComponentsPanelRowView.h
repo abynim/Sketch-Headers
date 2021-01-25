@@ -11,13 +11,11 @@
     // Error parsing type: , name: delegate
     // Error parsing type: , name: outlineView
     // Error parsing type: , name: boundsAnimationsDisabled
-    // Error parsing type: , name: contentPinning
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)prepareForReuse;
 - (void)addSubview:(id)arg1;
 - (void)setFrameWidth:(double)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
