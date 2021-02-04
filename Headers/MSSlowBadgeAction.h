@@ -18,10 +18,12 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSOperationQueue *queue; // @synthesize queue=_queue;
-@property(retain, nonatomic) id badgeResults; // @synthesize badgeResults=_badgeResults;
+@property(retain) id badgeResults; // @synthesize badgeResults=_badgeResults;
 - (void)dealloc;
 @property(readonly, nonatomic) unsigned long long numberOfBadges;
 - (id)findBadgeResults:(id)arg1;
+- (void)badgeResultsDidChange;
+- (void)calculateBadgeResultsOnBackgroundQueue:(id)arg1;
 - (void)calculateBadgeResults;
 - (id)initWithDocument:(id)arg1;
 

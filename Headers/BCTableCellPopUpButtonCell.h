@@ -11,6 +11,7 @@
 }
 
 - (void)drawImageWithFrame:(struct CGRect)arg1 inView:(id)arg2;
+- (struct CGRect)imageRectForBounds:(struct CGRect)arg1;
 - (void)dismissPopUp;
 - (void)attachPopUpWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)nudgeControlView:(id)arg1 by:(double)arg2;

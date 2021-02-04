@@ -45,7 +45,7 @@
 - (BOOL)drawsTopBorder;
 - (void)refreshSelectionState:(id)arg1;
 - (void)viewWillDraw;
-- (void)refreshBadges;
+- (void)refreshBadgesAfterTextEditingEnded;
 - (void)refreshSelectionState;
 - (void)viewDidMoveToSuperview;
 - (void)viewDidMoveToWindow;
