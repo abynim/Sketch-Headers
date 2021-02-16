@@ -32,7 +32,6 @@
     MSPluginManagingState *_pluginStateManager;
     NSMutableDictionary *_pluginVersions;
     NSMutableArray *_downloadPluginsErrors;
-    NSDictionary *_incompatiblePluginVersions;
 }
 
 + (BOOL)isPluginAtURL:(id)arg1 newerThanPluginAtURL:(id)arg2;
@@ -43,7 +42,6 @@
 + (id)mainPluginsFolderURL;
 + (void)initialisePlugins;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSDictionary *incompatiblePluginVersions; // @synthesize incompatiblePluginVersions=_incompatiblePluginVersions;
 @property(retain, nonatomic) NSMutableArray *downloadPluginsErrors; // @synthesize downloadPluginsErrors=_downloadPluginsErrors;
 @property(retain, nonatomic) NSMutableDictionary *pluginVersions; // @synthesize pluginVersions=_pluginVersions;
 @property(readonly, nonatomic) MSPluginManagingState *pluginStateManager; // @synthesize pluginStateManager=_pluginStateManager;
@@ -74,6 +72,7 @@
 - (BOOL)installPluginAtURL:(id)arg1 withIdentifier:(id)arg2 error:(id *)arg3;
 - (void)resetAllPluginMetadataToBeDisabled;
 - (BOOL)contentsSameForSmallTextFiles:(id)arg1 file2:(id)arg2;
+- (id)pluginsDisabledListRemotePath;
 - (void)downloadRemotePluginsBlacklist;
 - (BOOL)isPluginUpdateDownloadedWithIdentifier:(id)arg1 version:(id)arg2;
 - (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2 error:(id *)arg3;
