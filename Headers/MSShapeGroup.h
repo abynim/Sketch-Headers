@@ -32,12 +32,12 @@
 @property(nonatomic) BOOL edited; // @dynamic edited;
 - (id)usedStyle;
 - (struct CGRect)safeFrameForBezierPath:(id)arg1;
+- (void)setPath:(id)arg1 inCoordinateSpace:(id)arg2;
 @property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 @property(readonly, nonatomic) BOOL hasMarkers;
 - (void)setStyle:(id)arg1;
 - (id)defaultName;
 - (struct CGRect)optimalBoundingBox;
-- (BOOL)groupBoundsShouldBeIntegral;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (BOOL)shouldHitTestOnFill:(id)arg1;
@@ -45,8 +45,8 @@
 - (id)CSSAttributeString;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL hasTransforms;

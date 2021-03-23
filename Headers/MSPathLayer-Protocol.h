@@ -7,6 +7,7 @@
 #import <SketchModel/MSLayerProtocol-Protocol.h>
 
 @class MSPath;
+@protocol MSLayerCoordinateSpace;
 
 @protocol MSPathLayer <MSLayerProtocol>
 @property(copy, nonatomic) MSPath *pathInFrame;
@@ -14,5 +15,6 @@
 @property(nonatomic) BOOL isClosed;
 - (void)reversePath;
 - (void)simplify;
+- (void)setPath:(MSPath *)arg1 inCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;
 @end
 

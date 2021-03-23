@@ -52,7 +52,6 @@
 - (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
 @property(readonly, nonatomic) BOOL isAboutToExpire;
 @property(readonly, nonatomic) BOOL shouldTryToRequestNewTrialLicense;
-- (id)initWithDictionary:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
 - (id)init;
 
 // Remaining properties

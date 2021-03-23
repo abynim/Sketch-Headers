@@ -10,6 +10,7 @@
 {
 }
 
+- (void)addStylePartOfType:(unsigned long long)arg1;
 - (unsigned long long)supportedTraits;
 - (id)label;
 - (BOOL)validate;

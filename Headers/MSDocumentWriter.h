@@ -11,6 +11,7 @@
 @interface MSDocumentWriter : NSObject
 {
     BOOL _preserveMetadata;
+    BOOL _skipTextPreviewDataEmbedding;
     NSDictionary *_UIMetadata;
     CDUnknownBlockType _previewGenerationBlock;
     MSJSONZippedArchiver *_archiver;
@@ -23,12 +24,11 @@
 @property(retain, nonatomic) NSData *libraryPreview; // @synthesize libraryPreview=_libraryPreview;
 @property(retain, nonatomic) NSData *previewData; // @synthesize previewData=_previewData;
 @property(retain, nonatomic) MSJSONZippedArchiver *archiver; // @synthesize archiver=_archiver;
+@property(nonatomic) BOOL skipTextPreviewDataEmbedding; // @synthesize skipTextPreviewDataEmbedding=_skipTextPreviewDataEmbedding;
 @property(nonatomic) BOOL preserveMetadata; // @synthesize preserveMetadata=_preserveMetadata;
 @property(copy, nonatomic) CDUnknownBlockType previewGenerationBlock; // @synthesize previewGenerationBlock=_previewGenerationBlock;
 @property(copy, nonatomic) NSDictionary *UIMetadata; // @synthesize UIMetadata=_UIMetadata;
 - (BOOL)writeDocumentData:(id)arg1 isAutosave:(BOOL)arg2 error:(id *)arg3;
-- (id)createTextPreviewMetadataForTextLayers:(id)arg1 pageMapping:(id)arg2;
-- (BOOL)archiveTextPreviewPDFDataForTextLayers:(id)arg1 documentData:(id)arg2 error:(id *)arg3;
 - (id)initWithFileURL:(id)arg1;
 - (id)init;
 

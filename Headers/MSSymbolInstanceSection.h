@@ -51,6 +51,7 @@
 - (id)containedOverrideFor:(id)arg1;
 @property(readonly, nonatomic) unsigned long long numberOfItems;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (BOOL)diffContainsChangeRequiringReload:(id)arg1;
 - (id)uniqueArtboardIDsOfSelectedLayers;

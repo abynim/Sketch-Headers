@@ -49,7 +49,7 @@
 - (void)disableAllFills;
 - (void)disableAllBorders;
 @property(readonly, nonatomic) BOOL hasEnabledBorder;
-@property(readonly, nonatomic) BOOL hasMoreThanOneEnabledFill;
+@property(readonly, nonatomic) BOOL hasMultipleEnabledFills;
 @property(readonly, nonatomic) BOOL hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledShadow;
 - (void)moveStylePartOfType:(unsigned long long)arg1 fromIndex:(unsigned long long)arg2 toIndex:(unsigned long long)arg3;

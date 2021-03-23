@@ -24,7 +24,7 @@
 - (void)updateProgress;
 - (void)cancel:(id)arg1;
 - (void)progressDidChangeNotification:(id)arg1;
-- (void)cloudBaseViewControllerDidAppear;
+- (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)dealloc;
 - (void)viewDidLayout;

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)reduceImageSize:(id)arg1;
 - (id)label;

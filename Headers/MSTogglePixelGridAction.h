@@ -19,6 +19,7 @@
 - (id)tooltip;
 - (BOOL)hasDynamicTitle;
 - (id)labelForToolbar;
+- (id)historyMomentTitle;
 - (id)label;
 - (void)togglePixelGrid:(id)arg1;
 

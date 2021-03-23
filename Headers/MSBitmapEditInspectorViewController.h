@@ -48,6 +48,7 @@
 @property(nonatomic) struct CGSize selectionSize; // @synthesize selectionSize=_selectionSize;
 @property(nonatomic) long long currentMode; // @synthesize currentMode=_currentMode;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (id)views;

@@ -25,7 +25,7 @@
 - (void)downloadManager:(id)arg1 downloadTaskFinishedForIdentifier:(id)arg2 downloadedURL:(id)arg3 httpStatusCode:(long long)arg4;
 - (void)downloadManager:(id)arg1 downloadTaskHasUpdatedForIdentifier:(id)arg2 downloadedSoFar:(unsigned long long)arg3 withDownloadSize:(unsigned long long)arg4;
 - (void)cancelDownloadTaskWithIdentifier:(id)arg1;
-- (BOOL)updateAssetLibrary:(id)arg1 withLibraryDownloadedTo:(id)arg2 linking:(BOOL)arg3;
+- (BOOL)updateAssetLibrary:(id)arg1 withLibraryDownloadedTo:(id)arg2;
 - (void)startFileDownload:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)startDownloadingAssetLibrary:(id)arg1 progressHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)updatingInfoForLatestVersionInAppcast:(id)arg1;

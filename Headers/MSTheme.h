@@ -81,7 +81,6 @@
 @property(readonly, nonatomic) NSColor *documentsWindowBannerTextColor;
 @property(readonly, nonatomic) NSColor *documentsWindowBannerBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedTextSelectionColor;
-@property(readonly, nonatomic) NSColor *documentsWindowThumbnailBackgroundColor;
 @property(readonly, nonatomic) NSColor *documentsWindowUnemphasizedThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentsWindowThumbnailBorderColor;
 @property(readonly, nonatomic) NSColor *documentItemOverlayColor;

@@ -6,6 +6,8 @@
 
 #import "MSDocumentAction.h"
 
+@class NSString;
+
 @interface MSToggleVisibilityAction : MSDocumentAction
 {
 }
@@ -14,7 +16,7 @@
 - (void)doPerformAction:(id)arg1;
 - (BOOL)shouldRunForAllTabsInWindow;
 - (void)prepareForNewWindow;
-- (id)defaultsKey;
+@property(readonly, nonatomic) NSString *defaultsKey;
 - (void)hide;
 - (void)show;
 @property(readonly, nonatomic) BOOL isActive;

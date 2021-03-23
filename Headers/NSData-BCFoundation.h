@@ -9,13 +9,16 @@
 @class NSString;
 
 @interface NSData (BCFoundation)
+- (id)gzipped_bcAndReturnError:(id *)arg1;
 @property(nonatomic, readonly) NSString *hexString;
 @property(readonly, nonatomic) NSString *sha1String_bc;
 @property(readonly, nonatomic) NSData *sha1Data_bc;
 - (id)sha1AsString;
 - (id)sha1;
 - (void)encodeAsRAWArchive:(id)arg1;
+@property(readonly, nonatomic) BOOL isGzipped_bc;
 - (id)dataByDecompressing_bc;
+- (id)dataByDecompressingWithAlgorithm:(int)arg1 headerSize:(unsigned long long)arg2 footerSize:(unsigned long long)arg3 uncompressedSize:(unsigned long long)arg4;
 - (id)dataByCompressingWithAlgorithm_bc:(int)arg1;
 @end
 

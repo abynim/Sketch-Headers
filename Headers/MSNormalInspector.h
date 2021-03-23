@@ -10,7 +10,7 @@
 #import "MSInspectorSectionDelegate-Protocol.h"
 #import "MSStackViewScrollViewDelegate-Protocol.h"
 
-@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSLayerArray, MSStandardInspectorViewControllers, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSStackView, NSString;
+@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSSet, NSStackView, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSInspectorSectionDelegate, MSInspectorChildController>
 {
@@ -18,7 +18,6 @@
     BOOL _hasScheduledNextResponderFixing;
     BOOL _throttleNextResponderFixing;
     MSInspectorStackView *_stackView;
-    MSLayerArray *_layers;
     MSEventHandler *_eventHandler;
     NSScrollView *_scrollView;
     NSStackView *_footerView;
@@ -26,9 +25,13 @@
     NSMutableDictionary *_storedPreferences;
     NSLayoutConstraint *_scrollViewTopConstraint;
     NSLayoutConstraint *_scrollViewBottomConstraint;
+    _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
+    NSSet *_parents;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSSet *parents; // @synthesize parents=_parents;
+@property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
 @property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
 @property(retain, nonatomic) NSLayoutConstraint *scrollViewBottomConstraint; // @synthesize scrollViewBottomConstraint=_scrollViewBottomConstraint;
@@ -38,7 +41,6 @@
 @property(retain, nonatomic) NSStackView *footerView; // @synthesize footerView=_footerView;
 @property(retain, nonatomic) NSScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(retain, nonatomic) MSEventHandler *eventHandler; // @synthesize eventHandler=_eventHandler;
-@property(copy, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 @property(retain, nonatomic) MSInspectorStackView *stackView; // @synthesize stackView=_stackView;
 - (void)fixNextResponder;
 - (void)scheduleNextResponderFixing;
@@ -52,8 +54,11 @@
 - (void)sectionDidResize:(id)arg1;
 @property(readonly, nonatomic) BOOL sharedStyleInspectorVisible;
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
+- (void)resetScrollview;
 - (void)reloadWithFooterViewControllers:(id)arg1;
 - (void)prepareForDisplay;
+- (void)prepareForDisplayWithoutFinalising;
+- (void)updateChildInspectors;
 @property(readonly, nonatomic) BOOL isRenamingSharedObject;
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)showBorderOptionsAction:(id)arg1;
@@ -63,10 +68,13 @@
 - (void)closeAnyColorPopover;
 - (void)changeColor:(id)arg1;
 - (void)prepareViewControllers;
-- (void)reloadInspectorStack:(id)arg1;
+- (void)reloadStackContaining:(id)arg1;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
+@property(readonly, nonatomic) NSSet *currentParents;
+@property(readonly, nonatomic) NSArray *layers;
 - (id)init;
 
 // Remaining properties

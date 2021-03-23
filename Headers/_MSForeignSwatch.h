@@ -32,7 +32,7 @@
 @property(retain, nonatomic) MSSwatch *localSwatch; // @synthesize localSwatch=_localSwatch;
 @property(retain, nonatomic) NSString *remoteSwatchID; // @synthesize remoteSwatchID=_remoteSwatchID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

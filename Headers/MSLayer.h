@@ -58,10 +58,6 @@
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)canBeTransformed;
 - (void)multiplyBy:(double)arg1;
-- (void)concatAncestorsAndSelfTransforms;
-- (id)transform;
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
-- (id)transformForRect:(struct CGRect)arg1;
 @property(nonatomic) struct _CHTransformStruct transformStruct;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> rulerCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> unitCoordinateSpace;
@@ -79,7 +75,6 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
-- (id)ancestorsAndSelfTransforms;
 - (id)ancestorsAndSelf;
 - (id)ancestors;
 - (id)parentSymbol;
@@ -91,7 +86,6 @@
 - (BOOL)isOpen;
 - (void)removeFromParent;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
-- (void)calculateProportions;
 - (BOOL)isRectIntegral;
 - (void)makeRectIntegral;
 - (void)makeOriginIntegral;
@@ -217,7 +211,6 @@
 - (id)enumeratorWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
-@property(readonly, nonatomic) id <MSLayerCoordinateSpace> parentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;
 - (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id)arg2;
@@ -226,8 +219,8 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
-- (void)applyOverride:(id)arg1 document:(id)arg2;
-- (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
+- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
+- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 @property(retain, nonatomic) NSString *dataSupplierIdentifier;
 - (void)replaceFonts:(id)arg1;

@@ -6,7 +6,7 @@
 
 #import <AppKit/NSView.h>
 
-@class MSDocumentsCollectionItem, NSButton, NSColor, NSImageView, NSProgressIndicator, NSTrackingArea;
+@class MSDocumentsCollectionItem, NSButton, NSColor, NSImageView, NSProgress, NSProgressIndicator, NSTrackingArea;
 
 @interface MSDocumentProgressView : NSView
 {
@@ -16,9 +16,11 @@
     NSImageView *_progressIndicatorBackground;
     NSButton *_cancelButton;
     NSTrackingArea *_trackingArea;
+    NSProgress *_progress;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) NSTrackingArea *trackingArea; // @synthesize trackingArea=_trackingArea;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSImageView *progressIndicatorBackground; // @synthesize progressIndicatorBackground=_progressIndicatorBackground;
@@ -26,6 +28,7 @@
 @property(nonatomic) __weak MSDocumentsCollectionItem *collectionItem; // @synthesize collectionItem=_collectionItem;
 @property(retain, nonatomic) NSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (struct CGSize)intrinsicContentSize;
+- (void)setHidden:(BOOL)arg1;
 - (void)updateTrackingAreas;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;

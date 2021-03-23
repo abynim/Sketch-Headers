@@ -8,17 +8,18 @@
 
 #import "MSDocumentsCollectionItemPreviewImageLoading-Protocol.h"
 
-@class NSColor, NSError, NSImage, NSProgress, NSString, NSURL;
+@class NSArray, NSAttributedString, NSColor, NSError, NSImage, NSProgress, NSString, NSURL;
 
 @interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
 {
     BOOL _showLibraryIcon;
-    BOOL _showPublicShareIcon;
+    BOOL _showSharedDocumentIcon;
     BOOL _supportsRenaming;
     NSString *_title;
-    NSString *_status;
+    NSAttributedString *_status;
     NSString *_statusColor;
     NSString *_toolTip;
+    NSArray *_presences;
     NSProgress *_downloadProgress;
     NSError *_downloadError;
 }
@@ -29,13 +30,14 @@
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
-@property(readonly, nonatomic) BOOL showPublicShareIcon; // @synthesize showPublicShareIcon=_showPublicShareIcon;
+@property(readonly, nonatomic) BOOL showSharedDocumentIcon; // @synthesize showSharedDocumentIcon=_showSharedDocumentIcon;
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
+@property(retain, nonatomic) NSArray *presences; // @synthesize presences=_presences;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
-@property(retain, nonatomic) NSString *status; // @synthesize status=_status;
+@property(retain, nonatomic) NSAttributedString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -43,7 +45,7 @@
 - (void)cancelDocumentDownload;
 - (BOOL)isEqual:(id)arg1;
 - (id)getStatusColor;
-- (id)getStatus;
+@property(readonly, nonatomic) NSString *statusTooltip;
 @property(readonly, nonatomic) BOOL supportsDeletion;
 @property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;

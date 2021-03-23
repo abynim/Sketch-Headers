@@ -113,7 +113,6 @@
 - (BOOL)stylePartIsGradient:(id)arg1;
 - (void)findFrequentImages;
 - (void)findFrequentColors;
-- (void)findFrequentObjects;
 - (void)prepareForDisplay;
 - (void)setInitialColor:(id)arg1;
 - (void)dismissIfCommandKeyDown;

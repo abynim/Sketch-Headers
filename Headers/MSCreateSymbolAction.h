@@ -12,6 +12,7 @@
 
 - (BOOL)shouldUseImageForTouchBarItem;
 - (BOOL)hasDynamicTitle;
+- (id)undoTitle;
 - (id)historyMomentTitle;
 - (id)tooltip;
 - (id)label;

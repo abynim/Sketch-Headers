@@ -86,7 +86,6 @@
 - (void)addStylePartHeaderWideAction:(id)arg1;
 - (void)addStylePartButtonAction:(id)arg1;
 - (void)addNewStylePart;
-- (void)reloadInspectorStack;
 - (void)closePopovers;
 - (id)rotatedStyleParts;
 - (void)setStatus:(long long)arg1 forButton:(id)arg2;

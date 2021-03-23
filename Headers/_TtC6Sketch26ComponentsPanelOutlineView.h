@@ -13,8 +13,6 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)becomeFirstResponder;
-@property(nonatomic, readonly) BOOL acceptsFirstResponder;
 - (void)mouseDown:(id)arg1;
 
 @end

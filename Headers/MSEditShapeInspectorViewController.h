@@ -47,6 +47,7 @@
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)changeTool:(id)arg1;
@@ -57,7 +58,7 @@
 - (void)cornerRadiusAction:(id)arg1;
 - (void)refreshCornerRadiusButton;
 - (void)refreshCoordinates;
-- (void)vectorModeSegmentedButtonAction:(id)arg1;
+- (void)changeCurveMode:(id)arg1;
 - (void)refreshCurveModeControls;
 - (void)finishEditingAction:(id)arg1;
 - (void)refreshClosePathButton;

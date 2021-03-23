@@ -14,6 +14,7 @@
     // Error parsing type: , name: $__lazy_storage_$_pickerView
     // Error parsing type: , name: $__lazy_storage_$_picker
     // Error parsing type: , name: $__lazy_storage_$_componentsViewController
+    // Error parsing type: , name: changeTracker
 }
 
 - (void).cxx_destruct;
@@ -25,6 +26,7 @@
 - (BOOL)supportsLayers:(id)arg1;
 @property(nonatomic, retain) id layers;
 - (void)colorPicked:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
 - (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (id)views;
 - (void)viewDidLoad;

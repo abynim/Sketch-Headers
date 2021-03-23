@@ -48,12 +48,12 @@
 - (void)resetSharedStyle;
 @property(readonly, nonatomic) BOOL isSharedStyleOutOfSync;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
-- (void)applyOverrides:(id)arg1 document:(id)arg2 visitedSymbols:(id)arg3;
-- (void)applyOverride:(id)arg1 document:(id)arg2;
+- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
+- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL hasTransforms;

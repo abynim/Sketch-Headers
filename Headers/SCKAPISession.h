@@ -9,7 +9,7 @@
 #import <SketchCloudKit/NSCopying-Protocol.h>
 #import <SketchCloudKit/NSSecureCoding-Protocol.h>
 
-@class NSData, NSDate, NSString, SCKJWT;
+@class NSArray, NSData, NSDate, NSString, SCKJWT;
 
 @interface SCKAPISession : NSObject <NSCopying, NSSecureCoding>
 {
@@ -28,11 +28,14 @@
 @property(readonly, copy, nonatomic) NSString *tokenType; // @synthesize tokenType=_tokenType;
 @property(readonly, copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(readonly, copy, nonatomic) NSString *token; // @synthesize token=_token;
+- (id)debugDescription;
 - (BOOL)isRefreshedByAuthentication:(id)arg1;
 @property(readonly, nonatomic) NSString *httpAuthorizationValue;
 @property(readonly, nonatomic) BOOL isValidInTheNearFuture;
+@property(readonly, nonatomic) NSArray *featureFlags;
 - (double)validityPeriod;
 - (id)issueDate;
+@property(readonly, nonatomic) NSDate *refreshDate;
 @property(readonly, nonatomic) NSDate *expirationDate;
 @property(readonly, copy, nonatomic) NSString *organizationID;
 @property(readonly, copy, nonatomic) NSString *userID;

@@ -38,7 +38,7 @@
 @property(nonatomic) double height; // @synthesize height=_height;
 @property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

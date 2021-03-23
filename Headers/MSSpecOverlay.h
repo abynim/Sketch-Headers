@@ -15,6 +15,7 @@
     // Error parsing type: , name: coordinateSpaceTransform
     // Error parsing type: , name: fontSize
     // Error parsing type: , name: fontWeight
+    // Error parsing type: , name: lowResFontWeight
     // Error parsing type: , name: guideColor
 }
 

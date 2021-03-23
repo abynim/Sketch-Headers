@@ -26,6 +26,7 @@
 - (void)hideInterface;
 - (void)doPerformAction:(id)arg1;
 - (void)toggleHideInterface:(id)arg1;
+- (id)historyMomentTitle;
 - (id)label;
 - (BOOL)hasDynamicTitle;
 

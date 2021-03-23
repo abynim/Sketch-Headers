@@ -8,7 +8,7 @@
 
 #import "NSTouchBarDelegate-Protocol.h"
 
-@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSStackView, NSString, NSView, _TtC6Sketch25MSComponentMenuController;
+@class BCCache, MSDocument, MSLayerArray, MSNormalInspector, NSArray, NSMutableArray, NSStackView, NSString, NSView, _TtC6Sketch25MSComponentMenuController;
 @protocol MSInspectorChildController;
 
 @interface MSInspectorController : NSViewController <NSTouchBarDelegate>
@@ -24,9 +24,13 @@
     NSView *_contentContainerView;
     MSNormalInspector *_normalInspector;
     NSStackView *_stackView;
+    NSArray *_selectedOverrides;
+    NSMutableArray *_deferredActions;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *deferredActions; // @synthesize deferredActions=_deferredActions;
+@property(retain, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
 @property(retain, nonatomic) MSNormalInspector *normalInspector; // @synthesize normalInspector=_normalInspector;
 @property(retain, nonatomic) NSView *contentContainerView; // @synthesize contentContainerView=_contentContainerView;
@@ -62,11 +66,14 @@
 - (void)beginRenameSharedObject:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)changeTextLayerFont:(id)arg1;
 - (void)changeColor:(id)arg1;
+- (void)performDeferredRefreshActions;
+- (void)afterRefresh:(CDUnknownBlockType)arg1;
 - (void)checkAlignmentButtonsVisibility;
 - (void)contentTypeDidChange;
 - (void)currentHandlerChanged;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateOnPageChange;
+- (void)updateSelectedOverrides;
 - (void)performSelectionChangedUpdates;
 - (void)viewDidResize;
 - (void)validateAlignmentButtons;

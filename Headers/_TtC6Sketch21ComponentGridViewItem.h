@@ -15,6 +15,8 @@
     // Error parsing type: , name: metadataField
     // Error parsing type: , name: isInComponentsMode
     // Error parsing type: , name: searchResult
+    // Error parsing type: , name: previewImageColorSpace
+    // Error parsing type: , name: _previewImageToken
 }
 
 - (void).cxx_destruct;

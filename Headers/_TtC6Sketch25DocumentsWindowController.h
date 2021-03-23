@@ -20,6 +20,7 @@
 
 + (void)clearRecentItemsCache;
 + (BOOL)hideWindowIfNeeded;
++ (BOOL)hasKeyWindow;
 + (void)showWindowSelectingShare:(id)arg1;
 + (void)showWindowWithCollection:(long long)arg1;
 + (void)showWindow;

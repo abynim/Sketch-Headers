@@ -32,8 +32,6 @@
     NSArray *_filteredPlugins;
     NSCache *_rowHeightCache;
     NSImageView *_zeroPluginsImageView;
-    long long _originalHeightUpdatesAvailable;
-    long long _originalHeightIncompatiblePlugin;
     NSArray *_selectedItemIdentifiers;
     NSNib *_tableCellViewNib;
 }
@@ -45,8 +43,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSNib *tableCellViewNib; // @synthesize tableCellViewNib=_tableCellViewNib;
 @property(retain, nonatomic) NSArray *selectedItemIdentifiers; // @synthesize selectedItemIdentifiers=_selectedItemIdentifiers;
-@property(nonatomic) long long originalHeightIncompatiblePlugin; // @synthesize originalHeightIncompatiblePlugin=_originalHeightIncompatiblePlugin;
-@property(nonatomic) long long originalHeightUpdatesAvailable; // @synthesize originalHeightUpdatesAvailable=_originalHeightUpdatesAvailable;
 @property(nonatomic) __weak NSImageView *zeroPluginsImageView; // @synthesize zeroPluginsImageView=_zeroPluginsImageView;
 @property(nonatomic) BOOL observingPlugins; // @synthesize observingPlugins=_observingPlugins;
 @property(retain, nonatomic) NSCache *rowHeightCache; // @synthesize rowHeightCache=_rowHeightCache;
@@ -72,7 +68,6 @@
 - (id)draggedTypesForView:(id)arg1;
 - (void)updateAndReloadPluginsWithBlock:(CDUnknownBlockType)arg1;
 - (BOOL)doAnyPluginsSupplyData:(id)arg1;
-- (id)makePluginCellView;
 @property(readonly, nonatomic) MSPluginsPreferenceTableCellView *pluginCellViewForHeightCalculations;
 - (id)attributedStringUpdateAvailableLinkForString:(id)arg1;
 - (void)configurePluginUpdateInfoButton:(id)arg1 withPluginInfo:(id)arg2;
@@ -121,6 +116,7 @@
 - (id)searchString;
 - (void)updateUIForPluginsChange;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)viewDidLoad;
 - (void)awakeFromNib;
 - (void)dealloc;
 - (id)initWithPreferencesController:(id)arg1;

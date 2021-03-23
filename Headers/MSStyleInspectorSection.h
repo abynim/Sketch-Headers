@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) NSArray *currentControllers; // @synthesize currentControllers=_currentControllers;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
+- (void)reloadStackContaining:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
@@ -44,6 +45,8 @@
 - (id)views;
 @property(readonly, nonatomic) BOOL hasContent;
 - (void)updateItems;
+- (void)handlerFocusDidChange:(id)arg1;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;

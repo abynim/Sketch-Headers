@@ -9,7 +9,6 @@
 @protocol MSLayerCoordinateSpace
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
-@property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id <MSLayerCoordinateSpace>)arg1;
 - (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id <MSLayerCoordinateSpace>)arg2;

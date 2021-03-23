@@ -18,16 +18,17 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
-#import "_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSPatchContainer, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC13SharedEditing29MSIncrementalUploadController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
-@interface MSDocument : NSDocument <_TtP13SharedEditing37MSIncrementalUploadControllerDelegate_, MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
     BOOL _hideDocumentsWindowWhenDisplayingWindow;
     BOOL _attemptingToClose;
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
+    BOOL _nextSaveShouldCreateVersionOnCloud;
+    BOOL _nextSaveShouldPublishVersionOnCloud;
     BOOL _isSidebarVisible;
     BOOL _isLayerListVisible;
     BOOL _isComponentsPanelVisible;
@@ -48,14 +49,16 @@
     MSCacheManager *_cacheManager;
     MSComponentsPanelController *_componentsPanelController;
     MSCanvasViewController *_currentContentViewController;
+    _TtC6Sketch30MSCoEditHealthStatusController *_coEditHealthStatusController;
     id _colorSpaceMismatchWarning;
     id _editingLibraryWarning;
     _TtC10Assistants20AssistantsRunResults *_assistantsResults;
     _TtC6Sketch24MSDocumentEditController *_editController;
-    _TtC13SharedEditing29MSIncrementalUploadController *_incrementalUploadController;
     _TtC13SharedEditing18MSCoEditController *_coEditController;
     _TtC11SketchModel23MSResolvedDocumentMaker *_resolvedDocumentMaker;
+    _TtC14SketchCloudKit23SubscriptionsController *_subscriptionsController;
     unsigned long long _contentType;
+    NSTimer *_cloudAutosaveTimer;
     _TtC11SketchModel16MSEditingContext *_editingContext;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -68,7 +71,6 @@
 
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
 + (id)currentDocument;
-+ (id)windowForSheet;
 + (void)cleanCloudDirectoriesRemovingAllDocuments:(BOOL)arg1;
 + (id)didCleanCloudDirectoriesNotification;
 + (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
@@ -91,16 +93,20 @@
 @property(nonatomic) BOOL isComponentsPanelVisible; // @synthesize isComponentsPanelVisible=_isComponentsPanelVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
+@property(retain, nonatomic) NSTimer *cloudAutosaveTimer; // @synthesize cloudAutosaveTimer=_cloudAutosaveTimer;
 @property(nonatomic) unsigned long long contentType; // @synthesize contentType=_contentType;
+@property(nonatomic) BOOL nextSaveShouldPublishVersionOnCloud; // @synthesize nextSaveShouldPublishVersionOnCloud=_nextSaveShouldPublishVersionOnCloud;
+@property(nonatomic) BOOL nextSaveShouldCreateVersionOnCloud; // @synthesize nextSaveShouldCreateVersionOnCloud=_nextSaveShouldCreateVersionOnCloud;
+@property(readonly, nonatomic) _TtC14SketchCloudKit23SubscriptionsController *subscriptionsController; // @synthesize subscriptionsController=_subscriptionsController;
 @property(readonly, nonatomic) _TtC11SketchModel23MSResolvedDocumentMaker *resolvedDocumentMaker; // @synthesize resolvedDocumentMaker=_resolvedDocumentMaker;
 @property(retain, nonatomic) _TtC13SharedEditing18MSCoEditController *coEditController; // @synthesize coEditController=_coEditController;
-@property(retain, nonatomic) _TtC13SharedEditing29MSIncrementalUploadController *incrementalUploadController; // @synthesize incrementalUploadController=_incrementalUploadController;
 @property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
 @property(retain, nonatomic) _TtC10Assistants20AssistantsRunResults *assistantsResults; // @synthesize assistantsResults=_assistantsResults;
 @property(retain, nonatomic) id editingLibraryWarning; // @synthesize editingLibraryWarning=_editingLibraryWarning;
 @property(retain, nonatomic) id colorSpaceMismatchWarning; // @synthesize colorSpaceMismatchWarning=_colorSpaceMismatchWarning;
 @property(nonatomic) BOOL hasOpenedImageFile; // @synthesize hasOpenedImageFile=_hasOpenedImageFile;
 @property(nonatomic) BOOL nextReadFromURLIsReload; // @synthesize nextReadFromURLIsReload=_nextReadFromURLIsReload;
+@property(retain, nonatomic) _TtC6Sketch30MSCoEditHealthStatusController *coEditHealthStatusController; // @synthesize coEditHealthStatusController=_coEditHealthStatusController;
 @property(retain, nonatomic) MSCanvasViewController *currentContentViewController; // @synthesize currentContentViewController=_currentContentViewController;
 @property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
@@ -116,6 +122,7 @@
 @property(retain, nonatomic) MSToolbarConstructor *toolbarConstructor; // @synthesize toolbarConstructor=_toolbarConstructor;
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) MSDocumentWindowController *documentWindowController; // @synthesize documentWindowController=_documentWindowController;
+- (void)updateAssistants;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
@@ -221,6 +228,8 @@
 - (id)selectedLayers;
 - (id)makeUnknownRenameError;
 - (void)moveToURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)renameDocument:(id)arg1;
+- (void)moveDocument:(id)arg1;
 - (id)currentPage;
 - (void)exportSliceLayers:(id)arg1;
 @property(retain, nonatomic) NSArray *exportableLayerSelection; // @synthesize exportableLayerSelection=_exportableLayerSelection;
@@ -291,16 +300,8 @@
 - (struct CGSize)defaultNewWindowSize;
 - (void)makeWindowControllers;
 - (id)init;
-- (void)patchReceived:(id)arg1 statusInfo:(id)arg2;
-- (void)presentCollaborationDebugMessageWithErrorWithError:(id)arg1;
-- (void)presentCollaborationErrorWithError:(id)arg1;
-- (void)uploadStateDidChangeWithController:(id)arg1;
-@property(nonatomic, readonly) NSString *lastIntegratedPatchID;
-- (void)resetPatchInfo;
-@property(nonatomic, readonly) MSPatchContainer *patchContainer;
-@property(nonatomic, readonly) NSString *documentIdentifier;
-- (void)setupIncrementalUploadController;
 - (void)setupCoEditController;
+@property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
@@ -328,19 +329,9 @@
 - (id)exportRequestForArtboardOrSlice:(id)arg1;
 - (void)saveArtboardOrSlice:(id)arg1 toFile:(id)arg2;
 - (id)pluginContext;
-- (BOOL)askToOpenDocumentRepairingMetadata;
-- (BOOL)askToOpenDocumentWithMissingFonts:(id)arg1 savingWillChangeFonts:(BOOL)arg2;
-- (BOOL)alertDocumentCorruptionWasDetected;
-- (void)contactSupportAction:(id)arg1;
-- (BOOL)handleNewerDocument:(id)arg1 error:(id *)arg2;
-- (long long)askToOpenNewerDocument;
 - (void)resetImportedDocument:(id)arg1;
 - (BOOL)readImageFromPath:(id)arg1 error:(id *)arg2;
 - (id)addLayerFromImageAtURL:(id)arg1 toGroup:(id)arg2 fitPixels:(BOOL)arg3 error:(id *)arg4;
-- (void)migrateUIMetadataWithDocumentData:(id)arg1;
-- (BOOL)readFromDocumentWrapper:(id)arg1 ofType:(id)arg2 corruptionDetected:(char *)arg3 error:(id *)arg4;
-- (void)reportMigrationNoLongerAvailable;
-- (BOOL)validateDocument:(id)arg1 error:(id *)arg2;
 - (BOOL)readDocumentFromURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (BOOL)revertToContentsOfURL:(id)arg1 ofType:(id)arg2 error:(id *)arg3;
 - (BOOL)readEPSFromURL:(id)arg1 error:(id *)arg2;
@@ -362,20 +353,22 @@
 - (id)editForeignSymbolInfoTextForForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 - (id)editForeignSymbolMessageForLibrary:(id)arg1;
 - (long long)availabilityForLibrary:(id)arg1;
+- (void)scheduleCoeditAutosave;
 - (void)showCloudSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)backupFileURL;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4;
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
+- (BOOL)writeSafelyToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 error:(id *)arg4;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
 - (void)saveCloudDocumentDraftAs:(id)arg1 organization:(id)arg2 project:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldRunSavePanelWithAccessoryView;
 - (void)runModalSaveDraftCloudDocPanelForOperationType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)discardDraftDocumentWithError:(id *)arg1;
-- (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 allowDeletion:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 allowDeletion:(BOOL)arg2 moveOriginal:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 delegate:(id)arg2 didSaveSelector:(SEL)arg3 contextInfo:(void *)arg4;
+- (BOOL)isCurrentlyUploading;
 - (void)makeUploadRequest;
-- (BOOL)writeSafelyToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 error:(id *)arg4;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldCreateCloudVersionForSaveOperation:(unsigned long long)arg1 destinationType:(id)arg2 documentWasEdited:(BOOL)arg3;
 - (void)prepareForSaveOperation:(unsigned long long)arg1;

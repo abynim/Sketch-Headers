@@ -10,6 +10,7 @@
 
 @interface _TtC6Sketch24MSDocumentEditController (Sketch) <MSHistoryMakerDelegate>
 - (id)currentDocumentData:(id)arg1;
+- (void)historyMakerDidCancelCommit:(id)arg1;
 - (void)historyMaker:(id)arg1 recordedChange:(id)arg2;
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;

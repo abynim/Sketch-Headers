@@ -12,6 +12,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 @property(readonly, copy) NSString *zoomValueString;
 - (void)zoomValueDidChange;

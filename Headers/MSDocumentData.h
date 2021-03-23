@@ -74,6 +74,8 @@
 - (void)addReferencedObjectsWithin:(id)arg1 toSet:(id)arg2;
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;
 - (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
+- (void)invalidateTextLayersAffectedByFontEmbedding:(id)arg1;
+- (id)embeddedFontChangesSince:(id)arg1;
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
 - (void)enumerateNonNestedSymbolInstancesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)invalidateAffectedSymbolInstances;
@@ -104,12 +106,16 @@
 - (void)objectDidInit;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)performInitEmptyObject;
+- (void)setPatchInfo:(id)arg1;
+- (void)resetPatchInfo;
+- (void)resetStateContainerWithNewState:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)enumerateColorUpdateables:(CDUnknownBlockType)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
+- (void)acknowledgeAllMissingForeignFonts;
 - (void)correctInvalidGamma;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
@@ -123,6 +129,7 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (id)exportableImmutableCopy;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentDataMetadataCopy;
 - (void)replaceFonts:(id)arg1;
 - (void)invalidateFonts;

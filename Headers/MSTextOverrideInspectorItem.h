@@ -24,6 +24,8 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (id)valueFromControlView:(id)arg1;

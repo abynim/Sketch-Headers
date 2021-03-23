@@ -8,7 +8,7 @@
 
 #import "MSCanvasViewDelegate-Protocol.h"
 
-@class MSCanvasView, MSDocument, MSFlashController, NSLayoutConstraint, NSString, NSView, _TtC6Sketch11MSRulerView;
+@class MSCanvasView, MSDocument, MSFlashController, MSPresenceFollowView, NSButton, NSLayoutConstraint, NSString, NSView, _TtC6Sketch11MSRulerView;
 
 @interface MSCanvasViewController : NSViewController <MSCanvasViewDelegate>
 {
@@ -18,22 +18,24 @@
     MSCanvasView *_canvasView;
     _TtC6Sketch11MSRulerView *_horizontalRuler;
     _TtC6Sketch11MSRulerView *_verticalRuler;
-    NSView *_rulerCornerView;
+    NSButton *_lockRulersButton;
     NSLayoutConstraint *_rulerWidthConstraint;
     NSLayoutConstraint *_rulerHeightConstraint;
     MSFlashController *_flashController;
     MSDocument *_document;
+    MSPresenceFollowView *_followView;
 }
 
 + (id)overlayOptionsDefaultsKeys;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isObservingDefaults) BOOL observingDefaults; // @synthesize observingDefaults=_observingDefaults;
+@property(retain, nonatomic) MSPresenceFollowView *followView; // @synthesize followView=_followView;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSFlashController *flashController; // @synthesize flashController=_flashController;
 @property(nonatomic) __weak NSLayoutConstraint *rulerHeightConstraint; // @synthesize rulerHeightConstraint=_rulerHeightConstraint;
 @property(nonatomic) __weak NSLayoutConstraint *rulerWidthConstraint; // @synthesize rulerWidthConstraint=_rulerWidthConstraint;
-@property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
+@property(retain, nonatomic) NSButton *lockRulersButton; // @synthesize lockRulersButton=_lockRulersButton;
 @property(retain, nonatomic) _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(retain, nonatomic) _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
@@ -51,6 +53,8 @@
 - (void)canvasViewDidChangeEffectiveAppearance:(id)arg1;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (void)refreshFollowView;
+- (void)applyLockRulersIconAndTooltip;
 - (void)refreshRulers;
 - (void)prepareForDealloc;
 - (void)viewWillDisappear;

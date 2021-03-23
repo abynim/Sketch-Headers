@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) unsigned long long downloadSize; // @synthesize downloadSize=_downloadSize;
 @property(retain, nonatomic) NSString *versionNumberForUpdate; // @synthesize versionNumberForUpdate=_versionNumberForUpdate;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
-- (BOOL)isHigherVersionThan:(id)arg1;
+- (BOOL)isHigherVersionThan:(id)arg1 useSemanticVersioning:(BOOL)arg2;
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)isEqualToAssetLibraryUpdatingInfo:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;

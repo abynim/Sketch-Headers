@@ -10,6 +10,7 @@
 {
 }
 
+- (id)historyMomentTitle;
 - (id)label;
 - (void)selectAll:(id)arg1;
 - (BOOL)validate;

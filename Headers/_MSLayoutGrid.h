@@ -56,7 +56,7 @@
 @property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
 @property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

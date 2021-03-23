@@ -41,8 +41,8 @@
 - (void)migratePropertiesFromV99OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL hasMarkers;

@@ -10,10 +10,11 @@
 #import "NSOpenSavePanelDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSHeaderView, NSButton, NSImageView, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser, _TtC6Sketch18MSRecentPlacesList;
+@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser, _TtC6Sketch18MSRecentPlacesList;
 
 @interface MSSavePanelController : CHSheetController <NSOpenSavePanelDelegate, NSDraggingDestination, NSWindowDelegate>
 {
+    BOOL _isMove;
     BOOL _allowDocumentDeletion;
     long long _destination;
     NSString *_documentName;
@@ -27,6 +28,7 @@
     NSSegmentedControl *_destinationControl;
     NSView *_contentView;
     NSView *_nameInputView;
+    NSTextField *_nameInputLabel;
     NSView *_organizationInputView;
     NSPopUpButton *_organizationPopUpButton;
     NSView *_projectInputView;
@@ -35,14 +37,20 @@
     NSPopUpButton *_locationPopUpButton;
     NSView *_signinView;
     NSStackView *_inputStack;
+    NSTextField *_moveWarningLabel;
+    NSView *_moveWarningView;
+    NSLayoutConstraint *_contentViewHeightConstraint;
+    NSLayoutConstraint *_contentViewMinimumHeightConstraint;
     NSButton *_deleteButton;
     NSButton *_saveButton;
+    NSButton *_attachFontsButton;
     NSButton *_learnMoreButton;
     NSView *_buttonContainer;
     SCKUser *_userWithProjects;
     SCKAPIOperation *_projectsRequest;
 }
 
++ (id)moveSheetWithDocumentName:(id)arg1;
 + (id)saveSheetWithDocumentName:(id)arg1 allowDeletion:(BOOL)arg2;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL allowDocumentDeletion; // @synthesize allowDocumentDeletion=_allowDocumentDeletion;
@@ -50,8 +58,13 @@
 @property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
 @property(retain, nonatomic) NSView *buttonContainer; // @synthesize buttonContainer=_buttonContainer;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
+@property(retain, nonatomic) NSButton *attachFontsButton; // @synthesize attachFontsButton=_attachFontsButton;
 @property(retain, nonatomic) NSButton *saveButton; // @synthesize saveButton=_saveButton;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
+@property(retain, nonatomic) NSLayoutConstraint *contentViewMinimumHeightConstraint; // @synthesize contentViewMinimumHeightConstraint=_contentViewMinimumHeightConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *contentViewHeightConstraint; // @synthesize contentViewHeightConstraint=_contentViewHeightConstraint;
+@property(retain, nonatomic) NSView *moveWarningView; // @synthesize moveWarningView=_moveWarningView;
+@property(retain, nonatomic) NSTextField *moveWarningLabel; // @synthesize moveWarningLabel=_moveWarningLabel;
 @property(retain, nonatomic) NSStackView *inputStack; // @synthesize inputStack=_inputStack;
 @property(retain, nonatomic) NSView *signinView; // @synthesize signinView=_signinView;
 @property(retain, nonatomic) NSPopUpButton *locationPopUpButton; // @synthesize locationPopUpButton=_locationPopUpButton;
@@ -60,6 +73,7 @@
 @property(retain, nonatomic) NSView *projectInputView; // @synthesize projectInputView=_projectInputView;
 @property(retain, nonatomic) NSPopUpButton *organizationPopUpButton; // @synthesize organizationPopUpButton=_organizationPopUpButton;
 @property(retain, nonatomic) NSView *organizationInputView; // @synthesize organizationInputView=_organizationInputView;
+@property(retain, nonatomic) NSTextField *nameInputLabel; // @synthesize nameInputLabel=_nameInputLabel;
 @property(retain, nonatomic) NSView *nameInputView; // @synthesize nameInputView=_nameInputView;
 @property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;
 @property(retain, nonatomic) NSSegmentedControl *destinationControl; // @synthesize destinationControl=_destinationControl;
@@ -72,10 +86,12 @@
 @property(retain, nonatomic) NSURL *directoryURL; // @synthesize directoryURL=_directoryURL;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(nonatomic) long long destination; // @synthesize destination=_destination;
+@property(nonatomic) BOOL isMove; // @synthesize isMove=_isMove;
 - (void)selectDesktop:(id)arg1;
 - (id)dragTypes;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
+- (void)attachFonts:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)finishWithSender:(id)arg1;
@@ -106,8 +122,10 @@
 - (BOOL)validateConfirmation;
 - (void)updateButtonValidation;
 - (void)setSigninViewVisible:(BOOL)arg1;
+- (void)updateConstraints;
 - (void)updateView;
 @property(readonly, nonatomic) NSURL *localURL;
+- (id)safeLastLocation;
 - (void)beginSheetModalForWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)windowDidLoad;
 

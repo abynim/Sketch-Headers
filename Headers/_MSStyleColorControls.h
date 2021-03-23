@@ -35,7 +35,7 @@
 @property(nonatomic) double contrast; // @synthesize contrast=_contrast;
 @property(nonatomic) double brightness; // @synthesize brightness=_brightness;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

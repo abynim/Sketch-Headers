@@ -6,24 +6,29 @@
 
 #import <objc/NSObject.h>
 
+@class NSURL;
+
 @interface MSImageDataMipMap : NSObject
 {
-    struct CGImage *_CGImage;
+    // Error parsing type: A^{CGImage}, name: _CGImage
     unsigned long long _lod;
     struct CGColorSpace *_colorspace;
+    NSURL *_cacheURL;
     MSImageDataMipMap *_next;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImageDataMipMap *next; // @synthesize next=_next;
+@property(readonly, nonatomic) NSURL *cacheURL; // @synthesize cacheURL=_cacheURL;
 @property(readonly, nonatomic) struct CGColorSpace *colorspace; // @synthesize colorspace=_colorspace;
 @property(readonly, nonatomic) unsigned long long lod; // @synthesize lod=_lod;
-@property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
 - (struct CGImage *)createDownscaledImageWithBoxFilter:(struct CGImage *)arg1;
 - (void)boxFilterBufferRGBA8888:(struct vImage_Buffer *)arg1 into:(struct vImage_Buffer *)arg2;
-- (id)generateNext;
+- (id)generateNext:(unsigned long long)arg1;
+- (void)writeToImage:(struct CGImage *)arg1 toPersistentCacheAtURL:(id)arg2;
+@property struct CGImage *CGImage;
 - (void)dealloc;
-- (id)initWithCGImage:(struct CGImage *)arg1 colorSpace:(struct CGColorSpace *)arg2 lod:(unsigned long long)arg3;
+- (id)initWithCGImage:(struct CGImage *)arg1 colorSpace:(struct CGColorSpace *)arg2 lod:(unsigned long long)arg3 cacheURL:(id)arg4;
 
 @end
 

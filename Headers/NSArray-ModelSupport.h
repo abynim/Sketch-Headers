@@ -12,6 +12,7 @@
 
 @interface NSArray (ModelSupport) <MSCoding>
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
+- (void)enumerateModelObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultValues;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;

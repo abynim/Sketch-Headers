@@ -12,8 +12,10 @@
 {
     BOOL _newUpdatingInfo;
     BOOL _updatesRestricted;
+    BOOL _updateManually;
     BOOL _isEditable;
     BOOL _isCloudLibrary;
+    BOOL _isPublicCloudLibrary;
     NSURL *_appcastURL;
     NSString *_libraryVersion;
     NSString *_originalName;
@@ -27,8 +29,10 @@
 + (id)assetLibraryFolder;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *teamName; // @synthesize teamName=_teamName;
+@property(nonatomic) BOOL isPublicCloudLibrary; // @synthesize isPublicCloudLibrary=_isPublicCloudLibrary;
 @property(nonatomic) BOOL isCloudLibrary; // @synthesize isCloudLibrary=_isCloudLibrary;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
+@property(nonatomic) BOOL updateManually; // @synthesize updateManually=_updateManually;
 @property(nonatomic) BOOL updatesRestricted; // @synthesize updatesRestricted=_updatesRestricted;
 @property(retain, nonatomic) MSAssetLibraryUpdatingInfo *updatingInfo; // @synthesize updatingInfo=_updatingInfo;
 @property(nonatomic) BOOL newUpdatingInfo; // @synthesize newUpdatingInfo=_newUpdatingInfo;

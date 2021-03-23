@@ -6,15 +6,22 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class SCKCloudDocument;
+@class NSString, SCKCloudDocument, SCKPublicUser, SCKShare;
 
 @interface SCKShareVersion : SCKObject
 {
+    NSString *_shortId;
+    SCKPublicUser *_creator;
     SCKCloudDocument *_document;
+    SCKShare *_share;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SCKShare *share; // @synthesize share=_share;
 @property(readonly, nonatomic) SCKCloudDocument *document; // @synthesize document=_document;
+@property(readonly, nonatomic) SCKPublicUser *creator; // @synthesize creator=_creator;
+@property(readonly, nonatomic) NSString *shortId; // @synthesize shortId=_shortId;
+- (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 
 @end

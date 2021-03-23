@@ -14,7 +14,8 @@
 {
 }
 
-+ (void)presentForCurrentDocument;
++ (void)presentForCurrentDocumentAsWindow;
++ (void)presentForCurrentDocumentAsSheet;
 - (void)windowDidLoad;
 
 // Remaining properties

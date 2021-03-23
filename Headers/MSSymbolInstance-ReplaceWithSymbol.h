@@ -11,11 +11,13 @@
 - (id)hoverPath;
 - (id)sharedMaster;
 - (unsigned long long)shareableObjectType;
+- (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 onOverrides:(id)arg3 identifier:(id)arg4;
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
 - (long long)calculatePreviewIconTraitsForState:(unsigned long long)arg1;
 - (id)childrenForLayerList;
 - (BOOL)isExpanded;
 - (BOOL)expandableInLayerList;
+- (id)applicableDataSupplierIdentifier;
 - (BOOL)hasRefreshableDataWithDataManager:(id)arg1;
 - (unsigned long long)applicableDataTypes;
 - (BOOL)previewShouldIndicateSharedStyle;

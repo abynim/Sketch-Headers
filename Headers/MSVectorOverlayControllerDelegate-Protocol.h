@@ -6,10 +6,11 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSVectorOverlayController, NSArray, _TtC17SketchControllers26MSVectorComponentSpecifier;
+@class MSVectorOverlayController, NSArray, NSIndexPath, _TtC17SketchControllers26MSVectorComponentSpecifier;
 
 @protocol MSVectorOverlayControllerDelegate <NSObject>
 - (void)vectorOverlayController:(MSVectorOverlayController *)arg1 didSelectLayers:(NSArray *)arg2;
+- (NSIndexPath *)vectorOverlayController:(MSVectorOverlayController *)arg1 willInsertAtIndexPath:(NSIndexPath *)arg2 location:(struct CGPoint)arg3;
 - (void)vectorOverlayControllerDidFinishInteractiveSelection:(MSVectorOverlayController *)arg1;
 - (void)vectorOverlayController:(MSVectorOverlayController *)arg1 didDeselectHandles:(NSArray *)arg2;
 - (void)vectorOverlayController:(MSVectorOverlayController *)arg1 didSelectHandles:(NSArray *)arg2;

@@ -41,7 +41,7 @@
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSArray *objects; // @synthesize objects=_objects;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

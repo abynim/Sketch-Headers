@@ -33,8 +33,6 @@
 @property(readonly, nonatomic) BOOL shouldFlipShadows;
 @property(readonly, nonatomic, getter=isPrinting) BOOL printing;
 @property(readonly, nonatomic) BOOL includeArtboardBackground;
-@property(readonly, nonatomic) BOOL willDrawPixelated;
-@property(readonly, nonatomic, getter=isDrawingPixelated) BOOL drawingPixelated;
 @property(readonly, nonatomic, getter=isDrawingMask) BOOL drawingMask;
 @property(readonly, nonatomic, getter=isExporting) BOOL exporting;
 - (void)dealloc;

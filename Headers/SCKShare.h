@@ -6,42 +6,53 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSArray, NSString, NSURL, SCKProject, SCKShareVersion;
+@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion;
 @protocol SCKContentOwner;
 
 @interface SCKShare : SCKObject
 {
     BOOL _isPrivate;
+    BOOL _userIsMember;
+    BOOL _userCanEdit;
     BOOL _canUpdate;
     BOOL _libraryEnabled;
     NSURL *_publicURL;
     NSString *_name;
     NSString *_shortID;
     SCKShareVersion *_currentVersion;
+    SCKShareVersion *_downloadableVersion;
+    SCKShareVersion *_publishedVersion;
     SCKShareVersion *_latestVersion;
-    unsigned long long _versionCount;
     NSArray *_previewThumbnails;
     SCKObject<SCKContentOwner> *_owner;
     SCKProject *_project;
     NSString *_selectedArtboardID;
     NSString *_selectedPageID;
+    SCKShareMembership *_membership;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL libraryEnabled; // @synthesize libraryEnabled=_libraryEnabled;
+@property(readonly, nonatomic) SCKShareMembership *membership; // @synthesize membership=_membership;
 @property(readonly, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;
 @property(readonly, nonatomic) NSString *selectedArtboardID; // @synthesize selectedArtboardID=_selectedArtboardID;
 @property(readonly, nonatomic) SCKProject *project; // @synthesize project=_project;
 @property(readonly, nonatomic) SCKObject<SCKContentOwner> *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) NSArray *previewThumbnails; // @synthesize previewThumbnails=_previewThumbnails;
 @property(readonly, nonatomic) BOOL canUpdate; // @synthesize canUpdate=_canUpdate;
-@property(readonly, nonatomic) unsigned long long versionCount; // @synthesize versionCount=_versionCount;
+@property(readonly, nonatomic) BOOL userCanEdit; // @synthesize userCanEdit=_userCanEdit;
+@property(readonly, nonatomic) BOOL userIsMember; // @synthesize userIsMember=_userIsMember;
 @property(readonly, nonatomic) SCKShareVersion *latestVersion; // @synthesize latestVersion=_latestVersion;
+@property(readonly, nonatomic) SCKShareVersion *publishedVersion; // @synthesize publishedVersion=_publishedVersion;
+@property(readonly, nonatomic) SCKShareVersion *downloadableVersion; // @synthesize downloadableVersion=_downloadableVersion;
 @property(readonly, nonatomic) SCKShareVersion *currentVersion; // @synthesize currentVersion=_currentVersion;
 @property(readonly, nonatomic) BOOL isPrivate; // @synthesize isPrivate=_isPrivate;
 @property(readonly, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
+- (id)debugDescription;
 - (id)description;
+- (id)shareWithDisclosableOwner;
+- (void)enableAsLibrary;
 - (id)shareBySettingCurrentVersion:(id)arg1;
 - (BOOL)isManagedByOwner:(id)arg1;
 - (BOOL)isUpdatedByShare:(id)arg1;

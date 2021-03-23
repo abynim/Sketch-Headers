@@ -37,9 +37,8 @@
 @property(readonly, copy, nonatomic) NSString *userID;
 - (void)log;
 - (BOOL)saveToURL:(id)arg1 error:(id *)arg2;
-- (id)initWithToken:(id)arg1;
-- (id)initWithDictionary:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
 - (id)init;
+- (id)initWithDictionary:(id)arg1 applicationID:(id)arg2 publicCertificate:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

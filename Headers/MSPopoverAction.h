@@ -18,6 +18,7 @@
 + (Class)popoverClass;
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+- (void)reattachPopoverForSender:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (id)menu;
 - (id)viewForAttachingPopover:(id)arg1;

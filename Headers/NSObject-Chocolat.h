@@ -7,6 +7,9 @@
 #import <objc/NSObject.h>
 
 @interface NSObject (Chocolat)
++ (void)swizzleOriginalClassSelector:(SEL)arg1 withSelector:(SEL)arg2 onClass:(Class)arg3;
++ (void)swizzleOriginalSelector:(SEL)arg1 withSelector:(SEL)arg2 onClass:(Class)arg3;
++ (void)swizzleOriginalSelector:(SEL)arg1 withSelector:(SEL)arg2 isClassMethod:(BOOL)arg3 onClass:(Class)arg4;
 - (id)coderSafeVersion_bc;
 - (void)updateValueViaKVOBindings;
 - (void)removeObserver:(id)arg1 forKeyPaths:(id)arg2;

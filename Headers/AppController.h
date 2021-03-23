@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
 @protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
@@ -46,6 +46,7 @@
     MSUpdateController *_updateController;
     MSActionController *_actionController;
     MSAssetLibraryController *_librariesController;
+    _TtC6Sketch34MSCloudUserNotificationsController *_userNotificationsController;
     double _creationTime;
     double _launchStartTime;
     double _launchEndTime;
@@ -74,6 +75,7 @@
 @property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
 @property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
 @property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
+@property(readonly, nonatomic) _TtC6Sketch34MSCloudUserNotificationsController *userNotificationsController; // @synthesize userNotificationsController=_userNotificationsController;
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
 @property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
 @property(readonly, nonatomic) MSUpdateController *updateController; // @synthesize updateController=_updateController;

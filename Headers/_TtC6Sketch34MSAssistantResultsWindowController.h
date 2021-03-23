@@ -22,6 +22,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
 - (void)documentDidResignCurrentWithNotification:(id)arg1;
+- (void)refreshCurrentDocument;
 - (void)documentDidBecomeCurrentWithNotification:(id)arg1;
 - (void)displayResultForDocument:(id)arg1;
 - (void)keyWindowChanged:(id)arg1;

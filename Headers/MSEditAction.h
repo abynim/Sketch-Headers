@@ -12,6 +12,7 @@
 
 + (unsigned long long)editableLayerTraits;
 - (BOOL)shouldUseImageForTouchBarItem;
+- (id)historyMomentTitle;
 - (id)label;
 - (id)tooltip;
 - (BOOL)isSelectable;

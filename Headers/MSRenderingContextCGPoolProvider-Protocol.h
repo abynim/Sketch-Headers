@@ -6,10 +6,9 @@
 
 #import <SketchRendering/NSObject-Protocol.h>
 
-@class MSBitmapEffectsContextPool, MSCGContextPool, MSTextPreviewLayerDataPool;
+@class MSBitmapEffectsContextPool, MSCGContextPool;
 
 @protocol MSRenderingContextCGPoolProvider <NSObject>
-@property(readonly, nonatomic) MSTextPreviewLayerDataPool *textPreviewPool;
 @property(readonly, nonatomic) MSCGContextPool *contextPool;
 @property(readonly, nonatomic) MSBitmapEffectsContextPool *bitmapEffectsContextPool;
 @end

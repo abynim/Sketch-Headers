@@ -19,6 +19,7 @@
 - (unsigned long long)type;
 - (BOOL)isOutOfSyncWithInstance:(id)arg1;
 - (id)initWithName:(id)arg1 sharedObjectID:(id)arg2 value:(id)arg3;
+- (id)value;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

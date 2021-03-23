@@ -8,24 +8,24 @@
 
 #import <SketchModel/BCTreeComparisonDelegate-Protocol.h>
 
-@class MSImmutableDocumentData, NSArray;
+@class MSImmutableModelObject, NSArray;
 
 @interface MSCollaborationDiff : NSObject <BCTreeComparisonDelegate>
 {
     NSArray *_changes;
-    MSImmutableDocumentData *_oldDoc;
-    MSImmutableDocumentData *_currentDoc;
+    MSImmutableModelObject *_oldObject;
+    MSImmutableModelObject *_currentObject;
 }
 
-+ (id)changesBetweenOldDocument:(id)arg1 currentDocument:(id)arg2;
++ (id)changesBetweenOldObject:(id)arg1 currentObject:(id)arg2;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableDocumentData *currentDoc; // @synthesize currentDoc=_currentDoc;
-@property(retain, nonatomic) MSImmutableDocumentData *oldDoc; // @synthesize oldDoc=_oldDoc;
+@property(retain, nonatomic) MSImmutableModelObject *currentObject; // @synthesize currentObject=_currentObject;
+@property(retain, nonatomic) MSImmutableModelObject *oldObject; // @synthesize oldObject=_oldObject;
 @property(retain, nonatomic) NSArray *changes; // @synthesize changes=_changes;
 - (id)treeComparison:(id)arg1 propertiesOfObject:(id)arg2 notMatching:(id)arg3;
 - (BOOL)treeComparison:(id)arg1 isObject:(id)arg2 theSameObjectAs:(id)arg3;
 - (void)treeComparison:(id)arg1 compareChildrenOf:(id)arg2 against:(id)arg3;
-- (id)initWithOldDocument:(id)arg1 currentDocument:(id)arg2;
+- (id)initWithOldObject:(id)arg1 currentObject:(id)arg2;
 
 @end
 

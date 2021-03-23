@@ -26,6 +26,7 @@
 - (id)initWithString:(id)arg1;
 - (id)init;
 - (BOOL)isSignatureValidForEnvironment:(id)arg1;
+@property(readonly, nonatomic) NSArray *featureFlags;
 @property(readonly, nonatomic) NSString *email;
 @property(readonly, nonatomic) NSString *variant;
 @property(readonly, nonatomic) NSString *deviceID;

@@ -6,14 +6,9 @@
 
 #import <SketchModel/_TtC11SketchModel25MSAbsoluteCoordinateSpace.h>
 
-#import <SketchModel/MSLayerCoordinateSpace-Protocol.h>
-
-@protocol MSLayerCoordinateSpace;
-
-@interface _TtC11SketchModel25MSAbsoluteCoordinateSpace (SketchModel) <MSLayerCoordinateSpace>
+@interface _TtC11SketchModel25MSAbsoluteCoordinateSpace (SketchModel)
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(nonatomic, readonly) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
-@property(nonatomic, readonly) id <MSLayerCoordinateSpace> parentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;
 - (struct CGAffineTransform)transformForConvertingToCoordinateSpace:(id)arg1;
 - (struct CGVector)convertVector:(struct CGVector)arg1 fromCoordinateSpace:(id)arg2;

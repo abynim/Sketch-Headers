@@ -16,10 +16,11 @@
 
 - (void).cxx_destruct;
 - (id)init;
+- (BOOL)updateWithCollaborationDiffCheck;
 - (void)updateDisplayedValuesIfRequiredUsingBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL haveObjectsChanged;
 - (BOOL)hasSameObjects:(id)arg1;
-- (void)update;
+- (BOOL)update;
 @property(nonatomic, copy) NSArray *objects;
 
 @end

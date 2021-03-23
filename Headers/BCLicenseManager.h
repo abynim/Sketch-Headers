@@ -6,27 +6,28 @@
 
 #import <objc/NSObject.h>
 
-@class NSDate, NSString, NSURL;
-@protocol BCLicense;
+@class BCCloudLicense, BCRegularLicense, NSDate, NSString, NSURL;
 
 @interface BCLicenseManager : NSObject
 {
     BOOL _completedLoadingLicense;
-    BOOL _cloudEnabled;
-    id <BCLicense> _license;
-    NSURL *_licenseURL;
+    BCRegularLicense *_regularLicense;
+    NSURL *_regularLicenseURL;
+    BCCloudLicense *_cloudLicense;
+    NSURL *_cloudLicenseURL;
     NSDate *_applicationBuildDate;
     NSString *_applicationVariant;
 }
 
 + (void)load;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL cloudEnabled; // @synthesize cloudEnabled=_cloudEnabled;
 @property(retain, nonatomic) NSString *applicationVariant; // @synthesize applicationVariant=_applicationVariant;
 @property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
-@property(retain, nonatomic) NSURL *licenseURL; // @synthesize licenseURL=_licenseURL;
-@property(readonly, nonatomic) id <BCLicense> license; // @synthesize license=_license;
+@property(readonly, copy, nonatomic) NSURL *cloudLicenseURL; // @synthesize cloudLicenseURL=_cloudLicenseURL;
+@property(readonly, nonatomic) BCCloudLicense *cloudLicense; // @synthesize cloudLicense=_cloudLicense;
+@property(readonly, copy, nonatomic) NSURL *regularLicenseURL; // @synthesize regularLicenseURL=_regularLicenseURL;
+@property(readonly, nonatomic) BCRegularLicense *regularLicense; // @synthesize regularLicense=_regularLicense;
 - (id)websiteAvailableVersionsURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
@@ -36,18 +37,23 @@
 - (void)fallbackToTrial:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)processLicenseRefreshResult:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (long long)numberOfDaysLeftInTrialMode;
-- (BOOL)canRenewLicense;
-- (BOOL)canInstallUpdates;
-- (id)updateExpirationDate;
-- (id)registeredEmailAddress;
-- (id)currentLicenseIdentifier;
-- (long long)currentLicenseProvider;
-- (long long)currentLicenseType;
+- (BOOL)hasPurchasedLegacyLicense;
+@property(readonly, nonatomic) long long numberOfDaysLeftInTrialMode;
+@property(readonly, nonatomic) BOOL canRenewLegacyLicense;
+- (BOOL)canInstallUpdatesWithLicenseProvider:(long long)arg1;
+- (id)updateExpirationDateWithLicenseProvider:(long long)arg1;
+- (id)registeredEmailAddressWithLicenseProvider:(long long)arg1;
+@property(readonly, nonatomic) NSString *currentLicenseIdentifier;
+@property(readonly, nonatomic) long long currentLicenseProvider;
+@property(readonly, nonatomic) long long currentLicenseType;
+- (BOOL)purchasedLicenseIsAvailableWithLicenseProvider:(long long)arg1;
+- (BOOL)licenseIsSupportedWithLicenseProvider:(long long)arg1;
 @property(readonly, nonatomic) BOOL licenseIsSupported;
 - (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
-- (BOOL)applyLicense:(id)arg1;
+- (BOOL)applyLicense:(id)arg1 fileURL:(id)arg2;
+- (BOOL)applyCloudLicense:(id)arg1;
+- (BOOL)applyRegularLicense:(id)arg1;
 - (void)networkTimeDidChangeNotification:(id)arg1;
 - (void)cloudAuthenticationSessionDidChangeNotification:(id)arg1;
 - (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -63,7 +69,7 @@
 - (void)obtainFallbackTrialLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4 applicationVariant:(id)arg5 cloudEnabled:(BOOL)arg6;
+- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4 applicationVariant:(id)arg5;
 
 @end
 

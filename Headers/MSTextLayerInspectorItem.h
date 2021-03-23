@@ -128,16 +128,17 @@
 - (void)fontSizeMenuAction:(id)arg1;
 - (void)fontWeightAction:(id)arg1;
 - (void)fontFamilyAction:(id)arg1;
-- (void)viewWillDisappear;
 - (void)dealloc;
 - (double)defaultLineHeight;
 - (void)reloadVerticalAlignmentButton;
 - (void)updateDisplayedValues;
 - (void)textViewDidChange:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)fontSizeMenu;
 - (void)writeRun:(id)arg1;
+- (void)willBeRemoved;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 // Remaining properties

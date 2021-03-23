@@ -54,7 +54,6 @@
 - (id)topLevelLayersMatchingTrait:(unsigned long long)arg1;
 - (id)parentRoot;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
-- (id)ancestorsAndSelfTransforms;
 - (id)parentPage;
 @property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
@@ -69,7 +68,6 @@
 @property(nonatomic) struct CGPoint rulerBase;
 - (struct CGPoint)origin;
 @property(readonly, nonatomic) struct CGRect rect;
-- (id)transform;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (BOOL)canContainLayer:(id)arg1;

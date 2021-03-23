@@ -41,7 +41,7 @@
 - (void)setLayers:(id)arg1;
 @property(readonly, nonatomic) NSSet *blurKinds;
 - (id)contentViews;
-- (void)reloadInspectorStack:(id)arg1;
+- (void)updateContainerStack;
 - (void)viewDidLoad;
 - (void)disabledStylePartsButtonAction:(id)arg1;
 - (void)addStylePartButtonAction:(id)arg1;

@@ -29,7 +29,7 @@
 @property(nonatomic) long long thickGridTimes; // @synthesize thickGridTimes=_thickGridTimes;
 @property(nonatomic) long long gridSize; // @synthesize gridSize=_gridSize;
 - (void)performInitWithImmutableModelObject:(id)arg1;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;
 
 @end

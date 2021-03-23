@@ -30,6 +30,7 @@
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
 @property(readonly, nonatomic) struct CGRect bounds;
+- (id)initWithParentCoordinateSpace:(id)arg1;
 
 @end
 

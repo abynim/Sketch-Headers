@@ -11,6 +11,7 @@
 }
 
 - (BOOL)validate;
+- (id)historyMomentTitle;
 - (id)label;
 - (void)hide;
 - (void)show;

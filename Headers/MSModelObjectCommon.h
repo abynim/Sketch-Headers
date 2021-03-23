@@ -27,7 +27,9 @@
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateDescendantsIncludingAncestors:(BOOL)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (void)enumerateChildrenUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateModelObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildObjectsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (unsigned long long)traits;
 - (id)generateObjectID;
 @property(readonly, copy, nonatomic) NSString *objectID;
@@ -43,8 +45,10 @@
 @property(readonly, nonatomic) NSArray *overridePointAttributeNamesForOverridePropertyMigration;
 @property(readonly, copy) NSString *description;
 - (id)treeAsDictionary;
+- (id)layerTreeStructure;
 - (id)simpleTreeStructure;
 - (id)treeStructure;
+- (void)appendLayerStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 

@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSRenderingContextCGPoolProvider-Protocol.h>
 
-@class MSBitmapEffectsContextPool, MSCGContextPool, MSTextPreviewLayerDataPool, NSGraphicsContext, NSMutableArray, NSString;
+@class MSBitmapEffectsContextPool, MSCGContextPool, NSGraphicsContext, NSMutableArray, NSString;
 @protocol MSRenderingContextCGPoolProvider;
 
 @interface MSRenderingContextCG : MSRenderingContext <MSRenderingContextCGPoolProvider>
@@ -23,11 +23,9 @@
     unsigned long long _disableDrawingFillsCounter;
     MSBitmapEffectsContextPool *_bitmapEffectsContextPool;
     MSCGContextPool *_contextPool;
-    MSTextPreviewLayerDataPool *_textPreviewPool;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSTextPreviewLayerDataPool *textPreviewPool; // @synthesize textPreviewPool=_textPreviewPool;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property(retain, nonatomic) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool=_bitmapEffectsContextPool;
 @property(nonatomic) unsigned long long disableDrawingFillsCounter; // @synthesize disableDrawingFillsCounter=_disableDrawingFillsCounter;

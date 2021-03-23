@@ -10,12 +10,14 @@
 
 @interface SCKProject : SCKObject
 {
+    BOOL _isDraft;
     NSString *_shortID;
     NSString *_name;
     SCKPaginatedShares *_paginatedShares;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isDraft; // @synthesize isDraft=_isDraft;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;

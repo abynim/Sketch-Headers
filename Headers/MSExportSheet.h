@@ -30,6 +30,7 @@
 - (void)toggleItemSelectedForExportState:(id)arg1;
 - (BOOL)isItemSelectedForExport:(id)arg1;
 - (id)document;
+- (void)sheetWillClose;
 - (void)confirm:(id)arg1;
 - (id)collectionView:(id)arg1 newItemForRepresentedObject:(id)arg2;
 - (void)resizeWindowToFit;

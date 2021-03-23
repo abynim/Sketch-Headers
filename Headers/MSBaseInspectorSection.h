@@ -31,7 +31,9 @@
 - (void)refreshIfNecessary:(id)arg1;
 - (struct NSEdgeInsets)separatorInset;
 - (BOOL)wantsSeparatorAfterViews;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)assignItemLayers;
+- (void)willBeRemoved;
 - (void)updateItems;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 @property(readonly, nonatomic) BOOL selectionContainsChildrenOfCompoundPath;

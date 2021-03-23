@@ -14,6 +14,7 @@
 {
     long long _version;
     long long _compatibilityVersion;
+    long long _coeditCompatibilityVersion;
     NSDictionary *_metadata;
     id _root;
 }
@@ -22,6 +23,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) id root; // @synthesize root=_root;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) long long coeditCompatibilityVersion; // @synthesize coeditCompatibilityVersion=_coeditCompatibilityVersion;
 @property(nonatomic) long long compatibilityVersion; // @synthesize compatibilityVersion=_compatibilityVersion;
 @property(nonatomic) long long version; // @synthesize version=_version;
 - (void)encodeAsJSON:(id)arg1;

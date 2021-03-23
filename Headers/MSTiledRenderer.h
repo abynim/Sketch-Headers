@@ -9,7 +9,7 @@
 #import <SketchRendering/MSRenderingContextCGPoolProvider-Protocol.h>
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingDriver, MSTextPreviewLayerDataPool, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
+@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
 @protocol MSTiledRendererHostView, OS_os_log;
 
 @interface MSTiledRenderer : NSObject <MSRenderingContextCGPoolProvider, MSTilingSystemProvider>
@@ -29,7 +29,6 @@
     MSMemoryBuffer *_contextMemory;
     MSRenderingCache *_renderingCache;
     MSCGContextPool *_contextPool;
-    MSTextPreviewLayerDataPool *_textPreviewPool;
     MSBitmapEffectsContextPool *_bitmapEffectsContextPool;
     NSString *_previousPageObjectID;
     NSOperationQueue *_rasterisationQueue;
@@ -55,7 +54,6 @@
 @property(readonly, nonatomic) NSOperationQueue *rasterisationQueue; // @synthesize rasterisationQueue=_rasterisationQueue;
 @property(retain, nonatomic) NSString *previousPageObjectID; // @synthesize previousPageObjectID=_previousPageObjectID;
 @property(retain, nonatomic) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool=_bitmapEffectsContextPool;
-@property(retain, nonatomic) MSTextPreviewLayerDataPool *textPreviewPool; // @synthesize textPreviewPool=_textPreviewPool;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
 @property BOOL clearOtherLevels; // @synthesize clearOtherLevels=_clearOtherLevels;
 @property BOOL rasterisationInProgress; // @synthesize rasterisationInProgress=_rasterisationInProgress;

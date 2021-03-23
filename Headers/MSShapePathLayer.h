@@ -45,6 +45,7 @@
 - (BOOL)isNearlyEmpty;
 - (void)didEdit;
 - (struct CGPoint)pointCenteredAfterPointIndex:(unsigned long long)arg1;
+- (void)setPath:(id)arg1 inCoordinateSpace:(id)arg2;
 @property(copy, nonatomic) MSPath *pathInFrame; // @dynamic pathInFrame;
 - (void)adjustGeometryToBoundsRect:(struct CGRect)arg1;
 - (struct CGRect)optimalBoundingBoxIntegral:(BOOL)arg1;
@@ -75,8 +76,8 @@
 - (BOOL)hitTestAsPath;
 
 // Remaining properties
-@property(readonly, nonatomic) struct CGAffineTransform CGTransformForFrame;
 @property(readonly, nonatomic) struct CGRect bounds;
+@property(readonly, nonatomic) struct CGPoint center;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(nonatomic) BOOL edited;

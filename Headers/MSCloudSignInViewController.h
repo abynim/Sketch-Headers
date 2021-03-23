@@ -9,7 +9,7 @@
 #import "NSTextFieldDelegate-Protocol.h"
 #import "SCKAPIAuthenticationSSODelegate-Protocol.h"
 
-@class MSLinkButton, NSButton, NSError, NSImage, NSLayoutConstraint, NSPopUpButton, NSSecureTextField, NSString, NSTextField, SCKAPIEnvironment;
+@class MSLinkButton, NSButton, NSError, NSImage, NSLayoutConstraint, NSPopUpButton, NSSecureTextField, NSString, NSTextField;
 @protocol MSRegistrationWindowContentDelegate;
 
 @interface MSCloudSignInViewController : NSViewController <SCKAPIAuthenticationSSODelegate, NSTextFieldDelegate>
@@ -73,7 +73,7 @@
 - (id)willPresentLicensingError:(id)arg1;
 - (id)willPresentError:(id)arg1;
 - (void)changeEnvironment:(id)arg1;
-@property(retain, nonatomic) SCKAPIEnvironment *environment;
+- (void)setEnvironment:(id)arg1;
 - (void)updateEnvironmentMenuItems;
 - (void)cancel:(id)arg1;
 - (void)confirmRegistration;

@@ -27,6 +27,7 @@
 @property(nonatomic) BOOL shouldAddInsertFromSelectionItem; // @synthesize shouldAddInsertFromSelectionItem=_shouldAddInsertFromSelectionItem;
 - (id)views;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)editArtboardPresetViewController:(id)arg1 savePreset:(id)arg2;

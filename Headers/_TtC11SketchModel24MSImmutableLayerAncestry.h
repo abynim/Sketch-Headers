@@ -28,6 +28,7 @@
 - (id)page;
 - (id)initWithLayer:(id)arg1 ancestors:(id)arg2 document:(id)arg3;
 - (id)initWithPage:(id)arg1 document:(id)arg2;
+- (id)initWithMutableLayer:(id)arg1 document:(id)arg2;
 - (id)initWithMutableLayer:(id)arg1;
 @property(nonatomic, readonly) MSImmutableDocumentData *document; // @synthesize document;
 @property(nonatomic, readonly) NSArray *ancestors;

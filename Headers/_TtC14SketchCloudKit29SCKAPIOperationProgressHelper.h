@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: $__lazy_storage_$_rateLimiter
     // Error parsing type: , name: operation
+    // Error parsing type: , name: delegate
     // Error parsing type: , name: _progress
     // Error parsing type: , name: observation
 }
@@ -19,7 +20,7 @@
 - (void)rateLimiterAction;
 - (void)stopTrackingProgress;
 - (void)startTrackingProgressWithTask:(id)arg1;
-- (id)initWithOperation:(id)arg1;
+- (id)initWithOperation:(id)arg1 delegate:(id)arg2;
 
 @end
 

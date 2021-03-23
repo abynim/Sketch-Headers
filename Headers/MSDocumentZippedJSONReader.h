@@ -30,6 +30,7 @@
 - (id)previewImage;
 - (id)readImmutableDataWithCorruptionDetected:(char *)arg1 error:(id *)arg2;
 - (unsigned long long)validate;
+- (void)repair;
 - (BOOL)open:(id *)arg1;
 - (BOOL)containsPreviewImage;
 - (id)initWithFileURL:(id)arg1;

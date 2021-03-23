@@ -6,10 +6,14 @@
 
 #import <objc/NSObject.h>
 
+@class NSString;
+
 @interface NSObject (BCCacheDeferredCreation)
 @property(readonly, nonatomic) NSObject *BCCache_unblockingSelfOrDeferredObject;
 @property(readonly, nonatomic) NSObject *BCCache_selfOrDeferredObject;
 - (id)mutableCopyDeep;
+- (BOOL)mockableContextTestFlagIsPresent;
+@property(retain) NSString *mockContext;
 - (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
 - (void)encodeAsKey:(id)arg1;
 - (void)finishEncodingObject:(id)arg1;

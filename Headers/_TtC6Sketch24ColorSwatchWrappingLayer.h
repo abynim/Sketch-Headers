@@ -11,7 +11,6 @@
 @interface _TtC6Sketch24ColorSwatchWrappingLayer : MSLayer
 {
     // Error parsing type: , name: swatch
-    // Error parsing type: , name: color
     // Error parsing type: , name: editingDocument
 }
 

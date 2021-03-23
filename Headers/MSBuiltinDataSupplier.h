@@ -15,6 +15,7 @@
 + (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
 - (void)makeFolderMonitor;
+- (id)imageFileURLForDataItem:(id)arg1;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFileSystemURL:(id)arg1;
 

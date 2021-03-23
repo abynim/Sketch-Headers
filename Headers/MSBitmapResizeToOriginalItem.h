@@ -17,6 +17,8 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *setToOriginalSizeButton; // @synthesize setToOriginalSizeButton=_setToOriginalSizeButton;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)updateDisplayedValues;
+- (BOOL)canResizeSelectionToOriginalSize;
 
 @end
 

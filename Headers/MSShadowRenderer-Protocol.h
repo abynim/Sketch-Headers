@@ -10,8 +10,8 @@
 @protocol MSModelObject;
 
 @protocol MSShadowRenderer <MSRenderer>
-- (void)renderInnerShadow:(MSImmutableStyleInnerShadow *)arg1 path:(MSPath *)arg2 windingRule:(unsigned long long)arg3 cacheObject:(id <MSModelObject>)arg4 context:(MSRenderingContext *)arg5;
+- (void)renderInnerShadow:(MSImmutableStyleInnerShadow *)arg1 path:(MSPath *)arg2 cacheObject:(id <MSModelObject>)arg3 context:(MSRenderingContext *)arg4;
 - (void)renderShadow:(MSImmutableStyleShadow *)arg1 rect:(struct CGRect)arg2 context:(MSRenderingContext *)arg3 block:(void (^)(void))arg4;
-- (void)renderShadow:(MSImmutableStyleShadow *)arg1 path:(MSPath *)arg2 windingRule:(unsigned long long)arg3 options:(MSImmutableStyleBorderOptions *)arg4 type:(unsigned long long)arg5 strokeType:(unsigned long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id <MSModelObject>)arg9 context:(MSRenderingContext *)arg10;
+- (void)renderShadow:(MSImmutableStyleShadow *)arg1 path:(MSPath *)arg2 windingRule:(unsigned long long)arg3 options:(MSImmutableStyleBorderOptions *)arg4 type:(unsigned long long)arg5 borderPosition:(long long)arg6 fillShouldClip:(BOOL)arg7 lineWidth:(double)arg8 cacheObject:(id <MSModelObject>)arg9 context:(MSRenderingContext *)arg10;
 @end
 

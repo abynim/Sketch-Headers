@@ -13,6 +13,7 @@
 @interface MSToolbarConstructor : NSObject <NSToolbarDelegate>
 {
     BOOL _isForceAddingNotificationToolbarItem;
+    BOOL _didEvaluateDocumentType;
     MSDocument *_doc;
     NSArray *_toolbarSelectableIdentifiers;
     NSArray *_toolbarAllowedItemIdentifiers;
@@ -28,6 +29,7 @@
 + (id)toolbarAllowedComponentItemIdentifiers;
 + (id)toolbarAllowedSketchDocumentItemIdentifiers;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL didEvaluateDocumentType; // @synthesize didEvaluateDocumentType=_didEvaluateDocumentType;
 @property(nonatomic) BOOL isForceAddingNotificationToolbarItem; // @synthesize isForceAddingNotificationToolbarItem=_isForceAddingNotificationToolbarItem;
 @property(copy, nonatomic) NSArray *toolbarDefaultItemIdentifiers; // @synthesize toolbarDefaultItemIdentifiers=_toolbarDefaultItemIdentifiers;
 @property(copy, nonatomic) NSArray *toolbarAllowedItemIdentifiers; // @synthesize toolbarAllowedItemIdentifiers=_toolbarAllowedItemIdentifiers;
@@ -37,6 +39,10 @@
 - (BOOL)shouldAutomaticallyRemoveNotificationToolbarItem;
 @property(readonly) NSString *componentsToolbarType;
 @property(readonly) NSString *canvasToolbarType;
+- (void)reinsertToolbarItemWithIdentifier:(id)arg1;
+- (void)reinsertPresenceItem;
+- (void)handleShareChangedNotification:(id)arg1;
+- (void)handleUserChangedNotification:(id)arg1;
 - (void)removeLegacyToolbarItemsForToolbar:(id)arg1;
 - (void)insertNewDefaultToolbarItemsForToolbar:(id)arg1;
 - (void)forceAddToolbarItemWithIdentifier:(id)arg1 toToolbar:(id)arg2;
