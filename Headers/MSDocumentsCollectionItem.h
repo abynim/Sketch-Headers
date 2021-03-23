@@ -19,6 +19,7 @@
     NSAttributedString *_status;
     NSString *_statusColor;
     NSString *_toolTip;
+    NSArray *_presences;
     NSProgress *_downloadProgress;
     NSError *_downloadError;
 }
@@ -33,6 +34,7 @@
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
+@property(retain, nonatomic) NSArray *presences; // @synthesize presences=_presences;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
 @property(retain, nonatomic) NSAttributedString *status; // @synthesize status=_status;
@@ -45,7 +47,6 @@
 - (id)getStatusColor;
 @property(readonly, nonatomic) NSString *statusTooltip;
 @property(readonly, nonatomic) BOOL supportsDeletion;
-@property(readonly, nonatomic) NSArray *presences;
 @property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;
 @property(readonly, nonatomic) BOOL providesPreviewImage;

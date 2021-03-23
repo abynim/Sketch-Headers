@@ -10,6 +10,7 @@
 
 @interface _MSPatchInfo : MSModelObject
 {
+    NSString *_baseVersionID;
     NSString *_lastIntegratedPatchID;
 }
 
@@ -18,6 +19,7 @@
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_lastIntegratedPatchID:(id)arg1;
+- (void)setRaw_baseVersionID:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -28,6 +30,7 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSString *lastIntegratedPatchID; // @synthesize lastIntegratedPatchID=_lastIntegratedPatchID;
+@property(retain, nonatomic) NSString *baseVersionID; // @synthesize baseVersionID=_baseVersionID;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

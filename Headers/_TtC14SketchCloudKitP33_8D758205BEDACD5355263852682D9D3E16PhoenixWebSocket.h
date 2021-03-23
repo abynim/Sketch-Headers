@@ -14,6 +14,7 @@
     // Error parsing type: , name: webSocket
     // Error parsing type: , name: messageHandler
     // Error parsing type: , name: delegate
+    // Error parsing type: , name: logger
 }
 
 - (void).cxx_destruct;

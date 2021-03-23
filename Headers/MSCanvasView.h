@@ -202,6 +202,7 @@
 - (id)viewPortAfterScalingToZoom:(double)arg1 selectionCentered:(BOOL)arg2;
 - (id)viewPortAfterScalingToZoom:(double)arg1 centeredOnAbsoluteCoordinates:(struct CGPoint)arg2;
 - (id)viewPortWithCenter:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (id)viewPortForZoomToFitRectTopLeft:(struct CGRect)arg1;
 - (id)viewPortForZoomToFitRect:(struct CGRect)arg1;
 @property(retain, nonatomic) MSViewPort *viewPort;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
@@ -236,6 +237,7 @@
 - (void)commonInit;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)interpolatedViewPortForZoomToFitPresenceDescription:(id)arg1;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 // Remaining properties

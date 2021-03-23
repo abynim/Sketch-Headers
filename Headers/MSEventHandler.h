@@ -80,6 +80,7 @@
 - (struct CGRect)rulerGuidesRectAroundPoint:(struct CGPoint)arg1;
 - (id)horizontalRulerGuidesForGridAlign:(struct CGPoint)arg1;
 - (id)verticalRulerGuidesForGridAlign:(struct CGPoint)arg1;
+- (void)contentViewDidResize;
 - (void)currentPageDidChange;
 - (void)layerRulerOriginChanged;
 - (void)selectionDidChangeTo:(id)arg1;
@@ -185,6 +186,7 @@
 - (id)canvasView;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
+- (BOOL)requiresMSStyleInspectorSectionReload;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

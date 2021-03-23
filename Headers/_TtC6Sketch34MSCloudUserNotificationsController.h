@@ -9,14 +9,13 @@
 @interface _TtC6Sketch34MSCloudUserNotificationsController : NSObject
 {
     // Error parsing type: , name: userNotificationsReceived
-    // Error parsing type: , name: userNotificationsSubscription
+    // Error parsing type: , name: userNotificationQuery
+    // Error parsing type: , name: subscriptionsController
 }
 
-+ (id)userNotificationPayloadKey;
 - (void).cxx_destruct;
 - (id)init;
-- (void)didReceiveNotification:(id)arg1;
-- (void)registerObserver:(id)arg1 selector:(SEL)arg2;
+- (void)subscribeToUserNotifications;
 - (void)subscribe;
 - (void)dealloc;
 

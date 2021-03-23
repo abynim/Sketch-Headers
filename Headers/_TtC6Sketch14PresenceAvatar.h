@@ -15,9 +15,6 @@
 
 - (void).cxx_destruct;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)keyWindowDidChangeWithNotification:(id)arg1;
-- (void)viewWillMoveToWindow:(id)arg1;
-- (void)drawRect:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;

@@ -15,6 +15,7 @@
 }
 
 + (id)readerForDocumentAtURL:(id)arg1;
++ (id)documentDataAt:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;

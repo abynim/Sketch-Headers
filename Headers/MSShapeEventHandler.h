@@ -11,25 +11,25 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextDelegate-Protocol.h"
 
-@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorOverlayController, NSArray, NSString;
+@class MSEditShapeInspectorViewController, MSPathController, MSShapeEditingBehavior, MSStyleInspectorSection, MSVectorOverlayController, NSArray, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSShapeEventHandler : MSEventHandler <MSVectorOverlayControllerDelegate, NSTextDelegate, NSMenuDelegate, MSGestureRecognizerDelegate>
 {
     unsigned long long _ignoreSelectionChangesCount;
     MSEditShapeInspectorViewController *_inspectorViewController;
-    NSArray *_layers;
     MSVectorOverlayController *_overlayController;
     MSPathController *_pathController;
     MSShapeEditingBehavior *_editingBehavior;
     MSStyleInspectorSection *_styleSection;
+    _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) __weak MSStyleInspectorSection *styleSection; // @synthesize styleSection=_styleSection;
 @property(retain, nonatomic) MSShapeEditingBehavior *editingBehavior; // @synthesize editingBehavior=_editingBehavior;
 @property(readonly, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
 @property(readonly, nonatomic) MSVectorOverlayController *overlayController; // @synthesize overlayController=_overlayController;
-@property(readonly, copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (void)vectorOverlayController:(id)arg1 didSelectLayers:(id)arg2;
 - (id)vectorOverlayController:(id)arg1 willInsertAtIndexPath:(id)arg2 location:(struct CGPoint)arg3;
 - (void)vectorOverlayControllerDidFinishInteractiveSelection:(id)arg1;
@@ -72,6 +72,7 @@
 - (void)toggleForceSelection:(id)arg1;
 - (void)forceSelection:(id)arg1;
 - (void)markLayer:(id)arg1 asEditing:(BOOL)arg2;
+@property(readonly, copy, nonatomic) NSArray *layers;
 - (void)setLayers:(id)arg1;
 - (void)resetWithOptions:(unsigned long long)arg1;
 - (void)layerListSelectionDidChange:(id)arg1;
@@ -80,6 +81,7 @@
 - (void)selectBestEditPoint;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
+- (BOOL)requiresMSStyleInspectorSectionReload;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

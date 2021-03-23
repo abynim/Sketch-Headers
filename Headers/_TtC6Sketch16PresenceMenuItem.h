@@ -8,6 +8,7 @@
 
 @interface _TtC6Sketch16PresenceMenuItem : NSMenuItem
 {
+    // Error parsing type: , name: presenceController
     // Error parsing type: , name: presenceDescription
 }
 

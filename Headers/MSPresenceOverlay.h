@@ -8,9 +8,11 @@
 
 @interface MSPresenceOverlay : MSOverlay
 {
-    // Error parsing type: , name: showLabels
+    // Error parsing type: , name: showsLabels
+    // Error parsing type: , name: showsCursors
+    // Error parsing type: , name: layerSelectionObservations
     // Error parsing type: , name: hoverableItems
-    // Error parsing type: , name: timer
+    // Error parsing type: , name: cursorInterpolationTimer
     // Error parsing type: , name: imageCache
     // Error parsing type: , name: presenceOverlayItems
 }
@@ -19,6 +21,7 @@
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)init;
+- (void)dealloc;
 
 @end
 

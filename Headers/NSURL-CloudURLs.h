@@ -6,7 +6,11 @@
 
 #import <Foundation/NSURL.h>
 
-@interface NSURL (Licensing)
+@interface NSURL (CloudURLs)
++ (id)saveAndStarDocumentation;
++ (id)collaborationDocumentation;
++ (id)cloudDocumentation;
++ (id)cloudTeams;
 + (id)websiteAvailableVersionsURLForLicense:(id)arg1;
 + (id)websiteRenewalURLForLicenseKey:(id)arg1;
 + (id)websiteRenewalURLForLicense:(id)arg1;

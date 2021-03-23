@@ -17,6 +17,7 @@
     // Error parsing type: , name: progressIndicator
     // Error parsing type: , name: discardButton
     // Error parsing type: , name: completionHandler
+    // Error parsing type: , name: forceClosingDocument
 }
 
 + (void)runForDocument:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -28,7 +29,8 @@
 - (void)discardChanges:(id)arg1;
 - (void)uploadDidChange:(id)arg1;
 - (void)progressDidChangeWithProgress:(double)arg1;
-- (void)updateProgress:(id)arg1;
+- (void)saveToCloudActionDidUpdate:(id)arg1;
+- (void)cloudActionDidUpdate:(id)arg1;
 - (void)windowDidLoad;
 - (void)run:(CDUnknownBlockType)arg1;
 - (id)init:(id)arg1;

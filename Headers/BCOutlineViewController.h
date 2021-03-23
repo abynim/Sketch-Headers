@@ -68,6 +68,8 @@
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
+- (struct _NSRange)currentNameEditingRange;
+- (id)activeFieldEditor;
 - (void)queueRefreshIfRequired;
 - (void)resetLayoutDirtyFlag;
 - (void)resetTableViewCellContentsDirtyFlag;
@@ -82,6 +84,7 @@
 - (void)internalRefreshPreviewImages;
 - (void)executeAfterRefreshCompleted:(CDUnknownBlockType)arg1;
 - (void)internalRefresh;
+- (BOOL)renameSelectedNode;
 - (void)renameNode;
 - (void)flagsChangedNotification;
 - (id)tableCellViewForNode:(id)arg1;

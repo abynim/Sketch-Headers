@@ -12,9 +12,10 @@
 {
     // Error parsing type: , name: id
     // Error parsing type: , name: user
-    // Error parsing type: , name: shareId
-    // Error parsing type: , name: sessionId
     // Error parsing type: , name: idleAt
+    // Error parsing type: , name: currentPage
+    // Error parsing type: , name: followingId
+    // Error parsing type: , name: isFollowable
 }
 
 - (void).cxx_destruct;
@@ -23,7 +24,7 @@
 - (id)initWithData:(id)arg1 error:(id *)arg2;
 - (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithId:(id)arg1 user:(id)arg2 shareId:(id)arg3 sessionId:(id)arg4 idleAt:(id)arg5;
+- (id)initWithId:(id)arg1 user:(id)arg2 idleAt:(id)arg3 currentPage:(id)arg4 followingId:(id)arg5 isFollowable:(BOOL)arg6;
 - (id)initWithDictionary:(id)arg1;
 @property(nonatomic, readonly) SCKPresenceUser *user; // @synthesize user;
 @property(nonatomic, readonly) NSString *id;

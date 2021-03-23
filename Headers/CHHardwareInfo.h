@@ -4,12 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <swiftCore/_TtCs12_SwiftObject.h>
+#import <objc/NSObject.h>
 
-@interface _TtC14SketchCloudKitP33_81B92E386B733B2E2D4C717F64CDA9C117DelegateContainer : _TtCs12_SwiftObject
+@interface CHHardwareInfo : NSObject
 {
-    // Error parsing type: , name: delegate
 }
+
++ (id)armName;
++ (id)intelName;
++ (id)CPUType;
++ (BOOL)isRunningUnderRosetta;
 
 @end
 

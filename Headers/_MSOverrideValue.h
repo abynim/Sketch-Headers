@@ -20,11 +20,10 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_value:(id)arg1;
 - (void)setRaw_overrideName:(id)arg1;
-- (void)setRaw_originalName:(id)arg1;
-- (void)setRaw_isEditing:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;

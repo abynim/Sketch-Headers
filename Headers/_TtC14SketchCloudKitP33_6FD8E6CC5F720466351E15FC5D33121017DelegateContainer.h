@@ -6,12 +6,8 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC14SketchCloudKit15SocketReference : _TtCs12_SwiftObject
+@interface _TtC14SketchCloudKitP33_6FD8E6CC5F720466351E15FC5D33121017DelegateContainer : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: pool
-    // Error parsing type: , name: socket
-    // Error parsing type: , name: key
-    // Error parsing type: , name: subscriptions
     // Error parsing type: , name: delegate
 }
 

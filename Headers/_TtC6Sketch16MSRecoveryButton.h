@@ -14,7 +14,6 @@
 + (Class)cellClass;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(nonatomic, readonly) struct CGSize intrinsicContentSize;
 
 @end
 

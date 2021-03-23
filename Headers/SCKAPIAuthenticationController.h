@@ -8,6 +8,8 @@
 
 @interface SCKAPIAuthenticationController : NSObject
 {
+    // Error parsing type: , name: refreshTimer
+    // Error parsing type: , name: environmentChangedObservation
     // Error parsing type: , name: queue
     // Error parsing type: , name: ssoSession
 }
@@ -15,13 +17,16 @@
 + (id)alwaysRefreshAuthDefaultsKey;
 + (id)shared;
 - (void).cxx_destruct;
-- (id)init;
 - (void)signinWithSSOFromContextProvider:(id)arg1 environment:(id)arg2 organizationShortName:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)refreshLicense:(CDUnknownBlockType)arg1;
+- (BOOL)signOut:(id)arg1 error:(id *)arg2;
 - (void)signinWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)refreshAuthentication:(id)arg1 validation:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)validateAuthentication:(id)arg1 test:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)validateAuthentication:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)scheduleNextAuthenticationRefresh;
+- (void)dealloc;
+- (id)init;
 
 @end
 

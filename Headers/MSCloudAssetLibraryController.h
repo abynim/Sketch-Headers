@@ -6,19 +6,23 @@
 
 #import <objc/NSObject.h>
 
+@class _TtC14SketchCloudKit23SubscriptionsController;
 @protocol MSCloudAssetLibraryControllerDelegate;
 
 @interface MSCloudAssetLibraryController : NSObject
 {
     // Error parsing type: , name: delegate
     // Error parsing type: , name: incompletePaginationControllers
-    // Error parsing type: , name: subscription
+    // Error parsing type: , name: $__lazy_storage_$_subscriptionsController
     // Error parsing type: , name: user
 }
 
++ (id)subscriptionNotification;
 - (void).cxx_destruct;
 - (id)init;
 - (void)fetchLibraries;
+- (void)startCloudSubscriptions;
+@property(nonatomic, retain) _TtC14SketchCloudKit23SubscriptionsController *subscriptionsController;
 @property(nonatomic) __weak id <MSCloudAssetLibraryControllerDelegate> delegate; // @synthesize delegate;
 
 @end

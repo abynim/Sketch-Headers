@@ -30,8 +30,10 @@
 - (BOOL)isInFlowEventHandler;
 - (void)updateItems;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)handlerFocusDidChange:(id)arg1;
 - (void)addFlowAction:(id)arg1;
 - (void)updateInitialHeader;
+- (void)dealloc;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

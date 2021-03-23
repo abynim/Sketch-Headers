@@ -8,6 +8,7 @@
 
 @protocol MSInspectorChildController
 - (void)refreshIfNecessary:(MSTreeDiff *)arg1;
+- (void)selectedOverridesDidChangeTo:(NSArray *)arg1;
 - (void)selectionDidChangeTo:(NSArray *)arg1;
 - (void)prepareForDisplay;
 @end

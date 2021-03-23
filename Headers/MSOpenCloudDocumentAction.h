@@ -10,7 +10,7 @@
 {
 }
 
-- (BOOL)validateMenuItem:(id)arg1;
+- (long long)validationStatus;
 - (id)label;
 - (void)doPerformAction:(id)arg1;
 - (void)openCloudDocument:(id)arg1;

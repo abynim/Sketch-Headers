@@ -22,6 +22,7 @@
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)cancelOperation:(id)arg1;
 - (void)currentDocumentDidChange:(id)arg1;
+- (void)windowWillCloseWithNotification:(id)arg1;
 - (unsigned long long)window:(id)arg1 willUseFullScreenPresentationOptions:(unsigned long long)arg2;
 - (void)componentWasInserted;
 - (void)windowDidLoad;

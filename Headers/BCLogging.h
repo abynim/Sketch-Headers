@@ -11,7 +11,11 @@
 }
 
 + (BOOL)usesHighFrequencySignposts;
++ (id)keychainLog;
++ (id)authenticationRefreshLog;
++ (id)presenceLog;
 + (id)collaborationLog;
++ (id)collaborationOpenerLog;
 + (id)poiLog;
 + (id)applicationLog;
 + (id)influenceRectLog;

@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
@@ -27,6 +27,8 @@
     BOOL _attemptingToClose;
     BOOL _nextReadFromURLIsReload;
     BOOL _hasOpenedImageFile;
+    BOOL _nextSaveShouldCreateVersionOnCloud;
+    BOOL _nextSaveShouldPublishVersionOnCloud;
     BOOL _isSidebarVisible;
     BOOL _isLayerListVisible;
     BOOL _isComponentsPanelVisible;
@@ -54,7 +56,9 @@
     _TtC6Sketch24MSDocumentEditController *_editController;
     _TtC13SharedEditing18MSCoEditController *_coEditController;
     _TtC11SketchModel23MSResolvedDocumentMaker *_resolvedDocumentMaker;
+    _TtC14SketchCloudKit23SubscriptionsController *_subscriptionsController;
     unsigned long long _contentType;
+    NSTimer *_cloudAutosaveTimer;
     _TtC11SketchModel16MSEditingContext *_editingContext;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -89,7 +93,11 @@
 @property(nonatomic) BOOL isComponentsPanelVisible; // @synthesize isComponentsPanelVisible=_isComponentsPanelVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
+@property(retain, nonatomic) NSTimer *cloudAutosaveTimer; // @synthesize cloudAutosaveTimer=_cloudAutosaveTimer;
 @property(nonatomic) unsigned long long contentType; // @synthesize contentType=_contentType;
+@property(nonatomic) BOOL nextSaveShouldPublishVersionOnCloud; // @synthesize nextSaveShouldPublishVersionOnCloud=_nextSaveShouldPublishVersionOnCloud;
+@property(nonatomic) BOOL nextSaveShouldCreateVersionOnCloud; // @synthesize nextSaveShouldCreateVersionOnCloud=_nextSaveShouldCreateVersionOnCloud;
+@property(readonly, nonatomic) _TtC14SketchCloudKit23SubscriptionsController *subscriptionsController; // @synthesize subscriptionsController=_subscriptionsController;
 @property(readonly, nonatomic) _TtC11SketchModel23MSResolvedDocumentMaker *resolvedDocumentMaker; // @synthesize resolvedDocumentMaker=_resolvedDocumentMaker;
 @property(retain, nonatomic) _TtC13SharedEditing18MSCoEditController *coEditController; // @synthesize coEditController=_coEditController;
 @property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
@@ -220,6 +228,7 @@
 - (id)selectedLayers;
 - (id)makeUnknownRenameError;
 - (void)moveToURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)renameDocument:(id)arg1;
 - (void)moveDocument:(id)arg1;
 - (id)currentPage;
 - (void)exportSliceLayers:(id)arg1;
@@ -344,6 +353,7 @@
 - (id)editForeignSymbolInfoTextForForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 - (id)editForeignSymbolMessageForLibrary:(id)arg1;
 - (long long)availabilityForLibrary:(id)arg1;
+- (void)scheduleCoeditAutosave;
 - (void)showCloudSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)backupFileURL;
 - (void)reportSaveActionAtURL:(id)arg1 wasAutosave:(BOOL)arg2;

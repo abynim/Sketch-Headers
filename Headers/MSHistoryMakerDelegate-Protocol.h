@@ -9,6 +9,7 @@
 @protocol MSHistoryMakerDelegate
 - (MSImmutableDocumentData *)currentDocumentData:(MSHistoryMaker *)arg1;
 - (void)historyMaker:(MSHistoryMaker *)arg1 recordedChange:(MSPatch *)arg2;
+- (void)historyMakerDidCancelCommit:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidProgressHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidRevertHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCommitPrivateUpdate:(MSHistoryMaker *)arg1;

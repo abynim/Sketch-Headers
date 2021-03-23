@@ -10,11 +10,15 @@
 
 @interface MSPresenceAction : MSDocumentAction
 {
+    // Error parsing type: , name: allSubActionClasses
+    // Error parsing type: , name: previousSubAction
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+- (void)didReinsertToolbarItem;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (void)validateToolbarItem;
 - (void)menuNeedsUpdate:(id)arg1;

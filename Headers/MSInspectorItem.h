@@ -39,7 +39,9 @@
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (void)bumpLayersControllerKVOObservers;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)willBeRemoved;
 - (void)updateDisplayedValues;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidAppear;
 - (void)viewDidLoad;

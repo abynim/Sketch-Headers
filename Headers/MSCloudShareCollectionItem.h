@@ -6,22 +6,28 @@
 
 #import "MSExistingDocumentCollectionItem.h"
 
-@class NSImage, NSString, SCKCloudDocument, SCKShare;
+#import "MSPresenceObserverDelegate-Protocol.h"
 
-@interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem
+@class MSPresenceObserver, NSImage, NSString, SCKCloudDocument, SCKShare;
+
+@interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem <MSPresenceObserverDelegate>
 {
     BOOL _loading;
     SCKShare *_cloudShare;
     NSImage *_previewImage;
+    MSPresenceObserver *_presenceObserver;
     NSString *_shareName;
 }
 
-+ (id)editedTimeDateComponentFormatter;
++ (id)relativeTimeLabelFromDate:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
+@property(readonly, nonatomic) MSPresenceObserver *presenceObserver; // @synthesize presenceObserver=_presenceObserver;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+- (void)presenceObserverWithFailedWithError:(id)arg1;
+- (void)presenceObserverWithUpdatedPresences:(id)arg1;
 - (id)status;
 - (BOOL)supportsDeletion;
 - (void)cancelDocumentDownload;
@@ -35,7 +41,6 @@
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
-- (id)presences;
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;

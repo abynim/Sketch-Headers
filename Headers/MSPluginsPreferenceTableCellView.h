@@ -20,9 +20,13 @@
     NSTextField *_descriptionField;
     MSPluginsPreferenceIconView *_iconView;
     NSLayoutConstraint *_tableCellWidthConstraint;
+    long long _originalUpdatesAvailableHeight;
+    long long _originalIncompatiblePluginHeight;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) long long originalIncompatiblePluginHeight; // @synthesize originalIncompatiblePluginHeight=_originalIncompatiblePluginHeight;
+@property(nonatomic) long long originalUpdatesAvailableHeight; // @synthesize originalUpdatesAvailableHeight=_originalUpdatesAvailableHeight;
 @property(retain, nonatomic) NSLayoutConstraint *tableCellWidthConstraint; // @synthesize tableCellWidthConstraint=_tableCellWidthConstraint;
 @property(retain, nonatomic) MSPluginsPreferenceIconView *iconView; // @synthesize iconView=_iconView;
 @property(retain, nonatomic) NSTextField *descriptionField; // @synthesize descriptionField=_descriptionField;
@@ -33,6 +37,7 @@
 @property(retain, nonatomic) MSPluginsPreferencesUpdateButton *updateAvailableInfo; // @synthesize updateAvailableInfo=_updateAvailableInfo;
 @property(retain, nonatomic) NSView *pluginIncompatibleContainer; // @synthesize pluginIncompatibleContainer=_pluginIncompatibleContainer;
 @property(retain, nonatomic) NSView *updateAvailableContainer; // @synthesize updateAvailableContainer=_updateAvailableContainer;
+- (double)setAndCalculateHeightWithWidth:(double)arg1;
 - (void)setObjectValue:(id)arg1;
 
 @end

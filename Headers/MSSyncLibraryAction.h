@@ -13,6 +13,7 @@
 - (BOOL)validate;
 @property(readonly, nonatomic) BOOL areForeignObjectsOutOfDate;
 - (void)calculateBadgeResultsOnBackgroundQueue:(id)arg1;
+- (void)calculateBadgeResultsSynchronously;
 - (id)label;
 - (id)badgeTint;
 - (void)doPerformAction:(id)arg1;

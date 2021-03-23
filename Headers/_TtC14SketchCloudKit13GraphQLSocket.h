@@ -4,22 +4,16 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <SketchCloudKit/_TtC14SketchCloudKit6Socket.h>
 
-@interface _TtC14SketchCloudKit13GraphQLSocket : NSObject
+@interface _TtC14SketchCloudKit13GraphQLSocket : _TtC14SketchCloudKit6Socket
 {
-    // Error parsing type: , name: _status
-    // Error parsing type: , name: _request
-    // Error parsing type: , name: _socket
-    // Error parsing type: , name: messageHandler
-    // Error parsing type: , name: messageQueue
+    // Error parsing type: , name: serviceID
+    // Error parsing type: , name: absintheTopicItem
     // Error parsing type: , name: _subscriptions
-    // Error parsing type: , name: _delegates
-    // Error parsing type: , name: reconnector
 }
 
 - (void).cxx_destruct;
-- (id)init;
 
 @end
 

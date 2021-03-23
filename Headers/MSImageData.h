@@ -30,8 +30,6 @@
 @property(readonly, nonatomic) BCReadWriteLock *imageLock; // @synthesize imageLock=_imageLock;
 @property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
-- (BOOL)doesBitmapImageRepRequireDePackingOrDeindexing:(id)arg1;
-- (id)ensureBitmapImageRepIsNotIndexedNotPacked:(id)arg1;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4 options:(unsigned long long)arg5;
 - (struct CGImage *)CGImageForColorSpace:(struct CGColorSpace *)arg1 cache:(id)arg2 owner:(id)arg3;
 - (struct CGImage *)CGImageSuitableForDrawingWithSize:(struct CGSize)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 owner:(id)arg4 options:(unsigned long long)arg5;

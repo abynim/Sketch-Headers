@@ -9,7 +9,7 @@
 #import "MSSymbolInstanceSectionDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSDictionary, NSString;
+@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSDictionary, NSMutableDictionary, NSString;
 
 @interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
 {
@@ -18,10 +18,12 @@
     NSCache *_sectionInterfaceCache;
     MSBaseInspectorSection *_textSection;
     NSDictionary *_restorationInfo;
+    NSMutableDictionary *_sectionClassMap;
 }
 
 + (id)sectionOrder;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSMutableDictionary *sectionClassMap; // @synthesize sectionClassMap=_sectionClassMap;
 @property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 @property(retain, nonatomic) NSCache *sectionInterfaceCache; // @synthesize sectionInterfaceCache=_sectionInterfaceCache;
@@ -38,8 +40,10 @@
 - (id)views;
 - (id)regularLayerInspectorSections;
 - (id)externalLayerInspectorSections;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)updateItems;
 - (id)inspectorsWithProperContent;
+- (id)sectionForClass:(Class)arg1;
 - (id)layerOrContentsOfLayer:(id)arg1 ifKindOfClass:(Class)arg2;
 - (void)loadView;
 - (id)init;

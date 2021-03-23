@@ -6,7 +6,7 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC14SketchCloudKit23GraphAPIPresenceQueries : _TtCs12_SwiftObject
+@interface _TtC14SketchCloudKitP33_81B92E386B733B2E2D4C717F64CDA9C111ClosedEvent : _TtCs12_SwiftObject
 {
 }
 

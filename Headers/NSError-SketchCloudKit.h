@@ -8,12 +8,12 @@
 
 @class NSArray;
 
-@interface NSError (Cloud)
+@interface NSError (SketchCloudKit)
 + (id)cloudErrorFromAPIResponse_sck:(id)arg1 jsonBody:(id)arg2;
 + (id)cloudErrorFromAPIResponse_sck:(id)arg1 data:(id)arg2;
+@property(nonatomic, readonly) BOOL isServerError_sck;
 @property(readonly, nonatomic) NSArray *cloudFields_sck;
 @property(readonly, nonatomic) BOOL isURLCancelled_sck;
-@property(readonly, nonatomic) BOOL isCloudServerRelated_sck;
 @property(readonly, nonatomic) long long cloudCode_sck;
 @end
 

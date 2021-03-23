@@ -14,7 +14,6 @@
 - (id)cloudObjectArrayForKey:(id)arg1 ofType:(Class)arg2 parentObject:(id)arg3;
 - (id)cloudObjectForKey:(id)arg1 ofType:(Class)arg2 parentObject:(id)arg3;
 - (BOOL)boolForKey:(id)arg1;
-- (id)urlForKey:(id)arg1;
 - (id)dateForKey:(id)arg1;
 - (id)iso8601DateFormatter;
 - (id)cloudDateFormatter;

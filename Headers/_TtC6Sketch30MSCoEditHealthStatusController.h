@@ -11,6 +11,7 @@
     // Error parsing type: , name: document
     // Error parsing type: , name: healthUpdateObserverForTesting
     // Error parsing type: , name: state
+    // Error parsing type: , name: needsShowBetaLabel
     // Error parsing type: , name: currentStatusViewController
     // Error parsing type: , name: timer
 }

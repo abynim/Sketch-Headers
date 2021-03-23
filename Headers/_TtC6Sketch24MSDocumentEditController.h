@@ -17,6 +17,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
+- (void)installedFontsDidChange;
 - (void)resetSaveableDocumentData;
 - (id)initWithDocument:(id)arg1;
 @property(nonatomic, retain) MSHistoryMaker *historyMaker; // @synthesize historyMaker;

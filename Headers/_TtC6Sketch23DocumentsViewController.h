@@ -20,6 +20,7 @@
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
     // Error parsing type: , name: bannerView
+    // Error parsing type: , name: subscriptionsController
     // Error parsing type: , name: $__lazy_storage_$_previewImageCache
     // Error parsing type: , name: provider
     // Error parsing type: , name: shareToSelectAfterUpdateComplete

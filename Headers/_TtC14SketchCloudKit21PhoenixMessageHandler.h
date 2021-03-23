@@ -8,8 +8,9 @@
 
 @interface _TtC14SketchCloudKit21PhoenixMessageHandler : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: nextIdentifier
-    // Error parsing type: , name: handlers
+    // Error parsing type: , name: _handlers
+    // Error parsing type: , name: _subscriptionMessageHandlers
+    // Error parsing type: , name: _topicMessageHandlers
 }
 
 @end

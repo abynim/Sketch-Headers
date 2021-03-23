@@ -6,7 +6,7 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSDictionary, NSString, SCKOrganization, SCKShare, SCKUser;
+@class NSDictionary, NSString, SCKOrganization, SCKPublicUser, SCKShare;
 
 @interface SCKUserNotification : SCKObject
 {
@@ -27,7 +27,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 @property(nonatomic, retain) SCKOrganization *organization; // @synthesize organization;
-@property(nonatomic, retain) SCKUser *user; // @synthesize user;
+@property(nonatomic, retain) SCKPublicUser *user; // @synthesize user;
 @property(nonatomic, readonly) NSString *token;
 @property(nonatomic, readonly) SCKShare *share; // @synthesize share;
 

@@ -28,6 +28,7 @@
 @property(nonatomic) BOOL fontsDidChange; // @synthesize fontsDidChange=_fontsDidChange;
 @property(readonly, nonatomic) __weak id <MSHistoryMakerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSHistory *history; // @synthesize history=_history;
+- (void)history:(id)arg1 didCancelMoment:(id)arg2;
 - (void)history:(id)arg1 didCommitMoment:(id)arg2 withPatch:(id)arg3;
 - (void)history:(id)arg1 willCommitMoment:(id)arg2;
 - (id)currentDocumentData:(id)arg1;

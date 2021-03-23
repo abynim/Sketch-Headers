@@ -15,6 +15,8 @@
     NSDictionary *_metadata;
 }
 
++ (id)pluginsToDisableRemoteFilename;
++ (id)pluginsToDisableFilename;
 + (id)incompatiblePlugins;
 + (id)existingDownloadededBlacklistURL;
 - (void).cxx_destruct;

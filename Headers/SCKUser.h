@@ -27,13 +27,13 @@
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
+@property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 @property(readonly) unsigned long long hash;

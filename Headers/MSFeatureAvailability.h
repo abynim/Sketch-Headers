@@ -16,16 +16,17 @@
     // Error parsing type: , name: structuredData
     // Error parsing type: , name: collaborationLog
     // Error parsing type: , name: coedit
+    // Error parsing type: , name: catchupAtOpen
     // Error parsing type: , name: gpuOverlay
     // Error parsing type: , name: sheetsToModes
     // Error parsing type: , name: sendBetaFeedback
     // Error parsing type: , name: pixelAlignByDragDelta
     // Error parsing type: , name: presence
+    // Error parsing type: , name: presenceFollowing
     // Error parsing type: , name: ignoreLayerRoundingDuringMultipleResize
     // Error parsing type: , name: useBigNudgeDistanceForSteppers
     // Error parsing type: , name: sso
     // Error parsing type: , name: savesAndVersions
-    // Error parsing type: , name: individualPermissions
     // Error parsing type: , name: removeCloudDocsOnSignout
     // Error parsing type: , name: personalSubscriptions
 }
@@ -36,16 +37,17 @@
 - (id)init;
 @property(nonatomic, readonly) MSFeatureFlag *personalSubscriptions; // @synthesize personalSubscriptions;
 @property(nonatomic, readonly) MSFeatureFlag *removeCloudDocsOnSignout; // @synthesize removeCloudDocsOnSignout;
-@property(nonatomic, readonly) MSFeatureFlag *individualPermissions; // @synthesize individualPermissions;
 @property(nonatomic, readonly) MSFeatureFlag *savesAndVersions; // @synthesize savesAndVersions;
 @property(nonatomic, readonly) MSFeatureFlag *sso; // @synthesize sso;
 @property(nonatomic, readonly) MSFeatureFlag *useBigNudgeDistanceForSteppers; // @synthesize useBigNudgeDistanceForSteppers;
 @property(nonatomic, readonly) MSFeatureFlag *ignoreLayerRoundingDuringMultipleResize; // @synthesize ignoreLayerRoundingDuringMultipleResize;
+@property(nonatomic, readonly) MSFeatureFlag *presenceFollowing; // @synthesize presenceFollowing;
 @property(nonatomic, readonly) MSFeatureFlag *presence; // @synthesize presence;
 @property(nonatomic, readonly) MSFeatureFlag *pixelAlignByDragDelta; // @synthesize pixelAlignByDragDelta;
 @property(nonatomic, readonly) MSFeatureFlag *sendBetaFeedback; // @synthesize sendBetaFeedback;
 @property(nonatomic, readonly) MSFeatureFlag *sheetsToModes; // @synthesize sheetsToModes;
 @property(nonatomic, readonly) MSFeatureFlag *gpuOverlay; // @synthesize gpuOverlay;
+@property(nonatomic, readonly) MSFeatureFlag *catchupAtOpen; // @synthesize catchupAtOpen;
 @property(nonatomic, readonly) MSFeatureFlag *coedit; // @synthesize coedit;
 @property(nonatomic, readonly) MSFeatureFlag *collaborationLog; // @synthesize collaborationLog;
 @property(nonatomic, readonly) MSFeatureFlag *structuredData; // @synthesize structuredData;

@@ -10,7 +10,7 @@
 #import "MSInspectorSectionDelegate-Protocol.h"
 #import "MSStackViewScrollViewDelegate-Protocol.h"
 
-@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSStackView, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
+@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSSet, NSStackView, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSInspectorSectionDelegate, MSInspectorChildController>
 {
@@ -26,9 +26,11 @@
     NSLayoutConstraint *_scrollViewTopConstraint;
     NSLayoutConstraint *_scrollViewBottomConstraint;
     _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
+    NSSet *_parents;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSSet *parents; // @synthesize parents=_parents;
 @property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
 @property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
@@ -52,6 +54,7 @@
 - (void)sectionDidResize:(id)arg1;
 @property(readonly, nonatomic) BOOL sharedStyleInspectorVisible;
 - (void)adjustInspectorToColorPopover:(id)arg1 sender:(id)arg2;
+- (void)resetScrollview;
 - (void)reloadWithFooterViewControllers:(id)arg1;
 - (void)prepareForDisplay;
 - (void)prepareForDisplayWithoutFinalising;
@@ -68,7 +71,9 @@
 - (void)reloadStackContaining:(id)arg1;
 - (void)openPopoverForStylePart:(unsigned long long)arg1 atIndex:(unsigned long long)arg2 preferringNative:(BOOL)arg3;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
+@property(readonly, nonatomic) NSSet *currentParents;
 @property(readonly, nonatomic) NSArray *layers;
 - (id)init;
 

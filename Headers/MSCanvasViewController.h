@@ -8,7 +8,7 @@
 
 #import "MSCanvasViewDelegate-Protocol.h"
 
-@class MSCanvasView, MSDocument, MSFlashController, NSButton, NSLayoutConstraint, NSString, NSView, _TtC6Sketch11MSRulerView;
+@class MSCanvasView, MSDocument, MSFlashController, MSPresenceFollowView, NSButton, NSLayoutConstraint, NSString, NSView, _TtC6Sketch11MSRulerView;
 
 @interface MSCanvasViewController : NSViewController <MSCanvasViewDelegate>
 {
@@ -23,11 +23,13 @@
     NSLayoutConstraint *_rulerHeightConstraint;
     MSFlashController *_flashController;
     MSDocument *_document;
+    MSPresenceFollowView *_followView;
 }
 
 + (id)overlayOptionsDefaultsKeys;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isObservingDefaults) BOOL observingDefaults; // @synthesize observingDefaults=_observingDefaults;
+@property(retain, nonatomic) MSPresenceFollowView *followView; // @synthesize followView=_followView;
 @property(nonatomic) BOOL shouldHideOverlayControls; // @synthesize shouldHideOverlayControls=_shouldHideOverlayControls;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSFlashController *flashController; // @synthesize flashController=_flashController;
@@ -51,6 +53,7 @@
 - (void)canvasViewDidChangeEffectiveAppearance:(id)arg1;
 @property(nonatomic) double zoomValue;
 @property(nonatomic) struct CGPoint scrollOrigin;
+- (void)refreshFollowView;
 - (void)applyLockRulersIconAndTooltip;
 - (void)refreshRulers;
 - (void)prepareForDealloc;

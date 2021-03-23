@@ -6,10 +6,11 @@
 
 #import "MSTextInputEventHandler.h"
 
-@class MSImmutableSymbolMaster, MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSymbolInstance, MSTextLayer;
+@class MSImmutableSymbolMaster, MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSymbolInstance, MSTextLayer, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSTextOverrideEventHandler : MSTextInputEventHandler
 {
+    _TtC17SketchControllers26MSModelObjectChangeTracker *_instanceChangeTracker;
     MSSymbolInstance *_instance;
     MSOverrideRepresentation *_override;
     MSOverrideValue *_overrideValue;
@@ -30,6 +31,7 @@
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (void)setupSelectedOverride;
+@property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *instanceChangeTracker; // @synthesize instanceChangeTracker=_instanceChangeTracker;
 - (id)toolbarIdentifier;
 - (double)accumulatedScale;
 - (id)defaultTextStyle;

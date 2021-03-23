@@ -37,7 +37,6 @@
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 - (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (void)resetStateAndMetadataForDuplication;
-- (BOOL)hasNonSystemNonEmbeddedFonts;
 @property(readonly, nonatomic) NSArray *layers;
 - (id)embeddedFontReferences;
 - (id)initAsCopyOf:(id)arg1 withPages:(id)arg2;

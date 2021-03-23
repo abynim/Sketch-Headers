@@ -14,7 +14,7 @@
     // Error parsing type: , name: $__lazy_storage_$_overlayLabel
     // Error parsing type: , name: $__lazy_storage_$_percentFormatter
     // Error parsing type: , name: $__lazy_storage_$_sizeFormatter
-    // Error parsing type: , name: isProcessingOwnChange
+    // Error parsing type: , name: changeTracker
     // Error parsing type: , name: $__lazy_storage_$_inspectorViewController
 }
 

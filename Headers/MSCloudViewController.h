@@ -4,19 +4,20 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MSPopoverHostViewController.h"
 
-@class MSCloudAction, MSCloudBaseViewController;
+@class MSCloudAction, NSViewController;
 
-@interface MSCloudViewController : NSViewController
+@interface MSCloudViewController : MSPopoverHostViewController
 {
-    MSCloudBaseViewController *_contentViewController;
+    NSViewController *_contentViewController;
     MSCloudAction *_action;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSCloudAction *action; // @synthesize action=_action;
-@property(retain, nonatomic) MSCloudBaseViewController *contentViewController; // @synthesize contentViewController=_contentViewController;
+- (void)setContentViewController:(id)arg1;
+- (id)contentViewController;
 - (void)refreshLicenseIfIneligible;
 - (void)resetContentViewController:(id)arg1;
 - (void)licenseDidChangeNotification:(id)arg1;
@@ -24,15 +25,9 @@
 - (void)shareUploadDidChangeNotification:(id)arg1;
 - (void)userDidChangeNotification:(id)arg1;
 - (void)environmentDidChangeNotification:(id)arg1;
-- (void)updateFrame;
-- (void)animateAlpha:(double)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)defaultContentViewController;
-- (void)addContentViewController:(id)arg1;
-- (void)removeContentViewController:(id)arg1;
-- (void)setContentViewController:(id)arg1 animated:(BOOL)arg2;
 - (void)dealloc;
 - (void)viewDidLoad;
-- (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)loadView;
 - (id)initWithAction:(id)arg1;

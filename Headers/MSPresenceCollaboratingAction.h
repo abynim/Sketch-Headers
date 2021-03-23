@@ -17,6 +17,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+- (void)menu:(id)arg1 willHighlightItem:(id)arg2;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)validateToolbarItem;
 @property(nonatomic, readonly) BOOL hasSubMenu;

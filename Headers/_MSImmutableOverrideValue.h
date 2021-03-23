@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
 @property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+- (void)privateSet_isEditing:(BOOL)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

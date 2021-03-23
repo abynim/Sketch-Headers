@@ -10,18 +10,32 @@
 
 @interface MSPresenceSaveToCloudAction : MSPopoverAction
 {
+    // Error parsing type: , name: hostViewController
+    // Error parsing type: , name: status
+    // Error parsing type: , name: $__lazy_storage_$_cloudActionMenu
+    // Error parsing type: , name: documentUpload
+    // Error parsing type: , name: presenceController
 }
 
-- (id)initWithCoder:(id)arg1;
+- (void).cxx_destruct;
 - (id)init;
-- (id)initWithDocument:(id)arg1;
+- (BOOL)popoverShouldAnimateOnContentFrameDidChange:(id)arg1;
 - (void)uploadDidChangeWithNotification:(id)arg1;
+- (void)showContextHelp:(id)arg1;
+- (void)cancelUpload:(id)arg1;
+- (void)showCloudMenu:(id)arg1;
+- (void)retry:(id)arg1;
 - (void)saveToCloudClicked:(id)arg1;
-- (void)closePopover;
+- (void)validateToolbarItem;
+- (void)popoverWillClose:(id)arg1;
 - (void)showPopover:(id)arg1;
 @property(nonatomic, readonly) NSViewController *popoverViewController;
+@property(nonatomic, readonly) NSString *tooltip;
 @property(nonatomic, readonly) NSString *label;
 @property(nonatomic, readonly) NSString *imageName;
+- (void)dealloc;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

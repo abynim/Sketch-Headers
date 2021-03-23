@@ -16,7 +16,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initImageCell:(id)arg1;
 - (id)initTextCell:(id)arg1;
-@property(nonatomic, readonly) struct CGSize cellSize;
 @property(nonatomic, retain) NSAttributedString *attributedTitle;
 
 @end
