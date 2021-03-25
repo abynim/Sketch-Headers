@@ -13,6 +13,7 @@
 - (NSError *)makeErrorPresentable:(MSCoEditDocumentOpener *)arg1 error:(NSError *)arg2;
 - (void)didProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (void)willProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
+- (BOOL)shouldOpenExistingDocument:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldMigrateDocumentInCoedit:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldDiscardLocalCoeditChanges:(MSCoEditDocumentOpener *)arg1;
 @end

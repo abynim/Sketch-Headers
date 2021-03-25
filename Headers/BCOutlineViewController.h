@@ -68,8 +68,6 @@
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
-- (struct _NSRange)currentNameEditingRange;
-- (id)activeFieldEditor;
 - (void)queueRefreshIfRequired;
 - (void)resetLayoutDirtyFlag;
 - (void)resetTableViewCellContentsDirtyFlag;

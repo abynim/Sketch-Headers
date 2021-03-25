@@ -6,16 +6,18 @@
 
 #import <AppKit/NSView.h>
 
-@class NSArray;
+@class MSTextEditRestorer, NSArray;
 
 @interface MSInspectorStackView : NSView
 {
     BOOL _hasChanges;
     NSArray *_sectionViewControllers;
     NSArray *_sectionViews;
+    MSTextEditRestorer *_editRestorer;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSTextEditRestorer *editRestorer; // @synthesize editRestorer=_editRestorer;
 @property(nonatomic) BOOL hasChanges; // @synthesize hasChanges=_hasChanges;
 @property(retain, nonatomic) NSArray *sectionViews; // @synthesize sectionViews=_sectionViews;
 @property(retain, nonatomic) NSArray *sectionViewControllers; // @synthesize sectionViewControllers=_sectionViewControllers;
@@ -30,6 +32,7 @@
 - (void)reloadSubviewsForSection:(id)arg1;
 - (void)reloadAllSubviews;
 - (void)finaliseUpdates;
+- (void)prepareForUpdate;
 - (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end

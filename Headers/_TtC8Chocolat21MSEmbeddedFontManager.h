@@ -8,6 +8,7 @@
 
 @interface _TtC8Chocolat21MSEmbeddedFontManager : NSObject
 {
+    // Error parsing type: , name: serialQueue
     // Error parsing type: , name: sessionIdentifier
     // Error parsing type: , name: documentIDsByFamilyName
     // Error parsing type: , name: extractedFontURLsByFamilyName

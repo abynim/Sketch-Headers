@@ -41,8 +41,7 @@
 @property(readonly) NSString *canvasToolbarType;
 - (void)reinsertToolbarItemWithIdentifier:(id)arg1;
 - (void)reinsertPresenceItem;
-- (void)handleShareChangedNotification:(id)arg1;
-- (void)handleUserChangedNotification:(id)arg1;
+- (void)presenceActionDidChangeNotification:(id)arg1;
 - (void)removeLegacyToolbarItemsForToolbar:(id)arg1;
 - (void)insertNewDefaultToolbarItemsForToolbar:(id)arg1;
 - (void)forceAddToolbarItemWithIdentifier:(id)arg1 toToolbar:(id)arg2;
