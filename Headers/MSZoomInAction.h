@@ -11,6 +11,7 @@
 }
 
 - (id)historyMomentTitle;
+- (id)tooltip;
 - (id)label;
 - (void)zoomIn:(id)arg1;
 - (BOOL)validate;

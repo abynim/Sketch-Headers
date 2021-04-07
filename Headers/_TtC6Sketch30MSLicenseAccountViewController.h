@@ -4,11 +4,18 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch23MSAccountViewController.h"
+#import <AppKit/NSViewController.h>
 
-@interface _TtC6Sketch30MSLicenseAccountViewController : _TtC6Sketch23MSAccountViewController
+@class NSImageView, NSStackView, _TtC6Sketch12MSAccountBox;
+
+@interface _TtC6Sketch30MSLicenseAccountViewController : NSViewController
 {
+    // Error parsing type: , name: licenseBox
+    // Error parsing type: , name: imageView
+    // Error parsing type: , name: labelStackView
+    // Error parsing type: , name: buttonStackView
     // Error parsing type: , name: effectiveAppearanceObservation
+    // Error parsing type: , name: $__lazy_storage_$_dateFormatter
 }
 
 - (void).cxx_destruct;
@@ -18,9 +25,15 @@
 - (void)registerLicense:(id)arg1;
 - (void)unlinkLicense:(id)arg1;
 - (void)renewLicense:(id)arg1;
+- (void)learnMore:(id)arg1;
+- (void)updateConstraintsWithMessageView:(id)arg1;
 - (void)viewDidDisappear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
+@property(nonatomic, retain) NSStackView *buttonStackView; // @synthesize buttonStackView;
+@property(nonatomic, retain) NSStackView *labelStackView; // @synthesize labelStackView;
+@property(nonatomic, retain) NSImageView *imageView; // @synthesize imageView;
+@property(nonatomic, retain) _TtC6Sketch12MSAccountBox *licenseBox; // @synthesize licenseBox;
 
 @end
 

@@ -19,6 +19,7 @@
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)layerOfDataType:(unsigned long long)arg1;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingNodeName;
 - (id)replaceWithInstanceOfSymbol:(id)arg1;
@@ -51,6 +52,7 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsMultipleShadows;
 - (BOOL)supportsInnerOuterBorders;
+- (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (id)applicableDataSupplierIdentifier;
 - (BOOL)hasRefreshableDataWithDataManager:(id)arg1;
 - (unsigned long long)applicableDataTypes;
@@ -115,6 +117,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly) Class superclass;
 @end
 

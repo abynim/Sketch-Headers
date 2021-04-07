@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSImage, NSString, NSTextField;
+@class NSButton, NSImage, NSStackView, NSString, NSTextField;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @interface _TtC6Sketch35MSLicenseRegistrationViewController : NSViewController
@@ -14,15 +14,19 @@
     // Error parsing type: , name: headerTitle
     // Error parsing type: , name: headerDescription
     // Error parsing type: , name: headerLinkTitle
-    // Error parsing type: , name: headerBackgroundImage
     // Error parsing type: , name: headerImage
     // Error parsing type: , name: allowCancellation
     // Error parsing type: , name: wantsLicense
     // Error parsing type: , name: licenseUpdateExpirationDate
     // Error parsing type: , name: delegate
+    // Error parsing type: , name: stackView
+    // Error parsing type: , name: licenseForm
     // Error parsing type: , name: licenseField
     // Error parsing type: , name: helpField
+    // Error parsing type: , name: helpButton
+    // Error parsing type: , name: cancelButton
     // Error parsing type: , name: actionButton
+    // Error parsing type: , name: footerView
     // Error parsing type: , name: storeButton
     // Error parsing type: , name: downloadButton
     // Error parsing type: , name: licenseKey
@@ -32,9 +36,11 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)cancel:(id)arg1;
 - (void)finish:(id)arg1;
 - (void)register:(id)arg1;
 - (void)downloadSupportedSketchVersion:(id)arg1;
+- (void)openHelpURL:(id)arg1;
 - (void)visitLicenseManager:(id)arg1;
 - (void)visitStoreForRenewal:(id)arg1;
 - (void)visitStore:(id)arg1;
@@ -43,14 +49,18 @@
 @property(nonatomic, copy) NSString *licenseKey;
 @property(nonatomic, retain) NSButton *downloadButton; // @synthesize downloadButton;
 @property(nonatomic, retain) NSButton *storeButton; // @synthesize storeButton;
+@property(nonatomic, retain) NSStackView *footerView; // @synthesize footerView;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
+@property(nonatomic, retain) NSButton *cancelButton; // @synthesize cancelButton;
+@property(nonatomic, retain) NSButton *helpButton; // @synthesize helpButton;
 @property(nonatomic, retain) NSTextField *helpField; // @synthesize helpField;
 @property(nonatomic, retain) NSTextField *licenseField; // @synthesize licenseField;
+@property(nonatomic, retain) NSStackView *licenseForm; // @synthesize licenseForm;
+@property(nonatomic, retain) NSStackView *stackView; // @synthesize stackView;
 @property(nonatomic) __weak id <_TtP6Sketch35MSRegistrationWindowContentDelegate_> delegate; // @synthesize delegate;
 @property(nonatomic, readonly) BOOL wantsLicense; // @synthesize wantsLicense;
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
-@property(nonatomic, readonly) NSImage *headerBackgroundImage; // @synthesize headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
 @property(nonatomic, copy) NSString *headerDescription;
 @property(nonatomic, copy) NSString *headerTitle;

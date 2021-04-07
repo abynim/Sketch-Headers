@@ -14,7 +14,6 @@
 @property(nonatomic, readonly) BOOL wantsLicense;
 @property(nonatomic) BOOL allowCancellation;
 @property(nonatomic, readonly) NSImage *headerImage;
-@property(nonatomic, readonly) NSImage *headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
 @property(nonatomic, readonly) NSString *headerDescription;
 @property(nonatomic, readonly) NSString *headerTitle;

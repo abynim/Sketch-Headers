@@ -14,8 +14,9 @@
 {
 }
 
-- (id)initWithName:(id)arg1 style:(id)arg2;
+- (BOOL)isOutOfSyncWithInstance:(id)arg1;
 @property(readonly, nonatomic) MSStyle *style;
+- (id)initWithName:(id)arg1 style:(id)arg2;
 - (void)correctInvalidGamma;
 @property(readonly, nonatomic) NSString *currentObjectID_MSSharedObjectPasting;
 - (id)handlePasteIntoDocument:(id)arg1;

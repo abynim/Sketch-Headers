@@ -13,6 +13,8 @@
 @interface MSExporter : NSObject <MSRenderingContextCacheProvider>
 {
     BOOL _isPrinting;
+    BOOL _isRenderingTests;
+    BOOL _drawsAsynchronously;
     BOOL _allowSubpixelAntialiasing;
     MSExportRequest *_request;
     MSRenderingDriver *_driver;
@@ -29,7 +31,9 @@
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
+@property(nonatomic) BOOL drawsAsynchronously; // @synthesize drawsAsynchronously=_drawsAsynchronously;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
+@property(nonatomic) BOOL isRenderingTests; // @synthesize isRenderingTests=_isRenderingTests;
 @property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;

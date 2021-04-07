@@ -6,7 +6,7 @@
 
 #import <AppKit/NSView.h>
 
-@class NSArray;
+@class MSPresenceDescription, NSArray;
 
 @interface _TtC6Sketch19PresenceAvatarStack : NSView
 {
@@ -15,6 +15,7 @@
     // Error parsing type: , name: isEnabled
     // Error parsing type: , name: showsOverflowMenu
     // Error parsing type: , name: avatars
+    // Error parsing type: , name: followedPresence
     // Error parsing type: , name: presences
     // Error parsing type: , name: avatarViews
     // Error parsing type: , name: overflowButton
@@ -24,6 +25,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)layout;
 @property(nonatomic, copy) NSArray *presences;
+@property(nonatomic, retain) MSPresenceDescription *followedPresence; // @synthesize followedPresence;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;
 - (id)initWithCoder:(id)arg1;
 - (id)init;

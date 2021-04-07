@@ -4,14 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray;
 @protocol MSDocumentOpener;
 
 @protocol MSDocumentOpenerDelegate
 - (BOOL)shouldOpenNewerDocument:(id <MSDocumentOpener>)arg1;
 - (void)migrationNotAvailable:(id <MSDocumentOpener>)arg1;
 - (BOOL)shouldOpenDocumentWithCorruptMetadata:(id <MSDocumentOpener>)arg1;
-- (BOOL)shouldOpenDocument:(id <MSDocumentOpener>)arg1 withMissingFonts:(NSArray *)arg2 savingWillChangeFonts:(BOOL)arg3;
 - (BOOL)shouldAttemptToOpenCorruptDocument:(id <MSDocumentOpener>)arg1;
 @end
 

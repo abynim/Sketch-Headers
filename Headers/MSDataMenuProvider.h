@@ -22,11 +22,13 @@
 @property(readonly, nonatomic) long long presentationContext; // @synthesize presentationContext=_presentationContext;
 @property(nonatomic) __weak id <MSDataMenuProviderDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) MSDataSupplierManager *dataManager; // @synthesize dataManager=_dataManager;
+- (void)insertDataAsRandomDefaults:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (id)pluginKeysDictionaryFromDataSuppliers:(id)arg1;
 - (id)pluginNameForIdentifier:(id)arg1;
 - (id)sortedMenuItems:(id)arg1;
 - (id)dataSuppliersForDataType:(unsigned long long)arg1;
+- (void)appendTooltipInfo:(id)arg1 withIndentation:(id)arg2 toString:(id)arg3;
 - (id)tooltipFromInfo:(id)arg1;
 - (id)menuItemsForDataType:(unsigned long long)arg1;
 - (id)shadowImageFromImage:(id)arg1;

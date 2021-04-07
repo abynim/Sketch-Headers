@@ -7,10 +7,7 @@
 #import <SketchModel/MSImmutablePage.h>
 
 @interface MSImmutablePage (Rendering)
-- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
-- (unsigned long long)transparencyLayerUseRectCondition;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
-- (BOOL)shouldRenderInTransparencyLayerInContext:(id)arg1;
 - (CDStruct_75f85af1 *)createRegionInDocument:(id)arg1 zoomLevel:(double)arg2;
 @end
 

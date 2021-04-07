@@ -6,12 +6,13 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
+@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser, SCKWorkspace;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
     NSString *_documentName;
     SCKOrganization *_defaultOrganization;
+    SCKWorkspace *_defaultWorkspace;
     SCKProject *_defaultProject;
     unsigned long long _operationType;
     CDUnknownBlockType _completionHandler;
@@ -43,6 +44,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
 @property(retain, nonatomic) SCKProject *defaultProject; // @synthesize defaultProject=_defaultProject;
+@property(retain, nonatomic) SCKWorkspace *defaultWorkspace; // @synthesize defaultWorkspace=_defaultWorkspace;
 @property(retain, nonatomic) SCKOrganization *defaultOrganization; // @synthesize defaultOrganization=_defaultOrganization;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(readonly, nonatomic) BOOL canPerformCloudOperation;

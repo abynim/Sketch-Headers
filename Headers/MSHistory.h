@@ -31,7 +31,7 @@
 - (void)ignoreRemotePatches:(id)arg1 changingFrom:(id)arg2 toCurrentDocument:(id)arg3;
 - (id)updateDocument:(id)arg1 against:(id)arg2 removingPatchContents:(id)arg3;
 - (void)ignoreLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
-- (void)updateAfterHistoryChange:(id)arg1 backwards:(BOOL)arg2;
+- (void)updateAfterHistoryChange:(id)arg1;
 - (void)commitCurrentMomentIfCoalesePeriodHasExpired;
 - (void)commitCurrentMoment;
 - (BOOL)progressToNextMoment;

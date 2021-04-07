@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel23MSResolvedDocumentMaker, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
@@ -45,6 +45,8 @@
     MSDocumentData *_documentData;
     _TtC6Sketch23MSDocumentChangeCounter *_documentChangeCounter;
     MSDocumentChangeNotifier *_changeNotifier;
+    _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
+    _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     MSEventHandlerManager *_eventHandlerManager;
     MSCacheManager *_cacheManager;
     MSComponentsPanelController *_componentsPanelController;
@@ -55,7 +57,6 @@
     _TtC10Assistants20AssistantsRunResults *_assistantsResults;
     _TtC6Sketch24MSDocumentEditController *_editController;
     _TtC13SharedEditing18MSCoEditController *_coEditController;
-    _TtC11SketchModel23MSResolvedDocumentMaker *_resolvedDocumentMaker;
     _TtC14SketchCloudKit23SubscriptionsController *_subscriptionsController;
     unsigned long long _contentType;
     NSTimer *_cloudAutosaveTimer;
@@ -98,7 +99,6 @@
 @property(nonatomic) BOOL nextSaveShouldPublishVersionOnCloud; // @synthesize nextSaveShouldPublishVersionOnCloud=_nextSaveShouldPublishVersionOnCloud;
 @property(nonatomic) BOOL nextSaveShouldCreateVersionOnCloud; // @synthesize nextSaveShouldCreateVersionOnCloud=_nextSaveShouldCreateVersionOnCloud;
 @property(readonly, nonatomic) _TtC14SketchCloudKit23SubscriptionsController *subscriptionsController; // @synthesize subscriptionsController=_subscriptionsController;
-@property(readonly, nonatomic) _TtC11SketchModel23MSResolvedDocumentMaker *resolvedDocumentMaker; // @synthesize resolvedDocumentMaker=_resolvedDocumentMaker;
 @property(retain, nonatomic) _TtC13SharedEditing18MSCoEditController *coEditController; // @synthesize coEditController=_coEditController;
 @property(retain, nonatomic) _TtC6Sketch24MSDocumentEditController *editController; // @synthesize editController=_editController;
 @property(retain, nonatomic) _TtC10Assistants20AssistantsRunResults *assistantsResults; // @synthesize assistantsResults=_assistantsResults;
@@ -111,6 +111,8 @@
 @property(retain, nonatomic) MSComponentsPanelController *componentsPanelController; // @synthesize componentsPanelController=_componentsPanelController;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
+@property(retain, nonatomic) _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
+@property(retain, nonatomic) _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 @property(readonly, nonatomic) MSDocumentChangeNotifier *changeNotifier; // @synthesize changeNotifier=_changeNotifier;
 @property(retain, nonatomic) _TtC6Sketch23MSDocumentChangeCounter *documentChangeCounter; // @synthesize documentChangeCounter=_documentChangeCounter;
 @property(nonatomic, getter=isAttemptingToClose) BOOL attemptingToClose; // @synthesize attemptingToClose=_attemptingToClose;
@@ -302,6 +304,7 @@
 - (id)init;
 - (void)setupCoEditController;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
+- (void)updatePrivateSymbolIDsOnSaveable;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;

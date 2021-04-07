@@ -16,6 +16,7 @@
     BOOL _saveForWeb;
     BOOL _progressive;
     BOOL _interlaced;
+    BOOL _drawAsynchronously;
     BOOL _includeArtboardBackground;
     BOOL _renderSymbolMasterAsInstances;
     NSString *_name;
@@ -44,6 +45,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL renderSymbolMasterAsInstances; // @synthesize renderSymbolMasterAsInstances=_renderSymbolMasterAsInstances;
 @property(nonatomic) BOOL includeArtboardBackground; // @synthesize includeArtboardBackground=_includeArtboardBackground;
+@property(nonatomic) BOOL drawAsynchronously; // @synthesize drawAsynchronously=_drawAsynchronously;
 @property(nonatomic) BOOL interlaced; // @synthesize interlaced=_interlaced;
 @property(nonatomic) BOOL progressive; // @synthesize progressive=_progressive;
 @property(nonatomic) double compression; // @synthesize compression=_compression;
@@ -60,6 +62,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocument;
 @property(readonly, nonatomic) MSImmutableLayer *rootLayer;
+- (BOOL)shouldExportLayer:(id)arg1;
 - (id)init;
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;

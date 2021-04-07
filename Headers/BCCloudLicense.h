@@ -9,7 +9,7 @@
 #import "BCLicense-Protocol.h"
 #import "BCLicenseOperationResult-Protocol.h"
 
-@class BCNetworkTime, NSArray, NSDate, NSString, SCKJWT;
+@class BCNetworkTime, NSDate, NSString, SCKJWT;
 
 @interface BCCloudLicense : NSObject <BCLicenseOperationResult, BCLicense>
 {
@@ -21,11 +21,10 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
 @property(readonly, copy, nonatomic) SCKJWT *jwt; // @synthesize jwt=_jwt;
-@property(readonly, nonatomic) NSArray *variants;
+@property(readonly, nonatomic) BOOL hasCloudPrivileges;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;
 @property(readonly, nonatomic) NSDate *updateExpirationDate;
-@property(readonly, nonatomic) BOOL isAboutToExpire;
-@property(readonly, nonatomic) BOOL shouldTryToRequestNewTrialLicense;
+@property(readonly, nonatomic) BOOL hasExpiredOrIsAboutToExpire;
 @property(readonly, nonatomic) BOOL requiresRefresh;
 @property(readonly, nonatomic) BOOL shouldRefresh;
 @property(readonly, nonatomic) double remainingTimeInterval;

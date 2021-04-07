@@ -16,6 +16,7 @@
 }
 
 + (id)validImageFileUTIs;
++ (BOOL)isDataInsertedRandomly;
 + (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
 + (id)dataFromFileURL:(id)arg1;
@@ -23,7 +24,7 @@
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
 - (void)respondToContentChanged;
-- (id)shuffleArray:(id)arg1 truncateToLength:(unsigned long long)arg2;
+- (void)setIsDataInsertedRandomly:(BOOL)arg1;
 - (id)shuffledArrayWithCount:(unsigned long long)arg1 fromArray:(id)arg2;
 - (void)makeTextDataFileSystemMonitor;
 - (void)makeImageDataFileSystemMonitor;
@@ -33,7 +34,6 @@
 @property(readonly, nonatomic) NSURL *dataSource;
 - (id)imageFileURLForDataItem:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)setEnabled:(BOOL)arg1;
 - (BOOL)valid;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFileSystemURL:(id)arg1;

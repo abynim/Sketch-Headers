@@ -29,13 +29,9 @@
 @property(retain, nonatomic) MSModelObjectCacheGeneration *modelObjectCacheGeneration; // @synthesize modelObjectCacheGeneration=_modelObjectCacheGeneration;
 @property(nonatomic) long long faultingState; // @synthesize faultingState=_faultingState;
 @property(nonatomic) __weak MSModelObject *parentObject; // @synthesize parentObject=_parentObject;
-- (void)didMoveToDocument;
-- (void)willMoveToDocument:(id)arg1;
 - (void)didMoveToParentObject;
 - (void)willMoveToParentObject:(id)arg1;
 - (void)enumerateFaultedDescendantsUsingBlock:(CDUnknownBlockType)arg1;
-- (void)notifyDidMove:(BOOL)arg1;
-- (BOOL)notifyWillMoveToParentObject:(id)arg1;
 - (BOOL)isDescendantOfObject:(id)arg1;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *parentRoot;
 @property(readonly, nonatomic) __weak MSDocumentData *documentData;
@@ -60,11 +56,6 @@
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
-- (void)clearCachedValueForKey:(id)arg1;
-- (void)clearCache;
-- (void)updateCachedValue:(id)arg1 forKey:(id)arg2;
-- (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
-- (id)cachedValueForKey:(id)arg1;
 - (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObjects:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObject:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;

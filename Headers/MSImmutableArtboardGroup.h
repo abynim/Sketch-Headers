@@ -35,7 +35,6 @@
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
-- (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
@@ -59,6 +58,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly) Class superclass;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
 

@@ -25,11 +25,11 @@
 - (void)didProcessCloudDocument:(id)arg1;
 - (void)willProcessCloudDocument:(id)arg1;
 - (BOOL)shouldMigrateDocumentInCoedit:(id)arg1;
+- (BOOL)shouldOpenExistingDocument:(id)arg1;
 - (BOOL)shouldDiscardLocalCoeditChanges:(id)arg1;
 - (BOOL)shouldOpenNewerDocument:(id)arg1;
 - (void)migrationNotAvailable:(id)arg1;
 - (BOOL)shouldOpenDocumentWithCorruptMetadata:(id)arg1;
-- (BOOL)shouldOpenDocument:(id)arg1 withMissingFonts:(id)arg2 savingWillChangeFonts:(BOOL)arg3;
 - (BOOL)shouldAttemptToOpenCorruptDocument:(id)arg1;
 - (void)dealloc;
 - (id)init;

@@ -8,11 +8,14 @@
 
 #import "MSPreferencePaneSizing-Protocol.h"
 
-@class NSStackView;
+@class NSStackView, NSView, _TtC6Sketch12MSAccountBox;
 
 @interface _TtC6Sketch23MSAccountPreferencePane : MSPreferencePane <MSPreferencePaneSizing>
 {
+    // Error parsing type: , name: legacyLicenseView
+    // Error parsing type: , name: accountsBox
     // Error parsing type: , name: stackView
+    // Error parsing type: , name: $__lazy_storage_$_licenseViewController
 }
 
 + (id)toolbarIcon;
@@ -22,8 +25,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (id)initWithPreferencesController:(id)arg1;
+- (void)licenseDidChange:(id)arg1;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSStackView *stackView; // @synthesize stackView;
+@property(nonatomic, retain) _TtC6Sketch12MSAccountBox *accountsBox; // @synthesize accountsBox;
+@property(nonatomic, retain) NSView *legacyLicenseView; // @synthesize legacyLicenseView;
 
 @end
 

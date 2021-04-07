@@ -16,6 +16,7 @@
 
 - (void).cxx_destruct;
 - (id)init;
+- (BOOL)checkAndUpdatePositionInCanvas;
 - (BOOL)updateWithCollaborationDiffCheck;
 - (void)updateDisplayedValuesIfRequiredUsingBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic, readonly) BOOL haveObjectsChanged;

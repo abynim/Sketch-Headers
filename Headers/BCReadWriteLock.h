@@ -8,14 +8,12 @@
 
 @interface BCReadWriteLock : NSObject
 {
-    struct _opaque_pthread_rwlock_t {
-        long long __sig;
-        char __opaque[192];
-    } theLock;
+    // Error parsing type: , name: lock
 }
 
-- (void)protectedWrite:(CDUnknownBlockType)arg1;
-- (void)protectedRead:(CDUnknownBlockType)arg1;
+- (void)unlock;
+- (void)lockForWrite;
+- (void)lockForRead;
 - (void)dealloc;
 - (id)init;
 

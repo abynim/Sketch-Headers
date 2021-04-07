@@ -7,7 +7,6 @@
 #import <Foundation/NSString.h>
 
 @interface NSString (SHA1)
-+ (id)stringWithPrefix:(id)arg1 number:(long long)arg2;
 @property(readonly, nonatomic) NSString *sha1String_bc;
 - (id)sha1;
 - (id)safeSubstringWithRange_ms:(struct _NSRange)arg1;
@@ -22,8 +21,6 @@
 - (id)extension;
 - (id)child:(id)arg1;
 - (id)parent;
-- (id)uniqueStringComparedToStrings:(id)arg1 includeCopySuffix:(BOOL)arg2;
-- (id)splitByBaseAndNumber;
 - (BOOL)containsCharacter:(unsigned short)arg1;
 - (BOOL)containsSubstring:(id)arg1;
 - (id)trimmedString;

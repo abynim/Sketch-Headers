@@ -8,12 +8,12 @@
 
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSString;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSString;
 
 @interface MSStarShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
 {
-    MSInlineUpDownNanoTextField *_radiusField;
-    MSInlineUpDownNanoTextField *_pointsField;
+    MSInlineUpDownTextField *_radiusField;
+    MSInlineUpDownTextField *_pointsField;
     MSMathInspectorValueAdaptor *_radiusAdaptor;
     MSMathInspectorValueAdaptor *_pointsAdaptor;
 }
@@ -22,8 +22,8 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *pointsAdaptor; // @synthesize pointsAdaptor=_pointsAdaptor;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *pointsField; // @synthesize pointsField=_pointsField;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *radiusField; // @synthesize radiusField=_radiusField;
+@property(retain, nonatomic) MSInlineUpDownTextField *pointsField; // @synthesize pointsField=_pointsField;
+@property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;

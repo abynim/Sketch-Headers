@@ -9,6 +9,7 @@
 @interface _TtC6Sketch17MSAvatarStackView : NSView
 {
     // Error parsing type: , name: contentOwners
+    // Error parsing type: , name: isEnabled
     // Error parsing type: , name: avatarSize
     // Error parsing type: , name: avatarStrideRatio
     // Error parsing type: , name: maximumAvatarCount

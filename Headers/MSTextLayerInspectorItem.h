@@ -33,6 +33,7 @@
     MSInlineUpDownTextField *_paragraphHeightField;
     MSInspectorSegmentedControl *_alignmentButton;
     NSSegmentedControl *_verticalAlignmentButton;
+    NSButton *_learnMoreButton;
     NSTextField *_sizingLabel;
     NSSegmentedControl *_sizingSegmentedControl;
     NSLayoutConstraint *_fontWeightPopUpButtonTrailingConstraint;
@@ -66,6 +67,7 @@
 @property(retain, nonatomic) NSLayoutConstraint *fontWeightPopUpButtonTrailingConstraint; // @synthesize fontWeightPopUpButtonTrailingConstraint=_fontWeightPopUpButtonTrailingConstraint;
 @property(nonatomic) __weak NSSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
+@property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
 @property(retain, nonatomic) NSSegmentedControl *verticalAlignmentButton; // @synthesize verticalAlignmentButton=_verticalAlignmentButton;
 @property(retain, nonatomic) MSInspectorSegmentedControl *alignmentButton; // @synthesize alignmentButton=_alignmentButton;
 @property(retain, nonatomic) MSInlineUpDownTextField *paragraphHeightField; // @synthesize paragraphHeightField=_paragraphHeightField;
@@ -80,7 +82,7 @@
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
 - (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)textBehaviourButtonAction:(id)arg1;
-- (void)updateTextBehaviour;
+- (void)updateTextSizingBehaviour;
 - (id)textBehaviourLabelString;
 - (long long)textBehaviourSegmentTag;
 - (void)variableFontsWindowController:(id)arg1 didUpdateToFont:(id)arg2;
@@ -112,6 +114,7 @@
 - (void)changeFontFamilyTo:(id)arg1;
 - (id)textEventHandler;
 - (id)textView;
+- (void)learnMoreButtonAction:(id)arg1;
 - (void)verticalAlignmentAction:(id)arg1;
 - (id)canvasView;
 - (void)putFocusOnTextView;
@@ -134,7 +137,6 @@
 - (void)updateDisplayedValues;
 - (void)textViewDidChange:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
-- (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)fontSizeMenu;
 - (void)writeRun:(id)arg1;

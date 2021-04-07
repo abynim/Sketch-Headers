@@ -7,12 +7,8 @@
 #import <SketchModel/_MSImmutableLayerGroup.h>
 
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
-#import <SketchModel/MSImmutableLayerContainer-Protocol.h>
-#import <SketchModel/MSLayerGroupProtocol-Protocol.h>
 
-@class NSArray, NSString;
-
-@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck, MSLayerGroupProtocol, MSImmutableLayerContainer>
+@interface MSImmutableLayerGroup : _MSImmutableLayerGroup <MSFlowContainmentCheck>
 {
     unsigned long long _containedTraits;
 }
@@ -23,9 +19,6 @@
 - (unsigned long long)containedTraits;
 - (void)calculateContainedTraits;
 - (void)objectDidInit;
-- (id)initAsCopyOf:(id)arg1 withLayers:(id)arg2;
-- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
-- (id)resolvedUsingDocumentData:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)layersAreEqualForDiffToLayersOfLayerGroup:(id)arg1;
@@ -40,7 +33,7 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (unsigned long long)axesForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
-- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2 isMask:(BOOL)arg3;
+- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2 isMask:(BOOL)arg3 userInfo:(id)arg4;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
 @property(readonly, nonatomic) double mirrorExportScale;
@@ -69,13 +62,6 @@
 - (void)migratePropertiesFromV78OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSArray *layers;
-@property(readonly) Class superclass;
 
 @end
 

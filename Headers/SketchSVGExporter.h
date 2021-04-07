@@ -49,12 +49,12 @@
 - (void)pushParent:(id)arg1;
 - (id)parentForLayer:(id)arg1;
 - (id)ancestorsForLayer:(id)arg1;
-- (id)radialGradientAttributes:(id)arg1 inRect:(id)arg2;
-- (id)linearGradientAttributes:(id)arg1 inRect:(id)arg2;
+- (id)radialGradientAttributes:(id)arg1 inRect:(struct CGRect)arg2;
+- (id)linearGradientAttributes:(id)arg1 inRect:(struct CGRect)arg2;
 - (id)stopsForGradient:(id)arg1;
-- (id)gradientElement:(id)arg1 inRect:(id)arg2;
-- (void)addGradient:(id)arg1 inRect:(id)arg2;
-- (id)hashForGradient:(id)arg1 inRect:(id)arg2;
+- (id)gradientElement:(id)arg1 inRect:(struct CGRect)arg2;
+- (void)addGradient:(id)arg1 inRect:(struct CGRect)arg2;
+- (id)hashForGradient:(id)arg1 inRect:(struct CGRect)arg2;
 - (BOOL)endFilterGroup;
 - (id)beginFilterGroup;
 - (id)addDefinitionWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;

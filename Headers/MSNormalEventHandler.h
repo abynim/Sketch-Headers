@@ -118,6 +118,7 @@
 - (void)trackMouse:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingUpdated:(id)arg1;
+- (void)systemColorsDidChange:(id)arg1;
 - (BOOL)isMouseHoveringResizeHandle:(struct CGPoint)arg1;
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;

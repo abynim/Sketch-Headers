@@ -6,12 +6,7 @@
 
 #import <SketchModel/_MSLayerGroup.h>
 
-#import <SketchModel/MSLayerContainer-Protocol.h>
-#import <SketchModel/MSLayerGroupProtocol-Protocol.h>
-
-@class NSArray, NSString;
-
-@interface MSLayerGroup : _MSLayerGroup <MSLayerGroupProtocol, MSLayerContainer>
+@interface MSLayerGroup : _MSLayerGroup
 {
     long long _preCalculatedHasSelectedLayer;
     unsigned long long _disableAutomaticScalingCounter;
@@ -78,13 +73,6 @@
 - (id)ungroup;
 - (void)updateSwatchReferencesFrom:(id)arg1 to:(id)arg2;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) NSArray *layers;
-@property(readonly) Class superclass;
 
 @end
 

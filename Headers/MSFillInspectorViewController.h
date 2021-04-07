@@ -8,12 +8,12 @@
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
 
-@class MSColorHexStringTransformer, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
 
 @interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
 {
     BOOL _isDisplayingTint;
-    MSInlineUpDownNanoTextField *_opacityField;
+    MSInlineUpDownTextField *_opacityField;
     NSPopUpButton *_fillPropertiesPopUp;
     NSArrayController *_fills;
     MSMathInspectorValueAdaptor *_opacityAdaptor;
@@ -34,7 +34,7 @@
 @property(retain, nonatomic) NSArrayController *fills; // @synthesize fills=_fills;
 @property(nonatomic) BOOL isDisplayingTint; // @synthesize isDisplayingTint=_isDisplayingTint;
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSInlineUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)updateDisplayedSwatchValues;
 - (void)fillPropertiesAction:(id)arg1;

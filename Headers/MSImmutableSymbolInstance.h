@@ -14,8 +14,6 @@
 {
     NSArray *_calculatedAvailableOverrides;
     // Error parsing type: A^^v, name: _availableOverridesInDocumentAtomicPointer
-    NSArray *_calculatedAvailableOverrideValues;
-    // Error parsing type: A^^v, name: _availableOverrideValuesInDocumentAtomicPointer
 }
 
 + (id)defaultName;
@@ -24,21 +22,18 @@
 - (void).cxx_destruct;
 - (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2;
-- (BOOL)canSimplyWrapMasterLayers:(id)arg1 overrides:(id)arg2 detachRecursively:(BOOL)arg3;
+- (BOOL)canSimplyWrapMasterLayers:(id)arg1 detachRecursively:(BOOL)arg2;
 - (id)detachedGroupCacheKeyWithOverrides:(id)arg1 detachRecursively:(BOOL)arg2;
-- (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 visitedSymbols:(id)arg4 skipCache:(BOOL)arg5;
-- (id)createMutableDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 symbol:(id)arg4 visitedSymbols:(id)arg5;
+- (id)applicableOverridesForMaster:(id)arg1 info:(id)arg2;
+- (id)detachedLayerGroupWithInfo:(id)arg1 visitedSymbols:(id)arg2;
+- (id)createMutableDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)updatedUserInfo:(id)arg1 withMasterObjectID:(id)arg2 masterSymbolID:(id)arg3;
-- (id)createDetachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 visitedSymbols:(id)arg4 symbol:(id)arg5;
-- (id)resolvedUsingDocumentData:(id)arg1;
+- (id)createDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-- (BOOL)shouldCreateModifiedMasterForMaster:(id)arg1 inDocument:(id)arg2;
-- (id)availableOverrideValuesWithDocument:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
 - (BOOL)isScaled;
-- (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-- (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
+- (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (id)overridesFromGroupForMigration:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;

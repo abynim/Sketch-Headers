@@ -11,7 +11,6 @@
 @protocol MSDataSupplierManagerDelegate <NSObject>
 - (NSString *)pluginNameForIdentifier:(NSString *)arg1;
 - (NSImage *)pluginIconForIdentifier:(NSString *)arg1;
-- (BOOL)isThereAPluginForDataSupplier:(MSPluginDataSupplier *)arg1;
 - (void)requestDataFromPluginDataSupplier:(MSPluginDataSupplier *)arg1 pluginContext:(NSDictionary *)arg2;
 @end
 

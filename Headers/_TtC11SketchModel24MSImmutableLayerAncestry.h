@@ -6,14 +6,13 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutableLayer, NSArray, NSIndexPath;
+@class MSImmutableDocumentData, MSImmutableLayer, NSArray;
 
 @interface _TtC11SketchModel24MSImmutableLayerAncestry : NSObject
 {
     // Error parsing type: , name: layer
     // Error parsing type: , name: ancestors
     // Error parsing type: , name: document
-    // Error parsing type: , name: $__lazy_storage_$_indexPath
     // Error parsing type: , name: $__lazy_storage_$_absoluteRect
 }
 
@@ -21,7 +20,6 @@
 - (id)init;
 - (id)ancestryToPage;
 @property(nonatomic) struct CGRect absoluteRect;
-@property(nonatomic, copy) NSIndexPath *indexPath;
 - (id)ancestorsAndSelf;
 - (id)artboard;
 - (id)parentGroup;

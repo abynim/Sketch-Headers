@@ -12,7 +12,6 @@
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;
-    BOOL _includeInCloudUpload;
     BOOL _isFlowHome;
     NSDictionary *_presetDictionary;
     BOOL _resizesContent;
@@ -37,7 +36,6 @@
 - (void)setRaw_resizesContent:(BOOL)arg1;
 - (void)setRaw_presetDictionary:(id)arg1;
 - (void)setRaw_isFlowHome:(BOOL)arg1;
-- (void)setRaw_includeInCloudUpload:(BOOL)arg1;
 - (void)setRaw_includeBackgroundColorInExport:(BOOL)arg1;
 - (void)setRaw_hasBackgroundColor:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
@@ -57,7 +55,6 @@
 @property(nonatomic) BOOL resizesContent; // @synthesize resizesContent=_resizesContent;
 @property(retain, nonatomic) NSDictionary *presetDictionary; // @synthesize presetDictionary=_presetDictionary;
 @property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
-@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 @property(nonatomic) BOOL includeBackgroundColorInExport; // @synthesize includeBackgroundColorInExport=_includeBackgroundColorInExport;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;
 - (void)performInitWithImmutableModelObject:(id)arg1;

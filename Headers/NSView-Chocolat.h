@@ -6,7 +6,7 @@
 
 #import <AppKit/NSView.h>
 
-@class NSArray, NSObject;
+@class NSArray, NSObject, NSTextView;
 @protocol MSDropableViewDelegate;
 
 @interface NSView (Chocolat)
@@ -33,7 +33,9 @@
 - (id)verticalConstraintWithView:(id)arg1;
 - (id)horizontalConstraintsWithView:(id)arg1;
 - (id)horizontalConstraintWithView:(id)arg1;
+- (void)showWithIntrinsicWidth;
 - (void)showWithWidth:(double)arg1;
+- (void)showWithIntrinsicHeight;
 - (void)showWithHeight:(double)arg1;
 - (void)hideWithZeroWidth;
 - (void)hideWithZeroHeight;
@@ -44,6 +46,8 @@
 - (void)constrainHeight:(double)arg1;
 - (void)addSubview:(id)arg1 constrainedBy:(struct NSEdgeInsets)arg2 priority:(float)arg3;
 - (id)constraintWithSelfAsFirstItemBoundToAttribute:(long long)arg1;
+@property(nonatomic) struct _NSRange currentFieldEditorEditRange;
+@property(readonly, nonatomic) NSTextView *activeFieldEditor;
 - (id)nestedSubviewWithIdentifier:(id)arg1;
 - (BOOL)isContainedByCollapsedSplitViewSubview;
 - (id)enclosingAncestorViewOfClass:(Class)arg1;

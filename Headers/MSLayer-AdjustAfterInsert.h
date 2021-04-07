@@ -7,7 +7,6 @@
 #import <SketchModel/MSLayer.h>
 
 @interface MSLayer (AdjustAfterInsert)
-+ (id)layerOfDataType:(unsigned long long)arg1;
 - (void)adjustAfterInsert;
 - (BOOL)canBeHidden;
 - (long long)cornerRectType;
@@ -22,7 +21,6 @@
 - (BOOL)shouldFlattenAfterRotate;
 - (Class)handlerClass;
 - (BOOL)handleDoubleClick;
-- (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (id)inspectorSections;
 - (void)writeBitmapImageToFile:(id)arg1;
 - (void)applyScreenPickerColor:(id)arg1 preferredStyleName:(id)arg2;

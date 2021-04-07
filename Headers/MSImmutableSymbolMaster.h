@@ -8,21 +8,19 @@
 
 #import <SketchModel/BCSortable-Protocol.h>
 
-@class BCCache, BCReadWriteLock, NSArray, NSDictionary, NSString;
+@class BCReadWriteLock, NSArray, NSDictionary, NSString;
 
 @interface MSImmutableSymbolMaster : _MSImmutableSymbolMaster <BCSortable>
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
     NSDictionary *_overridePropertyDict;
-    BCCache *_detachedGroupCache;
 }
 
 + (id)defaultName;
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BCCache *detachedGroupCache; // @synthesize detachedGroupCache=_detachedGroupCache;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
@@ -31,7 +29,6 @@
 @property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
 - (void)calculateOverridePropertyDict;
 @property(readonly, nonatomic) BOOL isWorthDetaching;
-- (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

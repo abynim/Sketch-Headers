@@ -10,7 +10,7 @@
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class BCPopover, MSColor, MSColorInspector, MSInlineUpDownNanoTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
+@class BCPopover, MSColor, MSColorInspector, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
 
 @interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, NSTextFieldDelegate>
 {
@@ -21,12 +21,12 @@
     NSArrayController *_colors;
     MSOverrideTextField *_hexField;
     MSStylePartPreviewButton *_colorView;
-    MSInlineUpDownNanoTextField *_opacityField;
+    MSInlineUpDownTextField *_opacityField;
 }
 
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSInlineUpDownNanoTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(retain, nonatomic) MSInlineUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorView; // @synthesize colorView=_colorView;
 @property(retain, nonatomic) MSOverrideTextField *hexField; // @synthesize hexField=_hexField;
 @property(retain, nonatomic) NSArrayController *colors; // @synthesize colors=_colors;

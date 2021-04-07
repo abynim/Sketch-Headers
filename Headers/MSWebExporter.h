@@ -14,6 +14,8 @@
 @interface MSWebExporter : NSObject <MSCloudManifestMakerDelegate>
 {
     BOOL _selectiveExport;
+    BOOL _drawsAsynchronously;
+    BOOL _concurrent;
     BOOL _cancelled;
     NSURL *_destinationURL;
     NSString *_name;
@@ -35,6 +37,8 @@
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
 @property(retain, nonatomic) NSBundle *clientBundle; // @synthesize clientBundle=_clientBundle;
 @property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
+@property(nonatomic) BOOL concurrent; // @synthesize concurrent=_concurrent;
+@property(nonatomic) BOOL drawsAsynchronously; // @synthesize drawsAsynchronously=_drawsAsynchronously;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;

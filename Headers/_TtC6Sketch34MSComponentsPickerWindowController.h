@@ -14,7 +14,7 @@
 }
 
 + (void)refreshIfNeededForDocument:(id)arg1 treeDiff:(id)arg2;
-+ (BOOL)isVisible;
++ (BOOL)hasKeyboardFocus;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;

@@ -13,7 +13,6 @@
 #import "NSWindowDelegate-Protocol.h"
 
 @class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
-@protocol OS_dispatch_semaphore;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
@@ -25,10 +24,6 @@
     NSMenuItem *_aboutMenuItem;
     NSMenuItem *_componentsWindowMenuItem;
     NSMenuItem *_debugMenuItem;
-    NSMenuItem *_switchToCanvasModeMenuItem;
-    NSMenuItem *_switchToComponentsModeMenuItem;
-    NSMenuItem *_switchComponentKindMenuItem;
-    NSMenuItem *_componentSeparatorItem;
     NSMenuItem *_insertSymbolMenuItem;
     NSMenuItem *_insertSharedTextStyleMenuItem;
     NSMenu *_fileMenu;
@@ -47,11 +42,7 @@
     MSActionController *_actionController;
     MSAssetLibraryController *_librariesController;
     _TtC6Sketch34MSCloudUserNotificationsController *_userNotificationsController;
-    double _creationTime;
-    double _launchStartTime;
-    double _launchEndTime;
     NSString *_scriptPath;
-    NSObject<OS_dispatch_semaphore> *_migrationSemaphore;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
     MSFontWatcher *_fontWatcher;
@@ -67,14 +58,10 @@
 @property(retain, nonatomic) MSFontWatcher *fontWatcher; // @synthesize fontWatcher=_fontWatcher;
 @property(retain, nonatomic) NSArray *visualSettings; // @synthesize visualSettings=_visualSettings;
 @property(retain, nonatomic) MSDocumentationSearcher *documentationSearcher; // @synthesize documentationSearcher=_documentationSearcher;
-@property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *migrationSemaphore; // @synthesize migrationSemaphore=_migrationSemaphore;
 @property(nonatomic) NSString *scriptPath; // @synthesize scriptPath=_scriptPath;
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
 @property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
 @property(nonatomic) BOOL applicationHasFinishedLaunching; // @synthesize applicationHasFinishedLaunching=_applicationHasFinishedLaunching;
-@property(nonatomic) double launchEndTime; // @synthesize launchEndTime=_launchEndTime;
-@property(nonatomic) double launchStartTime; // @synthesize launchStartTime=_launchStartTime;
-@property(nonatomic) double creationTime; // @synthesize creationTime=_creationTime;
 @property(readonly, nonatomic) _TtC6Sketch34MSCloudUserNotificationsController *userNotificationsController; // @synthesize userNotificationsController=_userNotificationsController;
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
 @property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
@@ -93,10 +80,6 @@
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;
 @property(retain, nonatomic) NSMenuItem *insertSharedTextStyleMenuItem; // @synthesize insertSharedTextStyleMenuItem=_insertSharedTextStyleMenuItem;
 @property(retain, nonatomic) NSMenuItem *insertSymbolMenuItem; // @synthesize insertSymbolMenuItem=_insertSymbolMenuItem;
-@property(nonatomic) __weak NSMenuItem *componentSeparatorItem; // @synthesize componentSeparatorItem=_componentSeparatorItem;
-@property(nonatomic) __weak NSMenuItem *switchComponentKindMenuItem; // @synthesize switchComponentKindMenuItem=_switchComponentKindMenuItem;
-@property(nonatomic) __weak NSMenuItem *switchToComponentsModeMenuItem; // @synthesize switchToComponentsModeMenuItem=_switchToComponentsModeMenuItem;
-@property(nonatomic) __weak NSMenuItem *switchToCanvasModeMenuItem; // @synthesize switchToCanvasModeMenuItem=_switchToCanvasModeMenuItem;
 @property(nonatomic) __weak NSMenuItem *debugMenuItem; // @synthesize debugMenuItem=_debugMenuItem;
 @property(nonatomic) __weak NSMenuItem *componentsWindowMenuItem; // @synthesize componentsWindowMenuItem=_componentsWindowMenuItem;
 @property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
@@ -109,7 +92,7 @@
 - (void)refreshDocumentColors;
 - (void)currentDocumentDidChange;
 - (void)showLicenseAlert:(long long)arg1 remainingTimeInterval:(double)arg2;
-- (void)licenseDidBecomeInvalidNotification:(id)arg1;
+- (void)licenseMayHaveBecomeInvalidNotification:(id)arg1;
 - (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
@@ -119,7 +102,6 @@
 - (void)documentWillClose:(id)arg1;
 - (id)pluginNameForIdentifier:(id)arg1;
 - (id)pluginIconForIdentifier:(id)arg1;
-- (BOOL)isThereAPluginForDataSupplier:(id)arg1;
 - (void)requestDataFromPluginDataSupplier:(id)arg1 pluginContext:(id)arg2;
 - (void)revealTemplatesFolderInFinder:(id)arg1;
 - (void)addTemplatesAtURL:(id)arg1 toMenu:(id)arg2;
@@ -161,13 +143,10 @@
 - (void)showUpdates:(id)arg1;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) BOOL canShowDocumentsWindowForUserAction;
-- (void)showMainApplicationWindow;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)removeObserversForVisualSettings;
 - (void)addObserversForVisualSettings;
-- (void)updateAssistantsMenuState:(BOOL)arg1;
-- (void)setupAssistantsMenu;
 - (void)setupMenuItems;
 @property(readonly, nonatomic) BOOL shouldShowDocumentsWindowOnLaunch;
 @property(readonly, nonatomic) MSDocumentController *documentController;

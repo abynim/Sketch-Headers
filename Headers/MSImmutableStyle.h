@@ -13,14 +13,12 @@
     BOOL _hasMarkers;
     BOOL _hasMultipleEnabledFills;
     BOOL _hasEnabledShadow;
-    BOOL _hasEnabledInnerShadow;
     BOOL _hasEnabledBorder;
     BOOL _hasEnabledFill;
     BOOL _hasBlending;
     BOOL _hasEnabledBackgroundBlur;
     double _thickestBorder;
     double _thickestStrokeDoubledForClipping;
-    double _thickestInnerStroke;
     double _outerPaddingForBiggestStroke;
     double _outerPaddingForSmallestStroke;
     double _outerPaddingForBiggestShadowSpread;
@@ -31,13 +29,11 @@
 @property(readonly, nonatomic) double outerPaddingForBiggestShadowSpread; // @synthesize outerPaddingForBiggestShadowSpread=_outerPaddingForBiggestShadowSpread;
 @property(readonly, nonatomic) double outerPaddingForSmallestStroke; // @synthesize outerPaddingForSmallestStroke=_outerPaddingForSmallestStroke;
 @property(readonly, nonatomic) double outerPaddingForBiggestStroke; // @synthesize outerPaddingForBiggestStroke=_outerPaddingForBiggestStroke;
-@property(readonly, nonatomic) double thickestInnerStroke; // @synthesize thickestInnerStroke=_thickestInnerStroke;
 @property(readonly, nonatomic) double thickestStrokeDoubledForClipping; // @synthesize thickestStrokeDoubledForClipping=_thickestStrokeDoubledForClipping;
 @property(readonly, nonatomic) double thickestBorder; // @synthesize thickestBorder=_thickestBorder;
 @property(readonly, nonatomic) BOOL hasBlending; // @synthesize hasBlending=_hasBlending;
 @property(readonly, nonatomic) BOOL hasEnabledFill; // @synthesize hasEnabledFill=_hasEnabledFill;
 @property(readonly, nonatomic) BOOL hasEnabledBorder; // @synthesize hasEnabledBorder=_hasEnabledBorder;
-@property(readonly, nonatomic) BOOL hasEnabledInnerShadow; // @synthesize hasEnabledInnerShadow=_hasEnabledInnerShadow;
 @property(readonly, nonatomic) BOOL hasEnabledShadow; // @synthesize hasEnabledShadow=_hasEnabledShadow;
 @property(readonly, nonatomic) BOOL hasMultipleEnabledFills; // @synthesize hasMultipleEnabledFills=_hasMultipleEnabledFills;
 @property(readonly, nonatomic) BOOL hasMarkers; // @synthesize hasMarkers=_hasMarkers;
@@ -55,7 +51,6 @@
 @property(readonly, nonatomic) NSArray *enabledFills;
 @property(readonly, nonatomic) long long shadowBorderPosition;
 @property(readonly, nonatomic) unsigned long long shadowType;
-- (struct CGRect)boundingBoxForBiggestShadowSpreadForLayer:(id)arg1;
 - (double)calculateOuterPaddingForBiggestShadowSpread;
 - (double)calculateOuterPaddingForSmallestStroke;
 - (double)calculateOuterPaddingForBiggestStroke;

@@ -6,7 +6,7 @@
 
 #import "_$s14SketchCloudKit14UserControllerCN.h"
 
-@class NSString, SCKOrganization;
+@class NSString, SCKOrganization, SCKWorkspace;
 
 @interface _$s14SketchCloudKit14UserControllerCN (Sketch)
 + (BOOL)supportsPersonalContributors;
@@ -15,7 +15,9 @@
 - (id)organizationMenuWithTarget:(id)arg1 action:(SEL)arg2;
 @property(nonatomic, readonly) BOOL shouldShowOrganizationMenu;
 @property(nonatomic, copy) NSString *defaultProjectID;
+@property(nonatomic, retain) SCKWorkspace *defaultWorkspace;
 @property(nonatomic, retain) SCKOrganization *defaultOrganization;
+- (BOOL)canEditContentsOfWorkspace:(id)arg1;
 - (BOOL)canContributeTo:(id)arg1;
 @property(nonatomic, readonly) BOOL isPersonalContributor;
 @property(nonatomic, readonly) BOOL isOrganizationContributor;

@@ -6,13 +6,12 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchRendering/MSRenderingContextCGPoolProvider-Protocol.h>
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSOperationQueue, NSString, NSView;
+@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSString, NSView;
 @protocol MSTiledRendererHostView, OS_os_log;
 
-@interface MSTiledRenderer : NSObject <MSRenderingContextCGPoolProvider, MSTilingSystemProvider>
+@interface MSTiledRenderer : NSObject <MSTilingSystemProvider>
 {
     MSRenderingDriver *_driver;
     double _compositingDuration[10];
@@ -31,7 +30,6 @@
     MSCGContextPool *_contextPool;
     MSBitmapEffectsContextPool *_bitmapEffectsContextPool;
     NSString *_previousPageObjectID;
-    NSOperationQueue *_rasterisationQueue;
     MSRenderInstruction *_renderedInstruction;
     MSRenderInstruction *_compositedInstruction;
     NSString *_renderedPageID;
@@ -51,7 +49,6 @@
 @property(retain) NSString *renderedPageID; // @synthesize renderedPageID=_renderedPageID;
 @property(copy, nonatomic) MSRenderInstruction *compositedInstruction; // @synthesize compositedInstruction=_compositedInstruction;
 @property(copy) MSRenderInstruction *renderedInstruction; // @synthesize renderedInstruction=_renderedInstruction;
-@property(readonly, nonatomic) NSOperationQueue *rasterisationQueue; // @synthesize rasterisationQueue=_rasterisationQueue;
 @property(retain, nonatomic) NSString *previousPageObjectID; // @synthesize previousPageObjectID=_previousPageObjectID;
 @property(retain, nonatomic) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool=_bitmapEffectsContextPool;
 @property(retain, nonatomic) MSCGContextPool *contextPool; // @synthesize contextPool=_contextPool;
@@ -76,22 +73,18 @@
 - (CDStruct_3b01f0aa *)_visibleDirtyRects:(struct CGRect)arg1 totalZoom:(double)arg2 previousContentScale:(double)arg3 level:(id)arg4;
 - (BOOL)_rasteriseContentInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 zoomValue:(double)arg3 backingScale:(double)arg4 instruction:(id)arg5 tiles:(id)arg6 renderContentSynchronously:(BOOL)arg7 didCompleteSemaphore:(id)arg8;
 - (void)_rasterisationFinishedForTileLevel:(id)arg1 page:(id)arg2 instruction:(id)arg3;
+- (void)_rasterizeRects:(CDStruct_3b01f0aa *)arg1 chunkOffsets:(unsigned long long *)arg2 bytesPerRow:(unsigned long long *)arg3 forPage:(id)arg4 renderingRequest:(id)arg5 times:(double *)arg6;
 - (void)_doParallelContentRasterisationInRects:(CDStruct_3b01f0aa *)arg1 forPage:(id)arg2 zoomValue:(double)arg3 backingScale:(double)arg4 instruction:(id)arg5 contentsScale:(double)arg6 tiles:(id)arg7;
 - (void)_renderTilesWithTotalZoom:(double)arg1 renderingParameters:(struct MSRenderingParameters)arg2 displayPixels:(BOOL)arg3 tiles:(id)arg4;
 - (CDStruct_75f85af1 *)_renderTileLevelWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 tiles:(id)arg4 inRegion:(const CDStruct_75f85af1 *)arg5;
 - (id)_findTileLevelForContentWithZoom:(double)arg1;
 @property(readonly, nonatomic) CALayer *layer;
 - (BOOL)isDrawing;
+@property(readonly, nonatomic) unsigned long long defaultRenderingRequestOptions;
 @property(readonly, nonatomic) MSRenderingDriver *driver;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 syncFirstFrame:(BOOL)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

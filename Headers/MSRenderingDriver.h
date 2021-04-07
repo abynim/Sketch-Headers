@@ -6,19 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSMapTable;
-
 @interface MSRenderingDriver : NSObject
 {
-    NSMapTable *_renderers;
+    // Error parsing type: , name: rasterizeShadows
+    // Error parsing type: , name: renderers
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMapTable *renderers; // @synthesize renderers=_renderers;
-- (id)contextWithName:(id)arg1 forCGContext:(struct CGContext *)arg2 renderingRequest:(id)arg3;
-- (id)rendererForObject:(id)arg1;
-- (id)setupRendererMap;
 - (id)init;
+- (id)initWithRasterizeShadows:(BOOL)arg1;
 
 @end
 

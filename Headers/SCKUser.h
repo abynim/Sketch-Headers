@@ -18,9 +18,11 @@
     SCKPaginatedShares *_paginatedShares;
     NSString *_email;
     NSArray *_organizations;
+    NSArray *_workspaces;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *workspaces; // @synthesize workspaces=_workspaces;
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
@@ -28,9 +30,11 @@
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) NSArray *editableWorkspaces;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 - (id)dictionaryRepresentation;
+- (id)initWithUser:(id)arg1 updatedWorkspaces:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties

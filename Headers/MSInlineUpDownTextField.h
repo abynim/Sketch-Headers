@@ -14,10 +14,12 @@
     NSImage *_inlineImage;
     NSTextField *_inlineLabelField;
     NSString *_inlineToolTip;
+    double _incrementValue;
 }
 
 + (Class)cellClass;
 - (void).cxx_destruct;
+@property(nonatomic) double incrementValue; // @synthesize incrementValue=_incrementValue;
 @property(retain, nonatomic) NSString *inlineToolTip; // @synthesize inlineToolTip=_inlineToolTip;
 @property(retain, nonatomic) NSTextField *inlineLabelField; // @synthesize inlineLabelField=_inlineLabelField;
 @property(retain, nonatomic) NSImage *inlineImage; // @synthesize inlineImage=_inlineImage;
@@ -29,6 +31,8 @@
 - (id)createUpDownController;
 - (void)setEnabled:(BOOL)arg1;
 - (void)awakeFromNib;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) MSUpDownController *upDownController; // @dynamic upDownController;

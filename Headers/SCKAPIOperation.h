@@ -23,8 +23,6 @@
 + (id)clientToken;
 + (void)setClientID:(id)arg1;
 + (id)clientID;
-+ (void)setApplicationBundle:(id)arg1;
-+ (id)applicationBundle;
 + (id)additionalHeaders;
 + (id)defaultURLSession;
 + (id)requestAllProjectsOnBehalfOfOwner:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

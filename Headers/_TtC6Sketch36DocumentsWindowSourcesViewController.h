@@ -23,7 +23,7 @@
     // Error parsing type: , name: newProjectPlaceholder
     // Error parsing type: , name: isEditingProjectName
     // Error parsing type: , name: personalProjects
-    // Error parsing type: , name: organizationProjects
+    // Error parsing type: , name: projectsByWorkspace
     // Error parsing type: , name: lastSourcesLoadDate
 }
 

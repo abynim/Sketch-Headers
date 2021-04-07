@@ -15,7 +15,6 @@
 }
 
 + (void)initialize;
-+ (void)setAliasName:(id)arg1 forClassName:(id)arg2;
 + (void)setAliasName:(id)arg1 forClass:(Class)arg2;
 + (id)encodeObjectAsData:(id)arg1 error:(id *)arg2;
 + (id)encoderForWritingToMutableData:(id)arg1;
@@ -40,7 +39,6 @@
 - (void)encodeStringWithoutCheckingFormat:(id)arg1 includeQuotes:(BOOL)arg2;
 - (void)encodeObject:(id)arg1;
 - (void)writeData:(const void *)arg1 length:(unsigned long long)arg2;
-- (id)classNameForClass:(Class)arg1;
 
 @end
 

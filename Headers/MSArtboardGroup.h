@@ -84,6 +84,7 @@
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
 

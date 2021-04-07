@@ -10,11 +10,12 @@
 #import "MSInspectorTableViewManagerDelegate-Protocol.h"
 #import "MSViewRestoration-Protocol.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _TtC6Sketch29MSSymbolInstanceInspectorItem;
+@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSInstanceOverridesHeaderItem, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _TtC6Sketch29MSSymbolInstanceInspectorItem;
 @protocol MSSymbolInstanceSectionDelegate, MSSymbolOverrideItemDescription;
 
 @interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider, MSViewRestoration>
 {
+    MSInstanceOverridesHeaderItem *_overrideHeader;
     NSArray *_selectedOverrides;
     MSSharedSymbolStylesInspectorItem *_sharedStyleItem;
     _TtC6Sketch29MSSymbolInstanceInspectorItem *_symbolItem;
@@ -57,6 +58,7 @@
 - (id)uniqueArtboardIDsOfSelectedLayers;
 - (void)recursivelyGatherOverrideItemsForOverrides:(id)arg1 into:(id)arg2;
 - (void)updateItems;
+@property(readonly, nonatomic) MSInstanceOverridesHeaderItem *overrideHeader; // @synthesize overrideHeader=_overrideHeader;
 - (void)setLayers:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

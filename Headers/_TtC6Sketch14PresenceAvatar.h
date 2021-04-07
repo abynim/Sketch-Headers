@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: loadedImageURL
     // Error parsing type: , name: presenceDescription
+    // Error parsing type: , name: isFollowed
     // Error parsing type: , name: observation
 }
 

@@ -7,19 +7,19 @@
 #import <SketchModel/_MSDocumentData.h>
 
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
-#import <SketchModel/MSLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class BCCache, MSDocumentState, MSFontList, MSImmutableDocumentData, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext;
+@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 @protocol MSDocumentDataDelegate;
 
-@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol, MSLayerContainer>
+@interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
 {
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
     NSArray *_selectedOverrides;
     _TtC11SketchModel16MSEditingContext *_editingContext;
-    BCCache *_cache;
+    _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
+    _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
     NSData *_textPreviewData;
@@ -40,13 +40,14 @@
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
+@property(nonatomic) __weak _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
+@property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
 - (void)resetStateAndMetadataForDuplication;
 @property(copy, nonatomic) MSDocumentState *documentState;
-@property(readonly, nonatomic) NSArray *layers;
+- (id)layers;
 - (void)refaultAgainst:(id)arg1;
 - (void)prepareForChangeProcessing;
 - (void)layerDidChangeStyle:(id)arg1;
@@ -112,6 +113,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)enumerateColorUpdateablesIn:(id)arg1 using:(CDUnknownBlockType)arg2;
 - (void)enumerateColorUpdateables:(CDUnknownBlockType)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;

@@ -6,51 +6,21 @@
 
 #import <SketchModel/_MSRect.h>
 
-#import <SketchModel/MSRectProtocol-Protocol.h>
-
-@interface MSRect : _MSRect <MSRectProtocol>
+@interface MSRect : _MSRect
 {
     long long _proportionsTempDisabled;
     unsigned long long _batchEditsCount;
     struct CGRect _oldRect;
-    double _right;
-    double _bottom;
     double _proportions;
 }
 
-+ (id)rectWithUnionOfRects:(id)arg1;
 + (id)rectWithRect:(struct CGRect)arg1;
-+ (id)rectWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
 @property(nonatomic) double proportions; // @synthesize proportions=_proportions;
-@property(nonatomic) double bottom; // @synthesize bottom=_bottom;
-@property(nonatomic) double right; // @synthesize right=_right;
-- (BOOL)isIntegral;
 - (void)endEditing;
 - (void)beginEditing;
 - (void)processEditing;
 - (void)editedFromRect:(struct CGRect)arg1;
-- (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
-- (void)setConstrainProportions:(BOOL)arg1;
-@property(nonatomic) struct CGPoint mid;
 - (id)description;
-- (void)log;
-- (BOOL)containsPoint:(struct CGPoint)arg1;
-@property(nonatomic) BOOL primitiveConstrainProportions;
-- (id)scaleBy:(double)arg1;
-@property(nonatomic) double midY;
-@property(nonatomic) double midX;
-@property(nonatomic) double maxY;
-@property(nonatomic) double minY;
-@property(nonatomic) double maxX;
-@property(nonatomic) double minX;
-- (void)setMin:(double)arg1 forAxis:(unsigned long long)arg2;
-- (double)minForAxis:(unsigned long long)arg1;
-@property(nonatomic) double top;
-@property(nonatomic) double left;
-@property(nonatomic) struct CGPoint origin;
-@property(nonatomic) struct CGSize size;
-- (void)makeRectIntegral;
-- (void)makeOriginIntegral;
 @property(nonatomic) struct CGRect rect;
 - (id)delegate;
 - (void)setY:(double)arg1;

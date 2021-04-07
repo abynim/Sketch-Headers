@@ -49,6 +49,7 @@
 - (void)documentCloudShareDidChange:(id)arg1;
 - (void)uploadDidFinish:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
+- (void)cloudAuthenticationDidChange:(id)arg1;
 - (void)viewDidLayout;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;
