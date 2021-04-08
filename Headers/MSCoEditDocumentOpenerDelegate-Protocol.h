@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentOpenerDelegate-Protocol.h"
+#import <SharedEditing/MSDocumentOpenerDelegate-Protocol.h>
 
 @class MSCoEditDocumentOpener, NSError;
 
 @protocol MSCoEditDocumentOpenerDelegate <MSDocumentOpenerDelegate>
-@property(readonly, nonatomic) NSError *betaDisabledError;
 - (NSError *)makeErrorPresentable:(MSCoEditDocumentOpener *)arg1 error:(NSError *)arg2;
+@property(nonatomic, readonly) NSError *betaDisabledError;
 - (void)didProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (void)willProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldOpenExistingDocument:(MSCoEditDocumentOpener *)arg1;

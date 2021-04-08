@@ -17,10 +17,11 @@
     // Error parsing type: , name: progressIndicator
     // Error parsing type: , name: discardButton
     // Error parsing type: , name: completionHandler
+    // Error parsing type: , name: confirmOnError
     // Error parsing type: , name: forceClosingDocument
 }
 
-+ (void)runForDocument:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)runForDocument:(id)arg1 confirmOnError:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;

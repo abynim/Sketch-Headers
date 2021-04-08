@@ -23,7 +23,6 @@
 - (void)updateEmbeddedFontReferences:(id)arg1 forDocumentID:(id)arg2;
 - (void)unregisterDocumentID:(id)arg1;
 - (void)registerEmbeddedFontsWithReferences:(id)arg1 forDocumentID:(id)arg2;
-- (void)dealloc;
 
 @end
 

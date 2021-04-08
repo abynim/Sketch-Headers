@@ -11,7 +11,8 @@
 @interface _TtC6Sketch10ScaleModel : NSObject
 {
     // Error parsing type: , name: originalSize
-    // Error parsing type: , name: items
+    // Error parsing type: , name: layerPositions
+    // Error parsing type: , name: layerPatches
     // Error parsing type: , name: originCorner
     // Error parsing type: , name: scale
     // Error parsing type: , name: resizeBox

@@ -4,27 +4,27 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchControllers/MSLayerTraits-Protocol.h>
-#import <SketchControllers/NSObject-Protocol.h>
+#import <SketchModel/MSLayerTraits-Protocol.h>
+#import <SketchModel/NSObject-Protocol.h>
 
 @class NSArray, NSString;
 
 @protocol MSLayerProtocol <NSObject, MSLayerTraits>
-@property(readonly, nonatomic) BOOL isLayerExportable;
-@property(readonly, nonatomic) struct CGPoint origin;
-@property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
-@property(readonly, nonatomic) BOOL hasTransforms;
-@property(readonly, nonatomic) struct CGPoint center;
-@property(readonly, nonatomic) struct CGRect bounds;
-@property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) NSString *objectID;
-@property(readonly, nonatomic) double rotation;
-@property(readonly, nonatomic) BOOL isFlippedVertical;
-@property(readonly, nonatomic) BOOL isFlippedHorizontal;
-@property(readonly, nonatomic) BOOL isVisible;
 - (BOOL)hasEnabledFill;
 - (NSArray *)childrenIncludingSelf:(BOOL)arg1;
 - (NSArray *)children;
 - (id)layerWithID:(NSString *)arg1;
+@property(nonatomic, readonly) BOOL isLayerExportable;
+@property(nonatomic, readonly) struct CGPoint origin;
+@property(nonatomic, readonly) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
+@property(nonatomic, readonly) BOOL hasTransforms;
+@property(nonatomic, readonly) struct CGPoint center;
+@property(nonatomic, readonly) struct CGRect bounds;
+@property(nonatomic, readonly) struct CGRect rect;
+@property(nonatomic, readonly) NSString *objectID;
+@property(nonatomic, readonly) double rotation;
+@property(nonatomic, readonly) BOOL isFlippedVertical;
+@property(nonatomic, readonly) BOOL isFlippedHorizontal;
+@property(nonatomic, readonly) BOOL isVisible;
 @end
 

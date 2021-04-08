@@ -31,6 +31,7 @@
 - (void)prepareDecorationButtonWithUnderlineValue:(id)arg1 strikeValue:(id)arg2;
 - (void)updateDecorationButtonIfNecessary;
 - (void)updateDisplayedValues;
+- (void)refreshIfNecessary:(id)arg1;
 - (void)dealloc;
 - (void)viewDidLoad;
 

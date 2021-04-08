@@ -112,6 +112,7 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)defaultPagesArray;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)enumerateColorUpdateablesIn:(id)arg1 using:(CDUnknownBlockType)arg2;
 - (void)enumerateColorUpdateables:(CDUnknownBlockType)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;

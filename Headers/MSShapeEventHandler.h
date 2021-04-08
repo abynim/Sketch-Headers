@@ -41,6 +41,7 @@
 - (void)performPathControllerUpdate:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL ignorePathController;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)updateUIKeepingSelectedLayers;
 - (void)documentDidChange:(id)arg1;
 - (void)pathDidOpenOrClose;
 - (id)makeTouchBar;
