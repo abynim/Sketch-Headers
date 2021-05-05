@@ -13,14 +13,18 @@
 }
 
 + (void)showRegistrationWindow:(id)arg1 licenseKey:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
-+ (void)showTrialExpiredWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)showLicenseExpiredWindow:(id)arg1 licenseResult:(long long)arg2 completionHandler:(CDUnknownBlockType)arg3;
 + (void)showCloudSigninWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (void)setSharedController:(id)arg1;
++ (id)sharedController;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithWindow:(id)arg1;
 - (void)documentController:(id)arg1 didCloseAll:(BOOL)arg2 contextInfo:(id)arg3;
+- (void)cancelOperation:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (BOOL)windowShouldClose:(id)arg1;
+@property(nonatomic, readonly) BOOL isLocked;
 - (void)windowDidLoad;
 
 @end

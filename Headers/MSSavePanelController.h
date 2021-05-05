@@ -10,7 +10,7 @@
 #import "NSOpenSavePanelDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser, _TtC6Sketch18MSRecentPlacesList;
+@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace, _TtC6Sketch18MSRecentPlacesList;
 
 @interface MSSavePanelController : CHSheetController <NSOpenSavePanelDelegate, NSDraggingDestination, NSWindowDelegate>
 {
@@ -35,12 +35,15 @@
     NSPopUpButton *_projectPopUpButton;
     NSView *_locationInputView;
     NSPopUpButton *_locationPopUpButton;
-    NSView *_signinView;
     NSStackView *_inputStack;
     NSTextField *_moveWarningLabel;
     NSView *_moveWarningView;
     NSLayoutConstraint *_contentViewHeightConstraint;
     NSLayoutConstraint *_contentViewMinimumHeightConstraint;
+    NSView *_cloudUnavailableView;
+    NSTextField *_cloudUnavailableTitleLabel;
+    NSTextField *_cloudUnavailableDetailsLabel;
+    NSButton *_cloudUnavailableActionButton;
     NSButton *_deleteButton;
     NSButton *_saveButton;
     NSButton *_attachFontsButton;
@@ -61,12 +64,15 @@
 @property(retain, nonatomic) NSButton *attachFontsButton; // @synthesize attachFontsButton=_attachFontsButton;
 @property(retain, nonatomic) NSButton *saveButton; // @synthesize saveButton=_saveButton;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
+@property(retain, nonatomic) NSButton *cloudUnavailableActionButton; // @synthesize cloudUnavailableActionButton=_cloudUnavailableActionButton;
+@property(retain, nonatomic) NSTextField *cloudUnavailableDetailsLabel; // @synthesize cloudUnavailableDetailsLabel=_cloudUnavailableDetailsLabel;
+@property(retain, nonatomic) NSTextField *cloudUnavailableTitleLabel; // @synthesize cloudUnavailableTitleLabel=_cloudUnavailableTitleLabel;
+@property(retain, nonatomic) NSView *cloudUnavailableView; // @synthesize cloudUnavailableView=_cloudUnavailableView;
 @property(retain, nonatomic) NSLayoutConstraint *contentViewMinimumHeightConstraint; // @synthesize contentViewMinimumHeightConstraint=_contentViewMinimumHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *contentViewHeightConstraint; // @synthesize contentViewHeightConstraint=_contentViewHeightConstraint;
 @property(retain, nonatomic) NSView *moveWarningView; // @synthesize moveWarningView=_moveWarningView;
 @property(retain, nonatomic) NSTextField *moveWarningLabel; // @synthesize moveWarningLabel=_moveWarningLabel;
 @property(retain, nonatomic) NSStackView *inputStack; // @synthesize inputStack=_inputStack;
-@property(retain, nonatomic) NSView *signinView; // @synthesize signinView=_signinView;
 @property(retain, nonatomic) NSPopUpButton *locationPopUpButton; // @synthesize locationPopUpButton=_locationPopUpButton;
 @property(retain, nonatomic) NSView *locationInputView; // @synthesize locationInputView=_locationInputView;
 @property(retain, nonatomic) NSPopUpButton *projectPopUpButton; // @synthesize projectPopUpButton=_projectPopUpButton;
@@ -96,7 +102,7 @@
 - (void)cancel:(id)arg1;
 - (void)finishWithSender:(id)arg1;
 - (void)confirm:(id)arg1;
-- (void)learnMoreAboutCloud:(id)arg1;
+- (void)learnMoreAboutLicenseMigration:(id)arg1;
 - (void)signInToCloud:(id)arg1;
 - (void)reloadCloudDestinations;
 - (void)authenticationDidChange:(id)arg1;
@@ -115,13 +121,13 @@
 - (void)updateProjectsMenu;
 - (id)projects;
 - (void)requestProjects;
-@property(readonly, nonatomic) SCKOrganization *organization;
+@property(readonly, nonatomic) SCKWorkspace *workspace;
 - (void)selectProject:(id)arg1;
-- (void)selectOrganization:(id)arg1;
-- (void)requestOrganizations;
+- (void)selectWorkspace:(id)arg1;
+@property(readonly, nonatomic) BOOL canSaveToWorkspace;
 - (BOOL)validateConfirmation;
 - (void)updateButtonValidation;
-- (void)setSigninViewVisible:(BOOL)arg1;
+- (void)setWorkspacesDisabledViewVisible:(BOOL)arg1;
 - (void)updateConstraints;
 - (void)updateView;
 @property(readonly, nonatomic) NSURL *localURL;

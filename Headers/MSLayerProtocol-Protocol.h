@@ -15,6 +15,7 @@
 - (NSArray *)children;
 - (id)layerWithID:(NSString *)arg1;
 @property(nonatomic, readonly) BOOL isLayerExportable;
+@property(nonatomic, readonly) struct CGSize size;
 @property(nonatomic, readonly) struct CGPoint origin;
 @property(nonatomic, readonly) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 @property(nonatomic, readonly) BOOL hasTransforms;

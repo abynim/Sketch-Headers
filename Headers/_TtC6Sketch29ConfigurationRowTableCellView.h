@@ -8,7 +8,7 @@
 
 #import "NSMenuDelegate-Protocol.h"
 
-@class NSButton, NSProgressIndicator, NSTextField, _TtC6Sketch13AssistantIcon;
+@class NSButton, NSProgressIndicator, NSTextField, NSView, _TtC6Sketch13AssistantIcon;
 
 @interface _TtC6Sketch29ConfigurationRowTableCellView : NSTableCellView <NSMenuDelegate>
 {
@@ -18,6 +18,7 @@
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: subtitle
     // Error parsing type: , name: activityIndicator
+    // Error parsing type: , name: activityIndicatorSpacerView
     // Error parsing type: , name: versionLabel
     // Error parsing type: , name: delegate
     // Error parsing type: , name: configurationRowModel
@@ -35,6 +36,7 @@
 - (void)installAssistant;
 - (void)checkChanged:(id)arg1;
 @property(nonatomic, retain) NSTextField *versionLabel; // @synthesize versionLabel;
+@property(nonatomic, retain) NSView *activityIndicatorSpacerView; // @synthesize activityIndicatorSpacerView;
 @property(nonatomic, retain) NSProgressIndicator *activityIndicator; // @synthesize activityIndicator;
 @property(nonatomic, retain) NSTextField *subtitle; // @synthesize subtitle;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;

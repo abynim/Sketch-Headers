@@ -6,12 +6,13 @@
 
 #import <SketchModel/_MSImmutableStyleShadow.h>
 
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/NSPasteboardReading-Protocol.h>
 #import <SketchModel/NSPasteboardWriting-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
-@interface MSImmutableStyleShadow : _MSImmutableStyleShadow <NSPasteboardWriting, NSPasteboardReading>
+@interface MSImmutableStyleShadow : _MSImmutableStyleShadow <NSPasteboardWriting, NSPasteboardReading, MSColorReadable>
 {
     struct CGSize _offset;
 }
@@ -19,6 +20,8 @@
 + (id)stylePartPasteboardType;
 @property(nonatomic) struct CGSize offset; // @synthesize offset=_offset;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) NSArray *updateableColors;
+- (void)objectDidInit;
 - (id)pasteboardReaderWriter;
 
 // Remaining properties

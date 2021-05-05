@@ -9,6 +9,7 @@
 @interface _TtC6Sketch12MSAvatarView : NSView
 {
     // Error parsing type: , name: contentOwner
+    // Error parsing type: , name: isEnabled
     // Error parsing type: , name: frameStyle
     // Error parsing type: , name: placeholderTitle
     // Error parsing type: , name: placeholderTextColor

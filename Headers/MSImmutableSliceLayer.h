@@ -6,11 +6,12 @@
 
 #import <SketchModel/_MSImmutableSliceLayer.h>
 
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
-@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSLayerWithBackgroundColor>
+@interface MSImmutableSliceLayer : _MSImmutableSliceLayer <MSLayerWithBackgroundColor, MSColorReadable>
 {
 }
 
@@ -18,6 +19,7 @@
 + (id)defaultName;
 + (unsigned long long)traits;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)immutableBackgroundColor;
 - (BOOL)shouldBeIncludedInParentPath;

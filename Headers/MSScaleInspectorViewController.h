@@ -6,7 +6,7 @@
 
 #import "MSInspectorItem.h"
 
-@class MSInlineUpDownNanoTextField, MSInlineUpDownTextField, MSScaleEventHandler, NSArrayController, NSTextField, NSView, _TtC6Sketch10ScaleModel;
+@class MSInlineUpDownTextField, MSScaleEventHandler, NSArrayController, NSTextField, NSView, _TtC6Sketch10ScaleModel;
 
 @interface MSScaleInspectorViewController : MSInspectorItem
 {
@@ -37,7 +37,7 @@
 @property(nonatomic, retain) NSView *originButtonsContainer; // @synthesize originButtonsContainer;
 @property(nonatomic, retain) MSInlineUpDownTextField *heightField; // @synthesize heightField;
 @property(nonatomic, retain) MSInlineUpDownTextField *widthField; // @synthesize widthField;
-@property(nonatomic, retain) MSInlineUpDownNanoTextField *scalingField; // @synthesize scalingField;
+@property(nonatomic, retain) MSInlineUpDownTextField *scalingField; // @synthesize scalingField;
 @property(nonatomic, retain) NSArrayController *arrayController; // @synthesize arrayController;
 
 @end

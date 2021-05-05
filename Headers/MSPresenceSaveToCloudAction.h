@@ -11,6 +11,8 @@
 @interface MSPresenceSaveToCloudAction : MSPopoverAction
 {
     // Error parsing type: , name: hostViewController
+    // Error parsing type: , name: initialDocumentVersionListener
+    // Error parsing type: , name: suppressUploadConfirmationAlertPreference
     // Error parsing type: , name: status
     // Error parsing type: , name: $__lazy_storage_$_cloudActionMenu
     // Error parsing type: , name: documentUpload

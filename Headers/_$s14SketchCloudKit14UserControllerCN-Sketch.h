@@ -6,19 +6,24 @@
 
 #import "_$s14SketchCloudKit14UserControllerCN.h"
 
-@class NSString, SCKOrganization;
+@class NSString, SCKOrganization, SCKWorkspace;
 
 @interface _$s14SketchCloudKit14UserControllerCN (Sketch)
 + (BOOL)supportsPersonalContributors;
 - (void)configureOrganizationButton:(id)arg1 target:(id)arg2 selector:(SEL)arg3;
-- (void)selectOrganization:(id)arg1;
+- (void)selectWorkspace:(id)arg1;
 - (id)organizationMenuWithTarget:(id)arg1 action:(SEL)arg2;
 @property(nonatomic, readonly) BOOL shouldShowOrganizationMenu;
 @property(nonatomic, copy) NSString *defaultProjectID;
+@property(nonatomic, retain) SCKWorkspace *defaultWorkspace;
 @property(nonatomic, retain) SCKOrganization *defaultOrganization;
+- (BOOL)canViewContentsOfWorkspace:(id)arg1;
+- (BOOL)canEditContentsOfWorkspace:(id)arg1;
 - (BOOL)canContributeTo:(id)arg1;
-@property(nonatomic, readonly) BOOL isPersonalContributor;
-@property(nonatomic, readonly) BOOL isOrganizationContributor;
-@property(nonatomic, readonly) BOOL isContributor;
+@property(nonatomic, readonly) BOOL isPersonalEditor;
+@property(nonatomic, readonly) BOOL hasPersonalWorkspace;
+@property(nonatomic, readonly) BOOL hasMacAccess;
+@property(nonatomic, readonly) BOOL isWorkspaceEditor;
+@property(nonatomic, readonly) BOOL isEditor;
 @end
 

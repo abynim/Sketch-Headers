@@ -7,17 +7,20 @@
 #import <SketchModel/_MSImmutableDocumentData.h>
 
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
-#import <SketchModel/MSImmutableLayerContainer-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSDocumentState, MSImmutablePage, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString;
+@class MSDocumentState, MSImmutablePage, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 
-@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol, MSImmutableLayerContainer>
+@interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
+    _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
+    _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     NSDictionary *_metadata;
     NSData *_textPreviewData;
     NSArray *_selectedOverrides;
+    NSArray *_allSymbols;
+    NSArray *_localSymbols;
     NSDictionary *_symbolsIndexedByID;
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
@@ -32,19 +35,18 @@
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
+@property(retain, nonatomic) NSArray *localSymbols; // @synthesize localSymbols=_localSymbols;
+@property(retain, nonatomic) NSArray *allSymbols; // @synthesize allSymbols=_allSymbols;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) __weak _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
+@property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 - (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (void)resetStateAndMetadataForDuplication;
-@property(readonly, nonatomic) NSArray *layers;
+- (id)layers;
 - (id)embeddedFontReferences;
-- (id)initAsCopyOf:(id)arg1 withPages:(id)arg2;
-- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 changedIndexes:(id)arg2;
-- (id)resolvedDocumentDataCopy;
 - (id)pagesAndArtboardsMetadata;
-@property(readonly, nonatomic) NSArray *allSymbols;
-@property(readonly, nonatomic) NSArray *localSymbols;
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
@@ -64,7 +66,7 @@
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
-- (void)prepareSymbolDictionary;
+- (void)prepareQuickSymbolAccess;
 - (id)defaultPagesArray;
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
@@ -96,7 +98,6 @@
 - (BOOL)containsOneLayer;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
-- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)initWithMutableDocumentDataMetadataCopy:(id)arg1;
 - (id)unavailableForeignSymbolFontNames:(long long *)arg1;
@@ -108,6 +109,7 @@
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) BOOL shouldShowMissingLibraryFontsWarning;
 @property(readonly, nonatomic) BOOL shouldShowMissingFontsBadge;
+- (id)fontNamesExcludingLocalTextStylesWithMissingFonts:(BOOL)arg1;
 @property(readonly, nonatomic) NSSet *fontNames;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;

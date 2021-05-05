@@ -12,6 +12,11 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)drawBackgroundInRect:(struct CGRect)arg1;
+- (BOOL)isOpaque;
+
+// Remaining properties
+@property(nonatomic, readonly) BOOL opaque;
 
 @end
 

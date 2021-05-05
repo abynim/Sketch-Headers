@@ -6,40 +6,42 @@
 
 #import <objc/NSObject.h>
 
-@class BCCloudLicense, BCRegularLicense, NSDate, NSString, NSURL;
+@class BCCloudLicense, BCLegacyLicense, NSDate, NSString, NSURL;
 
 @interface BCLicenseManager : NSObject
 {
     BOOL _completedLoadingLicense;
-    BCRegularLicense *_regularLicense;
-    NSURL *_regularLicenseURL;
+    BCLegacyLicense *_legacyLicense;
+    NSURL *_legacyLicenseURL;
     BCCloudLicense *_cloudLicense;
     NSURL *_cloudLicenseURL;
     NSDate *_applicationBuildDate;
-    NSString *_applicationVariant;
 }
 
 + (void)load;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSString *applicationVariant; // @synthesize applicationVariant=_applicationVariant;
 @property(retain, nonatomic) NSDate *applicationBuildDate; // @synthesize applicationBuildDate=_applicationBuildDate;
 @property(nonatomic) BOOL completedLoadingLicense; // @synthesize completedLoadingLicense=_completedLoadingLicense;
 @property(readonly, copy, nonatomic) NSURL *cloudLicenseURL; // @synthesize cloudLicenseURL=_cloudLicenseURL;
 @property(readonly, nonatomic) BCCloudLicense *cloudLicense; // @synthesize cloudLicense=_cloudLicense;
-@property(readonly, copy, nonatomic) NSURL *regularLicenseURL; // @synthesize regularLicenseURL=_regularLicenseURL;
-@property(readonly, nonatomic) BCRegularLicense *regularLicense; // @synthesize regularLicense=_regularLicense;
+@property(readonly, copy, nonatomic) NSURL *legacyLicenseURL; // @synthesize legacyLicenseURL=_legacyLicenseURL;
+@property(readonly, nonatomic) BCLegacyLicense *legacyLicense; // @synthesize legacyLicense=_legacyLicense;
+- (id)websiteLegacyCloudAccessEndingURL;
 - (id)websiteAvailableVersionsURL;
+- (id)websiteSubscriptionSwitchURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
 - (void)licenseDidBecomeInvalid;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
-- (void)fallbackToTrial:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)processLicenseRefreshResult:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)processLicenseRefresh:(id)arg1 oldLicense:(id)arg2 error:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) BOOL legacyLicenseUpdatesExpiringSoon;
+@property(readonly, nonatomic) BOOL hasUnsupportedTrialLicense;
 - (BOOL)hasPurchasedLegacyLicense;
-@property(readonly, nonatomic) long long numberOfDaysLeftInTrialMode;
+@property(readonly, nonatomic) long long numberOfDaysLeft;
 @property(readonly, nonatomic) BOOL canRenewLegacyLicense;
+- (BOOL)hasLegacyLicenseWithCloudUploadPrivileges;
 - (BOOL)canInstallUpdatesWithLicenseProvider:(long long)arg1;
 - (id)updateExpirationDateWithLicenseProvider:(long long)arg1;
 - (id)registeredEmailAddressWithLicenseProvider:(long long)arg1;
@@ -49,12 +51,12 @@
 - (BOOL)purchasedLicenseIsAvailableWithLicenseProvider:(long long)arg1;
 - (BOOL)licenseIsSupportedWithLicenseProvider:(long long)arg1;
 @property(readonly, nonatomic) BOOL licenseIsSupported;
-- (BOOL)licenseVariantIsSupported:(id)arg1;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (BOOL)applyLicense:(id)arg1 fileURL:(id)arg2;
 - (BOOL)applyCloudLicense:(id)arg1;
-- (BOOL)applyRegularLicense:(id)arg1;
+- (BOOL)applyLegacyLicense:(id)arg1;
 - (void)networkTimeDidChangeNotification:(id)arg1;
+- (void)cloudEnvironmentDidChangeNotification:(id)arg1;
 - (void)cloudAuthenticationSessionDidChangeNotification:(id)arg1;
 - (void)checkForDeploymentKeyWithPath:(id)arg1 removeFile:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)fetchLicenseMetadata:(CDUnknownBlockType)arg1;
@@ -66,10 +68,10 @@
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)obtainCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)obtainFallbackCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
-- (void)obtainFallbackTrialLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)refreshAndValidateLicense:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
-- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4 applicationVariant:(id)arg5;
+- (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;
 
 @end
 

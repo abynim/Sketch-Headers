@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutablePage, NSArray, NSDictionary, NSMutableArray;
+@class MSImmutableDocumentData, MSImmutablePage, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary;
 
 @interface MSFlowItemCollector : NSObject
 {
@@ -16,9 +16,11 @@
     NSDictionary *_artboardsByID;
     NSArray *_artboardsByRect;
     NSMutableArray *_symbolMasterStack;
+    NSMutableDictionary *_visitedMasterIDs;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *visitedMasterIDs; // @synthesize visitedMasterIDs=_visitedMasterIDs;
 @property(retain, nonatomic) NSMutableArray *symbolMasterStack; // @synthesize symbolMasterStack=_symbolMasterStack;
 @property(retain, nonatomic) NSArray *artboardsByRect; // @synthesize artboardsByRect=_artboardsByRect;
 @property(retain, nonatomic) NSDictionary *artboardsByID; // @synthesize artboardsByID=_artboardsByID;
@@ -28,6 +30,7 @@
 - (void)pushSymbolMaster:(id)arg1 onStackInBlock:(CDUnknownBlockType)arg2;
 - (id)collectFlowForLayer:(id)arg1 destinationArtboardAncestry:(id)arg2 flowInfo:(struct MSFlowInfo)arg3 clipToRects:(id)arg4 mayDrawHotspotBounds:(BOOL)arg5;
 - (id)destinationArtboardAncestryForFlow:(id)arg1;
+- (BOOL)symbolContainsFlow:(id)arg1;
 - (id)recursivelyCollectFlowsForLayer:(id)arg1 ancestors:(id)arg2 mayDrawHotspotBounds:(BOOL)arg3 existingFlows:(id)arg4;
 - (id)flowKeyForLayerAncestry:(id)arg1 destinationArtboardAncestry:(id)arg2 clipToRects:(id)arg3;
 - (id)artboardRectsIntersectingSegmentBounds:(struct CGRect)arg1 excludingArtboards:(id)arg2;

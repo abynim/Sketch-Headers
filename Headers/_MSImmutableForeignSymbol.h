@@ -6,11 +6,12 @@
 
 #import <SketchModel/MSImmutableForeignObject.h>
 
-@class MSImmutableSymbolMaster;
+@class MSImmutableSymbolMaster, NSDictionary;
 
 @interface _MSImmutableForeignSymbol : MSImmutableForeignObject
 {
     BOOL _missingLibraryFontAcknowledged;
+    NSDictionary *_remoteToLocalIDMap;
     MSImmutableSymbolMaster *_originalMaster;
     MSImmutableSymbolMaster *_symbolMaster;
 }
@@ -19,6 +20,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(retain, nonatomic) NSDictionary *remoteToLocalIDMap; // @synthesize remoteToLocalIDMap=_remoteToLocalIDMap;
 @property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

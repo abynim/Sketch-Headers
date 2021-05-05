@@ -18,14 +18,15 @@
 - (id)unlinkFromRemote;
 @property(readonly, nonatomic) NSString *remoteShareID;
 - (void)setLocalShareID:(id)arg1;
-- (id)localShareID;
+@property(readonly, nonatomic) NSString *localShareID;
 - (void)setOriginalObject:(id)arg1;
 - (id)originalObject;
 @property(retain, nonatomic) MSModelObject *localObject;
+- (void)removeFromOwningDocument;
 - (id)masterFromLibrary:(id)arg1;
 - (BOOL)isLocalToDocument:(id)arg1;
 - (id)matchingForeignObjectInDocument:(id)arg1;
-- (void)syncWithRemote:(id)arg1;
+- (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;

@@ -16,6 +16,7 @@
 {
     BOOL _hasMinimum;
     BOOL _hasMaximum;
+    BOOL _usesBigNudgeDistance;
     id _refreshDelegate;
     double _ownMinimum;
     double _ownMaximum;
@@ -31,6 +32,7 @@
 @property(retain, nonatomic) MSUpDownController *upDownController; // @synthesize upDownController=_upDownController;
 @property(nonatomic) unsigned long long scrubberIndex; // @synthesize scrubberIndex=_scrubberIndex;
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
+@property(nonatomic) BOOL usesBigNudgeDistance; // @synthesize usesBigNudgeDistance=_usesBigNudgeDistance;
 @property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
 @property(retain, nonatomic) NSView *preferredNextKeyView; // @synthesize preferredNextKeyView=_preferredNextKeyView;
 @property(nonatomic) double ownMaximum; // @synthesize ownMaximum=_ownMaximum;

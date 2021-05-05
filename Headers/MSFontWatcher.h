@@ -15,8 +15,9 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDocumentController *documentController; // @synthesize documentController=_documentController;
-- (void)installedFontsChanged:(id)arg1;
 - (void)dealloc;
+- (void)coalescedInstalledFontsDidChange:(id)arg1;
+- (void)installedFontsChanged:(id)arg1;
 - (id)initWithDocumentController:(id)arg1;
 
 @end

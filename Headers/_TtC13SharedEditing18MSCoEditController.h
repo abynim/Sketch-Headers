@@ -23,7 +23,6 @@
     // Error parsing type: , name: currentFullUpload
     // Error parsing type: , name: metricsRecorder
     // Error parsing type: , name: proxyLogger
-    // Error parsing type: , name: beta_wasDisabled
     // Error parsing type: , name: $__lazy_storage_$_reconnector
     // Error parsing type: , name: healthStatus
     // Error parsing type: , name: status

@@ -7,13 +7,15 @@
 #import <SketchModel/_MSImmutableSwatch.h>
 
 #import <SketchModel/BCSortable-Protocol.h>
+#import <SketchModel/MSColorReadable-Protocol.h>
 
-@class MSImmutableColor, NSString;
+@class MSImmutableColor, NSArray, NSString;
 
-@interface MSImmutableSwatch : _MSImmutableSwatch <BCSortable>
+@interface MSImmutableSwatch : _MSImmutableSwatch <BCSortable, MSColorReadable>
 {
 }
 
+@property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) MSImmutableColor *color;
 
 // Remaining properties

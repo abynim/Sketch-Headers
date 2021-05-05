@@ -27,6 +27,7 @@
 - (id)cachedObjectForOwner:(id)arg1 andKey:(id)arg2;
 - (id)rawObjectForOwner:(id)arg1 andKey:(id)arg2;
 @property(readonly, nonatomic) NSSet *allOwners;
+- (id)initWithOwnerRetentionPolicy:(unsigned long long)arg1;
 - (id)init;
 
 @end

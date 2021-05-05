@@ -7,7 +7,6 @@
 #import <SketchModel/MSImmutableArtboardGroup.h>
 
 @interface MSImmutableArtboardGroup (Rendering)
-- (void)prepareDrawingInContext:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (BOOL)shouldDrawBackgroundInContext:(id)arg1;
 @end
 

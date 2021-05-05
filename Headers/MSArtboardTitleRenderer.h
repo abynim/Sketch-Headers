@@ -24,11 +24,11 @@
 @property(nonatomic) double backingScaleFactor; // @synthesize backingScaleFactor=_backingScaleFactor;
 @property(readonly, nonatomic) __weak MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
 - (void)drawTitlesForArtboards:(id)arg1 titleColor:(struct CGColor *)arg2 symbolTitleColor:(struct CGColor *)arg3 renderingParameters:(struct MSRenderingParameters)arg4 cache:(id)arg5;
-- (BOOL)ms_needsToRecreateTitlesForArtboards:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
+- (BOOL)ms_needsToRecreateTitlesForArtboards:(id)arg1 titleColor:(struct CGColor *)arg2 renderingParameters:(struct MSRenderingParameters)arg3;
 - (void)ms_drawTitles:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 cache:(id)arg3 cacheRect:(struct CGRect)arg4;
 - (id)ms_createArtboardTitleBuffer:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
 - (id)ms_findExistingItemForArtboard:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2;
-- (void)ms_drawTitles:(id)arg1 backingScale:(double)arg2 context:(struct CGContext *)arg3;
+- (void)ms_drawTitles:(id)arg1 titleColor:(id)arg2 backingScale:(double)arg3 context:(struct CGContext *)arg4;
 - (void)ms_recreateTextureForSize:(CDStruct_1ef3fb1f)arg1;
 - (void)ms_createTextureForArtboards:(id)arg1 titleColor:(id)arg2 symbolTitleColor:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4;
 - (void)ms_insertTitleItem:(id)arg1 name:(id)arg2;

@@ -28,9 +28,9 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
+@property(readonly, nonatomic) BOOL drawAsynchronously;
 @property(readonly, nonatomic) BOOL drawOptimised;
 @property(readonly, nonatomic) BOOL skipLayerInclusionTests;
-@property(readonly, nonatomic) BOOL shouldFlipShadows;
 @property(readonly, nonatomic, getter=isPrinting) BOOL printing;
 @property(readonly, nonatomic) BOOL includeArtboardBackground;
 @property(readonly, nonatomic, getter=isDrawingMask) BOOL drawingMask;

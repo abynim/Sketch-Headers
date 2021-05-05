@@ -50,6 +50,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) MSImmutableStyle *style;
 @property(readonly) Class superclass;
 

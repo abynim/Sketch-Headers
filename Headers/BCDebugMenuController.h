@@ -15,6 +15,10 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *settings; // @synthesize settings=_settings;
+- (void)crashBugsnag:(id)arg1;
+- (void)crashTrap:(id)arg1;
+- (void)crashArrayThread:(id)arg1;
+- (void)crashArray:(id)arg1;
 - (void)crashNow:(id)arg1;
 - (void)revealApplicationSupport:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;

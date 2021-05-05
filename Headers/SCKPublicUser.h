@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;
+- (id)initWithObjectID:(id)arg1 name:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties

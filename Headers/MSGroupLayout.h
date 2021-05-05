@@ -22,7 +22,6 @@
 - (unsigned long long)axis;
 - (BOOL)isChangingLayout;
 - (void)postLayoutChangeCleanup;
-- (unsigned long long)adjustConstraintForResizingSubLayer:(unsigned long long)arg1;
 - (id)layersToConsiderForGroupBounds;
 - (id)desiredGroupLayerOrder;
 - (void)setOriginsOfContainedLayers:(id)arg1;

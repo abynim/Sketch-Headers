@@ -32,7 +32,6 @@
 - (void)rotatePointsBy:(double)arg1;
 - (void)invert;
 - (id)NSGradientWithColorSpace:(id)arg1;
-- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)initWithNSGradient:(id)arg1;
 - (id)initBlankGradient;
 - (long long)indexInPoints:(struct CGPoint *)arg1 closestToPoint:(struct CGPoint)arg2;

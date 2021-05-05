@@ -10,11 +10,14 @@
 
 @interface MSColorControlsInspectorViewController : MSMultipleColorStylePartInspectorViewController
 {
+    BOOL _showingColorControls;
     MSColorControlsInspectorItem *_inspectorItem;
 }
 
 - (void).cxx_destruct;
+@property(nonatomic) BOOL showingColorControls; // @synthesize showingColorControls=_showingColorControls;
 @property(retain, nonatomic) MSColorControlsInspectorItem *inspectorItem; // @synthesize inspectorItem=_inspectorItem;
+- (void)refreshIfNecessary:(id)arg1;
 - (id)disabledStylePartsButtonTooltip;
 - (id)addStylePartButonTooltip;
 - (void)setLayers:(id)arg1;

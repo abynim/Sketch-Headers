@@ -6,12 +6,12 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser;
+@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace;
 
 @interface MSCloudDocumentOperationSheet : CHSheetController
 {
     NSString *_documentName;
-    SCKOrganization *_defaultOrganization;
+    SCKWorkspace *_defaultWorkspace;
     SCKProject *_defaultProject;
     unsigned long long _operationType;
     CDUnknownBlockType _completionHandler;
@@ -43,7 +43,7 @@
 @property(copy, nonatomic) CDUnknownBlockType completionHandler; // @synthesize completionHandler=_completionHandler;
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
 @property(retain, nonatomic) SCKProject *defaultProject; // @synthesize defaultProject=_defaultProject;
-@property(retain, nonatomic) SCKOrganization *defaultOrganization; // @synthesize defaultOrganization=_defaultOrganization;
+@property(retain, nonatomic) SCKWorkspace *defaultWorkspace; // @synthesize defaultWorkspace=_defaultWorkspace;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(readonly, nonatomic) BOOL canPerformCloudOperation;
 - (void)delete:(id)arg1;
@@ -54,10 +54,10 @@
 - (void)updateProjectsMenu;
 - (id)projects;
 - (void)requestProjects;
-@property(readonly, nonatomic) SCKOrganization *organization;
+@property(readonly, nonatomic) SCKWorkspace *workspace;
 - (void)selectProject:(id)arg1;
-- (void)selectOrganization:(id)arg1;
-- (void)reloadOrganizations;
+- (void)selectWorkspace:(id)arg1;
+- (void)reloadWorkspaces;
 - (void)updateView;
 @property(readonly, nonatomic) NSArray *targetDocumentURLs;
 - (void)awakeFromNib;

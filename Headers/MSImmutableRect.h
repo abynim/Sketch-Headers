@@ -6,9 +6,7 @@
 
 #import <SketchModel/_MSImmutableRect.h>
 
-#import <SketchModel/MSRectProtocol-Protocol.h>
-
-@interface MSImmutableRect : _MSImmutableRect <MSRectProtocol>
+@interface MSImmutableRect : _MSImmutableRect
 {
 }
 

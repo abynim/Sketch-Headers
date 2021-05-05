@@ -6,11 +6,12 @@
 
 #import <SharedEditing/NSObject-Protocol.h>
 
-@class MSImmutableDocumentData, NSDictionary, NSString, NSURL, SCKOrganization, SCKProject, SCKShare, SCKUser;
+@class MSImmutableDocumentData, NSDictionary, NSString, NSURL, SCKOrganization, SCKProject, SCKShare, SCKWorkspace;
 
 @protocol MSCloudExportableDocument <NSObject>
 - (void)updateLocalFileToMatchCloudNameWithCompletionHandler:(void (^)(NSError *))arg1;
-@property(nonatomic, readonly) SCKUser *preferredUser;
+@property(nonatomic, readonly) SCKWorkspace *defaultWorkspace;
+@property(nonatomic, retain) SCKWorkspace *preferredWorkspace;
 @property(nonatomic, retain) SCKProject *preferredProject;
 @property(nonatomic, retain) SCKOrganization *preferredOrganization;
 @property(nonatomic, readonly) NSString *cloudName;

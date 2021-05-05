@@ -47,6 +47,7 @@
 - (id)getStatusColor;
 @property(readonly, nonatomic) NSString *statusTooltip;
 @property(readonly, nonatomic) BOOL supportsDeletion;
+@property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;
 @property(readonly, nonatomic) BOOL providesPreviewImage;

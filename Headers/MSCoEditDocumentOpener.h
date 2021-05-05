@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSProgress, NSString;
+@class NSProgress, NSString, NSURL;
 @protocol MSCoEditDocumentOpenerDelegate;
 
 @interface MSCoEditDocumentOpener : NSObject
@@ -42,6 +42,7 @@
 @property(nonatomic, readonly) NSString *documentName;
 @property(nonatomic, retain) id <MSCoEditDocumentOpenerDelegate> openerDelegate; // @synthesize openerDelegate;
 @property(nonatomic, readonly) NSProgress *progress; // @synthesize progress;
+@property(nonatomic, copy) NSURL *localURL;
 
 @end
 

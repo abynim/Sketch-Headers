@@ -13,6 +13,7 @@
     BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
     BOOL _ignoreMirrorExportScale;
+    BOOL _concurrent;
     BOOL _includeUnrenderedLayersInManifest;
     MSImmutableDocumentData *_immutableDocumentData;
     NSString *_name;
@@ -24,6 +25,7 @@
 + (id)manifestValueForColorSpace:(unsigned long long)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL includeUnrenderedLayersInManifest; // @synthesize includeUnrenderedLayersInManifest=_includeUnrenderedLayersInManifest;
+@property(nonatomic) BOOL concurrent; // @synthesize concurrent=_concurrent;
 @property(nonatomic) BOOL ignoreMirrorExportScale; // @synthesize ignoreMirrorExportScale=_ignoreMirrorExportScale;
 @property(copy, nonatomic) NSDictionary *applicationMetadata; // @synthesize applicationMetadata=_applicationMetadata;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;

@@ -6,13 +6,24 @@
 
 #import <AppKit/NSBox.h>
 
+@class _TtC6Sketch29MSAccountBoxMessageBannerView;
+@protocol _TtP6Sketch20MSAccountBoxDelegate_;
+
 @interface _TtC6Sketch12MSAccountBox : NSBox
 {
+    // Error parsing type: , name: delegate
+    // Error parsing type: , name: messageBannerView
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)updateConstraints;
 - (void)updateLayer;
+@property(nonatomic) BOOL wantsLayer;
+@property(nonatomic, readonly) BOOL wantsUpdateLayer;
+@property(nonatomic) __weak _TtC6Sketch29MSAccountBoxMessageBannerView *messageBannerView; // @synthesize messageBannerView;
+@property(nonatomic) __weak id <_TtP6Sketch20MSAccountBoxDelegate_> delegate; // @synthesize delegate;
 
 @end
 

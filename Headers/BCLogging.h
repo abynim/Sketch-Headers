@@ -18,6 +18,7 @@
 + (id)collaborationOpenerLog;
 + (id)poiLog;
 + (id)applicationLog;
++ (id)quartzImpositorLog;
 + (id)influenceRectLog;
 + (id)historyLog;
 + (id)modelLog;

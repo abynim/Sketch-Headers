@@ -8,17 +8,16 @@
 
 #import "NSTabViewDelegate-Protocol.h"
 
-@class MSLinkButton, NSImageView, NSSegmentedControl, NSTextField, NSView;
+@class MSLinkButton, NSImageView, NSTextField, NSView, NSVisualEffectView;
 
 @interface _TtC6Sketch28MSRegistrationViewController : NSViewController <NSTabViewDelegate>
 {
-    // Error parsing type: , name: backgroundImageView
+    // Error parsing type: , name: backgroundEffectView
     // Error parsing type: , name: imageView
     // Error parsing type: , name: titleLabel
     // Error parsing type: , name: descriptionLabel
     // Error parsing type: , name: linkButton
-    // Error parsing type: , name: succesImageView
-    // Error parsing type: , name: segmentedControl
+    // Error parsing type: , name: successImageView
     // Error parsing type: , name: contentContainerView
     // Error parsing type: , name: currentBadgeDecorationView
     // Error parsing type: , name: delegate
@@ -30,23 +29,23 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)showRegistrationOptions:(id)arg1;
+- (void)showLicenseView:(id)arg1;
+- (void)showSignInView:(id)arg1;
 - (void)updateRegistrationHeader:(id)arg1;
 - (void)didFailRegistration:(id)arg1;
 - (void)didSucceedRegistration:(id)arg1;
-- (void)willStartRegistration:(id)arg1;
 - (void)dismissRegistration:(id)arg1;
-- (void)changeContent:(id)arg1;
 - (void)openMore:(id)arg1;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) NSView *contentContainerView; // @synthesize contentContainerView;
-@property(nonatomic, retain) NSSegmentedControl *segmentedControl; // @synthesize segmentedControl;
-@property(nonatomic, retain) NSImageView *succesImageView; // @synthesize succesImageView;
+@property(nonatomic, retain) NSImageView *successImageView; // @synthesize successImageView;
 @property(nonatomic, retain) MSLinkButton *linkButton; // @synthesize linkButton;
 @property(nonatomic, retain) NSTextField *descriptionLabel; // @synthesize descriptionLabel;
 @property(nonatomic, retain) NSTextField *titleLabel; // @synthesize titleLabel;
 @property(nonatomic, retain) NSImageView *imageView; // @synthesize imageView;
-@property(nonatomic, retain) NSImageView *backgroundImageView; // @synthesize backgroundImageView;
+@property(nonatomic, retain) NSVisualEffectView *backgroundEffectView; // @synthesize backgroundEffectView;
 
 @end
 

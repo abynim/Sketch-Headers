@@ -17,7 +17,7 @@
 @property(readonly, nonatomic) MSSwatch *swatch;
 - (id)foreignObjectCollectionInDocument:(id)arg1;
 - (unsigned long long)shareableObjectType;
-- (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
+- (id)addToDocument:(id)arg1 nestedIn:(id)arg2 withAssetLibraryController:(id)arg3;
 
 @end
 

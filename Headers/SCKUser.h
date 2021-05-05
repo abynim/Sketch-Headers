@@ -8,29 +8,33 @@
 
 #import <SketchCloudKit/SCKContentOwner-Protocol.h>
 
-@class NSArray, NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
+@class NSArray, NSDictionary, NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares, SCKWorkspace;
 
 @interface SCKUser : SCKPublicUser <SCKContentOwner>
 {
     BOOL _hasPersonalIdentity;
     SCKAvatar *_avatar;
-    SCKPaginatedProjects *_paginatedProjects;
-    SCKPaginatedShares *_paginatedShares;
     NSString *_email;
     NSArray *_organizations;
+    SCKWorkspace *_personalWorkspace;
+    NSArray *_workspaces;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *workspaces; // @synthesize workspaces=_workspaces;
+@property(readonly, nonatomic) SCKWorkspace *personalWorkspace; // @synthesize personalWorkspace=_personalWorkspace;
 @property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
-@property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
-@property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy) NSString *debugDescription;
+@property(readonly, nonatomic) NSArray *editableWorkspaces;
+@property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
+@property(readonly, nonatomic) SCKPaginatedShares *paginatedShares;
 @property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 - (id)dictionaryRepresentation;
+- (id)initWithUser:(id)arg1 updatedWorkspaces:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties

@@ -9,51 +9,49 @@
 #import "NSTextFieldDelegate-Protocol.h"
 #import "SCKAPIAuthenticationSSODelegate-Protocol.h"
 
-@class MSLinkButton, NSButton, NSError, NSImage, NSLayoutConstraint, NSPopUpButton, NSSecureTextField, NSString, NSTextField;
+@class MSLinkButton, NSButton, NSError, NSImage, NSPopUpButton, NSSecureTextField, NSStackView, NSString, NSTextField;
 @protocol MSRegistrationWindowContentDelegate;
 
 @interface MSCloudSignInViewController : NSViewController <SCKAPIAuthenticationSSODelegate, NSTextFieldDelegate>
 {
-    BOOL _wantsLicense;
     BOOL _allowCancellation;
-    BOOL _isSkippable;
     BOOL _didFinish;
     BOOL _isLoading;
     BOOL _hasEmail;
     BOOL _hasPassword;
     BOOL _hidesInputViews;
+    BOOL _waitingForSSO;
     id <MSRegistrationWindowContentDelegate> _delegate;
     NSString *_email;
     NSString *_password;
     NSTextField *_titleLabel;
     NSPopUpButton *_environmentPopUpButton;
     MSLinkButton *_forgotPasswordButton;
+    NSStackView *_emailInputStack;
     NSTextField *_emailField;
+    NSStackView *_passwordInputStack;
     NSSecureTextField *_passwordField;
     NSButton *_actionButton;
-    NSButton *_remoteActionButton;
-    NSButton *_ssoButton;
     NSButton *_cancelButton;
     NSTextField *_statusLabel;
-    NSLayoutConstraint *_actionButtonTopInputConstraint;
-    NSLayoutConstraint *_actionButtonTopContainerConstraint;
+    NSButton *_ssoButton;
     NSError *_error;
 }
 
-+ (id)makeSuccesViewForTextField:(id)arg1;
++ (id)makeSuccessViewForTextField:(id)arg1;
 + (id)storyboardIdentifier;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
+@property(nonatomic) BOOL waitingForSSO; // @synthesize waitingForSSO=_waitingForSSO;
 @property(nonatomic) BOOL hidesInputViews; // @synthesize hidesInputViews=_hidesInputViews;
-@property(retain, nonatomic) NSLayoutConstraint *actionButtonTopContainerConstraint; // @synthesize actionButtonTopContainerConstraint=_actionButtonTopContainerConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *actionButtonTopInputConstraint; // @synthesize actionButtonTopInputConstraint=_actionButtonTopInputConstraint;
+@property(retain, nonatomic) NSButton *ssoButton; // @synthesize ssoButton=_ssoButton;
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
-@property(retain, nonatomic) NSButton *ssoButton; // @synthesize ssoButton=_ssoButton;
-@property(retain, nonatomic) NSButton *remoteActionButton; // @synthesize remoteActionButton=_remoteActionButton;
 @property(retain, nonatomic) NSButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(retain, nonatomic) NSSecureTextField *passwordField; // @synthesize passwordField=_passwordField;
+@property(retain, nonatomic) NSStackView *passwordInputStack; // @synthesize passwordInputStack=_passwordInputStack;
 @property(retain, nonatomic) NSTextField *emailField; // @synthesize emailField=_emailField;
+@property(retain, nonatomic) NSStackView *emailInputStack; // @synthesize emailInputStack=_emailInputStack;
 @property(retain, nonatomic) MSLinkButton *forgotPasswordButton; // @synthesize forgotPasswordButton=_forgotPasswordButton;
 @property(retain, nonatomic) NSPopUpButton *environmentPopUpButton; // @synthesize environmentPopUpButton=_environmentPopUpButton;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -63,9 +61,7 @@
 @property(copy, nonatomic) NSString *email; // @synthesize email=_email;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
 @property(nonatomic) BOOL didFinish; // @synthesize didFinish=_didFinish;
-@property(nonatomic) BOOL isSkippable; // @synthesize isSkippable=_isSkippable;
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation=_allowCancellation;
-@property(nonatomic) BOOL wantsLicense; // @synthesize wantsLicense=_wantsLicense;
 @property(nonatomic) __weak id <MSRegistrationWindowContentDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)controlTextDidChange:(id)arg1;
 - (void)didDismissAuthenticationSession:(id)arg1;
@@ -77,22 +73,18 @@
 - (void)updateEnvironmentMenuItems;
 - (void)cancel:(id)arg1;
 - (void)confirmRegistration;
+- (void)registrationDidFail;
+- (void)registrationDidSucceed;
 - (void)updateCancelButtonTitle;
-- (void)finishSignIn;
 - (void)obtainLicenseWithAuthentication:(id)arg1;
 - (void)processSignInResult:(id)arg1 error:(id)arg2;
 - (void)signInWithSSO:(id)arg1;
 - (void)signIn:(id)arg1;
 - (void)resetPassword:(id)arg1;
-- (void)visitCloudDocumentation:(id)arg1;
-- (void)visitStore:(id)arg1;
-- (void)signUp:(id)arg1;
-- (BOOL)shouldShowSSO;
-- (void)updateViewConstraints;
 - (void)viewWillAppear;
+@property(nonatomic, readonly) BOOL wantsLicense;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) NSImage *headerImage;
-@property(nonatomic, readonly) NSImage *headerBackgroundImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
 @property(nonatomic, readonly) NSString *headerDescription;
 @property(nonatomic, readonly) NSString *headerTitle;

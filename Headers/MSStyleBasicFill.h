@@ -8,14 +8,14 @@
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSStyleBasicFill : _MSStyleBasicFill <MSColorUpdateable>
 {
 }
 
 @property(copy, nonatomic) NSString *hexColor;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)performInitEmptyObject;

@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 @property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
 - (id)description;
+- (id)nonEditingOverride;
 @property(readonly, nonatomic) BOOL isValid;
 - (void)calculateAttributeNameAndPath;
 - (id)originalName;

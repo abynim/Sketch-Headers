@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSArray, NSDictionary, NSString;
 
 @interface MSTextStyle : _MSTextStyle <MSColorUpdateable>
 {
@@ -21,7 +21,7 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;

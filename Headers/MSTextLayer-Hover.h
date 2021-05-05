@@ -19,6 +19,7 @@
 - (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)shareableObjectType;
 - (void)applyData:(id)arg1 fromDataSupplier:(id)arg2 identifier:(id)arg3;
+- (BOOL)canCutSegments;
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 @property(readonly, nonatomic) BOOL supportsVerticalAlignment;

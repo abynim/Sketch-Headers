@@ -10,7 +10,6 @@
 
 @interface _MSImmutablePage : MSImmutableLayerGroup
 {
-    BOOL _includeInCloudUpload;
     MSImmutableSimpleGrid *_grid;
     MSImmutableRulerData *_horizontalRulerData;
     MSImmutableLayoutGrid *_layout;
@@ -23,7 +22,6 @@
 @property(retain, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
-@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

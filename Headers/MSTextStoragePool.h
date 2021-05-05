@@ -8,19 +8,22 @@
 
 #import <SketchRendering/MSFirstLineTypesetterDelegate-Protocol.h>
 
-@class NSString;
+@class MSImmutableColor, NSString;
 
 @interface MSTextStoragePool : BCObjectPool <MSFirstLineTypesetterDelegate>
 {
+    MSImmutableColor *_tintColor;
     double _baselineAdjustmentForLayoutManager;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) double baselineAdjustmentForLayoutManager; // @synthesize baselineAdjustmentForLayoutManager=_baselineAdjustmentForLayoutManager;
+@property(readonly, nonatomic) MSImmutableColor *tintColor; // @synthesize tintColor=_tintColor;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)removeAllObjects;
 - (void)recycleTextStorage:(id)arg1;
 - (id)vendTextStorage;
-- (id)initWithTextLayer:(id)arg1;
+- (id)initWithTextLayer:(id)arg1 colorspace:(struct CGColorSpace *)arg2 tintColor:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

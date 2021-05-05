@@ -6,15 +6,14 @@
 
 #import "NSObject-Protocol.h"
 
-@class BCNetworkTime, NSArray, NSDate, NSString, NSURL;
+@class BCNetworkTime, NSDate, NSString, NSURL;
 
 @protocol BCLicense <NSObject>
 + (long long)provider;
-@property(readonly, nonatomic) NSArray *variants;
+@property(readonly, nonatomic) BOOL hasCloudPrivileges;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;
 @property(readonly, nonatomic) NSDate *updateExpirationDate;
-@property(readonly, nonatomic) BOOL isAboutToExpire;
-@property(readonly, nonatomic) BOOL shouldTryToRequestNewTrialLicense;
+@property(readonly, nonatomic) BOOL hasExpiredOrIsAboutToExpire;
 @property(readonly, nonatomic) BOOL requiresRefresh;
 @property(readonly, nonatomic) BOOL shouldRefresh;
 @property(readonly, nonatomic) double remainingTimeInterval;

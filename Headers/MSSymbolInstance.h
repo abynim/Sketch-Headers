@@ -37,7 +37,8 @@
 - (void)resetSizeToMaster;
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
 - (void)resizeInstanceToFitSymbol:(id)arg1;
-- (id)detachByReplacingWithGroupRecursively:(BOOL)arg1 withDocument:(id)arg2 visitedSymbols:(id)arg3;
+- (id)detachByReplacingWithGroupWithInfo:(id)arg1 visitedSymbols:(id)arg2;
+- (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1 document:(id)arg2;
 - (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1;
 - (unsigned long long)numberOfVisibleCells;
 - (void)changeInstanceToSymbol:(id)arg1;
@@ -46,7 +47,7 @@
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
-- (id)updateableColors;
+@property(nonatomic, readonly) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;

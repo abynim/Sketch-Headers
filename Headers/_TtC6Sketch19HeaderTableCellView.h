@@ -6,7 +6,7 @@
 
 #import "_TtC6Sketch19ResultTableCellView.h"
 
-@class NSButton, NSImageView, NSTextField, _TtC6Sketch13AssistantIcon;
+@class NSButton, NSImageView, NSLayoutConstraint, NSTextField, _TtC6Sketch13AssistantIcon;
 
 @interface _TtC6Sketch19HeaderTableCellView : _TtC6Sketch19ResultTableCellView
 {
@@ -14,6 +14,7 @@
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: assistantImage
     // Error parsing type: , name: icon
+    // Error parsing type: , name: actionButtonTrailingConstraint
     // Error parsing type: , name: headerRowModel
 }
 
@@ -25,6 +26,7 @@
 - (void)ignore;
 - (void)toggleIgnore;
 - (void)prepareForReuse;
+@property(nonatomic) __weak NSLayoutConstraint *actionButtonTrailingConstraint; // @synthesize actionButtonTrailingConstraint;
 @property(nonatomic, retain) NSImageView *icon; // @synthesize icon;
 @property(nonatomic, retain) _TtC6Sketch13AssistantIcon *assistantImage; // @synthesize assistantImage;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;

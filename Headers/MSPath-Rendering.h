@@ -7,13 +7,12 @@
 #import <SketchModel/MSPath.h>
 
 @interface MSPath (Rendering)
-- (id)shadowPathWithSpread:(double)arg1 strokeType:(long long)arg2 lineWidth:(double)arg3 cacheObject:(id)arg4 context:(id)arg5;
-- (id)shadowPathWithSpread:(double)arg1 cacheObject:(id)arg2 context:(id)arg3;
-- (id)shadowPathForStrokeType:(long long)arg1 lineWidth:(double)arg2 cacheObject:(id)arg3 context:(id)arg4;
 - (id)pathWithDashPattern:(id)arg1;
 - (id)pathWithOuterPathOfSize:(double)arg1;
 - (id)pathByPrependingRect:(struct CGRect)arg1;
 - (void)addClipForWindingRule:(unsigned long long)arg1 context:(struct CGContext *)arg2;
 - (void)clipContext:(struct CGContext *)arg1 windingRule:(unsigned long long)arg2 inBlock:(CDUnknownBlockType)arg3;
+- (id)outlinePathWithBorderPosition:(long long)arg1 lineWidth:(double)arg2 borderOptions:(id)arg3;
+- (id)outlinedSubPathWithBorderPosition:(long long)arg1 lineWidth:(double)arg2 borderOptions:(id)arg3 clockwise:(BOOL)arg4;
 @end
 

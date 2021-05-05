@@ -22,7 +22,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *primitiveSharedObjectID; // @synthesize primitiveSharedObjectID=_primitiveSharedObjectID;
 - (void)syncWithTemplateInstance:(id)arg1;
-@property(readonly, nonatomic) double thickestInnerStroke;
 @property(readonly, nonatomic) BOOL hasMarkers;
 @property(readonly, nonatomic) double thickestStrokeDoubledForClipping;
 - (BOOL)hasTextStyle;
@@ -33,10 +32,12 @@
 - (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (void)syncPropertiesFromObject:(id)arg1;
 - (void)setTextStyle:(id)arg1;
 @property(retain, nonatomic) MSTextStyle *primitiveTextStyle;
 - (void)setNilValueForKey:(id)arg1;
 @property(readonly, nonatomic) BOOL hasBlending;
+- (BOOL)isSuitableForGroups;
 - (id)firstEnabledShadow;
 - (id)firstEnabledFill;
 - (id)firstEnabledBorder;

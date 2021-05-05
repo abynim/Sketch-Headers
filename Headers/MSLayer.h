@@ -24,7 +24,8 @@
     struct CGAffineTransform _transformForConvertingFromRoot;
 }
 
-+ (void)makeLayerNamesUnique:(id)arg1 withOptions:(long long)arg2;
++ (void)makeNamesUniqueForLayers:(id)arg1 inRoot:(id)arg2 withOptions:(long long)arg3;
++ (void)makeNamesUniqueForLayers:(id)arg1 withOptions:(long long)arg2;
 + (id)keyPathsForValuesAffectingLastNameComponent;
 + (id)defaultName;
 + (unsigned long long)traits;
@@ -43,6 +44,7 @@
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 - (id)layerWithID:(id)arg1;
+- (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
 - (void)setIsFlippedVertical:(BOOL)arg1;
 - (void)setIsFlippedHorizontal:(BOOL)arg1;
 - (void)setRotation:(double)arg1;
@@ -51,6 +53,7 @@
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
 @property(nonatomic) struct CGPoint center;
+@property(nonatomic) struct CGSize size;
 @property(nonatomic) struct CGPoint origin;
 @property(nonatomic) struct CGRect rect;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
@@ -86,7 +89,6 @@
 - (BOOL)isOpen;
 - (void)removeFromParent;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
-- (BOOL)isRectIntegral;
 - (void)makeRectIntegral;
 - (void)makeOriginIntegral;
 @property(nonatomic) BOOL absoluteIsFlippedVertical;
@@ -118,7 +120,6 @@
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
-- (unsigned long long)adjustedResizingConstraint;
 @property(readonly, nonatomic) MSStyle *usedStyle;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
 - (BOOL)limitsSelectionToBounds;
@@ -135,13 +136,11 @@
 - (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
 - (void)setName:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;
-@property(nonatomic) double proportions;
-@property(nonatomic) BOOL constrainProportions;
+@property(readonly, nonatomic) double proportions;
+@property(nonatomic) BOOL shouldConstrainProportions;
 - (struct CGRect)frameForTransforms;
 - (BOOL)hasEnabledBackgroundBlur;
 - (id)rootForNameUniquing;
-- (id)namesOfAllLayersInContainer:(id)arg1;
-- (void)makeNameUniqueInRoot:(id)arg1 withOptions:(long long)arg2;
 - (void)makeNameUniqueWithOptions:(long long)arg1;
 - (BOOL)isLine;
 @property(copy, nonatomic) NSString *lastNameComponent;
@@ -149,7 +148,12 @@
 - (unsigned long long)traits;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)objectDidInit;
-- (void)performInitEmptyObject;
+@property(nonatomic) double maxY;
+@property(nonatomic) double midY;
+@property(nonatomic) double minY;
+@property(nonatomic) double maxX;
+@property(nonatomic) double midX;
+@property(nonatomic) double minX;
 - (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
 - (void)applyUserVisibleRotation:(double)arg1 explicitRotationCenter:(id)arg2;
 - (void)applyRotation:(double)arg1 explicitRotationCenter:(id)arg2;

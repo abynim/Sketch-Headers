@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, CAMetalLayer, MSRenderInstruction, NSView, _TtC11SketchModel23MSResolvedDocumentMaker;
+@class CALayer, CAMetalLayer, MSCacheManager, MSRenderInstruction, NSView;
 @protocol MSTiledRendererHostView;
 
 @interface MSEkranoplanRenderer : NSObject <MSTilingSystemProvider>
@@ -17,13 +17,13 @@
     NSView<MSTiledRendererHostView> *hostView;
     CALayer *layer;
     CAMetalLayer *_metalLayer;
-    _TtC11SketchModel23MSResolvedDocumentMaker *_resolvedDocumentMaker;
     MSRenderInstruction *_renderedInstruction;
+    MSCacheManager *_cacheManager;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy) MSRenderInstruction *renderedInstruction; // @synthesize renderedInstruction=_renderedInstruction;
-@property(retain, nonatomic) _TtC11SketchModel23MSResolvedDocumentMaker *resolvedDocumentMaker; // @synthesize resolvedDocumentMaker=_resolvedDocumentMaker;
 @property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer;

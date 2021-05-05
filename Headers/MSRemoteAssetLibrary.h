@@ -22,13 +22,13 @@
     NSString *_displayName;
     NSString *_infoText;
     MSAssetLibraryUpdatingInfo *_updatingInfo;
-    NSString *_teamName;
+    NSString *_workspaceName;
 }
 
 + (id)URLForApplicationSupportLibraryNamed:(id)arg1;
 + (id)assetLibraryFolder;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSString *teamName; // @synthesize teamName=_teamName;
+@property(copy, nonatomic) NSString *workspaceName; // @synthesize workspaceName=_workspaceName;
 @property(nonatomic) BOOL isPublicCloudLibrary; // @synthesize isPublicCloudLibrary=_isPublicCloudLibrary;
 @property(nonatomic) BOOL isCloudLibrary; // @synthesize isCloudLibrary=_isCloudLibrary;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;

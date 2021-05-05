@@ -15,8 +15,6 @@
 
 @interface MSImmutableLayer : _MSImmutableLayer <MSFlowContainmentCheck, MSLayerContainment, MSLayerProtocol, MSLayerTraits>
 {
-    struct CGRect _calculatedInfluenceRectForBounds;
-    struct BCLazyVar *_calculatedInfluenceRectLazyVar;
     MSPath *_pathInDocument;
     // Error parsing type: A^v, name: _pathInDocumentAtomicPointer
     NSObject *_calculatePathInDocumentAtomicity;
@@ -32,19 +30,15 @@
 - (BOOL)hasEnabledFill;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (id)maskingLayerForChild:(id)arg1;
-- (id)updatedResolvedCopyWithModelEquivalent:(id)arg1 documentData:(id)arg2 changedIndexes:(id)arg3;
-- (id)resolvedUsingDocumentData:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
 @property(readonly, nonatomic) BOOL canSkipAdvancedClipForStrokes;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-@property(readonly, nonatomic) BOOL hasCalculatedInfluenceRectForBounds;
 - (id)pathInFrameWithTransformsInDocument:(id)arg1;
 - (id)pathInFrameInDocument:(id)arg1;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (id)pathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-- (struct CGRect)influenceRectForBoundsOrCalculateInBlock:(CDUnknownBlockType)arg1;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForFrameInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (struct CGRect)influenceRectForBoundsInDocument:(id)arg1;
@@ -53,7 +47,6 @@
 - (BOOL)isLine;
 - (struct CGRect)rectByTransformingRect:(struct CGRect)arg1 andPaddingWithAncestors:(id)arg2;
 - (struct CGRect)transformRectToParentCoordinates:(struct CGRect)arg1;
-- (struct CGRect)absoluteOverlayInfluenceRectForAncestorGroups:(id)arg1;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (id)bezierBoundsInAbsoluteCoordinatesWithAncestors:(id)arg1;
 - (struct CGRect)absoluteRectForAncestorGroups:(id)arg1;
@@ -62,6 +55,8 @@
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
 @property(readonly, nonatomic) struct CGPoint center;
+@property(readonly, nonatomic) BOOL constrainProportions;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly, nonatomic) struct CGPoint origin;
 - (BOOL)canBreakMaskChain;
 - (BOOL)hasClippingMask;
@@ -75,8 +70,8 @@
 - (id)keysDifferingFromObject:(id)arg1;
 @property(readonly, nonatomic) unsigned long long containedTraits;
 - (void)objectDidInit;
-- (void)dealloc;
 - (id)initWithMinimalSetup;
+- (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
 - (id)findParentLayerGroupWithDocument:(id)arg1;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
@@ -96,8 +91,8 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
-- (struct CGRect)overlayRectForAncestors:(id)arg1 document:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)enumeratorWithOptions:(unsigned long long)arg1;
 - (BOOL)defaultOverrideVisibilityForPoint:(id)arg1 ancestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;

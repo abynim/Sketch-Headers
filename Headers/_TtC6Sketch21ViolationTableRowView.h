@@ -12,6 +12,7 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (void)drawBackgroundInRect:(struct CGRect)arg1;
 - (void)drawSelectionInRect:(struct CGRect)arg1;
 @property(nonatomic) BOOL selected;
 - (BOOL)isSelected;

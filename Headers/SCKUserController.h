@@ -6,22 +6,33 @@
 
 #import <objc/NSObject.h>
 
-@class SCKUser;
+@class NSError, SCKUser;
 
 @interface SCKUserController : NSObject
 {
     // Error parsing type: , name: user
     // Error parsing type: , name: isLoading
+    // Error parsing type: , name: error
+    // Error parsing type: , name: workspaceBillingStatusEventQuery
+    // Error parsing type: , name: workspaceMembershipEventQuery
+    // Error parsing type: , name: subscriptionsController
+    // Error parsing type: , name: subscriptionItemsBySession
     // Error parsing type: , name: requestOperation
     // Error parsing type: , name: requestHandlers
 }
 
++ (id)workspaceNotificationUserInfoKey;
++ (id)workspaceBillingStatusDidChangeNotification;
++ (id)workspaceMembershipDidChangeNotification;
++ (id)didChangeErrorNotification;
++ (id)didChangeLoadingNotification;
 + (id)userDidChangeNotification;
 - (void).cxx_destruct;
 - (void)currentEnvironmentDidChangeWithNotification:(id)arg1;
 - (void)currentAuthenticationSessionDidChangeWithNotification:(id)arg1;
 - (void)requestUserWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)init;
+@property(nonatomic, copy) NSError *error;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading;
 @property(nonatomic, retain) SCKUser *user; // @synthesize user;
 

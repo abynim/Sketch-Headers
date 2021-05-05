@@ -41,7 +41,6 @@
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
-- (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 
 // Remaining properties

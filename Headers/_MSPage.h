@@ -10,7 +10,6 @@
 
 @interface _MSPage : MSLayerGroup
 {
-    BOOL _includeInCloudUpload;
     MSSimpleGrid *_grid;
     MSRulerData *_horizontalRulerData;
     MSLayoutGrid *_layout;
@@ -25,7 +24,6 @@
 - (void)setRaw_layout:(id)arg1;
 - (void)setRaw_horizontalRulerData:(id)arg1;
 - (void)setRaw_grid:(id)arg1;
-- (void)setRaw_includeInCloudUpload:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -39,7 +37,6 @@
 @property(retain, nonatomic) MSLayoutGrid *layout; // @synthesize layout=_layout;
 @property(retain, nonatomic) MSRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
-@property(nonatomic) BOOL includeInCloudUpload; // @synthesize includeInCloudUpload=_includeInCloudUpload;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

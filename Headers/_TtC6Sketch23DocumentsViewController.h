@@ -30,10 +30,13 @@
     // Error parsing type: , name: refreshOnNextKey
     // Error parsing type: , name: dragAndDropMessage
     // Error parsing type: , name: bannerError
+    // Error parsing type: , name: workspaceExpiration
 }
 
 - (void).cxx_destruct;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)dismissError:(id)arg1;
+- (void)showMoreErrorInfo:(id)arg1;
 - (id)willPresentError:(id)arg1;
 - (void)documentDidProcessNotification:(id)arg1;
 - (void)boundsDidChangeNotification:(id)arg1;
@@ -46,9 +49,11 @@
 - (void)renameDocument:(id)arg1;
 - (void)confirm:(id)arg1;
 - (void)refresh:(id)arg1;
+- (void)showWorkspaceBillingSettingsPage:(id)arg1;
 - (void)documentCloudShareDidChange:(id)arg1;
 - (void)uploadDidFinish:(id)arg1;
 - (void)windowDidBecomeKey:(id)arg1;
+- (void)cloudAuthenticationDidChange:(id)arg1;
 - (void)viewDidLayout;
 - (void)viewDidDisappear;
 - (void)viewDidAppear;

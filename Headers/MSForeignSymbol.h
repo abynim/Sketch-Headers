@@ -15,15 +15,11 @@
 + (id)foreignObjectCollectionInDocument:(id)arg1;
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (id)foreignSymbolWithMaster:(id)arg1 inLibrary:(id)arg2;
+- (void)removeFromOwningDocument;
 @property(readonly, nonatomic) NSString *remoteSymbolID;
 - (id)unlinkFromRemote;
 - (void)updateAfterPatching;
-- (void)validateSymbolPrivateReferences;
-- (void)syncWithRemote:(id)arg1 updatingPrivateStylesWithBlock:(CDUnknownBlockType)arg2;
-- (void)syncWithRemote:(id)arg1;
-- (void)syncSymbolPrivateStylesWithRemote:(id)arg1 updatingPrivateStylesWithBlock:(CDUnknownBlockType)arg2;
-- (void)enumerateSharedStyleItemsForMaster:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
-- (BOOL)doesStyleOfClass:(Class)arg1 withID:(id)arg2 differInRemoteDocument:(id)arg3;
+- (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (BOOL)containsNestedStylesOutOfDateWithLibrary:(id)arg1;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
@@ -33,6 +29,9 @@
 - (id)originalObject;
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
+- (id)symbolMaster;
+- (void)regenerateLocalMasterFromOriginal:(id)arg1;
+- (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;
 

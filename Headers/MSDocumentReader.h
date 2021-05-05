@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSArchiveReader.h>
 
-@class NSArray, NSDictionary, NSError, NSImage;
+@class NSDictionary, NSError, NSImage;
 
 @interface MSDocumentReader : MSArchiveReader
 {
@@ -15,7 +15,6 @@
 }
 
 + (id)readerForDocumentAtURL:(id)arg1;
-+ (id)documentDataAt:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
@@ -29,7 +28,6 @@
 - (BOOL)open:(id *)arg1;
 @property(readonly, nonatomic) long long compatibilityVersion;
 @property(readonly, nonatomic) long long version;
-@property(readonly, nonatomic) NSArray *missingFonts;
 - (void)repair;
 - (BOOL)containsLibraryPreviewImage;
 @property(readonly, nonatomic) BOOL containsPreviewImage;

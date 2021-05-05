@@ -23,6 +23,7 @@
     // Error parsing type: , name: componentKind
     // Error parsing type: , name: deferringHeightChangeNotifications
     // Error parsing type: , name: shouldScrollSelectionToVisible
+    // Error parsing type: , name: editedComponentsQueue
     // Error parsing type: , name: cachedRowViewRenderer
     // Error parsing type: , name: skipNotifyingDelegateAboutSelectionChange
     // Error parsing type: , name: expandingItem

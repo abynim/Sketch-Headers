@@ -30,7 +30,6 @@
 - (BOOL)shouldOpenNewerDocument:(id)arg1;
 - (void)migrationNotAvailable:(id)arg1;
 - (BOOL)shouldOpenDocumentWithCorruptMetadata:(id)arg1;
-- (BOOL)shouldOpenDocument:(id)arg1 withMissingFonts:(id)arg2 savingWillChangeFonts:(BOOL)arg3;
 - (BOOL)shouldAttemptToOpenCorruptDocument:(id)arg1;
 - (void)dealloc;
 - (id)init;

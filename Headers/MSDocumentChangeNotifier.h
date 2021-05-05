@@ -14,9 +14,11 @@
     MSDocumentChangeIntervalNotifier *_fastNotifier;
     MSDocumentChangeIntervalNotifier *_mediumNotifier;
     MSDocumentChangeIntervalNotifier *_slowNotifier;
+    MSDocumentChangeIntervalNotifier *_superSlowNotifier;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSDocumentChangeIntervalNotifier *superSlowNotifier; // @synthesize superSlowNotifier=_superSlowNotifier;
 @property(retain, nonatomic) MSDocumentChangeIntervalNotifier *slowNotifier; // @synthesize slowNotifier=_slowNotifier;
 @property(retain, nonatomic) MSDocumentChangeIntervalNotifier *mediumNotifier; // @synthesize mediumNotifier=_mediumNotifier;
 @property(retain, nonatomic) MSDocumentChangeIntervalNotifier *fastNotifier; // @synthesize fastNotifier=_fastNotifier;

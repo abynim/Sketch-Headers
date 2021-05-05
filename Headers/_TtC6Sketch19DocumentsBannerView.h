@@ -6,24 +6,25 @@
 
 #import <AppKit/NSView.h>
 
-@class NSButton, NSTextField;
+@class NSStackView, NSTextField;
 
 @interface _TtC6Sketch19DocumentsBannerView : NSView
 {
     // Error parsing type: , name: headingLabel
-    // Error parsing type: , name: refreshButton
-    // Error parsing type: , name: $__lazy_storage_$_separatorLayer
-    // Error parsing type: , name: isCollapsed
+    // Error parsing type: , name: buttonsView
+    // Error parsing type: , name: buttonConfigurations
+    // Error parsing type: , name: defaultActionButton
+    // Error parsing type: , name: $__lazy_storage_$_topSeparatorLayer
+    // Error parsing type: , name: $__lazy_storage_$_bottomSeparatorLayer
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-@property(nonatomic) BOOL isCollapsed; // @synthesize isCollapsed;
 - (void)updateLayer;
 - (void)awakeFromNib;
 @property(nonatomic, readonly) BOOL wantsUpdateLayer;
-@property(nonatomic, retain) NSButton *refreshButton; // @synthesize refreshButton;
+@property(nonatomic) __weak NSStackView *buttonsView; // @synthesize buttonsView;
 @property(nonatomic, retain) NSTextField *headingLabel; // @synthesize headingLabel;
 
 @end

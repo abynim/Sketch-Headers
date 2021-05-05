@@ -10,7 +10,6 @@
 
 @interface SCKUserAgent : NSObject
 {
-    // Error parsing type: , name: bundle
 }
 
 + (id)SCKUserAgentHTTPKey;
@@ -23,7 +22,6 @@
 @property(nonatomic, readonly) NSString *systemVersion;
 @property(nonatomic, readonly) NSString *systemName;
 @property(nonatomic, readonly) NSString *description;
-- (id)initWithBundle:(id)arg1;
 
 @end
 

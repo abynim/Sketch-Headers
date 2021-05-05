@@ -8,7 +8,7 @@
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSStyleBorder : _MSStyleBorder <MSColorUpdateable>
 {
@@ -27,6 +27,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) NSArray *updateableColors;
 
 @end
 

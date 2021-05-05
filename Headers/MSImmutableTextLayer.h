@@ -6,11 +6,12 @@
 
 #import <SketchModel/_MSImmutableTextLayer.h>
 
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
-@class MSTextLayout, NSAttributedString, NSObject, NSString;
+@class MSTextLayout, NSArray, NSAttributedString, NSObject, NSString;
 
-@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSFirstLineTypesetterDelegate>
+@interface MSImmutableTextLayer : _MSImmutableTextLayer <MSFirstLineTypesetterDelegate, MSColorReadable>
 {
     MSTextLayout *_textLayout;
     // Error parsing type: A^v, name: _textLayoutAtomicPointer
@@ -23,6 +24,7 @@
 + (id)defaultName;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (id)createTextStorage;

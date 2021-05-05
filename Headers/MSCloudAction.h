@@ -73,7 +73,7 @@
 - (void)clearErrorSheetTimer:(id)arg1;
 - (void)setupDisplayErrorSheetTimer;
 - (void)refreshShareWithHandler:(CDUnknownBlockType)arg1;
-- (void)startUploadUpdating:(id)arg1 orCreateWithOrganization:(id)arg2 project:(id)arg3;
+- (void)startUploadUpdating:(id)arg1 orCreateInWorkspace:(id)arg2 project:(id)arg3;
 - (id)uploadProviderUpdating:(id)arg1 owner:(id)arg2 project:(id)arg3;
 @property(readonly, nonatomic) id <MSCloudExportableDocument> exportedDocument;
 

@@ -13,6 +13,7 @@
 
 + (id)sketchApp;
 @property(nonatomic) BOOL documentWindowRestored; // @synthesize documentWindowRestored=_documentWindowRestored;
+- (void)reportException:(id)arg1;
 - (BOOL)restoreWindowWithIdentifier:(id)arg1 state:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 
 @end

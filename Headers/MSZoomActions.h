@@ -10,6 +10,7 @@
 {
 }
 
+- (void)zoomValueDidChange;
 - (id)historyMomentTitle;
 - (id)label;
 - (unsigned long long)touchBarItemSizing;

@@ -55,7 +55,7 @@
 - (void)invalidateModifiedSymbolCache;
 - (void)invalidateModelCacheGeneration;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (BOOL)overridePropertiesMatchWithObject:(id)arg1;
+- (BOOL)overridePropertiesMatch:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
 @property(readonly, nonatomic) NSArray *availableOverrides;
 - (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;

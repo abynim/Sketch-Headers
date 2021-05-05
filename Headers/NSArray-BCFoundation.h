@@ -10,6 +10,7 @@
 + (id)arrayByMergingArrays:(id)arg1;
 + (id)arrayWithCapacity:(unsigned long long)arg1 fill:(CDUnknownBlockType)arg2;
 + (id)flattenedArrays:(id)arg1;
+- (void)zipWith:(id)arg1 in:(CDUnknownBlockType)arg2;
 - (id)loopingEnumerator;
 - (unsigned long long)indexOfSubArray:(id)arg1;
 - (id)rotateTwoDimensionalArray;
@@ -58,5 +59,10 @@
 - (void)encodeAsJSON:(id)arg1;
 - (unsigned long long)applyBlockConcurrentlyAndCountSuccess:(CDUnknownBlockType)arg1;
 - (void)mapWithMaxConcurrencyCount:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (id)concurrentMapWithCompact:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
+- (id)compactConcurrentMap:(CDUnknownBlockType)arg1;
+- (id)concurrentMap:(CDUnknownBlockType)arg1;
+- (id)compactMapWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)mapWithOptions:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 @end
 

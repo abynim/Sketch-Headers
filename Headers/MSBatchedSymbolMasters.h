@@ -21,8 +21,6 @@
 - (void).cxx_destruct;
 - (id)init;
 - (BOOL)immutableObjectsMatch:(id)arg1;
-@property(nonatomic, copy) NSArray *flattenedConfigurableOverrides;
-@property(nonatomic) BOOL haveMatchingOverrideCounts;
 - (BOOL)enumerateComplimentaryOverridesWith:(CDUnknownBlockType)arg1;
 - (id)initWithMasters:(id)arg1;
 @property(nonatomic) long long allowOverrides;

@@ -7,19 +7,21 @@
 #import <SketchModel/_MSImmutableArtboardGroup.h>
 
 #import <SketchModel/MSArtboardGroupProtocol-Protocol.h>
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
 #import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSString;
+@class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroupProtocol, MSImmutableRootLayer>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroupProtocol, MSImmutableRootLayer, MSColorReadable>
 {
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
+@property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
@@ -35,7 +37,6 @@
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
-- (void)migratePropertiesFromV79OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
 
 // Remaining properties
@@ -59,6 +60,7 @@
 @property(readonly, nonatomic) struct CGPoint origin;
 @property(readonly, nonatomic) struct CGRect rect;
 @property(readonly, nonatomic) double rotation;
+@property(readonly, nonatomic) struct CGSize size;
 @property(readonly) Class superclass;
 @property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
 
