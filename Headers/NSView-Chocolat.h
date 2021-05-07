@@ -40,10 +40,10 @@
 - (void)hideWithZeroWidth;
 - (void)hideWithZeroHeight;
 - (id)heightConstraint;
-- (void)constrainWidth:(double)arg1 priority:(float)arg2;
-- (void)constrainWidth:(double)arg1;
-- (void)constrainHeight:(double)arg1 priority:(float)arg2;
-- (void)constrainHeight:(double)arg1;
+- (id)constrainWidth:(double)arg1 priority:(float)arg2;
+- (id)constrainWidth:(double)arg1;
+- (id)constrainHeight:(double)arg1 priority:(float)arg2;
+- (id)constrainHeight:(double)arg1;
 - (void)addSubview:(id)arg1 constrainedBy:(struct NSEdgeInsets)arg2 priority:(float)arg3;
 - (id)constraintWithSelfAsFirstItemBoundToAttribute:(long long)arg1;
 @property(nonatomic) struct _NSRange currentFieldEditorEditRange;

@@ -45,6 +45,7 @@
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
+- (void)resetStateAndMetadataForDuplicationIncludingObjectID:(BOOL)arg1;
 - (void)resetStateAndMetadataForDuplication;
 @property(copy, nonatomic) MSDocumentState *documentState;
 - (id)layers;
@@ -71,6 +72,7 @@
 - (id)sharedObjectContainerOfType:(unsigned long long)arg1;
 @property(retain, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 - (void)purgeForeignObjects;
+- (BOOL)purgeObjectsIn:(id)arg1 notReferencedIn:(id)arg2;
 - (id)sharedObjectReferencesInDocument;
 - (void)addReferencedObjectsWithin:(id)arg1 toSet:(id)arg2;
 - (void)enumerateForeignObjects:(id)arg1 withLibraries:(id)arg2 block:(CDUnknownBlockType)arg3;

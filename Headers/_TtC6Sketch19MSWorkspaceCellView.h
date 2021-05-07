@@ -14,8 +14,8 @@
     // Error parsing type: , name: roleTextField
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: avatarStackView
+    // Error parsing type: , name: viewWorkspaceButton
     // Error parsing type: , name: delegate
-    // Error parsing type: , name: promptForSubscription
     // Error parsing type: , name: owner
 }
 
@@ -25,6 +25,7 @@
 - (void)viewWorkspaceInBrowser:(id)arg1;
 - (void)performAction:(id)arg1;
 @property(nonatomic, copy) id objectValue;
+@property(nonatomic, retain) NSButton *viewWorkspaceButton; // @synthesize viewWorkspaceButton;
 @property(nonatomic, retain) _TtC6Sketch17MSAvatarStackView *avatarStackView; // @synthesize avatarStackView;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSTextField *roleTextField; // @synthesize roleTextField;

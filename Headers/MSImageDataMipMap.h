@@ -25,7 +25,7 @@
 - (struct CGImage *)createDownscaledImageWithBoxFilter:(struct CGImage *)arg1;
 - (void)boxFilterBufferRGBA8888:(struct vImage_Buffer *)arg1 into:(struct vImage_Buffer *)arg2;
 - (id)generateNext:(unsigned long long)arg1;
-- (void)writeToImage:(struct CGImage *)arg1 toPersistentCacheAtURL:(id)arg2;
+- (void)writeImage:(struct CGImage *)arg1 toPersistentCacheAtURL:(id)arg2;
 @property struct CGImage *CGImage;
 - (void)dealloc;
 - (id)initWithCGImage:(struct CGImage *)arg1 colorSpace:(struct CGColorSpace *)arg2 lod:(unsigned long long)arg3 cacheURL:(id)arg4;

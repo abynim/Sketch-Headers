@@ -9,7 +9,6 @@
 @interface _TtC11SketchModel20MSInfluenceRectCache : NSObject
 {
     // Error parsing type: , name: cache
-    // Error parsing type: , name: readWriteLocker
 }
 
 - (void).cxx_destruct;

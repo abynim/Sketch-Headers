@@ -21,7 +21,6 @@
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (void).cxx_destruct;
-- (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;

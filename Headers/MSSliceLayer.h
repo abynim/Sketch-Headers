@@ -9,14 +9,14 @@
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSLayerWithMutableBackgroundColor-Protocol.h>
 
-@class MSColor, NSString;
+@class MSColor, NSArray, NSString;
 
 @interface MSSliceLayer : _MSSliceLayer <MSLayerWithMutableBackgroundColor, MSColorUpdateable>
 {
 }
 
 - (void)changeColor:(id)arg1;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;

@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKUser, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
@@ -29,6 +29,7 @@
     BOOL _hasOpenedImageFile;
     BOOL _nextSaveShouldCreateVersionOnCloud;
     BOOL _nextSaveShouldPublishVersionOnCloud;
+    BOOL _nextSaveAsShouldKeepDocumentID;
     BOOL _isSidebarVisible;
     BOOL _isLayerListVisible;
     BOOL _isComponentsPanelVisible;
@@ -96,6 +97,7 @@
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
 @property(retain, nonatomic) NSTimer *cloudAutosaveTimer; // @synthesize cloudAutosaveTimer=_cloudAutosaveTimer;
 @property(nonatomic) unsigned long long contentType; // @synthesize contentType=_contentType;
+@property(nonatomic) BOOL nextSaveAsShouldKeepDocumentID; // @synthesize nextSaveAsShouldKeepDocumentID=_nextSaveAsShouldKeepDocumentID;
 @property(nonatomic) BOOL nextSaveShouldPublishVersionOnCloud; // @synthesize nextSaveShouldPublishVersionOnCloud=_nextSaveShouldPublishVersionOnCloud;
 @property(nonatomic) BOOL nextSaveShouldCreateVersionOnCloud; // @synthesize nextSaveShouldCreateVersionOnCloud=_nextSaveShouldCreateVersionOnCloud;
 @property(readonly, nonatomic) _TtC14SketchCloudKit23SubscriptionsController *subscriptionsController; // @synthesize subscriptionsController=_subscriptionsController;
@@ -132,7 +134,7 @@
 - (id)previewColorSpaceForItem:(id)arg1;
 - (void)warnIfPluginsDisabled;
 - (void)warnIfEditingLibrary;
-- (BOOL)isLibraryDocument;
+@property(readonly, nonatomic) BOOL isLibraryDocument;
 - (void)showNonDefaultColorSpaceWarningIfApplicable;
 - (id)shareableObjectReferenceForObject:(id)arg1;
 - (id)shareableObjectReferenceForDescriptor:(id)arg1;
@@ -304,7 +306,6 @@
 - (id)init;
 - (void)setupCoEditController;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
-- (void)updatePrivateSymbolIDsOnSaveable;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;
@@ -313,9 +314,10 @@
 - (id)duplicateAndReturnError:(id *)arg1;
 @property(readonly, nonatomic) BOOL needsUploading;
 @property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload;
-@property(readonly, nonatomic) SCKUser *preferredUser;
+@property(readonly, nonatomic) SCKWorkspace *defaultWorkspace;
 @property(retain, nonatomic) SCKProject *preferredProject;
 @property(retain, nonatomic) SCKOrganization *preferredOrganization;
+@property(retain, nonatomic) SCKWorkspace *preferredWorkspace;
 @property(retain, nonatomic) SCKShare *cloudShare;
 @property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;
@@ -364,7 +366,7 @@
 - (BOOL)writeToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 originalContentsURL:(id)arg4 error:(id *)arg5;
 - (BOOL)writeSafelyToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 error:(id *)arg4;
 - (BOOL)canAsynchronouslyWriteToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3;
-- (void)saveCloudDocumentDraftAs:(id)arg1 organization:(id)arg2 project:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)saveCloudDocumentDraftAs:(id)arg1 workspace:(id)arg2 project:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldRunSavePanelWithAccessoryView;
 - (void)runModalSaveDraftCloudDocPanelForOperationType:(unsigned long long)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (BOOL)discardDraftDocumentWithError:(id *)arg1;

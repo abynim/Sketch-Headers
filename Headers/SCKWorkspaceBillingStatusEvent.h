@@ -6,12 +6,14 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSArray, NSDictionary, NSString;
+@class NSArray, NSDate, NSDictionary, NSString;
 
 @interface SCKWorkspaceBillingStatusEvent : SCKObject
 {
     // Error parsing type: , name: workspaceIDs
     // Error parsing type: , name: billingStatus
+    // Error parsing type: , name: subscriptionEndDate
+    // Error parsing type: , name: trialEndDate
 }
 
 - (void).cxx_destruct;
@@ -22,6 +24,8 @@
 @property(nonatomic, readonly) NSDictionary *dictionaryRepresentation;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
+@property(nonatomic, readonly) NSDate *trialEndDate;
+@property(nonatomic, readonly) NSDate *subscriptionEndDate;
 @property(nonatomic, readonly) NSString *billingStatus; // @synthesize billingStatus;
 @property(nonatomic, readonly) NSArray *workspaceIDs;
 

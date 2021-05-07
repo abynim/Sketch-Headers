@@ -24,7 +24,7 @@
 - (void)licenseDidChangeWithNotification:(id)arg1;
 - (void)registerLicense:(id)arg1;
 - (void)unlinkLicense:(id)arg1;
-- (void)renewLicense:(id)arg1;
+- (void)manageLicenseAction:(id)arg1;
 - (void)learnMore:(id)arg1;
 - (void)updateConstraintsWithMessageView:(id)arg1;
 - (void)viewDidDisappear;

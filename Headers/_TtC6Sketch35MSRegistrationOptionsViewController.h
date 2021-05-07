@@ -6,18 +6,21 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSImage, NSStackView, NSString, NSTextField;
+@class NSButton, NSImage, NSStackView, NSString, NSTextField, NSView;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @interface _TtC6Sketch35MSRegistrationOptionsViewController : NSViewController
 {
-    // Error parsing type: , name: licensingStatus
+    // Error parsing type: , name: event
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: remoteActionButton
-    // Error parsing type: , name: ssoButton
+    // Error parsing type: , name: footerSeparator
+    // Error parsing type: , name: footerView
     // Error parsing type: , name: footerButtons
-    // Error parsing type: , name: altFooterLabel
+    // Error parsing type: , name: altFooterView
     // Error parsing type: , name: altFooterButtons
+    // Error parsing type: , name: warningView
+    // Error parsing type: , name: warningLabel
     // Error parsing type: , name: allowCancellation
     // Error parsing type: , name: headerImage
     // Error parsing type: , name: headerLinkTitle
@@ -38,16 +41,18 @@
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
 - (void)downloadEarlierVersion:(id)arg1;
-- (void)renewLicense:(id)arg1;
-- (void)signInWithSSO:(id)arg1;
+- (void)manageLicense:(id)arg1;
 - (void)enterLicense:(id)arg1;
 - (void)signUp:(id)arg1;
 - (void)signIn:(id)arg1;
-- (void)learnMoreAction:(id)arg1;
+- (void)viewWillAppear;
+@property(nonatomic, retain) NSTextField *warningLabel; // @synthesize warningLabel;
+@property(nonatomic, retain) NSView *warningView; // @synthesize warningView;
 @property(nonatomic) __weak NSStackView *altFooterButtons; // @synthesize altFooterButtons;
-@property(nonatomic) __weak NSTextField *altFooterLabel; // @synthesize altFooterLabel;
+@property(nonatomic) __weak NSView *altFooterView; // @synthesize altFooterView;
 @property(nonatomic, retain) NSStackView *footerButtons; // @synthesize footerButtons;
-@property(nonatomic, retain) NSButton *ssoButton; // @synthesize ssoButton;
+@property(nonatomic) __weak NSStackView *footerView; // @synthesize footerView;
+@property(nonatomic) __weak NSView *footerSeparator; // @synthesize footerSeparator;
 @property(nonatomic, retain) NSButton *remoteActionButton; // @synthesize remoteActionButton;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 

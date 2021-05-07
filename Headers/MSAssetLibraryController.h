@@ -56,14 +56,13 @@
 - (id)previewFromDocumentReader:(id)arg1;
 - (void)generatePreviewImageForLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)libraryForShareableObject:(id)arg1;
+- (void)enumerateForeignObjects:(id)arg1 inDocument:(id)arg2 includeDisabled:(BOOL)arg3 includeUpdateableLibraries:(BOOL)arg4 block:(CDUnknownBlockType)arg5;
 - (void)enumerateForeignObjects:(id)arg1 inDocument:(id)arg2 includeDisabled:(BOOL)arg3 block:(CDUnknownBlockType)arg4;
 - (void)syncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3 visitedSet:(id)arg4;
 - (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
+- (id)importShareableObjectReference:(id)arg1 nestedIn:(id)arg2 intoDocument:(id)arg3;
 - (id)importShareableObjectReference:(id)arg1 intoDocument:(id)arg2;
-- (id)importSwatchWithID:(id)arg1 fromDocument:(id)arg2 toDocument:(id)arg3;
-- (void)syncNestedSwatchesOf:(id)arg1 fromRemote:(id)arg2 fromLibrary:(id)arg3;
-- (void)syncNestedSymbolsOf:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
-- (id)symbolIDsMappingFrom:(id)arg1 toLibrary:(id)arg2;
 - (void)checkUpdatesForPublicCloudLibrariesWithDispatchGroup:(id)arg1;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;

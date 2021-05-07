@@ -13,12 +13,14 @@
 @interface SCKWorkspace : SCKObject <SCKContentOwner>
 {
     BOOL _canEdit;
+    BOOL _hasEditableContent;
     BOOL _isActive;
     BOOL _ssoEnabled;
     SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
     NSString *_name;
+    NSString *_role;
     NSString *_ssoShortName;
     NSString *_customerID;
     NSString *_billingStatus;
@@ -35,16 +37,18 @@
 @property(readonly, copy, nonatomic) NSString *ssoShortName; // @synthesize ssoShortName=_ssoShortName;
 @property(readonly, nonatomic) BOOL ssoEnabled; // @synthesize ssoEnabled=_ssoEnabled;
 @property(readonly, nonatomic) BOOL isActive; // @synthesize isActive=_isActive;
+@property(readonly, copy, nonatomic) NSString *role; // @synthesize role=_role;
+@property(readonly, nonatomic) BOOL hasEditableContent; // @synthesize hasEditableContent=_hasEditableContent;
 @property(readonly, nonatomic) BOOL canEdit; // @synthesize canEdit=_canEdit;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
+@property(readonly, nonatomic) BOOL ssoAuthenticationRequired;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;
-- (id)initWithWorkspace:(id)arg1 updatedBillingStatus:(id)arg2;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties

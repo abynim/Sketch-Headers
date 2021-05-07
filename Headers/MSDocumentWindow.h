@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) BOOL supportsFilePathMenu;
 - (void)setAppearance:(id)arg1;
 - (void)refreshAfterAppearanceChange;
+- (BOOL)canBecomeKeyWindow;
 - (id)touchBar;
 - (void)toggleToolbarShown:(id)arg1;
 - (void)showFilePopoverFromView:(id)arg1;

@@ -17,7 +17,7 @@
 - (unsigned long long)shareableObjectType;
 - (id)sharedObjectID;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
-- (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
+- (id)addToDocument:(id)arg1 nestedIn:(id)arg2 withAssetLibraryController:(id)arg3;
 
 @end
 

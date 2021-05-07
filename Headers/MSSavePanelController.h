@@ -10,7 +10,7 @@
 #import "NSOpenSavePanelDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKOrganization, SCKProject, SCKUser, _TtC6Sketch18MSRecentPlacesList;
+@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace, _TtC6Sketch18MSRecentPlacesList;
 
 @interface MSSavePanelController : CHSheetController <NSOpenSavePanelDelegate, NSDraggingDestination, NSWindowDelegate>
 {
@@ -103,7 +103,6 @@
 - (void)finishWithSender:(id)arg1;
 - (void)confirm:(id)arg1;
 - (void)learnMoreAboutLicenseMigration:(id)arg1;
-- (void)learnMoreAboutCloud:(id)arg1;
 - (void)signInToCloud:(id)arg1;
 - (void)reloadCloudDestinations;
 - (void)authenticationDidChange:(id)arg1;
@@ -122,10 +121,9 @@
 - (void)updateProjectsMenu;
 - (id)projects;
 - (void)requestProjects;
-@property(readonly, nonatomic) SCKOrganization *organization;
+@property(readonly, nonatomic) SCKWorkspace *workspace;
 - (void)selectProject:(id)arg1;
-- (void)selectOrganization:(id)arg1;
-- (void)requestOrganizations;
+- (void)selectWorkspace:(id)arg1;
 @property(readonly, nonatomic) BOOL canSaveToWorkspace;
 - (BOOL)validateConfirmation;
 - (void)updateButtonValidation;

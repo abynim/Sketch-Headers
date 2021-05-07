@@ -23,7 +23,6 @@
     // Error parsing type: , name: subtitleLabel
     // Error parsing type: , name: contextLabel
     // Error parsing type: , name: state
-    // Error parsing type: , name: subscriptionPromptItem
     // Error parsing type: , name: teamRowObjects
 }
 

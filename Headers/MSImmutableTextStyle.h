@@ -6,9 +6,11 @@
 
 #import <SketchModel/_MSImmutableTextStyle.h>
 
-@class NSDictionary;
+#import <SketchModel/MSColorReadable-Protocol.h>
 
-@interface MSImmutableTextStyle : _MSImmutableTextStyle
+@class NSArray, NSDictionary, NSString;
+
+@interface MSImmutableTextStyle : _MSImmutableTextStyle <MSColorReadable>
 {
     NSDictionary *_decodedAttributes;
 }
@@ -17,12 +19,19 @@
 @property(copy, nonatomic) NSDictionary *decodedAttributes; // @synthesize decodedAttributes=_decodedAttributes;
 - (void)migratePropertiesFromV97OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV81OrEarlierWithUnarchiver:(id)arg1;
+@property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, copy, nonatomic) NSDictionary *attributes;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (id)treeAsDictionary;
 - (id)fontName;
 - (BOOL)isFontAvailable;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

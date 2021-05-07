@@ -6,15 +6,17 @@
 
 #import <SketchModel/_MSImmutableStyleBasicFill.h>
 
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/NSPasteboardReading-Protocol.h>
 #import <SketchModel/NSPasteboardWriting-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
-@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill <NSPasteboardWriting, NSPasteboardReading>
+@interface MSImmutableStyleBasicFill : _MSImmutableStyleBasicFill <NSPasteboardWriting, NSPasteboardReading, MSColorReadable>
 {
 }
 
+@property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) BOOL hasOpacity;
 - (id)pasteboardReaderWriter;
 

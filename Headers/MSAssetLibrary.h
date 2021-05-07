@@ -50,6 +50,7 @@
 - (void)handleDocumentLoaded:(id)arg1;
 - (id)loadDocument:(unsigned long long *)arg1;
 @property(retain) NSURL *locationOnDisk;
+@property(readonly, nonatomic) BOOL downloadAvailable;
 @property(readonly, nonatomic) BOOL isLocal;
 @property(readonly, nonatomic) BOOL isRemote;
 @property(readonly, nonatomic) BOOL canLibraryBeRemoved;

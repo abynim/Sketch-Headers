@@ -71,6 +71,7 @@
 @property(readonly, nonatomic) unsigned long long containedTraits;
 - (void)objectDidInit;
 - (id)initWithMinimalSetup;
+- (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
 - (id)findParentLayerGroupWithDocument:(id)arg1;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
@@ -91,6 +92,7 @@
 - (id)containedLayers;
 - (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)enumeratorWithOptions:(unsigned long long)arg1;
 - (BOOL)defaultOverrideVisibilityForPoint:(id)arg1 ancestors:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;

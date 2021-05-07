@@ -8,14 +8,14 @@
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSStyleShadow : _MSStyleShadow <MSColorUpdateable>
 {
 }
 
 - (unsigned long long)styleType;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)multiplyBy:(double)arg1;

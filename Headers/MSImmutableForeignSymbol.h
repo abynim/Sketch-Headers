@@ -10,6 +10,9 @@
 {
 }
 
+- (id)buildRemoteToLocalIDMap:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (id)localObject;
 
 @end

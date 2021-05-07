@@ -6,7 +6,7 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion;
+@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion, SCKWorkspace;
 @protocol SCKContentOwner;
 
 @interface SCKShare : SCKObject
@@ -25,6 +25,7 @@
     SCKShareVersion *_latestVersion;
     NSArray *_previewThumbnails;
     SCKObject<SCKContentOwner> *_owner;
+    SCKWorkspace *_workspace;
     SCKProject *_project;
     NSString *_selectedArtboardID;
     NSString *_selectedPageID;
@@ -37,6 +38,7 @@
 @property(readonly, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;
 @property(readonly, nonatomic) NSString *selectedArtboardID; // @synthesize selectedArtboardID=_selectedArtboardID;
 @property(readonly, nonatomic) SCKProject *project; // @synthesize project=_project;
+@property(readonly, nonatomic) SCKWorkspace *workspace; // @synthesize workspace=_workspace;
 @property(readonly, nonatomic) SCKObject<SCKContentOwner> *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) NSArray *previewThumbnails; // @synthesize previewThumbnails=_previewThumbnails;
 @property(readonly, nonatomic) BOOL canUpdate; // @synthesize canUpdate=_canUpdate;
@@ -54,7 +56,6 @@
 - (id)shareWithDisclosableOwner;
 - (void)enableAsLibrary;
 - (id)shareBySettingCurrentVersion:(id)arg1;
-- (BOOL)isManagedByOwner:(id)arg1;
 - (BOOL)isUpdatedByShare:(id)arg1;
 - (id)readOnlyCopy;
 - (id)shareBySettingOwner:(id)arg1;

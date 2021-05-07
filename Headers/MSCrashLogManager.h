@@ -7,35 +7,40 @@
 #import <objc/NSObject.h>
 
 #import "MSActionObserver-Protocol.h"
-#import "MSCrashesDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
 @class BCReadWriteLock, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSURL;
+@protocol OS_dispatch_semaphore;
 
-@interface MSCrashLogManager : NSObject <MSActionObserver, MSCrashesDelegate, NSTextFieldDelegate>
+@interface MSCrashLogManager : NSObject <MSActionObserver, NSTextFieldDelegate>
 {
     BCReadWriteLock *_environmentLock;
     NSMutableDictionary *_environment;
     BCReadWriteLock *_itemsLock;
     NSMutableArray *_items;
+    BOOL _send;
     NSString *_text;
     NSString *_attachmentText;
-    NSDictionary *_userProvidedInfo;
     NSTextField *_header;
     NSTextField *_emailField;
     NSTextField *_commentsField;
+    NSObject<OS_dispatch_semaphore> *_semaphore;
+    NSString *_userEmail;
+    NSString *_userComment;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *userComment; // @synthesize userComment=_userComment;
+@property(retain, nonatomic) NSString *userEmail; // @synthesize userEmail=_userEmail;
+@property(nonatomic) BOOL send; // @synthesize send=_send;
+@property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;
 @property(nonatomic) __weak NSTextField *commentsField; // @synthesize commentsField=_commentsField;
 @property(nonatomic) __weak NSTextField *emailField; // @synthesize emailField=_emailField;
 @property(nonatomic) __weak NSTextField *header; // @synthesize header=_header;
-@property(retain, nonatomic) NSDictionary *userProvidedInfo; // @synthesize userProvidedInfo=_userProvidedInfo;
 @property(retain, nonatomic) NSString *attachmentText; // @synthesize attachmentText=_attachmentText;
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)send:(id)arg1;
 - (void)cancel:(id)arg1;
-- (id)attachmentsWithCrashes:(id)arg1 forErrorReport:(id)arg2;
 - (BOOL)setup;
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;

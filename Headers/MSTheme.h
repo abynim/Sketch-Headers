@@ -124,6 +124,8 @@
 @property(readonly, nonatomic) NSColor *canvasLightModeBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasDarkModeBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasBackgroundColor;
+@property(readonly, nonatomic) NSColor *canvasLightModeArtboardTitleColor;
+@property(readonly, nonatomic) NSColor *canvasDarkModeArtboardTitleColor;
 @property(readonly, nonatomic) NSColor *canvasArtboardTitleColor;
 - (id)layerListTextColorForBackgroundStyle:(long long)arg1 nodeIsHidden:(BOOL)arg2 editing:(BOOL)arg3 selected:(BOOL)arg4 active:(BOOL)arg5;
 @property(readonly, nonatomic) NSColor *sidebarSeparatorColor;

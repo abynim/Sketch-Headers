@@ -6,11 +6,22 @@
 
 #import <SketchModel/_MSImmutableGradientStop.h>
 
-@interface MSImmutableGradientStop : _MSImmutableGradientStop
+#import <SketchModel/MSColorReadable-Protocol.h>
+
+@class NSArray, NSString;
+
+@interface MSImmutableGradientStop : _MSImmutableGradientStop <MSColorReadable>
 {
 }
 
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (id)initWithPosition:(double)arg1 color:(id)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -8,9 +8,11 @@
 
 @interface NSURL (CloudURLs)
 + (id)saveAndStarDocumentation;
++ (id)collaborationTroubleshooting;
 + (id)collaborationDocumentation;
-+ (id)cloudDocumentation;
-+ (id)cloudTeams;
++ (id)baseQueryItemsWithLicense:(id)arg1;
++ (id)websiteLegacyCloudAccessEndingURLForLicense:(id)arg1;
++ (id)websiteSubscriptionSwitchURLForLicense:(id)arg1;
 + (id)websiteAvailableVersionsURLForLicense:(id)arg1;
 + (id)websiteRenewalURLForLicenseKey:(id)arg1;
 + (id)websiteRenewalURLForLicense:(id)arg1;

@@ -31,6 +31,7 @@
 - (BOOL)open:(id *)arg1;
 - (id)initWithURL:(id)arg1 delegate:(id)arg2;
 - (id)init;
+- (id)initWithData:(id)arg1 uiMetadata:(id)arg2 fileURL:(id)arg3 delegate:(id)arg4;
 
 @end
 

@@ -6,11 +6,12 @@
 
 #import <SketchModel/_MSImmutableSymbolInstance.h>
 
+#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
 
 @class NSArray, NSDictionary;
 
-@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
+@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSColorReadable, MSFlowContainmentCheck>
 {
     NSArray *_calculatedAvailableOverrides;
     // Error parsing type: A^^v, name: _availableOverridesInDocumentAtomicPointer
@@ -39,6 +40,7 @@
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)initWithMinimalSetup;
 - (id)initWithGroupForMigration:(id)arg1;
+@property(nonatomic, readonly) NSArray *updateableColors;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;

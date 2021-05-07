@@ -28,8 +28,8 @@
     // Error parsing type: , name: $__lazy_storage_$_inspectorControlEmbossed
     // Error parsing type: , name: $__lazy_storage_$_inspectorButtonBorderHighlighted
     // Error parsing type: , name: $__lazy_storage_$_documentsWindowThumbnailBackgroundColor
-    // Error parsing type: , name: $__lazy_storage_$_preferencesMessageBannerBackground
-    // Error parsing type: , name: $__lazy_storage_$_preferencesMessageBannerBorder
+    // Error parsing type: , name: $__lazy_storage_$_messageBannerBackground
+    // Error parsing type: , name: $__lazy_storage_$_messageBannerBorder
     // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeRedColor
     // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeYellowColor
     // Error parsing type: , name: $__lazy_storage_$_assistantWindowBadgeGreyColor
@@ -52,8 +52,8 @@
 @property(nonatomic, retain) NSColor *assistantWindowBadgeGreyColor;
 @property(nonatomic, retain) NSColor *assistantWindowBadgeYellowColor;
 @property(nonatomic, retain) NSColor *assistantWindowBadgeRedColor;
-@property(nonatomic, retain) NSColor *preferencesMessageBannerBorder;
-@property(nonatomic, retain) NSColor *preferencesMessageBannerBackground;
+@property(nonatomic, retain) NSColor *messageBannerBorder;
+@property(nonatomic, retain) NSColor *messageBannerBackground;
 @property(nonatomic, retain) NSColor *documentsWindowThumbnailBackgroundColor;
 @property(nonatomic, retain) NSColor *inspectorButtonBorderHighlighted;
 @property(nonatomic, retain) NSColor *inspectorControlEmbossed;

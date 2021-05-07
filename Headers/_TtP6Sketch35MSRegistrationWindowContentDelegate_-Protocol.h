@@ -7,14 +7,12 @@
 @protocol _TtP6Sketch27MSRegistrationWindowContent_;
 
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_
-- (void)startSignInWithSSO:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)showRegistrationOptions:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)showLicenseView:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)showSignInView:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)updateRegistrationHeader:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)didFailRegistration:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)didSucceedRegistration:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
-- (void)willStartRegistration:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 - (void)dismissRegistration:(id <_TtP6Sketch27MSRegistrationWindowContent_>)arg1;
 @end
 

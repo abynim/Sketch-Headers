@@ -34,6 +34,7 @@
     NSButton *_actionButton;
     NSButton *_cancelButton;
     NSTextField *_statusLabel;
+    NSButton *_ssoButton;
     NSError *_error;
 }
 
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) BOOL waitingForSSO; // @synthesize waitingForSSO=_waitingForSSO;
 @property(nonatomic) BOOL hidesInputViews; // @synthesize hidesInputViews=_hidesInputViews;
+@property(retain, nonatomic) NSButton *ssoButton; // @synthesize ssoButton=_ssoButton;
 @property(retain, nonatomic) NSTextField *statusLabel; // @synthesize statusLabel=_statusLabel;
 @property(retain, nonatomic) NSButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain, nonatomic) NSButton *actionButton; // @synthesize actionButton=_actionButton;
@@ -71,14 +73,14 @@
 - (void)updateEnvironmentMenuItems;
 - (void)cancel:(id)arg1;
 - (void)confirmRegistration;
+- (void)registrationDidFail;
+- (void)registrationDidSucceed;
 - (void)updateCancelButtonTitle;
-- (void)finishSignIn;
 - (void)obtainLicenseWithAuthentication:(id)arg1;
 - (void)processSignInResult:(id)arg1 error:(id)arg2;
 - (void)signInWithSSO:(id)arg1;
 - (void)signIn:(id)arg1;
 - (void)resetPassword:(id)arg1;
-- (void)visitCloudDocumentation:(id)arg1;
 - (void)viewWillAppear;
 @property(nonatomic, readonly) BOOL wantsLicense;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;

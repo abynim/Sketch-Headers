@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSStackView *actionStackView; // @synthesize actionStackView=_actionStackView;
 - (void)upload:(id)arg1;
 - (void)updateFootnote:(id)arg1;
-- (id)selectedOrganization;
+- (id)selectedWorkspace;
 - (void)reloadOrganizations;
 - (void)requestOrganizations;
 - (void)viewDidLoad;

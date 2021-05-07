@@ -27,7 +27,7 @@
     // Error parsing type: , name: cancelButton
     // Error parsing type: , name: actionButton
     // Error parsing type: , name: footerView
-    // Error parsing type: , name: storeButton
+    // Error parsing type: , name: manageLicenseButton
     // Error parsing type: , name: downloadButton
     // Error parsing type: , name: licenseKey
 }
@@ -43,12 +43,11 @@
 - (void)openHelpURL:(id)arg1;
 - (void)visitLicenseManager:(id)arg1;
 - (void)visitStoreForRenewal:(id)arg1;
-- (void)visitStore:(id)arg1;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 - (void)viewWillAppear;
 @property(nonatomic, copy) NSString *licenseKey;
 @property(nonatomic, retain) NSButton *downloadButton; // @synthesize downloadButton;
-@property(nonatomic, retain) NSButton *storeButton; // @synthesize storeButton;
+@property(nonatomic, retain) NSButton *manageLicenseButton; // @synthesize manageLicenseButton;
 @property(nonatomic, retain) NSStackView *footerView; // @synthesize footerView;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;
 @property(nonatomic, retain) NSButton *cancelButton; // @synthesize cancelButton;

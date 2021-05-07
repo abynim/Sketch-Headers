@@ -118,7 +118,7 @@
 - (void)tableViewSelectionDidChange:(id)arg1;
 - (void)activateSearchField:(id)arg1;
 - (void)syncLibraryItems;
-- (id)teamNameForLibrary:(id)arg1;
+- (id)workspaceNameForLibrary:(id)arg1;
 @property(readonly, nonatomic) MSAssetLibraryController *assetLibraryController;
 - (void)viewDidLoad;
 

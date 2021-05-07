@@ -56,6 +56,7 @@
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
+- (void)updateWithIdentifierMapping:(id)arg1;
 - (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObjects:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObject:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;

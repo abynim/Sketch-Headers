@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserController, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
@@ -38,6 +38,7 @@
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
     BCLicenseManager *_licenseManager;
+    SCKUserController *_userController;
     MSUpdateController *_updateController;
     MSActionController *_actionController;
     MSAssetLibraryController *_librariesController;
@@ -66,6 +67,7 @@
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
 @property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
 @property(readonly, nonatomic) MSUpdateController *updateController; // @synthesize updateController=_updateController;
+@property(retain, nonatomic) SCKUserController *userController; // @synthesize userController=_userController;
 @property(retain, nonatomic) BCLicenseManager *licenseManager; // @synthesize licenseManager=_licenseManager;
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
@@ -96,7 +98,6 @@
 - (void)updateLicenseManager;
 - (void)setupLicenseManagerWithPublicCertificate:(id)arg1 licenseURL:(id)arg2 applicationID:(id)arg3;
 - (void)startLicenseManager;
-- (void)buy:(id)arg1;
 - (void)openAboutWindow:(id)arg1;
 - (void)openPreferencesWindowWithPreferencePaneIdentifier:(id)arg1;
 - (void)documentWillClose:(id)arg1;
@@ -151,6 +152,8 @@
 @property(readonly, nonatomic) BOOL shouldShowDocumentsWindowOnLaunch;
 @property(readonly, nonatomic) MSDocumentController *documentController;
 - (id)init;
+- (void)userWorkspaceBillingStatusDidChange:(id)arg1;
+- (void)userWorkspaceMembershipDidChange:(id)arg1;
 - (unsigned long long)handleTerminationRequest:(id)arg1;
 - (void)openDocumentAtPath:(id)arg1 withParameters:(id)arg2;
 - (void)openAddLibraryURL:(id)arg1 parameters:(id)arg2;

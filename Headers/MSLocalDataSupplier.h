@@ -15,6 +15,7 @@
     MSFolderMonitor *_folderMonitor;
 }
 
++ (BOOL)isStructuredDictionaryDataValid:(id)arg1;
 + (id)validImageFileUTIs;
 + (BOOL)isDataInsertedRandomly;
 + (id)identifierForURL:(id)arg1;

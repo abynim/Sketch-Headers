@@ -109,6 +109,7 @@
 @property(readonly, nonatomic) NSSet *unavailableFontNames;
 @property(readonly, nonatomic) BOOL shouldShowMissingLibraryFontsWarning;
 @property(readonly, nonatomic) BOOL shouldShowMissingFontsBadge;
+- (id)fontNamesExcludingLocalTextStylesWithMissingFonts:(BOOL)arg1;
 @property(readonly, nonatomic) NSSet *fontNames;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;

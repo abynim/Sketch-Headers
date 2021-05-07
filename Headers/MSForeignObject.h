@@ -6,27 +6,35 @@
 
 #import <SketchModel/_MSForeignObject.h>
 
-@class MSModelObject, NSString;
+@class MSImmutableDocumentData, MSModelObject, NSString;
 
 @interface MSForeignObject : _MSForeignObject
 {
+    MSImmutableDocumentData *_syncStateDocument;
+    long long _syncState;
 }
 
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (id)foreignObjectCollectionInDocument:(id)arg1;
 + (id)remoteSharedIDFromSymbolPrivateID:(id)arg1;
+- (void).cxx_destruct;
+@property(nonatomic) long long syncState; // @synthesize syncState=_syncState;
+@property(nonatomic) __weak MSImmutableDocumentData *syncStateDocument; // @synthesize syncStateDocument=_syncStateDocument;
 - (id)unlinkFromRemote;
 @property(readonly, nonatomic) NSString *remoteShareID;
-- (void)setLocalShareID:(id)arg1;
-- (id)localShareID;
+@property(retain, nonatomic) NSString *localShareID;
 - (void)setOriginalObject:(id)arg1;
 - (id)originalObject;
 @property(retain, nonatomic) MSModelObject *localObject;
+- (void)removeFromOwningDocument;
 - (id)masterFromLibrary:(id)arg1;
 - (BOOL)isLocalToDocument:(id)arg1;
 - (id)matchingForeignObjectInDocument:(id)arg1;
-- (void)syncWithRemote:(id)arg1;
+- (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)internalCheckIsOutOfDateWithLibrary:(id)arg1;
+- (void)refaultAgainst:(id)arg1;
+- (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;
 

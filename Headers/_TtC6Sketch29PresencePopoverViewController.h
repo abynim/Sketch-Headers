@@ -13,6 +13,7 @@
     // Error parsing type: , name: menuButton
     // Error parsing type: , name: titleLabel
     // Error parsing type: , name: descriptionLabel
+    // Error parsing type: , name: footerLabel
     // Error parsing type: , name: viewModel
 }
 

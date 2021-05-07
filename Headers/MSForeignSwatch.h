@@ -14,18 +14,16 @@
 {
 }
 
-+ (id)symbolPrivateSwatchWithID:(id)arg1 forForeignSymbol:(id)arg2 fromDocument:(id)arg3;
 + (id)foreignObjectCollectionInDocument:(id)arg1;
 + (id)masterFromDocument:(id)arg1 withID:(id)arg2;
 + (unsigned long long)containerType;
 - (id)debugQuickLookObject;
 - (id)findOrCreatePublicVersion;
-- (void)addOrReplaceInDocument:(id)arg1;
 - (void)addToDocument:(id)arg1;
 - (void)removeFromOwningDocument;
-- (void)syncWithRemote:(id)arg1;
+- (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (id)unlinkFromRemote;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)internalCheckIsOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;

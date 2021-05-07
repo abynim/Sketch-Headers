@@ -8,14 +8,14 @@
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSGradientStop : _MSGradientStop <MSColorUpdateable>
 {
 }
 
 + (id)stopWithPosition:(double)arg1 color:(id)arg2;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (double)cappedBounds:(double)arg1;

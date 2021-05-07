@@ -47,7 +47,7 @@
 @property(readonly, nonatomic) MSOverrideRepresentationContainer *overrideContainer; // @synthesize overrideContainer=_overrideContainer;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
-- (id)updateableColors;
+@property(nonatomic, readonly) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;

@@ -16,10 +16,12 @@
 {
     MSAssetLibrary *_sourceLibrary;
     MSModelObject<BCSortable><MSSharedObjectStyling> *_shareableObject;
+    NSString *_symbolPrivateID;
     MSShareableObjectReference *_remoteReference;
     NSString *_objectID;
 }
 
++ (id)referenceForShareableObjectWithID:(id)arg1 inLibrary:(id)arg2;
 + (id)referenceForMissingRemoteObject:(id)arg1 withObjectID:(id)arg2 inLibrary:(id)arg3;
 + (id)referenceForLocalObject:(id)arg1;
 + (id)referenceForRemoteObject:(id)arg1 inLibrary:(id)arg2;
@@ -29,6 +31,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(retain, nonatomic) MSShareableObjectReference *remoteReference; // @synthesize remoteReference=_remoteReference;
+@property(retain, nonatomic) NSString *symbolPrivateID; // @synthesize symbolPrivateID=_symbolPrivateID;
 @property(retain, nonatomic) MSModelObject<BCSortable><MSSharedObjectStyling> *shareableObject; // @synthesize shareableObject=_shareableObject;
 @property(retain, nonatomic) MSAssetLibrary *sourceLibrary; // @synthesize sourceLibrary=_sourceLibrary;
 - (void)generatePreviewImageAtSize:(struct CGSize)arg1 maximumSizeWithDecorations:(struct CGSize)arg2 backingScale:(double)arg3 colorSpace:(id)arg4 completionHandler:(CDUnknownBlockType)arg5;
@@ -52,7 +55,7 @@
 - (BOOL)idAndLibraryAreEqual:(id)arg1;
 @property(readonly, nonatomic) MSShareableObjectReferenceDescriptor *descriptor;
 - (id)referenceWithUpdatedObject:(id)arg1;
-- (id)addToDocument:(id)arg1 withAssetLibraryController:(id)arg2;
+- (id)addToDocument:(id)arg1 nestedIn:(id)arg2 withAssetLibraryController:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

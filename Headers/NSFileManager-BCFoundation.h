@@ -8,6 +8,7 @@
 
 @interface NSFileManager (BCFoundation)
 + (void)_setTemporaryFilesRootToURL:(id)arg1;
+- (BOOL)isFileSystemObject:(id)arg1 onSameVolumeAsFileSystemObject:(id)arg2;
 - (id)uniqueURL:(id)arg1;
 - (BOOL)isFolderAtURL:(id)arg1;
 - (BOOL)isFolderAtPath:(id)arg1;

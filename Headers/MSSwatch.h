@@ -9,14 +9,15 @@
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSSharedObjectPasting-Protocol.h>
 
-@class MSColor, NSString;
+@class MSColor, NSArray, NSString;
 
 @interface MSSwatch : _MSSwatch <MSSharedObjectPasting, MSColorUpdateable>
 {
 }
 
++ (BOOL)swatchWithID:(id)arg1 inDocument:(id)arg2 isEqualToSwatchWithID:(id)arg3 inDocument:(id)arg4 forPurpose:(unsigned long long)arg5;
 - (BOOL)isOutOfSyncWithInstance:(id)arg1;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)updateWithColor:(id)arg1;

@@ -26,14 +26,18 @@
 @property(readonly, nonatomic) BCCloudLicense *cloudLicense; // @synthesize cloudLicense=_cloudLicense;
 @property(readonly, copy, nonatomic) NSURL *legacyLicenseURL; // @synthesize legacyLicenseURL=_legacyLicenseURL;
 @property(readonly, nonatomic) BCLegacyLicense *legacyLicense; // @synthesize legacyLicense=_legacyLicense;
+- (id)websiteLegacyCloudAccessEndingURL;
 - (id)websiteAvailableVersionsURL;
+- (id)websiteSubscriptionSwitchURL;
 - (id)websiteRenewalURLForLicenseKey:(id)arg1;
 - (id)websiteRenewalURL;
 - (void)licenseDidBecomeInvalid;
 - (void)licenseStateChanged;
 - (void)completeUpdateWithHandler:(CDUnknownBlockType)arg1 status:(long long)arg2 info:(id)arg3 error:(id)arg4;
-- (void)processLicenseRefreshResult:(id)arg1 error:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)processLicenseRefresh:(id)arg1 oldLicense:(id)arg2 error:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)processDataOfRegistration:(id)arg1 handler:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) BOOL legacyLicenseUpdatesExpiringSoon;
+@property(readonly, nonatomic) BOOL hasUnsupportedTrialLicense;
 - (BOOL)hasPurchasedLegacyLicense;
 @property(readonly, nonatomic) long long numberOfDaysLeft;
 @property(readonly, nonatomic) BOOL canRenewLegacyLicense;
@@ -64,6 +68,7 @@
 - (void)refreshLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)obtainCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)obtainFallbackCloudLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)refreshAndValidateLicense:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)updateLicenseWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)registerWithLicenseKey:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (id)initWithApplicationID:(id)arg1 publicCertificate:(id)arg2 licenseURL:(id)arg3 applicationBuildDate:(id)arg4;

@@ -9,7 +9,7 @@
 #import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
-@class MSColor, NSAttributedString, NSDictionary, NSFont, NSNumber, NSString;
+@class MSColor, NSArray, NSAttributedString, NSDictionary, NSFont, NSNumber, NSString;
 @protocol MSTextLayerEditingDelegate;
 
 @interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorUpdateable>
@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MSTextLayerEditingDelegate> editingDelegate; // @synthesize editingDelegate=_editingDelegate;
 @property(nonatomic) struct CGRect previousRectCache; // @synthesize previousRectCache=_previousRectCache;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)canLockProportions;

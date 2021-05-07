@@ -11,7 +11,7 @@
 #import <SketchModel/MSLayerWithMutableBackgroundColor-Protocol.h>
 #import <SketchModel/MSRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
+@class MSArtboardPreset, MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSString;
 @protocol MSLayerCoordinateSpace;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSArtboardGroupProtocol, MSRootLayer, MSLayerWithMutableBackgroundColor, MSColorUpdateable>
@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (BOOL)shouldGrowSizeOfGroupForInferredLayout;
 - (void)setShouldBreakMaskChain:(BOOL)arg1;
-- (id)updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;

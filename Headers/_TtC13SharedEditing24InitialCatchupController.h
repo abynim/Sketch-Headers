@@ -13,6 +13,7 @@
     // Error parsing type: , name: delegate
     // Error parsing type: , name: progress
     // Error parsing type: , name: currentPhase
+    // Error parsing type: , name: readUIMetadata
 }
 
 @end

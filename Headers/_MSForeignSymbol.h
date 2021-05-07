@@ -6,11 +6,12 @@
 
 #import <SketchModel/MSForeignObject.h>
 
-@class MSSymbolMaster;
+@class MSSymbolMaster, NSDictionary;
 
 @interface _MSForeignSymbol : MSForeignObject
 {
     BOOL _missingLibraryFontAcknowledged;
+    NSDictionary *_remoteToLocalIDMap;
     MSSymbolMaster *_originalMaster;
     MSSymbolMaster *_symbolMaster;
 }
@@ -20,6 +21,7 @@
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1;
 - (void)setRaw_originalMaster:(id)arg1;
+- (void)setRaw_remoteToLocalIDMap:(id)arg1;
 - (void)setRaw_missingLibraryFontAcknowledged:(BOOL)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
@@ -32,6 +34,7 @@
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) MSSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
 @property(retain, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(retain, nonatomic) NSDictionary *remoteToLocalIDMap; // @synthesize remoteToLocalIDMap=_remoteToLocalIDMap;
 @property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
