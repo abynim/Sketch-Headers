@@ -21,7 +21,7 @@
 - (void)updateAfterPatching;
 - (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (BOOL)containsNestedStylesOutOfDateWithLibrary:(id)arg1;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)internalCheckIsOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;

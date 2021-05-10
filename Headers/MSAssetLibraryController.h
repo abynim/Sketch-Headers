@@ -56,6 +56,7 @@
 - (id)previewFromDocumentReader:(id)arg1;
 - (void)generatePreviewImageForLibrary:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (id)libraryForShareableObject:(id)arg1;
+- (void)enumerateForeignObjects:(id)arg1 inDocument:(id)arg2 includeDisabled:(BOOL)arg3 includeUpdateableLibraries:(BOOL)arg4 block:(CDUnknownBlockType)arg5;
 - (void)enumerateForeignObjects:(id)arg1 inDocument:(id)arg2 includeDisabled:(BOOL)arg3 block:(CDUnknownBlockType)arg4;
 - (void)syncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3 visitedSet:(id)arg4;

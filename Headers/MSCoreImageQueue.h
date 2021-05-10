@@ -10,6 +10,7 @@
 {
 }
 
++ (BOOL)canUseSoftwareRenderer;
 + (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 + (id)imageWithWhiteBackground:(id)arg1;
 + (id)applyEffect:(unsigned long long)arg1 fromSource:(id)arg2 toImage:(struct CGImage *)arg3;

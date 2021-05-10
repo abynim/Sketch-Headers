@@ -22,7 +22,7 @@
 - (void)addToDocument:(id)arg1;
 - (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (id)unlinkFromRemote;
-- (BOOL)isOutOfDateWithLibrary:(id)arg1;
+- (BOOL)internalCheckIsOutOfDateWithLibrary:(id)arg1;
 - (id)remoteShareID;
 - (void)setLocalShareID:(id)arg1;
 - (id)localShareID;
