@@ -67,6 +67,7 @@
 - (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
 - (struct CGPoint)origin;
+- (void)resizeChildrenWithOldSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) struct CGRect rect;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
