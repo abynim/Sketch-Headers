@@ -223,8 +223,8 @@
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toCoordinateSpace:(id)arg2;
-- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
-- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
+- (void)applyOverride:(id)arg1 withContext:(id)arg2;
+- (void)applyOverrides:(id)arg1 withContext:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 @property(retain, nonatomic) NSString *dataSupplierIdentifier;
 - (void)replaceFonts:(id)arg1;

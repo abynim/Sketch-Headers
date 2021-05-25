@@ -137,6 +137,7 @@
 - (void)updateDisplayedValues;
 - (void)textViewDidChange:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
+- (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidLoad;
 - (id)fontSizeMenu;
 - (void)writeRun:(id)arg1;

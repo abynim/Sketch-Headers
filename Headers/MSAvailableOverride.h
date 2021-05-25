@@ -33,7 +33,7 @@
 @property(readonly, nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;
 @property(readonly, nonatomic) MSOverridePoint *overridePoint; // @synthesize overridePoint=_overridePoint;
 @property(readonly, nonatomic) __weak MSImmutableLayer *affectedLayer; // @synthesize affectedLayer=_affectedLayer;
-@property(readonly, nonatomic) __weak MSImmutableSymbolMaster *master; // @synthesize master=_master;
+@property(readonly, nonatomic) MSImmutableSymbolMaster *master; // @synthesize master=_master;
 @property(readonly, nonatomic) __weak MSAvailableOverride *parent; // @synthesize parent=_parent;
 @property(readonly, nonatomic) NSString *containedByPropertyID;
 @property(readonly, nonatomic) NSString *containedPropertyID;
@@ -51,8 +51,6 @@
 - (BOOL)affectsSameLayerAs:(id)arg1;
 - (BOOL)isComplimentaryTo:(id)arg1;
 @property(nonatomic, readonly) long long ancestorCount;
-- (id)modifiedAffectedLayerForInstance:(id)arg1 inDocument:(id)arg2;
-- (id)detachedLayerGroupForInstance:(id)arg1 inDocument:(id)arg2;
 
 @end
 

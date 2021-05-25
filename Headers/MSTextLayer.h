@@ -110,6 +110,7 @@
 - (BOOL)canFixHeight;
 - (id)CSSAttributes;
 - (void)writeStyleToPasteboard:(id)arg1;
+- (void)applyOverrides:(id)arg1 withContext:(id)arg2;
 - (void)invalidateFonts;
 - (void)replaceFonts:(id)arg1;
 - (void)resetSharedStyle;
@@ -117,7 +118,7 @@
 - (id)foreignSharedStyles;
 - (id)styleContainer;
 - (void)reapplyPreviousAttributesFromString:(id)arg1 document:(id)arg2;
-- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
+- (void)applyOverride:(id)arg1 withContext:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

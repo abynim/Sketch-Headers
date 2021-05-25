@@ -6,15 +6,21 @@
 
 #import <objc/NSObject.h>
 
+@class BCCache;
+
 @interface _TtC11SketchModel21MSDetachedSymbolCache : NSObject
 {
     // Error parsing type: , name: cache
+    // Error parsing type: , name: optimalBoundsCache
+    // Error parsing type: , name: textLayerCache
 }
 
 - (void).cxx_destruct;
 - (id)init;
 - (void)clearCachesNotOwnedByDocument:(id)arg1;
 - (id)detachedGroupForSymbol:(id)arg1 andKey:(id)arg2 orCreateWith:(CDUnknownBlockType)arg3;
+@property(nonatomic, readonly) BCCache *textLayerCache; // @synthesize textLayerCache;
+@property(nonatomic, readonly) BCCache *optimalBoundsCache; // @synthesize optimalBoundsCache;
 
 @end
 

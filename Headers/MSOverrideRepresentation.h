@@ -6,21 +6,20 @@
 
 #import <SketchModel/MSOverrideRepresentationBase.h>
 
-@class MSAvailableOverride, MSImmutableSymbolMaster, NSAffineTransform, NSString;
+@class MSAvailableOverride, MSImmutableLayer, NSAffineTransform, NSString;
 
 @interface MSOverrideRepresentation : MSOverrideRepresentationBase
 {
     NSAffineTransform *_transformForConvertingToInstance;
+    MSImmutableLayer *_detachedLayer;
     const struct CGPath *_pathInInstance;
     MSAvailableOverride *_availableOverride;
     MSOverrideRepresentationBase *_parent;
     MSOverrideRepresentation *_previousSibling;
     long long _layerListExpandedType;
-    MSImmutableSymbolMaster *_modifiedParentMaster;
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) MSImmutableSymbolMaster *modifiedParentMaster; // @synthesize modifiedParentMaster=_modifiedParentMaster;
 @property(nonatomic) long long layerListExpandedType; // @synthesize layerListExpandedType=_layerListExpandedType;
 @property(nonatomic) __weak MSOverrideRepresentation *previousSibling; // @synthesize previousSibling=_previousSibling;
 @property(readonly, nonatomic) __weak MSOverrideRepresentationBase *parent; // @synthesize parent=_parent;
@@ -34,9 +33,9 @@
 @property(nonatomic) const struct CGPath *pathInInstance; // @synthesize pathInInstance=_pathInInstance;
 - (id)transformForConvertingToInstance;
 - (void)calculateTransformAndPath;
-- (id)detachedGroupForParentMaster;
 @property(readonly, nonatomic) BOOL isEditable;
 - (void)syncChildrenWithOverridesIfNeeded;
+- (id)detachedLayer;
 - (void)dealloc;
 - (id)initWithParent:(id)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2;

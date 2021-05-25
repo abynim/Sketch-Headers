@@ -6,16 +6,18 @@
 
 #import <SketchModel/MSOverrideRepresentationBase.h>
 
-@class MSImmutableSymbolInstance, NSArray;
+@class MSImmutableLayer, MSImmutableSymbolInstance, NSArray;
 
 @interface MSOverrideRepresentationContainer : MSOverrideRepresentationBase
 {
+    MSImmutableLayer *_detachedLayer;
     MSImmutableSymbolInstance *_appliedInstance;
 }
 
 + (id)rootRepresentationForSymbolInstance:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableSymbolInstance *appliedInstance; // @synthesize appliedInstance=_appliedInstance;
+- (id)detachedLayer;
 - (void)updateAfterSelectingChild;
 - (BOOL)isEditable;
 - (id)description;
