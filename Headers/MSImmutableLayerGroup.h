@@ -33,7 +33,7 @@
 - (BOOL)includeChildrenInCalculatingStyleSize;
 - (unsigned long long)axesForInferredLayouts;
 @property(readonly, nonatomic) BOOL hasInferredLayout;
-- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2 isMask:(BOOL)arg3 userInfo:(id)arg4;
+- (id)initWithRect:(struct CGRect)arg1 content:(id)arg2 isMask:(BOOL)arg3 shouldBreakMaskChain:(BOOL)arg4 userInfo:(id)arg5;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) struct CGSize mirrorViewPortSize;
 @property(readonly, nonatomic) double mirrorExportScale;

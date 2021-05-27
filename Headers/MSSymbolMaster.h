@@ -56,16 +56,16 @@
 - (void)invalidateModelCacheGeneration;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)overridePropertiesMatch:(id)arg1 forPurpose:(unsigned long long)arg2;
-- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
+- (void)applyOverrides:(id)arg1 withContext:(id)arg2;
 @property(readonly, nonatomic) NSArray *availableOverrides;
 - (void)preserveFlexibleWidthTextLayersInMutableMaster:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)applyBackgroundColorProperties;
 - (void)clearBackgroundBlurCaches;
 - (void)applyResizeToRect:(struct CGRect)arg1 preferNaturalSizeOnAxes:(unsigned long long)arg2;
 - (void)applyScale:(double)arg1;
-- (void)applyOverridesRespectingLayout:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
+- (void)applyOverridesRespectingLayout:(id)arg1 withContext:(id)arg2;
 - (BOOL)hasInferredLayouts;
-- (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 scale:(double)arg3 resizeToNaturalSizeOnAxes:(unsigned long long)arg4 inDocument:(id)arg5 visitedSymbols:(id)arg6;
+- (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 withContext:(id)arg4;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

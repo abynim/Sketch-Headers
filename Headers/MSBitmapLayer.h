@@ -31,7 +31,7 @@
 - (id)initWithFrame:(struct CGRect)arg1 image:(id)arg2;
 - (void)correctInvalidGamma;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
-- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
+- (void)applyOverride:(id)arg1 withContext:(id)arg2;
 
 // Remaining properties
 @property(retain, nonatomic) MSImageData *image;

@@ -17,9 +17,9 @@
 
 - (void).cxx_destruct;
 - (BOOL)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
-- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
+- (void)applyOverride:(id)arg1 withContext:(id)arg2;
 - (void)removeShareableObjectsFromOverrides:(id)arg1;
-- (void)applyOverrides:(id)arg1 scale:(double)arg2 document:(id)arg3 visitedSymbols:(id)arg4;
+- (void)applyOverrides:(id)arg1 withContext:(id)arg2;
 - (void)setValue:(id)arg1 forOverridePoint:(id)arg2;
 - (BOOL)shouldResizeRespectOwnLayoutDirection:(id)arg1;
 - (void)didResizeToFitContentsWithMaster:(id)arg1 oldRect:(struct CGRect)arg2;

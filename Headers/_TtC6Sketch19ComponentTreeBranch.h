@@ -9,7 +9,8 @@
 @interface _TtC6Sketch19ComponentTreeBranch : _TtC6Sketch17ComponentTreeItem
 {
     // Error parsing type: , name: treeContainsMultipleLibraries
-    // Error parsing type: , name: children
+    // Error parsing type: , name: unsortedChildren
+    // Error parsing type: , name: sortedChildren
     // Error parsing type: , name: lastFilter
     // Error parsing type: , name: cachedFilteredChildren
     // Error parsing type: , name: expansionState

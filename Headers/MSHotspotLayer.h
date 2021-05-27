@@ -15,7 +15,7 @@
 - (BOOL)canBeTransformed;
 - (void)setFlow:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
-- (void)applyOverride:(id)arg1 scale:(double)arg2 document:(id)arg3;
+- (void)applyOverride:(id)arg1 withContext:(id)arg2;
 
 @end
 
