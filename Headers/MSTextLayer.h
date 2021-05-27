@@ -84,6 +84,7 @@
 - (void)setRectAccountingForClipped:(struct CGRect)arg1;
 - (void)fixParentGeometryIfNotAlreadyChangingLayout;
 - (void)adjustFrameToFit;
+- (void)adjustFrameToFitUpdatingParent:(BOOL)arg1;
 - (long long)assumedAlignment;
 - (void)finishEditing;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
