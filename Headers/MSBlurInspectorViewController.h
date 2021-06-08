@@ -6,11 +6,12 @@
 
 #import "MSMultipleColorStylePartInspectorViewController.h"
 
+#import "MSChildRestoration-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSBackgroundBlurInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSArray, NSMenuItem, NSSet, NSString;
+@class MSBackgroundBlurInspectorItem, MSMotionBlurInspectorItem, MSPaddingInspectorItem, MSSeparatorlessView, MSSimpleBlurInspectorItem, MSZoomBlurInspectorItem, NSArray, NSDictionary, NSMenuItem, NSSet, NSString;
 
-@interface MSBlurInspectorViewController : MSMultipleColorStylePartInspectorViewController <NSMenuDelegate>
+@interface MSBlurInspectorViewController : MSMultipleColorStylePartInspectorViewController <NSMenuDelegate, MSChildRestoration>
 {
     NSMenuItem *_backgroundBlurMenuItem;
     NSMenuItem *_multipleBlursMenuItem;
@@ -33,6 +34,7 @@
 @property(retain, nonatomic) MSSeparatorlessView *paddingView; // @synthesize paddingView=_paddingView;
 @property(retain, nonatomic) NSMenuItem *multipleBlursMenuItem; // @synthesize multipleBlursMenuItem=_multipleBlursMenuItem;
 @property(retain, nonatomic) NSMenuItem *backgroundBlurMenuItem; // @synthesize backgroundBlurMenuItem=_backgroundBlurMenuItem;
+@property(readonly, copy, nonatomic) NSDictionary *restorableChildren;
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 - (id)disabledStylePartsButtonTooltip;
 - (id)addStylePartButonTooltip;

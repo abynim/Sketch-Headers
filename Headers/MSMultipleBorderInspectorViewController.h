@@ -17,6 +17,8 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSBorderOptionsInspectorViewController *borderOptionsController; // @synthesize borderOptionsController=_borderOptionsController;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 - (id)disabledStylePartsButtonTooltip;
 - (id)advancedOptionsButtonTooltip;
 - (id)addStylePartButonTooltip;

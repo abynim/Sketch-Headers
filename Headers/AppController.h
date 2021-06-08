@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDebouncer, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserController, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserController, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
@@ -33,7 +33,6 @@
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
     MSMirrorDataProvider *_mirrorDataProvider;
-    MSDebouncer *_assistantRunScheduler;
     MSDataSupplierManager *_dataSupplierManager;
     MSCrashLogManager *_crashLogManager;
     MSPluginManagerWithActions *_pluginManager;
@@ -72,7 +71,6 @@
 @property(retain, nonatomic) MSPluginManagerWithActions *pluginManager; // @synthesize pluginManager=_pluginManager;
 @property(readonly, nonatomic) MSCrashLogManager *crashLogManager; // @synthesize crashLogManager=_crashLogManager;
 @property(readonly, nonatomic) MSDataSupplierManager *dataSupplierManager; // @synthesize dataSupplierManager=_dataSupplierManager;
-@property(retain, nonatomic) MSDebouncer *assistantRunScheduler; // @synthesize assistantRunScheduler=_assistantRunScheduler;
 @property(retain, nonatomic) MSMirrorDataProvider *mirrorDataProvider; // @synthesize mirrorDataProvider=_mirrorDataProvider;
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;

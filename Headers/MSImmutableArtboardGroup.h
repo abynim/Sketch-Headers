@@ -24,7 +24,6 @@
 @property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
-- (struct CGRect)contentBoundsForDocument:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (struct CGRect)absoluteInfluenceRectForAncestorGroups:(id)arg1 document:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
@@ -34,6 +33,7 @@
 - (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+- (struct CGRect)contentBoundsForDocument:(id)arg1;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;

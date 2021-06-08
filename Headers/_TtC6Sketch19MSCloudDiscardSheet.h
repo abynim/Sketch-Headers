@@ -31,7 +31,6 @@
 - (void)uploadDidChange:(id)arg1;
 - (void)progressDidChangeWithProgress:(double)arg1;
 - (void)saveToCloudActionDidUpdate:(id)arg1;
-- (void)cloudActionDidUpdate:(id)arg1;
 - (void)windowDidLoad;
 - (void)run:(CDUnknownBlockType)arg1;
 - (id)init:(id)arg1;

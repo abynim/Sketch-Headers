@@ -29,6 +29,8 @@
 - (BOOL)canMoveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
 - (id)dragTypesForDataController:(id)arg1;
 - (id)readDragNodesFromPasteboard:(id)arg1;
+- (id)readLayersFromPasteboard:(id)arg1;
+- (id)readDragNodesFromArray:(id)arg1;
 - (BOOL)dataController:(id)arg1 writeNodes:(id)arg2 toPasteboard:(id)arg3;
 @property(readonly, nonatomic) Class pasteboardWriterClass;
 - (id)layersFromNodeArray:(id)arg1;

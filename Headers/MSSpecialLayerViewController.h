@@ -9,7 +9,7 @@
 #import "MSSymbolInstanceSectionDelegate-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSDictionary, NSMutableDictionary, NSString;
+@class MSBaseInspectorSection, MSSymbolInstanceSection, NSArray, NSCache, NSMutableDictionary, NSString;
 
 @interface MSSpecialLayerViewController : MSNestedInspectorSection <MSSymbolInstanceSectionDelegate, NSMenuDelegate>
 {
@@ -17,21 +17,16 @@
     NSArray *_layerInspectorSections;
     NSCache *_sectionInterfaceCache;
     MSBaseInspectorSection *_textSection;
-    NSDictionary *_restorationInfo;
     NSMutableDictionary *_sectionClassMap;
 }
 
 + (id)sectionOrder;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSMutableDictionary *sectionClassMap; // @synthesize sectionClassMap=_sectionClassMap;
-@property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) MSBaseInspectorSection *textSection; // @synthesize textSection=_textSection;
 @property(retain, nonatomic) NSCache *sectionInterfaceCache; // @synthesize sectionInterfaceCache=_sectionInterfaceCache;
 @property(retain, nonatomic) NSArray *layerInspectorSections; // @synthesize layerInspectorSections=_layerInspectorSections;
 @property(retain, nonatomic) MSSymbolInstanceSection *symbolInstanceSection; // @synthesize symbolInstanceSection=_symbolInstanceSection;
-- (void)restorePopover;
-- (void)restoreWithState_ms:(id)arg1;
-- (id)viewRestorationState_ms;
 - (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
 - (void)sectionDidResize:(id)arg1;
 - (id)userInterfaceCacheForSection:(id)arg1;
@@ -40,6 +35,7 @@
 - (id)views;
 - (id)regularLayerInspectorSections;
 - (id)externalLayerInspectorSections;
+- (id)sections;
 - (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)updateItems;
 - (id)inspectorsWithProperContent;

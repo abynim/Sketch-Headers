@@ -11,10 +11,13 @@
 @interface BCComparisonPathItem : BCComparisonItem
 {
     NSString *_objectName;
+    long long _index;
 }
 
 + (id)pathItemWithParent:(id)arg1 newObject:(id)arg2 oldObject:(id)arg3 named:(id)arg4;
++ (id)pathItemWithParent:(id)arg1 newObject:(id)arg2 oldObject:(id)arg3 named:(id)arg4 index:(unsigned long long)arg5;
 - (void).cxx_destruct;
+@property(nonatomic) long long index; // @synthesize index=_index;
 @property(retain, nonatomic) NSString *objectName; // @synthesize objectName=_objectName;
 - (id)internalFullPath;
 

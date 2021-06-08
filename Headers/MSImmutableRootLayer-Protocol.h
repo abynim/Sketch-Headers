@@ -14,6 +14,8 @@
 @property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
 @property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
 @property(readonly, copy, nonatomic) MSImmutableSimpleGrid *grid;
+
+@optional
 - (struct CGRect)contentBoundsForDocument:(MSImmutableDocumentData *)arg1;
 @end
 

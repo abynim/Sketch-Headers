@@ -10,7 +10,6 @@
 
 @protocol MSCoEditDocumentOpenerDelegate <MSDocumentOpenerDelegate>
 - (NSError *)makeErrorPresentable:(MSCoEditDocumentOpener *)arg1 error:(NSError *)arg2;
-@property(nonatomic, readonly) NSError *betaDisabledError;
 - (void)didProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (void)willProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldOpenExistingDocument:(MSCoEditDocumentOpener *)arg1;

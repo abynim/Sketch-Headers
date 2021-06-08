@@ -38,7 +38,6 @@
 - (void)dismissRegistration:(id)arg1;
 - (void)openMore:(id)arg1;
 - (void)viewWillAppear;
-- (void)viewDidLoad;
 @property(nonatomic, retain) NSView *contentContainerView; // @synthesize contentContainerView;
 @property(nonatomic, retain) NSImageView *successImageView; // @synthesize successImageView;
 @property(nonatomic, retain) MSLinkButton *linkButton; // @synthesize linkButton;

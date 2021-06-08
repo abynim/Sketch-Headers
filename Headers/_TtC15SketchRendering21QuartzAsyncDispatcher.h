@@ -8,7 +8,7 @@
 
 @interface _TtC15SketchRendering21QuartzAsyncDispatcher : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: drawingStack
+    // Error parsing type: , name: paintStack
     // Error parsing type: , name: dispatchQueue
 }
 

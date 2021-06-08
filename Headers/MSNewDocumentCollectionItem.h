@@ -12,6 +12,7 @@
 
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
 - (id)tintColor;
 - (BOOL)providesPreviewImage;

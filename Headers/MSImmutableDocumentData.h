@@ -10,10 +10,11 @@
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSDocumentState, MSImmutablePage, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
+    MSJSONSchema *_metadataConfiguration;
     _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     NSDictionary *_metadata;
@@ -29,6 +30,7 @@
 + (void)setIsRunningHeadless:(BOOL)arg1;
 + (BOOL)isRunningHeadless;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
++ (id)ms_influenceRectCacheWhenRunningHeadless;
 + (BOOL)persistsObjectID;
 + (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
@@ -67,6 +69,8 @@
 - (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
 - (void)prepareQuickSymbolAccess;
+- (id)workspaceItemNamed:(id)arg1;
+@property(readonly, nonatomic) MSJSONSchema *metadataConfiguration; // @synthesize metadataConfiguration=_metadataConfiguration;
 - (id)defaultPagesArray;
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;

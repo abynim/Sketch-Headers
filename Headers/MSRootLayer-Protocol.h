@@ -10,7 +10,6 @@
 
 @protocol MSRootLayer <MSLayerTraits>
 @property(readonly, nonatomic) struct CGRect rect;
-@property(readonly, nonatomic) struct CGRect contentBounds;
 @property(nonatomic) struct CGPoint rulerBase;
 @property(copy, nonatomic) MSRulerData *verticalRulerData;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;

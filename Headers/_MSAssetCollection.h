@@ -20,7 +20,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_imageCollection:(id)arg1;
 - (void)setRaw_gradientAssets:(id)arg1;
 - (void)setRaw_exportPresets:(id)arg1;

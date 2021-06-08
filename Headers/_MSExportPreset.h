@@ -18,7 +18,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_exportFormats:(id)arg1;
 - (void)setRaw_shouldApplyAutomatically:(BOOL)arg1;
 - (void)setRaw_name:(id)arg1;

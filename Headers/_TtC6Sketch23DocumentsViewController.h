@@ -28,6 +28,7 @@
     // Error parsing type: , name: downloadingItems
     // Error parsing type: , name: lastDocumentsLoadDate
     // Error parsing type: , name: refreshOnNextKey
+    // Error parsing type: , name: showDraftsMessage
     // Error parsing type: , name: dragAndDropMessage
     // Error parsing type: , name: bannerError
     // Error parsing type: , name: workspaceExpiration
@@ -40,8 +41,10 @@
 - (id)willPresentError:(id)arg1;
 - (void)documentDidProcessNotification:(id)arg1;
 - (void)boundsDidChangeNotification:(id)arg1;
-- (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
+- (id)collectionView:(id)arg1 pasteboardWriterForItemAtIndexPath:(id)arg2;
+- (void)removeDocumentFromProject:(id)arg1;
+- (void)moveDocument:(id)arg1;
 - (void)deleteDocument:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)clearRecentDocuments:(id)arg1;

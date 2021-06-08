@@ -23,7 +23,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_totalWidth:(double)arg1;
 - (void)setRaw_rowHeightMultiplication:(double)arg1;
 - (void)setRaw_numberOfColumns:(double)arg1;

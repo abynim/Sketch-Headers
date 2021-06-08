@@ -8,7 +8,7 @@
 
 @interface MSImmutableGradient (Angular)
 - (id)sortedStops;
-- (struct CGImage *)newAngularGradientImageInRect:(struct CGRect)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
-- (id)angularGradientImageInRect:(struct CGRect)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
+- (struct CGImage *)newAngularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
+- (id)angularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
 @end
 

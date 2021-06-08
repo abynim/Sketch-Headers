@@ -6,9 +6,13 @@
 
 #import "_TtC6Sketch22MSSpacingInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@interface _TtC6Sketch22MSSpacingInspectorItem (Sketch) <MSInspectorMathValueAdaptorDelegate>
+@class NSDictionary;
+
+@interface _TtC6Sketch22MSSpacingInspectorItem (Sketch) <MSFieldRestoration, MSInspectorMathValueAdaptorDelegate>
+@property(nonatomic, readonly) NSDictionary *restorableFields;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 @end
 

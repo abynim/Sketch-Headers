@@ -15,15 +15,15 @@
     BOOL _hasPersonalIdentity;
     SCKAvatar *_avatar;
     NSString *_email;
-    NSArray *_organizations;
     SCKWorkspace *_personalWorkspace;
     NSArray *_workspaces;
+    NSArray *_workspaceMemberships;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *workspaceMemberships; // @synthesize workspaceMemberships=_workspaceMemberships;
 @property(readonly, nonatomic) NSArray *workspaces; // @synthesize workspaces=_workspaces;
 @property(readonly, nonatomic) SCKWorkspace *personalWorkspace; // @synthesize personalWorkspace=_personalWorkspace;
-@property(readonly, nonatomic) NSArray *organizations; // @synthesize organizations=_organizations;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
@@ -31,7 +31,6 @@
 @property(readonly, nonatomic) NSArray *editableWorkspaces;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares;
-@property(readonly, nonatomic) NSArray *contributableOrganizations;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 - (id)dictionaryRepresentation;
 - (id)initWithUser:(id)arg1 updatedWorkspaces:(id)arg2;

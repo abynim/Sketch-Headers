@@ -6,7 +6,7 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSDictionary, NSString, SCKOrganization, SCKPublicUser, SCKShare;
+@class NSDictionary, NSString, SCKPublicUser, SCKShare, SCKWorkspace;
 
 @interface SCKUserNotification : SCKObject
 {
@@ -14,7 +14,7 @@
     // Error parsing type: , name: share
     // Error parsing type: , name: token
     // Error parsing type: , name: user
-    // Error parsing type: , name: organization
+    // Error parsing type: , name: workspace
 }
 
 + (BOOL)supportsSecureCoding;
@@ -26,7 +26,7 @@
 @property(nonatomic, readonly) NSDictionary *dictionaryRepresentation;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
-@property(nonatomic, retain) SCKOrganization *organization; // @synthesize organization;
+@property(nonatomic, retain) SCKWorkspace *workspace; // @synthesize workspace;
 @property(nonatomic, retain) SCKPublicUser *user; // @synthesize user;
 @property(nonatomic, readonly) NSString *token;
 @property(nonatomic, readonly) SCKShare *share; // @synthesize share;

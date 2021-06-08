@@ -37,8 +37,8 @@
 + (id)defaultFlow;
 + (long long)defaultLayerListExpandedType;
 - (void).cxx_destruct;
-- (void)refaultAgainst:(id)arg1;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_frame:(id)arg1;
 - (void)setRaw_flow:(id)arg1;
 - (void)setRaw_exportOptions:(id)arg1;

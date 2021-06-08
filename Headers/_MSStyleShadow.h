@@ -24,7 +24,7 @@
 + (double)defaultYOffset;
 + (id)defaultColor;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_contextSettings:(id)arg1;
 - (void)setRaw_color:(id)arg1;
 - (void)setRaw_spread:(double)arg1;

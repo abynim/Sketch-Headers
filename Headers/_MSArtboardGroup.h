@@ -27,7 +27,7 @@
 + (BOOL)hasClickThroughDefault;
 + (id)defaultBackgroundColor;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_verticalRulerData:(id)arg1;
 - (void)setRaw_layout:(id)arg1;
 - (void)setRaw_horizontalRulerData:(id)arg1;

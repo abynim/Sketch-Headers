@@ -15,6 +15,8 @@
 {
     SCKObject *_parent;
     NSString *_objectID;
+    NSString *_uuid;
+    NSString *_identifier;
     NSDate *_creationDate;
     NSDate *_updateDate;
     NSDate *_deletionDate;
@@ -25,6 +27,8 @@
 @property(readonly, nonatomic) NSDate *deletionDate; // @synthesize deletionDate=_deletionDate;
 @property(readonly, nonatomic) NSDate *updateDate; // @synthesize updateDate=_updateDate;
 @property(readonly, nonatomic) NSDate *creationDate; // @synthesize creationDate=_creationDate;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 @property(readonly, nonatomic) __weak SCKObject *parent; // @synthesize parent=_parent;
 - (id)debugDescription;

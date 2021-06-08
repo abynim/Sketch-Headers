@@ -44,6 +44,7 @@
 - (id)initWithMutableModelObject:(id)arg1;
 - (id)initWithMinimalSetup;
 - (id)newMutableCounterpart;
+- (BOOL)refersToSameObjectAs:(id)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -8,13 +8,14 @@
 
 #import <SketchModel/MSRootLayer-Protocol.h>
 
-@class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSString;
+@class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSSet, NSString;
 @protocol MSLayerCoordinateSpace, MSRootLayer;
 
 @interface MSPage : _MSPage <MSRootLayer>
 {
     NSMutableSet *_selectedLayerIDs;
     MSArtboardGroup *_currentArtboard;
+    NSSet *_autoExpandedLayerIDs;
     id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
@@ -29,7 +30,8 @@
 @property(retain, nonatomic) NSArray *cachedSymbolMasters; // @synthesize cachedSymbolMasters=_cachedSymbolMasters;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
-- (void)refaultChildrenAgainst:(id)arg1;
+@property(retain, nonatomic) NSSet *autoExpandedLayerIDs; // @synthesize autoExpandedLayerIDs=_autoExpandedLayerIDs;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setIsLocked:(BOOL)arg1;
 - (BOOL)isLocked;
@@ -55,7 +57,6 @@
 - (id)parentRoot;
 @property(readonly, nonatomic) MSLayerGroup<MSRootLayer> *currentRoot;
 - (id)parentPage;
-@property(readonly, nonatomic) struct CGRect contentBounds;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (BOOL)layers:(id)arg1 fitOnArtboard:(id)arg2;
 - (id)destinationArtboardForLayers:(id)arg1 artboards:(id)arg2;
@@ -86,6 +87,7 @@
 - (void)objectDidInit;
 - (void)resetSelectedLayerIDs:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
+- (struct CGRect)contentBounds;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 

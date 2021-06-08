@@ -6,21 +6,21 @@
 
 #import <SketchModel/MSManifestMaker.h>
 
-@class NSSet, NSString;
+@class NSSet;
 @protocol MSCloudManifestMakerDelegate;
 
 @interface MSCloudManifestMaker : MSManifestMaker
 {
     id <MSCloudManifestMakerDelegate> _delegate;
     NSSet *_objectsToExport;
-    NSString *_organizationID;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSString *organizationID; // @synthesize organizationID=_organizationID;
 @property(retain, nonatomic) NSSet *objectsToExport; // @synthesize objectsToExport=_objectsToExport;
-@property(retain, nonatomic) id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) __weak id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
+- (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
+- (BOOL)shouldExportPage:(id)arg1;
 - (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (BOOL)validate;
 - (BOOL)validateObjectID:(id)arg1;

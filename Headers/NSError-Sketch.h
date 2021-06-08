@@ -9,6 +9,7 @@
 @interface NSError (Sketch)
 + (id)userPresentableCoEditErrorWith:(id)arg1 localDocumentURL:(id)arg2;
 + (id)coEditBetaSuspended;
++ (id)userPresentableErrorWithCloudError:(id)arg1 document:(id)arg2;
 - (void)configureUploadErrorViewWithDocumentTitle:(id)arg1 hadExistingShare:(BOOL)arg2 titleLabel:(id)arg3 descriptionLabel:(id)arg4 retryButton:(id)arg5;
 @end
 

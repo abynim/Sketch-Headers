@@ -6,9 +6,10 @@
 
 #import <SketchRendering/NSObject-Protocol.h>
 
-@class MSCloudManifestMaker, NSDictionary, _TtC11SketchModel24MSImmutableLayerAncestry;
+@class MSCloudManifestMaker, MSImmutablePage, NSDictionary, _TtC11SketchModel24MSImmutableLayerAncestry;
 
 @protocol MSCloudManifestMakerDelegate <NSObject>
+- (NSDictionary *)cloudManifestMaker:(MSCloudManifestMaker *)arg1 presentationFileMetadataForPage:(MSImmutablePage *)arg2;
 - (NSDictionary *)cloudManifestMaker:(MSCloudManifestMaker *)arg1 fileMetadataForAncestry:(_TtC11SketchModel24MSImmutableLayerAncestry *)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 @end
 

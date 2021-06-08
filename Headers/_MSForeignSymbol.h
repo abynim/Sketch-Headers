@@ -19,7 +19,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_originalMaster:(id)arg1;
 - (void)setRaw_remoteToLocalIDMap:(id)arg1;
 - (void)setRaw_missingLibraryFontAcknowledged:(BOOL)arg1;

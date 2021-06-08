@@ -33,7 +33,6 @@
 - (void)reloadAllSubviews;
 - (void)finaliseUpdates;
 - (void)prepareForUpdate;
-- (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end
 

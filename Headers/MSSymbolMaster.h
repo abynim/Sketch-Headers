@@ -21,7 +21,7 @@
 + (id)convertArtboardToSymbol:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
-- (void)refaultAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)shouldRoundCoordinates;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
 - (void)updateOverridePropertiesWithObjectIDMap:(id)arg1;

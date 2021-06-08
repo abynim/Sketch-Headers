@@ -6,9 +6,11 @@
 
 #import "MSStylePartInspectorViewController.h"
 
-@class MSAutoSelectingArrayController, MSInspectorSegmentedControl, NSArray, NSPopUpButton, NSSet, NSTextField;
+#import "MSFieldRestoration-Protocol.h"
 
-@interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController
+@class MSAutoSelectingArrayController, MSInspectorSegmentedControl, NSArray, NSDictionary, NSPopUpButton, NSSet, NSTextField;
+
+@interface MSBorderOptionsInspectorViewController : MSStylePartInspectorViewController <MSFieldRestoration>
 {
     BOOL _hasOpenPathLayer;
     BOOL _hasPathWithAdjustableCaps;
@@ -37,6 +39,7 @@
 @property(retain, nonatomic) NSSet *endMarkerTypes; // @synthesize endMarkerTypes=_endMarkerTypes;
 @property(retain, nonatomic) NSSet *startMarkerTypes; // @synthesize startMarkerTypes=_startMarkerTypes;
 @property(retain, nonatomic) NSArray *filteredLayers; // @synthesize filteredLayers=_filteredLayers;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (id)impliedDashPatternFromDashPattern:(id)arg1 paddingToLength:(unsigned long long)arg2;
 - (id)validDashPatternFromProposedDashPattern:(id)arg1 padIfNeeded:(BOOL)arg2;
 - (id)dashFields;

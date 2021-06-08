@@ -20,7 +20,7 @@
 + (Class)immutableClass;
 + (id)defaultFillColor;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_gradient:(id)arg1;
 - (void)setRaw_contextSettings:(id)arg1;
 - (void)setRaw_color:(id)arg1;

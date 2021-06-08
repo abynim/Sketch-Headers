@@ -16,9 +16,11 @@
     NSString *_slug;
     unsigned long long _order;
     NSArray *_artboards;
+    NSString *_presentationFileName;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *presentationFileName; // @synthesize presentationFileName=_presentationFileName;
 @property(readonly, nonatomic) NSArray *artboards; // @synthesize artboards=_artboards;
 @property(readonly, nonatomic) unsigned long long order; // @synthesize order=_order;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;

@@ -6,9 +6,11 @@
 
 #import "MSInspectorItem.h"
 
-@class MSInlineUpDownTextField, NSButton, NSString, NSTextField;
+#import "MSFieldRestoration-Protocol.h"
 
-@interface MSTwoTextFieldInspectorItem : MSInspectorItem
+@class MSInlineUpDownTextField, NSButton, NSDictionary, NSString, NSTextField;
+
+@interface MSTwoTextFieldInspectorItem : MSInspectorItem <MSFieldRestoration>
 {
     NSTextField *_itemLabel;
     MSInlineUpDownTextField *_textField1;
@@ -27,6 +29,7 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *textField2; // @synthesize textField2=_textField2;
 @property(retain, nonatomic) MSInlineUpDownTextField *textField1; // @synthesize textField1=_textField1;
 @property(retain, nonatomic) NSTextField *itemLabel; // @synthesize itemLabel=_itemLabel;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)interTextFieldButtonAction:(id)arg1;
 - (void)textField2Action:(id)arg1;
 - (void)textField1Action:(id)arg1;

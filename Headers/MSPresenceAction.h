@@ -18,6 +18,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)init;
 - (id)initWithDocument:(id)arg1;
+- (void)closeAnyPopover;
 - (void)didReinsertToolbarItem;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (void)validateToolbarItem;

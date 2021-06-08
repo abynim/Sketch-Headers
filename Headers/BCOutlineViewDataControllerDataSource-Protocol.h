@@ -7,9 +7,10 @@
 #import <SketchControllers/NSObject-Protocol.h>
 
 @class BCOutlineViewDataController, NSArray;
+@protocol BCOutlineViewNode;
 
 @protocol BCOutlineViewDataControllerDataSource <NSObject>
-- (id)rootObject;
+- (id <BCOutlineViewNode>)rootObject;
 - (NSArray *)dataController:(BCOutlineViewDataController *)arg1 childrenOfNode:(id)arg2;
 @end
 

@@ -6,11 +6,12 @@
 
 #import "MSCustomShapeItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSCornerRadiusInspectorValueAdaptor, MSInlineUpDownTextField, NSPopUpButton, NSSlider, NSString;
+@class MSCornerRadiusInspectorValueAdaptor, MSInlineUpDownTextField, NSDictionary, NSPopUpButton, NSSlider, NSString;
 
-@interface MSRectangleShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSRectangleShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_radiusField;
     NSSlider *_radiusSlider;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) MSCornerRadiusInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (void)refreshIfNecessary:(id)arg1;

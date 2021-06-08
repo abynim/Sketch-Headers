@@ -7,7 +7,6 @@
 #import <SketchModel/MSOverrideRepresentationBase.h>
 
 @interface MSOverrideRepresentationBase (LayerList)
-- (BOOL)selfOrChildrenSelected;
 @property(readonly, nonatomic) BOOL isExpanded;
 - (long long)layerListExpandedType;
 - (id)childrenForLayerList;

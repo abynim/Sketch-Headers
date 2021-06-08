@@ -16,6 +16,7 @@
 + (id)groupWithLayer:(id)arg1;
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
 @property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setInferredLayoutOnAxis:(unsigned long long)arg1 direction:(unsigned long long)arg2;
 - (BOOL)shouldGrowSizeOfGroupForInferredLayout;
@@ -35,7 +36,7 @@
 - (struct CGRect)optimalBoundingBox;
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
-- (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
+- (BOOL)containsSelectedItem;
 - (void)deselectLayerAndParent;
 - (BOOL)isExpanded;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
@@ -63,6 +64,8 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
+- (void)registerCreationInContext:(id)arg1;
+- (void)recycleInContext:(id)arg1;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
 - (void)applyTransformsToLayers:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;

@@ -39,6 +39,8 @@
 - (BOOL)shouldAutomaticallyRemoveNotificationToolbarItem;
 @property(readonly) NSString *componentsToolbarType;
 @property(readonly) NSString *canvasToolbarType;
+- (void)reinsertItemWithIdentifier:(id)arg1;
+- (void)reinsertPresenceItem;
 - (void)presenceActionDidChangeNotification:(id)arg1;
 - (void)removeLegacyToolbarItemsForToolbar:(id)arg1;
 - (void)insertNewDefaultToolbarItemsForToolbar:(id)arg1;
@@ -46,6 +48,7 @@
 - (BOOL)toolbar:(id)arg1 containsToolbarItemWithIdentifier:(id)arg2;
 - (void)documentContentTypeDidChange;
 - (void)documentTypeDidChange;
+- (BOOL)didSettingOfObservedValueRepresentAChange:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)validateActionOfToolbarItem:(id)arg1;
 - (void)validateToolbarItems;

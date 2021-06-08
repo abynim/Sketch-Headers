@@ -12,6 +12,7 @@
 {
     // Error parsing type: , name: progressBar
     // Error parsing type: , name: explanationLabel
+    // Error parsing type: , name: downloadCount
     // Error parsing type: , name: downloadsProgress
 }
 

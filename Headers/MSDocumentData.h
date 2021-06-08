@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
@@ -17,6 +17,7 @@
     BOOL _autoExpandGroupsInLayerList;
     NSDictionary *_symbolMap;
     NSArray *_selectedOverrides;
+    MSJSONSchema *_metadataConfiguration;
     _TtC11SketchModel16MSEditingContext *_editingContext;
     _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
@@ -45,11 +46,12 @@
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
+@property(readonly, nonatomic) MSJSONSchema *metadataConfiguration; // @synthesize metadataConfiguration=_metadataConfiguration;
 - (void)resetStateAndMetadataForDuplicationIncludingObjectID:(BOOL)arg1;
 - (void)resetStateAndMetadataForDuplication;
 @property(copy, nonatomic) MSDocumentState *documentState;
 - (id)layers;
-- (void)refaultAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (void)prepareForChangeProcessing;
 - (void)layerDidChangeStyle:(id)arg1;
 - (void)replaceExistingCreationMetadata;

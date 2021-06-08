@@ -10,22 +10,27 @@
 #import "MSInspectorItemDelegate-Protocol.h"
 #import "MSInspectorSection-Protocol.h"
 
-@class MSLayerArray, NSArray, NSString;
+@class MSLayerArray, NSArray, NSDictionary, NSString;
 @protocol MSInspectorSectionDelegate;
 
 @interface MSBaseInspectorSection : NSViewController <MSInspectorSection, MSInspectorItemDelegate, MSInspectorChildController>
 {
     MSLayerArray *_layers;
     id <MSInspectorSectionDelegate> _delegate;
+    NSDictionary *_restorationInfo;
     NSArray *_items;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *items; // @synthesize items=_items;
+@property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(nonatomic) __weak id <MSInspectorSectionDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) MSLayerArray *layers; // @synthesize layers=_layers;
 - (id)documentForInspectorItem:(id)arg1;
 - (void)itemDidResize:(id)arg1;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
+- (void)restoreState;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)prepareForDisplay;
 - (void)refreshIfNecessary:(id)arg1;

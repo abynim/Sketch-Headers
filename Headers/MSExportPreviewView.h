@@ -14,14 +14,17 @@
 @interface MSExportPreviewView : NSView <NSDraggingSource, NSPasteboardWriting>
 {
     MSExportPreviewViewModel *_viewModel;
+    NSView *_imageView;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSView *imageView; // @synthesize imageView=_imageView;
 @property(retain, nonatomic) MSExportPreviewViewModel *viewModel; // @synthesize viewModel=_viewModel;
 - (unsigned long long)draggingSession:(id)arg1 sourceOperationMaskForDraggingContext:(long long)arg2;
 - (id)pasteboardPropertyListForType:(id)arg1;
 - (unsigned long long)writingOptionsForType:(id)arg1 pasteboard:(id)arg2;
 - (id)writableTypesForPasteboard:(id)arg1;
+- (id)imageRepresentation;
 - (void)beginDragWithEvent:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;

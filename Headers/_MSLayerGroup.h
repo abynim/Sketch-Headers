@@ -22,8 +22,8 @@
 + (id)defaultLayout;
 + (id)defaultFrame;
 - (void).cxx_destruct;
-- (void)refaultAgainst:(id)arg1;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_layers:(id)arg1;
 - (void)setRaw_groupLayout:(id)arg1;
 - (void)setRaw_sharedObjectID:(id)arg1;

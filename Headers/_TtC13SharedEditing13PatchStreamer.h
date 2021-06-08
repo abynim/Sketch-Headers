@@ -9,8 +9,7 @@
 @interface _TtC13SharedEditing13PatchStreamer : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: parameters
-    // Error parsing type: , name: running
-    // Error parsing type: , name: catchupFinished
+    // Error parsing type: , name: status
     // Error parsing type: , name: hasActiveTask
     // Error parsing type: , name: subscription
     // Error parsing type: , name: $__lazy_storage_$_downstreamQueue

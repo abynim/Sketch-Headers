@@ -14,6 +14,6 @@
 - (id)ms_mainWindow;
 - (void)ms_swizzled_themedocumentbutton_showPopup;
 - (void)ms_swizzled_autosavebutton_showPopover;
-- (void)ms_swizzled_autosavebutton_showPopoverThenContinue:(id)arg1;
+- (void)ms_swizzled_autosavebutton_showPopoverThenContinue10_15:(id)arg1;
 @end
 

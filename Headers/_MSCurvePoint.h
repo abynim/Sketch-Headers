@@ -19,7 +19,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_point:(struct CGPoint)arg1;
 - (void)setRaw_hasCurveTo:(BOOL)arg1;
 - (void)setRaw_hasCurveFrom:(BOOL)arg1;

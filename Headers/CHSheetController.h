@@ -25,6 +25,7 @@
 @property(nonatomic) __weak NSWindow *parentWindow; // @synthesize parentWindow=_parentWindow;
 @property(retain, nonatomic) id object; // @synthesize object=_object;
 - (void)sheetWillClose;
+- (void)sheetWillAppear;
 - (id)findButtonRecursivelyInSubviewsOfView:(id)arg1 withAction:(SEL)arg2;
 - (id)touchBar:(id)arg1 makeItemForIdentifier:(id)arg2;
 - (id)makeTouchBar;

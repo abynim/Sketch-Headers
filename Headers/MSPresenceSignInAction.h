@@ -16,7 +16,6 @@
 - (id)init;
 - (id)initWithDocument:(id)arg1;
 - (void)signInClicked:(id)arg1;
-- (void)showContextHelp:(id)arg1;
 @property(nonatomic, readonly) NSViewController *popoverViewController;
 @property(nonatomic, readonly) NSString *imageName;
 @property(nonatomic, readonly) BOOL hasSubMenu;

@@ -6,11 +6,11 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSPreferencesController;
+@class MSBasePreferencesController;
 
 @interface MSPreferencePane : NSViewController
 {
-    MSPreferencesController *_preferencesController;
+    MSBasePreferencesController *_preferencesController;
 }
 
 + (id)nibName;
@@ -20,7 +20,7 @@
 + (id)title;
 + (id)identifier;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) __weak MSPreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
+@property(readonly, nonatomic) __weak MSBasePreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
 - (void)didSwitchToPane;
 - (void)dismissAlertSheet;
 - (void)dismissAlertWindow:(id)arg1;

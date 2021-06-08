@@ -6,11 +6,12 @@
 
 #import "MSInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSButton, NSString;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSButton, NSDictionary, NSString;
 
-@interface MSLineTransformInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSLineTransformInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_lengthField;
     MSInlineUpDownTextField *_rotationField;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
 @property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
 @property(retain, nonatomic) MSInlineUpDownTextField *lengthField; // @synthesize lengthField=_lengthField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)updateButtonState:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;

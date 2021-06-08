@@ -13,10 +13,12 @@ __attribute__((visibility("hidden")))
     // Error parsing type: , name: request
     // Error parsing type: , name: delegateQueue
     // Error parsing type: , name: messageHandler
+    // Error parsing type: , name: $__lazy_storage_$_configuration
     // Error parsing type: , name: $__lazy_storage_$_session
     // Error parsing type: , name: $__lazy_storage_$_task
     // Error parsing type: , name: heartbeat
     // Error parsing type: , name: $__lazy_storage_$_operationQueue
+    // Error parsing type: , name: networkMonitor
 }
 
 - (void).cxx_destruct;

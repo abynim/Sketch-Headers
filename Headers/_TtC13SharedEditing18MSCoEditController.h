@@ -23,20 +23,19 @@
     // Error parsing type: , name: currentFullUpload
     // Error parsing type: , name: metricsRecorder
     // Error parsing type: , name: proxyLogger
+    // Error parsing type: , name: catchupController
+    // Error parsing type: , name: $__lazy_storage_$_networkMonitorQueue
+    // Error parsing type: , name: networkMonitor
     // Error parsing type: , name: $__lazy_storage_$_reconnector
     // Error parsing type: , name: healthStatus
     // Error parsing type: , name: status
     // Error parsing type: , name: didShowNetworkErrorForCurrentVersionRequest
+    // Error parsing type: , name: pauseTasksCounter
     // Error parsing type: , name: debugDelayOutgoingPatches
     // Error parsing type: , name: debugDelayIncomingPatches
-    // Error parsing type: , name: pauseTasksCounter
-    // Error parsing type: , name: $__lazy_storage_$_networkMonitorQueue
-    // Error parsing type: , name: networkMonitor
 }
 
 - (void).cxx_destruct;
-- (void)resumeTasks;
-- (void)pauseTasks;
 - (id)init;
 @property(nonatomic, readonly) BOOL isEdited;
 @property(nonatomic, retain) MSPresenceController *presenceController; // @synthesize presenceController;

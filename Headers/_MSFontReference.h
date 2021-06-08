@@ -20,7 +20,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_postscriptNames:(id)arg1;
 - (void)setRaw_options:(long long)arg1;
 - (void)setRaw_fontFileName:(id)arg1;

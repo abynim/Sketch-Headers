@@ -12,7 +12,9 @@
 {
     NSArray *_changes;
     NSArray *_oldArray;
+    unsigned long long _oldArrayCount;
     NSArray *_modifiedArray;
+    unsigned long long _modifiedArrayCount;
     CDUnknownBlockType _comparator;
     struct DiffPath *_furthestPath;
 }
@@ -20,7 +22,9 @@
 - (void).cxx_destruct;
 @property(nonatomic) struct DiffPath *furthestPath; // @synthesize furthestPath=_furthestPath;
 @property(nonatomic) CDUnknownBlockType comparator; // @synthesize comparator=_comparator;
+@property(readonly, nonatomic) unsigned long long modifiedArrayCount; // @synthesize modifiedArrayCount=_modifiedArrayCount;
 @property(nonatomic) NSArray *modifiedArray; // @synthesize modifiedArray=_modifiedArray;
+@property(readonly, nonatomic) unsigned long long oldArrayCount; // @synthesize oldArrayCount=_oldArrayCount;
 @property(nonatomic) NSArray *oldArray; // @synthesize oldArray=_oldArray;
 - (void)inferMoves;
 @property(readonly, nonatomic) NSArray *changes; // @synthesize changes=_changes;

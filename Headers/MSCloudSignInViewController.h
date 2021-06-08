@@ -19,10 +19,12 @@
     BOOL _isLoading;
     BOOL _hasEmail;
     BOOL _hasPassword;
+    BOOL _canEditEmail;
     BOOL _hidesInputViews;
     BOOL _waitingForSSO;
     id <MSRegistrationWindowContentDelegate> _delegate;
     NSString *_email;
+    NSString *_prefilledEmail;
     NSString *_password;
     NSTextField *_titleLabel;
     NSPopUpButton *_environmentPopUpButton;
@@ -55,9 +57,11 @@
 @property(retain, nonatomic) MSLinkButton *forgotPasswordButton; // @synthesize forgotPasswordButton=_forgotPasswordButton;
 @property(retain, nonatomic) NSPopUpButton *environmentPopUpButton; // @synthesize environmentPopUpButton=_environmentPopUpButton;
 @property(retain, nonatomic) NSTextField *titleLabel; // @synthesize titleLabel=_titleLabel;
+@property(nonatomic) BOOL canEditEmail; // @synthesize canEditEmail=_canEditEmail;
 @property(nonatomic) BOOL hasPassword; // @synthesize hasPassword=_hasPassword;
 @property(nonatomic) BOOL hasEmail; // @synthesize hasEmail=_hasEmail;
 @property(copy, nonatomic) NSString *password; // @synthesize password=_password;
+@property(copy, nonatomic) NSString *prefilledEmail; // @synthesize prefilledEmail=_prefilledEmail;
 @property(copy, nonatomic) NSString *email; // @synthesize email=_email;
 @property(nonatomic) BOOL isLoading; // @synthesize isLoading=_isLoading;
 @property(nonatomic) BOOL didFinish; // @synthesize didFinish=_didFinish;
@@ -82,6 +86,7 @@
 - (void)signIn:(id)arg1;
 - (void)resetPassword:(id)arg1;
 - (void)viewWillAppear;
+- (void)awakeFromNib;
 @property(nonatomic, readonly) BOOL wantsLicense;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) NSImage *headerImage;

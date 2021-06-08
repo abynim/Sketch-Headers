@@ -28,7 +28,6 @@
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;
 - (id)closestClippingLayer;
-@property(readonly, nonatomic) struct CGRect contentBounds;
 - (id)rootForNameUniquing;
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (struct CGSize)calculateMinimumSize;

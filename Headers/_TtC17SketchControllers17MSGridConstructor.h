@@ -11,6 +11,7 @@
 @interface _TtC17SketchControllers17MSGridConstructor : NSObject
 {
     // Error parsing type: , name: sourceItems
+    // Error parsing type: , name: shapeGroupParents
     // Error parsing type: , name: pool
     // Error parsing type: , name: arrangedLayers
     // Error parsing type: , name: numberOfColumns

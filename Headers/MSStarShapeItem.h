@@ -6,11 +6,12 @@
 
 #import "MSCustomShapeItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSString;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSDictionary, NSString;
 
-@interface MSStarShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSStarShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_radiusField;
     MSInlineUpDownTextField *_pointsField;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
 @property(retain, nonatomic) MSInlineUpDownTextField *pointsField; // @synthesize pointsField=_pointsField;
 @property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;

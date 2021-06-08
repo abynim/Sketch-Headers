@@ -22,7 +22,7 @@
 }
 
 + (Class)immutableClass;
-+ (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
++ (void)refaultContentsOfArray:(id)arg1 against:(id)arg2 inContext:(id)arg3;
 + (BOOL)allowsFaulting;
 + (BOOL)persistsObjectID;
 - (void).cxx_destruct;
@@ -46,8 +46,9 @@
 - (void)invalidateModelCacheGenerationForObject:(id)arg1 property:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(readonly, nonatomic) MSImmutableModelObject *immutableModelObject;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)refaultAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)fireFaultIfNeeded;
 @property(readonly, nonatomic) BOOL isFault;
@@ -71,6 +72,8 @@
 - (void)replaceContentsWithArray:(id)arg1 inStorage:(id)arg2 forRelationship:(id)arg3;
 - (void)addObjectsFromArray:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 - (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
+- (void)registerCreationInContext:(id)arg1;
+- (void)recycleInContext:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
