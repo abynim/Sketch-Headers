@@ -13,6 +13,7 @@
 
 @interface MSStandardDocumentOpener : NSObject <MSDocumentOpener>
 {
+    unsigned long long _status;
     NSURL *_documentURL;
     id <MSDocumentOpenerDelegate> _delegate;
     MSDocumentData *_documentData;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) MSDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(nonatomic) __weak id <MSDocumentOpenerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSURL *documentURL; // @synthesize documentURL=_documentURL;
+@property(nonatomic) unsigned long long status; // @synthesize status=_status;
 - (BOOL)handleNewerDocument:(id)arg1 error:(id *)arg2;
 - (void)migrateUIMetadataWithDocumentData;
 - (BOOL)readFromDocumentWrapper:(id)arg1 corruptionDetected:(char *)arg2 error:(id *)arg3;

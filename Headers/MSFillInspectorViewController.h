@@ -7,10 +7,11 @@
 #import "MSColorStylePartInspectorViewController.h"
 
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
+#import "MSFieldRestoration-Protocol.h"
 
-@class MSColorHexStringTransformer, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSDictionary, NSPopUpButton, NSString, NSTextField;
 
-@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate>
+@interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, MSFieldRestoration>
 {
     BOOL _isDisplayingTint;
     MSInlineUpDownTextField *_opacityField;
@@ -35,6 +36,7 @@
 @property(nonatomic) BOOL isDisplayingTint; // @synthesize isDisplayingTint=_isDisplayingTint;
 @property(retain, nonatomic) NSPopUpButton *fillPropertiesPopUp; // @synthesize fillPropertiesPopUp=_fillPropertiesPopUp;
 @property(retain, nonatomic) MSInlineUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (id)currentColorValueForTransformer:(id)arg1;
 - (void)updateDisplayedSwatchValues;
 - (void)fillPropertiesAction:(id)arg1;

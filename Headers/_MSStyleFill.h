@@ -21,7 +21,7 @@
 + (Class)immutableClass;
 + (id)defaultFillColor;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_patternTileScale:(double)arg1;
 - (void)setRaw_patternFillType:(long long)arg1;
 - (void)setRaw_noiseIntensity:(double)arg1;

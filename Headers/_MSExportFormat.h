@@ -21,7 +21,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_visibleScaleType:(long long)arg1;
 - (void)setRaw_scale:(double)arg1;
 - (void)setRaw_namingScheme:(long long)arg1;

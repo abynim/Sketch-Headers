@@ -9,14 +9,18 @@
 __attribute__((visibility("hidden")))
 @interface _TtC14SketchCloudKit23PhoenixSessionWebSocket : NSObject
 {
-    // Error parsing type: , name: delegate
     // Error parsing type: , name: request
     // Error parsing type: , name: delegateQueue
     // Error parsing type: , name: messageHandler
+    // Error parsing type: , name: configuration
     // Error parsing type: , name: $__lazy_storage_$_session
     // Error parsing type: , name: $__lazy_storage_$_task
     // Error parsing type: , name: heartbeat
     // Error parsing type: , name: $__lazy_storage_$_operationQueue
+    // Error parsing type: , name: _numberOfInflightMessages
+    // Error parsing type: , name: _invalidateAfterLastSentMessage
+    // Error parsing type: , name: networkMonitor
+    // Error parsing type: , name: delegate
 }
 
 - (void).cxx_destruct;

@@ -10,22 +10,18 @@
 
 @interface _MSSymbolInstance : MSStyledLayer
 {
-    double _horizontalSpacing;
     double _scale;
     NSString *_symbolID;
-    double _verticalSpacing;
     NSMutableArray *_overrideValues;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_overrideValues:(id)arg1;
-- (void)setRaw_verticalSpacing:(double)arg1;
 - (void)setRaw_symbolID:(id)arg1;
 - (void)setRaw_scale:(double)arg1;
-- (void)setRaw_horizontalSpacing:(double)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
@@ -48,10 +44,8 @@
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
 @property(retain, nonatomic) NSArray *overrideValues; // @synthesize overrideValues=_overrideValues;
-@property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

@@ -8,7 +8,8 @@
 
 @interface _TtC13SharedEditing25CatchupPhaseGetVersionURL : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: share
+    // Error parsing type: , name: shareID
+    // Error parsing type: , name: owner
     // Error parsing type: , name: versionID
     // Error parsing type: , name: callback
     // Error parsing type: , name: numRetries

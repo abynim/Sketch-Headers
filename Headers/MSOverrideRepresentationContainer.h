@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableSymbolInstance *appliedInstance; // @synthesize appliedInstance=_appliedInstance;
 - (id)detachedLayer;
+- (void)addObjectsAutoExpandedBySelectionTo:(id)arg1;
 - (void)updateAfterSelectingChild;
 - (BOOL)isEditable;
 - (id)description;

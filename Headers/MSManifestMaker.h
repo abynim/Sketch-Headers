@@ -15,6 +15,7 @@
     BOOL _ignoreMirrorExportScale;
     BOOL _concurrent;
     BOOL _includeUnrenderedLayersInManifest;
+    BOOL _includeArtboards;
     MSImmutableDocumentData *_immutableDocumentData;
     NSString *_name;
     NSURL *_fileURL;
@@ -24,6 +25,7 @@
 + (id)keyForFlowAnimationType:(long long)arg1;
 + (id)manifestValueForColorSpace:(unsigned long long)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL includeArtboards; // @synthesize includeArtboards=_includeArtboards;
 @property(nonatomic) BOOL includeUnrenderedLayersInManifest; // @synthesize includeUnrenderedLayersInManifest=_includeUnrenderedLayersInManifest;
 @property(nonatomic) BOOL concurrent; // @synthesize concurrent=_concurrent;
 @property(nonatomic) BOOL ignoreMirrorExportScale; // @synthesize ignoreMirrorExportScale=_ignoreMirrorExportScale;
@@ -47,6 +49,7 @@
 - (id)formatAsInteger:(double)arg1;
 - (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
 - (id)metadataAndExportForArtboardsOnPage:(id)arg1;
+- (BOOL)shouldExportPage:(id)arg1;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (id)metadataAndExportForPages:(id)arg1;
 - (id)createManifest;

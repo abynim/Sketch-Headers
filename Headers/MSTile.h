@@ -22,6 +22,7 @@
 @property(readonly, nonatomic) CDStruct_bf95b13b rectWithImageFragment; // @synthesize rectWithImageFragment=_rectWithImageFragment;
 @property(nonatomic) CDStruct_1ef3fb1f point; // @synthesize point=_point;
 @property(retain, nonatomic) MSMetalTexture *texture; // @synthesize texture=_texture;
+- (void)blitFromSourceTexture:(id)arg1 sourceTextureRect:(CDStruct_bf95b13b)arg2 pointInDestinationTexture:(CDStruct_1ef3fb1f)arg3 commands:(id)arg4;
 - (void)replaceRegion:(CDStruct_bf95b13b)arg1 withBytes:(const void *)arg2 bytesPerRow:(unsigned long long)arg3;
 - (id)initWithRenderer:(id)arg1 point:(CDStruct_1ef3fb1f)arg2;
 

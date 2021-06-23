@@ -6,11 +6,12 @@
 
 #import "MSInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSCoordinateInspectorValueAdaptor, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSString;
+@class MSCoordinateInspectorValueAdaptor, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSDictionary, NSString;
 
-@interface MSPositionInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSPositionInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_yField;
     MSInlineUpDownTextField *_rotationField;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *xField; // @synthesize xField=_xField;
 @property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
 @property(retain, nonatomic) MSInlineUpDownTextField *yField; // @synthesize yField=_yField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
 - (BOOL)allowFloatValues;

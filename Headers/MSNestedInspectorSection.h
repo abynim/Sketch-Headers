@@ -8,12 +8,17 @@
 
 #import "MSInspectorSectionDelegate-Protocol.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSNestedInspectorSection : MSBaseInspectorSection <MSInspectorSectionDelegate>
 {
+    NSArray *_sections;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *sections; // @synthesize sections=_sections;
+- (void)restoreWithState_ms:(id)arg1;
+- (id)viewRestorationState_ms;
 - (void)persistentlyCollapse:(BOOL)arg1 sectionWithIdentifier:(id)arg2 reloadTarget:(id)arg3;
 - (void)sectionDidResize:(id)arg1;
 - (void)reloadItemsForSection:(id)arg1;

@@ -6,11 +6,12 @@
 
 #import "MSStylePartInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorValueAdaptorDelegate-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSMenuItem, NSPopUpButton, NSSlider, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSDictionary, NSMenuItem, NSPopUpButton, NSSlider, NSString;
 
-@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorValueAdaptorDelegate>
+@interface MSBaseBlurInspectorItem : MSStylePartInspectorItem <MSInspectorValueAdaptorDelegate, MSFieldRestoration>
 {
     MSUpDownTextField *_radiusField;
     NSSlider *_radiusSlider;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) NSPopUpButton *blurPopUp; // @synthesize blurPopUp=_blurPopUp;
 @property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
 @property(retain, nonatomic) MSUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (long long)popUpMenuIndexFromBlurType:(unsigned long long)arg1;
 - (unsigned long long)blurTypeFromPopUpMenuIndex:(long long)arg1;
 - (void)updateDisplayedValues;

@@ -28,6 +28,8 @@
 - (void)resizeToFitContentsIfNeeded;
 - (id)setValueWithoutMapping:(id)arg1 forOverridePointNamed:(id)arg2;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
+- (BOOL)isExpanded;
+- (void)addObjectsAutoExpandedBySelectionTo:(id)arg1;
 @property(readonly, nonatomic) NSSet *influencingSymbolIDs;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
@@ -40,7 +42,6 @@
 - (id)detachByReplacingWithGroupWithInfo:(id)arg1 visitedSymbols:(id)arg2;
 - (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1 document:(id)arg2;
 - (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1;
-- (unsigned long long)numberOfVisibleCells;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolID;

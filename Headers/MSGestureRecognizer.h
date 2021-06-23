@@ -16,6 +16,7 @@
     id <MSGestureRecognizerDelegate> _delegate;
 }
 
++ (BOOL)throwsExceptionForInvalidState;
 - (void).cxx_destruct;
 @property(nonatomic) __weak id <MSGestureRecognizerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;

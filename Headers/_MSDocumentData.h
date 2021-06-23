@@ -34,8 +34,8 @@
 + (long long)initialPageNumber;
 + (id)localizedNewPageName;
 - (void).cxx_destruct;
-- (void)refaultAgainst:(id)arg1;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_workspaceItems:(id)arg1;
 - (void)setRaw_sharedSwatches:(id)arg1;
 - (void)setRaw_pages:(id)arg1;

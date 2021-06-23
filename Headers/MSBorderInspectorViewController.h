@@ -6,9 +6,11 @@
 
 #import "MSColorStylePartInspectorViewController.h"
 
-@class MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSUpDownTextField, NSBundle, NSTextField;
+#import "MSFieldRestoration-Protocol.h"
 
-@interface MSBorderInspectorViewController : MSColorStylePartInspectorViewController
+@class MSInspectorSegmentedControl, MSMathInspectorValueAdaptor, MSUpDownTextField, NSBundle, NSDictionary, NSTextField;
+
+@interface MSBorderInspectorViewController : MSColorStylePartInspectorViewController <MSFieldRestoration>
 {
     MSUpDownTextField *_thicknessField;
     MSMathInspectorValueAdaptor *_thicknessAdaptor;
@@ -25,6 +27,7 @@
 @property(retain, nonatomic) NSTextField *fillTypeLabel; // @synthesize fillTypeLabel=_fillTypeLabel;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *thicknessAdaptor; // @synthesize thicknessAdaptor=_thicknessAdaptor;
 @property(retain, nonatomic) MSUpDownTextField *thicknessField; // @synthesize thicknessField=_thicknessField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)applyUserSelectedColors:(id)arg1;
 - (void)updateUI;
 - (void)enableAction:(id)arg1;

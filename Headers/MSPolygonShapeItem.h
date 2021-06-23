@@ -6,11 +6,12 @@
 
 #import "MSCustomShapeItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSString;
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSDictionary, NSString;
 
-@interface MSPolygonShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSPolygonShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSMathInspectorValueAdaptor *_sidesAdaptor;
     MSUpDownTextField *_sidesField;
@@ -20,6 +21,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSUpDownTextField *sidesField; // @synthesize sidesField=_sidesField;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *sidesAdaptor; // @synthesize sidesAdaptor=_sidesAdaptor;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)viewDidLoad;

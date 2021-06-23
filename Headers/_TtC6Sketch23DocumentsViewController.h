@@ -6,16 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
+@class MSFlashController, NSMenu, NSScrollView, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
     // Error parsing type: , name: collectionView
     // Error parsing type: , name: collectionViewContainer
     // Error parsing type: , name: collectionScrollView
-    // Error parsing type: , name: emptyStateLabel
-    // Error parsing type: , name: emptyStateImage
-    // Error parsing type: , name: createFirstDocumentButton
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
@@ -28,9 +25,11 @@
     // Error parsing type: , name: downloadingItems
     // Error parsing type: , name: lastDocumentsLoadDate
     // Error parsing type: , name: refreshOnNextKey
+    // Error parsing type: , name: showDraftsMessage
     // Error parsing type: , name: dragAndDropMessage
     // Error parsing type: , name: bannerError
     // Error parsing type: , name: workspaceExpiration
+    // Error parsing type: , name: $__lazy_storage_$_emptyStateViewController
 }
 
 - (void).cxx_destruct;
@@ -40,8 +39,10 @@
 - (id)willPresentError:(id)arg1;
 - (void)documentDidProcessNotification:(id)arg1;
 - (void)boundsDidChangeNotification:(id)arg1;
-- (void)downloadChangedNotificationHandler:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
+- (id)collectionView:(id)arg1 pasteboardWriterForItemAtIndexPath:(id)arg2;
+- (void)removeDocumentFromProject:(id)arg1;
+- (void)moveDocument:(id)arg1;
 - (void)deleteDocument:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)clearRecentDocuments:(id)arg1;
@@ -64,9 +65,6 @@
 @property(nonatomic, retain) MSFlashController *flashController; // @synthesize flashController;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;
-@property(nonatomic, retain) NSButton *createFirstDocumentButton; // @synthesize createFirstDocumentButton;
-@property(nonatomic, retain) NSImageView *emptyStateImage; // @synthesize emptyStateImage;
-@property(nonatomic, retain) NSTextField *emptyStateLabel; // @synthesize emptyStateLabel;
 @property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;
 @property(nonatomic, retain) NSView *collectionViewContainer; // @synthesize collectionViewContainer;
 @property(nonatomic, retain) _TtC6Sketch23DocumentsCollectionView *collectionView; // @synthesize collectionView;

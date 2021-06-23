@@ -16,7 +16,7 @@
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_minSize:(double)arg1;
 - (void)setRaw_maxSize:(double)arg1;
 - (void)setRaw_layoutAnchor:(unsigned long long)arg1;

@@ -83,7 +83,6 @@
 @property(readonly, nonatomic) NSURL *resetPasswordURL;
 - (id)signInWithSSOURLForOrganizationShortName:(id)arg1;
 @property(readonly, nonatomic) NSURL *signUpURL;
-- (id)sharesOverviewURLForUserID:(id)arg1;
 - (id)settingsURLForShare:(id)arg1 showingTab:(id)arg2;
 - (id)settingsURLForShare:(id)arg1;
 - (id)accountSettingsURLForUserID:(id)arg1;

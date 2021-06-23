@@ -14,7 +14,7 @@
     // Error parsing type: , name: state
     // Error parsing type: , name: paginationController
     // Error parsing type: , name: filter
-    // Error parsing type: , name: deletedItems
+    // Error parsing type: , name: hiddenItems
     // Error parsing type: , name: temporaryItems
 }
 

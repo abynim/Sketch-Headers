@@ -15,7 +15,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 + (id)defaultFillColor;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_thickness:(double)arg1;
 - (void)setRaw_position:(long long)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;

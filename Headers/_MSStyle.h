@@ -28,7 +28,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_textStyle:(id)arg1;
 - (void)setRaw_shadows:(id)arg1;
 - (void)setRaw_innerShadows:(id)arg1;

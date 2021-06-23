@@ -6,11 +6,12 @@
 
 #import "MSOverrideInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class NSString, NSTextField;
+@class NSDictionary, NSString, NSTextField;
 
-@interface MSTextOverrideInspectorItem : MSOverrideInspectorItem <NSTextFieldDelegate>
+@interface MSTextOverrideInspectorItem : MSOverrideInspectorItem <NSTextFieldDelegate, MSFieldRestoration>
 {
     BOOL _hasPendingChanges;
     NSTextField *_overrideTextField;
@@ -24,8 +25,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(retain, nonatomic) NSTextField *overrideTextField; // @synthesize overrideTextField=_overrideTextField;
-- (void)restoreWithState_ms:(id)arg1;
-- (id)viewRestorationState_ms;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)controlTextDidChange:(id)arg1;
 - (void)controlTextDidBeginEditing:(id)arg1;
 - (id)valueFromControlView:(id)arg1;

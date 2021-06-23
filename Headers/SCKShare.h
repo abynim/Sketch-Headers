@@ -6,10 +6,11 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion, SCKWorkspace;
-@protocol SCKContentOwner;
+#import <SketchCloudKit/NSPasteboardWriting-Protocol.h>
 
-@interface SCKShare : SCKObject
+@class NSArray, NSString, NSURL, SCKProject, SCKShareMembership, SCKShareVersion, SCKWorkspace;
+
+@interface SCKShare : SCKObject <NSPasteboardWriting>
 {
     BOOL _isPrivate;
     BOOL _userIsMember;
@@ -24,7 +25,6 @@
     SCKShareVersion *_publishedVersion;
     SCKShareVersion *_latestVersion;
     NSArray *_previewThumbnails;
-    SCKObject<SCKContentOwner> *_owner;
     SCKWorkspace *_workspace;
     SCKProject *_project;
     NSString *_selectedArtboardID;
@@ -39,7 +39,6 @@
 @property(readonly, nonatomic) NSString *selectedArtboardID; // @synthesize selectedArtboardID=_selectedArtboardID;
 @property(readonly, nonatomic) SCKProject *project; // @synthesize project=_project;
 @property(readonly, nonatomic) SCKWorkspace *workspace; // @synthesize workspace=_workspace;
-@property(readonly, nonatomic) SCKObject<SCKContentOwner> *owner; // @synthesize owner=_owner;
 @property(readonly, nonatomic) NSArray *previewThumbnails; // @synthesize previewThumbnails=_previewThumbnails;
 @property(readonly, nonatomic) BOOL canUpdate; // @synthesize canUpdate=_canUpdate;
 @property(readonly, nonatomic) BOOL userCanEdit; // @synthesize userCanEdit=_userCanEdit;
@@ -64,6 +63,8 @@
 @property(readonly, nonatomic) NSURL *sketchComPublicURL;
 @property(readonly, nonatomic) NSURL *publicURL; // @synthesize publicURL=_publicURL;
 - (id)initWithDictionary:(id)arg1;
+- (id)pasteboardPropertyListForType:(id)arg1;
+- (id)writableTypesForPasteboard:(id)arg1;
 
 @end
 

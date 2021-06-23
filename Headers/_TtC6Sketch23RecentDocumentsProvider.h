@@ -11,6 +11,7 @@
     // Error parsing type: , name: delegate
     // Error parsing type: , name: searchKeywords
     // Error parsing type: , name: state
+    // Error parsing type: , name: cleanCloudDirectoriesObserver
     // Error parsing type: , name: documentItems
 }
 

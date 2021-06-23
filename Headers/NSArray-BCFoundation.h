@@ -10,6 +10,7 @@
 + (id)arrayByMergingArrays:(id)arg1;
 + (id)arrayWithCapacity:(unsigned long long)arg1 fill:(CDUnknownBlockType)arg2;
 + (id)flattenedArrays:(id)arg1;
++ (void)crossReference:(id)arg1 against:(id)arg2 withHandler:(id)arg3;
 - (void)zipWith:(id)arg1 in:(CDUnknownBlockType)arg2;
 - (id)loopingEnumerator;
 - (unsigned long long)indexOfSubArray:(id)arg1;
@@ -51,6 +52,7 @@
 - (id)compactMap:(CDUnknownBlockType)arg1;
 - (id)map:(CDUnknownBlockType)arg1;
 - (id)front;
+- (void)crossReferenceAgainst:(id)arg1 withHandler:(id)arg2;
 - (id)arrayByConsolidatingAgainst:(id)arg1 withConsolidator:(id)arg2 hasChanges:(char *)arg3;
 - (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2;
 - (id)editSequenceTo:(id)arg1 inferringMoves:(BOOL)arg2 withBlock:(CDUnknownBlockType)arg3;

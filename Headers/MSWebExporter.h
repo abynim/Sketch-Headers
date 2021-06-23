@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSCloudManifestMakerDelegate-Protocol.h>
 
-@class MSImmutableDocumentData, NSBundle, NSString, NSURL, SCKOrganization;
+@class MSImmutableDocumentData, MSPresentationRenderer, NSBundle, NSString, NSURL, SCKWorkspace;
 @protocol OS_dispatch_queue;
 
 @interface MSWebExporter : NSObject <MSCloudManifestMakerDelegate>
@@ -17,12 +17,15 @@
     BOOL _drawsAsynchronously;
     BOOL _concurrent;
     BOOL _cancelled;
+    BOOL _includePresentationFiles;
+    BOOL _includeArtboardImages;
     NSURL *_destinationURL;
     NSString *_name;
-    SCKOrganization *_cloudOrganization;
+    SCKWorkspace *_workspace;
     NSBundle *_clientBundle;
     MSImmutableDocumentData *_immutableDocumentData;
     NSObject<OS_dispatch_queue> *_exportingQueue;
+    MSPresentationRenderer *_presentationRenderer;
 }
 
 + (id)exportViewportBitmapImageForRequest:(id)arg1;
@@ -32,18 +35,23 @@
 + (void)exportArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 + (void)exportSelectedArtboardsOfDocument:(id)arg1 withName:(id)arg2 toLocalURL:(id)arg3 completionBlock:(CDUnknownBlockType)arg4;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSPresentationRenderer *presentationRenderer; // @synthesize presentationRenderer=_presentationRenderer;
+@property(nonatomic) BOOL includeArtboardImages; // @synthesize includeArtboardImages=_includeArtboardImages;
+@property(nonatomic) BOOL includePresentationFiles; // @synthesize includePresentationFiles=_includePresentationFiles;
 @property(nonatomic) BOOL cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *exportingQueue; // @synthesize exportingQueue=_exportingQueue;
 @property(retain, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;
 @property(retain, nonatomic) NSBundle *clientBundle; // @synthesize clientBundle=_clientBundle;
-@property(retain, nonatomic) SCKOrganization *cloudOrganization; // @synthesize cloudOrganization=_cloudOrganization;
+@property(retain, nonatomic) SCKWorkspace *workspace; // @synthesize workspace=_workspace;
 @property(nonatomic) BOOL concurrent; // @synthesize concurrent=_concurrent;
 @property(nonatomic) BOOL drawsAsynchronously; // @synthesize drawsAsynchronously=_drawsAsynchronously;
 @property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(retain, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
+- (id)cloudManifestMaker:(id)arg1 presentationFileMetadataForPage:(id)arg2;
 - (id)cloudManifestMaker:(id)arg1 fileMetadataForAncestry:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
 - (BOOL)saveManifestFile:(id)arg1 withError:(id *)arg2;
+- (id)metadataForPresentationFile:(id)arg1 exportingPage:(id)arg2;
 - (id)exportImageMetadataForRequest:(id)arg1 manifestScale:(double)arg2;
 - (id)metadataForDocument:(id)arg1;
 @property(readonly, nonatomic) unsigned long long documentFileSize;
@@ -51,7 +59,10 @@
 - (BOOL)exportDocumentPreviews;
 - (void)exportDocumentWithUIMetadata:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)exportArtboardsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (id)exportPresentationFileForPage:(id)arg1 error:(id *)arg2;
+- (BOOL)exportPresentationFiles:(id)arg1 error:(id *)arg2;
 - (BOOL)exportArtboardsAndManifestForCloud:(id)arg1 error:(id *)arg2;
+- (id)createCloudManifestMakerExportingObjects:(id)arg1;
 - (void)cancel;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

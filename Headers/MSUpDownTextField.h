@@ -21,6 +21,7 @@
     double _ownMinimum;
     double _ownMaximum;
     NSView *_preferredNextKeyView;
+    double _incrementValue;
     double _minimumIncrementValue;
     unsigned long long _scrubberCount;
     unsigned long long _scrubberIndex;
@@ -34,6 +35,7 @@
 @property(nonatomic) unsigned long long scrubberCount; // @synthesize scrubberCount=_scrubberCount;
 @property(nonatomic) BOOL usesBigNudgeDistance; // @synthesize usesBigNudgeDistance=_usesBigNudgeDistance;
 @property(nonatomic) double minimumIncrementValue; // @synthesize minimumIncrementValue=_minimumIncrementValue;
+@property(nonatomic) double incrementValue; // @synthesize incrementValue=_incrementValue;
 @property(retain, nonatomic) NSView *preferredNextKeyView; // @synthesize preferredNextKeyView=_preferredNextKeyView;
 @property(nonatomic) double ownMaximum; // @synthesize ownMaximum=_ownMaximum;
 @property(nonatomic) double ownMinimum; // @synthesize ownMinimum=_ownMinimum;
@@ -49,8 +51,8 @@
 - (void)keyUp:(id)arg1;
 - (id)maximum;
 - (id)minimum;
-- (double)incrementValue;
 - (id)createUpDownController;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)awakeFromNib;
 - (void)connectToValueAdapter:(id)arg1 bindingOptions:(id)arg2;

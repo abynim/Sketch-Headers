@@ -16,7 +16,7 @@
     // Error parsing type: , name: avatarStackView
     // Error parsing type: , name: viewWorkspaceButton
     // Error parsing type: , name: delegate
-    // Error parsing type: , name: owner
+    // Error parsing type: , name: workspace
 }
 
 - (void).cxx_destruct;

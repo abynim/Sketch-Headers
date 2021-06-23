@@ -13,17 +13,19 @@
 #import <BCLayerList/NSOutlineViewDataSource-Protocol.h>
 #import <BCLayerList/NSTextFieldDelegate-Protocol.h>
 
-@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCRowViewVisuals, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField;
+@class BCFilterInfo, BCOutlineView, BCOutlineViewDataController, BCRowViewVisuals, BCTableCellView, NSArray, NSEvent, NSMutableSet, NSString, NSTextField, _TtC11BCLayerList15BCOutlineDiffer;
 
 @interface BCOutlineViewController : NSViewController <NSMenuDelegate, NSTextFieldDelegate, BCTableCellViewDelegate, BCTableRowViewDelegate, NSOutlineViewDataSource, BCOutlineViewDelegate>
 {
     BOOL _selectionStateUpdating;
     BOOL _expansionStateUpdating;
+    BOOL _isRefreshing;
     BOOL _draggingInProgress;
     BOOL _shouldRestoreGroupFloatingAfterDragDrop;
     BOOL _viewHasAppearedBefore;
     BCOutlineViewDataController *_dataController;
     BCOutlineView *_outlineView;
+    _TtC11BCLayerList15BCOutlineDiffer *_differ;
     NSEvent *_ignoreSelectionChangingEvent;
     NSEvent *_ignoreExpansionChangingEvent;
     NSArray *_contextMenuSelection;
@@ -31,7 +33,6 @@
     NSTextField *_menuDisabledTextField;
     NSMutableSet *_referencedNodes;
     unsigned long long _refreshMask;
-    double _refreshNotificationTime;
     NSArray *_postRefreshBlocks;
     BCRowViewVisuals *_rowViewVisuals;
 }
@@ -40,7 +41,6 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCRowViewVisuals *rowViewVisuals; // @synthesize rowViewVisuals=_rowViewVisuals;
 @property(retain, nonatomic) NSArray *postRefreshBlocks; // @synthesize postRefreshBlocks=_postRefreshBlocks;
-@property(nonatomic) double refreshNotificationTime; // @synthesize refreshNotificationTime=_refreshNotificationTime;
 @property(nonatomic) BOOL viewHasAppearedBefore; // @synthesize viewHasAppearedBefore=_viewHasAppearedBefore;
 @property(nonatomic) unsigned long long refreshMask; // @synthesize refreshMask=_refreshMask;
 @property(retain, nonatomic) NSMutableSet *referencedNodes; // @synthesize referencedNodes=_referencedNodes;
@@ -51,8 +51,10 @@
 @property(nonatomic) BOOL draggingInProgress; // @synthesize draggingInProgress=_draggingInProgress;
 @property(retain, nonatomic) NSEvent *ignoreExpansionChangingEvent; // @synthesize ignoreExpansionChangingEvent=_ignoreExpansionChangingEvent;
 @property(retain, nonatomic) NSEvent *ignoreSelectionChangingEvent; // @synthesize ignoreSelectionChangingEvent=_ignoreSelectionChangingEvent;
+@property(nonatomic) BOOL isRefreshing; // @synthesize isRefreshing=_isRefreshing;
 @property(nonatomic) BOOL expansionStateUpdating; // @synthesize expansionStateUpdating=_expansionStateUpdating;
 @property(nonatomic) BOOL selectionStateUpdating; // @synthesize selectionStateUpdating=_selectionStateUpdating;
+@property(readonly, nonatomic) _TtC11BCLayerList15BCOutlineDiffer *differ; // @synthesize differ=_differ;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void)updateVisualStateOfRowView:(id)arg1;
@@ -68,7 +70,6 @@
 - (BOOL)control:(id)arg1 textView:(id)arg2 doCommandBySelector:(SEL)arg3;
 - (void)handleTabFromControl:(id)arg1 forward:(BOOL)arg2;
 - (void)performNecessaryRefreshOperations;
-- (void)queueRefreshIfRequired;
 - (void)resetLayoutDirtyFlag;
 - (void)resetTableViewCellContentsDirtyFlag;
 - (BOOL)areTableViewCellContentsDirty;

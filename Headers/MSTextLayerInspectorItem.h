@@ -15,7 +15,7 @@
 #import "NSComboBoxDataSource-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSButton, NSLayoutConstraint, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
+@class BCPopover, MSImmutableColor, MSInlineUpDownTextField, MSInlineUpDownTextFieldWithMenu, MSInspectorSegmentedControl, MSInspectorValueAdaptor, MSMathInspectorValueAdaptor, MSNativeColorPanelPresenter, MSStylePartPreviewButton, MSTextAttributeEditingContext, MSTextInspectorItemDataSource, NSButton, NSMenu, NSPopUpButton, NSSegmentedControl, NSSet, NSString, NSTextField, NSView;
 @protocol MSTextLayerItemDelegate;
 
 @interface MSTextLayerInspectorItem : MSInspectorItem <MSNativeColorPanelPresenterDelegate, MSInspectorMathValueAdaptorDelegate, BCPopoverDelegate, NSMenuDelegate, MSColorInspectorDelegate, NSComboBoxDataSource, MSStylePartPreviewButtonDelegate, MSVariableFontsInspectorDelegate>
@@ -36,7 +36,6 @@
     NSButton *_learnMoreButton;
     NSTextField *_sizingLabel;
     NSSegmentedControl *_sizingSegmentedControl;
-    NSLayoutConstraint *_fontWeightPopUpButtonTrailingConstraint;
     BCPopover *_popover;
     MSNativeColorPanelPresenter *_colorPanelPresenter;
     NSSet *_fontPostscriptNames;
@@ -64,7 +63,6 @@
 @property(copy, nonatomic) NSSet *fontPostscriptNames; // @synthesize fontPostscriptNames=_fontPostscriptNames;
 @property(retain, nonatomic) MSNativeColorPanelPresenter *colorPanelPresenter; // @synthesize colorPanelPresenter=_colorPanelPresenter;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
-@property(retain, nonatomic) NSLayoutConstraint *fontWeightPopUpButtonTrailingConstraint; // @synthesize fontWeightPopUpButtonTrailingConstraint=_fontWeightPopUpButtonTrailingConstraint;
 @property(nonatomic) __weak NSSegmentedControl *sizingSegmentedControl; // @synthesize sizingSegmentedControl=_sizingSegmentedControl;
 @property(retain, nonatomic) NSTextField *sizingLabel; // @synthesize sizingLabel=_sizingLabel;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
@@ -80,6 +78,7 @@
 @property(retain, nonatomic) NSButton *fontFamilyButton; // @synthesize fontFamilyButton=_fontFamilyButton;
 @property(retain, nonatomic) NSView *basicView; // @synthesize basicView=_basicView;
 @property(retain, nonatomic) MSTextInspectorItemDataSource *dataSource; // @synthesize dataSource=_dataSource;
+- (id)restorableFields;
 - (void)togglePopoverOfContentClass:(Class)arg1 attachedToControl:(id)arg2 inBlock:(CDUnknownBlockType)arg3;
 - (void)textBehaviourButtonAction:(id)arg1;
 - (void)updateTextSizingBehaviour;

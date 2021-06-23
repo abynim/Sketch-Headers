@@ -6,11 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
+#import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorChildController-Protocol.h"
 
-@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, NSArrayController, NSButton, NSPopUpButton, NSSlider, NSView;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSPathController, MSShapeButtonInspectorItem, MSShapeEventHandler, NSArrayController, NSButton, NSDictionary, NSPopUpButton, NSSlider, NSView;
 
-@interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController>
+@interface MSEditShapeInspectorViewController : NSViewController <MSInspectorChildController, MSFieldRestoration>
 {
     BOOL _isMakingRectSelection;
     MSPathController *_pathController;
@@ -45,6 +46,7 @@
 @property(nonatomic) BOOL isMakingRectSelection; // @synthesize isMakingRectSelection=_isMakingRectSelection;
 @property(nonatomic) MSShapeEventHandler *shapeEventHandler; // @synthesize shapeEventHandler=_shapeEventHandler;
 @property(retain, nonatomic) MSPathController *pathController; // @synthesize pathController=_pathController;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)selectedOverridesDidChangeTo:(id)arg1;

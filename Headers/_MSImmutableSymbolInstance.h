@@ -10,20 +10,16 @@
 
 @interface _MSImmutableSymbolInstance : MSImmutableStyledLayer
 {
-    double _horizontalSpacing;
     double _scale;
     NSString *_symbolID;
-    double _verticalSpacing;
     NSArray *_overrideValues;
 }
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *overrideValues; // @synthesize overrideValues=_overrideValues;
-@property(nonatomic) double verticalSpacing; // @synthesize verticalSpacing=_verticalSpacing;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
-@property(nonatomic) double horizontalSpacing; // @synthesize horizontalSpacing=_horizontalSpacing;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

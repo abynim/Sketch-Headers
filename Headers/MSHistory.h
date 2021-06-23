@@ -28,6 +28,7 @@
 @property(copy, nonatomic) NSString *nextMomentTitle; // @synthesize nextMomentTitle=_nextMomentTitle;
 @property(nonatomic) BOOL isCoalescing; // @synthesize isCoalescing=_isCoalescing;
 @property(nonatomic) __weak id <MSHistoryDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)resetDocumentInBlock:(CDUnknownBlockType)arg1;
 - (void)ignoreRemotePatches:(id)arg1 changingFrom:(id)arg2 toCurrentDocument:(id)arg3;
 - (id)updateDocument:(id)arg1 against:(id)arg2 removingPatchContents:(id)arg3;
 - (void)ignoreLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;

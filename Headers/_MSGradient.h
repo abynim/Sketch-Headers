@@ -22,7 +22,7 @@
 + (id)defaultGradientStops;
 + (id)mutableDefaultGradientStops;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_stops:(id)arg1;
 - (void)setRaw_to:(struct CGPoint)arg1;
 - (void)setRaw_gradientType:(long long)arg1;

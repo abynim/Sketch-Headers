@@ -24,7 +24,7 @@
     // Error parsing type: , name: presenceDescriptions
     // Error parsing type: , name: currentPresenceId
     // Error parsing type: , name: presenceDescriptionToFollow
-    // Error parsing type: , name: isUpdatingFollowedUser
+    // Error parsing type: , name: shouldStopFollowingOnViewportChange
 }
 
 + (id)canShowPresenceDidChangeNotification;
@@ -36,6 +36,7 @@
 - (void)advertiseCursor;
 - (void)dealloc;
 - (void)didChangeFollowable:(id)arg1;
+@property(nonatomic) BOOL shouldStopFollowingOnViewportChange; // @synthesize shouldStopFollowingOnViewportChange;
 @property(nonatomic, retain) MSPresenceDescription *presenceDescriptionToFollow; // @synthesize presenceDescriptionToFollow;
 
 @end

@@ -19,6 +19,8 @@
     // Error parsing type: , name: subscriptionItemsBySession
     // Error parsing type: , name: requestOperation
     // Error parsing type: , name: requestHandlers
+    // Error parsing type: , name: networkMonitor
+    // Error parsing type: , name: log
 }
 
 + (id)workspaceNotificationUserInfoKey;

@@ -6,9 +6,11 @@
 
 #import "MSBaseSizeInspectorItem.h"
 
-@class NSButton;
+#import "MSFieldRestoration-Protocol.h"
 
-@interface MSSizeInspectorItem : MSBaseSizeInspectorItem
+@class NSButton, NSDictionary;
+
+@interface MSSizeInspectorItem : MSBaseSizeInspectorItem <MSFieldRestoration>
 {
     NSButton *_flipHorizontalButton;
     NSButton *_flipVerticalButton;
@@ -17,6 +19,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSButton *flipVerticalButton; // @synthesize flipVerticalButton=_flipVerticalButton;
 @property(retain, nonatomic) NSButton *flipHorizontalButton; // @synthesize flipHorizontalButton=_flipHorizontalButton;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)updateButtonState:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateUI;

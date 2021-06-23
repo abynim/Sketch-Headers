@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSCloudAction, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKOrganization, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSMetadataConfiguration, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
@@ -34,9 +34,9 @@
     BOOL _isLayerListVisible;
     BOOL _isComponentsPanelVisible;
     BOOL _cacheFlushInProgress;
+    BOOL _isAssistantsFirstRun;
     _TtC6Sketch22MSInsertMenuController *_insertMenuController;
     NSArray *_exportableLayerSelection;
-    MSImmutableDocumentData *_exportableImmutableData;
     MSDocumentWindowController *_documentWindowController;
     NSView *_messageView;
     MSToolbarConstructor *_toolbarConstructor;
@@ -69,20 +69,23 @@
     NSArray *_previousSelectedLayers;
     MSComponentInspectorDriver *_componentInspectorDriver;
     MSArtboardGroup *_focusedArtboard;
+    id _assistantsObserverObject;
+    id _componentsObserverObject;
 }
 
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
 + (id)currentDocument;
 + (void)cleanCloudDirectoriesRemovingAllDocuments:(BOOL)arg1;
 + (id)didCleanCloudDirectoriesNotification;
-+ (long long)numberOfFailedUploadsForDocumentURL:(id)arg1;
-+ (id)numberOfFailedUploadsFileURLFromDocumentURL:(id)arg1;
 + (id)documentWithCloudShareID:(id)arg1;
 + (BOOL)isNativeType:(id)arg1;
 + (id)writableTypes;
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isAssistantsFirstRun; // @synthesize isAssistantsFirstRun=_isAssistantsFirstRun;
+@property(readonly, nonatomic) id componentsObserverObject; // @synthesize componentsObserverObject=_componentsObserverObject;
+@property(readonly, nonatomic) id assistantsObserverObject; // @synthesize assistantsObserverObject=_assistantsObserverObject;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;
 @property(retain, nonatomic) MSComponentInspectorDriver *componentInspectorDriver; // @synthesize componentInspectorDriver=_componentInspectorDriver;
 @property(copy, nonatomic) NSArray *previousSelectedLayers; // @synthesize previousSelectedLayers=_previousSelectedLayers;
@@ -127,6 +130,7 @@
 @property(retain, nonatomic) NSView *messageView; // @synthesize messageView=_messageView;
 @property(retain, nonatomic) MSDocumentWindowController *documentWindowController; // @synthesize documentWindowController=_documentWindowController;
 - (void)updateAssistants;
+@property(readonly, nonatomic) MSMetadataConfiguration *metadataConfiguration;
 - (void)coalescedDetermineArtboardNotification:(id)arg1;
 - (void)updateFocusedArtboard:(id)arg1;
 - (void)installedFontsDidChange;
@@ -232,6 +236,9 @@
 - (id)selectedLayers;
 - (id)makeUnknownRenameError;
 - (void)moveToURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (id)subviewOfView:(id)arg1 className:(id)arg2;
+- (id)toolbarWindow;
+- (id)viewForPopoverOnWindow:(id)arg1;
 - (void)renameDocument:(id)arg1;
 - (void)moveDocument:(id)arg1;
 - (id)currentPage;
@@ -260,9 +267,6 @@
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) _TtC6Sketch22MSInsertMenuController *insertMenuController; // @synthesize insertMenuController=_insertMenuController;
 - (id)swiftCompatibleComponentsPanelController;
-- (void)cancelAllUploads;
-@property(readonly, nonatomic) BOOL hasPendingCloudDocumentUploadRequest;
-@property(retain, nonatomic) MSImmutableDocumentData *exportableImmutableData; // @synthesize exportableImmutableData=_exportableImmutableData;
 - (id)newExportableImmutableData;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData;
 - (void)setDocumentData:(id)arg1 reset:(BOOL)arg2;
@@ -312,14 +316,10 @@
 - (void)runAssistants;
 - (void)runAssistantsAutomatically;
 - (id)duplicateAndReturnError:(id *)arg1;
-@property(readonly, nonatomic) BOOL needsUploading;
-@property(nonatomic) long long numberOfUploadAttemptsSinceLastSuccessfulUpload;
 @property(readonly, nonatomic) SCKWorkspace *defaultWorkspace;
 @property(retain, nonatomic) SCKProject *preferredProject;
-@property(retain, nonatomic) SCKOrganization *preferredOrganization;
 @property(retain, nonatomic) SCKWorkspace *preferredWorkspace;
 @property(retain, nonatomic) SCKShare *cloudShare;
-@property(readonly, nonatomic) MSCloudAction *cloudAction;
 - (id)cloudDocumentKey;
 @property(readonly, nonatomic) NSString *cloudName;
 - (void)updateLocalFileToMatchCloudNameWithCompletionHandler:(CDUnknownBlockType)arg1;
@@ -372,8 +372,6 @@
 - (BOOL)discardDraftDocumentWithError:(id *)arg1;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 allowDeletion:(BOOL)arg2 moveOriginal:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 delegate:(id)arg2 didSaveSelector:(SEL)arg3 contextInfo:(void *)arg4;
-- (BOOL)isCurrentlyUploading;
-- (void)makeUploadRequest;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldCreateCloudVersionForSaveOperation:(unsigned long long)arg1 destinationType:(id)arg2 documentWasEdited:(BOOL)arg3;
 - (void)prepareForSaveOperation:(unsigned long long)arg1;

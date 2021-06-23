@@ -6,9 +6,12 @@
 
 #import "MSColorStylePartInspectorViewController.h"
 
-@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSString, NSTextField;
+#import "MSFieldRestoration-Protocol.h"
+#import "NSTextViewDelegate-Protocol.h"
 
-@interface MSShadowInspectorViewController : MSColorStylePartInspectorViewController
+@class MSMathInspectorValueAdaptor, MSUpDownTextField, NSDictionary, NSString, NSTextField;
+
+@interface MSShadowInspectorViewController : MSColorStylePartInspectorViewController <MSFieldRestoration, NSTextViewDelegate>
 {
     NSString *_type;
     MSUpDownTextField *_xOffsetField;
@@ -33,6 +36,7 @@
 @property(retain, nonatomic) MSUpDownTextField *yOffsetField; // @synthesize yOffsetField=_yOffsetField;
 @property(retain, nonatomic) MSUpDownTextField *xOffsetField; // @synthesize xOffsetField=_xOffsetField;
 @property(retain, nonatomic) NSString *type; // @synthesize type=_type;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)applyUserSelectedColors:(id)arg1;
 - (void)updateUI;
 - (void)didGetAddedToInspector;
@@ -44,6 +48,12 @@
 - (void)updateDisplayedValues;
 - (void)prepare;
 - (void)viewDidLoad;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

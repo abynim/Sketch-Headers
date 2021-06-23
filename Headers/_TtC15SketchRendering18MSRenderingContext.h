@@ -38,7 +38,8 @@
 @property(nonatomic, readonly) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest;
 - (id)initWithData:(void *)arg1 rect:(struct CGRect)arg2 bytesPerRow:(long long)arg3 alphaInfo:(unsigned int)arg4 driver:(id)arg5 renderingRequest:(id)arg6 bitmapEffectsContextPool:(id)arg7;
 - (id)initWithCGContext:(struct CGContext *)arg1 driver:(id)arg2 renderingRequest:(id)arg3 bitmapEffectsContextPool:(id)arg4;
-- (id)initWithEKCanvas:(void *)arg1 driver:(id)arg2 renderingRequest:(id)arg3 rect:(struct CGRect)arg4;
+- (id)initWithPRFile:(id)arg1 driver:(id)arg2 renderingRequest:(id)arg3 rect:(struct CGRect)arg4;
+- (id)initWithEKCanvas:(void *)arg1 driver:(id)arg2 renderingRequest:(id)arg3;
 - (id)initWithNullImpositorAndDriver:(id)arg1 renderingRequest:(id)arg2;
 
 @end

@@ -40,7 +40,6 @@
 - (id)refreshDataMenuItem;
 - (id)clearDataMenuItem;
 - (id)initWithDataManager:(id)arg1 presentationContext:(long long)arg2;
-- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -26,7 +26,6 @@
 @property(readonly, nonatomic) NSArray *symbols;
 @property(readonly, nonatomic) BOOL hasArtboards;
 @property(readonly, nonatomic) NSArray *artboards;
-- (struct CGRect)contentBoundsForDocument:(id)arg1;
 @property(readonly, nonatomic) struct CGPoint rulerBase;
 - (id)archiveReferenceIdentifier_bc;
 - (struct CGPoint)origin;
@@ -41,6 +40,7 @@
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+- (struct CGRect)contentBoundsForDocument:(id)arg1;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 
 // Remaining properties

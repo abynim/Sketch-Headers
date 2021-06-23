@@ -18,6 +18,7 @@
 @property(readonly) MSPath *hoverPath;
 - (BOOL)canBeHoveredOnPage:(id)arg1;
 - (BOOL)canApplyDataToSelfInDocument:(id)arg1;
+@property(readonly, nonatomic) BOOL isExpanded;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)handleBadgeClickWithAltState:(BOOL)arg1;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
@@ -29,7 +30,6 @@
 @property(readonly, nonatomic) BOOL lockedOnCanvas;
 @property(readonly, nonatomic) BOOL hiddenOnCanvas;
 @property(readonly, nonatomic) BOOL isSelectedInLayerList;
-- (BOOL)selfOrChildrenSelected;
 @property(readonly, nonatomic) BOOL expandableInLayerList;
 - (id)badgeMenuConfigurator;
 - (id)maskIconWithState:(unsigned long long)arg1;
@@ -50,7 +50,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) BOOL isExpanded;
 @property(nonatomic) long long layerListExpandedType;
 @property(readonly) Class superclass;
 @end

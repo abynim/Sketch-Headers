@@ -19,7 +19,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_overrideProperties:(id)arg1;
 - (void)setRaw_symbolID:(id)arg1;
 - (void)setRaw_includeBackgroundColorInInstance:(BOOL)arg1;

@@ -14,6 +14,7 @@
     BOOL _hasScissor;
     BOOL _drawing;
     CAMetalLayer *_metalLayer;
+    struct EKDeviceStruct *_device;
     id <MTLCommandBuffer> _currentCommands;
     id <MTLRenderCommandEncoder> _currentRenderEncoder;
     id <CAMetalDrawable> _currentDrawable;
@@ -56,7 +57,10 @@
 @property(retain, nonatomic) id <CAMetalDrawable> currentDrawable; // @synthesize currentDrawable=_currentDrawable;
 @property(retain, nonatomic) id <MTLRenderCommandEncoder> currentRenderEncoder; // @synthesize currentRenderEncoder=_currentRenderEncoder;
 @property(retain, nonatomic) id <MTLCommandBuffer> currentCommands; // @synthesize currentCommands=_currentCommands;
+@property(nonatomic) struct EKDeviceStruct *device; // @synthesize device=_device;
 @property(retain, nonatomic) CAMetalLayer *metalLayer; // @synthesize metalLayer=_metalLayer;
+- (struct EKDeviceStruct *)ekranoplanDevice;
+- (id)createShaderWritableTextureWithSize:(CDStruct_1ef3fb1f)arg1;
 - (CDStruct_1ef3fb1f)maximumTextureSize;
 - (void)unlockTextures;
 - (void)lockTextures;

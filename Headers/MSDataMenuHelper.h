@@ -32,7 +32,6 @@
 @property(readonly, nonatomic) unsigned long long applicableDataTypesDataTypeFromCurrentSelection;
 - (id)selectedLayers;
 - (id)initWithDataManager:(id)arg1;
-- (id)init;
 
 @end
 

@@ -75,6 +75,7 @@
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 fromLayer:(id)arg2;
 - (struct CGPoint)convertPoint:(struct CGPoint)arg1 toLayer:(id)arg2;
 - (void)didMoveToParentObject;
+- (void)addObjectsAutoExpandedBySelectionTo:(id)arg1;
 - (BOOL)canContainLayer:(id)arg1;
 - (id)childrenIncludingSelf:(BOOL)arg1;
 - (id)children;
@@ -129,7 +130,7 @@
 @property(readonly, nonatomic) BOOL isSelected;
 - (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2;
-- (BOOL)containsSelectedItemIncludingSelf:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL containsSelectedItem;
 - (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -206,6 +207,7 @@
 @property(readonly, nonatomic) NSString *CSSAttributeString;
 - (id)swatchesReferencedInDocument:(id)arg1;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
+- (void)recycleInContext:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;
 - (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)closestClippingLayer;

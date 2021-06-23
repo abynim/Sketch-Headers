@@ -6,11 +6,12 @@
 
 #import "MSInspectorItem.h"
 
+#import "MSFieldRestoration-Protocol.h"
 #import "NSMenuDelegate-Protocol.h"
 
-@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSPopUpButton, NSString;
+@class MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSDictionary, NSPopUpButton, NSString;
 
-@interface MSOpacityBlendingInspectorItem : MSInspectorItem <NSMenuDelegate>
+@interface MSOpacityBlendingInspectorItem : MSInspectorItem <NSMenuDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_opacityField;
     NSPopUpButton *_blendModePopUp;
@@ -24,6 +25,7 @@
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
 @property(retain, nonatomic) NSPopUpButton *blendModePopUp; // @synthesize blendModePopUp=_blendModePopUp;
 @property(retain, nonatomic) MSInlineUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;

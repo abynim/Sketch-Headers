@@ -10,6 +10,7 @@
 
 @interface _TtC6Sketch19DocumentsBannerView : NSView
 {
+    // Error parsing type: , name: messageSeverity
     // Error parsing type: , name: headingLabel
     // Error parsing type: , name: buttonsView
     // Error parsing type: , name: buttonConfigurations

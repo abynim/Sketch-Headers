@@ -11,6 +11,7 @@
     // Error parsing type: , name: userNotificationsReceived
     // Error parsing type: , name: userNotificationQuery
     // Error parsing type: , name: subscriptionsController
+    // Error parsing type: , name: log
 }
 
 - (void).cxx_destruct;

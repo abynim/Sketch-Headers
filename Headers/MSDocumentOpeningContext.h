@@ -8,8 +8,6 @@
 
 #import "MSCoEditDocumentOpenerDelegate-Protocol.h"
 
-@class NSError;
-
 @interface MSDocumentOpeningContext : NSObject <MSCoEditDocumentOpenerDelegate>
 {
     BOOL _isReload;
@@ -21,7 +19,6 @@
 @property(nonatomic) BOOL displayProgress; // @synthesize displayProgress=_displayProgress;
 @property(nonatomic) BOOL isReload; // @synthesize isReload=_isReload;
 - (id)makeErrorPresentable:(id)arg1 error:(id)arg2;
-@property(readonly, nonatomic) NSError *betaDisabledError;
 - (void)didProcessCloudDocument:(id)arg1;
 - (void)willProcessCloudDocument:(id)arg1;
 - (BOOL)shouldMigrateDocumentInCoedit:(id)arg1;

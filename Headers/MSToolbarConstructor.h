@@ -46,6 +46,7 @@
 - (BOOL)toolbar:(id)arg1 containsToolbarItemWithIdentifier:(id)arg2;
 - (void)documentContentTypeDidChange;
 - (void)documentTypeDidChange;
+- (BOOL)didSettingOfObservedValueRepresentAChange:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)validateActionOfToolbarItem:(id)arg1;
 - (void)validateToolbarItems;

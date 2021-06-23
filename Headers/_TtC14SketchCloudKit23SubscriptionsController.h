@@ -9,6 +9,7 @@
 @interface _TtC14SketchCloudKit23SubscriptionsController : NSObject
 {
     // Error parsing type: , name: _subscriptions
+    // Error parsing type: , name: log
 }
 
 - (void).cxx_destruct;

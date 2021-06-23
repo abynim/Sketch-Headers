@@ -18,7 +18,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
-- (void)refaultChildrenAgainst:(id)arg1;
+- (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_lineJoinStyle:(unsigned long long)arg1;
 - (void)setRaw_lineCapStyle:(unsigned long long)arg1;
 - (void)setRaw_dashPattern:(id)arg1;

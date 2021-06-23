@@ -6,22 +6,35 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSTextField;
+@class NSButton, NSStackView, NSTextField;
 
 @interface _TtC6Sketch34WorkspaceUnavailableViewController : NSViewController
 {
     // Error parsing type: , name: titleLabel
     // Error parsing type: , name: detailLabel
+    // Error parsing type: , name: buttonStack
+    // Error parsing type: , name: learnMoreButton
+    // Error parsing type: , name: manageLicenseButton
+    // Error parsing type: , name: viewPersonalWorkspaceButton
+    // Error parsing type: , name: leaveWorkspaceButton
+    // Error parsing type: , name: workspace
+    // Error parsing type: , name: membershipIdentifier
     // Error parsing type: , name: reason
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)leaveWorkspace:(id)arg1;
 - (void)viewPersonalWorkspace:(id)arg1;
 - (void)manageLicense:(id)arg1;
 - (void)learnMore:(id)arg1;
 - (void)viewWillAppear;
+@property(nonatomic) __weak NSButton *leaveWorkspaceButton; // @synthesize leaveWorkspaceButton;
+@property(nonatomic) __weak NSButton *viewPersonalWorkspaceButton; // @synthesize viewPersonalWorkspaceButton;
+@property(nonatomic) __weak NSButton *manageLicenseButton; // @synthesize manageLicenseButton;
+@property(nonatomic) __weak NSButton *learnMoreButton; // @synthesize learnMoreButton;
+@property(nonatomic, retain) NSStackView *buttonStack; // @synthesize buttonStack;
 @property(nonatomic, retain) NSTextField *detailLabel; // @synthesize detailLabel;
 @property(nonatomic, retain) NSTextField *titleLabel; // @synthesize titleLabel;
 

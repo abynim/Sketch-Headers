@@ -15,7 +15,13 @@
 - (void)forceCloseDocument;
 @property(nonatomic, readonly) BOOL shouldDelayForceClosingDocument;
 @property(nonatomic, readonly) BOOL shouldDelayClosingDocument;
+- (void)resumeTasks;
+- (void)pauseTasks;
 - (void)invalidate;
 - (void)log:(id)arg1;
+- (BOOL)shouldOpenNewerDocument:(id)arg1;
+- (void)migrationNotAvailable:(id)arg1;
+- (BOOL)shouldOpenDocumentWithCorruptMetadata:(id)arg1;
+- (BOOL)shouldAttemptToOpenCorruptDocument:(id)arg1;
 @end
 

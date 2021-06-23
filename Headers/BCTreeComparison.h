@@ -13,6 +13,7 @@
 
 @interface BCTreeComparison : NSObject <BCMutableTreeComparison>
 {
+    BOOL _inferMoves;
     NSMutableArray *_mutableChanges;
     id _root1;
     id _root2;
@@ -21,6 +22,7 @@
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL inferMoves; // @synthesize inferMoves=_inferMoves;
 @property(retain, nonatomic) BCComparisonItem *currentParent; // @synthesize currentParent=_currentParent;
 @property(nonatomic) __weak id <BCTreeComparisonDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) id root2; // @synthesize root2=_root2;
@@ -31,7 +33,7 @@
 - (void)compareOldArray:(id)arg1 againstNewArray:(id)arg2 withName:(id)arg3;
 - (void)compareNode:(id)arg1 against:(id)arg2;
 @property(readonly, copy, nonatomic) NSArray *changes;
-- (id)initWithRoot1:(id)arg1 root2:(id)arg2 delegate:(id)arg3;
+- (id)initWithRoot1:(id)arg1 root2:(id)arg2 inferringMoves:(BOOL)arg3 delegate:(id)arg4;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSInsetSeparatorInspectorItem, MSOpacityBlendingInspectorItem, MSPaddingInspectorItem, MSSharedStylesInspectorItem, NSDictionary, _TtC6Sketch24MSTextStyleInspectorItem, _TtC6Sketch25MSLayerStyleInspectorItem;
+@class MSCollapsibleHeaderInspectorItem, MSInsetSeparatorInspectorItem, MSOpacityBlendingInspectorItem, MSPaddingInspectorItem, MSSharedStylesInspectorItem, _TtC6Sketch24MSTextStyleInspectorItem, _TtC6Sketch25MSLayerStyleInspectorItem;
 
 @interface MSAppearanceInspectorSection : MSBaseInspectorSection
 {
@@ -17,11 +17,9 @@
     MSPaddingInspectorItem *_paddingItem;
     MSOpacityBlendingInspectorItem *_opacityItem;
     MSInsetSeparatorInspectorItem *_opacitySeparatorItem;
-    NSDictionary *_restorationInfo;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSDictionary *restorationInfo; // @synthesize restorationInfo=_restorationInfo;
 @property(retain, nonatomic) MSInsetSeparatorInspectorItem *opacitySeparatorItem; // @synthesize opacitySeparatorItem=_opacitySeparatorItem;
 @property(retain, nonatomic) MSOpacityBlendingInspectorItem *opacityItem; // @synthesize opacityItem=_opacityItem;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
@@ -29,9 +27,6 @@
 @property(retain, nonatomic) _TtC6Sketch25MSLayerStyleInspectorItem *layerStyleItem; // @synthesize layerStyleItem=_layerStyleItem;
 @property(retain, nonatomic) MSSharedStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(retain, nonatomic) MSCollapsibleHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
-- (void)restorePopover;
-- (void)restoreWithState_ms:(id)arg1;
-- (id)viewRestorationState_ms;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
 @property(readonly, nonatomic) BOOL isRenamingSharedObject;

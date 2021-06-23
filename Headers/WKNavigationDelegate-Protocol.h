@@ -6,11 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSError, NSURLAuthenticationChallenge, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebpagePreferences;
+@class NSError, NSURLAuthenticationChallenge, WKDownload, WKNavigation, WKNavigationAction, WKNavigationResponse, WKWebView, WKWebpagePreferences;
 
 @protocol WKNavigationDelegate <NSObject>
 
 @optional
+- (void)webView:(WKWebView *)arg1 navigationResponse:(WKNavigationResponse *)arg2 didBecomeDownload:(WKDownload *)arg3;
+- (void)webView:(WKWebView *)arg1 navigationAction:(WKNavigationAction *)arg2 didBecomeDownload:(WKDownload *)arg3;
 - (void)webView:(WKWebView *)arg1 authenticationChallenge:(NSURLAuthenticationChallenge *)arg2 shouldAllowDeprecatedTLS:(void (^)(BOOL))arg3;
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)arg1;
 - (void)webView:(WKWebView *)arg1 didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)arg2 completionHandler:(void (^)(long long, NSURLCredential *))arg3;

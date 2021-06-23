@@ -7,12 +7,13 @@
 #import "MSOverrideInspectorItem.h"
 
 #import "MSColorInspectorDelegate-Protocol.h"
+#import "MSFieldRestoration-Protocol.h"
 #import "MSStylePartPreviewButtonDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class BCPopover, MSColor, MSColorInspector, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSString;
+@class BCPopover, MSColor, MSColorInspector, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, MSOverrideTextField, MSStylePartPreviewButton, NSArrayController, NSDictionary, NSString;
 
-@interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, NSTextFieldDelegate>
+@interface MSColorOverrideInspectorItem : MSOverrideInspectorItem <MSStylePartPreviewButtonDelegate, MSColorInspectorDelegate, NSTextFieldDelegate, MSFieldRestoration>
 {
     BOOL _hasPendingChanges;
     BCPopover *_popover;
@@ -34,6 +35,7 @@
 @property(nonatomic) BOOL hasPendingChanges; // @synthesize hasPendingChanges=_hasPendingChanges;
 @property(nonatomic) __weak MSColorInspector *colorInspector; // @synthesize colorInspector=_colorInspector;
 @property(retain, nonatomic) BCPopover *popover; // @synthesize popover=_popover;
+@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)applyUserSelectedColor:(id)arg1;
 - (id)currentSwatchReference;

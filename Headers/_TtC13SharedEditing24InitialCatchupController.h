@@ -9,7 +9,8 @@
 @interface _TtC13SharedEditing24InitialCatchupController : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: networkService
-    // Error parsing type: , name: knownPatches
+    // Error parsing type: , name: localPatches
+    // Error parsing type: , name: remotePatches
     // Error parsing type: , name: delegate
     // Error parsing type: , name: progress
     // Error parsing type: , name: currentPhase

@@ -14,6 +14,7 @@
 {
     BOOL _supportsRenaming;
     BOOL _supportsDeletion;
+    BOOL _supportsMoving;
     BOOL _loading;
     SCKShare *_cloudShare;
     NSImage *_previewImage;
@@ -28,14 +29,13 @@
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
 @property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
+@property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
 @property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
 @property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
 - (void)presenceObserverWithFailedWithError:(id)arg1;
 - (void)presenceObserverWithUpdatedPresences:(id)arg1;
 - (id)status;
 - (void)cancelDocumentDownload;
-- (void)updateCloudStatus;
-- (void)updateDownloadProgress;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)toolTip;
 - (BOOL)isEnabled;

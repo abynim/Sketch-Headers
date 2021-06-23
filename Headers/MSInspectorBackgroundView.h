@@ -11,6 +11,7 @@
 }
 
 - (id)color;
+- (BOOL)clickShouldDismissPopover:(id)arg1;
 
 @end
 

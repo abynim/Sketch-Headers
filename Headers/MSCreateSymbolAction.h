@@ -16,7 +16,6 @@
 - (id)historyMomentTitle;
 - (id)tooltip;
 - (id)label;
-- (void)trySelectComponentForMasters:(id)arg1;
 - (void)createSymbolFromLayers:(id)arg1;
 - (void)createSymbolsFromArtboards:(id)arg1;
 - (void)doPerformAction:(id)arg1;

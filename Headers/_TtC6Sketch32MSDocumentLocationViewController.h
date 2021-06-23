@@ -6,15 +6,14 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSDocument, NSButton, NSPathControl;
+@class MSDocument, NSButton, NSPathControl, NSTextField;
 
 @interface _TtC6Sketch32MSDocumentLocationViewController : NSViewController
 {
     // Error parsing type: , name: pathControl
     // Error parsing type: , name: revealButton
-    // Error parsing type: , name: moveButton
-    // Error parsing type: , name: renameButton
-    // Error parsing type: , name: saveButton
+    // Error parsing type: , name: nameEditText
+    // Error parsing type: , name: wasCancelled
     // Error parsing type: , name: document
 }
 
@@ -22,15 +21,12 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (void)save:(id)arg1;
 - (void)rename:(id)arg1;
-- (void)moveTo:(id)arg1;
 - (void)reveal:(id)arg1;
+- (void)cancelOperation:(id)arg1;
 - (void)viewWillAppear;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document;
-@property(nonatomic, retain) NSButton *saveButton; // @synthesize saveButton;
-@property(nonatomic, retain) NSButton *renameButton; // @synthesize renameButton;
-@property(nonatomic, retain) NSButton *moveButton; // @synthesize moveButton;
+@property(nonatomic, retain) NSTextField *nameEditText; // @synthesize nameEditText;
 @property(nonatomic, retain) NSButton *revealButton; // @synthesize revealButton;
 @property(nonatomic, retain) NSPathControl *pathControl; // @synthesize pathControl;
 

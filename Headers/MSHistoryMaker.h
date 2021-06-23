@@ -37,6 +37,7 @@
 - (void)flush;
 - (void)installedFontsChanged;
 - (void)ignoreRemotePatches:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
+- (void)resetDocumentInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
 - (void)moveDocument:(id)arg1 throughHistoryBackInTime:(BOOL)arg2;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;

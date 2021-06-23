@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: avatarView
     // Error parsing type: , name: owner
+    // Error parsing type: , name: project
 }
 
 - (void).cxx_destruct;

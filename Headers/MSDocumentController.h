@@ -29,10 +29,7 @@
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)makeDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 ofType:(id)arg3 error:(id *)arg4;
 - (void)cloudAuthenticationDidChange:(id)arg1;
-- (void)decideOpenStrategyForDocument:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)openCloudDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 @property(readonly, nonatomic) BOOL canShowDocumentsWindowAtLaunch;
-- (void)openLocalDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)internalOpenDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;

@@ -15,6 +15,7 @@
     BOOL _showLibraryIcon;
     BOOL _showSharedDocumentIcon;
     BOOL _supportsRenaming;
+    BOOL _supportsMoving;
     NSString *_title;
     NSAttributedString *_status;
     NSString *_statusColor;
@@ -29,6 +30,7 @@
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
 @property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
 @property(readonly, nonatomic) BOOL showSharedDocumentIcon; // @synthesize showSharedDocumentIcon=_showSharedDocumentIcon;
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;

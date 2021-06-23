@@ -49,7 +49,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithToken:(id)arg1 ofType:(id)arg2 refreshToken:(id)arg3;
 - (id)init;
-@property(readonly, nonatomic) BOOL isCurrent;
 
 @end
 

@@ -6,23 +6,25 @@
 
 #import <objc/NSObject.h>
 
-@class BCCache, BCFilterInfo, NSArray;
-@protocol BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate;
+@class BCCache, BCFilterInfo, NSArray, NSMutableSet;
+@protocol BCOutlineViewDataControllerDataSource, BCOutlineViewDataControllerDelegate, BCOutlineViewNode;
 
 @interface BCOutlineViewDataController : NSObject
 {
     NSObject<BCOutlineViewDataControllerDelegate> *_delegate;
     NSObject<BCOutlineViewDataControllerDataSource> *_dataSource;
     BCFilterInfo *_filter;
+    NSMutableSet *_filteredObjects;
     BCCache *_cachedChildrenOfNodesByFilterCacheGeneration;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCCache *cachedChildrenOfNodesByFilterCacheGeneration; // @synthesize cachedChildrenOfNodesByFilterCacheGeneration=_cachedChildrenOfNodesByFilterCacheGeneration;
+@property(retain, nonatomic) NSMutableSet *filteredObjects; // @synthesize filteredObjects=_filteredObjects;
 @property(retain, nonatomic) BCFilterInfo *filter; // @synthesize filter=_filter;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDataSource> *dataSource; // @synthesize dataSource=_dataSource;
 @property(readonly, nonatomic) NSObject<BCOutlineViewDataControllerDelegate> *delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic) id rootObject;
+@property(readonly, nonatomic) id <BCOutlineViewNode> rootObject;
 - (void)handleBadgePressedOnNode:(id)arg1 withAltState:(BOOL)arg2;
 - (BOOL)isNodeHighlighted:(id)arg1;
 - (void)hoverNodeDidChangeTo:(id)arg1;
@@ -48,7 +50,8 @@
 - (unsigned long long)numberOfChildrenOfNode:(id)arg1;
 - (id)childrenOfNode:(id)arg1;
 - (id)keyForCachingChildrenOfNode:(id)arg1;
-- (BOOL)nodeOrChildMatchesFilter:(id)arg1;
+- (BOOL)updateFilterSetUnder:(id)arg1;
+- (void)updateFilterSet;
 - (void)willReloadNodes;
 - (id)initWithDataSource:(id)arg1 delegate:(id)arg2;
 - (id)init;

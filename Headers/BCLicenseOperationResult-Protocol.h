@@ -6,9 +6,6 @@
 
 #import "NSObject-Protocol.h"
 
-@class NSDictionary, NSString;
-
 @protocol BCLicenseOperationResult <NSObject>
-- (id)initWithDictionary:(NSDictionary *)arg1 applicationID:(NSString *)arg2 publicCertificate:(NSString *)arg3;
 @end
 
