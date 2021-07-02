@@ -6,16 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSButton, NSImageView, NSMenu, NSScrollView, NSTextField, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
+@class MSFlashController, NSMenu, NSScrollView, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
     // Error parsing type: , name: collectionView
     // Error parsing type: , name: collectionViewContainer
     // Error parsing type: , name: collectionScrollView
-    // Error parsing type: , name: emptyStateLabel
-    // Error parsing type: , name: emptyStateImage
-    // Error parsing type: , name: createFirstDocumentButton
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
@@ -32,6 +29,7 @@
     // Error parsing type: , name: dragAndDropMessage
     // Error parsing type: , name: bannerError
     // Error parsing type: , name: workspaceExpiration
+    // Error parsing type: , name: $__lazy_storage_$_emptyStateViewController
 }
 
 - (void).cxx_destruct;
@@ -67,9 +65,6 @@
 @property(nonatomic, retain) MSFlashController *flashController; // @synthesize flashController;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;
-@property(nonatomic, retain) NSButton *createFirstDocumentButton; // @synthesize createFirstDocumentButton;
-@property(nonatomic, retain) NSImageView *emptyStateImage; // @synthesize emptyStateImage;
-@property(nonatomic, retain) NSTextField *emptyStateLabel; // @synthesize emptyStateLabel;
 @property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;
 @property(nonatomic, retain) NSView *collectionViewContainer; // @synthesize collectionViewContainer;
 @property(nonatomic, retain) _TtC6Sketch23DocumentsCollectionView *collectionView; // @synthesize collectionView;

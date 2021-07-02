@@ -16,6 +16,7 @@
     BOOL _isEditable;
     BOOL _isCloudLibrary;
     BOOL _isPublicCloudLibrary;
+    BOOL _isPendingDownload;
     NSURL *_appcastURL;
     NSString *_libraryVersion;
     NSString *_originalName;
@@ -29,6 +30,7 @@
 + (id)assetLibraryFolder;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *workspaceName; // @synthesize workspaceName=_workspaceName;
+@property(nonatomic) BOOL isPendingDownload; // @synthesize isPendingDownload=_isPendingDownload;
 @property(nonatomic) BOOL isPublicCloudLibrary; // @synthesize isPublicCloudLibrary=_isPublicCloudLibrary;
 @property(nonatomic) BOOL isCloudLibrary; // @synthesize isCloudLibrary=_isCloudLibrary;
 @property(nonatomic) BOOL isEditable; // @synthesize isEditable=_isEditable;

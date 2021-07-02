@@ -34,6 +34,7 @@
     BOOL _isLayerListVisible;
     BOOL _isComponentsPanelVisible;
     BOOL _cacheFlushInProgress;
+    BOOL _isAssistantsFirstRun;
     _TtC6Sketch22MSInsertMenuController *_insertMenuController;
     NSArray *_exportableLayerSelection;
     MSDocumentWindowController *_documentWindowController;
@@ -82,6 +83,7 @@
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL isAssistantsFirstRun; // @synthesize isAssistantsFirstRun=_isAssistantsFirstRun;
 @property(readonly, nonatomic) id componentsObserverObject; // @synthesize componentsObserverObject=_componentsObserverObject;
 @property(readonly, nonatomic) id assistantsObserverObject; // @synthesize assistantsObserverObject=_assistantsObserverObject;
 @property(nonatomic) __weak MSArtboardGroup *focusedArtboard; // @synthesize focusedArtboard=_focusedArtboard;

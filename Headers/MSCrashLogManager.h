@@ -9,14 +9,14 @@
 #import "MSActionObserver-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class BCReadWriteLock, NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSURL;
-@protocol OS_dispatch_semaphore;
+@class NSArray, NSDictionary, NSMutableArray, NSMutableDictionary, NSString, NSTextField, NSURL;
+@protocol OS_dispatch_queue, OS_dispatch_semaphore;
 
 @interface MSCrashLogManager : NSObject <MSActionObserver, NSTextFieldDelegate>
 {
-    BCReadWriteLock *_environmentLock;
+    NSObject<OS_dispatch_queue> *_environmentQueue;
     NSMutableDictionary *_environment;
-    BCReadWriteLock *_itemsLock;
+    NSObject<OS_dispatch_queue> *_itemsQueue;
     NSMutableArray *_items;
     BOOL _send;
     NSString *_text;
@@ -47,7 +47,9 @@
 - (void)actionController:(id)arg1 willBeginActionWithID:(id)arg2 context:(id)arg3;
 - (void)logActionWithName:(id)arg1 actionID:(id)arg2 context:(id)arg3;
 - (id)prepareContextForLog:(id)arg1;
+- (void)unprotected_loadEnvironmentIfNeeded;
 @property(readonly, nonatomic) NSDictionary *environment;
+- (void)unprotected_loadItemsIfNeeded;
 @property(readonly, nonatomic) NSArray *items;
 - (id)appSupportURL;
 @property(readonly, nonatomic) NSURL *environmentURL;

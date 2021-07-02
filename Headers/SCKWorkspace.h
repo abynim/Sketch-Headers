@@ -16,6 +16,7 @@
     BOOL _hasEditableContent;
     BOOL _isActive;
     BOOL _ssoEnabled;
+    BOOL _userIsOwner;
     SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
@@ -30,6 +31,7 @@
 
 + (void)initialize;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL userIsOwner; // @synthesize userIsOwner=_userIsOwner;
 @property(readonly, copy, nonatomic) NSDate *trialEndDate; // @synthesize trialEndDate=_trialEndDate;
 @property(readonly, copy, nonatomic) NSDate *subscriptionEndDate; // @synthesize subscriptionEndDate=_subscriptionEndDate;
 @property(readonly, copy, nonatomic) NSString *billingStatus; // @synthesize billingStatus=_billingStatus;

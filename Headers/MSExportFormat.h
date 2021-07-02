@@ -12,6 +12,7 @@
 {
 }
 
++ (id)localizedInvalidLayerName;
 + (id)exportableFilenameForLayerName:(id)arg1 exportFormat:(id)arg2;
 + (id)cleanLayerNameForUseInPath:(id)arg1 shouldRecurse:(BOOL)arg2;
 + (id)cleanLayerNamePrefix:(id)arg1 shouldRecurse:(BOOL)arg2;

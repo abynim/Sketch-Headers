@@ -16,6 +16,7 @@
     // Error parsing type: , name: backgroundView
     // Error parsing type: , name: representedObject
     // Error parsing type: , name: showsLibrary
+    // Error parsing type: , name: cachedComponentViews
 }
 
 - (void).cxx_destruct;

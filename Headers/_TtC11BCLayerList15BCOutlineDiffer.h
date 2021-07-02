@@ -21,6 +21,7 @@
     // Error parsing type: , name: reloadNodes
     // Error parsing type: , name: filterChanged
     // Error parsing type: , name: autoExpandedLayerIDs
+    // Error parsing type: , name: rootObject
 }
 
 - (void).cxx_destruct;

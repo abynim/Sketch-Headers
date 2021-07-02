@@ -51,6 +51,7 @@
 - (BOOL)purchasedLicenseIsAvailableWithLicenseProvider:(long long)arg1;
 - (BOOL)licenseIsSupportedWithLicenseProvider:(long long)arg1;
 @property(readonly, nonatomic) BOOL licenseIsSupported;
+@property(readonly, nonatomic) BOOL hasLicense;
 - (BOOL)licenseVersionIsSupported:(id)arg1;
 - (BOOL)applyLicense:(id)arg1 fileURL:(id)arg2;
 - (BOOL)applyCloudLicense:(id)arg1;

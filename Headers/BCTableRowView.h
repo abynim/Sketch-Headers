@@ -14,6 +14,7 @@
     unsigned long long _expansionTransitionState;
     BOOL _hadTopPaddingApplied;
     BOOL _hadBottomPaddingApplied;
+    BOOL _needsHeightRefresh;
     BOOL _highlighted;
     BOOL _didLastDisplayAsHighlighted;
     NSObject<BCOutlineViewNode> *_node;
@@ -28,6 +29,7 @@
 @property(retain, nonatomic) NSVisualEffectView *headerMaterialView; // @synthesize headerMaterialView=_headerMaterialView;
 @property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
 @property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
+@property(nonatomic) BOOL needsHeightRefresh; // @synthesize needsHeightRefresh=_needsHeightRefresh;
 @property(nonatomic) BOOL hadBottomPaddingApplied; // @synthesize hadBottomPaddingApplied=_hadBottomPaddingApplied;
 @property(nonatomic) BOOL hadTopPaddingApplied; // @synthesize hadTopPaddingApplied=_hadTopPaddingApplied;
 @property(nonatomic) unsigned long long expansionTransitionState; // @synthesize expansionTransitionState=_expansionTransitionState;
