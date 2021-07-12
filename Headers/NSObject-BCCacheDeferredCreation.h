@@ -12,8 +12,6 @@
 @property(readonly, nonatomic) NSObject *BCCache_unblockingSelfOrDeferredObject;
 @property(readonly, nonatomic) NSObject *BCCache_selfOrDeferredObject;
 - (id)mutableCopyDeep;
-- (BOOL)mockableContextTestFlagIsPresent;
-@property(retain) NSString *mockContext;
 - (BOOL)runningOSVersion_bc:(long long)arg1 minorVersion:(long long)arg2;
 - (void)encodeAsKey:(id)arg1;
 - (void)finishEncodingObject:(id)arg1;
@@ -21,6 +19,8 @@
 - (void)encodeClassInfoForJSON:(id)arg1;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 - (void)encodeAsRAWArchive:(id)arg1;
+- (BOOL)mockableContextTestFlagIsPresent;
+@property(retain) NSString *mockContext;
 - (void)executeAsBlock;
 - (void)changeKey:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @end

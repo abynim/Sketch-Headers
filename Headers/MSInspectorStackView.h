@@ -33,6 +33,7 @@
 - (void)reloadAllSubviews;
 - (void)finaliseUpdates;
 - (void)prepareForUpdate;
+- (void)clearResponders;
 
 @end
 

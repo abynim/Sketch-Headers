@@ -8,6 +8,8 @@
 
 @interface _TtC15SketchRendering13PRAccumulator : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: preMetaInstructions
+    // Error parsing type: , name: postMetaInstructions
     // Error parsing type: , name: preInstructions
     // Error parsing type: , name: postInstructions
     // Error parsing type: , name: rect

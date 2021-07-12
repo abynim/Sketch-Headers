@@ -4,9 +4,10 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <swiftCore/_TtCs12_SwiftObject.h>
+#import <objc/NSObject.h>
 
-@interface _TtC13SharedEditing20CatchupPhaseDownload : _TtCs12_SwiftObject
+__attribute__((visibility("hidden")))
+@interface _TtC13SharedEditing20CatchupPhaseDownload : NSObject
 {
     // Error parsing type: , name: downloadURL
     // Error parsing type: , name: callback
@@ -15,6 +16,9 @@
     // Error parsing type: , name: progress
     // Error parsing type: , name: download
 }
+
+- (void).cxx_destruct;
+- (id)init;
 
 @end
 

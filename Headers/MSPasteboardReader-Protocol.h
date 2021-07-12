@@ -6,11 +6,11 @@
 
 #import <SketchModel/NSObject-Protocol.h>
 
-@class MSPasteboardLayers, NSArray, NSColorSpace, NSPasteboard;
+@class MSDocumentData, MSPasteboardLayers, NSArray, NSPasteboard;
 @protocol NSDraggingInfo;
 
 @protocol MSPasteboardReader <NSObject>
-- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 colorSpace:(NSColorSpace *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4 convertColorSpace:(BOOL)arg5;
+- (MSPasteboardLayers *)pasteboardDataFromPasteboard:(NSPasteboard *)arg1 document:(MSDocumentData *)arg2 options:(unsigned long long)arg3 sender:(id <NSDraggingInfo>)arg4;
 - (NSArray *)supportedPasteboardTypes;
 @end
 

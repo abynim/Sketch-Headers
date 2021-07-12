@@ -29,8 +29,8 @@
     NSView *_contentView;
     NSView *_nameInputView;
     NSTextField *_nameInputLabel;
-    NSView *_organizationInputView;
-    NSPopUpButton *_organizationPopUpButton;
+    NSView *_workspaceInputView;
+    NSPopUpButton *_workspacePopUpButton;
     NSView *_projectInputView;
     NSPopUpButton *_projectPopUpButton;
     NSView *_locationInputView;
@@ -77,8 +77,8 @@
 @property(retain, nonatomic) NSView *locationInputView; // @synthesize locationInputView=_locationInputView;
 @property(retain, nonatomic) NSPopUpButton *projectPopUpButton; // @synthesize projectPopUpButton=_projectPopUpButton;
 @property(retain, nonatomic) NSView *projectInputView; // @synthesize projectInputView=_projectInputView;
-@property(retain, nonatomic) NSPopUpButton *organizationPopUpButton; // @synthesize organizationPopUpButton=_organizationPopUpButton;
-@property(retain, nonatomic) NSView *organizationInputView; // @synthesize organizationInputView=_organizationInputView;
+@property(retain, nonatomic) NSPopUpButton *workspacePopUpButton; // @synthesize workspacePopUpButton=_workspacePopUpButton;
+@property(retain, nonatomic) NSView *workspaceInputView; // @synthesize workspaceInputView=_workspaceInputView;
 @property(retain, nonatomic) NSTextField *nameInputLabel; // @synthesize nameInputLabel=_nameInputLabel;
 @property(retain, nonatomic) NSView *nameInputView; // @synthesize nameInputView=_nameInputView;
 @property(retain, nonatomic) NSView *contentView; // @synthesize contentView=_contentView;

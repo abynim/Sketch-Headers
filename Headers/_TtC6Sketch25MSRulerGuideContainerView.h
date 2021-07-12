@@ -11,6 +11,7 @@
     // Error parsing type: , name: formatter
     // Error parsing type: , name: rulerData
     // Error parsing type: , name: temporaryGuidePosition
+    // Error parsing type: , name: guideColor
     // Error parsing type: , name: availableCells
     // Error parsing type: , name: usedCells
     // Error parsing type: , name: temporaryGuideCell

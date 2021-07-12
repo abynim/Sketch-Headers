@@ -10,7 +10,7 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class MSDocumentProgressView, MSDocumentsCollectionItem, MSDocumentsCollectionTextField, NSImageView, NSString, NSTextField;
+@class MSDocumentProgressView, MSDocumentsCollectionItem, MSDocumentsCollectionTextField, NSBox, NSImageView, NSString, NSTextField;
 @protocol MSDocumentsCollectionViewItemDelegate;
 
 @interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSTextFieldDelegate, NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
@@ -20,14 +20,19 @@
     MSDocumentProgressView *_progressView;
     NSImageView *_errorView;
     NSTextField *_subtextField;
+    NSTextField *_tagField;
+    NSBox *_tagBackground;
 }
 
 + (id)reuseIdentifier;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSBox *tagBackground; // @synthesize tagBackground=_tagBackground;
+@property(retain, nonatomic) NSTextField *tagField; // @synthesize tagField=_tagField;
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
 @property(nonatomic) id <MSDocumentsCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
+- (void)setTagHidden:(BOOL)arg1;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (BOOL)validateCloudMenuItem:(id)arg1;
 - (BOOL)validateRevealInFinderMenuItem:(id)arg1;

@@ -24,6 +24,7 @@
 @property(retain, nonatomic) BCStructuredFile *file; // @synthesize file=_file;
 - (id)metadata;
 - (BOOL)documentWasMigrated;
+- (id)share;
 - (void)repair;
 - (id)UIMetadata;
 - (id)data;

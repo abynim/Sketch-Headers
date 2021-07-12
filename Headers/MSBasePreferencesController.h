@@ -9,20 +9,20 @@
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class MSPreferencePane, NSArray, NSCache, NSDictionary, NSString, NSToolbar;
+@class MSPreferencePane, NSArray, NSDictionary, NSMutableDictionary, NSString, NSToolbar;
 
 @interface MSBasePreferencesController : NSWindowController <NSToolbarDelegate, NSWindowDelegate>
 {
     MSPreferencePane *_currentPreferencePane;
     NSArray *_toolbarItemIdentifiers;
     NSDictionary *_preferencePaneClasses;
-    NSCache *_preferencePanes;
+    NSMutableDictionary *_preferencePanes;
     NSToolbar *_toolbar;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) __weak NSToolbar *toolbar; // @synthesize toolbar=_toolbar;
-@property(retain, nonatomic) NSCache *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
+@property(retain, nonatomic) NSMutableDictionary *preferencePanes; // @synthesize preferencePanes=_preferencePanes;
 @property(copy, nonatomic) NSDictionary *preferencePaneClasses; // @synthesize preferencePaneClasses=_preferencePaneClasses;
 @property(copy, nonatomic) NSArray *toolbarItemIdentifiers; // @synthesize toolbarItemIdentifiers=_toolbarItemIdentifiers;
 @property(retain, nonatomic) MSPreferencePane *currentPreferencePane; // @synthesize currentPreferencePane=_currentPreferencePane;

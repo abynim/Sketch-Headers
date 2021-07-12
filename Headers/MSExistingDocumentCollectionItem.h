@@ -15,6 +15,9 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (double)tagBackgroundOpacity;
+- (id)tagColor;
+- (id)tagString;
 - (void)cancelDocumentDownload;
 - (BOOL)isEqual:(id)arg1;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

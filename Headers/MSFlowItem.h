@@ -6,12 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@class NSSet, NSString;
+@class NSSet;
 
 @interface MSFlowItem : NSObject
 {
     NSSet *_flowInfluencingLayerIDs;
-    NSString *_layerID;
     NSSet *_clipRects;
     struct CGRect _sourceLayerBounds;
     struct MSFlowInfo _flowInfo;
@@ -21,7 +20,6 @@
 @property(readonly, copy, nonatomic) NSSet *clipRects; // @synthesize clipRects=_clipRects;
 @property(readonly, nonatomic) struct MSFlowInfo flowInfo; // @synthesize flowInfo=_flowInfo;
 @property(readonly, nonatomic) struct CGRect sourceLayerBounds; // @synthesize sourceLayerBounds=_sourceLayerBounds;
-@property(readonly, copy, nonatomic) NSString *layerID; // @synthesize layerID=_layerID;
 @property(readonly, copy, nonatomic) NSSet *flowInfluencingLayerIDs; // @synthesize flowInfluencingLayerIDs=_flowInfluencingLayerIDs;
 - (id)flowSegmentForZoomLevel:(double)arg1;
 @property(readonly, nonatomic) long long flowType;
@@ -30,7 +28,7 @@
 @property(readonly, nonatomic) struct CGPoint startPoint;
 @property(readonly, nonatomic) BOOL shouldDrawSourceLineAndTip;
 @property(readonly, nonatomic) BOOL shouldDrawSourceLayerBounds;
-- (id)initWithFlowInfo:(struct MSFlowInfo)arg1 layerID:(id)arg2 flowInfluencingLayerIDs:(id)arg3 clipToRects:(id)arg4 sourceLayerBounds:(struct CGRect)arg5;
+- (id)initWithFlowInfo:(struct MSFlowInfo)arg1 flowInfluencingLayerIDs:(id)arg2 clipToRects:(id)arg3 sourceLayerBounds:(struct CGRect)arg4;
 
 @end
 

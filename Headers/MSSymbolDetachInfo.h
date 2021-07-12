@@ -11,20 +11,17 @@
 @interface MSSymbolDetachInfo : NSObject
 {
     BOOL _detachRecursively;
-    BOOL _skipCache;
     MSImmutableDocumentData *_document;
     unsigned long long _axesToBeResized;
     NSString *_editingOverrideName;
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL skipCache; // @synthesize skipCache=_skipCache;
 @property(readonly, nonatomic) NSString *editingOverrideName; // @synthesize editingOverrideName=_editingOverrideName;
 @property(readonly, nonatomic) unsigned long long axesToBeResized; // @synthesize axesToBeResized=_axesToBeResized;
 @property(readonly, nonatomic) BOOL detachRecursively; // @synthesize detachRecursively=_detachRecursively;
 @property(readonly, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
-- (id)copyWithSkipChache:(BOOL)arg1;
-- (id)initWithDocument:(id)arg1 detachRecursively:(BOOL)arg2 axesToBeResized:(unsigned long long)arg3 editingOverrideName:(id)arg4 skipCache:(BOOL)arg5;
+- (id)initWithDocument:(id)arg1 detachRecursively:(BOOL)arg2 axesToBeResized:(unsigned long long)arg3 editingOverrideName:(id)arg4;
 
 @end
 

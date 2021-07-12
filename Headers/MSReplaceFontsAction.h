@@ -12,6 +12,7 @@
 
 - (id)badgeTint;
 - (id)label;
+- (void)badgeResultsDidChange;
 - (id)findBadgeResults:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (void)replaceMissingFonts:(id)arg1;

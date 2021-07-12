@@ -12,10 +12,8 @@
 
 @interface MSCloudShareCollectionItem : MSExistingDocumentCollectionItem <MSPresenceObserverDelegate>
 {
-    BOOL _supportsRenaming;
-    BOOL _supportsDeletion;
-    BOOL _supportsMoving;
     BOOL _loading;
+    BOOL _displaysTimestamp;
     SCKShare *_cloudShare;
     NSImage *_previewImage;
     MSPresenceObserver *_presenceObserver;
@@ -25,19 +23,20 @@
 + (id)relativeTimeLabelFromDate:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
+@property(nonatomic) BOOL displaysTimestamp; // @synthesize displaysTimestamp=_displaysTimestamp;
 @property(readonly, nonatomic) MSPresenceObserver *presenceObserver; // @synthesize presenceObserver=_presenceObserver;
 @property(retain, nonatomic) NSImage *previewImage; // @synthesize previewImage=_previewImage;
-@property(readonly, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
+@property(retain, nonatomic) SCKShare *cloudShare; // @synthesize cloudShare=_cloudShare;
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
-@property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
-@property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
-@property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
 - (void)presenceObserverWithFailedWithError:(id)arg1;
 - (void)presenceObserverWithUpdatedPresences:(id)arg1;
 - (id)status;
 - (void)cancelDocumentDownload;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)toolTip;
+- (double)tagBackgroundOpacity;
+- (id)tagColor;
+- (id)tagString;
 - (BOOL)isEnabled;
 - (BOOL)isPlaceholder;
 - (BOOL)showLibraryIcon;
@@ -48,6 +47,9 @@
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;
+- (BOOL)supportsMoving;
+- (BOOL)supportsRenaming;
+- (BOOL)supportsDeletion;
 - (id)initWithCloudShare:(id)arg1 previewImage:(id)arg2;
 - (id)initWithCloudShare:(id)arg1;
 

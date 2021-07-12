@@ -4,15 +4,17 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSChangeColorSpaceAction.h"
+#import <objc/NSObject.h>
 
-@interface MSConvertColorSpaceAction : MSChangeColorSpaceAction
+@interface BCPathFinder : NSObject
 {
+    // Error parsing type: , name: serialQueue
+    // Error parsing type: , name: cache
 }
 
-- (id)label;
-- (void)doPerformAction:(id)arg1;
-- (void)convertDocumentColorSpace:(id)arg1;
++ (id)shared;
+- (void).cxx_destruct;
+- (id)init;
 
 @end
 

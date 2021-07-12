@@ -35,6 +35,7 @@
     // Error parsing type: , name: librariesNeedReloading
     // Error parsing type: , name: componentsNeedReloading
     // Error parsing type: , name: directlyModifiedDocumentToIgnoreOnce
+    // Error parsing type: , name: applyingModification
 }
 
 + (void)confirmSymbolMasterDeletionOnDocumentWindow:(id)arg1 inPlural:(BOOL)arg2 completion:(CDUnknownBlockType)arg3;
