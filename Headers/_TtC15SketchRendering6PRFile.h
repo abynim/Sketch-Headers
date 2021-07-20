@@ -10,6 +10,8 @@
 
 @interface _TtC15SketchRendering6PRFile : NSObject
 {
+    // Error parsing type: , name: exportMarkers
+    // Error parsing type: , name: bounds
     // Error parsing type: , name: paths
     // Error parsing type: , name: images
     // Error parsing type: , name: imagesDict
@@ -25,7 +27,7 @@
 - (id)init;
 @property(nonatomic, readonly) NSArray *imageFileNames;
 - (BOOL)writeWithCanvasFileName:(id)arg1 error:(id *)arg2;
-- (id)initWithBaseURL:(id)arg1 pageId:(id)arg2;
+- (id)initWithBaseURL:(id)arg1 pageId:(id)arg2 exportMarkers:(BOOL)arg3;
 
 @end
 

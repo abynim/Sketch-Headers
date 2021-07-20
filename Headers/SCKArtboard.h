@@ -21,11 +21,13 @@
     NSArray *_files;
     unsigned long long _possibleFileTypes;
     NSArray *_layers;
+    NSArray *_mentionableUsers;
     struct CGSize _size;
     struct SCKArtboardViewport _viewport;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSArray *mentionableUsers; // @synthesize mentionableUsers=_mentionableUsers;
 @property(nonatomic) BOOL isFlowHome; // @synthesize isFlowHome=_isFlowHome;
 @property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 @property(readonly, nonatomic) unsigned long long possibleFileTypes; // @synthesize possibleFileTypes=_possibleFileTypes;

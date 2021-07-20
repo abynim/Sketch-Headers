@@ -16,6 +16,7 @@
     BOOL _showSharedDocumentIcon;
     BOOL _supportsRenaming;
     BOOL _supportsMoving;
+    BOOL _supportsDeletion;
     NSString *_title;
     NSAttributedString *_status;
     NSString *_statusColor;
@@ -30,6 +31,7 @@
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
 @property(readonly, nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
 @property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
 @property(readonly, nonatomic) BOOL showSharedDocumentIcon; // @synthesize showSharedDocumentIcon=_showSharedDocumentIcon;
@@ -46,9 +48,11 @@
 - (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
 - (BOOL)isEqual:(id)arg1;
+@property(readonly, nonatomic) double tagBackgroundOpacity;
+@property(readonly, nonatomic) NSColor *tagColor;
+@property(readonly, nonatomic) NSString *tagString;
 - (id)getStatusColor;
 @property(readonly, nonatomic) NSString *statusTooltip;
-@property(readonly, nonatomic) BOOL supportsDeletion;
 @property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
 @property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;

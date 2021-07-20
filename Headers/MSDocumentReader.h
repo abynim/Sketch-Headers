@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSArchiveReader.h>
 
-@class NSDictionary, NSError, NSImage;
+@class NSDictionary, NSError, NSImage, SCKShare;
 
 @interface MSDocumentReader : MSArchiveReader
 {
@@ -14,10 +14,12 @@
     NSError *_error;
 }
 
++ (id)shareInfoForDocumentAtURL:(id)arg1;
 + (id)readerForDocumentAtURL:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(readonly, nonatomic) NSDictionary *workspaceItems; // @synthesize workspaceItems=_workspaceItems;
+@property(readonly, nonatomic) SCKShare *share;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) NSImage *libraryPreviewImage;
 @property(readonly, nonatomic) NSImage *previewImage;

@@ -10,7 +10,7 @@
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSSet, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
@@ -104,17 +104,18 @@
 - (id)containedLayers;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)initWithMutableDocumentDataMetadataCopy:(id)arg1;
+- (BOOL)hasNonEmbeddedFontsAvailable;
 - (id)unavailableForeignSymbolFontNames:(long long *)arg1;
 - (id)unavailableForeignTextStyleFontNames:(long long *)arg1;
 - (id)unavailableSharedTextStyleFontNames;
 - (id)unavailableDocumentFontNames;
 - (id)unavailableFontNamesExcludingLocalDocument:(BOOL)arg1 countOfAcknowledgedForeignFonts:(long long *)arg2;
-@property(readonly, nonatomic) NSSet *unavailableForeignFontNames;
-@property(readonly, nonatomic) NSSet *unavailableFontNames;
-@property(readonly, nonatomic) BOOL shouldShowMissingLibraryFontsWarning;
-@property(readonly, nonatomic) BOOL shouldShowMissingFontsBadge;
+- (id)unavailableForeignFontNames;
+- (id)unavailableFontNames;
+- (BOOL)shouldShowMissingLibraryFontsWarning;
+- (BOOL)shouldShowMissingFontsBadge;
 - (id)fontNamesExcludingLocalTextStylesWithMissingFonts:(BOOL)arg1;
-@property(readonly, nonatomic) NSSet *fontNames;
+- (id)fontNames;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;
 @property(readonly, nonatomic) NSString *UIMetadataKey;

@@ -13,7 +13,6 @@
 @interface SCKUser : SCKPublicUser <SCKContentOwner>
 {
     BOOL _hasPersonalIdentity;
-    SCKAvatar *_avatar;
     NSString *_email;
     SCKWorkspace *_personalWorkspace;
     NSArray *_workspaces;
@@ -26,7 +25,6 @@
 @property(readonly, nonatomic) SCKWorkspace *personalWorkspace; // @synthesize personalWorkspace=_personalWorkspace;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
-@property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) NSArray *editableWorkspaces;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
@@ -37,6 +35,7 @@
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) SCKAvatar *avatar;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 @property(readonly) unsigned long long hash;

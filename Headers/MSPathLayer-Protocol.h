@@ -10,7 +10,7 @@
 @protocol MSLayerCoordinateSpace;
 
 @protocol MSPathLayer <MSLayerProtocol>
-@property(copy, nonatomic) MSPath *pathInFrame;
+@property(readonly, copy, nonatomic) MSPath *pathInFrame;
 @property(nonatomic) BOOL edited;
 @property(nonatomic) BOOL isClosed;
 - (void)reversePath;

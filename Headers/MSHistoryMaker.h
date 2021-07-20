@@ -53,6 +53,7 @@
 @property(readonly, nonatomic) NSString *redoTitle;
 @property(readonly, nonatomic) NSString *undoTitle;
 - (void)registerHistoryMomentTitle:(id)arg1;
+- (void)invalidate;
 - (void)dealloc;
 - (id)init;
 - (id)initWithDelegate:(id)arg1 initialDocumentData:(id)arg2;

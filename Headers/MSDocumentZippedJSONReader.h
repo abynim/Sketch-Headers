@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSDocumentReader.h>
 
-@class MSJSONZippedUnarchiver, NSDictionary;
+@class MSJSONZippedUnarchiver, NSDictionary, NSURL;
 
 @interface MSDocumentZippedJSONReader : MSDocumentReader
 {
@@ -14,16 +14,20 @@
     NSDictionary *_metadata;
     NSDictionary *_workspaceItems;
     MSJSONZippedUnarchiver *_unarchiver;
+    NSURL *_fileURL;
 }
 
 + (long long)maximumPixelSizeForImageSource:(struct CGImageSource *)arg1 maximumSize:(struct CGSize)arg2;
 + (long long)documentCompatibilityVersion;
 + (long long)documentVersion;
 - (void).cxx_destruct;
+@property(readonly, copy, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) MSJSONZippedUnarchiver *unarchiver; // @synthesize unarchiver=_unarchiver;
 - (id)workspaceItems;
 - (id)metadata;
 - (id)UIMetadata;
+- (id)shareFrom:(id)arg1 at:(id)arg2;
+- (id)share;
 - (id)previewImageWithMaximumSize:(struct CGSize)arg1;
 - (id)previewBitmapImageRepWithSize:(struct CGSize)arg1;
 - (id)libraryPreviewImage;

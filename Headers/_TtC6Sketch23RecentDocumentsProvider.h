@@ -9,6 +9,7 @@
 @interface _TtC6Sketch23RecentDocumentsProvider : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: delegate
+    // Error parsing type: , name: hiddenItems
     // Error parsing type: , name: searchKeywords
     // Error parsing type: , name: state
     // Error parsing type: , name: cleanCloudDirectoriesObserver

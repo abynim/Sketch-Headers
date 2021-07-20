@@ -13,6 +13,7 @@
     // Error parsing type: , name: schemaDescription
     // Error parsing type: , name: type
     // Error parsing type: , name: properties
+    // Error parsing type: , name: defaultValue
 }
 
 + (id)schemaWithData:(id)arg1;

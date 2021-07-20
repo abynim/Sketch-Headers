@@ -6,22 +6,24 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-#import <SketchCloudKit/SCKSensitiveMetadata-Protocol.h>
+#import <SketchCloudKit/SCKOwner-Protocol.h>
 
-@class NSDictionary, NSString;
+@class NSDictionary, NSString, SCKAvatar;
 
-@interface SCKPublicUser : SCKObject <SCKSensitiveMetadata>
+@interface SCKPublicUser : SCKObject <SCKOwner>
 {
     NSString *_name;
+    SCKAvatar *_avatar;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;
 @property(readonly, nonatomic) NSDictionary *disclosableDictionaryRepresentation;
 - (id)dictionaryRepresentation;
-- (id)initWithObjectID:(id)arg1 name:(id)arg2;
+- (id)initWithObjectID:(id)arg1 name:(id)arg2 avatar:(id)arg3;
 - (id)initWithDictionary:(id)arg1;
 
 // Remaining properties

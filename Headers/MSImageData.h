@@ -11,14 +11,14 @@
 #import <SketchModel/NSCopying-Protocol.h>
 
 @class BCReadWriteLock, NSData, NSImage, NSString;
-@protocol OS_dispatch_semaphore;
+@protocol OS_dispatch_group;
 
 @interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
 {
     NSData *_sha1;
     NSData *_data;
+    NSObject<OS_dispatch_group> *_archivingGroup;
     NSImage *_image;
-    NSObject<OS_dispatch_semaphore> *_dataLock;
     BCReadWriteLock *_imageLock;
 }
 
@@ -28,7 +28,6 @@
 + (id)errorImage;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BCReadWriteLock *imageLock; // @synthesize imageLock=_imageLock;
-@property(readonly, nonatomic) NSObject<OS_dispatch_semaphore> *dataLock; // @synthesize dataLock=_dataLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (id)debugQuickLookObject;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
@@ -56,7 +55,7 @@
 - (void)setData:(id)arg1;
 @property(readonly, nonatomic) NSData *sha1;
 @property(readonly, nonatomic) NSData *data;
-- (void)waitForDataLock;
+- (void)waitUntilArchivingCompletes;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;

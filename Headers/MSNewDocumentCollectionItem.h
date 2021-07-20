@@ -14,6 +14,7 @@
 - (BOOL)isEqual:(id)arg1;
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
+- (BOOL)supportsDeletion;
 - (id)tintColor;
 - (BOOL)providesPreviewImage;
 - (id)toolTip;

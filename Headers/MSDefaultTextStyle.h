@@ -10,7 +10,9 @@
 {
 }
 
++ (id)validateColorSwatchID:(id)arg1 forDocument:(id)arg2;
 + (void)setDefaultTextStyle:(id)arg1;
++ (id)defaultTextStyleForDocument:(id)arg1;
 + (id)defaultTextStyle;
 + (id)textStyleFromLayer:(id)arg1;
 + (void)recordTextStyleForLayer:(id)arg1;

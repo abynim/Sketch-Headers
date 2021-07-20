@@ -4,15 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchCloudKit/NSObject-Protocol.h>
-#import <SketchCloudKit/SCKSensitiveMetadata-Protocol.h>
+#import <SketchCloudKit/SCKOwner-Protocol.h>
 
-@class NSString, SCKAvatar, SCKPaginatedProjects, SCKPaginatedShares;
+@class SCKPaginatedProjects, SCKPaginatedShares;
 
-@protocol SCKContentOwner <NSObject, SCKSensitiveMetadata>
+@protocol SCKContentOwner <SCKOwner>
 @property(nonatomic, readonly) SCKPaginatedProjects *paginatedProjects;
 @property(nonatomic, readonly) SCKPaginatedShares *paginatedShares;
-@property(nonatomic, readonly) SCKAvatar *avatar;
-@property(nonatomic, readonly) NSString *name;
 @end
 

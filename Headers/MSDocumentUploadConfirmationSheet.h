@@ -6,10 +6,11 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class NSArray, NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace;
+@class NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace;
 
 @interface MSDocumentUploadConfirmationSheet : CHSheetController
 {
+    BOOL _configuredForMultipleDocuments;
     NSString *_documentName;
     SCKWorkspace *_defaultWorkspace;
     SCKProject *_defaultProject;
@@ -20,8 +21,8 @@
     NSTextField *_headerTitleLabel;
     NSTextField *_headerDescriptionLabel;
     NSView *_nameInputView;
-    NSView *_organizationInputView;
-    NSPopUpButton *_organizationButton;
+    NSView *_workspaceInputView;
+    NSPopUpButton *_workspaceButton;
     NSView *_projectInputView;
     NSPopUpButton *_projectButton;
     NSButton *_deleteButton;
@@ -39,8 +40,8 @@
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
 @property(retain, nonatomic) NSPopUpButton *projectButton; // @synthesize projectButton=_projectButton;
 @property(retain, nonatomic) NSView *projectInputView; // @synthesize projectInputView=_projectInputView;
-@property(retain, nonatomic) NSPopUpButton *organizationButton; // @synthesize organizationButton=_organizationButton;
-@property(retain, nonatomic) NSView *organizationInputView; // @synthesize organizationInputView=_organizationInputView;
+@property(retain, nonatomic) NSPopUpButton *workspaceButton; // @synthesize workspaceButton=_workspaceButton;
+@property(retain, nonatomic) NSView *workspaceInputView; // @synthesize workspaceInputView=_workspaceInputView;
 @property(retain, nonatomic) NSView *nameInputView; // @synthesize nameInputView=_nameInputView;
 @property(retain, nonatomic) NSTextField *headerDescriptionLabel; // @synthesize headerDescriptionLabel=_headerDescriptionLabel;
 @property(retain, nonatomic) NSTextField *headerTitleLabel; // @synthesize headerTitleLabel=_headerTitleLabel;
@@ -50,8 +51,10 @@
 @property(nonatomic) unsigned long long operationType; // @synthesize operationType=_operationType;
 @property(retain, nonatomic) SCKProject *defaultProject; // @synthesize defaultProject=_defaultProject;
 @property(retain, nonatomic) SCKWorkspace *defaultWorkspace; // @synthesize defaultWorkspace=_defaultWorkspace;
+@property(nonatomic) BOOL configuredForMultipleDocuments; // @synthesize configuredForMultipleDocuments=_configuredForMultipleDocuments;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(readonly, nonatomic) BOOL canPerformCloudOperation;
+- (void)completeWithResult:(unsigned long long)arg1;
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)confirm:(id)arg1;
@@ -67,8 +70,10 @@
 - (void)updateViewForMove;
 - (void)updateViewForSave;
 - (void)updateView;
-@property(readonly, nonatomic) NSArray *targetDocumentURLs;
+- (void)configureForDocuments:(id)arg1;
+- (void)configureForURLs:(id)arg1;
 - (void)sheetWillAppear;
+- (id)runForWindow:(id)arg1;
 
 @end
 

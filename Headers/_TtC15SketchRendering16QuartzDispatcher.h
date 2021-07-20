@@ -6,10 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering21QuartzAsyncDispatcher : _TtCs12_SwiftObject
+@interface _TtC15SketchRendering16QuartzDispatcher : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: paintStack
-    // Error parsing type: , name: dispatchQueue
+    // Error parsing type: , name: renderer
+    // Error parsing type: , name: mode
 }
 
 @end

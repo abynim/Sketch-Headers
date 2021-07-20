@@ -4,16 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentAction.h"
+@class MSDocumentUploadConfirmationSheet;
 
-@interface MSShowDocumentFontsAction : MSDocumentAction
-{
-}
-
-- (id)label;
-- (BOOL)validate;
-- (void)doPerformAction:(id)arg1;
-- (void)showDocumentFonts:(id)arg1;
-
+@protocol _TtP6Sketch44MSDocumentUploadConfirmationSheetMockHandler_
+- (BOOL)handleSheet:(MSDocumentUploadConfirmationSheet *)arg1;
 @end
 

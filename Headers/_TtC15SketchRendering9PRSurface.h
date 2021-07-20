@@ -9,11 +9,14 @@
 @interface _TtC15SketchRendering9PRSurface : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: blurRadius
+    // Error parsing type: , name: blurEffect
     // Error parsing type: , name: innerInstructions
     // Error parsing type: , name: postBlurInstructions
     // Error parsing type: , name: outerInstructions
     // Error parsing type: , name: offset
     // Error parsing type: , name: kind
+    // Error parsing type: , name: mask
+    // Error parsing type: , name: hint
     // Error parsing type: , name: id
 }
 

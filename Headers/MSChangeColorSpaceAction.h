@@ -10,6 +10,9 @@
 {
 }
 
+- (void)convertDocumentToColorSpace:(unsigned long long)arg1;
+- (void)assignDocumentToColorSpace:(unsigned long long)arg1;
+- (void)registerHistoryMoment;
 - (id)label;
 - (void)refreshColorSpaceDependentUI;
 

@@ -4,25 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSViewController.h>
+#import "MSDocumentSettingsPane.h"
 
-@class NSTableView;
+@class NSButton, NSTableView;
 
-@interface _TtC6Sketch41AssistantConfigurationSheetViewController : NSViewController
+@interface _TtC6Sketch37AssistantsConfigurationPreferencePane : MSDocumentSettingsPane
 {
-    // Error parsing type: , name: configurationSheetModel
-    // Error parsing type: , name: document
+    // Error parsing type: , name: configurationPreferenceModel
     // Error parsing type: , name: assistantConfiguration
     // Error parsing type: , name: tableView
+    // Error parsing type: , name: runButton
 }
 
++ (id)toolbarIcon;
++ (id)title;
++ (id)identifier;
++ (id)storyboardName;
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (id)initWithPreferencesController:(id)arg1;
+- (void)assistantsToggle:(id)arg1;
 - (void)showContextMenu:(id)arg1;
-- (void)cancelButtonClicked:(id)arg1;
-- (void)doneButtonClicked:(id)arg1;
 - (void)viewDidLoad;
+@property(nonatomic, retain) NSButton *runButton; // @synthesize runButton;
 @property(nonatomic, retain) NSTableView *tableView; // @synthesize tableView;
 
 @end

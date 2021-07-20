@@ -19,7 +19,7 @@
 #import "NSWindowDelegate-Protocol.h"
 #import "_TtP11SketchModel26MSEditingContextSubscriber_-Protocol.h"
 
-@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentChangeNotifier, MSDocumentData, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSMetadataConfiguration, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
+@class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentCanvasPreferencePane, MSDocumentChangeNotifier, MSDocumentData, MSDocumentFontsViewController, MSDocumentSettingsPane, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSMetadataConfiguration, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
 @interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
@@ -261,7 +261,6 @@
 - (void)hideRulersIfNecessary;
 - (void)showCanvas;
 - (void)showComponents;
-- (void)showComponentsBetaWarning;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
 - (BOOL)validateSelectionOfLayer:(id)arg1 proposedIDsOfLayersToSelect:(id)arg2;
 - (void)loadLayerListPanel;
@@ -309,6 +308,12 @@
 - (void)makeWindowControllers;
 - (id)init;
 - (void)setupCoEditController;
+@property(nonatomic, readonly) MSDocumentSettingsPane *currentDocumentSettingsPane;
+@property(nonatomic, readonly) MSDocumentCanvasPreferencePane *canvasPreferencesPane;
+@property(nonatomic, readonly) MSDocumentFontsViewController *fontsPreferencesPane;
+- (id)showAssistantsPreferences;
+- (id)showFontsPreferences;
+- (id)showDocumentPreferencesTabWith:(id)arg1;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;

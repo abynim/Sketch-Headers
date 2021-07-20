@@ -57,7 +57,6 @@
 - (id)shareBySettingCurrentVersion:(id)arg1;
 - (BOOL)isUpdatedByShare:(id)arg1;
 - (id)readOnlyCopy;
-- (id)shareBySettingOwner:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)dictionaryRepresentation;
 @property(readonly, nonatomic) NSURL *sketchComPublicURL;

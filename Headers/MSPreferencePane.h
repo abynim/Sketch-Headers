@@ -13,6 +13,8 @@
     MSBasePreferencesController *_preferencesController;
 }
 
++ (id)storyboardName;
++ (id)preferencePaneWithController:(id)arg1;
 + (id)nibName;
 + (id)toolbarIconNameWithBase:(id)arg1;
 + (id)toolbarIconSuffix;
@@ -20,7 +22,8 @@
 + (id)title;
 + (id)identifier;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) __weak MSBasePreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
+@property(nonatomic) __weak MSBasePreferencesController *preferencesController; // @synthesize preferencesController=_preferencesController;
+- (void)preferencePaneWillClose:(id)arg1;
 - (void)didSwitchToPane;
 - (void)dismissAlertSheet;
 - (void)dismissAlertWindow:(id)arg1;

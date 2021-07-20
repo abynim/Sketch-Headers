@@ -15,8 +15,10 @@
     // Error parsing type: , name: anchorPoint
     // Error parsing type: , name: contents
     // Error parsing type: , name: maskMode
+    // Error parsing type: , name: alphaMask
     // Error parsing type: , name: path
     // Error parsing type: , name: fillRule
+    // Error parsing type: , name: canAntialias
     // Error parsing type: , name: contentsPatternType
     // Error parsing type: , name: contentsAspectRatio
     // Error parsing type: , name: interpolationQuality
@@ -30,13 +32,19 @@
     // Error parsing type: , name: miterLimit
     // Error parsing type: , name: opacity
     // Error parsing type: , name: blendMode
+    // Error parsing type: , name: subtreeCompositingMode
     // Error parsing type: , name: shadowRadius
     // Error parsing type: , name: shadowOffset
     // Error parsing type: , name: shadowColor
     // Error parsing type: , name: shadowReplacesContent
+    // Error parsing type: , name: filter
+    // Error parsing type: , name: shouldRasterize
+    // Error parsing type: , name: rasterized
     // Error parsing type: , name: primitiveChildren
     // Error parsing type: , name: parent
 }
+
+- (id)debugQuickLookObject;
 
 @end
 

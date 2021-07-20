@@ -6,9 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering27QuartzSynchronousDispatcher : _TtCs12_SwiftObject
+@interface _TtC6Sketch25RecentDocumentShareReader : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: paintStack
+    // Error parsing type: , name: cache
+    // Error parsing type: , name: semaphore
 }
 
 @end

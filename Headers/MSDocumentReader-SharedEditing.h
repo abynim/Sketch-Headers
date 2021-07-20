@@ -10,7 +10,6 @@
 + (id)UIDataForDocumentAtUrl:(id)arg1;
 + (id)lastIntegratedPatchIDForDocumentAtUrl:(id)arg1;
 + (id)baseVersionForDocumentAtUrl:(id)arg1;
-+ (id)shareInfoForDocumentAtUrl:(id)arg1;
 + (long long)versionForDocumentAtUrl:(id)arg1;
 @end
 

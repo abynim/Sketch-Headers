@@ -10,6 +10,8 @@
 {
 }
 
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
 - (BOOL)validateProposedFirstResponder:(id)arg1 forEvent:(id)arg2;
 - (BOOL)acceptsFirstResponder;
 - (void)textDidEndEditing:(id)arg1;

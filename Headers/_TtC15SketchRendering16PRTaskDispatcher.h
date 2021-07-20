@@ -12,6 +12,11 @@
     // Error parsing type: , name: drawContext
     // Error parsing type: , name: activeContent
     // Error parsing type: , name: activeBlend
+    // Error parsing type: , name: mask
+    // Error parsing type: , name: transformStack
+    // Error parsing type: , name: currentTransform
+    // Error parsing type: , name: nestingLevel
+    // Error parsing type: , name: exportArtboardsAsSurfaces
 }
 
 @end
