@@ -51,7 +51,6 @@
 - (void)systemFontsChanged:(id)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
 - (void)preferencePaneWillClose:(id)arg1;
-- (void)viewWillAppear;
 - (void)viewDidLoad;
 - (void)dealloc;
 
