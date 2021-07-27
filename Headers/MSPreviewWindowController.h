@@ -7,14 +7,15 @@
 #import <AppKit/NSWindowController.h>
 
 #import "MSMirrorWindowControllerContent-Protocol.h"
+#import "NSSharingServicePickerDelegate-Protocol.h"
 #import "NSToolbarDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 #import "WKNavigationDelegate-Protocol.h"
 #import "WKScriptMessageHandler-Protocol.h"
 
-@class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, NSArray, NSButton, NSPopUpButton, NSString, NSToolbarItem, NSURL, WKWebView;
+@class MSColorView, MSDocumentData, MSImmutableArtboardGroup, MSImmutableDocumentData, MSMirrorDataProvider, MSSharePrototypeController, NSArray, NSButton, NSPopUpButton, NSProgressIndicator, NSString, NSToolbarItem, NSURL, WKWebView;
 
-@interface MSPreviewWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler, NSToolbarDelegate>
+@interface MSPreviewWindowController : NSWindowController <MSMirrorWindowControllerContent, NSWindowDelegate, WKNavigationDelegate, WKScriptMessageHandler, NSToolbarDelegate, NSSharingServicePickerDelegate>
 {
     NSToolbarItem *_artboardToolbarItem;
     NSPopUpButton *_artboardButton;
@@ -22,22 +23,32 @@
     NSButton *_startpointButton;
     NSButton *_backButton;
     NSToolbarItem *_backToolbarItem;
+    NSToolbarItem *_shareToolbarItem;
+    NSProgressIndicator *_shareProgressIndicator;
+    NSButton *_shareButton;
     MSColorView *_backgroundView;
     WKWebView *_webView;
+    MSSharePrototypeController *_shareController;
 }
 
 + (void)close;
 + (void)show;
 + (id)sharedController;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSSharePrototypeController *shareController; // @synthesize shareController=_shareController;
 @property(retain, nonatomic) WKWebView *webView; // @synthesize webView=_webView;
 @property(retain, nonatomic) MSColorView *backgroundView; // @synthesize backgroundView=_backgroundView;
+@property(retain, nonatomic) NSButton *shareButton; // @synthesize shareButton=_shareButton;
+@property(retain, nonatomic) NSProgressIndicator *shareProgressIndicator; // @synthesize shareProgressIndicator=_shareProgressIndicator;
+@property(retain, nonatomic) NSToolbarItem *shareToolbarItem; // @synthesize shareToolbarItem=_shareToolbarItem;
 @property(retain, nonatomic) NSToolbarItem *backToolbarItem; // @synthesize backToolbarItem=_backToolbarItem;
 @property(retain, nonatomic) NSButton *backButton; // @synthesize backButton=_backButton;
 @property(retain, nonatomic) NSButton *startpointButton; // @synthesize startpointButton=_startpointButton;
 @property(retain, nonatomic) NSToolbarItem *startpointToolbarItem; // @synthesize startpointToolbarItem=_startpointToolbarItem;
 @property(retain, nonatomic) NSPopUpButton *artboardButton; // @synthesize artboardButton=_artboardButton;
 @property(retain, nonatomic) NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
+- (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
+- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;
@@ -58,6 +69,8 @@
 - (void)showContextualMenuWithEvent:(id)arg1;
 - (void)goWithTheFlow:(id)arg1;
 - (void)goBack:(id)arg1;
+- (void)showSharingServicePickerWithLink:(id)arg1;
+- (void)sharePrototype:(id)arg1;
 - (void)toggleFlowHome:(id)arg1;
 - (void)openStartpoint:(id)arg1;
 - (id)startpointsMenuShowingArtboardID:(id)arg1;
@@ -75,6 +88,7 @@
 - (void)whitelistClientID;
 - (void)startLoading;
 @property(readonly, nonatomic) NSURL *currentURL;
+- (BOOL)validateToolbarItem:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 @property(readonly, nonatomic) struct CGRect fittingWindowFrame;
 @property(readonly, nonatomic) struct CGRect viewPort; // @dynamic viewPort;

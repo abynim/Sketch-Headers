@@ -9,11 +9,11 @@
 @class MSImmutableDocumentData, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid;
 
 @protocol MSImmutableRootLayer <MSLayerTraits>
-@property(readonly, nonatomic) struct CGPoint rulerBase;
-@property(readonly, copy, nonatomic) MSImmutableRulerData *verticalRulerData;
-@property(readonly, copy, nonatomic) MSImmutableRulerData *horizontalRulerData;
-@property(readonly, copy, nonatomic) MSImmutableLayoutGrid *layout;
-@property(readonly, copy, nonatomic) MSImmutableSimpleGrid *grid;
+@property(nonatomic, readonly) struct CGPoint rulerBase;
+@property(nonatomic, readonly) MSImmutableRulerData *verticalRulerData;
+@property(nonatomic, readonly) MSImmutableRulerData *horizontalRulerData;
+@property(nonatomic, readonly) MSImmutableLayoutGrid *layout;
+@property(nonatomic, readonly) MSImmutableSimpleGrid *grid;
 
 @optional
 - (struct CGRect)contentBoundsForDocument:(MSImmutableDocumentData *)arg1;

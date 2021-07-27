@@ -9,6 +9,6 @@
 @class NSArray;
 
 @protocol MSColorReadable <NSObject>
-@property(nonatomic, readonly) NSArray *updateableColors;
+@property(readonly, nonatomic) NSArray *updateableColors;
 @end
 

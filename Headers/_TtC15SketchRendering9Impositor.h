@@ -9,7 +9,7 @@
 @interface _TtC15SketchRendering9Impositor : NSObject
 {
     // Error parsing type: , name: alwaysRasterizesBlurredShapeShadows
-    // Error parsing type: , name: buffer
+    // Error parsing type: , name: dispatcher
     // Error parsing type: , name: groupRects
     // Error parsing type: , name: geometry
     // Error parsing type: , name: graphicParameters

@@ -8,7 +8,6 @@
 
 @interface MSLayer (AdjustAfterInsert)
 - (void)adjustAfterInsert;
-- (BOOL)canBeHidden;
 - (long long)cornerRectType;
 - (id)overrideSelectionPaths;
 - (BOOL)shouldRefreshOverlayForFlows;

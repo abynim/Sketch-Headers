@@ -98,6 +98,7 @@
 - (void)tableCellViewHandleBadgePressed:(id)arg1;
 - (BOOL)isTableCellViewNodeLockedOnCanvas:(id)arg1;
 - (BOOL)isTableCellViewNodeContainedByHiddenAncestorNode:(id)arg1;
+- (BOOL)canTableCellViewNodeBeHidden:(id)arg1;
 - (BOOL)isTableCellViewNodeHiddenOnCanvas:(id)arg1;
 - (BOOL)isTableCellViewNodeSelected:(id)arg1;
 - (void)menuDidClose:(id)arg1;

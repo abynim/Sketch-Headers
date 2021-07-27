@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) NSString *checksum;
 - (void)addString:(id)arg1;
 - (void)addData:(id)arg1;
+- (void)addBytes:(char *)arg1 length:(unsigned long long)arg2;
 - (id)init;
 
 @end

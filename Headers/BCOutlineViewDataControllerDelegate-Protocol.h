@@ -28,6 +28,7 @@
 - (NSArray *)selectedNodesForDataController:(BCOutlineViewDataController *)arg1;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeLockedOnCanvas:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isAncestorOfNodeHiddenOnCanvas:(id)arg2;
+- (BOOL)dataController:(BCOutlineViewDataController *)arg1 canNodeBeHidden:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeHiddenOnCanvas:(id)arg2;
 - (BOOL)dataController:(BCOutlineViewDataController *)arg1 isNodeSelected:(id)arg2;
 

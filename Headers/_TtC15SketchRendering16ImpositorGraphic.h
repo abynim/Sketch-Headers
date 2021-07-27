@@ -10,11 +10,12 @@
 {
     // Error parsing type: , name: mode
     // Error parsing type: , name: isSelfMasked
-    // Error parsing type: , name: boundingBoxOfDrawing
     // Error parsing type: , name: features
     // Error parsing type: , name: canAvoidBleedForInsideBorders
     // Error parsing type: , name: wantsShadowsClippedUsingPath
 }
+
+@property(nonatomic, readonly) BOOL canReuse;
 
 @end
 

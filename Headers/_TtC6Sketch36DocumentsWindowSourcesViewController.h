@@ -6,13 +6,16 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSBox, NSMenu, NSOutlineView;
+@class NSBox, NSMenu, NSOutlineView, NSView, _TtC6Sketch21WorkspacesPopupButton;
 
 @interface _TtC6Sketch36DocumentsWindowSourcesViewController : NSViewController
 {
     // Error parsing type: , name: outlineView
     // Error parsing type: , name: scrollViewBottomSeparator
+    // Error parsing type: , name: scrollViewTopSeparator
     // Error parsing type: , name: projectItemContextualMenu
+    // Error parsing type: , name: workspacesPopupButton
+    // Error parsing type: , name: workspacesPopupButtonContainer
     // Error parsing type: , name: sourceForContextualMenu
     // Error parsing type: , name: rowIndexForContextualMenu
     // Error parsing type: , name: delegate
@@ -22,7 +25,6 @@
     // Error parsing type: , name: sourceToSelectAfterUpdateComplete
     // Error parsing type: , name: newProjectPlaceholder
     // Error parsing type: , name: isEditingProjectName
-    // Error parsing type: , name: workspaces
     // Error parsing type: , name: projects
     // Error parsing type: , name: lastSourcesLoadDate
 }
@@ -40,14 +42,17 @@
 - (void)openSource:(id)arg1;
 - (void)deleteProject:(id)arg1;
 - (void)renameProject:(id)arg1;
+- (void)menuNeedsUpdate:(id)arg1;
 @property(nonatomic, readonly) BOOL canEditClickedProject;
 - (void)windowDidBecomeKey:(id)arg1;
 - (void)cloudUserDidChange:(id)arg1;
 - (void)environmentAuthenticationDidChange:(id)arg1;
-- (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic) BOOL isEditingProjectName; // @synthesize isEditingProjectName;
+@property(nonatomic, retain) NSView *workspacesPopupButtonContainer; // @synthesize workspacesPopupButtonContainer;
+@property(nonatomic, retain) _TtC6Sketch21WorkspacesPopupButton *workspacesPopupButton; // @synthesize workspacesPopupButton;
 @property(nonatomic, retain) NSMenu *projectItemContextualMenu; // @synthesize projectItemContextualMenu;
+@property(nonatomic) __weak NSBox *scrollViewTopSeparator; // @synthesize scrollViewTopSeparator;
 @property(nonatomic) __weak NSBox *scrollViewBottomSeparator; // @synthesize scrollViewBottomSeparator;
 @property(nonatomic, retain) NSOutlineView *outlineView; // @synthesize outlineView;
 

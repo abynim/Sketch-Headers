@@ -17,6 +17,7 @@
 - (void)tableCellViewHandleBadgePressed:(BCTableCellView *)arg1;
 - (BOOL)isTableCellViewNodeLockedOnCanvas:(BCTableCellView *)arg1;
 - (BOOL)isTableCellViewNodeContainedByHiddenAncestorNode:(BCTableCellView *)arg1;
+- (BOOL)canTableCellViewNodeBeHidden:(BCTableCellView *)arg1;
 - (BOOL)isTableCellViewNodeHiddenOnCanvas:(BCTableCellView *)arg1;
 - (BOOL)isTableCellViewNodeSelected:(BCTableCellView *)arg1;
 @end

@@ -9,7 +9,6 @@
 @interface MSImmutableLayer (SVGExport)
 - (void)addDefaultFillAttributes:(id)arg1 exporter:(id)arg2;
 - (void)writeSVGToElement:(id)arg1 withExporter:(id)arg2;
-- (id)wrapGroupForTintIfNecessary:(id)arg1 exporter:(id)arg2;
 - (void)addTransformAttributes:(id)arg1 exporter:(id)arg2;
 - (void)appendBaseTranslation:(id)arg1 exporter:(id)arg2;
 - (struct CGRect)relativeRectWithExporter:(id)arg1;

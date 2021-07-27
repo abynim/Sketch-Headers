@@ -6,11 +6,9 @@
 
 #import <SketchModel/_MSSymbolInstance.h>
 
-#import <SketchModel/MSColorUpdateable-Protocol.h>
-
 @class MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
 
-@interface MSSymbolInstance : _MSSymbolInstance <MSColorUpdateable>
+@interface MSSymbolInstance : _MSSymbolInstance
 {
     MSOverrideRepresentationContainer *_overrideContainer;
 }

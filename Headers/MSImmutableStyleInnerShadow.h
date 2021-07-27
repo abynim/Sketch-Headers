@@ -11,6 +11,7 @@
 }
 
 + (id)stylePartPasteboardType;
+- (BOOL)isInnerShadow;
 
 @end
 

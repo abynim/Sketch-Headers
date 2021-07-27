@@ -8,13 +8,13 @@
 
 @class MSArtboardPreset, MSImmutableColor, MSImmutableLayer;
 
-@protocol MSWebExportableRootLayer <MSImmutableRootLayer>
+@protocol MSCloudExportableRootLayer <MSImmutableRootLayer>
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 @property(readonly, nonatomic) BOOL isFlowHome;
-@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
-@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+@property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
+@property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;
 - (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(MSImmutableLayer *)arg2;
-- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(MSImmutableLayer *)arg2;
+- (unsigned long long)prototypeLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(MSImmutableLayer *)arg2;
 @end
 

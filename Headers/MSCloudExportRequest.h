@@ -7,9 +7,9 @@
 #import <SketchRendering/MSExportRequest.h>
 
 @class MSImmutableLayer;
-@protocol MSWebExportableRootLayer;
+@protocol MSCloudExportableRootLayer;
 
-@interface MSWebExportRequest : MSExportRequest
+@interface MSCloudExportRequest : MSExportRequest
 {
     unsigned long long _layerBehavior;
 }
@@ -22,7 +22,7 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 // Remaining properties
-@property(retain, nonatomic) MSImmutableLayer<MSWebExportableRootLayer> *rootLayer; // @dynamic rootLayer;
+@property(retain, nonatomic) MSImmutableLayer<MSCloudExportableRootLayer> *rootLayer; // @dynamic rootLayer;
 
 @end
 

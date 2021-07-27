@@ -40,10 +40,12 @@
 - (BOOL)isEnabled;
 - (BOOL)isPlaceholder;
 - (BOOL)showLibraryIcon;
-- (BOOL)showSharedDocumentIcon;
+- (id)privacyIconTooltip;
+- (id)privacyIcon;
 - (BOOL)providesPreviewImage;
 - (BOOL)isEqual:(id)arg1;
 - (id)URL;
+- (void)resetTitle;
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;

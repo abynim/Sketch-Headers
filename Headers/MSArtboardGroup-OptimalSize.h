@@ -14,5 +14,6 @@
 - (id)parentForInsertingLayers;
 - (id)displayName;
 - (BOOL)canChangeBooleanOperation;
+- (BOOL)canBeHidden;
 @end
 

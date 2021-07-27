@@ -11,6 +11,7 @@
 }
 
 + (BOOL)usesHighFrequencySignposts;
++ (id)prototypingLog;
 + (id)keychainLog;
 + (id)authenticationRefreshLog;
 + (id)presenceLog;
@@ -18,7 +19,7 @@
 + (id)collaborationOpenerLog;
 + (id)poiLog;
 + (id)applicationLog;
-+ (id)quartzImpositorLog;
++ (id)marinaLog;
 + (id)influenceRectLog;
 + (id)historyLog;
 + (id)modelLog;

@@ -10,6 +10,7 @@
 #import "NSOutlineViewDelegate-Protocol.h"
 
 @interface _TtC6Sketch36DocumentsWindowSourcesViewController (Sketch) <NSOutlineViewDataSource, NSOutlineViewDelegate>
+- (void)viewDidAppear;
 - (BOOL)outlineView:(id)arg1 isItemExpandable:(id)arg2;
 - (long long)outlineView:(id)arg1 numberOfChildrenOfItem:(id)arg2;
 - (id)outlineView:(id)arg1 child:(long long)arg2 ofItem:(id)arg3;

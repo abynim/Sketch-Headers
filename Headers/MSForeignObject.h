@@ -33,7 +33,7 @@
 - (void)syncWithRemote:(id)arg1 withReferenceMapping:(id)arg2;
 - (BOOL)isOutOfDateWithLibrary:(id)arg1;
 - (BOOL)internalCheckIsOutOfDateWithLibrary:(id)arg1;
-- (void)refaultAgainst:(id)arg1;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;

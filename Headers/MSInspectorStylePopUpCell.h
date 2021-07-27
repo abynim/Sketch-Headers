@@ -10,7 +10,6 @@
 {
 }
 
-- (void)drawTitleWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (id)inspectorArrowImage;
 
 @end

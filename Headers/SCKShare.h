@@ -30,9 +30,11 @@
     NSString *_selectedArtboardID;
     NSString *_selectedPageID;
     SCKShareMembership *_membership;
+    NSString *_privacyIcon;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *privacyIcon; // @synthesize privacyIcon=_privacyIcon;
 @property(readonly, nonatomic) BOOL libraryEnabled; // @synthesize libraryEnabled=_libraryEnabled;
 @property(readonly, nonatomic) SCKShareMembership *membership; // @synthesize membership=_membership;
 @property(readonly, nonatomic) NSString *selectedPageID; // @synthesize selectedPageID=_selectedPageID;

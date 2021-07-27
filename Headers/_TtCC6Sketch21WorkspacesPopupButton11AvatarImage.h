@@ -6,10 +6,8 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering16QuartzDispatcher : _TtCs12_SwiftObject
+@interface _TtCC6Sketch21WorkspacesPopupButton11AvatarImage : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: renderer
-    // Error parsing type: , name: mode
 }
 
 @end

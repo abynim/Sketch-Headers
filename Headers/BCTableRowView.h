@@ -6,7 +6,7 @@
 
 #import <AppKit/NSTableRowView.h>
 
-@class BCOutlineView, BCTableCellView, NSObject, NSView, NSVisualEffectView;
+@class BCOutlineView, BCTableCellView, NSButton, NSObject, NSView, NSVisualEffectView;
 @protocol BCOutlineViewNode, BCTableRowViewDelegate;
 
 @interface BCTableRowView : NSTableRowView
@@ -20,6 +20,7 @@
     NSObject<BCOutlineViewNode> *_node;
     NSObject<BCTableRowViewDelegate> *_delegate;
     unsigned long long _expansionState;
+    long long _backgroundStyle;
     NSVisualEffectView *_headerMaterialView;
     NSView *_headerVisualsView;
 }
@@ -27,6 +28,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSView *headerVisualsView; // @synthesize headerVisualsView=_headerVisualsView;
 @property(retain, nonatomic) NSVisualEffectView *headerMaterialView; // @synthesize headerMaterialView=_headerMaterialView;
+@property(readonly, nonatomic) long long backgroundStyle; // @synthesize backgroundStyle=_backgroundStyle;
 @property(nonatomic) BOOL didLastDisplayAsHighlighted; // @synthesize didLastDisplayAsHighlighted=_didLastDisplayAsHighlighted;
 @property(readonly, nonatomic) BOOL highlighted; // @synthesize highlighted=_highlighted;
 @property(nonatomic) BOOL needsHeightRefresh; // @synthesize needsHeightRefresh=_needsHeightRefresh;
@@ -39,6 +41,7 @@
 - (void)refreshRowLayout:(id)arg1;
 - (void)relayoutNow;
 @property(readonly, nonatomic) BCOutlineView *outlineView;
+@property(readonly, nonatomic) NSButton *disclosureButton;
 - (void)mouseDown:(id)arg1;
 - (void)cursorUpdate:(id)arg1;
 - (void)setTargetForDropOperation:(BOOL)arg1;
@@ -60,7 +63,7 @@
 - (void)updateLayer;
 - (void)setFloating:(BOOL)arg1;
 - (BOOL)wantsUpdateLayer;
-@property(readonly, nonatomic) long long backgroundStyle;
+- (long long)interiorBackgroundStyle;
 @property(readonly, nonatomic) BCTableCellView *tableCellView;
 - (void)setSelected:(BOOL)arg1;
 @property(readonly, nonatomic) unsigned long long displayType;

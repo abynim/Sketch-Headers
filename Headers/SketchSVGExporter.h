@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutableSymbolInstance, MSSVGFilter, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSXMLDocument, NSXMLElement;
+@class MSImmutableDocumentData, MSImmutableStyleFill, MSImmutableSymbolInstance, MSSVGFilter, NSMutableArray, NSMutableDictionary, NSSet, NSString, NSXMLDocument, NSXMLElement;
 
 @interface SketchSVGExporter : NSObject
 {
@@ -41,6 +41,7 @@
 @property(retain, nonatomic) NSString *currentShapeDef; // @synthesize currentShapeDef=_currentShapeDef;
 @property(retain, nonatomic) NSString *mask; // @synthesize mask=_mask;
 @property(readonly, nonatomic) struct CGRect exportBounds; // @synthesize exportBounds=_exportBounds;
+@property(readonly, nonatomic) MSImmutableStyleFill *currentTint;
 - (BOOL)layerIsIncluded:(id)arg1;
 - (BOOL)isDrawingSymbol;
 - (void)drawSymbolInstance:(id)arg1 inBlock:(CDUnknownBlockType)arg2;

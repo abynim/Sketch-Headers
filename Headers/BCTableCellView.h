@@ -73,14 +73,16 @@
 - (void)refreshCellContents:(id)arg1;
 - (void)refreshPreviewImages:(id)arg1;
 - (BOOL)isOpaque;
-- (long long)backgroundStyle;
+- (void)setBackgroundStyle:(long long)arg1;
 - (void)refreshTextColor;
+- (void)updateTextBackgroundStyle;
 - (void)updateSelectionStateIfRequired;
 - (void)startObserving;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 @property(readonly, nonatomic) id <BCOutlineViewNode> node;
 @property(readonly, nonatomic) BOOL isNodeLocked;
 @property(readonly, nonatomic) BOOL isNodeContainedByHiddenAncestorNode;
+@property(readonly, nonatomic) BOOL canNodeBeHidden;
 @property(readonly, nonatomic) BOOL isNodeHidden;
 @property(readonly, nonatomic) BOOL isNodeSelected;
 - (void)dealloc;
