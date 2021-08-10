@@ -20,14 +20,15 @@
     // Error parsing type: , name: version
     // Error parsing type: , name: baseURL
     // Error parsing type: , name: pageId
+    // Error parsing type: , name: layerId
 }
 
-+ (id)canvasFileExtension;
++ (id)fileExtension;
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) NSArray *imageFileNames;
-- (BOOL)writeWithCanvasFileName:(id)arg1 error:(id *)arg2;
-- (id)initWithBaseURL:(id)arg1 pageId:(id)arg2 exportMarkers:(BOOL)arg3;
+- (BOOL)writeWithFileName:(id)arg1 error:(id *)arg2;
+- (id)initWithBaseURL:(id)arg1 pageId:(id)arg2 layerId:(id)arg3 exportMarkers:(BOOL)arg4;
 
 @end
 

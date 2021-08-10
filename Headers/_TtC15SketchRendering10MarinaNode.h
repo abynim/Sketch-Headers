@@ -13,9 +13,9 @@
     // Error parsing type: , name: bounds
     // Error parsing type: , name: position
     // Error parsing type: , name: anchorPoint
+    // Error parsing type: , name: transform
     // Error parsing type: , name: contents
-    // Error parsing type: , name: maskMode
-    // Error parsing type: , name: alphaMask
+    // Error parsing type: , name: masks
     // Error parsing type: , name: path
     // Error parsing type: , name: fillRule
     // Error parsing type: , name: canAntialias
@@ -40,11 +40,14 @@
     // Error parsing type: , name: filter
     // Error parsing type: , name: shouldRasterize
     // Error parsing type: , name: rasterized
+    // Error parsing type: , name: rasterCache
+    // Error parsing type: , name: cacheLock
     // Error parsing type: , name: primitiveChildren
     // Error parsing type: , name: parent
 }
 
 - (id)debugQuickLookObject;
+@property(nonatomic, readonly) BOOL canReuse;
 
 @end
 

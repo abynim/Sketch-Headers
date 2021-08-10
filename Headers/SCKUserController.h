@@ -13,8 +13,8 @@
     // Error parsing type: , name: user
     // Error parsing type: , name: isLoading
     // Error parsing type: , name: error
-    // Error parsing type: , name: workspaceBillingStatusEventQuery
     // Error parsing type: , name: workspaceMembershipEventQuery
+    // Error parsing type: , name: workspaceChangedEventQuery
     // Error parsing type: , name: subscriptionsController
     // Error parsing type: , name: subscriptionItemsBySession
     // Error parsing type: , name: requestOperation

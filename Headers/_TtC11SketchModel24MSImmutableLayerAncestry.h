@@ -21,6 +21,7 @@
 - (id)ancestryToPage;
 @property(nonatomic) struct CGRect absoluteRect;
 - (id)ancestorsAndSelf;
+- (id)rootLayer;
 - (id)artboard;
 - (id)parentGroup;
 - (id)page;

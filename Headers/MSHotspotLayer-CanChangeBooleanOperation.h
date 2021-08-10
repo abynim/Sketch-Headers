@@ -11,5 +11,6 @@
 - (BOOL)isExportableViaDragAndDrop;
 - (BOOL)isActive;
 - (unsigned long long)filterTypeMask;
+- (BOOL)canBeHidden;
 @end
 

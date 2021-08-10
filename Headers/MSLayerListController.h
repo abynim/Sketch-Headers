@@ -30,6 +30,7 @@
 - (id)selectedNodesForDataController:(id)arg1;
 - (BOOL)dataController:(id)arg1 isNodeLockedOnCanvas:(id)arg2;
 - (BOOL)dataController:(id)arg1 isAncestorOfNodeHiddenOnCanvas:(id)arg2;
+- (BOOL)dataController:(id)arg1 canNodeBeHidden:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeHiddenOnCanvas:(id)arg2;
 - (BOOL)dataController:(id)arg1 isNodeSelected:(id)arg2;
 - (id)itemForNode:(id)arg1;

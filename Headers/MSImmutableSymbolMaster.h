@@ -40,6 +40,7 @@
 - (void)mergeNestedOverridesTo:(id)arg1 withParent:(id)arg2;
 - (BOOL)canAddOverridesForMaster:(id)arg1 toParent:(id)arg2;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
+- (id)overridePointsInDocument:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

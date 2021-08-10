@@ -13,6 +13,8 @@
 + (id)hotspotLayerFromLayer:(id)arg1;
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
+- (void)setIsVisible:(BOOL)arg1;
+- (BOOL)isVisible;
 - (void)setFlow:(id)arg1;
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;

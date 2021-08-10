@@ -4,12 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <swiftCore/_TtCs12_SwiftObject.h>
+#import <objc/NSObject.h>
 
-@interface _TtC15SketchRendering16RecordingSurface : _TtCs12_SwiftObject
+@interface SCKEvent : NSObject
 {
-    // Error parsing type: , name: operations
 }
+
+- (id)initWithDictionary:(id)arg1;
 
 @end
 

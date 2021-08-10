@@ -11,7 +11,6 @@
 }
 
 - (void)drawIconsBackgroundWithFrame:(struct CGRect)arg1 color:(id)arg2;
-- (void)drawIcon:(id)arg1 withFrame:(struct CGRect)arg2 tintColor:(id)arg3;
 - (void)drawIconsInContentRect:(struct CGRect)arg1 backgroundColor:(id)arg2 controlView:(id)arg3;
 - (void)drawInteriorWithFrame:(struct CGRect)arg1 inView:(id)arg2;
 - (void)drawWithFrame:(struct CGRect)arg1 inView:(id)arg2;

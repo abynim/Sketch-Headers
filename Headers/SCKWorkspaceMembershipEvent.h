@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchCloudKit/SCKObject.h>
+#import <SketchCloudKit/SCKEvent.h>
 
-@class NSDictionary, NSString;
+@class NSString;
 
-@interface SCKWorkspaceMembershipEvent : SCKObject
+@interface SCKWorkspaceMembershipEvent : SCKEvent
 {
     // Error parsing type: , name: workspaceID
     // Error parsing type: , name: membershipStatus
@@ -16,11 +16,6 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithObjectID:(id)arg1;
-- (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
-@property(nonatomic, readonly) NSDictionary *dictionaryRepresentation;
-- (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 @property(nonatomic, readonly) NSString *membershipStatus; // @synthesize membershipStatus;
 @property(nonatomic, readonly) NSString *workspaceID;

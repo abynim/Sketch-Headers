@@ -7,7 +7,7 @@
 #import <objc/NSObject.h>
 
 @class MSImmutableDocumentData, MSImmutableLayerGroup, MSModelObjectIndexPair, NSArray;
-@protocol MSWebExportableRootLayer;
+@protocol MSCloudExportableRootLayer;
 
 @interface MSSubtreeRoot : NSObject
 {
@@ -23,7 +23,7 @@
 - (id)modelObjectAncestors;
 - (id)page;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
-@property(readonly, nonatomic) MSImmutableLayerGroup<MSWebExportableRootLayer> *webExportableRootLayer;
+@property(readonly, nonatomic) MSImmutableLayerGroup<MSCloudExportableRootLayer> *cloudExportableRootLayer;
 
 @end
 

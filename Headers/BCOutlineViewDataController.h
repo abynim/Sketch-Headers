@@ -39,6 +39,7 @@
 - (BOOL)nodeHasSharedStyle:(id)arg1;
 - (BOOL)isNodeLockedOnCanvas:(id)arg1;
 - (BOOL)isAncestorOfNodeHiddenOnCanvas:(id)arg1;
+- (BOOL)canNodeBeHidden:(id)arg1;
 - (BOOL)isNodeHiddenOnCanvas:(id)arg1;
 - (BOOL)isNodeSelected:(id)arg1;
 - (void)changeSelectionTo:(id)arg1;

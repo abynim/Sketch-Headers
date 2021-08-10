@@ -21,12 +21,16 @@
     NSImageView *_errorView;
     NSTextField *_subtextField;
     NSTextField *_tagField;
+    NSImageView *_leftIcon;
+    NSImageView *_rightIcon;
     NSBox *_tagBackground;
 }
 
 + (id)reuseIdentifier;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSBox *tagBackground; // @synthesize tagBackground=_tagBackground;
+@property(retain, nonatomic) NSImageView *rightIcon; // @synthesize rightIcon=_rightIcon;
+@property(retain, nonatomic) NSImageView *leftIcon; // @synthesize leftIcon=_leftIcon;
 @property(retain, nonatomic) NSTextField *tagField; // @synthesize tagField=_tagField;
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;

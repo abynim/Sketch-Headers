@@ -28,6 +28,7 @@
 + (id)oldAuthenticationKey;
 + (id)newAuthenticationKey;
 + (id)authenticationDidChange;
++ (id)prototypeURLWithHost:(id)arg1 shareID:(id)arg2 artboardShortID:(id)arg3;
 + (id)keychainErrorForStatus:(int)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *keychainServiceNamePrefix; // @synthesize keychainServiceNamePrefix=_keychainServiceNamePrefix;
@@ -66,6 +67,7 @@
 - (id)personalAuthenticationAndReturnError:(id *)arg1;
 - (id)defaultAuthenticationAndReturnError:(id *)arg1;
 @property(nonatomic, readonly) BOOL hasAuthentication;
+- (id)prototypeURLWithShareID:(id)arg1 artboardShortID:(id)arg2;
 - (int)deleteItemForUserID:(id)arg1;
 - (int)updatePasswordData:(id)arg1 forUserID:(id)arg2;
 - (int)addPasswordData:(id)arg1 forUserID:(id)arg2;

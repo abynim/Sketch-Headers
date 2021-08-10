@@ -22,6 +22,7 @@
 - (id)defaultsKey;
 - (BOOL)isActive;
 - (void)toggleRulers:(id)arg1;
+- (BOOL)shouldRunForAllDocumentWindows;
 
 @end
 

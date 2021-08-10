@@ -10,7 +10,6 @@
 
 @interface MSManifestMaker : NSObject
 {
-    BOOL _selectiveExport;
     BOOL _usePageIfMissingArtboard;
     BOOL _ignoreMirrorExportScale;
     BOOL _concurrent;
@@ -31,7 +30,6 @@
 @property(nonatomic) BOOL ignoreMirrorExportScale; // @synthesize ignoreMirrorExportScale=_ignoreMirrorExportScale;
 @property(copy, nonatomic) NSDictionary *applicationMetadata; // @synthesize applicationMetadata=_applicationMetadata;
 @property(nonatomic) BOOL usePageIfMissingArtboard; // @synthesize usePageIfMissingArtboard=_usePageIfMissingArtboard;
-@property(nonatomic) BOOL selectiveExport; // @synthesize selectiveExport=_selectiveExport;
 @property(retain, nonatomic) NSURL *fileURL; // @synthesize fileURL=_fileURL;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocumentData; // @synthesize immutableDocumentData=_immutableDocumentData;

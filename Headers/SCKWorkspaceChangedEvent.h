@@ -4,13 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchCloudKit/SCKObject.h>
+#import <SketchCloudKit/SCKEvent.h>
 
-@class NSArray, NSDate, NSDictionary, NSString;
+@class NSDate, NSString;
 
-@interface SCKWorkspaceBillingStatusEvent : SCKObject
+@interface SCKWorkspaceChangedEvent : SCKEvent
 {
-    // Error parsing type: , name: workspaceIDs
+    // Error parsing type: , name: customerID
+    // Error parsing type: , name: workspaceID
     // Error parsing type: , name: billingStatus
     // Error parsing type: , name: subscriptionEndDate
     // Error parsing type: , name: trialEndDate
@@ -18,16 +19,12 @@
 
 - (void).cxx_destruct;
 - (id)init;
-- (id)initWithObjectID:(id)arg1;
-- (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;
-- (id)initWithData:(id)arg1 error:(id *)arg2;
-@property(nonatomic, readonly) NSDictionary *dictionaryRepresentation;
-- (id)initWithCoder:(id)arg1;
 - (id)initWithDictionary:(id)arg1;
 @property(nonatomic, readonly) NSDate *trialEndDate;
 @property(nonatomic, readonly) NSDate *subscriptionEndDate;
 @property(nonatomic, readonly) NSString *billingStatus; // @synthesize billingStatus;
-@property(nonatomic, readonly) NSArray *workspaceIDs;
+@property(nonatomic, readonly) NSString *workspaceID;
+@property(nonatomic, readonly) NSString *customerID;
 
 @end
 

@@ -6,16 +6,15 @@
 
 #import <SketchModel/_MSSymbolInstance.h>
 
-#import <SketchModel/MSColorUpdateable-Protocol.h>
-
 @class MSOverrideRepresentationContainer, MSSymbolMaster, NSArray, NSDictionary, NSSet;
 
-@interface MSSymbolInstance : _MSSymbolInstance <MSColorUpdateable>
+@interface MSSymbolInstance : _MSSymbolInstance
 {
     MSOverrideRepresentationContainer *_overrideContainer;
 }
 
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
 - (void)removeShareableObjectsFromOverrides:(id)arg1;

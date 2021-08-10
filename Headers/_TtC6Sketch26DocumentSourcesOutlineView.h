@@ -12,6 +12,7 @@
 
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (BOOL)validateProposedFirstResponder:(id)arg1 forEvent:(id)arg2;
 - (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 @property(nonatomic, readonly) BOOL acceptsFirstResponder;

@@ -74,6 +74,7 @@
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL lockedOnCanvas;
 @property(readonly, nonatomic) BOOL containedByHiddenAncestorNode;
+@property(readonly, nonatomic) BOOL canBeHidden;
 @property(readonly, nonatomic) BOOL hiddenOnCanvas;
 @property(readonly, nonatomic) BOOL isSelectedInLayerList;
 @property(readonly, nonatomic) BOOL expandableInLayerList;

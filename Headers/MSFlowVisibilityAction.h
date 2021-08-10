@@ -6,9 +6,9 @@
 
 #import "MSDocumentAction.h"
 
-@class NSString;
+@class NSImage, NSString;
 
-@interface _TtC6Sketch22MSFlowVisibilityAction : MSDocumentAction
+@interface MSFlowVisibilityAction : MSDocumentAction
 {
 }
 
@@ -18,7 +18,7 @@
 - (void)toggleFlowVisibility:(id)arg1;
 - (void)doPerformAction:(id)arg1;
 - (id)submenuActionIDs;
-@property(nonatomic, readonly) NSString *imageName;
+@property(nonatomic, readonly) NSImage *imageForMenu;
 @property(nonatomic, readonly) NSString *tooltip;
 @property(nonatomic, readonly) NSString *label;
 

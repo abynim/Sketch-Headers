@@ -11,14 +11,15 @@
     // Error parsing type: , name: primaryMenuItem
     // Error parsing type: , name: secondaryMenuItem
     // Error parsing type: , name: shortcut
-    // Error parsing type: , name: preferSecondaryTest
+    // Error parsing type: , name: usePrimaryTest
+    // Error parsing type: , name: useSecondaryTest
 }
 
 - (void).cxx_destruct;
 - (id)init;
 - (void)decideShortcut;
-- (id)initWithPrimaryMenuItem:(id)arg1 secondaryMenuItem:(id)arg2 preferSecondaryTest:(CDUnknownBlockType)arg3 shortcut:(id)arg4;
-- (id)initWithPrimaryAction:(SEL)arg1 secondaryAction:(SEL)arg2 in:(id)arg3 preferSecondaryTest:(CDUnknownBlockType)arg4 shortcut:(id)arg5;
+- (id)initWithPrimaryMenuItem:(id)arg1 usePrimaryTest:(CDUnknownBlockType)arg2 secondaryMenuItem:(id)arg3 useSecondaryTest:(CDUnknownBlockType)arg4 shortcut:(id)arg5;
+- (id)initWithPrimaryAction:(SEL)arg1 usePrimaryTest:(CDUnknownBlockType)arg2 secondaryAction:(SEL)arg3 useSecondaryTest:(CDUnknownBlockType)arg4 in:(id)arg5 shortcut:(id)arg6;
 
 @end
 

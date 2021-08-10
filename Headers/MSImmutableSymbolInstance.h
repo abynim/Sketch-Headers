@@ -6,12 +6,11 @@
 
 #import <SketchModel/_MSImmutableSymbolInstance.h>
 
-#import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
 
 @class NSArray, NSDictionary;
 
-@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSColorReadable, MSFlowContainmentCheck>
+@interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
     NSArray *_calculatedAvailableOverrides;
     // Error parsing type: A^^v, name: _availableOverridesInDocumentAtomicPointer
@@ -21,6 +20,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 - (void).cxx_destruct;
+- (id)influencingSymbolIDs:(id)arg1;
 - (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2;
 - (BOOL)canSimplyWrapMasterLayers:(id)arg1 detachRecursively:(BOOL)arg2;
@@ -31,6 +31,7 @@
 - (id)updatedUserInfo:(id)arg1 withMasterObjectID:(id)arg2 masterSymbolID:(id)arg3;
 - (id)createDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (void)resetCachedOverrides;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
 - (BOOL)isScaled;

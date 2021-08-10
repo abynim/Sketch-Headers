@@ -19,16 +19,16 @@
     MSCacheManager *_cacheManager;
 }
 
-+ (id)canvasFileNameForPage:(id)arg1;
++ (id)fileNameForLayer:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy) MSRenderInstruction *renderedInstruction; // @synthesize renderedInstruction=_renderedInstruction;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 - (BOOL)isDrawing;
-- (id)updateContentWithRenderInstruction:(id)arg1 page:(id)arg2 fileURL:(id)arg3 error:(id *)arg4;
+- (id)updateContentWithRenderInstruction:(id)arg1 page:(id)arg2 layer:(id)arg3 fileURL:(id)arg4 error:(id *)arg5;
 - (void)updateContentWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
-- (id)updateContentWithDocumentData:(id)arg1 page:(id)arg2 writingToFileURL:(id)arg3 withError:(id *)arg4;
+- (id)updateContentWithLayerAncestry:(id)arg1 writingToFileURL:(id)arg2 withError:(id *)arg3;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 syncFirstFrame:(BOOL)arg2;
 
 @end

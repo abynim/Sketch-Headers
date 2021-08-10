@@ -14,7 +14,8 @@
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+@property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (void)resetTitle;
 - (double)tagBackgroundOpacity;
 - (id)tagColor;
 - (id)tagString;
@@ -25,7 +26,6 @@
 - (id)tintColor;
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
-- (id)title;
 - (id)initWithURL:(id)arg1;
 
 @end

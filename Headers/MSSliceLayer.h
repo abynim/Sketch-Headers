@@ -21,6 +21,8 @@
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)immutableBackgroundColor;
 - (id)rootForNameUniquing;
+- (void)setIsVisible:(BOOL)arg1;
+- (BOOL)isVisible;
 - (BOOL)canRotate;
 - (BOOL)canBeTransformed;
 - (void)setName:(id)arg1;

@@ -6,10 +6,9 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering20MarinaQuartzRenderer : _TtCs12_SwiftObject
+@interface _TtC15SketchRendering14MarinaRenderer : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: node
-    // Error parsing type: , name: nodeIsIncomplete
     // Error parsing type: , name: destination
     // Error parsing type: , name: shadowMode
     // Error parsing type: , name: compositingSettings

@@ -9,12 +9,10 @@
 @interface MSDocumentsCollectionImageView : MSBorderedImageView
 {
     BOOL _overlayEnabled;
-    BOOL _showLibraryIcon;
-    BOOL _showSharedDocumentIcon;
+    long long _iconCount;
 }
 
-@property(nonatomic) BOOL showSharedDocumentIcon; // @synthesize showSharedDocumentIcon=_showSharedDocumentIcon;
-@property(nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
+@property(nonatomic) long long iconCount; // @synthesize iconCount=_iconCount;
 @property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
 - (id)initWithCoder:(id)arg1;
 

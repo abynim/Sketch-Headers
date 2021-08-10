@@ -14,15 +14,23 @@
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
+    NSArray *_calculatedLocalSymbols;
+    // Error parsing type: A^^v, name: _localSymbolsAtomicPointer
+    NSDictionary *_calculatedSymbolsIndexedByID;
+    // Error parsing type: A^^v, name: _symbolsIndexedByIDAtomicPointer
+    NSDictionary *_calculatedLayerStylesIndexedByID;
+    // Error parsing type: A^^v, name: _layerStylesIndexedByIDAtomicPointer
+    NSDictionary *_calculatedTextStylesIndexedByID;
+    // Error parsing type: A^^v, name: _textStylesIndexedByIDAtomicPointer
     MSJSONSchema *_metadataConfiguration;
     _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     NSDictionary *_metadata;
     NSData *_textPreviewData;
     NSArray *_selectedOverrides;
-    NSArray *_allSymbols;
-    NSArray *_localSymbols;
     NSDictionary *_symbolsIndexedByID;
+    NSDictionary *_layerStylesIndexedByID;
+    NSDictionary *_textStylesIndexedByID;
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
 }
@@ -36,9 +44,9 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
+@property(retain, nonatomic) NSDictionary *textStylesIndexedByID; // @synthesize textStylesIndexedByID=_textStylesIndexedByID;
+@property(retain, nonatomic) NSDictionary *layerStylesIndexedByID; // @synthesize layerStylesIndexedByID=_layerStylesIndexedByID;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
-@property(retain, nonatomic) NSArray *localSymbols; // @synthesize localSymbols=_localSymbols;
-@property(retain, nonatomic) NSArray *allSymbols; // @synthesize allSymbols=_allSymbols;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -62,18 +70,19 @@
 - (id)artboardWithID:(id)arg1 page:(id *)arg2;
 - (id)layerStyleWithID:(id)arg1;
 - (id)textStyleWithID:(id)arg1;
-- (id)allLayerStyles;
 - (id)allTextStyles;
 - (id)artboardWithID:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 - (id)pageWithID:(id)arg1;
 - (void)objectDidInit;
-- (void)prepareQuickSymbolAccess;
+@property(readonly, nonatomic) NSArray *allSymbols;
+@property(readonly, nonatomic) NSArray *localSymbols;
 - (id)workspaceItemNamed:(id)arg1;
 @property(readonly, nonatomic) MSJSONSchema *metadataConfiguration; // @synthesize metadataConfiguration=_metadataConfiguration;
 - (id)defaultPagesArray;
 - (void)performInitEmptyObject;
 - (void)performInitWithMutableModelObject:(id)arg1;
+- (id)initWithMinimalSetup;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
 - (void)performPostMigrationTidyupFromV131WithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (id)newPageForMigratedSymbols:(id)arg1;

@@ -15,6 +15,9 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSDocumentUpload *uploader; // @synthesize uploader=_uploader;
+- (BOOL)supportsRenaming;
+- (BOOL)supportsDeletion;
+- (BOOL)supportsMoving;
 - (void)cancelDocumentDownload;
 - (void)updateDownloadProgress;
 - (id)getStatus;

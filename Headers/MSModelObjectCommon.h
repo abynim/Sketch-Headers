@@ -6,11 +6,12 @@
 
 #import <objc/NSObject.h>
 
+#import <SketchModel/MSColorUpdateable-Protocol.h>
 #import <SketchModel/MSModelObjectCommon-Protocol.h>
 
 @class MSModelObjectCache, NSArray, NSString;
 
-@interface MSModelObjectCommon : NSObject <MSModelObjectCommon>
+@interface MSModelObjectCommon : NSObject <MSModelObjectCommon, MSColorUpdateable>
 {
     MSModelObjectCache *_cache;
     NSString *_objectID;
@@ -24,6 +25,9 @@
 + (void)storeMetadata:(id)arg1 forKey:(id)arg2 persistentIdentifier:(id)arg3 objectID:(id)arg4 inDictionary:(id)arg5;
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSString *primitiveObjectID; // @synthesize primitiveObjectID=_objectID;
+- (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)updateColorsUsing:(id)arg1;
+@property(readonly, nonatomic) NSArray *updateableColors;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateDescendantsIncludingAncestors:(BOOL)arg1 usingBlock:(CDUnknownBlockType)arg2;

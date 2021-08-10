@@ -12,9 +12,12 @@
 {
 }
 
-- (id)tabbedWindows;
+- (id)allDocuments;
+- (id)tabbedDocuments;
+- (id)targetedDocuments;
 - (void)doPerformAction:(id)arg1;
-- (BOOL)shouldRunForAllTabsInWindow;
+@property(readonly, nonatomic) BOOL shouldRunForAllTabsInWindow;
+@property(readonly, nonatomic) BOOL shouldRunForAllDocumentWindows;
 - (void)prepareForNewWindow;
 @property(readonly, nonatomic) NSString *defaultsKey;
 - (void)hide;

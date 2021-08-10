@@ -7,14 +7,14 @@
 #import <SketchModel/_MSImmutableArtboardGroup.h>
 
 #import <SketchModel/MSArtboardGroupProtocol-Protocol.h>
+#import <SketchModel/MSCloudExportableRootLayer-Protocol.h>
 #import <SketchModel/MSColorReadable-Protocol.h>
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 #import <SketchModel/MSLayerWithBackgroundColor-Protocol.h>
-#import <SketchModel/MSWebExportableRootLayer-Protocol.h>
 
 @class MSArtboardPreset, MSImmutableColor, MSImmutableLayoutGrid, MSImmutableRulerData, MSImmutableSimpleGrid, NSArray, NSString;
 
-@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSWebExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroupProtocol, MSImmutableRootLayer, MSColorReadable>
+@interface MSImmutableArtboardGroup : _MSImmutableArtboardGroup <MSCloudExportableRootLayer, MSLayerWithBackgroundColor, MSArtboardGroupProtocol, MSImmutableRootLayer, MSColorReadable>
 {
 }
 
@@ -30,9 +30,9 @@
 - (void)performInitWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 - (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
-- (unsigned long long)webExportLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
-@property(readonly, nonatomic) BOOL webExporterShouldIncludeBackgroundColor;
-@property(readonly, nonatomic) MSImmutableColor *webExporterBackgoundColor;
+- (unsigned long long)prototypeLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
+@property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
+@property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
 - (BOOL)canBreakMaskChain;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;

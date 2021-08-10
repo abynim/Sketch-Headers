@@ -13,7 +13,6 @@
 @interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
 {
     BOOL _showLibraryIcon;
-    BOOL _showSharedDocumentIcon;
     BOOL _supportsRenaming;
     BOOL _supportsMoving;
     BOOL _supportsDeletion;
@@ -24,6 +23,8 @@
     NSArray *_presences;
     NSProgress *_downloadProgress;
     NSError *_downloadError;
+    NSImage *_privacyIcon;
+    NSString *_privacyIconTooltip;
 }
 
 + (id)keyPathsForValuesAffectingStatusColor;
@@ -31,10 +32,11 @@
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
-@property(readonly, nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
-@property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
-@property(readonly, nonatomic) BOOL showSharedDocumentIcon; // @synthesize showSharedDocumentIcon=_showSharedDocumentIcon;
+@property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
+@property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
+@property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
+@property(readonly, nonatomic) NSString *privacyIconTooltip; // @synthesize privacyIconTooltip=_privacyIconTooltip;
+@property(readonly, nonatomic) NSImage *privacyIcon; // @synthesize privacyIcon=_privacyIcon;
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;

@@ -35,6 +35,8 @@
 - (void)loadVersionZeroLibrariesWithDispatchGroup:(id)arg1;
 - (id)loadVersionZeroLibrariesFromUnarchiver:(id)arg1 forKey:(id)arg2 dispatchGroup:(id)arg3;
 - (BOOL)shouldAttemptToLoadVersionZeroLibraries;
+- (BOOL)areForeignObjectsOutOfDateInDocument:(id)arg1;
+- (BOOL)areForeignObjects:(id)arg1 outOfDateInDocument:(id)arg2;
 - (void)createAssetLibraryFolder;
 - (id)librariesWithUpdates;
 - (void)addRemoteLibraryFromAppcastURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
