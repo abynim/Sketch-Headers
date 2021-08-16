@@ -6,13 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSMenu, NSScrollView, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch23DocumentsCollectionView;
+@class MSFlashController, NSMenu, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch20DropTargetScrollView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
-    // Error parsing type: , name: collectionView
+    // Error parsing type: , name: currentContentView
     // Error parsing type: , name: collectionViewContainer
-    // Error parsing type: , name: collectionScrollView
+    // Error parsing type: , name: contentScrollView
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
@@ -22,6 +22,7 @@
     // Error parsing type: , name: provider
     // Error parsing type: , name: shareToSelectAfterUpdateComplete
     // Error parsing type: , name: delegate
+    // Error parsing type: , name: viewTypePreference
     // Error parsing type: , name: downloadingItems
     // Error parsing type: , name: lastDocumentsLoadDate
     // Error parsing type: , name: refreshOnNextKey
@@ -38,9 +39,7 @@
 - (void)showMoreErrorInfo:(id)arg1;
 - (id)willPresentError:(id)arg1;
 - (void)documentDidProcessNotification:(id)arg1;
-- (void)boundsDidChangeNotification:(id)arg1;
 - (void)doCommandBySelector:(SEL)arg1;
-- (id)collectionView:(id)arg1 pasteboardWriterForItemAtIndexPath:(id)arg2;
 - (void)removeDocumentFromProject:(id)arg1;
 - (void)moveDocument:(id)arg1;
 - (void)deleteDocument:(id)arg1;
@@ -60,14 +59,14 @@
 - (void)viewDidAppear;
 - (void)viewWillAppear;
 - (void)viewDidLoad;
+- (void)beginSearch;
 - (id)initWithCoder:(id)arg1;
 @property(nonatomic, retain) _TtC6Sketch19DocumentsBannerView *bannerView; // @synthesize bannerView;
 @property(nonatomic, retain) MSFlashController *flashController; // @synthesize flashController;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;
-@property(nonatomic, retain) NSScrollView *collectionScrollView; // @synthesize collectionScrollView;
+@property(nonatomic, retain) _TtC6Sketch20DropTargetScrollView *contentScrollView; // @synthesize contentScrollView;
 @property(nonatomic, retain) NSView *collectionViewContainer; // @synthesize collectionViewContainer;
-@property(nonatomic, retain) _TtC6Sketch23DocumentsCollectionView *collectionView; // @synthesize collectionView;
 
 @end
 

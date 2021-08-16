@@ -9,6 +9,10 @@
 #import "SCKAPIAuthenticationSSODelegate-Protocol.h"
 
 @interface _TtC6Sketch23MSAccountViewController (Sketch) <SCKAPIAuthenticationSSODelegate>
+- (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
+- (long long)numberOfRowsInTableView:(id)arg1;
+- (BOOL)tableView:(id)arg1 isGroupRow:(long long)arg2;
+- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (id)presentationAnchorForWebAuthenticationSession:(id)arg1;
 - (void)didDismissAuthenticationSession:(id)arg1;
 @end

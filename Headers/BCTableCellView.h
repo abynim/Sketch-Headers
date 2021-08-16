@@ -8,14 +8,14 @@
 
 #import <BCLayerList/NSMenuDelegate-Protocol.h>
 
-@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, NSButton, NSLayoutConstraint, NSPopUpButton, NSString, NSWindow;
+@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, MSLayoutConstraintCache, NSButton, NSPopUpButton, NSString, NSWindow;
 @protocol BCOutlineViewNode, BCOutlineViewPopupConfigurator, BCTableCellViewDelegate;
 
 @interface BCTableCellView : NSTableCellView <NSMenuDelegate>
 {
     BOOL _lastUpdatedTextWasEditing;
     BOOL _isShowingImages;
-    NSLayoutConstraint *_badgeTrailingSpaceConstraint;
+    MSLayoutConstraintCache *_constraintCache;
     id <BCTableCellViewDelegate> _delegate;
     unsigned long long _displayState;
     NSButton *_lockHideButton;
@@ -63,7 +63,7 @@
 - (void)handleBadgePressed:(id)arg1;
 - (void)updateBooleanOpPopUpButtonIfNeeded;
 - (void)updateLockHideButtonIfNeeded;
-@property(readonly, nonatomic) __weak NSLayoutConstraint *badgeTrailingSpaceConstraint; // @synthesize badgeTrailingSpaceConstraint=_badgeTrailingSpaceConstraint;
+- (id)badgeTrailingSpaceConstraint;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
 - (id)resolveCellViewContainingLocationOfEvent:(id)arg1;
@@ -74,6 +74,8 @@
 - (void)refreshPreviewImages:(id)arg1;
 - (BOOL)isOpaque;
 - (void)setBackgroundStyle:(long long)arg1;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)updateCellStyle;
 - (void)refreshTextColor;
 - (void)updateTextBackgroundStyle;
 - (void)updateSelectionStateIfRequired;
@@ -88,6 +90,7 @@
 - (void)dealloc;
 - (void)viewDidMoveToSuperview;
 - (void)awakeFromNib;
+@property(readonly, nonatomic) MSLayoutConstraintCache *constraintCache; // @synthesize constraintCache=_constraintCache;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

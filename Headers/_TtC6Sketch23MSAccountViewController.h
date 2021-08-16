@@ -23,16 +23,12 @@
     // Error parsing type: , name: subtitleLabel
     // Error parsing type: , name: contextLabel
     // Error parsing type: , name: state
-    // Error parsing type: , name: teamRowObjects
+    // Error parsing type: , name: workspaceRows
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-- (BOOL)tableView:(id)arg1 isGroupRow:(long long)arg2;
-- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
-- (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
-- (long long)numberOfRowsInTableView:(id)arg1;
 - (void)showAccountSettings:(id)arg1;
 - (void)signIn:(id)arg1;
 - (void)signoutUser:(id)arg1;

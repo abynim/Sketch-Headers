@@ -4,14 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSView.h>
+#import "_TtC6Sketch21ContentViewController.h"
 
-@interface MSBackButtonContentView : NSView
+@interface _TtC6Sketch18GridViewController : _TtC6Sketch21ContentViewController
 {
 }
 
-- (void)drawRect:(struct CGRect)arg1;
-- (BOOL)isOpaque;
+- (id)initWithCoder:(id)arg1;
+- (void)viewDidLoad;
+- (void)loadView;
 
 @end
 

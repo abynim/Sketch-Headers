@@ -16,11 +16,9 @@
     NSString *_email;
     SCKWorkspace *_personalWorkspace;
     NSArray *_workspaces;
-    NSArray *_workspaceMemberships;
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSArray *workspaceMemberships; // @synthesize workspaceMemberships=_workspaceMemberships;
 @property(readonly, nonatomic) NSArray *workspaces; // @synthesize workspaces=_workspaces;
 @property(readonly, nonatomic) SCKWorkspace *personalWorkspace; // @synthesize personalWorkspace=_personalWorkspace;
 @property(readonly, nonatomic) BOOL hasPersonalIdentity; // @synthesize hasPersonalIdentity=_hasPersonalIdentity;

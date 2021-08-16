@@ -6,13 +6,15 @@
 
 #import <AppKit/NSButtonCell.h>
 
-@interface MSBackButtonCell : NSButtonCell
+__attribute__((visibility("hidden")))
+@interface _TtCC17SketchControllers8SnackBar19ImageLeftButtonCell : NSButtonCell
 {
 }
 
+- (id)initWithCoder:(id)arg1;
+- (id)initImageCell:(id)arg1;
+- (id)initTextCell:(id)arg1;
 - (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
-- (unsigned long long)highlightsBy;
-- (unsigned long long)showsStateBy;
 
 @end
 

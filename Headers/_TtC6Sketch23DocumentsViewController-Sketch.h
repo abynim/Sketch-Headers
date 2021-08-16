@@ -6,15 +6,11 @@
 
 #import "_TtC6Sketch23DocumentsViewController.h"
 
-#import "MSDocumentsCollectionViewItemDelegate-Protocol.h"
-
-@interface _TtC6Sketch23DocumentsViewController (Sketch) <MSDocumentsCollectionViewItemDelegate>
+@interface _TtC6Sketch23DocumentsViewController (Sketch)
 - (void)menuNeedsUpdate:(id)arg1;
-- (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
-- (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
-- (id)collectionView:(id)arg1 shouldSelectItemsAtIndexPaths:(id)arg2;
-- (id)previewImageCacheFor:(id)arg1;
-- (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
-- (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;
+- (BOOL)performDragOperation:(id)arg1;
+- (unsigned long long)draggingUpdated:(id)arg1;
+- (unsigned long long)draggingEntered:(id)arg1;
+- (BOOL)prepareForDragOperation:(id)arg1;
 @end
 

@@ -8,19 +8,18 @@
 
 @class NSString;
 
-@interface _TtC6Sketch22MSFlowVisibilityAction : MSDocumentAction
+@interface _TtC6Sketch23MSTrialExpirationAction : MSDocumentAction
 {
+    // Error parsing type: , name: expiration
+    // Error parsing type: , name: userChangeObserver
 }
 
-- (id)initWithCoder:(id)arg1;
+- (void).cxx_destruct;
 - (id)init;
-- (id)initWithDocument:(id)arg1;
-- (void)toggleFlowVisibility:(id)arg1;
 - (void)doPerformAction:(id)arg1;
-- (id)submenuActionIDs;
-@property(nonatomic, readonly) NSString *imageName;
-@property(nonatomic, readonly) NSString *tooltip;
 @property(nonatomic, readonly) NSString *label;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithDocument:(id)arg1;
 
 @end
 

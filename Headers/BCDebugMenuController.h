@@ -15,6 +15,8 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSDictionary *settings; // @synthesize settings=_settings;
+- (void)terminateWithHang:(id)arg1;
+- (void)hangFor20:(id)arg1;
 - (void)crashBugsnag:(id)arg1;
 - (void)crashTrap:(id)arg1;
 - (void)crashArrayThread:(id)arg1;

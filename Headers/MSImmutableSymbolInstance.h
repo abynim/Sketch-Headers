@@ -31,6 +31,7 @@
 - (id)updatedUserInfo:(id)arg1 withMasterObjectID:(id)arg2 masterSymbolID:(id)arg3;
 - (id)createDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (void)resetCachedOverrides;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
 - (BOOL)isScaled;

@@ -17,8 +17,8 @@
 }
 
 + (id)subgroupWithFileSytemURL:(id)arg1 localDataSupplierGroup:(id)arg2;
-+ (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2 makeFolderMonitor:(BOOL)arg3;
-+ (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2;
++ (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2 makeFolderMonitor:(BOOL)arg3 error:(id *)arg4;
++ (id)localDataSupplierGroupFromFileSystemURL:(id)arg1 dataSupplierDelegate:(id)arg2 error:(id *)arg3;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
 @property(retain, nonatomic) MSLocalDataSupplier *topLevelSupplier; // @synthesize topLevelSupplier=_topLevelSupplier;

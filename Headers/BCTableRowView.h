@@ -80,6 +80,7 @@
 @property(readonly, nonatomic, getter=isNodeSelected) BOOL nodeSelected;
 - (BOOL)isInActiveOutlineView;
 - (void)setBackgroundColor:(id)arg1;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)didAddSubview:(id)arg1;
 - (void)removeHeaderEffectView;
 - (void)setUpHeaderEffectView;

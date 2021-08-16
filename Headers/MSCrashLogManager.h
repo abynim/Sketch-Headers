@@ -24,6 +24,7 @@
     NSTextField *_header;
     NSTextField *_emailField;
     NSTextField *_commentsField;
+    NSMutableDictionary *_groupedEvents;
     NSObject<OS_dispatch_semaphore> *_semaphore;
     NSString *_userEmail;
     NSString *_userComment;
@@ -34,6 +35,7 @@
 @property(retain, nonatomic) NSString *userEmail; // @synthesize userEmail=_userEmail;
 @property(nonatomic) BOOL send; // @synthesize send=_send;
 @property(retain, nonatomic) NSObject<OS_dispatch_semaphore> *semaphore; // @synthesize semaphore=_semaphore;
+@property(retain, nonatomic) NSMutableDictionary *groupedEvents; // @synthesize groupedEvents=_groupedEvents;
 @property(nonatomic) __weak NSTextField *commentsField; // @synthesize commentsField=_commentsField;
 @property(nonatomic) __weak NSTextField *emailField; // @synthesize emailField=_emailField;
 @property(nonatomic) __weak NSTextField *header; // @synthesize header=_header;
@@ -41,6 +43,14 @@
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)send:(id)arg1;
 - (void)cancel:(id)arg1;
+- (id)removeHexadecimalNumbersFromString:(id)arg1;
+- (id)removeHexadecimalNumberFromString:(id)arg1;
+- (id)simpleGroupingHashForError:(id)arg1;
+- (id)groupingHashForHandledEvent:(id)arg1;
+- (unsigned long long)firstRelevantStackFrameIndex:(id)arg1;
+- (BOOL)isStackFrame:(id)arg1 similarTo:(id)arg2;
+- (BOOL)isNewError:(id)arg1 newToGroupWithHash:(id)arg2;
+- (BOOL)shouldSendHandledEvent:(id)arg1;
 - (BOOL)setup;
 - (void)actionController:(id)arg1 didInstantActionWithID:(id)arg2 context:(id)arg3;
 - (void)actionController:(id)arg1 didFinishActionWithID:(id)arg2 context:(id)arg3;

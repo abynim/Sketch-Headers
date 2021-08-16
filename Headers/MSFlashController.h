@@ -6,25 +6,21 @@
 
 #import <objc/NSObject.h>
 
-@class MSFlashViewController, NSMutableArray, NSStackView;
+@class _TtC17SketchControllers15StatusStackView;
 
 @interface MSFlashController : NSObject
 {
-    NSStackView *_stackView;
-    NSMutableArray *_messages;
-    MSFlashViewController *_flash;
+    // Error parsing type: , name: statusStackView
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSFlashViewController *flash; // @synthesize flash=_flash;
-@property(retain, nonatomic) NSMutableArray *messages; // @synthesize messages=_messages;
-@property(retain, nonatomic) NSStackView *stackView; // @synthesize stackView=_stackView;
-- (void)clearFlash;
+- (id)init;
 - (void)removeMessage:(id)arg1;
 - (id)displayFixedMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2;
+- (id)displayActionMessage:(id)arg1 actionName:(id)arg2 withActionHandler:(CDUnknownBlockType)arg3;
 - (id)displayWarningMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2;
-- (id)displayMessage:(id)arg1 userClosable:(BOOL)arg2 helpBlock:(CDUnknownBlockType)arg3;
 - (id)displayFlashMessage:(id)arg1;
+@property(nonatomic, retain) _TtC17SketchControllers15StatusStackView *statusStackView; // @synthesize statusStackView;
 
 @end
 

@@ -11,6 +11,7 @@
     // Error parsing type: , name: startSpaceToolbarItem
     // Error parsing type: , name: newDocumentToolbarItem
     // Error parsing type: , name: searchFieldToolbarItem
+    // Error parsing type: , name: changeViewToolbarItem
     // Error parsing type: , name: sourcesViewController
     // Error parsing type: , name: documentsViewController
     // Error parsing type: , name: cloudIntroViewController
@@ -36,6 +37,7 @@
 - (void)newDocument:(id)arg1;
 - (void)dealloc;
 - (void)windowDidLoad;
+- (void)viewTypeChangedWithSender:(id)arg1;
 
 @end
 

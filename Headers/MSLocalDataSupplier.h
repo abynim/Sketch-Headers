@@ -15,12 +15,16 @@
     MSFolderMonitor *_folderMonitor;
 }
 
++ (id)makeUnsupportedDataFormatError;
++ (id)makeEmptyTextFileError;
++ (id)makeInvalidJSONRootElementError;
++ (id)makeInvalidJSONStructureError;
 + (BOOL)isStructuredDictionaryDataValid:(id)arg1;
 + (id)validImageFileUTIs;
 + (BOOL)isDataInsertedRandomly;
 + (id)identifierForURL:(id)arg1;
 + (id)imageFileNamesFromFolderURL:(id)arg1;
-+ (id)dataFromFileURL:(id)arg1;
++ (id)dataFromFileURL:(id)arg1 error:(id *)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *data; // @synthesize data=_data;
 @property(retain, nonatomic) MSFolderMonitor *folderMonitor; // @synthesize folderMonitor=_folderMonitor;
@@ -37,7 +41,7 @@
 - (void)encodeWithCoder:(id)arg1;
 - (BOOL)valid;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFileSystemURL:(id)arg1;
+- (id)initWithFileSystemURL:(id)arg1 error:(id *)arg2;
 
 @end
 

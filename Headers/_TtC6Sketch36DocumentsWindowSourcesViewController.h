@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSBox, NSMenu, NSOutlineView, NSView, _TtC6Sketch21WorkspacesPopupButton;
+@class NSBox, NSLayoutConstraint, NSMenu, NSOutlineView, NSView, _TtC6Sketch21WorkspacesPopupButton;
 
 @interface _TtC6Sketch36DocumentsWindowSourcesViewController : NSViewController
 {
@@ -16,6 +16,8 @@
     // Error parsing type: , name: projectItemContextualMenu
     // Error parsing type: , name: workspacesPopupButton
     // Error parsing type: , name: workspacesPopupButtonContainer
+    // Error parsing type: , name: workspacesPopupButtonHeightConstraint
+    // Error parsing type: , name: workspacesPopupButtonLeadingConstraint
     // Error parsing type: , name: sourceForContextualMenu
     // Error parsing type: , name: rowIndexForContextualMenu
     // Error parsing type: , name: delegate
@@ -49,6 +51,8 @@
 - (void)environmentAuthenticationDidChange:(id)arg1;
 - (void)viewDidLoad;
 @property(nonatomic) BOOL isEditingProjectName; // @synthesize isEditingProjectName;
+@property(nonatomic, retain) NSLayoutConstraint *workspacesPopupButtonLeadingConstraint; // @synthesize workspacesPopupButtonLeadingConstraint;
+@property(nonatomic, retain) NSLayoutConstraint *workspacesPopupButtonHeightConstraint; // @synthesize workspacesPopupButtonHeightConstraint;
 @property(nonatomic, retain) NSView *workspacesPopupButtonContainer; // @synthesize workspacesPopupButtonContainer;
 @property(nonatomic, retain) _TtC6Sketch21WorkspacesPopupButton *workspacesPopupButton; // @synthesize workspacesPopupButton;
 @property(nonatomic, retain) NSMenu *projectItemContextualMenu; // @synthesize projectItemContextualMenu;

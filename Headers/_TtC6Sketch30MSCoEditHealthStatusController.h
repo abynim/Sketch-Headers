@@ -12,6 +12,7 @@
     // Error parsing type: , name: healthUpdateObserverForTesting
     // Error parsing type: , name: state
     // Error parsing type: , name: needsShowCollaborationLabel
+    // Error parsing type: , name: snackBar
     // Error parsing type: , name: currentStatusViewController
     // Error parsing type: , name: timer
 }
