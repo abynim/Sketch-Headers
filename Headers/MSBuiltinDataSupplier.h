@@ -17,7 +17,7 @@
 - (void)makeFolderMonitor;
 - (id)imageFileURLForDataItem:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithFileSystemURL:(id)arg1;
+- (id)initWithFileSystemURL:(id)arg1 error:(id *)arg2;
 
 @end
 

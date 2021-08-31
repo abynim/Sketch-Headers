@@ -23,6 +23,7 @@
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
+- (id)dictionaryRepresentation;
 - (id)name;
 - (id)initWithDictionary:(id)arg1 parentObject:(id)arg2;
 - (id)diffComparedTo:(id)arg1;

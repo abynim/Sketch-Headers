@@ -24,7 +24,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)viewWorkspaceInBrowser:(id)arg1;
 - (void)performAction:(id)arg1;
-@property(nonatomic, copy) id objectValue;
+- (void)prepareForReuse;
 @property(nonatomic, retain) NSButton *viewWorkspaceButton; // @synthesize viewWorkspaceButton;
 @property(nonatomic, retain) _TtC6Sketch17MSAvatarStackView *avatarStackView; // @synthesize avatarStackView;
 @property(nonatomic, retain) NSButton *actionButton; // @synthesize actionButton;

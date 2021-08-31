@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@interface _TtC6Sketch34MSCloudUserNotificationsController : NSObject
+@interface MSCloudUserNotificationsController : NSObject
 {
     // Error parsing type: , name: userNotificationsReceived
     // Error parsing type: , name: userNotificationQuery

@@ -10,15 +10,17 @@
 
 @interface MSBackButtonController : NSViewController
 {
-    MSDocument *_doc;
+    // Error parsing type: , name: doc
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak MSDocument *doc; // @synthesize doc=_doc;
+- (id)initWithCoder:(id)arg1;
+- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)hide;
 - (void)show;
 - (void)attachToView:(id)arg1;
-- (void)backButtonAction:(id)arg1;
+- (void)loadView;
+@property(nonatomic) __weak MSDocument *doc; // @synthesize doc;
 
 @end
 

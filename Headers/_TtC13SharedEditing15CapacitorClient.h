@@ -9,7 +9,6 @@
 @interface _TtC13SharedEditing15CapacitorClient : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: currentTask
-    // Error parsing type: , name: largePatchSize
 }
 
 @end

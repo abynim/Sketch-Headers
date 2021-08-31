@@ -6,14 +6,16 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class SCKWorkspace;
+@class SCKUser, SCKWorkspace;
 
 @interface SCKWorkspaceMembership : SCKObject
 {
     SCKWorkspace *_workspace;
+    SCKUser *_user;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) SCKUser *user; // @synthesize user=_user;
 @property(readonly, nonatomic) SCKWorkspace *workspace; // @synthesize workspace=_workspace;
 - (id)initWithDictionary:(id)arg1;
 

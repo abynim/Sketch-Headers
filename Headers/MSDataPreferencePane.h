@@ -69,8 +69,9 @@
 - (id)alertMessageTextForRemovingDataSuppliers:(id)arg1;
 - (void)removeDataAction:(id)arg1;
 - (void)importLocalData:(id)arg1;
+- (id)makeInfoMessageForAddDataSupplierError:(id)arg1;
 - (void)showAddLocalDataErrorWithMessage:(id)arg1 info:(id)arg2;
-- (void)showFailedToAddDataSupplierFromURL:(id)arg1;
+- (void)showFailedToAddDataSupplierFromURL:(id)arg1 error:(id)arg2;
 - (void)showDataSupplierGroupAlreadyAddedMessage:(id)arg1;
 - (void)removeLocalDataSupplierGroupsContainedByURL:(id)arg1;
 - (void)addLocalDataFromURLs:(id)arg1;

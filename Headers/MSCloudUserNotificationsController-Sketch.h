@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch34MSCloudUserNotificationsController.h"
+#import "MSCloudUserNotificationsController.h"
 
-@interface _TtC6Sketch34MSCloudUserNotificationsController (Sketch)
+@interface MSCloudUserNotificationsController (Sketch)
 + (id)userNotificationsIdentifierPrefix;
 - (void)didActivateCloudUserNotification:(id)arg1;
 @end

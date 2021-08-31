@@ -12,6 +12,12 @@
 {
 }
 
+- (BOOL)validateMenuItem:(id)arg1;
+- (void)redo:(id)arg1;
+- (void)undo:(id)arg1;
+- (id)documentRedoAction;
+- (id)documentUndoAction;
+- (void)viewDidAppear;
 @property(readonly, nonatomic) MSDocument *document;
 
 @end

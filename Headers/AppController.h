@@ -12,7 +12,7 @@
 #import "NSUserNotificationCenterDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
 
-@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCrashLogManager, MSDataSupplierManager, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserController, SMKMirrorController, _TtC6Sketch34MSCloudUserNotificationsController;
+@class BCLicenseManager, MSActionController, MSAssetLibraryController, MSCloudUserNotificationsController, MSCrashLogManager, MSDataSupplierManager, MSDocumentController, MSDocumentationSearcher, MSFontWatcher, MSMirrorDataProvider, MSPasteboardManager, MSPluginCommand, MSPluginManagerWithActions, MSUpdateController, NSArray, NSMenu, NSMenuItem, NSString, SCKUserController, SMKMirrorController;
 
 @interface AppController : NSObject <NSApplicationDelegate, NSWindowDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate, MSDataSupplierManagerDelegate>
 {
@@ -41,7 +41,7 @@
     MSUpdateController *_updateController;
     MSActionController *_actionController;
     MSAssetLibraryController *_librariesController;
-    _TtC6Sketch34MSCloudUserNotificationsController *_userNotificationsController;
+    MSCloudUserNotificationsController *_userNotificationsController;
     NSString *_scriptPath;
     MSDocumentationSearcher *_documentationSearcher;
     NSArray *_visualSettings;
@@ -62,7 +62,7 @@
 @property(nonatomic) BOOL needToInformUserPluginsAreDisabled; // @synthesize needToInformUserPluginsAreDisabled=_needToInformUserPluginsAreDisabled;
 @property(nonatomic) BOOL sketchSafeModeOn; // @synthesize sketchSafeModeOn=_sketchSafeModeOn;
 @property(nonatomic) BOOL applicationHasFinishedLaunching; // @synthesize applicationHasFinishedLaunching=_applicationHasFinishedLaunching;
-@property(readonly, nonatomic) _TtC6Sketch34MSCloudUserNotificationsController *userNotificationsController; // @synthesize userNotificationsController=_userNotificationsController;
+@property(readonly, nonatomic) MSCloudUserNotificationsController *userNotificationsController; // @synthesize userNotificationsController=_userNotificationsController;
 @property(readonly, nonatomic) MSAssetLibraryController *librariesController; // @synthesize librariesController=_librariesController;
 @property(readonly, nonatomic) MSActionController *actionController; // @synthesize actionController=_actionController;
 @property(readonly, nonatomic) MSUpdateController *updateController; // @synthesize updateController=_updateController;

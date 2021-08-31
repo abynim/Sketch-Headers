@@ -23,10 +23,12 @@
     unsigned long long _nextUniqueID;
     NSMutableArray *_parentStack;
     NSSet *_includedLayerIDs;
+    NSString *_uniqueStringForDefs;
     struct CGRect _exportBounds;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSString *uniqueStringForDefs; // @synthesize uniqueStringForDefs=_uniqueStringForDefs;
 @property(readonly, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(readonly, nonatomic) NSMutableArray *parentStack; // @synthesize parentStack=_parentStack;
 @property(nonatomic) unsigned long long nextUniqueID; // @synthesize nextUniqueID=_nextUniqueID;
@@ -65,8 +67,8 @@
 - (BOOL)hasTitle;
 @property(readonly, nonatomic) BOOL hasDefs;
 - (id)exportLayers:(id)arg1;
-- (id)initWithName:(id)arg1 exportRequest:(id)arg2;
-- (id)initWithImmutableDocument:(id)arg1 exportRect:(struct CGRect)arg2 layerIDs:(id)arg3 includeBackground:(BOOL)arg4;
+- (id)initWithName:(id)arg1 exportRequest:(id)arg2 generateRandomResourceIDs:(BOOL)arg3;
+- (id)initWithImmutableDocument:(id)arg1 exportRect:(struct CGRect)arg2 layerIDs:(id)arg3 includeBackground:(BOOL)arg4 generateRandomResourceIDs:(BOOL)arg5;
 - (id)init;
 - (void)setupCommonElementsWithName:(id)arg1;
 - (void)setRootSVGElementAttributes;

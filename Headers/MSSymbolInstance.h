@@ -39,8 +39,11 @@
 - (void)updateOverrides:(id)arg1 withMapping:(id)arg2;
 - (void)resizeInstanceToFitSymbol:(id)arg1;
 - (id)detachByReplacingWithGroupWithInfo:(id)arg1 visitedSymbols:(id)arg2;
-- (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1 document:(id)arg2;
-- (id)detachStylesAndReplaceWithGroupRecursively:(BOOL)arg1;
+- (id)detachStylesAndReplaceWithGroupInDocument:(id)arg1;
+- (void)detachStylesAndReplaceWithGroupRecursivelyInDocument:(id)arg1 visited:(id)arg2 replacements:(id)arg3;
+- (id)detachStylesAndReplaceWithGroupRecursivelyInDocument:(id)arg1;
+- (id)detachStylesAndReplaceWithGroup;
+- (id)detachStylesAndReplaceWithGroupRecursively;
 - (void)changeInstanceToSymbol:(id)arg1;
 - (BOOL)isInstanceForMaster:(id)arg1;
 - (id)symbolID;

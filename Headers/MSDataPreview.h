@@ -14,6 +14,7 @@
     NSImage *_preview;
 }
 
++ (unsigned long long)clampedTextDataPreviewLineCount:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSImage *preview; // @synthesize preview=_preview;
 @property(nonatomic) __weak MSDataPreferenceItem *dataItem; // @synthesize dataItem=_dataItem;

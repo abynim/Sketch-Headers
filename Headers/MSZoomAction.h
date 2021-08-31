@@ -31,7 +31,7 @@
 - (BOOL)hasSubMenu;
 - (id)makeToolbarItemForToolbar:(BOOL)arg1;
 - (id)zoomPopupButtonWithFrame:(struct CGRect)arg1;
-- (id)zoomButtonWithAction:(id)arg1 imageNamed:(id)arg2 alternateImageName:(id)arg3;
+- (id)zoomButtonWithAction:(id)arg1 imageNamed:(id)arg2;
 
 @end
 

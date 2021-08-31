@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: configuration
     // Error parsing type: , name: states
-    // Error parsing type: , name: checkpoints
 }
 
 @end

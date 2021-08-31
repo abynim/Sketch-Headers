@@ -18,7 +18,6 @@
     // Error parsing type: , name: viewPersonalWorkspaceButton
     // Error parsing type: , name: leaveWorkspaceButton
     // Error parsing type: , name: workspace
-    // Error parsing type: , name: membershipIdentifier
     // Error parsing type: , name: reason
 }
 

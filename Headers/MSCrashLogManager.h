@@ -43,6 +43,8 @@
 @property(readonly, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)send:(id)arg1;
 - (void)cancel:(id)arg1;
+- (id)removeHexadecimalNumbersFromString:(id)arg1;
+- (id)removeHexadecimalNumberFromString:(id)arg1;
 - (id)simpleGroupingHashForError:(id)arg1;
 - (id)groupingHashForHandledEvent:(id)arg1;
 - (unsigned long long)firstRelevantStackFrameIndex:(id)arg1;
