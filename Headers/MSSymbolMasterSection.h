@@ -33,6 +33,7 @@
 - (id)sectionsForTableViewManager:(id)arg1;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (void)refreshIfNecessary:(id)arg1;
+- (BOOL)updateItemsIfHistoryIsReady;
 - (void)updateItems;
 - (id)symbolMasters;
 @property(readonly, nonatomic) MSSymbolMaster *symbolMaster;
