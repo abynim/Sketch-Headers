@@ -14,7 +14,9 @@
     // Error parsing type: , name: postInstructions
     // Error parsing type: , name: rect
     // Error parsing type: , name: surfaces
+    // Error parsing type: , name: regionStack
     // Error parsing type: , name: blend
+    // Error parsing type: , name: initialTransform
 }
 
 @end

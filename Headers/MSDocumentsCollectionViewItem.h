@@ -38,17 +38,15 @@
 @property(nonatomic) id <MSDocumentsCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)setTagHidden:(BOOL)arg1;
 - (void)controlTextDidEndEditing:(id)arg1;
-- (BOOL)validateCloudMenuItem:(id)arg1;
-- (BOOL)validateRevealInFinderMenuItem:(id)arg1;
-- (void)menuNeedsUpdate:(id)arg1;
-- (void)menuWillOpen:(id)arg1;
 - (void)startEditing;
 - (void)fetchPreviewImage;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSDocumentsCollectionItem *collectionItem;
 - (void)setNeedsDisplaySelection;
+- (void)setMenu:(id)arg1;
 - (void)setSelected:(BOOL)arg1;
 - (void)viewDidLoad;
+- (void)menuRequestedForView:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

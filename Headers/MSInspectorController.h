@@ -82,6 +82,12 @@
 - (void)alignWithWindowContentLayoutGuide;
 - (void)dealloc;
 - (void)viewDidLoad;
+- (void)flagsChangedNotification:(id)arg1;
+- (void)mouseExited:(id)arg1;
+- (void)mouseMoved:(id)arg1;
+- (void)mouseEntered:(id)arg1;
+- (void)handleMouseEvent:(id)arg1;
+- (void)dismissAlignmentPreviewOverlays;
 - (void)awakeFromNib;
 - (id)initWithCoder:(id)arg1;
 

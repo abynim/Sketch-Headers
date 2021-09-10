@@ -16,10 +16,11 @@
 }
 
 + (id)makeUnsupportedDataFormatError;
-+ (id)makeEmptyTextFileError;
++ (id)makeEmptyDataError;
 + (id)makeInvalidJSONRootElementError;
++ (id)makeInvalidJSONValueError;
 + (id)makeInvalidJSONStructureError;
-+ (BOOL)isStructuredDictionaryDataValid:(id)arg1;
++ (BOOL)validateStructuredDictionaryData:(id)arg1 error:(id *)arg2;
 + (id)validImageFileUTIs;
 + (BOOL)isDataInsertedRandomly;
 + (id)identifierForURL:(id)arg1;

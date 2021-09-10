@@ -43,7 +43,7 @@
 - (id)createCloudManifestMakerExportingObjects:(id)arg1;
 - (BOOL)exportDocumentPreviews;
 - (id)exportPresentationFileForPage:(id)arg1 error:(id *)arg2;
-- (BOOL)exportPresentationFilesWithObjectIDs:(id)arg1 error:(id *)arg2;
+- (BOOL)exportPresentationFilesWithObjectIDs:(id)arg1 fileFormats:(id)arg2 error:(id *)arg3;
 - (BOOL)exportDocumentWithObjectIDs:(id)arg1 error:(id *)arg2;
 - (id)initWithDocument:(id)arg1 name:(id)arg2 localURL:(id)arg3;
 

@@ -48,7 +48,6 @@
 @property(retain, nonatomic) NSPopUpButton *artboardButton; // @synthesize artboardButton=_artboardButton;
 @property(retain, nonatomic) NSToolbarItem *artboardToolbarItem; // @synthesize artboardToolbarItem=_artboardToolbarItem;
 - (id)sharingServicePicker:(id)arg1 sharingServicesForItems:(id)arg2 proposedSharingServices:(id)arg3;
-- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
 - (void)userContentController:(id)arg1 didReceiveScriptMessage:(id)arg2;
 - (void)webView:(id)arg1 didFailNavigation:(id)arg2 withError:(id)arg3;
 - (void)webView:(id)arg1 didFinishNavigation:(id)arg2;

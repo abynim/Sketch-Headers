@@ -14,20 +14,22 @@
     // Error parsing type: , name: bounds
     // Error parsing type: , name: paths
     // Error parsing type: , name: images
+    // Error parsing type: , name: layers
     // Error parsing type: , name: imagesDict
     // Error parsing type: , name: instructions
     // Error parsing type: , name: accumulators
+    // Error parsing type: , name: regionStack
     // Error parsing type: , name: version
     // Error parsing type: , name: baseURL
     // Error parsing type: , name: pageId
     // Error parsing type: , name: layerId
 }
 
-+ (id)fileExtension;
++ (id)standardFileExtension;
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) NSArray *imageFileNames;
-- (BOOL)writeWithFileName:(id)arg1 error:(id *)arg2;
+- (BOOL)writeWithFileName:(id)arg1 formats:(id)arg2 error:(id *)arg3;
 - (id)initWithBaseURL:(id)arg1 pageId:(id)arg2 layerId:(id)arg3 exportMarkers:(BOOL)arg4;
 
 @end

@@ -9,6 +9,9 @@
 @interface _TtC6Sketch18ListViewController (Sketch)
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (id)tableView:(id)arg1 pasteboardWriterForRow:(long long)arg2;
+- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
+- (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
+- (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;
 @end
 

@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSModelObjectCache, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
@@ -28,11 +28,13 @@
     MSFontList *_fontList;
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
+    MSModelObjectCache *_childCollaborationObjectsCache;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSModelObjectCache *childCollaborationObjectsCache; // @synthesize childCollaborationObjectsCache=_childCollaborationObjectsCache;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
@@ -44,6 +46,8 @@
 @property(nonatomic) __weak _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
 @property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
+- (id)cacheForSubtreeObjects;
+- (id)childCollaborationObjectWithID:(id)arg1;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
 @property(readonly, nonatomic) MSJSONSchema *metadataConfiguration; // @synthesize metadataConfiguration=_metadataConfiguration;

@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSForeignSymbol.h>
+#import "_TtC6Sketch21ContentViewController.h"
 
-@interface MSForeignSymbol (MSPatchOperationPrivate)
-- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+@interface _TtC6Sketch21ContentViewController (Sketch)
+- (void)menuNeedsUpdate:(id)arg1;
 @end
 

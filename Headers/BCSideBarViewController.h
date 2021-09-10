@@ -68,6 +68,7 @@
 @property(nonatomic) __weak NSObject<BCSideBarViewControllerDelegate> *delegate; // @synthesize delegate=_delegate;
 - (double)splitView:(id)arg1 constrainSplitPosition:(double)arg2 ofSubviewAt:(long long)arg3;
 - (void)splitViewDidResizeSubviews:(id)arg1;
+- (BOOL)splitView:(id)arg1 shouldAdjustSizeOfSubview:(id)arg2;
 - (double)splitView:(id)arg1 constrainMaxCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (double)splitView:(id)arg1 constrainMinCoordinate:(double)arg2 ofSubviewAt:(long long)arg3;
 - (BOOL)splitView:(id)arg1 canCollapseSubview:(id)arg2;

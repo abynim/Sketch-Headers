@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SharedEditing/MSCoding-Protocol.h>
+#import <SketchModel/MSCoding-Protocol.h>
 
 @class NSString;
 
@@ -18,7 +18,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (id)debugDescription;
-- (id)applyRemovalToRootObject:(id)arg1;
+- (id)applyRemovalToRootObject:(id)arg1 parentObject:(id *)arg2;
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;

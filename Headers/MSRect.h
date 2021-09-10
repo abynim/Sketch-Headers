@@ -32,6 +32,7 @@
 - (void)setNilValueForKey:(id)arg1;
 - (id)initWithRect:(struct CGRect)arg1;
 - (id)initWithX:(double)arg1 y:(double)arg2 width:(double)arg3 height:(double)arg4;
+- (void)setRawRect:(struct CGRect)arg1;
 
 @end
 

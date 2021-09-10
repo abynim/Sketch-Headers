@@ -18,7 +18,6 @@
 - (id)init;
 - (id)initWithDocument:(id)arg1;
 - (void)documentWillClose;
-@property(nonatomic, readonly) long long validationStatus;
 - (void)settingsWindowWillClose:(id)arg1;
 - (id)showSettingsWindow;
 - (void)doPerformAction:(id)arg1;

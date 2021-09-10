@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SharedEditing/MSCoding-Protocol.h>
+#import <SketchModel/MSCoding-Protocol.h>
 
 @class NSArray, NSSet, NSString;
 

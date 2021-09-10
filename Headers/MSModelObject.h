@@ -10,7 +10,7 @@
 #import <SketchModel/MSModelObject-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class MSDocumentData, MSForeignObject, MSImmutableModelObject, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
+@class MSDocumentData, MSForeignObject, MSImmutableModelObject, MSLayer, MSLayerGroup, MSModelObjectCacheGeneration, NSString;
 @protocol MSRootLayer;
 
 @interface MSModelObject : MSModelObjectCommon <NSCopying, MSMetadataCoding, MSModelObject>
@@ -57,6 +57,8 @@
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
+- (id)collaborationObjectWithID:(id)arg1;
+@property(readonly, nonatomic) MSLayer *affectedLayerForPatching;
 - (void)updateWithIdentifierMapping:(id)arg1;
 - (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObjects:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
@@ -76,7 +78,10 @@
 - (void)recycleInContext:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
-- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (id)cacheForSubtreeObjects;
+- (void)registerCollaborationSubtree:(id)arg1;
+- (BOOL)removeCollaborationChild:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (id)copyWithOptions:(unsigned long long)arg1;

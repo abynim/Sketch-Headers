@@ -6,14 +6,11 @@
 
 #import "_TtC6Sketch18GridViewController.h"
 
-#import "MSDocumentsCollectionViewItemDelegate-Protocol.h"
-
-@interface _TtC6Sketch18GridViewController (Sketch) <MSDocumentsCollectionViewItemDelegate>
+@interface _TtC6Sketch18GridViewController (Sketch)
 - (id)collectionView:(id)arg1 pasteboardWriterForItemAtIndexPath:(id)arg2;
 - (id)collectionView:(id)arg1 itemForRepresentedObjectAtIndexPath:(id)arg2;
 - (long long)collectionView:(id)arg1 numberOfItemsInSection:(long long)arg2;
 - (id)collectionView:(id)arg1 shouldSelectItemsAtIndexPaths:(id)arg2;
-- (id)previewImageCacheFor:(id)arg1;
 - (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
 - (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;
 @end

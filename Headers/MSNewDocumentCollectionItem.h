@@ -12,6 +12,9 @@
 
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;
+- (BOOL)isUploading;
+- (BOOL)hasProcessingError;
+- (BOOL)isProcessing;
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
 - (BOOL)supportsDeletion;
@@ -19,7 +22,7 @@
 - (BOOL)providesPreviewImage;
 - (id)toolTip;
 - (id)title;
-- (id)placeholderImage;
+- (id)imageIconName;
 
 @end
 

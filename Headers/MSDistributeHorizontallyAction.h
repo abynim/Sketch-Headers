@@ -15,6 +15,7 @@
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)distributeHorizontally:(id)arg1;
+- (void)showOverlaysForDistributingLayers:(id)arg1;
 
 @end
 

@@ -67,6 +67,7 @@
 - (void)registerCreationInContext:(id)arg1;
 - (void)recycleInContext:(id)arg1;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
+- (void)validateBoundsAfterPatching;
 - (void)applyTransformsToLayers:(id)arg1;
 - (id)ungroupReturningNextUngroupGroup;
 - (BOOL)hasStyleOrTransform;

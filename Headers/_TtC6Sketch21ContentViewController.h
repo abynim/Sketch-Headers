@@ -6,10 +6,13 @@
 
 #import <AppKit/NSViewController.h>
 
+@class MSPreviewImageCache;
+
 @interface _TtC6Sketch21ContentViewController : NSViewController
 {
     // Error parsing type: , name: provider
     // Error parsing type: , name: previewImageCache
+    // Error parsing type: , name: itemMenu
 }
 
 - (void).cxx_destruct;
@@ -17,6 +20,7 @@
 - (void)boundsDidChangeNotification:(id)arg1;
 - (void)viewDidAppear;
 - (id)initWithCoder:(id)arg1;
+@property(nonatomic, readonly) MSPreviewImageCache *previewImageCache; // @synthesize previewImageCache;
 
 @end
 

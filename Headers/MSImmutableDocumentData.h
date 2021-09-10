@@ -123,7 +123,6 @@
 - (id)unavailableFontNames;
 - (BOOL)shouldShowMissingLibraryFontsWarning;
 - (BOOL)shouldShowMissingFontsBadge;
-- (id)fontNamesExcludingLocalTextStylesWithMissingFonts:(BOOL)arg1;
 - (id)fontNames;
 - (id)metadataForKey:(id)arg1 inDictionary:(id)arg2;
 - (void)storeMetadata:(id)arg1 forKey:(id)arg2 inDictionary:(id)arg3;

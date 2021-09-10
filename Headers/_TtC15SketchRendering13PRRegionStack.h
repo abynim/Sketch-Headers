@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSLayerGroup.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface MSLayerGroup (SharedEditing)
-- (void)validateBoundsAfterPatching;
+@interface _TtC15SketchRendering13PRRegionStack : _TtCs12_SwiftObject
+{
+    // Error parsing type: , name: stack
+}
+
 @end
 

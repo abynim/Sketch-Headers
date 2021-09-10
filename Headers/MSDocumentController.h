@@ -6,7 +6,7 @@
 
 #import <AppKit/NSDocumentController.h>
 
-@class NSMutableDictionary;
+@class NSArray, NSMutableDictionary;
 
 @interface MSDocumentController : NSDocumentController
 {
@@ -14,6 +14,7 @@
     NSMutableDictionary *_documentClassOverrides;
 }
 
++ (id)sharedDocumentController;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableDictionary *documentClassOverrides; // @synthesize documentClassOverrides=_documentClassOverrides;
 @property(nonatomic) long long numberOfDocumentsBeingOpened; // @synthesize numberOfDocumentsBeingOpened=_numberOfDocumentsBeingOpened;
@@ -38,6 +39,7 @@
 - (BOOL)documentCreationAllowed;
 - (id)typeForContentsOfURL:(id)arg1 error:(id *)arg2;
 - (id)init;
+@property(readonly, copy) NSArray *sketchDocuments;
 - (void)documentControllerWithDocController:(id)arg1 didReviewAll:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)reviewUnsavedDocumentsWithAlertTitle:(id)arg1 cancellable:(BOOL)arg2 delegate:(id)arg3 didReviewAllSelector:(SEL)arg4 contextInfo:(void *)arg5;
 - (BOOL)validateUserInterfaceItem:(id)arg1;

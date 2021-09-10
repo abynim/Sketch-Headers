@@ -7,6 +7,7 @@
 #import <Foundation/NSError.h>
 
 @interface NSError (SharedEditing)
+@property(nonatomic, readonly) BOOL isTooManyRequestsError;
 @property(nonatomic, readonly) BOOL isOutOfDateBaseVersionError;
 @property(nonatomic, readonly) BOOL isDuplicatePatchError;
 @property(nonatomic, readonly) BOOL isClientOutdatedError;

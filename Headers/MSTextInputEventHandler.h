@@ -59,6 +59,7 @@
 - (void)scheduleUpdateInsertionPointColorTimer;
 - (BOOL)layoutManager:(id)arg1 shouldSetLineFragmentRect:(inout struct CGRect *)arg2 lineFragmentUsedRect:(inout struct CGRect *)arg3 baselineOffset:(inout double *)arg4 inTextContainer:(id)arg5 forGlyphRange:(struct _NSRange)arg6;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
+- (BOOL)shouldUseCustomBaselineForTextLayerTextView:(id)arg1;
 - (id)documentColorSpaceForTextLayerTextView:(id)arg1;
 - (id)canvasColorSpaceForTextLayerTextView:(id)arg1;
 - (void)textViewDidChangeSelection:(id)arg1;

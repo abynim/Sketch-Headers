@@ -16,8 +16,13 @@
     BOOL _supportsRenaming;
     BOOL _supportsMoving;
     BOOL _supportsDeletion;
+    BOOL _isProcessing;
+    BOOL _hasProcessingError;
+    BOOL _isUploading;
+    NSString *_imageIconName;
     NSString *_title;
     NSAttributedString *_status;
+    NSAttributedString *_downloadStatus;
     NSString *_statusColor;
     NSString *_toolTip;
     NSArray *_presences;
@@ -28,10 +33,14 @@
 }
 
 + (id)keyPathsForValuesAffectingStatusColor;
++ (id)keyPathsForValuesAffectingDownloadStatus;
 + (id)keyPathsForValuesAffectingStatus;
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
+@property(readonly, nonatomic) BOOL hasProcessingError; // @synthesize hasProcessingError=_hasProcessingError;
+@property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
 @property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
 @property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
 @property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
@@ -43,8 +52,10 @@
 @property(retain, nonatomic) NSArray *presences; // @synthesize presences=_presences;
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
+@property(retain, nonatomic) NSAttributedString *downloadStatus; // @synthesize downloadStatus=_downloadStatus;
 @property(retain, nonatomic) NSAttributedString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
+@property(readonly, nonatomic) NSString *imageIconName; // @synthesize imageIconName=_imageIconName;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)updateCloudStatus;
@@ -59,7 +70,6 @@
 @property(readonly, nonatomic) BOOL isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;
 @property(readonly, nonatomic) BOOL providesPreviewImage;
-@property(readonly, nonatomic) NSImage *placeholderImage;
 
 // Remaining properties
 @property(readonly, nonatomic) NSURL *URL;

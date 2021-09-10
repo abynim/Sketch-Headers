@@ -11,6 +11,8 @@
 }
 
 - (id)initWithCoder:(id)arg1;
+- (void)doubleClick:(id)arg1;
+- (void)viewDidAppear;
 - (void)viewDidLoad;
 - (void)loadView;
 

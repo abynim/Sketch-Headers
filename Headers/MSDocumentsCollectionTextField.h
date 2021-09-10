@@ -6,16 +6,21 @@
 
 #import <AppKit/NSTextField.h>
 
+@protocol MSMenuRequestDelegate;
+
 @interface MSDocumentsCollectionTextField : NSTextField
 {
+    // Error parsing type: , name: menuRequestDelegate
     // Error parsing type: , name: isSelected
     // Error parsing type: , name: allowsEditingMode
 }
 
 + (void)setCellClass:(Class)arg1;
 + (Class)cellClass;
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)menuForEvent:(id)arg1;
 @property(nonatomic, readonly) struct CGSize intrinsicContentSize;
 - (void)endEditing;
 - (void)startEditing;
@@ -23,6 +28,7 @@
 - (void)mouseUp:(id)arg1;
 - (void)textDidEndEditing:(id)arg1;
 @property(nonatomic) BOOL isSelected; // @synthesize isSelected;
+@property(nonatomic) __weak id <MSMenuRequestDelegate> menuRequestDelegate; // @synthesize menuRequestDelegate;
 
 @end
 

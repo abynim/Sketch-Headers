@@ -17,6 +17,8 @@
 - (void)performAction:(id)arg1;
 - (BOOL)validate;
 - (BOOL)shouldUseImageForTouchBarItem;
+- (void)showOverlaysForDistributingOnAxis:(unsigned long long)arg1;
+- (void)showOverlaysForDistributingLayers:(id)arg1;
 
 @end
 

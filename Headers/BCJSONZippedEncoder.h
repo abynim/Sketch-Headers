@@ -17,6 +17,7 @@
     NSMutableArray *_objectsToEncode;
 }
 
++ (id)errorWithErrno:(int)arg1 URL:(id)arg2;
 + (id)zipEncoderForWritingAtURL:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSMutableArray *objectsToEncode; // @synthesize objectsToEncode=_objectsToEncode;

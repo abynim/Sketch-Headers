@@ -16,7 +16,8 @@
     // Error parsing type: , name: transform
     // Error parsing type: , name: contents
     // Error parsing type: , name: masks
-    // Error parsing type: , name: path
+    // Error parsing type: , name: shape
+    // Error parsing type: , name: _path
     // Error parsing type: , name: fillRule
     // Error parsing type: , name: canAntialias
     // Error parsing type: , name: contentsPatternType

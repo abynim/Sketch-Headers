@@ -9,7 +9,7 @@
 #import "MSColorHexStringTransformerDelegate-Protocol.h"
 #import "MSFieldRestoration-Protocol.h"
 
-@class MSColorHexStringTransformer, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSDictionary, NSPopUpButton, NSString, NSTextField;
+@class MSColorHexStringTransformer, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSArrayController, NSDictionary, NSMutableDictionary, NSPopUpButton, NSString, NSTextField;
 
 @interface MSFillInspectorViewController : MSColorStylePartInspectorViewController <MSColorHexStringTransformerDelegate, MSFieldRestoration>
 {
@@ -23,9 +23,11 @@
     NSTextField *_contextPopUpLabel;
     NSTextField *_hexField;
     MSColorHexStringTransformer *_hexTransformer;
+    NSMutableDictionary *_loadedImages;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableDictionary *loadedImages; // @synthesize loadedImages=_loadedImages;
 @property(retain, nonatomic) MSColorHexStringTransformer *hexTransformer; // @synthesize hexTransformer=_hexTransformer;
 @property(retain, nonatomic) NSTextField *hexField; // @synthesize hexField=_hexField;
 @property(retain, nonatomic) NSTextField *contextPopUpLabel; // @synthesize contextPopUpLabel=_contextPopUpLabel;
@@ -47,9 +49,11 @@
 - (void)updateFillPropertyPopUp;
 - (void)applyUserSelectedColors:(id)arg1;
 - (id)readImagesFromPasteboard:(id)arg1;
+- (id)imageDataForURL:(id)arg1;
 - (BOOL)view:(id)arg1 performDragOperation:(id)arg2;
 - (unsigned long long)view:(id)arg1 draggingEntered:(id)arg2;
 - (id)draggedTypesForView:(id)arg1;
+- (void)prepareForReuse;
 - (void)viewDidLoad;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;

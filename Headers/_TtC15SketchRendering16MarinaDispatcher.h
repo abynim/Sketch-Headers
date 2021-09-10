@@ -11,7 +11,6 @@
     // Error parsing type: , name: renderer
     // Error parsing type: , name: mode
     // Error parsing type: , name: _nodeStack
-    // Error parsing type: , name: _pendingTransform
     // Error parsing type: , name: _checkpoints
     // Error parsing type: , name: pendingCompletionHandlers
 }
