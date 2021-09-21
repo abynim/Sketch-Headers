@@ -57,7 +57,9 @@
 - (void)updateSharedStyleIDFromMigration:(id)arg1;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
-- (id)imageFillForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;
+- (id)colorForOverridePoint:(id)arg1 applyingStyleOverridesFrom:(id)arg2 inDocument:(id)arg3;
+- (id)styleWithSharedStyleForOverridePath:(id)arg1 appliedFrom:(id)arg2 inDocument:(id)arg3;
+- (id)imageFillForOverriddenStyle:(id)arg1;
 - (BOOL)canOverridePoint:(id)arg1 withAncestors:(id)arg2;
 
 // Remaining properties

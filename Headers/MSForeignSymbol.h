@@ -34,6 +34,10 @@
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;
 - (void)correctInvalidGamma;
+- (id)cacheForSubtreeObjects;
+- (void)registerCollaborationSubtree:(id)arg1;
+- (BOOL)removeCollaborationChild:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1;
 
 @end
 

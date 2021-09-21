@@ -19,6 +19,8 @@
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)alignmentPathsForLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)alignmentPathsForLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (id)layerOfDataType:(unsigned long long)arg1;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingNodeName;
@@ -52,6 +54,7 @@
 - (void)changeColor:(id)arg1;
 - (BOOL)supportsMultipleShadows;
 - (BOOL)supportsInnerOuterBorders;
+- (id)absolutePathTranslatedBy:(struct CGPoint)arg1;
 - (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (id)applicableDataSupplierIdentifier;
 - (BOOL)hasRefreshableDataWithDataManager:(id)arg1;

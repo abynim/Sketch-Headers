@@ -49,6 +49,7 @@
 @property(readonly, nonatomic) BOOL isSharedStyleOutOfSync;
 - (void)updateSharedStyleReferencesFrom:(id)arg1 to:(id)arg2;
 - (void)applyOverrides:(id)arg1 withContext:(id)arg2;
+- (void)applyColor:(id)arg1 toStylePart:(id)arg2;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
 
 // Remaining properties

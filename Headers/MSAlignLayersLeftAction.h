@@ -15,6 +15,7 @@
 - (id)historyMomentTitle;
 - (void)doPerformAction:(id)arg1;
 - (void)alignLayersLeft:(id)arg1;
+- (void)showOverlaysForAligningLayers:(id)arg1;
 
 @end
 

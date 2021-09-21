@@ -60,6 +60,7 @@
 - (void)deleteStylePartOfType:(unsigned long long)arg1 atIndex:(unsigned long long)arg2;
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
+- (id)affectedLayerForPatching;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

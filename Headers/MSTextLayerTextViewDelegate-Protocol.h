@@ -9,6 +9,7 @@
 @class MSTextLayerTextView, NSColorSpace;
 
 @protocol MSTextLayerTextViewDelegate <NSObject>
+- (BOOL)shouldUseCustomBaselineForTextLayerTextView:(MSTextLayerTextView *)arg1;
 - (NSColorSpace *)documentColorSpaceForTextLayerTextView:(MSTextLayerTextView *)arg1;
 - (NSColorSpace *)canvasColorSpaceForTextLayerTextView:(MSTextLayerTextView *)arg1;
 @end

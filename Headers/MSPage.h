@@ -90,6 +90,7 @@
 - (struct CGRect)contentBounds;
 - (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
+- (void)validateBoundsAfterPatching;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -8,24 +8,26 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSCacheManager, MSRenderInstruction, NSView;
+@class CALayer, MSCacheManager, MSRenderInstruction, NSArray, NSView;
 @protocol MSTiledRendererHostView;
 
 @interface MSPresentationRenderer : NSObject <MSTilingSystemProvider>
 {
     NSView<MSTiledRendererHostView> *hostView;
     CALayer *layer;
+    NSArray *_formats;
     MSRenderInstruction *_renderedInstruction;
     MSCacheManager *_cacheManager;
 }
 
-+ (id)fileNameForLayer:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSCacheManager *cacheManager; // @synthesize cacheManager=_cacheManager;
 @property(copy) MSRenderInstruction *renderedInstruction; // @synthesize renderedInstruction=_renderedInstruction;
+@property(retain, nonatomic) NSArray *formats; // @synthesize formats=_formats;
 @property(readonly, nonatomic) CALayer *layer; // @synthesize layer;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
 - (BOOL)isDrawing;
+- (id)fileNameForLayer:(id)arg1;
 - (id)updateContentWithRenderInstruction:(id)arg1 page:(id)arg2 layer:(id)arg3 fileURL:(id)arg4 error:(id *)arg5;
 - (void)updateContentWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
 - (id)updateContentWithLayerAncestry:(id)arg1 writingToFileURL:(id)arg2 withError:(id *)arg3;

@@ -8,6 +8,8 @@
 
 @interface _TtC6Sketch25DocumentsWindowController (Sketch)
 - (void)toolbarWillAddItem:(id)arg1;
+- (id)toolbarAllowedItemIdentifiers:(id)arg1;
+- (id)toolbarDefaultItemIdentifiers:(id)arg1;
 - (void)documentUploadDidCancel:(id)arg1;
 - (void)documentUpload:(id)arg1 didFailWithError:(id)arg2;
 - (void)documentUpload:(id)arg1 didChangeProgress:(id)arg2;

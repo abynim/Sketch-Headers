@@ -18,7 +18,9 @@
 - (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_thickness:(double)arg1;
 - (void)setRaw_position:(long long)arg1;
-- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (BOOL)removeCollaborationChild:(id)arg1;
+- (void)registerCollaborationSubtree:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

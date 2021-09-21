@@ -31,7 +31,9 @@
 - (void)setRaw_offsetY:(double)arg1;
 - (void)setRaw_offsetX:(double)arg1;
 - (void)setRaw_blurRadius:(double)arg1;
-- (id)childCollaborationObjectWithID:(id)arg1 removing:(BOOL)arg2;
+- (BOOL)removeCollaborationChild:(id)arg1;
+- (void)registerCollaborationSubtree:(id)arg1;
+- (id)childCollaborationObjectWithID:(id)arg1;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

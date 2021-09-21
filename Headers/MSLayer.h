@@ -184,6 +184,7 @@
 - (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
 - (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (id)affectedLayerForPatching;
 - (void)resetConstraints;
 - (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasFixedEdges;
@@ -215,6 +216,8 @@
 - (BOOL)isPartOfClippingMask;
 - (BOOL)hasClippingMask;
 - (id)enumeratorWithOptions:(unsigned long long)arg1;
+- (void)setRawRect:(struct CGRect)arg1;
+- (void)validateBoundsAfterPatching;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromParentCoordinateSpace;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToParentCoordinateSpace;
 - (struct CGAffineTransform)transformForConvertingFromCoordinateSpace:(id)arg1;

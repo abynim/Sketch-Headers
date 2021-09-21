@@ -16,6 +16,7 @@
     // Error parsing type: , name: offset
     // Error parsing type: , name: kind
     // Error parsing type: , name: blendMode
+    // Error parsing type: , name: rasterizationClipPath
     // Error parsing type: , name: mask
     // Error parsing type: , name: hint
     // Error parsing type: , name: id

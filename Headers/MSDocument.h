@@ -363,6 +363,7 @@
 - (id)editForeignSymbolInfoTextForForeignSymbol:(id)arg1 inLibrary:(id)arg2;
 - (id)editForeignSymbolMessageForLibrary:(id)arg1;
 - (long long)availabilityForLibrary:(id)arg1;
+- (void)saveDocumentToRandom:(id)arg1;
 - (void)scheduleCoeditAutosave;
 - (void)showCloudSaveOrRevertSheetWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)backupFileURL;

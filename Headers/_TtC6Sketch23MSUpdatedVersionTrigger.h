@@ -16,6 +16,7 @@
     // Error parsing type: , name: finishedLoadingData
 }
 
++ (BOOL)showUpdatesForCurrentVersionIfTheyWereShownBefore;
 + (void)showUpdates;
 + (void)showUpdatesIfFirstTime;
 - (void).cxx_destruct;

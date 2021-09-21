@@ -9,7 +9,7 @@
 @class MSDocumentsCollectionViewItem, MSPreviewImageCache;
 
 @protocol MSDocumentsCollectionViewItemDelegate <NSObject>
-- (MSPreviewImageCache *)previewImageCacheFor:(MSDocumentsCollectionViewItem *)arg1;
+@property(nonatomic, readonly) MSPreviewImageCache *previewImageCache;
 - (BOOL)collectionViewItemIsVisibleInTemplates:(MSDocumentsCollectionViewItem *)arg1;
 - (BOOL)collectionViewItemIsVisibleInRecentDocuments:(MSDocumentsCollectionViewItem *)arg1;
 @end

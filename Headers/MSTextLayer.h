@@ -56,6 +56,7 @@
 - (BOOL)isEmpty;
 @property(copy, nonatomic) NSDictionary *styleAttributes;
 @property(copy, nonatomic) MSColor *textColor;
+@property(readonly, nonatomic) BOOL usesLegacyCustomBaseline;
 @property(nonatomic) double lineHeight;
 - (double)baseLineHeight;
 @property(retain, nonatomic) NSNumber *characterSpacing;

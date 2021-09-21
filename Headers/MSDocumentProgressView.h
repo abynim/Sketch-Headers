@@ -32,6 +32,7 @@
 - (void)updateTrackingAreas;
 - (void)mouseExited:(id)arg1;
 - (void)mouseEntered:(id)arg1;
+- (void)awakeFromNib;
 - (void)cancelButtonClicked:(id)arg1;
 - (void)dealloc;
 

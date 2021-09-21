@@ -9,8 +9,8 @@
 @interface _TtC17SketchControllers15StatusStackView : NSView
 {
     // Error parsing type: , name: stackView
-    // Error parsing type: , name: flashToken
-    // Error parsing type: , name: flashTimer
+    // Error parsing type: , name: messageTokens
+    // Error parsing type: , name: timers
 }
 
 - (void).cxx_destruct;

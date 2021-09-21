@@ -10,12 +10,13 @@
 {
     // Error parsing type: , name: xpcConnection
     // Error parsing type: , name: assistantsRunner
+    // Error parsing type: , name: handoffQueue
 }
 
 + (id)shared;
 + (id)disableAutomaticAssistantsKey;
 - (void).cxx_destruct;
-- (void)runAssistantsWithAssistants:(id)arg1 forDocumentAt:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (void)runAssistantsWithAssistants:(id)arg1 for:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)init;
 - (void)dealloc;
 

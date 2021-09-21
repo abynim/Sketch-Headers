@@ -61,6 +61,7 @@
 - (id)createOpacityField;
 - (id)createColorWellButton;
 - (id)controlViewForEditingOverride;
+- (id)labelStringForOverride:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)viewWillDisappear;
 

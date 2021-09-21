@@ -31,6 +31,7 @@
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (BOOL)hasDefaultValues;
+@property(readonly, nonatomic) BOOL usesLegacyCustomBaseline;
 @property(readonly, nonatomic) MSTextLayout *textLayout;
 - (double)lineHeight;
 @property(readonly, copy, nonatomic) NSString *stringValue;

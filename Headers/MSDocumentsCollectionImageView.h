@@ -6,15 +6,21 @@
 
 #import "MSBorderedImageView.h"
 
+@protocol MSMenuRequestDelegate;
+
 @interface MSDocumentsCollectionImageView : MSBorderedImageView
 {
     BOOL _overlayEnabled;
     long long _iconCount;
+    id <MSMenuRequestDelegate> _menuRequestDelegate;
 }
 
+- (void).cxx_destruct;
+@property(nonatomic) __weak id <MSMenuRequestDelegate> menuRequestDelegate; // @synthesize menuRequestDelegate=_menuRequestDelegate;
 @property(nonatomic) long long iconCount; // @synthesize iconCount=_iconCount;
 @property(nonatomic) BOOL overlayEnabled; // @synthesize overlayEnabled=_overlayEnabled;
 - (id)initWithCoder:(id)arg1;
+- (id)menuForEvent:(id)arg1;
 
 @end
 

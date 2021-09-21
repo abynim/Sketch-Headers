@@ -41,10 +41,12 @@
     // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeYellowColor
     // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeGreyColor
     // Error parsing type: , name: $__lazy_storage_$_toolbarBadgeGreenColor
+    // Error parsing type: , name: $__lazy_storage_$_canvasAlignmentPreviewColor
 }
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, retain) NSColor *canvasAlignmentPreviewColor;
 @property(nonatomic, retain) NSColor *toolbarBadgeGreenColor;
 @property(nonatomic, retain) NSColor *toolbarBadgeGreyColor;
 @property(nonatomic, retain) NSColor *toolbarBadgeYellowColor;

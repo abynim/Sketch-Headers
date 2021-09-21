@@ -22,6 +22,9 @@
 - (void)alignVectorPointsToKey:(id)arg1;
 - (BOOL)canAlignToArtboardInstead;
 - (void)alignToKey:(id)arg1;
+- (id)alignmentPathsForAligningToKey:(id)arg1;
+- (void)showOverlaysForAligningLayersToKey:(id)arg1;
+- (void)showOverlaysForAligningLayers:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

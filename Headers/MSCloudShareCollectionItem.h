@@ -49,6 +49,9 @@
 - (void)setTitle:(id)arg1;
 - (id)title;
 @property(readonly, nonatomic) SCKCloudDocument *latestDocument;
+- (BOOL)isUploading;
+- (BOOL)hasProcessingError;
+- (BOOL)isProcessing;
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
 - (BOOL)supportsDeletion;

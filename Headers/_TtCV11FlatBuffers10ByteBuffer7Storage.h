@@ -6,8 +6,11 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtCC6Sketch21WorkspacesPopupButton11AvatarImage : _TtCs12_SwiftObject
+@interface _TtCV11FlatBuffers10ByteBuffer7Storage : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: unowned
+    // Error parsing type: , name: memory
+    // Error parsing type: , name: capacity
 }
 
 @end

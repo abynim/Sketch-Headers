@@ -4,9 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSImmutableForeignSymbol.h>
+@class NSView;
 
-@interface MSImmutableForeignSymbol (MSPatchOperationPrivate)
-- (id)adjustModelObjectIDForCollaboration:(id)arg1;
+@protocol MSMenuRequestDelegate
+- (void)menuRequestedForView:(NSView *)arg1;
 @end
 

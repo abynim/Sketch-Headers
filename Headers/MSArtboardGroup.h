@@ -62,6 +62,7 @@
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (id)defaultArtboardStyle;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (void)validateBoundsAfterPatching;
 
 // Remaining properties
 @property(retain, nonatomic) MSColor *backgroundColor;

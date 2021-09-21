@@ -6,15 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSDocumentController;
+@class MSDocumentController;
 
 @interface MSFontWatcher : NSObject
 {
-    NSDocumentController *_documentController;
+    MSDocumentController *_documentController;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSDocumentController *documentController; // @synthesize documentController=_documentController;
+@property(retain, nonatomic) MSDocumentController *documentController; // @synthesize documentController=_documentController;
 - (void)dealloc;
 - (void)coalescedInstalledFontsDidChange:(id)arg1;
 - (void)installedFontsChanged:(id)arg1;
