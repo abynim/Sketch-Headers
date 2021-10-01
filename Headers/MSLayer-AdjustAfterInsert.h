@@ -19,6 +19,7 @@
 - (id)duplicate;
 - (BOOL)shouldFlattenAfterRotate;
 - (Class)handlerClass;
+- (BOOL)handleDoubleClickExtendingSelection:(BOOL)arg1;
 - (BOOL)handleDoubleClick;
 - (id)inspectorSections;
 - (void)writeBitmapImageToFile:(id)arg1;

@@ -6,9 +6,11 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering11NullSurface : _TtCs12_SwiftObject
+@interface _TtC11SketchModelP33_FC98512FE328BC25E6D31264457D39F714LayerOverrides : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: info
+    // Error parsing type: , name: children
+    // Error parsing type: , name: layerID
+    // Error parsing type: , name: overrides
 }
 
 @end

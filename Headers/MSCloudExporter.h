@@ -35,11 +35,11 @@
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSURL *destinationURL; // @synthesize destinationURL=_destinationURL;
 - (id)cloudManifestMaker:(id)arg1 presentationFileMetadataForPage:(id)arg2;
-- (id)cloudManifestMaker:(id)arg1 fileMetadataForAncestry:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
+- (id)cloudManifestMaker:(id)arg1 fileMetadataForAncestry:(id)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4 withSize:(struct CGSize)arg5;
 - (id)metadataForPresentationFile:(id)arg1 exportingPage:(id)arg2;
 - (id)exportedImageMetadataForRequest:(id)arg1 manifestScale:(double)arg2;
 - (id)metadataForDocument:(id)arg1;
-- (BOOL)writeManifest:(id)arg1 withError:(id *)arg2;
+- (BOOL)writeJSON:(id)arg1 toFilename:(id)arg2 withError:(id *)arg3;
 - (id)createCloudManifestMakerExportingObjects:(id)arg1;
 - (BOOL)exportDocumentPreviews;
 - (id)exportPresentationFileForPage:(id)arg1 error:(id *)arg2;

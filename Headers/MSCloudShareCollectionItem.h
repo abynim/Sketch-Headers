@@ -55,6 +55,7 @@
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
 - (BOOL)supportsDeletion;
+- (void)dealloc;
 - (id)initWithCloudShare:(id)arg1 previewImage:(id)arg2;
 - (id)initWithCloudShare:(id)arg1;
 

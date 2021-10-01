@@ -20,6 +20,8 @@
     // Error parsing type: , name: subscriptionsController
     // Error parsing type: , name: $__lazy_storage_$_previewImageCache
     // Error parsing type: , name: provider
+    // Error parsing type: , name: gridView
+    // Error parsing type: , name: listView
     // Error parsing type: , name: shareToSelectAfterUpdateComplete
     // Error parsing type: , name: delegate
     // Error parsing type: , name: viewTypePreference

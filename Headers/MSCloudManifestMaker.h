@@ -18,7 +18,10 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *objectsToExport; // @synthesize objectsToExport=_objectsToExport;
 @property(nonatomic) __weak id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2;
+- (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2 withSize:(struct CGSize)arg3;
+- (id)encodedComponentValue:(id)arg1;
+- (void)addComponents:(id)arg1 to:(id)arg2 earlierSlugs:(id)arg3;
+- (id)createComponentsManifest;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (BOOL)shouldExportPage:(id)arg1;
 - (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;

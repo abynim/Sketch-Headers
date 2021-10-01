@@ -6,7 +6,7 @@
 
 #import <SketchModel/_MSImmutableOverrideValue.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSImmutableOverrideValue : _MSImmutableOverrideValue
 {
@@ -20,6 +20,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *path; // @synthesize path=_path;
 @property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
+@property(readonly, nonatomic) NSArray *pathComponents;
 - (id)description;
 - (id)nonEditingOverride;
 @property(readonly, nonatomic) BOOL isValid;

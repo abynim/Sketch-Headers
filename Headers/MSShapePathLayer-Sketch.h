@@ -13,7 +13,7 @@
 - (BOOL)shouldDrawSelection;
 - (BOOL)canSmartRotate;
 - (Class)handlerClass;
-- (BOOL)handleDoubleClick;
+- (BOOL)handleDoubleClickExtendingSelection:(BOOL)arg1;
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;

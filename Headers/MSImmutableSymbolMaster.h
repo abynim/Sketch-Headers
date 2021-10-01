@@ -34,6 +34,7 @@
 - (void)objectDidInit;
 - (void)migrationSetOverrideProperties:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;
+- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2;
 - (id)calculateAvailableOverridesWithDocument:(id)arg1;
 - (id)availableOverridesWithParent:(id)arg1 overrideValues:(id)arg2 overrideProperties:(id)arg3 inDocument:(id)arg4;
 - (id)overridePropertiesByCombiningParentsOverrideProperties:(id)arg1 fromParent:(id)arg2;

@@ -19,6 +19,7 @@
 - (void)addSubview:(id)arg1;
 - (void)setFrameWidth:(double)arg1;
 - (void)setFrameSize:(struct CGSize)arg1;
+- (void)viewWillDraw;
 - (void)updateLayer;
 - (void)resizeWithOldSuperviewSize:(struct CGSize)arg1;
 @property(nonatomic) BOOL selected;

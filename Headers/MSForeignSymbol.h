@@ -30,6 +30,7 @@
 - (void)setLocalObject:(id)arg1;
 - (id)localObject;
 - (id)symbolMaster;
+- (void)fireFaultIfNeeded;
 - (void)regenerateLocalMasterFromOriginal:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (id)initWithOriginalObject:(id)arg1 inLibrary:(id)arg2;

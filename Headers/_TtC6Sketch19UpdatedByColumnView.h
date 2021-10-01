@@ -11,8 +11,8 @@
     // Error parsing type: , name: tooltipTrackingArea
     // Error parsing type: , name: $__lazy_storage_$_popoverTooltip
     // Error parsing type: , name: presenceObservation
-    // Error parsing type: , name: nameViews
     // Error parsing type: , name: tooltipTimer
+    // Error parsing type: , name: editorsTextField
     // Error parsing type: , name: shouldShowEditingPopover
 }
 

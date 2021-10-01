@@ -9,6 +9,7 @@
 @interface _TtC14SketchCloudKit16PhoenixHeartbeat : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: socket
+    // Error parsing type: , name: dispatchQueue
 }
 
 @end

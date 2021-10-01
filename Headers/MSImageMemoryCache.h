@@ -14,9 +14,9 @@
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
-- (void)setImage:(id)arg1 forKey:(id)arg2 etag:(id)arg3;
-- (void)updateCacheDateForKey:(id)arg1;
-- (id)imageForKey:(id)arg1 etag:(id)arg2;
+- (void)setImage:(id)arg1 forKey:(id)arg2 size:(double)arg3 etag:(id)arg4;
+- (void)updateCacheDateForKey:(id)arg1 size:(double)arg2;
+- (id)imageForKey:(id)arg1 size:(double)arg2 etag:(id)arg3;
 
 @end
 

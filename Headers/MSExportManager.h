@@ -8,15 +8,16 @@
 
 @interface MSExportManager : NSObject
 {
-    // Error parsing type: , name: internalQueue
+    // Error parsing type: , name: internalSerialQueue
+    // Error parsing type: , name: internalConcurrentQueue
     // Error parsing type: , name: driver
 }
 
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
-- (void)exportWithRequests:(id)arg1 folder:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)exportWithRequest:(id)arg1 toUrl:(id)arg2 queue:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)exportWithRequests:(id)arg1 folder:(id)arg2 concurrent:(BOOL)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
+- (void)exportWithRequest:(id)arg1 toUrl:(id)arg2 concurrent:(BOOL)arg3 queue:(id)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)exportWithRequests:(id)arg1 queue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)dataForRequest:(id)arg1;
 

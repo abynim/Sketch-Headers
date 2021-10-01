@@ -6,16 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MSExportRequest, NSURL;
+@class MSExportRequest, NSString, NSURL;
 
 @interface MSFileExportReport : NSObject
 {
     // Error parsing type: , name: request
     // Error parsing type: , name: fileUrl
+    // Error parsing type: , name: filePath
 }
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, readonly) NSString *filePath;
 @property(nonatomic, readonly) NSURL *fileUrl;
 @property(nonatomic, readonly) MSExportRequest *request; // @synthesize request;
 

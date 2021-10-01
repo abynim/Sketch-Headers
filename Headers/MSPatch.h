@@ -30,6 +30,7 @@
 @property(readonly, nonatomic) long long patchModelVersion; // @synthesize patchModelVersion=_patchModelVersion;
 - (id)debugDescription;
 - (id)description;
+- (void)enumerateObjectLookupIDsWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSSet *addedObjectIDs;
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

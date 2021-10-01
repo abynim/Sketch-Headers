@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 @property(retain, nonatomic) NSArray *affectedLayers; // @synthesize affectedLayers=_affectedLayers;
 - (id)debugDescription;
+@property(readonly, nonatomic) NSArray *objectLookupIDs;
 - (long long)compare:(id)arg1;
 - (BOOL)hasTrait:(unsigned long long)arg1;
 - (unsigned long long)applyInsertionToRootObject:(id)arg1;

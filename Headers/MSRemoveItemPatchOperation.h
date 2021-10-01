@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) MSPatchArrayRemovePosition *position; // @synthesize position=_position;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
+- (id)objectLookupIDs;
 - (unsigned long long)traits;
 - (id)removalPosition;
 - (unsigned long long)applyRemovalToRootObject:(id)arg1;

@@ -8,9 +8,11 @@
 
 @interface _TtC15SketchRendering14MarinaRenderer : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: configuration
     // Error parsing type: , name: node
     // Error parsing type: , name: _currentDestination
     // Error parsing type: , name: shadowMode
+    // Error parsing type: , name: transparencyGroups
     // Error parsing type: , name: compositingSettings
     // Error parsing type: , name: hasSaved
 }

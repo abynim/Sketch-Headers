@@ -11,11 +11,13 @@
     struct CGPoint _location;
     BOOL _isDrag;
     unsigned long long _buttonMask;
+    unsigned long long _modifiers;
     long long _numberOfClicksRequired;
 }
 
 @property(nonatomic) BOOL isDrag; // @synthesize isDrag=_isDrag;
 @property(nonatomic) long long numberOfClicksRequired; // @synthesize numberOfClicksRequired=_numberOfClicksRequired;
+@property(nonatomic) unsigned long long modifiers; // @synthesize modifiers=_modifiers;
 @property(nonatomic) unsigned long long buttonMask; // @synthesize buttonMask=_buttonMask;
 - (BOOL)shouldRecognizeMouseUpEvent:(id)arg1;
 - (void)mouseUp:(id)arg1 location:(struct CGPoint)arg2;

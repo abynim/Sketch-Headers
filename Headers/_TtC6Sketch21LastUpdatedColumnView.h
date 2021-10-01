@@ -8,6 +8,7 @@
 
 @interface _TtC6Sketch21LastUpdatedColumnView : _TtC6Sketch18ListViewColumnView
 {
+    // Error parsing type: , name: presenceObservation
 }
 
 - (void).cxx_destruct;

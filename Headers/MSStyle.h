@@ -61,6 +61,8 @@
 - (id)addStylePartOfType:(unsigned long long)arg1;
 - (id)stylePartsOfType:(unsigned long long)arg1;
 - (id)affectedLayerForPatching;
+- (void)prepareForExportingWithImageSize:(struct CGSize)arg1 previewSize:(struct CGSize)arg2;
+- (id)shapeForExportWithSize:(struct CGSize)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

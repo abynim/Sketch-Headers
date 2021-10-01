@@ -37,6 +37,11 @@
 - (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
 - (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 - (BOOL)containsSelectedItem;
+- (BOOL)layerCanBeSelected:(id)arg1;
+- (unsigned long long)numberOfSelectableLayers;
+- (id)lastSelectableLayer;
+- (id)firstSelectableLayer;
+- (id)nextSelectableAfterIndex:(unsigned long long)arg1 searchForward:(BOOL)arg2;
 - (void)deselectLayerAndParent;
 - (BOOL)isExpanded;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;

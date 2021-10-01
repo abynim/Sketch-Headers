@@ -26,7 +26,6 @@
 @property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) struct CGSize dimensions; // @synthesize dimensions=_dimensions;
 - (id)dictionaryRepresentation;
-- (id)thumbnailConstrainedToSize:(struct CGSize)arg1;
 - (id)initWithDictionary:(id)arg1;
 
 @end

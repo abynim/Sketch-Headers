@@ -73,7 +73,7 @@
 - (void)resetAllPluginMetadataToBeDisabled;
 - (BOOL)contentsSameForSmallTextFiles:(id)arg1 file2:(id)arg2;
 - (id)pluginsDisabledListRemotePath;
-- (void)downloadRemotePluginsBlacklist;
+- (void)downloadRemotePluginsBlocklist;
 - (BOOL)isPluginUpdateDownloadedWithIdentifier:(id)arg1 version:(id)arg2;
 - (BOOL)installPluginWithIdentifier:(id)arg1 version:(id)arg2 error:(id *)arg3;
 - (void)downloadAndInstallPluginWithIdentifier:(id)arg1 version:(id)arg2 downloadCompletionHandler:(CDUnknownBlockType)arg3;

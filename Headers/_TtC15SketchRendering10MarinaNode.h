@@ -15,7 +15,9 @@
     // Error parsing type: , name: anchorPoint
     // Error parsing type: , name: transform
     // Error parsing type: , name: contents
-    // Error parsing type: , name: masks
+    // Error parsing type: , name: contentsDrawingMode
+    // Error parsing type: , name: clipMode
+    // Error parsing type: , name: alphaMask
     // Error parsing type: , name: shape
     // Error parsing type: , name: _path
     // Error parsing type: , name: fillRule

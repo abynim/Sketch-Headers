@@ -21,6 +21,7 @@
 - (struct CGSize)pixelSize;
 - (BOOL)isImageSizeLargerThan:(struct CGSize)arg1;
 - (id)imageWithPadding:(unsigned long long)arg1;
+- (void)addBitmapImageRepresentationAtScale:(double)arg1;
 - (BOOL)isVectorImage;
 - (id)firstVectorRepresentation;
 - (void)drawInRect:(struct CGRect)arg1 fromRect:(struct CGRect)arg2 fraction:(double)arg3 respectFlipped:(BOOL)arg4 colorSpace:(id)arg5;

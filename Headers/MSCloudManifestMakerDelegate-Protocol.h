@@ -10,6 +10,6 @@
 
 @protocol MSCloudManifestMakerDelegate <NSObject>
 - (NSDictionary *)cloudManifestMaker:(MSCloudManifestMaker *)arg1 presentationFileMetadataForPage:(MSImmutablePage *)arg2;
-- (NSDictionary *)cloudManifestMaker:(MSCloudManifestMaker *)arg1 fileMetadataForAncestry:(_TtC11SketchModel24MSImmutableLayerAncestry *)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4;
+- (NSDictionary *)cloudManifestMaker:(MSCloudManifestMaker *)arg1 fileMetadataForAncestry:(_TtC11SketchModel24MSImmutableLayerAncestry *)arg2 layerBehavior:(unsigned long long)arg3 atScale:(double)arg4 withSize:(struct CGSize)arg5;
 @end
 

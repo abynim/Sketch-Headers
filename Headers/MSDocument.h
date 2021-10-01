@@ -71,6 +71,7 @@
     MSArtboardGroup *_focusedArtboard;
     id _assistantsObserverObject;
     id _componentsObserverObject;
+    NSTimer *_cacheFlushTimer;
 }
 
 + (id)localObjectForObjectReference:(id)arg1 documentData:(id)arg2 isForeign:(BOOL)arg3;
@@ -83,6 +84,7 @@
 + (id)readableTypes;
 + (BOOL)autosavesInPlace;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSTimer *cacheFlushTimer; // @synthesize cacheFlushTimer=_cacheFlushTimer;
 @property(nonatomic) BOOL isAssistantsFirstRun; // @synthesize isAssistantsFirstRun=_isAssistantsFirstRun;
 @property(readonly, nonatomic) id componentsObserverObject; // @synthesize componentsObserverObject=_componentsObserverObject;
 @property(readonly, nonatomic) id assistantsObserverObject; // @synthesize assistantsObserverObject=_assistantsObserverObject;
@@ -216,7 +218,9 @@
 - (void)updateChangeCount:(unsigned long long)arg1;
 - (void)updateSelectionFollowingChangeToImmutableDocumentData;
 - (void)reloadEverythingFollowingDocumentDataChange;
+- (void)flushCaches;
 - (void)flushCachesIfNecessary;
+- (void)scheduleCacheFlush;
 - (void)zoomValueDidChange;
 - (struct CGRect)visibleCanvasRectForDocumentData:(id)arg1;
 - (void)performPageSwitchUpdates;

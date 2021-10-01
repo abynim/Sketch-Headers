@@ -6,9 +6,7 @@
 
 #import "_TtC6Sketch23MSAccountViewController.h"
 
-#import "SCKAPIAuthenticationSSODelegate-Protocol.h"
-
-@interface _TtC6Sketch23MSAccountViewController (Sketch) <SCKAPIAuthenticationSSODelegate>
+@interface _TtC6Sketch23MSAccountViewController (Sketch)
 - (id)tableView:(id)arg1 objectValueForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 isGroupRow:(long long)arg2;

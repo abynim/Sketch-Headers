@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: startSpaceToolbarItem
     // Error parsing type: , name: newDocumentToolbarItem
+    // Error parsing type: , name: windowNameToolbarItem
     // Error parsing type: , name: searchFieldToolbarItem
     // Error parsing type: , name: changeViewToolbarItem
     // Error parsing type: , name: sourcesViewController
