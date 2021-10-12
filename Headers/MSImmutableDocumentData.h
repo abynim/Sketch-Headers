@@ -28,6 +28,7 @@
     NSDictionary *_metadata;
     NSData *_textPreviewData;
     NSArray *_selectedOverrides;
+    unsigned long long _estimatedCollaborationObjectCacheSize;
     NSDictionary *_symbolsIndexedByID;
     NSDictionary *_layerStylesIndexedByID;
     NSDictionary *_textStylesIndexedByID;
@@ -47,6 +48,7 @@
 @property(retain, nonatomic) NSDictionary *textStylesIndexedByID; // @synthesize textStylesIndexedByID=_textStylesIndexedByID;
 @property(retain, nonatomic) NSDictionary *layerStylesIndexedByID; // @synthesize layerStylesIndexedByID=_layerStylesIndexedByID;
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
+@property(readonly, nonatomic) unsigned long long estimatedCollaborationObjectCacheSize; // @synthesize estimatedCollaborationObjectCacheSize=_estimatedCollaborationObjectCacheSize;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;

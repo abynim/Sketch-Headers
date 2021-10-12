@@ -10,6 +10,8 @@
 @protocol MSDropableViewDelegate;
 
 @interface NSView (Chocolat)
+- (void)sendSubviewToBack:(id)arg1;
+- (void)bringSubviewToFront:(id)arg1;
 - (void)applyApplicationAppearanceIfNeeded;
 - (void)applyConstraints:(CDUnknownBlockType)arg1;
 - (void)addFillingSubview:(id)arg1;

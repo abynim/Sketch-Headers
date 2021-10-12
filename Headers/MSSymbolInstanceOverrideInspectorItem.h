@@ -17,7 +17,6 @@
 {
     NSControl *_labelView;
     NSButton *_navigateToMasterButton;
-    NSButton *_navigateToInstanceButton;
     MSSymbolMaster *_originalMaster;
     MSInspectorPopoverButton *_popoverButton;
     MSInspectorPopUpButton *_popupButton;
@@ -35,7 +34,6 @@
 @property(retain, nonatomic) MSInspectorPopUpButton *popupButton; // @synthesize popupButton=_popupButton;
 @property(retain, nonatomic) MSInspectorPopoverButton *popoverButton; // @synthesize popoverButton=_popoverButton;
 @property(readonly, nonatomic) MSSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
-@property(retain, nonatomic) NSButton *navigateToInstanceButton; // @synthesize navigateToInstanceButton=_navigateToInstanceButton;
 @property(retain, nonatomic) NSButton *navigateToMasterButton; // @synthesize navigateToMasterButton=_navigateToMasterButton;
 @property(retain, nonatomic) NSControl *labelView; // @synthesize labelView=_labelView;
 - (void)restoreWithState_ms:(id)arg1;
@@ -47,7 +45,6 @@
 - (void)showPopover;
 - (void)togglePopover;
 - (void)colorChanged:(id)arg1;
-- (void)selectOverride:(id)arg1;
 - (void)navigateToOverridesMaster:(id)arg1;
 - (void)viewWillDisappear;
 - (void)viewWillAppear;

@@ -6,10 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering10PaintStack : _TtCs12_SwiftObject
+@interface _TtCC13SharedEditing16PresenceObserver21PresenceObserverCache : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: configuration
-    // Error parsing type: , name: states
+    // Error parsing type: , name: timer
+    // Error parsing type: , name: cache
 }
 
 @end

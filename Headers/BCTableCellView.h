@@ -13,6 +13,7 @@
 
 @interface BCTableCellView : NSTableCellView <NSMenuDelegate>
 {
+    BOOL _isPreviewImageLoaded;
     BOOL _lastUpdatedTextWasEditing;
     BOOL _isShowingImages;
     MSLayoutConstraintCache *_constraintCache;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) id <BCOutlineViewPopupConfigurator> badgeConfigurator; // @synthesize badgeConfigurator=_badgeConfigurator;
 @property(nonatomic) __weak NSPopUpButton *booleanOpPopUpButton; // @synthesize booleanOpPopUpButton=_booleanOpPopUpButton;
 @property(nonatomic) __weak NSButton *lockHideButton; // @synthesize lockHideButton=_lockHideButton;
+@property(nonatomic) BOOL isPreviewImageLoaded; // @synthesize isPreviewImageLoaded=_isPreviewImageLoaded;
 @property(nonatomic) unsigned long long displayState; // @synthesize displayState=_displayState;
 @property(nonatomic) __weak id <BCTableCellViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)cancelOperation:(id)arg1;

@@ -25,19 +25,23 @@
     NSDictionary *_metadata;
     NSData *_textPreviewData;
     NSData *_textPreviewMetadata;
+    unsigned long long _estimatedCollaborationObjectCacheSize;
     MSFontList *_fontList;
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
     MSModelObjectCache *_childCollaborationObjectsCache;
+    NSArray *_previousSymbolMasterState;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *previousSymbolMasterState; // @synthesize previousSymbolMasterState=_previousSymbolMasterState;
 @property(retain, nonatomic) MSModelObjectCache *childCollaborationObjectsCache; // @synthesize childCollaborationObjectsCache=_childCollaborationObjectsCache;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
+@property(nonatomic) unsigned long long estimatedCollaborationObjectCacheSize; // @synthesize estimatedCollaborationObjectCacheSize=_estimatedCollaborationObjectCacheSize;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
@@ -48,6 +52,9 @@
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
 - (id)cacheForSubtreeObjects;
 - (id)childCollaborationObjectWithID:(id)arg1;
+- (void)invalidateCollaborationCache;
+- (void)prepareCacheBeforeApplyingPatches:(id)arg1;
+- (void)populateCollaborationCache;
 - (void)setData:(id)arg1 forWorkspaceItemNamed:(id)arg2;
 - (id)workspaceItemNamed:(id)arg1;
 @property(readonly, nonatomic) MSJSONSchema *metadataConfiguration; // @synthesize metadataConfiguration=_metadataConfiguration;
@@ -88,6 +95,7 @@
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
 - (void)enumerateNonNestedSymbolInstancesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)invalidateAffectedSymbolInstances;
+- (void)clearCachedSymbolMasters;
 - (void)addSymbolMaster:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;

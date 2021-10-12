@@ -18,11 +18,10 @@
     MSMathInspectorValueAdaptor *_maxAdaptor;
     NSString *_titleFieldTitle;
     NSArray *_keyPaths;
-    NSArray *_groupLayouts;
 }
 
++ (id)keyPathsForValuesAffectingGroupLayouts;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSArray *groupLayouts; // @synthesize groupLayouts=_groupLayouts;
 @property(copy, nonatomic) NSArray *keyPaths; // @synthesize keyPaths=_keyPaths;
 @property(copy, nonatomic) NSString *titleFieldTitle; // @synthesize titleFieldTitle=_titleFieldTitle;
 @property(retain, nonatomic) MSMathInspectorValueAdaptor *maxAdaptor; // @synthesize maxAdaptor=_maxAdaptor;
@@ -31,9 +30,10 @@
 @property(nonatomic) __weak MSInlineUpDownTextField *minField; // @synthesize minField=_minField;
 @property(nonatomic) __weak NSTextField *titleField; // @synthesize titleField=_titleField;
 @property(retain, nonatomic) NSArrayController *arrayController; // @synthesize arrayController=_arrayController;
-- (void)refreshAction:(id)arg1;
+- (void)refreshIfNecessary:(id)arg1;
+- (void)notifyGroupLayoutsDidChange;
 - (void)viewDidLoad;
-- (void)setLayers:(id)arg1;
+@property(readonly, nonatomic) NSArray *groupLayouts;
 - (id)initWithTitle:(id)arg1 keyPaths:(id)arg2;
 
 @end

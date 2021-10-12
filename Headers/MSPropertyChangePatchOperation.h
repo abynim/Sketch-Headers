@@ -21,6 +21,7 @@
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
+- (id)objectLookupIDs;
 - (unsigned long long)traits;
 - (unsigned long long)applyPropertyChangeToRootObject:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;

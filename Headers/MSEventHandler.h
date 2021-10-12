@@ -72,6 +72,7 @@
 - (void)configureInspector:(id)arg1;
 - (void)willResignFirstResponder;
 - (void)handleSymbolInstanceDoubleClick:(id)arg1;
+- (void)editLayer:(id)arg1 extendSelection:(BOOL)arg2;
 - (void)editLayer:(id)arg1;
 - (void)mouseExited;
 - (void)insertBacktab:(id)arg1;
@@ -147,6 +148,7 @@
 @property(readonly, nonatomic) NSString *applicableActionItemIdentifier;
 @property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
+- (void)deselectAll:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;

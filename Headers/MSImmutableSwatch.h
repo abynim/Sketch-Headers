@@ -17,6 +17,7 @@
 
 @property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) MSImmutableColor *color;
+- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

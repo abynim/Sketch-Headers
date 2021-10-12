@@ -8,8 +8,10 @@
 
 @interface _TtC6Sketch18ListViewController : _TtC6Sketch21ContentViewController
 {
+    // Error parsing type: , name: projectColumn
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)doubleClick:(id)arg1;
 - (void)viewDidAppear;

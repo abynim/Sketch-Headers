@@ -9,14 +9,18 @@
 @interface MSModelObjectCache : NSObject
 {
     // Error parsing type: , name: store
+    // Error parsing type: , name: isFullyPopulated
 }
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic) BOOL isFullyPopulated; // @synthesize isFullyPopulated;
+@property(nonatomic, readonly) long long count;
 - (id)objectForKey:(id)arg1 withAncestor:(id)arg2;
 - (void)removeObjectForKey:(id)arg1;
 - (void)registerObject:(id)arg1;
 - (void)registerObject:(id)arg1 forID:(id)arg2;
+- (id)initWithCapacity:(long long)arg1;
 
 @end
 

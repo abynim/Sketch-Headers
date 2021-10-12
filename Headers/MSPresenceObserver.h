@@ -10,13 +10,17 @@
 {
     // Error parsing type: , name: service
     // Error parsing type: , name: share
-    // Error parsing type: , name: delegate
+    // Error parsing type: , name: delegates
+    // Error parsing type: , name: latestResult
 }
 
++ (id)cachedPresenceObserverForShare:(id)arg1 environment:(id)arg2;
 - (void).cxx_destruct;
 - (id)init;
+- (void)removeDelegate:(id)arg1;
+- (void)appendDelegate:(id)arg1;
 - (void)dealloc;
-- (id)initWithShare:(id)arg1 environment:(id)arg2 delegate:(id)arg3;
+- (id)initWithShare:(id)arg1 environment:(id)arg2;
 
 @end
 

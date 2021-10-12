@@ -6,13 +6,23 @@
 
 #import <SketchModel/_MSImmutableOverrideProperty.h>
 
+@class NSArray, NSString;
+
 @interface MSImmutableOverrideProperty : _MSImmutableOverrideProperty
 {
+    NSString *_attributeName;
+    NSArray *_pathComponents;
     unsigned long long _displayOrder;
 }
 
+- (void).cxx_destruct;
 @property(nonatomic) unsigned long long displayOrder; // @synthesize displayOrder=_displayOrder;
+@property(readonly, nonatomic) NSArray *pathComponents; // @synthesize pathComponents=_pathComponents;
+@property(readonly, nonatomic) NSString *attributeName; // @synthesize attributeName=_attributeName;
+- (void)calculateAttributeNameAndPath;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+- (void)decodePropertiesWithUnarchiver:(id)arg1;
+- (void)performInitWithMutableModelObject:(id)arg1;
 
 @end
 

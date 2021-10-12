@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+@property(nonatomic) long long backgroundStyle;
 - (void)prepareForReuse;
 - (void)updateConstraints;
 @property(nonatomic, copy) id objectValue;

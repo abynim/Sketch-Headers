@@ -8,7 +8,7 @@
 
 #import <SketchRendering/NSCopying-Protocol.h>
 
-@class MSImmutableColor, MSImmutableDocumentData, MSImmutableLayer, NSSet, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
+@class MSImmutableColor, MSImmutableDocumentData, MSImmutableExportFormat, MSImmutableLayer, NSSet, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
 
 @interface MSExportRequest : NSObject <NSCopying>
 {
@@ -19,12 +19,14 @@
     BOOL _drawAsynchronously;
     BOOL _includeArtboardBackground;
     BOOL _renderSymbolMasterAsInstances;
+    NSString *_baseName;
     NSString *_name;
     unsigned long long _options;
     NSSet *_includedLayerIDs;
     double _scale;
     MSImmutableColor *_exportBackgroundColor;
     _TtC11SketchModel24MSImmutableLayerAncestry *_layerAncestry;
+    MSImmutableExportFormat *_exportFormat;
     NSString *_format;
     double _compression;
     struct CGRect _rect;
@@ -36,6 +38,7 @@
 + (id)exportRequestsFromLayerAncestry:(id)arg1 exportFormats:(id)arg2;
 + (id)exportRequestsFromLayerAncestry:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)exportRequestsFromLayerAncestry:(id)arg1;
++ (id)exportRequestsFromLayers:(id)arg1;
 + (id)exportRequestFromExportFormat:(id)arg1 layer:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 inRect:(struct CGRect)arg2 useIDForName:(BOOL)arg3;
@@ -51,6 +54,7 @@
 @property(nonatomic) double compression; // @synthesize compression=_compression;
 @property(nonatomic) BOOL saveForWeb; // @synthesize saveForWeb=_saveForWeb;
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
+@property(retain, nonatomic) MSImmutableExportFormat *exportFormat; // @synthesize exportFormat=_exportFormat;
 @property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *layerAncestry; // @synthesize layerAncestry=_layerAncestry;
 @property(copy, nonatomic) MSImmutableColor *exportBackgroundColor; // @synthesize exportBackgroundColor=_exportBackgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
@@ -58,6 +62,7 @@
 @property(copy, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(copy, nonatomic) NSString *baseName; // @synthesize baseName=_baseName;
 @property(nonatomic) struct CGRect rect; // @synthesize rect=_rect;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly, nonatomic) MSImmutableDocumentData *immutableDocument;

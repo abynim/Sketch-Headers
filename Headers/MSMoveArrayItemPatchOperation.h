@@ -22,6 +22,7 @@
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
 - (unsigned long long)traits;
+- (id)objectLookupIDs;
 - (id)removalPosition;
 - (id)insertionPosition;
 - (unsigned long long)applyInsertionToRootObject:(id)arg1;

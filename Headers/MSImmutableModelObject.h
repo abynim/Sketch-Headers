@@ -54,6 +54,7 @@
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 @property(readonly, nonatomic) NSArray *sharedObjectIdentifiers;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
+- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

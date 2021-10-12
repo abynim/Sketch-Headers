@@ -12,7 +12,6 @@
 
 @interface MSSymbolMaster : _MSSymbolMaster <BCSortable>
 {
-    BOOL _isDirty;
     NSDictionary *_overridePropertyDict;
 }
 
@@ -20,7 +19,6 @@
 + (id)convertSymbolToArtboard:(id)arg1;
 + (id)convertArtboardToSymbol:(id)arg1;
 - (void).cxx_destruct;
-@property(nonatomic) BOOL isDirty; // @synthesize isDirty=_isDirty;
 - (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)shouldRoundCoordinates;
 - (void)updateOverridesWithObjectIDMap:(id)arg1;
@@ -53,7 +51,6 @@
 - (void)moveChildrenToIdenticalPositionAfterResizeFromRect:(struct CGRect)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;
 - (void)invalidateModifiedSymbolCache;
-- (void)invalidateModelCacheGeneration;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (BOOL)overridePropertiesMatch:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (void)applyOverrides:(id)arg1 withContext:(id)arg2;

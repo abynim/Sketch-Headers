@@ -10,7 +10,7 @@
 - (BOOL)shouldDrawSelectionStroke;
 - (BOOL)canSmartRotate;
 - (Class)handlerClass;
-- (BOOL)handleDoubleClick;
+- (BOOL)handleDoubleClickExtendingSelection:(BOOL)arg1;
 - (id)inspectorSections;
 @end
 

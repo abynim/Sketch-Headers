@@ -72,8 +72,6 @@
 - (void)currentPageDidChange;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)cut:(id)arg1;
-- (BOOL)layerCanBeSelected:(id)arg1;
-- (unsigned long long)numberOfSelectableLayers:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
 - (void)tabInForwardDirection:(BOOL)arg1;
@@ -85,6 +83,7 @@
 @property(readonly, nonatomic) NSMenu *menuForLayerList;
 - (id)menuForCanvas;
 - (void)dragToSelect:(id)arg1;
+- (void)deselectAll:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)setUndoActionName:(id)arg1;
@@ -125,6 +124,7 @@
 - (void)mouseExited;
 - (void)selectLayer:(id)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (void)handleDoubleClickInGroupLayer:(id)arg1 location:(struct CGPoint)arg2 extendSelection:(BOOL)arg3;
 - (void)layerDoubleClicked:(id)arg1;
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;

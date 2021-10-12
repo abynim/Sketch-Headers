@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) MSImmutableModelObject *insertedObject; // @synthesize insertedObject=_insertedObject;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
+- (id)objectLookupIDs;
 - (unsigned long long)traits;
 - (id)insertionPosition;
 - (unsigned long long)applyInsertionToRootObject:(id)arg1;
