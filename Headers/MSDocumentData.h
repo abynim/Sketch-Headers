@@ -30,11 +30,13 @@
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
     MSModelObjectCache *_childCollaborationObjectsCache;
+    NSArray *_previousSymbolMasterState;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *previousSymbolMasterState; // @synthesize previousSymbolMasterState=_previousSymbolMasterState;
 @property(retain, nonatomic) MSModelObjectCache *childCollaborationObjectsCache; // @synthesize childCollaborationObjectsCache=_childCollaborationObjectsCache;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
@@ -93,6 +95,7 @@
 - (id)symbolInstancesNestedInsideMasters:(id)arg1;
 - (void)enumerateNonNestedSymbolInstancesUsingBlock:(CDUnknownBlockType)arg1;
 - (void)invalidateAffectedSymbolInstances;
+- (void)clearCachedSymbolMasters;
 - (void)addSymbolMaster:(id)arg1;
 - (id)symbolWithID:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *symbolMap; // @synthesize symbolMap=_symbolMap;

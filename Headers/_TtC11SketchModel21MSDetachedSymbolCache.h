@@ -18,9 +18,11 @@
 - (void).cxx_destruct;
 - (id)init;
 - (void)clearCachesNotOwnedByDocument:(id)arg1;
+- (void)clearCacheForOwner:(id)arg1;
 - (id)detachedGroupForSymbol:(id)arg1 andKey:(id)arg2 orCreateWith:(CDUnknownBlockType)arg3;
 @property(nonatomic, readonly) BCCache *textLayerCache; // @synthesize textLayerCache;
 @property(nonatomic, readonly) BCCache *optimalBoundsCache; // @synthesize optimalBoundsCache;
+@property(nonatomic, readonly) BCCache *cache; // @synthesize cache;
 
 @end
 

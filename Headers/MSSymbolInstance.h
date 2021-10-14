@@ -15,7 +15,7 @@
 
 - (void).cxx_destruct;
 - (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
-- (BOOL)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
+- (void)invalidateIfAffectedBySymbolMastersIn:(id)arg1;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
 - (void)removeShareableObjectsFromOverrides:(id)arg1;
 - (void)applyOverrides:(id)arg1 withContext:(id)arg2;

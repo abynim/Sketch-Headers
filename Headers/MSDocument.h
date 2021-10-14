@@ -211,7 +211,6 @@
 - (void)menuWillOpen:(id)arg1;
 - (void)menuNeedsUpdate:(id)arg1;
 - (void)refreshWindowBadgeIfNecessary:(id)arg1;
-- (void)changeToImmutableDocumentData:(id)arg1;
 @property(readonly, nonatomic) MSHistoryMaker *historyMaker;
 - (id)changeCountTokenForSaveOperation:(unsigned long long)arg1;
 - (void)updateChangeCountWithToken:(id)arg1 forSaveOperation:(unsigned long long)arg2;
