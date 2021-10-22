@@ -79,7 +79,6 @@
 - (void)layerListSelectionDidChange:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
-- (void)selectBestEditPoint;
 - (void)dealloc;
 - (id)initWithManager:(id)arg1;
 - (BOOL)requiresMSStyleInspectorSectionReload;

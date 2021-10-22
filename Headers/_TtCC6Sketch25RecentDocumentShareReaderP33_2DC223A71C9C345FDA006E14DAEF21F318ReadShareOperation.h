@@ -4,12 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSLayerRenderer.h>
+#import <Foundation/NSBlockOperation.h>
 
-@interface MSShapeRenderer : MSLayerRenderer
+@interface _TtCC6Sketch25RecentDocumentShareReaderP33_2DC223A71C9C345FDA006E14DAEF21F318ReadShareOperation : NSBlockOperation
 {
-    // Error parsing type: , name: decoratedPathCacheKey
-    // Error parsing type: , name: pathMinimumSizeErrorMargin
+    // Error parsing type: , name: url
 }
 
 - (void).cxx_destruct;

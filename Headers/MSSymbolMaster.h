@@ -26,6 +26,7 @@
 - (void)syncOverrideProperties;
 - (void)setOverridePoint:(id)arg1 editable:(BOOL)arg2;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
+- (id)overridePropertyForOverrideName:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
 - (BOOL)limitsSelectionToBounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -61,7 +62,7 @@
 - (void)applyResizeToRect:(struct CGRect)arg1 preferNaturalSizeOnAxes:(unsigned long long)arg2;
 - (void)applyScale:(double)arg1;
 - (void)applyOverridesRespectingLayout:(id)arg1 withContext:(id)arg2;
-- (BOOL)hasInferredLayouts;
+@property(readonly, nonatomic) BOOL hasInferredLayouts;
 - (void)applyOverrides:(id)arg1 rect:(struct CGRect)arg2 resizeToNaturalSizeOnAxes:(unsigned long long)arg3 withContext:(id)arg4;
 
 // Remaining properties

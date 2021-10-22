@@ -4,7 +4,7 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSImage, NSString;
+@class NSAttributedString, NSImage, NSString;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @protocol _TtP6Sketch27MSRegistrationWindowContent_
@@ -15,7 +15,7 @@
 @property(nonatomic) BOOL allowCancellation;
 @property(nonatomic, readonly) NSImage *headerImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
-@property(nonatomic, readonly) NSString *headerDescription;
-@property(nonatomic, readonly) NSString *headerTitle;
+@property(nonatomic, readonly) NSAttributedString *headerDescription;
+@property(nonatomic, readonly) NSAttributedString *headerTitle;
 @end
 

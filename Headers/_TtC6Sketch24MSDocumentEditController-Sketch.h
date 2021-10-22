@@ -14,7 +14,6 @@
 - (void)historyMaker:(id)arg1 recordedChange:(id)arg2;
 - (void)historyMakerDidProgressHistory:(id)arg1;
 - (void)historyMakerDidRevertHistory:(id)arg1;
-- (void)historyMakerDidCommitPrivateUpdate:(id)arg1;
 - (void)historyMakerDidCommitHistory:(id)arg1;
 - (void)historyMakerWillCommitHistory:(id)arg1;
 - (void)historyMakerDidCreateHistory:(id)arg1;

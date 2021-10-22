@@ -13,8 +13,8 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) double thickness; // @synthesize thickness=_thickness;
-@property(nonatomic) long long position; // @synthesize position=_position;
+@property(readonly, nonatomic) double thickness; // @synthesize thickness=_thickness;
+@property(readonly, nonatomic) long long position; // @synthesize position=_position;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

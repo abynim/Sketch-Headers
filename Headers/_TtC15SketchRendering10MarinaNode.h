@@ -50,7 +50,6 @@
 }
 
 - (id)debugQuickLookObject;
-@property(nonatomic, readonly) BOOL canReuse;
 
 @end
 

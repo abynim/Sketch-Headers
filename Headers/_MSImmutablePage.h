@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
-@property(retain, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
-@property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
-@property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
+@property(readonly, nonatomic) MSImmutableRulerData *verticalRulerData; // @synthesize verticalRulerData=_verticalRulerData;
+@property(readonly, nonatomic) MSImmutableLayoutGrid *layout; // @synthesize layout=_layout;
+@property(readonly, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
+@property(readonly, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

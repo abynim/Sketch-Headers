@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSOverrideStack : NSObject
 {
@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 - (id)init;
 @property(nonatomic, readonly) NSString *debugDescription;
+@property(nonatomic, readonly) NSArray *currentOverrides;
 - (void)filter:(id)arg1;
 - (void)mergeInheritedOverridesFrom:(id)arg1;
 - (id)overridesForLayerID:(id)arg1;

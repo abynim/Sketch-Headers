@@ -35,23 +35,21 @@
 @property(nonatomic) __weak NSBox *noFontsView; // @synthesize noFontsView=_noFontsView;
 @property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
 - (void)openAppleFontsWebsite:(id)arg1;
-- (void)confirm:(id)arg1;
-- (void)cancel:(id)arg1;
 - (void)showContextHelp:(id)arg1;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
-- (void)applyPendingFontChanges;
 - (void)setEmbedded:(BOOL)arg1 forDocumentFont:(id)arg2;
 - (void)setShouldEmbed:(BOOL)arg1 forFontAtRow:(long long)arg2;
 - (void)replaceFontAtRow:(long long)arg1 withFont:(id)arg2;
 - (void)beginReplaceActionForRow:(long long)arg1 button:(id)arg2;
 - (BOOL)hasMissingAppleFonts:(id)arg1;
 - (void)updateFonts;
-- (void)systemFontsChanged:(id)arg1;
 - (void)prepareForSegue:(id)arg1 sender:(id)arg2;
 - (void)preferencePaneWillClose:(id)arg1;
 - (void)viewDidLoad;
+- (void)viewWillDisappear;
+- (void)viewWillAppear;
 - (void)dealloc;
 
 // Remaining properties

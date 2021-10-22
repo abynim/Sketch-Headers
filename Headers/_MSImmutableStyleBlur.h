@@ -17,11 +17,11 @@
 
 + (Class)mutableClass;
 + (BOOL)isEnabledByDefault;
-@property(nonatomic) unsigned long long type; // @synthesize type=_type;
-@property(nonatomic) double saturation; // @synthesize saturation=_saturation;
-@property(nonatomic) double radius; // @synthesize radius=_radius;
-@property(nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
-@property(nonatomic) struct CGPoint center; // @synthesize center=_center;
+@property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
+@property(readonly, nonatomic) double saturation; // @synthesize saturation=_saturation;
+@property(readonly, nonatomic) double radius; // @synthesize radius=_radius;
+@property(readonly, nonatomic) double motionAngle; // @synthesize motionAngle=_motionAngle;
+@property(readonly, nonatomic) struct CGPoint center; // @synthesize center=_center;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

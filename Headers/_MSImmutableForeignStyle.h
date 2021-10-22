@@ -16,8 +16,8 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableSharedStyle *localSharedStyle; // @synthesize localSharedStyle=_localSharedStyle;
-@property(retain, nonatomic) NSString *remoteStyleID; // @synthesize remoteStyleID=_remoteStyleID;
+@property(readonly, nonatomic) MSImmutableSharedStyle *localSharedStyle; // @synthesize localSharedStyle=_localSharedStyle;
+@property(readonly, nonatomic) NSString *remoteStyleID; // @synthesize remoteStyleID=_remoteStyleID;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

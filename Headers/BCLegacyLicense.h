@@ -14,20 +14,20 @@
 @interface BCLegacyLicense : NSObject <BCLicenseOperationResult, BCLicense>
 {
     NSString *_applicationID;
+    long long _signatureStatus;
     NSDictionary *_payload;
     NSDictionary *_metadata;
     NSString *_publicCertificate;
-    long long _signatureStatus;
     BCNetworkTime *_networkTime;
 }
 
 + (long long)provider;
 - (void).cxx_destruct;
 @property(retain, nonatomic) BCNetworkTime *networkTime; // @synthesize networkTime=_networkTime;
-@property(nonatomic) long long signatureStatus; // @synthesize signatureStatus=_signatureStatus;
 @property(retain, nonatomic) NSString *publicCertificate; // @synthesize publicCertificate=_publicCertificate;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) NSDictionary *payload; // @synthesize payload=_payload;
+@property(nonatomic) long long signatureStatus; // @synthesize signatureStatus=_signatureStatus;
 @property(retain, nonatomic) NSString *applicationID; // @synthesize applicationID=_applicationID;
 @property(readonly, nonatomic) BOOL hasCloudPrivileges;
 @property(readonly, nonatomic) BOOL updatesHaveExpired;

@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
-@property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
-@property(retain, nonatomic) NSDictionary *remoteToLocalIDMap; // @synthesize remoteToLocalIDMap=_remoteToLocalIDMap;
-@property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
+@property(readonly, nonatomic) MSImmutableSymbolMaster *symbolMaster; // @synthesize symbolMaster=_symbolMaster;
+@property(readonly, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
+@property(readonly, nonatomic) NSDictionary *remoteToLocalIDMap; // @synthesize remoteToLocalIDMap=_remoteToLocalIDMap;
+@property(readonly, nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

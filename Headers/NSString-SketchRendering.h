@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <Foundation/NSString.h>
 
-@interface MSLayerRenderer : NSObject
-{
-}
-
-- (id)init;
-
+@interface NSString (SketchRendering)
+@property(nonatomic, readonly) BOOL isEmoji;
 @end
 

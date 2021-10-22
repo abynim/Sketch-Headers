@@ -16,6 +16,7 @@
     double _borderWidth;
     double _cornerRadius;
     NSColor *_contentBackgroundColor;
+    double _imageAlphaValue;
     struct CGPath *_borderPath;
     CAShapeLayer *_backgroundLayer;
     CALayer *_imageLayer;
@@ -26,6 +27,7 @@
 @property(retain, nonatomic) CALayer *imageLayer; // @synthesize imageLayer=_imageLayer;
 @property(retain, nonatomic) CAShapeLayer *backgroundLayer; // @synthesize backgroundLayer=_backgroundLayer;
 @property(nonatomic) struct CGPath *borderPath; // @synthesize borderPath=_borderPath;
+@property(nonatomic) double imageAlphaValue; // @synthesize imageAlphaValue=_imageAlphaValue;
 @property(retain, nonatomic) NSColor *contentBackgroundColor; // @synthesize contentBackgroundColor=_contentBackgroundColor;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 @property(nonatomic) double borderWidth; // @synthesize borderWidth=_borderWidth;

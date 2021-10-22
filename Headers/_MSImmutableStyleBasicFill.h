@@ -19,10 +19,10 @@
 + (Class)mutableClass;
 + (id)defaultFillColor;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
-@property(nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
+@property(readonly, nonatomic) MSImmutableGradient *gradient; // @synthesize gradient=_gradient;
+@property(readonly, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(readonly, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
+@property(readonly, nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

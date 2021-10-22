@@ -13,7 +13,7 @@
 
 + (Class)mutableClass;
 + (BOOL)isEditedByDefault;
-@property(nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
+@property(readonly, nonatomic) BOOL isEquilateral; // @synthesize isEquilateral=_isEquilateral;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

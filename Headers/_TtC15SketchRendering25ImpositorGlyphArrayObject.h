@@ -4,11 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSLayerRenderer.h>
+#import <objc/NSObject.h>
 
-@interface MSBitmapRenderer : MSLayerRenderer
+@interface _TtC15SketchRendering25ImpositorGlyphArrayObject : NSObject
 {
-    // Error parsing type: , name: bitmapLayerColorControlsImageCacheKey
+    // Error parsing type: , name: runs
 }
 
 - (void).cxx_destruct;

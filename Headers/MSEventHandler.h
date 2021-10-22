@@ -149,6 +149,7 @@
 @property(readonly, nonatomic) BOOL shouldExitOnContentViewResize;
 @property(readonly, nonatomic) BOOL handlesHistoryCoalescing;
 - (void)deselectAll:(id)arg1;
+- (void)selectAllIncludingLockedAndHidden:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)handlerDidLoseFocus;
 - (void)handlerWillLoseFocus;

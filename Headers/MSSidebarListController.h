@@ -23,6 +23,7 @@
 - (BOOL)dataController:(id)arg1 copyFromPasteboard:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)dataController:(id)arg1 moveFromPasteboard:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)moveNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
+- (BOOL)canPerformActionFromPasteboard:(id)arg1 toParent:(id)arg2 after:(id)arg3 isValidActionTestBlock:(CDUnknownBlockType)arg4;
 - (BOOL)dataController:(id)arg1 canCopyFromPasteboard:(id)arg2 toParent:(id)arg3 after:(id)arg4;
 - (BOOL)canCopyNode:(id)arg1 toParent:(id)arg2 after:(id)arg3;
 - (BOOL)dataController:(id)arg1 canMoveFromPasteboard:(id)arg2 toParent:(id)arg3 after:(id)arg4;

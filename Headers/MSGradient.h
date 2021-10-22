@@ -36,10 +36,14 @@
 - (id)initBlankGradient;
 - (long long)indexInPoints:(struct CGPoint *)arg1 closestToPoint:(struct CGPoint)arg2;
 - (id)CSSColorStopsStringWithMasterAlpha:(double)arg1;
+- (id)CSSAngularGradientColorStopsStringWithMasterAlpha:(double)arg1;
+- (id)CSSRadialGradientColorStopsStringWithMasterAlpha:(double)arg1 circleRadius:(double)arg2;
+- (id)angularCSSGradientStringWithMasterAlpha:(double)arg1;
 - (id)radialCSSGradientStringWithMasterAlpha:(double)arg1;
 - (id)linearCSSGradientStringWithMasterAlpha:(double)arg1;
 - (id)gradientStringWithMasterAlpha:(double)arg1;
 - (id)CSSAttributeStringWithMasterAlpha:(double)arg1;
+- (id)CSSBackgroundImageValueWithMasterAlpha:(double)arg1;
 - (BOOL)isAssetEqual:(id)arg1;
 - (unsigned long long)assetType;
 

@@ -16,10 +16,10 @@
 
 + (Class)mutableClass;
 + (BOOL)isEnabledByDefault;
-@property(nonatomic) double saturation; // @synthesize saturation=_saturation;
-@property(nonatomic) double hue; // @synthesize hue=_hue;
-@property(nonatomic) double contrast; // @synthesize contrast=_contrast;
-@property(nonatomic) double brightness; // @synthesize brightness=_brightness;
+@property(readonly, nonatomic) double saturation; // @synthesize saturation=_saturation;
+@property(readonly, nonatomic) double hue; // @synthesize hue=_hue;
+@property(readonly, nonatomic) double contrast; // @synthesize contrast=_contrast;
+@property(readonly, nonatomic) double brightness; // @synthesize brightness=_brightness;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -8,8 +8,10 @@
 
 @interface _TtC6Sketch18GridViewController : _TtC6Sketch21ContentViewController
 {
+    // Error parsing type: , name: collectionView
 }
 
+- (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

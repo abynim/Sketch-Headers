@@ -20,10 +20,10 @@
 + (BOOL)hasClickThroughDefault;
 + (id)defaultLayout;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *layers; // @synthesize layers=_layers;
-@property(retain, nonatomic) MSImmutableGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
-@property(retain, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
-@property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
+@property(readonly, nonatomic) NSArray *layers; // @synthesize layers=_layers;
+@property(readonly, nonatomic) MSImmutableGroupLayout *groupLayout; // @synthesize groupLayout=_groupLayout;
+@property(readonly, nonatomic) NSString *sharedObjectID; // @synthesize sharedObjectID=_sharedObjectID;
+@property(readonly, nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (void)privateSet_hasClickThrough:(BOOL)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

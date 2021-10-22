@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSImage, NSStackView, NSString, NSTextField;
+@class NSAttributedString, NSButton, NSImage, NSStackView, NSString, NSTextField;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @interface _TtC6Sketch35MSLicenseRegistrationViewController : NSViewController
@@ -61,8 +61,8 @@
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
-@property(nonatomic, copy) NSString *headerDescription;
-@property(nonatomic, copy) NSString *headerTitle;
+@property(nonatomic, retain) NSAttributedString *headerDescription; // @synthesize headerDescription;
+@property(nonatomic, retain) NSAttributedString *headerTitle; // @synthesize headerTitle;
 
 @end
 

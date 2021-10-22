@@ -22,14 +22,14 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(nonatomic) long long textBehaviour; // @synthesize textBehaviour=_textBehaviour;
-@property(retain, nonatomic) MSImageData *preview; // @synthesize preview=_preview;
-@property(nonatomic) long long lineSpacingBehaviour; // @synthesize lineSpacingBehaviour=_lineSpacingBehaviour;
-@property(nonatomic) BOOL isBeingEdited; // @synthesize isBeingEdited=_isBeingEdited;
-@property(nonatomic) struct CGRect glyphBounds; // @synthesize glyphBounds=_glyphBounds;
-@property(nonatomic) BOOL dontSynchroniseWithSymbol; // @synthesize dontSynchroniseWithSymbol=_dontSynchroniseWithSymbol;
-@property(nonatomic) BOOL automaticallyDrawOnUnderlyingPath; // @synthesize automaticallyDrawOnUnderlyingPath=_automaticallyDrawOnUnderlyingPath;
-@property(retain, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
+@property(readonly, nonatomic) long long textBehaviour; // @synthesize textBehaviour=_textBehaviour;
+@property(readonly, nonatomic) MSImageData *preview; // @synthesize preview=_preview;
+@property(readonly, nonatomic) long long lineSpacingBehaviour; // @synthesize lineSpacingBehaviour=_lineSpacingBehaviour;
+@property(readonly, nonatomic) BOOL isBeingEdited; // @synthesize isBeingEdited=_isBeingEdited;
+@property(readonly, nonatomic) struct CGRect glyphBounds; // @synthesize glyphBounds=_glyphBounds;
+@property(readonly, nonatomic) BOOL dontSynchroniseWithSymbol; // @synthesize dontSynchroniseWithSymbol=_dontSynchroniseWithSymbol;
+@property(readonly, nonatomic) BOOL automaticallyDrawOnUnderlyingPath; // @synthesize automaticallyDrawOnUnderlyingPath=_automaticallyDrawOnUnderlyingPath;
+@property(readonly, nonatomic) MSAttributedString *attributedString; // @synthesize attributedString=_attributedString;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

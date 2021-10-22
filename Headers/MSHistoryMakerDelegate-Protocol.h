@@ -12,7 +12,6 @@
 - (void)historyMakerDidCancelCommit:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidProgressHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidRevertHistory:(MSHistoryMaker *)arg1;
-- (void)historyMakerDidCommitPrivateUpdate:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCommitHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerWillCommitHistory:(MSHistoryMaker *)arg1;
 - (void)historyMakerDidCreateHistory:(MSHistoryMaker *)arg1;

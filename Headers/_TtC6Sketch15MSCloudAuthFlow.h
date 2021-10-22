@@ -4,22 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch15MSCloudAuthFlow : NSObject
+@interface _TtC6Sketch15MSCloudAuthFlow : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: _viewState
     // Error parsing type: , name: events
     // Error parsing type: , name: environment
     // Error parsing type: , name: cancellables
-    // Error parsing type: , name: environmentSwitchObserver
-    // Error parsing type: , name: isEnvironmentSwitchingEnabled
 }
-
-- (void).cxx_destruct;
-- (id)init;
-- (void)dealloc;
-@property(nonatomic) BOOL isEnvironmentSwitchingEnabled; // @synthesize isEnvironmentSwitchingEnabled;
 
 @end
 

@@ -74,6 +74,10 @@
 - (void)cut:(id)arg1;
 - (void)insertBacktab:(id)arg1;
 - (void)insertTab:(id)arg1;
+- (id)updatedSelectionForwardDirection:(BOOL)arg1;
+- (BOOL)canSelectPrevious;
+- (BOOL)canSelectNext;
+- (BOOL)canChangeSelectionBySelectingSiblingsIsForward:(BOOL)arg1;
 - (void)tabInForwardDirection:(BOOL)arg1;
 - (void)changeColor:(id)arg1;
 - (void)deleteNormalLayers:(id)arg1;
@@ -84,6 +88,7 @@
 - (id)menuForCanvas;
 - (void)dragToSelect:(id)arg1;
 - (void)deselectAll:(id)arg1;
+- (void)selectAllIncludingLockedAndHidden:(id)arg1;
 - (void)selectAll:(id)arg1;
 - (void)ignoreNextKeyDownEventUntilModifiersChange;
 - (void)setUndoActionName:(id)arg1;
@@ -113,6 +118,10 @@
 - (void)focusOnArtboard:(id)arg1;
 - (void)moveToNextArtboard;
 - (void)moveToPreviousArtboard;
+- (void)selectPreviousArtboard:(id)arg1;
+- (void)selectNextArtboard:(id)arg1;
+- (void)selectParent;
+- (void)selectChild;
 - (void)keyDown:(id)arg1;
 - (void)trackMouse:(id)arg1;
 - (BOOL)performDragOperation:(id)arg1;

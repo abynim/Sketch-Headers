@@ -20,6 +20,7 @@
     MSImmutableDocumentData *_currentDocument;
 }
 
++ (id)updateDocument:(id)arg1 withPatches:(id)arg2 revertingChangesMadeAgainst:(id)arg3;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSImmutableDocumentData *currentDocument; // @synthesize currentDocument=_currentDocument;
 @property(readonly, nonatomic) NSMutableArray *nextSupplementalActions; // @synthesize nextSupplementalActions=_nextSupplementalActions;
@@ -30,13 +31,15 @@
 @property(nonatomic) __weak id <MSHistoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)resetDocumentInBlock:(CDUnknownBlockType)arg1;
 - (void)ignoreRemotePatches:(id)arg1 changingFrom:(id)arg2 toCurrentDocument:(id)arg3;
-- (id)updateDocument:(id)arg1 against:(id)arg2 removingPatchContents:(id)arg3;
 - (void)ignoreLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
 - (void)updateAfterHistoryChange:(id)arg1;
-- (void)commitCurrentMomentIfCoalesePeriodHasExpired;
+- (void)commitCurrentMomentIfCoalescePeriodHasExpired;
 - (void)commitCurrentMoment;
 - (BOOL)progressToNextMoment;
 - (BOOL)revertToPreviousMoment;
+- (id)momentByMovingThroughHistoryBackInTime:(BOOL)arg1;
+- (id)momentThroughHistoryBackInTime:(BOOL)arg1;
+- (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
 - (void)removeAllSupplementalActionsWithTarget:(id)arg1;
 - (void)addSupplementalActionWithTarget:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) MSMoment *redoMoment;

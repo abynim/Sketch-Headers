@@ -50,7 +50,7 @@
 - (id)rulerCoordinateSpace;
 @property(nonatomic) struct CGPoint rulerBase;
 - (BOOL)constrainProportions;
-- (BOOL)isLocked;
+@property(readonly, nonatomic) BOOL isLocked;
 - (void)setIsLocked:(BOOL)arg1;
 @property(readonly, nonatomic) double rotation;
 - (BOOL)isOpen;

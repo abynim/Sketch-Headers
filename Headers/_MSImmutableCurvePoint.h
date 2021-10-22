@@ -18,13 +18,13 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) struct CGPoint point; // @synthesize point=_point;
-@property(nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
-@property(nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
-@property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
-@property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
-@property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
-@property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
+@property(readonly, nonatomic) struct CGPoint point; // @synthesize point=_point;
+@property(readonly, nonatomic) BOOL hasCurveTo; // @synthesize hasCurveTo=_hasCurveTo;
+@property(readonly, nonatomic) BOOL hasCurveFrom; // @synthesize hasCurveFrom=_hasCurveFrom;
+@property(readonly, nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
+@property(readonly, nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
+@property(readonly, nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
+@property(readonly, nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

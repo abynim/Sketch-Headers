@@ -41,7 +41,6 @@
 - (BOOL)ignoreDocumentChangesInBlock:(CDUnknownBlockType)arg1;
 - (void)moveDocument:(id)arg1 throughHistoryBackInTime:(BOOL)arg2;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
-- (id)momentThroughHistoryBackInTime:(BOOL)arg1;
 - (void)makeHistoryIfNecessary;
 @property(readonly, nonatomic) BOOL isRedoing;
 @property(readonly, nonatomic) BOOL isUndoing;

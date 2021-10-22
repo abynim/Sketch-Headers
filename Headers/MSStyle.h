@@ -29,7 +29,6 @@
 - (id)parentStyle;
 - (id)parentLayer;
 @property(readonly, nonatomic) BOOL hasEnabledBackgroundBlur;
-- (BOOL)supportsAdvancedBorderSettings;
 - (void)multiplyBy:(double)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;

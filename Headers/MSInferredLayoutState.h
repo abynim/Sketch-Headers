@@ -11,10 +11,13 @@
 @interface MSInferredLayoutState : NSObject
 {
     NSMutableArray *_changedLayersRegions;
+    NSMutableArray *_unchangedLayerPairs;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSMutableArray *unchangedLayerPairs; // @synthesize unchangedLayerPairs=_unchangedLayerPairs;
 @property(retain, nonatomic) NSMutableArray *changedLayersRegions; // @synthesize changedLayersRegions=_changedLayersRegions;
+- (void)matchUnchangedLayers;
 - (void)addLayerPair:(id)arg1;
 - (id)changedRegions;
 - (id)init;

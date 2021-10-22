@@ -59,6 +59,8 @@
 - (void)correctInvalidGamma;
 - (id)collaborationObjectWithID:(id)arg1;
 @property(readonly, nonatomic) MSLayer *affectedLayerForPatching;
+- (void)registerCreationInContext:(id)arg1;
+- (void)recycleInContext:(id)arg1;
 - (void)updateWithIdentifierMapping:(id)arg1;
 - (void)moveObjectFromIndex:(unsigned long long)arg1 toIndex:(unsigned long long)arg2 ofStorage:(id)arg3 forRelationship:(id)arg4;
 - (void)insertObjects:(id)arg1 afterObject:(id)arg2 inStorage:(id)arg3 forRelationship:(id)arg4;
@@ -74,8 +76,6 @@
 - (void)replaceContentsWithArray:(id)arg1 inStorage:(id)arg2 forRelationship:(id)arg3;
 - (void)addObjectsFromArray:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 - (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
-- (void)registerCreationInContext:(id)arg1;
-- (void)recycleInContext:(id)arg1;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
 - (id)cacheForSubtreeObjects;

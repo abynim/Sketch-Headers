@@ -6,20 +6,15 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableDictionary;
-
 @interface MSRefaultingContext : NSObject
 {
-    NSMutableDictionary *_recycledObjects;
-    NSMutableDictionary *_createdObjects;
 }
 
-- (void).cxx_destruct;
-@property(readonly, nonatomic) NSMutableDictionary *createdObjects; // @synthesize createdObjects=_createdObjects;
-@property(readonly, nonatomic) NSMutableDictionary *recycledObjects; // @synthesize recycledObjects=_recycledObjects;
-- (void)registerObjectForRecycling:(id)arg1;
-- (id)objectForImmutable:(id)arg1 inArray:(id)arg2;
-- (id)init;
+- (void)refaultContentsOfArray:(id)arg1 against:(id)arg2;
+- (void)mutableWasRemoved:(id)arg1;
+- (void)updateMutable:(id)arg1 against:(id)arg2;
+- (id)mutableCounterpartForImmutable:(id)arg1 inArray:(id)arg2;
+- (BOOL)mutable:(id)arg1 atIndex:(unsigned long long)arg2 matchesImmutable:(id)arg3 atIndex:(unsigned long long)arg4;
 
 @end
 

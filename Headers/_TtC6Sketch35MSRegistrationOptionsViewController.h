@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSImage, NSStackView, NSString, NSTextField, NSView;
+@class NSAttributedString, NSButton, NSImage, NSStackView, NSString, NSTextField, NSView;
 @protocol _TtP6Sketch35MSRegistrationWindowContentDelegate_;
 
 @interface _TtC6Sketch35MSRegistrationOptionsViewController : NSViewController
@@ -36,8 +36,8 @@
 @property(nonatomic) __weak id <_TtP6Sketch35MSRegistrationWindowContentDelegate_> delegate; // @synthesize delegate;
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
-@property(nonatomic, readonly) NSString *headerDescription;
-@property(nonatomic, readonly) NSString *headerTitle;
+@property(nonatomic, readonly) NSAttributedString *headerDescription;
+@property(nonatomic, readonly) NSAttributedString *headerTitle;
 @property(nonatomic, readonly) NSImage *headerImage; // @synthesize headerImage;
 @property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
 - (void)downloadEarlierVersion:(id)arg1;

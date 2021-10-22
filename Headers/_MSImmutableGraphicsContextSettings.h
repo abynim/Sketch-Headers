@@ -13,8 +13,8 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) double opacity; // @synthesize opacity=_opacity;
-@property(nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
+@property(readonly, nonatomic) double opacity; // @synthesize opacity=_opacity;
+@property(readonly, nonatomic) long long blendMode; // @synthesize blendMode=_blendMode;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

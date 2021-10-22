@@ -19,6 +19,7 @@
     // Error parsing type: , name: forgotPasswordButton
     // Error parsing type: , name: emailSuccessField
     // Error parsing type: , name: passwordSuccessField
+    // Error parsing type: , name: shouldRenderFocusOnAppear
     // Error parsing type: , name: renderedState
     // Error parsing type: , name: cancellables
 }
@@ -27,6 +28,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)forgotPassword:(id)arg1;
+- (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) MSLinkButton *forgotPasswordButton; // @synthesize forgotPasswordButton;
 @property(nonatomic) __weak NSStackView *passwordFieldContainer; // @synthesize passwordFieldContainer;

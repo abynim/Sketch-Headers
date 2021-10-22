@@ -11,8 +11,10 @@
 @interface _TtC6Sketch27MSCloudSignInViewController : NSViewController
 {
     // Error parsing type: , name: delegate
-    // Error parsing type: , name: allowCancellation
-    // Error parsing type: , name: state
+    // Error parsing type: , name: $__lazy_storage_$_state
+    // Error parsing type: , name: $__lazy_storage_$_environment
+    // Error parsing type: , name: $__lazy_storage_$_model
+    // Error parsing type: , name: cancellables
     // Error parsing type: , name: contentViewController
 }
 
@@ -21,7 +23,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)viewDidLoad;
-@property(nonatomic) BOOL allowCancellation; // @synthesize allowCancellation;
+@property(nonatomic) BOOL allowCancellation;
 @property(nonatomic) __weak id <_TtP6Sketch35MSRegistrationWindowContentDelegate_> delegate; // @synthesize delegate;
 
 @end

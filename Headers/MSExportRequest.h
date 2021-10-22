@@ -24,7 +24,7 @@
     unsigned long long _options;
     NSSet *_includedLayerIDs;
     double _scale;
-    MSImmutableColor *_exportBackgroundColor;
+    MSImmutableColor *_backgroundColor;
     _TtC11SketchModel24MSImmutableLayerAncestry *_layerAncestry;
     MSImmutableExportFormat *_exportFormat;
     NSString *_format;
@@ -39,7 +39,6 @@
 + (id)exportRequestsFromLayerAncestry:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)exportRequestsFromLayerAncestry:(id)arg1;
 + (id)exportRequestsFromLayers:(id)arg1;
-+ (id)exportRequestFromExportFormat:(id)arg1 layer:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 inRect:(struct CGRect)arg3 useIDForName:(BOOL)arg4;
 + (id)exportRequestsFromExportableLayer:(id)arg1 inRect:(struct CGRect)arg2 useIDForName:(BOOL)arg3;
 + (id)exportRequestsFromExportableLayer:(id)arg1 exportFormats:(id)arg2 useIDForName:(BOOL)arg3;
@@ -56,7 +55,7 @@
 @property(copy, nonatomic) NSString *format; // @synthesize format=_format;
 @property(retain, nonatomic) MSImmutableExportFormat *exportFormat; // @synthesize exportFormat=_exportFormat;
 @property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *layerAncestry; // @synthesize layerAncestry=_layerAncestry;
-@property(copy, nonatomic) MSImmutableColor *exportBackgroundColor; // @synthesize exportBackgroundColor=_exportBackgroundColor;
+@property(copy, nonatomic) MSImmutableColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(copy, nonatomic) NSSet *includedLayerIDs; // @synthesize includedLayerIDs=_includedLayerIDs;
@@ -71,7 +70,6 @@
 - (id)init;
 - (id)objectIDsForSelfAncestorsAndChildrenOfAncestry:(id)arg1;
 - (void)configureForLayerAncestry:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
-- (void)configureForLayer:(id)arg1 layerOptions:(unsigned long long)arg2 includedIDs:(id)arg3;
 
 @end
 

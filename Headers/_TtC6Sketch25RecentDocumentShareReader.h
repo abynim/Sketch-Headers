@@ -9,7 +9,8 @@
 @interface _TtC6Sketch25RecentDocumentShareReader : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: cache
-    // Error parsing type: , name: semaphore
+    // Error parsing type: , name: queue
+    // Error parsing type: , name: cacheLock
 }
 
 @end

@@ -24,6 +24,7 @@
 - (void)setOverrideName:(id)arg1;
 - (void)addPredecessor:(id)arg1;
 - (id)description;
+- (id)initWithPath:(id)arg1 attributeName:(id)arg2 value:(id)arg3;
 - (id)initWithName:(id)arg1 value:(id)arg2;
 
 @end
