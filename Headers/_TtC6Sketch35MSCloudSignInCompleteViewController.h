@@ -11,7 +11,7 @@
 @interface _TtC6Sketch35MSCloudSignInCompleteViewController : NSViewController
 {
     // Error parsing type: , name: state
-    // Error parsing type: , name: completionHandler
+    // Error parsing type: , name: events
     // Error parsing type: , name: contentStackView
     // Error parsing type: , name: contentView
 }

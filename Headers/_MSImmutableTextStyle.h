@@ -16,8 +16,8 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
-@property(copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
+@property(readonly, nonatomic) long long verticalAlignment; // @synthesize verticalAlignment=_verticalAlignment;
+@property(readonly, copy, nonatomic) NSDictionary *encodedAttributes; // @synthesize encodedAttributes=_encodedAttributes;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

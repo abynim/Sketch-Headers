@@ -236,6 +236,7 @@
 - (BOOL)validateUserInterfaceItem:(id)arg1;
 - (void)putSelectionBackInCanvasIfPossible;
 - (void)performSelectionChangedUpdates;
+- (void)updateSelectionAfterRemovingObjects:(id)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)selectedLayers;
 - (id)makeUnknownRenameError;
 - (void)moveToURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -317,6 +318,7 @@
 - (id)showAssistantsPreferences;
 - (id)showFontsPreferences;
 - (id)showDocumentPreferencesTabWith:(id)arg1;
+- (void)updateRecentSavingLocation;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
@@ -381,6 +383,7 @@
 - (BOOL)discardDraftDocumentWithError:(id *)arg1;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 allowDeletion:(BOOL)arg2 moveOriginal:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)runModalSavePanelForSaveOperation:(unsigned long long)arg1 delegate:(id)arg2 didSaveSelector:(SEL)arg3 contextInfo:(void *)arg4;
+- (void)saveDocumentAs:(id)arg1;
 - (void)saveToURL:(id)arg1 ofType:(id)arg2 forSaveOperation:(unsigned long long)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (BOOL)shouldCreateCloudVersionForSaveOperation:(unsigned long long)arg1 destinationType:(id)arg2 documentWasEdited:(BOOL)arg3;
 - (void)prepareForSaveOperation:(unsigned long long)arg1;

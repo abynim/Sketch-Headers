@@ -16,8 +16,8 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableSwatch *localSwatch; // @synthesize localSwatch=_localSwatch;
-@property(retain, nonatomic) NSString *remoteSwatchID; // @synthesize remoteSwatchID=_remoteSwatchID;
+@property(readonly, nonatomic) MSImmutableSwatch *localSwatch; // @synthesize localSwatch=_localSwatch;
+@property(readonly, nonatomic) NSString *remoteSwatchID; // @synthesize remoteSwatchID=_remoteSwatchID;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -8,6 +8,7 @@
 
 @interface _TtC6Sketch18ListViewController : _TtC6Sketch21ContentViewController
 {
+    // Error parsing type: , name: tableView
     // Error parsing type: , name: projectColumn
 }
 

@@ -31,9 +31,12 @@
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
 - (id)sharedObject;
+- (unsigned long long)traits;
 - (void)correctInvalidGamma;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 - (id)CSSAttributes;
+- (void)addFillCSSAttributesToAttributeArray:(id)arg1;
+- (id)firstEnabledColorFill;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (id)copiedStyleAttributesForLayer:(id)arg1;
 - (void)writeStyleToPasteboard:(id)arg1;
@@ -63,6 +66,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;

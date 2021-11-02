@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
-@property(nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
-@property(nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
-@property(retain, nonatomic) NSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
+@property(readonly, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
+@property(readonly, nonatomic) BOOL shouldTrim; // @synthesize shouldTrim=_shouldTrim;
+@property(readonly, nonatomic) unsigned long long layerOptions; // @synthesize layerOptions=_layerOptions;
+@property(readonly, nonatomic) NSArray *includedLayerIds; // @synthesize includedLayerIds=_includedLayerIds;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

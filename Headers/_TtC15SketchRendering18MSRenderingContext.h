@@ -6,22 +6,24 @@
 
 #import <objc/NSObject.h>
 
-@class MSBitmapEffectsContextPool, MSExportRequest, MSImmutableColor, MSRenderingRequest, NSString;
+@class MSBitmapEffectsContextPool, MSExportRequest, MSImmutableColor, MSRenderingDriver, MSRenderingRequest, NSString;
 
 @interface _TtC15SketchRendering18MSRenderingContext : NSObject
 {
-    // Error parsing type: , name: impositor
+    // Error parsing type: , name: taskDispatcher
     // Error parsing type: , name: renderingRequest
     // Error parsing type: , name: bitmapEffectsContextPool
     // Error parsing type: , name: _rectsBeingDrawn
     // Error parsing type: , name: driver
     // Error parsing type: , name: influenceRectCache
     // Error parsing type: , name: name
+    // Error parsing type: , name: graphicBuilder
+    // Error parsing type: , name: parentGroupNodesStack
     // Error parsing type: , name: parentGroupStack
+    // Error parsing type: , name: symbolIDStack
     // Error parsing type: , name: isCancelled
     // Error parsing type: , name: tintColor
     // Error parsing type: , name: exportRequest
-    // Error parsing type: , name: symbolMasterStack
     // Error parsing type: , name: symbolInstanceStack
 }
 
@@ -32,8 +34,8 @@
 @property(nonatomic, retain) MSImmutableColor *tintColor; // @synthesize tintColor;
 - (void)flushWithDispatchGroup:(id)arg1;
 - (void)flush;
-- (void)renderLayer:(id)arg1;
 @property(nonatomic, copy) NSString *name;
+@property(nonatomic, readonly) MSRenderingDriver *driver; // @synthesize driver;
 @property(nonatomic, retain) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool;
 @property(nonatomic, readonly) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest;
 - (id)initWithData:(void *)arg1 rect:(struct CGRect)arg2 bytesPerRow:(long long)arg3 alphaInfo:(unsigned int)arg4 driver:(id)arg5 renderingRequest:(id)arg6 bitmapEffectsContextPool:(id)arg7;

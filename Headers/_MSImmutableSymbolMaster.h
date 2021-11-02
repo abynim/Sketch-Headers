@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
-@property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
-@property(nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
-@property(nonatomic) BOOL allowsOverrides; // @synthesize allowsOverrides=_allowsOverrides;
+@property(readonly, nonatomic) NSArray *overrideProperties; // @synthesize overrideProperties=_overrideProperties;
+@property(readonly, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
+@property(readonly, nonatomic) BOOL includeBackgroundColorInInstance; // @synthesize includeBackgroundColorInInstance=_includeBackgroundColorInInstance;
+@property(readonly, nonatomic) BOOL allowsOverrides; // @synthesize allowsOverrides=_allowsOverrides;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

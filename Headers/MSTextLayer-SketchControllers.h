@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSTextLayer.h>
 
-@interface MSTextLayer (Hover)
+@interface MSTextLayer (SketchControllers)
 + (long long)menuItemStateForTest:(CDUnknownBlockType)arg1 forLayers:(id)arg2;
 + (long long)menuItemStateForAlignment:(long long)arg1 forLayers:(id)arg2;
 + (void)setTextAlignment:(long long)arg1 forLayers:(id)arg2;
@@ -15,6 +15,8 @@
 + (void)setTextVerticalAlignment:(long long)arg1 forLayers:(id)arg2;
 + (BOOL)canSetTextVerticalAlignmentForLayers:(id)arg1;
 + (id)keyPathsForValuesAffectingSupportsVerticalAlignment;
+- (BOOL)canConvertToOutlines;
+- (id)layersByConvertingToOutlines;
 - (id)hoverPath;
 - (void)enumerateAnchorsForSnappingWithMask:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (unsigned long long)shareableObjectType;
@@ -23,12 +25,6 @@
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 @property(readonly, nonatomic) BOOL supportsVerticalAlignment;
-- (BOOL)supportsInnerOuterBorders;
-- (void)copyStylePropertiesToShape:(id)arg1 shapeName:(id)arg2;
-- (void)copyTextPropertiesToShape:(id)arg1 color:(id)arg2;
-- (BOOL)canConvertToOutlines;
-- (id)layersByConvertingToOutlines;
-- (BOOL)hasMultipleTextColors;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @end
 

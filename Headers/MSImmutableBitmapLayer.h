@@ -21,6 +21,7 @@
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV56OrEarlierWithUnarchiver:(id)arg1;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
+- (void)migratePropertiesFromV60OrEarlierWithImageCollection:(id)arg1;
 - (id)defaultValueForOverridePoint:(id)arg1 relatedOverrides:(id)arg2 document:(id)arg3;
 - (id)overridePointsWithParent:(id)arg1 overrides:(id)arg2 document:(id)arg3;
 

@@ -14,6 +14,7 @@
 {
 }
 
++ (struct CGSize)scaleSize:(struct CGSize)arg1 intoLayerSize:(struct CGSize)arg2 forFillType:(long long)arg3 withPatternScale:(double)arg4;
 + (id)defaultStylePartForStyle:(id)arg1;
 - (unsigned long long)styleType;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
@@ -24,6 +25,7 @@
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;
 - (void)correctInvalidGamma;
+- (id)CSSBackgroundImageAttributeValue;
 @property(readonly, nonatomic) NSString *CSSAttributeString;
 
 // Remaining properties

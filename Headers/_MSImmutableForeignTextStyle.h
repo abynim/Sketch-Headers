@@ -12,7 +12,7 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
+@property(readonly, nonatomic) BOOL missingLibraryFontAcknowledged; // @synthesize missingLibraryFontAcknowledged=_missingLibraryFontAcknowledged;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

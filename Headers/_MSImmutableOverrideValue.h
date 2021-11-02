@@ -19,10 +19,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
-@property(retain, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
-@property(retain, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
-@property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
+@property(readonly, copy, nonatomic) NSObject<NSCopying> *value; // @synthesize value=_value;
+@property(readonly, nonatomic) NSString *overrideName; // @synthesize overrideName=_overrideName;
+@property(readonly, nonatomic) NSString *originalName; // @synthesize originalName=_originalName;
+@property(readonly, nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)privateSet_isEditing:(BOOL)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

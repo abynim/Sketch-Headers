@@ -19,11 +19,11 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
-@property(nonatomic) double red; // @synthesize red=_red;
-@property(nonatomic) double green; // @synthesize green=_green;
-@property(nonatomic) double blue; // @synthesize blue=_blue;
-@property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+@property(readonly, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
+@property(readonly, nonatomic) double red; // @synthesize red=_red;
+@property(readonly, nonatomic) double green; // @synthesize green=_green;
+@property(readonly, nonatomic) double blue; // @synthesize blue=_blue;
+@property(readonly, nonatomic) double alpha; // @synthesize alpha=_alpha;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

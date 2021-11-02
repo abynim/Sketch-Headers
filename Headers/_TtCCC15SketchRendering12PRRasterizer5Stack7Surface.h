@@ -6,10 +6,11 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering21ImpositorStateTracker : _TtCs12_SwiftObject
+@interface _TtCCC15SketchRendering12PRRasterizer5Stack7Surface : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: _transform
-    // Error parsing type: , name: _boundingBoxOfClipPath
+    // Error parsing type: , name: context
+    // Error parsing type: , name: bounds
+    // Error parsing type: , name: blurMagicFactor
 }
 
 @end

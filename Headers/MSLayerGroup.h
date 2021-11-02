@@ -42,6 +42,7 @@
 - (id)lastSelectableLayer;
 - (id)firstSelectableLayer;
 - (id)nextSelectableAfterIndex:(unsigned long long)arg1 searchForward:(BOOL)arg2;
+- (id)nearestSelectableToLayer:(id)arg1;
 - (void)deselectLayerAndParent;
 - (BOOL)isExpanded;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
@@ -56,6 +57,8 @@
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1 test:(CDUnknownBlockType)arg2;
 - (void)correctInvalidGamma;
+- (void)registerCreationInContext:(id)arg1;
+- (void)recycleInContext:(id)arg1;
 - (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (void)enumerateLayers:(CDUnknownBlockType)arg1;
 - (long long)indexOfLayer:(id)arg1;
@@ -69,8 +72,6 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)CSSAttributeString;
-- (void)registerCreationInContext:(id)arg1;
-- (void)recycleInContext:(id)arg1;
 - (void)applyOverride:(id)arg1 withContext:(id)arg2;
 - (void)validateBoundsAfterPatching;
 - (void)applyTransformsToLayers:(id)arg1;

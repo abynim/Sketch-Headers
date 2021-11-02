@@ -42,6 +42,7 @@
 - (id)detachStylesAndReplaceWithGroupInDocument:(id)arg1;
 - (void)detachStylesAndReplaceWithGroupRecursivelyInDocument:(id)arg1 visited:(id)arg2 replacements:(id)arg3;
 - (id)detachStylesAndReplaceWithGroupRecursivelyInDocument:(id)arg1;
+- (void)detachStylesAndReplaceWithGroupRecursivelyWithReplacements:(id)arg1;
 - (id)detachStylesAndReplaceWithGroup;
 - (id)detachStylesAndReplaceWithGroupRecursively;
 - (void)changeInstanceToSymbol:(id)arg1;

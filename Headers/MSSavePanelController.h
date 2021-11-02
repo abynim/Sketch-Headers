@@ -53,6 +53,7 @@
     SCKAPIOperation *_projectsRequest;
 }
 
++ (void)addRecentLocation:(id)arg1;
 + (id)moveSheetWithDocumentName:(id)arg1;
 + (id)saveSheetWithDocumentName:(id)arg1 allowDeletion:(BOOL)arg2;
 - (void).cxx_destruct;

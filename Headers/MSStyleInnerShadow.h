@@ -11,7 +11,6 @@
 }
 
 - (unsigned long long)styleType;
-- (BOOL)colorEqualApproximately;
 - (id)CSSAttributeString;
 
 @end

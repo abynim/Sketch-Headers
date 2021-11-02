@@ -16,8 +16,8 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
-@property(nonatomic) long long base; // @synthesize base=_base;
+@property(readonly, copy, nonatomic) NSArray *guides; // @synthesize guides=_guides;
+@property(readonly, nonatomic) long long base; // @synthesize base=_base;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

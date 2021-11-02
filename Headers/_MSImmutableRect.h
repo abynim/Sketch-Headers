@@ -16,11 +16,11 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) double y; // @synthesize y=_y;
-@property(nonatomic) double x; // @synthesize x=_x;
-@property(nonatomic) double width; // @synthesize width=_width;
-@property(nonatomic) double height; // @synthesize height=_height;
-@property(nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
+@property(readonly, nonatomic) double y; // @synthesize y=_y;
+@property(readonly, nonatomic) double x; // @synthesize x=_x;
+@property(readonly, nonatomic) double width; // @synthesize width=_width;
+@property(readonly, nonatomic) double height; // @synthesize height=_height;
+@property(readonly, nonatomic) BOOL constrainProportions; // @synthesize constrainProportions=_constrainProportions;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

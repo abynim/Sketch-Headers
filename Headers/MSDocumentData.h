@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSModelObjectCache, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDetachedContainer, MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSModelObjectCache, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
@@ -26,6 +26,7 @@
     NSData *_textPreviewData;
     NSData *_textPreviewMetadata;
     unsigned long long _estimatedCollaborationObjectCacheSize;
+    MSDetachedContainer *_symbolDetachContainer;
     MSFontList *_fontList;
     NSString *_sessionIdentifier;
     MSStateContainer *_stateContainer;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
+@property(retain, nonatomic) MSDetachedContainer *symbolDetachContainer; // @synthesize symbolDetachContainer=_symbolDetachContainer;
 @property(nonatomic) unsigned long long estimatedCollaborationObjectCacheSize; // @synthesize estimatedCollaborationObjectCacheSize=_estimatedCollaborationObjectCacheSize;
 @property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;

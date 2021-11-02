@@ -37,10 +37,12 @@
     NSDictionary *_cachedFlows;
     MSOverlayItemContainer *_debugItemContainer;
     MSOverlayRenderer *_overlayRenderer;
+    NSArray *_backgroundBlurInfo;
 }
 
 + (BOOL)performRendererAvailabilityChecks;
 - (void).cxx_destruct;
+@property(copy, nonatomic) NSArray *backgroundBlurInfo; // @synthesize backgroundBlurInfo=_backgroundBlurInfo;
 @property(retain, nonatomic) MSOverlayRenderer *overlayRenderer; // @synthesize overlayRenderer=_overlayRenderer;
 @property(retain, nonatomic) MSOverlayItemContainer *debugItemContainer; // @synthesize debugItemContainer=_debugItemContainer;
 @property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
@@ -66,8 +68,11 @@
 - (BOOL)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 displayPixels:(BOOL)arg4 tiles:(id)arg5 overlaySettings:(id)arg6 canvasColorSpace:(id)arg7 overlayTexture:(id)arg8 flowItems:(id)arg9 hasUserFocus:(BOOL)arg10;
 - (id)collectflowItems;
 - (CDUnknownBlockType)prepareForRenderWithDiff:(id)arg1;
-- (void)_unionDirtyRegion:(CDStruct_75f85af1 *)arg1;
 - (id)_createDocumentColorSpaceWithCanvasColorSpace:(id)arg1 document:(id)arg2;
+- (CDStruct_75f85af1 *)_padDirtyRegion:(CDStruct_75f85af1 *)arg1 forBackgroundBlurOnPage:(id)arg2 diff:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4;
+- (id)_layersWithBackgroundBlurOnPage:(id)arg1 diff:(id)arg2;
+- (void)_layersWithBackgroundBlur:(id)arg1 transform:(struct CGAffineTransform)arg2 block:(CDUnknownBlockType)arg3;
+- (void)_unionDirtyRegion:(CDStruct_75f85af1 *)arg1;
 - (struct CGRect)_updatePageObjectID:(id)arg1 document:(id)arg2 dirtyRect:(struct CGRect)arg3;
 - (void)_removeAllTilesAndClearDirtyRegions;
 - (CDStruct_3b01f0aa *)_visibleDirtyRects:(struct CGRect)arg1 totalZoom:(double)arg2 previousContentScale:(double)arg3 level:(id)arg4;

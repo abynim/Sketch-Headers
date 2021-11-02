@@ -21,11 +21,11 @@
 + (id)defaultGradientStops;
 + (id)immutableDefaultGradientStops;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *stops; // @synthesize stops=_stops;
-@property(nonatomic) struct CGPoint to; // @synthesize to=_to;
-@property(nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
-@property(nonatomic) struct CGPoint from; // @synthesize from=_from;
-@property(nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
+@property(readonly, nonatomic) NSArray *stops; // @synthesize stops=_stops;
+@property(readonly, nonatomic) struct CGPoint to; // @synthesize to=_to;
+@property(readonly, nonatomic) long long gradientType; // @synthesize gradientType=_gradientType;
+@property(readonly, nonatomic) struct CGPoint from; // @synthesize from=_from;
+@property(readonly, nonatomic) double elipseLength; // @synthesize elipseLength=_elipseLength;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

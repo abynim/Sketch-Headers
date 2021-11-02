@@ -23,8 +23,6 @@
 - (id)modelObjectAncestors;
 - (id)page;
 - (struct CGRect)contentDirtyDiffRectForPage:(id)arg1;
-- (struct CGRect)expandedRectForDirtyRect:(struct CGRect)arg1 forBackgroundBlurOnPage:(id)arg2;
-- (struct CGRect)expandedRectForDirtyRect:(struct CGRect)arg1 forDescendantsOfLayer:(id)arg2 ancestors:(id)arg3;
 @property(readonly, nonatomic) MSImmutableLayerGroup<MSCloudExportableRootLayer> *cloudExportableRootLayer;
 
 @end

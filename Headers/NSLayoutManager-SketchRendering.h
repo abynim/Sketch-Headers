@@ -6,7 +6,8 @@
 
 #import <AppKit/NSLayoutManager.h>
 
-@interface NSLayoutManager (CollectTemporaryAttributes)
+@interface NSLayoutManager (SketchRendering)
+- (BOOL)isEmojiAt:(struct _NSRange)arg1;
 - (void)setTemporaryAttributes:(id)arg1 forKey:(id)arg2;
 - (id)temporaryAttributesForKey:(id)arg1;
 @end

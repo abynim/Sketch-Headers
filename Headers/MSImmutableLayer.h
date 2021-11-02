@@ -102,6 +102,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;

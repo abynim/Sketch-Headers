@@ -13,8 +13,8 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) long long thickGridTimes; // @synthesize thickGridTimes=_thickGridTimes;
-@property(nonatomic) long long gridSize; // @synthesize gridSize=_gridSize;
+@property(readonly, nonatomic) long long thickGridTimes; // @synthesize thickGridTimes=_thickGridTimes;
+@property(readonly, nonatomic) long long gridSize; // @synthesize gridSize=_gridSize;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

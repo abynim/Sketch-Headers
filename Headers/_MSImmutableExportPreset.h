@@ -17,9 +17,9 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
-@property(nonatomic) BOOL shouldApplyAutomatically; // @synthesize shouldApplyAutomatically=_shouldApplyAutomatically;
-@property(retain, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
+@property(readonly, nonatomic) BOOL shouldApplyAutomatically; // @synthesize shouldApplyAutomatically=_shouldApplyAutomatically;
+@property(readonly, nonatomic) NSString *name; // @synthesize name=_name;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

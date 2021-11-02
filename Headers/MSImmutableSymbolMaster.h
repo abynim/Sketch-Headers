@@ -14,7 +14,8 @@
 {
     BCReadWriteLock *_calculatedAvailableOverridesAtomicity;
     NSArray *_calculatedAvailableOverrides;
-    NSDictionary *_overridePropertyDict;
+    NSDictionary *_calculatedOverrideProperties;
+    // Error parsing type: A^^v, name: _calculatedOverridePropertiesAtomicPointer
 }
 
 + (id)defaultName;
@@ -25,12 +26,9 @@
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (BOOL)influenceRectClipsToBounds;
-@property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
-- (void)calculateOverridePropertyDict;
+@property(readonly, nonatomic) NSDictionary *overridePropertyDict;
 @property(readonly, nonatomic) BOOL isWorthDetaching;
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
-- (void)performInitWithMutableModelObject:(id)arg1;
-- (void)initializeUnsetObjectPropertiesWithDefaults;
 - (void)objectDidInit;
 - (void)migrationSetOverrideProperties:(id)arg1;
 - (void)migratePropertiesFromV113OrEarlierWithUnarchiver:(id)arg1;

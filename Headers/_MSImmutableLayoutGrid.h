@@ -22,17 +22,17 @@
 }
 
 + (Class)mutableClass;
-@property(nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
-@property(nonatomic) double rowHeightMultiplication; // @synthesize rowHeightMultiplication=_rowHeightMultiplication;
-@property(nonatomic) double numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
-@property(nonatomic) double horizontalOffset; // @synthesize horizontalOffset=_horizontalOffset;
-@property(nonatomic) BOOL guttersOutside; // @synthesize guttersOutside=_guttersOutside;
-@property(nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
-@property(nonatomic) double gutterHeight; // @synthesize gutterHeight=_gutterHeight;
-@property(nonatomic) BOOL drawVertical; // @synthesize drawVertical=_drawVertical;
-@property(nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
-@property(nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
-@property(nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
+@property(readonly, nonatomic) double totalWidth; // @synthesize totalWidth=_totalWidth;
+@property(readonly, nonatomic) double rowHeightMultiplication; // @synthesize rowHeightMultiplication=_rowHeightMultiplication;
+@property(readonly, nonatomic) double numberOfColumns; // @synthesize numberOfColumns=_numberOfColumns;
+@property(readonly, nonatomic) double horizontalOffset; // @synthesize horizontalOffset=_horizontalOffset;
+@property(readonly, nonatomic) BOOL guttersOutside; // @synthesize guttersOutside=_guttersOutside;
+@property(readonly, nonatomic) double gutterWidth; // @synthesize gutterWidth=_gutterWidth;
+@property(readonly, nonatomic) double gutterHeight; // @synthesize gutterHeight=_gutterHeight;
+@property(readonly, nonatomic) BOOL drawVertical; // @synthesize drawVertical=_drawVertical;
+@property(readonly, nonatomic) BOOL drawHorizontalLines; // @synthesize drawHorizontalLines=_drawHorizontalLines;
+@property(readonly, nonatomic) BOOL drawHorizontal; // @synthesize drawHorizontal=_drawHorizontal;
+@property(readonly, nonatomic) double columnWidth; // @synthesize columnWidth=_columnWidth;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

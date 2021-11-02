@@ -23,12 +23,12 @@
 + (double)defaultYOffset;
 + (id)defaultColor;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
-@property(retain, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
-@property(nonatomic) double spread; // @synthesize spread=_spread;
-@property(nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
-@property(nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
-@property(nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
+@property(readonly, nonatomic) MSImmutableGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
+@property(readonly, nonatomic) MSImmutableColor *color; // @synthesize color=_color;
+@property(readonly, nonatomic) double spread; // @synthesize spread=_spread;
+@property(readonly, nonatomic) double offsetY; // @synthesize offsetY=_offsetY;
+@property(readonly, nonatomic) double offsetX; // @synthesize offsetX=_offsetX;
+@property(readonly, nonatomic) double blurRadius; // @synthesize blurRadius=_blurRadius;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

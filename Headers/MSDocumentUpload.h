@@ -42,7 +42,7 @@
 - (void)cancel;
 - (void)startUpload;
 - (void)dealloc;
-- (id)initWithFileURL:(id)arg1 owner:(id)arg2 project:(id)arg3 error:(id *)arg4;
+- (id)initWithFileURL:(id)arg1 owner:(id)arg2 project:(id)arg3 resolveProjectFromShare:(BOOL)arg4 error:(id *)arg5;
 - (id)initForCoEditingWithDocumentData:(id)arg1 name:(id)arg2 owner:(id)arg3 project:(id)arg4;
 @property(nonatomic, readonly) NSProgress *progress; // @synthesize progress;
 @property(nonatomic) BOOL finalized; // @synthesize finalized;

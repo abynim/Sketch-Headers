@@ -26,6 +26,7 @@
 @property(nonatomic, readonly) double rotation;
 @property(nonatomic, readonly) BOOL isFlippedVertical;
 @property(nonatomic, readonly) BOOL isFlippedHorizontal;
+@property(nonatomic, readonly) BOOL isLocked;
 @property(nonatomic, readonly) BOOL isVisible;
 @end
 

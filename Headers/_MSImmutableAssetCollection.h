@@ -19,11 +19,11 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
-@property(retain, nonatomic) NSArray *gradientAssets; // @synthesize gradientAssets=_gradientAssets;
-@property(retain, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
-@property(retain, nonatomic) NSArray *colorAssets; // @synthesize colorAssets=_colorAssets;
-@property(retain, nonatomic) NSArray *images; // @synthesize images=_images;
+@property(readonly, nonatomic) MSImmutableImageCollection *imageCollection; // @synthesize imageCollection=_imageCollection;
+@property(readonly, nonatomic) NSArray *gradientAssets; // @synthesize gradientAssets=_gradientAssets;
+@property(readonly, nonatomic) NSArray *exportPresets; // @synthesize exportPresets=_exportPresets;
+@property(readonly, nonatomic) NSArray *colorAssets; // @synthesize colorAssets=_colorAssets;
+@property(readonly, nonatomic) NSArray *images; // @synthesize images=_images;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

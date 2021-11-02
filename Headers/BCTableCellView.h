@@ -8,7 +8,7 @@
 
 #import <BCLayerList/NSMenuDelegate-Protocol.h>
 
-@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, MSLayoutConstraintCache, NSButton, NSPopUpButton, NSString, NSWindow;
+@class BCOutlineView, BCSidebarPreviewImageView, BCTableRowView, BCViewUpdateDebouncer, MSLayoutConstraintCache, NSButton, NSPopUpButton, NSString, NSWindow;
 @protocol BCOutlineViewNode, BCOutlineViewPopupConfigurator, BCTableCellViewDelegate;
 
 @interface BCTableCellView : NSTableCellView <NSMenuDelegate>
@@ -16,6 +16,9 @@
     BOOL _isPreviewImageLoaded;
     BOOL _lastUpdatedTextWasEditing;
     BOOL _isShowingImages;
+    BCViewUpdateDebouncer *_previewImageUpdateDebouncer;
+    BCViewUpdateDebouncer *_maskImageUpdateDebouncer;
+    BCViewUpdateDebouncer *_textFieldAppearanceUpdateDebouncer;
     MSLayoutConstraintCache *_constraintCache;
     id <BCTableCellViewDelegate> _delegate;
     unsigned long long _displayState;
@@ -55,15 +58,12 @@
 - (void)renameNode;
 @property(readonly, nonatomic) BOOL isTextFieldEditing;
 - (void)updateConstraints;
-- (void)updateMaskIcon;
-- (void)updatePreviewIconIfRequired;
 - (unsigned long long)currentPreviewState;
 - (BOOL)shouldDrawAsActive;
 @property(readonly, nonatomic) BCTableRowView *rowView;
 @property(readonly, nonatomic) BCOutlineView *outlineView;
 - (struct NSEdgeInsets)verticalInsets;
 - (void)handleBadgePressed:(id)arg1;
-- (void)updateBooleanOpPopUpButtonIfNeeded;
 - (void)updateLockHideButtonIfNeeded;
 - (id)badgeTrailingSpaceConstraint;
 - (void)mouseExited:(id)arg1;
@@ -78,8 +78,6 @@
 - (void)setBackgroundStyle:(long long)arg1;
 - (void)viewDidChangeEffectiveAppearance;
 - (void)updateCellStyle;
-- (void)refreshTextColor;
-- (void)updateTextBackgroundStyle;
 - (void)updateSelectionStateIfRequired;
 - (void)startObserving;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
@@ -93,6 +91,13 @@
 - (void)viewDidMoveToSuperview;
 - (void)awakeFromNib;
 @property(readonly, nonatomic) MSLayoutConstraintCache *constraintCache; // @synthesize constraintCache=_constraintCache;
+- (void)updateBooleanOpPopUpButtonIfNeeded;
+- (void)updateTextFieldAppearance;
+@property(readonly, nonatomic) BCViewUpdateDebouncer *textFieldAppearanceUpdateDebouncer; // @synthesize textFieldAppearanceUpdateDebouncer=_textFieldAppearanceUpdateDebouncer;
+- (void)updateMaskIcon;
+@property(readonly, nonatomic) BCViewUpdateDebouncer *maskImageUpdateDebouncer; // @synthesize maskImageUpdateDebouncer=_maskImageUpdateDebouncer;
+- (void)updatePreviewIconIfRequired;
+@property(readonly, nonatomic) BCViewUpdateDebouncer *previewImageUpdateDebouncer; // @synthesize previewImageUpdateDebouncer=_previewImageUpdateDebouncer;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

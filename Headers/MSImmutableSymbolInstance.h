@@ -8,18 +8,20 @@
 
 #import <SketchModel/MSFlowContainmentCheck-Protocol.h>
 
-@class NSArray, NSDictionary;
+@class NSArray, NSDictionary, NSString;
 
 @interface MSImmutableSymbolInstance : _MSImmutableSymbolInstance <MSFlowContainmentCheck>
 {
     NSArray *_calculatedAvailableOverrides;
     // Error parsing type: A^^v, name: _availableOverridesInDocumentAtomicPointer
+    NSString *_uniqueKey;
 }
 
 + (id)defaultName;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *uniqueKey; // @synthesize uniqueKey=_uniqueKey;
 - (id)influencingSymbolIDs:(id)arg1;
 - (struct CGSize)optimalSizeForMasterWithInferredLayoutInDocument:(id)arg1 skipCache:(BOOL)arg2 visitedSymbols:(id)arg3;
 - (id)detachedLayerGroupRecursively:(BOOL)arg1 withDocument:(id)arg2;
@@ -30,6 +32,7 @@
 - (id)createMutableDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)createDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
+- (void)calculateUniqueKey;
 - (void)resetCachedOverrides;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
@@ -39,12 +42,14 @@
 - (id)keysDifferingFromObject:(id)arg1;
 - (BOOL)isEqualForDiffToObject:(id)arg1;
 - (id)initWithMinimalSetup;
+- (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 @property(nonatomic, readonly) NSArray *updateableColors;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (BOOL)differsFromLayer:(id)arg1;
+- (void)stripRedundantOverridesOfSymbol:(id)arg1;
 - (BOOL)shadowsFollowRotation;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)ensureOverrideValuesAreValidAndUnique;

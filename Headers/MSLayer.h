@@ -21,6 +21,7 @@
     long long skipDrawingSelectionCounter;
     BOOL _transformFromRootIsCached;
     MSUnitCoordinateSpace *_unitCoordinateSpace;
+    BOOL _canConstrainProportions;
     struct CGAffineTransform _transformForConvertingFromRoot;
 }
 
@@ -35,11 +36,11 @@
 + (double)userVisibleRotationForRotation:(double)arg1;
 + (double)normalizeUserVisibleRotation:(double)arg1;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL canConstrainProportions; // @synthesize canConstrainProportions=_canConstrainProportions;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (BOOL)hasEnabledFill;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
 - (id)allSymbolInstancesInChildren;
-- (BOOL)canLockProportions;
 - (BOOL)canScale;
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
@@ -185,6 +186,7 @@
 - (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)affectedLayerForPatching;
+- (void)recycleInContext:(id)arg1;
 - (void)resetConstraints;
 - (void)changeValueForKeysInBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasFixedEdges;
@@ -208,7 +210,6 @@
 @property(readonly, nonatomic) NSString *CSSAttributeString;
 - (id)swatchesReferencedInDocument:(id)arg1;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
-- (void)recycleInContext:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;
 - (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)closestClippingLayer;
@@ -241,6 +242,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
+@property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) double rotation;

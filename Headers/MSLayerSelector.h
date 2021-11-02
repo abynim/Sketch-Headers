@@ -15,11 +15,13 @@
 }
 
 - (void).cxx_destruct;
-@property(copy, nonatomic) MSLayerArray *initialSelection; // @synthesize initialSelection=_initialSelection;
-@property(retain, nonatomic) MSPage *page; // @synthesize page=_page;
+@property(readonly, copy, nonatomic) MSLayerArray *initialSelection; // @synthesize initialSelection=_initialSelection;
+@property(readonly, nonatomic) MSPage *page; // @synthesize page=_page;
 - (BOOL)shouldUseArtboardSelectionModeForRect:(struct CGRect)arg1 extendSelection:(BOOL)arg2 options:(unsigned long long)arg3;
 - (void)updateSelectionWithRect:(struct CGRect)arg1 extendSelection:(BOOL)arg2 options:(unsigned long long)arg3;
-- (id)init;
+- (id)initWithPage:(id)arg1;
+- (id)initWithPage:(id)arg1 initialSelection:(id)arg2;
+- (id)selectAllIncludingLockedAndHidden;
 - (id)selectAll;
 
 @end

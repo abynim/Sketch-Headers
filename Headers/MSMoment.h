@@ -23,8 +23,8 @@
     MSImmutableDocumentData *_finalDocument;
 }
 
-+ (void)setTimestampCoalesingThreshold:(double)arg1;
-+ (double)timestampCoalesingThreshold;
++ (void)setTimestampCoalescingThreshold:(double)arg1;
++ (double)timestampCoalescingThreshold;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSImmutableDocumentData *finalDocument; // @synthesize finalDocument=_finalDocument;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
@@ -39,14 +39,13 @@
 @property(readonly, nonatomic) MSImmutableDocumentData *initialDocument; // @synthesize initialDocument=_initialDocument;
 - (void)updateInitialDocument:(id)arg1;
 - (void)updateFinalDocument:(id)arg1;
-- (void)incorporateLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
+- (void)amendLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
 - (void)applyTo:(id)arg1 postUpdateBlock:(CDUnknownBlockType)arg2;
 - (void)updatePageID;
 - (void)commit:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) BOOL canCoalesce;
 @property(readonly, nonatomic) BOOL hasCoalescePeriodExpired;
 - (void)performSupplementalActions;
-- (id)init;
 - (id)initWithInitialDocument:(id)arg1 finalDocument:(id)arg2 patch:(id)arg3;
 
 @end

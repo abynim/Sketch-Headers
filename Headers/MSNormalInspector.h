@@ -10,7 +10,7 @@
 #import "MSInspectorSectionDelegate-Protocol.h"
 #import "MSStackViewScrollViewDelegate-Protocol.h"
 
-@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSLayoutConstraint, NSMutableDictionary, NSScrollView, NSSet, NSStackView, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
+@class MSEventHandler, MSExportInspectorViewController, MSInspectorStackView, MSStandardInspectorViewControllers, NSArray, NSMutableDictionary, NSScrollView, NSSet, NSStackView, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
 
 @interface MSNormalInspector : NSViewController <MSStackViewScrollViewDelegate, MSInspectorSectionDelegate, MSInspectorChildController>
 {
@@ -23,8 +23,6 @@
     NSStackView *_footerView;
     MSStandardInspectorViewControllers *_standardInspectors;
     NSMutableDictionary *_storedPreferences;
-    NSLayoutConstraint *_scrollViewTopConstraint;
-    NSLayoutConstraint *_scrollViewBottomConstraint;
     _TtC17SketchControllers26MSModelObjectChangeTracker *_changeTracker;
     NSSet *_parents;
 }
@@ -34,8 +32,6 @@
 @property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *changeTracker; // @synthesize changeTracker=_changeTracker;
 @property(nonatomic) BOOL throttleNextResponderFixing; // @synthesize throttleNextResponderFixing=_throttleNextResponderFixing;
 @property(nonatomic) BOOL hasScheduledNextResponderFixing; // @synthesize hasScheduledNextResponderFixing=_hasScheduledNextResponderFixing;
-@property(retain, nonatomic) NSLayoutConstraint *scrollViewBottomConstraint; // @synthesize scrollViewBottomConstraint=_scrollViewBottomConstraint;
-@property(retain, nonatomic) NSLayoutConstraint *scrollViewTopConstraint; // @synthesize scrollViewTopConstraint=_scrollViewTopConstraint;
 @property(readonly, nonatomic) NSMutableDictionary *storedPreferences; // @synthesize storedPreferences=_storedPreferences;
 @property(readonly, nonatomic) MSStandardInspectorViewControllers *standardInspectors; // @synthesize standardInspectors=_standardInspectors;
 @property(retain, nonatomic) NSStackView *footerView; // @synthesize footerView=_footerView;

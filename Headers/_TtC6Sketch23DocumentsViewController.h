@@ -6,13 +6,12 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSFlashController, NSMenu, NSView, _TtC6Sketch19DocumentsBannerView, _TtC6Sketch20DropTargetScrollView;
+@class MSFlashController, NSMenu, NSView, _TtC6Sketch19DocumentsBannerView;
 
 @interface _TtC6Sketch23DocumentsViewController : NSViewController
 {
     // Error parsing type: , name: currentContentView
     // Error parsing type: , name: collectionViewContainer
-    // Error parsing type: , name: contentScrollView
     // Error parsing type: , name: recentDocumentsContextMenu
     // Error parsing type: , name: templatesContextMenu
     // Error parsing type: , name: flashController
@@ -67,7 +66,6 @@
 @property(nonatomic, retain) MSFlashController *flashController; // @synthesize flashController;
 @property(nonatomic, retain) NSMenu *templatesContextMenu; // @synthesize templatesContextMenu;
 @property(nonatomic, retain) NSMenu *recentDocumentsContextMenu; // @synthesize recentDocumentsContextMenu;
-@property(nonatomic, retain) _TtC6Sketch20DropTargetScrollView *contentScrollView; // @synthesize contentScrollView;
 @property(nonatomic, retain) NSView *collectionViewContainer; // @synthesize collectionViewContainer;
 
 @end

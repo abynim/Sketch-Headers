@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSArtboardRenderer.h>
+#import <Foundation/NSUserDefaults.h>
 
-@interface MSSymbolMasterRenderer : MSArtboardRenderer
-{
-}
-
-- (id)init;
-
+@interface NSUserDefaults (SketchCloudKit)
+@property(nonatomic, readonly) BOOL cloudEnvironmentSwitchingEnabled;
 @end
 

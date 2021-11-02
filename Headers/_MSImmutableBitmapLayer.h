@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(nonatomic) long long intendedDPI; // @synthesize intendedDPI=_intendedDPI;
-@property(retain, nonatomic) MSImageData *image; // @synthesize image=_image;
-@property(nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
-@property(nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
+@property(readonly, nonatomic) long long intendedDPI; // @synthesize intendedDPI=_intendedDPI;
+@property(readonly, nonatomic) MSImageData *image; // @synthesize image=_image;
+@property(readonly, nonatomic) BOOL fillReplacesImage; // @synthesize fillReplacesImage=_fillReplacesImage;
+@property(readonly, nonatomic) struct CGRect clippingMask; // @synthesize clippingMask=_clippingMask;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -6,14 +6,14 @@
 
 #import "_TtC6Sketch27MSCloudSignInViewController.h"
 
-@class NSImage, NSString;
+@class NSAttributedString, NSImage, NSString;
 
 @interface _TtC6Sketch27MSCloudSignInViewController (Sketch)
 - (void)registrationWindowDidClickHeaderLink:(id)arg1;
 @property(nonatomic, readonly) BOOL wantsLicense;
 @property(nonatomic, readonly) NSImage *headerImage;
 @property(nonatomic, readonly) NSString *headerLinkTitle;
-@property(nonatomic, readonly) NSString *headerDescription;
-@property(nonatomic, readonly) NSString *headerTitle;
+@property(nonatomic, readonly) NSAttributedString *headerDescription;
+@property(nonatomic, readonly) NSAttributedString *headerTitle;
 @end
 

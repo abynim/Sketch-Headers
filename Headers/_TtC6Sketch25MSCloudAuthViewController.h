@@ -30,7 +30,6 @@
 - (void)signIn:(id)arg1;
 - (void)ssoSignIn:(id)arg1;
 - (void)viewDidLoad;
-- (void)viewDidAppear;
 @property(nonatomic) __weak NSPopUpButton *environmentPopUpButton; // @synthesize environmentPopUpButton;
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton;
 @property(nonatomic) __weak NSButton *signInButton; // @synthesize signInButton;

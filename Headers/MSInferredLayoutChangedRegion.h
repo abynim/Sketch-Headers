@@ -6,24 +6,31 @@
 
 #import <objc/NSObject.h>
 
-@class NSMutableSet;
+@class NSArray, NSMutableDictionary;
 
 @interface MSInferredLayoutChangedRegion : NSObject
 {
-    NSMutableSet *_layerPairs;
+    NSMutableDictionary *_changedLayerPairs;
+    NSMutableDictionary *_allLayerPairs;
     struct _NSRange _calculatedRange;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSMutableSet *layerPairs; // @synthesize layerPairs=_layerPairs;
+@property(retain, nonatomic) NSMutableDictionary *allLayerPairs; // @synthesize allLayerPairs=_allLayerPairs;
+@property(retain, nonatomic) NSMutableDictionary *changedLayerPairs; // @synthesize changedLayerPairs=_changedLayerPairs;
 @property(nonatomic) struct _NSRange calculatedRange; // @synthesize calculatedRange=_calculatedRange;
 - (id)description;
-- (double)changeInSize;
+@property(readonly, nonatomic) double overallChangeInSize;
+@property(readonly, nonatomic) double updatedChangeInSize;
+- (double)changeInSize:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL hasChanges;
 - (BOOL)containsLayer:(id)arg1;
-- (void)addLayerPair:(id)arg1;
+@property(readonly, nonatomic) NSArray *unchangedLayers;
+- (void)addUnchangedLayerPair:(id)arg1;
+- (void)addChangedLayerPair:(id)arg1;
 - (BOOL)shouldIncludeLayerPair:(id)arg1;
-- (struct CGRect)updatedLayerUnionRect;
-- (struct CGRect)unionRect;
+@property(readonly, nonatomic) struct CGRect oldChangedUnionRect;
+- (struct CGRect)areaOfRegionIncludingUnchangedLayers:(BOOL)arg1 forOldState:(BOOL)arg2;
 - (id)init;
 
 @end

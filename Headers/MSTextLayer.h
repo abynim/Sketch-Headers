@@ -30,7 +30,7 @@
 @property(readonly, nonatomic) NSArray *updateableColors;
 - (void)updateColorsUsing:(id)arg1;
 - (void)updateColorsUsingBlock:(CDUnknownBlockType)arg1;
-- (BOOL)canLockProportions;
+- (BOOL)canConstrainProportions;
 - (BOOL)canScale;
 - (BOOL)canBeTransformed;
 - (BOOL)constrainProportions;

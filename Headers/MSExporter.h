@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSRenderingContextCacheProvider-Protocol.h>
 
-@class BCCache, MSExportRequest, MSRenderingDriver, NSColorSpace, NSString;
+@class BCCache, MSExportRequest, MSRenderingDriver, NSColorSpace, NSError, NSString;
 
 @interface MSExporter : NSObject <MSRenderingContextCacheProvider>
 {
@@ -19,6 +19,7 @@
     MSExportRequest *_request;
     MSRenderingDriver *_driver;
     NSColorSpace *_colorSpace;
+    NSError *_error;
     BCCache *_cache;
     struct CGRect _bounds;
 }
@@ -31,6 +32,7 @@
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
+@property(retain, nonatomic) NSError *error; // @synthesize error=_error;
 @property(nonatomic) BOOL drawsAsynchronously; // @synthesize drawsAsynchronously=_drawsAsynchronously;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) BOOL isRenderingTests; // @synthesize isRenderingTests=_isRenderingTests;
@@ -41,7 +43,7 @@
 - (id)cacheForZoomLevel:(double)arg1;
 @property(readonly, nonatomic) BCCache *zoomIndependentCache;
 - (void)drawRect:(struct CGRect)arg1 context:(struct CGContext *)arg2;
-- (void)drawSliceBackgroundIfNecessary:(struct CGContext *)arg1;
+- (void)drawBackground:(struct CGContext *)arg1;
 - (id)previewImage;
 - (id)bitmapImageRep;
 - (id)basicBitmapImageRep;

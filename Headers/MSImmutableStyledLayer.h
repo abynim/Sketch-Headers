@@ -48,6 +48,7 @@
 - (id)decoratedPathInBoundsInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
+- (BOOL)hasEnabledBackgroundBlur;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
@@ -72,6 +73,7 @@
 @property(readonly, nonatomic) BOOL isFlippedHorizontal;
 @property(readonly, nonatomic) BOOL isFlippedVertical;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+@property(readonly, nonatomic) BOOL isLocked;
 @property(readonly, nonatomic) BOOL isVisible;
 @property(readonly, nonatomic) NSString *objectID;
 @property(readonly, nonatomic) struct CGPoint origin;

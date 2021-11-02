@@ -18,10 +18,10 @@
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSImmutableStyle *style; // @synthesize style=_style;
-@property(retain, nonatomic) NSString *sharedStyleID; // @synthesize sharedStyleID=_sharedStyleID;
-@property(nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
-@property(nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
+@property(readonly, nonatomic) MSImmutableStyle *style; // @synthesize style=_style;
+@property(readonly, nonatomic) NSString *sharedStyleID; // @synthesize sharedStyleID=_sharedStyleID;
+@property(readonly, nonatomic) BOOL hasClippingMask; // @synthesize hasClippingMask=_hasClippingMask;
+@property(readonly, nonatomic) long long clippingMaskMode; // @synthesize clippingMaskMode=_clippingMaskMode;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

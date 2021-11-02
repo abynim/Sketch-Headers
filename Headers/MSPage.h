@@ -73,6 +73,7 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (BOOL)canContainLayer:(id)arg1;
+- (void)changeSelectionByAddingLayersInSet:(id)arg1;
 - (void)changeSelectionByDeselectingLayers:(id)arg1;
 - (void)changeSelectionBySelectingLayersInSet:(id)arg1;
 - (void)changeSelectionBySelectingLayers:(id)arg1;

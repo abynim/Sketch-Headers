@@ -6,10 +6,11 @@
 
 #import "MSBaseConvertSymbolOrDetachInstancesAction.h"
 
-@interface MSConvertSymbolOrDetachInstancesRecursivelyAction : MSBaseConvertSymbolOrDetachInstancesAction
+@interface MSDetachInstancesRecursivelyAction : MSBaseConvertSymbolOrDetachInstancesAction
 {
 }
 
+- (long long)validationStatus;
 - (void)doPerformAction:(id)arg1;
 - (void)detachSymbolInstancesRecursively:(id)arg1;
 - (id)label;
