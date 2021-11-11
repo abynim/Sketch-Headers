@@ -48,6 +48,7 @@
 - (id)decoratedPathInBoundsInDocument:(id)arg1;
 @property(readonly, nonatomic) struct BCEdgePaddings influenceRectEdgePaddingsThatCascadeToContainedLayers;
 - (struct BCEdgePaddings)influenceRectEdgePaddingsThatDoNotCascadeInDocument:(id)arg1;
+- (BOOL)hasEnabledBackgroundBlur;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;

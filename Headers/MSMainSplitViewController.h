@@ -64,7 +64,8 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)splitViewDidResizeSubviews:(id)arg1;
 - (void)saveSidebarWidth;
-- (void)applyWidthConstraints;
+- (double)appliableSidebarWidth;
+- (void)applySidebarWidth;
 - (void)hideSidebar;
 - (id)showSidebar;
 - (id)sidebarItem;

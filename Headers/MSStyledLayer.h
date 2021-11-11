@@ -31,6 +31,7 @@
 - (void)multiplyBy:(double)arg1;
 - (void)layerStyleDidChange;
 - (id)sharedObject;
+- (unsigned long long)traits;
 - (void)correctInvalidGamma;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
 - (id)CSSAttributes;
