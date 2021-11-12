@@ -11,8 +11,8 @@
     // Error parsing type: , name: networkService
     // Error parsing type: , name: localPatches
     // Error parsing type: , name: remotePatches
-    // Error parsing type: , name: delegate
     // Error parsing type: , name: progress
+    // Error parsing type: , name: delegate
     // Error parsing type: , name: currentPhase
     // Error parsing type: , name: readUIMetadata
 }

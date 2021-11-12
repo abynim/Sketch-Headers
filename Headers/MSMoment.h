@@ -11,6 +11,7 @@
 @interface MSMoment : NSObject
 {
     BOOL _committed;
+    BOOL _canBeDeletedIfPatchIsEmpty;
     MSImmutableDocumentData *_initialDocument;
     double _timestamp;
     NSString *_title;
@@ -32,6 +33,7 @@
 @property(readonly, nonatomic) NSString *pageID; // @synthesize pageID=_pageID;
 @property(retain, nonatomic) MSPatch *revertPatch; // @synthesize revertPatch=_revertPatch;
 @property(retain, nonatomic) MSPatch *forwardPatch; // @synthesize forwardPatch=_forwardPatch;
+@property(nonatomic) BOOL canBeDeletedIfPatchIsEmpty; // @synthesize canBeDeletedIfPatchIsEmpty=_canBeDeletedIfPatchIsEmpty;
 @property(readonly, nonatomic) BOOL committed; // @synthesize committed=_committed;
 @property(readonly, nonatomic) NSMutableArray *supplementalActions; // @synthesize supplementalActions=_supplementalActions;
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;

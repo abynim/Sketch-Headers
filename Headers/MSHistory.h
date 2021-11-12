@@ -34,6 +34,7 @@
 - (void)ignoreLocalChangeFrom:(id)arg1 toCurrentDocument:(id)arg2;
 - (void)updateAfterHistoryChange:(id)arg1;
 - (void)commitCurrentMomentIfCoalescePeriodHasExpired;
+- (void)deleteLastMoment;
 - (void)commitCurrentMoment;
 - (BOOL)progressToNextMoment;
 - (BOOL)revertToPreviousMoment;
@@ -45,7 +46,10 @@
 @property(readonly, nonatomic) MSMoment *redoMoment;
 @property(readonly, nonatomic) MSMoment *undoMoment;
 - (void)removeFutureMoments;
+- (void)addMoment:(id)arg1;
+- (void)assignSupplementalActionsToMoment:(id)arg1;
 - (unsigned long long)updateWithLocalDocumentChanges:(id)arg1;
+- (unsigned long long)updateWithLocalSelectionChange;
 - (id)init;
 - (id)initWithInitialDocument:(id)arg1;
 

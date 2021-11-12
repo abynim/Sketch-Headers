@@ -25,6 +25,7 @@
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) NSArray *editableWorkspaces;
+@property(readonly, nonatomic) SCKPaginatedShares *paginatedTrashedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares;
 @property(readonly, nonatomic) BOOL disclosesSensitiveMetadata;

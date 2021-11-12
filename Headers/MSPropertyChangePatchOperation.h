@@ -10,15 +10,15 @@
 
 @interface MSPropertyChangePatchOperation : MSPatchOperation
 {
-    NSString *_objectID;
     NSString *_propertyName;
+    NSString *_objectID;
     NSObject *_propertyValue;
 }
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSObject *propertyValue; // @synthesize propertyValue=_propertyValue;
-@property(readonly, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 @property(readonly, nonatomic) NSString *objectID; // @synthesize objectID=_objectID;
+@property(readonly, nonatomic) NSString *propertyName; // @synthesize propertyName=_propertyName;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
 - (id)objectLookupIDs;

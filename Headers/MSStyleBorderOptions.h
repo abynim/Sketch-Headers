@@ -10,9 +10,15 @@
 {
 }
 
+@property(nonatomic) int lineJoin;
+@property(nonatomic) int lineCap;
 @property(readonly, nonatomic) BOOL hasDashPattern;
 - (void)multiplyBy:(double)arg1;
 - (BOOL)supportsAdvancedBorderSettings;
+
+// Remaining properties
+@property(nonatomic) int lineCapStyle; // @dynamic lineCapStyle;
+@property(nonatomic) int lineJoinStyle; // @dynamic lineJoinStyle;
 
 @end
 

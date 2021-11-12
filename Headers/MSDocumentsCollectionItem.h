@@ -16,6 +16,8 @@
     BOOL _supportsRenaming;
     BOOL _supportsMoving;
     BOOL _supportsDeletion;
+    BOOL _supportsPermanentDeletion;
+    BOOL _supportsRestoration;
     BOOL _isProcessing;
     BOOL _hasProcessingError;
     BOOL _isUploading;
@@ -41,6 +43,8 @@
 @property(readonly, nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
 @property(readonly, nonatomic) BOOL hasProcessingError; // @synthesize hasProcessingError=_hasProcessingError;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
+@property(nonatomic) BOOL supportsRestoration; // @synthesize supportsRestoration=_supportsRestoration;
+@property(nonatomic) BOOL supportsPermanentDeletion; // @synthesize supportsPermanentDeletion=_supportsPermanentDeletion;
 @property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
 @property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
 @property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
@@ -58,6 +62,7 @@
 @property(readonly, nonatomic) NSString *imageIconName; // @synthesize imageIconName=_imageIconName;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (id)keyPathsForProgressObserving;
 - (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
 - (BOOL)isEqual:(id)arg1;

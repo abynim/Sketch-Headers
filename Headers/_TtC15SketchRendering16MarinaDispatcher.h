@@ -9,9 +9,7 @@
 @interface _TtC15SketchRendering16MarinaDispatcher : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: renderer
-    // Error parsing type: , name: mode
     // Error parsing type: , name: _nodeStack
-    // Error parsing type: , name: _checkpoints
     // Error parsing type: , name: pendingCompletionHandlers
 }
 

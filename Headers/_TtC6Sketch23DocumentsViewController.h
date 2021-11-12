@@ -43,6 +43,8 @@
 - (void)doCommandBySelector:(SEL)arg1;
 - (void)removeDocumentFromProject:(id)arg1;
 - (void)moveDocument:(id)arg1;
+- (void)restoreDocument:(id)arg1;
+- (void)deleteDocumentPermanently:(id)arg1;
 - (void)deleteDocument:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)clearRecentDocuments:(id)arg1;

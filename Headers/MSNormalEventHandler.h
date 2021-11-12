@@ -69,6 +69,9 @@
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)selectionDidChangeFromLayers:(id)arg1 fromOverrides:(id)arg2 toLayers:(id)arg3 toOverrides:(id)arg4;
+- (void)registerSingleSelectionMomentWhenUndoingRedoingWithPreviousLayersSelection:(id)arg1 previousOverridesSelection:(id)arg2;
+- (void)changeSelectionToLayersWithIDs:(id)arg1 overridesWithIDs:(id)arg2;
 - (void)currentPageDidChange;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)cut:(id)arg1;
@@ -135,6 +138,7 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handleDoubleClickInGroupLayer:(id)arg1 location:(struct CGPoint)arg2 extendSelection:(BOOL)arg3;
 - (void)layerDoubleClicked:(id)arg1;
+- (void)handleClickToSelect:(id)arg1;
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

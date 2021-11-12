@@ -18,7 +18,7 @@
     // Error parsing type: , name: blendMode
     // Error parsing type: , name: rasterizationClipPath
     // Error parsing type: , name: mask
-    // Error parsing type: , name: hint
+    // Error parsing type: , name: origin
     // Error parsing type: , name: id
 }
 

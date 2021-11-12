@@ -17,8 +17,8 @@
     // Error parsing type: , name: submitButton
     // Error parsing type: , name: cancelButton
     // Error parsing type: , name: codeField
-    // Error parsing type: , name: recoveryCodeLabel
-    // Error parsing type: , name: contactUsLabel
+    // Error parsing type: , name: recoveryCodeRouteLabel
+    // Error parsing type: , name: contactUsRouteLabel
     // Error parsing type: , name: statusContainerView
     // Error parsing type: , name: statusViewController
     // Error parsing type: , name: shouldRenderFocusOnAppear
@@ -32,8 +32,8 @@
 - (void)viewDidLoad;
 - (void)viewDidAppear;
 @property(nonatomic, retain) NSView *statusContainerView; // @synthesize statusContainerView;
-@property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *contactUsLabel; // @synthesize contactUsLabel;
-@property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *recoveryCodeLabel; // @synthesize recoveryCodeLabel;
+@property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *contactUsRouteLabel; // @synthesize contactUsRouteLabel;
+@property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *recoveryCodeRouteLabel; // @synthesize recoveryCodeRouteLabel;
 @property(nonatomic, retain) NSTextField *codeField; // @synthesize codeField;
 @property(nonatomic, retain) NSButton *cancelButton; // @synthesize cancelButton;
 @property(nonatomic, retain) NSButton *submitButton; // @synthesize submitButton;

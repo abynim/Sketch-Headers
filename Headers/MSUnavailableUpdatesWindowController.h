@@ -15,16 +15,12 @@
     NSTextField *_descriptionTextField;
     NSTextField *_headerTextField;
     NSButton *_confirmationButton;
-    NSString *_lastVersion;
-    NSString *_lastBuildNumber;
     long long _blockedUpdateReason;
 }
 
-+ (void)showModalWithVersion:(id)arg1 buildNumber:(id)arg2 reason:(long long)arg3;
++ (void)showModalWithReason:(long long)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) long long blockedUpdateReason; // @synthesize blockedUpdateReason=_blockedUpdateReason;
-@property(retain, nonatomic) NSString *lastBuildNumber; // @synthesize lastBuildNumber=_lastBuildNumber;
-@property(retain, nonatomic) NSString *lastVersion; // @synthesize lastVersion=_lastVersion;
 @property(nonatomic) __weak NSButton *confirmationButton; // @synthesize confirmationButton=_confirmationButton;
 @property(nonatomic) __weak NSTextField *headerTextField; // @synthesize headerTextField=_headerTextField;
 @property(nonatomic) __weak NSTextField *descriptionTextField; // @synthesize descriptionTextField=_descriptionTextField;
@@ -34,7 +30,7 @@
 - (BOOL)renewalRequired;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidLoad;
-- (id)initWithWindowNibName:(id)arg1 version:(id)arg2 buildNumber:(id)arg3 reason:(long long)arg4;
+- (id)initWithWindowNibName:(id)arg1 reason:(long long)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

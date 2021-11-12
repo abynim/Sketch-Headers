@@ -10,7 +10,6 @@
 
 @interface _TtC14SketchCloudKit23PhoenixSessionWebSocket (SketchCloudKit) <NSURLSessionWebSocketDelegate>
 - (void)URLSession:(id)arg1 webSocketTask:(id)arg2 didCloseWithCode:(long long)arg3 reason:(id)arg4;
-- (void)URLSession:(id)arg1 webSocketTask:(id)arg2 didOpenWithProtocol:(id)arg3;
 - (void)URLSession:(id)arg1 task:(id)arg2 didCompleteWithError:(id)arg3;
 - (void)URLSession:(id)arg1 didBecomeInvalidWithError:(id)arg2;
 @end

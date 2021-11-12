@@ -54,6 +54,8 @@
 - (BOOL)isProcessing;
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
+- (BOOL)supportsRestoration;
+- (BOOL)supportsPermanentDeletion;
 - (BOOL)supportsDeletion;
 - (void)dealloc;
 - (id)initWithCloudShare:(id)arg1 previewImage:(id)arg2;

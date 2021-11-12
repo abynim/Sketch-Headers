@@ -9,7 +9,8 @@
 @interface _TtC13SharedEditing34CatchupPhaseRemotePatchIntegration : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: documentData
-    // Error parsing type: , name: share
+    // Error parsing type: , name: shareID
+    // Error parsing type: , name: owner
     // Error parsing type: , name: sinceVersion
     // Error parsing type: , name: knownPatches
     // Error parsing type: , name: networkService

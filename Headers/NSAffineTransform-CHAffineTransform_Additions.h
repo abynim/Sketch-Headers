@@ -8,8 +8,6 @@
 
 @interface NSAffineTransform (CHAffineTransform_Additions)
 + (id)transformWithCGAffineTransform_ms:(struct CGAffineTransform)arg1;
-+ (id)transformFromStruct:(struct _CHTransformStruct)arg1 aroundPoint:(struct CGPoint)arg2 inPlace:(BOOL)arg3;
-+ (id)transformFromStruct:(struct _CHTransformStruct)arg1 aroundPoint:(struct CGPoint)arg2;
 + (id)rotationTransformWithDegrees:(double)arg1 aroundPoint:(struct CGPoint)arg2;
 + (id)transformWithOffset:(struct CGPoint)arg1;
 + (id)transformByScaling:(double)arg1;

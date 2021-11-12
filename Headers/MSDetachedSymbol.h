@@ -10,6 +10,7 @@
 
 @interface MSDetachedSymbol : _MSDetachedSymbol
 {
+    BOOL _updating;
     MSImmutableSymbolMaster *_updatedMaster;
     MSImmutableSymbolMaster *_originalMaster;
     MSImmutableSymbolInstance *_updatedInstance;
@@ -20,8 +21,12 @@
 }
 
 + (id)createDetachedSymbolForInstance:(id)arg1 componentUpdater:(id)arg2;
++ (id)recursiveSymbolForInstance:(id)arg1 componentUpdater:(id)arg2;
++ (id)missingSymbolForInstance:(id)arg1 componentUpdater:(id)arg2;
++ (id)errorSymbolForInstance:(id)arg1 componentUpdater:(id)arg2 state:(unsigned long long)arg3;
 + (id)createDetachedForSymbolMaster:(id)arg1 componentUpdater:(id)arg2;
 - (void).cxx_destruct;
+@property(nonatomic) BOOL updating; // @synthesize updating=_updating;
 @property(retain, nonatomic) MSPatch *changePatch; // @synthesize changePatch=_changePatch;
 @property(nonatomic) unsigned long long detachState; // @synthesize detachState=_detachState;
 @property(nonatomic) __weak MSDetachedComponentUpdater *componentUpdater; // @synthesize componentUpdater=_componentUpdater;
@@ -29,15 +34,27 @@
 @property(retain, nonatomic) MSImmutableSymbolInstance *updatedInstance; // @synthesize updatedInstance=_updatedInstance;
 @property(retain, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
 @property(retain, nonatomic) MSImmutableSymbolMaster *updatedMaster; // @synthesize updatedMaster=_updatedMaster;
+- (id)description;
+- (void)registerAsRecursive;
+- (void)checkForRecursion;
+- (void)fixRecursionUnder:(id)arg1;
+- (void)replace:(id)arg1 with:(id)arg2;
+- (BOOL)isRecursivelyNested;
+- (void)fixRecursion;
 - (void)setIsVisible:(BOOL)arg1;
 - (void)setRaw_allowsOverrides:(BOOL)arg1;
 - (void)setRaw_overrideProperties:(id)arg1;
 - (void)setRaw_overrideValues:(id)arg1;
 - (id)collaborationObjectWithID:(id)arg1;
+- (BOOL)hasClippingMask;
+- (BOOL)shouldBreakMaskChain;
+- (BOOL)isMissing;
 - (void)detachNestedInstancesUnder:(id)arg1;
 - (void)applyOverridesUnder:(id)arg1 overrideStack:(id)arg2 recursive:(BOOL)arg3;
 - (void)applyNestedOverrideStack:(id)arg1 recursive:(BOOL)arg2;
 - (id)switchNestedSymbolFrom:(id)arg1 to:(id)arg2;
+- (void)transferPropertiesFromInstance:(id)arg1;
+- (double)inheritedScale;
 - (void)clearPatch;
 - (void)updateChildren:(id)arg1;
 - (void)updateFromMaster:(id)arg1;

@@ -11,14 +11,14 @@
 @interface _MSImmutableStyleBorderOptions : MSImmutableStylePart
 {
     NSArray *_dashPattern;
-    unsigned long long _lineCapStyle;
-    unsigned long long _lineJoinStyle;
+    int _lineCapStyle;
+    int _lineJoinStyle;
 }
 
 + (Class)mutableClass;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
-@property(readonly, nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
+@property(readonly, nonatomic) int lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
+@property(readonly, nonatomic) int lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
 @property(readonly, copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchCloudKit/NSStreamDelegate-Protocol.h>
+#import <SketchMirrorServerKit/NSStreamDelegate-Protocol.h>
 
 @class NSString;
 @protocol NSStreamDelegate;

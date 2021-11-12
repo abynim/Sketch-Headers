@@ -48,13 +48,13 @@
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;
-- (id)adjustModelObjectIDForCollaboration:(id)arg1;
 - (BOOL)shouldDiffSubObjectsForDifferingObject:(id)arg1;
 - (BOOL)differsFromObject:(id)arg1;
 @property(readonly, nonatomic) NSArray *subObjectsForTreeDiff;
 @property(readonly, nonatomic) NSArray *sharedObjectIdentifiers;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
-- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2;
+- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2 includingFiles:(BOOL)arg3;
+- (id)adjustDescendantModelObjectIDForCollaboration:(id)arg1;
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;

@@ -17,6 +17,8 @@
 - (BOOL)isProcessing;
 - (BOOL)supportsMoving;
 - (BOOL)supportsRenaming;
+- (BOOL)supportsRestoration;
+- (BOOL)supportsPermanentDeletion;
 - (BOOL)supportsDeletion;
 - (id)tintColor;
 - (BOOL)providesPreviewImage;

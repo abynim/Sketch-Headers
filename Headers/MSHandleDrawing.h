@@ -13,7 +13,6 @@
 + (void)resetZoomValue;
 + (void)setZoomValue:(double)arg1;
 + (double)zoomValue;
-+ (void)drawWithTransformStruct:(struct _CHTransformStruct)arg1 aroundPoint:(struct CGPoint)arg2 usingBlock:(CDUnknownBlockType)arg3;
 + (void)drawShadowForHover:(BOOL)arg1 inBlock:(CDUnknownBlockType)arg2;
 + (id)gradient;
 + (id)shadowForHover:(BOOL)arg1;

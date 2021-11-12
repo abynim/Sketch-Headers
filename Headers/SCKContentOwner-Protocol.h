@@ -11,5 +11,6 @@
 @protocol SCKContentOwner <SCKOwner>
 @property(nonatomic, readonly) SCKPaginatedProjects *paginatedProjects;
 @property(nonatomic, readonly) SCKPaginatedShares *paginatedShares;
+@property(nonatomic, readonly) SCKPaginatedShares *paginatedTrashedShares;
 @end
 

@@ -6,11 +6,13 @@
 
 #import "NSObject-Protocol.h"
 
-@class CKShareMetadata, NSApplication, NSArray, NSCoder, NSData, NSDictionary, NSError, NSMenu, NSNotification, NSString, NSUserActivity;
+@class CKShareMetadata, INIntent, NSApplication, NSArray, NSCoder, NSData, NSDictionary, NSError, NSMenu, NSNotification, NSString, NSUserActivity;
 
 @protocol NSApplicationDelegate <NSObject>
 
 @optional
+- (void)applicationProtectedDataDidBecomeAvailable:(NSNotification *)arg1;
+- (void)applicationProtectedDataWillBecomeUnavailable:(NSNotification *)arg1;
 - (void)applicationDidChangeOcclusionState:(NSNotification *)arg1;
 - (void)applicationDidChangeScreenParameters:(NSNotification *)arg1;
 - (void)applicationWillTerminate:(NSNotification *)arg1;
@@ -26,6 +28,7 @@
 - (void)applicationWillHide:(NSNotification *)arg1;
 - (void)applicationDidFinishLaunching:(NSNotification *)arg1;
 - (void)applicationWillFinishLaunching:(NSNotification *)arg1;
+- (BOOL)applicationShouldAutomaticallyLocalizeKeyEquivalents:(NSApplication *)arg1;
 - (BOOL)application:(NSApplication *)arg1 delegateHandlesKey:(NSString *)arg2;
 - (void)application:(NSApplication *)arg1 userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)arg2;
 - (void)application:(NSApplication *)arg1 didUpdateUserActivity:(NSUserActivity *)arg2;
@@ -34,6 +37,8 @@
 - (BOOL)application:(NSApplication *)arg1 willContinueUserActivityWithType:(NSString *)arg2;
 - (void)application:(NSApplication *)arg1 didDecodeRestorableState:(NSCoder *)arg2;
 - (void)application:(NSApplication *)arg1 willEncodeRestorableState:(NSCoder *)arg2;
+- (id)application:(NSApplication *)arg1 handlerForIntent:(INIntent *)arg2;
+- (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)arg1;
 - (void)application:(NSApplication *)arg1 didReceiveRemoteNotification:(NSDictionary *)arg2;
 - (void)application:(NSApplication *)arg1 didFailToRegisterForRemoteNotificationsWithError:(NSError *)arg2;
 - (void)application:(NSApplication *)arg1 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)arg2;

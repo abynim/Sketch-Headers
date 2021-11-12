@@ -26,7 +26,10 @@
 @property(readonly, nonatomic) MSImmutableSymbolInstance *updatedInstance; // @synthesize updatedInstance=_updatedInstance;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *originalMaster; // @synthesize originalMaster=_originalMaster;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *updatedMaster; // @synthesize updatedMaster=_updatedMaster;
-- (id)detachedGroup:(BOOL)arg1;
+@property(readonly, nonatomic) BOOL isRecursionError;
+@property(readonly, nonatomic) BOOL isMissing;
+- (id)internalDetachedGroup:(BOOL)arg1 replacements:(id)arg2;
+- (id)detachedGroup:(BOOL)arg1 replacements:(id)arg2;
 @property(readonly, nonatomic) MSImmutableSymbolInstance *instance;
 @property(readonly, nonatomic) MSImmutableSymbolMaster *master;
 - (void)encodePropertiesWithCoder:(id)arg1;

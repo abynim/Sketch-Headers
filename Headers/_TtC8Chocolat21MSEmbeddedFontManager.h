@@ -14,6 +14,7 @@
     // Error parsing type: , name: extractedFontURLsByFamilyName
 }
 
++ (id)tempDirectory;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
