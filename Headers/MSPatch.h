@@ -12,6 +12,7 @@
 
 @interface MSPatch : NSObject <MSCoding>
 {
+    NSSet *_affectedProperties;
     long long _patchModelVersion;
     long long _compatibilityVersion;
     NSString *_patchID;
@@ -30,6 +31,11 @@
 @property(readonly, nonatomic) long long patchModelVersion; // @synthesize patchModelVersion=_patchModelVersion;
 - (id)debugDescription;
 - (id)description;
+@property(readonly, nonatomic) BOOL hasTreeStructureChanges;
+@property(readonly, nonatomic) BOOL hasAdditions;
+@property(readonly, nonatomic) BOOL hasRemovals;
+- (BOOL)containsPatchWithTrait:(unsigned long long)arg1;
+@property(readonly, nonatomic) NSSet *affectedProperties; // @synthesize affectedProperties=_affectedProperties;
 - (void)enumerateObjectLookupIDsWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) NSSet *addedObjectIDs;
 - (id)replacementObjectForJSONEncoder:(id)arg1;

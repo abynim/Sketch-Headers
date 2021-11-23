@@ -6,7 +6,7 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering24ImpositorStrokeGenerator : _TtCs12_SwiftObject
+@interface _TtC15SketchRendering17PRStrokeGenerator : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: borderPosition
     // Error parsing type: , name: lineCap

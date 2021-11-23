@@ -42,6 +42,7 @@
 - (void)moveDocument:(id)arg1 throughHistoryBackInTime:(BOOL)arg2;
 - (BOOL)canMoveThroughHistoryBackInTime:(BOOL)arg1;
 - (void)makeHistoryIfNecessary;
+- (void)makeSelectionHistoryIfNecessary;
 @property(readonly, nonatomic) BOOL isRedoing;
 @property(readonly, nonatomic) BOOL isUndoing;
 @property(readonly, nonatomic) BOOL historyIsCoalescing;
@@ -49,6 +50,7 @@
 - (void)startCoalescingHistory;
 - (void)removeAllSupplementalActionsWithTarget:(id)arg1;
 - (void)registerSupplementalActionWithTarget:(id)arg1 handler:(CDUnknownBlockType)arg2;
+- (BOOL)registerUndoRedoSupplementalActionWithTarget:(id)arg1 handler:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSString *redoTitle;
 @property(readonly, nonatomic) NSString *undoTitle;
 - (void)registerHistoryMomentTitle:(id)arg1;

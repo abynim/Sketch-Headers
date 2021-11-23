@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSArray, NSDictionary, NSMutableDictionary;
+@class MSImmutableDocumentData, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface MSDetachedComponentUpdater : NSObject
 {
@@ -16,19 +16,24 @@
     MSImmutableDocumentData *_currentDocument;
     NSMutableDictionary *_detachedMasters;
     NSMutableDictionary *_detachedInstances;
+    NSMutableDictionary *_updatedMasters;
     NSArray *_nestedInstances;
     NSArray *_unnestedInstances;
+    NSMutableSet *_recursiveSymbols;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSMutableSet *recursiveSymbols; // @synthesize recursiveSymbols=_recursiveSymbols;
 @property(readonly, nonatomic) NSArray *unnestedInstances; // @synthesize unnestedInstances=_unnestedInstances;
 @property(readonly, nonatomic) NSArray *nestedInstances; // @synthesize nestedInstances=_nestedInstances;
+@property(readonly, nonatomic) NSMutableDictionary *updatedMasters; // @synthesize updatedMasters=_updatedMasters;
 @property(readonly, nonatomic) NSMutableDictionary *detachedInstances; // @synthesize detachedInstances=_detachedInstances;
 @property(readonly, nonatomic) NSMutableDictionary *detachedMasters; // @synthesize detachedMasters=_detachedMasters;
 @property(retain, nonatomic) MSImmutableDocumentData *currentDocument; // @synthesize currentDocument=_currentDocument;
 @property(retain, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 @property(retain, nonatomic) NSDictionary *uniqueIDsToDetachedInstances; // @synthesize uniqueIDsToDetachedInstances=_uniqueIDsToDetachedInstances;
 @property(retain, nonatomic) NSDictionary *symbolIDsToDetachedMasters; // @synthesize symbolIDsToDetachedMasters=_symbolIDsToDetachedMasters;
+- (void)registerSymbolIDAsRecursive:(id)arg1;
 - (id)detachedSymbolForInstance:(id)arg1;
 - (id)detachedSymbolWithID:(id)arg1;
 - (id)convertMutableDictionaryToImmutables:(id)arg1;

@@ -8,7 +8,7 @@
 
 #import "NSSplitViewDelegate-Protocol.h"
 
-@class BCSideBarViewController, MSCanvasViewController, MSComponentGridController, MSDocument, MSInspectorController, NSLayoutConstraint, NSString, NSView, NSWindow;
+@class BCSideBarViewController, MSCanvasViewController, MSComponentGridController, MSDocument, MSInspectorController, NSString, NSView, NSWindow;
 
 @interface MSMainSplitViewController : NSSplitViewController <NSSplitViewDelegate>
 {
@@ -18,7 +18,6 @@
     MSDocument *_document;
     MSCanvasViewController *_canvasController;
     MSInspectorController *_observableInspectorController;
-    NSLayoutConstraint *_sidebarWidthConstraint;
     long long _leftSide;
     long long _rightSide;
     NSView *_savedInspectorView;
@@ -32,7 +31,6 @@
 @property(nonatomic) BOOL isInVersionBrowser; // @synthesize isInVersionBrowser=_isInVersionBrowser;
 @property(nonatomic) long long rightSide; // @synthesize rightSide=_rightSide;
 @property(nonatomic) long long leftSide; // @synthesize leftSide=_leftSide;
-@property(retain, nonatomic) NSLayoutConstraint *sidebarWidthConstraint; // @synthesize sidebarWidthConstraint=_sidebarWidthConstraint;
 @property(retain, nonatomic) MSInspectorController *observableInspectorController; // @synthesize observableInspectorController=_observableInspectorController;
 @property(retain, nonatomic) MSCanvasViewController *canvasController; // @synthesize canvasController=_canvasController;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
@@ -41,6 +39,7 @@
 - (void)didExitVersionBrowser;
 - (void)didEnterVersionBrowser;
 - (id)createInspectorSplitViewItem;
+- (id)createComponentsSplitViewItemWithController:(id)arg1;
 - (id)createCanvasSplitViewItem;
 - (id)createSidebarSplitViewItem;
 - (void)tearDown;
@@ -64,8 +63,9 @@
 - (void)encodeRestorableStateWithCoder:(id)arg1;
 - (void)splitViewDidResizeSubviews:(id)arg1;
 - (void)saveSidebarWidth;
-- (double)appliableSidebarWidth;
-- (void)applySidebarWidth;
+- (void)restoreSidebarWidth;
+- (void)setSidebarWidth:(double)arg1;
+- (double)sidebarWidth;
 - (void)hideSidebar;
 - (id)showSidebar;
 - (id)sidebarItem;

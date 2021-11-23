@@ -23,7 +23,6 @@
     // Error parsing type: A^v, name: _transformedAttributedStringAtomicPointer
     NSSet *_unavailableFontNames;
     // Error parsing type: A^v, name: _unavailableFontNamesAtomicPointer
-    BOOL _textIsOverridden;
     NSAttributedString *_encodedAttributedString;
 }
 
@@ -40,7 +39,6 @@
 + (id)encodeAttributesInDictionary:(id)arg1;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSAttributedString *encodedAttributedString; // @synthesize encodedAttributedString=_encodedAttributedString;
-@property(nonatomic) BOOL textIsOverridden; // @synthesize textIsOverridden=_textIsOverridden;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (id)debugDescription;
 - (id)immutableModelObject;

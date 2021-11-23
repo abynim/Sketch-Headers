@@ -17,6 +17,7 @@
 
 @interface BCOutlineViewController : NSViewController <NSMenuDelegate, NSTextFieldDelegate, BCTableCellViewDelegate, BCTableRowViewDelegate, NSOutlineViewDataSource, BCOutlineViewDelegate>
 {
+    BOOL _shouldResetRowViewVisuals;
     BOOL _selectionStateUpdating;
     BOOL _expansionStateUpdating;
     BOOL _isRefreshing;
@@ -54,10 +55,12 @@
 @property(nonatomic) BOOL isRefreshing; // @synthesize isRefreshing=_isRefreshing;
 @property(nonatomic) BOOL expansionStateUpdating; // @synthesize expansionStateUpdating=_expansionStateUpdating;
 @property(nonatomic) BOOL selectionStateUpdating; // @synthesize selectionStateUpdating=_selectionStateUpdating;
+@property(nonatomic) BOOL shouldResetRowViewVisuals; // @synthesize shouldResetRowViewVisuals=_shouldResetRowViewVisuals;
 @property(readonly, nonatomic) _TtC11BCLayerList15BCOutlineDiffer *differ; // @synthesize differ=_differ;
 @property(retain, nonatomic) BCOutlineView *outlineView; // @synthesize outlineView=_outlineView;
 @property(retain, nonatomic) BCOutlineViewDataController *dataController; // @synthesize dataController=_dataController;
 - (void)updateVisualStateOfRowView:(id)arg1;
+- (void)resetRowViewVisualsIfNecessary;
 - (void)resetRowViewVisuals;
 - (id)tableCellOutlineView:(id)arg1;
 - (id)tableCellViewDestinationWindow:(id)arg1;

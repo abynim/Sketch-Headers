@@ -10,9 +10,13 @@
 {
 }
 
-@property(readonly, nonatomic) int CGLineCap;
-@property(readonly, nonatomic) int CGLineJoin;
+@property(readonly, nonatomic) int lineJoin;
+@property(readonly, nonatomic) int lineCap;
 @property(readonly, nonatomic) BOOL hasDashPattern;
+
+// Remaining properties
+@property(readonly, nonatomic) int lineCapStyle; // @dynamic lineCapStyle;
+@property(readonly, nonatomic) int lineJoinStyle; // @dynamic lineJoinStyle;
 
 @end
 

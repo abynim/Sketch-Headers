@@ -16,7 +16,7 @@
 
 + (id)defaultName;
 @property(readonly, nonatomic) MSImmutableStyle *style;
-- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2;
+- (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2 includingFiles:(BOOL)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

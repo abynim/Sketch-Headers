@@ -49,9 +49,11 @@
 @property(readonly, nonatomic) NSArray *overridePointAttributeNamesForOverridePropertyMigration;
 @property(readonly, copy) NSString *description;
 - (id)treeAsDictionary;
+- (id)modelObjectTreeStructure;
 - (id)layerTreeStructure;
 - (id)simpleTreeStructure;
 - (id)treeStructure;
+- (void)appendModelObjectStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendLayerStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;

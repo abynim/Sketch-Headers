@@ -8,7 +8,7 @@
 
 #import <SketchMirrorServerKit/SMKCommunicationResponseInterface-Protocol.h>
 
-@class NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSURL, NSXPCConnection, NSXPCInterface, SMKWebServer;
+@class NSArray, NSMutableDictionary, NSMutableSet, NSSet, NSString, NSURL, NSXPCConnection, NSXPCInterface, SMKCommunicationController, SMKWebServer;
 @protocol SMKCommunicationInterface, SMKMirrorControllerDelegate, SMKMirrorDataSource;
 
 @interface SMKMirrorController : NSObject <SMKCommunicationResponseInterface>
@@ -18,6 +18,7 @@
     id <SMKMirrorDataSource> _dataSource;
     NSXPCConnection *_helperConnection;
     unsigned long long _helperRestartCount;
+    SMKCommunicationController *_localHelperObject;
     NSMutableDictionary *_advertisements;
     NSMutableSet *_advertisementWhiteList;
     SMKWebServer *_webServer;
@@ -27,6 +28,7 @@
 @property(retain, nonatomic) SMKWebServer *webServer; // @synthesize webServer=_webServer;
 @property(retain, nonatomic) NSMutableSet *advertisementWhiteList; // @synthesize advertisementWhiteList=_advertisementWhiteList;
 @property(retain, nonatomic) NSMutableDictionary *advertisements; // @synthesize advertisements=_advertisements;
+@property(retain, nonatomic) SMKCommunicationController *localHelperObject; // @synthesize localHelperObject=_localHelperObject;
 @property unsigned long long helperRestartCount; // @synthesize helperRestartCount=_helperRestartCount;
 @property(retain, nonatomic) NSXPCConnection *helperConnection; // @synthesize helperConnection=_helperConnection;
 @property(nonatomic) __weak id <SMKMirrorDataSource> dataSource; // @synthesize dataSource=_dataSource;

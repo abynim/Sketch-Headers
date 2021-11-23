@@ -16,6 +16,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)prepareForReuse;
 @property(nonatomic) struct CGRect frame;
+@property(nonatomic) long long backgroundStyle;
 
 @end
 

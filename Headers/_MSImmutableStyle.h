@@ -13,7 +13,7 @@
     unsigned long long _endMarkerType;
     long long _miterLimit;
     unsigned long long _startMarkerType;
-    unsigned long long _windingRule;
+    long long _windingRule;
     MSImmutableStyleBlur *_blur;
     MSImmutableStyleBorderOptions *_borderOptions;
     NSArray *_borders;
@@ -36,7 +36,7 @@
 @property(readonly, nonatomic) NSArray *borders; // @synthesize borders=_borders;
 @property(readonly, nonatomic) MSImmutableStyleBorderOptions *borderOptions; // @synthesize borderOptions=_borderOptions;
 @property(readonly, nonatomic) MSImmutableStyleBlur *blur; // @synthesize blur=_blur;
-@property(readonly, nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
+@property(readonly, nonatomic) long long windingRule; // @synthesize windingRule=_windingRule;
 @property(readonly, nonatomic) unsigned long long startMarkerType; // @synthesize startMarkerType=_startMarkerType;
 @property(readonly, nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(readonly, nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;

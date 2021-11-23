@@ -60,7 +60,7 @@
 @property(readonly, nonatomic) double curviness;
 - (id)derivative;
 - (id)reversedSegment;
-- (id)representationUsingType:(int)arg1;
+- (id)representationUsingType:(unsigned long long)arg1;
 - (id)quadraticApproximation;
 - (id)segmentsBySplittingAtOffsets:(id)arg1;
 - (id)segmentsByClippingToRect:(struct CGRect)arg1;
@@ -103,7 +103,7 @@
 @property(readonly, nonatomic) struct CGPoint controlPoint1;
 @property(readonly, nonatomic) struct CGPoint endPoint2;
 @property(readonly, nonatomic) struct CGPoint endPoint1;
-@property(readonly, nonatomic) int segmentType;
+@property(readonly, nonatomic) unsigned long long segmentType;
 @property(readonly, nonatomic) struct BCBezierSegment segmentData;
 - (id)init;
 - (id)initWithEndPoint1:(struct CGPoint)arg1 endPoint2:(struct CGPoint)arg2 controlPoint1:(struct CGPoint)arg3 controlPoint2:(struct CGPoint)arg4;

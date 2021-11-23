@@ -10,7 +10,7 @@
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDetachedContainer, MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
@@ -24,6 +24,7 @@
     // Error parsing type: A^^v, name: _textStylesIndexedByIDAtomicPointer
     MSJSONSchema *_metadataConfiguration;
     _TtC11SketchModel21MSDetachedSymbolCache *_detachedSymbolCache;
+    MSDetachedContainer *_detachedSymbolContainer;
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     NSDictionary *_metadata;
     NSData *_textPreviewData;
@@ -53,6 +54,7 @@
 @property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) __weak _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
+@property(retain, nonatomic) MSDetachedContainer *detachedSymbolContainer; // @synthesize detachedSymbolContainer=_detachedSymbolContainer;
 @property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 - (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (void)resetStateAndMetadataForDuplication;

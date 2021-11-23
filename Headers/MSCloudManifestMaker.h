@@ -6,25 +6,29 @@
 
 #import <SketchModel/MSManifestMaker.h>
 
-@class NSSet;
+@class NSMutableDictionary, NSSet;
 @protocol MSCloudManifestMakerDelegate;
 
 @interface MSCloudManifestMaker : MSManifestMaker
 {
+    NSMutableDictionary *_exportedFiles;
     id <MSCloudManifestMakerDelegate> _delegate;
     NSSet *_objectsToExport;
 }
 
++ (id)previewPangram;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *objectsToExport; // @synthesize objectsToExport=_objectsToExport;
 @property(nonatomic) __weak id <MSCloudManifestMakerDelegate> delegate; // @synthesize delegate=_delegate;
-- (id)filesMetadataForAncestry:(id)arg1 id:(id)arg2 withSize:(struct CGSize)arg3;
+- (id)filesMetadataForAncestry:(id)arg1 withSize:(struct CGSize)arg2;
+@property(readonly, nonatomic) NSMutableDictionary *exportedFiles; // @synthesize exportedFiles=_exportedFiles;
 - (id)encodedComponentValue:(id)arg1;
 - (void)addComponents:(id)arg1 to:(id)arg2 earlierSlugs:(id)arg3;
 - (id)createComponentsManifest;
+- (void)addDidRenderFlag:(BOOL)arg1 toDictionary:(id)arg2;
 - (id)metadataAndExportForPage:(id)arg1 earlierSlugs:(id)arg2;
 - (BOOL)shouldExportPage:(id)arg1;
-- (BOOL)shouldExportLayerGroup:(id)arg1 onPage:(id)arg2;
+- (BOOL)shouldExportObjectWithID:(id)arg1;
 - (BOOL)validate;
 - (BOOL)validateObjectID:(id)arg1;
 - (id)createManifest;

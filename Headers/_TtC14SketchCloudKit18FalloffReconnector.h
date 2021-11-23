@@ -9,6 +9,7 @@
 @interface _TtC14SketchCloudKit18FalloffReconnector : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: callback
+    // Error parsing type: , name: callbackQueue
     // Error parsing type: , name: networkMonitor
 }
 

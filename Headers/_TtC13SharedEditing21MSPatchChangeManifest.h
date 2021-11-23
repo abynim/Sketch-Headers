@@ -20,10 +20,18 @@
     // Error parsing type: , name: unchangedArtboards
     // Error parsing type: , name: affectedPages
     // Error parsing type: , name: affectedArtboards
+    // Error parsing type: , name: addedComponents
+    // Error parsing type: , name: removedComponents
+    // Error parsing type: , name: changedComponents
+    // Error parsing type: , name: unchangedComponents
 }
 
 - (void).cxx_destruct;
 - (id)init;
+@property(nonatomic, copy) NSSet *unchangedComponents;
+@property(nonatomic, copy) NSSet *changedComponents;
+@property(nonatomic, copy) NSSet *removedComponents;
+@property(nonatomic, copy) NSSet *addedComponents;
 @property(nonatomic, copy) NSSet *affectedArtboards;
 @property(nonatomic, copy) NSSet *affectedPages;
 @property(nonatomic, copy) NSSet *unchangedArtboards;

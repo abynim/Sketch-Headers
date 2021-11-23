@@ -18,6 +18,7 @@
 + (void)load;
 - (id)replacementObjectForObject:(id)arg1;
 - (void)encodeSize:(struct CGSize)arg1 forKey:(id)arg2;
+- (void)encodeInt32:(int)arg1 forKey:(id)arg2;
 - (void)encodeInteger:(long long)arg1 forKey:(id)arg2;
 - (void)encodePoint:(struct CGPoint)arg1 forKey:(id)arg2;
 - (void)encodeRect:(struct CGRect)arg1 forKey:(id)arg2;

@@ -16,6 +16,7 @@
     // Error parsing type: , name: images
     // Error parsing type: , name: imageLookup
     // Error parsing type: , name: layers
+    // Error parsing type: , name: layersHash
     // Error parsing type: , name: imagesDict
     // Error parsing type: , name: instructions
     // Error parsing type: , name: accumulators

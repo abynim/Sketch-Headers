@@ -4,18 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <objc/NSObject.h>
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch27MSCloudVerificationCodeFlow : NSObject
+@interface _TtC6Sketch27MSCloudVerificationCodeFlow : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: _viewState
     // Error parsing type: , name: events
     // Error parsing type: , name: token
     // Error parsing type: , name: environment
 }
-
-- (void).cxx_destruct;
-- (id)init;
 
 @end
 

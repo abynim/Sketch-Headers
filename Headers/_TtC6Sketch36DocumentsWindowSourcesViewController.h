@@ -40,6 +40,7 @@
 - (void)openExistingDocument:(id)arg1;
 - (id)willPresentError:(id)arg1;
 @property(nonatomic, readonly) BOOL canOpenSource;
+- (void)emptyTrash:(id)arg1;
 - (void)copyURLToClipboard:(id)arg1;
 - (void)openSource:(id)arg1;
 - (void)deleteProject:(id)arg1;

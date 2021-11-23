@@ -21,6 +21,7 @@
 @property(retain, nonatomic) MSKeyedUnarchiveHelper *unarchiveHelper; // @synthesize unarchiveHelper=_unarchiveHelper;
 @property(retain, nonatomic) NSDictionary *legacyImages; // @synthesize legacyImages=_legacyImages;
 - (struct CGSize)decodeSizeForKey:(id)arg1 withDefault:(struct CGSize)arg2;
+- (int)decodeInt32ForKey:(id)arg1 withDefault:(int)arg2;
 - (long long)decodeIntegerForKey:(id)arg1 withDefault:(long long)arg2;
 - (struct CGPoint)decodePointForKey:(id)arg1 withDefault:(struct CGPoint)arg2;
 - (struct CGRect)decodeRectForKey:(id)arg1 withDefault:(struct CGRect)arg2;

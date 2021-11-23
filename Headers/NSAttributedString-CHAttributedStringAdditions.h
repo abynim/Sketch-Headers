@@ -9,6 +9,8 @@
 @interface NSAttributedString (CHAttributedStringAdditions)
 + (id)attributedStringWithString:(id)arg1 font:(id)arg2;
 + (id)attributedStringWithString:(id)arg1 attributes:(id)arg2;
+- (id)aligned:(long long)arg1;
+- (id)addingAttributes:(id)arg1 to:(id)arg2;
 - (id)addingAttributes:(id)arg1;
 - (id)attributedStringWithHighlightColor:(id)arg1;
 - (BOOL)attributesMatch:(id)arg1 comparison:(CDUnknownBlockType)arg2;

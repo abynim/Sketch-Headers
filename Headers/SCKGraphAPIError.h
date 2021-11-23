@@ -11,6 +11,7 @@
 }
 
 + (BOOL)supportsSecureCoding;
++ (id)reasonKey;
 + (id)minClientVersionKey;
 + (id)extensionsKey;
 - (void).cxx_destruct;

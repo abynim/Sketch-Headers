@@ -13,7 +13,7 @@
     unsigned long long _endMarkerType;
     long long _miterLimit;
     unsigned long long _startMarkerType;
-    unsigned long long _windingRule;
+    long long _windingRule;
     MSStyleBlur *_blur;
     MSStyleBorderOptions *_borderOptions;
     NSMutableArray *_borders;
@@ -38,7 +38,7 @@
 - (void)setRaw_borders:(id)arg1;
 - (void)setRaw_borderOptions:(id)arg1;
 - (void)setRaw_blur:(id)arg1;
-- (void)setRaw_windingRule:(unsigned long long)arg1;
+- (void)setRaw_windingRule:(long long)arg1;
 - (void)setRaw_startMarkerType:(unsigned long long)arg1;
 - (void)setRaw_miterLimit:(long long)arg1;
 - (void)setRaw_endMarkerType:(unsigned long long)arg1;
@@ -110,7 +110,7 @@
 @property(retain, nonatomic) NSArray *borders; // @synthesize borders=_borders;
 @property(retain, nonatomic) MSStyleBorderOptions *borderOptions; // @synthesize borderOptions=_borderOptions;
 @property(retain, nonatomic) MSStyleBlur *blur; // @synthesize blur=_blur;
-@property(nonatomic) unsigned long long windingRule; // @synthesize windingRule=_windingRule;
+@property(nonatomic) long long windingRule; // @synthesize windingRule=_windingRule;
 @property(nonatomic) unsigned long long startMarkerType; // @synthesize startMarkerType=_startMarkerType;
 @property(nonatomic) long long miterLimit; // @synthesize miterLimit=_miterLimit;
 @property(nonatomic) unsigned long long endMarkerType; // @synthesize endMarkerType=_endMarkerType;

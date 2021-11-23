@@ -16,10 +16,12 @@
     BOOL _hasEditableContent;
     BOOL _isActive;
     BOOL _ssoEnabled;
+    BOOL _isSubscriptionSetUp;
     BOOL _userIsOwner;
     SCKAvatar *_avatar;
     SCKPaginatedProjects *_paginatedProjects;
     SCKPaginatedShares *_paginatedShares;
+    SCKPaginatedShares *_paginatedTrashedShares;
     NSString *_name;
     NSString *_role;
     NSString *_ssoShortName;
@@ -34,6 +36,7 @@
 @property(readonly, nonatomic) BOOL userIsOwner; // @synthesize userIsOwner=_userIsOwner;
 @property(readonly, copy, nonatomic) NSDate *trialEndDate; // @synthesize trialEndDate=_trialEndDate;
 @property(readonly, copy, nonatomic) NSDate *subscriptionEndDate; // @synthesize subscriptionEndDate=_subscriptionEndDate;
+@property(readonly, nonatomic) BOOL isSubscriptionSetUp; // @synthesize isSubscriptionSetUp=_isSubscriptionSetUp;
 @property(readonly, copy, nonatomic) NSString *billingStatus; // @synthesize billingStatus=_billingStatus;
 @property(readonly, copy, nonatomic) NSString *customerID; // @synthesize customerID=_customerID;
 @property(readonly, copy, nonatomic) NSString *ssoShortName; // @synthesize ssoShortName=_ssoShortName;
@@ -43,6 +46,7 @@
 @property(readonly, nonatomic) BOOL hasEditableContent; // @synthesize hasEditableContent=_hasEditableContent;
 @property(readonly, nonatomic) BOOL canEdit; // @synthesize canEdit=_canEdit;
 @property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(readonly, nonatomic) SCKPaginatedShares *paginatedTrashedShares; // @synthesize paginatedTrashedShares=_paginatedTrashedShares;
 @property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
 @property(readonly, nonatomic) SCKPaginatedProjects *paginatedProjects; // @synthesize paginatedProjects=_paginatedProjects;
 @property(readonly, nonatomic) SCKAvatar *avatar; // @synthesize avatar=_avatar;

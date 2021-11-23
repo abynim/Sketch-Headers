@@ -8,7 +8,8 @@
 
 @interface _TtC13SharedEditing23CatchupPhasePatchUpload : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: share
+    // Error parsing type: , name: shareID
+    // Error parsing type: , name: owner
     // Error parsing type: , name: baseVersion
     // Error parsing type: , name: lastIntegratedPatchID
     // Error parsing type: , name: patches

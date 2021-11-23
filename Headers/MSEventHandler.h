@@ -85,6 +85,7 @@
 - (void)currentPageDidChange;
 - (void)layerRulerOriginChanged;
 - (void)selectionDidChangeTo:(id)arg1;
+- (void)selectionDidChangeFromLayers:(id)arg1 fromOverrides:(id)arg2 toLayers:(id)arg3 toOverrides:(id)arg4;
 - (void)layerListSelectionDidChange:(id)arg1;
 - (void)zoomValueDidChange;
 - (void)zoomValueWillChangeTo:(double)arg1;
@@ -111,6 +112,7 @@
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
 - (unsigned long long)hitTestingOptions;
+- (id)itemAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2 options:(unsigned long long)arg3;
 - (id)itemAtPoint:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)valueForUndefinedKey:(id)arg1;
 - (void)delete:(id)arg1;

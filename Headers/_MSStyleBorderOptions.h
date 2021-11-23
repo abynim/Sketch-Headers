@@ -11,16 +11,16 @@
 @interface _MSStyleBorderOptions : MSStylePart
 {
     NSArray *_dashPattern;
-    unsigned long long _lineCapStyle;
-    unsigned long long _lineJoinStyle;
+    int _lineCapStyle;
+    int _lineJoinStyle;
 }
 
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
 - (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
-- (void)setRaw_lineJoinStyle:(unsigned long long)arg1;
-- (void)setRaw_lineCapStyle:(unsigned long long)arg1;
+- (void)setRaw_lineJoinStyle:(int)arg1;
+- (void)setRaw_lineCapStyle:(int)arg1;
 - (void)setRaw_dashPattern:(id)arg1;
 - (BOOL)removeCollaborationChild:(id)arg1;
 - (void)registerCollaborationSubtree:(id)arg1;
@@ -33,8 +33,8 @@
 - (void)initializeUnsetObjectPropertiesWithDefaults;
 - (BOOL)hasDefaultValues;
 - (void)performInitEmptyObject;
-@property(nonatomic) unsigned long long lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
-@property(nonatomic) unsigned long long lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
+@property(nonatomic) int lineJoinStyle; // @synthesize lineJoinStyle=_lineJoinStyle;
+@property(nonatomic) int lineCapStyle; // @synthesize lineCapStyle=_lineCapStyle;
 @property(copy, nonatomic) NSArray *dashPattern; // @synthesize dashPattern=_dashPattern;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;

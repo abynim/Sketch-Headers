@@ -62,7 +62,6 @@
 - (void)setBooleanOperation:(long long)arg1;
 - (BOOL)canBeTransformed;
 - (void)multiplyBy:(double)arg1;
-@property(nonatomic) struct _CHTransformStruct transformStruct;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> rulerCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> unitCoordinateSpace;
 - (void)invalidateTransformForConvertingFromRoot;

@@ -6,8 +6,8 @@
 
 #import <objc/NSObject.h>
 
-#import <SketchCloudKit/NSStreamDelegate-Protocol.h>
-#import <SketchCloudKit/PSWebSocketDriverDelegate-Protocol.h>
+#import <SketchMirrorServerKit/NSStreamDelegate-Protocol.h>
+#import <SketchMirrorServerKit/PSWebSocketDriverDelegate-Protocol.h>
 
 @class NSData, NSInputStream, NSMutableArray, NSMutableURLRequest, NSOutputStream, NSString, NSURLRequest, PSWebSocketBuffer, PSWebSocketDriver;
 @protocol OS_dispatch_queue, PSWebSocketDelegate;

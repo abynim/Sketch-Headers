@@ -17,7 +17,8 @@
     // Error parsing type: , name: driver
     // Error parsing type: , name: influenceRectCache
     // Error parsing type: , name: name
-    // Error parsing type: , name: graphicBuilder
+    // Error parsing type: , name: featureMask
+    // Error parsing type: , name: graphicIsSelfMasked
     // Error parsing type: , name: parentGroupNodesStack
     // Error parsing type: , name: parentGroupStack
     // Error parsing type: , name: symbolIDStack
@@ -25,6 +26,7 @@
     // Error parsing type: , name: tintColor
     // Error parsing type: , name: exportRequest
     // Error parsing type: , name: symbolInstanceStack
+    // Error parsing type: , name: drawingDetachedSymbol
 }
 
 - (void).cxx_destruct;
@@ -32,8 +34,6 @@
 @property(nonatomic, readonly) BOOL isDrawingSymbolInstance;
 @property(nonatomic, retain) MSExportRequest *exportRequest; // @synthesize exportRequest;
 @property(nonatomic, retain) MSImmutableColor *tintColor; // @synthesize tintColor;
-- (void)flushWithDispatchGroup:(id)arg1;
-- (void)flush;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, readonly) MSRenderingDriver *driver; // @synthesize driver;
 @property(nonatomic, retain) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool;
