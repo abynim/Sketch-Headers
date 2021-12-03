@@ -9,6 +9,7 @@
 @interface MSImmutableSymbolInstance (LayerList)
 - (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
 - (id)overridePreviewImageInDocument:(id)arg1;
+- (BOOL)previewShouldIndicateSharedStyleInDocument:(id)arg1 parentShapeGroup:(id)arg2;
 - (id)previewImageForOverrideManagement;
 @end
 

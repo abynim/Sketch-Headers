@@ -22,6 +22,7 @@
 + (unsigned long long)traits;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (void).cxx_destruct;
+- (BOOL)limitsSelectionToBounds;
 - (id)overridePropertyForName:(id)arg1;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (struct BCEdgePaddings)influenceRectPaddingForInstancesInDocument:(id)arg1 visitedSymbols:(id)arg2;

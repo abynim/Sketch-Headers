@@ -29,6 +29,7 @@
     NSMenu *_fileMenu;
     NSMenu *_viewMenu;
     NSMenuItem *_assistantsMenuItem;
+    NSMenuItem *_viewportGuideMenuItem;
     NSMenu *_insertMenu;
     MSPasteboardManager *_pasteboardManager;
     SMKMirrorController *_mirrorController;
@@ -75,6 +76,7 @@
 @property(retain, nonatomic) SMKMirrorController *mirrorController; // @synthesize mirrorController=_mirrorController;
 @property(retain, nonatomic) MSPasteboardManager *pasteboardManager; // @synthesize pasteboardManager=_pasteboardManager;
 @property(retain, nonatomic) NSMenu *insertMenu; // @synthesize insertMenu=_insertMenu;
+@property(retain, nonatomic) NSMenuItem *viewportGuideMenuItem; // @synthesize viewportGuideMenuItem=_viewportGuideMenuItem;
 @property(retain, nonatomic) NSMenuItem *assistantsMenuItem; // @synthesize assistantsMenuItem=_assistantsMenuItem;
 @property(retain, nonatomic) NSMenu *viewMenu; // @synthesize viewMenu=_viewMenu;
 @property(retain, nonatomic) NSMenu *fileMenu; // @synthesize fileMenu=_fileMenu;

@@ -25,6 +25,7 @@
 - (void)changeTextColorTo:(id)arg1;
 - (void)changeColor:(id)arg1;
 @property(readonly, nonatomic) BOOL supportsVerticalAlignment;
+- (id)canvasOverlayPath:(BOOL)arg1;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;
 @end
 

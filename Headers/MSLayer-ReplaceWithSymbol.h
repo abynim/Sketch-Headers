@@ -20,7 +20,9 @@
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
 + (id)alignmentPathsForLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
-+ (id)alignmentPathsForLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
++ (id)alignmentPathsForLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)translatedPathsForLayerUnion:(id)arg1 alignmentValue:(double)arg2 key:(id)arg3 pixelFit:(BOOL)arg4;
++ (id)translatedPathForLayer:(id)arg1 alignmentValue:(double)arg2 key:(id)arg3 pixelFit:(BOOL)arg4;
 + (id)layerOfDataType:(unsigned long long)arg1;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingNodeName;
@@ -60,9 +62,7 @@
 - (BOOL)hasRefreshableDataWithDataManager:(id)arg1;
 - (unsigned long long)applicableDataTypes;
 @property(readonly, nonatomic) unsigned long long dataType;
-- (id)contextualMenuPreviewTemplateImage;
 - (void)calculateLayerListPreviewForState:(unsigned long long)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
-- (id)tintColorForTraits:(long long)arg1;
 - (id)cachedPreviewIconWithState:(unsigned long long)arg1;
 - (id)layerListPreviewCacheKeyForTraits:(long long)arg1;
 - (long long)calculatePreviewIconTraitsForState:(unsigned long long)arg1;
@@ -97,6 +97,8 @@
 @property(readonly, nonatomic) unsigned long long filterTypeMask;
 @property(readonly, nonatomic) unsigned long long displayType;
 @property(readonly, nonatomic) id layerListImmutable;
+- (id)boundingBoxPath:(BOOL)arg1;
+- (id)canvasOverlayPath:(BOOL)arg1;
 - (struct CGRect)minimumAdjustedRectForValue:(double)arg1 axis:(unsigned long long)arg2 anchor:(long long)arg3;
 - (struct CGRect)boundsOfParentLayer;
 - (void)layerDidResizeFromInspector:(unsigned long long)arg1;

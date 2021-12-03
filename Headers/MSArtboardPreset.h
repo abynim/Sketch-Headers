@@ -52,6 +52,7 @@
 - (id)init;
 - (id)initWithDictionaryRepresentation:(id)arg1;
 - (id)initWithName:(id)arg1 size:(struct CGSize)arg2 imageName:(id)arg3 imageNameLandscape:(id)arg4;
+- (BOOL)didExpandVerticallyWithArtboardSize:(struct CGSize)arg1;
 - (double)resizeScaleFromArtboardSize:(struct CGSize)arg1;
 - (unsigned long long)matchWithArtboardSize:(struct CGSize)arg1;
 

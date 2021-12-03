@@ -10,28 +10,33 @@
 #import "NSMenuDelegate-Protocol.h"
 #import "NSTextFieldDelegate-Protocol.h"
 
-@class MSDocumentProgressView, MSDocumentsCollectionItem, MSDocumentsCollectionTextField, NSBox, NSImageView, NSString, NSTextField;
+@class MSDocumentProgressView, MSDocumentsCollectionItem, MSDocumentsCollectionTextField, MSWorkspaceWindowGridItemView, NSArray, NSBox, NSImageView, NSString, NSTextField, NSView;
 @protocol MSDocumentsCollectionViewItemDelegate;
 
 @interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSTextFieldDelegate, NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
 {
-    struct CGSize _designedImageViewSize;
     id <MSDocumentsCollectionViewItemDelegate> _delegate;
     MSDocumentProgressView *_progressView;
     NSImageView *_errorView;
     NSTextField *_subtextField;
+    NSTextField *_secondarySubtextField;
     NSTextField *_tagField;
     NSImageView *_leftIcon;
     NSImageView *_rightIcon;
     NSBox *_tagBackground;
+    NSView *_tagContainer;
+    MSWorkspaceWindowGridItemView *_miniGridThumbView;
 }
 
 + (id)reuseIdentifier;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSWorkspaceWindowGridItemView *miniGridThumbView; // @synthesize miniGridThumbView=_miniGridThumbView;
+@property(retain, nonatomic) NSView *tagContainer; // @synthesize tagContainer=_tagContainer;
 @property(retain, nonatomic) NSBox *tagBackground; // @synthesize tagBackground=_tagBackground;
 @property(retain, nonatomic) NSImageView *rightIcon; // @synthesize rightIcon=_rightIcon;
 @property(retain, nonatomic) NSImageView *leftIcon; // @synthesize leftIcon=_leftIcon;
 @property(retain, nonatomic) NSTextField *tagField; // @synthesize tagField=_tagField;
+@property(retain, nonatomic) NSTextField *secondarySubtextField; // @synthesize secondarySubtextField=_secondarySubtextField;
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
@@ -43,10 +48,11 @@
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSDocumentsCollectionItem *collectionItem;
 - (void)setNeedsDisplaySelection;
-- (void)setMenu:(id)arg1;
 - (void)setSelected:(BOOL)arg1;
 - (void)viewDidLoad;
-- (void)menuRequestedForView:(id)arg1;
+- (void)mouseUp:(id)arg1;
+- (void)mouseDown:(id)arg1;
+@property(nonatomic, readonly) NSArray *draggingImageComponents;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -14,6 +14,7 @@
 @property(nonatomic, readonly) BOOL isServerError_sck;
 @property(readonly, nonatomic) NSArray *cloudFields_sck;
 @property(readonly, nonatomic) BOOL isURLCancelled_sck;
+@property(readonly, nonatomic) NSString *cloudMFAToken_sck;
 @property(readonly, nonatomic) NSString *cloudErrorType_sck;
 @property(readonly, nonatomic) long long cloudCode_sck;
 @end

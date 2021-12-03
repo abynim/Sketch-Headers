@@ -26,6 +26,7 @@
 - (void)webView:(id)arg1 decidePolicyForNavigationAction:(id)arg2 decisionHandler:(CDUnknownBlockType)arg3;
 - (void)webView:(id)arg1 didCommitNavigation:(id)arg2;
 @property(nonatomic, retain) WKWebView *webView; // @synthesize webView;
+- (void)loadWindow;
 
 @end
 

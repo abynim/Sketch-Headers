@@ -8,29 +8,30 @@
 
 #import <SketchModel/MSRootLayer-Protocol.h>
 
-@class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSimpleGrid, NSArray, NSMutableSet, NSSet, NSString;
+@class MSArtboardGroup, MSLayerArray, MSLayerGroup, MSLayoutGrid, MSRulerData, MSSelection, MSSimpleGrid, NSArray, NSSet, NSString;
 @protocol MSLayerCoordinateSpace, MSRootLayer;
 
 @interface MSPage : _MSPage <MSRootLayer>
 {
-    NSMutableSet *_selectedLayerIDs;
     MSArtboardGroup *_currentArtboard;
+    MSSelection *_selection;
     NSSet *_autoExpandedLayerIDs;
+    MSLayerArray *_selectedLayers;
     id <MSLayerCoordinateSpace> _rulerCoordinateSpace;
     NSArray *_cachedExportableLayers;
     NSArray *_cachedArtboards;
     NSArray *_cachedSymbolMasters;
-    MSLayerArray *_cachedSelectedLayers;
+    NSSet *_internalLayerPaths;
 }
 
 + (id)defaultSymbolsPageName;
 + (id)page;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSLayerArray *cachedSelectedLayers; // @synthesize cachedSelectedLayers=_cachedSelectedLayers;
+@property(readonly, nonatomic) NSSet *internalLayerPaths; // @synthesize internalLayerPaths=_internalLayerPaths;
 @property(retain, nonatomic) NSArray *cachedSymbolMasters; // @synthesize cachedSymbolMasters=_cachedSymbolMasters;
 @property(retain, nonatomic) NSArray *cachedArtboards; // @synthesize cachedArtboards=_cachedArtboards;
 @property(retain, nonatomic) NSArray *cachedExportableLayers; // @synthesize cachedExportableLayers=_cachedExportableLayers;
-@property(retain, nonatomic) NSSet *autoExpandedLayerIDs; // @synthesize autoExpandedLayerIDs=_autoExpandedLayerIDs;
+@property(retain, nonatomic) MSLayerArray *selectedLayers; // @synthesize selectedLayers=_selectedLayers;
 - (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setIsLocked:(BOOL)arg1;
@@ -44,7 +45,6 @@
 - (id)artboardsMatchingWidth:(double)arg1;
 - (BOOL)contentIntersectsWithRect:(struct CGRect)arg1;
 - (BOOL)hasClickThrough;
-- (BOOL)limitsSelectionToBounds;
 @property(readonly, nonatomic) MSRulerData *currentVerticalRulerData;
 @property(readonly, nonatomic) MSRulerData *currentHorizontalRulerData;
 - (void)moveLayersToArtboards;
@@ -73,24 +73,29 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 @property(nonatomic) __weak MSArtboardGroup *currentArtboard; // @synthesize currentArtboard=_currentArtboard;
 - (BOOL)canContainLayer:(id)arg1;
+- (void)changeSelectionByAddingItems:(id)arg1 extendExisting:(BOOL)arg2;
 - (void)changeSelectionByAddingLayersInSet:(id)arg1;
 - (void)changeSelectionByDeselectingLayers:(id)arg1;
 - (void)changeSelectionBySelectingLayersInSet:(id)arg1;
 - (void)changeSelectionBySelectingLayers:(id)arg1;
 - (void)changeSelectionUsingBlock:(CDUnknownBlockType)arg1;
+- (BOOL)isLayer:(id)arg1 openToSelectionWithOptions:(unsigned long long)arg2;
+- (BOOL)isLayer:(id)arg1 selectableOnCanvasWithOptions:(unsigned long long)arg2;
 - (BOOL)isLayerSelected:(id)arg1;
 - (id)layersWithIDs:(id)arg1;
 - (id)layersByObjectID;
-- (id)selectedLayers;
-@property(retain, nonatomic) NSMutableSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+@property(readonly, nonatomic) NSSet *currentSelection;
+- (void)setSelectedLayerPaths:(id)arg1;
+- (id)oldSelectedLayerIDs;
+@property(readonly, nonatomic) NSSet *selectedLayerPaths;
 - (void)ensureSelectedLayersAreStillValid;
+@property(readonly, nonatomic) NSSet *autoExpandedLayerIDs; // @synthesize autoExpandedLayerIDs=_autoExpandedLayerIDs;
+@property(retain, nonatomic) MSSelection *selection; // @synthesize selection=_selection;
 - (id)parentGroup;
 - (void)objectDidInit;
 - (void)resetSelectedLayerIDs:(id)arg1;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (struct CGRect)contentBounds;
-- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
-- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2;
 - (void)validateBoundsAfterPatching;
 
 // Remaining properties

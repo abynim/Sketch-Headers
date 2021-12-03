@@ -12,8 +12,7 @@
 {
     // Error parsing type: , name: events
     // Error parsing type: , name: state
-    // Error parsing type: , name: contentView
-    // Error parsing type: , name: actionsView
+    // Error parsing type: , name: headerContentView
     // Error parsing type: , name: submitButton
     // Error parsing type: , name: cancelButton
     // Error parsing type: , name: codeField
@@ -37,8 +36,7 @@
 @property(nonatomic, retain) NSTextField *codeField; // @synthesize codeField;
 @property(nonatomic, retain) NSButton *cancelButton; // @synthesize cancelButton;
 @property(nonatomic, retain) NSButton *submitButton; // @synthesize submitButton;
-@property(nonatomic, retain) NSStackView *actionsView; // @synthesize actionsView;
-@property(nonatomic, retain) NSStackView *contentView; // @synthesize contentView;
+@property(nonatomic, retain) NSStackView *headerContentView; // @synthesize headerContentView;
 
 @end
 

@@ -63,6 +63,7 @@
 @property(readonly, nonatomic) MSImmutableStyleInnerShadow *firstEnabledInnerShadow;
 @property(readonly, nonatomic) MSImmutableStyleShadow *firstEnabledShadow;
 - (void)objectDidInit;
+- (BOOL)needsContrastingBackgroundForManifest:(id)arg1;
 - (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2 includingFiles:(BOOL)arg3;
 - (void)migratePropertiesFromV111OrEarlierWithUnarchiver:(id)arg1;
 - (void)clearTextStyle;

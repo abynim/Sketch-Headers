@@ -10,11 +10,13 @@
 {
     struct CGPoint _location;
     BOOL _isDrag;
+    BOOL _hasReceivedMouseDownEvent;
     unsigned long long _buttonMask;
     unsigned long long _modifiers;
     long long _numberOfClicksRequired;
 }
 
+@property(nonatomic) BOOL hasReceivedMouseDownEvent; // @synthesize hasReceivedMouseDownEvent=_hasReceivedMouseDownEvent;
 @property(nonatomic) BOOL isDrag; // @synthesize isDrag=_isDrag;
 @property(nonatomic) long long numberOfClicksRequired; // @synthesize numberOfClicksRequired=_numberOfClicksRequired;
 @property(nonatomic) unsigned long long modifiers; // @synthesize modifiers=_modifiers;

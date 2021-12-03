@@ -6,17 +6,18 @@
 
 #import <objc/NSObject.h>
 
-@class MSLayer, MSOverrideRepresentation;
+@class MSLayer, MSOverrideRepresentation, MSSelectionItem;
 
 @interface MSHitTestResult : NSObject
 {
-    MSLayer *_layer;
+    MSSelectionItem *_item;
     MSOverrideRepresentation *_overrideRepresentation;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
-@property(retain, nonatomic) MSLayer *layer; // @synthesize layer=_layer;
+@property(retain, nonatomic) MSSelectionItem *item; // @synthesize item=_item;
+@property(readonly, nonatomic) MSLayer *layer;
 
 @end
 

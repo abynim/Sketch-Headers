@@ -10,6 +10,8 @@
 
 @interface NSFont (Chocolat)
 + (BOOL)isEmbeddableFontWithDescriptor:(const struct __CTFontDescriptor *)arg1;
++ (BOOL)isSafeFontWithName:(id)arg1;
++ (BOOL)isSafeFontWithDescriptor:(const struct __CTFontDescriptor *)arg1;
 + (BOOL)isSystemFontWithDescriptor:(const struct __CTFontDescriptor *)arg1;
 + (BOOL)isFontFileRegisteredWithURL:(id)arg1;
 + (id)fileURLWithDescriptor:(const struct __CTFontDescriptor *)arg1;
@@ -17,6 +19,7 @@
 + (BOOL)isTrueTypeOrOpenTypeFontWithDescriptor:(const struct __CTFontDescriptor *)arg1;
 + (id)embeddableFontExtensions;
 @property(nonatomic, readonly) BOOL isEmbeddable;
+@property(nonatomic, readonly) BOOL isSafeFont;
 @property(nonatomic, readonly) BOOL isSystemFont;
 @property(nonatomic, readonly) NSURL *fileURL;
 @end

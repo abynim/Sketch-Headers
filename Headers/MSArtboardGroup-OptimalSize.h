@@ -15,5 +15,6 @@
 - (id)displayName;
 - (BOOL)canChangeBooleanOperation;
 - (BOOL)canBeHidden;
+- (id)canvasOverlayPath:(BOOL)arg1;
 @end
 

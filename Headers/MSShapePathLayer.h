@@ -72,8 +72,6 @@
 - (struct CGPoint)p2;
 - (void)setP1:(struct CGPoint)arg1;
 - (struct CGPoint)p1;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
-- (BOOL)hitTestAsPath;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGRect bounds;

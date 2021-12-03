@@ -10,7 +10,7 @@
 #import <SketchModel/MSJSONArchiverAlternativeFileReference-Protocol.h>
 #import <SketchModel/NSCopying-Protocol.h>
 
-@class BCReadWriteLock, NSData, NSImage, NSString;
+@class NSData, NSImage, NSString;
 @protocol OS_dispatch_group;
 
 @interface MSImageData : NSObject <NSCopying, MSCoding, MSJSONArchiverAlternativeFileReference>
@@ -19,7 +19,6 @@
     NSData *_data;
     NSObject<OS_dispatch_group> *_archivingGroup;
     NSImage *_image;
-    BCReadWriteLock *_imageLock;
 }
 
 + (id)mipampCacheBaseURL;
@@ -27,7 +26,6 @@
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) BCReadWriteLock *imageLock; // @synthesize imageLock=_imageLock;
 @property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
 - (id)debugQuickLookObject;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
@@ -59,7 +57,6 @@
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;
-- (id)initDefault;
 - (id)treeAsDictionary;
 
 // Remaining properties

@@ -10,7 +10,6 @@
 - (long long)numberOfRowsInTableView:(id)arg1;
 - (void)tableView:(id)arg1 draggingSession:(id)arg2 willBeginAtPoint:(struct CGPoint)arg3 forRowIndexes:(id)arg4;
 - (id)tableView:(id)arg1 pasteboardWriterForRow:(long long)arg2;
-- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
 - (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
 - (BOOL)collectionViewItemIsVisibleInTemplates:(id)arg1;
 - (BOOL)collectionViewItemIsVisibleInRecentDocuments:(id)arg1;

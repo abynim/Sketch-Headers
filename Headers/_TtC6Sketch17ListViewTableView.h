@@ -16,7 +16,6 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)keyDown:(id)arg1;
-- (void)mouseDown:(id)arg1;
 - (id)menuForEvent:(id)arg1;
 @property(nonatomic, copy) NSArray *sortDescriptors;
 

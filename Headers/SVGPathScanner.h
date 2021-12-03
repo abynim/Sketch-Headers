@@ -21,7 +21,9 @@
 @property(retain, nonatomic) NSString *commandBuffer; // @synthesize commandBuffer=_commandBuffer;
 @property(retain, nonatomic) NSCharacterSet *number; // @synthesize number=_number;
 @property(retain, nonatomic) NSScanner *scanner; // @synthesize scanner=_scanner;
+- (BOOL)nextFlag;
 - (double)nextFloat;
+- (void)scanOverSkippedCharacters;
 - (BOOL)nextCommand;
 - (id)initWithString:(id)arg1;
 

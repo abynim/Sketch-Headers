@@ -9,6 +9,7 @@
 @interface _MSCurvePoint : MSModelObject
 {
     double _cornerRadius;
+    unsigned long long _cornerStyle;
     struct CGPoint _curveFrom;
     long long _curveMode;
     struct CGPoint _curveTo;
@@ -26,6 +27,7 @@
 - (void)setRaw_curveTo:(struct CGPoint)arg1;
 - (void)setRaw_curveMode:(long long)arg1;
 - (void)setRaw_curveFrom:(struct CGPoint)arg1;
+- (void)setRaw_cornerStyle:(unsigned long long)arg1;
 - (void)setRaw_cornerRadius:(double)arg1;
 - (BOOL)removeCollaborationChild:(id)arg1;
 - (void)registerCollaborationSubtree:(id)arg1;
@@ -44,6 +46,7 @@
 @property(nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
 @property(nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
+@property(nonatomic) unsigned long long cornerStyle; // @synthesize cornerStyle=_cornerStyle;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;

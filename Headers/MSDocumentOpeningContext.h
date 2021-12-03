@@ -23,7 +23,7 @@
 - (void)willProcessCloudDocument:(id)arg1;
 - (BOOL)shouldMigrateDocumentInCoedit:(id)arg1;
 - (BOOL)shouldOpenExistingDocument:(id)arg1;
-- (BOOL)shouldDiscardLocalCoeditChanges:(id)arg1;
+- (BOOL)shouldDiscardLocalCoeditChanges:(id)arg1 reasonIsMigration:(BOOL)arg2;
 - (BOOL)shouldOpenNewerDocument:(id)arg1;
 - (void)migrationNotAvailable:(id)arg1;
 - (BOOL)shouldOpenDocumentWithCorruptMetadata:(id)arg1;

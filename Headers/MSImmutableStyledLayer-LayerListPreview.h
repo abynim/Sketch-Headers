@@ -8,7 +8,8 @@
 
 #import <SketchControllers/FrequentColorEnumeration-Protocol.h>
 
-@interface MSImmutableStyledLayer (FrequentColors) <FrequentColorEnumeration>
+@interface MSImmutableStyledLayer (LayerListPreview) <FrequentColorEnumeration>
+- (BOOL)previewShouldIndicateSharedStyleInDocument:(id)arg1 parentShapeGroup:(id)arg2;
 - (void)trackColorsForBasicFill:(id)arg1 enumeratorBlock:(CDUnknownBlockType)arg2;
 - (void)enumerateColors:(CDUnknownBlockType)arg1;
 @end

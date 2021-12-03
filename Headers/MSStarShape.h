@@ -14,7 +14,6 @@
 - (BOOL)canFlatten;
 - (void)resetPoints;
 - (id)defaultCurvePoints;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
 
 @end
 

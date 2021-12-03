@@ -24,6 +24,7 @@
     NSString *_imageIconName;
     NSString *_title;
     NSAttributedString *_status;
+    NSAttributedString *_secondaryStatus;
     NSAttributedString *_downloadStatus;
     NSString *_statusColor;
     NSString *_toolTip;
@@ -32,17 +33,20 @@
     NSError *_downloadError;
     NSImage *_privacyIcon;
     NSString *_privacyIconTooltip;
+    NSObject *_representedObject;
 }
 
 + (id)keyPathsForValuesAffectingStatusColor;
 + (id)keyPathsForValuesAffectingDownloadStatus;
 + (id)keyPathsForValuesAffectingStatus;
++ (id)relativeTimeLabelFromDate:(id)arg1;
 + (id)userTemplatesDirectoryURL;
 + (id)bundledTemplatesDirectoryURL;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isUploading; // @synthesize isUploading=_isUploading;
 @property(readonly, nonatomic) BOOL hasProcessingError; // @synthesize hasProcessingError=_hasProcessingError;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
+@property(readonly, nonatomic) NSObject *representedObject; // @synthesize representedObject=_representedObject;
 @property(nonatomic) BOOL supportsRestoration; // @synthesize supportsRestoration=_supportsRestoration;
 @property(nonatomic) BOOL supportsPermanentDeletion; // @synthesize supportsPermanentDeletion=_supportsPermanentDeletion;
 @property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
@@ -57,6 +61,7 @@
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
 @property(retain, nonatomic) NSAttributedString *downloadStatus; // @synthesize downloadStatus=_downloadStatus;
+@property(retain, nonatomic) NSAttributedString *secondaryStatus; // @synthesize secondaryStatus=_secondaryStatus;
 @property(retain, nonatomic) NSAttributedString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *imageIconName; // @synthesize imageIconName=_imageIconName;

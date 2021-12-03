@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
+@class MSImmutableDocumentData, MSSharedComponentTracker, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface MSDetachedComponentUpdater : NSObject
 {
@@ -20,9 +20,11 @@
     NSArray *_nestedInstances;
     NSArray *_unnestedInstances;
     NSMutableSet *_recursiveSymbols;
+    MSSharedComponentTracker *_sharedStyleTracker;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSSharedComponentTracker *sharedStyleTracker; // @synthesize sharedStyleTracker=_sharedStyleTracker;
 @property(readonly, nonatomic) NSMutableSet *recursiveSymbols; // @synthesize recursiveSymbols=_recursiveSymbols;
 @property(readonly, nonatomic) NSArray *unnestedInstances; // @synthesize unnestedInstances=_unnestedInstances;
 @property(readonly, nonatomic) NSArray *nestedInstances; // @synthesize nestedInstances=_nestedInstances;
@@ -38,6 +40,7 @@
 - (id)detachedSymbolWithID:(id)arg1;
 - (id)convertMutableDictionaryToImmutables:(id)arg1;
 - (BOOL)updateWithDocument:(id)arg1;
+- (BOOL)updateSharedStyleOverrides;
 - (BOOL)prepareSymbolInstancesForUpdate:(id)arg1;
 - (void)removeDetachedInstanceFor:(id)arg1;
 - (void)updateDetachedInstanceFor:(id)arg1;

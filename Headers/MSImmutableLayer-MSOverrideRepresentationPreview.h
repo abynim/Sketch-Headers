@@ -20,7 +20,10 @@
 - (id)previewImageWithBezier:(id)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 bezier:(id)arg2;
 - (id)layerListPreviewCacheOwner;
+- (id)contextualMenuPreviewTemplateImageWithDocumentData:(id)arg1 parentShapeGroup:(id)arg2;
+- (BOOL)previewShouldIndicateSharedStyleInDocument:(id)arg1 parentShapeGroup:(id)arg2;
 - (BOOL)hasDynamicPreview;
+- (unsigned long long)badgeTypeInDocument:(id)arg1;
 @property(readonly, nonatomic) NSImage *previewImageForOverrideManagement;
 
 // Remaining properties

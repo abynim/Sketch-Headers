@@ -6,7 +6,7 @@
 
 #import "MSBaseInspectorSection.h"
 
-@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, MSSeparatorInspectorItem, NSArrayController, NSString;
+@class MSArtboardBackgroundColorInspectorItem, MSArtboardContentResizeInspectorItem, MSIncludeBackgroundColorInExportInspectorItem, MSIncludeBackgroundColorInInstancesInspectorItem, MSPaddingInspectorItem, MSSeparatorInspectorItem, NSArrayController, NSString, _TtC6Sketch33MSArtboardStartpointInspectorItem;
 
 @interface MSArtboardInspectorSection : MSBaseInspectorSection
 {
@@ -15,6 +15,7 @@
     MSArtboardBackgroundColorInspectorItem *_colorItem;
     MSIncludeBackgroundColorInExportInspectorItem *_includeInExportItem;
     MSIncludeBackgroundColorInInstancesInspectorItem *_includeInInstancesItem;
+    _TtC6Sketch33MSArtboardStartpointInspectorItem *_startpointItem;
     MSPaddingInspectorItem *_paddingItem;
     MSSeparatorInspectorItem *_separatorItem;
     NSArrayController *_layersController;
@@ -25,6 +26,7 @@
 @property(retain, nonatomic) NSArrayController *layersController; // @synthesize layersController=_layersController;
 @property(retain, nonatomic) MSSeparatorInspectorItem *separatorItem; // @synthesize separatorItem=_separatorItem;
 @property(retain, nonatomic) MSPaddingInspectorItem *paddingItem; // @synthesize paddingItem=_paddingItem;
+@property(retain, nonatomic) _TtC6Sketch33MSArtboardStartpointInspectorItem *startpointItem; // @synthesize startpointItem=_startpointItem;
 @property(retain, nonatomic) MSIncludeBackgroundColorInInstancesInspectorItem *includeInInstancesItem; // @synthesize includeInInstancesItem=_includeInInstancesItem;
 @property(retain, nonatomic) MSIncludeBackgroundColorInExportInspectorItem *includeInExportItem; // @synthesize includeInExportItem=_includeInExportItem;
 @property(retain, nonatomic) MSArtboardBackgroundColorInspectorItem *colorItem; // @synthesize colorItem=_colorItem;

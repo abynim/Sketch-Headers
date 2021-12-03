@@ -7,7 +7,7 @@
 #import <SketchModel/MSImmutableLayer.h>
 
 @interface MSImmutableLayer (CoreImageEffects)
-- (id)renderBitmapEffects:(id)arg1 document:(id)arg2;
+- (id)renderBitmapEffects:(id)arg1;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 - (void)configureBackgroundOfRequest:(id)arg1 isContainedInGroup:(BOOL)arg2;
 @end

@@ -8,7 +8,7 @@
 
 #import "MSUpDownTextFieldDelegate-Protocol.h"
 
-@class MSDocument, MSLayerArray, NSArrayController, NSMapTable, NSString, NSView;
+@class MSDocument, MSLayerArray, NSArray, NSArrayController, NSMapTable, NSString, NSView;
 @protocol MSInspectorItemDelegate;
 
 @interface MSInspectorItem : NSViewController <MSUpDownTextFieldDelegate>
@@ -48,6 +48,8 @@
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 maximumSizeWithDecorations:(struct CGSize)arg4 scale:(double)arg5 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg6;
 - (void)refreshAction:(id)arg1;
+- (void)resignCurrentlyEditedTextField;
+@property(readonly, nonatomic) NSArray *currentlyApplicableTextfields;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

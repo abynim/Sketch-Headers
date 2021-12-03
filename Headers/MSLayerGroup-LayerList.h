@@ -16,6 +16,7 @@
 - (struct CGPoint)tileLayer:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)fillEmptyLayerWithData:(id)arg1 fromSupplier:(id)arg2;
 - (void)prepareAsMaskContainer;
+- (id)canvasOverlayPath:(BOOL)arg1;
 - (id)styleForBooleanOperation;
 @end
 

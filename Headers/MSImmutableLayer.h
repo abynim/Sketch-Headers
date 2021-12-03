@@ -27,8 +27,11 @@
 + (BOOL)persistsObjectID;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
+- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
+@property(readonly, nonatomic) BOOL limitsSelectionToBounds;
 - (BOOL)hasEnabledFill;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
+- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
 - (id)maskingLayerForChild:(id)arg1;
 - (id)parentShapeInAncestors:(id)arg1;
 @property(readonly, nonatomic) BOOL canSkipAdvancedClipForStrokes;
@@ -63,6 +66,7 @@
 @property(readonly, nonatomic) BOOL hasTransforms;
 @property(readonly, nonatomic) BOOL isLayerExportable;
 @property(readonly, nonatomic) BOOL shouldBeIncludedInParentPath;
+- (id)childLayerWithID:(id)arg1;
 - (id)layerWithID:(id)arg1;
 - (id)keysDifferingFromObject:(id)arg1;
 @property(readonly, nonatomic) unsigned long long containedTraits;
@@ -87,6 +91,18 @@
 - (BOOL)containsNoOrOneLayers;
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3 ancestry:(id)arg4;
+- (id)hitTestablePathInBoundsForZoomValue:(double)arg1 ancestry:(id)arg2;
+- (id)usedStyleWithAncestry:(id)arg1;
+- (BOOL)hitTestAsPathCurrentSelection:(id)arg1 ancestry:(id)arg2;
+- (BOOL)containsPointAsPath:(struct CGPoint)arg1 zoomValue:(double)arg2 ancestry:(id)arg3;
+- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2 currentSelection:(id)arg3 ancestry:(id)arg4;
+- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
+- (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3 currentSelection:(id)arg4 ancestry:(id)arg5;
+- (void)followMaskChainForLayerAtIndex:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 currentSelection:(id)arg4 ancestry:(id)arg5;
+- (id)layersForHitTestingUnder:(id)arg1;
 - (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)enumeratorWithOptions:(unsigned long long)arg1;

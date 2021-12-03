@@ -28,7 +28,6 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (id)overridePropertyForOverrideName:(id)arg1;
 @property(readonly, nonatomic) NSDictionary *overridePropertyDict; // @synthesize overridePropertyDict=_overridePropertyDict;
-- (BOOL)limitsSelectionToBounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareFrameFrom:(id)arg1 withComparisonforPurpose:(unsigned long long)arg2;
 - (id)parentSymbol;

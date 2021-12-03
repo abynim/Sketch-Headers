@@ -13,10 +13,10 @@
     NSArray *_arcSegments;
 }
 
-+ (id)smoothBezierFilletWithLineSegment1:(id)arg1 lineSegment2:(id)arg2 filletRadius:(double)arg3;
++ (id)smoothBezierFilletWithLineSegment1:(id)arg1 lineSegment2:(id)arg2 filletRadius:(double)arg3 cornerStyle:(unsigned long long)arg4;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSArray *arcSegments; // @synthesize arcSegments=_arcSegments;
-- (void)addArcToBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
+- (void)addArcToCGPath:(struct CGPath *)arg1;
 - (id)reversedFillet;
 
 @end

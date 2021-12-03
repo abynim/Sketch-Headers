@@ -15,6 +15,7 @@
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
+- (BOOL)supportsMoving;
 - (void)resetTitle;
 - (double)tagBackgroundOpacity;
 - (id)tagColor;

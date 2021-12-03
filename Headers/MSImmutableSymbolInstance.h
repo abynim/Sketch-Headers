@@ -33,6 +33,7 @@
 - (id)createDetachedLayerGroupWithInfo:(id)arg1 symbol:(id)arg2 visitedSymbols:(id)arg3;
 - (id)calculatePathInBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (void)calculateUniqueKey;
+- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
 - (void)resetCachedOverrides;
 - (id)availableOverridesWithDocument:(id)arg1;
 - (double)scale;
@@ -49,6 +50,7 @@
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
 @property(readonly, nonatomic) NSDictionary *overrides;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
+- (id)layersForHitTestingUnder:(id)arg1;
 - (BOOL)differsFromLayer:(id)arg1;
 - (void)stripRedundantOverridesOfSymbol:(id)arg1;
 - (BOOL)shadowsFollowRotation;

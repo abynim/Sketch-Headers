@@ -20,7 +20,6 @@
     NSString *_shareName;
 }
 
-+ (id)relativeTimeLabelFromDate:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSString *shareName; // @synthesize shareName=_shareName;
 @property(nonatomic) BOOL displaysTimestamp; // @synthesize displaysTimestamp=_displaysTimestamp;
@@ -30,6 +29,7 @@
 @property(nonatomic, getter=isLoading) BOOL loading; // @synthesize loading=_loading;
 - (void)presenceObserverWithFailedWithError:(id)arg1;
 - (void)presenceObserverWithUpdatedPresences:(id)arg1;
+- (id)secondaryStatus;
 - (id)status;
 - (void)cancelDocumentDownload;
 - (void)fetchPreviewImageWithMaximumPixelSize:(double)arg1 previewImageCache:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

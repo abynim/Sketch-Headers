@@ -15,19 +15,21 @@
     double _segment1Offset;
     double _segment2Offset;
     double _arcRadius;
+    unsigned long long _cornerStyle;
     struct CGPoint _arcEndPoint1;
     struct CGPoint _arcEndPoint2;
     struct CGPoint _arcCenter;
 }
 
-+ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3;
-+ (id)curveFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3;
-+ (id)lineFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3;
-+ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3;
-+ (id)curveFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3;
-+ (id)lineFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3;
++ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3 cornerStyle:(unsigned long long)arg4;
++ (id)curveFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3 cornerStyle:(unsigned long long)arg4;
++ (id)lineFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3 cornerStyle:(unsigned long long)arg4;
++ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 cornerStyle:(unsigned long long)arg4;
++ (id)curveFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 cornerStyle:(unsigned long long)arg4;
++ (id)lineFilletWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 cornerStyle:(unsigned long long)arg4;
 + (id)zeroRadiusFilletWithSegment1:(id)arg1 segment2:(id)arg2;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) unsigned long long cornerStyle; // @synthesize cornerStyle=_cornerStyle;
 @property(readonly, nonatomic) struct CGPoint arcCenter; // @synthesize arcCenter=_arcCenter;
 @property(readonly, nonatomic) struct CGPoint arcEndPoint2; // @synthesize arcEndPoint2=_arcEndPoint2;
 @property(readonly, nonatomic) struct CGPoint arcEndPoint1; // @synthesize arcEndPoint1=_arcEndPoint1;
@@ -37,14 +39,14 @@
 @property(readonly, nonatomic) MSBezierSegment *segment2; // @synthesize segment2=_segment2;
 @property(readonly, nonatomic) MSBezierSegment *segment1; // @synthesize segment1=_segment1;
 - (id)debugQuickLookObject;
-- (void)addArcToBezierPath:(id)arg1 orCGPath:(struct CGPath *)arg2;
+- (void)addArcToCGPath:(struct CGPath *)arg1;
 - (id)arcSegments;
 - (id)reversedFillet;
 @property(readonly, nonatomic) BOOL clockwise;
 @property(readonly, nonatomic) double endAngle;
 @property(readonly, nonatomic) double startAngle;
 - (double)angleToPoint:(struct CGPoint)arg1;
-- (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4 arcEndPoint1:(struct CGPoint)arg5 arcEndPoint2:(struct CGPoint)arg6 arcCenter:(struct CGPoint)arg7 arcRadius:(double)arg8;
+- (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4 arcEndPoint1:(struct CGPoint)arg5 arcEndPoint2:(struct CGPoint)arg6 arcCenter:(struct CGPoint)arg7 arcRadius:(double)arg8 cornerStyle:(unsigned long long)arg9;
 - (id)initWithSegment1:(id)arg1 segment2:(id)arg2;
 
 @end

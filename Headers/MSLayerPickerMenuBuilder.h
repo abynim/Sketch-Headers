@@ -6,14 +6,29 @@
 
 #import "MSMenuBuilder.h"
 
-@interface MSLayerPickerMenuBuilder : MSMenuBuilder
+#import "NSMenuDelegate-Protocol.h"
+
+@class MSSelection, NSString, _TtC11SketchModel24MSImmutableLayerAncestry;
+
+@interface MSLayerPickerMenuBuilder : MSMenuBuilder <NSMenuDelegate>
 {
+    _TtC11SketchModel24MSImmutableLayerAncestry *_ancestry;
+    MSSelection *_currentSelection;
 }
 
+- (void).cxx_destruct;
+@property(retain, nonatomic) MSSelection *currentSelection; // @synthesize currentSelection=_currentSelection;
+@property(retain, nonatomic) _TtC11SketchModel24MSImmutableLayerAncestry *ancestry; // @synthesize ancestry=_ancestry;
 - (BOOL)shouldShowSubLayersForGroupInLayerPickerMenu:(id)arg1;
 - (void)addLayerItem:(id)arg1 toMenu:(id)arg2 withInset:(unsigned long long)arg3;
 - (void)addChildrenOfGroup:(id)arg1 underPoint:(struct CGPoint)arg2 toMenu:(id)arg3 withInset:(unsigned long long)arg4;
 - (id)layerPickerMenuItemForPage:(id)arg1 atPoint:(struct CGPoint)arg2;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

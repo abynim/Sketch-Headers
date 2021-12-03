@@ -12,9 +12,11 @@
 {
     // Error parsing type: , name: _state
     // Error parsing type: , name: events
+    // Error parsing type: , name: emailLabel
     // Error parsing type: , name: emailField
     // Error parsing type: , name: emailFieldContainer
     // Error parsing type: , name: passwordField
+    // Error parsing type: , name: passwordLabel
     // Error parsing type: , name: passwordFieldContainer
     // Error parsing type: , name: forgotPasswordButton
     // Error parsing type: , name: emailSuccessField
@@ -31,10 +33,12 @@
 - (void)viewDidAppear;
 - (void)viewDidLoad;
 @property(nonatomic, retain) MSLinkButton *forgotPasswordButton; // @synthesize forgotPasswordButton;
-@property(nonatomic) __weak NSStackView *passwordFieldContainer; // @synthesize passwordFieldContainer;
+@property(nonatomic, retain) NSStackView *passwordFieldContainer; // @synthesize passwordFieldContainer;
+@property(nonatomic, retain) NSTextField *passwordLabel; // @synthesize passwordLabel;
 @property(nonatomic, retain) NSSecureTextField *passwordField; // @synthesize passwordField;
-@property(nonatomic) __weak NSStackView *emailFieldContainer; // @synthesize emailFieldContainer;
+@property(nonatomic, retain) NSStackView *emailFieldContainer; // @synthesize emailFieldContainer;
 @property(nonatomic, retain) NSTextField *emailField; // @synthesize emailField;
+@property(nonatomic, retain) NSTextField *emailLabel; // @synthesize emailLabel;
 
 @end
 

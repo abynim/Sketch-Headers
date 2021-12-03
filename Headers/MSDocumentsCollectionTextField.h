@@ -4,31 +4,21 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSTextField.h>
+#import "MSWorkspaceWindowTextField.h"
 
-@protocol MSMenuRequestDelegate;
-
-@interface MSDocumentsCollectionTextField : NSTextField
+@interface MSDocumentsCollectionTextField : MSWorkspaceWindowTextField
 {
-    // Error parsing type: , name: menuRequestDelegate
-    // Error parsing type: , name: isSelected
-    // Error parsing type: , name: allowsEditingMode
+    // Error parsing type: , name: container
+    // Error parsing type: , name: manager
+    // Error parsing type: , name: storage
 }
 
-+ (void)setCellClass:(Class)arg1;
-+ (Class)cellClass;
 - (void).cxx_destruct;
+- (void)drawRect:(struct CGRect)arg1;
+@property(nonatomic, readonly) struct CGSize intrinsicContentSize;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)menuForEvent:(id)arg1;
-@property(nonatomic, readonly) struct CGSize intrinsicContentSize;
-- (void)endEditing;
-- (void)startEditing;
-@property(nonatomic) BOOL allowsEditingMode; // @synthesize allowsEditingMode;
-- (void)mouseUp:(id)arg1;
-- (void)textDidEndEditing:(id)arg1;
-@property(nonatomic) BOOL isSelected; // @synthesize isSelected;
-@property(nonatomic) __weak id <MSMenuRequestDelegate> menuRequestDelegate; // @synthesize menuRequestDelegate;
+@property(nonatomic) long long maximumNumberOfLines;
 
 @end
 

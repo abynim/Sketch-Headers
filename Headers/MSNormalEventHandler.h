@@ -10,7 +10,7 @@
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "_TtP6Sketch27MSSelectionOverlayPresenter_-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayer, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSPresenceOverlay, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSPresenceOverlay, MSSelectionItem, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <_TtP6Sketch27MSSelectionOverlayPresenter_, MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
@@ -36,12 +36,12 @@
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
     MSLayerDragController *_dragController;
-    MSLayer *_activeLayer;
+    MSSelectionItem *_activeSelection;
     struct CGVector _duplicateOffset;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSLayer *activeLayer; // @synthesize activeLayer=_activeLayer;
+@property(retain, nonatomic) MSSelectionItem *activeSelection; // @synthesize activeSelection=_activeSelection;
 @property(retain, nonatomic) MSLayerDragController *dragController; // @synthesize dragController=_dragController;
 @property(readonly, nonatomic) MSDragToMoveOrCopyGestureRecognizer *dragGestureRecognizer; // @synthesize dragGestureRecognizer=_dragGestureRecognizer;
 @property(readonly, nonatomic) MSDragToSelectGestureRecognizer *selectionGestureRecognizer; // @synthesize selectionGestureRecognizer=_selectionGestureRecognizer;
@@ -65,13 +65,14 @@
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)didGridLayout;
 - (void)endAdjustingHandle;
+- (void)configureOverlayLabel:(id)arg1 forHandle:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)selectionDidChangeFromLayers:(id)arg1 fromOverrides:(id)arg2 toLayers:(id)arg3 toOverrides:(id)arg4;
 - (void)registerSingleSelectionMomentWhenUndoingRedoingWithPreviousLayersSelection:(id)arg1 previousOverridesSelection:(id)arg2;
-- (void)changeSelectionToLayersWithIDs:(id)arg1 overridesWithIDs:(id)arg2;
+- (void)changeSelectionToLayersWithPaths:(id)arg1 overridesWithIDs:(id)arg2;
 - (void)currentPageDidChange;
 - (BOOL)mouseDraggedOutsideViewShouldMoveScrollOrigin;
 - (void)cut:(id)arg1;
@@ -134,11 +135,12 @@
 - (BOOL)shouldNotChangeSelectionForFlags:(unsigned long long)arg1;
 - (BOOL)absoluteMouseUp:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)mouseExited;
-- (void)selectLayer:(id)arg1;
+- (void)selectLayerFromPickerMenu:(id)arg1;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
-- (void)handleDoubleClickInGroupLayer:(id)arg1 location:(struct CGPoint)arg2 extendSelection:(BOOL)arg3;
+- (void)handleDoubleClickInContainerLayerAtLocation:(struct CGPoint)arg1 extendSelection:(BOOL)arg2;
 - (void)layerDoubleClicked:(id)arg1;
 - (void)handleClickToSelect:(id)arg1;
+- (void)enterRadiiModeUsingHandle:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
