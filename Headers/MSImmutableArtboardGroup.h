@@ -21,6 +21,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
+- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
 @property(readonly, nonatomic) NSArray *updateableColors;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
 - (id)immutableBackgroundColor;
@@ -38,6 +39,8 @@
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
+- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 currentSelection:(id)arg4 ancestry:(id)arg5;
+- (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGRect bounds;

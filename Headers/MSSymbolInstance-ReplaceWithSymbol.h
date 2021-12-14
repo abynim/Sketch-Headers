@@ -23,6 +23,7 @@
 - (unsigned long long)applicableDataTypes;
 - (BOOL)previewShouldIndicateSharedStyle;
 - (BOOL)canMoveToLayer:(id)arg1 beforeLayer:(id)arg2;
+- (id)canvasOverlayPath:(BOOL)arg1;
 - (id)styleForBooleanOperation;
 @end
 

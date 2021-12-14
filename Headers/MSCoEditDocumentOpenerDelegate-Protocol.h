@@ -14,6 +14,6 @@
 - (void)willProcessCloudDocument:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldOpenExistingDocument:(MSCoEditDocumentOpener *)arg1;
 - (BOOL)shouldMigrateDocumentInCoedit:(MSCoEditDocumentOpener *)arg1;
-- (BOOL)shouldDiscardLocalCoeditChanges:(MSCoEditDocumentOpener *)arg1;
+- (BOOL)shouldDiscardLocalCoeditChanges:(MSCoEditDocumentOpener *)arg1 reasonIsMigration:(BOOL)arg2;
 @end
 

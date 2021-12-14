@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchModel/MSImmutableSymbolMaster.h>
+#import "_TtC6Sketch17CloudItemProvider.h"
 
-@interface MSImmutableSymbolMaster (LayerList)
-- (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+@interface _TtC6Sketch19TrashedItemProvider : _TtC6Sketch17CloudItemProvider
+{
+    // Error parsing type: , name: concretePaginationController
+}
+
 @end
 

@@ -96,7 +96,7 @@
 @property(nonatomic) __weak _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 @property(nonatomic) __weak id <MSCanvasViewDelegate> delegate; // @synthesize delegate=_delegate;
-@property(retain, nonatomic) NSObject<MSTilingSystemProvider> *tiledRenderer; // @synthesize tiledRenderer=_tiledRenderer;
+@property(retain) NSObject<MSTilingSystemProvider> *tiledRenderer; // @synthesize tiledRenderer=_tiledRenderer;
 - (void)startAnimatingViewPort:(id)arg1;
 - (void)showDebugWindowBadgeTypeB:(id)arg1;
 - (void)showDebugWindowBadgeTypeA:(id)arg1;

@@ -8,5 +8,6 @@
 
 @interface MSImmutableOvalShape (SVGExport)
 - (void)simplifyPathElement:(id)arg1 exporter:(id)arg2 inset:(double)arg3;
+- (BOOL)canUseShapeElements;
 @end
 

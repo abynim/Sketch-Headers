@@ -88,6 +88,7 @@
 - (void)mouseEntered:(id)arg1;
 - (void)handleMouseEvent:(id)arg1;
 - (void)dismissAlignmentPreviewOverlays;
+- (void)updateAlignmentPreviewOverlays;
 - (void)awakeFromNib;
 - (id)initWithCoder:(id)arg1;
 

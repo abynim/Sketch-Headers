@@ -60,6 +60,9 @@
 - (void)updateFromMaster:(id)arg1;
 @property(readonly, nonatomic) MSOverrideStack *inheritedOverrideStack;
 @property(readonly, nonatomic) MSDetachedSymbol *parentDetachedSymbol;
+- (void)updateChildrenAffectedBySharedObjectChangeIn:(id)arg1;
+- (BOOL)updateIfAffectedByRemovalOfSharedStyleIn:(id)arg1;
+- (BOOL)hasOverrideAffectedByChangeIn:(id)arg1;
 - (BOOL)update;
 - (void)prepareForUpdateWithInstance:(id)arg1;
 - (void)prepareForUpdateWithMaster:(id)arg1;

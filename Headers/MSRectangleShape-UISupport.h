@@ -19,6 +19,7 @@
 @property(nonatomic) BOOL hasSmoothCorners;
 - (void)didChangeValues;
 - (void)willChangeValues;
+- (double)radiusForCorner:(long long)arg1;
 - (double)floatFromNumbers:(id)arg1 atIndex:(unsigned long long)arg2;
 - (void)setCornerRadiusFromSimpleString:(id)arg1;
 - (void)setCornerRadiusFromComponents:(id)arg1;

@@ -8,10 +8,11 @@
 
 #import "MSFieldRestoration-Protocol.h"
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
 @class MSCoordinateInspectorValueAdaptor, MSInlineUpDownTextField, MSMathInspectorValueAdaptor, NSDictionary, NSString;
 
-@interface MSPositionInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
+@interface MSPositionInspectorItem : MSInspectorItem <NSTextFieldDelegate, MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
 {
     MSInlineUpDownTextField *_yField;
     MSInlineUpDownTextField *_rotationField;
@@ -28,10 +29,15 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *xField; // @synthesize xField=_xField;
 @property(retain, nonatomic) MSInlineUpDownTextField *rotationField; // @synthesize rotationField=_rotationField;
 @property(retain, nonatomic) MSInlineUpDownTextField *yField; // @synthesize yField=_yField;
+- (id)currentlyApplicableTextfields;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
 @property(readonly, copy, nonatomic) NSDictionary *restorableFields;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (BOOL)inspectorValueAdaptorAllowFloat:(id)arg1;
+- (void)updateUI;
 - (BOOL)allowFloatValues;
+- (void)setLayers:(id)arg1;
 - (void)refreshIfNecessary:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)viewDidLoad;

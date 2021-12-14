@@ -6,9 +6,9 @@
 
 #import "_TtC6Sketch18ListViewColumnView.h"
 
-@class MSDocumentProgressView, MSDocumentsCollectionTextField, NSImageView, NSTextField, NSView;
+@class MSDocumentProgressView, MSWorkspaceWindowTextField, NSImageView, NSTextField, NSView;
 
-@interface _TtC6Sketch18DocumentColumnView : _TtC6Sketch18ListViewColumnView
+@interface _TtC6Sketch14NameColumnView : _TtC6Sketch18ListViewColumnView
 {
     // Error parsing type: , name: errorView
     // Error parsing type: , name: documentProgressView
@@ -25,7 +25,7 @@
 - (void)viewDidMoveToWindow;
 - (void)awakeFromNib;
 - (void)prepareForReuse;
-@property(nonatomic, retain) MSDocumentsCollectionTextField *documentTextField; // @synthesize documentTextField;
+@property(nonatomic, retain) MSWorkspaceWindowTextField *documentTextField; // @synthesize documentTextField;
 @property(nonatomic, retain) NSImageView *shareIcon2; // @synthesize shareIcon2;
 @property(nonatomic, retain) NSImageView *shareIcon1; // @synthesize shareIcon1;
 @property(nonatomic, retain) NSTextField *statusView; // @synthesize statusView;

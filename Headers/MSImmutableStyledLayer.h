@@ -52,6 +52,7 @@
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (BOOL)shouldBeIncludedInParentPath;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
+- (id)usedStyleWithAncestry:(id)arg1;
 - (id)bezierPathForEndDecorationOnPath:(id *)arg1;
 - (id)bezierPathForStartDecorationOnPath:(id *)arg1;
 - (unsigned long long)roundDecorationTypeIfNecessary:(unsigned long long)arg1;

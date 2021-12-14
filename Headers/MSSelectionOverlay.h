@@ -11,6 +11,7 @@
 @interface MSSelectionOverlay : _$s17SketchControllers19MSCollectionOverlayCN
 {
     // Error parsing type: , name: $__lazy_storage_$_formatter
+    // Error parsing type: , name: radiusHandleDragged
     // Error parsing type: , name: interactionState
     // Error parsing type: , name: $__lazy_storage_$_dragGestureRecognizer
     // Error parsing type: , name: indexPathForSubselection

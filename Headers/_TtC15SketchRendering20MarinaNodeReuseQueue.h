@@ -6,7 +6,7 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC15SketchRendering23ImpositorNodeReuseQueue : _TtCs12_SwiftObject
+@interface _TtC15SketchRendering20MarinaNodeReuseQueue : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: stack
     // Error parsing type: , name: lock

@@ -102,7 +102,7 @@
 - (id)toolbarIdentifier;
 @property(readonly) BOOL wantsLayerHighlight;
 @property(readonly) BOOL wantsStandardSelectionControls;
-- (void)selectLayer:(id)arg1 extendSelection:(BOOL)arg2;
+- (void)selectItem:(id)arg1 extendSelection:(BOOL)arg2;
 - (id)selectedLayers;
 - (void)documentDidChange:(id)arg1;
 - (void)changeColor:(id)arg1;

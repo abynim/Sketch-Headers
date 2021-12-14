@@ -33,6 +33,8 @@
 - (void)_renderArtboardTitlesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 overlaySettings:(id)arg3 renderingCache:(id)arg4;
 - (void)_renderSlicesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 overlaySettings:(id)arg3 canvasColorSpace:(struct CGColorSpace *)arg4 renderingCache:(id)arg5;
 - (id)_createSliceBufferForPage:(id)arg1 rect:(struct CGRect)arg2 renderingParameters:(struct MSRenderingParameters)arg3 overlaySettings:(id)arg4 canvasColorSpace:(struct CGColorSpace *)arg5;
+- (void)_renderViewportGuidesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 overlaySettings:(id)arg3 renderingCache:(id)arg4;
+- (id)_createViewportGuidesBufferForPage:(id)arg1 rect:(struct CGRect)arg2 renderingParameters:(struct MSRenderingParameters)arg3;
 - (void)_renderFlowItems:(id)arg1 page:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 overlaySettings:(id)arg4 renderingCache:(id)arg5;
 - (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlaySettings:(id)arg6 renderingCache:(id)arg7;
 - (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlaySettings:(id)arg6;

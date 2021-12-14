@@ -8,14 +8,12 @@
 
 @interface MSLayerGroup : _MSLayerGroup
 {
-    long long _preCalculatedHasSelectedLayer;
     unsigned long long _disableAutomaticScalingCounter;
 }
 
 + (id)groupWithLayers:(id)arg1;
 + (id)groupWithLayer:(id)arg1;
 @property(nonatomic) unsigned long long disableAutomaticScalingCounter; // @synthesize disableAutomaticScalingCounter=_disableAutomaticScalingCounter;
-@property(nonatomic) long long preCalculatedHasSelectedLayer; // @synthesize preCalculatedHasSelectedLayer=_preCalculatedHasSelectedLayer;
 - (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (void)setInferredLayoutOnAxis:(unsigned long long)arg1 direction:(unsigned long long)arg2;
@@ -34,16 +32,12 @@
 - (void)moveTransformsToChildren;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (struct CGRect)optimalBoundingBox;
-- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
-- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
-- (BOOL)containsSelectedItem;
 - (BOOL)layerCanBeSelected:(id)arg1;
 - (unsigned long long)numberOfSelectableLayers;
 - (id)lastSelectableLayer;
 - (id)firstSelectableLayer;
 - (id)nextSelectableAfterIndex:(unsigned long long)arg1 searchForward:(BOOL)arg2;
 - (id)nearestSelectableToLayer:(id)arg1;
-- (void)deselectLayerAndParent;
 - (BOOL)isExpanded;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (BOOL)shouldStripShadowsAndInnerShadow;
@@ -51,7 +45,6 @@
 - (BOOL)canContainLayer:(id)arg1;
 - (id)defaultStyle;
 - (id)parentGroupRecursive;
-- (void)objectDidInit;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1;
 - (id)layerEnumeratorAvoidingFaultingWithOptions:(unsigned long long)arg1 passingTest:(CDUnknownBlockType)arg2;
 - (id)containedLayersAvoidingFaultingMatchingTraits:(unsigned long long)arg1;

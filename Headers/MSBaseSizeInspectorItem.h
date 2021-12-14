@@ -7,10 +7,11 @@
 #import "MSInspectorItem.h"
 
 #import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
+#import "NSTextFieldDelegate-Protocol.h"
 
 @class MSInlineUpDownTextField, MSSizeInspectorValueAdaptor, NSButton, NSString;
 
-@interface MSBaseSizeInspectorItem : MSInspectorItem <MSInspectorMathValueAdaptorDelegate>
+@interface MSBaseSizeInspectorItem : MSInspectorItem <NSTextFieldDelegate, MSInspectorMathValueAdaptorDelegate>
 {
     MSSizeInspectorValueAdaptor *_widthAdapter;
     MSSizeInspectorValueAdaptor *_heightAdapter;
@@ -25,6 +26,9 @@
 @property(retain, nonatomic) MSInlineUpDownTextField *widthField; // @synthesize widthField=_widthField;
 @property(retain, nonatomic) MSSizeInspectorValueAdaptor *heightAdapter; // @synthesize heightAdapter=_heightAdapter;
 @property(retain, nonatomic) MSSizeInspectorValueAdaptor *widthAdapter; // @synthesize widthAdapter=_widthAdapter;
+- (id)currentlyApplicableTextfields;
+- (void)controlTextDidEndEditing:(id)arg1;
+- (void)controlTextDidChange:(id)arg1;
 - (void)inspectorValueAdaptorDidChangeValue:(id)arg1;
 - (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
 - (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;

@@ -10,11 +10,16 @@
 + (id)MSSelectionOverlayGridHandleVertical;
 + (id)MSSelectionOverlayGridHandleHorizontal;
 + (id)MSSelectionOverlayGridHandle;
++ (id)MSSelectionOverlayBottomRightRadiusHandle;
++ (id)MSSelectionOverlayBottomLeftRadiusHandle;
++ (id)MSSelectionOverlayTopRightRadiusHandle;
++ (id)MSSelectionOverlayTopLeftRadiusHandle;
 + (id)MSSelectionOverlaySpacingHandle;
 + (id)MSSupplementaryElementKindInsertionPoint;
 + (id)MSSupplementaryElementKindCurveFromHandle;
 + (id)MSSupplementaryElementKindCurveToHandle;
 + (id)pointsOutline;
 + (id)MSRadialGradientEllipse;
+@property(nonatomic, readonly) BOOL isCornerRadiusHandle;
 @end
 

@@ -40,8 +40,6 @@
 - (struct CGRect)optimalBoundingBox;
 - (BOOL)fixGeometryWithOptions:(long long)arg1;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
-- (BOOL)hitTestAsPath;
 - (id)CSSAttributeString;
 
 // Remaining properties

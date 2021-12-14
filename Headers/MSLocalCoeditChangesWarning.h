@@ -10,7 +10,7 @@
 {
 }
 
-+ (BOOL)shouldDiscard:(id)arg1;
++ (long long)shouldDiscard:(id)arg1 reasonIsMigration:(BOOL)arg2;
 - (id)init;
 
 @end

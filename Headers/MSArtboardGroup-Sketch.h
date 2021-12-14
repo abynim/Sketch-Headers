@@ -6,7 +6,8 @@
 
 #import <SketchModel/MSArtboardGroup.h>
 
-@interface MSArtboardGroup (AdjustAfterInsert)
+@interface MSArtboardGroup (Sketch)
+- (void)setFlowHomeWithFirstFlow;
 - (void)adjustAfterInsert;
 - (BOOL)shouldRefreshOverlayForFlows;
 - (id)inspectorSections;

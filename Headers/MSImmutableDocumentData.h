@@ -10,7 +10,7 @@
 #import <SketchModel/MSLayerContainment-Protocol.h>
 #import <SketchModel/MSMetadataCoding-Protocol.h>
 
-@class MSDetachedContainer, MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDetachedContainer, MSDocumentState, MSImmutablePage, MSJSONSchema, MSStateContainer, NSArray, NSDictionary, NSString, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 
 @interface MSImmutableDocumentData : _MSImmutableDocumentData <MSLayerContainment, MSMetadataCoding, MSDocumentDataProtocol>
 {
@@ -27,7 +27,6 @@
     MSDetachedContainer *_detachedSymbolContainer;
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     NSDictionary *_metadata;
-    NSData *_textPreviewData;
     NSArray *_selectedOverrides;
     unsigned long long _estimatedCollaborationObjectCacheSize;
     NSDictionary *_symbolsIndexedByID;
@@ -42,7 +41,7 @@
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (id)ms_influenceRectCacheWhenRunningHeadless;
 + (BOOL)persistsObjectID;
-+ (id)loadDocumentDataWithMetadata:(id)arg1 textPreviewData:(id)arg2 textPreviewMetadata:(id)arg3 loadBlock:(CDUnknownBlockType)arg4;
++ (id)loadDocumentDataWithMetadata:(id)arg1 loadBlock:(CDUnknownBlockType)arg2;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
@@ -51,11 +50,11 @@
 @property(retain, nonatomic) NSDictionary *symbolsIndexedByID; // @synthesize symbolsIndexedByID=_symbolsIndexedByID;
 @property(readonly, nonatomic) unsigned long long estimatedCollaborationObjectCacheSize; // @synthesize estimatedCollaborationObjectCacheSize=_estimatedCollaborationObjectCacheSize;
 @property(readonly, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
-@property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) __weak _TtC11SketchModel20MSInfluenceRectCache *influenceRectCache; // @synthesize influenceRectCache=_influenceRectCache;
 @property(retain, nonatomic) MSDetachedContainer *detachedSymbolContainer; // @synthesize detachedSymbolContainer=_detachedSymbolContainer;
 @property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
+- (id)descendantsToLayerWithID:(id)arg1;
 - (void)performPostMigrationTidyupWithUnarchiver:(id)arg1 UIMetadata:(id)arg2;
 - (void)resetStateAndMetadataForDuplication;
 - (id)layers;
@@ -64,7 +63,6 @@
 - (id)allArtboards;
 - (BOOL)wasSavedByTestVersion;
 - (BOOL)wasSavedByOldVersion;
-- (id)textLayersWithUnsafeFonts;
 @property(copy) MSDocumentState *documentState;
 - (id)immutableDocumentState;
 - (void)initializeUnsetObjectPropertiesWithDefaults;

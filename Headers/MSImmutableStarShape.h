@@ -13,6 +13,7 @@
 + (id)defaultName;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (BOOL)hasDefaultCurvePoints;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
 
 @end
 

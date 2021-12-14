@@ -9,6 +9,7 @@
 @interface _MSImmutableCurvePoint : MSImmutableModelObject
 {
     double _cornerRadius;
+    unsigned long long _cornerStyle;
     struct CGPoint _curveFrom;
     long long _curveMode;
     struct CGPoint _curveTo;
@@ -24,6 +25,7 @@
 @property(readonly, nonatomic) struct CGPoint curveTo; // @synthesize curveTo=_curveTo;
 @property(readonly, nonatomic) long long curveMode; // @synthesize curveMode=_curveMode;
 @property(readonly, nonatomic) struct CGPoint curveFrom; // @synthesize curveFrom=_curveFrom;
+@property(readonly, nonatomic) unsigned long long cornerStyle; // @synthesize cornerStyle=_cornerStyle;
 @property(readonly, nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;

@@ -8,11 +8,13 @@
 #import <SketchModel/NSObject-Protocol.h>
 
 @class NSArray, NSString;
+@protocol MSLayerProtocol;
 
 @protocol MSLayerProtocol <NSObject, MSLayerTraits>
 - (BOOL)hasEnabledFill;
 - (NSArray *)childrenIncludingSelf:(BOOL)arg1;
 - (NSArray *)children;
+- (id <MSLayerProtocol>)childLayerWithID:(NSString *)arg1;
 - (id)layerWithID:(NSString *)arg1;
 @property(nonatomic, readonly) BOOL isLayerExportable;
 @property(nonatomic, readonly) struct CGSize size;

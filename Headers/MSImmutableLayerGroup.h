@@ -27,6 +27,8 @@
 - (struct CGRect)calculateInfluenceRectForBoundsInDocument:(id)arg1 visitedSymbols:(id)arg2;
 - (long long)booleanOperationForLayer:(id)arg1;
 - (id)pathCombiningChildrenByApplyingBlock:(CDUnknownBlockType)arg1;
+- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
+- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
 - (BOOL)allowsShadowSpread;
 - (BOOL)allowsBlur;
 - (BOOL)influenceRectClipsToBounds;

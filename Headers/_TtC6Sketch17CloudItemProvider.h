@@ -6,9 +6,10 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch22CloudDocumentsProvider : _TtCs12_SwiftObject
+@interface _TtC6Sketch17CloudItemProvider : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: source
+    // Error parsing type: , name: project
+    // Error parsing type: , name: workspace
     // Error parsing type: , name: searchKeywords
     // Error parsing type: , name: delegate
     // Error parsing type: , name: state

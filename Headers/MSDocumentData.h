@@ -9,7 +9,7 @@
 #import <SketchModel/MSDocumentDataProtocol-Protocol.h>
 #import <SketchModel/MSLayerContainment-Protocol.h>
 
-@class MSDetachedContainer, MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSModelObjectCache, MSPage, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
+@class MSDetachedContainer, MSDocumentState, MSFontList, MSImmutableDocumentData, MSJSONSchema, MSModelObjectCache, MSPage, MSSharedComponentTracker, MSStateContainer, NSArray, NSData, NSDictionary, NSString, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache;
 @protocol MSDocumentDataDelegate;
 
 @interface MSDocumentData : _MSDocumentData <MSLayerContainment, MSDocumentDataProtocol>
@@ -24,7 +24,6 @@
     _TtC11SketchModel20MSInfluenceRectCache *_influenceRectCache;
     id <MSDocumentDataDelegate> _delegate;
     NSDictionary *_metadata;
-    NSData *_textPreviewData;
     NSData *_textPreviewMetadata;
     unsigned long long _estimatedCollaborationObjectCacheSize;
     MSFontList *_fontList;
@@ -32,19 +31,20 @@
     MSStateContainer *_stateContainer;
     MSModelObjectCache *_childCollaborationObjectsCache;
     NSArray *_previousSymbolMasterState;
+    MSSharedComponentTracker *_sharedStyleTracker;
 }
 
 + (id)libraryForForeignObject:(id)arg1 inLibraries:(id)arg2;
 + (void)initialize;
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSSharedComponentTracker *sharedStyleTracker; // @synthesize sharedStyleTracker=_sharedStyleTracker;
 @property(retain, nonatomic) NSArray *previousSymbolMasterState; // @synthesize previousSymbolMasterState=_previousSymbolMasterState;
 @property(retain, nonatomic) MSModelObjectCache *childCollaborationObjectsCache; // @synthesize childCollaborationObjectsCache=_childCollaborationObjectsCache;
 @property(retain, nonatomic) MSStateContainer *stateContainer; // @synthesize stateContainer=_stateContainer;
 @property(retain, nonatomic) NSString *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 @property(retain, nonatomic) MSFontList *fontList; // @synthesize fontList=_fontList;
 @property(nonatomic) unsigned long long estimatedCollaborationObjectCacheSize; // @synthesize estimatedCollaborationObjectCacheSize=_estimatedCollaborationObjectCacheSize;
-@property(retain, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
-@property(retain, nonatomic) NSData *textPreviewData; // @synthesize textPreviewData=_textPreviewData;
+@property(readonly, nonatomic) NSData *textPreviewMetadata; // @synthesize textPreviewMetadata=_textPreviewMetadata;
 @property(retain, nonatomic) NSDictionary *metadata; // @synthesize metadata=_metadata;
 @property(nonatomic) BOOL autoExpandGroupsInLayerList; // @synthesize autoExpandGroupsInLayerList=_autoExpandGroupsInLayerList;
 @property(nonatomic) __weak id <MSDocumentDataDelegate> delegate; // @synthesize delegate=_delegate;
@@ -52,6 +52,7 @@
 @property(retain, nonatomic) MSDetachedContainer *detachedSymbolContainer; // @synthesize detachedSymbolContainer=_detachedSymbolContainer;
 @property(nonatomic) __weak _TtC11SketchModel21MSDetachedSymbolCache *detachedSymbolCache; // @synthesize detachedSymbolCache=_detachedSymbolCache;
 @property(retain, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
+- (id)descendantsToLayerWithID:(id)arg1;
 - (id)cacheForSubtreeObjects;
 - (id)childCollaborationObjectWithID:(id)arg1;
 - (void)invalidateCollaborationCache;

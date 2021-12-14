@@ -33,6 +33,8 @@
 - (void)migratePropertiesFromV103OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV51OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV106OrEarlierWithUnarchiver:(id)arg1;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestAsPathCurrentSelection:(id)arg1 ancestry:(id)arg2;
 
 // Remaining properties
 @property(readonly, nonatomic) struct CGRect bounds;

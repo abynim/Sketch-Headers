@@ -14,6 +14,7 @@
     // Error parsing type: , name: backingScaleFactor
     // Error parsing type: , name: zoomScale
     // Error parsing type: , name: baseScale
+    // Error parsing type: , name: _hasAlphaMask
 }
 
 @end

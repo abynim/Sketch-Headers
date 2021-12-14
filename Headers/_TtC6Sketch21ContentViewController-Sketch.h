@@ -6,7 +6,11 @@
 
 #import "_TtC6Sketch21ContentViewController.h"
 
-@interface _TtC6Sketch21ContentViewController (Sketch)
+#import "NSFilePromiseProviderDelegate-Protocol.h"
+
+@interface _TtC6Sketch21ContentViewController (Sketch) <NSFilePromiseProviderDelegate>
 - (void)menuNeedsUpdate:(id)arg1;
+- (void)filePromiseProvider:(id)arg1 writePromiseToURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)filePromiseProvider:(id)arg1 fileNameForType:(id)arg2;
 @end
 

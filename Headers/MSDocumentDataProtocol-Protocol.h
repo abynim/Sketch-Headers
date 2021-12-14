@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSArray;
+@class MSDetachedContainer, NSArray, NSString;
+@protocol MSLayerProtocol;
 
 @protocol MSDocumentDataProtocol
+@property(readonly, nonatomic) MSDetachedContainer *detachedSymbolContainer;
 @property(readonly, nonatomic) NSArray *pages;
+- (NSArray<MSLayerProtocol> *)descendantsToLayerWithID:(NSString *)arg1;
 @end
 

@@ -102,6 +102,7 @@
 @property(readonly, nonatomic) NSColor *colorPickerModifiedAssetIndicatorBorder;
 @property(readonly, nonatomic) NSColor *colorPickerAssetBorderColor;
 @property(readonly, nonatomic) NSColor *colorPickerFrequentImageBackgroundColor;
+@property(readonly, nonatomic) NSColor *canvasViewportGuideColor;
 @property(readonly, nonatomic) NSColor *canvasOverrideSelectionBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasSymbolTitleColor;
 @property(readonly, nonatomic) NSColor *canvasSliceOutlineColor;

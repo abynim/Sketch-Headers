@@ -58,7 +58,7 @@
 - (void)mapOverridesUnderOverridePoint:(id)arg1 inBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSDictionary *overrides;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
-- (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (id)selectedOverrideAt:(struct CGPoint)arg1 options:(unsigned long long)arg2;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (id)overrideMatchingPoint:(id)arg1;
 @property(readonly, nonatomic) NSArray *availableOverrides;

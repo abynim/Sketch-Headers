@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 @property(copy, nonatomic) NSArray *exportFormats; // @synthesize exportFormats=_exportFormats;
 - (void)applyNamingScheme:(id)arg1;
+- (id)attributedTitleWithNamingSchemeName:(id)arg1 layerName:(id)arg2 affix:(id)arg3 fileFormat:(id)arg4;
 - (id)popupMenu;
 
 @end

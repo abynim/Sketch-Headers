@@ -34,6 +34,9 @@
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (BOOL)hasDefaultCurvePoints;
 - (id)initWithDefaults:(BOOL)arg1 block:(CDUnknownBlockType)arg2;
+- (id)usedStyleWithAncestry:(id)arg1;
+- (BOOL)shouldHitTestOnFill:(id)arg1;
+- (BOOL)hitTestAsPathCurrentSelection:(id)arg1 ancestry:(id)arg2;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migrateByTakingStyleFrom:(id)arg1;
 - (void)migratePropertiesFromShapeGroup:(id)arg1;

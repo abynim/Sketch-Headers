@@ -10,9 +10,9 @@
 {
 }
 
-+ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3;
++ (id)bezierFilletWithSegment1:(id)arg1 segment2:(id)arg2 filletRadius:(double)arg3 cornerStyle:(unsigned long long)arg4;
 - (id)init;
-- (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4 arcEndPoint1:(struct CGPoint)arg5 arcEndPoint2:(struct CGPoint)arg6 arcCenter:(struct CGPoint)arg7 arcRadius:(double)arg8;
+- (id)initWithSegment1:(id)arg1 segment2:(id)arg2 segment1Offset:(double)arg3 segment2Offset:(double)arg4 arcEndPoint1:(struct CGPoint)arg5 arcEndPoint2:(struct CGPoint)arg6 arcCenter:(struct CGPoint)arg7 arcRadius:(double)arg8 cornerStyle:(unsigned long long)arg9;
 
 @end
 

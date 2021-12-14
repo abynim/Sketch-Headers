@@ -6,12 +6,12 @@
 
 #import "NSObject-Protocol.h"
 
-@class MSDocumentData, MSLayer, MSModelObject, NSMutableSet, NSObject, NSString;
+@class MSDocumentData, MSLayer, MSModelObject, MSSelection, NSObject, NSString;
 @protocol MSHoverableItem;
 
 @protocol MSDocumentDataDelegate <NSObject>
+- (void)validateSelection:(MSSelection *)arg1;
 - (void)hoveredItemDidChange:(NSObject<MSHoverableItem> *)arg1;
-- (BOOL)validateSelectionOfLayer:(MSLayer *)arg1 proposedIDsOfLayersToSelect:(NSMutableSet *)arg2;
 - (struct CGRect)visibleCanvasRectForDocumentData:(MSDocumentData *)arg1;
 - (id)documentData:(MSDocumentData *)arg1 metadataForKey:(NSString *)arg2 object:(MSModelObject *)arg3;
 - (void)documentData:(MSDocumentData *)arg1 storeMetadata:(id)arg2 forKey:(NSString *)arg3 object:(MSModelObject *)arg4;

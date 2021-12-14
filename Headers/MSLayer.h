@@ -44,6 +44,7 @@
 - (BOOL)canScale;
 - (BOOL)canRotate;
 @property(readonly, nonatomic) BOOL isLayerExportable;
+- (id)childLayerWithID:(id)arg1;
 - (id)layerWithID:(id)arg1;
 - (void)moveOriginOnAxis:(unsigned long long)arg1 toEdge:(unsigned long long)arg2 byAmount:(double)arg3;
 - (void)setIsFlippedVertical:(BOOL)arg1;
@@ -87,7 +88,6 @@
 - (id)parentShape;
 @property(readonly, nonatomic) __weak MSPage *parentPage;
 @property(readonly, nonatomic) __weak MSLayerGroup *parentGroup;
-- (BOOL)isOpen;
 - (void)removeFromParent;
 - (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)makeRectIntegral;
@@ -123,14 +123,10 @@
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
 @property(readonly, nonatomic) MSStyle *usedStyle;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
-- (BOOL)limitsSelectionToBounds;
-- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1;
-- (BOOL)isSelectableOnCanvasWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isExpanded;
 @property(readonly, nonatomic) BOOL isSelected;
 - (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2 showSelection:(BOOL)arg3;
 - (void)select:(BOOL)arg1 byExtendingSelection:(BOOL)arg2;
-@property(readonly, nonatomic) BOOL containsSelectedItem;
 - (void)moveBySuggestedOffset:(struct CGVector)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
@@ -174,16 +170,9 @@
 - (unsigned long long)containedLayersCount;
 - (id)containedLayers;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;
-- (id)hitTestablePathInBoundsForZoomValue:(double)arg1;
-- (BOOL)hitTestPoint:(struct CGPoint)arg1 inPath:(id)arg2 zoomValue:(double)arg3;
-- (BOOL)containsPointAsPath:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
-- (BOOL)isLayerAtIndex:(unsigned long long)arg1 maskedAtPoint:(struct CGPoint)arg2 zoomValue:(double)arg3;
-- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
-- (BOOL)shouldHitTestOnFill:(id)arg1;
-- (BOOL)hitTestAsPath;
 - (BOOL)hitTestRect:(struct CGRect)arg1 options:(unsigned long long)arg2;
-- (BOOL)containsPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+- (id)selectedOverrideAt:(struct CGPoint)arg1 options:(unsigned long long)arg2;
 - (id)affectedLayerForPatching;
 - (void)recycleInContext:(id)arg1;
 - (void)resetConstraints;
@@ -210,7 +199,6 @@
 - (id)swatchesReferencedInDocument:(id)arg1;
 - (id)sharedStylesReferencedInDocument:(id)arg1;
 - (void)setIsVisible:(BOOL)arg1;
-- (void)followMaskChainForLayerAtIndex:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)closestClippingLayer;
 - (id)candidatesForMasking;
 - (BOOL)isPartOfClippingMask;

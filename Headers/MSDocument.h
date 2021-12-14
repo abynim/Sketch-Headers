@@ -266,7 +266,7 @@
 - (void)showCanvas;
 - (void)showComponents;
 - (id)inspectorViewControllersForLayers:(id)arg1 standardControllers:(id)arg2;
-- (BOOL)validateSelectionOfLayer:(id)arg1 proposedIDsOfLayersToSelect:(id)arg2;
+- (void)validateSelection:(id)arg1;
 - (void)loadLayerListPanel;
 @property(readonly, nonatomic) _TtC6Sketch22MSInsertMenuController *insertMenuController; // @synthesize insertMenuController=_insertMenuController;
 - (id)swiftCompatibleComponentsPanelController;

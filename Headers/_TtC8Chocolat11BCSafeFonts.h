@@ -4,9 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch18DocumentColumnView.h"
+#import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch18DocumentColumnView (Sketch)
-- (void)controlTextDidEndEditing:(id)arg1;
+@interface _TtC8Chocolat11BCSafeFonts : _TtCs12_SwiftObject
+{
+    // Error parsing type: , name: fontSet
+}
+
 @end
 

@@ -15,14 +15,17 @@
 @interface MSImmutablePage : _MSImmutablePage <MSCloudExportableRootLayer, MSImmutableRootLayer>
 {
     MSImmutableLayerGroup<MSImmutableRootLayer> *_currentRoot;
-    NSSet *_selectedLayerIDs;
+    NSSet *_selectedLayerPaths;
 }
 
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 + (unsigned long long)traits;
 + (id)defaultName;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
+@property(readonly, nonatomic) NSSet *selectedLayerPaths; // @synthesize selectedLayerPaths=_selectedLayerPaths;
+@property(readonly) NSSet *oldSelectedLayerIDs;
+- (BOOL)isOpenForSelectionWithOptions:(unsigned long long)arg1 currentSelection:(id)arg2 ancestry:(id)arg3;
+- (BOOL)limitsSelectionToBounds;
 @property(readonly, nonatomic) NSArray *symbols;
 @property(readonly, nonatomic) BOOL hasArtboards;
 @property(readonly, nonatomic) NSArray *artboards;
@@ -41,6 +44,8 @@
 @property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;
+- (BOOL)containsPoint:(struct CGPoint)arg1 zoomValue:(double)arg2 currentSelection:(id)arg3 ancestry:(id)arg4;
+- (BOOL)isTooSmallForPreciseHitTestingAtZoomValue:(double)arg1;
 - (BOOL)shouldDiffSublayersForDifferingLayer:(id)arg1;
 
 // Remaining properties

@@ -92,6 +92,7 @@
 - (void)updatePopupWithBlock:(CDUnknownBlockType)arg1;
 @property(readonly, nonatomic) id <BCOutlineViewNode> currentPage;
 - (void)viewDidAppear;
+- (void)viewWillAppear;
 @property(nonatomic) double currentPageHeight;
 - (void)applyAppearance;
 - (void)refreshAfterAppearanceChange;

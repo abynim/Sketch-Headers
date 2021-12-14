@@ -10,7 +10,7 @@
 
 @interface MSOverlaySettings : NSObject <NSCopying>
 {
-    struct CGColor *_colors[10];
+    struct CGColor *_colors[11];
     unsigned long long _layoutGridStyle;
     unsigned long long _options;
 }
@@ -23,7 +23,7 @@
 - (BOOL)isEqualToSettings:(id)arg1;
 - (struct CGColor *)colorAtIndex:(unsigned long long)arg1;
 - (void)dealloc;
-- (id)initWithColors:(struct CGColor *[10])arg1 options:(unsigned long long)arg2 layoutGridStyle:(unsigned long long)arg3;
+- (id)initWithColors:(struct CGColor *[11])arg1 options:(unsigned long long)arg2 layoutGridStyle:(unsigned long long)arg3;
 
 @end
 

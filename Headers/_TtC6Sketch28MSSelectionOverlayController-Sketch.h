@@ -25,9 +25,11 @@
 - (BOOL)selectionOverlay:(id)arg1 layout:(id)arg2 shouldHideItemAt:(id)arg3;
 - (struct CGAffineTransform)selectionOverlay:(id)arg1 layout:(id)arg2 transformForItemAt:(id)arg3;
 - (struct CGRect)selectionOverlay:(id)arg1 layout:(id)arg2 frameForItemAt:(id)arg3;
+- (id)selectionOverlay:(id)arg1 layerAt:(id)arg2;
 @property(nonatomic, readonly) BOOL shouldShowSelectedOverrides;
 @property(nonatomic) BOOL preferencesWantSelection;
 @property(nonatomic) BOOL currentEventHandlerWantsStandardSelectionControls;
+- (void)beginToolWithHandles:(id)arg1;
 - (void)beginToolWithHandleOfKind:(id)arg1;
 - (void)beginToolWithHandle:(long long)arg1;
 - (void)beginToolWithHiddenHandles;

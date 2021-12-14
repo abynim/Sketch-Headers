@@ -7,7 +7,7 @@
 #import <SketchModel/MSImmutableStyledLayer.h>
 
 @interface MSImmutableStyledLayer (BlurEffect)
-- (id)renderBitmapEffects:(id)arg1 document:(id)arg2;
+- (id)renderBitmapEffects:(id)arg1;
 - (id)strokeStyleForDecoratedPath;
 - (id)fillStyleForDecoratedPath;
 - (id)fillPathWithDecorations:(id *)arg1;

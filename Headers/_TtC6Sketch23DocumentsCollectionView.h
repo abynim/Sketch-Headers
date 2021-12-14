@@ -17,6 +17,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)keyDown:(id)arg1;
+- (id)menuForEvent:(id)arg1;
 - (BOOL)resignFirstResponder;
 - (BOOL)becomeFirstResponder;
 @property(nonatomic) __weak _TtC6Sketch33DocumentsCollectionBackgroundView *collectionBackgroundView; // @synthesize collectionBackgroundView;

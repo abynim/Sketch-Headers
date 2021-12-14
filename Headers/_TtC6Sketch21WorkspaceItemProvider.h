@@ -4,13 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/MSTiledRenderer.h>
+#import "_TtC6Sketch17CloudItemProvider.h"
 
-@interface MSAsyncTiledRenderer : MSTiledRenderer
+@interface _TtC6Sketch21WorkspaceItemProvider : _TtC6Sketch17CloudItemProvider
 {
+    // Error parsing type: , name: concretePaginationController
 }
-
-- (unsigned long long)defaultRenderingRequestOptions;
 
 @end
 

@@ -25,7 +25,6 @@
     // Error parsing type: , name: contentsPatternType
     // Error parsing type: , name: contentsAspectRatio
     // Error parsing type: , name: interpolationQuality
-    // Error parsing type: , name: text
     // Error parsing type: , name: _strokedPath
     // Error parsing type: , name: lineWidth
     // Error parsing type: , name: lineCap
