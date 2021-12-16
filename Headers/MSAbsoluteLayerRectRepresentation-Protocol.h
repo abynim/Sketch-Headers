@@ -12,6 +12,7 @@
 @property(readonly, nonatomic) MSPath *pathForAbsoluteRect;
 @property(nonatomic) struct CGRect absoluteBoundingBox;
 @property(readonly, nonatomic) struct CGRect rect;
+- (void)makeOriginIntegral;
 - (void)setHeightRespectingProportions:(double)arg1;
 - (void)setWidthRespectingProportions:(double)arg1;
 - (void)moveInAbsoluteCoordinatesBy:(struct CGPoint)arg1;

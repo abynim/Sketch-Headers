@@ -121,6 +121,7 @@
 - (void)layerDidEndResize;
 - (void)layerWillStartResize;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
+- (BOOL)containsSelectedItem;
 @property(readonly, nonatomic) MSStyle *usedStyle;
 - (id)selectableLayersWithOptions:(unsigned long long)arg1;
 @property(readonly, nonatomic) BOOL isExpanded;

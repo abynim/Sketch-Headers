@@ -23,6 +23,7 @@
 + (id)alignmentPathsForLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3 pixelFit:(BOOL)arg4;
 + (id)translatedPathsForLayerUnion:(id)arg1 alignmentValue:(double)arg2 key:(id)arg3 pixelFit:(BOOL)arg4;
 + (id)translatedPathForLayer:(id)arg1 alignmentValue:(double)arg2 key:(id)arg3 pixelFit:(BOOL)arg4;
++ (void)adjustAbsoluteRepresentationForLayerRepresentation:(id)arg1 absoluteRect:(struct CGRect)arg2 alignmentValue:(double)arg3 key:(id)arg4 shouldPixelFit:(BOOL)arg5;
 + (id)layerOfDataType:(unsigned long long)arg1;
 + (id)keyPathsForValuesAffectingBadgeMap;
 + (id)keyPathsForValuesAffectingNodeName;
