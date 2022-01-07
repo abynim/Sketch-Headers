@@ -10,17 +10,14 @@
 
 @interface _TtC6Sketch35MSCloudSignInCompleteViewController : NSViewController
 {
-    // Error parsing type: , name: state
     // Error parsing type: , name: events
     // Error parsing type: , name: contentStackView
-    // Error parsing type: , name: contentView
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)done:(id)arg1;
-- (void)viewDidLoad;
 @property(nonatomic) __weak NSStackView *contentStackView; // @synthesize contentStackView;
 
 @end

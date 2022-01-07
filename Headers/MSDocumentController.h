@@ -30,6 +30,8 @@
 - (void)reopenDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 display:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)makeDocumentForURL:(id)arg1 withContentsOfURL:(id)arg2 ofType:(id)arg3 error:(id *)arg4;
 - (void)cloudAuthenticationDidChange:(id)arg1;
+- (void)removeDocument:(id)arg1;
+- (void)addDocument:(id)arg1;
 @property(readonly, nonatomic) BOOL canShowDocumentsWindowAtLaunch;
 - (void)internalOpenDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 displayDownloadProgress:(BOOL)arg3 completionHandler:(CDUnknownBlockType)arg4;
@@ -42,6 +44,7 @@
 @property(readonly, copy) NSArray *sketchDocuments;
 - (void)documentControllerWithDocController:(id)arg1 didReviewAll:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)reviewUnsavedDocumentsWithAlertTitle:(id)arg1 cancellable:(BOOL)arg2 delegate:(id)arg3 didReviewAllSelector:(SEL)arg4 contextInfo:(void *)arg5;
+- (void)logNumberOfOpenDocuments;
 - (BOOL)validateUserInterfaceItem:(id)arg1;
 - (void)openDocumentWithContentsOfURL:(id)arg1 display:(BOOL)arg2 context:(id)arg3 callback:(id)arg4;
 

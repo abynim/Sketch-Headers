@@ -37,6 +37,7 @@
 + (double)normalizeUserVisibleRotation:(double)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) BOOL canConstrainProportions; // @synthesize canConstrainProportions=_canConstrainProportions;
+- (void)removeFlow;
 - (BOOL)ancestorsOrSelfHaveInferredLayout;
 - (BOOL)hasEnabledFill;
 - (void)rect:(id)arg1 didChangeFromRect:(struct CGRect)arg2;
@@ -65,6 +66,7 @@
 - (void)multiplyBy:(double)arg1;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> rulerCoordinateSpace;
 @property(readonly, nonatomic) id <MSLayerCoordinateSpace> unitCoordinateSpace;
+- (void)setRaw_frame:(id)arg1;
 - (void)invalidateTransformForConvertingFromRoot;
 @property(readonly, nonatomic) struct CGAffineTransform transformForConvertingFromRoot; // @synthesize transformForConvertingFromRoot=_transformForConvertingFromRoot;
 - (struct CGAffineTransform)transformForConvertingToLayer:(id)arg1;

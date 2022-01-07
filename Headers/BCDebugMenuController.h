@@ -17,11 +17,14 @@
 @property(retain, nonatomic) NSDictionary *settings; // @synthesize settings=_settings;
 - (void)terminateWithHang:(id)arg1;
 - (void)hangFor20:(id)arg1;
+- (void)triggerExpectAssert:(id)arg1;
+- (void)triggerExpectationFailure:(id)arg1;
 - (void)crashBugsnag:(id)arg1;
 - (void)crashTrap:(id)arg1;
 - (void)crashArrayThread:(id)arg1;
 - (void)crashArray:(id)arg1;
 - (void)crashNow:(id)arg1;
+- (void)launchAlternateInstance:(id)arg1;
 - (void)revealApplicationSupport:(id)arg1;
 - (BOOL)validateMenuItem:(id)arg1;
 - (void)valueSelected:(id)arg1;

@@ -40,8 +40,9 @@
     // Error parsing type: , name: shadowColor
     // Error parsing type: , name: shadowReplacesContent
     // Error parsing type: , name: filter
+    // Error parsing type: , name: backgroundFilter
     // Error parsing type: , name: shouldRasterize
-    // Error parsing type: , name: rasterized
+    // Error parsing type: , name: subRender
     // Error parsing type: , name: rasterCache
     // Error parsing type: , name: cacheLock
     // Error parsing type: , name: primitiveChildren

@@ -6,16 +6,16 @@
 
 #import <AppKit/NSViewController.h>
 
-@class NSButton, NSStackView, NSTextField, NSView, _TtC6Sketch14HyperlinkLabel;
+@class NSButton, NSStackView, NSView, _TtC6Sketch14HyperlinkLabel, _TtC6Sketch23MSVerificationCodeField;
 
 @interface _TtC6Sketch37MSCloudVerificationCodeViewController : NSViewController
 {
     // Error parsing type: , name: events
     // Error parsing type: , name: state
+    // Error parsing type: , name: verificationCodeField
     // Error parsing type: , name: headerContentView
     // Error parsing type: , name: submitButton
     // Error parsing type: , name: cancelButton
-    // Error parsing type: , name: codeField
     // Error parsing type: , name: recoveryCodeRouteLabel
     // Error parsing type: , name: contactUsRouteLabel
     // Error parsing type: , name: statusContainerView
@@ -33,10 +33,10 @@
 @property(nonatomic, retain) NSView *statusContainerView; // @synthesize statusContainerView;
 @property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *contactUsRouteLabel; // @synthesize contactUsRouteLabel;
 @property(nonatomic, retain) _TtC6Sketch14HyperlinkLabel *recoveryCodeRouteLabel; // @synthesize recoveryCodeRouteLabel;
-@property(nonatomic, retain) NSTextField *codeField; // @synthesize codeField;
 @property(nonatomic, retain) NSButton *cancelButton; // @synthesize cancelButton;
 @property(nonatomic, retain) NSButton *submitButton; // @synthesize submitButton;
 @property(nonatomic, retain) NSStackView *headerContentView; // @synthesize headerContentView;
+@property(nonatomic, retain) _TtC6Sketch23MSVerificationCodeField *verificationCodeField; // @synthesize verificationCodeField;
 
 @end
 

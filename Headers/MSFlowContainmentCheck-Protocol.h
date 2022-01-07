@@ -7,7 +7,7 @@
 @class MSImmutableDocumentData, MSImmutableFlowConnection;
 
 @protocol MSFlowContainmentCheck
-- (BOOL)containsFlowWithSymbolsFromDocument:(MSImmutableDocumentData *)arg1;
-- (MSImmutableFlowConnection *)firstFlowWithSymbolsFromDocument:(MSImmutableDocumentData *)arg1;
+- (BOOL)containsFlowPassingTest:(BOOL (^)(MSImmutableFlowConnection *))arg1 symbolsFromDocument:(MSImmutableDocumentData *)arg2;
+- (MSImmutableFlowConnection *)firstFlowPassingTest:(BOOL (^)(MSImmutableFlowConnection *))arg1 symbolsFromDocument:(MSImmutableDocumentData *)arg2;
 @end
 

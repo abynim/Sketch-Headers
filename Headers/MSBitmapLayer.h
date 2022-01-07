@@ -19,7 +19,6 @@
 - (void)resizeToOriginalSize;
 - (struct CGSize)originalSize;
 - (BOOL)isAtOriginalSize;
-- (id)NSImage;
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;

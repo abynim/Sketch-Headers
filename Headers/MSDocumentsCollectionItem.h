@@ -6,33 +6,29 @@
 
 #import <objc/NSObject.h>
 
-#import "MSDocumentsCollectionItemPreviewImageLoading-Protocol.h"
+@class NSArray, NSAttributedString, NSColor, NSError, NSImage, NSProgress, NSString;
 
-@class NSArray, NSAttributedString, NSColor, NSError, NSImage, NSProgress, NSString, NSURL;
-
-@interface MSDocumentsCollectionItem : NSObject <MSDocumentsCollectionItemPreviewImageLoading>
+@interface MSDocumentsCollectionItem : NSObject
 {
     BOOL _showLibraryIcon;
     BOOL _supportsRenaming;
     BOOL _supportsMoving;
     BOOL _supportsDeletion;
     BOOL _supportsPermanentDeletion;
-    BOOL _supportsRestoration;
+    BOOL _userCanChange;
     BOOL _isProcessing;
     BOOL _hasProcessingError;
     BOOL _isUploading;
     NSString *_imageIconName;
     NSString *_title;
-    NSAttributedString *_status;
-    NSAttributedString *_secondaryStatus;
     NSAttributedString *_downloadStatus;
     NSString *_statusColor;
     NSString *_toolTip;
     NSArray *_presences;
     NSProgress *_downloadProgress;
     NSError *_downloadError;
-    NSImage *_privacyIcon;
-    NSString *_privacyIconTooltip;
+    NSImage *_overlayIcon;
+    NSString *_overlayIconTooltip;
     NSObject *_representedObject;
 }
 
@@ -47,13 +43,13 @@
 @property(readonly, nonatomic) BOOL hasProcessingError; // @synthesize hasProcessingError=_hasProcessingError;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
 @property(readonly, nonatomic) NSObject *representedObject; // @synthesize representedObject=_representedObject;
-@property(nonatomic) BOOL supportsRestoration; // @synthesize supportsRestoration=_supportsRestoration;
-@property(nonatomic) BOOL supportsPermanentDeletion; // @synthesize supportsPermanentDeletion=_supportsPermanentDeletion;
-@property(nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
-@property(nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
-@property(nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
-@property(readonly, nonatomic) NSString *privacyIconTooltip; // @synthesize privacyIconTooltip=_privacyIconTooltip;
-@property(readonly, nonatomic) NSImage *privacyIcon; // @synthesize privacyIcon=_privacyIcon;
+@property(readonly, nonatomic) BOOL userCanChange; // @synthesize userCanChange=_userCanChange;
+@property(readonly, nonatomic) BOOL supportsPermanentDeletion; // @synthesize supportsPermanentDeletion=_supportsPermanentDeletion;
+@property(readonly, nonatomic) BOOL supportsDeletion; // @synthesize supportsDeletion=_supportsDeletion;
+@property(readonly, nonatomic) BOOL supportsMoving; // @synthesize supportsMoving=_supportsMoving;
+@property(readonly, nonatomic) BOOL supportsRenaming; // @synthesize supportsRenaming=_supportsRenaming;
+@property(readonly, nonatomic) NSString *overlayIconTooltip; // @synthesize overlayIconTooltip=_overlayIconTooltip;
+@property(readonly, nonatomic) NSImage *overlayIcon; // @synthesize overlayIcon=_overlayIcon;
 @property(readonly, nonatomic) BOOL showLibraryIcon; // @synthesize showLibraryIcon=_showLibraryIcon;
 @property(retain, nonatomic) NSError *downloadError; // @synthesize downloadError=_downloadError;
 @property(retain, nonatomic) NSProgress *downloadProgress; // @synthesize downloadProgress=_downloadProgress;
@@ -61,13 +57,12 @@
 @property(readonly, nonatomic) NSString *toolTip; // @synthesize toolTip=_toolTip;
 @property(readonly, nonatomic) NSString *statusColor; // @synthesize statusColor=_statusColor;
 @property(retain, nonatomic) NSAttributedString *downloadStatus; // @synthesize downloadStatus=_downloadStatus;
-@property(retain, nonatomic) NSAttributedString *secondaryStatus; // @synthesize secondaryStatus=_secondaryStatus;
-@property(retain, nonatomic) NSAttributedString *status; // @synthesize status=_status;
 @property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSString *imageIconName; // @synthesize imageIconName=_imageIconName;
 - (void)dealloc;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (id)keyPathsForProgressObserving;
+- (void)resetTitle;
 - (void)updateCloudStatus;
 - (void)cancelDocumentDownload;
 - (BOOL)isEqual:(id)arg1;
@@ -75,14 +70,13 @@
 @property(readonly, nonatomic) NSColor *tagColor;
 @property(readonly, nonatomic) NSString *tagString;
 - (id)getStatusColor;
+@property(readonly, nonatomic) NSAttributedString *secondaryStatus;
+@property(readonly, nonatomic) NSAttributedString *status;
 @property(readonly, nonatomic) NSString *statusTooltip;
 @property(readonly, nonatomic, getter=isEnabled) BOOL enabled;
-@property(readonly, nonatomic) BOOL isPlaceholder;
+- (BOOL)isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;
-@property(readonly, nonatomic) BOOL providesPreviewImage;
-
-// Remaining properties
-@property(readonly, nonatomic) NSURL *URL;
+- (BOOL)providesPreviewImage;
 
 @end
 

@@ -6,10 +6,11 @@
 
 #import "MSInspectorItem.h"
 
-@class NSButton;
+@class NSButton, NSLayoutConstraint;
 
 @interface _TtC6Sketch33MSFlowScrollPositionInspectorItem : MSInspectorItem
 {
+    // Error parsing type: , name: topMarginConstraint
     // Error parsing type: , name: scrollPositionButton
 }
 
@@ -17,7 +18,8 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)updateDisplayedValues;
-@property(nonatomic) __weak NSButton *scrollPositionButton; // @synthesize scrollPositionButton;
+@property(nonatomic, retain) NSButton *scrollPositionButton; // @synthesize scrollPositionButton;
+@property(nonatomic, retain) NSLayoutConstraint *topMarginConstraint; // @synthesize topMarginConstraint;
 
 @end
 

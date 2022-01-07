@@ -6,8 +6,6 @@
 
 #import <SketchModel/_MSImmutableStyleFill.h>
 
-@class NSImage;
-
 @interface MSImmutableStyleFill : _MSImmutableStyleFill
 {
 }
@@ -16,7 +14,6 @@
 + (id)stylePartPasteboardType;
 - (BOOL)patternFillHasOpacity;
 @property(readonly, nonatomic) BOOL hasOpacity;
-@property(readonly) NSImage *NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV115OrEarlierWithUnarchiver:(id)arg1;

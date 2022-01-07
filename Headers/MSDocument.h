@@ -320,6 +320,7 @@
 - (id)showDocumentPreferencesTabWith:(id)arg1;
 - (void)updateRecentSavingLocation;
 @property(nonatomic, readonly) MSImmutableDocumentData *saveableDocument;
+- (void)applyFontEmbeddingPresetsForWorkspace:(id)arg1;
 - (void)canCloseExecutedWithResult:(BOOL)arg1 delegate:(id)arg2 shouldCloseSelector:(SEL)arg3 contextInfo:(void *)arg4;
 - (void)shouldCloseWithDocument:(id)arg1 shouldClose:(BOOL)arg2 contextInfo:(void *)arg3;
 - (void)canCloseDocumentWithDelegate:(id)arg1 shouldCloseSelector:(SEL)arg2 contextInfo:(void *)arg3;

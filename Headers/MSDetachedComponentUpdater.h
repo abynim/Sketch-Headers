@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSSharedComponentTracker, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
+@class MSImmutableDocumentData, MSImmutableObjectChangeTracker, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
 
 @interface MSDetachedComponentUpdater : NSObject
 {
@@ -17,17 +17,21 @@
     NSMutableDictionary *_detachedMasters;
     NSMutableDictionary *_detachedInstances;
     NSMutableDictionary *_updatedMasters;
-    NSArray *_nestedInstances;
-    NSArray *_unnestedInstances;
+    NSMutableDictionary *_updatedInstances;
+    NSArray *_allInstances;
     NSMutableSet *_recursiveSymbols;
-    MSSharedComponentTracker *_sharedStyleTracker;
+    MSImmutableObjectChangeTracker *_sharedStyleTracker;
+    MSImmutableObjectChangeTracker *_symbolMasterTracker;
+    MSImmutableObjectChangeTracker *_symbolInstanceTracker;
 }
 
 - (void).cxx_destruct;
-@property(readonly, nonatomic) MSSharedComponentTracker *sharedStyleTracker; // @synthesize sharedStyleTracker=_sharedStyleTracker;
+@property(readonly, nonatomic) MSImmutableObjectChangeTracker *symbolInstanceTracker; // @synthesize symbolInstanceTracker=_symbolInstanceTracker;
+@property(readonly, nonatomic) MSImmutableObjectChangeTracker *symbolMasterTracker; // @synthesize symbolMasterTracker=_symbolMasterTracker;
+@property(readonly, nonatomic) MSImmutableObjectChangeTracker *sharedStyleTracker; // @synthesize sharedStyleTracker=_sharedStyleTracker;
 @property(readonly, nonatomic) NSMutableSet *recursiveSymbols; // @synthesize recursiveSymbols=_recursiveSymbols;
-@property(readonly, nonatomic) NSArray *unnestedInstances; // @synthesize unnestedInstances=_unnestedInstances;
-@property(readonly, nonatomic) NSArray *nestedInstances; // @synthesize nestedInstances=_nestedInstances;
+@property(readonly, nonatomic) NSArray *allInstances; // @synthesize allInstances=_allInstances;
+@property(readonly, nonatomic) NSMutableDictionary *updatedInstances; // @synthesize updatedInstances=_updatedInstances;
 @property(readonly, nonatomic) NSMutableDictionary *updatedMasters; // @synthesize updatedMasters=_updatedMasters;
 @property(readonly, nonatomic) NSMutableDictionary *detachedInstances; // @synthesize detachedInstances=_detachedInstances;
 @property(readonly, nonatomic) NSMutableDictionary *detachedMasters; // @synthesize detachedMasters=_detachedMasters;
@@ -40,7 +44,9 @@
 - (id)detachedSymbolWithID:(id)arg1;
 - (id)convertMutableDictionaryToImmutables:(id)arg1;
 - (BOOL)updateWithDocument:(id)arg1;
+- (void)resetUpdateFlags;
 - (BOOL)updateSharedStyleOverrides;
+- (id)sharedStylesInDocument:(id)arg1;
 - (BOOL)prepareSymbolInstancesForUpdate:(id)arg1;
 - (void)removeDetachedInstanceFor:(id)arg1;
 - (void)updateDetachedInstanceFor:(id)arg1;

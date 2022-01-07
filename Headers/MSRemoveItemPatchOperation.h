@@ -6,14 +6,16 @@
 
 #import <SketchModel/MSPatchOperation.h>
 
-@class MSPatchArrayRemovePosition;
+@class MSImmutableModelObject, MSPatchArrayRemovePosition, NSString;
 
 @interface MSRemoveItemPatchOperation : MSPatchOperation
 {
     MSPatchArrayRemovePosition *_position;
+    MSImmutableModelObject *_immutableObjectToRemove;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSImmutableModelObject *immutableObjectToRemove; // @synthesize immutableObjectToRemove=_immutableObjectToRemove;
 @property(readonly, nonatomic) MSPatchArrayRemovePosition *position; // @synthesize position=_position;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
@@ -21,6 +23,7 @@
 - (unsigned long long)traits;
 - (id)removalPosition;
 - (unsigned long long)applyRemovalToRootObject:(id)arg1;
+@property(readonly, nonatomic) NSString *objectID;
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (id)initWithComparisonItem:(id)arg1;

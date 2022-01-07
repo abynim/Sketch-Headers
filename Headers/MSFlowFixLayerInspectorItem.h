@@ -13,6 +13,7 @@
     NSButton *_fixToViewportButton;
 }
 
++ (BOOL)canHandleLayer:(id)arg1;
 - (void).cxx_destruct;
 @property(nonatomic) __weak NSButton *fixToViewportButton; // @synthesize fixToViewportButton=_fixToViewportButton;
 - (void)validateFixLayersToViewportButton;

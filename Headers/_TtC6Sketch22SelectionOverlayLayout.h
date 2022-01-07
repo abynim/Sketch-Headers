@@ -10,7 +10,7 @@
 {
     // Error parsing type: , name: handleSize
     // Error parsing type: , name: gridHandleOffset
-    // Error parsing type: , name: radiusHandleMinOffset
+    // Error parsing type: , name: radiusHandleMinInset
     // Error parsing type: , name: maximumNumberOfItemsToShowDuringMultipleSelection
     // Error parsing type: , name: indexPathForDragHighlight
     // Error parsing type: , name: itemLayoutAttributes

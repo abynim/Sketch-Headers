@@ -6,7 +6,8 @@
 
 #import <SketchModel/MSPage.h>
 
-@interface MSPage (Scrolling)
+@interface MSPage (Sketch)
+- (id)flowHitTest:(struct CGPoint)arg1;
 - (struct CGPoint)scrollOriginToCenterContentInViewBounds:(struct CGRect)arg1;
 - (void)adjustRulerDataToTopLeftInViewBounds;
 - (BOOL)shouldDrawSelection;

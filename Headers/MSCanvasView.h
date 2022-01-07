@@ -208,7 +208,6 @@
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (id)temporaryGuideOverlayItemContainerWithParameters:(struct MSRenderingParameters)arg1;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
-- (id)flowItems:(unsigned long long)arg1;
 - (void)scrollBy:(struct CGPoint)arg1;
 - (void)scrollToScrollOrigin:(struct CGPoint)arg1;
 - (void)displayLayer:(id)arg1;

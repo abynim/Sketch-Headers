@@ -16,6 +16,7 @@
 - (id)sha1AsString;
 - (id)sha1;
 - (void)encodeAsRAWArchive:(id)arg1;
+- (unsigned int)crc32_bc;
 @property(readonly, nonatomic) BOOL isGzipped_bc;
 - (id)dataByDecompressing_bc;
 - (id)dataByDecompressingWithAlgorithm:(int)arg1 headerSize:(unsigned long long)arg2 footerSize:(unsigned long long)arg3 uncompressedSize:(unsigned long long)arg4;

@@ -10,12 +10,13 @@
 #import "MSInspectorTableViewManagerDelegate-Protocol.h"
 #import "MSViewRestoration-Protocol.h"
 
-@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSInstanceOverridesHeaderItem, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _TtC6Sketch29MSSymbolInstanceInspectorItem;
+@class MSCollapsibleHeaderInspectorItem, MSInspectorTableViewManager, MSInstanceOverridesHeaderItem, MSSharedSymbolStylesInspectorItem, MSTableContainerInspectorItem, NSArray, NSMutableArray, NSMutableDictionary, NSString, _TtC6Sketch29MSQuickOverridesInspectorItem, _TtC6Sketch29MSSymbolInstanceInspectorItem;
 @protocol MSSymbolInstanceSectionDelegate, MSSymbolOverrideItemDescription;
 
 @interface MSSymbolInstanceSection : MSBaseInspectorSection <MSInspectorTableViewManagerDelegate, MSInspectorItemProvider, MSViewRestoration>
 {
     MSInstanceOverridesHeaderItem *_overrideHeader;
+    _TtC6Sketch29MSQuickOverridesInspectorItem *_quickOverridesItem;
     NSArray *_selectedOverrides;
     MSSharedSymbolStylesInspectorItem *_sharedStyleItem;
     _TtC6Sketch29MSSymbolInstanceInspectorItem *_symbolItem;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) _TtC6Sketch29MSSymbolInstanceInspectorItem *symbolItem; // @synthesize symbolItem=_symbolItem;
 @property(retain, nonatomic) MSSharedSymbolStylesInspectorItem *sharedStyleItem; // @synthesize sharedStyleItem=_sharedStyleItem;
 @property(copy, nonatomic) NSArray *selectedOverrides; // @synthesize selectedOverrides=_selectedOverrides;
+@property(retain, nonatomic) _TtC6Sketch29MSQuickOverridesInspectorItem *quickOverridesItem; // @synthesize quickOverridesItem=_quickOverridesItem;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
 - (id)userInterfaceCacheForItem:(id)arg1;

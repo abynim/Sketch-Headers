@@ -25,6 +25,7 @@
 @property(retain, nonatomic) MSFlowInspectorItem *flowItem; // @synthesize flowItem=_flowItem;
 @property(retain, nonatomic) MSFlowHeaderInspectorItem *headerItem; // @synthesize headerItem=_headerItem;
 @property(retain, nonatomic) MSHeaderInspectorItem *initialHeaderItem; // @synthesize initialHeaderItem=_initialHeaderItem;
+- (BOOL)wantsSeparatorBetweenView:(id)arg1 andView:(id)arg2;
 - (void)item:(id)arg1 wantsSectionToCollapse:(BOOL)arg2;
 - (BOOL)hasLayerWithParentArtboard;
 - (BOOL)isInFlowEventHandler;

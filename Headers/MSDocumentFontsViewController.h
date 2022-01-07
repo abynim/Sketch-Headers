@@ -6,20 +6,18 @@
 
 #import "MSDocumentSettingsPane.h"
 
-#import "NSTableViewDataSource-Protocol.h"
-#import "NSTableViewDelegate-Protocol.h"
+#import "_TtP6Sketch37MSFontEmbeddingViewControllerDelegate_-Protocol.h"
 
-@class NSArray, NSBox, NSButton, NSString, NSTableView, NSTextField, NSView;
+@class NSArray, NSButton, NSTextField, NSView, _TtC6Sketch22MSFontEmbeddingManager;
 
-@interface MSDocumentFontsViewController : MSDocumentSettingsPane <NSTableViewDataSource, NSTableViewDelegate>
+@interface MSDocumentFontsViewController : MSDocumentSettingsPane <_TtP6Sketch37MSFontEmbeddingViewControllerDelegate_>
 {
-    NSTableView *_tableView;
-    NSBox *_noFontsView;
-    NSView *_missingLibraryFontsWarningView;
+    NSView *_fontEmbeddingViewContainer;
     NSTextField *_headerMessageField;
     NSButton *_doneButton;
     NSButton *_getAppleFontsButton;
     NSArray *_fonts;
+    _TtC6Sketch22MSFontEmbeddingManager *_fontEmbeddingManager;
 }
 
 + (id)toolbarIcon;
@@ -27,36 +25,29 @@
 + (id)identifier;
 + (id)storyboardName;
 - (void).cxx_destruct;
+@property(retain, nonatomic) _TtC6Sketch22MSFontEmbeddingManager *fontEmbeddingManager; // @synthesize fontEmbeddingManager=_fontEmbeddingManager;
 @property(copy, nonatomic) NSArray *fonts; // @synthesize fonts=_fonts;
 @property(nonatomic) __weak NSButton *getAppleFontsButton; // @synthesize getAppleFontsButton=_getAppleFontsButton;
 @property(nonatomic) __weak NSButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(nonatomic) __weak NSTextField *headerMessageField; // @synthesize headerMessageField=_headerMessageField;
-@property(nonatomic) __weak NSView *missingLibraryFontsWarningView; // @synthesize missingLibraryFontsWarningView=_missingLibraryFontsWarningView;
-@property(nonatomic) __weak NSBox *noFontsView; // @synthesize noFontsView=_noFontsView;
-@property(retain, nonatomic) NSTableView *tableView; // @synthesize tableView=_tableView;
+@property(nonatomic) __weak NSView *fontEmbeddingViewContainer; // @synthesize fontEmbeddingViewContainer=_fontEmbeddingViewContainer;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbeddingState:(long long)arg2;
+- (BOOL)fontEmbeddingViewController:(id)arg1 showsDotForFontAtIndex:(long long)arg2;
+- (long long)embeddingStateFor:(id)arg1;
+- (void)fontEmbeddingViewController:(id)arg1 replaceFontAtIndex:(long long)arg2 withFont:(id)arg3;
+- (void)endObservingFontChangesFor:(id)arg1;
+- (void)beginObservingFontChangesFor:(id)arg1;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbedded:(BOOL)arg2 forFontAtIndex:(long long)arg3;
+- (BOOL)fontEmbeddingViewController:(id)arg1 isEmbeddedForFontAtIndex:(long long)arg2;
+- (id)fontEmbeddingViewController:(id)arg1 documentFontAtIndex:(long long)arg2;
+- (long long)numberOfFontsFor:(id)arg1;
+- (double)fontEmbeddingViewController:(id)arg1 visibleTableViewRowsForFontCount:(long long)arg2;
 - (void)openAppleFontsWebsite:(id)arg1;
 - (void)showContextHelp:(id)arg1;
-- (id)tableView:(id)arg1 viewForTableColumn:(id)arg2 row:(long long)arg3;
-- (long long)numberOfRowsInTableView:(id)arg1;
-- (BOOL)tableView:(id)arg1 shouldSelectRow:(long long)arg2;
-- (void)setEmbedded:(BOOL)arg1 forDocumentFont:(id)arg2;
-- (void)setShouldEmbed:(BOOL)arg1 forFontAtRow:(long long)arg2;
-- (void)replaceFontAtRow:(long long)arg1 withFont:(id)arg2;
-- (void)beginReplaceActionForRow:(long long)arg1 button:(id)arg2;
-- (BOOL)hasMissingAppleFonts:(id)arg1;
-- (void)updateFonts;
-- (void)prepareForSegue:(id)arg1 sender:(id)arg2;
-- (void)preferencePaneWillClose:(id)arg1;
+- (void)fontInfosChanged:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewWillDisappear;
 - (void)viewWillAppear;
-- (void)dealloc;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

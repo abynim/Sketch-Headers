@@ -78,9 +78,11 @@
 - (void)addObject:(id)arg1 toStorage:(id)arg2 forRelationship:(id)arg3;
 @property(readonly, nonatomic) BOOL isForeign;
 @property(readonly, nonatomic) MSForeignObject *foreignObject;
+- (BOOL)isCollaborationNamespaceRoot;
 - (id)cacheForSubtreeObjects;
 - (void)registerCollaborationSubtree:(id)arg1;
 - (BOOL)removeCollaborationChild:(id)arg1;
+- (id)childCollaborationObjectWithPlainID:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (void)copyPropertiesToObject:(id)arg1 options:(unsigned long long)arg2;

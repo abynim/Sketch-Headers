@@ -6,11 +6,9 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtC6Sketch15RadiiAdjustTool : _TtCs12_SwiftObject
+@interface _TtC6Sketch19EmbeddableFontNames : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: maxRadius
-    // Error parsing type: , name: layer
-    // Error parsing type: , name: handle
+    // Error parsing type: , name: fontFamilyNames
 }
 
 @end

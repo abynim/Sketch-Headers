@@ -60,13 +60,14 @@
 @property(readonly, nonatomic) double curviness;
 - (id)derivative;
 - (id)reversedSegment;
+@property(readonly, nonatomic) MSBezierSegment *lowestOrderRepresentation;
 - (id)representationUsingType:(unsigned long long)arg1;
 - (id)quadraticApproximation;
 - (id)segmentsBySplittingAtOffsets:(id)arg1;
 - (id)segmentsByClippingToRect:(struct CGRect)arg1;
 - (id)cubicRepresentation;
 - (id)quadraticRepresentation;
-- (id)lineRepresentation;
+@property(readonly, nonatomic) MSBezierSegment *lineRepresentation;
 - (id)segmentWithInset:(double)arg1;
 - (id)segmentsWithFlatness:(double)arg1;
 - (id)segmentWithTransform:(struct CGAffineTransform)arg1;

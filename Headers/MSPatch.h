@@ -20,6 +20,8 @@
     NSString *_checksum;
 }
 
++ (id)optimiseAddition:(id)arg1 checkingForGroupWith:(id)arg2 operations:(CDUnknownBlockType)arg3;
++ (id)optimiseRemoval:(id)arg1 checkingForUngroupWith:(id)arg2 operations:(CDUnknownBlockType)arg3;
 + (id)patchWithOldObject:(id)arg1 currentObject:(id)arg2;
 + (id)patchWithOldDocument:(id)arg1 currentDocument:(id)arg2;
 + (void)load;
@@ -29,6 +31,9 @@
 @property(readonly, nonatomic) NSString *patchID; // @synthesize patchID=_patchID;
 @property(readonly, nonatomic) long long compatibilityVersion; // @synthesize compatibilityVersion=_compatibilityVersion;
 @property(readonly, nonatomic) long long patchModelVersion; // @synthesize patchModelVersion=_patchModelVersion;
+- (void)optimiseGroupings;
+- (id)ungroupedObjects;
+- (void)sortPatchOperations;
 - (id)debugDescription;
 - (id)description;
 @property(readonly, nonatomic) BOOL hasTreeStructureChanges;

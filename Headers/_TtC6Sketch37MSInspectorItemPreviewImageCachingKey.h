@@ -6,9 +6,7 @@
 
 #import <objc/NSObject.h>
 
-#import "NSCopying-Protocol.h"
-
-@interface _TtC6Sketch37MSInspectorItemPreviewImageCachingKey : NSObject <NSCopying>
+@interface _TtC6Sketch37MSInspectorItemPreviewImageCachingKey : NSObject
 {
     // Error parsing type: , name: key
     // Error parsing type: , name: size

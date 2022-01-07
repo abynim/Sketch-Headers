@@ -18,8 +18,8 @@
 
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isDraft; // @synthesize isDraft=_isDraft;
-@property(readonly, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
-@property(readonly, copy, nonatomic) NSString *name; // @synthesize name=_name;
+@property(retain, nonatomic) SCKPaginatedShares *paginatedShares; // @synthesize paginatedShares=_paginatedShares;
+@property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(readonly, copy, nonatomic) NSString *shortID; // @synthesize shortID=_shortID;
 - (id)description;
 - (id)dictionaryRepresentation;

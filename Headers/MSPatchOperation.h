@@ -8,18 +8,24 @@
 
 #import <SketchModel/MSCoding-Protocol.h>
 
-@class MSPatchArrayAddPosition, NSArray, NSString;
+@class MSModelObject, MSPatchArrayAddPosition, NSArray, NSString;
 
 @interface MSPatchOperation : NSObject <MSCoding>
 {
-    NSArray *_affectedLayers;
     unsigned long long _traits;
+    NSArray *_affectedLayers;
+    MSModelObject *_removedObject;
+    NSString *_sourceParentID;
+    NSString *_destinationParentID;
 }
 
 + (id)patchFromComparisonItem:(id)arg1;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
+@property(retain, nonatomic) NSString *destinationParentID; // @synthesize destinationParentID=_destinationParentID;
+@property(retain, nonatomic) NSString *sourceParentID; // @synthesize sourceParentID=_sourceParentID;
+@property(retain, nonatomic) MSModelObject *removedObject; // @synthesize removedObject=_removedObject;
 @property(retain, nonatomic) NSArray *affectedLayers; // @synthesize affectedLayers=_affectedLayers;
+@property(readonly, nonatomic) unsigned long long traits; // @synthesize traits=_traits;
 - (id)debugDescription;
 @property(readonly, nonatomic) NSArray *objectLookupIDs;
 - (long long)compare:(id)arg1;

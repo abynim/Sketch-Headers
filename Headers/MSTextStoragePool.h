@@ -13,17 +13,22 @@
 @interface MSTextStoragePool : BCObjectPool <MSFirstLineTypesetterDelegate>
 {
     MSImmutableColor *_foregroundColor;
+    MSImmutableColor *_strokeColor;
+    double _strokeWidth;
     double _baselineAdjustmentForLayoutManager;
 }
 
 - (void).cxx_destruct;
 @property(nonatomic) double baselineAdjustmentForLayoutManager; // @synthesize baselineAdjustmentForLayoutManager=_baselineAdjustmentForLayoutManager;
+@property(readonly, nonatomic) double strokeWidth; // @synthesize strokeWidth=_strokeWidth;
+@property(readonly, nonatomic) MSImmutableColor *strokeColor; // @synthesize strokeColor=_strokeColor;
 @property(readonly, nonatomic) MSImmutableColor *foregroundColor; // @synthesize foregroundColor=_foregroundColor;
 - (double)baselineAdjustmentForLayoutManager:(id)arg1;
+- (BOOL)matchesForegroundColor:(id)arg1 strokeColor:(id)arg2 strokeWidth:(double)arg3;
 - (id)removeAllObjects;
 - (void)recycleTextStorage:(id)arg1;
 - (id)vendTextStorage;
-- (id)initWithTextLayer:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3;
+- (id)initWithTextLayer:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3 strokeColor:(id)arg4 strokeWidth:(double)arg5;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

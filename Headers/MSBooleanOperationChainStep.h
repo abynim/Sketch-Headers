@@ -12,13 +12,17 @@
 {
     MSPath *_path;
     long long _operation;
+    struct CGRect _bounds;
 }
 
 + (id)booleanOperationChainStepWithPath:(id)arg1 operation:(long long)arg2;
 - (void).cxx_destruct;
-@property(nonatomic) long long operation; // @synthesize operation=_operation;
-@property(retain, nonatomic) MSPath *path; // @synthesize path=_path;
+@property(readonly, nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
+@property(readonly, nonatomic) long long operation; // @synthesize operation=_operation;
+@property(readonly, nonatomic) MSPath *path; // @synthesize path=_path;
 @property(readonly, nonatomic) long long effectiveOperation;
+- (id)init;
+- (id)initWithPath:(id)arg1 operation:(long long)arg2;
 
 @end
 

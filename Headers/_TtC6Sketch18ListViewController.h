@@ -10,6 +10,8 @@
 {
     // Error parsing type: , name: tableView
     // Error parsing type: , name: projectColumn
+    // Error parsing type: , name: deletedAtColumn
+    // Error parsing type: , name: lastUpdatedColumn
 }
 
 - (void).cxx_destruct;

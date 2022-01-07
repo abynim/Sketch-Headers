@@ -6,7 +6,7 @@
 
 #import <AppKit/NSControl.h>
 
-@class NSImageView;
+@class NSArray, NSImageView;
 
 @interface MSWorkspaceWindowGridItemView : NSControl
 {
@@ -15,7 +15,7 @@
     // Error parsing type: , name: $__lazy_storage_$_topLeftImageView
     // Error parsing type: , name: $__lazy_storage_$_topRightImageView
     // Error parsing type: , name: $__lazy_storage_$_bottomLeftImageView
-    // Error parsing type: , name: $__lazy_storage_$_bottomRightmageView
+    // Error parsing type: , name: $__lazy_storage_$_bottomRightImageView
     // Error parsing type: , name: $__lazy_storage_$_borderView
     // Error parsing type: , name: $__lazy_storage_$_overlayView
     // Error parsing type: , name: contentInset
@@ -35,7 +35,8 @@
 @property(nonatomic) double imageAlphaValue; // @synthesize imageAlphaValue;
 @property(nonatomic) long long iconCount; // @synthesize iconCount;
 @property(nonatomic) BOOL selected; // @synthesize selected;
-@property(nonatomic, retain) NSImageView *bottomRightmageView;
+@property(nonatomic, readonly) NSArray *gridImageViews;
+@property(nonatomic, retain) NSImageView *bottomRightImageView;
 @property(nonatomic, retain) NSImageView *bottomLeftImageView;
 @property(nonatomic, retain) NSImageView *topRightImageView;
 @property(nonatomic, retain) NSImageView *topLeftImageView;

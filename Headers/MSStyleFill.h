@@ -20,7 +20,6 @@
 @property(readonly, nonatomic) BOOL canReduceImageSize;
 - (void)setReducedImage:(id)arg1;
 @property(readonly, nonatomic) struct CGSize targetSizeForReduction;
-- (id)NSImage;
 - (void)setOpacity:(double)arg1;
 - (BOOL)hasOpacity;
 - (void)setPatternTileScale:(double)arg1;

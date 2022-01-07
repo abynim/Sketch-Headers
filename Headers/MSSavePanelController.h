@@ -9,10 +9,11 @@
 #import "NSDraggingDestination-Protocol.h"
 #import "NSOpenSavePanelDelegate-Protocol.h"
 #import "NSWindowDelegate-Protocol.h"
+#import "_TtP6Sketch37MSFontEmbeddingViewControllerDelegate_-Protocol.h"
 
-@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace, _TtC6Sketch18MSRecentPlacesList;
+@class MSHeaderView, NSButton, NSImageView, NSLayoutConstraint, NSPopUpButton, NSPopover, NSSegmentedControl, NSStackView, NSString, NSTextField, NSURL, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace, _TtC6Sketch18MSRecentPlacesList, _TtC6Sketch22MSFontEmbeddingManager, _TtC6Sketch24MSFontEmbeddingViewModel, _TtC6Sketch29MSFontEmbeddingViewController;
 
-@interface MSSavePanelController : CHSheetController <NSOpenSavePanelDelegate, NSDraggingDestination, NSWindowDelegate>
+@interface MSSavePanelController : CHSheetController <NSOpenSavePanelDelegate, NSDraggingDestination, NSWindowDelegate, _TtP6Sketch37MSFontEmbeddingViewControllerDelegate_>
 {
     BOOL _isMove;
     BOOL _allowDocumentDeletion;
@@ -44,11 +45,18 @@
     NSTextField *_cloudUnavailableTitleLabel;
     NSTextField *_cloudUnavailableDetailsLabel;
     NSButton *_cloudUnavailableActionButton;
+    NSView *_embedFontsView;
+    NSView *_fontEmbeddingViewContainer;
+    NSButton *_helpButton;
     NSButton *_deleteButton;
     NSButton *_saveButton;
-    NSButton *_attachFontsButton;
+    NSButton *_embedFontsButton;
     NSButton *_learnMoreButton;
     NSView *_buttonContainer;
+    NSPopover *_helpPopover;
+    _TtC6Sketch29MSFontEmbeddingViewController *_fontEmbeddingViewController;
+    _TtC6Sketch22MSFontEmbeddingManager *_fontEmbeddingManager;
+    _TtC6Sketch24MSFontEmbeddingViewModel *_fontEmbeddingViewModel;
     SCKUser *_userWithProjects;
     SCKAPIOperation *_projectsRequest;
 }
@@ -60,11 +68,18 @@
 @property(nonatomic) BOOL allowDocumentDeletion; // @synthesize allowDocumentDeletion=_allowDocumentDeletion;
 @property(retain, nonatomic) SCKAPIOperation *projectsRequest; // @synthesize projectsRequest=_projectsRequest;
 @property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
+@property(retain, nonatomic) _TtC6Sketch24MSFontEmbeddingViewModel *fontEmbeddingViewModel; // @synthesize fontEmbeddingViewModel=_fontEmbeddingViewModel;
+@property(retain, nonatomic) _TtC6Sketch22MSFontEmbeddingManager *fontEmbeddingManager; // @synthesize fontEmbeddingManager=_fontEmbeddingManager;
+@property(retain, nonatomic) _TtC6Sketch29MSFontEmbeddingViewController *fontEmbeddingViewController; // @synthesize fontEmbeddingViewController=_fontEmbeddingViewController;
+@property(retain, nonatomic) NSPopover *helpPopover; // @synthesize helpPopover=_helpPopover;
 @property(retain, nonatomic) NSView *buttonContainer; // @synthesize buttonContainer=_buttonContainer;
 @property(retain, nonatomic) NSButton *learnMoreButton; // @synthesize learnMoreButton=_learnMoreButton;
-@property(retain, nonatomic) NSButton *attachFontsButton; // @synthesize attachFontsButton=_attachFontsButton;
+@property(retain, nonatomic) NSButton *embedFontsButton; // @synthesize embedFontsButton=_embedFontsButton;
 @property(retain, nonatomic) NSButton *saveButton; // @synthesize saveButton=_saveButton;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
+@property(nonatomic) __weak NSButton *helpButton; // @synthesize helpButton=_helpButton;
+@property(nonatomic) __weak NSView *fontEmbeddingViewContainer; // @synthesize fontEmbeddingViewContainer=_fontEmbeddingViewContainer;
+@property(nonatomic) __weak NSView *embedFontsView; // @synthesize embedFontsView=_embedFontsView;
 @property(retain, nonatomic) NSButton *cloudUnavailableActionButton; // @synthesize cloudUnavailableActionButton=_cloudUnavailableActionButton;
 @property(retain, nonatomic) NSTextField *cloudUnavailableDetailsLabel; // @synthesize cloudUnavailableDetailsLabel=_cloudUnavailableDetailsLabel;
 @property(retain, nonatomic) NSTextField *cloudUnavailableTitleLabel; // @synthesize cloudUnavailableTitleLabel=_cloudUnavailableTitleLabel;
@@ -94,11 +109,23 @@
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
 @property(nonatomic) long long destination; // @synthesize destination=_destination;
 @property(nonatomic) BOOL isMove; // @synthesize isMove=_isMove;
+- (void)fontEmbeddingViewController:(id)arg1 replaceFontAtIndex:(long long)arg2 withFont:(id)arg3;
+- (BOOL)fontEmbeddingViewController:(id)arg1 showsDotForFontAtIndex:(long long)arg2;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbeddingState:(long long)arg2;
+- (long long)embeddingStateFor:(id)arg1;
+- (void)endObservingFontChangesFor:(id)arg1;
+- (void)beginObservingFontChangesFor:(id)arg1;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbedded:(BOOL)arg2 forFontAtIndex:(long long)arg3;
+- (BOOL)fontEmbeddingViewController:(id)arg1 isEmbeddedForFontAtIndex:(long long)arg2;
+- (id)fontEmbeddingViewController:(id)arg1 documentFontAtIndex:(long long)arg2;
+- (long long)numberOfFontsFor:(id)arg1;
+- (double)fontEmbeddingViewController:(id)arg1 visibleTableViewRowsForFontCount:(long long)arg2;
 - (void)selectDesktop:(id)arg1;
 - (id)dragTypes;
 - (BOOL)performDragOperation:(id)arg1;
 - (unsigned long long)draggingEntered:(id)arg1;
-- (void)attachFonts:(id)arg1;
+- (void)showEmbeddingFontsHelp:(id)arg1;
+- (void)embedFonts:(id)arg1;
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
 - (void)finishWithSender:(id)arg1;
@@ -126,11 +153,13 @@
 - (void)selectProject:(id)arg1;
 - (void)selectWorkspace:(id)arg1;
 @property(readonly, nonatomic) BOOL canSaveToWorkspace;
+- (BOOL)hasUnembeddedFonts;
 - (BOOL)validateConfirmation;
 - (void)updateButtonValidation;
 - (void)setWorkspacesDisabledViewVisible:(BOOL)arg1;
 - (void)updateConstraints;
 - (void)updateView;
+- (void)embedFontEmbeddingView;
 @property(readonly, nonatomic) NSURL *localURL;
 - (id)safeLastLocation;
 - (void)beginSheetModalForWindow:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;

@@ -6,7 +6,7 @@
 
 #import <AppKit/NSViewController.h>
 
-@class MSDocumentFontsViewController, NSButton, NSPopUpButton, NSString, NSTextField;
+@class NSButton, NSPopUpButton, NSString, NSTextField, _TtC6Sketch29MSFontEmbeddingViewController;
 
 @interface _TtC6Sketch27MSReplaceFontViewController : NSViewController
 {
@@ -14,7 +14,7 @@
     // Error parsing type: , name: fontFamilyButton
     // Error parsing type: , name: fontWeightButton
     // Error parsing type: , name: replaceButton
-    // Error parsing type: , name: documentFontsViewController
+    // Error parsing type: , name: fontEmbeddingViewController
     // Error parsing type: , name: row
     // Error parsing type: , name: missingFontIdentifier
     // Error parsing type: , name: font
@@ -29,7 +29,7 @@
 - (void)viewWillAppear;
 @property(nonatomic, copy) NSString *missingFontIdentifier;
 @property(nonatomic) long long row; // @synthesize row;
-@property(nonatomic, retain) MSDocumentFontsViewController *documentFontsViewController; // @synthesize documentFontsViewController;
+@property(nonatomic, retain) _TtC6Sketch29MSFontEmbeddingViewController *fontEmbeddingViewController; // @synthesize fontEmbeddingViewController;
 @property(nonatomic, retain) NSButton *replaceButton; // @synthesize replaceButton;
 @property(nonatomic, retain) NSPopUpButton *fontWeightButton; // @synthesize fontWeightButton;
 @property(nonatomic, retain) NSButton *fontFamilyButton; // @synthesize fontFamilyButton;

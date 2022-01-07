@@ -39,6 +39,7 @@
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV100OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV57OrEarlierWithUnarchiver:(id)arg1;
+- (struct CGRect)nameRectWithZoomValue:(double)arg1;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 currentSelection:(id)arg4 ancestry:(id)arg5;
 - (BOOL)hitTestInNameLabel:(struct CGPoint)arg1 zoomValue:(double)arg2;
 

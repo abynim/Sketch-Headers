@@ -11,7 +11,7 @@
 @interface MSSelectionOverlay : _$s17SketchControllers19MSCollectionOverlayCN
 {
     // Error parsing type: , name: $__lazy_storage_$_formatter
-    // Error parsing type: , name: radiusHandleDragged
+    // Error parsing type: , name: isDraggingRadiusHandle
     // Error parsing type: , name: interactionState
     // Error parsing type: , name: $__lazy_storage_$_dragGestureRecognizer
     // Error parsing type: , name: indexPathForSubselection
@@ -25,7 +25,7 @@
 - (long long)cornerAtPoint:(struct CGPoint)arg1;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 @property(nonatomic, copy) NSIndexPath *indexPathForSubselection;
-- (void)trackMouseWithLocation:(struct CGPoint)arg1;
+- (void)trackMouseWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)kindOfHandleAt:(struct CGPoint)arg1;
 - (void)endDrag;
 - (void)handleDrag:(id)arg1;

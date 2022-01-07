@@ -6,17 +6,15 @@
 
 #import <SketchModel/MSPatchOperation.h>
 
-@class MSModelObject, MSPatchArrayAddPosition, MSPatchArrayRemovePosition;
+@class MSPatchArrayAddPosition, MSPatchArrayRemovePosition;
 
 @interface MSMoveArrayItemPatchOperation : MSPatchOperation
 {
     MSPatchArrayRemovePosition *_fromPosition;
     MSPatchArrayAddPosition *_toPosition;
-    MSModelObject *_removedObject;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSModelObject *removedObject; // @synthesize removedObject=_removedObject;
 @property(readonly, nonatomic) MSPatchArrayAddPosition *toPosition; // @synthesize toPosition=_toPosition;
 @property(readonly, nonatomic) MSPatchArrayRemovePosition *fromPosition; // @synthesize fromPosition=_fromPosition;
 - (id)debugDescription;
@@ -29,6 +27,8 @@
 - (unsigned long long)applyRemovalToRootObject:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
+- (id)initFromAddition:(id)arg1;
+- (id)initMoving:(id)arg1 to:(id)arg2 atIndex:(unsigned long long)arg3;
 - (id)initWithComparisonItem:(id)arg1;
 
 @end

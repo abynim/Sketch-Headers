@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 @property(readonly, nonatomic) MSPatchArrayAddPosition *position; // @synthesize position=_position;
 @property(readonly, nonatomic) MSImmutableModelObject *insertedObject; // @synthesize insertedObject=_insertedObject;
+- (void)removeChildrenFromInsertedObject;
 - (id)debugDescription;
 - (long long)compare:(id)arg1;
 - (id)objectLookupIDs;

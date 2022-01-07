@@ -27,6 +27,7 @@
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
+- (id)initForInsertionAt:(unsigned long long)arg1 ofChildNamed:(id)arg2 onParent:(id)arg3;
 - (id)initWithArrayChangeItem:(id)arg1;
 
 // Remaining properties

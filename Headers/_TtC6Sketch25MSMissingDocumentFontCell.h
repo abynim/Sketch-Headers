@@ -6,7 +6,7 @@
 
 #import "_TtC6Sketch18MSDocumentFontCell.h"
 
-@class MSDocumentFont, NSButton;
+@class NSButton;
 
 @interface _TtC6Sketch25MSMissingDocumentFontCell : _TtC6Sketch18MSDocumentFontCell
 {
@@ -17,7 +17,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)replace:(id)arg1;
-@property(nonatomic, retain) MSDocumentFont *documentFont;
+@property(nonatomic) long long row;
 @property(nonatomic, retain) NSButton *replaceButton; // @synthesize replaceButton;
 
 @end

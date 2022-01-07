@@ -14,6 +14,8 @@
 {
 }
 
+- (void)presentFontEmbeddingReminderIfNecessaryForDocument:(id)arg1;
+- (BOOL)windowShouldClose:(id)arg1;
 - (void)windowWillClose:(id)arg1;
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;

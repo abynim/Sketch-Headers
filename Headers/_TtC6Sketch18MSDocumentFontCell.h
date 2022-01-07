@@ -6,15 +6,15 @@
 
 #import <AppKit/NSTableCellView.h>
 
-@class MSDocumentFont, MSDocumentFontsViewController, NSTextField, _TtC6Sketch19MSFontThumbnailView;
+@class NSButton, NSTextField, _TtC6Sketch19MSFontThumbnailView, _TtC6Sketch29MSFontEmbeddingViewController;
 
 @interface _TtC6Sketch18MSDocumentFontCell : NSTableCellView
 {
+    // Error parsing type: , name: embedCheckbox
     // Error parsing type: , name: thumbnailView
     // Error parsing type: , name: fontFamilyLabel
     // Error parsing type: , name: detailsLabel
-    // Error parsing type: , name: documentFontsViewController
-    // Error parsing type: , name: documentFont
+    // Error parsing type: , name: fontEmbeddingViewController
     // Error parsing type: , name: row
 }
 
@@ -22,11 +22,11 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 @property(nonatomic) long long row; // @synthesize row;
-@property(nonatomic, retain) MSDocumentFont *documentFont; // @synthesize documentFont;
-@property(nonatomic) __weak MSDocumentFontsViewController *documentFontsViewController; // @synthesize documentFontsViewController;
+@property(nonatomic) __weak _TtC6Sketch29MSFontEmbeddingViewController *fontEmbeddingViewController; // @synthesize fontEmbeddingViewController;
 @property(nonatomic, retain) NSTextField *detailsLabel; // @synthesize detailsLabel;
 @property(nonatomic, retain) NSTextField *fontFamilyLabel; // @synthesize fontFamilyLabel;
 @property(nonatomic, retain) _TtC6Sketch19MSFontThumbnailView *thumbnailView; // @synthesize thumbnailView;
+@property(nonatomic, retain) NSButton *embedCheckbox; // @synthesize embedCheckbox;
 
 @end
 

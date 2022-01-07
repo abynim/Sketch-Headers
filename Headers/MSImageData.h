@@ -18,7 +18,8 @@
     NSData *_sha1;
     NSData *_data;
     NSObject<OS_dispatch_group> *_archivingGroup;
-    NSImage *_image;
+    struct CGImage *_CGImage;
+    struct CGSize _size;
 }
 
 + (id)mipampCacheBaseURL;
@@ -26,7 +27,8 @@
 + (id)decodeReferenceFromJSONZipArchive:(id)arg1 withReference:(id)arg2;
 + (id)errorImage;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSImage *image; // @synthesize image=_image;
+@property(nonatomic) struct CGSize size; // @synthesize size=_size;
+@property(nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
 - (id)debugQuickLookObject;
 - (struct CGImage *)CGImageAtLevelOfDetail:(unsigned long long)arg1 colorSpace:(struct CGColorSpace *)arg2 cache:(id)arg3 options:(unsigned long long)arg4;
 - (struct CGImage *)CGImageForColorSpace:(struct CGColorSpace *)arg1 cache:(id)arg2;
@@ -47,16 +49,22 @@
 - (id)initWithUnarchiver:(id)arg1 migratingFrom:(long long)arg2 toVersion:(long long)arg3;
 - (void)decodeWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
-- (id)NSImage;
+@property(readonly, nonatomic) NSImage *image;
+@property(readonly, nonatomic) NSImage *NSImage;
 - (BOOL)isLegacy;
 - (void)setSha1:(id)arg1;
 - (void)setData:(id)arg1;
 @property(readonly, nonatomic) NSData *sha1;
 @property(readonly, nonatomic) NSData *data;
+@property(readonly, nonatomic) BOOL hasAlpha;
+@property(readonly, nonatomic) struct CGSize pixelSize;
+- (void)dealloc;
 - (void)waitUntilArchivingCompletes;
 - (id)initWithLegacyHash:(id)arg1;
 - (id)initWithData:(id)arg1 sha:(id)arg2;
 - (id)initWithImage:(id)arg1;
+- (id)initWithCGImage:(struct CGImage *)arg1 size:(struct CGSize)arg2;
+- (id)initWithCGImage:(struct CGImage *)arg1;
 - (id)treeAsDictionary;
 
 // Remaining properties

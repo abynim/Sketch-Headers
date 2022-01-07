@@ -4,13 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <AppKit/NSButtonCell.h>
+#import "_TtC6Sketch22MSFontEmbeddingManager.h"
 
-@interface MSFontFamilyButtonCell : NSButtonCell
-{
-}
-
-- (struct CGRect)drawTitle:(id)arg1 withFrame:(struct CGRect)arg2 inView:(id)arg3;
-
+@interface _TtC6Sketch22MSFontEmbeddingManager (Sketch)
+- (void)updateFontInfos;
 @end
 

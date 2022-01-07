@@ -10,14 +10,12 @@
 
 @interface MSFlowConnection : _MSFlowConnection
 {
-    BOOL _disableDestination;
 }
 
 + (long long)defaultAnimationType;
 + (id)flowConnectionBack;
 + (id)flowConnectionTo:(id)arg1 ofType:(long long)arg2;
 + (void)initialize;
-@property(nonatomic) BOOL disableDestination; // @synthesize disableDestination=_disableDestination;
 @property(readonly, nonatomic) BOOL isValidFlowConnection;
 @property(readonly, nonatomic) __weak MSArtboardGroup *destinationArtboard;
 @property(readonly, nonatomic) __weak MSLayer *sendingLayer;
