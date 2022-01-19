@@ -8,20 +8,26 @@
 
 #import "MSFlowMenuBuilderTarget-Protocol.h"
 
-@class MSArtboardGroup, MSFlowEventHandlerImageCache, MSLayerArray, NSSet;
+@class MSArtboardGroup, MSFlowEventHandlerImageCache, MSLayerArray, NSArray;
 
 @interface MSFlowEventHandler : MSEventHandler <MSFlowMenuBuilderTarget>
 {
     BOOL _didDragMouse;
+    BOOL _editing;
     MSLayerArray *_layers;
     unsigned long long _hoverType;
     MSArtboardGroup *_targetArtboard;
     MSFlowEventHandlerImageCache *_imageCache;
+    NSArray *_flowItemsForBackIndicators;
+    NSArray *_flowItemsForOtherPageIndicators;
     struct CGPoint _lastMouse;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSArray *flowItemsForOtherPageIndicators; // @synthesize flowItemsForOtherPageIndicators=_flowItemsForOtherPageIndicators;
+@property(retain, nonatomic) NSArray *flowItemsForBackIndicators; // @synthesize flowItemsForBackIndicators=_flowItemsForBackIndicators;
 @property(retain, nonatomic) MSFlowEventHandlerImageCache *imageCache; // @synthesize imageCache=_imageCache;
+@property(nonatomic, getter=isEditing) BOOL editing; // @synthesize editing=_editing;
 @property(nonatomic) BOOL didDragMouse; // @synthesize didDragMouse=_didDragMouse;
 @property(nonatomic) struct CGPoint lastMouse; // @synthesize lastMouse=_lastMouse;
 @property(retain, nonatomic) MSArtboardGroup *targetArtboard; // @synthesize targetArtboard=_targetArtboard;
@@ -30,6 +36,7 @@
 - (void)documentDidChange:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (BOOL)mayShowResizingInspectorView;
+- (void)invalidateDestinationIndicators;
 - (id)findTargetLayerForMouse:(struct CGPoint)arg1;
 - (struct CGPoint)positionOfOtherPageImageIndicatorForArtboard:(id)arg1;
 - (id)parentArtboards;
@@ -37,8 +44,8 @@
 - (void)showOtherPageMenuForLayer:(id)arg1;
 - (void)attachWireToTarget;
 - (void)moveWireToMouse:(struct CGPoint)arg1;
-@property(readonly, nonatomic) NSSet *flowItems;
-- (id)flowItemForFlowInfo:(struct MSFlowInfo)arg1 fromLayer:(id)arg2;
+@property(readonly, nonatomic) NSArray *flowItems;
+- (id)flowItemForFlowInfo:(CDStruct_d98387b6)arg1 fromLayer:(id)arg2;
 - (id)flowItemsForConnectionToMouse;
 - (id)flowItemsForConnectionToArtboard;
 - (id)flowItemsForConnectionToOtherPage;
@@ -49,6 +56,7 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseMoved:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
+- (id)menuForEvent:(id)arg1;
 - (void)findMouseAndDisconnectFromTarget;
 - (void)handlerDidLoseFocus;
 - (void)handlerGotFocus;

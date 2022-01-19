@@ -15,6 +15,7 @@
     // Error parsing type: , name: contentStackView
     // Error parsing type: , name: formViewController
     // Error parsing type: , name: statusViewController
+    // Error parsing type: , name: ssoSignInTipFieldContainerView
     // Error parsing type: , name: ssoSignInButton
     // Error parsing type: , name: signInButton
     // Error parsing type: , name: cancelButton
@@ -34,6 +35,7 @@
 @property(nonatomic) __weak NSButton *cancelButton; // @synthesize cancelButton;
 @property(nonatomic) __weak NSButton *signInButton; // @synthesize signInButton;
 @property(nonatomic) __weak NSButton *ssoSignInButton; // @synthesize ssoSignInButton;
+@property(nonatomic) __weak NSStackView *ssoSignInTipFieldContainerView; // @synthesize ssoSignInTipFieldContainerView;
 @property(nonatomic) __weak NSStackView *contentStackView; // @synthesize contentStackView;
 
 @end

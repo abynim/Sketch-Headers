@@ -21,6 +21,7 @@
     // Error parsing type: , name: stackTool
     // Error parsing type: , name: horizontalSpaces
     // Error parsing type: , name: verticalSpaces
+    // Error parsing type: , name: cornerRadiusTool
     // Error parsing type: , name: overlay
     // Error parsing type: , name: $__lazy_storage_$_overlayLabel
     // Error parsing type: , name: visibilityModel

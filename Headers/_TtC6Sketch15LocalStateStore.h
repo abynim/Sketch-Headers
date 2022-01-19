@@ -9,13 +9,17 @@
 @interface _TtC6Sketch15LocalStateStore : NSObject
 {
     // Error parsing type: , name: documentStates
+    // Error parsing type: , name: workspaceStates
     // Error parsing type: , name: documentStateQueue
+    // Error parsing type: , name: workspaceStateQueue
 }
 
 + (void)setShared:(id)arg1;
 + (id)shared;
 - (void).cxx_destruct;
 - (id)init;
+- (BOOL)isFontWithFamilyName:(id)arg1 embeddedForWorkspace:(id)arg2;
+- (void)updateRecentSwatchesFor:(id)arg1 with:(id)arg2;
 
 @end
 

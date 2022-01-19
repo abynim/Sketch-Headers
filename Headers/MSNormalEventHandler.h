@@ -10,7 +10,7 @@
 #import "MSGestureRecognizerDelegate-Protocol.h"
 #import "_TtP6Sketch27MSSelectionOverlayPresenter_-Protocol.h"
 
-@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSHitTestResult, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSPresenceOverlay, MSSelectionItem, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
+@class MSDragToMoveOrCopyGestureRecognizer, MSDragToSelectGestureRecognizer, MSFlowOverlay, MSHitTestResult, MSLayerDragController, MSLayerMeasuringController, MSNormalEventContextualMenuBuilder, MSNormalEventData, MSOpacityKeyboardShortcutRecognizer, MSPasteboardLayers, MSPresenceOverlay, MSSelectionItem, MSSnapOverlayController, NSMenu, NSObject, NSSet, NSString, _TtC17SketchControllers13MSPathOverlay, _TtC17SketchControllers21MSSelectionBoxOverlay, _TtC6Sketch28MSSelectionOverlayController;
 @protocol MSHoverableItem;
 
 @interface MSNormalEventHandler : MSNormalBaseEventHandler <_TtP6Sketch27MSSelectionOverlayPresenter_, MSGestureRecognizerDelegate, MSDragLayerToolUserInterface>
@@ -32,6 +32,7 @@
     _TtC17SketchControllers13MSPathOverlay *_hoverHighlightOverlay;
     _TtC17SketchControllers21MSSelectionBoxOverlay *_selectionBoxOverlay;
     _TtC17SketchControllers13MSPathOverlay *_selectedOverridesOverlay;
+    MSFlowOverlay *_selectionFlowOverlay;
     NSSet *_duplicatedObjectIDs;
     MSDragToSelectGestureRecognizer *_selectionGestureRecognizer;
     MSDragToMoveOrCopyGestureRecognizer *_dragGestureRecognizer;
@@ -48,6 +49,7 @@
 @property(nonatomic) BOOL isLayerPastedFromLayerList; // @synthesize isLayerPastedFromLayerList=_isLayerPastedFromLayerList;
 @property(copy, nonatomic) NSSet *duplicatedObjectIDs; // @synthesize duplicatedObjectIDs=_duplicatedObjectIDs;
 @property(nonatomic) struct CGVector duplicateOffset; // @synthesize duplicateOffset=_duplicateOffset;
+@property(readonly, nonatomic) MSFlowOverlay *selectionFlowOverlay; // @synthesize selectionFlowOverlay=_selectionFlowOverlay;
 @property(readonly, nonatomic) _TtC17SketchControllers13MSPathOverlay *selectedOverridesOverlay; // @synthesize selectedOverridesOverlay=_selectedOverridesOverlay;
 @property(readonly, nonatomic) _TtC17SketchControllers21MSSelectionBoxOverlay *selectionBoxOverlay; // @synthesize selectionBoxOverlay=_selectionBoxOverlay;
 @property(readonly, nonatomic) _TtC17SketchControllers13MSPathOverlay *hoverHighlightOverlay; // @synthesize hoverHighlightOverlay=_hoverHighlightOverlay;
@@ -65,7 +67,6 @@
 - (void)reloadFollowingBackgroundChangesToDocument;
 - (void)didGridLayout;
 - (void)endAdjustingHandle;
-- (void)configureOverlayLabel:(id)arg1 forHandle:(id)arg2 atPoint:(struct CGPoint)arg3;
 - (void)beginAdjustingHandleOfKind:(id)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
 - (void)zoomValueWillChangeTo:(double)arg1;
@@ -140,7 +141,6 @@
 - (void)handleDoubleClickInContainerLayerAtLocation:(struct CGPoint)arg1 extendSelection:(BOOL)arg2;
 - (void)layerDoubleClicked:(id)arg1;
 - (void)handleClickToSelect:(id)arg1;
-- (void)enterRadiiModeUsingHandle:(id)arg1 mouse:(struct CGPoint)arg2 flags:(unsigned long long)arg3;
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;
 - (void)enterRotateModeWithMouse:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;

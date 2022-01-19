@@ -121,6 +121,7 @@
 @property(readonly, nonatomic) NSColor *canvasMeasurementLabelBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasLayerSelectionColor;
 @property(readonly, nonatomic) NSColor *canvasLayerHighlightColor;
+@property(readonly, nonatomic) NSColor *canvasFlowDestinationIndicatorColor;
 @property(readonly, nonatomic) NSColor *canvasFlowArrowColor;
 @property(readonly, nonatomic) NSColor *canvasLightModeBackgroundColor;
 @property(readonly, nonatomic) NSColor *canvasDarkModeBackgroundColor;

@@ -18,6 +18,7 @@
 @property(retain, nonatomic) MSOverrideRepresentation *overrideRepresentation; // @synthesize overrideRepresentation=_overrideRepresentation;
 @property(retain, nonatomic) MSSelectionItem *item; // @synthesize item=_item;
 @property(readonly, nonatomic) MSLayer *layer;
+- (id)initWithItem:(id)arg1 overrideRepresentation:(id)arg2;
 
 @end
 

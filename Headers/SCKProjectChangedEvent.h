@@ -10,6 +10,7 @@
 {
     // Error parsing type: , name: workspaceID
     // Error parsing type: , name: projectID
+    // Error parsing type: , name: type
 }
 
 - (void).cxx_destruct;

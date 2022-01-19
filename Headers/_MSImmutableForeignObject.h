@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) BOOL symbolPrivate; // @synthesize symbolPrivate=_symbolPrivate;
 @property(readonly, nonatomic) NSString *sourceLibraryName; // @synthesize sourceLibraryName=_sourceLibraryName;
 @property(readonly, nonatomic) NSString *libraryID; // @synthesize libraryID=_libraryID;
+- (id)adjustDescendantModelObjectIDForCollaboration:(id)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

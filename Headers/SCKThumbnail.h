@@ -6,14 +6,16 @@
 
 #import <SketchCloudKit/SCKObject.h>
 
-@class NSURL;
+@class NSString, NSURL;
 
 @interface SCKThumbnail : SCKObject
 {
     NSURL *_URL;
+    NSString *_size;
 }
 
 - (void).cxx_destruct;
+@property(readonly, nonatomic) NSString *size; // @synthesize size=_size;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (id)dictionaryRepresentation;
 - (id)initWithDictionary:(id)arg1;

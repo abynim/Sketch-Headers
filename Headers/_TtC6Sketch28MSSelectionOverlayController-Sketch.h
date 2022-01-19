@@ -17,7 +17,7 @@
 - (void)selectionOverlayWithDidFinishAdjustingHandle:(id)arg1;
 - (void)selectionOverlay:(id)arg1 willBeginAdjustingHandleOfKind:(id)arg2 at:(id)arg3 location:(struct CGPoint)arg4 modifierFlags:(unsigned long long)arg5;
 - (void)selectionOverlay:(id)arg1 adjustHandleOfKind:(id)arg2 at:(id)arg3 to:(struct CGPoint)arg4 modifierFlags:(unsigned long long)arg5;
-- (void)selectionOverlay:(id)arg1 trackedMouse:(struct CGPoint)arg2;
+- (void)selectionOverlay:(id)arg1 trackedMouse:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (id)selectionOverlay:(id)arg1 cursorForHandleOfKind:(id)arg2 at:(id)arg3 location:(struct CGPoint)arg4 modifierFlags:(unsigned long long)arg5;
 - (BOOL)selectionOverlay:(id)arg1 selectItemAt:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (struct CGRect)selectionOverlay:(id)arg1 layout:(id)arg2 rectForStackElementAt:(id)arg3;
@@ -25,7 +25,7 @@
 - (BOOL)selectionOverlay:(id)arg1 layout:(id)arg2 shouldHideItemAt:(id)arg3;
 - (struct CGAffineTransform)selectionOverlay:(id)arg1 layout:(id)arg2 transformForItemAt:(id)arg3;
 - (struct CGRect)selectionOverlay:(id)arg1 layout:(id)arg2 frameForItemAt:(id)arg3;
-- (id)selectionOverlay:(id)arg1 layerAt:(id)arg2;
+- (double)selectionOverlay:(id)arg1 layout:(id)arg2 insetForHandleOfKind:(id)arg3 atIndexPath:(id)arg4;
 @property(nonatomic, readonly) BOOL shouldShowSelectedOverrides;
 @property(nonatomic) BOOL preferencesWantSelection;
 @property(nonatomic) BOOL currentEventHandlerWantsStandardSelectionControls;

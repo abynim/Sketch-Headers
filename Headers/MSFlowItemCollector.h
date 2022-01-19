@@ -10,6 +10,7 @@
 
 @interface MSFlowItemCollector : NSObject
 {
+    NSArray *_flows;
     MSImmutablePage *_page;
     MSImmutableDocumentData *_document;
     NSDictionary *_collectedFlows;
@@ -27,8 +28,9 @@
 @property(copy, nonatomic) NSDictionary *collectedFlows; // @synthesize collectedFlows=_collectedFlows;
 @property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 @property(retain, nonatomic) MSImmutablePage *page; // @synthesize page=_page;
+@property(copy, nonatomic) NSArray *flows; // @synthesize flows=_flows;
 - (void)pushSymbolMaster:(id)arg1 onStackInBlock:(CDUnknownBlockType)arg2;
-- (id)collectFlowForLayer:(id)arg1 destinationArtboardAncestry:(id)arg2 flowInfo:(struct MSFlowInfo)arg3 clipToRects:(id)arg4 mayDrawHotspotBounds:(BOOL)arg5;
+- (id)collectFlowForLayer:(id)arg1 destinationArtboardAncestry:(id)arg2 flowInfo:(CDStruct_64d711fc)arg3 clipToRects:(id)arg4 mayDrawHotspotBounds:(BOOL)arg5;
 - (id)destinationArtboardAncestryForFlow:(id)arg1;
 - (BOOL)symbolContainsFlow:(id)arg1;
 - (id)recursivelyCollectFlowsForLayer:(id)arg1 ancestors:(id)arg2 mayDrawHotspotBounds:(BOOL)arg3 existingFlows:(id)arg4;

@@ -13,7 +13,6 @@
     // Error parsing type: , name: presenceObservation
     // Error parsing type: , name: tooltipTimer
     // Error parsing type: , name: editorsTextField
-    // Error parsing type: , name: shouldShowEditingPopover
 }
 
 - (void).cxx_destruct;
@@ -25,7 +24,6 @@
 - (void)mouseExited:(id)arg1;
 - (void)prepareForReuse;
 - (void)updateTrackingAreas;
-@property(nonatomic) struct CGRect frame;
 
 @end
 

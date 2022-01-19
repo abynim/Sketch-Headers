@@ -65,7 +65,9 @@
 - (void)internalSyncForeignObject:(id)arg1 withMaster:(id)arg2 fromLibrary:(id)arg3;
 - (id)importShareableObjectReference:(id)arg1 nestedIn:(id)arg2 intoDocument:(id)arg3;
 - (id)importShareableObjectReference:(id)arg1 intoDocument:(id)arg2;
-- (void)checkUpdatesForPublicCloudLibrariesWithDispatchGroup:(id)arg1;
+- (void)doCheckUpdatesForPublicCloudLibraries:(id)arg1 withDispatchGroup:(id)arg2;
+- (void)batchedCheckForUpdatesForPublicCloudLibraries:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)checkUpdatesForPublicCloudLibrariesWithCompletion:(CDUnknownBlockType)arg1;
 - (BOOL)shouldLoadPreviouslySavedLibraries;
 - (void)loadLibrariesWithDispatchGroup:(id)arg1;
 - (void)setupInitialRemoteLibrariesWithDispatchGroup:(id)arg1;

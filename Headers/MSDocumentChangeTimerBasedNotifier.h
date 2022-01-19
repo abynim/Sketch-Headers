@@ -17,6 +17,7 @@
 - (void).cxx_destruct;
 @property(nonatomic) double updateInterval; // @synthesize updateInterval=_updateInterval;
 @property(retain, nonatomic) NSTimer *timer; // @synthesize timer=_timer;
+- (void)sendUpdateToObservers;
 - (void)coalesceDocumentUpdate;
 - (id)initWithUpdateFrequency:(unsigned long long)arg1;
 

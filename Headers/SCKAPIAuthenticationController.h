@@ -21,6 +21,7 @@
 - (void)refreshLicense:(CDUnknownBlockType)arg1;
 - (BOOL)signOutAll:(id)arg1 error:(id *)arg2;
 - (BOOL)signOut:(id)arg1 error:(id *)arg2;
+- (void)recoveryCodeSigninWithMfaToken:(id)arg1 recoveryCode:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)verificationCodeSigninWithMfaToken:(id)arg1 verificationCode:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)signinWithEmail:(id)arg1 password:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)refreshAuthentication:(id)arg1 validation:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;

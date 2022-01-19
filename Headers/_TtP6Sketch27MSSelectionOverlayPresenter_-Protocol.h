@@ -4,15 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-@class NSString, _TtC17SketchControllers14MSOverlayLabel;
+@class NSString;
 
 @protocol _TtP6Sketch27MSSelectionOverlayPresenter_
 - (void)endAdjustingHandle;
 - (void)didGridLayout;
 - (void)beginAdjustingHandleOfKind:(NSString *)arg1 atPoint:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)selectLayerAtPoint:(struct CGPoint)arg1 toggle:(BOOL)arg2 modifierFlags:(unsigned long long)arg3;
-
-@optional
-- (void)configureOverlayLabel:(_TtC17SketchControllers14MSOverlayLabel *)arg1 forHandle:(NSString *)arg2 atPoint:(struct CGPoint)arg3;
 @end
 

@@ -57,6 +57,7 @@
 - (void)editFilterString;
 - (void)dealloc;
 - (void)applyAppearance;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
 
 // Remaining properties

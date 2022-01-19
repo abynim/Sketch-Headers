@@ -16,6 +16,6 @@
 - (BOOL)selectionOverlay:(MSSelectionOverlay *)arg1 selectItemAt:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 
 @optional
-- (void)selectionOverlay:(MSSelectionOverlay *)arg1 trackedMouse:(struct CGPoint)arg2;
+- (void)selectionOverlay:(MSSelectionOverlay *)arg1 trackedMouse:(struct CGPoint)arg2 modifierFlags:(unsigned long long)arg3;
 @end
 

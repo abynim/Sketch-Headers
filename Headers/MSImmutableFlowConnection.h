@@ -10,9 +10,9 @@
 {
 }
 
++ (CDStruct_d98387b6)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2 type:(long long)arg3;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
-- (struct MSFlowInfo)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2 type:(long long)arg3;
-- (struct MSFlowInfo)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2;
+- (CDStruct_d98387b6)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2;
 - (long long)flowTypeForTransitionFromParentLayer:(id)arg1 toArtboard:(id)arg2;
 - (BOOL)isValidFlowConnectionInDocumentData:(id)arg1;
 @property(readonly, nonatomic) BOOL isBackAction;

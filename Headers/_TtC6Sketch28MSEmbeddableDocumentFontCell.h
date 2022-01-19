@@ -6,19 +6,21 @@
 
 #import "_TtC6Sketch18MSDocumentFontCell.h"
 
-@class MSDocumentFont, NSPopUpButton;
+@class NSView;
 
 @interface _TtC6Sketch28MSEmbeddableDocumentFontCell : _TtC6Sketch18MSDocumentFontCell
 {
-    // Error parsing type: , name: embedButton
+    // Error parsing type: , name: dotView
 }
 
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (void)changeEmbedOption:(id)arg1;
-@property(nonatomic, retain) MSDocumentFont *documentFont;
-@property(nonatomic, retain) NSPopUpButton *embedButton; // @synthesize embedButton;
+- (void)changeEmbeddingState:(id)arg1;
+@property(nonatomic) long long row;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)awakeFromNib;
+@property(nonatomic, retain) NSView *dotView; // @synthesize dotView;
 
 @end
 

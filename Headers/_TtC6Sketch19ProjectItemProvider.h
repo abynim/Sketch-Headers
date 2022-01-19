@@ -8,6 +8,7 @@
 
 @interface _TtC6Sketch19ProjectItemProvider : _TtC6Sketch17CloudItemProvider
 {
+    // Error parsing type: , name: project
     // Error parsing type: , name: concretePaginationController
 }
 

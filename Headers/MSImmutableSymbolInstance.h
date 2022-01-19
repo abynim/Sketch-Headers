@@ -47,7 +47,7 @@
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)initWithGroupForMigration:(id)arg1;
 @property(nonatomic, readonly) NSArray *updateableColors;
-- (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (id)firstFlowPassingTest:(CDUnknownBlockType)arg1 symbolsFromDocument:(id)arg2 visitedSymbols:(id)arg3;
 @property(readonly, nonatomic) NSDictionary *overrides;
 - (id)overridePointAttributeNamesForOverridePropertyMigration;
 - (id)layersForHitTestingUnder:(id)arg1;

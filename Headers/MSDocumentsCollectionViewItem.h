@@ -16,6 +16,8 @@
 @interface MSDocumentsCollectionViewItem : NSCollectionViewItem <NSTextFieldDelegate, NSMenuDelegate, MSDocumentsCollectionViewSelectionDrawing>
 {
     id <MSDocumentsCollectionViewItemDelegate> _delegate;
+    MSWorkspaceWindowGridItemView *_miniGridThumbView;
+    NSArray *_imageFetchRequests;
     MSDocumentProgressView *_progressView;
     NSImageView *_errorView;
     NSTextField *_subtextField;
@@ -25,12 +27,10 @@
     NSImageView *_rightIcon;
     NSBox *_tagBackground;
     NSView *_tagContainer;
-    MSWorkspaceWindowGridItemView *_miniGridThumbView;
 }
 
 + (id)reuseIdentifier;
 - (void).cxx_destruct;
-@property(retain, nonatomic) MSWorkspaceWindowGridItemView *miniGridThumbView; // @synthesize miniGridThumbView=_miniGridThumbView;
 @property(retain, nonatomic) NSView *tagContainer; // @synthesize tagContainer=_tagContainer;
 @property(retain, nonatomic) NSBox *tagBackground; // @synthesize tagBackground=_tagBackground;
 @property(retain, nonatomic) NSImageView *rightIcon; // @synthesize rightIcon=_rightIcon;
@@ -40,16 +40,19 @@
 @property(retain, nonatomic) NSTextField *subtextField; // @synthesize subtextField=_subtextField;
 @property(retain, nonatomic) NSImageView *errorView; // @synthesize errorView=_errorView;
 @property(retain, nonatomic) MSDocumentProgressView *progressView; // @synthesize progressView=_progressView;
+@property(retain, nonatomic) NSArray *imageFetchRequests; // @synthesize imageFetchRequests=_imageFetchRequests;
+@property(retain, nonatomic) MSWorkspaceWindowGridItemView *miniGridThumbView; // @synthesize miniGridThumbView=_miniGridThumbView;
 @property(nonatomic) id <MSDocumentsCollectionViewItemDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)setTagHidden:(BOOL)arg1;
 - (void)controlTextDidEndEditing:(id)arg1;
 - (void)startEditing;
-- (void)fetchPreviewImage;
+- (void)prepareForReuse;
 - (void)setRepresentedObject:(id)arg1;
 @property(readonly, nonatomic) MSDocumentsCollectionItem *collectionItem;
 - (void)setNeedsDisplaySelection;
 - (void)setSelected:(BOOL)arg1;
 - (void)viewDidLoad;
+- (void)setupImagesFor:(id)arg1;
 - (void)mouseUp:(id)arg1;
 - (void)mouseDown:(id)arg1;
 @property(nonatomic, readonly) NSArray *draggingImageComponents;

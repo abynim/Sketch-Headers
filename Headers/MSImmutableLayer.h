@@ -75,7 +75,9 @@
 - (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
 - (id)findParentLayerGroupWithDocument:(id)arg1;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
-- (id)firstFlowWithSymbolsFromDocument:(id)arg1 visited:(id)arg2;
+- (BOOL)containsFlowPassingTest:(CDUnknownBlockType)arg1 symbolsFromDocument:(id)arg2;
+- (id)firstFlowPassingTest:(CDUnknownBlockType)arg1 symbolsFromDocument:(id)arg2 visitedSymbols:(id)arg3;
+- (id)firstFlowPassingTest:(CDUnknownBlockType)arg1 symbolsFromDocument:(id)arg2;
 - (id)firstFlowWithSymbolsFromDocument:(id)arg1;
 - (id)descendantsToLayerWithID:(id)arg1;
 - (id)lastLayer;

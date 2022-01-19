@@ -27,7 +27,7 @@
 - (void)setNeedsDisplay;
 - (void)mouseDownAtPoint:(struct CGPoint)arg1 clickCount:(long long)arg2 modifierFlags:(unsigned long long)arg3;
 - (BOOL)updateCursorWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
-- (void)trackMouseWithLocation:(struct CGPoint)arg1;
+- (void)trackMouseWithLocation:(struct CGPoint)arg1 modifierFlags:(unsigned long long)arg2;
 - (id)init;
 
 // Remaining properties

@@ -7,8 +7,8 @@
 #import <SketchModel/MSImmutableTextLayer.h>
 
 @interface MSImmutableTextLayer (Rendering)
-- (id)textStoragePoolInCache:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3;
-- (id)_textStoragePoolInCache:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3;
+- (id)textStoragePoolInCache:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3 strokeColor:(id)arg4 strokeWidth:(double)arg5;
+- (id)_textStoragePoolInCache:(id)arg1 colorspace:(struct CGColorSpace *)arg2 foregroundColor:(id)arg3 strokeColor:(id)arg4 strokeWidth:(double)arg5;
 - (BOOL)shouldSkipDrawingInContext:(id)arg1;
 @end
 

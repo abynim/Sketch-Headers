@@ -33,6 +33,7 @@
 - (id)valueFromControlView:(id)arg1;
 - (void)overrideValueAction:(id)arg1;
 - (id)controlViewForEditingOverride;
+- (id)textFieldStringValue;
 - (void)refreshIfNecessary:(id)arg1;
 - (id)dataOverrides;
 - (void)refreshDataOnCurrentSelection:(id)arg1;

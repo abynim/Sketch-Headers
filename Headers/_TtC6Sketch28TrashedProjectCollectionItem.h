@@ -4,22 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "MSDocumentsCollectionItem.h"
+#import "_TtC6Sketch21ProjectCollectionItem.h"
 
-@class NSAttributedString, NSObject, NSString;
-
-@interface _TtC6Sketch28TrashedProjectCollectionItem : MSDocumentsCollectionItem
+@interface _TtC6Sketch28TrashedProjectCollectionItem : _TtC6Sketch21ProjectCollectionItem
 {
-    // Error parsing type: , name: project
 }
-
-- (void).cxx_destruct;
-- (id)init;
-@property(nonatomic, retain) NSAttributedString *secondaryStatus;
-@property(nonatomic, retain) NSAttributedString *status;
-@property(nonatomic, copy) NSString *title;
-@property(nonatomic, readonly) NSObject *representedObject;
-@property(nonatomic, readonly) NSString *imageIconName;
 
 @end
 

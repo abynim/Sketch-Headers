@@ -12,11 +12,13 @@
 {
     NSDictionary *_updatedSharedStyles;
     NSSet *_removedSharedStyles;
+    NSSet *_changedSharedStyles;
     NSSet *_sharedStyles;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSSet *sharedStyles; // @synthesize sharedStyles=_sharedStyles;
+@property(retain, nonatomic) NSSet *changedSharedStyles; // @synthesize changedSharedStyles=_changedSharedStyles;
 @property(retain, nonatomic) NSSet *removedSharedStyles; // @synthesize removedSharedStyles=_removedSharedStyles;
 @property(retain, nonatomic) NSDictionary *updatedSharedStyles; // @synthesize updatedSharedStyles=_updatedSharedStyles;
 - (void)update:(id)arg1;

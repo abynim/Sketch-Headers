@@ -87,6 +87,7 @@
 @property(nonatomic) __weak NSMenuItem *aboutMenuItem; // @synthesize aboutMenuItem=_aboutMenuItem;
 @property(nonatomic) __weak NSMenu *printMenu; // @synthesize printMenu=_printMenu;
 @property(nonatomic) __weak NSMenuItem *pluginsMenuItem; // @synthesize pluginsMenuItem=_pluginsMenuItem;
+- (void)logAppStart;
 - (void)applyAppearanceToAllWindows:(id)arg1;
 - (BOOL)application:(id)arg1 openFile:(id)arg2;
 - (id)resourcesNeedingMigrationFromResources:(id)arg1;

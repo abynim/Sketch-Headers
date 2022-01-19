@@ -14,7 +14,6 @@
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)performInitWithMutableModelObject:(id)arg1;
 - (id)localObject;
-- (id)adjustDescendantModelObjectIDForCollaboration:(id)arg1;
 
 @end
 

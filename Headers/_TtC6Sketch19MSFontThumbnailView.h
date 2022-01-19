@@ -17,6 +17,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)drawRect:(struct CGRect)arg1;
+@property(nonatomic, readonly) struct NSEdgeInsets alignmentRectInsets;
 @property(nonatomic, retain) NSFont *font; // @synthesize font;
 
 @end

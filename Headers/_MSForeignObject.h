@@ -24,7 +24,10 @@
 - (void)setRaw_libraryID:(id)arg1;
 - (BOOL)removeCollaborationChild:(id)arg1;
 - (void)registerCollaborationSubtree:(id)arg1;
+- (id)childCollaborationObjectWithPlainID:(id)arg1;
 - (id)childCollaborationObjectWithID:(id)arg1;
+- (id)cacheForSubtreeObjects;
+- (BOOL)isCollaborationNamespaceRoot;
 - (void)pluginDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (void)syncPropertiesFromObject:(id)arg1;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;

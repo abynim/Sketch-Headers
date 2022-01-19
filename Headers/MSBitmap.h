@@ -20,6 +20,7 @@
 @property(readonly, nonatomic) struct CGImage *CGImage; // @synthesize CGImage=_CGImage;
 - (id)imageWithColorspace:(struct CGColorSpace *)arg1;
 - (id)imageWithTransform:(struct CGAffineTransform)arg1;
+- (id)imageScaledToSize:(struct CGSize)arg1;
 - (struct CGContext *)createBitmapContext:(struct CGSize)arg1 colorspace:(struct CGColorSpace *)arg2;
 - (id)imageRotatedBy:(double)arg1;
 - (id)imageFlippedVertically;

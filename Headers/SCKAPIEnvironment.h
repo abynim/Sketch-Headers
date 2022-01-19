@@ -82,6 +82,7 @@
 - (id)keychainAuthenticationWithError:(id *)arg1;
 @property(readonly, nonatomic) NSArray *publicKeys;
 @property(readonly, nonatomic) NSString *requestSignatureSecret;
+@property(readonly, nonatomic) NSURL *contactUsURL;
 @property(readonly, nonatomic) NSURL *resetPasswordURL;
 - (id)signInWithSSOURLForOrganizationShortName:(id)arg1;
 @property(readonly, nonatomic) NSURL *signUpURL;

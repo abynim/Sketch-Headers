@@ -22,6 +22,7 @@
 @property(retain, nonatomic) NSView *optionsViewWebP; // @synthesize optionsViewWebP=_optionsViewWebP;
 @property(retain, nonatomic) NSView *optionsViewSaveForWeb; // @synthesize optionsViewSaveForWeb=_optionsViewSaveForWeb;
 @property(retain, nonatomic) NSView *optionsViewJPG; // @synthesize optionsViewJPG=_optionsViewJPG;
+- (id)optionViewsForExtensions:(id)arg1;
 - (void)setExtensions:(id)arg1;
 
 @end

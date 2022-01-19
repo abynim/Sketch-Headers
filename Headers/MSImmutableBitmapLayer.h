@@ -15,7 +15,6 @@
 + (unsigned long long)traits;
 + (id)defaultName;
 - (BOOL)canSkipAdvancedClipForStrokes;
-- (id)NSImage;
 - (void)performInitWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV119OrEarlierWithUnarchiver:(id)arg1;
 - (void)migratePropertiesFromV75OrEarlierWithUnarchiver:(id)arg1;

@@ -16,6 +16,7 @@
     // Error parsing type: , name: workspaceMembershipEventQuery
     // Error parsing type: , name: workspaceChangedEventQuery
     // Error parsing type: , name: projectChangedEventQuery
+    // Error parsing type: , name: shareRestoredEventQuery
     // Error parsing type: , name: subscriptionsController
     // Error parsing type: , name: subscriptionItemsBySession
     // Error parsing type: , name: requestOperation

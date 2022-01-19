@@ -25,7 +25,11 @@
 @property(retain, nonatomic) MSPath *subjectPath; // @synthesize subjectPath=_subjectPath;
 @property(readonly, nonatomic) unsigned long long maximumElementCount; // @synthesize maximumElementCount=_maximumElementCount;
 - (id)calculateResultPath;
+- (id)subdividedResultWithSteps:(id)arg1;
+- (id)subdividedResult;
 - (long long)addClippingPath:(id)arg1 forBooleanOperation:(long long)arg2;
+- (BOOL)containsOnlyUnions;
+- (void)addStep:(id)arg1;
 - (id)initWithSubjectPath:(id)arg1 maximumElementCount:(unsigned long long)arg2;
 
 @end

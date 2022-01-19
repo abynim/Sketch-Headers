@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class NSArray, NSSet;
+@class NSArray;
 
 @interface MSOverlayItemContainer : NSObject
 {
@@ -14,7 +14,7 @@
     NSArray *_pathItems;
     NSArray *_bitmapItems;
     NSArray *_labelItems;
-    NSSet *_flowItems;
+    NSArray *_flowItems;
 }
 
 + (id)containerWithPathItem:(id)arg1;
@@ -22,7 +22,7 @@
 + (id)container;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) BOOL isEmpty; // @synthesize isEmpty=_isEmpty;
-@property(readonly, copy, nonatomic) NSSet *flowItems; // @synthesize flowItems=_flowItems;
+@property(readonly, copy, nonatomic) NSArray *flowItems; // @synthesize flowItems=_flowItems;
 @property(readonly, copy, nonatomic) NSArray *labelItems; // @synthesize labelItems=_labelItems;
 @property(readonly, copy, nonatomic) NSArray *bitmapItems; // @synthesize bitmapItems=_bitmapItems;
 @property(readonly, copy, nonatomic) NSArray *pathItems; // @synthesize pathItems=_pathItems;

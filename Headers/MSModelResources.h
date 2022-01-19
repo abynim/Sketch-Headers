@@ -6,18 +6,18 @@
 
 #import <BCFoundation/BCSingleton.h>
 
-@class NSArray, NSBitmapImageRep;
+@class MSImageData, NSArray;
 
 @interface MSModelResources : BCSingleton
 {
     NSArray *_noiseImages;
-    NSBitmapImageRep *_errorPattern;
+    MSImageData *_errorPattern;
 }
 
 - (void).cxx_destruct;
 - (id)resourcesNeedingMigration;
 - (id)loadImageWithName:(id)arg1;
-@property(readonly, nonatomic) NSBitmapImageRep *errorPattern;
+@property(readonly, nonatomic) MSImageData *errorPattern;
 @property(readonly, nonatomic) NSArray *noiseImages;
 
 @end

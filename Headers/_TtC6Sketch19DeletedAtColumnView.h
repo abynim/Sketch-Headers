@@ -4,9 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import "_TtC6Sketch15LocalStateStore.h"
+#import "_TtC6Sketch14DateColumnView.h"
 
-@interface _TtC6Sketch15LocalStateStore (Sketch)
-- (void)updateRecentSwatchesFor:(id)arg1 with:(id)arg2;
+@interface _TtC6Sketch19DeletedAtColumnView : _TtC6Sketch14DateColumnView
+{
+}
+
+- (id)initWithCoder:(id)arg1;
+- (id)initWithFrame:(struct CGRect)arg1;
+
 @end
 

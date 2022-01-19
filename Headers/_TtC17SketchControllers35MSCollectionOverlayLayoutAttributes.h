@@ -13,7 +13,6 @@
     // Error parsing type: , name: indexPath
     // Error parsing type: , name: representedElementCategory
     // Error parsing type: , name: representedElementKind
-    // Error parsing type: , name: layer
     // Error parsing type: , name: bounds
     // Error parsing type: , name: center
     // Error parsing type: , name: transform

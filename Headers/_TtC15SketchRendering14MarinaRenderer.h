@@ -10,12 +10,13 @@
 {
     // Error parsing type: , name: configuration
     // Error parsing type: , name: node
-    // Error parsing type: , name: _destination
+    // Error parsing type: , name: destination
     // Error parsing type: , name: bounds
     // Error parsing type: , name: shadowMode
     // Error parsing type: , name: transparencyGroups
+    // Error parsing type: , name: nodeStack
     // Error parsing type: , name: compositingSettings
-    // Error parsing type: , name: rasterizationScheduler
+    // Error parsing type: , name: rasterizationWorkItems
     // Error parsing type: , name: hasSaved
 }
 

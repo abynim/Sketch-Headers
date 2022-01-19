@@ -23,6 +23,7 @@
 @property(readonly, copy, nonatomic) NSDictionary *attributes;
 - (void)decodePropertiesWithUnarchiver:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
+- (void)gatherOverridePoints:(id)arg1 for:(id)arg2 withParent:(id)arg3;
 - (id)encodeForManifest:(id)arg1 earlierSlugs:(id)arg2 includingFiles:(BOOL)arg3;
 - (id)treeAsDictionary;
 - (id)fontName;

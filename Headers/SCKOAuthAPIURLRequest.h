@@ -13,6 +13,7 @@
 + (id)licenseRequestWithAuthentication:(id)arg1;
 + (id)revokeRequestOfAuthentication:(id)arg1;
 + (id)requestWithAuthentication:(id)arg1 environment:(id)arg2;
++ (id)requestWithMFAToken:(id)arg1 recoveryCode:(id)arg2;
 + (id)requestWithMFAToken:(id)arg1 verificationCode:(id)arg2;
 + (id)requestWithEmail:(id)arg1 password:(id)arg2;
 + (id)baseURLForEnvironment:(id)arg1;

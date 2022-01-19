@@ -22,6 +22,7 @@
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
 - (void)encodeAsJSON:(id)arg1;
+- (id)initWithObjectID:(id)arg1;
 - (id)initWithArrayChangeItem:(id)arg1;
 
 // Remaining properties

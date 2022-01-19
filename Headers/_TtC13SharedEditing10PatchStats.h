@@ -12,7 +12,6 @@
     // Error parsing type: , name: submissionTimes
     // Error parsing type: , name: bufferSize
     // Error parsing type: , name: startTime
-    // Error parsing type: , name: lastRoundTripTime
 }
 
 @end

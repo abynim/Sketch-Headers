@@ -11,6 +11,7 @@
     // Error parsing type: , name: reuseQueue
     // Error parsing type: , name: imageNode
     // Error parsing type: , name: canAvoidBleedForInsideBorders
+    // Error parsing type: , name: backgroundNode
     // Error parsing type: , name: wantShadowsClippedUsingPath
     // Error parsing type: , name: $__lazy_storage_$_clipNode
     // Error parsing type: , name: $__lazy_storage_$_fillsContainer

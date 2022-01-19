@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSArcVertexBuffer, MSFlowRendererSettings, MSMetalRenderer, MSMetalTexture, MSTextureVertexBuffer, NSDictionary, NSSet;
+@class MSArcVertexBuffer, MSFlowRendererSettings, MSMetalRenderer, MSMetalTexture, MSTextureVertexBuffer, NSArray, NSDictionary, NSSet;
 
 @interface MSFlowRenderer : NSObject
 {
@@ -15,7 +15,7 @@
     MSMetalTexture *_flowAnnotationsTexture;
     MSTextureVertexBuffer *_textureVertexBuffer;
     MSArcVertexBuffer *_arcVertexBuffer;
-    NSSet *_flowItems;
+    NSArray *_flowItems;
     double _flowItemZoomLevel;
     NSSet *_selectedLayerIDs;
     NSDictionary *_cachedItemBuffers;
@@ -31,7 +31,7 @@
 @property(retain, nonatomic) NSDictionary *cachedItemBuffers; // @synthesize cachedItemBuffers=_cachedItemBuffers;
 @property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(nonatomic) double flowItemZoomLevel; // @synthesize flowItemZoomLevel=_flowItemZoomLevel;
-@property(retain, nonatomic) NSSet *flowItems; // @synthesize flowItems=_flowItems;
+@property(retain, nonatomic) NSArray *flowItems; // @synthesize flowItems=_flowItems;
 @property(retain, nonatomic) MSArcVertexBuffer *arcVertexBuffer; // @synthesize arcVertexBuffer=_arcVertexBuffer;
 @property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
 @property(nonatomic) struct BCEdgePaddings flowHotspotTexturePaddings; // @synthesize flowHotspotTexturePaddings=_flowHotspotTexturePaddings;

@@ -6,11 +6,9 @@
 
 #import <SketchControllers/_TtC17SketchControllers26MSVectorComponentSpecifier.h>
 
-#import <SketchControllers/NSCopying-Protocol.h>
-
 @class NSString;
 
-@interface _TtC17SketchControllers26MSVectorComponentSpecifier (SketchControllers) <NSCopying>
+@interface _TtC17SketchControllers26MSVectorComponentSpecifier (SketchControllers)
 @property(nonatomic, readonly) long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)copyWithZone:(void *)arg1;

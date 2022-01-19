@@ -8,13 +8,12 @@
 
 @interface _TtC6Sketch17CloudItemProvider : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: project
     // Error parsing type: , name: workspace
     // Error parsing type: , name: searchKeywords
+    // Error parsing type: , name: filter
     // Error parsing type: , name: delegate
     // Error parsing type: , name: state
     // Error parsing type: , name: paginationController
-    // Error parsing type: , name: filter
     // Error parsing type: , name: hiddenItems
     // Error parsing type: , name: temporaryItems
 }

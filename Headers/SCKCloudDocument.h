@@ -12,6 +12,7 @@
 
 @interface SCKCloudDocument : SCKDocument <SCKDiffable>
 {
+    BOOL _downloadAvailable;
     BOOL _isProcessing;
     NSString *_slug;
     NSURL *_downloadURL;
@@ -23,6 +24,7 @@
 @property(readonly, nonatomic) unsigned long long fileSize; // @synthesize fileSize=_fileSize;
 @property(readonly, nonatomic) NSString *renderStatus; // @synthesize renderStatus=_renderStatus;
 @property(readonly, nonatomic) BOOL isProcessing; // @synthesize isProcessing=_isProcessing;
+@property(readonly, nonatomic) BOOL downloadAvailable; // @synthesize downloadAvailable=_downloadAvailable;
 @property(readonly, nonatomic) NSURL *downloadURL; // @synthesize downloadURL=_downloadURL;
 @property(readonly, nonatomic) NSString *slug; // @synthesize slug=_slug;
 - (id)dictionaryRepresentation;

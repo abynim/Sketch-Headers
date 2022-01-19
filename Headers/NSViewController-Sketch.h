@@ -11,6 +11,7 @@
 @interface NSViewController (Sketch) <MSInspectorSectionProvider>
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;
+- (BOOL)presentFontEmbeddingReminderIfNecessaryForDocument:(id)arg1 workspace:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)inspectorController;
 - (id)sections;
 - (void)updateContainerStack;
