@@ -18,6 +18,7 @@
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)changeEmbeddingState:(id)arg1;
 @property(nonatomic) long long row;
+- (void)viewDidChangeEffectiveAppearance;
 - (void)awakeFromNib;
 @property(nonatomic, retain) NSView *dotView; // @synthesize dotView;
 

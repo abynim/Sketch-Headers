@@ -11,8 +11,8 @@
 @interface _TtC6Sketch22MSFontEmbeddingManager : NSObject
 {
     // Error parsing type: , name: document
-    // Error parsing type: , name: workspace
     // Error parsing type: , name: hidesMissingFonts
+    // Error parsing type: , name: workspace
     // Error parsing type: , name: fontInfos
 }
 
@@ -30,9 +30,9 @@
 @property(nonatomic, readonly) NSArray *fonts;
 @property(nonatomic, copy) NSArray *fontInfos;
 - (void)dealloc;
-- (id)initWithDocument:(id)arg1;
-@property(nonatomic) BOOL hidesMissingFonts; // @synthesize hidesMissingFonts;
+- (id)initWithDocument:(id)arg1 hidesMissingFonts:(BOOL)arg2;
 @property(nonatomic, retain) SCKWorkspace *workspace; // @synthesize workspace;
+@property(nonatomic, readonly) BOOL hidesMissingFonts; // @synthesize hidesMissingFonts;
 @property(nonatomic, readonly) MSDocument *document; // @synthesize document;
 
 @end
