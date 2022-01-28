@@ -6,22 +6,32 @@
 
 #import <objc/NSObject.h>
 
-@class BCReadWriteLock, MSDetachedComponentUpdater, NSDictionary;
+@class BCReadWriteLock, MSDetachedComponentUpdater, MSImmutableDocumentData, NSDictionary, NSHashTable;
+@protocol OS_dispatch_queue;
 
 @interface MSDetachedContainer : NSObject
 {
+    MSImmutableDocumentData *_document;
     MSDetachedComponentUpdater *_detacher;
     BCReadWriteLock *_lock;
     NSDictionary *_detachedMasters;
     NSDictionary *_detachedInstances;
+    NSObject<OS_dispatch_queue> *_dispatchQueue;
+    NSHashTable *_observers;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
+@property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 @property(retain, nonatomic) NSDictionary *detachedInstances; // @synthesize detachedInstances=_detachedInstances;
 @property(retain, nonatomic) NSDictionary *detachedMasters; // @synthesize detachedMasters=_detachedMasters;
 @property(readonly, nonatomic) BCReadWriteLock *lock; // @synthesize lock=_lock;
 @property(readonly, nonatomic) MSDetachedComponentUpdater *detacher; // @synthesize detacher=_detacher;
-- (void)updateWithDocument:(id)arg1;
+- (void)removeObserver:(id)arg1;
+- (void)addObserver:(id)arg1;
+- (void)updateWithDocument:(id)arg1 blocking:(BOOL)arg2;
+- (void)update;
+@property(retain, nonatomic) MSImmutableDocumentData *document; // @synthesize document=_document;
 - (id)detachedSymbolForInstance:(id)arg1;
 - (id)detachedMasterWithSymbolID:(id)arg1;
 - (id)init;

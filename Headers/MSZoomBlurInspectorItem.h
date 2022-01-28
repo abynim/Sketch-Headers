@@ -19,8 +19,8 @@
 - (void)editZoomCenter:(id)arg1;
 - (void)updateDisplayedValues;
 - (void)handlerFocusDidChange:(id)arg1;
-- (void)dealloc;
-- (id)initWithNibName:(id)arg1 bundle:(id)arg2;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 
 @end
 

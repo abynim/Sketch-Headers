@@ -43,7 +43,7 @@
 - (void)sectionWithIdentifierWillCollapse:(id)arg1;
 @property(readonly, nonatomic) BOOL selectionContainsChildrenOfCompoundPath;
 - (id)views;
-- (void)viewDidLoad;
+- (void)viewWillAppear;
 - (void)loadView;
 - (void)changeTextLayerFont:(id)arg1;
 

@@ -6,12 +6,16 @@
 
 #import <SketchModel/MSSelectionItem.h>
 
-@class NSString;
+@class NSArray, NSString;
 
 @interface MSSelectionItem (SketchModel)
 @property(nonatomic, readonly) NSString *description;
 @property(nonatomic, readonly) NSString *debugDescription;
 - (void)expandForLayerList;
 - (id)selectionHitTestWithPoint:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3;
+@property(nonatomic, readonly) struct CGRect absoluteRect;
+- (BOOL)canOverride:(id)arg1;
+- (id)overridePointNameWithAttribute:(id)arg1;
+@property(nonatomic, readonly) NSArray *detachedMasters;
 @end
 

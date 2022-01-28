@@ -19,12 +19,12 @@
     id <CAMetalDrawable> _currentDrawable;
     id <MTLLibrary> _metalLibrary;
     id <MTLCommandQueue> _metalCommandQueue;
+    MSTexturedVertexRenderPipeline *_texturedVertexPipeline;
+    MSTexturedVertexRenderPipeline *_texturedVertexNearestPipeline;
     MSColorVertexRenderPipeline *_colorVertexPipeline;
     MSColorVertexRenderPipeline *_colorVertexPipelineWithStencil;
     MSConstantColorRenderPipeline *_constantColorPipeline;
     MSConstantColorRenderPipeline *_constantColorPipelineWithStencil;
-    MSTexturedVertexRenderPipeline *_texturedVertexPipeline;
-    MSTexturedVertexRenderPipeline *_texturedVertexNearestPipeline;
     MSArcVertexRenderPipeline *_arcVertexPipeline;
     id <MTLTexture> _stencilTexture;
     CDUnknownBlockType _drawCompletionHandler;
@@ -42,12 +42,12 @@
 @property(nonatomic) BOOL hasScissor; // @synthesize hasScissor=_hasScissor;
 @property(retain, nonatomic) id <MTLTexture> stencilTexture; // @synthesize stencilTexture=_stencilTexture;
 @property(retain, nonatomic) MSArcVertexRenderPipeline *arcVertexPipeline; // @synthesize arcVertexPipeline=_arcVertexPipeline;
-@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexNearestPipeline; // @synthesize texturedVertexNearestPipeline=_texturedVertexNearestPipeline;
-@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexPipeline; // @synthesize texturedVertexPipeline=_texturedVertexPipeline;
 @property(retain, nonatomic) MSConstantColorRenderPipeline *constantColorPipelineWithStencil; // @synthesize constantColorPipelineWithStencil=_constantColorPipelineWithStencil;
 @property(retain, nonatomic) MSConstantColorRenderPipeline *constantColorPipeline; // @synthesize constantColorPipeline=_constantColorPipeline;
 @property(retain, nonatomic) MSColorVertexRenderPipeline *colorVertexPipelineWithStencil; // @synthesize colorVertexPipelineWithStencil=_colorVertexPipelineWithStencil;
 @property(retain, nonatomic) MSColorVertexRenderPipeline *colorVertexPipeline; // @synthesize colorVertexPipeline=_colorVertexPipeline;
+@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexNearestPipeline; // @synthesize texturedVertexNearestPipeline=_texturedVertexNearestPipeline;
+@property(retain, nonatomic) MSTexturedVertexRenderPipeline *texturedVertexPipeline; // @synthesize texturedVertexPipeline=_texturedVertexPipeline;
 @property(retain, nonatomic) id <MTLCommandQueue> metalCommandQueue; // @synthesize metalCommandQueue=_metalCommandQueue;
 @property(retain, nonatomic) id <MTLLibrary> metalLibrary; // @synthesize metalLibrary=_metalLibrary;
 // Error parsing type for property currentProjectionMatrix:

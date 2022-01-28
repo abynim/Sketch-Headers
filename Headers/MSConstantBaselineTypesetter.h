@@ -6,23 +6,21 @@
 
 #import <AppKit/NSATSTypesetter.h>
 
-@class BCRangeMap;
+@class MSConstantBaselineTypesettingSupport;
 
 @interface MSConstantBaselineTypesetter : NSATSTypesetter
 {
-    BOOL _useLegacyCustomBaseline;
-    BCRangeMap *_rangeMap;
+    MSConstantBaselineTypesettingSupport *_typesettingSupport;
 }
 
 - (void).cxx_destruct;
-@property(retain, nonatomic) BCRangeMap *rangeMap; // @synthesize rangeMap=_rangeMap;
-@property(nonatomic) BOOL useLegacyCustomBaseline; // @synthesize useLegacyCustomBaseline=_useLegacyCustomBaseline;
+@property(readonly, nonatomic) MSConstantBaselineTypesettingSupport *typesettingSupport; // @synthesize typesettingSupport=_typesettingSupport;
 - (void)setLineFragmentRect:(struct CGRect)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect)arg3 baselineOffset:(double)arg4;
 - (void)willSetLineFragmentRect:(struct CGRect *)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect *)arg3 baselineOffset:(double *)arg4;
 - (double)paragraphSpacingBeforeGlyphAtIndex:(unsigned long long)arg1 withProposedLineFragmentRect:(struct CGRect)arg2;
 - (void)invalidateLayoutFromGlyphLocation:(unsigned long long)arg1;
-- (id)maxLineHeightFontFromCurrentParagraph:(double *)arg1 maxLineHeight:(double *)arg2 charcterRange:(struct _NSRange *)arg3;
 - (struct _NSRange)constantBaselineGlyphRangeForGlyphLocation:(unsigned long long)arg1;
+@property(nonatomic) BOOL useLegacyCustomBaseline;
 - (BOOL)usesFontLeading;
 - (id)init;
 

@@ -75,13 +75,13 @@
 - (void)updateOnPageChange;
 - (void)updateSelectedOverrides;
 - (void)performSelectionChangedUpdates;
-- (void)viewDidResize;
 - (void)validateAlignmentButtons;
 - (void)connectAlignmentButtons;
 - (void)refreshAfterAppearanceChange;
 - (void)alignWithWindowContentLayoutGuide;
 - (void)dealloc;
-- (void)viewDidLoad;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (void)flagsChangedNotification:(id)arg1;
 - (void)mouseExited:(id)arg1;
 - (void)mouseMoved:(id)arg1;

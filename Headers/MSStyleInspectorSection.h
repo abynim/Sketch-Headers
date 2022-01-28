@@ -43,7 +43,8 @@
 @property(readonly, nonatomic) BOOL hasContent;
 - (void)updateItems;
 - (void)handlerFocusDidChange:(id)arg1;
-- (void)dealloc;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)restoreWithState_ms:(id)arg1;
 - (id)viewRestorationState_ms;

@@ -11,6 +11,7 @@
 }
 
 + (CDStruct_d98387b6)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2 type:(long long)arg3;
++ (CDStruct_d98387b6)flowInfoForIndicatorFromParentLayer:(id)arg1 ofType:(long long)arg2;
 + (unsigned long long)traitsForPropertyName:(id)arg1;
 - (CDStruct_d98387b6)flowInfoFromParentLayer:(id)arg1 toArtboard:(id)arg2;
 - (long long)flowTypeForTransitionFromParentLayer:(id)arg1 toArtboard:(id)arg2;

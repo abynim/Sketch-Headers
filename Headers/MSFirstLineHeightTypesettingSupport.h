@@ -4,11 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2015 by Steve Nygard.
 //
 
-#import <SketchRendering/NSObject-Protocol.h>
+#import <objc/NSObject.h>
 
-@class NSLayoutManager;
+@interface MSFirstLineHeightTypesettingSupport : NSObject
+{
+}
 
-@protocol MSFirstLineTypesetterDelegate <NSObject>
-- (double)baselineAdjustmentForLayoutManager:(NSLayoutManager *)arg1;
+- (double)defaultLineHeight:(id)arg1;
+- (double)baselineAdjustmentForLayoutManager:(id)arg1;
+
 @end
 

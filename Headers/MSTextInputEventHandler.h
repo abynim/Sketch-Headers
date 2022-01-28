@@ -6,7 +6,6 @@
 
 #import "MSEventHandler.h"
 
-#import "MSFirstLineTypesetterDelegate-Protocol.h"
 #import "MSTextLayerEditingDelegate-Protocol.h"
 #import "MSTextLayerTextViewDelegate-Protocol.h"
 #import "NSLayoutManagerDelegate-Protocol.h"
@@ -16,7 +15,7 @@
 
 @class MSImmutableTextLayer, MSImmutableTextStyle, MSTextLayerTextView, MSTextWindow, NSAttributedString, NSString, NSTextStorage, NSTimer;
 
-@interface MSTextInputEventHandler : MSEventHandler <NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSTextLayerTextViewDelegate, MSFirstLineTypesetterDelegate, NSLayoutManagerDelegate>
+@interface MSTextInputEventHandler : MSEventHandler <NSTextViewDelegate, NSTextStorageDelegate, NSWindowDelegate, MSTextLayerEditingDelegate, MSTextLayerTextViewDelegate, NSLayoutManagerDelegate>
 {
     MSTextLayerTextView *_textView;
     MSImmutableTextLayer *_immutableTextLayer;
@@ -67,7 +66,6 @@
 - (void)dispatchTryPutFirstFocusBack;
 - (void)tryPutFirstFocusBack;
 - (void)windowDidResignKey:(id)arg1;
-- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)adjustForegroundColor;
 - (id)insertionPointColor;
 - (struct CGImage *)newTextLayerImageFromWindowBackingStore;

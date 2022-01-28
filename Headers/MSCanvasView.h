@@ -11,7 +11,7 @@
 #import "MSOverlayItemDataSource-Protocol.h"
 #import "MSTiledRendererHostView-Protocol.h"
 
-@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSRenderingDriver, MSViewPort, MSZoomTool, NSObject, NSString, _TtC6Sketch11MSRulerView, _TtC6Sketch18MSGuideOverlayTool, _TtC6Sketch18MSScrollRecognizer;
+@class MSDocument, MSEventHandlerManager, MSMouseTracker, MSOverlaySettings, MSRenderInstruction, MSViewPort, MSZoomTool, NSObject, NSString, _TtC6Sketch11MSRulerView, _TtC6Sketch18MSGuideOverlayTool, _TtC6Sketch18MSScrollRecognizer;
 @protocol MSCanvasViewDelegate, MSTilingSystemProvider;
 
 @interface MSCanvasView : NSView <MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
@@ -40,7 +40,6 @@
     _TtC6Sketch11MSRulerView *_horizontalRuler;
     _TtC6Sketch11MSRulerView *_verticalRuler;
     MSDocument *_document;
-    MSRenderingDriver *_driver;
     MSMouseTracker *_mouseTracker;
     unsigned long long _handToolState;
     MSOverlaySettings *_overlaySettings;
@@ -90,7 +89,6 @@
 @property(nonatomic) unsigned long long handToolState; // @synthesize handToolState=_handToolState;
 @property(nonatomic) BOOL didMouseDown; // @synthesize didMouseDown=_didMouseDown;
 @property(readonly, nonatomic) MSMouseTracker *mouseTracker; // @synthesize mouseTracker=_mouseTracker;
-@property(readonly, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
 @property(nonatomic) __weak _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 @property(nonatomic) __weak _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
@@ -173,6 +171,7 @@
 - (void)setNeedsRenderWithMask:(unsigned long long)arg1;
 - (void)applyCurrentRenderingParametersToInstruction:(id)arg1;
 - (void)applyCurrentOverlayToInstruction:(id)arg1;
+- (void)applyCurrentSymbolsToInstructions:(id)arg1;
 - (void)applyCurrentDocumentToInstructions:(id)arg1;
 @property(readonly, nonatomic) BOOL isReadyToRender;
 - (void)_scheduleRedraw:(BOOL)arg1;
@@ -230,7 +229,6 @@
 - (void)endImporting;
 - (void)beginImporting;
 - (void)initTiledRendererAndSyncFirstFrame:(BOOL)arg1;
-- (void)initDriver;
 - (void)teardown;
 - (void)dealloc;
 - (void)commonInit;

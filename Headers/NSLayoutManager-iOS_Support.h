@@ -8,7 +8,9 @@
 
 @class MSConstantBaselineTypesetter;
 
-@interface NSLayoutManager (ConstantBaselineTypesetting)
+@interface NSLayoutManager (iOS_Support)
+- (double)defaultBaselineOffsetForFont_ms:(id)arg1;
+- (double)defaultLineHeightForFont_ms:(id)arg1;
 @property(readonly, nonatomic) MSConstantBaselineTypesetter *constantBaselineTypesetter;
 @end
 

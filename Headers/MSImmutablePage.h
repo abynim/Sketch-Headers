@@ -38,8 +38,6 @@
 - (void)performInitWithMutableModelObject:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
 @property(readonly, nonatomic) MSArtboardPreset *preset;
-- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
-- (unsigned long long)prototypeLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;

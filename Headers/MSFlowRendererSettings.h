@@ -9,28 +9,36 @@
 @interface MSFlowRendererSettings : NSObject
 {
     struct CGImage *_tipImage;
+    struct CGImage *_tipDisabledImage;
     struct CGImage *_tipHandleImage;
     struct CGImage *_backImage;
+    struct CGImage *_backDisabledImage;
     struct CGImage *_backIndicatorImage;
     struct CGImage *_otherPageImage;
+    struct CGImage *_otherPageDisabledImage;
     struct CGImage *_otherPageIndicatorImage;
     struct CGImage *_dotImage;
     struct CGImage *_hotspotImage;
     struct CGColor *_flowColor;
     struct CGColor *_indicatorColor;
     CDStruct_0b1c536a _RGBAFlowColor;
+    CDStruct_0b1c536a _RGBADisabledFlowColor;
 }
 
+@property(readonly, nonatomic) CDStruct_0b1c536a RGBADisabledFlowColor; // @synthesize RGBADisabledFlowColor=_RGBADisabledFlowColor;
 @property(readonly, nonatomic) CDStruct_0b1c536a RGBAFlowColor; // @synthesize RGBAFlowColor=_RGBAFlowColor;
 @property(readonly, nonatomic) struct CGColor *indicatorColor; // @synthesize indicatorColor=_indicatorColor;
 @property(readonly, nonatomic) struct CGColor *flowColor; // @synthesize flowColor=_flowColor;
 @property(readonly, nonatomic) struct CGImage *hotspotImage; // @synthesize hotspotImage=_hotspotImage;
 @property(readonly, nonatomic) struct CGImage *dotImage; // @synthesize dotImage=_dotImage;
 @property(readonly, nonatomic) struct CGImage *otherPageIndicatorImage; // @synthesize otherPageIndicatorImage=_otherPageIndicatorImage;
+@property(readonly, nonatomic) struct CGImage *otherPageDisabledImage; // @synthesize otherPageDisabledImage=_otherPageDisabledImage;
 @property(readonly, nonatomic) struct CGImage *otherPageImage; // @synthesize otherPageImage=_otherPageImage;
 @property(readonly, nonatomic) struct CGImage *backIndicatorImage; // @synthesize backIndicatorImage=_backIndicatorImage;
+@property(readonly, nonatomic) struct CGImage *backDisabledImage; // @synthesize backDisabledImage=_backDisabledImage;
 @property(readonly, nonatomic) struct CGImage *backImage; // @synthesize backImage=_backImage;
 @property(readonly, nonatomic) struct CGImage *tipHandleImage; // @synthesize tipHandleImage=_tipHandleImage;
+@property(readonly, nonatomic) struct CGImage *tipDisabledImage; // @synthesize tipDisabledImage=_tipDisabledImage;
 @property(readonly, nonatomic) struct CGImage *tipImage; // @synthesize tipImage=_tipImage;
 - (struct CGImage *)createFlowHotspotImage:(double)arg1;
 - (struct CGImage *)createFlowDotImage:(double)arg1;
@@ -39,7 +47,7 @@
 - (struct CGImage *)createTintedIndicatorImageFromImage:(struct CGImage *)arg1;
 - (struct CGImage *)createTintedImageFromImage:(struct CGImage *)arg1;
 - (void)dealloc;
-- (id)initWithFlowColor:(struct CGColor *)arg1 indicatorColor:(struct CGColor *)arg2 backingScale:(double)arg3;
+- (id)initWithFlowColor:(struct CGColor *)arg1 disabledFlowColor:(struct CGColor *)arg2 indicatorColor:(struct CGColor *)arg3 backingScale:(double)arg4;
 
 @end
 

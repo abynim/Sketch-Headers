@@ -8,5 +8,6 @@
 
 @interface NSMutableDictionary (TextAttributesString)
 - (void)scaleBy:(double)arg1;
+- (id)scaleFont:(id)arg1 by:(double)arg2;
 @end
 

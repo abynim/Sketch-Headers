@@ -20,6 +20,7 @@
 + (id)layerWithShapeGroupSubpath:(id)arg1;
 + (id)layerWithPath:(id)arg1 integralFrame:(BOOL)arg2;
 + (id)layerWithPath:(id)arg1;
++ (void)applyCornerRadiusValuesFrom:(id)arg1 to:(id)arg2;
 @property(nonatomic) BOOL isEditing; // @synthesize isEditing=_isEditing;
 - (void)resizeWithOldGroupSize:(struct CGSize)arg1;
 - (long long)cornerForLinePointAtIndex:(unsigned long long)arg1;

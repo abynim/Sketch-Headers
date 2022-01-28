@@ -6,31 +6,38 @@
 
 #import "MSTextInputEventHandler.h"
 
-@class MSImmutableSymbolMaster, MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSymbolInstance, MSTextLayer, _TtC17SketchControllers26MSModelObjectChangeTracker;
+#import "MSDetachedContainerObserver-Protocol.h"
 
-@interface MSTextOverrideEventHandler : MSTextInputEventHandler
+@class MSImmutableSymbolMaster, MSImmutableTextStyle, MSOverrideRepresentation, MSOverrideValue, MSSelectionItem, MSSymbolInstance, NSString, _TtC17SketchControllers26MSModelObjectChangeTracker;
+
+@interface MSTextOverrideEventHandler : MSTextInputEventHandler <MSDetachedContainerObserver>
 {
     _TtC17SketchControllers26MSModelObjectChangeTracker *_instanceChangeTracker;
     MSSymbolInstance *_instance;
-    MSOverrideRepresentation *_override;
+    NSString *_overridePointName;
     MSOverrideValue *_overrideValue;
-    MSTextLayer *_textLayer;
     MSImmutableTextStyle *_style;
     MSImmutableSymbolMaster *_immutableMaster;
+    MSOverrideRepresentation *_override;
+    MSSelectionItem *_selectionItem;
 }
 
 - (void).cxx_destruct;
+@property(retain, nonatomic) MSSelectionItem *selectionItem; // @synthesize selectionItem=_selectionItem;
+@property(retain, nonatomic) MSOverrideRepresentation *override; // @synthesize override=_override;
 @property(retain, nonatomic) MSImmutableSymbolMaster *immutableMaster; // @synthesize immutableMaster=_immutableMaster;
 @property(retain, nonatomic) MSImmutableTextStyle *style; // @synthesize style=_style;
-@property(retain, nonatomic) MSTextLayer *textLayer; // @synthesize textLayer=_textLayer;
 @property(retain, nonatomic) MSOverrideValue *overrideValue; // @synthesize overrideValue=_overrideValue;
-@property(retain, nonatomic) MSOverrideRepresentation *override; // @synthesize override=_override;
+@property(retain, nonatomic) NSString *overridePointName; // @synthesize overridePointName=_overridePointName;
 @property(retain, nonatomic) MSSymbolInstance *instance; // @synthesize instance=_instance;
+- (void)detachedSymbolContainerDidUpdate:(id)arg1;
 - (void)textDidChange:(id)arg1;
 - (void)documentDidChange:(id)arg1;
+- (void)documentDidChangeOnClickThroughPath:(id)arg1;
 - (void)handlerWillLoseFocus;
 - (void)handlerGotFocus;
 - (void)setupSelectedOverride;
+- (void)updateSelectionItem;
 @property(readonly, nonatomic) _TtC17SketchControllers26MSModelObjectChangeTracker *instanceChangeTracker; // @synthesize instanceChangeTracker=_instanceChangeTracker;
 - (id)toolbarIdentifier;
 - (double)accumulatedScale;

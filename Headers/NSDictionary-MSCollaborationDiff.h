@@ -14,13 +14,14 @@
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (id)initWithUnarchiver:(id)arg1;
 - (void)encodeWithArchiver:(id)arg1;
-- (id)dictionaryByTranslatingNSColorsToMSImmutableColorsInColorSpace:(id)arg1;
-- (id)dictionaryByConvertingMSImmutableColorsToNSColorsInColorSpace:(id)arg1;
-- (id)dictionaryByConvertingNSColorsToMSImmutableColorsInColorSpace:(id)arg1;
+- (id)dictionaryByTranslatingNSColorsToMSImmutableColorsInColorSpace:(struct CGColorSpace *)arg1;
+- (id)dictionaryByConvertingMSImmutableColorsToNSColorsInColorSpace:(struct CGColorSpace *)arg1;
+- (id)dictionaryByConvertingNSColorsToMSImmutableColorsInColorSpace:(struct CGColorSpace *)arg1;
 - (id)dictionaryByMappingComponentsDictionaryToMSImmutableColor;
 - (id)dictionaryByFixingForegroundColorAttributes;
 - (id)dictionaryByMappingFontDescriptorsToFont;
 - (id)dictionaryByRefreshingFontDescriptors;
+- (id)matchingFontDescriptor:(id)arg1 mandatoryKeys:(id)arg2;
 - (id)dictionaryByMappingFontToFontDescriptors;
 - (id)prepareStringAttributesAfterDecoding;
 - (id)prepareStringAttributesForEncoding;

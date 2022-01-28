@@ -60,6 +60,11 @@
 - (id)hashForGradient:(id)arg1 inRect:(struct CGRect)arg2;
 - (BOOL)endFilterGroup;
 - (id)beginFilterGroup;
+- (id)addStretchedPattern:(id)arg1 rect:(struct CGRect)arg2;
+- (id)addFilledOrFitPattern:(id)arg1 type:(long long)arg2 rect:(struct CGRect)arg3;
+- (id)addTiledPattern:(id)arg1 scale:(double)arg2 rect:(struct CGRect)arg3;
+- (void)addUseWrapperToPattern:(id)arg1 withImageWrapper:(id)arg2 scaleX:(double)arg3 scaleY:(double)arg4;
+- (id)addImageDefinition:(id)arg1;
 - (id)addDefinitionWithName:(id)arg1 children:(id)arg2 attributes:(id)arg3;
 - (id)uniqueIDForElementWithName:(id)arg1;
 - (id)description;

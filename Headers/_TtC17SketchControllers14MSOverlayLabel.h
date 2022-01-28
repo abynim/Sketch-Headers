@@ -6,10 +6,11 @@
 
 #import <SketchControllers/MSOverlay.h>
 
-@class NSString;
+@class NSImage, NSString;
 
 @interface _TtC17SketchControllers14MSOverlayLabel : MSOverlay
 {
+    // Error parsing type: , name: keyedImage
     // Error parsing type: , name: text
     // Error parsing type: , name: $__lazy_storage_$_textAttributes
     // Error parsing type: , name: position
@@ -25,6 +26,7 @@
 @property(nonatomic) BOOL wantsBackingAlignPosition; // @synthesize wantsBackingAlignPosition;
 @property(nonatomic) struct CGPoint position; // @synthesize position;
 @property(nonatomic, copy) NSString *text;
+@property(nonatomic, retain) NSImage *icon;
 
 @end
 

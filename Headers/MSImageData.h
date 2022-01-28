@@ -56,6 +56,7 @@
 - (void)setData:(id)arg1;
 @property(readonly, nonatomic) NSData *sha1;
 @property(readonly, nonatomic) NSData *data;
+@property(readonly, nonatomic) BOOL isVectorImage;
 @property(readonly, nonatomic) BOOL hasAlpha;
 @property(readonly, nonatomic) struct CGSize pixelSize;
 - (void)dealloc;

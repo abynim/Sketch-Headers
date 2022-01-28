@@ -13,6 +13,7 @@
 
 @interface MSImmutableArtboardGroup (LayerList) <MSColorUser, FrequentColorEnumeration>
 - (id)previewImageForTraits:(long long)arg1 inDocument:(id)arg2;
+- (unsigned long long)badgeTypeInDocument:(id)arg1;
 - (unsigned long long)useOfColorWithOwner:(id)arg1;
 - (void)enumerateColors:(CDUnknownBlockType)arg1;
 

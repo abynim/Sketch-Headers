@@ -10,5 +10,8 @@
 - (BOOL)isEmojiAt:(struct _NSRange)arg1;
 - (void)setTemporaryAttributes:(id)arg1 forKey:(id)arg2;
 - (id)temporaryAttributesForKey:(id)arg1;
+- (id)ms_temporaryAttribute:(id)arg1 atCharacterIndex:(unsigned long long)arg2 effectiveRange:(struct _NSRange *)arg3;
+- (void)ms_removeTemporaryAttribute:(id)arg1 forCharacterRange:(struct _NSRange)arg2;
+- (void)ms_addTemporaryAttribute:(id)arg1 value:(id)arg2 forCharacterRange:(struct _NSRange)arg3;
 @end
 

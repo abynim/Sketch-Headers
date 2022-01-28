@@ -6,7 +6,7 @@
 
 #import <SketchModel/MSImmutableRootLayer-Protocol.h>
 
-@class MSArtboardPreset, MSImmutableColor, MSImmutableLayer;
+@class MSArtboardPreset, MSImmutableColor;
 
 @protocol MSCloudExportableRootLayer <MSImmutableRootLayer>
 @property(readonly, nonatomic) BOOL containsFixedLayers;
@@ -14,7 +14,5 @@
 @property(readonly, nonatomic) BOOL isFlowHome;
 @property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;
-- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(MSImmutableLayer *)arg2;
-- (unsigned long long)prototypeLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(MSImmutableLayer *)arg2;
 @end
 

@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSArcVertexBuffer, MSFlowRendererSettings, MSMetalRenderer, MSMetalTexture, MSTextureVertexBuffer, NSArray, NSDictionary, NSSet;
+@class MSFlowRendererSettings, MSMetalRenderer, MSMetalTexture, MSTextureVertexBuffer, NSArray, NSDictionary, NSSet;
 
 @interface MSFlowRenderer : NSObject
 {
@@ -14,25 +14,27 @@
     MSFlowRendererSettings *_lastSettings;
     MSMetalTexture *_flowAnnotationsTexture;
     MSTextureVertexBuffer *_textureVertexBuffer;
-    MSArcVertexBuffer *_arcVertexBuffer;
     NSArray *_flowItems;
     double _flowItemZoomLevel;
     NSSet *_selectedLayerIDs;
-    NSDictionary *_cachedItemBuffers;
     NSDictionary *_absoluteRects;
     NSDictionary *_relativeTextureRects;
+    NSDictionary *_cachedItemBuffers;
+    NSDictionary *_arcVertexBuffers;
     struct CGRect _flowHotspotTextureCenterRect;
     struct BCEdgePaddings _flowHotspotTexturePaddings;
 }
 
++ (id)vertexBufferCacheKeyForItem:(id)arg1 clipToArtboards:(BOOL)arg2;
++ (id)arcStyleForItem:(id)arg1;
 - (void).cxx_destruct;
+@property(retain, nonatomic) NSDictionary *arcVertexBuffers; // @synthesize arcVertexBuffers=_arcVertexBuffers;
+@property(retain, nonatomic) NSDictionary *cachedItemBuffers; // @synthesize cachedItemBuffers=_cachedItemBuffers;
 @property(retain, nonatomic) NSDictionary *relativeTextureRects; // @synthesize relativeTextureRects=_relativeTextureRects;
 @property(retain, nonatomic) NSDictionary *absoluteRects; // @synthesize absoluteRects=_absoluteRects;
-@property(retain, nonatomic) NSDictionary *cachedItemBuffers; // @synthesize cachedItemBuffers=_cachedItemBuffers;
 @property(retain, nonatomic) NSSet *selectedLayerIDs; // @synthesize selectedLayerIDs=_selectedLayerIDs;
 @property(nonatomic) double flowItemZoomLevel; // @synthesize flowItemZoomLevel=_flowItemZoomLevel;
 @property(retain, nonatomic) NSArray *flowItems; // @synthesize flowItems=_flowItems;
-@property(retain, nonatomic) MSArcVertexBuffer *arcVertexBuffer; // @synthesize arcVertexBuffer=_arcVertexBuffer;
 @property(retain, nonatomic) MSTextureVertexBuffer *textureVertexBuffer; // @synthesize textureVertexBuffer=_textureVertexBuffer;
 @property(nonatomic) struct BCEdgePaddings flowHotspotTexturePaddings; // @synthesize flowHotspotTexturePaddings=_flowHotspotTexturePaddings;
 @property(nonatomic) struct CGRect flowHotspotTextureCenterRect; // @synthesize flowHotspotTextureCenterRect=_flowHotspotTextureCenterRect;
@@ -43,7 +45,7 @@
 - (id)flowAnnotationsTexture:(double)arg1 renderer:(id)arg2 settings:(id)arg3;
 - (id)textureVertexBufferForItems:(id)arg1 zoomLevel:(double)arg2 backingScaleFactor:(double)arg3;
 - (struct MSTextureVertexQuad)textureVertexQuadWithName:(id)arg1 scaledToWidth:(double)arg2 size:(struct CGSize *)arg3 backingScaleFactor:(double)arg4;
-- (id)arcVertexBufferForItems:(id)arg1 selectedLayerIDs:(id)arg2 zoomLevel:(double)arg3;
+- (void)makeArcVertexBufferForItems:(id)arg1 selectedLayerIDs:(id)arg2 zoomLevel:(double)arg3;
 - (id)init;
 
 @end

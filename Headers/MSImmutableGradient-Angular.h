@@ -7,8 +7,8 @@
 #import <SketchModel/MSImmutableGradient.h>
 
 @interface MSImmutableGradient (Angular)
-- (id)sortedStops;
-- (struct CGImage *)newAngularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
-- (id)angularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3;
+- (id)sortedStopsInIncreasingOrder:(BOOL)arg1;
+- (struct CGImage *)newAngularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3 flipped:(BOOL)arg4;
+- (id)angularGradientImageForProposedRect:(struct CGRect *)arg1 colorSpace:(struct CGColorSpace *)arg2 tint:(id)arg3 flipped:(BOOL)arg4;
 @end
 

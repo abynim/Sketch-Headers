@@ -8,7 +8,7 @@
 
 #import <SketchRendering/MSRenderingContextCacheProvider-Protocol.h>
 
-@class BCCache, MSExportRequest, MSRenderingDriver, NSColorSpace, NSError, NSString;
+@class BCCache, MSExportRequest, NSColorSpace, NSError, NSString;
 
 @interface MSExporter : NSObject <MSRenderingContextCacheProvider>
 {
@@ -16,19 +16,21 @@
     BOOL _isRenderingTests;
     BOOL _drawsAsynchronously;
     BOOL _allowSubpixelAntialiasing;
+    BOOL _rasterizeShadows;
     MSExportRequest *_request;
-    MSRenderingDriver *_driver;
     NSColorSpace *_colorSpace;
     NSError *_error;
     BCCache *_cache;
     struct CGRect _bounds;
 }
 
-+ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2 driver:(id)arg3;
++ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2 rasterizeShadows:(BOOL)arg3;
 + (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
 + (void)registerExporterClass:(Class)arg1 forFormat:(id)arg2;
 + (void)initialize;
++ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2 driver:(id)arg3;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) BOOL rasterizeShadows; // @synthesize rasterizeShadows=_rasterizeShadows;
 @property(nonatomic) BOOL allowSubpixelAntialiasing; // @synthesize allowSubpixelAntialiasing=_allowSubpixelAntialiasing;
 @property(nonatomic) struct CGRect bounds; // @synthesize bounds=_bounds;
 @property(retain, nonatomic) BCCache *cache; // @synthesize cache=_cache;
@@ -36,7 +38,6 @@
 @property(nonatomic) BOOL drawsAsynchronously; // @synthesize drawsAsynchronously=_drawsAsynchronously;
 @property(retain, nonatomic) NSColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(nonatomic) BOOL isRenderingTests; // @synthesize isRenderingTests=_isRenderingTests;
-@property(retain, nonatomic) MSRenderingDriver *driver; // @synthesize driver=_driver;
 @property(nonatomic) BOOL isPrinting; // @synthesize isPrinting=_isPrinting;
 @property(retain, nonatomic) MSExportRequest *request; // @synthesize request=_request;
 - (BOOL)exportToFileURL:(id)arg1;
@@ -51,7 +52,7 @@
 - (id)image;
 - (id)data;
 - (struct CGRect)boundsForVectorRender;
-- (id)initWithRequest:(id)arg1 colorSpace:(id)arg2 driver:(id)arg3;
+- (id)initWithRequest:(id)arg1 colorSpace:(id)arg2 rasterizeShadows:(BOOL)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

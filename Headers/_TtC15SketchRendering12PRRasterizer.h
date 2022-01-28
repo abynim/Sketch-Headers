@@ -17,7 +17,7 @@
 - (id)init;
 - (void)renderAndWriteTo:(id)arg1;
 - (struct CGImage *)render;
-- (id)initWithPRFile:(id)arg1 density:(double)arg2 rect:(struct CGRect)arg3;
+- (id)initWithPRFile:(id)arg1 density:(double)arg2 rect:(struct CGRect)arg3 colorspace:(struct CGColorSpace *)arg4;
 
 @end
 

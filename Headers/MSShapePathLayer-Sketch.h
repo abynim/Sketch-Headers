@@ -17,5 +17,6 @@
 - (struct CGRect)boundsForCursorPreview;
 - (id)bezierPathForCursorPreview;
 - (id)insertionCursor;
+- (id)inspectorSections;
 @end
 

@@ -17,7 +17,7 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) NSColor *embeddedColor; // @synthesize embeddedColor=_embeddedColor;
 @property(copy, nonatomic) NSString *swatchID; // @synthesize swatchID=_swatchID;
-- (id)makeMSColorUsingColorSpace:(id)arg1 convert:(BOOL)arg2;
+- (id)makeMSColorUsingColorSpace:(struct CGColorSpace *)arg1 convert:(BOOL)arg2;
 - (id)description;
 - (unsigned long long)hash;
 - (BOOL)isEqual:(id)arg1;

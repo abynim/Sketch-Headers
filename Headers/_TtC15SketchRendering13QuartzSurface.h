@@ -9,7 +9,6 @@
 @interface _TtC15SketchRendering13QuartzSurface : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: context
-    // Error parsing type: , name: colorSpace
     // Error parsing type: , name: info
     // Error parsing type: , name: backingScaleFactor
     // Error parsing type: , name: zoomScale

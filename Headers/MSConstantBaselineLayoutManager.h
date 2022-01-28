@@ -11,6 +11,7 @@
 }
 
 - (void)processEditingForTextStorage:(id)arg1 edited:(unsigned long long)arg2 range:(struct _NSRange)arg3 changeInLength:(long long)arg4 invalidatedRange:(struct _NSRange)arg5;
+- (id)typeSettingSupport;
 - (void)setTypesetter:(id)arg1;
 
 @end

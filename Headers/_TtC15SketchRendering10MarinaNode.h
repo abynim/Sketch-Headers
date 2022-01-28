@@ -8,12 +8,10 @@
 
 @interface _TtC15SketchRendering10MarinaNode : _TtCs12_SwiftObject
 {
+    // Error parsing type: , name: components
     // Error parsing type: , name: name
     // Error parsing type: , name: modelObject
     // Error parsing type: , name: bounds
-    // Error parsing type: , name: position
-    // Error parsing type: , name: anchorPoint
-    // Error parsing type: , name: transform
     // Error parsing type: , name: contents
     // Error parsing type: , name: drawingMode
     // Error parsing type: , name: clipsToPath
@@ -35,12 +33,7 @@
     // Error parsing type: , name: opacity
     // Error parsing type: , name: blendMode
     // Error parsing type: , name: subtreeCompositingMode
-    // Error parsing type: , name: shadowRadius
-    // Error parsing type: , name: shadowOffset
-    // Error parsing type: , name: shadowColor
-    // Error parsing type: , name: shadowReplacesContent
     // Error parsing type: , name: filter
-    // Error parsing type: , name: backgroundFilter
     // Error parsing type: , name: shouldRasterize
     // Error parsing type: , name: subRender
     // Error parsing type: , name: rasterCache

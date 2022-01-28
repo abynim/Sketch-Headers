@@ -16,7 +16,7 @@
 
 + (id)hexValueForRed:(double)arg1 green:(double)arg2 blue:(double)arg3;
 + (void)getRed:(double *)arg1 green:(double *)arg2 blue:(double *)arg3 fromHexValue:(id)arg4;
-+ (id)availableRGBColorSpaces;
++ (id)colorWithCGColor:(struct CGColor *)arg1;
 + (id)colorWithNSColor:(id)arg1;
 + (id)blackColor;
 + (id)whiteColor;
@@ -45,7 +45,7 @@
 - (BOOL)isBlack;
 - (BOOL)isWhite;
 - (struct CGColor *)newCGColorWithColorSpace:(struct CGColorSpace *)arg1;
-- (id)NSColorWithColorSpace:(id)arg1;
+- (id)NSColorWithColorSpace:(struct CGColorSpace *)arg1;
 @property(readonly) unsigned long long hash;
 - (BOOL)isEqual:(id)arg1;
 - (id)initWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;

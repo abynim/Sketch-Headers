@@ -22,7 +22,7 @@
 - (void)updateAfterSelectingChild;
 - (BOOL)isEditable;
 - (id)description;
-- (id)transformForConvertingToInstance;
+- (struct CGAffineTransform)transformForConvertingToInstance;
 - (id)children;
 - (void)syncChildrenWithOverridesIfNeeded;
 - (id)initWithInstance:(id)arg1;

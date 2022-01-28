@@ -10,11 +10,13 @@
 {
     // Error parsing type: , name: embeddingStatesAreChanged
     // Error parsing type: , name: embeddingStates
+    // Error parsing type: , name: originalEmbeddingStates
 }
 
 - (void).cxx_destruct;
 - (id)init;
 - (void)applyFontEmbeddingStatesTo:(id)arg1;
+@property(nonatomic, readonly) BOOL embeddingStatesDifferFromOriginal;
 - (void)setEmbedded:(BOOL)arg1 atIndex:(long long)arg2;
 - (BOOL)isEmbeddedAtIndex:(long long)arg1;
 @property(nonatomic) long long embeddingState;

@@ -38,9 +38,9 @@
 - (id)stringOptionForKey:(id)arg1;
 - (id)arrayOptionForKey:(id)arg1 separator:(id)arg2;
 - (id)optionForKey:(id)arg1;
-- (id)initWithOptions:(id)arg1 driver:(id)arg2;
+- (id)initWithOptions:(id)arg1 rasterizeShadows:(BOOL)arg2;
 - (id)initWithOptions:(id)arg1;
-- (id)initWithDelegate:(id)arg1 driver:(id)arg2;
+- (id)initWithDelegate:(id)arg1 rasterizeShadows:(BOOL)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

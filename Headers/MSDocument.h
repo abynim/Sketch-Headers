@@ -10,6 +10,7 @@
 #import "BCSideBarViewControllerDelegate-Protocol.h"
 #import "MSCloudExportableDocument-Protocol.h"
 #import "MSComponentsPanelDelegate-Protocol.h"
+#import "MSDetachedContainerObserver-Protocol.h"
 #import "MSDocumentDataDelegate-Protocol.h"
 #import "MSEventHandlerManagerDelegate-Protocol.h"
 #import "MSMenuBuilderDelegate-Protocol.h"
@@ -21,7 +22,7 @@
 
 @class BCSideBarViewController, MSActionController, MSArtboardGroup, MSAssetLibraryController, MSAssistantsConfiguration, MSBackButtonController, MSBadgeController, MSCacheManager, MSCanvasView, MSCanvasViewController, MSComponentInspectorDriver, MSComponentsPanelController, MSDocumentCanvasPreferencePane, MSDocumentChangeNotifier, MSDocumentData, MSDocumentFontsViewController, MSDocumentSettingsPane, MSDocumentWindow, MSDocumentWindowController, MSEventHandlerManager, MSHistoryMaker, MSImmutableDocumentData, MSInspectorController, MSMainSplitViewController, MSMetadataConfiguration, MSToolbarConstructor, NSArray, NSColorSpace, NSDictionary, NSMutableDictionary, NSResponder, NSString, NSTimer, NSURL, NSView, SCKProject, SCKShare, SCKWorkspace, _TtC10Assistants20AssistantsRunResults, _TtC11SketchModel16MSEditingContext, _TtC11SketchModel20MSInfluenceRectCache, _TtC11SketchModel21MSDetachedSymbolCache, _TtC13SharedEditing18MSCoEditController, _TtC14SketchCloudKit23SubscriptionsController, _TtC6Sketch22MSInsertMenuController, _TtC6Sketch23MSDocumentChangeCounter, _TtC6Sketch24MSDocumentEditController, _TtC6Sketch30MSCoEditHealthStatusController;
 
-@interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
+@interface MSDocument : NSDocument <MSCloudExportableDocument, _TtP11SketchModel26MSEditingContextSubscriber_, MSComponentsPanelDelegate, MSDetachedContainerObserver, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSEventHandlerManagerDelegate, MSDocumentDataDelegate, MSMenuBuilderDelegate, MSSidebarControllerDelegate, BCSideBarViewControllerDelegate, BCColorPickerDocument>
 {
     BOOL _hideDocumentsWindowWhenDisplayingWindow;
     BOOL _attemptingToClose;
@@ -61,6 +62,7 @@
     _TtC14SketchCloudKit23SubscriptionsController *_subscriptionsController;
     unsigned long long _contentType;
     NSTimer *_cloudAutosaveTimer;
+    id _pluginsDisabledMessageFlashToken;
     _TtC11SketchModel16MSEditingContext *_editingContext;
     double _mostRecentCacheFlushingTime;
     NSMutableDictionary *_mutableUIMetadata;
@@ -97,6 +99,7 @@
 @property BOOL cacheFlushInProgress; // @synthesize cacheFlushInProgress=_cacheFlushInProgress;
 @property double mostRecentCacheFlushingTime; // @synthesize mostRecentCacheFlushingTime=_mostRecentCacheFlushingTime;
 @property(readonly, nonatomic) _TtC11SketchModel16MSEditingContext *editingContext; // @synthesize editingContext=_editingContext;
+@property(retain, nonatomic) id pluginsDisabledMessageFlashToken; // @synthesize pluginsDisabledMessageFlashToken=_pluginsDisabledMessageFlashToken;
 @property(nonatomic) BOOL isComponentsPanelVisible; // @synthesize isComponentsPanelVisible=_isComponentsPanelVisible;
 @property(nonatomic) BOOL isLayerListVisible; // @synthesize isLayerListVisible=_isLayerListVisible;
 @property(nonatomic) BOOL isSidebarVisible; // @synthesize isSidebarVisible=_isSidebarVisible;
@@ -138,6 +141,8 @@
 - (void)installedFontsDidChange;
 - (void)returnToDefaultFirstResponder;
 - (id)previewColorSpaceForItem:(id)arg1;
+- (void)dismissPluginsDisabledMessageIfPluginsEnabled;
+- (void)dismissPluginsDisabledMessage;
 - (void)warnIfPluginsDisabled;
 - (void)warnIfEditingLibrary;
 @property(readonly, nonatomic) BOOL isLibraryDocument;
@@ -187,6 +192,7 @@
 - (void)refreshLayerListIfNecessary:(id)arg1;
 - (void)refreshSupplementaryViews:(id)arg1;
 - (void)refreshSidebarWithMask:(unsigned long long)arg1;
+- (void)detachedSymbolContainerDidUpdate:(id)arg1;
 - (void)editingContext:(id)arg1 didChange:(id)arg2;
 - (void)debugRunJSAPIUnitTests:(id)arg1;
 - (void)debugCountObject:(id)arg1 counts:(id)arg2;
@@ -307,8 +313,6 @@
 @property(readonly, nonatomic) MSDocumentWindow *documentWindow;
 - (void)updateWindowSubtitle;
 - (void)setUp;
-- (void)applyCorrectSizeForNewWindow:(id)arg1;
-- (struct CGSize)defaultNewWindowSize;
 - (void)makeWindowControllers;
 - (id)init;
 - (void)setupCoEditController;

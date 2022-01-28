@@ -10,6 +10,7 @@
 
 @interface _MSSymbolInstance : MSStyledLayer
 {
+    BOOL _isEditingText;
     double _scale;
     NSString *_symbolID;
     NSMutableArray *_overrideValues;
@@ -18,6 +19,7 @@
 + (BOOL)allowsFaulting;
 + (Class)immutableClass;
 - (void).cxx_destruct;
+- (void)refaultAgainst:(id)arg1 inContext:(id)arg2;
 - (void)refaultChildrenAgainst:(id)arg1 inContext:(id)arg2;
 - (void)setRaw_overrideValues:(id)arg1;
 - (void)setRaw_symbolID:(id)arg1;
@@ -48,6 +50,7 @@
 @property(retain, nonatomic) NSArray *overrideValues; // @synthesize overrideValues=_overrideValues;
 @property(retain, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(nonatomic) double scale; // @synthesize scale=_scale;
+@property(nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
 - (void)performInitWithImmutableModelObject:(id)arg1;
 - (void)enumerateChildRelationshipsUsingBlock:(CDUnknownBlockType)arg1;
 - (void)enumerateProperties:(CDUnknownBlockType)arg1;

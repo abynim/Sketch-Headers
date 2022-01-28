@@ -14,7 +14,6 @@
 + (double)averageLuminanceOfImage:(struct CGImage *)arg1;
 + (id)applyEffect:(unsigned long long)arg1 fromSource:(id)arg2 toImage:(struct CGImage *)arg3;
 + (struct CGImage *)createCGImage:(id)arg1 colorSpace:(struct CGColorSpace *)arg2;
-+ (void)drawImage:(id)arg1 inRect:(struct CGRect)arg2 context:(struct CGContext *)arg3 colorSpace:(struct CGColorSpace *)arg4;
 + (id)dispatchQueue;
 + (void)initialize;
 

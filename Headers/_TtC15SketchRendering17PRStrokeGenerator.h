@@ -11,6 +11,7 @@
     // Error parsing type: , name: borderPosition
     // Error parsing type: , name: lineCap
     // Error parsing type: , name: lineJoin
+    // Error parsing type: , name: miterLimit
     // Error parsing type: , name: thickness
 }
 
