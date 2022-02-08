@@ -53,6 +53,7 @@
 - (BOOL)shouldStartEditingNameWithEvent:(id)arg1;
 - (void)dealloc;
 - (void)updateUI;
+- (id)tooltipText;
 - (id)effectiveAssetName;
 - (id)defaultAssetName;
 - (void)layoutBackgroundView:(id)arg1;

@@ -6,11 +6,11 @@
 
 #import <SketchModel/MSOverrideRepresentationBase.h>
 
-@class MSAvailableOverride, MSImmutableLayer, NSAffineTransform, NSString;
+@class MSAvailableOverride, MSImmutableLayer, NSString;
 
 @interface MSOverrideRepresentation : MSOverrideRepresentationBase
 {
-    NSAffineTransform *_transformForConvertingToInstance;
+    struct CGAffineTransform _transformForConvertingToInstance;
     MSImmutableLayer *_detachedLayer;
     const struct CGPath *_pathInInstance;
     MSAvailableOverride *_availableOverride;
@@ -32,7 +32,7 @@
 - (void)updateAfterSelectingChild;
 - (id)description;
 @property(nonatomic) const struct CGPath *pathInInstance; // @synthesize pathInInstance=_pathInInstance;
-- (id)transformForConvertingToInstance;
+- (struct CGAffineTransform)transformForConvertingToInstance;
 - (void)calculateTransformAndPath;
 @property(readonly, nonatomic) BOOL isEditable;
 - (void)syncChildrenWithOverridesIfNeeded;

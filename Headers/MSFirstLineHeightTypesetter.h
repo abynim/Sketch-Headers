@@ -6,18 +6,17 @@
 
 #import <AppKit/NSATSTypesetter.h>
 
-@protocol MSFirstLineTypesetterDelegate;
+@class MSFirstLineHeightTypesettingSupport;
 
 @interface MSFirstLineHeightTypesetter : NSATSTypesetter
 {
-    double _forcedBaselineOffset;
-    id <MSFirstLineTypesetterDelegate> _delegate;
+    MSFirstLineHeightTypesettingSupport *_typesettingSupport;
 }
 
 - (void).cxx_destruct;
-@property(nonatomic) __weak id <MSFirstLineTypesetterDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) double forcedBaselineOffset; // @synthesize forcedBaselineOffset=_forcedBaselineOffset;
+@property(readonly, nonatomic) MSFirstLineHeightTypesettingSupport *typesettingSupport; // @synthesize typesettingSupport=_typesettingSupport;
 - (void)willSetLineFragmentRect:(struct CGRect *)arg1 forGlyphRange:(struct _NSRange)arg2 usedRect:(struct CGRect *)arg3 baselineOffset:(double *)arg4;
+- (id)init;
 
 @end
 

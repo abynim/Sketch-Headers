@@ -15,6 +15,7 @@
 - (void).cxx_destruct;
 - (void)cancelDocumentDownload;
 - (void)dealloc;
+- (BOOL)matches:(id)arg1;
 
 @end
 

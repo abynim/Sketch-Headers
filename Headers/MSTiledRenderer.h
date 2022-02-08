@@ -8,16 +8,15 @@
 
 #import <SketchRendering/MSTilingSystemProvider-Protocol.h>
 
-@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingDriver, MSTileMipLevel, NSArray, NSDictionary, NSString, NSView;
+@class CALayer, MSBitmapEffectsContextPool, MSCGContextPool, MSFlowItemCollector, MSMemoryBuffer, MSMetalRenderer, MSOverlayItemContainer, MSOverlayRenderer, MSRenderInstruction, MSRenderingCache, MSRenderingTelemetry, MSTileMipLevel, NSArray, NSDictionary, NSMutableDictionary, NSString, NSView;
 @protocol MSTiledRendererHostView, OS_os_log;
 
 @interface MSTiledRenderer : NSObject <MSTilingSystemProvider>
 {
-    MSRenderingDriver *_driver;
-    double _compositingDuration[10];
-    unsigned long long _compositingDurationIndex;
     struct _opaque_pthread_mutex_t _tileLock;
     NSObject<OS_os_log> *_log;
+    double _compositingDuration[10];
+    unsigned long long _compositingDurationIndex;
     BOOL _rasterisationInProgress;
     BOOL _clearOtherLevels;
     BOOL _forceSyncFirstFrame;
@@ -35,16 +34,18 @@
     NSString *_renderedPageID;
     MSFlowItemCollector *_flowCollector;
     NSDictionary *_cachedFlows;
-    MSOverlayItemContainer *_debugItemContainer;
+    NSMutableDictionary *_debugItemContainers;
     MSOverlayRenderer *_overlayRenderer;
     NSArray *_backgroundBlurInfo;
+    MSRenderingTelemetry *_renderingTelemetry;
 }
 
 + (BOOL)performRendererAvailabilityChecks;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) MSRenderingTelemetry *renderingTelemetry; // @synthesize renderingTelemetry=_renderingTelemetry;
 @property(copy, nonatomic) NSArray *backgroundBlurInfo; // @synthesize backgroundBlurInfo=_backgroundBlurInfo;
 @property(retain, nonatomic) MSOverlayRenderer *overlayRenderer; // @synthesize overlayRenderer=_overlayRenderer;
-@property(retain, nonatomic) MSOverlayItemContainer *debugItemContainer; // @synthesize debugItemContainer=_debugItemContainer;
+@property(retain, nonatomic) NSMutableDictionary *debugItemContainers; // @synthesize debugItemContainers=_debugItemContainers;
 @property(copy, nonatomic) NSDictionary *cachedFlows; // @synthesize cachedFlows=_cachedFlows;
 @property(retain, nonatomic) MSFlowItemCollector *flowCollector; // @synthesize flowCollector=_flowCollector;
 @property(nonatomic) BOOL forceSyncFirstFrame; // @synthesize forceSyncFirstFrame=_forceSyncFirstFrame;
@@ -62,13 +63,15 @@
 @property(readonly, nonatomic) NSArray *tileLevels; // @synthesize tileLevels=_tileLevels;
 @property(readonly, nonatomic) MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
 @property(nonatomic) __weak NSView<MSTiledRendererHostView> *hostView; // @synthesize hostView;
+- (id)addDirtyAreasUnder:(id)arg1 withOldInstances:(id)arg2 updatedSymbols:(id)arg3;
+- (CDStruct_75f85af1 *)addDirtySymbolAreasToRegion:(CDStruct_75f85af1 *)arg1 forPage:(id)arg2 zoomLevel:(double)arg3 withOldInstances:(id)arg4 updatedInstances:(id)arg5;
 - (void)_scheduleRedraw;
 - (void)updateContentWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
 - (void)_doUpdateWithRenderInstruction:(id)arg1 synchronously:(BOOL)arg2 hasUserFocus:(BOOL)arg3;
-- (BOOL)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 displayPixels:(BOOL)arg4 tiles:(id)arg5 overlaySettings:(id)arg6 canvasColorSpace:(id)arg7 overlayTexture:(id)arg8 flowItems:(id)arg9 hasUserFocus:(BOOL)arg10;
+- (BOOL)_drawTilesForPage:(id)arg1 hasArtboards:(BOOL)arg2 renderingParameters:(struct MSRenderingParameters)arg3 displayPixels:(BOOL)arg4 tiles:(id)arg5 overlaySettings:(id)arg6 canvasColorSpace:(struct CGColorSpace *)arg7 overlayTexture:(id)arg8 flowItems:(id)arg9 hasUserFocus:(BOOL)arg10;
 - (id)collectflowItems;
 - (CDUnknownBlockType)prepareForRenderWithDiff:(id)arg1;
-- (id)_createDocumentColorSpaceWithCanvasColorSpace:(id)arg1 document:(id)arg2;
+- (struct CGColorSpace *)_createDocumentColorSpaceWithCanvasColorSpace:(struct CGColorSpace *)arg1 document:(id)arg2;
 - (CDStruct_75f85af1 *)_padDirtyRegion:(CDStruct_75f85af1 *)arg1 forBackgroundBlurOnPage:(id)arg2 diff:(id)arg3 renderingParameters:(struct MSRenderingParameters)arg4;
 - (id)_layersWithBackgroundBlurOnPage:(id)arg1 diff:(id)arg2;
 - (void)_layersWithBackgroundBlur:(id)arg1 transform:(struct CGAffineTransform)arg2 block:(CDUnknownBlockType)arg3;
@@ -83,10 +86,11 @@
 - (void)_renderTilesWithTotalZoom:(double)arg1 renderingParameters:(struct MSRenderingParameters)arg2 displayPixels:(BOOL)arg3 tiles:(id)arg4;
 - (CDStruct_75f85af1 *)_renderTileLevelWithTotalZoom:(double)arg1 displayPixels:(BOOL)arg2 visibleRect:(struct CGRect)arg3 tiles:(id)arg4 inRegion:(const CDStruct_75f85af1 *)arg5;
 - (id)_findTileLevelForContentWithZoom:(double)arg1;
+- (void)setDebugItemContainer:(id)arg1 forKey:(id)arg2;
+@property(readonly, nonatomic) MSOverlayItemContainer *debugItemContainer;
 @property(readonly, nonatomic) CALayer *layer;
 - (BOOL)isDrawing;
 @property(readonly, nonatomic) unsigned long long defaultRenderingRequestOptions;
-@property(readonly, nonatomic) MSRenderingDriver *driver;
 - (void)dealloc;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithCompletionHandler:(CDUnknownBlockType)arg1 syncFirstFrame:(BOOL)arg2;

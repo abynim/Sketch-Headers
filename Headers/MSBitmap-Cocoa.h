@@ -8,5 +8,6 @@
 
 @interface MSBitmap (Cocoa)
 + (id)bitmapWithName:(id)arg1 backingScale:(double)arg2;
++ (id)bitmapWithImage:(id)arg1 backingScale:(double)arg2;
 @end
 

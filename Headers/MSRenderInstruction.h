@@ -15,12 +15,13 @@
 @interface MSRenderInstruction : NSObject <NSCopying, NSMutableCopying>
 {
     MSImmutableDocumentData *_documentData;
+    NSDictionary *_detachedInstances;
     struct MSRenderingParameters _renderingParameters;
     id <MSRenderingContextCacheProvider> _cacheProvider;
     struct CGColorSpace *_colorSpace;
+    MSOverlaySettings *_overlaySettings;
     MSOverlayItemContainer *_overlayItemContainer;
     unsigned long long _overlayOptions;
-    MSOverlaySettings *_overlaySettings;
     NSDictionary *_overlayItemImages;
 }
 
@@ -31,6 +32,7 @@
 @property(readonly, nonatomic) struct CGColorSpace *colorSpace; // @synthesize colorSpace=_colorSpace;
 @property(readonly, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @synthesize cacheProvider=_cacheProvider;
 @property(readonly, nonatomic) struct MSRenderingParameters renderingParameters; // @synthesize renderingParameters=_renderingParameters;
+@property(readonly, nonatomic) NSDictionary *detachedInstances; // @synthesize detachedInstances=_detachedInstances;
 @property(readonly, nonatomic) MSImmutableDocumentData *documentData; // @synthesize documentData=_documentData;
 - (BOOL)isEqualToRenderInstruction:(id)arg1;
 - (BOOL)isEqual:(id)arg1;

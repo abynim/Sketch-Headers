@@ -16,7 +16,6 @@
 - (double)luminance_ch;
 - (BOOL)isWhite;
 - (BOOL)fuzzyIsEqual:(id)arg1;
-- (struct CGColor *)newCGColor;
 - (id)stringValueIncludingAlpha:(BOOL)arg1;
 - (id)hexValue;
 - (id)highlightedColor;

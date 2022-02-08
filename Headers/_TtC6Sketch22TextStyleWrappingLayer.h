@@ -20,8 +20,8 @@
 - (id)init;
 - (id)initWithImmutableModelObject:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
-- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(id)arg3 type:(long long)arg4;
-- (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2 maxWidth:(double)arg3 convertColorSpace:(BOOL)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(struct CGColorSpace *)arg3 type:(long long)arg4;
+- (id)initWithAttributedString:(id)arg1 documentColorSpace:(struct CGColorSpace *)arg2 maxWidth:(double)arg3 convertColorSpace:(BOOL)arg4;
 @property(nonatomic, readonly) MSDocumentData *documentData;
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 

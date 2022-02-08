@@ -67,6 +67,8 @@
 - (id)views;
 - (void)refresh;
 - (void)dealloc;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (void)viewDidLoad;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

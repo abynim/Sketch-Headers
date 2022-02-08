@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableLayer, MSSymbolInstance, NSAffineTransform, NSArray;
+@class MSImmutableLayer, MSSymbolInstance, NSArray;
 
 @interface MSOverrideRepresentationBase : NSObject
 {
@@ -26,7 +26,7 @@
 @property(readonly, nonatomic) NSArray *selectedOverrides;
 - (void)updateAfterSelectingChild;
 @property(readonly, nonatomic) MSImmutableLayer *detachedLayer;
-@property(readonly, nonatomic) NSAffineTransform *transformForConvertingToInstance;
+@property(readonly, nonatomic) struct CGAffineTransform transformForConvertingToInstance;
 - (void)syncChildrenWithOverridesIfNeeded;
 - (void)syncChildrenWithOverrides:(id)arg1;
 - (id)initWithInstance:(id)arg1;

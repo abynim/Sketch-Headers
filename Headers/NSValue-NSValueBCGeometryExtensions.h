@@ -6,9 +6,15 @@
 
 #import <Foundation/NSValue.h>
 
-@interface NSValue (BCJSONEncoder)
+@interface NSValue (NSValueBCGeometryExtensions)
++ (id)valueWithCGSize:(struct CGSize)arg1;
++ (id)valueWithCGRect:(struct CGRect)arg1;
++ (id)valueWithCGPoint:(struct CGPoint)arg1;
 + (id)valueWithBCFloatRange:(CDStruct_c3b9c2ee)arg1;
 + (id)valueWithCGVector:(struct CGVector)arg1;
+@property(readonly, nonatomic) struct CGSize CGSizeValue;
+@property(readonly, nonatomic) struct CGRect CGRectValue;
+@property(readonly, nonatomic) struct CGPoint CGPointValue;
 - (void)encodeAsRAWArchive:(id)arg1;
 - (CDStruct_c3b9c2ee)BCFloatRangeValue;
 @property(readonly) struct CGVector CGVectorValue;

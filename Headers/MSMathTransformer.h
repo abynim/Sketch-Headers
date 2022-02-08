@@ -6,14 +6,11 @@
 
 #import <objc/NSObject.h>
 
-@interface MSRenderingDriver : NSObject
+@interface MSMathTransformer : NSObject
 {
-    // Error parsing type: , name: rasterizeShadows
 }
 
 - (id)init;
-- (void)renderLayer:(id)arg1 inContext:(id)arg2;
-- (id)initWithRasterizeShadows:(BOOL)arg1;
 
 @end
 

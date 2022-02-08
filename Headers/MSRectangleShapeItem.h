@@ -6,43 +6,21 @@
 
 #import "MSCustomShapeItem.h"
 
-#import "MSFieldRestoration-Protocol.h"
-#import "MSInspectorMathValueAdaptorDelegate-Protocol.h"
-
-@class MSCornerRadiusInspectorValueAdaptor, MSInlineUpDownTextField, NSDictionary, NSPopUpButton, NSSlider, NSString;
-
-@interface MSRectangleShapeItem : MSCustomShapeItem <MSInspectorMathValueAdaptorDelegate, MSFieldRestoration>
+@interface MSRectangleShapeItem : MSCustomShapeItem
 {
-    MSInlineUpDownTextField *_radiusField;
-    NSSlider *_radiusSlider;
-    MSCornerRadiusInspectorValueAdaptor *_radiusAdaptor;
-    NSPopUpButton *_curvaturePopup;
+    // Error parsing type: , name: viewController
+    // Error parsing type: , name: selectionAdaptor
+    // Error parsing type: , name: inspector
+    // Error parsing type: , name: cancellables
 }
 
 + (BOOL)canHandleLayer:(id)arg1;
 - (void).cxx_destruct;
-@property(retain, nonatomic) NSPopUpButton *curvaturePopup; // @synthesize curvaturePopup=_curvaturePopup;
-@property(retain, nonatomic) MSCornerRadiusInspectorValueAdaptor *radiusAdaptor; // @synthesize radiusAdaptor=_radiusAdaptor;
-@property(retain, nonatomic) NSSlider *radiusSlider; // @synthesize radiusSlider=_radiusSlider;
-@property(retain, nonatomic) MSInlineUpDownTextField *radiusField; // @synthesize radiusField=_radiusField;
-@property(readonly, copy, nonatomic) NSDictionary *restorableFields;
-- (BOOL)inspectorValueAdaptor:(id)arg1 validateValue:(id)arg2 forModel:(id)arg3 context:(id)arg4;
-- (void)inspectorValueAdaptor:(id)arg1 didEncounterError:(id)arg2;
-- (void)refreshIfNecessary:(id)arg1;
-- (void)updateDisplayedValues;
-- (void)updateRadiusAdaptor;
-- (void)updateCurvaturePopupTitle;
-- (void)sliderAction:(id)arg1;
-- (void)viewDidLoad;
-- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
-- (void)dealloc;
+- (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (void)refreshIfNecessary:(id)arg1;
+@property(nonatomic, retain) id layers;
+- (void)loadView;
 
 @end
 

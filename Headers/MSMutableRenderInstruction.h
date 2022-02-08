@@ -20,6 +20,7 @@
 @property(nonatomic) struct CGColorSpace *colorSpace; // @dynamic colorSpace;
 @property(retain, nonatomic) id <MSRenderingContextCacheProvider> cacheProvider; // @dynamic cacheProvider;
 @property(nonatomic) struct MSRenderingParameters renderingParameters; // @dynamic renderingParameters;
+@property(retain, nonatomic) NSDictionary *detachedInstances; // @dynamic detachedInstances;
 @property(retain, nonatomic) MSImmutableDocumentData *documentData; // @dynamic documentData;
 
 @end

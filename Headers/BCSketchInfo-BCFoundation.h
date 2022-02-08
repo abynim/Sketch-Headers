@@ -30,6 +30,8 @@
 - (void)setVariant:(id)arg1 forMockContext:(id)arg2;
 - (id)variantForMockContext:(id)arg1;
 @property(nonatomic, readonly) NSString *variant;
+- (id)rootBundleIdentifierForMockContext:(id)arg1;
+@property(nonatomic, readonly) NSString *rootBundleIdentifier;
 - (void)setBundleIdentifier:(id)arg1 forMockContext:(id)arg2;
 - (id)bundleIdentifierForMockContext:(id)arg1;
 @property(nonatomic, readonly) NSString *bundleIdentifier;

@@ -95,6 +95,7 @@
 @property(readonly, copy, nonatomic) NSArray *incompatiblePlugins;
 - (id)disabledPlugins;
 - (id)enabledPlugins;
+- (void)postPluginDidChangeEnabledStateNotification;
 - (void)disablePlugin:(id)arg1;
 - (void)enablePlugin:(id)arg1;
 - (void)addPluginsToMenu:(id)arg1 selector:(SEL)arg2;

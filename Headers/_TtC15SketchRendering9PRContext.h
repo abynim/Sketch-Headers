@@ -15,6 +15,7 @@
     // Error parsing type: , name: layerNestingLevel
     // Error parsing type: , name: lineDashPhase
     // Error parsing type: , name: lineDashPattern
+    // Error parsing type: , name: pointScale
 }
 
 @end

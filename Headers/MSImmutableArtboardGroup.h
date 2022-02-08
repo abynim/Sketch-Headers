@@ -30,8 +30,6 @@
 - (BOOL)influenceRectClipsToBounds;
 - (void)performInitWithUnarchiver:(id)arg1;
 @property(readonly, nonatomic) BOOL containsFixedLayers;
-- (struct CGRect)rectInFixedViewportWithRect:(struct CGRect)arg1 fromFixingLayer:(id)arg2;
-- (unsigned long long)prototypeLayerBehaviorWithRect:(struct CGRect)arg1 fromLayer:(id)arg2;
 @property(readonly, nonatomic) BOOL cloudShouldIncludeBackgroundColor;
 @property(readonly, nonatomic) MSImmutableColor *cloudBackgoundColor;
 - (struct CGRect)contentBoundsForDocument:(id)arg1;

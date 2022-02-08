@@ -21,8 +21,8 @@
 - (void)show;
 - (id)defaultsKey;
 - (BOOL)isActive;
+- (void)performAction:(id)arg1;
 - (void)toggleRulers:(id)arg1;
-- (BOOL)shouldRunForAllDocumentWindows;
 
 @end
 

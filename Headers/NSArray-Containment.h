@@ -7,10 +7,25 @@
 #import <Foundation/NSArray.h>
 
 #import <SketchModel/MSCoding-Protocol.h>
+#import <SketchModel/MSLayerContainment-Protocol.h>
 
 @class NSString;
 
-@interface NSArray (ModelSupport) <MSCoding>
+@interface NSArray (Containment) <MSLayerContainment, MSCoding>
+- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
+- (void)enumerateLayers:(CDUnknownBlockType)arg1;
+- (long long)indexOfLayer:(id)arg1;
+- (id)layerAtIndex:(long long)arg1;
+- (id)lastLayer;
+- (id)firstLayer;
+- (BOOL)containsMultipleLayers;
+- (BOOL)containsOneLayer;
+- (BOOL)containsLayers;
+- (BOOL)containsNoOrOneLayers;
+- (long long)containedLayersCount;
+- (id)containedLayers;
+- (id)commonArtboard;
+- (id)uniqueParents;
 - (void)enumerateDescendantsUsingBlock:(CDUnknownBlockType)arg1 withAncestors:(id)arg2;
 - (void)enumerateModelObjectsUsingBlock:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultValues;
@@ -23,5 +38,9 @@
 
 // Remaining properties
 @property(readonly, nonatomic) NSString *archiveReferenceIdentifier_bc;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 @end
 

@@ -10,7 +10,6 @@
 {
     // Error parsing type: , name: internalSerialQueue
     // Error parsing type: , name: internalConcurrentQueue
-    // Error parsing type: , name: driver
 }
 
 + (id)shared;

@@ -140,6 +140,7 @@
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
 - (void)handleDoubleClickInContainerLayerAtLocation:(struct CGPoint)arg1 extendSelection:(BOOL)arg2;
 - (void)layerDoubleClicked:(id)arg1;
+- (void)editActiveSelectionExtendingSelection:(BOOL)arg1;
 - (void)handleClickToSelect:(id)arg1;
 - (void)enterResizeModeUsingHandle:(long long)arg1 mouse:(struct CGPoint)arg2 clickCount:(unsigned long long)arg3 flags:(unsigned long long)arg4;
 - (void)enterResizeModeForLine:(id)arg1 pointIndex:(long long)arg2 mouse:(struct CGPoint)arg3 clickCount:(unsigned long long)arg4 flags:(unsigned long long)arg5;

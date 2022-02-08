@@ -34,7 +34,8 @@
 - (void)handlerFocusDidChange:(id)arg1;
 - (void)addFlowAction:(id)arg1;
 - (void)updateInitialHeader;
-- (void)dealloc;
+- (void)viewDidDisappear;
+- (void)viewWillAppear;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 
 @end

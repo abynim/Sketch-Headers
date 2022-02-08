@@ -15,17 +15,17 @@
     MSMetalRenderer *_renderer;
     MSRasterSurface *_quartzOverlaySurface;
     MSMetalTexture *_ekranoplanOverlayTexture;
+    MSFlowRenderer *_flowRenderer;
     MSGPUArtboardShadow *_artboardShadow;
     MSArtboardTitleRenderer *_artboardTitleRenderer;
-    MSFlowRenderer *_flowRenderer;
     MSMetalBuffer *_sliceBuffer;
 }
 
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSMetalBuffer *sliceBuffer; // @synthesize sliceBuffer=_sliceBuffer;
-@property(readonly, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
 @property(readonly, nonatomic) MSArtboardTitleRenderer *artboardTitleRenderer; // @synthesize artboardTitleRenderer=_artboardTitleRenderer;
 @property(readonly, nonatomic) MSGPUArtboardShadow *artboardShadow; // @synthesize artboardShadow=_artboardShadow;
+@property(readonly, nonatomic) MSFlowRenderer *flowRenderer; // @synthesize flowRenderer=_flowRenderer;
 @property(retain, nonatomic) MSMetalTexture *ekranoplanOverlayTexture; // @synthesize ekranoplanOverlayTexture=_ekranoplanOverlayTexture;
 @property(retain, nonatomic) MSRasterSurface *quartzOverlaySurface; // @synthesize quartzOverlaySurface=_quartzOverlaySurface;
 @property(readonly, nonatomic) MSMetalRenderer *renderer; // @synthesize renderer=_renderer;
@@ -36,6 +36,7 @@
 - (void)_renderViewportGuidesForPage:(id)arg1 renderingParameters:(struct MSRenderingParameters)arg2 overlaySettings:(id)arg3 renderingCache:(id)arg4;
 - (id)_createViewportGuidesBufferForPage:(id)arg1 rect:(struct CGRect)arg2 renderingParameters:(struct MSRenderingParameters)arg3;
 - (void)_renderFlowItems:(id)arg1 page:(id)arg2 renderingParameters:(struct MSRenderingParameters)arg3 overlaySettings:(id)arg4 renderingCache:(id)arg5;
+- (id)_makeFlowRendererSettings:(id)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (void)_drawGuidesForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlaySettings:(id)arg6 renderingCache:(id)arg7;
 - (id)_createGuideBufferForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlaySettings:(id)arg6;
 - (void)_drawGridForGroup:(id)arg1 rect:(struct CGRect)arg2 totalZoom:(double)arg3 backingScaleFactor:(double)arg4 baseOrigin:(struct CGPoint)arg5 overlaySettings:(id)arg6;

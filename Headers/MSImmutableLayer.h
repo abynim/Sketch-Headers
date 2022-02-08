@@ -73,6 +73,8 @@
 - (void)objectDidInit;
 - (id)initWithMinimalSetup;
 - (id)makeEnumeratorWithOptions:(unsigned long long)arg1;
+- (struct CGRect)fixedViewportRectWithArtboard:(id)arg1 ancestors:(id)arg2;
+@property(nonatomic, readonly) unsigned long long scrollBehavior;
 - (id)findParentLayerGroupWithDocument:(id)arg1;
 - (BOOL)containsFlowWithSymbolsFromDocument:(id)arg1;
 - (BOOL)containsFlowPassingTest:(CDUnknownBlockType)arg1 symbolsFromDocument:(id)arg2;
@@ -105,7 +107,7 @@
 - (void)followMaskChainForLayerAtIndex:(long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)selectionHitTest:(struct CGPoint)arg1 options:(unsigned long long)arg2 zoomValue:(double)arg3 currentSelection:(id)arg4 ancestry:(id)arg5;
 - (id)layersForHitTestingUnder:(id)arg1;
-- (id)boundsPathOfLayerWithID:(id)arg1 transform:(id)arg2;
+- (id)boundsPathOfLayerWithID:(id)arg1 transform:(struct CGAffineTransform *)arg2;
 - (struct CGRect)influenceRectForAncestors:(id)arg1 document:(id)arg2;
 - (id)enumeratorWithOptions:(unsigned long long)arg1;
 - (BOOL)defaultOverrideVisibilityForPoint:(id)arg1 ancestors:(id)arg2;

@@ -26,6 +26,7 @@
 }
 
 + (double)heightForOverride:(id)arg1 layers:(id)arg2 shouldShowLabel:(BOOL)arg3 indentationLevel:(unsigned long long)arg4;
++ (id)labelStringForOverride:(id)arg1;
 - (void).cxx_destruct;
 @property(retain, nonatomic) MSInlineUpDownTextField *opacityField; // @synthesize opacityField=_opacityField;
 @property(retain, nonatomic) MSStylePartPreviewButton *colorView; // @synthesize colorView=_colorView;
@@ -61,7 +62,6 @@
 - (id)createOpacityField;
 - (id)createColorWellButton;
 - (id)controlViewForEditingOverride;
-- (id)labelStringForOverride:(id)arg1;
 - (void)dismissViewController:(id)arg1;
 - (void)viewWillDisappear;
 

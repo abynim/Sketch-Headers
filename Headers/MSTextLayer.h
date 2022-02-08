@@ -7,12 +7,11 @@
 #import <SketchModel/_MSTextLayer.h>
 
 #import <SketchModel/MSColorUpdateable-Protocol.h>
-#import <SketchModel/MSFirstLineTypesetterDelegate-Protocol.h>
 
 @class MSColor, NSArray, NSAttributedString, NSDictionary, NSFont, NSNumber, NSString;
 @protocol MSTextLayerEditingDelegate;
 
-@interface MSTextLayer : _MSTextLayer <MSFirstLineTypesetterDelegate, MSColorUpdateable>
+@interface MSTextLayer : _MSTextLayer <MSColorUpdateable>
 {
     // Error parsing type: Ai, name: ignoreDelegateNotificationsCounter
     BOOL _isEditingText;
@@ -88,7 +87,6 @@
 - (void)adjustFrameToFitUpdatingParent:(BOOL)arg1;
 - (long long)assumedAlignment;
 - (void)finishEditing;
-- (double)baselineAdjustmentForLayoutManager:(id)arg1;
 - (void)replaceMissingFontsIfNecessary;
 - (BOOL)propertiesAreEqual:(id)arg1 forPurpose:(unsigned long long)arg2;
 - (BOOL)compareAttributes:(id)arg1 withAttributes:(id)arg2;
@@ -101,8 +99,8 @@
 - (void)object:(id)arg1 didChangeProperty:(id)arg2;
 - (void)performInitEmptyObject;
 - (void)objectDidInit;
-- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(id)arg3 type:(long long)arg4;
-- (id)initWithAttributedString:(id)arg1 documentColorSpace:(id)arg2 maxWidth:(double)arg3 convertColorSpace:(BOOL)arg4;
+- (id)initWithFrame:(struct CGRect)arg1 attributes:(id)arg2 documentColorSpace:(struct CGColorSpace *)arg3 type:(long long)arg4;
+- (id)initWithAttributedString:(id)arg1 documentColorSpace:(struct CGColorSpace *)arg2 maxWidth:(double)arg3 convertColorSpace:(BOOL)arg4;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (long long)layoutDirection;
 - (id)setupWithLayerBuilderDictionary:(id)arg1;

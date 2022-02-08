@@ -20,8 +20,13 @@
 - (void)windowDidResignMain:(id)arg1;
 - (void)windowDidBecomeMain:(id)arg1;
 - (void)windowWillBeginSheet:(id)arg1;
-- (void)saveCurrentWindowFrameAsDefeaultWindowSize;
 - (void)windowDidResize:(id)arg1;
+- (void)saveCurrentWindowFrameAsDefaultWindowSize;
+- (void)windowDidEndLiveResize:(id)arg1;
+- (struct CGSize)defaultNewWindowSize;
+- (struct CGSize)defaultWindowSize;
+- (struct CGSize)defaultContentSize;
+- (void)windowDidLoad;
 @property(readonly, nonatomic) MSDocument *representedDocument;
 @property(readonly, nonatomic) MSMainSplitViewController *mainSplitViewController;
 - (id)initWithCoder:(id)arg1;

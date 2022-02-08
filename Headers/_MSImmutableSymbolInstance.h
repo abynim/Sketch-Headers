@@ -10,6 +10,7 @@
 
 @interface _MSImmutableSymbolInstance : MSImmutableStyledLayer
 {
+    BOOL _isEditingText;
     double _scale;
     NSString *_symbolID;
     NSArray *_overrideValues;
@@ -20,6 +21,8 @@
 @property(readonly, nonatomic) NSArray *overrideValues; // @synthesize overrideValues=_overrideValues;
 @property(readonly, nonatomic) NSString *symbolID; // @synthesize symbolID=_symbolID;
 @property(readonly, nonatomic) double scale; // @synthesize scale=_scale;
+@property(readonly, nonatomic) BOOL isEditingText; // @synthesize isEditingText=_isEditingText;
+- (void)privateSet_isEditingText:(BOOL)arg1;
 - (BOOL)isEqualForCollaborationDiffToObject:(id)arg1;
 - (void)collaborationDiffCompareChildrenAgainst:(id)arg1 treeComparison:(id)arg2;
 - (id)collaborationDiffPropertiesNotMatching:(id)arg1 treeComparison:(id)arg2;

@@ -8,7 +8,6 @@
 
 @interface NSAffineTransform (CHAffineTransform_Additions)
 + (id)transformWithCGAffineTransform_ms:(struct CGAffineTransform)arg1;
-+ (id)rotationTransformWithDegrees:(double)arg1 aroundPoint:(struct CGPoint)arg2;
 + (id)transformWithOffset:(struct CGPoint)arg1;
 + (id)transformByScaling:(double)arg1;
 + (id)transformByTranslatingXBy:(double)arg1 yBy:(double)arg2;
@@ -17,7 +16,6 @@
 - (struct CGAffineTransform)CGAffineTransform_ms;
 - (id)invertedTransform;
 - (void)transactionWithBlock:(CDUnknownBlockType)arg1;
-- (void)rotateWithDegrees:(double)arg1 aroundPoint:(struct CGPoint)arg2;
 - (void)translateByOffset:(struct CGPoint)arg1;
 @end
 

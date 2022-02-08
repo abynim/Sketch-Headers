@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSBitmapEffectsContextPool, MSExportRequest, MSImmutableColor, MSRenderingDriver, MSRenderingRequest, NSString;
+@class MSBitmapEffectsContextPool, MSExportRequest, MSImmutableColor, MSRenderingRequest, NSString;
 
 @interface _TtC15SketchRendering18MSRenderingContext : NSObject
 {
@@ -14,14 +14,13 @@
     // Error parsing type: , name: renderingRequest
     // Error parsing type: , name: bitmapEffectsContextPool
     // Error parsing type: , name: _rectsBeingDrawn
-    // Error parsing type: , name: driver
     // Error parsing type: , name: influenceRectCache
     // Error parsing type: , name: name
-    // Error parsing type: , name: featureMask
-    // Error parsing type: , name: graphicIsSelfMasked
+    // Error parsing type: , name: shouldRenderFills
     // Error parsing type: , name: parentGroupNodesStack
     // Error parsing type: , name: parentGroupStack
     // Error parsing type: , name: symbolIDStack
+    // Error parsing type: , name: editingTextOverride
     // Error parsing type: , name: isCancelled
     // Error parsing type: , name: tintColor
     // Error parsing type: , name: exportRequest
@@ -35,12 +34,12 @@
 @property(nonatomic, retain) MSExportRequest *exportRequest; // @synthesize exportRequest;
 @property(nonatomic, retain) MSImmutableColor *tintColor; // @synthesize tintColor;
 @property(nonatomic, copy) NSString *name;
-@property(nonatomic, readonly) MSRenderingDriver *driver; // @synthesize driver;
+- (void)renderLayer:(id)arg1;
 @property(nonatomic, retain) MSBitmapEffectsContextPool *bitmapEffectsContextPool; // @synthesize bitmapEffectsContextPool;
 @property(nonatomic, readonly) MSRenderingRequest *renderingRequest; // @synthesize renderingRequest;
-- (id)initWithData:(void *)arg1 rect:(struct CGRect)arg2 bytesPerRow:(long long)arg3 alphaInfo:(unsigned int)arg4 driver:(id)arg5 renderingRequest:(id)arg6 bitmapEffectsContextPool:(id)arg7;
-- (id)initWithCGContext:(struct CGContext *)arg1 driver:(id)arg2 renderingRequest:(id)arg3 bitmapEffectsContextPool:(id)arg4;
-- (id)initWithPRFile:(id)arg1 driver:(id)arg2 renderingRequest:(id)arg3 rect:(struct CGRect)arg4;
+- (id)initWithData:(void *)arg1 rect:(struct CGRect)arg2 bytesPerRow:(long long)arg3 alphaInfo:(unsigned int)arg4 rasterizeShadows:(BOOL)arg5 renderingRequest:(id)arg6 bitmapEffectsContextPool:(id)arg7;
+- (id)initWithCGContext:(struct CGContext *)arg1 rasterizeShadows:(BOOL)arg2 renderingRequest:(id)arg3 bitmapEffectsContextPool:(id)arg4;
+- (id)initWithPRFile:(id)arg1 renderingRequest:(id)arg2 rect:(struct CGRect)arg3;
 
 @end
 

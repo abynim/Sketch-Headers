@@ -18,6 +18,7 @@
 - (void)removeMessage:(id)arg1;
 - (id)displayFixedMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2;
 - (id)displayActionMessage:(id)arg1 identifier:(id)arg2 duration:(double)arg3 actionName:(id)arg4 withActionHandler:(CDUnknownBlockType)arg5;
+- (id)displayWarningMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2 onDismiss:(CDUnknownBlockType)arg3;
 - (id)displayWarningMessage:(id)arg1 withHelpHandler:(CDUnknownBlockType)arg2;
 - (id)displayFlashMessage:(id)arg1;
 @property(nonatomic, retain) _TtC17SketchControllers15StatusStackView *statusStackView; // @synthesize statusStackView;

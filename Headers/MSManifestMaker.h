@@ -40,9 +40,9 @@
 - (id)dictForRect:(struct CGRect)arg1 inRootLayer:(id)arg2;
 - (id)metadataForLayer:(id)arg1 fixedByLayer:(id)arg2;
 - (id)specialiseObjectMetadata:(id)arg1 forSymbolInstance:(id)arg2;
-- (id)metadataForChildLayersInSymbolInstance:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5 fixedByLayer:(id)arg6;
-- (id)metadataForChildLayersInLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5 fixedByLayer:(id)arg6;
-- (id)metadataForLayer:(id)arg1 inRootLayer:(id)arg2 positionTransform:(struct CGAffineTransform)arg3 withAncestors:(id)arg4 earlierSymbols:(id)arg5 fixedByLayer:(id)arg6;
+- (id)metadataForChildLayersInSymbolInstance:(id)arg1 inRootLayer:(id)arg2 withAncestors:(id)arg3 earlierSymbols:(id)arg4 fixedByLayer:(id)arg5;
+- (id)metadataForChildLayersInLayer:(id)arg1 inRootLayer:(id)arg2 withAncestors:(id)arg3 earlierSymbols:(id)arg4 fixedByLayer:(id)arg5;
+- (id)metadataForLayer:(id)arg1 inRootLayer:(id)arg2 withAncestors:(id)arg3 earlierSymbols:(id)arg4 fixedByLayer:(id)arg5;
 - (id)metadataForLayersInRootLayer:(id)arg1;
 - (id)filesMetadataForAncestry:(id)arg1 withSize:(struct CGSize)arg2;
 - (id)metadataForRootLayer:(id)arg1 onPage:(id)arg2 earlierSlugs:(id)arg3;

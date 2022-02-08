@@ -8,6 +8,5 @@
 
 @interface MSRectangleShape (Cursor)
 - (id)bezierPathForCursorPreview;
-- (id)inspectorSections;
 @end
 

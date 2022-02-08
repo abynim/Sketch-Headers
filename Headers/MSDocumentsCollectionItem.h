@@ -77,6 +77,7 @@
 - (BOOL)isPlaceholder;
 @property(readonly, nonatomic) NSColor *tintColor;
 - (BOOL)providesPreviewImage;
+- (BOOL)matches:(id)arg1;
 
 @end
 

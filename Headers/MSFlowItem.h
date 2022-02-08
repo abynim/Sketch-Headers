@@ -11,15 +11,18 @@
 @interface MSFlowItem : NSObject
 {
     BOOL _shouldDrawHandle;
+    BOOL _enabled;
     NSSet *_flowInfluencingLayerIDs;
     NSSet *_clipRects;
     struct CGRect _sourceLayerBounds;
     CDStruct_64d711fc _flowInfo;
 }
 
++ (id)flowItemForIndicatorWithFlowInfo:(CDStruct_64d711fc)arg1 artboardID:(id)arg2;
 - (void).cxx_destruct;
 @property(readonly, copy, nonatomic) NSSet *clipRects; // @synthesize clipRects=_clipRects;
 @property(readonly, nonatomic) CDStruct_64d711fc flowInfo; // @synthesize flowInfo=_flowInfo;
+@property(readonly, nonatomic, getter=isEnabled) BOOL enabled; // @synthesize enabled=_enabled;
 @property(readonly, nonatomic) struct CGRect sourceLayerBounds; // @synthesize sourceLayerBounds=_sourceLayerBounds;
 @property(readonly, nonatomic) BOOL shouldDrawHandle; // @synthesize shouldDrawHandle=_shouldDrawHandle;
 @property(readonly, copy, nonatomic) NSSet *flowInfluencingLayerIDs; // @synthesize flowInfluencingLayerIDs=_flowInfluencingLayerIDs;
@@ -28,9 +31,10 @@
 - (struct CGVector)endPointDisplacementWithZoomLevel:(double)arg1;
 - (struct CGPoint)endPoint;
 @property(readonly, nonatomic) struct CGPoint startPoint;
+@property(readonly, nonatomic) BOOL isIndicator;
 @property(readonly, nonatomic) BOOL shouldDrawSourceLineAndTip;
 @property(readonly, nonatomic) BOOL shouldDrawSourceLayerBounds;
-- (id)initWithFlowInfo:(CDStruct_64d711fc)arg1 flowInfluencingLayerIDs:(id)arg2 clipToRects:(id)arg3 sourceLayerBounds:(struct CGRect)arg4 shouldDrawHandle:(BOOL)arg5;
+- (id)initWithFlowInfo:(CDStruct_64d711fc)arg1 flowInfluencingLayerIDs:(id)arg2 clipToRects:(id)arg3 sourceLayerBounds:(struct CGRect)arg4 shouldDrawHandle:(BOOL)arg5 enabled:(BOOL)arg6;
 
 @end
 

@@ -11,8 +11,8 @@
 @interface NSColor (ReplacementForJSON)
 - (id)replacementObjectForJSONEncoder:(id)arg1;
 - (id)treeAsDictionary;
-- (id)colorTranslatedToColorSpace:(id)arg1;
+- (id)colorTranslatedToColorSpace:(struct CGColorSpace *)arg1;
 @property(readonly, nonatomic) NSArray *manifestComponents;
-- (id)makeMSColorUsingColorSpace:(id)arg1 convert:(BOOL)arg2;
+- (id)makeMSColorUsingColorSpace:(struct CGColorSpace *)arg1 convert:(BOOL)arg2;
 @end
 

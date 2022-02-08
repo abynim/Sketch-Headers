@@ -6,7 +6,7 @@
 
 #import <objc/NSObject.h>
 
-@class MSImmutableDocumentData, MSImmutableObjectChangeTracker, NSArray, NSDictionary, NSMutableDictionary, NSMutableSet;
+@class MSImmutableDocumentData, MSImmutableObjectChangeTracker, NSDictionary, NSMutableDictionary, NSMutableSet, NSSet;
 
 @interface MSDetachedComponentUpdater : NSObject
 {
@@ -18,7 +18,9 @@
     NSMutableDictionary *_detachedInstances;
     NSMutableDictionary *_updatedMasters;
     NSMutableDictionary *_updatedInstances;
-    NSArray *_allInstances;
+    NSSet *_allInstances;
+    NSMutableDictionary *_instancesByPage;
+    MSImmutableObjectChangeTracker *_pageTracker;
     NSMutableSet *_recursiveSymbols;
     MSImmutableObjectChangeTracker *_sharedStyleTracker;
     MSImmutableObjectChangeTracker *_symbolMasterTracker;
@@ -30,7 +32,9 @@
 @property(readonly, nonatomic) MSImmutableObjectChangeTracker *symbolMasterTracker; // @synthesize symbolMasterTracker=_symbolMasterTracker;
 @property(readonly, nonatomic) MSImmutableObjectChangeTracker *sharedStyleTracker; // @synthesize sharedStyleTracker=_sharedStyleTracker;
 @property(readonly, nonatomic) NSMutableSet *recursiveSymbols; // @synthesize recursiveSymbols=_recursiveSymbols;
-@property(readonly, nonatomic) NSArray *allInstances; // @synthesize allInstances=_allInstances;
+@property(readonly, nonatomic) MSImmutableObjectChangeTracker *pageTracker; // @synthesize pageTracker=_pageTracker;
+@property(readonly, nonatomic) NSMutableDictionary *instancesByPage; // @synthesize instancesByPage=_instancesByPage;
+@property(readonly, nonatomic) NSSet *allInstances; // @synthesize allInstances=_allInstances;
 @property(readonly, nonatomic) NSMutableDictionary *updatedInstances; // @synthesize updatedInstances=_updatedInstances;
 @property(readonly, nonatomic) NSMutableDictionary *updatedMasters; // @synthesize updatedMasters=_updatedMasters;
 @property(readonly, nonatomic) NSMutableDictionary *detachedInstances; // @synthesize detachedInstances=_detachedInstances;
@@ -43,6 +47,7 @@
 - (id)detachedSymbolForInstance:(id)arg1;
 - (id)detachedSymbolWithID:(id)arg1;
 - (id)convertMutableDictionaryToImmutables:(id)arg1;
+- (void)updatedAffectedSymbolInstances;
 - (BOOL)updateWithDocument:(id)arg1;
 - (void)resetUpdateFlags;
 - (BOOL)updateSharedStyleOverrides;
@@ -52,7 +57,7 @@
 - (void)updateDetachedInstanceFor:(id)arg1;
 - (void)addDetachedInstanceFor:(id)arg1;
 - (void)updateInstanceArraysForDocument:(id)arg1;
-- (void)addInstancesUnder:(id)arg1 toArray:(id)arg2;
+- (void)addInstancesUnder:(id)arg1 toSet:(id)arg2;
 - (BOOL)prepareSymbolMastersForUpdate:(id)arg1;
 - (void)removeDetachedMasterFor:(id)arg1;
 - (void)updateDetachedMasterFor:(id)arg1;

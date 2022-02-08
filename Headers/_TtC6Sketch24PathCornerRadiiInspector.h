@@ -6,11 +6,11 @@
 
 #import <swiftCore/_TtCs12_SwiftObject.h>
 
-@interface _TtCCC15SketchRendering12PRRasterizer5Stack7Surface : _TtCs12_SwiftObject
+@interface _TtC6Sketch24PathCornerRadiiInspector : _TtCs12_SwiftObject
 {
-    // Error parsing type: , name: context
-    // Error parsing type: , name: bounds
-    // Error parsing type: , name: blurMagicFactor
+    // Error parsing type: , name: cornerRadii
+    // Error parsing type: , name: proportionalInspector
+    // Error parsing type: , name: cancellables
 }
 
 @end

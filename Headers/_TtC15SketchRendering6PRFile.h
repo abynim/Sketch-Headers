@@ -25,6 +25,10 @@
     // Error parsing type: , name: baseURL
     // Error parsing type: , name: pageId
     // Error parsing type: , name: layerId
+    // Error parsing type: , name: estimatedFBSize
+    // Error parsing type: , name: maxFBSize
+    // Error parsing type: , name: stopRendering
+    // Error parsing type: , name: exportErrors
 }
 
 + (id)standardFileExtension;

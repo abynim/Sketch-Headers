@@ -6,9 +6,11 @@
 
 #import <Chocolat/CHSheetController.h>
 
-@class NSButton, NSPopUpButton, NSString, NSTextField, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace;
+#import "_TtP6Sketch37MSFontEmbeddingViewControllerDelegate_-Protocol.h"
 
-@interface MSDocumentUploadConfirmationSheet : CHSheetController
+@class NSButton, NSPopUpButton, NSPopover, NSString, NSTextField, NSView, SCKAPIOperation, SCKProject, SCKUser, SCKWorkspace, _TtC6Sketch22MSFontEmbeddingManager, _TtC6Sketch24MSFontEmbeddingViewModel, _TtC6Sketch29MSFontEmbeddingViewController;
+
+@interface MSDocumentUploadConfirmationSheet : CHSheetController <_TtP6Sketch37MSFontEmbeddingViewControllerDelegate_>
 {
     BOOL _configuredForMultipleDocuments;
     NSString *_documentName;
@@ -25,8 +27,15 @@
     NSPopUpButton *_workspaceButton;
     NSView *_projectInputView;
     NSPopUpButton *_projectButton;
+    NSView *_embedFontsView;
+    NSView *_fontEmbeddingViewContainer;
+    NSButton *_helpButton;
     NSButton *_deleteButton;
     NSButton *_confirmButton;
+    NSPopover *_helpPopover;
+    _TtC6Sketch29MSFontEmbeddingViewController *_fontEmbeddingViewController;
+    _TtC6Sketch22MSFontEmbeddingManager *_fontEmbeddingManager;
+    _TtC6Sketch24MSFontEmbeddingViewModel *_fontEmbeddingViewModel;
     SCKAPIOperation *_projectsRequest;
     SCKUser *_userWithProjects;
 }
@@ -36,8 +45,15 @@
 - (void).cxx_destruct;
 @property(retain, nonatomic) SCKUser *userWithProjects; // @synthesize userWithProjects=_userWithProjects;
 @property(retain, nonatomic) SCKAPIOperation *projectsRequest; // @synthesize projectsRequest=_projectsRequest;
+@property(retain, nonatomic) _TtC6Sketch24MSFontEmbeddingViewModel *fontEmbeddingViewModel; // @synthesize fontEmbeddingViewModel=_fontEmbeddingViewModel;
+@property(retain, nonatomic) _TtC6Sketch22MSFontEmbeddingManager *fontEmbeddingManager; // @synthesize fontEmbeddingManager=_fontEmbeddingManager;
+@property(retain, nonatomic) _TtC6Sketch29MSFontEmbeddingViewController *fontEmbeddingViewController; // @synthesize fontEmbeddingViewController=_fontEmbeddingViewController;
+@property(retain, nonatomic) NSPopover *helpPopover; // @synthesize helpPopover=_helpPopover;
 @property(retain, nonatomic) NSButton *confirmButton; // @synthesize confirmButton=_confirmButton;
 @property(retain, nonatomic) NSButton *deleteButton; // @synthesize deleteButton=_deleteButton;
+@property(nonatomic) __weak NSButton *helpButton; // @synthesize helpButton=_helpButton;
+@property(nonatomic) __weak NSView *fontEmbeddingViewContainer; // @synthesize fontEmbeddingViewContainer=_fontEmbeddingViewContainer;
+@property(nonatomic) __weak NSView *embedFontsView; // @synthesize embedFontsView=_embedFontsView;
 @property(retain, nonatomic) NSPopUpButton *projectButton; // @synthesize projectButton=_projectButton;
 @property(retain, nonatomic) NSView *projectInputView; // @synthesize projectInputView=_projectInputView;
 @property(retain, nonatomic) NSPopUpButton *workspaceButton; // @synthesize workspaceButton=_workspaceButton;
@@ -53,7 +69,19 @@
 @property(retain, nonatomic) SCKWorkspace *defaultWorkspace; // @synthesize defaultWorkspace=_defaultWorkspace;
 @property(nonatomic) BOOL configuredForMultipleDocuments; // @synthesize configuredForMultipleDocuments=_configuredForMultipleDocuments;
 @property(retain, nonatomic) NSString *documentName; // @synthesize documentName=_documentName;
+- (void)fontEmbeddingViewController:(id)arg1 replaceFontAtIndex:(long long)arg2 withFont:(id)arg3;
+- (BOOL)fontEmbeddingViewController:(id)arg1 showsDotForFontAtIndex:(long long)arg2;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbeddingState:(long long)arg2;
+- (long long)embeddingStateFor:(id)arg1;
+- (void)endObservingFontChangesFor:(id)arg1;
+- (void)beginObservingFontChangesFor:(id)arg1;
+- (void)fontEmbeddingViewController:(id)arg1 setEmbedded:(BOOL)arg2 forFontAtIndex:(long long)arg3;
+- (BOOL)fontEmbeddingViewController:(id)arg1 isEmbeddedForFontAtIndex:(long long)arg2;
+- (id)fontEmbeddingViewController:(id)arg1 documentFontAtIndex:(long long)arg2;
+- (long long)numberOfFontsFor:(id)arg1;
+- (double)fontEmbeddingViewController:(id)arg1 visibleTableViewRowsForFontCount:(long long)arg2;
 @property(readonly, nonatomic) BOOL canPerformCloudOperation;
+- (void)showEmbeddingFontsHelp:(id)arg1;
 - (void)completeWithResult:(unsigned long long)arg1;
 - (void)delete:(id)arg1;
 - (void)cancel:(id)arg1;
@@ -67,10 +95,12 @@
 - (void)selectProject:(id)arg1;
 - (void)selectWorkspace:(id)arg1;
 - (void)reloadWorkspaces;
+- (void)setupFontEmbeddingView;
+- (BOOL)hasUnembeddedFonts;
 - (void)updateViewForMove;
 - (void)updateViewForSave;
 - (void)updateView;
-- (void)configureForDocuments:(id)arg1;
+- (void)configureForDocument:(id)arg1;
 - (void)configureForURLs:(id)arg1;
 - (void)sheetWillAppear;
 - (id)runForWindow:(id)arg1;

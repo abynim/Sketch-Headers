@@ -9,6 +9,7 @@
 @interface _TtC6Sketch25RectangleCornerRadiusTool : _TtCs12_SwiftObject
 {
     // Error parsing type: , name: shape
+    // Error parsing type: , name: imageProvider
 }
 
 @end

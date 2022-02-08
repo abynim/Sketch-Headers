@@ -44,7 +44,7 @@
 - (void)selectedOverridesDidChangeTo:(id)arg1;
 - (void)selectionDidChangeTo:(id)arg1;
 - (void)viewDidAppear;
-- (void)viewDidLoad;
+- (void)viewWillAppear;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)reuseCachedPreviewImageForComponent:(id)arg1 cachingKey:(id)arg2 size:(struct CGSize)arg3 maximumSizeWithDecorations:(struct CGSize)arg4 scale:(double)arg5 orMakeAsynchronouslyUsing:(CDUnknownBlockType)arg6;
 - (void)refreshAction:(id)arg1;
