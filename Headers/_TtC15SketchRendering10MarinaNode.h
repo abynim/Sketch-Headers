@@ -19,7 +19,7 @@
     // Error parsing type: , name: shape
     // Error parsing type: , name: _path
     // Error parsing type: , name: fillRule
-    // Error parsing type: , name: canAntialias
+    // Error parsing type: , name: shouldAntialias
     // Error parsing type: , name: contentsPatternType
     // Error parsing type: , name: contentsAspectRatio
     // Error parsing type: , name: interpolationQuality
